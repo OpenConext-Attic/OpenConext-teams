@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<project name="coin-portal-build" default="build" basedir=".">
+
+	<!-- 
+        Ant for replacing the property version in the spring config     
+        
+    -->
+
+	<target name="build" description="Replcae the version token with the pom-version">
+		<copy file="${basedir}/src/main/resources/coin-portal-context.xml" tofile="${basedir}/target/classes/coin-portal-context.xml" overwrite="true">
+			<filterset>
+				<filter token="VERSION" value="${coin-portal-version}" />
+			</filterset>
+		</copy>
+	</target>
+
+</project>
