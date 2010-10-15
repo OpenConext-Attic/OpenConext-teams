@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<context:component-scan base-package="nl.surfnet.coin.teams" />
+
+	<bean id="grouperService"
+		class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+		<property name="serviceInterface"
+			value="edu.internet2.middleware.grouper.ws.soap.GrouperServicePortType" />
+		<property name="wsdlDocumentUrl" value="classpath:wsdl/grouper-client-1.6.1.wsdl" />
+		<property name="namespaceUri"
+			value="http://soap.ws.grouper.middleware.internet2.edu/" />
+		<property name="serviceName" value="GrouperService" />
+		<property name="endpointAddress" value="${grouper-url}" />
+		<property name="username" value="${grouper-username}" />
+		<property name="password" value="${grouper-password}" />
+	</bean>
+
+	<bean id="log4jInitialization"
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetClass" value="org.springframework.util.Log4jConfigurer" />
+		<property name="targetMethod" value="initLogging" />
+		<property name="arguments">
+			<list>
+				<value>classpath:log4j.xml</value>
+				<value>5000</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="teamEnvironment" class="nl.surfnet.coin.teams.util.TeamEnvironment">
+		<property name="mockLogin" value="${mockLogin}" />
+		<property name="mockName" value="${mockName}" />
+		<property name="version" value="@VERSION@" />
+	</bean>
+
+	<!-- Exception Resolver -->
+	<bean id="ExceptionResolver"
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<!--
+			<property name="exceptionMappings"> <map> <entry /> </map>
+			</property>
+		-->
+		<property name="defaultErrorView" value="errors/general-error" />
+		<property name="warnLogCategory" value="ERROR" />
+	</bean>
+
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+		<!-- Set the default Locale to English -->
+		<property name="defaultLocale" value="en_EN" />
+	</bean>
+
+</beans>

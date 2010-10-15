@@ -3,13 +3,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.surfnet.coin</groupId>
-		<artifactId>coin-portal-parent</artifactId>
+		<artifactId>coin-teams-parent</artifactId>
 		<version>0.1-SNAPSHOT</version>
 	</parent>
 	<groupId>org.surfnet.coin</groupId>
-	<artifactId>coin-portal-war</artifactId>
+	<artifactId>coin-teams-war</artifactId>
 	<packaging>war</packaging>
-	<name>coin-portal</name>
+	<name>coin-teams</name>
 	<properties>
 		<jetty.version>6.1.22</jetty.version>
 		<spring.version>3.0.3.RELEASE</spring.version>
@@ -90,6 +90,30 @@
 								<property name="coin-teams-version" value="${pom.version}" />
 								<ant target="build" inheritRefs="true" />
 							</tasks>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId>
+				<version>1.12</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>wsimport</goal>
+						</goals>
+						<configuration>
+							<genWsdl>false</genWsdl>
+							<wsdlDirectory>${basedir}/src/main/resources/wsdl</wsdlDirectory>
+							<bindingFiles>
+								<bindingFile>${basedir}/src/main/resources/wsdl/simple-binding.xjb</bindingFile>
+							</bindingFiles>
+							<keep>false</keep>
+							<xdebug>true</xdebug>
+							<xjcArgs>
+								<xjcArg>-XautoNameResolution</xjcArg>
+							</xjcArgs>
 						</configuration>
 					</execution>
 				</executions>
@@ -208,7 +232,7 @@
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
 			<version>1.8.5</version>
-			<scope>test</scope> 
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
