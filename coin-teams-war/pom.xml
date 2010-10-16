@@ -14,7 +14,7 @@
 		<jetty.version>6.1.22</jetty.version>
 		<spring.version>3.0.3.RELEASE</spring.version>
 		<httpclient.version>4.1-alpha2</httpclient.version>
-		<shindig.version>2.0.0-COIN-SNAPSHOT</shindig.version>
+		<grouper.version>1.6.1</grouper.version>
 	</properties>
 	<scm>
 		<connection>https://svn.surfnet.nl/svn/coin-gui/coin-teams/trunk/coin-teams-war</connection>
@@ -94,51 +94,30 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>jaxws-maven-plugin</artifactId>
-				<version>1.12</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>wsimport</goal>
-						</goals>
-						<configuration>
-							<genWsdl>false</genWsdl>
-							<wsdlDirectory>${basedir}/src/main/resources/wsdl</wsdlDirectory>
-							<bindingFiles>
-								<bindingFile>${basedir}/src/main/resources/wsdl/simple-binding.xjb</bindingFile>
-							</bindingFiles>
-							<keep>false</keep>
-							<xdebug>true</xdebug>
-							<xjcArgs>
-								<xjcArg>-XautoNameResolution</xjcArg>
-							</xjcArgs>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+			<!--
+				plugin> <groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId> <version>1.12</version>
+				<executions> <execution> <goals> <goal>wsimport</goal> </goals>
+				<configuration> <genWsdl>false</genWsdl>
+				<wsdlDirectory>${basedir}/src/main/resources/wsdl</wsdlDirectory>
+				<bindingFiles>
+				<bindingFile>${basedir}/src/main/resources/wsdl/simple-binding.xjb</bindingFile>
+				</bindingFiles> <keep>false</keep> <xdebug>true</xdebug> <xjcArgs>
+				<xjcArg>-XautoNameResolution</xjcArg> </xjcArgs> </configuration>
+				</execution> </executions> </plugin
+			-->
 		</plugins>
 	</build>
 	<dependencies>
 		<dependency>
-			<groupId>org.surfnet.coin</groupId>
-			<artifactId>coin-shindig-jar</artifactId>
-			<version>${shindig.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>de.odysseus.juel</groupId>
-					<artifactId>juel-impl</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.apache.tomcat</groupId>
-					<artifactId>el-api</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.apache.tomcat</groupId>
-					<artifactId>jasper-el</artifactId>
-				</exclusion>
-			</exclusions>
+			<groupId>edu.internet2.middleware.grouper</groupId>
+			<artifactId>grouperClient</artifactId>
+			<version>${grouper.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>xpp3</groupId>
+			<artifactId>xpp3_min</artifactId>
+			<version>1.1.4c</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-codec</groupId>

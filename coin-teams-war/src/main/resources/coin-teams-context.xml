@@ -9,19 +9,6 @@
 
 	<context:component-scan base-package="nl.surfnet.coin.teams" />
 
-	<bean id="grouperService"
-		class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
-		<property name="serviceInterface"
-			value="edu.internet2.middleware.grouper.ws.soap.GrouperServicePortType" />
-		<property name="wsdlDocumentUrl" value="classpath:wsdl/grouper-client-1.6.1.wsdl" />
-		<property name="namespaceUri"
-			value="http://soap.ws.grouper.middleware.internet2.edu/" />
-		<property name="serviceName" value="GrouperService" />
-		<property name="endpointAddress" value="${grouper-url}" />
-		<property name="username" value="${grouper-username}" />
-		<property name="password" value="${grouper-password}" />
-	</bean>
-
 	<bean id="log4jInitialization"
 		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
 		<property name="targetClass" value="org.springframework.util.Log4jConfigurer" />
