@@ -6,8 +6,10 @@ package nl.surfnet.coin.teams.service.impl;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
@@ -46,20 +48,33 @@ public class InMemoryMockTeamService implements TeamService {
     teams.put(team2.getId(), team2);
     teams.put(team3.getId(), team3);
     teams.put(team4.getId(), team4);
+    
+    Set<Role> roles1 = new HashSet<Role>();
+    roles1.add(Role.Member);
+    
+    Set<Role> roles2 = new HashSet<Role>();
+    roles2.add(Role.Manager);
+    roles2.add(Role.Member);
+    
+    Set<Role> roles3 = new HashSet<Role>();
+    roles3.add(Role.Admin);
+    roles3.add(Role.Manager);
+    roles3.add(Role.Member);
 
-    Member member1 = new Member(Member.member, "member1-name", "member-1",
+    Member member1 = new Member(roles3, "member1-name", "member-1",
         "member1@surfnet.nl");
-    Member member2 = new Member(Member.member, "member2-name", "member-2",
+    
+    Member member2 = new Member(roles2, "member2-name", "member-2",
         "member2@surfnet.nl");
-    Member member3 = new Member(Member.member, "member3-name", "member-3",
+    Member member3 = new Member(roles1, "member3-name", "member-3",
         "member3@surfnet.nl");
-    Member member4 = new Member(Member.member, "member4-name", "member-4",
+    Member member4 = new Member(roles1, "member4-name", "member-4",
         "member4@surfnet.nl");
-    Member member5 = new Member(Member.member, "member5-name", "member-5",
+    Member member5 = new Member(roles1, "member5-name", "member-5",
         "member5@surfnet.nl");
-    Member member6 = new Member(Member.member, "member6-name", "member-6",
+    Member member6 = new Member(roles1, "member6-name", "member-6",
         "member6@surfnet.nl");
-    Member member7 = new Member(Member.member, "member7-name", "member-7",
+    Member member7 = new Member(roles1, "member7-name", "member-7",
         "member7@surfnet.nl");
 
     members.put(member1.getId(), member1);
@@ -73,6 +88,7 @@ public class InMemoryMockTeamService implements TeamService {
     team1.addMembers(member1, member2, member3);
     team2.addMembers(member3, member4, member5);
     team3.addMembers(member5, member6, member7);
+    team4.addMembers(member1, member2);
 
   }
 

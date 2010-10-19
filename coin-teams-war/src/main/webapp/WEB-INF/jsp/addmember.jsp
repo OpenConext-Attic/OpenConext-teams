@@ -9,14 +9,14 @@
 	<!-- = Header -->
 	<div id="Header">
 		<h1><spring:message code='jsp.addmember.Title' /></h1>
-		<span class="close-form"><a href="home.shtml?teams=my"><spring:message code='jsp.general.CloseForm' /></a></span>
+		<span class="close-form"><a href="detailteam.shtml?team=${team.id}"><spring:message code='jsp.general.CloseForm' /></a></span>
 	<!-- / Header -->
 	</div>
 	<!-- = Content -->
 	<div id="Content">
 		<form id="AddMemberForm">
 			<label for="MemberEmail"><spring:message code='jsp.general.Email' /></label>
-			<input id="MemberEmail" type="text" name="MemberEmail" value="<spring:message code='jsp.addmember.Message' />" />
+			<input id="MemberEmail" type="text" name="MemberEmail" value="<spring:message code='jsp.addmember.Email' />" />
 			<spring:message code='jsp.general.Message' />
 			<textarea name="description" rows="4"><spring:message code='jsp.addmember.Message' /></textarea>
 			<input type="submit" name="addMember" value="<spring:message code='jsp.addmember.Submit' />" />

@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.view.RedirectView;
 
+/**
+ * @author steinwelberg
+ * 
+ * {@link Controller} that handles the edit team page of a logged in user.
+ */
 @Controller
 public class EditTeamController {
 	

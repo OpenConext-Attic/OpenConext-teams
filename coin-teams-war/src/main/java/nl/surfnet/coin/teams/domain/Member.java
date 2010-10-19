@@ -4,7 +4,6 @@
 package nl.surfnet.coin.teams.domain;
 
 import java.io.Serializable;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,7 +18,7 @@ public class Member implements Serializable {
   private String id;
   private String email;
 
-  public static final Set<Role> member = Collections.singleton(Role.Member);
+  public static final Set<Role> member = new HashSet<Role>();//Collections.singleton(Role.Member);
   
   /**
    * @param roles
@@ -66,7 +65,7 @@ public class Member implements Serializable {
   /**
    * 
    * @param role the role to be added
-   * @return boolean is succesfull
+   * @return boolean is successful
    */
   
   public boolean addRole(Role role) {

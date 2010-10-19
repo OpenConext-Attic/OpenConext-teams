@@ -7,8 +7,8 @@
 <!-- = Header -->
 <div id="Header">
 	<ul class="teams-actions">
-		<li><a class="btn-my-teams selected" href="home.shtml?teams=my"><spring:message code='jsp.home.MyTeams' /></a></li>
-		<li><a class="btn-all-teams" href="home.shtml?teams=all"><spring:message code='jsp.home.AllTeams' /></a></li>
+		<li><a class="btn-my-teams<c:if test='${display eq "my"}'> selected</c:if>" href="home.shtml?teams=my"><spring:message code='jsp.home.MyTeams' /></a></li>
+		<li><a class="btn-all-teams<c:if test='${display eq "all"}'> selected</c:if>" href="home.shtml?teams=all"><spring:message code='jsp.home.AllTeams' /></a></li>
 	</ul>
 <!-- / Header -->
 </div>
@@ -17,7 +17,7 @@
 	<form>
 		<span class="team-search"><input type="text" name="TeamSearch" value="<spring:message code='jsp.home.SearchTeam' />" /></span>
 	</form>
-	<span class="add-team"><a href="addteam.shtml"></a><spring:message code='jsp.home.AddTeam' /></span>
+	<span class="add-team"><a href="addteam.shtml"><spring:message code='jsp.home.AddTeam' /></a></span>
 	<table>
 		<thead class="teams-table">
 			<td><spring:message code='jsp.home.table.Team' /></td>
@@ -26,24 +26,16 @@
 			<td></td>
 		</thead>
 		<tbody>
-			<tr class="odd">
-				<td>Coin</td>
-				<td>A team description</td>
-				<td>Admin</td>
-				<td>10</td>
-			</tr>
-			<tr class="even">
-				<td>SURFnet</td>
-				<td>A team description</td>
-				<td>Manager</td>
-				<td>3</td>
-			</tr>
-			<tr class="odd">
-				<td>SURF</td>
-				<td>A team description</td>
-				<td>Member</td>
-				<td>100</td>
-			</tr>
+		<c:if test="${fn:length(teams) > 0 }">
+			<c:forEach items="${teams}" var="team">
+				<tr>
+					<td><a href="detailteam.shtml?team=${team.id}">${team.name}</a></td>
+					<td>${team.description}</td>
+					<td>${team.viewerRole}</td>
+					<td>${fn:length(team.members)}</td>
+				</tr>
+			</c:forEach>
+		</c:if>
 		</tbody>
 	</table>
 <!-- / Content -->

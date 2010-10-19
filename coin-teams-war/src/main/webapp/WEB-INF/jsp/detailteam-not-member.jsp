@@ -11,7 +11,7 @@
 		<span class="back"><a href=""><spring:message code='jsp.detailteam.Back' /></a></span>
 		<h1>Team One</h1>
 		<ul class="team-options">
-			<li><a href="#"><spring:message code='jsp.detailteam.Join' /></a></li>
+			<li><a href="jointeam.shtml"><spring:message code='jsp.detailteam.Join' /></a></li>
 		</ul>
 	<!-- / Header -->
 	</div>

@@ -17,6 +17,7 @@ public class Team implements Serializable {
   private String name;
   private String description;
   private Set<Member> members = new HashSet<Member>();
+  private String viewerRole;
 
   /**
    * @param id
@@ -105,6 +106,20 @@ public class Team implements Serializable {
    */
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  /**
+   * @param viewerRole the viewerRole to set
+   */
+  public void setViewerRole(String viewerRole) {
+    this.viewerRole = viewerRole;
+  }
+
+  /**
+   * @return the viewerRole
+   */
+  public String getViewerRole() {
+    return viewerRole;
   }
 
 }

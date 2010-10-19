@@ -30,17 +30,17 @@
 	</bean>
 
 	<bean id="annotationMapper"
-		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"><!--
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
 		<property name="interceptors">
 			<list>
 				<ref bean="loginInterceptor" />
 			</list>
 		</property>
-	--></bean><!--
+	</bean>
 
 	<bean id="loginInterceptor" class="${loginInterceptor}" />
 
-	--><bean id="messageAdapter"
+	<bean id="messageAdapter"
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
 			<list>
