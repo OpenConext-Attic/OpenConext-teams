@@ -18,6 +18,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
   public static final String PERSON_SESSION_KEY = "person";
+  private static final ThreadLocal<String> loggedInUser = new ThreadLocal<String>();
 
   @Autowired
   private TeamEnvironment teamEnvironment;
@@ -63,6 +64,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         }
       }
     }
+    loggedInUser.set(remoteUser);
     return super.preHandle(request, response, handler);
   }
 
@@ -89,6 +91,13 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
    */
   protected TeamEnvironment getTeamEnvironment() {
     return teamEnvironment;
+  }
+  
+  /**
+   * @return the loggedinuser
+   */
+  public static String getLoggedInUser() {
+    return loggedInUser.get();
   }
 
 }

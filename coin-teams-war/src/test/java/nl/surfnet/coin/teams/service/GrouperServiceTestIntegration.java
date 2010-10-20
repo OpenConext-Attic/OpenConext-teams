@@ -56,6 +56,12 @@ public class GrouperServiceTestIntegration {
         WsGetGroupsResult[] results = result.getResults();
         assertEquals(1, results.length);
 
+        GcGetMemberships gcMmemberships = new GcGetMemberships();
+        gcMmemberships.assignActAsSubject(theActAsSubject);
+        gcMmemberships.assignIncludeSubjectDetail(Boolean.TRUE);
+        gcMmemberships.addGroupName("test:3tu_identity_management");
+        WsMembership[] wsMembers = gcMmemberships.execute().getWsMemberships();
+        
         GcGetMembers getMember = new GcGetMembers();
         // getMember.addSourceId(subjectId);
         getMember.assignActAsSubject(theActAsSubject);

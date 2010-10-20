@@ -12,6 +12,8 @@ public class TeamEnvironment {
   private String mockLogin;
   private String mockName;
   private String defaultStemName;
+  private String grouperPowerUser;
+
 
   /**
    * @return the version
@@ -71,6 +73,20 @@ public class TeamEnvironment {
    */
   public void setDefaultStemName(String defaultStemName) {
     this.defaultStemName = defaultStemName;
+  }
+
+  /**
+   * @return the grouperPowerUser
+   */
+  public String getGrouperPowerUser() {
+    return grouperPowerUser;
+  }
+
+  /**
+   * @param grouperPowerUser the grouperPowerUser to set
+   */
+  public void setGrouperPowerUser(String grouperPowerUser) {
+    this.grouperPowerUser = grouperPowerUser;
   }
 
 }

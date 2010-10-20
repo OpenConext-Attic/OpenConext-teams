@@ -11,33 +11,43 @@ import java.util.Set;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
-import nl.surfnet.coin.teams.util.TempLoginInterceptor;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
+import edu.internet2.middleware.grouperClient.api.GcAddMember;
 import edu.internet2.middleware.grouperClient.api.GcFindGroups;
 import edu.internet2.middleware.grouperClient.api.GcGetGrouperPrivilegesLite;
+import edu.internet2.middleware.grouperClient.api.GcGetGroups;
 import edu.internet2.middleware.grouperClient.api.GcGetMembers;
-import edu.internet2.middleware.grouperClient.api.GcGetMemberships;
+import edu.internet2.middleware.grouperClient.api.GcGroupSave;
+import edu.internet2.middleware.grouperClient.ws.beans.WsAddMemberResults;
 import edu.internet2.middleware.grouperClient.ws.beans.WsFindGroupsResults;
+import edu.internet2.middleware.grouperClient.ws.beans.WsGetGroupsResult;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGetMembersResult;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGroup;
+import edu.internet2.middleware.grouperClient.ws.beans.WsGroupSaveResults;
+import edu.internet2.middleware.grouperClient.ws.beans.WsGroupToSave;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGrouperPrivilegeResult;
-import edu.internet2.middleware.grouperClient.ws.beans.WsMembership;
+import edu.internet2.middleware.grouperClient.ws.beans.WsQueryFilter;
+import edu.internet2.middleware.grouperClient.ws.beans.WsSubject;
 import edu.internet2.middleware.grouperClient.ws.beans.WsSubjectLookup;
 
 /**
  * {@link TeamService} using Grouper LDAP as persistent store
  * 
  */
-//@Component("teamService")
+// @Component("teamService")
 public class GrouperTeamService implements TeamService {
 
   @Autowired
-  TeamEnvironment environment;
+  private TeamEnvironment environment;
+
+  private static String[] FORBIDDEN_CHARS = new String[] { "<", ">", "/", "\\",
+      "*", ":" };
 
   /*
    * (non-Javadoc)
@@ -46,7 +56,18 @@ public class GrouperTeamService implements TeamService {
    */
   @Override
   public List<Team> findAllTeams() {
-    throw new RuntimeException("not implemented yet");
+    GcFindGroups findGroups = new GcFindGroups();
+    findGroups.assignActAsSubject(getActAsSubject());
+    findGroups.assignIncludeGroupDetail(Boolean.TRUE);
+
+    WsQueryFilter queryFilter = new WsQueryFilter();
+    queryFilter.setQueryFilterType("FIND_BY_STEM_NAME");
+    queryFilter.setStemName(environment.getDefaultStemName());
+    findGroups.assignQueryFilter(queryFilter);
+    WsFindGroupsResults findResults = findGroups.execute();
+    WsGroup[] groupResults = findResults.getGroupResults();
+    return convertWsGroupToTeam(groupResults);
+
   }
 
   /*
@@ -71,14 +92,24 @@ public class GrouperTeamService implements TeamService {
     return new Team(wsGroup.getName(), wsGroup.getDisplayExtension(),
         wsGroup.getDescription(), getMembers(wsGroup.getName()), Boolean.TRUE);
   }
-  
 
-  /**
-   * @return
+  /*
+   * 
    */
   private WsSubjectLookup getActAsSubject() {
+    return getActAsSubject(false);
+  }
+
+  /*
+   * 
+   */
+  private WsSubjectLookup getActAsSubject(boolean powerUser) {
     WsSubjectLookup actAsSubject = new WsSubjectLookup();
-    actAsSubject.setSubjectId(TempLoginInterceptor.getLoggedInUser());
+    if (powerUser) {
+      actAsSubject.setSubjectId(environment.getGrouperPowerUser());
+    } else {
+      actAsSubject.setSubjectId(LoginInterceptor.getLoggedInUser());
+    }
     return actAsSubject;
   }
 
@@ -89,8 +120,27 @@ public class GrouperTeamService implements TeamService {
    */
   @Override
   public List<Team> findTeams(String partOfTeamName) {
-    // TODO Auto-generated method stub
-    return null;
+    GcFindGroups findGroups = new GcFindGroups();
+    findGroups.assignActAsSubject(getActAsSubject());
+    findGroups.assignIncludeGroupDetail(Boolean.TRUE);
+
+    WsQueryFilter queryFilter = new WsQueryFilter();
+    queryFilter.setQueryFilterType("FIND_BY_GROUP_NAME_APPROXIMATE");
+    queryFilter.setGroupName(partOfTeamName);
+    findGroups.assignQueryFilter(queryFilter);
+    WsFindGroupsResults findResults = findGroups.execute();
+    WsGroup[] groupResults = findResults.getGroupResults();
+    return convertWsGroupToTeam(groupResults);
+  }
+
+  private List<Team> convertWsGroupToTeam(WsGroup[] groupResults) {
+    List<Team> result = new ArrayList<Team>();
+    for (WsGroup wsGroup : groupResults) {
+      Team team = new Team(wsGroup.getName(), wsGroup.getDisplayExtension(),
+          wsGroup.getDescription(), getMembers(wsGroup.getName()), true);
+      result.add(team);
+    }
+    return result;
   }
 
   /*
@@ -102,40 +152,55 @@ public class GrouperTeamService implements TeamService {
    */
   @Override
   public List<Team> getTeamsByMember(String memberId) {
-    // TODO Auto-generated method stub
-    return null;
+    GcGetGroups getGroups = new GcGetGroups();
+    getGroups.addSubjectId(memberId);
+    getGroups.assignActAsSubject(getActAsSubject());
+    WsGetGroupsResult[] groups = getGroups.execute().getResults();
+    if (groups.length > 0) {
+      WsGroup[] wsGroups = groups[0].getWsGroups();
+      return convertWsGroupToTeam(wsGroups);
+    }
+    return new ArrayList<Team>();
+
   }
 
   private Set<Member> getMembers(String teamId) {
-    GcGetMemberships memberships = new GcGetMemberships();
-    memberships.assignActAsSubject(getActAsSubject());
-    memberships.assignIncludeSubjectDetail(Boolean.TRUE);
-    memberships.addGroupName(teamId);
-    WsMembership[] wsMembers = memberships.execute().getWsMemberships();
-
     GcGetMembers getMember = new GcGetMembers();
-    // getMember.addSourceId(subjectId);
     getMember.assignActAsSubject(getActAsSubject());
     getMember.assignIncludeSubjectDetail(Boolean.TRUE);
     getMember.addGroupName(teamId);
+    getMember.addSubjectAttributeName("mail");
+    getMember.addSubjectAttributeName("displayName");
     WsGetMembersResult[] getMembers = getMember.execute().getResults();
     Set<Member> members = new HashSet<Member>();
-    return members;    
+    if (getMembers.length > 0) {
+      WsSubject[] subjects = getMembers[0].getWsSubjects();
+      for (WsSubject wsSubject : subjects) {
+        String name = wsSubject.getName();
+        String mail = wsSubject.getAttributeValue(0);
+        String displayName = wsSubject.getAttributeValue(0);
+        Member member = new Member(null, displayName, name, mail);
+        members.add(member);
+      }
+    }
+    return members;
   }
 
   private void addRolesToMembers(Set<Member> members, String teamId) {
     GcGetGrouperPrivilegesLite privileges = new GcGetGrouperPrivilegesLite();
     privileges.assignActAsSubject(getActAsSubject());
     privileges.assignGroupName(teamId);
-    WsGrouperPrivilegeResult[] privilegeResults = privileges.execute().getPrivilegeResults();
+    WsGrouperPrivilegeResult[] privilegeResults = privileges.execute()
+        .getPrivilegeResults();
     for (Member member : members) {
       String id = member.getId();
-      List<WsGrouperPrivilegeResult> memberPrivs = getPrivilegeResultsForMember(id,privilegeResults);
+      List<WsGrouperPrivilegeResult> memberPrivs = getPrivilegeResultsForMember(
+          id, privilegeResults);
       if (!memberPrivs.isEmpty()) {
         for (WsGrouperPrivilegeResult priv : memberPrivs) {
           member.addRole(getRole(priv.getPrivilegeName()));
         }
-        
+
       }
     }
   }
@@ -145,7 +210,15 @@ public class GrouperTeamService implements TeamService {
    * @return
    */
   private Role getRole(String privilegeName) {
-    // TODO Auto-generated method stub
+    /*
+     * De grouper rechten heten "admin" voor de group administrator, en "update"
+     * voor de group manager.
+     * 
+     * Verder worden er standaard een aantal rechten gezet zoals "read" (voor
+     * het zien wie er lid is van de group) voor leden van de groep, en "view"
+     * voor het zien van de groep (ook voor leden en, als dat in de GUI is
+     * aangezet, voor "everyone").
+     */
     return null;
   }
 
@@ -160,65 +233,106 @@ public class GrouperTeamService implements TeamService {
     return result;
   }
 
-  /* (non-Javadoc)
-   * @see nl.surfnet.coin.teams.service.TeamService#addMember(java.lang.String, java.lang.String)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see nl.surfnet.coin.teams.service.TeamService#addMember(java.lang.String,
+   * java.lang.String)
    */
   @Override
   public void addMember(String teamId, String personId) {
-    // TODO Auto-generated method stub
-    
+    GcAddMember addMember = new GcAddMember();
+    addMember.assignActAsSubject(getActAsSubject());
+    addMember.assignGroupName(teamId);
+    addMember.addSubjectId(personId);
+    WsAddMemberResults execute = addMember.execute();
   }
 
-  /* (non-Javadoc)
-   * @see nl.surfnet.coin.teams.service.TeamService#addTeam(java.lang.String, java.lang.String, java.lang.String)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see nl.surfnet.coin.teams.service.TeamService#addTeam(java.lang.String,
+   * java.lang.String, java.lang.String)
    */
   @Override
-  public String addTeam(String teamId, String displayName, String teamDescription, boolean viewable) {
-    return null;
-    // TODO Auto-generated method stub
+  public String addTeam(String teamId, String displayName,
+      String teamDescription, boolean viewable) {
+    if (!StringUtils.hasText(teamId)) {
+      throw new IllegalArgumentException("teamId is not optional");
+    }
+    for (String ch : FORBIDDEN_CHARS) {
+      teamId = teamId.replace(ch, "");
+    }
+    teamId = teamId.replace(" ", "_").toLowerCase();
+    teamId = environment.getDefaultStemName() + ":" + teamId;
+    GcGroupSave groupSave = new GcGroupSave();
+    groupSave.assignActAsSubject(getActAsSubject());
+    WsGroupToSave group = new WsGroupToSave();
+    group.setSaveMode("INSERT");
+    WsGroup wsGroup = new WsGroup();
+    wsGroup.setDescription(teamDescription);
+    wsGroup.setDisplayName(displayName);
+    wsGroup.setName(teamId);
+    group.setWsGroup(wsGroup);
+    groupSave.addGroupToSave(group);
+    groupSave.execute();
+    return teamId;
+
   }
 
-  /* (non-Javadoc)
-   * @see nl.surfnet.coin.teams.service.TeamService#deleteMember(java.lang.String, java.lang.String)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * nl.surfnet.coin.teams.service.TeamService#deleteMember(java.lang.String,
+   * java.lang.String)
    */
   @Override
   public void deleteMember(String teamId, String personId) {
     // TODO Auto-generated method stub
-    
+
   }
 
-  /* (non-Javadoc)
+  /*
+   * (non-Javadoc)
+   * 
    * @see nl.surfnet.coin.teams.service.TeamService#deleteTeam(java.lang.String)
    */
   @Override
   public void deleteTeam(String teamId) {
     // TODO Auto-generated method stub
-    
+
   }
 
-  /* (non-Javadoc)
-   * @see nl.surfnet.coin.teams.service.TeamService#updateMember(java.lang.String, java.lang.String, nl.surfnet.coin.teams.domain.Role)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * nl.surfnet.coin.teams.service.TeamService#updateMember(java.lang.String,
+   * java.lang.String, nl.surfnet.coin.teams.domain.Role)
    */
   @Override
   public void updateMember(String teamId, String personId, Role role) {
     // TODO Auto-generated method stub
-    
+
   }
 
-  /* (non-Javadoc)
-   * @see nl.surfnet.coin.teams.service.TeamService#updateTeam(java.lang.String, java.lang.String, java.lang.String)
+  /*
+   * (non-Javadoc)
+   * 
+   * @see nl.surfnet.coin.teams.service.TeamService#updateTeam(java.lang.String,
+   * java.lang.String, java.lang.String)
    */
   @Override
   public void updateTeam(String teamId, String displayName,
       String teamDescription) {
     // TODO Auto-generated method stub
-    
+
   }
 
   @Override
   public List<Team> findAllTeams(boolean viewable) {
-    // TODO Auto-generated method stub
-    return null;
+    return findAllTeams();
   }
 
 }
