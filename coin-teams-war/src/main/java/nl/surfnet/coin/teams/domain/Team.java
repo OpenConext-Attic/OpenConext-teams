@@ -18,28 +18,32 @@ public class Team implements Serializable {
   private String description;
   private Set<Member> members = new HashSet<Member>();
   private String viewerRole;
+  private boolean viewable;
 
   /**
    * @param id
    * @param name
    * @param description
    * @param members
+   * @param viewable
    */
-  public Team(String id, String name, String description, Set<Member> members) {
+  public Team(String id, String name, String description, Set<Member> members, boolean viewable) {
     super();
     this.id = id;
     this.name = name;
     this.description = description;
     this.members = members;
+    this.viewable = viewable;
   }
 
   /**
    * @param id
    * @param name
    * @param description
+   * @param viewable
    */
-  public Team(String id, String name, String description) {
-    this(id, name, description, new HashSet<Member>());
+  public Team(String id, String name, String description, boolean viewable) {
+    this(id, name, description, new HashSet<Member>(), viewable);
   }
 
   /**
@@ -120,6 +124,20 @@ public class Team implements Serializable {
    */
   public String getViewerRole() {
     return viewerRole;
+  }
+
+  /**
+   * @param viewable the viewable to set
+   */
+  public void setViewable(boolean viewable) {
+    this.viewable = viewable;
+  }
+
+  /**
+   * @return the viewable
+   */
+  public boolean isViewable() {
+    return viewable;
   }
 
 }
