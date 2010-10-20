@@ -47,8 +47,31 @@ public class AddMemberController {
 
   @RequestMapping(value = "/doaddmember.shtml", method = RequestMethod.POST)
   public RedirectView addTeam(ModelMap modelMap, HttpServletRequest request) {
-
-    return new RedirectView("home.shtml?teams=my");
+    
+    String teamId = request.getParameter("team");
+    String emails = request.getParameter("memberEmail");
+    String description = request.getParameter("description");
+    
+    if (!StringUtils.hasText(teamId) || !StringUtils.hasText(emails) || !StringUtils.hasText(description)) {
+      throw new RuntimeException("Parameter error.");
+    }
+    
+    Team team = null;
+          
+    if (StringUtils.hasText(teamId)) {
+      team = teamService.findTeamById(teamId);
+    } 
+    
+    if (team != null) {
+      modelMap.addAttribute("team", team);
+    } else {
+      // Team does not exist
+      throw new RuntimeException("Parameter error.");
+    }
+    
+    // TODO send invitation via SURFteams API
+    
+    return new RedirectView("detailteam.shtml?team=" + team.getId());
   }
 
 }

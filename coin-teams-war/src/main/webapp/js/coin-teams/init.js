@@ -16,6 +16,8 @@ var COIN = {
 // function is called when the DOM is loaded
 $(function() {
 	
+	COIN.Core.register('home', COIN.MODULES.Home);
+	
 	if ($('#TeamsTableContainer').length > 0) {
 		COIN.Core.register('teamoverview', COIN.MODULES.Teamoverview);
 	}
@@ -23,6 +25,8 @@ $(function() {
 	if ($('#AddTeamForm').length > 0) {
 		COIN.Core.register('addteam', COIN.MODULES.Addteam);
 	}
+	
+	COIN.Core.register('detailteam', COIN.MODULES.Detailteam);
 	
 	
 //	if ($("#IntroPage").length > 0) {

@@ -13,9 +13,8 @@
 		<h1><c:out value="${team.name}" /></h1>
 		<ul class="team-options">
 			<li><a href="editteam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Edit' /></a></li>
-			<li><a href="deleteteam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Delete' /></a></li>
-			<li><a href="leaveteam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Leave' /></a></li>
-		</ul>
+			<li><a id="DeleteTeam" href="deleteteam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Delete' /></a></li>
+			<li><a id="LeaveTeam" href="doleaveteam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Leave' /></a></li>		</ul>
 	<!-- / Header -->
 	</div>
 	<!-- = Content -->

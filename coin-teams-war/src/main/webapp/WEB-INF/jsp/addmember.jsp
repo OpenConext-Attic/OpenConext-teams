@@ -15,8 +15,9 @@
 	<!-- = Content -->
 	<div id="Content">
 		<form id="AddMemberForm">
+			<input type="hidden" name="team" value="${team.id}" />
 			<label for="MemberEmail"><spring:message code='jsp.general.Email' /></label>
-			<input id="MemberEmail" type="text" name="MemberEmail" value="<spring:message code='jsp.addmember.Email' />" />
+			<input id="MemberEmail" type="text" name="memberEmail" value="<spring:message code='jsp.addmember.Email' />" />
 			<spring:message code='jsp.general.Message' />
 			<textarea name="description" rows="4"><spring:message code='jsp.addmember.Message' /></textarea>
 			<input type="submit" name="addMember" value="<spring:message code='jsp.addmember.Submit' />" />

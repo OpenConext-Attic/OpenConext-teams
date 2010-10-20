@@ -9,19 +9,20 @@
 	<!-- = Header -->
 	<div id="Header">
 		<h1><spring:message code='jsp.editteam.Title' /></h1>
-		<span class="close-form"><a href="home.shtml?teams=my"><spring:message code='jsp.general.CloseForm' /></a></span>
+		<span class="close-form"><a href="detailteam.shtml?team=${team.id}"><spring:message code='jsp.general.CloseForm' /></a></span>
 	<!-- / Header -->
 	</div>
 	<!-- = Content -->
 	<div id="Content">
 		<form id="AddTeamForm" action="doeditteam.shtml" method="post">
+			<input type="hidden" name="teamId" value="${team.id}" />
 			<label for="TeamName"><spring:message code='jsp.general.TeamName' /></label>
-			<input id="TeamName" type="text" name="NewTeam" />
+			<input id="TeamName" type="text" name="team" value="<c:out value="${team.name}" />"/>
 			<spring:message code='jsp.general.Description' />
-			<textarea name="description" rows="4"></textarea>
+			<textarea name="description" rows="4"><c:out value="${team.description}" /></textarea>
 			<input type="submit" name="createTeam" value="<spring:message code='jsp.editteam.Submit' />" />
 			<input type="submit" name="cancelCreateTeam" value="<spring:message code='jsp.general.Cancel' />" />
-			<input id="TeamViewability" type="checkbox" name="status" value="" />
+			<input id="TeamViewability" type="checkbox" name="viewabilityStatus" value="1"<c:if test="${team.viewable eq false}"> checked</c:if> />
 			<label for="TeamViewability"><spring:message code='jsp.general.TeamViewability' /></label>
 		</form>
 	<!-- / Content -->

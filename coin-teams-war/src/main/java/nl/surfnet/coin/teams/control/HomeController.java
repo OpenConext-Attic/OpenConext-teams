@@ -37,23 +37,30 @@ public class HomeController {
     String person = (String) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
     String display = request.getParameter("teams");
+    String query = request.getParameter("teamSearch");
     
     // Set the display to my if no display is selected
     if (!StringUtils.hasText(display)) {
       display = "my";
     }
 
-    addTeams(person, display, modelMap, request);
+    addTeams(query, person, display, modelMap, request);
 
     return "home";
   }
 
-  private void addTeams(String person, String display, ModelMap modelMap,
+  private void addTeams(String query, String person, String display, ModelMap modelMap,
       HttpServletRequest request) {
     
     // Display all teams when the person is empty or when display equals "all"
     if (display.equals("all") || !StringUtils.hasText(person)) {
-      List<Team> teams = teamService.findAllTeams();
+      List<Team> teams = null;
+      if (!StringUtils.hasText(query)) {
+        teams = teamService.findAllTeams();
+      } else {
+        teams = teamService.findTeams(query);
+      }
+      
       modelMap.addAttribute("display", "all");
       modelMap.addAttribute("teams", teams);
       
@@ -63,7 +70,13 @@ public class HomeController {
         
       // else always display my teams
     } else {
-      List<Team> teams = teamService.getTeamsByMember(person);
+      
+      List<Team> teams = null;
+      if (!StringUtils.hasText(query)) {
+        teams = teamService.getTeamsByMember(person);
+      } else {
+        teams = teamService.findTeams(query, person);
+      }
       
       for (Team team : teams) {
         team.setViewerRole(getViewerRole(team, person));

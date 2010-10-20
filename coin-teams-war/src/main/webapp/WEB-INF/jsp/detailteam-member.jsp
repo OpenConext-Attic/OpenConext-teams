@@ -12,8 +12,7 @@
 		<span class="back"><a href=""><spring:message code='jsp.detailteam.Back' /></a></span>
 		<h1><c:out value="${team.name}" /></h1>
 		<ul class="team-options">
-			<li><a href="leaveteam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Leave' /></a></li>
-		</ul>
+			<li><a id="LeaveTeam" href="doleaveteam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Leave' /></a></li>		</ul>
 	<!-- / Header -->
 	</div>
 	<!-- = Content -->

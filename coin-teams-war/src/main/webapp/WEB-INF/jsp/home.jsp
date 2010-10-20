@@ -14,8 +14,18 @@
 </div>
 <!-- = Content -->
 <div id="Content">
-	<form>
-		<span class="team-search"><input type="text" name="TeamSearch" value="<spring:message code='jsp.home.SearchTeam' />" /></span>
+	<form action="home.shtml?teams=${display}" method="post">
+		<span class="team-search">
+			<c:choose>
+				<c:when test="${!query}">
+					<input type="text" name="teamSearch" value="<spring:message code='jsp.home.SearchTeam' />"  />
+				</c:when>
+				<c:otherwise>
+					<input type="text" name="teamSearch" value="<c:out value='${query}' />" />
+				</c:otherwise>
+			</c:choose>
+			<input id="SubmitTeamSearch" type="submit" />
+		</span>
 	</form>
 	<span class="add-team"><a href="addteam.shtml"><spring:message code='jsp.home.AddTeam' /></a></span>
 	<table>
@@ -29,10 +39,10 @@
 		<c:if test="${fn:length(teams) > 0 }">
 			<c:forEach items="${teams}" var="team">
 				<tr>
-					<td><a href="detailteam.shtml?team=${team.id}">${team.name}</a></td>
-					<td>${team.description}</td>
-					<td>${team.viewerRole}</td>
-					<td>${fn:length(team.members)}</td>
+					<td><a href="detailteam.shtml?team=${team.id}"><c:out value="${team.name}" /></a></td>
+					<td><c:out value="${team.description}" /></td>
+					<td><c:out value="${team.viewerRole}" /></td>
+					<td><c:out value="${fn:length(team.members)}" /></td>
 				</tr>
 			</c:forEach>
 		</c:if>

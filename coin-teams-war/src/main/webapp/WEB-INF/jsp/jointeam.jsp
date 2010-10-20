@@ -15,6 +15,7 @@
 	<!-- = Content -->
 	<div id="Content">
 		<form id="JoinTeamForm" action="dojointeam.shtml" method="post">
+			<input type="hidden" name="teamId" value="${team.id}" />
 			<spring:message code='jsp.general.Message' />
 			<textarea name="description" rows="4"><spring:message code='jsp.jointeam.Message' /></textarea>
 			<input type="submit" name="joinTeam" value="<spring:message code='jsp.jointeam.Submit' />" />

@@ -16,12 +16,12 @@
 	<div id="Content">
 		<form id="AddTeamForm" action="doaddteam.shtml" method="post">
 			<label for="TeamName"><spring:message code='jsp.general.TeamName' /></label>
-			<input id="TeamName" type="text" name="NewTeam" />
+			<input id="TeamName" type="text" name="team" />
 			<spring:message code='jsp.general.Description' />
 			<textarea name="description" rows="4"></textarea>
 			<input type="submit" name="createTeam" value="<spring:message code='jsp.addteam.Submit' />" />
 			<input type="submit" name="cancelCreateTeam" value="<spring:message code='jsp.general.Cancel' />" />
-			<input id="TeamViewability" type="checkbox" name="status" value="" />
+			<input id="TeamViewability" type="checkbox" name="viewabilityStatus" value="1" />
 			<label for="TeamViewability"><spring:message code='jsp.general.TeamViewability' /></label>
 		</form>
 	<!-- / Content -->

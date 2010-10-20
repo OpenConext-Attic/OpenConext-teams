@@ -19,10 +19,22 @@
     <!-- / Main -->
 
   </div>
+  
+  <!-- / LeaveTeamDialog -->
+  <div id="LeaveTeamDialog" class="hide" title="<spring:message code='jsp.dialog.leaveteam.Title' />">
+    <p class="h4"><spring:message code='jsp.dialog.leaveteam.Confirmation' /></p>
+  </div>
+  <!-- / LeaveTeamDialog -->
+  
+    <!-- / DeleteTeamDialog -->
+  <div id="DeleteTeamDialog" class="hide" title="<spring:message code='jsp.dialog.deleteteam.Title' />">
+    <p class="h4"><spring:message code='jsp.dialog.deleteteam.Confirmation' /></p>
+  </div>
+  <!-- / DeleteTeamDialog -->
 
-  <!-- <div id="gadgets-root"></div> -->
-    <script type="text/javascript" src="js/jquery-ui-1.8.4.custom.min.js"></script>
-    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-    <script type="text/javascript" src="js/coin-teams.js"></script>
+  
+  <script type="text/javascript" src="js/jquery-ui-1.8.4.custom.min.js"></script>
+  <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+  <script type="text/javascript" src="js/coin-teams.js"></script>
 </body>
 </html>

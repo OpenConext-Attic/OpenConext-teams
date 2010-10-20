@@ -8,10 +8,10 @@
 <div class="section" id="TeamContainer">
 	<!-- = Header -->
 	<div id="Header">
-		<span class="back"><a href=""><spring:message code='jsp.detailteam.Back' /></a></span>
+		<span class="back"><a href="home.shtml?teams=my"><spring:message code='jsp.detailteam.Back' /></a></span>
 		<h1>Team One</h1>
 		<ul class="team-options">
-			<li><a href="jointeam.shtml"><spring:message code='jsp.detailteam.Join' /></a></li>
+			<li><a href="jointeam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Join' /></a></li>
 		</ul>
 	<!-- / Header -->
 	</div>
