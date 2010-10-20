@@ -425,4 +425,10 @@ public class GrouperTeamService implements TeamService {
     throw new IllegalArgumentException("method not supported");
   }
 
+  @Override
+  public void updateTeam(String teamId, String displayName,
+      String teamDescription, boolean viewable) {
+    // TODO Auto-generated method stub
+    
+  }
 }

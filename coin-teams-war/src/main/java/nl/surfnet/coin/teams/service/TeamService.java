@@ -33,7 +33,7 @@ public interface TeamService {
    * @return {@link List} of {@link Team} instances
    */
   List<Team> findTeams(String partOfTeamName);
-
+  
   /**
    * Return all teams
    * 
@@ -66,6 +66,8 @@ public interface TeamService {
    */
   String addTeam(String teamId, String displayName, String teamDescription,
       boolean viewable);
+
+  void updateTeam(String teamId, String displayName, String teamDescription, boolean viewable);
 
   /**
    * Update a {@link Team}
@@ -110,7 +112,6 @@ public interface TeamService {
    * @param role the {@link Role} to be removed
    */
   void removeMemberRole(String teamId, String memberId, Role role);
-
   
   List<Team> findTeams(String partOfTeamName, String memberId);
 

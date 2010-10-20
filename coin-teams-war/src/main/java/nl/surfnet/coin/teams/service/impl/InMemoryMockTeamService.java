@@ -38,14 +38,11 @@ public class InMemoryMockTeamService implements TeamService {
    * Add some dummy data
    */
   private void initData() {
-    Team team1 = new Team("test-team-1", "test-team-1-name", "description-1",
-        true);
-    Team team2 = new Team("test-team-2", "test-team-2-name", "description-2",
-        false);
-    Team team3 = new Team("test-team-3", "test-team-3-name", "description-3",
-        true);
-    Team team4 = new Team("test-team-4", "test-team-4-name", "description-4",
-        true);
+
+    Team team1 = new Team("test-team-1", "test-team-1-name", "description-1", false);
+    Team team2 = new Team("test-team-2", "test-team-2-name", "description-2", false);
+    Team team3 = new Team("test-team-3", "test-team-3-name", "description-3", true);
+    Team team4 = new Team("test-team-4", "test-team-4-name", "description-4", true);
 
     teams.put(team1.getId(), team1);
     teams.put(team2.getId(), team2);
@@ -152,7 +149,16 @@ public class InMemoryMockTeamService implements TeamService {
    */
   @Override
   public List<Team> findAllTeams() {
-    return new ArrayList<Team>(teams.values());
+    List<Team> result = new ArrayList<Team>();
+    List<Team> teamList = new ArrayList<Team>(teams.values());
+    
+    for (Team team : teamList) {
+      if (team.isViewable()) {
+        result.add(team);
+      }
+    }
+    
+    return result;
   }
 
   /*
@@ -173,10 +179,10 @@ public class InMemoryMockTeamService implements TeamService {
    */
   @Override
   public List<Team> findTeams(String partOfTeamName) {
-    Collection<Team> values = teams.values();
+    Collection<Team> values = findAllTeams();
     List<Team> result = new ArrayList<Team>();
     for (Team team : values) {
-      if (team.getName().contains(partOfTeamName)) {
+      if (team.getName().toLowerCase().contains(partOfTeamName.toLowerCase())) {
         result.add(team);
       }
     }
@@ -192,7 +198,7 @@ public class InMemoryMockTeamService implements TeamService {
    */
   @Override
   public List<Team> getTeamsByMember(String memberId) {
-    Collection<Team> values = teams.values();
+    Collection<Team> values = findAllTeams();
     List<Team> result = new ArrayList<Team>();
     for (Team team : values) {
       Set<Member> members = team.getMembers();
@@ -212,10 +218,11 @@ public class InMemoryMockTeamService implements TeamService {
    */
   @Override
   public void updateTeam(String teamId, String displayName,
-      String teamDescription) {
+      String teamDescription, boolean viewable) {
     Team team = findTeam(teamId);
     team.setName(displayName);
     team.setDescription(teamDescription);
+    team.setViewable(viewable);
   }
 
   @Override
@@ -254,6 +261,13 @@ public class InMemoryMockTeamService implements TeamService {
   public void addMember(String teamId, String personId) {
     Team team = findTeam(teamId);
     //TODO implement
+  }
+
+  @Override
+  public void updateTeam(String teamId, String displayName,
+      String teamDescription) {
+    // TODO Auto-generated method stub
+    
   }
 
 }

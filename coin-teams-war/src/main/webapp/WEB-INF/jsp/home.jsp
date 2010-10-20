@@ -17,10 +17,11 @@
 	<form action="home.shtml?teams=${display}" method="post">
 		<span class="team-search">
 			<c:choose>
-				<c:when test="${!query}">
+				<c:when test="${fn:length(query) == 0}">
 					<input type="text" name="teamSearch" value="<spring:message code='jsp.home.SearchTeam' />"  />
 				</c:when>
 				<c:otherwise>
+					<span class="view-all"><a href="home.shtml?teams=${display}"><spring:message code='jsp.home.ViewAll' /></a></span>
 					<input type="text" name="teamSearch" value="<c:out value='${query}' />" />
 				</c:otherwise>
 			</c:choose>
@@ -36,7 +37,8 @@
 			<td></td>
 		</thead>
 		<tbody>
-		<c:if test="${fn:length(teams) > 0 }">
+		<c:choose>
+		<c:when test="${fn:length(teams) > 0 }">
 			<c:forEach items="${teams}" var="team">
 				<tr>
 					<td><a href="detailteam.shtml?team=${team.id}"><c:out value="${team.name}" /></a></td>
@@ -45,7 +47,11 @@
 					<td><c:out value="${fn:length(team.members)}" /></td>
 				</tr>
 			</c:forEach>
-		</c:if>
+		</c:when>
+		<c:otherwise>
+			<tr><td colspan="4" /><spring:message code="jsp.home.NoTeamsFound" /></tr>
+		</c:otherwise>
+		</c:choose>
 		</tbody>
 	</table>
 <!-- / Content -->
