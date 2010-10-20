@@ -33,7 +33,7 @@ import edu.internet2.middleware.grouperClient.ws.beans.WsSubjectLookup;
  * {@link TeamService} using Grouper LDAP as persistent store
  * 
  */
-@Component("teamService")
+//@Component("teamService")
 public class GrouperTeamService implements TeamService {
 
   @Autowired
@@ -69,7 +69,7 @@ public class GrouperTeamService implements TeamService {
     }
     WsGroup wsGroup = groupResults[0];
     return new Team(wsGroup.getName(), wsGroup.getDisplayExtension(),
-        wsGroup.getDescription(), getMembers(wsGroup.getName()));
+        wsGroup.getDescription(), getMembers(wsGroup.getName()), Boolean.TRUE);
   }
   
 
@@ -173,9 +173,9 @@ public class GrouperTeamService implements TeamService {
    * @see nl.surfnet.coin.teams.service.TeamService#addTeam(java.lang.String, java.lang.String, java.lang.String)
    */
   @Override
-  public void addTeam(String teamId, String displayName, String teamDescription) {
+  public String addTeam(String teamId, String displayName, String teamDescription, boolean viewable) {
+    return null;
     // TODO Auto-generated method stub
-    
   }
 
   /* (non-Javadoc)
@@ -213,6 +213,12 @@ public class GrouperTeamService implements TeamService {
       String teamDescription) {
     // TODO Auto-generated method stub
     
+  }
+
+  @Override
+  public List<Team> findAllTeams(boolean viewable) {
+    // TODO Auto-generated method stub
+    return null;
   }
 
 }

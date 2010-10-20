@@ -27,10 +27,12 @@ public interface TeamService {
   List<Team> findTeams(String partOfTeamName);
 
   List<Team> findAllTeams();
+  
+  List<Team> findAllTeams(boolean viewable);
 
   Team findTeamById(String teamId);
 
-  void addTeam(String teamId, String displayName, String teamDescription);
+  String addTeam(String teamId, String displayName, String teamDescription, boolean viewable);
 
   void updateTeam(String teamId, String displayName, String teamDescription);
 
