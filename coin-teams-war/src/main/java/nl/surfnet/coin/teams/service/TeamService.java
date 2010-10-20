@@ -28,8 +28,6 @@ public interface TeamService {
 
   List<Team> findAllTeams();
   
-  List<Team> findAllTeams(boolean viewable);
-
   Team findTeamById(String teamId);
 
   String addTeam(String teamId, String displayName, String teamDescription, boolean viewable);
@@ -42,6 +40,8 @@ public interface TeamService {
 
   void deleteMember(String teamId, String personId);
 
-  void updateMember(String teamId, String personId, Role role);
+  void setVisibilityGroup(String teamId, boolean viewable);
+
+  void updateMember(String teamId, String memberId, Role role);
 
 }

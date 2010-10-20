@@ -19,16 +19,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
 import edu.internet2.middleware.grouperClient.api.GcAddMember;
+import edu.internet2.middleware.grouperClient.api.GcAssignGrouperPrivilegesLite;
+import edu.internet2.middleware.grouperClient.api.GcDeleteMember;
 import edu.internet2.middleware.grouperClient.api.GcFindGroups;
 import edu.internet2.middleware.grouperClient.api.GcGetGrouperPrivilegesLite;
 import edu.internet2.middleware.grouperClient.api.GcGetGroups;
 import edu.internet2.middleware.grouperClient.api.GcGetMembers;
+import edu.internet2.middleware.grouperClient.api.GcGroupDelete;
 import edu.internet2.middleware.grouperClient.api.GcGroupSave;
 import edu.internet2.middleware.grouperClient.ws.beans.WsAddMemberResults;
 import edu.internet2.middleware.grouperClient.ws.beans.WsFindGroupsResults;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGetGroupsResult;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGetMembersResult;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGroup;
+import edu.internet2.middleware.grouperClient.ws.beans.WsGroupLookup;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGroupSaveResults;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGroupToSave;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGrouperPrivilegeResult;
@@ -289,7 +293,11 @@ public class GrouperTeamService implements TeamService {
    */
   @Override
   public void deleteMember(String teamId, String personId) {
-    // TODO Auto-generated method stub
+    GcDeleteMember deleteMember = new GcDeleteMember();
+    deleteMember.addSubjectId(personId);
+    deleteMember.assignActAsSubject(getActAsSubject(true));
+    deleteMember.assignGroupName(teamId);
+    deleteMember.execute();
 
   }
 
@@ -300,20 +308,11 @@ public class GrouperTeamService implements TeamService {
    */
   @Override
   public void deleteTeam(String teamId) {
-    // TODO Auto-generated method stub
-
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * nl.surfnet.coin.teams.service.TeamService#updateMember(java.lang.String,
-   * java.lang.String, nl.surfnet.coin.teams.domain.Role)
-   */
-  @Override
-  public void updateMember(String teamId, String personId, Role role) {
-    // TODO Auto-generated method stub
+    GcGroupDelete groupDelete = new GcGroupDelete();
+    groupDelete.assignActAsSubject(getActAsSubject(true));
+    WsGroupLookup wsGroupLookup = new WsGroupLookup(teamId, null);
+    groupDelete.addGroupLookup(wsGroupLookup );
+    groupDelete.execute();
 
   }
 
@@ -326,13 +325,38 @@ public class GrouperTeamService implements TeamService {
   @Override
   public void updateTeam(String teamId, String displayName,
       String teamDescription) {
-    // TODO Auto-generated method stub
-
+    GcGroupSave groupSave = new GcGroupSave();
+    groupSave.assignActAsSubject(getActAsSubject());
+    WsGroupToSave group = new WsGroupToSave();
+    group.setSaveMode("UPDATE");
+    WsGroup wsGroup = new WsGroup();
+    wsGroup.setDescription(teamDescription);
+    wsGroup.setDisplayName(displayName);
+    wsGroup.setName(teamId);
+    group.setWsGroup(wsGroup);
+    groupSave.addGroupToSave(group);
+    groupSave.execute();
+   
   }
 
   @Override
-  public List<Team> findAllTeams(boolean viewable) {
-    return findAllTeams();
+  public void setVisibilityGroup(String teamId, boolean viewable) {
+    GcAssignGrouperPrivilegesLite assignPrivilige = new GcAssignGrouperPrivilegesLite();
+    assignPrivilige.assignActAsSubject(getActAsSubject(true));
+    assignPrivilige.assignGroupName(teamId);
+    assignPrivilige.assignSubjectLookup(getActAsSubject(true));
+    assignPrivilige.assignPrivilegeType("access");
+    assignPrivilige.assignPrivilegeName("view");
+    
+    assignPrivilige.assignAllowed(viewable);
+    assignPrivilige.execute();
+    
+  }
+
+  @Override
+  public void updateMember(String teamId, String memberId, Role role) {
+    // TODO Auto-generated method stub
+    
   }
 
 }

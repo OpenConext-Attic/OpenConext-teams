@@ -169,24 +169,7 @@ public class InMemoryMockTeamService implements TeamService {
     return new ArrayList<Team>(teams.values());
   }
   
-  /*
-   * (non-Javadoc)
-   * 
-   * @see nl.surfnet.coin.teams.service.TeamService#findAllTeams(java.lang.Boolean)
-   */
-  @Override
-  public List<Team> findAllTeams(boolean viewable) {
-    List<Team> result = new ArrayList<Team>();
-    List<Team> teamList = new ArrayList<Team>(teams.values());
-    
-    for (Team team : teamList) {
-      if (team.isViewable() == viewable) {
-        result.add(team);
-      }
-    }
-    
-    return result;
-  }
+  
 
   /*
    * (non-Javadoc)
@@ -261,6 +244,12 @@ public class InMemoryMockTeamService implements TeamService {
     Team team = findTeam(teamId);
     team.setName(displayName);
     team.setDescription(teamDescription);
+  }
+
+  @Override
+  public void setVisibilityGroup(String teamId, boolean viewable) {
+    Team team = findTeam(teamId);
+    team.setViewable(viewable);
   }
 
 }
