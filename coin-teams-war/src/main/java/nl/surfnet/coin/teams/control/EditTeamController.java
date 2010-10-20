@@ -68,7 +68,8 @@ public class EditTeamController {
     }
     
     // Update the team info
-    teamService.updateTeam(teamId, teamName, teamDescription, viewable);
+    teamService.updateTeam(teamId, teamName, teamDescription);
+    teamService.setVisibilityGroup(teamId, viewable);
     
     return new RedirectView("detailteam.shtml?team=" + teamId);
   }

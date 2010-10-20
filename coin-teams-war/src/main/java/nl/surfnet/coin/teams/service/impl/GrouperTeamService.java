@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
 import edu.internet2.middleware.grouperClient.api.GcAddMember;
+import edu.internet2.middleware.grouperClient.api.GcAssignGrouperPrivileges;
 import edu.internet2.middleware.grouperClient.api.GcAssignGrouperPrivilegesLite;
 import edu.internet2.middleware.grouperClient.api.GcDeleteMember;
 import edu.internet2.middleware.grouperClient.api.GcFindGroups;
@@ -187,6 +188,7 @@ public class GrouperTeamService implements TeamService {
         members.add(member);
       }
     }
+    addRolesToMembers(members, teamId);
     return members;
   }
 
@@ -217,12 +219,12 @@ public class GrouperTeamService implements TeamService {
     /*
      * De grouper rechten heten "admin" voor de group administrator, en "update"
      * voor de group manager.
-     * 
-     * Verder worden er standaard een aantal rechten gezet zoals "read" (voor
-     * het zien wie er lid is van de group) voor leden van de groep, en "view"
-     * voor het zien van de groep (ook voor leden en, als dat in de GUI is
-     * aangezet, voor "everyone").
      */
+    if (privilegeName.equalsIgnoreCase("admin")) {
+      return Role.Admin;
+    } else if (privilegeName.equalsIgnoreCase("update")) {
+      return Role.Manager;
+    }
     return null;
   }
 
@@ -235,21 +237,6 @@ public class GrouperTeamService implements TeamService {
       }
     }
     return result;
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see nl.surfnet.coin.teams.service.TeamService#addMember(java.lang.String,
-   * java.lang.String)
-   */
-  @Override
-  public void addMember(String teamId, String personId) {
-    GcAddMember addMember = new GcAddMember();
-    addMember.assignActAsSubject(getActAsSubject());
-    addMember.assignGroupName(teamId);
-    addMember.addSubjectId(personId);
-    WsAddMemberResults execute = addMember.execute();
   }
 
   /*
@@ -311,7 +298,7 @@ public class GrouperTeamService implements TeamService {
     GcGroupDelete groupDelete = new GcGroupDelete();
     groupDelete.assignActAsSubject(getActAsSubject(true));
     WsGroupLookup wsGroupLookup = new WsGroupLookup(teamId, null);
-    groupDelete.addGroupLookup(wsGroupLookup );
+    groupDelete.addGroupLookup(wsGroupLookup);
     groupDelete.execute();
 
   }
@@ -336,7 +323,7 @@ public class GrouperTeamService implements TeamService {
     group.setWsGroup(wsGroup);
     groupSave.addGroupToSave(group);
     groupSave.execute();
-   
+
   }
 
   @Override
@@ -347,16 +334,95 @@ public class GrouperTeamService implements TeamService {
     assignPrivilige.assignSubjectLookup(getActAsSubject(true));
     assignPrivilige.assignPrivilegeType("access");
     assignPrivilige.assignPrivilegeName("view");
-    
+
     assignPrivilige.assignAllowed(viewable);
     assignPrivilige.execute();
-    
+
   }
 
   @Override
-  public void updateMember(String teamId, String memberId, Role role) {
-    // TODO Auto-generated method stub
-    
+  public void addMemberRole(String teamId, String memberId, Role role) {
+    GcAssignGrouperPrivileges assignPrivilige = new GcAssignGrouperPrivileges();
+    assignPrivilige.assignActAsSubject(getActAsSubject(true));
+    assignPrivilige.assignGroupLookup(new WsGroupLookup(teamId, null));
+    WsSubjectLookup subject = new WsSubjectLookup();
+    subject.setSubjectId(memberId);
+    assignPrivilige.addSubjectLookup(subject);
+    assignPrivilige.assignPrivilegeType("access");
+    switch (role) {
+    case Admin: {
+      assignPrivilige.addPrivilegeName("admin");
+      assignPrivilige.addPrivilegeName("read");
+      assignPrivilige.addPrivilegeName("optout");
+      assignPrivilige.addPrivilegeName("update");
+      break;
+    }
+    case Manager: {
+      assignPrivilige.addPrivilegeName("update");
+      assignPrivilige.addPrivilegeName("read");
+      assignPrivilige.addPrivilegeName("optout");
+      break;
+    }
+    case Member: {
+      assignPrivilige.addPrivilegeName("read");
+      assignPrivilige.addPrivilegeName("optout");
+      break;
+    }
+
+    }
+    assignPrivilige.assignAllowed(true);
+    assignPrivilige.execute();
+
+  }
+
+  @Override
+  public void removeMemberRole(String teamId, String memberId, Role role) {
+    GcAssignGrouperPrivileges assignPrivilige = new GcAssignGrouperPrivileges();
+    assignPrivilige.assignActAsSubject(getActAsSubject(true));
+    assignPrivilige.assignGroupLookup(new WsGroupLookup(teamId, null));
+    WsSubjectLookup subject = new WsSubjectLookup();
+    subject.setSubjectId(memberId);
+    assignPrivilige.addSubjectLookup(subject);
+    assignPrivilige.assignPrivilegeType("access");
+    switch (role) {
+    case Admin: {
+      assignPrivilige.addPrivilegeName("admin");
+      break;
+    }
+    case Manager: {
+      assignPrivilige.addPrivilegeName("update");
+      break;
+    }
+    case Member: {
+      assignPrivilige.addPrivilegeName("read");
+      assignPrivilige.addPrivilegeName("optout");
+      break;
+    }
+
+    }
+    assignPrivilige.assignAllowed(false);
+    assignPrivilige.execute();
+
+  }
+  
+  /*
+   * (non-Javadoc)
+   * 
+   * @see nl.surfnet.coin.teams.service.TeamService#addMember(java.lang.String,
+   * java.lang.String)
+   */
+  @Override
+  public void addMember(String teamId, String personId) {
+    GcAddMember addMember = new GcAddMember();
+    addMember.assignActAsSubject(getActAsSubject());
+    addMember.assignGroupName(teamId);
+    addMember.addSubjectId(personId);
+    WsAddMemberResults execute = addMember.execute();
+  }
+
+  @Override
+  public List<Team> findTeams(String partOfTeamName, String memberId) {
+    throw new IllegalArgumentException("method not supported");
   }
 
 }

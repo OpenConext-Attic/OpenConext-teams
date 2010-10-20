@@ -75,4 +75,24 @@ public class Member implements Serializable {
     return roles.add(role);
   }
 
+  /**
+   * 
+   * @param role the role to be removed
+   * @return boolean is successful
+   */
+  
+  public boolean removeRole(Role role) {
+    if (this.roles == null) {
+      return false;
+    }
+    return roles.remove(role);
+  }
+
+  /**
+   * Copy the {@link Member}
+   * @return copy of this instance
+   */
+  public Member copy() {
+    return new Member(new HashSet<Role>(getRoles()),getName(),getId(),getEmail());
+  }
 }

@@ -55,8 +55,7 @@ public class AddTeamController {
     teamService.addMember(teamId, personId);
     
     // Give him the right permissions
-    teamService.updateMember(teamId, personId, Role.Admin);
-    teamService.updateMember(teamId, personId, Role.Manager);
+    teamService.addMemberRole(teamId, personId, Role.Admin);
 
     return new RedirectView("detailteam.shtml?team=" + teamId);
   }
