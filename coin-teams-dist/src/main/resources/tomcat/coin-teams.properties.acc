@@ -3,8 +3,22 @@
 # values depend on the environment and are unknown to the developers     #
 ##########################################################################
 
+#the stem name to find all groups
+defaultStemName=nl:surfnet:diensten
+
+#the actAsSubject with extended rights
+grouperPowerUser=gadget
+
 ##########################################################################
 # The following properties are the responsibility of development. The    #
 # values do NOT depend on the environment                                #
 ##########################################################################
 
+# Use the MockLoginInterceptor when you want to mock Shibboleth:
+#loginInterceptor=nl.surfnet.coin.teams.interceptor.MockLoginInterceptor
+loginInterceptor=nl.surfnet.coin.teams.interceptor.LoginInterceptor
+
+#mock* properties can be left empty when deploying in acc/prod
+mockLogin=member-1
+#mockLogin=urn:collab:person:surfnet.nl:hansz
+mockName=member1-name
