@@ -84,7 +84,7 @@ public class InMemoryMockTeamService implements TeamService {
 
   }
 
-   private Team findTeam(String teamId) {
+  private Team findTeam(String teamId) {
     Team team = teams.get(teamId);
     if (team == null) {
       throw new RuntimeException("Team(id='" + teamId + "') does not exist");
@@ -96,7 +96,7 @@ public class InMemoryMockTeamService implements TeamService {
     Team team = findTeam(teamId);
     Set<Member> members = team.getMembers();
     for (Member member : members) {
-      if (member.getId().equals(member)) {
+      if (member.getId().equals(memberId)) {
         return member;
       }
     }
@@ -199,15 +199,16 @@ public class InMemoryMockTeamService implements TeamService {
   @Override
   public List<Team> getTeamsByMember(String memberId) {
     Collection<Team> values = findAllTeams();
-    List<Team> result = new ArrayList<Team>();
+    Set<Team> result = new HashSet<Team>();
     for (Team team : values) {
       Set<Member> members = team.getMembers();
       for (Member member : members) {
-        if (member.getId().equals(memberId));
-        result.add(team);
+        if (member.getId().equalsIgnoreCase(memberId)) {
+          result.add(team);
+        }
       }
     }
-    return result;
+    return new ArrayList<Team>(result);
   }
 
   /*
@@ -233,14 +234,14 @@ public class InMemoryMockTeamService implements TeamService {
 
   @Override
   public void addMemberRole(String teamId, String memberId, Role role) {
-    Member member = findMember(memberId,teamId);
+    Member member = findMember(memberId, teamId);
     member.addRole(role);
 
   }
 
   @Override
   public void removeMemberRole(String teamId, String memberId, Role role) {
-    Member member = findMember(memberId,teamId);
+    Member member = findMember(memberId, teamId);
     member.removeRole(role);
 
   }
@@ -259,8 +260,22 @@ public class InMemoryMockTeamService implements TeamService {
 
   @Override
   public void addMember(String teamId, String personId) {
+    // just find the member (in some other team), copy and add to team
+    List<Team> allTeams = findAllTeams();
+    Member m = null;
+    for (Team team : allTeams) {
+      Set<Member> members = team.getMembers();
+      for (Member member : members) {
+        if (member.getId().equals(personId)) {
+          m = member.copy();
+        }
+      }  
+    }
+    if (m == null) {
+      throw new RuntimeException("Member('"+personId+"') not found");
+    }
     Team team = findTeam(teamId);
-    //TODO implement
+    team.addMembers(m);
   }
 
   @Override
