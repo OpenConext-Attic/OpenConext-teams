@@ -26,6 +26,10 @@ $(function() {
 		COIN.Core.register('addteam', COIN.MODULES.Addteam);
 	}
 	
+	if ($('#AddMemberForm').length > 0) {
+		COIN.Core.register('addmember', COIN.MODULES.Addmember);
+	}
+	
 	COIN.Core.register('detailteam', COIN.MODULES.Detailteam);
 	
 	

@@ -221,14 +221,12 @@ public class InMemoryMockTeamService implements TeamService {
   public void addMemberRole(String teamId, String memberId, Role role) {
     Member member = findMember(memberId, teamId);
     member.addRole(role);
-
   }
 
   @Override
   public void removeMemberRole(String teamId, String memberId, Role role) {
     Member member = findMember(memberId, teamId);
     member.removeRole(role);
-
   }
 
   @Override

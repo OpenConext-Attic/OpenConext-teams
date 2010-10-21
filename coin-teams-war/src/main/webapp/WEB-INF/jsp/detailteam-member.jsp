@@ -31,8 +31,8 @@
 					<c:forEach items="${team.members}" var="member">
 						<tr>
 							<td><c:out value="${member.name}" /></td>
-							<td><input id="AdminRole" type="checkbox" name="adminRole" value="" <c:if test="${teamfn:contains(member.roles, admin)}" > checked</c:if> disabled /></td>
-							<td><input id="ManagerRole" type="checkbox" name="managerRole" value="" <c:if test="${teamfn:contains(member.roles, manager)}" > checked</c:if> disabled /></td>
+							<td><input id="0_${member.id}" type="checkbox" name="adminRole" value="1" <c:if test="${teamfn:contains(member.roles, admin)}" > checked</c:if> disabled /></td>
+							<td><input id="1_${member.id}" type="checkbox" name="managerRole" value="1" <c:if test="${teamfn:contains(member.roles, manager)}" > checked</c:if> disabled /></td>
 							<td>X</td>
 						</tr>
 					</c:forEach>

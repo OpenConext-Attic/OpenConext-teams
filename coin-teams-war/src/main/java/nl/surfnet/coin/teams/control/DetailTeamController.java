@@ -17,6 +17,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.view.RedirectView;
 
 /**
@@ -88,7 +89,7 @@ public class DetailTeamController {
 
     return new RedirectView("home.shtml?teams=my");
   }
-  
+
   @RequestMapping(value = "/dodeleteteam.shtml", method = RequestMethod.GET)
   public RedirectView deleteTeam(ModelMap modelMap, HttpServletRequest request) {
     String teamId = request.getParameter("team");
@@ -101,5 +102,56 @@ public class DetailTeamController {
     teamService.deleteTeam(teamId);
 
     return new RedirectView("home.shtml?teams=my");
+  }
+  
+  @RequestMapping(value = "/dodeletemember.shtml", method = RequestMethod.GET)
+  public RedirectView deleteMember(ModelMap modelMap, HttpServletRequest request) {
+    String teamId = request.getParameter("team");
+    String personId = request.getParameter("member");
+
+    if (!StringUtils.hasText(teamId) || !StringUtils.hasText(personId)) {
+      throw new RuntimeException("Parameter error.");
+    }
+
+    // Delete the member
+    teamService.deleteMember(teamId, personId);
+
+    return new RedirectView("detailteam.shtml?team=" + teamId);
+  }
+
+  @RequestMapping(value = "/doaddrole.shtml", method = RequestMethod.POST)
+  public @ResponseBody
+  String addRole(ModelMap modelMap, HttpServletRequest request) {
+    String teamId = request.getParameter("team");
+    String memberId = request.getParameter("member");
+    String roleString = request.getParameter("role");
+
+    if (!StringUtils.hasText(teamId) || !StringUtils.hasText(memberId)
+        || !StringUtils.hasText(roleString)) {
+      return "error";
+    }
+
+    Role role = roleString.equals("0") ? Role.Admin : Role.Manager;
+    teamService.addMemberRole(teamId, memberId, role);
+
+    return "success";
+  }
+
+  @RequestMapping(value = "/doremoverole.shtml", method = RequestMethod.POST)
+  public @ResponseBody
+  String removeRole(ModelMap modelMap, HttpServletRequest request) {
+    String teamId = request.getParameter("team");
+    String memberId = request.getParameter("member");
+    String roleString = request.getParameter("role");
+
+    if (!StringUtils.hasText(teamId) || !StringUtils.hasText(memberId)
+        || !StringUtils.hasText(roleString)) {
+      return "error";
+    }
+
+    Role role = roleString.equals("0") ? Role.Admin : Role.Manager;
+    teamService.removeMemberRole(teamId, memberId, role);
+
+    return "success";
   }
 }

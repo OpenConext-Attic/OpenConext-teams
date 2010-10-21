@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs title="SURFteams">
+	<Require feature="opensocial-0.8" />
+	<Require feature="dynamic-height" />
+	</ModulePrefs>
+	<Content type="html">
+	<![CDATA[
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.js"></script>
+	<script type="text/javascript">
+		//load frame
+		
+		function loadFrame() {
+		 	var srcString ='http://localhost:8060/teams';
+		 	
+		 	document.getElementById('container').innerHTML = '<iframe frameborder="0" width="100%" height="300" src="'+srcString+'"></iframe>';
+		 	gadgets.window.adjustHeight(); //so app resizes itself based on content
+		}
+		
+		function init() {
+			loadFrame(); 
+		}
+		
+		gadgets.util.registerOnLoadHandler(loadFrame); //init() will be called immediately when application is loaded
+	</script>
+	<div id="container">
+	</div>
+ ]]>
+ </Content>
+ </Module>

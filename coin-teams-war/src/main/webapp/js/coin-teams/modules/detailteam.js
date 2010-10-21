@@ -53,7 +53,16 @@ COIN.MODULES.Detailteam = function(sandbox) {
 			$('a#DeleteTeam').live('click', function(e) {
 				e.preventDefault();
 				$('#DeleteTeamDialog').removeClass('hide').dialog('open');
-			});		
+			});	
+			
+			// Clicked [ Permission ]
+			$('input[type=checkbox]').live('click', function() {
+				if($(this).attr('checked')) {
+					library.addRole($(this));
+				} else {
+					library.removeRole($(this));
+				}
+			})
 		},
 		
 		destroy: function() {
@@ -63,6 +72,18 @@ COIN.MODULES.Detailteam = function(sandbox) {
 	
 	// Private library (through closure)
 	var library = {
+		getMemberId: function(el) {
+			if (el instanceof jQuery) {
+				var idSplit = el.attr('id').split('_', '2');
+				return idSplit[1];
+			}
+		},
+		getRole: function(el) {
+			if (el instanceof jQuery) {
+				var idSplit = el.attr('id').split('_', '2');
+				return idSplit[0];
+			}
+		},
 		leaveTeam: function() {
 			
 			sandbox.redirectBrowserTo($('a#LeaveTeam').attr('href'));
@@ -75,6 +96,46 @@ COIN.MODULES.Detailteam = function(sandbox) {
 		},
 		cancelDelete: function() {
 			$('#DeleteTeamDialog').addClass('hide').dialog('close');
+		},
+		addRole: function(el) {
+			var teamId = $('input[name=teamId]').val();
+			var memberId = library.getMemberId(el);
+			var role = library.getRole(el);
+			
+			var data = {
+					'team' : teamId,
+					'member' : memberId,
+					'role' : role
+			};
+			
+			sandbox.post('doaddrole.shtml', data, function(data) {
+				if (data === 'success') {
+					$.notifyBar({ cls: "success", html: "<spring:message code='jsp.detailteam.AddRoleSuccess' />", delay: 1000 });
+				} else {
+					el.attr('checked') ? el.attr('checked', false) : el.attr('checked', true);
+					$.notifyBar({ cls: "error", html: "<spring:message code='jsp.detailteam.AddRoleFailure' />" });
+				}
+			});
+		},
+		removeRole: function(el) {
+			var teamId = $('input[name=teamId]').val();
+			var memberId = library.getMemberId(el);
+			var role = library.getRole(el);
+			
+			var data = {
+					'team' : teamId,
+					'member' : memberId,
+					'role' : role
+			};
+			
+			sandbox.post('doremoverole.shtml', data, function(data) {
+				if (data === 'success') {
+					$.notifyBar({ cls: "success", html: "<spring:message code='jsp.detailteam.RemoveRoleSuccess' />", delay: 1000 });
+				} else {
+					el.attr('checked') ? el.attr('checked', false) : el.attr('checked', true);
+					$.notifyBar({ cls: "error", html: "<spring:message code='jsp.detailteam.RemoveRoleFailure' />" });
+				}
+			});
 		}
 	};
 
