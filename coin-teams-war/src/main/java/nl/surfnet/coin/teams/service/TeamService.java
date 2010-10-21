@@ -67,8 +67,6 @@ public interface TeamService {
   String addTeam(String teamId, String displayName, String teamDescription,
       boolean viewable);
 
-  void updateTeam(String teamId, String displayName, String teamDescription, boolean viewable);
-
   /**
    * Update a {@link Team}
    * @param teamId the id of a {@link Team}

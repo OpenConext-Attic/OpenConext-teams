@@ -404,7 +404,7 @@ public class GrouperTeamService implements TeamService {
     assignPrivilige.execute();
 
   }
-  
+
   /*
    * (non-Javadoc)
    * 
@@ -422,13 +422,14 @@ public class GrouperTeamService implements TeamService {
 
   @Override
   public List<Team> findTeams(String partOfTeamName, String memberId) {
-    throw new IllegalArgumentException("method not supported");
+    List<Team> teamsByMember = getTeamsByMember(memberId);
+    List<Team> result = new ArrayList<Team>();
+    for (Team team : teamsByMember) {
+      if (team.getName().contains(partOfTeamName)) {
+        result.add(team);
+      }
+    }
+    return result;
   }
 
-  @Override
-  public void updateTeam(String teamId, String displayName,
-      String teamDescription, boolean viewable) {
-    // TODO Auto-generated method stub
-    
-  }
 }

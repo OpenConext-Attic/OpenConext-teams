@@ -211,21 +211,6 @@ public class InMemoryMockTeamService implements TeamService {
     return new ArrayList<Team>(result);
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see nl.surfnet.coin.teams.service.TeamService#updateTeam(java.lang.String,
-   * java.lang.String, java.lang.String)
-   */
-  @Override
-  public void updateTeam(String teamId, String displayName,
-      String teamDescription, boolean viewable) {
-    Team team = findTeam(teamId);
-    team.setName(displayName);
-    team.setDescription(teamDescription);
-    team.setViewable(viewable);
-  }
-
   @Override
   public void setVisibilityGroup(String teamId, boolean viewable) {
     Team team = findTeam(teamId);
