@@ -79,7 +79,7 @@ public class TeamEnvironment {
    * @return the grouperPowerUser
    */
   public String getGrouperPowerUser() {
-    return "GrouperSystem";
+    return grouperPowerUser;
   }
 
   /**
