@@ -19,7 +19,7 @@ import nl.surfnet.coin.teams.service.TeamService;
 import org.springframework.stereotype.Component;
 
 /**
- * @author oharsta
+ * Mock implementation of {@link TeamService}
  * 
  */
 @Component("teamService")
