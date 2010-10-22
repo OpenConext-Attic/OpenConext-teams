@@ -7,6 +7,8 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.util.CollectionUtils;
+
 /**
  * Team
  * 
@@ -17,7 +19,7 @@ public class Team implements Serializable {
   private String name;
   private String description;
   private Set<Member> members = new HashSet<Member>();
-  private String viewerRole;
+  private Role viewerRole;
   private boolean viewable;
 
   /**
@@ -115,14 +117,27 @@ public class Team implements Serializable {
   /**
    * @param viewerRole the viewerRole to set
    */
-  public void setViewerRole(String viewerRole) {
-    this.viewerRole = viewerRole;
+  public void setViewerRole(String person) {
+    Set<Member> members = getMembers();
+    
+    for (Member member : members) {
+      if (member.getId().equals(person) && !CollectionUtils.isEmpty(member.getRoles())) {
+        // Always display the role with the most privileges
+        if (member.getRoles().contains(Role.Admin)) {
+          this.viewerRole = Role.Admin;
+        } else if (member.getRoles().contains(Role.Manager)) {
+          this.viewerRole = Role.Manager;
+        } else if (member.getRoles().contains(Role.Member)) {
+          this.viewerRole = Role.Member;
+        }
+      }
+    }
   }
 
   /**
    * @return the viewerRole
    */
-  public String getViewerRole() {
+  public Role getViewerRole() {
     return viewerRole;
   }
 

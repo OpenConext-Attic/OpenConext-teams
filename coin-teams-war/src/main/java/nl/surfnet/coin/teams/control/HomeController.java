@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.LocaleResolver;
@@ -80,7 +81,7 @@ public class HomeController {
       modelMap.addAttribute("teams", teams);
       
       for (Team team : teams) {
-        team.setViewerRole(getViewerRole(team, person));
+        team.setViewerRole(person);
       }
         
       // else always display my teams
@@ -94,7 +95,7 @@ public class HomeController {
       }
       
       for (Team team : teams) {
-        team.setViewerRole(getViewerRole(team, person));
+        team.setViewerRole(person);
       }
       
       modelMap.addAttribute("display", "my");
@@ -102,26 +103,6 @@ public class HomeController {
     }
     
     modelMap.addAttribute("query", query);
-  }
-
-  private String getViewerRole(Team team, String person) {
-    
-    String result = "-";
-    Set<Member> members = team.getMembers();
-    
-    for (Member member : members) {
-      if (member.getId().equals(person)) {
-        // Always display the role with the most privileges
-        if (member.getRoles().contains(Role.Admin)) {
-          result = Role.Admin.name();
-        } else if (member.getRoles().contains(Role.Manager)) {
-          result = Role.Manager.name();
-        } else if (member.getRoles().contains(Role.Member)) {
-          result = Role.Member.name();
-        }
-      }
-    }
-    return result;
   }
   
 //  public void setMessageSource() {

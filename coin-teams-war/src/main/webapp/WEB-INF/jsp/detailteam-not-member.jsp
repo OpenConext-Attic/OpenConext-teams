@@ -17,7 +17,10 @@
 	</div>
 	<!-- = Content -->
 	<div id="Content">
-		<p>A paragraph of text.</p>
+		<p>
+			<c:set var="noDescription"><spring:message code='jsp.general.NoDescription' /></c:set>
+			<c:out value="${team.description}" default="${noDescription}"/>
+		</p>
 	<!-- / Content -->
 	</div>
 <!-- / TeamContainer -->

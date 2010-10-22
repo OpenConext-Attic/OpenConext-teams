@@ -9,7 +9,7 @@
 <div class="section" id="TeamContainer">
 	<!-- = Header -->
 	<div id="Header">
-		<span class="back"><a href=""><spring:message code='jsp.detailteam.Back' /></a></span>
+		<span class="back"><a href="home.shtml?teams=my"><spring:message code='jsp.detailteam.Back' /></a></span>
 		<h1><c:out value="${team.name}" /></h1>
 		<ul class="team-options">
 			<li><a id="LeaveTeam" href="doleaveteam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Leave' /></a></li>		</ul>
@@ -17,7 +17,10 @@
 	</div>
 	<!-- = Content -->
 	<div id="Content">
-		<p><c:out value="${team.description}" default="<spring:message code='jsp.general.NoDescription' />"/></p>
+		<p>
+			<c:set var="noDescription"><spring:message code='jsp.general.NoDescription' /></c:set>
+			<c:out value="${team.description}" default="${noDescription}"/>
+		</p>
 		<form>
 			<table>
 				<thead class="teams-table">

@@ -39,7 +39,7 @@ public class InMemoryMockTeamService implements TeamService {
    */
   private void initData() {
 
-    Team team1 = new Team("test-team-1", "test-team-1-name", "description-1", false);
+    Team team1 = new Team("test-team-1", "test-team-1-name", null, false);
     Team team2 = new Team("test-team-2", "test-team-2-name", "description-2", false);
     Team team3 = new Team("test-team-3", "test-team-3-name", "description-3", true);
     Team team4 = new Team("test-team-4", "test-team-4-name", "description-4", true);
@@ -198,7 +198,7 @@ public class InMemoryMockTeamService implements TeamService {
    */
   @Override
   public List<Team> getTeamsByMember(String memberId) {
-    Collection<Team> values = findAllTeams();
+    Collection<Team> values = teams.values();
     Set<Team> result = new HashSet<Team>();
     for (Team team : values) {
       Set<Member> members = team.getMembers();
@@ -218,15 +218,19 @@ public class InMemoryMockTeamService implements TeamService {
   }
 
   @Override
-  public void addMemberRole(String teamId, String memberId, Role role) {
+  public boolean addMemberRole(String teamId, String memberId, Role role) {
     Member member = findMember(memberId, teamId);
     member.addRole(role);
+    
+    return true;
   }
 
   @Override
-  public void removeMemberRole(String teamId, String memberId, Role role) {
+  public boolean removeMemberRole(String teamId, String memberId, Role role) {
     Member member = findMember(memberId, teamId);
     member.removeRole(role);
+    
+    return true;
   }
 
   @Override

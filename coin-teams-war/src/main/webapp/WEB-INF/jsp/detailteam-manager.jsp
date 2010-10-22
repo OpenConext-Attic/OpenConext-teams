@@ -18,7 +18,10 @@
 	</div>
 	<!-- = Content -->
 	<div id="Content">
-		<p><c:out value="${team.description}" default="<spring:message code='jsp.general.NoDescription' />"/></p>
+		<p>
+			<c:set var="noDescription"><spring:message code='jsp.general.NoDescription' /></c:set>
+			<c:out value="${team.description}" default="${noDescription}"/>
+		</p>
 		<span class="add-member"><a href="addmember.shtml?team=${team.id}"><spring:message code='jsp.addmember.Title' /></a></span>
 		<form>
 			<input type="hidden" name="teamId" value="${team.id}" />
@@ -34,9 +37,14 @@
 					<c:forEach items="${team.members}" var="member">
 						<tr>
 							<td><c:out value="${member.name}" /></td>
-							<td><input id="0_${member.id}" type="checkbox" name="adminRole" value="1" <c:if test="${teamfn:contains(member.roles, admin)}" > checked</c:if> /></td>
-							<td><input id="1_${member.id}" type="checkbox" name="managerRole" value="1" <c:if test="${teamfn:contains(member.roles, manager)}" > checked</c:if> /></td>
-							<td><a href="dodeletemember.shtml?team=${team.id}&member=${member.id}">X</a></td>
+							<td><input id="0_${member.id}" type="checkbox" name="adminRole" value="1" <c:if test="${teamfn:contains(member.roles, admin)}" > checked</c:if><c:if test="${member.id eq sessionScope.person}" > disabled</c:if> /></td>
+							<td><input id="1_${member.id}" type="checkbox" name="managerRole" value="1" <c:if test="${teamfn:contains(member.roles, manager)}" > checked</c:if><c:if test="${member.id eq sessionScope.person}" > disabled</c:if> /></td>
+							<td>
+								<c:choose>
+									<c:when test="${member.id eq sessionScope.person}">X</c:when>
+									<c:otherwise><a href="dodeletemember.shtml?team=${team.id}&member=${member.id}">X</a></c:otherwise>
+								</c:choose>
+							</td>
 						</tr>
 					</c:forEach>
 				</c:if>

@@ -16,6 +16,7 @@ import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import edu.internet2.middleware.grouperClient.api.GcAddMember;
@@ -29,12 +30,12 @@ import edu.internet2.middleware.grouperClient.api.GcGetMembers;
 import edu.internet2.middleware.grouperClient.api.GcGroupDelete;
 import edu.internet2.middleware.grouperClient.api.GcGroupSave;
 import edu.internet2.middleware.grouperClient.ws.beans.WsAddMemberResults;
+import edu.internet2.middleware.grouperClient.ws.beans.WsAssignGrouperPrivilegesResults;
 import edu.internet2.middleware.grouperClient.ws.beans.WsFindGroupsResults;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGetGroupsResult;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGetMembersResult;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGroup;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGroupLookup;
-import edu.internet2.middleware.grouperClient.ws.beans.WsGroupSaveResults;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGroupToSave;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGrouperPrivilegeResult;
 import edu.internet2.middleware.grouperClient.ws.beans.WsQueryFilter;
@@ -45,7 +46,7 @@ import edu.internet2.middleware.grouperClient.ws.beans.WsSubjectLookup;
  * {@link TeamService} using Grouper LDAP as persistent store
  * 
  */
-// @Component("teamService")
+//@Component("teamService")
 public class GrouperTeamService implements TeamService {
 
   @Autowired
@@ -171,7 +172,7 @@ public class GrouperTeamService implements TeamService {
 
   private Set<Member> getMembers(String teamId) {
     GcGetMembers getMember = new GcGetMembers();
-    getMember.assignActAsSubject(getActAsSubject());
+    getMember.assignActAsSubject(getActAsSubject(true));
     getMember.assignIncludeSubjectDetail(Boolean.TRUE);
     getMember.addGroupName(teamId);
     getMember.addSubjectAttributeName("mail");
@@ -181,10 +182,10 @@ public class GrouperTeamService implements TeamService {
     if (getMembers.length > 0) {
       WsSubject[] subjects = getMembers[0].getWsSubjects();
       for (WsSubject wsSubject : subjects) {
-        String name = wsSubject.getName();
+        String id = wsSubject.getId();
         String mail = wsSubject.getAttributeValue(0);
-        String displayName = wsSubject.getAttributeValue(0);
-        Member member = new Member(null, displayName, name, mail);
+        String displayName = wsSubject.getName();
+        Member member = new Member(null, displayName, id, mail);
         members.add(member);
       }
     }
@@ -194,7 +195,7 @@ public class GrouperTeamService implements TeamService {
 
   private void addRolesToMembers(Set<Member> members, String teamId) {
     GcGetGrouperPrivilegesLite privileges = new GcGetGrouperPrivilegesLite();
-    privileges.assignActAsSubject(getActAsSubject());
+    privileges.assignActAsSubject(getActAsSubject(true));
     privileges.assignGroupName(teamId);
     WsGrouperPrivilegeResult[] privilegeResults = privileges.execute()
         .getPrivilegeResults();
@@ -225,14 +226,14 @@ public class GrouperTeamService implements TeamService {
     } else if (privilegeName.equalsIgnoreCase("update")) {
       return Role.Manager;
     }
-    return null;
+    return Role.Member;
   }
 
   private List<WsGrouperPrivilegeResult> getPrivilegeResultsForMember(
       String id, WsGrouperPrivilegeResult[] privilegeResults) {
     List<WsGrouperPrivilegeResult> result = new ArrayList<WsGrouperPrivilegeResult>();
     for (WsGrouperPrivilegeResult privilege : privilegeResults) {
-      if (privilege.getOwnerSubject().getName().equals(id)) {
+      if (privilege.getOwnerSubject().getId().equals(id)) {
         result.add(privilege);
       }
     }
@@ -257,7 +258,7 @@ public class GrouperTeamService implements TeamService {
     teamId = teamId.replace(" ", "_").toLowerCase();
     teamId = environment.getDefaultStemName() + ":" + teamId;
     GcGroupSave groupSave = new GcGroupSave();
-    groupSave.assignActAsSubject(getActAsSubject());
+    groupSave.assignActAsSubject(getActAsSubject(true));
     WsGroupToSave group = new WsGroupToSave();
     group.setSaveMode("INSERT");
     WsGroup wsGroup = new WsGroup();
@@ -341,9 +342,9 @@ public class GrouperTeamService implements TeamService {
   }
 
   @Override
-  public void addMemberRole(String teamId, String memberId, Role role) {
+  public boolean addMemberRole(String teamId, String memberId, Role role) {
     GcAssignGrouperPrivileges assignPrivilige = new GcAssignGrouperPrivileges();
-    assignPrivilige.assignActAsSubject(getActAsSubject(true));
+    assignPrivilige.assignActAsSubject(getActAsSubject());
     assignPrivilige.assignGroupLookup(new WsGroupLookup(teamId, null));
     WsSubjectLookup subject = new WsSubjectLookup();
     subject.setSubjectId(memberId);
@@ -371,14 +372,15 @@ public class GrouperTeamService implements TeamService {
 
     }
     assignPrivilige.assignAllowed(true);
-    assignPrivilige.execute();
+    WsAssignGrouperPrivilegesResults result = assignPrivilige.execute();
 
+    return result.getResultMetadata().getResultCode().equals("SUCCESS") ? true : false;
   }
 
   @Override
-  public void removeMemberRole(String teamId, String memberId, Role role) {
+  public boolean removeMemberRole(String teamId, String memberId, Role role) {
     GcAssignGrouperPrivileges assignPrivilige = new GcAssignGrouperPrivileges();
-    assignPrivilige.assignActAsSubject(getActAsSubject(true));
+    assignPrivilige.assignActAsSubject(getActAsSubject());
     assignPrivilige.assignGroupLookup(new WsGroupLookup(teamId, null));
     WsSubjectLookup subject = new WsSubjectLookup();
     subject.setSubjectId(memberId);
@@ -401,8 +403,9 @@ public class GrouperTeamService implements TeamService {
 
     }
     assignPrivilige.assignAllowed(false);
-    assignPrivilige.execute();
+    WsAssignGrouperPrivilegesResults result = assignPrivilige.execute();
 
+    return result.getResultMetadata().getResultCode().equals("SUCCESS") ? true : false;
   }
 
   /*
@@ -414,7 +417,7 @@ public class GrouperTeamService implements TeamService {
   @Override
   public void addMember(String teamId, String personId) {
     GcAddMember addMember = new GcAddMember();
-    addMember.assignActAsSubject(getActAsSubject());
+    addMember.assignActAsSubject(getActAsSubject(true));
     addMember.assignGroupName(teamId);
     addMember.addSubjectId(personId);
     WsAddMemberResults execute = addMember.execute();

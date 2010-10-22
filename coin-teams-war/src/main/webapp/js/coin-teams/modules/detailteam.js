@@ -32,7 +32,7 @@ COIN.MODULES.Detailteam = function(sandbox) {
 				modal      : true,
 				dialogClass: "ui-popup",
 				buttons: {
-					'<spring:message code='jsp.dialog.leaveteam.Submit' />': library.leaveTeam,
+					'<spring:message code='jsp.dialog.deleteteam.Submit' />': library.leaveTeam,
 					'<spring:message code='jsp.general.Cancel' />': library.cancelLeave
 				},
 				open: function() {
@@ -56,7 +56,7 @@ COIN.MODULES.Detailteam = function(sandbox) {
 			});	
 			
 			// Clicked [ Permission ]
-			$('input[type=checkbox]').live('click', function() {
+			$('input[type=checkbox][name$=Role]').live('click', function() {
 				if($(this).attr('checked')) {
 					library.addRole($(this));
 				} else {
@@ -110,6 +110,9 @@ COIN.MODULES.Detailteam = function(sandbox) {
 			
 			sandbox.post('doaddrole.shtml', data, function(data) {
 				if (data === 'success') {
+					if (role === '0') {
+						el.parent().parent().find('input[name=managerRole]').attr('checked', true).attr('disabled', true);
+					}
 					$.notifyBar({ cls: "success", html: "<spring:message code='jsp.detailteam.AddRoleSuccess' />", delay: 1000 });
 				} else {
 					el.attr('checked') ? el.attr('checked', false) : el.attr('checked', true);
@@ -130,6 +133,9 @@ COIN.MODULES.Detailteam = function(sandbox) {
 			
 			sandbox.post('doremoverole.shtml', data, function(data) {
 				if (data === 'success') {
+					if (role === '0') {
+						el.parent().parent().find('input[name=managerRole]').attr('disabled', false);
+					}
 					$.notifyBar({ cls: "success", html: "<spring:message code='jsp.detailteam.RemoveRoleSuccess' />", delay: 1000 });
 				} else {
 					el.attr('checked') ? el.attr('checked', false) : el.attr('checked', true);

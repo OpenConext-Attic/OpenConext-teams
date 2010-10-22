@@ -100,16 +100,22 @@ public interface TeamService {
    * @param teamId the unique identifier of a {@link Team}
    * @param memberId the unique identifier of a {@link Team} 
    * @param role the {@link Role} to be added
+   * 
+   * @return boolean true if the {@link Role} has been 
+   * successfully added false if the {@link Role} has not been added
    */
-  void addMemberRole(String teamId, String memberId, Role role);
+  boolean addMemberRole(String teamId, String memberId, Role role);
 
   /**
    * Remove {@link Role} to a {@link Team}
    * @param teamId the unique identifier of a {@link Team}
    * @param memberId the unique identifier of a {@link Team} 
    * @param role the {@link Role} to be removed
+   * 
+   * @return boolean true if the {@link Role} has been 
+   * successfully added false if the {@link Role} has not been added
    */
-  void removeMemberRole(String teamId, String memberId, Role role);
+  boolean removeMemberRole(String teamId, String memberId, Role role);
   
   List<Team> findTeams(String partOfTeamName, String memberId);
 

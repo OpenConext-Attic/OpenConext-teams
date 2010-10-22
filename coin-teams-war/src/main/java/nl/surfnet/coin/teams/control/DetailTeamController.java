@@ -29,6 +29,9 @@ import org.springframework.web.servlet.view.RedirectView;
 @Controller
 public class DetailTeamController {
 
+  private static final String MANAGER = "1";
+  private static final String ADMIN = "0";
+  
   @Autowired
   private TeamService teamService;
 
@@ -131,27 +134,32 @@ public class DetailTeamController {
       return "error";
     }
 
-    Role role = roleString.equals("0") ? Role.Admin : Role.Manager;
-    teamService.addMemberRole(teamId, memberId, role);
-
-    return "success";
+    Role role = roleString.equals(ADMIN) ? Role.Admin : Role.Manager;
+    
+    return teamService.addMemberRole(teamId, memberId, role) ? "success" : "error";
   }
 
   @RequestMapping(value = "/doremoverole.shtml", method = RequestMethod.POST)
   public @ResponseBody
   String removeRole(ModelMap modelMap, HttpServletRequest request) {
+    String personId = (String) request.getSession().getAttribute(
+        LoginInterceptor.PERSON_SESSION_KEY);
     String teamId = request.getParameter("team");
     String memberId = request.getParameter("member");
     String roleString = request.getParameter("role");
 
+    // Some of the parameters weren't correctly filled
     if (!StringUtils.hasText(teamId) || !StringUtils.hasText(memberId)
         || !StringUtils.hasText(roleString)) {
       return "error";
     }
+    
+    // The logged in person cannot remove the role Admin from himself
+    if ((roleString.equals(ADMIN) || roleString.equals(MANAGER)) && personId.equals(memberId)) {
+      return "error";
+    }
 
-    Role role = roleString.equals("0") ? Role.Admin : Role.Manager;
-    teamService.removeMemberRole(teamId, memberId, role);
-
-    return "success";
+    Role role = roleString.equals(ADMIN) ? Role.Admin : Role.Manager;
+    return teamService.removeMemberRole(teamId, memberId, role) ? "success" : "error";
   }
 }
