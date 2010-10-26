@@ -1,5 +1,6 @@
 package nl.surfnet.coin.teams.control;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,7 +11,9 @@ import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.service.TeamsAPIService;
 
+import org.apache.http.client.ClientProtocolException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -31,17 +34,24 @@ public class DetailTeamController {
 
   private static final String MANAGER = "1";
   private static final String ADMIN = "0";
-  
+  private static final String ADMIN_LEAVE_TEAM = "error.AdminCannotLeaveTeam";
+  private static final String NOT_AUTHORIZED_DELETE_MEMBER = "error.NotAuthorizedToDeleteMember";
+
   @Autowired
   private TeamService teamService;
 
+  @Autowired
+  private TeamsAPIService teamsAPIService;
+
   @RequestMapping("/detailteam.shtml")
-  public String start(ModelMap modelMap, HttpServletRequest request) {
+  public String start(ModelMap modelMap, HttpServletRequest request)
+      throws IllegalStateException, ClientProtocolException, IOException {
 
     String person = (String) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
     String teamId = request.getParameter("team");
     Set<Role> roles = new HashSet<Role>();
+    String message = request.getParameter("mes");
     Team team = null;
 
     if (StringUtils.hasText(teamId)) {
@@ -54,14 +64,23 @@ public class DetailTeamController {
 
     Set<Member> members = team.getMembers();
 
-    // Iterate over the members to see if the logged in user is a member of the
-    // team.
+    // Iterate over the members to get the roles for the logged in user.
     for (Member member : members) {
       if (member.getId().equals(person)) {
         roles = member.getRoles();
       }
     }
 
+    if (StringUtils.hasText(message)) {
+      modelMap.addAttribute("message", message);
+    }
+
+    // Check if there is only one admin for a team
+    int onlyAdmin = teamService.findAdmins(team).size() > 1 ? 0 : 1;
+
+    addInvitations(modelMap, teamId);
+
+    modelMap.addAttribute("onlyAdmin", onlyAdmin);
     modelMap.addAttribute("team", team);
     modelMap.addAttribute("admin", Role.Admin);
     modelMap.addAttribute("manager", Role.Manager);
@@ -77,14 +96,33 @@ public class DetailTeamController {
     }
   }
 
+  private void addInvitations(ModelMap modelMap, String teamId)
+      throws IllegalStateException, ClientProtocolException, IOException {
+    modelMap
+        .addAttribute("invitations", teamsAPIService.getInvitations(teamId));
+  }
+
   @RequestMapping(value = "/doleaveteam.shtml", method = RequestMethod.GET)
   public RedirectView leaveTeam(ModelMap modelMap, HttpServletRequest request) {
     String teamId = request.getParameter("team");
     String personId = (String) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
+    Team team = null;
 
-    if (!StringUtils.hasText(teamId)) {
+    if (StringUtils.hasText(teamId)) {
+      team = teamService.findTeamById(teamId);
+    }
+
+    if (team == null) {
       throw new RuntimeException("Parameter error.");
+    }
+
+    Set<Member> admins = teamService.findAdmins(team);
+    Member[] adminsArray = admins.toArray(new Member[] {});
+
+    if (admins.size() == 1 && adminsArray[0].getId().equals(personId)) {
+      return new RedirectView("detailteam.shtml?team=" + teamId + "&mes="
+          + ADMIN_LEAVE_TEAM);
     }
 
     // Leave the team
@@ -96,17 +134,25 @@ public class DetailTeamController {
   @RequestMapping(value = "/dodeleteteam.shtml", method = RequestMethod.GET)
   public RedirectView deleteTeam(ModelMap modelMap, HttpServletRequest request) {
     String teamId = request.getParameter("team");
+    String personId = (String) request.getSession().getAttribute(
+        LoginInterceptor.PERSON_SESSION_KEY);
+    
 
     if (!StringUtils.hasText(teamId)) {
       throw new RuntimeException("Parameter error.");
     }
+    
+    Member member = teamService.findMember(teamId, personId);
+    if (member.getRoles().contains(Role.Admin)) {
+      // Delete the team
+      teamService.deleteTeam(teamId);
+      
+      return new RedirectView("home.shtml?teams=my");
+    }
 
-    // Delete the team
-    teamService.deleteTeam(teamId);
-
-    return new RedirectView("home.shtml?teams=my");
+    return new RedirectView("detailteam.shtml?team=" + teamId);
   }
-  
+
   @RequestMapping(value = "/dodeletemember.shtml", method = RequestMethod.GET)
   public RedirectView deleteMember(ModelMap modelMap, HttpServletRequest request) {
     String teamId = request.getParameter("team");
@@ -116,10 +162,16 @@ public class DetailTeamController {
       throw new RuntimeException("Parameter error.");
     }
 
-    // Delete the member
-    teamService.deleteMember(teamId, personId);
-
-    return new RedirectView("detailteam.shtml?team=" + teamId);
+    Member member = teamService.findMember(teamId, personId);
+    if (member.getRoles().contains(Role.Admin) || member.getRoles().contains(Role.Manager)) {
+      
+      // Delete the member
+      teamService.deleteMember(teamId, personId);
+      
+      return new RedirectView("detailteam.shtml?team=" + teamId);
+    }
+    
+    return new RedirectView("detailteam.shtml?team=" + teamId + "&mes=" + NOT_AUTHORIZED_DELETE_MEMBER);
   }
 
   @RequestMapping(value = "/doaddrole.shtml", method = RequestMethod.POST)
@@ -135,8 +187,9 @@ public class DetailTeamController {
     }
 
     Role role = roleString.equals(ADMIN) ? Role.Admin : Role.Manager;
-    
-    return teamService.addMemberRole(teamId, memberId, role) ? "success" : "error";
+
+    return teamService.addMemberRole(teamId, memberId, role, false) ? "success"
+        : "error";
   }
 
   @RequestMapping(value = "/doremoverole.shtml", method = RequestMethod.POST)
@@ -147,19 +200,29 @@ public class DetailTeamController {
     String teamId = request.getParameter("team");
     String memberId = request.getParameter("member");
     String roleString = request.getParameter("role");
+    Team team = null;
 
     // Some of the parameters weren't correctly filled
     if (!StringUtils.hasText(teamId) || !StringUtils.hasText(memberId)
         || !StringUtils.hasText(roleString)) {
       return "error";
     }
-    
-    // The logged in person cannot remove the role Admin from himself
-    if ((roleString.equals(ADMIN) || roleString.equals(MANAGER)) && personId.equals(memberId)) {
+
+    team = teamService.findTeamById(teamId);
+
+    // is the team null? return error
+    if (team == null) {
       return "error";
     }
 
+    // The role admin can only be removed if there are more then one admins in a
+    // team.
+    if ((roleString.equals(ADMIN) && teamService.findAdmins(team).size() == 1)) {
+      return "onlyOneAdmin";
+    }
+
     Role role = roleString.equals(ADMIN) ? Role.Admin : Role.Manager;
-    return teamService.removeMemberRole(teamId, memberId, role) ? "success" : "error";
+    return teamService.removeMemberRole(teamId, memberId, role) ? "success"
+        : "error";
   }
 }

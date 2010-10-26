@@ -63,7 +63,7 @@ public class EditTeamController {
     boolean viewable = !StringUtils.hasText(request.getParameter("viewabilityStatus"));
     
     // Form not completely filled in.
-    if (!StringUtils.hasText(teamName) || !StringUtils.hasText(teamDescription) || team == null) {
+    if (!StringUtils.hasText(teamName) || team == null) {
       throw new RuntimeException("Parameter error.");
     }
     

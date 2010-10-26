@@ -91,7 +91,7 @@ public class HomeController {
       if (!StringUtils.hasText(query)) {
         teams = teamService.getTeamsByMember(person);
       } else {
-        teams = teamService.findTeams(query);
+        teams = teamService.findTeams(query, person);
       }
       
       for (Team team : teams) {

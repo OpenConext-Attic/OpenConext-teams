@@ -17,12 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class JSController {
 
-  @Autowired
-  private TeamEnvironment environment;
-
   @RequestMapping("/js/coin-teams.js")
   public String js(ModelMap modelMap, HttpServletRequest request) {
-    modelMap.addAttribute("environment", environment);
     
     return "js";
   }

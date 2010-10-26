@@ -46,13 +46,17 @@ public class JoinTeamController {
   }
 
   @RequestMapping(value = "/dojointeam.shtml", method = RequestMethod.POST)
-  public RedirectView addTeam(ModelMap modelMap, HttpServletRequest request) {
+  public RedirectView joinTeam(ModelMap modelMap, HttpServletRequest request) {
     
     String teamId = request.getParameter("team");
     Team team = null;
 
     if (StringUtils.hasText(teamId)) {
       team = teamService.findTeamById(teamId);
+    }
+    
+    if (team == null) {
+      throw new RuntimeException("Parameter error");
     }
     
     // TODO use SURFteams API

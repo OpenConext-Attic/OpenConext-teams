@@ -44,18 +44,21 @@ public class AddTeamController {
     boolean viewable = !StringUtils.hasText(request.getParameter("viewabilityStatus"));
     
     // Form not completely filled in.
-    if (!StringUtils.hasText(teamName) || !StringUtils.hasText(teamDescription)) {
+    if (!StringUtils.hasText(teamName)) {
       throw new RuntimeException("Parameter error.");
     }
     
     // Add the team
-    String teamId = teamService.addTeam(teamName, teamName, teamDescription, viewable);
+    String teamId = teamService.addTeam(teamName, teamName, teamDescription);
+    
+    // Set the visibility of the group
+    teamService.setVisibilityGroup(teamId, viewable);
     
     // Add the person who has added the team as admin to the team.
     teamService.addMember(teamId, personId);
     
-    // Give him the right permissions
-    teamService.addMemberRole(teamId, personId, Role.Admin);
+    // Give him the right permissions, add as the super user
+    teamService.addMemberRole(teamId, personId, Role.Admin, true);
 
     return new RedirectView("detailteam.shtml?team=" + teamId);
   }
