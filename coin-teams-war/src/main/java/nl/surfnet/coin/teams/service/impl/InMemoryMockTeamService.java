@@ -92,7 +92,8 @@ public class InMemoryMockTeamService implements TeamService {
     return team;
   }
 
-  private Member findMember(String memberId, String teamId) {
+  @Override
+  public Member findMember(String teamId, String memberId) {
     Team team = findTeam(teamId);
     Set<Member> members = team.getMembers();
     for (Member member : members) {
@@ -111,8 +112,8 @@ public class InMemoryMockTeamService implements TeamService {
    */
   @Override
   public String addTeam(String teamId, String displayName,
-      String teamDescription, boolean viewable) {
-    Team team = new Team(teamId, displayName, teamDescription, viewable);
+      String teamDescription) {
+    Team team = new Team(teamId, displayName, teamDescription);
     teams.put(team.getId(), team);
     return team.getId();
   }
@@ -127,7 +128,7 @@ public class InMemoryMockTeamService implements TeamService {
   @Override
   public void deleteMember(String teamId, String memberId) {
     Team team = findTeam(teamId);
-    Member member = findMember(memberId, teamId);
+    Member member = findMember(teamId, memberId);
     team.removeMembers(member);
   }
 
@@ -218,8 +219,12 @@ public class InMemoryMockTeamService implements TeamService {
   }
 
   @Override
-  public boolean addMemberRole(String teamId, String memberId, Role role) {
-    Member member = findMember(memberId, teamId);
+  public boolean addMemberRole(String teamId, String memberId, Role role, boolean addAsSuperUser) {
+    Member member = findMember(teamId, memberId);
+    
+    if (role.equals(Role.Admin) && !member.getRoles().contains(Role.Manager)) {
+      member.addRole(Role.Manager);
+    }
     member.addRole(role);
     
     return true;
@@ -227,7 +232,7 @@ public class InMemoryMockTeamService implements TeamService {
 
   @Override
   public boolean removeMemberRole(String teamId, String memberId, Role role) {
-    Member member = findMember(memberId, teamId);
+    Member member = findMember(teamId, memberId);
     member.removeRole(role);
     
     return true;
@@ -268,8 +273,23 @@ public class InMemoryMockTeamService implements TeamService {
   @Override
   public void updateTeam(String teamId, String displayName,
       String teamDescription) {
-    // TODO Auto-generated method stub
+    Team team = findTeamById(teamId);
+    team.setName(displayName);
+    team.setDescription(teamDescription);
+  }
+
+  @Override
+  public Set<Member> findAdmins(Team team) {
+    Set<Member> result = new HashSet<Member>();
+    Set<Member> members = team.getMembers();
     
+    for (Member member : members) {
+      if (member.getRoles().contains(Role.Admin)) {
+        result.add(member);
+      }
+    }
+    
+    return result;
   }
 
 }

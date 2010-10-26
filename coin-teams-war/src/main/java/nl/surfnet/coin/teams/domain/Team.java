@@ -27,14 +27,24 @@ public class Team implements Serializable {
    * @param name
    * @param description
    * @param members
-   * @param viewable
    */
-  public Team(String id, String name, String description, Set<Member> members, boolean viewable) {
+  public Team(String id, String name, String description, Set<Member> members) {
     super();
     this.id = id;
     this.name = name;
     this.description = description;
     this.members = members;
+  }
+  
+  /**
+   * @param id
+   * @param name
+   * @param description
+   * @param members
+   * @param viewable
+   */
+  public Team(String id, String name, String description, Set<Member> members, boolean viewable) {
+    this(id, name, description, members);
     this.viewable = viewable;
   }
 
@@ -42,10 +52,20 @@ public class Team implements Serializable {
    * @param id
    * @param name
    * @param description
+   */
+  public Team(String id, String name, String description) {
+    this(id, name, description, new HashSet<Member>());
+  }
+  
+  /**
+   * @param id
+   * @param name
+   * @param description
    * @param viewable
    */
   public Team(String id, String name, String description, boolean viewable) {
-    this(id, name, description, new HashSet<Member>(), viewable);
+    this(id, name, description, new HashSet<Member>());
+    this.viewable = viewable;
   }
 
   /**

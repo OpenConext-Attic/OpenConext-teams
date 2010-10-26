@@ -30,6 +30,7 @@ import edu.internet2.middleware.grouperClient.api.GcGetMembers;
 import edu.internet2.middleware.grouperClient.api.GcGroupDelete;
 import edu.internet2.middleware.grouperClient.api.GcGroupSave;
 import edu.internet2.middleware.grouperClient.ws.beans.WsAddMemberResults;
+import edu.internet2.middleware.grouperClient.ws.beans.WsAssignGrouperPrivilegesLiteResult;
 import edu.internet2.middleware.grouperClient.ws.beans.WsAssignGrouperPrivilegesResults;
 import edu.internet2.middleware.grouperClient.ws.beans.WsFindGroupsResults;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGetGroupsResult;
@@ -95,8 +96,13 @@ public class GrouperTeamService implements TeamService {
       throw new RuntimeException("No team found with Id('" + teamId + "')");
     }
     WsGroup wsGroup = groupResults[0];
+    WsGrouperPrivilegeResult[] privilegeResults = getGroupPrivileges(wsGroup
+        .getName());
+
     return new Team(wsGroup.getName(), wsGroup.getDisplayExtension(),
-        wsGroup.getDescription(), getMembers(wsGroup.getName()), Boolean.TRUE);
+        wsGroup.getDescription(), getMembers(wsGroup.getName(),
+            privilegeResults), getVisibilityGroup(wsGroup.getName(),
+            privilegeResults));
   }
 
   /*
@@ -142,11 +148,24 @@ public class GrouperTeamService implements TeamService {
   private List<Team> convertWsGroupToTeam(WsGroup[] groupResults) {
     List<Team> result = new ArrayList<Team>();
     for (WsGroup wsGroup : groupResults) {
+      WsGrouperPrivilegeResult[] privilegeResults = getGroupPrivileges(wsGroup
+          .getName());
       Team team = new Team(wsGroup.getName(), wsGroup.getDisplayExtension(),
-          wsGroup.getDescription(), getMembers(wsGroup.getName()), true);
+          wsGroup.getDescription(), getMembers(wsGroup.getName(),
+              privilegeResults), getVisibilityGroup(wsGroup.getName(),
+              privilegeResults));
       result.add(team);
     }
     return result;
+  }
+
+  private WsGrouperPrivilegeResult[] getGroupPrivileges(String teamId) {
+    GcGetGrouperPrivilegesLite privileges = new GcGetGrouperPrivilegesLite();
+    privileges.assignActAsSubject(getActAsSubject(true));
+    privileges.assignGroupName(teamId);
+    WsGrouperPrivilegeResult[] privilegeResults = privileges.execute()
+        .getPrivilegeResults();
+    return privilegeResults;
   }
 
   /*
@@ -170,7 +189,8 @@ public class GrouperTeamService implements TeamService {
 
   }
 
-  private Set<Member> getMembers(String teamId) {
+  private Set<Member> getMembers(String teamId,
+      WsGrouperPrivilegeResult[] privilegeResults) {
     GcGetMembers getMember = new GcGetMembers();
     getMember.assignActAsSubject(getActAsSubject(true));
     getMember.assignIncludeSubjectDetail(Boolean.TRUE);
@@ -189,26 +209,27 @@ public class GrouperTeamService implements TeamService {
         members.add(member);
       }
     }
-    addRolesToMembers(members, teamId);
+    addRolesToMembers(members, teamId, privilegeResults);
     return members;
   }
 
-  private void addRolesToMembers(Set<Member> members, String teamId) {
-    GcGetGrouperPrivilegesLite privileges = new GcGetGrouperPrivilegesLite();
-    privileges.assignActAsSubject(getActAsSubject(true));
-    privileges.assignGroupName(teamId);
-    WsGrouperPrivilegeResult[] privilegeResults = privileges.execute()
-        .getPrivilegeResults();
-    for (Member member : members) {
-      String id = member.getId();
-      List<WsGrouperPrivilegeResult> memberPrivs = getPrivilegeResultsForMember(
-          id, privilegeResults);
-      if (!memberPrivs.isEmpty()) {
-        for (WsGrouperPrivilegeResult priv : memberPrivs) {
-          member.addRole(getRole(priv.getPrivilegeName()));
-        }
+  private void addRolesToMembers(Set<Member> members, String teamId,
+      WsGrouperPrivilegeResult[] privilegeResults) {
+    if (privilegeResults != null) {
+      for (Member member : members) {
+        String id = member.getId();
+        List<WsGrouperPrivilegeResult> memberPrivs = getPrivilegeResultsForMember(
+            id, privilegeResults);
+        if (!memberPrivs.isEmpty()) {
+          for (WsGrouperPrivilegeResult priv : memberPrivs) {
+            member.addRole(getRole(priv.getPrivilegeName()));
+          }
 
+        }
       }
+    } else {
+      throw new RuntimeException("group (id='" + teamId
+          + "') has no privileges");
     }
   }
 
@@ -248,7 +269,7 @@ public class GrouperTeamService implements TeamService {
    */
   @Override
   public String addTeam(String teamId, String displayName,
-      String teamDescription, boolean viewable) {
+      String teamDescription) {
     if (!StringUtils.hasText(teamId)) {
       throw new IllegalArgumentException("teamId is not optional");
     }
@@ -263,7 +284,7 @@ public class GrouperTeamService implements TeamService {
     group.setSaveMode("INSERT");
     WsGroup wsGroup = new WsGroup();
     wsGroup.setDescription(teamDescription);
-    wsGroup.setDisplayName(displayName);
+    wsGroup.setDisplayExtension(displayName);
     wsGroup.setName(teamId);
     group.setWsGroup(wsGroup);
     groupSave.addGroupToSave(group);
@@ -281,6 +302,12 @@ public class GrouperTeamService implements TeamService {
    */
   @Override
   public void deleteMember(String teamId, String personId) {
+
+    Member member = findMember(teamId, personId);
+    for (Role role : member.getRoles()) {
+      removeMemberRole(teamId, personId, role);
+    }
+
     GcDeleteMember deleteMember = new GcDeleteMember();
     deleteMember.addSubjectId(personId);
     deleteMember.assignActAsSubject(getActAsSubject(true));
@@ -319,9 +346,12 @@ public class GrouperTeamService implements TeamService {
     group.setSaveMode("UPDATE");
     WsGroup wsGroup = new WsGroup();
     wsGroup.setDescription(teamDescription);
-    wsGroup.setDisplayName(displayName);
+    wsGroup.setDisplayExtension(displayName);
     wsGroup.setName(teamId);
     group.setWsGroup(wsGroup);
+    WsGroupLookup wsGroupLookup = new WsGroupLookup();
+    wsGroupLookup.setGroupName(teamId);
+    group.setWsGroupLookup(wsGroupLookup);
     groupSave.addGroupToSave(group);
     groupSave.execute();
 
@@ -332,19 +362,24 @@ public class GrouperTeamService implements TeamService {
     GcAssignGrouperPrivilegesLite assignPrivilige = new GcAssignGrouperPrivilegesLite();
     assignPrivilige.assignActAsSubject(getActAsSubject(true));
     assignPrivilige.assignGroupName(teamId);
-    assignPrivilige.assignSubjectLookup(getActAsSubject(true));
+    //assignPrivilige.assignSubjectLookup(getActAsSubject(true));
+    WsSubjectLookup wsSubjectLookup = new WsSubjectLookup();
+    wsSubjectLookup.setSubjectId("GrouperAll");
+    assignPrivilige.assignSubjectLookup(wsSubjectLookup);
     assignPrivilige.assignPrivilegeType("access");
     assignPrivilige.assignPrivilegeName("view");
+    assignPrivilige.addSubjectAttributeName("GrouperAll");
 
     assignPrivilige.assignAllowed(viewable);
-    assignPrivilige.execute();
+    WsAssignGrouperPrivilegesLiteResult result = assignPrivilige.execute();
 
   }
 
   @Override
-  public boolean addMemberRole(String teamId, String memberId, Role role) {
+  public boolean addMemberRole(String teamId, String memberId, Role role,
+      boolean addAsSuperUser) {
     GcAssignGrouperPrivileges assignPrivilige = new GcAssignGrouperPrivileges();
-    assignPrivilige.assignActAsSubject(getActAsSubject());
+    assignPrivilige.assignActAsSubject(getActAsSubject(addAsSuperUser));
     assignPrivilige.assignGroupLookup(new WsGroupLookup(teamId, null));
     WsSubjectLookup subject = new WsSubjectLookup();
     subject.setSubjectId(memberId);
@@ -374,7 +409,8 @@ public class GrouperTeamService implements TeamService {
     assignPrivilige.assignAllowed(true);
     WsAssignGrouperPrivilegesResults result = assignPrivilige.execute();
 
-    return result.getResultMetadata().getResultCode().equals("SUCCESS") ? true : false;
+    return result.getResultMetadata().getResultCode().equals("SUCCESS") ? true
+        : false;
   }
 
   @Override
@@ -405,7 +441,8 @@ public class GrouperTeamService implements TeamService {
     assignPrivilige.assignAllowed(false);
     WsAssignGrouperPrivilegesResults result = assignPrivilige.execute();
 
-    return result.getResultMetadata().getResultCode().equals("SUCCESS") ? true : false;
+    return result.getResultMetadata().getResultCode().equals("SUCCESS") ? true
+        : false;
   }
 
   /*
@@ -428,11 +465,54 @@ public class GrouperTeamService implements TeamService {
     List<Team> teamsByMember = getTeamsByMember(memberId);
     List<Team> result = new ArrayList<Team>();
     for (Team team : teamsByMember) {
-      if (team.getName().contains(partOfTeamName)) {
+      if (team.getName().toLowerCase().contains(partOfTeamName.toLowerCase())) {
         result.add(team);
       }
     }
     return result;
+  }
+
+  @Override
+  public Member findMember(String teamId, String memberId) {
+    Team team = findTeamById(teamId);
+    Set<Member> members = team.getMembers();
+
+    for (Member member : members) {
+      if (member.getId().equals(memberId)) {
+        return member;
+      }
+    }
+    throw new RuntimeException("Member(id='" + memberId
+        + "') is not a member of the given team");
+  }
+
+  @Override
+  public Set<Member> findAdmins(Team team) {
+    Set<Member> result = new HashSet<Member>();
+    Set<Member> members = team.getMembers();
+
+    for (Member member : members) {
+      if (member.getRoles().contains(Role.Admin)) {
+        result.add(member);
+      }
+    }
+
+    return result;
+  }
+
+  private boolean getVisibilityGroup(String teamId,
+      WsGrouperPrivilegeResult[] privilegeResults) {
+    for (WsGrouperPrivilegeResult privilege : privilegeResults) {
+      if (privilege.getWsGroup().getName().equals(teamId)) {
+        if (privilege.getPrivilegeName().equals("view")
+            && privilege.getPrivilegeType().equals("access")
+            && privilege.getAllowed().equals("T")
+            && privilege.getOwnerSubject().getId().equals("GrouperAll")) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 
 }
