@@ -3,6 +3,9 @@ COIN.MODULES.Detailteam = function(sandbox) {
 	var module = {
 		init: function() {
 			
+			// Add odd / even classes to table rows
+			sandbox.fixTableLayout($('table.team-table'));
+			
 			// Leave team admin message box
 			if ( $("#__notifyBar").length > 0 ) {
 				$.notifyBar({ close: true, cls: "error", html: $('#__notifyBar').html(), delay: 100000 });

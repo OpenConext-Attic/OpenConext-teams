@@ -10,12 +10,16 @@
 	<!-- = Header -->
 	<div id="Header">
 		<c:if test="${fn:length(message) > 0}"><div id="__notifyBar" class="hide"><spring:message code='${message}' /></div></c:if>
-		<span class="back"><a href="home.shtml?teams=my"><spring:message code='jsp.detailteam.Back' /></a></span>
-		<h1><c:out value="${team.name}" /></h1>
-		<ul class="team-options">
-			<li><a href="editteam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Edit' /></a></li>
-			<li><a id="DeleteTeam" href="deleteteam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Delete' /></a></li>
-			<li><a id="LeaveTeam" href="doleaveteam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Leave' /></a></li>		</ul>
+		<p class="back"><a href="home.shtml?teams=my">&lt; <spring:message code='jsp.detailteam.Back' /> to teams</a></p>
+		<h1 class="team-title"><c:out value="${team.name}" /></h1>	
+		<div class="team-options-wrapper">
+			<ul class="team-options">
+				<li class="first"><a href="editteam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Edit' /></a></li>
+				<li class="middle"><a id="DeleteTeam" href="deleteteam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Delete' /></a></li>
+				<li class="last"><a id="LeaveTeam" href="doleaveteam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Leave' /></a></li>
+			</ul>	
+		</div>
+		<br class="clear" />
 	<!-- / Header -->
 	</div>
 	<!-- = Content -->
@@ -23,50 +27,53 @@
 		<p>
 			<c:set var="noDescription"><spring:message code='jsp.general.NoDescription' /></c:set>
 			<c:out value="${team.description}" default="${noDescription}"/>
+			Ten years ago a crack commando unit was sent to prison by a military court for a crime they didn't commit. These men promptly escaped from a maximum security stockade to the Los Angeles underground. Today, still wanted by the government, they survive as soldiers of fortune. If you have a problem and no one else can help, and if you can find them, maybe you can hire the A-team.
 		</p>
-		<span class="add-member"><a href="addmember.shtml?team=${team.id}"><spring:message code='jsp.addmember.Title' /></a></span>
+		<p class="add"><a class="button-primary" href="addmember.shtml?team=${team.id}"><spring:message code='jsp.addmember.Title' /></a></p>
 		<form>
 			<input type="hidden" name="teamId" value="${team.id}" />
 			<input type="hidden" name="loggedInUser" value="${sessionScope.person}" />
-			<table>
-				<thead class="teams-table">
-					<td><spring:message code='jsp.detailteam.Name' /></td>
-					<td><spring:message code='jsp.detailteam.Admin' /></td>
-					<td><spring:message code='jsp.detailteam.Manager' /></td>
-					<td><spring:message code='jsp.detailteam.Member' /></td>
-				</thead>
-				<tbody>
-				<c:if test="${fn:length(team.members) > 0 }">
-					<c:forEach items="${team.members}" var="member">
-						<c:choose>
-							<c:when test="${teamfn:contains(member.roles, manager) && (member.id eq sessionScope.person)}"><c:set var="managerRoleStatus" value="checked disabled" /></c:when>
-							<c:when test="${teamfn:contains(member.roles, manager) && teamfn:contains(member.roles, admin)}"><c:set var="managerRoleStatus" value="checked disabled" /></c:when>
-							<c:when test="${teamfn:contains(member.roles, manager) && !teamfn:contains(member.roles, admin)}"><c:set var="managerRoleStatus" value="checked" /></c:when>
-							<c:otherwise><c:set var="managerRoleStatus" value="" /></c:otherwise>
-						</c:choose>					
-						<tr>
-							<td><c:out value="${member.name}" /></td>
-							<td><input id="0_${member.id}" type="checkbox" name="adminRole" value="" <c:if test="${teamfn:contains(member.roles, admin)}" > checked</c:if> <c:if test="${onlyAdmin eq 1 && member.id eq sessionScope.person}">disabled</c:if> /></td>
-							<td><input id="1_${member.id}" type="checkbox" name="managerRole" value="" <c:out value='${managerRoleStatus}' /> /></td>
-							<td>
-								<c:choose>
-									<c:when test="${member.id eq sessionScope.person}">X</c:when>
-									<c:otherwise><a href="dodeletemember.shtml?team=${team.id}&member=${member.id}">X</a></c:otherwise>
-								</c:choose>
-							</td>
-						</tr>
-					</c:forEach>
-				</c:if>
-				<c:if test="${fn:length(invitations) > 0 }">
-					<c:forEach items="${invitations}" var="invite">
-						<tr>
-							<td>${invite.email}</td>
-							<td colspan="3"><spring:message code='jsp.detailteam.InvitationPending' /></td>
-						</tr>
-					</c:forEach>
-				</c:if>
-				</tbody>
-			</table>
+			<div class="team-table-wrapper">
+				<table class="team-table">
+					<thead>
+						<th><spring:message code='jsp.detailteam.Name' /></th>
+						<th><spring:message code='jsp.detailteam.Admin' /></th>
+						<th><spring:message code='jsp.detailteam.Manager' /></th>
+						<th><spring:message code='jsp.detailteam.Member' /></th>
+					</thead>
+					<tbody>
+					<c:if test="${fn:length(team.members) > 0 }">
+						<c:forEach items="${team.members}" var="member">
+							<c:choose>
+								<c:when test="${teamfn:contains(member.roles, manager) && (member.id eq sessionScope.person)}"><c:set var="managerRoleStatus" value="checked disabled" /></c:when>
+								<c:when test="${teamfn:contains(member.roles, manager) && teamfn:contains(member.roles, admin)}"><c:set var="managerRoleStatus" value="checked disabled" /></c:when>
+								<c:when test="${teamfn:contains(member.roles, manager) && !teamfn:contains(member.roles, admin)}"><c:set var="managerRoleStatus" value="checked" /></c:when>
+								<c:otherwise><c:set var="managerRoleStatus" value="" /></c:otherwise>
+							</c:choose>					
+							<tr>
+								<td><c:out value="${member.name}" /></td>
+								<td><input id="0_${member.id}" type="checkbox" name="adminRole" value="" <c:if test="${teamfn:contains(member.roles, admin)}" > checked</c:if> <c:if test="${onlyAdmin eq 1 && member.id eq sessionScope.person}">disabled</c:if> /></td>
+								<td><input id="1_${member.id}" type="checkbox" name="managerRole" value="" <c:out value='${managerRoleStatus}' /> /></td>
+								<td>
+									<c:choose>
+										<c:when test="${member.id eq sessionScope.person}"></c:when>
+										<c:otherwise><a href="dodeletemember.shtml?team=${team.id}&member=${member.id}">Remove member from team</a></c:otherwise>
+									</c:choose>
+								</td>
+							</tr>
+						</c:forEach>
+					</c:if>
+					<c:if test="${fn:length(invitations) > 0 }">
+						<c:forEach items="${invitations}" var="invite">
+							<tr>
+								<td>${invite.email}</td>
+								<td colspan="3"><spring:message code='jsp.detailteam.InvitationPending' /></td>
+							</tr>
+						</c:forEach>
+					</c:if>
+					</tbody>
+				</table>
+			</div>
 		</form>
 	<!-- / Content -->
 	</div>

@@ -9,19 +9,25 @@
 	<!-- = Header -->
 	<div id="Header">
 		<h1><spring:message code='jsp.addmember.Title' /></h1>
-		<span class="close-form"><a href="detailteam.shtml?team=${team.id}"><spring:message code='jsp.general.CloseForm' /></a></span>
 	<!-- / Header -->
 	</div>
 	<!-- = Content -->
 	<div id="Content">
 		<form id="AddMemberForm">
-			<input type="hidden" name="team" value="${team.id}" />
-			<label for="MemberEmail"><spring:message code='jsp.general.Email' /></label>
-			<input id="MemberEmail" type="text" name="memberEmail" value="<spring:message code='jsp.addmember.Email' />" />
-			<spring:message code='jsp.general.Message' />
-			<textarea name="description" rows="4"><spring:message code='jsp.addmember.Message' /></textarea>
-			<input type="submit" name="addMember" value="<spring:message code='jsp.addmember.Submit' />" />
-			<input type="submit" name="cancelAddMember" value="<spring:message code='jsp.general.Cancel' />" />
+			<p class="label-field-wrapper">
+				<input type="hidden" name="team" value="${team.id}" />
+				<label for="MemberEmail"><spring:message code='jsp.general.Email' /></label>
+				<input id="MemberEmail" type="text" name="memberEmail" value="<spring:message code='jsp.addmember.Email' />" class="required" />
+			</p>
+			<p class="label-field-wrapper">
+				<label for="MemberMessage"><spring:message code='jsp.general.Message' /></label>
+				<textarea id="MemberMessage" name="description" rows="4"><spring:message code='jsp.addmember.Message' /></textarea>
+			</p>
+			<p class="submit-wrapper">
+				<input class="button-primary" type="submit" name="addMember" value="<spring:message code='jsp.addmember.Submit' />" />
+				<input class="button-secondary" type="submit" name="cancelAddMember" value="<spring:message code='jsp.general.Cancel' />" />
+			</p>
+			<br class="clear" />
 		</form>
 	<!-- / Content -->
 	</div>

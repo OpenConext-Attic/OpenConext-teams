@@ -9,10 +9,12 @@
 <div class="section" id="TeamContainer">
 	<!-- = Header -->
 	<div id="Header">
-		<span class="back"><a href="home.shtml?teams=my"><spring:message code='jsp.detailteam.Back' /></a></span>
-		<h1><c:out value="${team.name}" /></h1>
-		<ul class="team-options">
-			<li><a id="LeaveTeam" href="doleaveteam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Leave' /></a></li>		</ul>
+		<p class="back"><a href="home.shtml?teams=my">&lt; <spring:message code='jsp.detailteam.Back' /> to teams</a></p>
+		<h1 class="team-title"><c:out value="${team.name}" /></h1>
+		<p class="team-option">
+			<a class="button-secondary" id="LeaveTeam" href="doleaveteam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Leave' /></a>
+		</p>
+		<br class="clear" />
 	<!-- / Header -->
 	</div>
 	<!-- = Content -->
@@ -22,12 +24,14 @@
 			<c:out value="${team.description}" default="${noDescription}"/>
 		</p>
 		<form>
-			<table>
-				<thead class="teams-table">
-					<td><spring:message code='jsp.detailteam.Name' /></td>
-					<td><spring:message code='jsp.detailteam.Admin' /></td>
-					<td><spring:message code='jsp.detailteam.Manager' /></td>
-					<td><spring:message code='jsp.detailteam.Member' /></td>
+			<table class="team-table">
+				<thead>
+					<tr>
+						<th><spring:message code='jsp.detailteam.Name' /></th>
+						<th><spring:message code='jsp.detailteam.Admin' /></th>
+						<th><spring:message code='jsp.detailteam.Manager' /></th>
+						<th><spring:message code='jsp.detailteam.Member' /></th>
+					</tr>
 				</thead>
 				<tbody>
 				<c:if test="${fn:length(team.members) > 0 }">
@@ -36,7 +40,7 @@
 							<td><c:out value="${member.name}" /></td>
 							<td><input id="0_${member.id}" type="checkbox" name="adminRole" value="1" <c:if test="${teamfn:contains(member.roles, admin)}" > checked</c:if> disabled /></td>
 							<td><input id="1_${member.id}" type="checkbox" name="managerRole" value="1" <c:if test="${teamfn:contains(member.roles, manager)}" > checked</c:if> disabled /></td>
-							<td>X</td>
+							<td></td>
 						</tr>
 					</c:forEach>
 				</c:if>

@@ -19,29 +19,280 @@
 */
 
 .jquery-notify-bar {
-  width:100%;
-  position:fixed;
-  top:0;
-  left:0;
-  z-index:32768;
-  background-color:#efefef;
-  font-size:12px;
-  color:#000;
-  text-align:center;
-  font-family: Arial, Verdana, sans-serif;
-  padding:5px 0px;
-  border-bottom:1px solid #bbb;
+	margin: 0 0 10px 0;
+	padding: 10px;
+ 	border:1px solid #bbb;
+ 	font-size: 12px;
+	font-family: Arial, Verdana, sans-serif;
+	background: url("../media/bg-portal-msg.png") repeat-x scroll 0 50% #C5EFFE;
 }
-.jquery-notify-bar.error {
+/* .jquery-notify-bar.error {
   color:#f00;
   background-color:#fdd;
 }
 .jquery-notify-bar.success {
   color:#060;
   background-color:#BBFFB6;
-}
+} */
 .notify-bar-close {
-  position:absolute;
-  left:95%;
-  font-size:11px;
+  float: right;
+}
+
+body {
+	position: relative;
+	margin: 10px;
+	padding: 10px;
+	border: 1px solid #c1c1bd;
+	font-family: "Lucida Sans Unicode","Lucida Grande",Arial,sans-serif;
+	font-size: 11px;
+	color: #000;
+}
+h1 {
+	margin: 0 0 10px 0;
+	font-family: Arial, sans-serif;
+	font-size: 18px;
+}
+h2 {
+	margin: 0 0 10px 0;
+	font-size: 16px;
+	font-family: Arial, sans serif;
+}
+p {
+	margin: 0 0 10px 0;	
+}
+
+a {
+	outline: none;
+	text-decoration: none;
+	color: #f86d00;
+}
+table, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-spacing: 0;
+	border-collapse: collapse;
+	font-size: 11px;
+}
+table {
+	clear: both;
+	width: 100%;
+}
+th, td {
+	padding: 5px;
+	vertical-align: top;
+}
+th {
+	border-top: 1px solid #c1c1bd;
+	border-bottom: 1px solid #c1c1bd;
+	text-align: left;
+	font-weight: normal;	
+	color: #999996;
+}
+.button-primary, .button-secondary {
+	background: transparent url(../media/bg-buttons.png) -20px 0px no-repeat;
+	padding: 2px 10px;
+	margin:0 5px 0 0;
+	border:1px solid #999;
+	color: #fff;
+	font-family: "Lucida Sans Unicode","Lucida Grande",Arial,sans-serif;
+	font-size: 11px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+.button-secondary:hover {
+	background-position: -20px -55px;
+} 
+.button-primary {
+	border: 1px solid #f86d00;
+	border-top-color: #999;
+	background-position: -20px -150px;
+}
+.button-primary:hover {
+	border-top-color: #ccc;
+	background-position: -20px -100px;
+}
+.button-primary:active,
+.button-secondary:active {
+	color: #fff;
+}
+.clear {
+	clear: both;
+}
+.compact {
+	margin: 0;
+}
+
+/* New message form */
+.newMessage {
+	padding: 15px 10px;
+	border-bottom: 1px solid #c1c1bd;
+	background: #d3d4d0 url("../media/highlight.png") no-repeat 200px -200px;
+}
+
+.label-field-wrapper {
+	clear: both;
+}
+.label-field-wrapper label {
+	float: left;
+	width: 100px;
+	margin-bottom: 15px;
+}
+.label-field-wrapper label.error {
+	margin-top: -15px;
+	color: #c00;
+}
+.label-field-wrapper input[type=text],
+.label-field-wrapper textarea {
+	width: 200px;
+	margin: 0 0 15px 15px;
+}
+.label-field-wrapper input[type=text].error,
+.label-field-wrapper textarea.error {
+	border: 1px #c00 solid;
+}
+.submit-wrapper {
+	clear: both;
+	margin-left: 115px;
+}
+
+.submit-wrapper input,
+.submit-wrapper label {
+	display: block;
+	float: left;
+}
+
+#TeamViewability,
+label[for=TeamViewability] {
+	margin-top: 5px;
+}
+/* Team Tables */
+.teams-table-wrapper {
+	height: 200px;
+	overflow-y: auto;
+}
+.odd {
+	background-color: #f3f3f1;
+}
+td {
+	border-left: 1px dotted #c1c1bd;
+}
+td:first-child {
+	border-left: 0;
+}
+input.text {
+-moz-box-shadow:-1px 1px 1px #999999 inset;
+background-color:#FFFFFF;
+border:1px solid #D4D4D0;
+font-family:"Lucida Sans Unicode","Lucida Grande",Arial,sans-serif;
+font-size:11px;
+padding:2px;
+}
+
+input.search-query {
+-moz-border-radius:10px 10px 10px 10px;
+-moz-box-shadow:-1px 1px 1px #999999 inset;
+color:#9E9E9C;
+float:right;
+padding:3px 20px 3px 10px;
+width:150px;
+}
+
+input.submit-search {
+background:url("../media/icons-gadget-overview.png") no-repeat scroll 0 -347px transparent;
+border:medium none;
+height:23px;
+margin:0;
+padding:0;
+position:absolute;
+right:0;
+text-indent:-999em;
+top:0;
+width:23px;
+}
+
+fieldset.search-fieldset {
+float:right;
+overflow:hidden;
+position:relative;
+width:200px;
+margin-bottom: 15px;
+}
+
+fieldset {
+border:medium none;
+display:block;
+margin:0;
+overflow:hidden;
+padding:0;
+width:100%;
+}
+.team-desc,
+.team-title {
+	float: left;
+	width: 49%;	
+}
+.add {
+	float: right;
+	margin: 0 0 15px 0;
+}
+.team-actions,
+.team-options {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.team-options-wrapper {
+	float: right;
+	width: 49%;
+	margin-bottom: 10px;
+}
+.team-options,
+.team-option {
+	float: right;
+}
+.team-actions li,
+.team-options li {
+	float: left;
+}
+.team-actions a,
+.team-options a {
+	display: block;
+	padding: 5px 10px;
+	border-right: 1px solid white;
+	background: url("../media/bg-buttons.png") no-repeat scroll 0 0 transparent; /* Default */
+	color: white;
+}
+.middle a {
+	background-position: 50% 0
+}
+.last a {
+	background-position: 100% 0;
+}
+.first a:hover,
+.first .selected {
+	background-position: 0 -51px;
+	color: #333;
+}
+.middle a:hover,
+.middle .selected {
+	background-position: 50% -51px;
+	color: #333;
+}
+.last a:hover,
+.last .selected {
+	background-position: 100% -51px;
+	color: #333;
+}
+.back {
+}
+
+/* #Header {
+	margin-bottom: 15px;
+	border-bottom: 1px solid #c1c1bd;
+} */
+
+.more {
+	float: right;
 }

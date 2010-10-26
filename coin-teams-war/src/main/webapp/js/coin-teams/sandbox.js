@@ -134,6 +134,15 @@ COIN.Sandbox = function(core) {
 				}
 			}
 			return s;
+		},
+		
+		fixTableLayout: function(table) {
+			
+			if (table instanceof jQuery) {
+				// Add odd and even classes to odd and even rows
+				table.find('tbody tr:nth-child(even)').addClass('even');
+				table.find('tbody tr:nth-child(odd)').addClass('odd');
+			}
 		}
 	};
 }(COIN.Core);

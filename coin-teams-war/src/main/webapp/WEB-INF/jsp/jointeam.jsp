@@ -9,17 +9,21 @@
 	<!-- = Header -->
 	<div id="Header">
 		<h1><spring:message code='jsp.jointeam.Title' /></h1>
-		<span class="close-form"><a href="home.shtml?teams=my"><spring:message code='jsp.general.CloseForm' /></a></span>
 	<!-- / Header -->
 	</div>
 	<!-- = Content -->
 	<div id="Content">
 		<form id="JoinTeamForm" action="dojointeam.shtml" method="post">
-			<input type="hidden" name="teamId" value="${team.id}" />
-			<spring:message code='jsp.general.Message' />
-			<textarea name="description" rows="4"><spring:message code='jsp.jointeam.Message' /></textarea>
-			<input type="submit" name="joinTeam" value="<spring:message code='jsp.jointeam.Submit' />" />
-			<input type="submit" name="cancelJoinTeam" value="<spring:message code='jsp.general.Cancel' />" />
+			<p class="label-field-wrapper">
+				<input type="hidden" name="teamId" value="${team.id}" />
+				<label for="TeamMessage"><spring:message code='jsp.general.Message' /></label>
+				<textarea id="TeamMessage" name="description" rows="4"><spring:message code='jsp.jointeam.Message' /></textarea>
+			</p>
+			<p class="submit-wrapper">
+				<input class="button-primary" type="submit" name="joinTeam" value="<spring:message code='jsp.jointeam.Submit' />" />
+				<input class="button-secondary" type="submit" name="cancelJoinTeam" value="<spring:message code='jsp.general.Cancel' />" />
+			</p>
+			<br class="clear" />
 		</form>
 	<!-- / Content -->
 	</div>

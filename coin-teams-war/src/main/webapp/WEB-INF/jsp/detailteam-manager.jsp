@@ -9,11 +9,12 @@
 <div class="section" id="TeamContainer">
 	<!-- = Header -->
 	<div id="Header">
-		<span class="back"><a href="home.shtml?teams=my"><spring:message code='jsp.detailteam.Back' /></a></span>
-		<h1><c:out value="${team.name}" /></h1>
-		<ul class="team-options">
-			<li><a id="LeaveTeam" href="doleaveteam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Leave' /></a></li>
-		</ul>
+		<p class="back"><a href="home.shtml?teams=my">&lt; <spring:message code='jsp.detailteam.Back' /> to teams</a></p>
+		<h1 class="team-title"><c:out value="${team.name}" /></h1>
+		<p class="team-option">
+			<a class="button-secondary" id="LeaveTeam" href="doleaveteam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Leave' /></a>
+		</p>
+		<br class="clear" />
 	<!-- / Header -->
 	</div>
 	<!-- = Content -->
@@ -22,16 +23,16 @@
 			<c:set var="noDescription"><spring:message code='jsp.general.NoDescription' /></c:set>
 			<c:out value="${team.description}" default="${noDescription}"/>
 		</p>
-		<span class="add-member"><a href="addmember.shtml?team=${team.id}"><spring:message code='jsp.addmember.Title' /></a></span>
+		<p class="add"><a class="button-primary" href="addmember.shtml?team=${team.id}"><spring:message code='jsp.addmember.Title' /></a></p>
 		<form>
 			<input type="hidden" name="teamId" value="${team.id}" />
 			<input type="hidden" name="loggedInUser" value="${sessionScope.person}" />
-			<table>
-				<thead class="teams-table">
-					<td><spring:message code='jsp.detailteam.Name' /></td>
-					<td><spring:message code='jsp.detailteam.Admin' /></td>
-					<td><spring:message code='jsp.detailteam.Manager' /></td>
-					<td><spring:message code='jsp.detailteam.Member' /></td>
+			<table class="team-table">
+				<thead>
+					<th><spring:message code='jsp.detailteam.Name' /></th>
+					<th><spring:message code='jsp.detailteam.Admin' /></th>
+					<th><spring:message code='jsp.detailteam.Manager' /></th>
+					<th><spring:message code='jsp.detailteam.Member' /></th>
 				</thead>
 				<tbody>
 				<c:if test="${fn:length(team.members) > 0 }">
@@ -47,8 +48,8 @@
 							<td><input id="1_${member.id}" type="checkbox" name="managerRole" value="1" <c:out value='${managerRoleStatus}' /> /></td>
 							<td>
 								<c:choose>
-									<c:when test="${member.id eq sessionScope.person}">X</c:when>
-									<c:otherwise><a href="dodeletemember.shtml?team=${team.id}&member=${member.id}">X</a></c:otherwise>
+									<c:when test="${member.id eq sessionScope.person}"></c:when>
+									<c:otherwise><a href="dodeletemember.shtml?team=${team.id}&member=${member.id}">Remove member from team</a></c:otherwise>
 								</c:choose>
 							</td>
 						</tr>
