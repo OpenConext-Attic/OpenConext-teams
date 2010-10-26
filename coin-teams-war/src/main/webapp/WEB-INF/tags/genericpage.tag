@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/ext/jqueryui/1.8.2/themes/base/jquery-ui.css" type="text/css" media="all" />
     <link rel="stylesheet" href="css/default.css">
     <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
 </head>
 <body>
   <div id="PageContainer">
