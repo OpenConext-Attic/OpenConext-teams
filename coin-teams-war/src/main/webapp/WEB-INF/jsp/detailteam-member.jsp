@@ -12,7 +12,8 @@
 		<p class="back"><a href="home.shtml?teams=my">&lt; <spring:message code='jsp.detailteam.Back' /> to teams</a></p>
 		<h1 class="team-title"><c:out value="${team.name}" /></h1>
 		<p class="team-option">
-			<a class="button-secondary" id="LeaveTeam" href="doleaveteam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Leave' /></a>
+			<c:url value="doleaveteam.shtml" var="leaveUrl"><c:param name="team" value="${team.id}" /></c:url>
+			<a class="button-secondary" id="LeaveTeam" href="<c:out value='${leaveUrl}' />"><spring:message code='jsp.detailteam.Leave' /></a>
 		</p>
 		<br class="clear" />
 	<!-- / Header -->

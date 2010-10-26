@@ -13,10 +13,13 @@
 		<p class="back"><a href="home.shtml?teams=my">&lt; <spring:message code='jsp.detailteam.Back' /> to teams</a></p>
 		<h1 class="team-title"><c:out value="${team.name}" /></h1>	
 		<div class="team-options-wrapper">
+			<c:url value="editteam.shtml" var="editUrl"><c:param name="team" value="${team.id}" /></c:url>
+			<c:url value="dodeleteteam.shtml" var="deleteUrl"><c:param name="team" value="${team.id}" /></c:url>
+			<c:url value="doleaveteam.shtml" var="leaveUrl"><c:param name="team" value="${team.id}" /></c:url>
 			<ul class="team-options">
-				<li class="first"><a href="editteam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Edit' /></a></li>
-				<li class="middle"><a id="DeleteTeam" href="deleteteam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Delete' /></a></li>
-				<li class="last"><a id="LeaveTeam" href="doleaveteam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Leave' /></a></li>
+				<li class="first"><a href="<c:out value='${editUrl}' />"><spring:message code='jsp.detailteam.Edit' /></a></li>
+				<li class="middle"><a id="DeleteTeam" href="<c:out value='${deleteUrl}' />"><spring:message code='jsp.detailteam.Delete' /></a></li>
+				<li class="last"><a id="LeaveTeam" href="<c:out value='${leaveUrl}' />"><spring:message code='jsp.detailteam.Leave' /></a></li>
 			</ul>	
 		</div>
 		<br class="clear" />
@@ -27,9 +30,11 @@
 		<p>
 			<c:set var="noDescription"><spring:message code='jsp.general.NoDescription' /></c:set>
 			<c:out value="${team.description}" default="${noDescription}"/>
-			Ten years ago a crack commando unit was sent to prison by a military court for a crime they didn't commit. These men promptly escaped from a maximum security stockade to the Los Angeles underground. Today, still wanted by the government, they survive as soldiers of fortune. If you have a problem and no one else can help, and if you can find them, maybe you can hire the A-team.
 		</p>
-		<p class="add"><a class="button-primary" href="addmember.shtml?team=${team.id}"><spring:message code='jsp.addmember.Title' /></a></p>
+		<p class="add">
+			<c:url value="addmember.shtml" var="addmemberUrl"><c:param name="team" value="${team.id}" /></c:url>
+			<a class="button-primary" href="<c:out value='${addmemberUrl}' />"><spring:message code='jsp.addmember.Title' /></a>
+		</p>
 		<form>
 			<input type="hidden" name="teamId" value="${team.id}" />
 			<input type="hidden" name="loggedInUser" value="${sessionScope.person}" />

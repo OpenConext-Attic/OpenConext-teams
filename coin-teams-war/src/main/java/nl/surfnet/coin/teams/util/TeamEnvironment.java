@@ -14,6 +14,10 @@ public class TeamEnvironment {
   private String defaultStemName;
   private String grouperPowerUser;
   private String teamsAPIUrl;
+  private String consumerKey;
+  private String consumerSecret;
+  private String restEndpoint;
+  private String rpcEndpoint;
 
 
   /**
@@ -102,6 +106,62 @@ public class TeamEnvironment {
    */
   public String getTeamsAPIUrl() {
     return teamsAPIUrl;
+  }
+
+  /**
+   * @param consumerKey the consumerKey to set
+   */
+  public void setConsumerKey(String consumerKey) {
+    this.consumerKey = consumerKey;
+  }
+
+  /**
+   * @return the consumerKey
+   */
+  public String getConsumerKey() {
+    return consumerKey;
+  }
+
+  /**
+   * @param consumerSecret the consumerSecret to set
+   */
+  public void setConsumerSecret(String consumerSecret) {
+    this.consumerSecret = consumerSecret;
+  }
+
+  /**
+   * @return the consumerSecret
+   */
+  public String getConsumerSecret() {
+    return consumerSecret;
+  }
+
+  /**
+   * @param restEndpoint the restEndpoint to set
+   */
+  public void setRestEndpoint(String restEndpoint) {
+    this.restEndpoint = restEndpoint;
+  }
+
+  /**
+   * @return the restEndpoint
+   */
+  public String getRestEndpoint() {
+    return restEndpoint;
+  }
+
+  /**
+   * @param rpcEndpoint the rpcEndpoint to set
+   */
+  public void setRpcEndpoint(String rpcEndpoint) {
+    this.rpcEndpoint = rpcEndpoint;
+  }
+
+  /**
+   * @return the rpcEndpoint
+   */
+  public String getRpcEndpoint() {
+    return rpcEndpoint;
   }
 
 }

@@ -1,12 +1,16 @@
 package nl.surfnet.coin.teams.control;
 
+import java.io.IOException;
+import java.net.URLEncoder;
+
 import javax.servlet.http.HttpServletRequest;
 
 import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.ShindigActivityService;
 import nl.surfnet.coin.teams.service.TeamService;
 
+import org.opensocial.RequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -26,6 +30,9 @@ public class AddTeamController {
 
   @Autowired
   private TeamService teamService;
+  
+  @Autowired
+  private ShindigActivityService shindigActivityService;
 
   @RequestMapping("/addteam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request) {
@@ -34,7 +41,7 @@ public class AddTeamController {
   }
 
   @RequestMapping(value = "/doaddteam.shtml", method = RequestMethod.POST)
-  public RedirectView addTeam(ModelMap modelMap, HttpServletRequest request) {
+  public RedirectView addTeam(ModelMap modelMap, HttpServletRequest request) throws RequestException, IOException {
     
     String personId = (String) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
     String teamName = request.getParameter("team");
@@ -59,7 +66,10 @@ public class AddTeamController {
     
     // Give him the right permissions, add as the super user
     teamService.addMemberRole(teamId, personId, Role.Admin, true);
+    
+    // Add the activity to the COIN portal
+    //shindigActivityService.addActivity(personId, "Test", "body");
 
-    return new RedirectView("detailteam.shtml?team=" + teamId);
+    return new RedirectView("detailteam.shtml?team=" + URLEncoder.encode(teamId, "utf-8"));
   }
 }

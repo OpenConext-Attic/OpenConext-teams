@@ -15,6 +15,10 @@
 		<spring.version>3.0.3.RELEASE</spring.version>
 		<httpclient.version>4.1-alpha2</httpclient.version>
 		<grouper.version>1.6.1</grouper.version>
+		<opensocialclient.version>1.0</opensocialclient.version>
+		<json-simle.version>1.1</json-simle.version>
+		<oauth.version>20090825</oauth.version>
+		<orgjson.version>20080701</orgjson.version>
 	</properties>
 	<scm>
 		<connection>https://svn.surfnet.nl/svn/coin-gui/coin-teams/trunk/coin-teams-war</connection>
@@ -28,14 +32,37 @@
 		<snapshotRepository>
 			<id>repo</id>
 			<name>Repository Name</name>
-			<url>http://bamboo-dev.coin.surfnetlabs.nl/</url>
+			<url>http://bamboo-dev.coin.surfnetlabs.nl</url>
 		</snapshotRepository>
 	</distributionManagement>
 	<repositories>
 		<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<id>coin-repo</id>
+			<name>COIN Repository</name>
+			<url>http://bamboo-dev.coin.surfnetlabs.nl</url>
+		</repository>
+		<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<id>oauth-maven-repo</id>
+			<name>OAuth Maven repository</name>
+			<url>http://oauth.googlecode.com/svn/code/maven</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
 			<id>maven2-repository.dev.java.net</id>
 			<name>Java.net Repository for Maven</name>
-			<url>http://download.java.net/maven/2/</url>
+			<url>http://download.java.net/maven/2</url>
 			<layout>default</layout>
 		</repository>
 	</repositories>
@@ -94,18 +121,12 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!--
-				plugin> <groupId>org.codehaus.mojo</groupId>
-				<artifactId>jaxws-maven-plugin</artifactId> <version>1.12</version>
-				<executions> <execution> <goals> <goal>wsimport</goal> </goals>
-				<configuration> <genWsdl>false</genWsdl>
-				<wsdlDirectory>${basedir}/src/main/resources/wsdl</wsdlDirectory>
-				<bindingFiles>
-				<bindingFile>${basedir}/src/main/resources/wsdl/simple-binding.xjb</bindingFile>
-				</bindingFiles> <keep>false</keep> <xdebug>true</xdebug> <xjcArgs>
-				<xjcArg>-XautoNameResolution</xjcArg> </xjcArgs> </configuration>
-				</execution> </executions> </plugin
-			-->
+			<!-- plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>jaxws-maven-plugin</artifactId> 
+				<version>1.12</version> <executions> <execution> <goals> <goal>wsimport</goal> 
+				</goals> <configuration> <genWsdl>false</genWsdl> <wsdlDirectory>${basedir}/src/main/resources/wsdl</wsdlDirectory> 
+				<bindingFiles> <bindingFile>${basedir}/src/main/resources/wsdl/simple-binding.xjb</bindingFile> 
+				</bindingFiles> <keep>false</keep> <xdebug>true</xdebug> <xjcArgs> <xjcArg>-XautoNameResolution</xjcArg> 
+				</xjcArgs> </configuration> </execution> </executions> </plugin -->
 		</plugins>
 	</build>
 	<dependencies>
@@ -156,10 +177,8 @@
 			<version>1.2</version>
 		</dependency>
 
-		<!--
-			The next two slf4j dependencies are the ones we want to use. Other
-			will be excluded.
-		-->
+		<!-- The next two slf4j dependencies are the ones we want to use. Other 
+			will be excluded. -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -223,6 +242,26 @@
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
 			<version>${httpclient.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code</groupId>
+			<artifactId>opensocial-java-client</artifactId>
+			<version>${opensocialclient.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>${json-simle.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.oauth</groupId>
+			<artifactId>oauth-core</artifactId>
+			<version>${oauth.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>${orgjson.version}</version>
 		</dependency>
 	</dependencies>
 </project>

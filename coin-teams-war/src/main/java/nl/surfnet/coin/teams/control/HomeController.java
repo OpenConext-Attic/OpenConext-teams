@@ -105,11 +105,4 @@ public class HomeController {
     modelMap.addAttribute("query", query);
   }
   
-//  public void setMessageSource() {
-//    this.messageSource = messageSource;
-//  }
-//  
-//  public MessageSource getMessageSource() {
-//    return messageSource;
-//  }
 }

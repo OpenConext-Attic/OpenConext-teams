@@ -5,6 +5,7 @@ package nl.surfnet.coin.teams.service.impl;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,7 +60,7 @@ public class TeamsAPIServiceImpl implements TeamsAPIService {
 
     if (teamId != null) {
       String url = environment.getTeamsAPIUrl() + invitationUrl + "&group="
-          + teamId;
+          + URLEncoder.encode(teamId, "utf-8");
       InputStream inputStream = httpClientProvider.getHttpClient()
           .execute(new HttpGet(url)).getEntity().getContent();
 
@@ -78,19 +79,22 @@ public class TeamsAPIServiceImpl implements TeamsAPIService {
    */
   @Override
   public boolean sentInvitations(List<Invitation> invitations, String teamId,
-      String message, String subject) throws IllegalStateException, ClientProtocolException, IOException {
+      String message, String subject) throws IllegalStateException,
+      ClientProtocolException, IOException {
 
     String emails = null;
     String url = environment.getTeamsAPIUrl() + inviteUrl + "&group=" + teamId
-        + "&addresses=" + emails + "&body=" + message + "&subject=" + subject;
-    
-    
-    HttpResponse response = httpClientProvider.getHttpClient().execute(new HttpPost(url));
+        + "&addresses=" + URLEncoder.encode(emails, "utf-8") + "&body="
+        + URLEncoder.encode(message, "utf-8") + "&subject="
+        + URLEncoder.encode(subject, "utf-8");
+
+    HttpResponse response = httpClientProvider.getHttpClient().execute(
+        new HttpPost(url));
     int statusCode = response.getStatusLine().getStatusCode();
     if (statusCode != HttpStatus.SC_OK) {
       return false;
     }
-    
+
     // InputStream content = response.getEntity().getContent();
     return true;
   }
@@ -103,21 +107,22 @@ public class TeamsAPIServiceImpl implements TeamsAPIService {
    * .String, java.lang.String, java.lang.String)
    */
   @Override
-  public boolean requestMembership(String teamId, String message, String subject) throws ClientProtocolException, IOException {
+  public boolean requestMembership(String teamId, String message, String subject)
+      throws ClientProtocolException, IOException {
 
     // TODO build correct url
     String emails = null;
     String url = environment.getTeamsAPIUrl() + inviteUrl + "&group=" + teamId
         + "&addresses=" + emails + "&body=" + message + "&subject=" + subject;
-    
-    
-    HttpResponse response = httpClientProvider.getHttpClient().execute(new HttpPost(url));
+
+    HttpResponse response = httpClientProvider.getHttpClient().execute(
+        new HttpPost(url));
     int statusCode = response.getStatusLine().getStatusCode();
     if (statusCode != HttpStatus.SC_OK) {
       return false;
     }
-    
-    //InputStream content = response.getEntity().getContent();
+
+    // InputStream content = response.getEntity().getContent();
     return true;
   }
 

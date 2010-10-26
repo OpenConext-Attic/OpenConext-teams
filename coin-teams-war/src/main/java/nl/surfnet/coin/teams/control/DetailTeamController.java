@@ -1,6 +1,9 @@
 package nl.surfnet.coin.teams.control;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -49,7 +52,7 @@ public class DetailTeamController {
 
     String person = (String) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
-    String teamId = request.getParameter("team");
+    String teamId = URLDecoder.decode(request.getParameter("team"), "utf-8");
     Set<Role> roles = new HashSet<Role>();
     String message = request.getParameter("mes");
     Team team = null;
@@ -103,8 +106,8 @@ public class DetailTeamController {
   }
 
   @RequestMapping(value = "/doleaveteam.shtml", method = RequestMethod.GET)
-  public RedirectView leaveTeam(ModelMap modelMap, HttpServletRequest request) {
-    String teamId = request.getParameter("team");
+  public RedirectView leaveTeam(ModelMap modelMap, HttpServletRequest request) throws UnsupportedEncodingException {
+    String teamId = URLDecoder.decode(request.getParameter("team"), "utf-8");
     String personId = (String) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
     Team team = null;
@@ -121,7 +124,7 @@ public class DetailTeamController {
     Member[] adminsArray = admins.toArray(new Member[] {});
 
     if (admins.size() == 1 && adminsArray[0].getId().equals(personId)) {
-      return new RedirectView("detailteam.shtml?team=" + teamId + "&mes="
+      return new RedirectView("detailteam.shtml?team=" + URLEncoder.encode(teamId, "utf-8") + "&mes="
           + ADMIN_LEAVE_TEAM);
     }
 
@@ -132,8 +135,8 @@ public class DetailTeamController {
   }
 
   @RequestMapping(value = "/dodeleteteam.shtml", method = RequestMethod.GET)
-  public RedirectView deleteTeam(ModelMap modelMap, HttpServletRequest request) {
-    String teamId = request.getParameter("team");
+  public RedirectView deleteTeam(ModelMap modelMap, HttpServletRequest request) throws UnsupportedEncodingException {
+    String teamId = URLDecoder.decode(request.getParameter("team"), "utf-8");
     String personId = (String) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
     
@@ -150,13 +153,13 @@ public class DetailTeamController {
       return new RedirectView("home.shtml?teams=my");
     }
 
-    return new RedirectView("detailteam.shtml?team=" + teamId);
+    return new RedirectView("detailteam.shtml?team=" + URLEncoder.encode(teamId, "utf-8"));
   }
 
   @RequestMapping(value = "/dodeletemember.shtml", method = RequestMethod.GET)
-  public RedirectView deleteMember(ModelMap modelMap, HttpServletRequest request) {
-    String teamId = request.getParameter("team");
-    String personId = request.getParameter("member");
+  public RedirectView deleteMember(ModelMap modelMap, HttpServletRequest request) throws UnsupportedEncodingException {
+    String teamId = URLDecoder.decode(request.getParameter("team"), "utf-8");
+    String personId = URLDecoder.decode(request.getParameter("member"), "utf-8");
 
     if (!StringUtils.hasText(teamId) || !StringUtils.hasText(personId)) {
       throw new RuntimeException("Parameter error.");
@@ -168,10 +171,10 @@ public class DetailTeamController {
       // Delete the member
       teamService.deleteMember(teamId, personId);
       
-      return new RedirectView("detailteam.shtml?team=" + teamId);
+      return new RedirectView("detailteam.shtml?team=" + URLEncoder.encode(teamId, "utf-8"));
     }
     
-    return new RedirectView("detailteam.shtml?team=" + teamId + "&mes=" + NOT_AUTHORIZED_DELETE_MEMBER);
+    return new RedirectView("detailteam.shtml?team=" + URLEncoder.encode(teamId, "utf-8") + "&mes=" + NOT_AUTHORIZED_DELETE_MEMBER);
   }
 
   @RequestMapping(value = "/doaddrole.shtml", method = RequestMethod.POST)

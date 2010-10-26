@@ -3,7 +3,7 @@ COIN.MODULES.Addteam = function(sandbox) {
 	var module = {
 		init: function() {
 			// Clicked [ Cancel ]
-			$('form#AddTeamForm > input[name=cancelCreateTeam]').live('click', function(e) {
+			$('input[name=cancelCreateTeam]').live('click', function(e) {
 				e.preventDefault();
 				sandbox.redirectBrowserTo('home.shtml?teams=my');
 			});

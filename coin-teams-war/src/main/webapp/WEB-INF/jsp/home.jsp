@@ -37,7 +37,7 @@
 					<th><spring:message code='jsp.home.table.Team' /></th>
 					<th><spring:message code='jsp.home.table.Description' /></th>
 					<th><spring:message code='jsp.home.table.Role' /></th>
-					<th>Members</th>
+					<th><spring:message code='jsp.home.table.Members' /></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -45,7 +45,8 @@
 			<c:when test="${fn:length(teams) > 0 }">
 				<c:forEach items="${teams}" var="team">
 					<tr>
-						<td><a href="detailteam.shtml?team=${team.id}"><c:out value="${team.name}" /></a></td>
+						<c:url value="detailteam.shtml" var="detailUrl"><c:param name="team" value="${team.id}" /></c:url>
+						<td><a href="<c:out value='${detailUrl}' />"><c:out value="${team.name}" /></a></td>
 						<td><c:out value="${team.description}" /></td>
 						<td><c:out value="${team.viewerRole}" /></td>
 						<td><c:out value="${fn:length(team.members)}" /></td>

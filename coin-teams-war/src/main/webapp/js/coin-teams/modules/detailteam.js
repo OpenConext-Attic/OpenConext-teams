@@ -40,7 +40,7 @@ COIN.MODULES.Detailteam = function(sandbox) {
 				modal      : true,
 				dialogClass: "ui-popup",
 				buttons: {
-					'<spring:message code='jsp.dialog.deleteteam.Submit' />': library.leaveTeam,
+					'<spring:message code='jsp.dialog.deleteteam.Submit' />': library.deleteTeam,
 					'<spring:message code='jsp.general.Cancel' />': library.cancelLeave
 				},
 				open: function() {
@@ -93,7 +93,6 @@ COIN.MODULES.Detailteam = function(sandbox) {
 			}
 		},
 		leaveTeam: function() {
-			
 			sandbox.redirectBrowserTo($('a#LeaveTeam').attr('href'));
 		},
 		cancelLeave: function() {

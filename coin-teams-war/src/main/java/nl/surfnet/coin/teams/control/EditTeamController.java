@@ -1,10 +1,11 @@
 package nl.surfnet.coin.teams.control;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import javax.servlet.http.HttpServletRequest;
 
-import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.TeamService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,7 @@ public class EditTeamController {
   }
 
   @RequestMapping(value = "/doeditteam.shtml", method = RequestMethod.POST)
-  public RedirectView editTeam(ModelMap modelMap, HttpServletRequest request) {
+  public RedirectView editTeam(ModelMap modelMap, HttpServletRequest request) throws UnsupportedEncodingException {
     String teamId = request.getParameter("teamId");
     String teamName = request.getParameter("team");
     String teamDescription = request.getParameter("description");
@@ -71,7 +72,7 @@ public class EditTeamController {
     teamService.updateTeam(teamId, teamName, teamDescription);
     teamService.setVisibilityGroup(teamId, viewable);
     
-    return new RedirectView("detailteam.shtml?team=" + teamId);
+    return new RedirectView("detailteam.shtml?team=" + URLEncoder.encode(teamId, "utf-8"));
   }
 
 }

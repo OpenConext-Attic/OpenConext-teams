@@ -8,7 +8,11 @@
 <div class="section" id="TeamContainer">
 	<!-- = Header -->
 	<div id="Header">
-		<h1>Team One</h1>
+		<h1><c:out value="${team.name}" /></h1>
+		<ul class="team-options">
+			<c:url value="jointeam.shtml" var="joinUrl"><c:param name="team" value="${team.id}" /></c:url>
+			<li><a href="<c:out value='${joinUrl}' />"><spring:message code='jsp.detailteam.Join' /></a></li>
+		</ul>
 	<!-- / Header -->
 	</div>
 	<!-- = Content -->

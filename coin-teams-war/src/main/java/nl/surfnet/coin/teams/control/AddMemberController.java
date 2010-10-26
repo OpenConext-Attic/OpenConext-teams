@@ -1,5 +1,8 @@
 package nl.surfnet.coin.teams.control;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import javax.servlet.http.HttpServletRequest;
 
 import nl.surfnet.coin.teams.domain.Team;
@@ -46,7 +49,7 @@ public class AddMemberController {
 	  }
 
   @RequestMapping(value = "/doaddmember.shtml", method = RequestMethod.POST)
-  public RedirectView addTeam(ModelMap modelMap, HttpServletRequest request) {
+  public RedirectView addTeam(ModelMap modelMap, HttpServletRequest request) throws UnsupportedEncodingException {
     
     String teamId = request.getParameter("team");
     String emails = request.getParameter("memberEmail");
@@ -71,7 +74,7 @@ public class AddMemberController {
     
     // TODO send invitation via SURFteams API
     
-    return new RedirectView("detailteam.shtml?team=" + team.getId());
+    return new RedirectView("detailteam.shtml?team=" + URLEncoder.encode(team.getId(), "utf-8"));
   }
 
 }

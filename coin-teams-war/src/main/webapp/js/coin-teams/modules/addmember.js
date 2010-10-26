@@ -3,10 +3,10 @@ COIN.MODULES.Addmember = function(sandbox) {
 	var module = {
 		init: function() {
 			// Clicked [ Cancel ]
-			$('form#AddMemberForm > input[name=cancelAddMember]').live('click', function(e) {
+			$('input[name=cancelAddMember]').live('click', function(e) {
 				e.preventDefault();
-				var team = $('input[name=team]').val();;
-				sandbox.redirectBrowserTo('detailteam.shtml?team=' + team);
+				var team = $('input[name=team]').val();
+				sandbox.redirectBrowserTo('detailteam.shtml?team=' + escape(team));
 			});
 		},
 		

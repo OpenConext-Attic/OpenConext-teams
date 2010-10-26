@@ -3,7 +3,7 @@ COIN.MODULES.Jointeam = function(sandbox) {
 	var module = {
 		init: function() {
 			// Clicked [ Cancel ]
-			$('form#JoinTeamForm > input[name=cancelJoinTeam]').live('click', function(e) {
+			$('input[name=cancelJoinTeam]').live('click', function(e) {
 				e.preventDefault();
 				var teamId = $('input[name=teamId]').val();
 				sandbox.redirectBrowserTo('detailteam.shtml?team=' + teamId);
