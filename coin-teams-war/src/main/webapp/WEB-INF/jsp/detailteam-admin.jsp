@@ -9,6 +9,7 @@
 <div class="section" id="TeamContainer">
 	<!-- = Header -->
 	<div id="Header">
+		<c:if test="${fn:length(message) > 0}"><div id="__notifyBar" class="hide"><spring:message code='${message}' /></div></c:if>
 		<span class="back"><a href="home.shtml?teams=my"><spring:message code='jsp.detailteam.Back' /></a></span>
 		<h1><c:out value="${team.name}" /></h1>
 		<ul class="team-options">
@@ -37,17 +38,15 @@
 				<tbody>
 				<c:if test="${fn:length(team.members) > 0 }">
 					<c:forEach items="${team.members}" var="member">
-						<!--<c:set var="managerRoleStatus" value="" />
-						--><c:choose>
+						<c:choose>
 							<c:when test="${teamfn:contains(member.roles, manager) && (member.id eq sessionScope.person)}"><c:set var="managerRoleStatus" value="checked disabled" /></c:when>
 							<c:when test="${teamfn:contains(member.roles, manager) && teamfn:contains(member.roles, admin)}"><c:set var="managerRoleStatus" value="checked disabled" /></c:when>
-							<c:when test="${teamfn:contains(member.roles, manager) && teamfn:contains(member.roles, admin)}"><c:set var="managerRoleStatus" value="checked" /></c:when>
+							<c:when test="${teamfn:contains(member.roles, manager) && !teamfn:contains(member.roles, admin)}"><c:set var="managerRoleStatus" value="checked" /></c:when>
 							<c:otherwise><c:set var="managerRoleStatus" value="" /></c:otherwise>
-						</c:choose>
-					
+						</c:choose>					
 						<tr>
 							<td><c:out value="${member.name}" /></td>
-							<td><input id="0_${member.id}" type="checkbox" name="adminRole" value="" <c:if test="${teamfn:contains(member.roles, admin)}" > checked</c:if><c:if test="${member.id eq sessionScope.person}" > disabled</c:if>  /></td>
+							<td><input id="0_${member.id}" type="checkbox" name="adminRole" value="" <c:if test="${teamfn:contains(member.roles, admin)}" > checked</c:if> <c:if test="${onlyAdmin eq 1 && member.id eq sessionScope.person}">disabled</c:if> /></td>
 							<td><input id="1_${member.id}" type="checkbox" name="managerRole" value="" <c:out value='${managerRoleStatus}' /> /></td>
 							<td>
 								<c:choose>
@@ -55,6 +54,14 @@
 									<c:otherwise><a href="dodeletemember.shtml?team=${team.id}&member=${member.id}">X</a></c:otherwise>
 								</c:choose>
 							</td>
+						</tr>
+					</c:forEach>
+				</c:if>
+				<c:if test="${fn:length(invitations) > 0 }">
+					<c:forEach items="${invitations}" var="invite">
+						<tr>
+							<td>${invite.email}</td>
+							<td colspan="3"><spring:message code='jsp.detailteam.InvitationPending' /></td>
 						</tr>
 					</c:forEach>
 				</c:if>
