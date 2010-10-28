@@ -58,8 +58,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         // Unprotect the javascript files
         if (urlSplit[2].equals("js")) {
           return super.preHandle(request, response, handler);
-        } else if (!url.equals("/teams/loginpage.shtml")) {
-          response.sendRedirect("/teams/loginpage.shtml");
+        } else {
+          response.sendRedirect("/Shibboleth.sso/Login?return=/teams/home.shtml?teams=my");
           return false;
         }
       }
