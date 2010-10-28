@@ -13,15 +13,16 @@
 	</div>
 	<!-- = Content -->
 	<div id="Content">
-		<form id="AddMemberForm">
+		<form id="AddMemberForm" action="doaddmember.shtml" method="post">
 			<p class="label-field-wrapper">
 				<input type="hidden" name="team" value="${team.id}" />
+				<input type="hidden" name="testEmail" id="TestEmail" class="email" value="" />
 				<label for="MemberEmail"><spring:message code='jsp.general.Email' /></label>
-				<input id="MemberEmail" type="text" name="memberEmail" value="<spring:message code='jsp.addmember.Email' />" class="required" />
+				<input id="MemberEmail" type="text" name="memberEmail" value="<spring:message code='jsp.addmember.Email' />" class="multiemail required" />
 			</p>
 			<p class="label-field-wrapper">
 				<label for="MemberMessage"><spring:message code='jsp.general.Message' /></label>
-				<textarea id="MemberMessage" name="description" rows="4"><spring:message code='jsp.addmember.Message' /></textarea>
+				<textarea id="MemberMessage" name="message" rows="4"><spring:message code='jsp.addmember.Message' /></textarea>
 			</p>
 			<p class="submit-wrapper">
 				<input class="button-primary" type="submit" name="addMember" value="<spring:message code='jsp.addmember.Submit' />" />

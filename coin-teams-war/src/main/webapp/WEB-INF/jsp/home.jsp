@@ -53,8 +53,11 @@
 					</tr>
 				</c:forEach>
 			</c:when>
-			<c:otherwise>
+			<c:when test="${fn:length(query) > 0})">
 				<tr><td colspan="4" /><spring:message code="jsp.home.NoTeamsFound" /></tr>
+			</c:when>
+			<c:otherwise>
+				<tr><td colspan="4" /><spring:message code="jsp.home.NoTeams" /></tr>
 			</c:otherwise>
 			</c:choose>
 			</tbody>

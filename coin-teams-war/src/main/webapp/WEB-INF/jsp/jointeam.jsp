@@ -15,9 +15,9 @@
 	<div id="Content">
 		<form id="JoinTeamForm" action="dojointeam.shtml" method="post">
 			<p class="label-field-wrapper">
-				<input type="hidden" name="teamId" value="${team.id}" />
+				<input type="hidden" name="team" value="${team.id}" />
 				<label for="TeamMessage"><spring:message code='jsp.general.Message' /></label>
-				<textarea id="TeamMessage" name="description" rows="4"><spring:message code='jsp.jointeam.Message' /></textarea>
+				<textarea id="TeamMessage" name="message" rows="4"><spring:message code='jsp.jointeam.Message' /></textarea>
 			</p>
 			<p class="submit-wrapper">
 				<input class="button-primary" type="submit" name="joinTeam" value="<spring:message code='jsp.jointeam.Submit' />" />

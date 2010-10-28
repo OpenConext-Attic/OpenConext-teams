@@ -95,3 +95,8 @@ jQuery.notifyBar = function(settings) {
     }
 
 })(jQuery) };
+
+// Overwrite the messages for the jquery validation plugin
+$.extend($.validator.messages, {
+	  required: "<spring:message code='error.RequiredField' />",
+});
