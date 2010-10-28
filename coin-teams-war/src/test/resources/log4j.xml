@@ -3,7 +3,7 @@
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
 
 	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
-		<param name="Threshold" value="WARN" />
+		<param name="Threshold" value="DEBUG" />
 		<param name="Target" value="System.err" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<!-- The default pattern: Date Priority [Category] Message\n -->
@@ -21,6 +21,9 @@
 	</category>
 	<category name="org.mortbay">
 		<priority value="WARN" />
+	</category>
+	<category name="nl.surfnet.coin.teams">
+		<priority value="DEBUG" />
 	</category>
 	<root>
 		<priority value="INFO" />
