@@ -8,6 +8,8 @@ import java.io.IOException;
 import nl.surfnet.coin.teams.service.ShindigActivityService;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.opensocial.Client;
 import org.opensocial.Request;
 import org.opensocial.RequestException;
@@ -30,12 +32,17 @@ public class ShindigActivityServiceImpl implements ShindigActivityService {
   
   @Autowired 
   private TeamEnvironment environment;
+  
+  private Logger logger = Logger.getLogger(ShindigActivityServiceImpl.class);
+  
 
   /* (non-Javadoc)
    * @see nl.surfnet.coin.teams.service.ShindigActivityService#addActivity(java.lang.String, java.lang.String, java.lang.String)
    */
   @Override
-  public void addActivity(String personId, String teamId, String title, String body) throws RequestException, IOException {
+  public void addActivity(String personId, String teamId, String title, String body) {
+    
+    logger.info("Adding activity to the portal for team ('" + teamId + "')");
     
     Provider provider = new ShindigProvider();
     
@@ -54,7 +61,14 @@ public class ShindigActivityServiceImpl implements ShindigActivityService {
     // Add the teamId as the groupId to the activity.
     request.setGroupId(teamId);
     request.setAppId(environment.getAppId());
-    Response response = client.send(request);
+    
+    try {
+      Response response = client.send(request);
+    } catch (RequestException e) {
+      logger.error("RequestException while adding activity for team ('" + teamId + "') and person ('" + personId + "')" , e);
+    } catch (IOException e) {
+      logger.error("IOException while adding activity for team ('" + teamId + "') and person ('" + personId + "')" , e);
+    }
   }
 
 }
