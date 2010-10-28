@@ -99,6 +99,6 @@ public class AddTeamController {
     String body = messageSource.getMessage(ACTIVITY_NEW_TEAM_BODY, messageValues, locale);
 
     // Add the activity
-    shindigActivityService.addActivity(personId, teamId, title, body);
+    //shindigActivityService.addActivity(personId, teamId, title, body);
   }
 }

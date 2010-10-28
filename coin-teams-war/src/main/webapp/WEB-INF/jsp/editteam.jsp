@@ -9,6 +9,7 @@
 	<!-- = Header -->
 	<div id="Header">
 		<h1><spring:message code='jsp.editteam.Title' /></h1>
+		<p class="close"><a href="home.shtml?teams=my"><spring:message code='jsp.general.CloseForm' /></a></p>
 	<!-- / Header -->
 	</div>
 	<!-- = Content -->

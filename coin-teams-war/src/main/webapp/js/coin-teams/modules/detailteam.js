@@ -8,7 +8,7 @@ COIN.MODULES.Detailteam = function(sandbox) {
 			
 			// Leave team admin message box
 			if ( $("#__notifyBar").length > 0 ) {
-				$.notifyBar({ close: true, cls: "error", html: $('#__notifyBar').html(), delay: 100000 });
+				$.notifyBar({ close: true, cls: "error", html: "<p>" + $('#__notifyBar').html() + "</p>", delay: 100000 });
 			}
 			
 			// Leave Team Confirm (appears when a user clicks 
@@ -127,10 +127,10 @@ COIN.MODULES.Detailteam = function(sandbox) {
 					}
 					
 					// Notify bar
-					$.notifyBar({ cls: "success", html: "<spring:message code='jsp.detailteam.AddRoleSuccess' />", delay: 1000 });
+					$.notifyBar({ cls: "success", html: "<p><spring:message code='jsp.detailteam.AddRoleSuccess' /></p>", delay: 10000 });
 				} else {
 					el.attr('checked') ? el.attr('checked', false) : el.attr('checked', true);
-					$.notifyBar({ cls: "error", html: "<spring:message code='jsp.detailteam.AddRoleFailure' />" });
+					$.notifyBar({ cls: "error", html: "<p><spring:message code='jsp.detailteam.AddRoleFailure' /></p>" });
 				}
 			});
 		},
@@ -165,13 +165,13 @@ COIN.MODULES.Detailteam = function(sandbox) {
 							admins[0].attr('disabled', true);
 						}
 					}
-					$.notifyBar({ cls: "success", html: "<spring:message code='jsp.detailteam.RemoveRoleSuccess' />", delay: 1000 });
+					$.notifyBar({ cls: "success", html: "<p><spring:message code='jsp.detailteam.RemoveRoleSuccess' /></p>", delay: 10000 });
 				} else if (data === 'onlyOneAdmin') {
-					$.notifyBar({ close: "true", cls: "error", html: "<spring:message code='jsp.detailteam.RemoveRoleFailureOneAdmin' />", delay: 10000 });
+					$.notifyBar({ close: "true", cls: "error", html: "<p><spring:message code='jsp.detailteam.RemoveRoleFailureOneAdmin' /></p>", delay: 10000 });
 					el.attr('checked') ? el.attr('checked', false) : el.attr('checked', true);
 				} else {
 					el.attr('checked') ? el.attr('checked', false) : el.attr('checked', true);
-					$.notifyBar({ cls: "error", html: "<spring:message code='jsp.detailteam.RemoveRoleFailure' />" });
+					$.notifyBar({ cls: "error", html: "<p><spring:message code='jsp.detailteam.RemoveRoleFailure' /></p>" });
 				}
 			});
 		}

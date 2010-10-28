@@ -10,7 +10,7 @@
 	<!-- = Header -->
 	<div id="Header">
 		<c:if test="${fn:length(message) > 0}"><div id="__notifyBar" class="hide"><spring:message code='${message}' /></div></c:if>
-		<p class="back"><a href="home.shtml?teams=my">&lt; <spring:message code='jsp.detailteam.Back' /> to teams</a></p>
+		<p class="back"><a href="home.shtml?teams=my">&lt; <spring:message code='jsp.detailteam.Back' /></a></p>
 		<h1 class="team-title"><c:out value="${team.name}" /></h1>	
 		<div class="team-options-wrapper">
 			<c:url value="editteam.shtml" var="editUrl"><c:param name="team" value="${team.id}" /></c:url>

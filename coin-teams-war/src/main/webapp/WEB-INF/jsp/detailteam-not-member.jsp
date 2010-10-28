@@ -8,11 +8,8 @@
 <div class="section" id="TeamContainer">
 	<!-- = Header -->
 	<div id="Header">
+		<p class="back"><a href="home.shtml?teams=all">&lt; <spring:message code='jsp.detailteam.Back' /></a></p>
 		<h1><c:out value="${team.name}" /></h1>
-		<ul class="team-options">
-			<c:url value="jointeam.shtml" var="joinUrl"><c:param name="team" value="${team.id}" /></c:url>
-			<li><a href="<c:out value='${joinUrl}' />"><spring:message code='jsp.detailteam.Join' /></a></li>
-		</ul>
 	<!-- / Header -->
 	</div>
 	<!-- = Content -->
@@ -22,8 +19,8 @@
 			<c:out value="${team.description}" default="${noDescription}"/>
 		</p>
 		<p class="more">
-			<a class="button-primary" href="jointeam.shtml?team=${team.id}"><spring:message code='jsp.detailteam.Join' /></a>
-			<a class="button-secondary" href="home.shtml?teams=my"><spring:message code='jsp.general.Cancel' /></a>			
+			<c:url value="jointeam.shtml" var="joinUrl"><c:param name="team" value="${team.id}" /></c:url>
+			<a class="button-primary" href="<c:out value='${joinUrl}' />"><spring:message code='jsp.detailteam.Join' /></a>		
 		</p>
 		<br class="clear" />
 	<!-- / Content -->

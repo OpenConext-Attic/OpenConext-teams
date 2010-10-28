@@ -9,7 +9,7 @@
 <div class="section" id="TeamContainer">
 	<!-- = Header -->
 	<div id="Header">
-		<p class="back"><a href="home.shtml?teams=my">&lt; <spring:message code='jsp.detailteam.Back' /> to teams</a></p>
+		<p class="back"><a href="home.shtml?teams=my">&lt; <spring:message code='jsp.detailteam.Back' /></a></p>
 		<h1 class="team-title"><c:out value="${team.name}" /></h1>
 		<p class="team-option">
 			<c:url value="doleaveteam.shtml" var="leaveUrl"><c:param name="team" value="${team.id}" /></c:url>

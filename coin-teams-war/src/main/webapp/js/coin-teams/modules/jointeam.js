@@ -5,7 +5,7 @@ COIN.MODULES.Jointeam = function(sandbox) {
 			// Clicked [ Cancel ]
 			$('input[name=cancelJoinTeam]').live('click', function(e) {
 				e.preventDefault();
-				var teamId = $('input[name=teamId]').val();
+				var teamId = $('input[name=team]').val();
 				sandbox.redirectBrowserTo('detailteam.shtml?team=' + teamId);
 			});
 		},
