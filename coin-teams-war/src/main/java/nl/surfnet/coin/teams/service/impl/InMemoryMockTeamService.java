@@ -22,7 +22,7 @@ import org.springframework.stereotype.Component;
  * Mock implementation of {@link TeamService}
  * 
  */
-@Component("teamService")
+//@Component("teamService")
 public class InMemoryMockTeamService implements TeamService {
 
   private Map<String, Team> teams = new HashMap<String, Team>();
@@ -231,7 +231,7 @@ public class InMemoryMockTeamService implements TeamService {
   }
 
   @Override
-  public boolean removeMemberRole(String teamId, String memberId, Role role) {
+  public boolean removeMemberRole(String teamId, String memberId, Role role, boolean removeAsSuperUser) {
     Member member = findMember(teamId, memberId);
     member.removeRole(role);
     
@@ -290,6 +290,17 @@ public class InMemoryMockTeamService implements TeamService {
     }
     
     return result;
+  }
+
+  @Override
+  public Member findMember(Team team, String memberId) {
+    Set<Member> members = team.getMembers();
+    for (Member member : members) {
+      if (member.getId().equals(memberId)) {
+        return member;
+      }
+    }
+    throw new RuntimeException("Member(id='" + memberId + "') does not exist");
   }
 
 }

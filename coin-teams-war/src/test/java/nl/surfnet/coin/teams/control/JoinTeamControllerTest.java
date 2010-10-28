@@ -6,6 +6,7 @@ package nl.surfnet.coin.teams.control;
 import static org.junit.Assert.assertEquals;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.service.TeamsAPIService;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -34,6 +35,7 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
     request.addParameter("team", "team-1");
     
     autoWireMock(joinTeamController, new Returns(mockTeam), TeamService.class);
+    autoWireRemainingResources(joinTeamController);
     
     joinTeamController.start(getModelMap(), request);
     
@@ -59,8 +61,11 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
     MockHttpServletRequest request = getRequest();
     // Add the team
     request.addParameter("team", "team-1");
+    request.addParameter("message", "message");
     
     autoWireMock(joinTeamController, new Returns(mockTeam), TeamService.class);
+    autoWireMock(joinTeamController, new Returns(true), TeamsAPIService.class);
+    autoWireRemainingResources(joinTeamController);
     
     RedirectView result = joinTeamController.joinTeam(getModelMap(), request);
     

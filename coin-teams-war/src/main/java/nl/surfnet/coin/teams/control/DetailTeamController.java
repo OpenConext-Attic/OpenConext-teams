@@ -225,7 +225,7 @@ public class DetailTeamController {
     }
 
     Role role = roleString.equals(ADMIN) ? Role.Admin : Role.Manager;
-    return teamService.removeMemberRole(teamId, memberId, role) ? "success"
+    return teamService.removeMemberRole(teamId, memberId, role, false) ? "success"
         : "error";
   }
 }

@@ -111,11 +111,12 @@ public interface TeamService {
    * @param teamId the unique identifier of a {@link Team}
    * @param memberId the unique identifier of a {@link Team} 
    * @param role the {@link Role} to be removed
+   * @param removeAsSuperUser as the grouper superuser?
    * 
    * @return boolean true if the {@link Role} has been 
    * successfully added false if the {@link Role} has not been added
    */
-  boolean removeMemberRole(String teamId, String memberId, Role role);
+  boolean removeMemberRole(String teamId, String memberId, Role role, boolean removeAsSuperUser);
   
   List<Team> findTeams(String partOfTeamName, String memberId);
 
@@ -123,5 +124,8 @@ public interface TeamService {
   
   Member findMember(String teamId, String memberId);
   
+  Member findMember(Team team, String memberId);
+  
   Set<Member> findAdmins(Team team);
+  
 }

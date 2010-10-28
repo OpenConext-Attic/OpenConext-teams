@@ -35,14 +35,14 @@ public class ShindigActivityServiceImpl implements ShindigActivityService {
    * @see nl.surfnet.coin.teams.service.ShindigActivityService#addActivity(java.lang.String, java.lang.String, java.lang.String)
    */
   @Override
-  public void addActivity(String person, String title, String body) throws RequestException, IOException {
+  public void addActivity(String personId, String teamId, String title, String body) throws RequestException, IOException {
     
     Provider provider = new ShindigProvider();
     
     provider.setRestEndpoint(environment.getRestEndpoint());
     provider.setRpcEndpoint(environment.getRpcEndpoint());
     
-    AuthScheme scheme = new OAuth2LeggedScheme(environment.getConsumerKey(), environment.getConsumerSecret(), person);
+    AuthScheme scheme = new OAuth2LeggedScheme(environment.getConsumerKey(), environment.getConsumerSecret(), personId);
 
     Client client = new Client(provider, scheme);
     
@@ -51,8 +51,9 @@ public class ShindigActivityServiceImpl implements ShindigActivityService {
     activity.setBody(body);
     
     Request request = ActivitiesService.createActivity(activity);
+    // Add the teamId as the groupId to the activity.
+    request.setGroupId(teamId);
     Response response = client.send(request);
-    
   }
 
 }

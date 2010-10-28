@@ -47,7 +47,7 @@ import edu.internet2.middleware.grouperClient.ws.beans.WsSubjectLookup;
  * {@link TeamService} using Grouper LDAP as persistent store
  * 
  */
-//@Component("teamService")
+@Component("teamService")
 public class GrouperTeamService implements TeamService {
 
   @Autowired
@@ -147,14 +147,16 @@ public class GrouperTeamService implements TeamService {
 
   private List<Team> convertWsGroupToTeam(WsGroup[] groupResults) {
     List<Team> result = new ArrayList<Team>();
-    for (WsGroup wsGroup : groupResults) {
-      WsGrouperPrivilegeResult[] privilegeResults = getGroupPrivileges(wsGroup
-          .getName());
-      Team team = new Team(wsGroup.getName(), wsGroup.getDisplayExtension(),
-          wsGroup.getDescription(), getMembers(wsGroup.getName(),
-              privilegeResults), getVisibilityGroup(wsGroup.getName(),
-              privilegeResults));
-      result.add(team);
+    if (groupResults != null && groupResults.length > 0) {
+      for (WsGroup wsGroup : groupResults) {
+        WsGrouperPrivilegeResult[] privilegeResults = getGroupPrivileges(wsGroup
+            .getName());
+        Team team = new Team(wsGroup.getName(), wsGroup.getDisplayExtension(),
+            wsGroup.getDescription(), getMembers(wsGroup.getName(),
+                privilegeResults), getVisibilityGroup(wsGroup.getName(),
+                privilegeResults));
+        result.add(team);
+      }
     }
     return result;
   }
@@ -305,7 +307,7 @@ public class GrouperTeamService implements TeamService {
 
     Member member = findMember(teamId, personId);
     for (Role role : member.getRoles()) {
-      removeMemberRole(teamId, personId, role);
+      removeMemberRole(teamId, personId, role, true);
     }
 
     GcDeleteMember deleteMember = new GcDeleteMember();
@@ -414,9 +416,9 @@ public class GrouperTeamService implements TeamService {
   }
 
   @Override
-  public boolean removeMemberRole(String teamId, String memberId, Role role) {
+  public boolean removeMemberRole(String teamId, String memberId, Role role, boolean removeAsPowerUser) {
     GcAssignGrouperPrivileges assignPrivilige = new GcAssignGrouperPrivileges();
-    assignPrivilige.assignActAsSubject(getActAsSubject());
+    assignPrivilige.assignActAsSubject(getActAsSubject(removeAsPowerUser));
     assignPrivilige.assignGroupLookup(new WsGroupLookup(teamId, null));
     WsSubjectLookup subject = new WsSubjectLookup();
     subject.setSubjectId(memberId);
@@ -513,6 +515,19 @@ public class GrouperTeamService implements TeamService {
       }
     }
     return false;
+  }
+
+  @Override
+  public Member findMember(Team team, String memberId) {
+    Set<Member> members = team.getMembers();
+
+    for (Member member : members) {
+      if (member.getId().equals(memberId)) {
+        return member;
+      }
+    }
+    throw new RuntimeException("Member(id='" + memberId
+        + "') is not a member of the given team");
   }
 
 }

@@ -57,7 +57,7 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     // request team
     request.setParameter("team", "team-1");
     request.setParameter("memberEmail", "john@doe.com");
-    request.setParameter("description", "Nice description");
+    request.setParameter("message", "Nice description");
         
     Team team1 = new Team("team-1", "Team 1", "description");
     

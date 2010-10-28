@@ -428,7 +428,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     TeamService teamService = mock(TeamService.class);
     when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
     when(teamService.findAdmins(mockTeam)).thenReturn(admins);
-    when(teamService.removeMemberRole("team-1", "member-1", Role.Manager)).thenReturn(true);
+    when(teamService.removeMemberRole("team-1", "member-1", Role.Manager, false)).thenReturn(true);
 
     autoWireMock(detailTeamController, teamService, TeamService.class);
     autoWireRemainingResources(detailTeamController);
@@ -463,7 +463,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     TeamService teamService = mock(TeamService.class);
     when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
     when(teamService.findAdmins(mockTeam)).thenReturn(admins);
-    when(teamService.removeMemberRole("team-1", "member-1", Role.Admin)).thenReturn(false);
+    when(teamService.removeMemberRole("team-1", "member-1", Role.Admin, false)).thenReturn(false);
 
     autoWireMock(detailTeamController, teamService, TeamService.class);
     autoWireRemainingResources(detailTeamController);

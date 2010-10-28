@@ -41,17 +41,20 @@ public interface TeamsAPIService {
    * @return {@link boolean} true if the invitations are sent successfully,
    *         false if something went wrong.
    */
-  boolean sentInvitations(List<Invitation> invitations, String teamId,
+  boolean sentInvitations(String emails, String teamId,
       String message, String subject) throws IllegalStateException, ClientProtocolException, IOException;
 
   /**
    * Request Membership for a {@link team}
    * 
    * @param teamId
+   * @param personId
+   * @param message
+   * @param subject
    * 
    * @return {@link boolean} true if the invitations are sent successfully,
    *         false if something went wrong.
    */
-  boolean requestMembership(String teamId, String message, String subject) throws ClientProtocolException, IOException;
+  boolean requestMembership(String teamId, String personId, String message, String subject) throws ClientProtocolException, IOException;
 
 }
