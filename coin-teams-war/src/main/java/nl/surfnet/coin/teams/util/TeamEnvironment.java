@@ -14,10 +14,11 @@ public class TeamEnvironment {
   private String defaultStemName;
   private String grouperPowerUser;
   private String teamsAPIUrl;
-  private String consumerKey;
-  private String consumerSecret;
+  private String oauthKey;
+  private String oauthSecret;
   private String restEndpoint;
   private String rpcEndpoint;
+  private String appId;
 
 
   /**
@@ -109,34 +110,6 @@ public class TeamEnvironment {
   }
 
   /**
-   * @param consumerKey the consumerKey to set
-   */
-  public void setConsumerKey(String consumerKey) {
-    this.consumerKey = consumerKey;
-  }
-
-  /**
-   * @return the consumerKey
-   */
-  public String getConsumerKey() {
-    return consumerKey;
-  }
-
-  /**
-   * @param consumerSecret the consumerSecret to set
-   */
-  public void setConsumerSecret(String consumerSecret) {
-    this.consumerSecret = consumerSecret;
-  }
-
-  /**
-   * @return the consumerSecret
-   */
-  public String getConsumerSecret() {
-    return consumerSecret;
-  }
-
-  /**
    * @param restEndpoint the restEndpoint to set
    */
   public void setRestEndpoint(String restEndpoint) {
@@ -162,6 +135,48 @@ public class TeamEnvironment {
    */
   public String getRpcEndpoint() {
     return rpcEndpoint;
+  }
+
+  /**
+   * @param appId the appId to set
+   */
+  public void setAppId(String appId) {
+    this.appId = appId;
+  }
+
+  /**
+   * @return the appId
+   */
+  public String getAppId() {
+    return appId;
+  }
+
+  /**
+   * @param oauthKey the oauthKey to set
+   */
+  public void setOauthKey(String oauthKey) {
+    this.oauthKey = oauthKey;
+  }
+
+  /**
+   * @return the oauthKey
+   */
+  public String getOauthKey() {
+    return oauthKey;
+  }
+
+  /**
+   * @param oauthSecret the oauthSecret to set
+   */
+  public void setOauthSecret(String oauthSecret) {
+    this.oauthSecret = oauthSecret;
+  }
+
+  /**
+   * @return the oauthSecret
+   */
+  public String getOauthSecret() {
+    return oauthSecret;
   }
 
 }

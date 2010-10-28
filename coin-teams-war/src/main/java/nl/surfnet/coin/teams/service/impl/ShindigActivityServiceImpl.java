@@ -42,7 +42,7 @@ public class ShindigActivityServiceImpl implements ShindigActivityService {
     provider.setRestEndpoint(environment.getRestEndpoint());
     provider.setRpcEndpoint(environment.getRpcEndpoint());
     
-    AuthScheme scheme = new OAuth2LeggedScheme(environment.getConsumerKey(), environment.getConsumerSecret(), personId);
+    AuthScheme scheme = new OAuth2LeggedScheme(environment.getOauthKey(), environment.getOauthSecret(), personId);
 
     Client client = new Client(provider, scheme);
     
@@ -53,6 +53,7 @@ public class ShindigActivityServiceImpl implements ShindigActivityService {
     Request request = ActivitiesService.createActivity(activity);
     // Add the teamId as the groupId to the activity.
     request.setGroupId(teamId);
+    request.setAppId(environment.getAppId());
     Response response = client.send(request);
   }
 
