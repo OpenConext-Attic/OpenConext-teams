@@ -16,7 +16,6 @@ import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import edu.internet2.middleware.grouperClient.api.GcAddMember;

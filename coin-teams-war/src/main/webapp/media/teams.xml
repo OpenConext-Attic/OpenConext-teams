@@ -1,30 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-	<ModulePrefs title="SURFteams">
-	<Require feature="opensocial-0.8" />
-	<Require feature="dynamic-height" />
+	<ModulePrefs title="SURFteams" height="320">
+		<Require feature="opensocial-0.8" />
+		<Require feature="dynamic-height" />
+		<Require feature="setprefs" />
 	</ModulePrefs>
+	<UserPref name="groupContext" />
 	<Content type="html">
-	<![CDATA[
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.js"></script>
-	<script type="text/javascript">
-		//load frame
-		
-		function loadFrame() {
-		 	var srcString ='http://localhost:8060/teams';
-		 	
-		 	document.getElementById('container').innerHTML = '<iframe frameborder="0" width="100%" height="300" src="'+srcString+'"></iframe>';
-		 	gadgets.window.adjustHeight(); //so app resizes itself based on content
-		}
-		
-		function init() {
-			loadFrame(); 
-		}
-		
-		gadgets.util.registerOnLoadHandler(loadFrame); //init() will be called immediately when application is loaded
-	</script>
-	<div id="container">
-	</div>
+        <![CDATA[
+        <div id="SURFteamsContent"></div>
+        <script type="text/javascript">
+        
+        function loadFrame() {
+                var srcString ='https://gui.dev.coin.surf.net/teams/';
+                var prefs = new gadgets.Prefs();
+                var groupContext = escape(prefs.getString('groupContext'));
+                        if(groupContext != "") {
+                                srcString += 'detailteam.shtml?team=' + groupContext;
+                        }
+                document.getElementById('SURFteamsContent').innerHTML = '<iframe frameborder="0" scrolling="no" width="100%" height="320" src="'+srcString+'"></iframe>';
+                gadgets.window.adjustHeight(); //so app resizes itself based on content
+        }
+        
+        gadgets.util.registerOnLoadHandler(loadFrame);
  ]]>
- </Content>
- </Module>
+	</Content>
+</Module>

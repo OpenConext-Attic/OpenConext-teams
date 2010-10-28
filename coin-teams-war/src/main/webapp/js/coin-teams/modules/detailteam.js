@@ -41,7 +41,7 @@ COIN.MODULES.Detailteam = function(sandbox) {
 				dialogClass: "ui-popup",
 				buttons: {
 					'<spring:message code='jsp.dialog.deleteteam.Submit' />': library.deleteTeam,
-					'<spring:message code='jsp.general.Cancel' />': library.cancelLeave
+					'<spring:message code='jsp.general.Cancel' />': library.cancelDelete
 				},
 				open: function() {
 //					$buttonPane = $(this).next();

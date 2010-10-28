@@ -42,23 +42,23 @@
 			</thead>
 			<tbody>
 			<c:choose>
-			<c:when test="${fn:length(teams) > 0 }">
-				<c:forEach items="${teams}" var="team">
-					<tr>
-						<c:url value="detailteam.shtml" var="detailUrl"><c:param name="team" value="${team.id}" /></c:url>
-						<td><a href="<c:out value='${detailUrl}' />"><c:out value="${team.name}" /></a></td>
-						<td><c:out value="${team.description}" /></td>
-						<td><c:out value="${team.viewerRole}" /></td>
-						<td><c:out value="${fn:length(team.members)}" /></td>
-					</tr>
-				</c:forEach>
-			</c:when>
-			<c:when test="${fn:length(query) > 0})">
-				<tr><td colspan="4" /><spring:message code="jsp.home.NoTeamsFound" /></tr>
-			</c:when>
-			<c:otherwise>
-				<tr><td colspan="4" /><spring:message code="jsp.home.NoTeams" /></tr>
-			</c:otherwise>
+				<c:when test="${fn:length(teams) > 0 }">
+					<c:forEach items="${teams}" var="team">
+						<tr>
+							<c:url value="detailteam.shtml" var="detailUrl"><c:param name="team" value="${team.id}" /></c:url>
+							<td><a href="<c:out value='${detailUrl}' />"><c:out value="${team.name}" /></a></td>
+							<td><c:out value="${team.description}" /></td>
+							<td><c:out value="${team.viewerRole}" /></td>
+							<td><c:out value="${fn:length(team.members)}" /></td>
+						</tr>
+					</c:forEach>
+				</c:when>
+				<c:when test="${fn:length(query) > 0 && fn:length(teams) == 0}">
+					<tr><td colspan="4" /><spring:message code="jsp.home.NoTeamsFound" /></tr>
+				</c:when>
+				<c:otherwise>
+					<tr><td colspan="4" /><spring:message code="jsp.home.NoTeams" /></tr>
+				</c:otherwise>
 			</c:choose>
 			</tbody>
 		</table>
