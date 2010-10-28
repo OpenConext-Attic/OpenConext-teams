@@ -5,7 +5,6 @@
 <html>
 <head>
     <title><spring:message code="jsp.general.Title" /></title>
-    <link rel="stylesheet" href="css/ext/jqueryui/1.8.2/themes/base/jquery-ui.css" type="text/css" media="all" />
     <link rel="stylesheet" href="css/default.css">
     <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="js/jquery.validate.min.js"></script>
@@ -35,7 +34,6 @@
 
   
   <script type="text/javascript" src="js/jquery-ui-1.8.4.custom.min.js"></script>
-  <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
   <script type="text/javascript" src="js/coin-teams.js"></script>
 </body>
 </html>
