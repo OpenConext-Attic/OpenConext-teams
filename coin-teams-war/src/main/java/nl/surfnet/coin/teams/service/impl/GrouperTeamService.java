@@ -16,6 +16,7 @@ import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import edu.internet2.middleware.grouperClient.api.GcAddMember;
@@ -200,7 +201,7 @@ public class GrouperTeamService implements TeamService {
     getMember.addSubjectAttributeName("displayName");
     WsGetMembersResult[] getMembers = getMember.execute().getResults();
     Set<Member> members = new HashSet<Member>();
-    if (getMembers.length > 0) {
+    if (getMembers[0].getWsSubjects() != null && getMembers[0].getWsSubjects().length > 0) {
       WsSubject[] subjects = getMembers[0].getWsSubjects();
       for (WsSubject wsSubject : subjects) {
         String id = wsSubject.getId();
