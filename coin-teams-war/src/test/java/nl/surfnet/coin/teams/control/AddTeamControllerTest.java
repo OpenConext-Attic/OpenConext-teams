@@ -57,6 +57,7 @@ public class AddTeamControllerTest extends AbstractControllerTest{
     when(teamService.addTeam("Team 1", "Team 1", "description team 1")).thenReturn("team-1");
     
     autoWireMock(addTeamController, teamService, TeamService.class);
+    autoWireRemainingResources(addTeamController);
     
     addTeamController.addTeam(getModelMap(), request);
     }

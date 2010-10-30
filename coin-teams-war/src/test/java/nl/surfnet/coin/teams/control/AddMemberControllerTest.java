@@ -26,7 +26,7 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     // request team
     request.setParameter("team", "team-1");
         
-    Team team1 = new Team("team-1", "Team 1", "description");
+    Team team1 = new Team("team-1", "Team 1", "description", true);
     
     autoWireMock(addMemberController, new Returns(team1), TeamService.class);
     
@@ -35,6 +35,8 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     Team team = (Team) getModelMap().get("team");
     
     assertEquals("team-1", team.getId());
+    assertEquals("Team 1", team.getName());
+    assertEquals("description", team.getDescription());
   }
 
   @Test (expected=RuntimeException.class)
@@ -59,15 +61,18 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     request.setParameter("memberEmail", "john@doe.com");
     request.setParameter("message", "Nice description");
         
-    Team team1 = new Team("team-1", "Team 1", "description");
+    Team team1 = new Team("team-1", "Team 1", "description", false);
     
     autoWireMock(addMemberController, new Returns(team1), TeamService.class);
+    autoWireRemainingResources(addMemberController);
     
     addMemberController.start(getModelMap(), request);
     
     Team team = (Team) getModelMap().get("team");
     
     assertEquals("team-1", team.getId());
+    assertEquals("Team 1", team.getName());
+    assertEquals("description", team.getDescription());
   }
   
   @Test (expected=RuntimeException.class)
@@ -79,6 +84,7 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     Team team1 = new Team("team-1", "Team 1", "description");
     
     autoWireMock(addMemberController, new Returns(team1), TeamService.class);
+    autoWireRemainingResources(addMemberController);
     
     addMemberController.start(getModelMap(), request);
     }

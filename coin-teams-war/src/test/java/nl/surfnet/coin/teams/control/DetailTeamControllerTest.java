@@ -4,6 +4,8 @@
 package nl.surfnet.coin.teams.control;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -15,7 +17,6 @@ import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.TeamService;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
 import org.springframework.mock.web.MockHttpServletRequest;
@@ -67,8 +68,20 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     String result = detailTeamController.start(getModelMap(), request);
 
     Team team = (Team) getModelMap().get("team");
+    Member[] membersResult = team.getMembers().toArray(new Member[] {});
+    Member member = membersResult[0];
 
     assertEquals("team-1", team.getId());
+    assertEquals("Team 1", team.getName());
+    assertEquals("team description", team.getDescription());
+    
+    assertEquals(1, membersResult.length);
+    assertEquals("Jane Doe", member.getName());
+    assertEquals("jane@doe.com", member.getEmail());
+    assertEquals("member-2", member.getId());
+    assertTrue(member.getRoles().contains(Role.Member));
+    assertFalse(member.getRoles().contains(Role.Admin));
+    assertFalse(member.getRoles().contains(Role.Manager));
     assertEquals("detailteam-not-member", result);
   }
 
@@ -103,6 +116,8 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     Team team = (Team) getModelMap().get("team");
 
     assertEquals("team-1", team.getId());
+    assertEquals("Team 1", team.getName());
+    assertEquals("team description", team.getDescription());
     assertEquals("detailteam-member", result);
   }
 
@@ -138,6 +153,8 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     Team team = (Team) getModelMap().get("team");
 
     assertEquals("team-1", team.getId());
+    assertEquals("Team 1", team.getName());
+    assertEquals("team description", team.getDescription());
     assertEquals("detailteam-manager", result);
   }
 
@@ -175,6 +192,8 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     int onlyAdmin = (Integer) getModelMap().get("onlyAdmin");
 
     assertEquals("team-1", team.getId());
+    assertEquals("Team 1", team.getName());
+    assertEquals("team description", team.getDescription());
     assertEquals(1, onlyAdmin);
     assertEquals("detailteam-admin", result);
   }
