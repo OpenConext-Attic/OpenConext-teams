@@ -51,18 +51,25 @@ delete the 'coin-teams-war-<<VERION>>.war' file.
 
 Out-of-the-box the tarball comes with a number of different property files. 
 A number of property files are delivered:
+coin-teams properties
 - coin-teams.properties
 - coin-teams.properties.acc
 - coin-teams.properties.prod
 - coin-teams.properties.test
 
+grouper-client properties
+- grouper.client.properties
+- grouper.client.properties.acc
+- grouper.client.properties.prod
+- grouper.client.properties.test
+
 For different environments different property files are delivered. Pick the 
-appropriate property file for your environment from the following directory:
+appropriate property files (one coin-teams and one grouper.client property file) for your environment from the following directory:
 <<EXTRACTED_TAR_BALL_PATH>>/tomcat/conf/classpath_resources
 
-Copy the chosen property file to <<CATALINA_HOME>>/conf/classpath_resources
+Copy the chosen property files to <<CATALINA_HOME>>/conf/classpath_resources
 
-Edit the property file values according to your environment.
+Edit the values of the property files according to your environment.
 
 
 3. DEPLOY WAR FILE
