@@ -127,7 +127,7 @@ COIN.MODULES.Detailteam = function(sandbox) {
 					}
 					
 					// Notify bar
-					$.notifyBar({ cls: "success", html: "<p><spring:message code='jsp.detailteam.AddRoleSuccess' /></p>", delay: 10000 });
+					$.notifyBar({ cls: "success", html: "<p><spring:message code='jsp.detailteam.AddRoleSuccess' /></p>", delay: 1000 });
 				} else {
 					el.attr('checked') ? el.attr('checked', false) : el.attr('checked', true);
 					$.notifyBar({ cls: "error", html: "<p><spring:message code='jsp.detailteam.AddRoleFailure' /></p>" });
@@ -165,13 +165,13 @@ COIN.MODULES.Detailteam = function(sandbox) {
 							admins[0].attr('disabled', true);
 						}
 					}
-					$.notifyBar({ cls: "success", html: "<p><spring:message code='jsp.detailteam.RemoveRoleSuccess' /></p>", delay: 10000 });
+					$.notifyBar({ cls: "success", html: "<p><spring:message code='jsp.detailteam.RemoveRoleSuccess' /></p>", delay: 1000 });
 				} else if (data === 'onlyOneAdmin') {
 					$.notifyBar({ close: "true", cls: "error", html: "<p><spring:message code='jsp.detailteam.RemoveRoleFailureOneAdmin' /></p>", delay: 10000 });
 					el.attr('checked') ? el.attr('checked', false) : el.attr('checked', true);
 				} else {
 					el.attr('checked') ? el.attr('checked', false) : el.attr('checked', true);
-					$.notifyBar({ cls: "error", html: "<p><spring:message code='jsp.detailteam.RemoveRoleFailure' /></p>" });
+					$.notifyBar({ close: "true", cls: "error", html: "<p><spring:message code='jsp.detailteam.RemoveRoleFailure' /></p>", delay: 10000 });
 				}
 			});
 		}
