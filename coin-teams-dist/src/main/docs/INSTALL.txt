@@ -1,0 +1,87 @@
+Copyright (C) 2010 SURFnet BV
+All rights reserved.
+
+RELEASE INFORMATION
+
+Project:           COIN-Teams
+Date:              2010-11-04
+
+Content:
+
+	1.	Unpack tarball
+	
+	2.  Prepare Tomcat
+		2.1	Stop Tomcat
+		2.2	Undeploy a previous version
+		2.3	Copy / edit property files
+		
+	3.	Deploy war file
+	
+	4.	Start tomcat
+
+	
+1. UNPACK TARBALL
+=================
+
+Unpack the provided tarball on the server that you want to deploy
+the application on. e.g. extract the tarball in /tmp
+
+
+2. PREPARE TOMCAT
+=================
+
+This installation document only provides documentation for the Tomcat 
+application server.
+
+If you already have deployed a previous version of the COIN Teams application
+you must follow step 2.2 to undeploy the previous version
+
+2.1	Stop Tomcat
+
+Stop the tomcat application server
+
+2.2	Undeploy a previous version (optional)
+
+Navigate to the '<<CATALINA_HOME>>/webapps/<<GUI-VIRTUAL-HOST-DIRECTORY>>'
+(e.g. /opt/tomcat/webapps/gui.dev.coin.surf.net)
+delete the 'coin-teams-war-<<VERION>>.war' file. 
+(e.g. coin-teams-war-0.1-SNAPSHOT.war)
+
+2.3	Copy / edit property files
+
+Out-of-the-box the tarball comes with a number of different property files. 
+A number of property files are delivered:
+- coin-teams.properties
+- coin-teams.properties.acc
+- coin-teams.properties.prod
+- coin-teams.properties.test
+
+For different environments different property files are delivered. Pick the 
+appropriate property file for your environment from the following directory:
+<<EXTRACTED_TAR_BALL_PATH>>/tomcat/conf/classpath_resources
+
+Copy the chosen property file to <<CATALINA_HOME>>/conf/classpath_resources
+
+Edit the property file values according to your environment.
+
+
+3. DEPLOY WAR FILE
+==================
+
+Copy the provided context descriptor from 
+<<EXTRACTED_TAR_BALL_PATH>>/tomcat/conf/context
+to 
+<<CATALINA_HOME>>/conf/Catalina/<<GUI-VIRTUAL-HOST-DIRECTORY>>
+(e.g. /opt/tomcat/conf/Catalina/gui.dev.coin.surf.net)
+
+Now, copy the coin-portal war located at
+<<EXTRACTED_TAR_BALL_PATH>>/tomcat/webapps
+to
+<<CATALINA_HOME>>/webapps/<<GUI-VIRTUAL-HOST-DIRECTORY>>
+(e.g. /opt/tomcat/webapps/gui.dev.coin.surf.net)
+
+
+4. START TOMCAT
+===============
+
+Start tomcat again.
