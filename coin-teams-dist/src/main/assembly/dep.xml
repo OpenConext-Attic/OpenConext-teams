@@ -8,11 +8,20 @@
 
         <fileSet>
             <directory>src/main/resources/tomcat</directory>
-            <outputDirectory>tomcat/conf</outputDirectory>
+            <outputDirectory>tomcat/conf/classpath_properties</outputDirectory>
             <includes>
                 <include>**/*.*</include>
             </includes>
         </fileSet>
+        
+        <fileSet>
+            <directory>target/resources/context</directory>
+            <outputDirectory>tomcat/conf/context</outputDirectory>
+            <includes>
+                <include>**/*.*</include>
+            </includes>
+        </fileSet>
+        
 
     </fileSets>
 
