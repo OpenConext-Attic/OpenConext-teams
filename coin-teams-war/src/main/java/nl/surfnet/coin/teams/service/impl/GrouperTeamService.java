@@ -47,7 +47,6 @@ import edu.internet2.middleware.grouperClient.ws.beans.WsSubjectLookup;
  * {@link TeamService} using Grouper LDAP as persistent store
  * 
  */
-//@Component("teamService")
 public class GrouperTeamService implements TeamService {
 
   @Autowired

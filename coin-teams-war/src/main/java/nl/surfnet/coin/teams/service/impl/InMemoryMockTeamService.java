@@ -22,7 +22,6 @@ import org.springframework.stereotype.Component;
  * Mock implementation of {@link TeamService}
  * 
  */
-@Component("teamService")
 public class InMemoryMockTeamService implements TeamService {
 
   private Map<String, Team> teams = new HashMap<String, Team>();

@@ -25,6 +25,10 @@ rpcEndpoint=https://gadgets.dev.coin.surf.net/social/rpc
 #loginInterceptor=nl.surfnet.coin.teams.interceptor.MockLoginInterceptor
 loginInterceptor=nl.surfnet.coin.teams.interceptor.LoginInterceptor
 
+# Use the InMemoryMockTeamService when you want to mock the teamService
+#teamService=nl.surfnet.coin.teams.service.impl.InMemoryMockTeamService
+teamService=nl.surfnet.coin.teams.service.impl.GrouperTeamService
+
 #mock* properties can be left empty when deploying in acc/prod
 mockLogin=member-1
 #mockLogin=urn:collab:person:surfnet.nl:hansz
