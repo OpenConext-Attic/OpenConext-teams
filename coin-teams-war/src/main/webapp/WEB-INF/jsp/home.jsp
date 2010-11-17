@@ -21,7 +21,7 @@
 					<input class="text search-query" type="text" name="teamSearch" value="<c:out value='${query}' />" />
 				</c:otherwise>
 			</c:choose>
-			<input class="submit-search" id="SubmitTeamSearch" type="submit" />
+			<input class="submit-search" id="SubmitTeamSearch" type="submit" value="" />
 		</fieldset>
 	</form>
 	<br class="clear" />

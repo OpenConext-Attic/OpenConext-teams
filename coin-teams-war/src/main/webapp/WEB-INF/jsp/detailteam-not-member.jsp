@@ -8,13 +8,13 @@
 <div class="section" id="TeamContainer">
 	<!-- = Header -->
 	<div id="Header">
-		<p class="back"><a href="home.shtml?teams=all">&lt; <spring:message code='jsp.detailteam.Back' /></a></p>
+		<p class="back not-member"><a href="home.shtml?teams=all">&lt; <spring:message code='jsp.detailteam.Back' /></a></p>
 		<h1><c:out value="${team.name}" /></h1>
 	<!-- / Header -->
 	</div>
 	<!-- = Content -->
 	<div id="Content">
-		<p>
+		<p class="description">
 			<c:set var="noDescription"><spring:message code='jsp.general.NoDescription' /></c:set>
 			<c:out value="${team.description}" default="${noDescription}"/>
 		</p>

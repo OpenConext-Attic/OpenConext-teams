@@ -11,7 +11,6 @@
 	<div id="Header">
 		<c:if test="${fn:length(message) > 0}"><div id="__notifyBar" class="hide"><spring:message code='${message}' /></div></c:if>
 		<p class="back"><a href="home.shtml?teams=my">&lt; <spring:message code='jsp.detailteam.Back' /></a></p>
-		<h1 class="team-title"><c:out value="${team.name}" /></h1>	
 		<div class="team-options-wrapper">
 			<c:url value="editteam.shtml" var="editUrl"><c:param name="team" value="${team.id}" /></c:url>
 			<c:url value="dodeleteteam.shtml" var="deleteUrl"><c:param name="team" value="${team.id}" /></c:url>
@@ -22,18 +21,19 @@
 				<li class="last"><a id="LeaveTeam" href="<c:out value='${leaveUrl}' />"><spring:message code='jsp.detailteam.Leave' /></a></li>
 			</ul>	
 		</div>
+		<h1 class="team-title"><c:out value="${team.name}" /></h1>	
+		<p class="add">
+			<c:url value="addmember.shtml" var="addmemberUrl"><c:param name="team" value="${team.id}" /></c:url>
+			<a class="button-primary" href="<c:out value='${addmemberUrl}' />"><spring:message code='jsp.addmember.Title' /></a>
+		</p>
 		<br class="clear" />
 	<!-- / Header -->
 	</div>
 	<!-- = Content -->
 	<div id="Content">
-		<p>
+		<p class="description">
 			<c:set var="noDescription"><spring:message code='jsp.general.NoDescription' /></c:set>
 			<c:out value="${team.description}" default="${noDescription}"/>
-		</p>
-		<p class="add">
-			<c:url value="addmember.shtml" var="addmemberUrl"><c:param name="team" value="${team.id}" /></c:url>
-			<a class="button-primary" href="<c:out value='${addmemberUrl}' />"><spring:message code='jsp.addmember.Title' /></a>
 		</p>
 		<form>
 			<input type="hidden" name="teamId" value="${team.id}" />

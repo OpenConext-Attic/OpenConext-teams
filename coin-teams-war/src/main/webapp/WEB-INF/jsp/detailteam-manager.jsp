@@ -10,21 +10,21 @@
 	<!-- = Header -->
 	<div id="Header">
 		<p class="back"><a href="home.shtml?teams=my">&lt; <spring:message code='jsp.detailteam.Back' /></a></p>
-		<h1 class="team-title"><c:out value="${team.name}" /></h1>
 		<p class="team-option">
 			<c:url value="doleaveteam.shtml" var="leaveUrl"><c:param name="team" value="${team.id}" /></c:url>
 			<a class="button-secondary" id="LeaveTeam" href="<c:out value='${leaveUrl}' />"><spring:message code='jsp.detailteam.Leave' /></a>
 		</p>
+		<h1 class="team-title"><c:out value="${team.name}" /></h1>
+		<p class="add"><a class="button-primary" href="addmember.shtml?team=${team.id}"><spring:message code='jsp.addmember.Title' /></a></p>
 		<br class="clear" />
 	<!-- / Header -->
 	</div>
 	<!-- = Content -->
 	<div id="Content">
-		<p>
+		<p class="description">
 			<c:set var="noDescription"><spring:message code='jsp.general.NoDescription' /></c:set>
 			<c:out value="${team.description}" default="${noDescription}"/>
 		</p>
-		<p class="add"><a class="button-primary" href="addmember.shtml?team=${team.id}"><spring:message code='jsp.addmember.Title' /></a></p>
 		<form>
 			<input type="hidden" name="teamId" value="${team.id}" />
 			<input type="hidden" name="loggedInUser" value="${sessionScope.person}" />
