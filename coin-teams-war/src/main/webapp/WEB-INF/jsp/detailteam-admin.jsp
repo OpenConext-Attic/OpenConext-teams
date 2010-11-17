@@ -21,6 +21,7 @@
 				<li class="last"><a id="LeaveTeam" href="<c:out value='${leaveUrl}' />"><spring:message code='jsp.detailteam.Leave' /></a></li>
 			</ul>	
 		</div>
+		<br class="clear" />
 		<h1 class="team-title"><c:out value="${team.name}" /></h1>	
 		<p class="add">
 			<c:url value="addmember.shtml" var="addmemberUrl"><c:param name="team" value="${team.id}" /></c:url>
