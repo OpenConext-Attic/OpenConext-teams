@@ -55,8 +55,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         String url = getRequestedPart(request);
         String[] urlSplit = url.split("/");
 
-        // Unprotect the javascript files
-        if (urlSplit[2].equals("js")) {
+        // Unprotect the javascript files and teams.xml
+        if (urlSplit[2].equals("js") || urlSplit[2].equals("teams.xml")) {
           return super.preHandle(request, response, handler);
         } else {
           response.sendRedirect("/Shibboleth.sso/Login?return=/teams/home.shtml?teams=my");
