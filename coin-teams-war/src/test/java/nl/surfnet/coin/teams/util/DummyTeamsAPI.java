@@ -41,9 +41,6 @@ public class DummyTeamsAPI {
                 setResponseResource(invitations);
               } else if (req.equals("invite")) {
                 setResponseResource(success);
-                // TODO insert correct request
-              } else if (req.equals("asfsfssdfsdfsdfsd")) {
-                setResponseResource(success);
               }
             } else {
               response.sendError(404);
