@@ -19,6 +19,7 @@ public class TeamEnvironment {
   private String restEndpoint;
   private String rpcEndpoint;
   private String appId;
+  private String teamsURL;
 
 
   /**
@@ -177,6 +178,20 @@ public class TeamEnvironment {
    */
   public String getOauthSecret() {
     return oauthSecret;
+  }
+
+  /**
+   * @param teamsURL the teamsURL to set
+   */
+  public void setTeamsURL(String teamsHost) {
+    this.teamsURL = teamsHost;
+  }
+
+  /**
+   * @return the teamsURL
+   */
+  public String getTeamsURL() {
+    return teamsURL;
   }
 
 }
