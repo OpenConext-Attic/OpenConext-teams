@@ -13,7 +13,7 @@
         <script type="text/javascript">
         
         function loadFrame() {
-                var srcString ='${teamsURL}';
+                var srcString ='${teamsURL}/';
                 var prefs = new gadgets.Prefs();
                 var groupContext = escape(prefs.getString('groupContext'));
                         if(groupContext != "") {
