@@ -9,6 +9,7 @@
 <div class="section" id="TeamContainer">
 	<!-- = Header -->
 	<div id="Header">
+		<c:if test="${fn:length(message) > 0}"><div id="__notifyBar" class="hide"><spring:message code='${message}' /></div></c:if>
 		<p class="back"><a href="home.shtml?teams=my">&lt; <spring:message code='jsp.detailteam.Back' /></a></p>
 		<p class="team-option">
 			<c:url value="doleaveteam.shtml" var="leaveUrl"><c:param name="team" value="${team.id}" /></c:url>
@@ -50,7 +51,7 @@
 							<td><input id="1_${member.id}" type="checkbox" name="managerRole" value="1" <c:out value='${managerRoleStatus}' /> /></td>
 							<td>
 								<c:choose>
-									<c:when test="${member.id eq sessionScope.person}"></c:when>
+									<c:when test="${(member.id eq sessionScope.person) || (teamfn:contains(member.roles, admin))}"></c:when>
 									<c:otherwise><a href="dodeletemember.shtml?team=${team.id}&member=${member.id}">Remove member from team</a></c:otherwise>
 								</c:choose>
 							</td>

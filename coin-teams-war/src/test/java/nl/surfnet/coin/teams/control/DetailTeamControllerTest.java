@@ -327,16 +327,21 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     MockHttpServletRequest request = getRequest();
     // add the team & member
     request.addParameter("team", "team-1");
-    request.addParameter("member", "member-1");
+    request.addParameter("member", "member-2");
     
     HashSet<Role> roles = new HashSet<Role>();
     roles.add(Role.Manager);
     roles.add(Role.Member);
     roles.add(Role.Admin);
     
-    Member member = new Member(roles, "John Doe", "member-1", "john@doe.com");
+    Member owner = new Member(roles, "John Doe", "member-1", "john@doe.com");
+    Member member = new Member(roles, "Jane Doe", "member-2", "jane@doe.com");
     
-    autoWireMock(detailTeamController, new Returns(member), TeamService.class);
+    TeamService teamService = mock(TeamService.class);
+    when(teamService.findMember("team-1", "member-2")).thenReturn(member);
+    when(teamService.findMember("team-1", "member-1")).thenReturn(owner);
+    
+    autoWireMock(detailTeamController, teamService, TeamService.class);
     autoWireRemainingResources(detailTeamController);
     
     RedirectView result = detailTeamController.deleteMember(getModelMap(), request);

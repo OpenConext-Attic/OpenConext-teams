@@ -172,17 +172,26 @@ public class DetailTeamController {
     }
 
     // fetch the logged in member
-    Member member = teamService.findMember(teamId, ownerId);
-    // Check whether the owner has enough permissions to delete the member.
+    Member owner = teamService.findMember(teamId, ownerId);
+    Member member = teamService.findMember(teamId, personId);
+
+    // Check whether the owner is admin and thus is granted to delete the member.
     // Check whether the member that should be deleted is the logged in user.
     // This should not be possible, a logged in user should click the resign
     // from team button.
-    if (member.getRoles().contains(Role.Admin)
-        || member.getRoles().contains(Role.Manager) && !personId.equals(ownerId)) {
+    if (owner.getRoles().contains(Role.Admin) && !personId.equals(ownerId)) {
 
       // Delete the member
       teamService.deleteMember(teamId, personId);
 
+      return new RedirectView("detailteam.shtml?team="
+          + URLEncoder.encode(teamId, "utf-8"));
+    // if the owner is manager and the member is not an admin he can delete the member
+    } else if (owner.getRoles().contains(Role.Manager)
+        && !member.getRoles().contains(Role.Admin) && !personId.equals(ownerId)) {
+      // Delete the member
+      teamService.deleteMember(teamId, personId);
+      
       return new RedirectView("detailteam.shtml?team="
           + URLEncoder.encode(teamId, "utf-8"));
     }
