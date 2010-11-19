@@ -14,6 +14,7 @@
 			<c:url value="doleaveteam.shtml" var="leaveUrl"><c:param name="team" value="${team.id}" /></c:url>
 			<a class="button-secondary" id="LeaveTeam" href="<c:out value='${leaveUrl}' />"><spring:message code='jsp.detailteam.Leave' /></a>
 		</p>
+		<br class="clear" />
 		<h1 class="team-title"><c:out value="${team.name}" /></h1>
 		<br class="clear" />
 	<!-- / Header -->
