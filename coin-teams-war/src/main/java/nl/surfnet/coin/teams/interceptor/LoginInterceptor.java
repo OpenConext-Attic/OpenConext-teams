@@ -99,5 +99,12 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   public static String getLoggedInUser() {
     return loggedInUser.get();
   }
+  
+  /**
+   * @param the user that has to be logged in
+   */
+  public static void setLoggedInUser(String userId) {
+    loggedInUser.set(userId);
+  }
 
 }

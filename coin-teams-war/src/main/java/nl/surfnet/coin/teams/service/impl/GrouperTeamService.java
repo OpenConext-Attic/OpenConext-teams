@@ -91,7 +91,7 @@ public class GrouperTeamService implements TeamService {
     findGroups.addGroupName(teamId);
     WsFindGroupsResults findResults = findGroups.execute();
     WsGroup[] groupResults = findResults.getGroupResults();
-    if (groupResults.length == 0) {
+    if (groupResults == null || groupResults.length == 0) {
       throw new RuntimeException("No team found with Id('" + teamId + "')");
     }
     WsGroup wsGroup = groupResults[0];
@@ -305,8 +305,11 @@ public class GrouperTeamService implements TeamService {
   public void deleteMember(String teamId, String personId) {
 
     Member member = findMember(teamId, personId);
-    for (Role role : member.getRoles()) {
-      removeMemberRole(teamId, personId, role, true);
+    
+    if (member.getRoles() != null) {
+      for (Role role : member.getRoles()) {
+        removeMemberRole(teamId, personId, role, true);
+      }
     }
 
     GcDeleteMember deleteMember = new GcDeleteMember();
