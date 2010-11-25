@@ -38,17 +38,6 @@
 	
 	<bean id="teamService" class="${teamService}" />
 
-	<!-- Exception Resolver -->
-	<bean id="ExceptionResolver"
-		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-		<!--
-			<property name="exceptionMappings"> <map> <entry /> </map>
-			</property>
-		-->
-		<property name="defaultErrorView" value="errors/general-error" />
-		<property name="warnLogCategory" value="ERROR" />
-	</bean>
-
 	<bean id="localeResolver"
 		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
 		<!-- Set the default Locale to English -->
