@@ -1,3 +1,4 @@
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ page isErrorPage="true" %>
 <!DOCTYPE html>
 <html>
@@ -13,14 +14,13 @@
     
 	  <!-- = Header -->
 	  <div id="Header">
-	    <h1>Error</h1>
+	    <h1><spring:message code='jsp.error.Title' /></h1>
 	  <!-- / Header -->
 	  </div>
 		
 	  <!-- = Content -->
 	  <div id="Content">
-	    <p>The information you requested can not be displayed. Please try to reload the page or go back to
-	    <a href="home.shtml?teams=my">My teams</a></p>
+	    <p><spring:message code='jsp.error.Message' /></p>
 	  <!-- / Content -->
 	  </div>
 	
