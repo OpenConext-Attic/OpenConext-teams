@@ -9,6 +9,7 @@
 	<!-- = Header -->
 	<div id="Header">
 		<p class="back not-member"><a href="home.shtml?teams=all">&lt; <spring:message code='jsp.detailteam.Back' /></a></p>
+		<br class="clear" />
 		<h1><c:out value="${team.name}" /></h1>
 	<!-- / Header -->
 	</div>
