@@ -12,8 +12,8 @@
         var srcString ='${teamsURL}/';
         var prefs = new gadgets.Prefs();
         var groupContext = escape(prefs.getString('groupContext'));
-        if(groupContext != "") {
-                srcString += 'detailteam.shtml?team=' + groupContext;
+        if(groupContext != '') {
+            srcString += 'detailteam.shtml?team=' + groupContext;
         }
         document.getElementById('SURFteamsContent').innerHTML = '<iframe frameborder="0" scrolling="no" width="100%" height="325" src="'+srcString+'"></iframe>';
 
