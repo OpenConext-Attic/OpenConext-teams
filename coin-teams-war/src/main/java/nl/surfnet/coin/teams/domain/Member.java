@@ -59,6 +59,9 @@ public class Member implements Serializable {
    * @return the roles
    */
   public Set<Role> getRoles() {
+    if (roles == null) {
+      roles = new HashSet<Role>();
+    }
     return roles;
   }
   

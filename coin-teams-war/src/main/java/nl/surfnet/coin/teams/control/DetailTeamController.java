@@ -70,7 +70,7 @@ public class DetailTeamController {
     // Iterate over the members to get the roles for the logged in user.
     for (Member member : members) {
       if (member.getId().equals(person)) {
-        roles = member.getRoles();
+        roles = member.getRoles() ;
       }
     }
 

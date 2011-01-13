@@ -36,8 +36,10 @@
 				<tr>
 					<th><spring:message code='jsp.home.table.Team' /></th>
 					<th><spring:message code='jsp.home.table.Description' /></th>
-					<th><spring:message code='jsp.home.table.Role' /></th>
-					<th><spring:message code='jsp.home.table.Members' /></th>
+					<c:if test='${display eq "my"}'>
+						<th><spring:message code='jsp.home.table.Role' /></th>
+						<th><spring:message code='jsp.home.table.Members' /></th>
+					</c:if>
 				</tr>
 			</thead>
 			<tbody>
@@ -48,8 +50,10 @@
 							<c:url value="detailteam.shtml" var="detailUrl"><c:param name="team" value="${team.id}" /></c:url>
 							<td><a href="<c:out value='${detailUrl}' />"><c:out value="${team.name}" /></a></td>
 							<td><c:out value="${team.description}" /></td>
-							<td><c:out value="${team.viewerRole}" /></td>
-							<td><c:out value="${fn:length(team.members)}" /></td>
+							<c:if test='${display eq "my"}'>
+								<td><c:out value="${team.viewerRole}" /></td>
+								<td><c:out value="${fn:length(team.members)}" /></td>
+							</c:if>
 						</tr>
 					</c:forEach>
 				</c:when>
