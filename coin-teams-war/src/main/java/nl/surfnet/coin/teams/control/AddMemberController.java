@@ -106,12 +106,10 @@ public class AddMemberController {
       team = teamService.findTeamById(teamId);
     }
 
-    if (team != null) {
-      modelMap.addAttribute("team", team);
-    } else {
-      // Team does not exist
-      throw new RuntimeException("Parameter error.");
+    if (team == null) {
+    	throw new RuntimeException("Parameter error.");
     }
+    modelMap.addAttribute("team", team);
 
     // Parse the email addresses to see whether they are valid
     InternetAddress[] emails;
@@ -141,7 +139,7 @@ public class AddMemberController {
   private void sendInvitations(Team team, Member member, String emails,
       String message, Locale locale) throws IllegalStateException,
       ClientProtocolException, IOException {
-    // First replace the {invitee name} and {team name} with {0} and {1}
+    // First replace the {inviter name} and {team name} with {0} and {1}
     // respectively
     message = StringUtils.replace(message, INVITER_NAME, "{0}");
     message = StringUtils.replace(message, TEAM_NAME, "{1}");
