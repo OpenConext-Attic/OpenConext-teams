@@ -7,8 +7,28 @@
 	<packaging>pom</packaging>
 	<name>coin-teams-parent</name>
 	<description>Coin Teams Parent</description>
+	<scm>
+			<connection>scm:svn:https://svn.surfnet.nl/svn/coin-gui/coin-teams/trunk</connection>
+		</scm>
+		<distributionManagement>
+			<repository>
+				<id>coin-repo</id>
+				<name>coin-repo</name>
+				<url>http://bamboo-dev.coin.surfnetlabs.nl</url>
+			</repository>
+			<snapshotRepository>
+				<id>repo</id>
+				<name>Repository Name</name>
+				<url>http://bamboo-dev.coin.surfnetlabs.nl</url>
+			</snapshotRepository>
+		</distributionManagement>
 	<build>
 		<plugins>
+			<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-release-plugin</artifactId>
+							<version>2.1</version>
+						</plugin>
 			<plugin>
 				<groupId>com.atlassian.maven.plugins</groupId>
 				<artifactId>maven-clover2-plugin</artifactId>
