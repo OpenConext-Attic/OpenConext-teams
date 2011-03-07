@@ -21,7 +21,7 @@
 		<orgjson.version>20080701</orgjson.version>
 	</properties>
 	<scm>
-		<connection>https://svn.surfnet.nl/svn/coin-gui/coin-teams/trunk/coin-teams-war</connection>
+		<connection>scm:svn:https://svn.surfnet.nl/svn/coin-gui/coin-teams/trunk/coin-teams-war</connection>
 	</scm>
 	<distributionManagement>
 		<repository>
@@ -134,14 +134,16 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!-- plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>jaxws-maven-plugin</artifactId> 
-				<version>1.12</version> <executions> <execution> <goals> <goal>wsimport</goal> 
-				</goals> <configuration> <genWsdl>false</genWsdl> <wsdlDirectory>${basedir}/src/main/resources/wsdl</wsdlDirectory> 
-				<bindingFiles> <bindingFile>${basedir}/src/main/resources/wsdl/simple-binding.xjb</bindingFile> 
-				</bindingFiles> <keep>false</keep> <xdebug>true</xdebug> <xjcArgs> <xjcArg>-XautoNameResolution</xjcArg> 
-				</xjcArgs> </configuration> </execution> </executions> </plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.1</version>
+			</plugin>
+
 		</plugins>
 	</build>
+	
+	
 	<dependencies>
 		<dependency>
 			<groupId>edu.internet2.middleware.grouper</groupId>
