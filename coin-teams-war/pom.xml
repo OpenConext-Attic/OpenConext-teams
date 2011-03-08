@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.surfnet.coin</groupId>
@@ -19,38 +20,8 @@
 		<oauth.version>20090825</oauth.version>
 		<orgjson.version>20080701</orgjson.version>
 	</properties>
-	
-	<repositories>
-		<repository>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<id>coin-repo</id>
-			<name>COIN Repository</name>
-			<url>http://bamboo-dev.coin.surfnetlabs.nl</url>
-		</repository>
-		<repository>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<id>oauth-maven-repo</id>
-			<name>OAuth Maven repository</name>
-			<url>http://oauth.googlecode.com/svn/code/maven</url>
-			<layout>default</layout>
-		</repository>
-		<repository>
-			<id>maven2-repository.dev.java.net</id>
-			<name>Java.net Repository for Maven</name>
-			<url>http://download.java.net/maven/2</url>
-			<layout>default</layout>
-		</repository>
-	</repositories>
+
+
 	<build>
 		<plugins>
 			<plugin>
@@ -119,12 +90,12 @@
 					</execution>
 				</executions>
 			</plugin>
-			
+
 
 		</plugins>
 	</build>
-	
-	
+
+
 	<dependencies>
 		<dependency>
 			<groupId>edu.internet2.middleware.grouper</groupId>
