@@ -13,12 +13,12 @@
 		<repository>
 			<id>coin-repo</id>
 			<name>coin-repo</name>
-			<url>dav:http://bamboo-dev.coin.surfnetlabs.nl</url>
+			<url>dav://bamboo-dev.coin.surfnetlabs.nl</url>
 		</repository>
 		<snapshotRepository>
 			<id>coin-repo</id>
 			<name>coin-repo</name>
-			<url>dav:http://bamboo-dev.coin.surfnetlabs.nl</url>
+			<url>dav://bamboo-dev.coin.surfnetlabs.nl</url>
 		</snapshotRepository>
 	</distributionManagement>
 	<repositories>
@@ -68,6 +68,14 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+         <artifactId>wagon-webdav</artifactId>
+         <version>1.0-beta-2</version>
+      </extension>
+    </extensions>
+		
 	</build>
 	<properties>
 		<application.distributionManagement.siteUrl>file:///var/opt/maven/sites/coin-teams/${version}</application.distributionManagement.siteUrl>
