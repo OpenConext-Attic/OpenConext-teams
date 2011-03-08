@@ -68,7 +68,7 @@ public class HttpClientProvider {
      */
     ThreadSafeClientConnManager connManager = new ThreadSafeClientConnManager(
         schemeRegistry);
-    connManager.setMaxTotalConnections(50);
+    connManager.setMaxTotal(50);
     // There is only one route, so the maximum per route equals the maximum
     // total
     connManager.setDefaultMaxPerRoute(50);
