@@ -63,7 +63,7 @@
 								<td>
 									<c:choose>
 										<c:when test="${member.id eq sessionScope.person}"></c:when>
-										<c:otherwise><a href="dodeletemember.shtml?team=${team.id}&member=${member.id}">Remove member from team</a></c:otherwise>
+										<c:otherwise><a href="dodeletemember.shtml?team=${team.id}&member=${member.id}"><spring:message code="jsp.detailteam.RemoveMemberFromTeam"/></a></c:otherwise>
 									</c:choose>
 								</td>
 							</tr>
