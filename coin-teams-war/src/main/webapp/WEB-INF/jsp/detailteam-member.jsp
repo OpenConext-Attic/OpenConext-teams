@@ -26,28 +26,30 @@
 			<c:out value="${team.description}" default="${noDescription}"/>
 		</p>
 		<form>
-			<table class="team-table">
-				<thead>
-					<tr>
-						<th><spring:message code='jsp.detailteam.Name' /></th>
-						<th><spring:message code='jsp.detailteam.Admin' /></th>
-						<th><spring:message code='jsp.detailteam.Manager' /></th>
-						<th><spring:message code='jsp.detailteam.Member' /></th>
-					</tr>
-				</thead>
-				<tbody>
-				<c:if test="${fn:length(team.members) > 0 }">
-					<c:forEach items="${team.members}" var="member">
+			<div class="team-table-wrapper">
+				<table class="team-table">
+					<thead>
 						<tr>
-							<td><c:out value="${member.name}" /></td>
-							<td><input id="0_${member.id}" type="checkbox" name="adminRole" value="1" <c:if test="${teamfn:contains(member.roles, admin)}" > checked</c:if> disabled /></td>
-							<td><input id="1_${member.id}" type="checkbox" name="managerRole" value="1" <c:if test="${teamfn:contains(member.roles, manager)}" > checked</c:if> disabled /></td>
-							<td></td>
+							<th><spring:message code='jsp.detailteam.Name' /></th>
+							<th><spring:message code='jsp.detailteam.Admin' /></th>
+							<th><spring:message code='jsp.detailteam.Manager' /></th>
+							<th><spring:message code='jsp.detailteam.Member' /></th>
 						</tr>
-					</c:forEach>
-				</c:if>
-				</tbody>
-			</table>
+					</thead>
+					<tbody>
+					<c:if test="${fn:length(team.members) > 0 }">
+						<c:forEach items="${team.members}" var="member">
+							<tr>
+								<td><c:out value="${member.name}" /></td>
+								<td><input id="0_${member.id}" type="checkbox" name="adminRole" value="1" <c:if test="${teamfn:contains(member.roles, admin)}" > checked</c:if> disabled /></td>
+								<td><input id="1_${member.id}" type="checkbox" name="managerRole" value="1" <c:if test="${teamfn:contains(member.roles, manager)}" > checked</c:if> disabled /></td>
+								<td></td>
+							</tr>
+						</c:forEach>
+					</c:if>
+					</tbody>
+				</table>
+			</div>
 		</form>
 	<!-- / Content -->
 	</div>
