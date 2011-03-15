@@ -35,6 +35,8 @@ public class JoinTeamController {
   private static final String REQUEST_MEMBERSHIP_SUBJECT = "request.MembershipSubject";
 
   private static final String TEAM_NAME = "{team name}";
+  
+  private static final String USER_NAME = "{user}";
 
   @Autowired
   private TeamService teamService;
@@ -96,11 +98,12 @@ public class JoinTeamController {
   private void sendJoinTeamMessage(Team team, String personId, String message,
       Locale locale) throws IllegalStateException, ClientProtocolException,
       IOException {
-    // First replace the {team name} with {0}
-    Object[] messageValues = { team.getName() };
+    // First replace the {user} with {0} {team name} with {1}
+    Object[] messageValues = { personId, team.getName() };
 
     if (message != null) {
-      message = StringUtils.replace(message, TEAM_NAME, "{0}");
+      message = StringUtils.replace(message, USER_NAME, "{0}");
+      message = StringUtils.replace(message, TEAM_NAME, "{1}");
       MessageFormat formatter = new MessageFormat(message);
 
       message = formatter.format(messageValues);
