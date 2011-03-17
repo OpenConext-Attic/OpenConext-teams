@@ -9,22 +9,16 @@
 <body>
   <div id="PageContainer">
 
-    <!-- = Main -->
     <div class="section" id="Main">
     
-	  <!-- = Header -->
 	  <div id="Header">
 	    <h1><spring:message code='jsp.error.Title' /></h1>
-	  <!-- / Header -->
 	  </div>
-		
-	  <!-- = Content -->
+	  
 	  <div id="Content">
 	    <p><spring:message code='jsp.error.Message' /></p>
-	  <!-- / Content -->
 	  </div>
 	
-	<!-- / Main -->
     </div>
 
   </div>

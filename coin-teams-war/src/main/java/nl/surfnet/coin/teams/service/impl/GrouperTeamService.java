@@ -290,19 +290,22 @@ public class GrouperTeamService implements TeamService {
     }
     teamId = teamId.replace(" ", "_").toLowerCase();
     teamId = environment.getDefaultStemName() + ":" + teamId;
-    GcGroupSave groupSave = new GcGroupSave();
-    groupSave.assignActAsSubject(getActAsSubject(true));
-    WsGroupToSave group = new WsGroupToSave();
-    group.setSaveMode("INSERT");
+    
     WsGroup wsGroup = new WsGroup();
     wsGroup.setDescription(teamDescription);
     wsGroup.setDisplayExtension(displayName);
     wsGroup.setName(teamId);
+    
+    WsGroupToSave group = new WsGroupToSave();
+    group.setSaveMode("INSERT");
     group.setWsGroup(wsGroup);
+    
+    GcGroupSave groupSave = new GcGroupSave();
+    groupSave.assignActAsSubject(getActAsSubject(true));
     groupSave.addGroupToSave(group);
     groupSave.execute();
+    
     return teamId;
-
   }
 
   /*

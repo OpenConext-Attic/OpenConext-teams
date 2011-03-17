@@ -23,6 +23,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
 
+import edu.internet2.middleware.grouperClient.ws.GcWebServiceError;
+import edu.internet2.middleware.grouperClient.ws.beans.WsGroupSaveResults;
+
 /**
  * @author steinwelberg
  * 
@@ -73,7 +76,17 @@ public class AddTeamController {
     }
 
     // Add the team
-    String teamId = teamService.addTeam(teamName, teamName, teamDescription);
+    String teamId = "";
+    try {
+      teamId = teamService.addTeam(teamName, teamName, teamDescription);
+    } catch(GcWebServiceError e) {
+      WsGroupSaveResults results = (WsGroupSaveResults) e.getContainerResponseObject();
+      String resultCode = results.getResults()[0].getResultMetadata().getResultCode();
+      if(resultCode.equals("GROUP_ALREADY_EXISTS")) {
+        // TODO
+      }
+      throw e;
+    }
 
     // Set the visibility of the group
     teamService.setVisibilityGroup(teamId, viewable);
