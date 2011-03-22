@@ -63,7 +63,7 @@ public class ShindigActivityServiceImpl implements ShindigActivityService {
     request.setAppId(environment.getAppId());
     
     try {
-      Response response = client.send(request);
+      client.send(request);
     } catch (RequestException e) {
       logger.error("RequestException while adding activity for team ('" + teamId + "') and person ('" + personId + "')" , e);
     } catch (IOException e) {
