@@ -9,6 +9,7 @@ import java.util.Set;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.util.DuplicateTeamException;
 
 
 
@@ -63,8 +64,9 @@ public interface TeamService {
    * @param teamDescription
    *          description of the team
    * @return The id of the team
+   * @throws DuplicateTeamException when a team with with the given teamId already exists.
    */
-  String addTeam(String teamId, String displayName, String teamDescription);
+  String addTeam(String teamId, String displayName, String teamDescription) throws DuplicateTeamException;
 
   /**
    * Update a {@link Team}

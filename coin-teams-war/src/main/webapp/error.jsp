@@ -11,13 +11,16 @@
 
     <div class="section" id="Main">
     
-	  <div id="Header">
-	    <h1><spring:message code='jsp.error.Title' /></h1>
-	  </div>
-	  
-	  <div id="Content">
-	    <p><spring:message code='jsp.error.Message' /></p>
-	  </div>
+		  <div id="Header">
+		    <h1><spring:message code='jsp.error.Title' /></h1>
+		  </div>
+		  
+		  <div id="Content">
+		  	<p><spring:message code='jsp.error.Message' /></p>
+		    <p>
+		    	<%= exception.getMessage() %>
+		    </p>
+		  </div>
 	
     </div>
 

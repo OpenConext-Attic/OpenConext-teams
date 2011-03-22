@@ -4,17 +4,15 @@
 package nl.surfnet.coin.teams.service;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.impl.GrouperTeamService;
+import nl.surfnet.coin.teams.util.DuplicateTeamException;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 
 import org.junit.Test;
@@ -26,8 +24,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import edu.internet2.middleware.grouperClient.ws.GcWebServiceError;
 
 /**
- * 
- *
+ * TODO These tests seem to assume they're being run in a certain order.
+ *      Running them in a different order fails. This should be refactored.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:coin-teams-context.xml",
@@ -155,13 +153,13 @@ public class GrouperServiceTestIntegration {
 //  }
   
   @Test
-  public void testAddTeam() {
+  public void testAddTeam() throws Exception {
     teamService.addTeam("add-team", "Add Team", "Add team description");
     assertEquals("test:add-team", teamService.findTeamById("test:add-team").getId());
   }
   
-  @Test (expected=GcWebServiceError.class)
-  public void testAddDuplicateTeam() {
+  @Test (expected=DuplicateTeamException.class)
+  public void testAddDuplicateTeam() throws Exception {
     teamService.addTeam("add-team", "Add Team", "Add team description");    
   }
 
@@ -220,7 +218,7 @@ public class GrouperServiceTestIntegration {
   
   @Test (expected=RuntimeException.class)
   public void testFindMemberNonexistentMember() {
-    Member member = teamService.findMember(teamId, nonExistentMember);
+    teamService.findMember(teamId, nonExistentMember);
   }
   
   @Test
@@ -231,7 +229,6 @@ public class GrouperServiceTestIntegration {
   
   @Test (expected=GcWebServiceError.class)
   public void testAddMemberNonexistentMember() {
-    // add non existent member
     teamService.addMember(teamId, nonExistentMember);
   }
   
@@ -250,7 +247,7 @@ public class GrouperServiceTestIntegration {
   }
   
   @Test
-  public void testUpdateTeam() {
+  public void testUpdateTeam() throws Exception {
     LoginInterceptor.setLoggedInUser(environment.getMockLogin());
     teamService.addTeam("update-team", "Update Team", "Update team description");
     teamService.addMember("test:update-team", memberId);

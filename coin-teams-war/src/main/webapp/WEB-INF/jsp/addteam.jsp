@@ -21,7 +21,7 @@
 			</p>
 			<p class="label-field-wrapper">
 				<label for="TeamDescription"><spring:message code='jsp.general.Description' /></label>
-<textarea id="TeamDescription" name="description" rows="4"></textarea>
+				<textarea id="TeamDescription" name="description" rows="4"></textarea>
 			</p>
 			<p class="submit-wrapper">
 				<input class="button-primary" type="submit" name="createTeam" value="<spring:message code='jsp.addteam.Submit' />" />
