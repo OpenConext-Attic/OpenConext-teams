@@ -7,6 +7,8 @@ COIN.MODULES.Addteam = function(sandbox) {
 				e.preventDefault();
 				sandbox.redirectBrowserTo('home.shtml?teams=my');
 			});
+			
+			$('#TeamName').focus();
 		},
 		
 		destroy: function() {
