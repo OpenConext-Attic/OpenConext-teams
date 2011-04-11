@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
 	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
@@ -43,5 +44,71 @@
 		<!-- Set the default Locale to English -->
 		<property name="defaultLocale" value="en_EN" />
 	</bean>
+
+  <bean id="teamDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+    destroy-method="close">
+    <property name="driverClass" value="${coin-team-db-driver}" />
+    <property name="jdbcUrl" value="${coin-team-db-url}" />
+    <property name="user" value="${coin-team-db-username}" />
+    <property name="password" value="${coin-team-db-password}" />
+    <property name="initialPoolSize" value="1" />
+    <property name="maxPoolSize" value="20" />
+    <property name="minPoolSize" value="1" />
+    <property name="acquireIncrement" value="2" />
+    <property name="acquireRetryAttempts" value="15" />
+    <!--Check every 15 minutes -->
+    <property name="idleConnectionTestPeriod" value="15" />
+    <property name="maxIdleTime" value="15" />
+  </bean>
+
+  <bean id="teamSessionFactory" autowire="byName"
+    class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+    <property name="dataSource">
+      <ref local="teamDataSource" />
+    </property>
+    <property name="hibernateProperties">
+      <props>
+        <prop key="hibernate.dialect">${hibernate-team.dialect}</prop>
+        <!-- prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop -->
+        <prop key="hibernate.query.substitutions">true 1, false 0</prop>
+        <prop key="hibernate.show_sql">${hibernate-team.show_sql}</prop>
+        <prop key="hibernate.format_sql">${hibernate-team.format_sql}</prop>
+        <prop key="hibernate.cache.use_second_level_cache">false</prop>
+        <prop key="hibernate.hbm2ddl.auto">${hibernate-team.hbm2ddl.auto}</prop>
+        <prop key="hibernate.cache.use_query_cache">false</prop>
+        <prop key="hibernate.jdbc.wrap_result_sets">true</prop>
+        <prop key="hibernate.connection.release_mode">on_close</prop>
+        <prop key="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider
+        </prop>
+        <prop key="hibernate.c3p0.min_size">2</prop>
+        <prop key="hibernate.c3p0.max_size">10</prop>
+
+        <prop key="hibernate.c3p0.acquireRetryAttempts">5</prop>
+        <prop key="hibernate.c3p0.acquireIncrement">2</prop>
+        <prop key="hibernate.c3p0.idleConnectionTestPeriod">15</prop>
+      </props>
+    </property>
+    <property name="annotatedClasses">
+      <list>
+        <value>nl.surfnet.coin.shared.domain.DomainObject</value>
+        <value>nl.surfnet.coin.teams.domain.JoinTeamRequest</value>
+      </list>
+    </property>
+    <property name="namingStrategy">
+      <bean class="org.hibernate.cfg.ImprovedNamingStrategy" />
+    </property>
+    <property name="useTransactionAwareDataSource" value="true" />
+  </bean>
+
+  <tx:annotation-driven transaction-manager="teamTransactionManager" />
+
+  <bean id="teamTransactionManager"
+    class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+    <property name="sessionFactory">
+      <ref local="teamSessionFactory" />
+    </property>
+  </bean>
+
+
 
 </beans>
