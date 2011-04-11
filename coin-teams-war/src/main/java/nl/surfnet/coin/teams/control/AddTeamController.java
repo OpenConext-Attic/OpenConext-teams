@@ -50,7 +50,6 @@ public class AddTeamController {
 
   @RequestMapping("/addteam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request) {
-
     return "addteam";
   }
 
@@ -72,9 +71,12 @@ public class AddTeamController {
       throw new RuntimeException("Parameter error.");
     }
 
+    // Colons conflict with the stem name
+    teamName = teamName.replace(":", "");
+    
     // Add the team
     String teamId = "";
-    teamId = teamService.addTeam(teamName, teamName, teamDescription);    
+    teamId = teamService.addTeam(teamName, teamName, teamDescription);
 
     // Set the visibility of the group
     teamService.setVisibilityGroup(teamId, viewable);
@@ -86,7 +88,7 @@ public class AddTeamController {
     teamService.addMemberRole(teamId, personId, Role.Admin, true);
 
     // Add the activity to the COIN portal
-    addActivity(teamId, teamName, personId, localeResolver.resolveLocale(request));
+    //addActivity(teamId, teamName, personId, localeResolver.resolveLocale(request));
 
     return new RedirectView("detailteam.shtml?team="
         + URLEncoder.encode(teamId, "utf-8"));
@@ -99,7 +101,6 @@ public class AddTeamController {
     String title = messageSource.getMessage(ACTIVITY_NEW_TEAM_TITLE, messageValues, locale);
     String body = messageSource.getMessage(ACTIVITY_NEW_TEAM_BODY, messageValues, locale);
 
-    // Add the activity
-    //shindigActivityService.addActivity(personId, teamId, title, body);
+    shindigActivityService.addActivity(personId, teamId, title, body);
   }
 }

@@ -54,7 +54,7 @@ public class GrouperTeamService implements TeamService {
   private TeamEnvironment environment;
 
   private static String[] FORBIDDEN_CHARS = new String[] { "<", ">", "/", "\\",
-      "*", ":" };
+      "*", ":", "," };
 
   /*
    * (non-Javadoc)

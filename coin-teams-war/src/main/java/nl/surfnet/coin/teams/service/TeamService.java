@@ -54,8 +54,8 @@ public interface TeamService {
   Team findTeamById(String teamId);
 
   /**
-   * Add a {@link Team}. Note that the teamId is altered of not compliant to the
-   * rules for correct id's
+   * Add a {@link Team}. Note that the teamId is altered if not compliant to the
+   * rules for correct id's.
    * 
    * @param teamId
    *          the teamId
