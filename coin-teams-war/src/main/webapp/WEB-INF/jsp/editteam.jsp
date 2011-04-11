@@ -18,7 +18,7 @@
 			<p class="label-field-wrapper">
 				<input type="hidden" name="teamId" value="${team.id}" />
 				<label for="TeamName"><spring:message code='jsp.general.TeamName' /></label>
-				<input id="TeamName" type="text" name="team" value="<c:out value="${team.name}" />" class="required" />
+				<input id="TeamName" type="text" name="team" value="<c:out value="${team.name}" disabled="disabled" />" class="required" />
 			</p>
 			<p class="label-field-wrapper">
 				<label for="TeamDescription"><spring:message code='jsp.general.Description' /></label>
