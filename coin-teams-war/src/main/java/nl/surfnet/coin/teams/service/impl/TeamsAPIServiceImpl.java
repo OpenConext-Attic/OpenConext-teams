@@ -10,11 +10,6 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
-import nl.surfnet.coin.teams.domain.Invitation;
-import nl.surfnet.coin.teams.service.TeamsAPIService;
-import nl.surfnet.coin.teams.util.HttpClientProvider;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
-
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -29,11 +24,14 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import edu.internet2.middleware.grouperClientExt.org.apache.commons.httpclient.NameValuePair;
+import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.service.TeamsAPIService;
+import nl.surfnet.coin.teams.util.HttpClientProvider;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
 
 /**
  * @author steinwelberg
- * 
+ *
  */
 @Component("teamsAPIService")
 public class TeamsAPIServiceImpl implements TeamsAPIService {

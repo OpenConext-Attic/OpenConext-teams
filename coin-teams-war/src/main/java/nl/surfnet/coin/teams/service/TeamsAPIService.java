@@ -1,38 +1,34 @@
 package nl.surfnet.coin.teams.service;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
-
-import org.apache.http.client.ClientProtocolException;
-import org.springframework.stereotype.Component;
 
 import nl.surfnet.coin.teams.domain.Invitation;
 
 /**
  * Main interface for dealing with the SURFteams API
- * 
+ *
  */
 public interface TeamsAPIService {
 
   /**
-   * Get the {@link list} of {@link Invitation} instances from SURFteams
-   * 
-   * @param The
-   *          teamId for which to retrieve the invitations
-   * 
-   * @return {@link list} of {@link Invitation} instances, an empty {@link list}
+   * Get the {@link List} of {@link Invitation} instances from SURFteams
+   *
+   * @param teamId for which to retrieve the invitations
+   *
+   * @return {@link List} of {@link Invitation} instances, an empty {@link List}
    *         if there are no invitations for a team
+   * @throws java.io.IOException
+   * @throws IllegalStateException
    */
   List<Invitation> getInvitations(String teamId) throws IllegalStateException,
-      ClientProtocolException, IOException;
+      IOException;
 
   /**
-   * Sent the invitations for a {@link team} to SURFteams
-   * 
-   * @param {@link list} of {@link Invitation} instances
-   * @param teamId
-   *          for which to send the invitations
+   * Sent the invitations for a {@link nl.surfnet.coin.teams.domain.Team} to SURFteams
+   *
+   * @param emails
+   * @param teamId for which to send the invitations
    * @param message
    *          The message to be sent to invitees in the email body
    * @param subject
@@ -40,21 +36,24 @@ public interface TeamsAPIService {
    * 
    * @return {@link boolean} true if the invitations are sent successfully,
    *         false if something went wrong.
+   * @throws java.io.IOException
+   * @throws IllegalStateException
    */
   boolean sentInvitations(String emails, String teamId,
-      String message, String subject) throws IllegalStateException, ClientProtocolException, IOException;
+      String message, String subject) throws IllegalStateException, IOException;
 
   /**
-   * Request Membership for a {@link team}
-   * 
-   * @param teamId
+   * Request Membership for a {@link nl.surfnet.coin.teams.domain.Team}
+   *
+   * @param teamId  for which to send the invitations
    * @param personId
-   * @param message
-   * @param subject
-   * 
+   * @param message body to send
+   * @param subject to send
+   *
    * @return {@link boolean} true if the invitations are sent successfully,
    *         false if something went wrong.
+   * @throws java.io.IOException
    */
-  boolean requestMembership(String teamId, String personId, String message, String subject) throws ClientProtocolException, IOException;
+  boolean requestMembership(String teamId, String personId, String message, String subject) throws IOException;
 
 }
