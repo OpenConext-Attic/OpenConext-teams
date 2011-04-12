@@ -5,24 +5,21 @@ package nl.surfnet.coin.teams.control;
 
 import java.util.List;
 import java.util.Locale;
-import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.TeamService;
-
+import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.LocaleResolver;
+
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.TeamService;
 
 /**
  * @author steinwelberg
@@ -44,7 +41,7 @@ public class HomeController {
   @RequestMapping("/home.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request) {
 
-    String person = (String) request.getSession().getAttribute(
+    Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
     String display = request.getParameter("teams");
     String query = request.getParameter("teamSearch");
@@ -67,7 +64,7 @@ public class HomeController {
       display = "my";
     }
 
-    addTeams(query, person, display, modelMap, request);
+    addTeams(query, person.getId(), display, modelMap, request);
 
     return "home";
   }

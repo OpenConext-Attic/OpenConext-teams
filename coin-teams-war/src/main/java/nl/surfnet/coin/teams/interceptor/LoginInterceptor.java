@@ -1,14 +1,17 @@
 package nl.surfnet.coin.teams.interceptor;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import nl.surfnet.coin.teams.util.TeamEnvironment;
-
+import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+import nl.surfnet.coin.teams.service.TeamPersonService;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
 
 /**
  * Intercepts calls to controllers to handle Single Sign On details from
@@ -22,6 +25,9 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
   @Autowired
   private TeamEnvironment teamEnvironment;
+
+  @Autowired
+  private TeamPersonService personService;
 
   /*
    * Return the part of the path of the request
@@ -40,14 +46,18 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     String remoteUser = getRemoteUser(request);
 
     // Check session first:
-    String person = (String) session.getAttribute(PERSON_SESSION_KEY);
-    if (person == null || !person.equals(remoteUser)) {
+    Person person = (Person) session.getAttribute(PERSON_SESSION_KEY);
+    if (person == null || !person.getId().equals(remoteUser)) {
 
       if (StringUtils.hasText(remoteUser)) {
-        
-    	// Add person to session:
-    	session.setAttribute(PERSON_SESSION_KEY, remoteUser);
+        person = personService.getPerson(remoteUser);
+        // Add person to session:
+        session.setAttribute(PERSON_SESSION_KEY, person);
 
+        if (person == null) {
+          String errorMessage = "Cannot find user: " + remoteUser;
+          throw new ServletException(errorMessage);
+        }
         // User is not logged in, and REMOTE_USER header is empty.
         // Check whether the user is requesting the landing page, if not
         // redirect him to the landing page.
@@ -101,10 +111,13 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   }
   
   /**
-   * @param the user that has to be logged in
+   * @param userId the user that has to be logged in
    */
   public static void setLoggedInUser(String userId) {
     loggedInUser.set(userId);
   }
 
+  public void setPersonService(TeamPersonService personService) {
+    this.personService = personService;
+  }
 }

@@ -4,23 +4,15 @@ import java.io.IOException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.text.MessageFormat;
-import java.util.ArrayList;
 import java.util.Locale;
 
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.servlet.http.HttpServletRequest;
 
-import nl.surfnet.coin.teams.domain.Invitation;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.ShindigActivityService;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.service.TeamsAPIService;
-
 import org.apache.http.client.ClientProtocolException;
 import org.opensocial.RequestException;
+import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -30,6 +22,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
+
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.ShindigActivityService;
+import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.service.TeamsAPIService;
 
 /**
  * @author steinwelberg
@@ -92,8 +91,9 @@ public class AddMemberController {
     String teamId = URLDecoder.decode(request.getParameter("team"), "utf-8");
     String emailString = request.getParameter("memberEmail");
     String message = request.getParameter("message");
-    String personId = (String) request.getSession().getAttribute(
+    Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
+    String personId = person.getId();
 
     if (!StringUtils.hasText(teamId) || !StringUtils.hasText(emailString)
         || !StringUtils.hasText(message)) {
@@ -152,7 +152,7 @@ public class AddMemberController {
     String subject = messageSource.getMessage(INVITE_SEND_INVITE_SUBJECT,
         messageValuesSubject, locale);
 
-    teamsAPIService.sentInvitations(emails, team.getId(), message, subject);
+    teamsAPIService.sendInvitations(emails, team.getId(), message, subject);
   }
 
   private void addActivity(String teamId, String teamName, String email,

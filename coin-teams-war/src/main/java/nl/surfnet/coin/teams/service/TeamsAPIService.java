@@ -9,7 +9,7 @@ import nl.surfnet.coin.teams.domain.Invitation;
  * Main interface for dealing with the SURFteams API
  *
  */
-public interface TeamsAPIService {
+public interface TeamsAPIService  {
 
   /**
    * Get the {@link List} of {@link Invitation} instances from SURFteams
@@ -25,7 +25,7 @@ public interface TeamsAPIService {
       IOException;
 
   /**
-   * Sent the invitations for a {@link nl.surfnet.coin.teams.domain.Team} to SURFteams
+   * Sends the invitations for a {@link nl.surfnet.coin.teams.domain.Team} to SURFteams
    *
    * @param emails
    * @param teamId for which to send the invitations
@@ -39,8 +39,8 @@ public interface TeamsAPIService {
    * @throws java.io.IOException
    * @throws IllegalStateException
    */
-  boolean sentInvitations(String emails, String teamId,
-      String message, String subject) throws IllegalStateException, IOException;
+  boolean sendInvitations(String emails, String teamId,
+                          String message, String subject) throws IllegalStateException, IOException;
 
   /**
    * Request Membership for a {@link nl.surfnet.coin.teams.domain.Team}

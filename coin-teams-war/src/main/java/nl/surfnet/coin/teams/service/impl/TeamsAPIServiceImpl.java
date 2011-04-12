@@ -5,21 +5,16 @@ package nl.surfnet.coin.teams.service.impl;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringWriter;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.message.BasicNameValuePair;
-import org.codehaus.jackson.JsonParseException;
-import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -61,7 +56,7 @@ public class TeamsAPIServiceImpl implements TeamsAPIService {
    */
   @Override
   public List<Invitation> getInvitations(String teamId)
-      throws IllegalStateException, ClientProtocolException, IOException {
+      throws IllegalStateException, IOException {
 
     if (teamId != null) {
       String url = environment.getTeamsAPIUrl() + invitationUrl + "&group="
@@ -79,13 +74,13 @@ public class TeamsAPIServiceImpl implements TeamsAPIService {
    * (non-Javadoc)
    * 
    * @see
-   * nl.surfnet.coin.teams.service.TeamsAPIService#sentInvitations(java.lang
+   * nl.surfnet.coin.teams.service.TeamsAPIService#sendInvitations(java.lang
    * .String, java.lang.String, java.lang.String)
    */
   @Override
-  public boolean sentInvitations(String emails, String teamId, String message,
-      String subject) throws IllegalStateException, ClientProtocolException,
-      IOException {
+  public boolean sendInvitations(String emails, String teamId, String message,
+                                 String subject) throws IllegalStateException,
+    IOException {
 
     String url = environment.getTeamsAPIUrl() + inviteUrl;
     
@@ -102,28 +97,16 @@ public class TeamsAPIServiceImpl implements TeamsAPIService {
      
     HttpResponse response = httpClientProvider.getHttpClient().execute(httppost);
     int statusCode = response.getStatusLine().getStatusCode();
-    if (statusCode != HttpStatus.SC_OK) {
-      return false;
-    }
-
-//    InputStream content = response.getEntity().getContent();
-//    StringWriter writer = new StringWriter();
-//    IOUtils.copy(content, writer);
-//    String theString = writer.toString();
-
-    return true;
+    return statusCode == HttpStatus.SC_OK;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * nl.surfnet.coin.teams.service.TeamsAPIService#requestMembership(java.lang
-   * .String, java.lang.String, java.lang.String, java.lang.String)
+  /**
+   * {@inheritDoc}
+
    */
   @Override
   public boolean requestMembership(String teamId, String personId, String message, String subject)
-      throws ClientProtocolException, IOException {
+      throws IOException {
 
         String url = environment.getTeamsAPIUrl() + joinUrl;
     
@@ -141,28 +124,12 @@ public class TeamsAPIServiceImpl implements TeamsAPIService {
     HttpResponse response = httpClientProvider.getHttpClient().execute(
         httppost);
     int statusCode = response.getStatusLine().getStatusCode();
-    if (statusCode != HttpStatus.SC_OK) {
-      
-      InputStream content = response.getEntity().getContent();
-      StringWriter writer = new StringWriter();
-      IOUtils.copy(content, writer);
-      String theString = writer.toString();
-      
-      return false;
-    }
-
-  InputStream content = response.getEntity().getContent();
-  StringWriter writer = new StringWriter();
-  IOUtils.copy(content, writer);
-  String theString = writer.toString();
-
-    return true;
+    return statusCode == HttpStatus.SC_OK;
   }
 
   @SuppressWarnings("unchecked")
   private List<Invitation> doGetInvitations(String teamId,
-      InputStream inputStream) throws JsonParseException, JsonMappingException,
-      IOException {
+      InputStream inputStream) throws  IOException {
     List<String> results = getObjectMapper().readValue(inputStream, List.class);
 
     List<Invitation> invites = new ArrayList<Invitation>();

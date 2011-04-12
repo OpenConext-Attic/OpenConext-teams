@@ -4,46 +4,48 @@
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="
-	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+  http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+  http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
-	<context:component-scan base-package="nl.surfnet.coin.teams" />
+  <context:component-scan base-package="nl.surfnet.coin.teams" />
 
-	<bean id="log4jInitialization"
-		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-		<property name="targetClass" value="org.springframework.util.Log4jConfigurer" />
-		<property name="targetMethod" value="initLogging" />
-		<property name="arguments">
-			<list>
-				<value>classpath:log4j.xml</value>
-				<value>5000</value>
-			</list>
-		</property>
-	</bean>
+  <bean id="log4jInitialization"
+    class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+    <property name="targetClass" value="org.springframework.util.Log4jConfigurer" />
+    <property name="targetMethod" value="initLogging" />
+    <property name="arguments">
+      <list>
+        <value>classpath:log4j.xml</value>
+        <value>5000</value>
+      </list>
+    </property>
+  </bean>
 
-	<bean id="teamEnvironment" class="nl.surfnet.coin.teams.util.TeamEnvironment">
-		<property name="mockLogin" value="${mockLogin}" />
-		<property name="mockName" value="${mockName}" />
-		<property name="defaultStemName" value="${defaultStemName}" />
-		<property name="version" value="@VERSION@" />
-		<property name="grouperPowerUser" value="${grouperPowerUser}"/>
-		<property name="teamsAPIUrl" value="${teamsAPIUrl}"/>
-		<property name="oauthKey" value="${oauthKey}"/>
-		<property name="oauthSecret" value="${oauthSecret}"/>
-		<property name="restEndpoint" value="${restEndpoint}" />
-		<property name="rpcEndpoint" value="${rpcEndpoint}" />
-		<property name="appId" value="${appId}" />
-		<property name="teamsURL" value="${teamsURL}" />
-	</bean>
-	
-	<bean id="teamService" class="${teamService}" />
+  <bean id="teamEnvironment" class="nl.surfnet.coin.teams.util.TeamEnvironment">
+    <property name="mockLogin" value="${mockLogin}" />
+    <property name="mockName" value="${mockName}" />
+    <property name="defaultStemName" value="${defaultStemName}" />
+    <property name="version" value="@VERSION@" />
+    <property name="grouperPowerUser" value="${grouperPowerUser}"/>
+    <property name="teamsAPIUrl" value="${teamsAPIUrl}"/>
+    <property name="oauthKey" value="${oauthKey}"/>
+    <property name="oauthSecret" value="${oauthSecret}"/>
+    <property name="restEndpoint" value="${restEndpoint}" />
+    <property name="rpcEndpoint" value="${rpcEndpoint}" />
+    <property name="appId" value="${appId}" />
+    <property name="teamsURL" value="${teamsURL}" />
+    <property name="openSocialUrl" value="${coin-container-url}" />
+    <property name="systemEmail" value="${systemEmail}"/>
+  </bean>
+  
+  <bean id="teamService" class="${teamService}" />
 
-	<bean id="localeResolver"
-		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
-		<!-- Set the default Locale to English -->
-		<property name="defaultLocale" value="en_EN" />
-	</bean>
+  <bean id="localeResolver"
+    class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+    <!-- Set the default Locale to English -->
+    <property name="defaultLocale" value="en_EN" />
+  </bean>
 
   <bean id="teamDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
     destroy-method="close">

@@ -11,18 +11,19 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-
 import org.junit.Before;
 import org.mockito.internal.stubbing.answers.DoesNothing;
 import org.mockito.internal.stubbing.answers.Returns;
 import org.mockito.stubbing.Answer;
+import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.web.servlet.mvc.Controller;
+
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 
 /**
  * Base class for testing {@link Controller} instances
@@ -114,8 +115,8 @@ public abstract class AbstractControllerTest {
    * 
    * @param target
    *          the controller
-   * @param answer
-   *          the answer to return on method invocations
+   * @param mock
+   *          the mock Object to return on method invocations
    * @param interfaceClass
    *          the class to mock
    */
@@ -153,7 +154,8 @@ public abstract class AbstractControllerTest {
   private void setUpSession(HttpServletRequest request) {
     HttpSession session = request.getSession(true);
 
-    String person = "member-1";
+    Person person = new Person();
+    person.setField("id","member-1");
     session.setAttribute(LoginInterceptor.PERSON_SESSION_KEY, person);
 
   }

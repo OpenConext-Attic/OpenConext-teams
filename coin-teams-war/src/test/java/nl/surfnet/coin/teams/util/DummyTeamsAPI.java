@@ -9,12 +9,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import nl.surfnet.coin.mock.MockHandler;
-import nl.surfnet.coin.mock.MockHtppServer;
-
-import org.junit.Test;
 import org.mortbay.jetty.Server;
 import org.springframework.core.io.ClassPathResource;
+
+import nl.surfnet.coin.mock.MockHandler;
+import nl.surfnet.coin.mock.MockHtppServer;
 
 /**
  * @author steinwelberg
@@ -22,8 +21,7 @@ import org.springframework.core.io.ClassPathResource;
  */
 public class DummyTeamsAPI {
   
-  @Test
-  public void mockTeamsAPI() {
+  public static void main(String[] args) {
     final ClassPathResource invitations = new ClassPathResource(
         "mocks/invitations.json");
     final ClassPathResource success = new ClassPathResource(

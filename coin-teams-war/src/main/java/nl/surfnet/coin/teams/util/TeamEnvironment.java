@@ -20,6 +20,8 @@ public class TeamEnvironment {
   private String rpcEndpoint;
   private String appId;
   private String teamsURL;
+  private String openSocialUrl;
+  private String systemEmail;
 
 
   /**
@@ -183,8 +185,8 @@ public class TeamEnvironment {
   /**
    * @param teamsURL the teamsURL to set
    */
-  public void setTeamsURL(String teamsHost) {
-    this.teamsURL = teamsHost;
+  public void setTeamsURL(String teamsURL) {
+    this.teamsURL = teamsURL;
   }
 
   /**
@@ -194,4 +196,32 @@ public class TeamEnvironment {
     return teamsURL;
   }
 
+  /**
+   * @return the openSocialUrl
+   */
+  public String getOpenSocialUrl() {
+    return openSocialUrl;
+  }
+
+  /**
+   * @param openSocialUrl
+   *          the openSocialUrl to set
+   */
+  public void setOpenSocialUrl(String openSocialUrl) {
+    this.openSocialUrl = openSocialUrl;
+  }
+
+  /**
+   * @return the email address of this application
+   */
+  public String getSystemEmail() {
+    return systemEmail;
+  }
+
+  /**
+   * @param systemEmail the email address of this application to set
+   */
+  public void setSystemEmail(String systemEmail) {
+    this.systemEmail = systemEmail;
+  }
 }

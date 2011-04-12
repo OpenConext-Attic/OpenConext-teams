@@ -3,8 +3,12 @@
 # values depend on the environment and are unknown to the developers     #
 ##########################################################################
 
+coin-team-db-url=jdbc:mysql://db.dev.surfconext.nl:3306/surfteams
+coin-team-db-username=
+coin-team-db-password=
+
 #the stem name to find all groups
-defaultStemName=nl:surfnet:diensten
+defaultStemName=nl:surfnet:dienstentest
 
 #the actAsSubject with extended rights
 grouperPowerUser=GrouperSystem
@@ -22,6 +26,16 @@ teamsURL=https://portal.dev.surfconext.nl/teams
 #SURFteams API url
 teamsAPIUrl=https://teams.dev.surfconext.nl/api
 
+# SMTP server settings for notifications
+coin-mailserver=s01.dev.coin.surf.net
+coin-mailserver-port=25
+
+# Email address that is the sender of invitations/requests
+systemEmail=systeembericht@surfteams.nl
+
+#The url for all Service Providers to retrieve social data
+coin-container-url=https://os.dev.surfconext.nl/social
+
 ##########################################################################
 # The following properties are the responsibility of development. The    #
 # values do NOT depend on the environment                                #
@@ -38,6 +52,13 @@ loginInterceptor=nl.surfnet.coin.teams.interceptor.LoginInterceptor
 teamService=nl.surfnet.coin.teams.service.impl.GrouperTeamService
 
 #mock* properties can be left empty when deploying in acc/prod
-mockLogin=member-1
+mockLogin=not.used
 #mockLogin=urn:collab:person:surfnet.nl:hansz
 mockName=member1-name
+
+hibernate-team.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
+hibernate-team.hbm2ddl.auto=none
+hibernate-team.format_sql=true
+hibernate-team.show_sql=true
+
+coin-team-db-driver=com.mysql.jdbc.Driver

@@ -17,50 +17,58 @@ import nl.surfnet.coin.shared.domain.DomainObject;
 @Proxy(lazy = false)
 public class JoinTeamRequest extends DomainObject {
 
-    @Column(name = "group_id", nullable = false)
-    private String groupId;
+  @Column(name = "group_id", nullable = false)
+  private String groupId;
 
-    @Column(nullable = false)
-    private long timestamp;
+  @Column(nullable = false)
+  private long timestamp;
 
-    @Deprecated
-    @Column(updatable = false, insertable = false)
-    private String uuid;
+  @Deprecated
+  @Column(nullable = false)
+  private String uuid;
 
-    /**
-     * @return id of the group
-     */
-    public String getGroupId() {
-        return groupId;
-    }
+  /**
+   * @return id of the group
+   */
+  public String getGroupId() {
+    return groupId;
+  }
 
-    /**
-     * @param groupId to set
-     */
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
+  /**
+   * @param groupId to set
+   */
+  public void setGroupId(String groupId) {
+    this.groupId = groupId;
+  }
 
-    /**
-     * @return timestamp of the request
-     */
-    public long getTimestamp() {
-        return timestamp;
-    }
+  /**
+   * @return timestamp of the request
+   */
+  public long getTimestamp() {
+    return timestamp;
+  }
 
-    /**
-     * @param timestamp of the request
-     */
-    public void setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
-    }
+  /**
+   * @param timestamp of the request
+   */
+  public void setTimestamp(long timestamp) {
+    this.timestamp = timestamp;
+  }
 
-    /**
-     * @deprecated use {@link #getId()} instead
-     * @return old uuid
-     */
-    public String getUuid() {
-        return uuid;
-    }
+  /**
+   * @return old uuid
+   * @deprecated use {@link #getId()} instead
+   */
+  public String getUuid() {
+    return uuid;
+  }
+
+  /**
+   * @param uuid to set
+   * @deprecated use {@link #setId(Long)} instead
+   */
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
+  }
 
 }

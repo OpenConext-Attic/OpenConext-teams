@@ -9,14 +9,8 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.service.TeamsAPIService;
-
 import org.apache.http.client.ClientProtocolException;
+import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -25,6 +19,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.view.RedirectView;
+
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.service.TeamsAPIService;
 
 /**
  * @author steinwelberg
@@ -50,8 +51,9 @@ public class DetailTeamController {
   public String start(ModelMap modelMap, HttpServletRequest request)
       throws IllegalStateException, ClientProtocolException, IOException {
 
-    String person = (String) request.getSession().getAttribute(
+    Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
+    String personId = person.getId();
     String teamId = URLDecoder.decode(request.getParameter("team"), "utf-8");
     Set<Role> roles = new HashSet<Role>();
     String message = request.getParameter("mes");
@@ -74,7 +76,7 @@ public class DetailTeamController {
       team = teamService.findTeamById(request.getParameter("team"));
     }
 
-    if (team == null || !StringUtils.hasText(person)) {
+    if (team == null || !StringUtils.hasText(personId)) {
       throw new RuntimeException("Wrong parameters.");
     }
 
@@ -82,7 +84,7 @@ public class DetailTeamController {
 
     // Iterate over the members to get the roles for the logged in user.
     for (Member member : members) {
-      if (member.getId().equals(person)) {
+      if (member.getId().equals(personId)) {
         roles = member.getRoles() ;
       }
     }
@@ -122,8 +124,9 @@ public class DetailTeamController {
   public RedirectView leaveTeam(ModelMap modelMap, HttpServletRequest request)
       throws UnsupportedEncodingException {
     String teamId = URLDecoder.decode(request.getParameter("team"), "utf-8");
-    String personId = (String) request.getSession().getAttribute(
+    Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
+    String personId = person.getId();
     Team team = null;
 
     if (StringUtils.hasText(teamId)) {
@@ -152,8 +155,9 @@ public class DetailTeamController {
   public RedirectView deleteTeam(ModelMap modelMap, HttpServletRequest request)
       throws UnsupportedEncodingException {
     String teamId = URLDecoder.decode(request.getParameter("team"), "utf-8");
-    String personId = (String) request.getSession().getAttribute(
+    Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
+    String personId = person.getId();
 
     if (!StringUtils.hasText(teamId)) {
       throw new RuntimeException("Parameter error.");
@@ -177,8 +181,9 @@ public class DetailTeamController {
     String teamId = URLDecoder.decode(request.getParameter("team"), "utf-8");
     String personId = URLDecoder
         .decode(request.getParameter("member"), "utf-8");
-    String ownerId = (String) request.getSession().getAttribute(
+    Person ownerPerson = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
+    String ownerId = ownerPerson.getId();
 
     if (!StringUtils.hasText(teamId) || !StringUtils.hasText(personId)) {
       throw new RuntimeException("Parameter error.");
@@ -235,12 +240,10 @@ public class DetailTeamController {
   @RequestMapping(value = "/doremoverole.shtml", method = RequestMethod.POST)
   public @ResponseBody
   String removeRole(ModelMap modelMap, HttpServletRequest request) {
-    String personId = (String) request.getSession().getAttribute(
-        LoginInterceptor.PERSON_SESSION_KEY);
     String teamId = request.getParameter("team");
     String memberId = request.getParameter("member");
     String roleString = request.getParameter("role");
-    Team team = null;
+    Team team;
 
     // Some of the parameters weren't correctly filled
     if (!StringUtils.hasText(teamId) || !StringUtils.hasText(memberId)
