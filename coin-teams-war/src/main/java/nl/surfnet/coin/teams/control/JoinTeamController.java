@@ -102,14 +102,17 @@ public class JoinTeamController {
       throw new RuntimeException("Cannot find team for parameter 'team'");
     }
 
-    JoinTeamRequest joinRequest = new JoinTeamRequest();
-    joinRequest.setGroupId(team.getId());
-    joinRequest.setPersonId(person.getId());
-    joinRequest.setTimestamp(new Date().getTime());
-    joinTeamRequestService.saveOrUpdate(joinRequest);
-
+    // First send mail, then optionally create record in db
     sendJoinTeamMessage(team, person, message,
       localeResolver.resolveLocale(request));
+
+    if (joinTeamRequestService.isNewRequestForTeam(person, team)) {
+      JoinTeamRequest joinRequest = new JoinTeamRequest();
+      joinRequest.setGroupId(team.getId());
+      joinRequest.setPersonId(person.getId());
+      joinRequest.setTimestamp(new Date().getTime());
+      joinTeamRequestService.saveOrUpdate(joinRequest);
+    }
 
     return new RedirectView("home.shtml?teams=my");
   }

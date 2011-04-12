@@ -75,7 +75,9 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
     TeamService mockTeamService = createMock("mockTeamService", TeamService.class);
     joinTeamController.setTeamService(mockTeamService);
     expect(mockTeamService.findTeamById("team-1")).andReturn(mockTeam);
-    autoWireMock(joinTeamController, new Returns(123456L), JoinTeamRequestService.class);
+
+    // checks if this is a new join request. If false, then no mail will be triggered.
+    autoWireMock(joinTeamController, new Returns(false), JoinTeamRequestService.class);
 
     Set<Role> roleSet = new HashSet<Role>();
     roleSet.add(Role.Admin);

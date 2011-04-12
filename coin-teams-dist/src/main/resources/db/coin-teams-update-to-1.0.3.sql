@@ -1,4 +1,4 @@
-ALTER TABLE `surfteams`.`requests` DROP COLUMN `id`
-, CHANGE COLUMN `uuid` `uuid` VARCHAR(255) NOT NULL DEFAULT NULL
+ALTER TABLE `teams`.`requests` ADD COLUMN `id` BIGINT(20) NOT NULL AUTO_INCREMENT AFTER `timestamp`
 , DROP PRIMARY KEY 
-, ADD PRIMARY KEY (`uuid`, `group_id`) ;
+, ADD PRIMARY KEY (`id`) 
+, ADD UNIQUE INDEX `id_UNIQUE` (`id` ASC) ;
