@@ -69,7 +69,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         if (urlSplit[2].equals("js") || urlSplit[2].equals("teams.xml")) {
           return super.preHandle(request, response, handler);
         } else {
-          response.sendRedirect("/Shibboleth.sso/Login?return=/teams/home.shtml?teams=my");
+          response.sendRedirect("/Shibboleth.sso/Login?return="
+              + teamEnvironment.getTeamsURL() + "/home.shtml?teams=my");
           return false;
         }
       }
@@ -80,13 +81,14 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
   /**
    * Hook for subclasses to override the shibboleth default behaviour
-   * @param request the httpRequest
+   * 
+   * @param request
+   *          the httpRequest
    * @return the String of the logged in user
    */
   protected String getRemoteUser(HttpServletRequest request) {
     return request.getHeader("REMOTE_USER");
   }
-
 
   /**
    * @param teamEnvironment
@@ -102,16 +104,17 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   protected TeamEnvironment getTeamEnvironment() {
     return teamEnvironment;
   }
-  
+
   /**
    * @return the loggedinuser
    */
   public static String getLoggedInUser() {
     return loggedInUser.get();
   }
-  
+
   /**
-   * @param userId the user that has to be logged in
+   * @param userId
+   *          the user that has to be logged in
    */
   public static void setLoggedInUser(String userId) {
     loggedInUser.set(userId);
