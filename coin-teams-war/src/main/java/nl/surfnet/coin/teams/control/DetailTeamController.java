@@ -26,6 +26,7 @@ import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.service.TeamsAPIService;
+import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * @author steinwelberg
@@ -49,7 +50,7 @@ public class DetailTeamController {
 
   @RequestMapping("/detailteam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request)
-      throws IllegalStateException, ClientProtocolException, IOException {
+      throws IllegalStateException, IOException {
 
     Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
@@ -59,19 +60,6 @@ public class DetailTeamController {
     String message = request.getParameter("mes");
     Team team = null;
     
-    String view = request.getParameter("view");
-    
-    if (view == null || !StringUtils.hasText(view)) {
-      view = (String) request.getSession().getAttribute("view");
-    }
-    
-    // Determine view
-    if (view != null && !view.equals("gadget")) {
-      view = "app";
-    }
-    modelMap.addAttribute("view", view);
-    request.getSession().setAttribute("view", view);
-
     if (StringUtils.hasText(teamId)) {
       team = teamService.findTeamById(request.getParameter("team"));
     }
@@ -102,6 +90,8 @@ public class DetailTeamController {
     modelMap.addAttribute("team", team);
     modelMap.addAttribute("admin", Role.Admin);
     modelMap.addAttribute("manager", Role.Manager);
+
+    ViewUtil.defineView(request, modelMap);
 
     if (roles.contains(Role.Admin)) {
       return "detailteam-admin";
