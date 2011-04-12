@@ -69,7 +69,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         if (urlSplit[2].equals("js") || urlSplit[2].equals("teams.xml")) {
           return super.preHandle(request, response, handler);
         } else {
-          response.sendRedirect("/Shibboleth.sso/Login?return="
+          response.sendRedirect("/Shibboleth.sso/Login?target="
               + teamEnvironment.getTeamsURL() + "/home.shtml?teams=my");
           return false;
         }
