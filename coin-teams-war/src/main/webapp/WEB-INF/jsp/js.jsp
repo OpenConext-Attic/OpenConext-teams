@@ -11,4 +11,3 @@
 <%@include file="/js/coin-teams/modules/jointeam.js" %>
 <%@include file="/js/coin-teams/modules/addmember.js" %>
 <%@include file="/js/coin-teams/modules/detailteam.js" %>
-<%-- <%@include file="/js/coin-teams/modules/landingpage.js" %> --%>

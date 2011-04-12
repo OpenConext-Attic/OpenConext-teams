@@ -5,20 +5,41 @@
 <html>
 <head>
     <title><spring:message code="jsp.general.Title" /></title>
-    <link rel="stylesheet" href="css/default.css">
+    <c:choose>
+      <c:when test='${view eq "gadget"}'>
+        <link rel="stylesheet" href="css/gadget.css">
+      </c:when>
+      <c:otherwise>
+      	<link rel="stylesheet" href="css/default.css">
+      </c:otherwise>
+    </c:choose>
     <script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
     <script type="text/javascript" src="js/jquery.validate.min.js"></script>
 </head>
 <body>
-  <div id="PageContainer">
-    
-    <!-- = Main -->
-    <div class="section" id="Main">
-        <jsp:doBody/>
+  <c:if test='${view ne "gadget"}'>
+    <!--  = Header -->
+    <div class="header" id="Header">
+      header
     </div>
-    <!-- / Main -->
+    <!-- / Header -->
+  </c:if>
+  <div class="page-container" id="PageContainer">
+
+      <!-- = Main -->
+      <div class="section" id="Main">
+          <jsp:doBody/>
+      </div>
+      <!-- / Main -->
 
   </div>
+  <c:if test='${view ne "gadget"}'>
+    <!--  = Footer -->
+    <div class="footer" id="Footer">
+      footer
+    </div>
+    <!-- / Footer -->
+  </c:if>
   
   <!-- / LeaveTeamDialog -->
   <div id="LeaveTeamDialog" class="hide" title="<spring:message code='jsp.dialog.leaveteam.Title' />">

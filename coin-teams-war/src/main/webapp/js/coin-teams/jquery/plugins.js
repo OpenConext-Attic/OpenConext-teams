@@ -69,7 +69,7 @@ jQuery.notifyBar = function(settings) {
       asTime = notifyBarNS.animationSpeed;
     }
     if( bar != 'object'); {
-      jQuery("body").prepend(bar);
+      jQuery("#PageContainer").prepend(bar);
     }
     
     // Style close button in CSS file

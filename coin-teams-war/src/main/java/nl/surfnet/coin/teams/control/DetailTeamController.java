@@ -56,6 +56,19 @@ public class DetailTeamController {
     Set<Role> roles = new HashSet<Role>();
     String message = request.getParameter("mes");
     Team team = null;
+    
+    String view = request.getParameter("view");
+    
+    if (view == null || !StringUtils.hasText(view)) {
+      view = (String) request.getSession().getAttribute("view");
+    }
+    
+    // Determine view
+    if (view != null && !view.equals("gadget")) {
+      view = "app";
+    }
+    modelMap.addAttribute("view", view);
+    request.getSession().setAttribute("view", view);
 
     if (StringUtils.hasText(teamId)) {
       team = teamService.findTeamById(request.getParameter("team"));

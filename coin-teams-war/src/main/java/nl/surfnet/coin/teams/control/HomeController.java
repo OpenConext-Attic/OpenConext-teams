@@ -48,6 +48,19 @@ public class HomeController {
         LoginInterceptor.PERSON_SESSION_KEY);
     String display = request.getParameter("teams");
     String query = request.getParameter("teamSearch");
+    String view = request.getParameter("view");
+    
+    if (view == null || !StringUtils.hasText(view)) {
+      view = (String) request.getSession().getAttribute("view");
+    }
+    
+    // Determine view
+    if (view != null && !view.equals("gadget")) {
+      view = "app";
+    }
+    modelMap.addAttribute("view", view);
+    request.getSession().setAttribute("view", view);
+
     
     // Set the display to my if no display is selected
     if (!StringUtils.hasText(display)) {

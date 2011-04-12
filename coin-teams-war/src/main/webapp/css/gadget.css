@@ -2,16 +2,12 @@
 
 body {
 	position: relative;
+	margin: 5px;
+	padding: 10px;
+	border: 1px solid #c1c1bd;
 	font-family: "Lucida Sans Unicode","Lucida Grande",Arial,sans-serif;
 	font-size: 11px;
 	color: #000;
-}
-
-.page-container {
-	padding: 10px;
-	width: 700px;
-	margin: 0 auto;
-	border: 1px solid #c1c1bd;
 }
 
 h1, .ui-dialog-title {
@@ -92,6 +88,8 @@ td:first-child {
 
 .team-table-wrapper {
 	clear: both;
+	height: 190px;
+	overflow-y: auto;
 }
 
 /* FORMS */
@@ -231,12 +229,7 @@ button.ui-button:first-child:hover {
 
 /* CLOSE ME */
 
-.close {
-	position: relative;
-	float: right;
-	top: -30px;
-}
-
+.close,
 .notify-bar-close {
 	position: absolute;
 	top: 10px;
@@ -329,11 +322,10 @@ button.ui-button:first-child:hover {
 */
 
 .jquery-notify-bar {
-	position: relative;
-	z-index: 5;
-	top: -10px;
-	left: -10px;
- 	width: 720px;
+	position: absolute;
+	top: 0;
+	left: 0;
+ 	width: 100%;
  	border-bottom: 1px solid #ccc;
  	font-size: 12px;
 	font-family: Arial, Verdana, sans-serif;
