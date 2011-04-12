@@ -7,7 +7,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
-import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -105,8 +104,8 @@ public class JoinTeamController {
 
     JoinTeamRequest joinRequest = new JoinTeamRequest();
     joinRequest.setGroupId(team.getId());
+    joinRequest.setPersonId(person.getId());
     joinRequest.setTimestamp(new Date().getTime());
-    joinRequest.setUuid(UUID.randomUUID().toString());
     joinTeamRequestService.saveOrUpdate(joinRequest);
 
     sendJoinTeamMessage(team, person, message,

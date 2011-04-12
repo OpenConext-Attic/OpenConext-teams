@@ -23,9 +23,8 @@ public class JoinTeamRequest extends DomainObject {
   @Column(nullable = false)
   private long timestamp;
 
-  @Deprecated
-  @Column(nullable = false)
-  private String uuid;
+  @Column(name = "uuid", nullable = false)
+  private String personId;
 
   /**
    * @return id of the group
@@ -56,19 +55,17 @@ public class JoinTeamRequest extends DomainObject {
   }
 
   /**
-   * @return old uuid
-   * @deprecated use {@link #getId()} instead
+   * @return personId that wants to join the team
    */
-  public String getUuid() {
-    return uuid;
+  public String getPersonId() {
+    return personId;
   }
 
   /**
-   * @param uuid to set
-   * @deprecated use {@link #setId(Long)} instead
+   * @param personId to set
    */
-  public void setUuid(String uuid) {
-    this.uuid = uuid;
+  public void setPersonId(String personId) {
+    this.personId = personId;
   }
 
 }
