@@ -50,4 +50,12 @@ public class JoinTeamRequestServiceHibernateImpl
     List list = criteria.list();
     return CollectionUtils.isEmpty(list);
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public List<JoinTeamRequest> findPendingRequests(Team team) {
+    return findByCriteria(Restrictions.eq("groupId", team.getId()));
+  }
 }

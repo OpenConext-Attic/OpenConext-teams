@@ -4,12 +4,13 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.http.client.ClientProtocolException;
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,10 +21,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.view.RedirectView;
 
+import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.JoinTeamRequestService;
+import nl.surfnet.coin.teams.service.TeamPersonService;
 import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.service.TeamsAPIService;
 import nl.surfnet.coin.teams.util.ViewUtil;
@@ -46,7 +50,14 @@ public class DetailTeamController {
   private TeamService teamService;
 
   @Autowired
+  @Deprecated
   private TeamsAPIService teamsAPIService;
+
+  @Autowired
+  private JoinTeamRequestService joinTeamRequestService;
+
+  @Autowired
+  private TeamPersonService teamPersonService;
 
   @RequestMapping("/detailteam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request)
@@ -94,8 +105,10 @@ public class DetailTeamController {
     ViewUtil.defineView(request, modelMap);
 
     if (roles.contains(Role.Admin)) {
+      modelMap.addAttribute("pendingRequests", getRequesters(team));
       return "detailteam-admin";
     } else if (roles.contains(Role.Manager)) {
+      modelMap.addAttribute("pendingRequests", getRequesters(team));
       return "detailteam-manager";
     } else if (roles.contains(Role.Member)) {
       return "detailteam-member";
@@ -104,8 +117,17 @@ public class DetailTeamController {
     }
   }
 
+  private List<Person> getRequesters(Team team) {
+    List<JoinTeamRequest> pendingRequests = joinTeamRequestService.findPendingRequests(team);
+    List<Person> requestingPersons = new ArrayList<Person>(pendingRequests.size());
+    for (JoinTeamRequest joinTeamRequest : pendingRequests) {
+      requestingPersons.add(teamPersonService.getPerson(joinTeamRequest.getPersonId()));
+    }
+    return requestingPersons;
+  }
+
   private void addInvitations(ModelMap modelMap, String teamId)
-      throws IllegalStateException, ClientProtocolException, IOException {
+      throws IllegalStateException, IOException {
     modelMap
         .addAttribute("invitations", teamsAPIService.getInvitations(teamId));
   }

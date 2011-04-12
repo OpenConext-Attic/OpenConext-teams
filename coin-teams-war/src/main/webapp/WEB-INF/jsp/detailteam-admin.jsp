@@ -38,6 +38,26 @@
       <c:set var="noDescription"><spring:message code='jsp.general.NoDescription' /></c:set>
       <c:out value="${team.description}" default="${noDescription}"/>
     </p>
+    <c:if test="${fn:length(pendingRequests)>0}">
+      <br class="clear" />
+      <h2><spring:message code="jsp.detailteam.PendingRequests"/></h2>
+      <table class="team-table-wrapper">
+        <thead>
+          <th colspan="3"><spring:message code='jsp.detailteam.Name' /></th>
+        </thead>
+        <tbody>
+        <c:forEach var="pending" items="${pendingRequests}">
+          <tr>
+            <td><c:out value="${pending.displayName}"/></td>
+            <td><button value="deny">###Deny###</button></td>
+            <td><button value="accept"><spring:message code="jsp.detailteam.AcceptJoinRequest"/></button></td>
+          </tr>
+        </c:forEach>
+        </tbody>
+      </table>
+      <br class="clear" />
+      <h2><spring:message code="jsp.detailteam.TeamMembers"/></h2>
+    </c:if>
     <form>
       <input type="hidden" name="teamId" value="${team.id}" />
       <input type="hidden" name="loggedInUser" value="${sessionScope.person}" />
@@ -63,10 +83,9 @@
                 <td><input id="0_${member.id}" type="checkbox" name="adminRole" value="" <c:if test="${teamfn:contains(member.roles, admin)}" > checked</c:if> <c:if test="${onlyAdmin eq 1 && member.id eq sessionScope.person}">disabled</c:if> /></td>
                 <td><input id="1_${member.id}" type="checkbox" name="managerRole" value="" <c:out value='${managerRoleStatus}' /> /></td>
                 <td>
-                  <c:choose>
-                    <c:when test="${member.id eq sessionScope.person}"></c:when>
-                    <c:otherwise><a href="dodeletemember.shtml?team=${team.id}&member=${member.id}"><spring:message code="jsp.detailteam.RemoveMemberFromTeam"/></a></c:otherwise>
-                  </c:choose>
+                    <c:if test="${member.id ne sessionScope.person}">
+                      <a href="dodeletemember.shtml?team=${team.id}&member=${member.id}"><spring:message code="jsp.detailteam.RemoveMemberFromTeam"/></a>
+                    </c:if>
                 </td>
               </tr>
             </c:forEach>
