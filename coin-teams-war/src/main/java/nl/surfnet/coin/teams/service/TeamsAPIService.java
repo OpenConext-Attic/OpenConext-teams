@@ -42,18 +42,4 @@ public interface TeamsAPIService  {
   boolean sendInvitations(String emails, String teamId,
                           String message, String subject) throws IllegalStateException, IOException;
 
-  /**
-   * Request Membership for a {@link nl.surfnet.coin.teams.domain.Team}
-   *
-   * @param teamId  for which to send the invitations
-   * @param personId
-   * @param message body to send
-   * @param subject to send
-   *
-   * @return {@link boolean} true if the invitations are sent successfully,
-   *         false if something went wrong.
-   * @throws java.io.IOException
-   */
-  boolean requestMembership(String teamId, String personId, String message, String subject) throws IOException;
-
 }

@@ -100,32 +100,6 @@ public class TeamsAPIServiceImpl implements TeamsAPIService {
     return statusCode == HttpStatus.SC_OK;
   }
 
-  /**
-   * {@inheritDoc}
-
-   */
-  @Override
-  public boolean requestMembership(String teamId, String personId, String message, String subject)
-      throws IOException {
-
-        String url = environment.getTeamsAPIUrl() + joinUrl;
-    
-    HttpPost httppost = new HttpPost(url);
-
-    // Add your data
-    List<BasicNameValuePair> nameValuePairs = new ArrayList<BasicNameValuePair>(
-        4);
-    nameValuePairs.add(new BasicNameValuePair("group", teamId));
-    nameValuePairs.add(new BasicNameValuePair("member", personId));
-    nameValuePairs.add(new BasicNameValuePair("body", message));
-    nameValuePairs.add(new BasicNameValuePair("subject", subject));
-    httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-
-    HttpResponse response = httpClientProvider.getHttpClient().execute(
-        httppost);
-    int statusCode = response.getStatusLine().getStatusCode();
-    return statusCode == HttpStatus.SC_OK;
-  }
 
   @SuppressWarnings("unchecked")
   private List<Invitation> doGetInvitations(String teamId,
