@@ -14,11 +14,7 @@ import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.JoinTeamRequestService;
 
 /**
- * Created by IntelliJ IDEA.
- * User: jashaj
- * Date: 11-04-11
- * Time: 14:56
- * To change this template use File | Settings | File Templates.
+ * Hibernate implementation for {@link JoinTeamRequestService}
  */
 @Component("joinTeamRequestService")
 public class JoinTeamRequestServiceHibernateImpl
