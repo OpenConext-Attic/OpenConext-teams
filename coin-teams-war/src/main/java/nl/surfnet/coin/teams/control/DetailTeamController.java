@@ -105,7 +105,7 @@ public class DetailTeamController {
     modelMap.addAttribute("admin", Role.Admin);
     modelMap.addAttribute("manager", Role.Manager);
 
-    ViewUtil.defineView(request, modelMap);
+    ViewUtil.addViewToModelMap(request, modelMap);
 
     if (roles.contains(Role.Admin)) {
       modelMap.addAttribute("pendingRequests", getRequesters(team));

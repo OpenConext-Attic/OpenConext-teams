@@ -53,7 +53,7 @@ public class AddTeamController {
   @RequestMapping("/addteam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request) {
 
-    ViewUtil.defineView(request, modelMap);
+    ViewUtil.addViewToModelMap(request, modelMap);
 
     return "addteam";
   }

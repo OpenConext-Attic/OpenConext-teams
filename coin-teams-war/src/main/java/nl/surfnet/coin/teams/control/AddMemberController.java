@@ -82,7 +82,7 @@ public class AddMemberController {
       throw new RuntimeException("Parameter error.");
     }
 
-    ViewUtil.defineView(request, modelMap);
+    ViewUtil.addViewToModelMap(request, modelMap);
 
     return "addmember";
   }

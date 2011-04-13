@@ -54,7 +54,7 @@ public class HomeController {
 
     addTeams(query, person.getId(), display, modelMap, request);
 
-    ViewUtil.defineView(request, modelMap);
+    ViewUtil.addViewToModelMap(request, modelMap);
 
     return "home";
   }

@@ -81,7 +81,7 @@ public class JoinTeamController {
 
     modelMap.addAttribute("team", team);
     
-    ViewUtil.defineView(request, modelMap);
+    ViewUtil.addViewToModelMap(request, modelMap);
 
     return "jointeam";
   }
