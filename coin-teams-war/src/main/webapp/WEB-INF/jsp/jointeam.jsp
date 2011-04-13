@@ -10,13 +10,13 @@
   <div id="Header">
     <h1><spring:message code='jsp.jointeam.Title' /></h1>
     <c:url value="home.shtml" var="closeUrl"><c:param name="teams" value="all" /><c:param name="view" value="${view}" /></c:url>
-    <p class="close"><a href="<c:out value='${closeUrl}' />"><spring:message code='jsp.general.CloseForm' /></a></p>
+    <p class="close"><a href="${closeUrl}"><spring:message code='jsp.general.CloseForm' /></a></p>
   <!-- / Header -->
   </div>
   <!-- = Content -->
   <div id="Content">
     <c:url value="dojointeam.shtml" var="doJoinTeamUrl"><c:param name="view" value="${view}" /></c:url>
-    <form id="JoinTeamForm" action="<c:out value='${doJoinTeamUrl}' />" method="post">
+    <form id="JoinTeamForm" action="${doJoinTeamUrl}" method="post">
       <p class="label-field-wrapper">
         <input type="hidden" name="team" value="${team.id}" />
         <label for="TeamMessage"><spring:message code='jsp.general.Message' /></label>

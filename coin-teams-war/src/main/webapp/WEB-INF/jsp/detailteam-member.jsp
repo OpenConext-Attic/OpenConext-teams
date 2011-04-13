@@ -10,10 +10,10 @@
   <!-- = Header -->
   <div id="Header">
     <c:url value="home.shtml" var="backUrl"><c:param name="teams" value="my" /><c:param name="view" value="${view}" /></c:url>
-    <p class="back"><a href="<c:out value='${backUrl}' />">&lt; <spring:message code='jsp.detailteam.Back' /></a></p>
+    <p class="back"><a href="${backUrl}">&lt; <spring:message code='jsp.detailteam.Back' /></a></p>
     <p class="team-option">
       <c:url value="doleaveteam.shtml" var="leaveUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
-      <a class="button-secondary" id="LeaveTeam" href="<c:out value='${leaveUrl}' />"><spring:message code='jsp.detailteam.Leave' /></a>
+      <a class="button-secondary" id="LeaveTeam" href="${leaveUrl}"><spring:message code='jsp.detailteam.Leave' /></a>
     </p>
     <br class="clear" />
     <h1 class="team-title"><c:out value="${team.name}" /></h1>
@@ -26,7 +26,7 @@
       <c:set var="noDescription"><spring:message code='jsp.general.NoDescription' /></c:set>
       <c:out value="${team.description}" default="${noDescription}"/>
     </p>
-    <form>
+    <form action="">
       <div class="team-table-wrapper">
         <table class="team-table">
           <thead>

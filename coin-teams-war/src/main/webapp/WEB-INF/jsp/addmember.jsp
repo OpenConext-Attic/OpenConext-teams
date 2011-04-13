@@ -10,13 +10,13 @@
   <div id="Header">
     <h1><spring:message code='jsp.addmember.Title' /></h1>
     <c:url value="home.shtml" var="closeUrl"><c:param name="teams" value="my" /><c:param name="view" value="${view}" /></c:url>
-    <p class="close"><a href="<c:out value='${closeUrl}' />"><spring:message code='jsp.general.CloseForm' /></a></p>
+    <p class="close"><a href="${closeUrl}"><spring:message code='jsp.general.CloseForm' /></a></p>
   <!-- / Header -->
   </div>
   <!-- = Content -->
   <div id="Content">
     <c:url value="doaddmemeber.shtml" var="doAddMemberUrl"><c:param name="view" value="${view}" /></c:url>
-    <form id="AddMemberForm" action="<c:out value='${doAddMemberUrl}' />" method="post">
+    <form id="AddMemberForm" action="${doAddMemberUrl}" method="post">
       <p class="label-field-wrapper">
         <input type="hidden" name="team" value="${team.id}" />
         <input type="hidden" name="testEmail" id="TestEmail" class="email" value="" />
