@@ -15,7 +15,7 @@
   </div>
   <!-- = Content -->
   <div id="Content">
-    <c:url value="doaddmemeber.shtml" var="doAddMemberUrl"><c:param name="view" value="${view}" /></c:url>
+    <c:url value="doaddmember.shtml" var="doAddMemberUrl"><c:param name="view" value="${view}" /></c:url>
     <form id="AddMemberForm" action="${doAddMemberUrl}" method="post">
       <p class="label-field-wrapper">
         <input type="hidden" name="team" value="${team.id}" />
