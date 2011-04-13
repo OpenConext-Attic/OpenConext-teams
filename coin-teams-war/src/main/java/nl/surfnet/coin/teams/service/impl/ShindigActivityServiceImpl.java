@@ -5,15 +5,10 @@ package nl.surfnet.coin.teams.service.impl;
 
 import java.io.IOException;
 
-import nl.surfnet.coin.teams.service.ShindigActivityService;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
-
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.opensocial.Client;
 import org.opensocial.Request;
 import org.opensocial.RequestException;
-import org.opensocial.Response;
 import org.opensocial.auth.AuthScheme;
 import org.opensocial.auth.OAuth2LeggedScheme;
 import org.opensocial.models.Activity;
@@ -22,6 +17,9 @@ import org.opensocial.providers.ShindigProvider;
 import org.opensocial.services.ActivitiesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import nl.surfnet.coin.teams.service.ShindigActivityService;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
 
 /**
  * @author steinwelberg
