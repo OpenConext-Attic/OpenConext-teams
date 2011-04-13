@@ -24,15 +24,20 @@ public final class ViewUtil {
   public static final void defineView(HttpServletRequest request, ModelMap modelMap) {
     String view = request.getParameter(VIEW);
 
-    if (!StringUtils.hasText(view)) {
-      view = (String) request.getSession().getAttribute(VIEW);
-    }
-
     // Determine view
     if (!"gadget".equals(view)) {
       view = "app";
     }
     modelMap.addAttribute(VIEW, view);
-    request.getSession().setAttribute(VIEW, view);
+  }
+  
+  public static final String getView(HttpServletRequest request) {
+    String view = request.getParameter(VIEW);
+    
+    if (!"gadget".equals(view)) {
+      view = "app";
+    }
+    
+    return view;
   }
 }

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.ViewUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,13 +25,13 @@ import org.springframework.web.servlet.view.RedirectView;
  */
 @Controller
 public class EditTeamController {
-  
+
   @Autowired
   private TeamService teamService;
 
   @RequestMapping("/editteam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request) {
-    
+
     String teamId = request.getParameter("team");
     Team team = null;
 
@@ -45,34 +46,40 @@ public class EditTeamController {
       throw new RuntimeException("Parameter error.");
     }
 
+    ViewUtil.defineView(request, modelMap);
+
     return "editteam";
   }
 
   @RequestMapping(value = "/doeditteam.shtml", method = RequestMethod.POST)
-  public RedirectView editTeam(ModelMap modelMap, HttpServletRequest request) throws UnsupportedEncodingException {
+  public RedirectView editTeam(ModelMap modelMap, HttpServletRequest request)
+      throws UnsupportedEncodingException {
     String teamId = request.getParameter("teamId");
     String teamName = request.getParameter("team");
     String teamDescription = request.getParameter("description");
-    
+
     Team team = null;
-    
+
     if (StringUtils.hasText(teamId)) {
       team = teamService.findTeamById(teamId);
     }
-    
+
     // If viewablilityStatus is set this means that the team should be private
-    boolean viewable = !StringUtils.hasText(request.getParameter("viewabilityStatus"));
-    
+    boolean viewable = !StringUtils.hasText(request
+        .getParameter("viewabilityStatus"));
+
     // Form not completely filled in.
     if (!StringUtils.hasText(teamName) || team == null) {
       throw new RuntimeException("Parameter error.");
     }
-    
+
     // Update the team info
     teamService.updateTeam(teamId, teamName, teamDescription);
     teamService.setVisibilityGroup(teamId, viewable);
-    
-    return new RedirectView("detailteam.shtml?team=" + URLEncoder.encode(teamId, "utf-8"));
+
+    return new RedirectView("detailteam.shtml?team="
+        + URLEncoder.encode(teamId, "utf-8") + "&view="
+        + ViewUtil.getView(request));
   }
 
 }

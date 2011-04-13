@@ -9,12 +9,14 @@
   <!-- = Header -->
   <div id="Header">
     <h1><spring:message code='jsp.addteam.Title' /></h1>
-    <p class="close"><a href="home.shtml?teams=my"><spring:message code='jsp.general.CloseForm' /></a></p>
+    <c:url value="home.shtml" var="closeUrl"><c:param name="teams" value="my" /><c:param name="view" value="${view}" /></c:url>
+    <p class="close"><a href="<c:out value='${closeUrl}' />"><spring:message code='jsp.general.CloseForm' /></a></p>
   <!-- / Header -->
   </div>
   <!-- = Content -->
   <div id="Content">
-    <form id="AddTeamForm" action="doaddteam.shtml" method="post">
+    <c:url value="doaddteam.shtml" var="doAddTeamUrl"><c:param name="view" value="${view}" /></c:url>
+    <form id="AddTeamForm" action="<c:out value='${doAddTeamUrl}' />" method="post">
       <p class="label-field-wrapper">
         <label for="TeamName"><spring:message code='jsp.general.TeamName' /></label>
         <input id="TeamName" type="text" name="team" class="required" />

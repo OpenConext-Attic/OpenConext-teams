@@ -11,16 +11,6 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.opensocial.models.Person;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.view.RedirectView;
-
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
@@ -31,6 +21,16 @@ import nl.surfnet.coin.teams.service.TeamPersonService;
 import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.service.TeamsAPIService;
 import nl.surfnet.coin.teams.util.ViewUtil;
+
+import org.opensocial.models.Person;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.view.RedirectView;
 
 /**
  * @author steinwelberg
@@ -45,6 +45,7 @@ public class DetailTeamController {
   private static final String ADMIN = "0";
   private static final String ADMIN_LEAVE_TEAM = "error.AdminCannotLeaveTeam";
   private static final String NOT_AUTHORIZED_DELETE_MEMBER = "error.NotAuthorizedToDeleteMember";
+  private static final String VIEW = "view";
 
   @Autowired
   private TeamService teamService;
@@ -70,7 +71,7 @@ public class DetailTeamController {
     Set<Role> roles = new HashSet<Role>();
     String message = request.getParameter("mes");
     Team team = null;
-    
+
     if (StringUtils.hasText(teamId)) {
       team = teamService.findTeamById(request.getParameter("team"));
     }
@@ -84,7 +85,7 @@ public class DetailTeamController {
     // Iterate over the members to get the roles for the logged in user.
     for (Member member : members) {
       if (member.getId().equals(personId)) {
-        roles = member.getRoles() ;
+        roles = member.getRoles();
       }
     }
 
@@ -118,10 +119,13 @@ public class DetailTeamController {
   }
 
   private List<Person> getRequesters(Team team) {
-    List<JoinTeamRequest> pendingRequests = joinTeamRequestService.findPendingRequests(team);
-    List<Person> requestingPersons = new ArrayList<Person>(pendingRequests.size());
+    List<JoinTeamRequest> pendingRequests = joinTeamRequestService
+        .findPendingRequests(team);
+    List<Person> requestingPersons = new ArrayList<Person>(
+        pendingRequests.size());
     for (JoinTeamRequest joinTeamRequest : pendingRequests) {
-      requestingPersons.add(teamPersonService.getPerson(joinTeamRequest.getPersonId()));
+      requestingPersons.add(teamPersonService.getPerson(joinTeamRequest
+          .getPersonId()));
     }
     return requestingPersons;
   }
@@ -154,13 +158,15 @@ public class DetailTeamController {
 
     if (admins.size() == 1 && adminsArray[0].getId().equals(personId)) {
       return new RedirectView("detailteam.shtml?team="
-          + URLEncoder.encode(teamId, "utf-8") + "&mes=" + ADMIN_LEAVE_TEAM);
+          + URLEncoder.encode(teamId, "utf-8") + "&view="
+          + ViewUtil.getView(request) + "&mes=" + ADMIN_LEAVE_TEAM);
     }
 
     // Leave the team
     teamService.deleteMember(teamId, personId);
 
-    return new RedirectView("home.shtml?teams=my");
+    return new RedirectView("home.shtml?teams=my&view="
+        + ViewUtil.getView(request));
   }
 
   @RequestMapping(value = "/dodeleteteam.shtml", method = RequestMethod.GET)
@@ -180,11 +186,13 @@ public class DetailTeamController {
       // Delete the team
       teamService.deleteTeam(teamId);
 
-      return new RedirectView("home.shtml?teams=my");
+      return new RedirectView("home.shtml?teams=my&view="
+          + ViewUtil.getView(request));
     }
 
     return new RedirectView("detailteam.shtml?team="
-        + URLEncoder.encode(teamId, "utf-8"));
+        + URLEncoder.encode(teamId, "utf-8") + "&view="
+        + ViewUtil.getView(request));
   }
 
   @RequestMapping(value = "/dodeletemember.shtml", method = RequestMethod.GET)
@@ -205,7 +213,8 @@ public class DetailTeamController {
     Member owner = teamService.findMember(teamId, ownerId);
     Member member = teamService.findMember(teamId, personId);
 
-    // Check whether the owner is admin and thus is granted to delete the member.
+    // Check whether the owner is admin and thus is granted to delete the
+    // member.
     // Check whether the member that should be deleted is the logged in user.
     // This should not be possible, a logged in user should click the resign
     // from team button.
@@ -215,20 +224,24 @@ public class DetailTeamController {
       teamService.deleteMember(teamId, personId);
 
       return new RedirectView("detailteam.shtml?team="
-          + URLEncoder.encode(teamId, "utf-8"));
-    // if the owner is manager and the member is not an admin he can delete the member
+          + URLEncoder.encode(teamId, "utf-8") + "&view="
+          + ViewUtil.getView(request));
+      // if the owner is manager and the member is not an admin he can delete
+      // the member
     } else if (owner.getRoles().contains(Role.Manager)
         && !member.getRoles().contains(Role.Admin) && !personId.equals(ownerId)) {
       // Delete the member
       teamService.deleteMember(teamId, personId);
-      
+
       return new RedirectView("detailteam.shtml?team="
-          + URLEncoder.encode(teamId, "utf-8"));
+          + URLEncoder.encode(teamId, "utf-8") + "&view="
+          + ViewUtil.getView(request));
     }
 
     return new RedirectView("detailteam.shtml?team="
         + URLEncoder.encode(teamId, "utf-8") + "&mes="
-        + NOT_AUTHORIZED_DELETE_MEMBER);
+        + NOT_AUTHORIZED_DELETE_MEMBER  + "&view="
+        + ViewUtil.getView(request));
   }
 
   @RequestMapping(value = "/doaddrole.shtml", method = RequestMethod.POST)

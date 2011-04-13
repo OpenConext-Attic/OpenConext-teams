@@ -11,12 +11,12 @@
   <div id="Header">
     <c:if test="${fn:length(message) > 0}"><div id="__notifyBar" class="hide"><spring:message code='${message}' /></div></c:if>
 
-    <c:url value="home.shtml" var="backUrl"><c:param name="teams" value="my" /></c:url>
+    <c:url value="home.shtml" var="backUrl"><c:param name="teams" value="my" /><c:param name="view" value="${view}" /></c:url>
     <p class="back"><a href="<c:out value='${backUrl}' />">&lt; <spring:message code='jsp.detailteam.Back' /></a></p>
     <div class="team-options-wrapper">
-      <c:url value="editteam.shtml" var="editUrl"><c:param name="team" value="${team.id}" /></c:url>
-      <c:url value="dodeleteteam.shtml" var="deleteUrl"><c:param name="team" value="${team.id}" /></c:url>
-      <c:url value="doleaveteam.shtml" var="leaveUrl"><c:param name="team" value="${team.id}" /></c:url>
+      <c:url value="editteam.shtml" var="editUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
+      <c:url value="dodeleteteam.shtml" var="deleteUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
+      <c:url value="doleaveteam.shtml" var="leaveUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
       <ul class="team-options">
         <li class="first"><a href="<c:out value='${editUrl}' />"><spring:message code='jsp.detailteam.Edit' /></a></li>
         <li class="middle"><a id="DeleteTeam" href="<c:out value='${deleteUrl}' />"><spring:message code='jsp.detailteam.Delete' /></a></li>
@@ -26,7 +26,7 @@
     <br class="clear" />
     <h1 class="team-title"><c:out value="${team.name}" /></h1>  
     <p class="add">
-      <c:url value="addmember.shtml" var="addmemberUrl"><c:param name="team" value="${team.id}" /></c:url>
+      <c:url value="addmember.shtml" var="addmemberUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
       <a class="button-primary" href="<c:out value='${addmemberUrl}' />"><spring:message code='jsp.addmember.Title' /></a>
     </p>
     <br class="clear" />

@@ -7,13 +7,13 @@
 <!-- = Header -->
 <div id="Header">
   <ul class="team-actions">
-     <c:url value="home.shtml" var="myTeamsUrl"><c:param name="teams" value="my" /></c:url>
-     <c:url value="home.shtml" var="allTeamsUrl"><c:param name="teams" value="all" /></c:url>
+     <c:url value="home.shtml" var="myTeamsUrl"><c:param name="teams" value="my" /><c:param name="view" value="${view}" /></c:url>
+     <c:url value="home.shtml" var="allTeamsUrl"><c:param name="teams" value="all" /><c:param name="view" value="${view}" /></c:url>
      <li class="first"><a class="btn-my-teams<c:if test='${display eq "my"}'> selected</c:if>" href="<c:out value='${myTeamsUrl}' />"><spring:message code='jsp.home.MyTeams' /></a></li>
    <li class="last"><a class="btn-all-teams<c:if test='${display eq "all"}'> selected</c:if>" href="<c:out value='${allTeamsUrl}' />"><spring:message code='jsp.home.AllTeams' /></a></li>
   </ul>
 
-  <c:url value="home.shtml" var="searchUrl"><c:param name="teams" value="${display}" /></c:url>
+  <c:url value="home.shtml" var="searchUrl"><c:param name="teams" value="${display}" /><c:param name="view" value="${view}" /></c:url>
   <form action="<c:out value='${searchUrl}' />" method="post">
   <fieldset class="search-fieldset team-search">
       <c:choose>
@@ -21,7 +21,7 @@
           <input class="text search-query" type="text" name="teamSearch" value="<spring:message code='jsp.home.SearchTeam' />"  />
         </c:when>
         <c:otherwise>
-          <c:url value="home.shtml" var="viewAllUrl"><c:param name="teams" value="${display}" /></c:url>
+          <c:url value="home.shtml" var="viewAllUrl"><c:param name="teams" value="${display}" /><c:param name="view" value="${view}" /></c:url>
           <span class="view-all"><a href="<c:out value='${viewAllUrl}' />"><spring:message code='jsp.home.ViewAll' /></a></span>
           <input class="text search-query" type="text" name="teamSearch" value="<c:out value='${query}' />" />
         </c:otherwise>
@@ -34,7 +34,7 @@
 </div>
 <!-- = Content -->
 <div id="Content">
-    <c:url value="addteam.shtml" var="addTeamUrl"></c:url>
+    <c:url value="addteam.shtml" var="addTeamUrl"><c:param name="view" value="${view}" /></c:url>
   <p class="add"><a class="button-primary" href="<c:out value='${addTeamUrl}' />"><spring:message code='jsp.home.AddTeam' /></a></p>
   <div class="team-table-wrapper">
     <table class="team-table">
@@ -53,7 +53,7 @@
         <c:when test="${fn:length(teams) > 0 }">
           <c:forEach items="${teams}" var="team">
             <tr>
-              <c:url value="detailteam.shtml" var="detailUrl"><c:param name="team" value="${team.id}" /></c:url>
+              <c:url value="detailteam.shtml" var="detailUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
               <td><a href="<c:out value='${detailUrl}' />"><c:out value="${team.name}" /></a></td>
               <td><c:out value="${team.description}" /></td>
               <c:if test='${display eq "my"}'>

@@ -6,7 +6,7 @@
 <head>
     <title><spring:message code="jsp.general.Title" /></title>
     <c:choose>
-      <c:when test='${sessionScope.view eq "gadget"}'>
+      <c:when test='${view eq "gadget"}'>
         <link rel="stylesheet" href="css/gadget.css">
       </c:when>
       <c:otherwise>
@@ -18,7 +18,7 @@
 </head>
 <body>
   <div class="wrapper">
-    <c:if test='${sessionScope.view ne "gadget"}'>
+    <c:if test='${view ne "gadget"}'>
       <!--  = Header -->
       <div class="header" id="Header">
         <a href="home.shtml"><img class="logo" src="media/surfnet_logo.gif" alt="surfnet logo" /></a> <span><spring:message code="jsp.general.Title" /></span>
@@ -28,18 +28,18 @@
     </c:if>
     <div class="component">
     <c:choose>
-      <c:when test='${sessionScope.view ne "gadget" && empty sessionScope.person}'>
+      <c:when test='${view ne "gadget" && empty sessionScope.person}'>
         <div class="component-title-bar">
           <h2 class="component-title"><spring:message code="jsp.general.Welcome" /></h2>
         </div>
       </c:when>
-      <c:when test='${sessionScope.view ne "gadget"}'>
+      <c:when test='${view ne "gadget"}'>
         <div class="component-title-bar">
           <h2 class="component-title"><spring:message code="jsp.general.Title" /><span class="right"><spring:message code="jsp.general.Welcome"/> <c:out value="${sessionScope.person.displayName}" /> | <a href="/Shibboleth.SSO/Logout?target=/teams"><spring:message code="jsp.general.Logout"/></a> | <a href="#"><spring:message code="jsp.general.Help" /></a></span></h2>
         </div>
       </c:when>
     </c:choose>
-    <c:if test='${sessionScope.view ne "gadget"}'>
+    <c:if test='${view ne "gadget"}'>
     </c:if>
       <div class="component-content" id="PageContainer">
     
@@ -51,7 +51,7 @@
     
       </div>
     </div>
-    <c:if test='${sessionScope.view ne "gadget"}'>
+    <c:if test='${view ne "gadget"}'>
       <!--  = Footer -->
       <div class="footer" id="Footer">
         <p>&nbsp;</p>

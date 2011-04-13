@@ -8,7 +8,8 @@
 <div class="section" id="TeamContainer">
   <!-- = Header -->
   <div id="Header">
-    <p class="back not-member"><a href="home.shtml?teams=all">&lt; <spring:message code='jsp.detailteam.Back' /></a></p>
+    <c:url value="home.shtml" var="backUrl"><c:param name="teams" value="all" /><c:param name="view" value="${view}" /></c:url>
+    <p class="back not-member"><a href="<c:out value='${backUrl}' />">&lt; <spring:message code='jsp.detailteam.Back' /></a></p>
     <br class="clear" />
     <h1><c:out value="${team.name}" /></h1>
   <!-- / Header -->

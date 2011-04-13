@@ -29,6 +29,7 @@ import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.ShindigActivityService;
 import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.service.TeamsAPIService;
+import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * @author steinwelberg
@@ -81,6 +82,8 @@ public class AddMemberController {
       throw new RuntimeException("Parameter error.");
     }
 
+    ViewUtil.defineView(request, modelMap);
+
     return "addmember";
   }
 
@@ -107,7 +110,7 @@ public class AddMemberController {
     }
 
     if (team == null) {
-    	throw new RuntimeException("Parameter error.");
+      throw new RuntimeException("Parameter error.");
     }
     modelMap.addAttribute("team", team);
 
@@ -118,7 +121,8 @@ public class AddMemberController {
     } catch (AddressException e) {
       return new RedirectView("addmember.shtml?team="
           + URLEncoder.encode(teamId, "utf-8")
-          + "&mes=error.wrongFormattedEmailList");
+          + "&mes=error.wrongFormattedEmailList" + "&view="
+          + ViewUtil.getView(request));
     }
 
     // Send the invitation
@@ -133,7 +137,8 @@ public class AddMemberController {
     }
 
     return new RedirectView("detailteam.shtml?team="
-        + URLEncoder.encode(team.getId(), "utf-8"));
+        + URLEncoder.encode(team.getId(), "utf-8") + "&view="
+        + ViewUtil.getView(request));
   }
 
   private void sendInvitations(Team team, Member member, String emails,
@@ -146,7 +151,7 @@ public class AddMemberController {
     MessageFormat formatter = new MessageFormat(message);
 
     Object[] messageValuesSubject = { team.getName() };
-    Object[] messageValuesMessage = { member.getName(), team.getName()  };
+    Object[] messageValuesMessage = { member.getName(), team.getName() };
 
     message = formatter.format(messageValuesMessage);
     String subject = messageSource.getMessage(INVITE_SEND_INVITE_SUBJECT,

@@ -9,16 +9,18 @@
   <!-- = Header -->
   <div id="Header">
     <h1><spring:message code='jsp.editteam.Title' /></h1>
-    <p class="close"><a href="home.shtml?teams=my"><spring:message code='jsp.general.CloseForm' /></a></p>
+    <c:url value="home.shtml" var="closeUrl"><c:param name="teams" value="my" /><c:param name="view" value="${view}" /></c:url>
+    <p class="close"><a href="<c:out value='${closeUrl}' />"><spring:message code='jsp.general.CloseForm' /></a></p>
   <!-- / Header -->
   </div>
   <!-- = Content -->
   <div id="Content">
-    <form id="EditTeamForm" action="doeditteam.shtml" method="post">
+    <c:url value="doeditteam.shtml" var="doEditTeamUrl"><c:param name="view" value="${view}" /></c:url>
+    <form id="EditTeamForm" action="<c:out value='${doEditTeamUrl}' />" method="post">
       <p class="label-field-wrapper">
         <input type="hidden" name="teamId" value="${team.id}" />
         <label for="TeamName"><spring:message code='jsp.general.TeamName' /></label>
-        <input id="TeamName" type="text" name="team" value="<c:out value="${team.name}" />" disabled="disabled" class="required" />
+        <input id="TeamName" type="text" name="team" value="<c:out value="${team.name}" />" readonly="readonly" class="required" />
       </p>
       <p class="label-field-wrapper">
         <label for="TeamDescription"><spring:message code='jsp.general.Description' /></label>
