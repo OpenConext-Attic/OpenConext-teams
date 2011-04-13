@@ -1,0 +1,77 @@
+package nl.surfnet.coin.teams.service.impl;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.opensocial.models.Person;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
+import org.springframework.transaction.annotation.Transactional;
+
+import nl.surfnet.coin.teams.domain.JoinTeamRequest;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.service.JoinTeamRequestService;
+
+/**
+ *Test for {@link JoinTeamRequestServiceHibernateImpl}
+ */
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = { "classpath:coin-teams-context.xml",
+    "classpath:coin-teams-properties-hsqldb-context.xml",
+    "classpath:coin-shared-context.xml"})
+@TransactionConfiguration(transactionManager = "teamTransactionManager", defaultRollback = true)
+@Transactional
+public class JoinTeamRequestServiceHibernateImplTest {
+
+  @Autowired
+  private JoinTeamRequestService joinTeamRequestService;
+
+  @Test
+  public void testhEmptyDb() throws Exception {
+    Person mockPerson = mock(Person.class);
+    when(mockPerson.getId()).thenReturn("person-1");
+    Team mockTeam = mock(Team.class);
+    when(mockTeam.getId()).thenReturn("team-1");
+
+    assertEquals("No pending requests", 0, joinTeamRequestService.findPendingRequests(mockTeam).size());
+    assertNull(joinTeamRequestService.findPendingRequest(mockPerson, mockTeam));
+    assertTrue(joinTeamRequestService.isNewRequestForTeam(mockPerson, mockTeam));
+  }
+
+  @Test
+  public void testFindPendingRequests() throws Exception {
+    Person mockPerson = mock(Person.class);
+    when(mockPerson.getId()).thenReturn("person-1");
+    Person mockPerson2 = mock(Person.class);
+    when(mockPerson2.getId()).thenReturn("person-2");
+    Team mockTeam = mock(Team.class);
+    when(mockTeam.getId()).thenReturn("team-1");
+
+
+    JoinTeamRequest joinTeamRequest = new JoinTeamRequest();
+    joinTeamRequest.setPersonId(mockPerson.getId());
+    joinTeamRequest.setGroupId(mockTeam.getId());
+    joinTeamRequest.setTimestamp(123456789L);
+
+    JoinTeamRequest joinTeamRequest2 = new JoinTeamRequest();
+    joinTeamRequest2.setPersonId(mockPerson2.getId());
+    joinTeamRequest2.setGroupId(mockTeam.getId());
+    joinTeamRequest2.setTimestamp(123456790L);
+
+    assertEquals("No pending requests", 0, joinTeamRequestService.findPendingRequests(mockTeam).size());
+
+    joinTeamRequestService.saveOrUpdate(joinTeamRequest);
+    joinTeamRequestService.saveOrUpdate(joinTeamRequest2);
+
+    assertEquals(2, joinTeamRequestService.findPendingRequests(mockTeam).size());
+    assertNotNull(joinTeamRequestService.findPendingRequest(mockPerson2, mockTeam));
+  }
+}
