@@ -16,8 +16,6 @@ import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.TeamService;
 
-import org.springframework.stereotype.Component;
-
 /**
  * Mock implementation of {@link TeamService}
  * 
@@ -138,8 +136,7 @@ public class InMemoryMockTeamService implements TeamService {
    */
   @Override
   public void deleteTeam(String teamId) {
-    Team team = findTeam(teamId);
-    teams.remove(team);
+    teams.remove(teamId);
   }
 
   /*

@@ -6,13 +6,6 @@ import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.ShindigActivityService;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.util.DuplicateTeamException;
-import nl.surfnet.coin.teams.util.ViewUtil;
-
 import org.opensocial.RequestException;
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
+
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.ShindigActivityService;
+import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.DuplicateTeamException;
+import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * @author steinwelberg
@@ -94,8 +94,8 @@ public class AddTeamController {
     teamService.addMemberRole(teamId, personId, Role.Admin, true);
 
     // Add the activity to the COIN portal
-    // addActivity(teamId, teamName, personId,
-    // localeResolver.resolveLocale(request));
+    addActivity(teamId, teamName, personId,
+    localeResolver.resolveLocale(request));
 
     return new RedirectView("detailteam.shtml?team="
         + URLEncoder.encode(teamId, "utf-8") + "&view="

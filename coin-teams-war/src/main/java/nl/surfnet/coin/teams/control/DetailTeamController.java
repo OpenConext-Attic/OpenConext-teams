@@ -156,7 +156,7 @@ public class DetailTeamController {
     }
 
     Set<Member> admins = teamService.findAdmins(team);
-    Member[] adminsArray = admins.toArray(new Member[] {});
+    Member[] adminsArray = admins.toArray(new Member[admins.size()]);
 
     if (admins.size() == 1 && adminsArray[0].getId().equals(personId)) {
       return new RedirectView("detailteam.shtml?team="
