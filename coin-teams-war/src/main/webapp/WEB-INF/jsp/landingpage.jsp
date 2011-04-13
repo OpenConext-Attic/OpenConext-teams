@@ -11,5 +11,3 @@
 <!-- / Content -->
 </div>
 </teams:genericpage>
-
-
