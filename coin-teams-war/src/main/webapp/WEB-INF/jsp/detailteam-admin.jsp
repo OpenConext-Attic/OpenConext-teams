@@ -58,8 +58,12 @@
             </c:url>
             <td><a href="${deleteRequestUrl}">
               <spring:message code="jsp.detailteam.DenyJoinRequest"/></a></td>
-            <%--<td><a href="doacceptrequest.shtml?team=${team.id}&member=${pending.id}">--%>
-              <spring:message code="jsp.detailteam.AcceptJoinRequest"/><%--</a>--%>
+            <c:url value="doapproverequest.shtml" var="approveRequestUrl">
+              <c:param name="team" value="${team.id}"/>
+              <c:param name="member" value="${pending.id}"/>
+            </c:url>
+            <td><a href="${approveRequestUrl}">
+              <spring:message code="jsp.detailteam.AcceptJoinRequest"/></a>
             </td>
           </tr>
         </c:forEach>

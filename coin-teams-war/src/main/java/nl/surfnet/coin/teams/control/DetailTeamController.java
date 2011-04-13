@@ -299,6 +299,18 @@ public class DetailTeamController {
   @RequestMapping(value = "/dodeleterequest.shtml")
   public RedirectView deleteRequest(ModelMap modelMap, HttpServletRequest request)
           throws UnsupportedEncodingException {
+    return doHandleJoinRequest(request, false);
+  }
+
+
+  @RequestMapping(value = "/doapproverequest.shtml")
+  public RedirectView approveRequest(ModelMap modelMap, HttpServletRequest request)
+          throws UnsupportedEncodingException {
+    return doHandleJoinRequest(request, true);
+  }
+
+  private RedirectView doHandleJoinRequest(HttpServletRequest request, boolean approve)
+          throws UnsupportedEncodingException {
     String teamId = URLDecoder.decode(request.getParameter(TEAM_PARAM), UTF_8);
     String memberId = URLDecoder.decode(request.getParameter(MEMBER_PARAM), UTF_8);
 
@@ -324,7 +336,11 @@ public class DetailTeamController {
             loggedInMember.getRoles().contains(Role.Manager))) {
       return new RedirectView("detailteam.shtml?team="
               + URLEncoder.encode(teamId, UTF_8)
-              + "&mes=" + NOT_AUTHORIZED_DELETE_MEMBER);
+              + "&mes=error.NotAuthorizedForAction");
+    }
+
+    if (approve) {
+      teamService.addMember(teamId, memberId);
     }
 
     JoinTeamRequest pendingRequest = joinTeamRequestService.findPendingRequest(memberToAdd, team);
@@ -335,4 +351,6 @@ public class DetailTeamController {
     return new RedirectView("detailteam.shtml?team="
             + URLEncoder.encode(teamId, UTF_8));
   }
+
+
 }
