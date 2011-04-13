@@ -246,7 +246,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     
     RedirectView result = detailTeamController.leaveTeam(getModelMap(), request);
     
-    assertEquals("home.shtml?teams=my", result.getUrl());
+    assertEquals("home.shtml?teams=my&view=app", result.getUrl());
   }
   
   @Test
@@ -279,7 +279,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     
     RedirectView result = detailTeamController.leaveTeam(getModelMap(), request);
     
-    assertEquals("detailteam.shtml?team=team-1&mes=error.AdminCannotLeaveTeam", result.getUrl());
+    assertEquals("detailteam.shtml?team=team-1&view=app&mes=error.AdminCannotLeaveTeam", result.getUrl());
   }
   
   @Test
@@ -300,7 +300,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     
     RedirectView result = detailTeamController.deleteTeam(getModelMap(), request);
     
-    assertEquals("home.shtml?teams=my", result.getUrl());
+    assertEquals("home.shtml?teams=my&view=app", result.getUrl());
   }
   
   @Test
@@ -319,7 +319,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     
     RedirectView result = detailTeamController.deleteTeam(getModelMap(), request);
     
-    assertEquals("detailteam.shtml?team=team-1", result.getUrl());
+    assertEquals("detailteam.shtml?team=team-1&view=app", result.getUrl());
   }
   
   @Test (expected=RuntimeException.class)
@@ -362,7 +362,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     
     RedirectView result = detailTeamController.deleteMember(getModelMap(), request);
     
-    assertEquals("detailteam.shtml?team=team-1", result.getUrl());
+    assertEquals("detailteam.shtml?team=team-1&view=app", result.getUrl());
   }
   
   @Test
@@ -382,7 +382,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     
     RedirectView result = detailTeamController.deleteMember(getModelMap(), request);
     
-    assertEquals("detailteam.shtml?team=team-1&mes=error.NotAuthorizedToDeleteMember", result.getUrl());
+    assertEquals("detailteam.shtml?team=team-1&mes=error.NotAuthorizedToDeleteMember&view=app", result.getUrl());
   }
   
   @Test (expected=RuntimeException.class)
