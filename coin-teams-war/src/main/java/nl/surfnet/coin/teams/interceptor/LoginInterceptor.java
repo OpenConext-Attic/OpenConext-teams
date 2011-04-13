@@ -20,6 +20,7 @@ import nl.surfnet.coin.teams.util.TeamEnvironment;
  */
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
+  private static final String GADGET = "gadget";
   public static final String PERSON_SESSION_KEY = "person";
   private static final ThreadLocal<String> loggedInUser = new ThreadLocal<String>();
 
@@ -64,11 +65,18 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
       } else {
         String url = getRequestedPart(request);
         String[] urlSplit = url.split("/");
+        
+        String view = request.getParameter("view");
 
         // Unprotect the javascript files and teams.xml
-        if (urlSplit[2].equals("js") || urlSplit[2].equals("teams.xml")) {
+        if (urlSplit[2].equals("landingpage.shtml") || urlSplit[2].equals("js") || urlSplit[2].equals("teams.xml")) {
           return super.preHandle(request, response, handler);
-        } else {
+          // Send redirect to landingpage if gadget is not requested in app view.
+        } else if (!GADGET.equals(view)) {
+          response.sendRedirect(teamEnvironment.getTeamsURL() + "/landingpage.shtml");
+          return false;
+          // Send redirect to shibboleth if gadget view is requested.
+        } else { 
           response.sendRedirect("/Shibboleth.sso/Login?target="
               + teamEnvironment.getTeamsURL() + "/home.shtml?teams=my");
           return false;

@@ -6,7 +6,7 @@
 <head>
     <title><spring:message code="jsp.general.Title" /></title>
     <c:choose>
-      <c:when test='${view eq "gadget"}'>
+      <c:when test='${sessionScope.view eq "gadget"}'>
         <link rel="stylesheet" href="css/gadget.css">
       </c:when>
       <c:otherwise>
@@ -17,41 +17,63 @@
     <script type="text/javascript" src="js/jquery.validate.min.js"></script>
 </head>
 <body>
-  <c:if test='${view ne "gadget"}'>
-    <!--  = Header -->
-    <div class="header" id="Header">
-      header
-    </div>
-    <!-- / Header -->
-  </c:if>
-  <div class="page-container" id="PageContainer">
-
-      <!-- = Main -->
-      <div class="section" id="Main">
-          <jsp:doBody/>
+  <div class="wrapper">
+    <c:if test='${sessionScope.view ne "gadget"}'>
+      <!--  = Header -->
+      <div class="header" id="Header">
+        <a href="home.shtml"><img class="logo" src="media/surfnet_logo.gif" alt="surfnet logo" /></a> <span><spring:message code="jsp.general.Title" /></span>
+        <span class="left"></span><span class="right"></span><img src="media/header_img.jpg" alt="header img" />
       </div>
-      <!-- / Main -->
-
-  </div>
-  <c:if test='${view ne "gadget"}'>
-    <!--  = Footer -->
-    <div class="footer" id="Footer">
-      footer
+      <!-- / Header -->
+    </c:if>
+    <div class="component">
+    <c:choose>
+      <c:when test='${sessionScope.view ne "gadget" && empty sessionScope.person}'>
+        <div class="component-title-bar">
+          <h2 class="component-title"><spring:message code="jsp.general.Welcome" /></h2>
+        </div>
+      </c:when>
+      <c:when test='${sessionScope.view ne "gadget"}'>
+        <div class="component-title-bar">
+          <h2 class="component-title"><spring:message code="jsp.general.Title" /><span class="right"><spring:message code="jsp.general.Welcome"/> <c:out value="${sessionScope.person.displayName}" /> | <a href="/Shibboleth.SSO/Logout?target=/teams"><spring:message code="jsp.general.Logout"/></a> | <a href="#"><spring:message code="jsp.general.Help" /></a></span></h2>
+        </div>
+      </c:when>
+    </c:choose>
+    <c:if test='${sessionScope.view ne "gadget"}'>
+    </c:if>
+      <div class="component-content" id="PageContainer">
+    
+          <!-- = Main -->
+          <div class="section" id="Main">
+              <jsp:doBody/>
+          </div>
+          <!-- / Main -->
+    
+      </div>
     </div>
-    <!-- / Footer -->
-  </c:if>
-  
-  <!-- / LeaveTeamDialog -->
-  <div id="LeaveTeamDialog" class="hide" title="<spring:message code='jsp.dialog.leaveteam.Title' />">
-    <p class="h4"><spring:message code='jsp.dialog.leaveteam.Confirmation' /></p>
-  </div>
-  <!-- / LeaveTeamDialog -->
-  
+    <c:if test='${sessionScope.view ne "gadget"}'>
+      <!--  = Footer -->
+      <div class="footer" id="Footer">
+        <p>&nbsp;</p>
+        <address>
+          <span><strong><spring:message code="jsp.general.surfnet.Name" /></strong></span><span><spring:message code="jsp.general.surfnet.Address" /></span><span><spring:message code="jsp.general.surfnet.Mailbox" /></span><span><spring:message code="jsp.general.surfnet.Zip" /></span><span><spring:message code="jsp.general.Question" /><span></span><a class="extra" href="mailto:help@surfteams.nl">help@surfteams.nl</a></span><a class="extra" href="http://www.surfnet.nl/nl/pages/copyright.aspx"><spring:message code="jsp.general.Copyright" /></a><a class="extra" href="media/SURFteamsGebruiksvoorwaarden_1.0.pdf"><spring:message code="jsp.general.TermsOfUse" /></a>
+        </address>
+      </div>
+      <!-- / Footer -->
+    </c:if>
+    
+    <!-- / LeaveTeamDialog -->
+    <div id="LeaveTeamDialog" class="hide" title="<spring:message code='jsp.dialog.leaveteam.Title' />">
+      <p class="h4"><spring:message code='jsp.dialog.leaveteam.Confirmation' /></p>
+    </div>
+    <!-- / LeaveTeamDialog -->
+    
+      <!-- / DeleteTeamDialog -->
+    <div id="DeleteTeamDialog" class="hide" title="<spring:message code='jsp.dialog.deleteteam.Title' />">
+      <p class="h4"><spring:message code='jsp.dialog.deleteteam.Confirmation' /></p>
+    </div>
     <!-- / DeleteTeamDialog -->
-  <div id="DeleteTeamDialog" class="hide" title="<spring:message code='jsp.dialog.deleteteam.Title' />">
-    <p class="h4"><spring:message code='jsp.dialog.deleteteam.Confirmation' /></p>
   </div>
-  <!-- / DeleteTeamDialog -->
 
   
   <script type="text/javascript" src="js/jquery-ui-1.8.4.custom.min.js"></script>

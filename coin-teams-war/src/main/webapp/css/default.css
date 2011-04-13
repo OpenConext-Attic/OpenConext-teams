@@ -1,3 +1,72 @@
+/* MAIN ELEMENTS */
+
+.wrapper {
+	background: url(../media/body_bck.gif) no-repeat scroll 0 0 transparent;
+	margin: 0 auto;
+	padding: 15px 0 30px 30px;
+	position: relative;
+	width: 994px;
+}
+
+.header {
+	position: relative;
+}
+
+.header span {
+	color: black;
+	float: left;
+	font-size: 1.9em;
+	font-weight: bold;
+	margin: 0;
+	padding: 8px 0 0 40px;
+	
+}
+
+.header img.logo {
+	border: none;
+	float: left;
+	margin: -3px 0 0 3px;	
+}
+
+.header img {
+	margin: 12px 0 0;
+	position: relative;
+	z-index: 1;
+}
+
+.component {
+	width: 960px;
+	margin-top: 10px;
+}
+
+.component-title-bar {
+	background: url(../media/bg-hdr.png) repeat-x scroll 50% 50% #FD7700;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #FFFFFF;
+    font-weight: bold;
+    overflow: hidden;
+    width: 100%;
+}
+
+.component-content {
+	padding: 10px;
+	border: 1px solid #c1c1bd;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.footer {
+    background: url("../media/footer_top_bck.jpg") no-repeat scroll left top transparent;
+    font-size: 1em;
+    margin-top: 20px;
+}
+.footer p {
+    float: left;
+    margin: 0;
+    padding: 5px 10px 0;
+}
+
 /* GENERIC ELEMENTS */
 
 body {
@@ -5,13 +74,15 @@ body {
 	font-family: "Lucida Sans Unicode","Lucida Grande",Arial,sans-serif;
 	font-size: 11px;
 	color: #000;
+	margin: 0;
+	padding: 0;
 }
 
-.page-container {
-	padding: 10px;
-	width: 700px;
-	margin: 0 auto;
-	border: 1px solid #c1c1bd;
+
+h2.component-title {
+	font-size: 12px;
+	margin: 0;
+	padding: 6px;
 }
 
 h1, .ui-dialog-title {
@@ -46,8 +117,34 @@ p.description {
 a {
 	outline: none;
 	text-decoration: none;
-	color: #f86d00;
+	color: #288DD4;
 }
+
+/* ADRESS */
+
+address {
+    background: url("../media/footer_bottom_bck.jpg") no-repeat scroll left bottom transparent;
+    clear: both;
+    font-style: normal;
+    padding: 5px 0;
+    height: 15px;
+    width: 960px;
+}
+address span {
+    color: black;
+    display: block;
+    float: left;
+    margin: 0 10px;
+}
+address a {
+    float: left;
+    text-decoration: none;
+}
+address a.extra {
+    float: right;
+    padding-right: 8px;
+}
+
 
 /* TABLES */
 
@@ -333,7 +430,7 @@ button.ui-button:first-child:hover {
 	z-index: 5;
 	top: -10px;
 	left: -10px;
- 	width: 720px;
+ 	width: 920px;
  	border-bottom: 1px solid #ccc;
  	font-size: 12px;
 	font-family: Arial, Verdana, sans-serif;
@@ -473,4 +570,8 @@ fieldset.search-fieldset {
 .last .selected {
 	background-position: 100% -100px;
 	color: white;
+}
+
+.right {
+	float:right;
 }
