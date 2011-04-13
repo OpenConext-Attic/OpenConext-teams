@@ -9,18 +9,20 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.service.TeamService;
 
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.web.servlet.view.RedirectView;
+
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.service.JoinTeamRequestService;
+import nl.surfnet.coin.teams.service.TeamService;
 
 /**
  * @author steinwelberg
@@ -108,7 +110,11 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
     when(teamService.findAdmins(mockTeam)).thenReturn(admins);
 
+    JoinTeamRequestService joinTeamRequestService = mock(JoinTeamRequestService.class);
+    when(joinTeamRequestService.findPendingRequests(mockTeam)).thenReturn(Collections.EMPTY_LIST);
+
     autoWireMock(detailTeamController, teamService, TeamService.class);
+    autoWireMock(detailTeamController, joinTeamRequestService, JoinTeamRequestService.class);
     autoWireRemainingResources(detailTeamController);
 
     String result = detailTeamController.start(getModelMap(), request);
@@ -145,7 +151,12 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
     when(teamService.findAdmins(mockTeam)).thenReturn(admins);
 
+    JoinTeamRequestService joinTeamRequestService = mock(JoinTeamRequestService.class);
+    when(joinTeamRequestService.findPendingRequests(mockTeam)).thenReturn(Collections.EMPTY_LIST);
+
     autoWireMock(detailTeamController, teamService, TeamService.class);
+    autoWireMock(detailTeamController, joinTeamRequestService, JoinTeamRequestService.class);
+
     autoWireRemainingResources(detailTeamController);
 
     String result = detailTeamController.start(getModelMap(), request);
@@ -183,7 +194,12 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
     when(teamService.findAdmins(mockTeam)).thenReturn(admins);
 
+    JoinTeamRequestService joinTeamRequestService = mock(JoinTeamRequestService.class);
+    when(joinTeamRequestService.findPendingRequests(mockTeam)).thenReturn(Collections.EMPTY_LIST);
+
     autoWireMock(detailTeamController, teamService, TeamService.class);
+    autoWireMock(detailTeamController, joinTeamRequestService, JoinTeamRequestService.class);
+
     autoWireRemainingResources(detailTeamController);
 
     String result = detailTeamController.start(getModelMap(), request);
