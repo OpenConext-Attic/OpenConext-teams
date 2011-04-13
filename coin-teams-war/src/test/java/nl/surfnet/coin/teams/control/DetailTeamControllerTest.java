@@ -577,7 +577,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireRemainingResources(detailTeamController);
 
     RedirectView result = detailTeamController.deleteRequest(getModelMap(), request);
-    assertEquals("detailteam.shtml?team=team-1", result.getUrl());
+    assertEquals("detailteam.shtml?team=team-1&view=app", result.getUrl());
   }
 
 }

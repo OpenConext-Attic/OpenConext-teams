@@ -336,7 +336,8 @@ public class DetailTeamController {
             loggedInMember.getRoles().contains(Role.Manager))) {
       return new RedirectView("detailteam.shtml?team="
               + URLEncoder.encode(teamId, UTF_8)
-              + "&mes=error.NotAuthorizedForAction");
+              + "&mes=error.NotAuthorizedForAction"
+              + "&view=" + ViewUtil.getView(request));
     }
 
     if (approve) {
@@ -349,7 +350,8 @@ public class DetailTeamController {
     }
 
     return new RedirectView("detailteam.shtml?team="
-            + URLEncoder.encode(teamId, UTF_8));
+            + URLEncoder.encode(teamId, UTF_8)
+            + "&view=" + ViewUtil.getView(request));
   }
 
 
