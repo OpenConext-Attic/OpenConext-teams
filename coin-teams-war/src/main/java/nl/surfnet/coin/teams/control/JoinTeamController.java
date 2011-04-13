@@ -117,7 +117,8 @@ public class JoinTeamController {
       joinTeamRequestService.saveOrUpdate(joinRequest);
     }
 
-    return new RedirectView("home.shtml?teams=my");
+    return new RedirectView("home.shtml?teams=my&view="
+            + ViewUtil.getView(request));
   }
 
   private void sendJoinTeamMessage(Team team, Person person, String message,
