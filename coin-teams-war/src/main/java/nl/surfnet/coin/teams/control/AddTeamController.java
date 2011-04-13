@@ -81,8 +81,7 @@ public class AddTeamController {
     teamName = teamName.replace(":", "");
 
     // Add the team
-    String teamId = "";
-    teamId = teamService.addTeam(teamName, teamName, teamDescription);
+    String teamId = teamService.addTeam(teamName, teamName, teamDescription);
 
     // Set the visibility of the group
     teamService.setVisibilityGroup(teamId, viewable);
