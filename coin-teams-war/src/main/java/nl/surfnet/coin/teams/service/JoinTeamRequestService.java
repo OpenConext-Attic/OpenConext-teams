@@ -16,7 +16,7 @@ public interface JoinTeamRequestService extends GenericService<JoinTeamRequest> 
   /**
    * Checks if this Person has no pending requests to join the team
    *
-   * @param person {@link org.opensocial.models.Person} who wants to join
+   * @param person {@link Person} who wants to join
    * @param team   the {@link Team} he wants to join
    * @return {@literal true} if there is no pending request
    */
@@ -29,4 +29,14 @@ public interface JoinTeamRequestService extends GenericService<JoinTeamRequest> 
    * @return List of JoinTeamRequest, can be empty, not null
    */
   List<JoinTeamRequest> findPendingRequests(Team team);
+
+  /**
+   * Searches for the pending {@link JoinTeamRequest}
+   *
+   * @param person {@link Person} who wants to join
+   * @param team   the {@link Team} he wants to join
+   * @return {@link JoinTeamRequest} if there is any,
+   *         otherwise {@literal null}
+   */
+  JoinTeamRequest findPendingRequest(Person person, Team team);
 }

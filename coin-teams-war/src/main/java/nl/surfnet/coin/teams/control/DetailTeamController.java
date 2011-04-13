@@ -11,6 +11,16 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.opensocial.models.Person;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.view.RedirectView;
+
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
@@ -21,16 +31,6 @@ import nl.surfnet.coin.teams.service.TeamPersonService;
 import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.service.TeamsAPIService;
 import nl.surfnet.coin.teams.util.ViewUtil;
-
-import org.opensocial.models.Person;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.view.RedirectView;
 
 /**
  * @author steinwelberg
@@ -45,7 +45,9 @@ public class DetailTeamController {
   private static final String ADMIN = "0";
   private static final String ADMIN_LEAVE_TEAM = "error.AdminCannotLeaveTeam";
   private static final String NOT_AUTHORIZED_DELETE_MEMBER = "error.NotAuthorizedToDeleteMember";
-  private static final String VIEW = "view";
+  private static final String UTF_8 = "utf-8";
+  private static final String TEAM_PARAM = "team";
+  private static final String MEMBER_PARAM = "member";
 
   @Autowired
   private TeamService teamService;
@@ -67,13 +69,13 @@ public class DetailTeamController {
     Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
     String personId = person.getId();
-    String teamId = URLDecoder.decode(request.getParameter("team"), "utf-8");
+    String teamId = URLDecoder.decode(request.getParameter(TEAM_PARAM), UTF_8);
     Set<Role> roles = new HashSet<Role>();
     String message = request.getParameter("mes");
     Team team = null;
 
     if (StringUtils.hasText(teamId)) {
-      team = teamService.findTeamById(request.getParameter("team"));
+      team = teamService.findTeamById(request.getParameter(TEAM_PARAM));
     }
 
     if (team == null || !StringUtils.hasText(personId)) {
@@ -99,7 +101,7 @@ public class DetailTeamController {
     addInvitations(modelMap, teamId);
 
     modelMap.addAttribute("onlyAdmin", onlyAdmin);
-    modelMap.addAttribute("team", team);
+    modelMap.addAttribute(TEAM_PARAM, team);
     modelMap.addAttribute("admin", Role.Admin);
     modelMap.addAttribute("manager", Role.Manager);
 
@@ -139,7 +141,7 @@ public class DetailTeamController {
   @RequestMapping(value = "/doleaveteam.shtml", method = RequestMethod.GET)
   public RedirectView leaveTeam(ModelMap modelMap, HttpServletRequest request)
       throws UnsupportedEncodingException {
-    String teamId = URLDecoder.decode(request.getParameter("team"), "utf-8");
+    String teamId = URLDecoder.decode(request.getParameter(TEAM_PARAM), "utf-8");
     Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
     String personId = person.getId();
@@ -158,7 +160,7 @@ public class DetailTeamController {
 
     if (admins.size() == 1 && adminsArray[0].getId().equals(personId)) {
       return new RedirectView("detailteam.shtml?team="
-          + URLEncoder.encode(teamId, "utf-8") + "&view="
+          + URLEncoder.encode(teamId, UTF_8) + "&view="
           + ViewUtil.getView(request) + "&mes=" + ADMIN_LEAVE_TEAM);
     }
 
@@ -172,7 +174,7 @@ public class DetailTeamController {
   @RequestMapping(value = "/dodeleteteam.shtml", method = RequestMethod.GET)
   public RedirectView deleteTeam(ModelMap modelMap, HttpServletRequest request)
       throws UnsupportedEncodingException {
-    String teamId = URLDecoder.decode(request.getParameter("team"), "utf-8");
+    String teamId = URLDecoder.decode(request.getParameter(TEAM_PARAM), UTF_8);
     Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
     String personId = person.getId();
@@ -191,16 +193,16 @@ public class DetailTeamController {
     }
 
     return new RedirectView("detailteam.shtml?team="
-        + URLEncoder.encode(teamId, "utf-8") + "&view="
+        + URLEncoder.encode(teamId, UTF_8) + "&view="
         + ViewUtil.getView(request));
   }
 
   @RequestMapping(value = "/dodeletemember.shtml", method = RequestMethod.GET)
   public RedirectView deleteMember(ModelMap modelMap, HttpServletRequest request)
       throws UnsupportedEncodingException {
-    String teamId = URLDecoder.decode(request.getParameter("team"), "utf-8");
+    String teamId = URLDecoder.decode(request.getParameter(TEAM_PARAM), UTF_8);
     String personId = URLDecoder
-        .decode(request.getParameter("member"), "utf-8");
+        .decode(request.getParameter(MEMBER_PARAM), UTF_8);
     Person ownerPerson = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
     String ownerId = ownerPerson.getId();
@@ -224,7 +226,7 @@ public class DetailTeamController {
       teamService.deleteMember(teamId, personId);
 
       return new RedirectView("detailteam.shtml?team="
-          + URLEncoder.encode(teamId, "utf-8") + "&view="
+          + URLEncoder.encode(teamId, UTF_8) + "&view="
           + ViewUtil.getView(request));
       // if the owner is manager and the member is not an admin he can delete
       // the member
@@ -234,12 +236,12 @@ public class DetailTeamController {
       teamService.deleteMember(teamId, personId);
 
       return new RedirectView("detailteam.shtml?team="
-          + URLEncoder.encode(teamId, "utf-8") + "&view="
+          + URLEncoder.encode(teamId, UTF_8) + "&view="
           + ViewUtil.getView(request));
     }
 
     return new RedirectView("detailteam.shtml?team="
-        + URLEncoder.encode(teamId, "utf-8") + "&mes="
+        + URLEncoder.encode(teamId, UTF_8) + "&mes="
         + NOT_AUTHORIZED_DELETE_MEMBER  + "&view="
         + ViewUtil.getView(request));
   }
@@ -247,8 +249,8 @@ public class DetailTeamController {
   @RequestMapping(value = "/doaddrole.shtml", method = RequestMethod.POST)
   public @ResponseBody
   String addRole(ModelMap modelMap, HttpServletRequest request) {
-    String teamId = request.getParameter("team");
-    String memberId = request.getParameter("member");
+    String teamId = request.getParameter(TEAM_PARAM);
+    String memberId = request.getParameter(MEMBER_PARAM);
     String roleString = request.getParameter("role");
 
     if (!StringUtils.hasText(teamId) || !StringUtils.hasText(memberId)
@@ -265,8 +267,8 @@ public class DetailTeamController {
   @RequestMapping(value = "/doremoverole.shtml", method = RequestMethod.POST)
   public @ResponseBody
   String removeRole(ModelMap modelMap, HttpServletRequest request) {
-    String teamId = request.getParameter("team");
-    String memberId = request.getParameter("member");
+    String teamId = request.getParameter(TEAM_PARAM);
+    String memberId = request.getParameter(MEMBER_PARAM);
     String roleString = request.getParameter("role");
     Team team;
 
@@ -292,5 +294,45 @@ public class DetailTeamController {
     Role role = roleString.equals(ADMIN) ? Role.Admin : Role.Manager;
     return teamService.removeMemberRole(teamId, memberId, role, false) ? "success"
         : "error";
+  }
+
+  @RequestMapping(value = "/dodeleterequest.shtml")
+  public RedirectView deleteRequest(ModelMap modelMap, HttpServletRequest request)
+          throws UnsupportedEncodingException {
+    String teamId = URLDecoder.decode(request.getParameter(TEAM_PARAM), UTF_8);
+    String memberId = URLDecoder.decode(request.getParameter(MEMBER_PARAM), UTF_8);
+
+    if (!StringUtils.hasText(teamId) || !StringUtils.hasText(memberId)) {
+      throw new RuntimeException("Missing parameters for team or member");
+    }
+
+    Team team = teamService.findTeamById(teamId);
+    if (team == null) {
+      throw new RuntimeException("Cannot find team with id " + teamId);
+    }
+
+    Person memberToAdd = teamPersonService.getPerson(memberId);
+    if (memberToAdd == null) {
+      throw new RuntimeException("Cannot retrieve Person data for id " + memberId);
+    }
+
+    Person loggedInPerson = (Person) request.getSession().getAttribute(
+            LoginInterceptor.PERSON_SESSION_KEY);
+    Member loggedInMember = teamService.findMember(teamId, loggedInPerson.getId());
+
+    if (!(loggedInMember.getRoles().contains(Role.Admin) ||
+            loggedInMember.getRoles().contains(Role.Manager))) {
+      return new RedirectView("detailteam.shtml?team="
+              + URLEncoder.encode(teamId, UTF_8)
+              + "&mes=" + NOT_AUTHORIZED_DELETE_MEMBER);
+    }
+
+    JoinTeamRequest pendingRequest = joinTeamRequestService.findPendingRequest(memberToAdd, team);
+    if (pendingRequest != null) {
+      joinTeamRequestService.delete(pendingRequest);
+    }
+
+    return new RedirectView("detailteam.shtml?team="
+            + URLEncoder.encode(teamId, UTF_8));
   }
 }

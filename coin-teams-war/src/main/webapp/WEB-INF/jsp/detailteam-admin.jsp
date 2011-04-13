@@ -43,14 +43,24 @@
       <h2><spring:message code="jsp.detailteam.PendingRequests"/></h2>
       <table class="team-table-wrapper">
         <thead>
-          <th colspan="3"><spring:message code='jsp.detailteam.Name' /></th>
+        <th colspan="3"><spring:message code='jsp.detailteam.Name'/></th>
+        <th></th>
+        <th></th>
         </thead>
         <tbody>
         <c:forEach var="pending" items="${pendingRequests}">
           <tr>
             <td><c:out value="${pending.displayName}"/></td>
-            <td><button value="deny">###Deny###</button></td>
-            <td><button value="accept"><spring:message code="jsp.detailteam.AcceptJoinRequest"/></button></td>
+
+            <c:url value="dodeleterequest.shtml" var="deleteRequestUrl">
+              <c:param name="team" value="${team.id}"/>
+              <c:param name="member" value="${pending.id}"/>
+            </c:url>
+            <td><a href="${deleteRequestUrl}">
+              <spring:message code="jsp.detailteam.DenyJoinRequest"/></a></td>
+            <%--<td><a href="doacceptrequest.shtml?team=${team.id}&member=${pending.id}">--%>
+              <spring:message code="jsp.detailteam.AcceptJoinRequest"/><%--</a>--%>
+            </td>
           </tr>
         </c:forEach>
         </tbody>

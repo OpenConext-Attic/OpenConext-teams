@@ -2,8 +2,8 @@ package nl.surfnet.coin.teams.service.impl;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.SimpleExpression;
 import org.opensocial.models.Person;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
@@ -18,8 +18,8 @@ import nl.surfnet.coin.teams.service.JoinTeamRequestService;
  */
 @Component("joinTeamRequestService")
 public class JoinTeamRequestServiceHibernateImpl
-  extends GenericServiceHibernateImpl<JoinTeamRequest>
-  implements JoinTeamRequestService {
+        extends GenericServiceHibernateImpl<JoinTeamRequest>
+        implements JoinTeamRequestService {
 
   private static final int ONE_RESULT = 1;
 
@@ -42,13 +42,7 @@ public class JoinTeamRequestServiceHibernateImpl
    */
   @Override
   public boolean isNewRequestForTeam(Person person, Team team) {
-    Criteria criteria = createCriteria()
-      .add(Restrictions.eq("personId", person.getId()))
-      .add(Restrictions.eq("groupId", team.getId()));
-    criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
-    criteria.setMaxResults(ONE_RESULT);
-    List list = criteria.list();
-    return CollectionUtils.isEmpty(list);
+    return findPendingRequest(person, team) == null;
   }
 
   /**
@@ -57,5 +51,16 @@ public class JoinTeamRequestServiceHibernateImpl
   @Override
   public List<JoinTeamRequest> findPendingRequests(Team team) {
     return findByCriteria(Restrictions.eq("groupId", team.getId()));
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public JoinTeamRequest findPendingRequest(Person person, Team team) {
+    SimpleExpression personId = Restrictions.eq("personId", person.getId());
+    SimpleExpression groupId = Restrictions.eq("groupId", team.getId());
+    List<JoinTeamRequest> list = findByCriteria(personId, groupId);
+    return CollectionUtils.isEmpty(list) ? null : list.get(0);
   }
 }
