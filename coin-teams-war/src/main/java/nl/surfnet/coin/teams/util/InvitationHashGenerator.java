@@ -17,7 +17,7 @@ public final class InvitationHashGenerator {
    * @param input String (email address)
    * @return hash code
    */
-  public static final String generateHash(String input) {
+  public static String generateHash(final String input) {
     return DigestUtils.md5Hex(UUID.nameUUIDFromBytes(input.getBytes()).toString());
   }
 }
