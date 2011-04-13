@@ -12,22 +12,22 @@
     <c:if test="${fn:length(message) > 0}"><div id="__notifyBar" class="hide"><spring:message code='${message}' /></div></c:if>
 
     <c:url value="home.shtml" var="backUrl"><c:param name="teams" value="my" /><c:param name="view" value="${view}" /></c:url>
-    <p class="back"><a href="<c:out value='${backUrl}' />">&lt; <spring:message code='jsp.detailteam.Back' /></a></p>
+    <p class="back"><a href="${backUrl}">&lt; <spring:message code='jsp.detailteam.Back' /></a></p>
     <div class="team-options-wrapper">
       <c:url value="editteam.shtml" var="editUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
       <c:url value="dodeleteteam.shtml" var="deleteUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
       <c:url value="doleaveteam.shtml" var="leaveUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
       <ul class="team-options">
-        <li class="first"><a href="<c:out value='${editUrl}' />"><spring:message code='jsp.detailteam.Edit' /></a></li>
-        <li class="middle"><a id="DeleteTeam" href="<c:out value='${deleteUrl}' />"><spring:message code='jsp.detailteam.Delete' /></a></li>
-        <li class="last"><a id="LeaveTeam" href="<c:out value='${leaveUrl}' />"><spring:message code='jsp.detailteam.Leave' /></a></li>
+        <li class="first"><a href="${editUrl}"><spring:message code='jsp.detailteam.Edit' /></a></li>
+        <li class="middle"><a id="DeleteTeam" href="${deleteUrl}"><spring:message code='jsp.detailteam.Delete' /></a></li>
+        <li class="last"><a id="LeaveTeam" href="${leaveUrl}"><spring:message code='jsp.detailteam.Leave' /></a></li>
       </ul>  
     </div>
     <br class="clear" />
     <h1 class="team-title"><c:out value="${team.name}" /></h1>  
     <p class="add">
       <c:url value="addmember.shtml" var="addmemberUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
-      <a class="button-primary" href="<c:out value='${addmemberUrl}' />"><spring:message code='jsp.addmember.Title' /></a>
+      <a class="button-primary" href="${addmemberUrl}"><spring:message code='jsp.addmember.Title' /></a>
     </p>
     <br class="clear" />
   <!-- / Header -->
@@ -38,41 +38,8 @@
       <c:set var="noDescription"><spring:message code='jsp.general.NoDescription' /></c:set>
       <c:out value="${team.description}" default="${noDescription}"/>
     </p>
-    <c:if test="${fn:length(pendingRequests)>0}">
-      <br class="clear" />
-      <h2><spring:message code="jsp.detailteam.PendingRequests"/></h2>
-      <table class="team-table-wrapper">
-        <thead>
-        <th colspan="3"><spring:message code='jsp.detailteam.Name'/></th>
-        <th></th>
-        <th></th>
-        </thead>
-        <tbody>
-        <c:forEach var="pending" items="${pendingRequests}">
-          <tr>
-            <td><c:out value="${pending.displayName}"/></td>
-
-            <c:url value="dodeleterequest.shtml" var="deleteRequestUrl">
-              <c:param name="team" value="${team.id}"/>
-              <c:param name="member" value="${pending.id}"/>
-            </c:url>
-            <td><a href="${deleteRequestUrl}">
-              <spring:message code="jsp.detailteam.DenyJoinRequest"/></a></td>
-            <c:url value="doapproverequest.shtml" var="approveRequestUrl">
-              <c:param name="team" value="${team.id}"/>
-              <c:param name="member" value="${pending.id}"/>
-            </c:url>
-            <td><a href="${approveRequestUrl}">
-              <spring:message code="jsp.detailteam.AcceptJoinRequest"/></a>
-            </td>
-          </tr>
-        </c:forEach>
-        </tbody>
-      </table>
-      <br class="clear" />
-      <h2><spring:message code="jsp.detailteam.TeamMembers"/></h2>
-    </c:if>
-    <form>
+    <teams:pendingRequests/>
+    <form action="">
       <input type="hidden" name="teamId" value="${team.id}" />
       <input type="hidden" name="loggedInUser" value="${sessionScope.person}" />
       <div class="team-table-wrapper">
@@ -98,7 +65,12 @@
                 <td><input id="1_${member.id}" type="checkbox" name="managerRole" value="" <c:out value='${managerRoleStatus}' /> /></td>
                 <td>
                     <c:if test="${member.id ne sessionScope.person}">
-                      <a href="dodeletemember.shtml?team=${team.id}&member=${member.id}"><spring:message code="jsp.detailteam.RemoveMemberFromTeam"/></a>
+                      <c:url var="dodeletemember" value="dodeletemember.shtml">
+                        <c:param name="team" value="${team.id}"/>
+                        <c:param name="member" value="${member.id}"/>
+                        <c:param name="view" value="${view}"/>
+                      </c:url>
+                      <a href="${dodeletemember}"><spring:message code="jsp.detailteam.RemoveMemberFromTeam"/></a>
                     </c:if>
                 </td>
               </tr>
