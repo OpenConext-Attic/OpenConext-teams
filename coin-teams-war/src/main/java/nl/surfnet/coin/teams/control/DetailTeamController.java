@@ -342,6 +342,7 @@ public class DetailTeamController {
 
     if (approve) {
       teamService.addMember(teamId, memberId);
+      teamService.addMemberRole(teamId, memberId, Role.Member, true);
     }
 
     JoinTeamRequest pendingRequest = joinTeamRequestService.findPendingRequest(memberToAdd, team);
