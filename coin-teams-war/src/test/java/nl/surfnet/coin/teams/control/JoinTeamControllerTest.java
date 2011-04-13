@@ -90,7 +90,7 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
     replay(mockTeamService);
     RedirectView result = joinTeamController.joinTeam(getModelMap(), request);
     
-    assertEquals("home.shtml?teams=my", result.getUrl());
+    assertEquals("home.shtml?teams=my&view=app", result.getUrl());
   }
   
   @Test(expected = RuntimeException.class)
