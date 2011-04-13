@@ -46,6 +46,8 @@ public class JoinTeamController {
 
   private static final String USER_NAME = "{user}";
 
+  private static final long MILLISECONDS = 1000L;
+
   @Autowired
   private TeamService teamService;
 
@@ -113,7 +115,7 @@ public class JoinTeamController {
       JoinTeamRequest joinRequest = new JoinTeamRequest();
       joinRequest.setGroupId(team.getId());
       joinRequest.setPersonId(person.getId());
-      joinRequest.setTimestamp(new Date().getTime());
+      joinRequest.setTimestamp(new Date().getTime() / MILLISECONDS);
       joinTeamRequestService.saveOrUpdate(joinRequest);
     }
 
