@@ -9,12 +9,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.message.BasicNameValuePair;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -29,11 +24,10 @@ import nl.surfnet.coin.teams.util.TeamEnvironment;
  *
  */
 @Component("teamsAPIService")
+@Deprecated
 public class TeamsAPIServiceImpl implements TeamsAPIService {
 
   private static String invitationUrl = "?request=invitations";
-  private static String inviteUrl = "?request=invite";
-  private static String joinUrl = "?request=join";
 
   @Autowired
   private TeamEnvironment environment;
@@ -70,36 +64,6 @@ public class TeamsAPIServiceImpl implements TeamsAPIService {
     return null;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * nl.surfnet.coin.teams.service.TeamsAPIService#sendInvitations(java.lang
-   * .String, java.lang.String, java.lang.String)
-   */
-  @Override
-  public boolean sendInvitations(String emails, String teamId, String message,
-                                 String subject) throws IllegalStateException,
-    IOException {
-
-    String url = environment.getTeamsAPIUrl() + inviteUrl;
-    
-    HttpPost httppost = new HttpPost(url);
-
-    // Add your data
-    List<BasicNameValuePair> nameValuePairs = new ArrayList<BasicNameValuePair>(
-        4);
-    nameValuePairs.add(new BasicNameValuePair("group", teamId));
-    nameValuePairs.add(new BasicNameValuePair("addresses", emails));
-    nameValuePairs.add(new BasicNameValuePair("body", message));
-    nameValuePairs.add(new BasicNameValuePair("subject", subject));
-    httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-     
-    HttpResponse response = httpClientProvider.getHttpClient().execute(httppost);
-    int statusCode = response.getStatusLine().getStatusCode();
-    return statusCode == HttpStatus.SC_OK;
-  }
-
 
   @SuppressWarnings("unchecked")
   private List<Invitation> doGetInvitations(String teamId,
@@ -109,7 +73,7 @@ public class TeamsAPIServiceImpl implements TeamsAPIService {
     List<Invitation> invites = new ArrayList<Invitation>();
 
     for (String result : results) {
-      Invitation invite = new Invitation(teamId, result);
+      Invitation invite = new Invitation(result, teamId, null);
       invites.add(invite);
     }
 

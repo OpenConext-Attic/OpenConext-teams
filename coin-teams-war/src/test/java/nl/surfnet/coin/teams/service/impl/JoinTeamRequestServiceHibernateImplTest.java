@@ -35,7 +35,7 @@ public class JoinTeamRequestServiceHibernateImplTest {
   private JoinTeamRequestService joinTeamRequestService;
 
   @Test
-  public void testhEmptyDb() throws Exception {
+  public void testEmptyDb() throws Exception {
     Person mockPerson = mock(Person.class);
     when(mockPerson.getId()).thenReturn("person-1");
     Team mockTeam = mock(Team.class);

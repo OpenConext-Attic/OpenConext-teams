@@ -4,15 +4,16 @@
 package nl.surfnet.coin.teams.control;
 
 import static org.junit.Assert.assertEquals;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.service.TeamService;
 
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
 import org.springframework.mock.web.MockHttpServletRequest;
 
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.service.TeamService;
+
 /**
- * @author steinwelberg
+ * Test for {@link AddMemberController}
  *
  */
 public class AddMemberControllerTest extends AbstractControllerTest {

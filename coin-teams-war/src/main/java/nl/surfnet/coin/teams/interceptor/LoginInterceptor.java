@@ -35,8 +35,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
    * Return the part of the path of the request
    */
   private String getRequestedPart(HttpServletRequest request) {
-    String requestUri = request.getRequestURI();
-    return requestUri;
+    return request.getRequestURI();
   }
 
   @Override
