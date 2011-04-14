@@ -5,13 +5,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import nl.surfnet.coin.teams.service.TeamPersonService;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
+
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-
-import nl.surfnet.coin.teams.service.TeamPersonService;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
 
 /**
  * Intercepts calls to controllers to handle Single Sign On details from
@@ -109,7 +109,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
    * 
    * @param request
    *          the httpRequest
-   * @return the String of the logged in user
+   * @return the String of the user status
    */
   protected String getUserStatus(HttpServletRequest request) {
     return request.getHeader("coin-user-status");

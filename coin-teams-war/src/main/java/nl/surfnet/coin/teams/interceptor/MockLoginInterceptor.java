@@ -8,16 +8,14 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class MockLoginInterceptor extends LoginInterceptor {
 
- 
   @Override
   protected String getRemoteUser(HttpServletRequest request) {
     return getTeamEnvironment().getMockLogin();
   }
-  
+
   @Override
   protected String getUserStatus(HttpServletRequest request) {
     return getTeamEnvironment().getMockUserStatus();
   }
 
- 
 }
