@@ -58,7 +58,7 @@ public class InMemoryMockTeamService implements TeamService {
     roles3.add(Role.Manager);
     roles3.add(Role.Member);
 
-    Member member1 = new Member(roles3, "member1-name", "john.doe",
+    Member member1 = new Member(roles3, "member1-name", "urn:collab:person:surfnet.nl:hansz",
         "member1@surfnet.nl");
 
     Member member2 = new Member(roles2, "member2-name", "member-2",
