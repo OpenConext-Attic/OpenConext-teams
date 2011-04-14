@@ -55,11 +55,21 @@ public class TeamInviteServiceHibernateImpl
    */
   @Override
   public Invitation findInvitationByInviteId(String invitationId) {
+    cleanupExpiredInvitations();
     long twoWeeksAgo = (new Date().getTime() / Invitation.DATE_PRECISION_DIVIDER) - TWO_WEEKS;
     List<Invitation> invitations = findByCriteria(
             Restrictions.eq("invitationHash", invitationId),
             Restrictions.ge("timestamp", twoWeeksAgo));
     return CollectionUtils.isEmpty(invitations) ? null : invitations.get(0);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public List<Invitation> findInvitationsForTeam(Team team) {
+    cleanupExpiredInvitations();
+    return findByCriteria(Restrictions.eq("teamId", team.getId()));
   }
 
   /**

@@ -27,9 +27,9 @@ import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.JoinTeamRequestService;
+import nl.surfnet.coin.teams.service.TeamInviteService;
 import nl.surfnet.coin.teams.service.TeamPersonService;
 import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.service.TeamsAPIService;
 import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
@@ -53,8 +53,7 @@ public class DetailTeamController {
   private TeamService teamService;
 
   @Autowired
-  @Deprecated
-  private TeamsAPIService teamsAPIService;
+  private TeamInviteService teamInviteService;
 
   @Autowired
   private JoinTeamRequestService joinTeamRequestService;
@@ -98,7 +97,8 @@ public class DetailTeamController {
     // Check if there is only one admin for a team
     int onlyAdmin = teamService.findAdmins(team).size() > 1 ? 0 : 1;
 
-    addInvitations(modelMap, teamId);
+    modelMap.addAttribute("invitations",
+            teamInviteService.findInvitationsForTeam(team));
 
     modelMap.addAttribute("onlyAdmin", onlyAdmin);
     modelMap.addAttribute(TEAM_PARAM, team);
@@ -130,12 +130,6 @@ public class DetailTeamController {
           .getPersonId()));
     }
     return requestingPersons;
-  }
-
-  private void addInvitations(ModelMap modelMap, String teamId)
-      throws IllegalStateException, IOException {
-    modelMap
-        .addAttribute("invitations", teamsAPIService.getInvitations(teamId));
   }
 
   @RequestMapping(value = "/doleaveteam.shtml", method = RequestMethod.GET)

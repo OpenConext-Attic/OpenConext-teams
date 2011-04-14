@@ -44,7 +44,6 @@ public class InvitationController {
   @RequestMapping(value = "acceptInvitation.shtml")
   public RedirectView accept(HttpServletRequest request)
           throws UnsupportedEncodingException {
-    teamInviteService.cleanupExpiredInvitations();
     Person person = (Person) request.getSession().getAttribute(
             LoginInterceptor.PERSON_SESSION_KEY);
     if (person == null) {
@@ -81,7 +80,6 @@ public class InvitationController {
    */
   @RequestMapping(value = "/declineInvitation.shtml")
   public RedirectView decline(HttpServletRequest request) {
-    teamInviteService.cleanupExpiredInvitations();
     Person person = (Person) request.getSession().getAttribute(
             LoginInterceptor.PERSON_SESSION_KEY);
     if (person == null) {

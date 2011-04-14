@@ -1,5 +1,7 @@
 package nl.surfnet.coin.teams.service;
 
+import java.util.List;
+
 import nl.surfnet.coin.shared.service.GenericService;
 import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.Team;
@@ -27,6 +29,14 @@ public interface TeamInviteService extends GenericService<Invitation> {
    * @return {@link Invitation} if found, otherwise {@literal null}
    */
   Invitation findInvitationByInviteId(String invitationId);
+
+  /**
+   * Searches for {@link Invitation}'s for a {@link Team}.
+   *
+   * @param team {@link Team}
+   * @return List of Invitation's, can be empty.
+   */
+  List<Invitation> findInvitationsForTeam(Team team);
 
   /**
    * Cleans up expired {@link Invitation}'s

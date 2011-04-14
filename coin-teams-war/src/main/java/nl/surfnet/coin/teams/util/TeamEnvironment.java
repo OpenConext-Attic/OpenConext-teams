@@ -13,7 +13,6 @@ public class TeamEnvironment {
   private String mockName;
   private String defaultStemName;
   private String grouperPowerUser;
-  private String teamsAPIUrl;
   private String oauthKey;
   private String oauthSecret;
   private String restEndpoint;
@@ -96,20 +95,6 @@ public class TeamEnvironment {
    */
   public void setGrouperPowerUser(String grouperPowerUser) {
     this.grouperPowerUser = grouperPowerUser;
-  }
-
-  /**
-   * @param teamsAPIUrl the teamsAPIUrl to set
-   */
-  public void setTeamsAPIUrl(String teamsAPIUrl) {
-    this.teamsAPIUrl = teamsAPIUrl;
-  }
-
-  /**
-   * @return the teamsAPIUrl
-   */
-  public String getTeamsAPIUrl() {
-    return teamsAPIUrl;
   }
 
   /**
