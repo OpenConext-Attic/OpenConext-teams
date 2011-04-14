@@ -157,6 +157,7 @@ public abstract class AbstractControllerTest {
     Person person = new Person();
     person.setField("id","member-1");
     session.setAttribute(LoginInterceptor.PERSON_SESSION_KEY, person);
+    session.setAttribute(LoginInterceptor.USER_STATUS_SESSION_KEY, "member");
 
   }
 
