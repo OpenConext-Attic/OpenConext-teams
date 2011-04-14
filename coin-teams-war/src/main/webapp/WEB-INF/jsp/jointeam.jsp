@@ -18,7 +18,8 @@
     <c:url value="dojointeam.shtml" var="doJoinTeamUrl"><c:param name="view" value="${view}" /></c:url>
     <form id="JoinTeamForm" action="${doJoinTeamUrl}" method="post">
       <p class="label-field-wrapper">
-        <input type="hidden" name="team" value="${team.id}" />
+        <input type="hidden" name="team" value="<c:out value='${team.id}' />" />
+        <input type="hidden" name="view" value="<c:out value='${view}' />" />
         <label for="TeamMessage"><spring:message code='jsp.general.Message' /></label>
         <textarea id="TeamMessage" name="message" rows="4"><spring:message code='jsp.jointeam.Message' /></textarea>
       </p>

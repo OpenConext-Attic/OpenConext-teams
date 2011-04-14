@@ -5,7 +5,8 @@ COIN.MODULES.Addteam = function(sandbox) {
 			// Clicked [ Cancel ]
 			$('input[name=cancelCreateTeam]').live('click', function(e) {
 				e.preventDefault();
-				sandbox.redirectBrowserTo('home.shtml?teams=my');
+        var view = $('input[name=view]').val();
+				sandbox.redirectBrowserTo('home.shtml?teams=my&view=' + view);
 			});
 			
 			$('#TeamName').focus();

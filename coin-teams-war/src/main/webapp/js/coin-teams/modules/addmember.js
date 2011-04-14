@@ -7,7 +7,8 @@ COIN.MODULES.Addmember = function(sandbox) {
 			$('input[name=cancelAddMember]').live('click',function(e) {
 				e.preventDefault();
 				var team = $('input[name=team]').val();
-				sandbox.redirectBrowserTo('detailteam.shtml?team=' + escape(team));
+				var view = $('input[name=view]').val();
+				sandbox.redirectBrowserTo('detailteam.shtml?team=' + escape(team) + '&view=' + view);
 			});
 
 			// Add jquery validator method

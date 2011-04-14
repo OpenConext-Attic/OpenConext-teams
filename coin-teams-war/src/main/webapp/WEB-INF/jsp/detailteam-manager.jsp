@@ -31,8 +31,9 @@
     </p>
     <teams:pendingRequests/>
     <form action="">
-      <input type="hidden" name="teamId" value="${team.id}" />
-      <input type="hidden" name="loggedInUser" value="${sessionScope.person}" />
+      <input type="hidden" name="teamId" value="<c:out value='${team.id}' />" />
+      <input type="hidden" name="loggedInUser" value="<c:out value='${sessionScope.person}' />" />
+      <input type="hidden" name="view" value="<c:out value='${view}' />" />
       <div class="team-table-wrapper">
         <table class="team-table">
           <thead>

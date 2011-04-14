@@ -17,6 +17,7 @@
   <div id="Content">
     <c:url value="doaddteam.shtml" var="doAddTeamUrl"><c:param name="view" value="${view}" /></c:url>
     <form id="AddTeamForm" action="<c:out value='${doAddTeamUrl}' />" method="post">
+      <input type="hidden" name="view" value="<c:out value='${view}' />" />
       <p class="label-field-wrapper">
         <label for="TeamName"><spring:message code='jsp.general.TeamName' /></label>
         <input id="TeamName" type="text" name="team" class="required" />

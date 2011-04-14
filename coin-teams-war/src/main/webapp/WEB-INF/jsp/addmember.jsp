@@ -18,7 +18,8 @@
     <c:url value="doaddmember.shtml" var="doAddMemberUrl"><c:param name="view" value="${view}" /></c:url>
     <form id="AddMemberForm" action="${doAddMemberUrl}" method="post">
       <p class="label-field-wrapper">
-        <input type="hidden" name="team" value="${team.id}" />
+        <input type="hidden" name="team" value="<c:out value='${team.id}' />" />
+        <input type="hidden" name="view" value="<c:out value='${view}' />" />
         <input type="hidden" name="testEmail" id="TestEmail" class="email" value="" />
         <label for="MemberEmail"><spring:message code='jsp.general.Email' /></label>
         <input id="MemberEmail" type="text" name="memberEmail" value="<spring:message code='jsp.addmember.Email' />" class="multiemail required" />

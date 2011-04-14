@@ -148,7 +148,8 @@ COIN.MODULES.Detailteam = function(sandbox) {
 			sandbox.post('doremoverole.shtml', data, function(data) {
 				if (data === 'success') {
 					if ($('input[type=hidden][name=loggedInUser]').val() === memberId) {
-						sandbox.redirectBrowserTo('detailteam.shtml?team=' + teamId);
+		        var view = $('input[name=view]').val();
+						sandbox.redirectBrowserTo('detailteam.shtml?team=' + teamId + '&view=' + view);
 					}
 					// is the admin role removed?
 					if (role === '0') {
