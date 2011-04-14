@@ -22,6 +22,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
   private static final String GADGET = "gadget";
   public static final String PERSON_SESSION_KEY = "person";
+  public static final String USER_STATUS_SESSION_KEY = "coin-user-status";
   private static final ThreadLocal<String> loggedInUser = new ThreadLocal<String>();
 
   @Autowired
@@ -54,6 +55,12 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         person = personService.getPerson(remoteUser);
         // Add person to session:
         session.setAttribute(PERSON_SESSION_KEY, person);
+        
+        // Add the user status to the session
+        String userStatus = request.getHeader(USER_STATUS_SESSION_KEY);
+        userStatus = StringUtils.hasText(userStatus) ? userStatus : "guest";
+        
+        session.setAttribute(USER_STATUS_SESSION_KEY, userStatus);
 
         if (person == null) {
           String errorMessage = "Cannot find user: " + remoteUser;
