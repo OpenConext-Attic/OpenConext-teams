@@ -11,6 +11,7 @@ public class TeamEnvironment {
   private String version;
   private String mockLogin;
   private String mockName;
+  private String mockUserStatus;
   private String defaultStemName;
   private String grouperPowerUser;
   private String oauthKey;
@@ -66,6 +67,20 @@ public class TeamEnvironment {
    */
   public void setMockName(String mockName) {
     this.mockName = mockName;
+  }
+
+  /**
+   * @param mockUserStatus the mockUserStatus to set
+   */
+  public void setMockUserStatus(String mockUserStatus) {
+    this.mockUserStatus = mockUserStatus;
+  }
+
+  /**
+   * @return the mockUserStatus
+   */
+  public String getMockUserStatus() {
+    return mockUserStatus;
   }
 
   /**
@@ -209,4 +224,5 @@ public class TeamEnvironment {
   public void setSystemEmail(String systemEmail) {
     this.systemEmail = systemEmail;
   }
+  
 }

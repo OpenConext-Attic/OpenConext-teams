@@ -13,6 +13,11 @@ public class MockLoginInterceptor extends LoginInterceptor {
   protected String getRemoteUser(HttpServletRequest request) {
     return getTeamEnvironment().getMockLogin();
   }
+  
+  @Override
+  protected String getUserStatus(HttpServletRequest request) {
+    return getTeamEnvironment().getMockUserStatus();
+  }
 
  
 }

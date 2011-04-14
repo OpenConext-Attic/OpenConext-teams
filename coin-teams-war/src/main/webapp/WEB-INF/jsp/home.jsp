@@ -34,8 +34,10 @@
 </div>
 <!-- = Content -->
 <div id="Content">
+  <c:if test='${sessionScope.userStatus ne "guest"}'>
     <c:url value="addteam.shtml" var="addTeamUrl"><c:param name="view" value="${view}" /></c:url>
-  <p class="add"><a class="button-primary" href="${addTeamUrl}"><spring:message code='jsp.home.AddTeam' /></a></p>
+    <p class="add"><a class="button-primary" href="${addTeamUrl}"><spring:message code='jsp.home.AddTeam' /></a></p>
+  </c:if>
   <div class="team-table-wrapper">
     <table class="team-table">
       <thead>

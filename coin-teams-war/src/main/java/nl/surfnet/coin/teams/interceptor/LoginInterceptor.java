@@ -22,7 +22,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
   private static final String GADGET = "gadget";
   public static final String PERSON_SESSION_KEY = "person";
-  public static final String USER_STATUS_SESSION_KEY = "coin-user-status";
+  public static final String USER_STATUS_SESSION_KEY = "userStatus";
   private static final ThreadLocal<String> loggedInUser = new ThreadLocal<String>();
 
   @Autowired
@@ -56,7 +56,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         session.setAttribute(PERSON_SESSION_KEY, person);
         
         // Add the user status to the session
-        String userStatus = request.getHeader(USER_STATUS_SESSION_KEY);
+        String userStatus = getUserStatus(request);
         userStatus = StringUtils.hasText(userStatus) ? userStatus : "guest";
         
         session.setAttribute(USER_STATUS_SESSION_KEY, userStatus);
@@ -102,6 +102,17 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
    */
   protected String getRemoteUser(HttpServletRequest request) {
     return request.getHeader("REMOTE_USER");
+  }
+  
+  /**
+   * Hook for subclasses to override the shibboleth default behaviour
+   * 
+   * @param request
+   *          the httpRequest
+   * @return the String of the logged in user
+   */
+  protected String getUserStatus(HttpServletRequest request) {
+    return request.getHeader("coin-user-status");
   }
 
   /**
