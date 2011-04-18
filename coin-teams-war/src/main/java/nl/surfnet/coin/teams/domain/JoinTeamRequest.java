@@ -1,7 +1,10 @@
 package nl.surfnet.coin.teams.domain;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Proxy;
@@ -25,6 +28,36 @@ public class JoinTeamRequest extends DomainObject {
 
   @Column(name = "uuid", nullable = false)
   private String personId;
+
+  @Lob
+  private String message;
+
+  /**
+   * For each timestamp manipulation,
+   * devide by this value for backwards compatibility.
+   */
+  public static final long DATE_PRECISION_DIVIDER = 1000L;
+
+  /**
+   * Necessary constructor for Hibernate.
+   * Avoid to call this in the code.
+   */
+  public JoinTeamRequest() {
+    this(null, null);
+  }
+
+  /**
+   * Constructor with required fields
+   *
+   * @param personId id of the {@link org.opensocial.models.Person}
+   * @param groupId  id of the {@link Team}
+   */
+  public JoinTeamRequest(String personId, String groupId) {
+    super();
+    this.setPersonId(personId);
+    this.setGroupId(groupId);
+    this.setTimestamp(new Date().getTime() / DATE_PRECISION_DIVIDER);
+  }
 
   /**
    * @return id of the group
@@ -68,4 +101,17 @@ public class JoinTeamRequest extends DomainObject {
     this.personId = personId;
   }
 
+  /**
+   * @return message that was sent during the request
+   */
+  public String getMessage() {
+    return message;
+  }
+
+  /**
+   * @param message to send to the admin/manager of the group
+   */
+  public void setMessage(String message) {
+    this.message = message;
+  }
 }

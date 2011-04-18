@@ -17,10 +17,10 @@ import org.mockito.internal.stubbing.answers.Returns;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.web.servlet.view.RedirectView;
 
+import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.service.JoinTeamRequestService;
 import nl.surfnet.coin.teams.service.TeamService;
 
 /**
@@ -76,19 +76,19 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
     joinTeamController.setTeamService(mockTeamService);
     expect(mockTeamService.findTeamById("team-1")).andReturn(mockTeam);
 
-    // checks if this is a new join request. If false, then no mail will be triggered.
-    autoWireMock(joinTeamController, new Returns(false), JoinTeamRequestService.class);
-
     Set<Role> roleSet = new HashSet<Role>();
     roleSet.add(Role.Admin);
     Member admin = new Member(roleSet,"Mr Member", "ID2345", "member@example.com");
     Set<Member> admins = new HashSet<Member>();
     admins.add(admin);
     expect(mockTeamService.findAdmins(mockTeam)).andReturn(admins);
+
+    JoinTeamRequest joinTeamRequest = new JoinTeamRequest("ID2345", "team-1");
+
     autoWireRemainingResources(joinTeamController);
 
     replay(mockTeamService);
-    RedirectView result = joinTeamController.joinTeam(getModelMap(), request);
+    RedirectView result = joinTeamController.joinTeam(getModelMap(), joinTeamRequest, request);
     
     assertEquals("home.shtml?teams=my&view=app", result.getUrl());
   }
@@ -100,7 +100,7 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
     
     autoWireRemainingResources(joinTeamController);
     
-    joinTeamController.joinTeam(getModelMap(), request);
+    joinTeamController.joinTeam(getModelMap(), null, request);
   }
 
 }
