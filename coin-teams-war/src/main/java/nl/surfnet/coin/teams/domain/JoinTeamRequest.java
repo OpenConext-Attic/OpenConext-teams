@@ -29,6 +29,7 @@ public class JoinTeamRequest extends DomainObject {
   @Column(name = "uuid", nullable = false)
   private String personId;
 
+  @Column(columnDefinition = "TEXT")
   @Lob
   private String message;
 
