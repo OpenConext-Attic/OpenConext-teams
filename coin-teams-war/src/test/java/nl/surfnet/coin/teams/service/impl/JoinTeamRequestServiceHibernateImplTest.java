@@ -3,7 +3,6 @@ package nl.surfnet.coin.teams.service.impl;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -43,7 +42,6 @@ public class JoinTeamRequestServiceHibernateImplTest {
 
     assertEquals("No pending requests", 0, joinTeamRequestService.findPendingRequests(mockTeam).size());
     assertNull(joinTeamRequestService.findPendingRequest(mockPerson, mockTeam));
-    assertTrue(joinTeamRequestService.isNewRequestForTeam(mockPerson, mockTeam));
   }
 
   @Test

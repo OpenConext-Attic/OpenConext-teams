@@ -14,15 +14,6 @@ import nl.surfnet.coin.teams.domain.Team;
 public interface JoinTeamRequestService extends GenericService<JoinTeamRequest> {
 
   /**
-   * Checks if this Person has no pending requests to join the team
-   *
-   * @param person {@link Person} who wants to join
-   * @param team   the {@link Team} he wants to join
-   * @return {@literal true} if there is no pending request
-   */
-  boolean isNewRequestForTeam(Person person, Team team);
-
-  /**
    * Searches for pending {@link JoinTeamRequest}'s in the database
    *
    * @param team {@link Team}

@@ -36,15 +36,6 @@ public class JoinTeamRequestServiceHibernateImpl
     super(type);
   }
 
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public boolean isNewRequestForTeam(Person person, Team team) {
-    return findPendingRequest(person, team) == null;
-  }
-
   /**
    * {@inheritDoc}
    */
