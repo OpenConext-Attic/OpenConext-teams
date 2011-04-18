@@ -23,6 +23,7 @@ public class TeamEnvironment {
   private String openSocialUrl;
   private String systemEmail;
 
+  private long maxUploadSize;
 
   /**
    * @return the version
@@ -224,5 +225,18 @@ public class TeamEnvironment {
   public void setSystemEmail(String systemEmail) {
     this.systemEmail = systemEmail;
   }
-  
+
+  /**
+   * @return maximum upload size (in bytes) for form attachments
+   */
+  public long getMaxUploadSize() {
+    return maxUploadSize;
+  }
+
+  /**
+   * @param maxUploadSize (in bytes) for form attachments
+   */
+  public void setMaxUploadSize(long maxUploadSize) {
+    this.maxUploadSize = maxUploadSize;
+  }
 }

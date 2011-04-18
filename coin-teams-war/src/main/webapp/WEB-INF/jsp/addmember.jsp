@@ -1,4 +1,5 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -15,25 +16,36 @@
   </div>
   <!-- = Content -->
   <div id="Content">
+    <div>
+      <spring:message code="invite.introduction" htmlEscape="false"/>
+    </div>
     <c:url value="doaddmember.shtml" var="doAddMemberUrl"><c:param name="view" value="${view}" /></c:url>
-    <form id="AddMemberForm" action="${doAddMemberUrl}" method="post">
+    <form:form action="${doAddMemberUrl}" commandName="invitationForm" method="post"
+            enctype="multipart/form-data">
       <p class="label-field-wrapper">
-        <input type="hidden" name="team" value="<c:out value='${team.id}' />" />
         <input type="hidden" name="view" value="<c:out value='${view}' />" />
-        <input type="hidden" name="testEmail" id="TestEmail" class="email" value="" />
-        <label for="MemberEmail"><spring:message code='jsp.general.Email' /></label>
-        <input id="MemberEmail" type="text" name="memberEmail" value="<spring:message code='jsp.addmember.Email' />" class="multiemail required" />
+        <input type="hidden" name="team" value="<c:out value='${team.id}' />" />
+        <form:label path="emails"><spring:message code='jsp.general.Email' /></form:label>
+        <c:set var="emailsPlaceholder"><spring:message code='jsp.addmember.Email' /></c:set>
+        <form:input path="emails" id="MemberEmail" cssClass="multiemail"
+                    placeholder="${emailsPlaceholder}" cssErrorClass="error"/>
+        <form:errors path="emails" cssClass="error" element="label"/>
       </p>
       <p class="label-field-wrapper">
-        <label for="MemberMessage"><spring:message code='jsp.general.Message' /></label>
-        <textarea id="MemberMessage" name="message" rows="4"><spring:message code='jsp.addmember.Message' /></textarea>
+        <form:label path="csvFile"><spring:message code="jsp.addmember.CsvEmail"/></form:label>
+        <form:input type="file" path="csvFile" accept="text/csv"/>
+      </p>
+      <p class="label-field-wrapper">
+        <form:label path="message"><spring:message code='jsp.general.Message' /></form:label>
+        <form:textarea path="message" cols="5" rows="4"/>
       </p>
       <p class="submit-wrapper">
         <input class="button-primary" type="submit" name="addMember" value="<spring:message code='jsp.addmember.Submit' />" />
         <input class="button-secondary" type="submit" name="cancelAddMember" value="<spring:message code='jsp.general.Cancel' />" />
       </p>
       <br class="clear" />
-    </form>
+    </form:form>
+
   <!-- / Content -->
   </div>
 <!-- / TeamContainer -->

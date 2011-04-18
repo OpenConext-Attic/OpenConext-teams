@@ -37,9 +37,16 @@
     <property name="teamsURL" value="${teamsURL}" />
     <property name="openSocialUrl" value="${coin-container-url}" />
     <property name="systemEmail" value="${systemEmail}"/>
+    <property name="maxUploadSize" value="${form.maxuploadsize}" />
   </bean>
   
   <bean id="teamService" class="${teamService}" />
+
+   <!-- Configure the multipart resolver -->
+  <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    <!-- maxUploadSize: in bytes -->
+    <property name="maxUploadSize" value="${form.maxuploadsize}" />
+  </bean>
 
   <bean id="localeResolver"
     class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
