@@ -87,7 +87,9 @@ public class JoinTeamController {
             joinTeamRequestService.findPendingRequest(person, team);
     if (joinTeamRequest == null) {
       joinTeamRequest = new JoinTeamRequest(person.getId(), team.getId());
+    }
 
+    if (!StringUtils.hasText(joinTeamRequest.getMessage())) {
       Locale locale = localeResolver.resolveLocale(request);
       Object[] messageValues = {person.getDisplayName(), team.getDescription()};
       joinTeamRequest.setMessage(messageSource.getMessage(
