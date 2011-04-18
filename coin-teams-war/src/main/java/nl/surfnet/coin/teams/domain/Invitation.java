@@ -19,7 +19,7 @@ public class Invitation extends DomainObject {
 
   /**
    * For each timestamp manipulation,
-   * devide by this value for backwards compatibility.
+   * divide by this value for backwards compatibility.
    */
   public static final long DATE_PRECISION_DIVIDER = 1000L;
 

@@ -67,6 +67,25 @@
     padding: 5px 10px 0;
 }
 
+.column-container {
+	background-color: #F2F3F1;
+	overflow: auto;
+	width: 700px;
+	margin: 0;
+	padding: 0;
+	border: 1px solid #999999;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-border-radius: 3px;
+}
+
+.column {
+	clear: none;
+	float: left;
+	width: 328px;
+	padding: 0 10px 10px;
+}
+
 /* GENERIC ELEMENTS */
 
 body {
@@ -118,6 +137,32 @@ a {
 	outline: none;
 	text-decoration: none;
 	color: #288DD4;
+}
+
+dl, dd, dt {
+	list-style: none outside none;
+	margin: 0;
+}
+
+/* LIST */
+.column dt {
+    color: #B2B2AE;
+    margin-right: 25px;
+    overflow: hidden;
+    padding: 10px 0 2px;
+}
+
+.column dd {
+    border-bottom: 1px dotted #979795;
+    color: #000000;
+    margin-right: 25px;
+    overflow: auto;
+    padding: 0 0 4px 10px;
+}
+
+.column dd.last {
+	border-bottom: medium none;
+    padding-bottom: 0;
 }
 
 /* ADRESS */
@@ -469,6 +514,8 @@ input.search-query {
 	width: 150px;
 	padding: 3px 20px 3px 10px;
 	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-border-radius: 10px;
 	-moz-box-shadow: -1px 1px 1px #999999 inset;
 	color: #9E9E9C;
 }
@@ -574,6 +621,23 @@ fieldset.search-fieldset {
 	color: white;
 }
 
+/* ALIGN ME RIGHT */
+
 .right {
 	float:right;
+}
+
+/* CENTER ME */
+
+.center {
+	margin 0 auto;
+}
+
+/* COLUMN ME UP */
+.first-column {
+	border-right: 1px dotted #979795;
+}	
+
+.column h3 {
+	margin: 0;
 }
