@@ -21,7 +21,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -146,9 +145,6 @@ public class AddMemberController {
     modelMap.addAttribute(TEAM_PARAM, teamService.findTeamById(form.getTeamId()));
 
     if (result.hasErrors()) {
-      for (ObjectError error : result.getAllErrors()) {
-        System.err.println("Error: " + error.getCode() + " - " + error.getDefaultMessage());
-      }
       return "addmember";
     }
 
