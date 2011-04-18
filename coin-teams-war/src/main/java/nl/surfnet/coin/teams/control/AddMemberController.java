@@ -180,8 +180,9 @@ public class AddMemberController {
             + ViewUtil.getView(request);
   }
 
-  private void doInviteMembers(InternetAddress[] emails, InvitationForm form,
-                               Locale locale)
+  private void doInviteMembers(final InternetAddress[] emails,
+                               final InvitationForm form,
+                               final Locale locale)
           throws RequestException, IOException {
     // Send the invitation
     String teamId = form.getTeamId();
@@ -211,22 +212,23 @@ public class AddMemberController {
     }
   }
 
-  private String formatMessage(String message, Member member, Team team) {
+  private String formatMessage(final String message, final Member member,
+                               final Team team) {
     // First replace the {inviter name} and {team name} with {0} and {1}
     // respectively
     // Footer is added later (is specific per invitee)
-    message = StringUtils.replace(message, INVITER_NAME, "{0}");
-    message = StringUtils.replace(message, TEAM_NAME, "{1}");
-    MessageFormat formatter = new MessageFormat(message);
+    String messageBody = StringUtils.replace(message, INVITER_NAME, "{0}");
+    messageBody = StringUtils.replace(messageBody, TEAM_NAME, "{1}");
+    MessageFormat formatter = new MessageFormat(messageBody);
 
     Object[] messageValuesMessage = {member.getName(), team.getName()};
 
-    message = formatter.format(messageValuesMessage);
-    return message;
+    messageBody = formatter.format(messageValuesMessage);
+    return messageBody;
   }
 
-  private void sendInvitationByMail(String message, Locale locale,
-                                    String subject, Invitation invitation) {
+  private void sendInvitationByMail(final String message, final Locale locale,
+                                    final String subject, final Invitation invitation) {
     Object[] messageValuesFooter = {environment.getTeamsURL(),
             invitation.getInvitationHash()};
     String footer = messageSource.getMessage(
@@ -241,8 +243,10 @@ public class AddMemberController {
   }
 
 
-  private void addActivity(String teamId, String teamName, String email,
-                           String personId, Locale locale) throws RequestException, IOException {
+  private void addActivity(final String teamId, final String teamName,
+                           final String email, final String personId,
+                           final Locale locale)
+          throws RequestException, IOException {
     Object[] messageValues = {email, teamName};
 
     String title = messageSource.getMessage(ACTIVITY_NEW_MEMBER_TITLE,
