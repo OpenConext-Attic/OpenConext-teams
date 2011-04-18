@@ -22,11 +22,7 @@ COIN.MODULES.Home = function(sandbox) {
         e.preventDefault();
         window.open('help.shtml', 'Help','menubar=no,width=430,height=360,toolbar=no,screenX=400,screenY=300,resizable=yes,scrollbars=yes');
       });
-			
-//			// Click on the [ Submit ]
-//			$('#SubmitTeamSearch').live('click', function() {
-//				
-//			});
+
 		},
 		
 		destroy: function() {

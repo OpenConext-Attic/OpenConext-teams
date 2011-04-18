@@ -46,7 +46,9 @@
       <div class="team-table-wrapper">
         <table class="team-table">
           <thead>
+            <th></th>
             <th><spring:message code='jsp.detailteam.Name' /></th>
+            <th><spring:message code="jsp.general.Email"/> </th>
             <th><spring:message code='jsp.detailteam.Admin' /></th>
             <th><spring:message code='jsp.detailteam.Manager' /></th>
             <th><spring:message code='jsp.detailteam.Member' /></th>
@@ -61,27 +63,37 @@
                 <c:otherwise><c:set var="managerRoleStatus" value="" /></c:otherwise>
               </c:choose>          
               <tr>
+                <td>
+                  <c:if test="${member.id ne sessionScope.person}">
+                    <c:url var="dodeletemember" value="dodeletemember.shtml">
+                      <c:param name="team" value="${team.id}"/>
+                      <c:param name="member" value="${member.id}"/>
+                      <c:param name="view" value="${view}"/>
+                    </c:url>
+                    <a href="${dodeletemember}">[X]</a>
+                  </c:if>
+                </td>
                 <td><c:out value="${member.name}" /></td>
+                <td><c:out value="${member.email}"/></td>
                 <td><input id="0_${member.id}" type="checkbox" name="adminRole" value="" <c:if test="${teamfn:contains(member.roles, admin)}" > checked</c:if> <c:if test="${onlyAdmin eq 1 && member.id eq sessionScope.person}">disabled</c:if> /></td>
                 <td><input id="1_${member.id}" type="checkbox" name="managerRole" value="" <c:out value='${managerRoleStatus}' /> /></td>
-                <td>
-                    <c:if test="${member.id ne sessionScope.person}">
-                      <c:url var="dodeletemember" value="dodeletemember.shtml">
-                        <c:param name="team" value="${team.id}"/>
-                        <c:param name="member" value="${member.id}"/>
-                        <c:param name="view" value="${view}"/>
-                      </c:url>
-                      <a href="${dodeletemember}"><spring:message code="jsp.detailteam.RemoveMemberFromTeam"/></a>
-                    </c:if>
-                </td>
+                <td><input id="2_${member.id}" type="checkbox" name="memberRole" value="" disabled="disabled" checked="checked" /></td>
               </tr>
             </c:forEach>
           </c:if>
           <c:if test="${fn:length(invitations) > 0 }">
             <c:forEach items="${invitations}" var="invite">
               <tr>
+                  <c:url var="dodeleteinvite" value="deleteInvitation.shtml">
+                    <c:param name="id" value="${invite.invitationHash}"/>
+                    <c:param name="view" value="${view}"/>
+                  </c:url>
+                <td><a href="${dodeleteinvite}">[x]</a></td>
+                <td><spring:message code='jsp.detailteam.InvitationPending' /></td>
                 <td>${invite.email}</td>
-                <td colspan="3"><spring:message code='jsp.detailteam.InvitationPending' /></td>
+                <td><input type="checkbox" disabled="disabled"/></td>
+                <td><input type="checkbox" disabled="disabled"/></td>
+                <td><input type="checkbox" disabled="disabled"/></td>
               </tr>
             </c:forEach>
           </c:if>

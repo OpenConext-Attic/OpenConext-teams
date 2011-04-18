@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
@@ -73,7 +74,7 @@ public class InvitationController {
   }
 
   /**
-   * RequestMapping to decline an invitation.
+   * RequestMapping to decline an invitation as receiver.
    *
    * @param request {@link HttpServletRequest}
    * @return if everything is ok, go to home
@@ -90,6 +91,33 @@ public class InvitationController {
     teamInviteService.saveOrUpdate(invitation);
 
     return new RedirectView("home.shtml?teams=my&view="
+            + ViewUtil.getView(request));
+  }
+
+  /**
+   * RequestMapping to delete an invitation as admin
+   *
+   * @param modelMap {@link ModelMap}
+   * @param request  {@link HttpServletRequest}
+   * @return redirect to detailteam if everything is okay
+   * @throws UnsupportedEncodingException in the rare condition
+   *                                      utf-8 is not supported
+   */
+  @RequestMapping(value = "deleteInvitation.shtml")
+  public RedirectView deleteInvitation(ModelMap modelMap,
+                                       HttpServletRequest request)
+          throws UnsupportedEncodingException {
+    Person person = (Person) request.getSession().getAttribute(
+            LoginInterceptor.PERSON_SESSION_KEY);
+    if (person == null) {
+      return new RedirectView("landingpage.shtml");
+    }
+    Invitation invitation = getInvitationByRequest(request);
+    String teamId = invitation.getTeamId();
+    teamInviteService.delete(invitation);
+
+    return new RedirectView("detailteam.shtml?team="
+            + URLEncoder.encode(teamId, "utf-8") + "&view="
             + ViewUtil.getView(request));
   }
 
