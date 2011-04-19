@@ -37,6 +37,7 @@ public class InvitationController {
   /**
    * RequestMapping to show the accept invitation page.
    * 
+   * @param modelMap {@link ModelMap}
    * @param request
    *          {@link HttpServletRequest}
    * @return accept invitation page
