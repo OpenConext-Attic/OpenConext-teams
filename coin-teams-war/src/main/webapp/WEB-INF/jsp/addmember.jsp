@@ -33,7 +33,8 @@
       </p>
       <p class="label-field-wrapper">
         <form:label path="csvFile"><spring:message code="jsp.addmember.CsvEmail"/></form:label>
-        <form:input type="file" path="csvFile" accept="text/csv"/>
+        <form:input type="file" path="csvFile" accept="text/csv" cssErrorClass="error"/>
+        <form:errors path="csvFile" cssClass="error" element="label"/>
       </p>
       <p class="label-field-wrapper">
         <form:label path="message"><spring:message code='jsp.general.Message' /></form:label>

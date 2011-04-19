@@ -18,7 +18,6 @@ public class InvitationFormValidatorTest {
 
   InvitationFormValidator validator = new InvitationFormValidator();
 
-
   @Test
   public void testSupports() throws Exception {
     assertTrue(validator.supports(InvitationForm.class));
@@ -29,6 +28,9 @@ public class InvitationFormValidatorTest {
     InvitationForm form = new InvitationForm();
     form.setEmails("test@example.com");
     Errors errors = new BeanPropertyBindingResult(form, "invitationForm");
+    validator.validate(form, errors);
+    assertEquals(0, errors.getErrorCount());
+    form.setEmails("test@example.com,   test@example.net");
     validator.validate(form, errors);
     assertEquals(0, errors.getErrorCount());
   }
@@ -47,9 +49,10 @@ public class InvitationFormValidatorTest {
   @Test
   public void testValidationFails() throws Exception {
     InvitationForm form = new InvitationForm();
+    form.setEmails("must.be,valid@example.com");
     Errors errors = new BeanPropertyBindingResult(form, "invitationForm");
     validator.validate(form, errors);
     assertEquals(1, errors.getErrorCount());
-
   }
+
 }

@@ -43,11 +43,11 @@ public class TeamInviteServiceHibernateImpl
    * {@inheritDoc}
    */
   @Override
-  public boolean alreadyInvited(String email, Team team) {
+  public Invitation findInvitation(String email, Team team) {
     List<Invitation> invitations = findByCriteria(
-            Restrictions.eq("email", email),
-            Restrictions.eq("teamId", team.getId()));
-    return !CollectionUtils.isEmpty(invitations);
+        Restrictions.eq("email", email),
+        Restrictions.eq("teamId", team.getId()));
+    return CollectionUtils.isEmpty(invitations) ? null : invitations.get(0);
   }
 
   /**

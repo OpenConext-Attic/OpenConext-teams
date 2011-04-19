@@ -1,10 +1,8 @@
 package nl.surfnet.coin.teams.service.impl;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -42,12 +40,12 @@ public class TeamInviteServiceHibernateImplTest {
     Team team = mock(Team.class);
     when(team.getId()).thenReturn("team-1");
 
-    assertFalse(teamInviteService.alreadyInvited(email, team));
+    assertNull(teamInviteService.findInvitation(email, team));
 
     Invitation invitation = new Invitation(email, team.getId(), null);
     teamInviteService.saveOrUpdate(invitation);
 
-    assertTrue(teamInviteService.alreadyInvited(email, team));
+    assertNotNull(teamInviteService.findInvitation(email, team));
   }
 
   @Test

@@ -56,6 +56,6 @@ public class InvitationForm {
   }
 
   public boolean hasCsvFile() {
-    return csvFile!=null && StringUtils.hasText(csvFile.getName());
+    return csvFile!=null && StringUtils.hasText(csvFile.getOriginalFilename());
   }
 }

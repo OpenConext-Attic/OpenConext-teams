@@ -11,15 +11,15 @@ import nl.surfnet.coin.teams.domain.Team;
  */
 public interface TeamInviteService extends GenericService<Invitation> {
 
-
   /**
-   * Checks if there is already an invitation for the given email + team
+   * Searches for an {@link Invitation} by email address and team.
+   * May check for expiration.
    *
-   * @param email address of the person to invite
-   * @param team  {@link Team}
-   * @return {@literal true} if an {@link Invitation} already exists
+   * @param email address to send invitation to
+   * @param team {@link Team}
+   * @return {@link Invitation} or {@literal null}
    */
-  boolean alreadyInvited(String email, Team team);
+  Invitation findInvitation(String email, Team team);
 
   /**
    * Searches for an {@link Invitation} by its generated hash

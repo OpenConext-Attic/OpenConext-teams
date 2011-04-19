@@ -1,9 +1,9 @@
 package nl.surfnet.coin.teams.service.impl;
 
+import org.hibernate.validator.constraints.impl.EmailValidator;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
-import org.springframework.web.multipart.MultipartFile;
 
 import nl.surfnet.coin.teams.domain.InvitationForm;
 
@@ -30,11 +30,25 @@ public class InvitationFormValidator implements Validator {
   public void validate(Object target, Errors errors) {
     InvitationForm form = (InvitationForm) target;
 
-    MultipartFile csvFile = form.getCsvFile();
-    if (!(StringUtils.hasText(form.getEmails())) && (!form.hasCsvFile() || csvFile.getSize() == 0)) {
+    if (StringUtils.hasText(form.getEmails())) {
+      EmailValidator emailValidator = new EmailValidator();
+      String[] emails = form.getEmails().split(",");
+      for (String email : emails) {
+        if (!emailValidator.isValid(email.trim(), null)) {
+          errors.rejectValue("emails", "error.wrongFormattedEmailList");
+          break;
+        }
+
+      }
+    }
+
+    if (form.hasCsvFile() && form.getCsvFile().getSize() == 0) {
+      errors.rejectValue("csvFile", "invite.errors.EmptyCSV");
+    }
+
+    if (!(StringUtils.hasText(form.getEmails())) && (!form.hasCsvFile())) {
       errors.rejectValue("emails", "invite.errors.NoEmailAddresses");
     }
 
-    // TODO validate emails
   }
 }

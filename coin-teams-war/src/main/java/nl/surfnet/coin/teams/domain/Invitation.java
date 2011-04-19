@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Proxy;
@@ -22,13 +23,14 @@ public class Invitation extends DomainObject {
    * Do not use to create new Invitations.
    */
   public Invitation() {
+    this(null, null, null);
   }
 
   /**
    * Constructor with the most common fields
-   * 
-   * @param email address of the person to invite
-   * @param teamId id of the team the person will join
+   *
+   * @param email   address of the person to invite
+   * @param teamId  id of the team the person will join
    * @param inviter identifier of the inviter
    */
   public Invitation(String email, String teamId, String inviter) {
@@ -60,6 +62,9 @@ public class Invitation extends DomainObject {
   // value: Person#getId
   // TODO: find out where this was used in the PHP code
   private String inviter;
+
+  @Lob
+  private String message;
 
   /**
    * @param teamId the teamId to set
@@ -114,7 +119,7 @@ public class Invitation extends DomainObject {
    * sets an md5 hash created from a UUID generated from the email address
    */
   void setInvitationHash() {
-    this.invitationHash = InvitationHashGenerator.generateHash(email+teamId);
+    this.invitationHash = InvitationHashGenerator.generateHash(email + teamId);
   }
 
   /**
@@ -143,5 +148,19 @@ public class Invitation extends DomainObject {
    */
   public void setInviter(String inviter) {
     this.inviter = inviter;
+  }
+
+  /**
+   * @return message body of the invitation mail
+   */
+  public String getMessage() {
+    return message;
+  }
+
+  /**
+   * @param message body of the invitation mail
+   */
+  public void setMessage(String message) {
+    this.message = message;
   }
 }
