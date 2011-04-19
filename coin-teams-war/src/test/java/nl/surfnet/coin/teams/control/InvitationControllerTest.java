@@ -27,59 +27,28 @@ public class InvitationControllerTest extends AbstractControllerTest {
   InvitationController controller = new InvitationController();
   private static final String INVITATION_HASH = "0b733d119c3705ae4fc284203f1ee8ec";
   private HttpServletRequest mockRequest;
-  private Team mockTeam;
+  private Invitation invitation;
 
   @Test
   public void testAccept() throws Exception {
 
-    Invitation invitation = new Invitation("test-email",
-            "team-1", "test-inviter");
-
-    TeamInviteService teamInviteService = mock(TeamInviteService.class);
-    when(teamInviteService.findInvitationByInviteId(INVITATION_HASH)).thenReturn(invitation);
-
-    TeamService teamService = mock(TeamService.class);
-    when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
-
-    autoWireMock(controller, teamInviteService, TeamInviteService.class);
-    autoWireMock(controller, teamService, TeamService.class);
-    
     String page = controller.accept(getModelMap(), mockRequest);
     
     assertEquals("acceptinvitation", page);
   }
+
   @Test
   public void testDecline() throws Exception {
-
-    Invitation invitation = new Invitation("test-email",
-            "test-teamId", "test-inviter");
-
-    TeamInviteService teamInviteService = mock(TeamInviteService.class);
-    when(teamInviteService.findInvitationByInviteId(INVITATION_HASH)).thenReturn(invitation);
-    autoWireMock(controller, teamInviteService, TeamInviteService.class);
 
     RedirectView view = controller.decline(mockRequest);
     
     assertTrue("Declined invitation", invitation.isDeclined());
-    
     assertEquals("home.shtml?teams=my&view=app", view.getUrl());
   }
 
 
   @Test
   public void testDoAccept() throws Exception {
-
-    Invitation invitation = new Invitation("test-email",
-            "team-1", "test-inviter");
-
-    TeamInviteService teamInviteService = mock(TeamInviteService.class);
-    when(teamInviteService.findInvitationByInviteId(INVITATION_HASH)).thenReturn(invitation);
-
-    TeamService teamService = mock(TeamService.class);
-    when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
-
-    autoWireMock(controller, teamInviteService, TeamInviteService.class);
-    autoWireMock(controller, teamService, TeamService.class);
 
     RedirectView view = controller.doAccept(mockRequest);
 
@@ -90,19 +59,6 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
   @Test
   public void testDelete() throws Exception {
-
-
-    Invitation invitation = new Invitation("test-email",
-            "team-1", "test-inviter");
-
-    TeamInviteService teamInviteService = mock(TeamInviteService.class);
-    when(teamInviteService.findInvitationByInviteId(INVITATION_HASH)).thenReturn(invitation);
-
-    TeamService teamService = mock(TeamService.class);
-    when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
-
-    autoWireMock(controller, teamInviteService, TeamInviteService.class);
-    autoWireMock(controller, teamService, TeamService.class);
 
     RedirectView view = controller.deleteInvitation(new ModelMap(), mockRequest);
 
@@ -124,8 +80,21 @@ public class InvitationControllerTest extends AbstractControllerTest {
     when(mockRequest.getSession()).thenReturn(mockSession);
     when(mockRequest.getParameter("id")).thenReturn(INVITATION_HASH);
 
-    mockTeam = mock(Team.class);
+    Team mockTeam = mock(Team.class);
     when(mockTeam.getId()).thenReturn("team-1");
+
+    invitation = new Invitation("test-email",
+        "team-1", "test-inviter");
+
+    TeamInviteService teamInviteService = mock(TeamInviteService.class);
+    when(teamInviteService.findInvitationByInviteId(INVITATION_HASH)).thenReturn(invitation);
+
+    autoWireMock(controller, teamInviteService, TeamInviteService.class);
+
+    TeamService teamService = mock(TeamService.class);
+    when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
+
+    autoWireMock(controller, teamService, TeamService.class);
 
   }
 
