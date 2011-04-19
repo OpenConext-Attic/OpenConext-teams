@@ -39,7 +39,8 @@ public class InvitationFormValidatorTest {
   public void testValidateForCSVInput() throws Exception {
     InvitationForm form = new InvitationForm();
     String mails = "test@example.com,test@example.net,john.doe@example.org";
-    MultipartFile mockFile = new MockMultipartFile("mockFile", mails.getBytes("utf-8"));
+    MultipartFile mockFile = new MockMultipartFile("mockFile", "test.csv",
+            "text/csv", mails.getBytes("utf-8"));
     form.setCsvFile(mockFile);
     Errors errors = new BeanPropertyBindingResult(form, "invitationForm");
     validator.validate(form, errors);
