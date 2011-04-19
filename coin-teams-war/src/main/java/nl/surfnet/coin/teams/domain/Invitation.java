@@ -18,12 +18,6 @@ import nl.surfnet.coin.teams.util.InvitationHashGenerator;
 public class Invitation extends DomainObject {
 
   /**
-   * For each timestamp manipulation,
-   * divide by this value for backwards compatibility.
-   */
-  public static final long DATE_PRECISION_DIVIDER = 1000L;
-
-  /**
    * Constructor Hibernate needs when fetching results from the db.
    * Do not use to create new Invitations.
    */
@@ -42,7 +36,7 @@ public class Invitation extends DomainObject {
     this.setEmail(email);
     this.setTeamId(teamId);
     this.setInviter(inviter);
-    this.setTimestamp(new Date().getTime() / DATE_PRECISION_DIVIDER);
+    this.setTimestamp(new Date().getTime());
     this.setInvitationHash();
 
   }

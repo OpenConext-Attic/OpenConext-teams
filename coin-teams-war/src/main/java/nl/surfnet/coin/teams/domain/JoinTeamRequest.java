@@ -33,12 +33,6 @@ public class JoinTeamRequest extends DomainObject {
   private String message;
 
   /**
-   * For each timestamp manipulation,
-   * devide by this value for backwards compatibility.
-   */
-  public static final long DATE_PRECISION_DIVIDER = 1000L;
-
-  /**
    * Necessary constructor for Hibernate.
    * Avoid to call this in the code.
    */
@@ -56,7 +50,7 @@ public class JoinTeamRequest extends DomainObject {
     super();
     this.setPersonId(personId);
     this.setGroupId(groupId);
-    this.setTimestamp(new Date().getTime() / DATE_PRECISION_DIVIDER);
+    this.setTimestamp(new Date().getTime());
   }
 
   /**

@@ -74,7 +74,7 @@ public class TeamInviteServiceHibernateImplTest {
     Invitation invitation = new Invitation(email, team.getId(), null);
     Calendar calendar = Calendar.getInstance();
     calendar.add(Calendar.DAY_OF_WEEK, -16);
-    invitation.setTimestamp(calendar.getTimeInMillis() / Invitation.DATE_PRECISION_DIVIDER);
+    invitation.setTimestamp(calendar.getTimeInMillis());
 
     String hash = invitation.getInvitationHash();
 
@@ -116,7 +116,7 @@ public class TeamInviteServiceHibernateImplTest {
             email, team.getId(), null);
     Calendar calendar = Calendar.getInstance();
     calendar.add(Calendar.MONTH, -2);
-    oldInvitation.setTimestamp(calendar.getTimeInMillis() / Invitation.DATE_PRECISION_DIVIDER);
+    oldInvitation.setTimestamp(calendar.getTimeInMillis());
 
     Invitation newInvitation = new Invitation(
             "coincalendar@yahoo.com", team.getId(), null);

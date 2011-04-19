@@ -6,14 +6,6 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
-import nl.surfnet.coin.teams.domain.Invitation;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.TeamInviteService;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.util.ViewUtil;
-
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +13,14 @@ import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
+
+import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.TeamInviteService;
+import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * {@link Controller} that handles the accept/decline of an Invitation
@@ -56,8 +56,7 @@ public class InvitationController {
 
     modelMap.addAttribute("invitation", invitation);
     modelMap.addAttribute("team", team);
-    modelMap.addAttribute("date", new Date(invitation.getTimestamp()
-        * Invitation.DATE_PRECISION_DIVIDER));
+    modelMap.addAttribute("date", new Date(invitation.getTimestamp()));
 
     return "acceptinvitation";
   }

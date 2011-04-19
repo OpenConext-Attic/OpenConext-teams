@@ -20,8 +20,8 @@ public class TeamInviteServiceHibernateImpl
         extends GenericServiceHibernateImpl<Invitation>
         implements TeamInviteService {
 
-  private static final long TWO_WEEKS = 14L * 24L * 60L * 60L;
-  private static final long THIRTY_DAYS = 30L * 24L * 60L * 60L;
+  private static final long TWO_WEEKS = 14L * 24L * 60L * 60L * 1000L;
+  private static final long THIRTY_DAYS = 30L * 24L * 60L * 60L * 1000L;
 
   /**
    * Default constructor
@@ -56,7 +56,7 @@ public class TeamInviteServiceHibernateImpl
   @Override
   public Invitation findInvitationByInviteId(String invitationId) {
     cleanupExpiredInvitations();
-    long twoWeeksAgo = (new Date().getTime() / Invitation.DATE_PRECISION_DIVIDER) - TWO_WEEKS;
+    long twoWeeksAgo = (new Date().getTime()) - TWO_WEEKS;
     List<Invitation> invitations = findByCriteria(
             Restrictions.eq("invitationHash", invitationId),
             Restrictions.ge("timestamp", twoWeeksAgo));
@@ -77,7 +77,7 @@ public class TeamInviteServiceHibernateImpl
    */
   @Override
   public void cleanupExpiredInvitations() {
-    long thirtyDaysAgo = (new Date().getTime() / Invitation.DATE_PRECISION_DIVIDER) - THIRTY_DAYS;
+    long thirtyDaysAgo = (new Date().getTime()) - THIRTY_DAYS;
     List<Invitation> invitations = findByCriteria(
             Restrictions.lt("timestamp", thirtyDaysAgo));
     for (Invitation invitation : invitations) {

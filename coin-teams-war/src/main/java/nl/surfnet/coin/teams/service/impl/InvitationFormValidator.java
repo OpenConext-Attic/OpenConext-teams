@@ -34,5 +34,7 @@ public class InvitationFormValidator implements Validator {
     if (!(StringUtils.hasText(form.getEmails())) && (!form.hasCsvFile() || csvFile.getSize() == 0)) {
       errors.rejectValue("emails", "invite.errors.NoEmailAddresses");
     }
+
+    // TODO validate emails
   }
 }

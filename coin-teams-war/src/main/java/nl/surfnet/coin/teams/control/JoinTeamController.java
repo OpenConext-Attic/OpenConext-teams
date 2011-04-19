@@ -121,7 +121,7 @@ public class JoinTeamController {
     sendJoinTeamMessage(team, person, message,
             localeResolver.resolveLocale(request));
 
-    joinTeamRequest.setTimestamp(new Date().getTime() / JoinTeamRequest.DATE_PRECISION_DIVIDER);
+    joinTeamRequest.setTimestamp(new Date().getTime());
     joinTeamRequestService.saveOrUpdate(joinTeamRequest);
 
     return new RedirectView("home.shtml?teams=my&view="
