@@ -124,6 +124,11 @@ COIN.MODULES.Detailteam = function(sandbox) {
 						
 						// Enable all admin roles if an 'extra' admin role has been added.
 						$('input[name=adminRole]').attr('disabled', false);
+            var deleteTeam = $('#DeleteTeam');
+            if(sandbox.typeOf($('#DeleteTeam'))!='undefined') {
+              $('#DeleteTeam').parent().attr('class', 'middle');
+              $('#LeaveTeam').parent().attr('class', 'last');
+            }
 					}
 					
 					// Notify bar
@@ -164,6 +169,11 @@ COIN.MODULES.Detailteam = function(sandbox) {
 						if (admins.length == 1) {
 							// Disable the admin role that is checked, because otherwise no admins will be left
 							admins[0].attr('disabled', true);
+              var deleteTeam = $('#DeleteTeam');
+              if(sandbox.typeOf($('#DeleteTeam'))!='undefined') {
+                $('#DeleteTeam').parent().attr('class', 'last');
+                $('#LeaveTeam').parent().addClass('hide');
+              }
 						}
 					}
 					$.notifyBar({ cls: "success", html: "<p><spring:message code='jsp.detailteam.RemoveRoleSuccess' /></p>", delay: 1000 });

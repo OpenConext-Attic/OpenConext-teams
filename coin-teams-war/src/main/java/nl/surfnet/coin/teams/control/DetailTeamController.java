@@ -48,6 +48,7 @@ public class DetailTeamController {
   private static final String UTF_8 = "utf-8";
   private static final String TEAM_PARAM = "team";
   private static final String MEMBER_PARAM = "member";
+  private static final String ROLE_PARAM = "role";
 
   @Autowired
   private TeamService teamService;
@@ -95,29 +96,32 @@ public class DetailTeamController {
     }
 
     // Check if there is only one admin for a team
-    int onlyAdmin = teamService.findAdmins(team).size() > 1 ? 0 : 1;
+    boolean onlyAdmin = teamService.findAdmins(team).size() <= 1;
 
     modelMap.addAttribute("invitations",
             teamInviteService.findInvitationsForTeam(team));
 
     modelMap.addAttribute("onlyAdmin", onlyAdmin);
     modelMap.addAttribute(TEAM_PARAM, team);
-    modelMap.addAttribute("admin", Role.Admin);
-    modelMap.addAttribute("manager", Role.Manager);
+    modelMap.addAttribute("adminRole", Role.Admin);
+    modelMap.addAttribute("managerRole", Role.Manager);
+    modelMap.addAttribute("memberRole", Role.Member);
+    modelMap.addAttribute("noRole", Role.None);
 
     ViewUtil.addViewToModelMap(request, modelMap);
 
     if (roles.contains(Role.Admin)) {
       modelMap.addAttribute("pendingRequests", getRequesters(team));
-      return "detailteam-admin";
+      modelMap.addAttribute(ROLE_PARAM, Role.Admin);
     } else if (roles.contains(Role.Manager)) {
       modelMap.addAttribute("pendingRequests", getRequesters(team));
-      return "detailteam-manager";
+      modelMap.addAttribute(ROLE_PARAM, Role.Manager);
     } else if (roles.contains(Role.Member)) {
-      return "detailteam-member";
+      modelMap.addAttribute(ROLE_PARAM, Role.Member);
     } else {
-      return "detailteam-not-member";
+      modelMap.addAttribute(ROLE_PARAM, Role.None);
     }
+    return "detailteam";
   }
 
   private List<Person> getRequesters(Team team) {
@@ -242,10 +246,11 @@ public class DetailTeamController {
 
   @RequestMapping(value = "/doaddrole.shtml", method = RequestMethod.POST)
   public @ResponseBody
-  String addRole(ModelMap modelMap, HttpServletRequest request) {
+  String addRole(ModelMap modelMap, HttpServletRequest request)
+          throws UnsupportedEncodingException {
     String teamId = request.getParameter(TEAM_PARAM);
     String memberId = request.getParameter(MEMBER_PARAM);
-    String roleString = request.getParameter("role");
+    String roleString = request.getParameter(ROLE_PARAM);
 
     if (!StringUtils.hasText(teamId) || !StringUtils.hasText(memberId)
         || !StringUtils.hasText(roleString)) {
@@ -263,7 +268,7 @@ public class DetailTeamController {
   String removeRole(ModelMap modelMap, HttpServletRequest request) {
     String teamId = request.getParameter(TEAM_PARAM);
     String memberId = request.getParameter(MEMBER_PARAM);
-    String roleString = request.getParameter("role");
+    String roleString = request.getParameter(ROLE_PARAM);
     Team team;
 
     // Some of the parameters weren't correctly filled

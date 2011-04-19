@@ -87,7 +87,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     assertTrue(member.getRoles().contains(Role.Member));
     assertFalse(member.getRoles().contains(Role.Admin));
     assertFalse(member.getRoles().contains(Role.Manager));
-    assertEquals("detailteam-not-member", result);
+    assertEquals("detailteam", result);
   }
 
   @Test
@@ -127,7 +127,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     assertEquals("team-1", team.getId());
     assertEquals("Team 1", team.getName());
     assertEquals("team description", team.getDescription());
-    assertEquals("detailteam-member", result);
+    assertEquals("detailteam", result);
   }
 
   @Test
@@ -169,7 +169,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     assertEquals("team-1", team.getId());
     assertEquals("Team 1", team.getName());
     assertEquals("team description", team.getDescription());
-    assertEquals("detailteam-manager", result);
+    assertEquals("detailteam", result);
   }
 
   @Test
@@ -208,13 +208,13 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     String result = detailTeamController.start(getModelMap(), request);
 
     Team team = (Team) getModelMap().get("team");
-    int onlyAdmin = (Integer) getModelMap().get("onlyAdmin");
+    boolean onlyAdmin = (Boolean) getModelMap().get("onlyAdmin");
 
     assertEquals("team-1", team.getId());
     assertEquals("Team 1", team.getName());
     assertEquals("team description", team.getDescription());
-    assertEquals(1, onlyAdmin);
-    assertEquals("detailteam-admin", result);
+    assertTrue(onlyAdmin);
+    assertEquals("detailteam", result);
   }
   
   @Test

@@ -8,5 +8,5 @@ package nl.surfnet.coin.teams.domain;
  * 
  */
 public enum Role {
-    Admin, Member, Manager;
+    Admin, Member, Manager, None;
 }
