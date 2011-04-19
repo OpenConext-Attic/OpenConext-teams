@@ -32,7 +32,7 @@ public class InvitationControllerTest extends AbstractControllerTest {
   public void testAccept() throws Exception {
 
     String page = controller.accept(getModelMap(), mockRequest);
-    
+
     assertEquals("acceptinvitation", page);
   }
 
@@ -40,7 +40,7 @@ public class InvitationControllerTest extends AbstractControllerTest {
   public void testDecline() throws Exception {
 
     RedirectView view = controller.decline(mockRequest);
-    
+
     assertTrue("Declined invitation", invitation.isDeclined());
     assertEquals("home.shtml?teams=my&view=app", view.getUrl());
   }
@@ -53,7 +53,6 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
     String redirectUrl = "detailteam.shtml?team=team-1&view=app";
     assertEquals(redirectUrl, view.getUrl());
-    
   }
 
   @Test
@@ -88,7 +87,7 @@ public class InvitationControllerTest extends AbstractControllerTest {
     when(mockTeam.getId()).thenReturn("team-1");
 
     invitation = new Invitation("test-email",
-        "team-1", "test-inviter");
+            "team-1", "test-inviter");
 
     TeamInviteService teamInviteService = mock(TeamInviteService.class);
     when(teamInviteService.findInvitationByInviteId(invitationHash)).thenReturn(invitation);
@@ -99,7 +98,6 @@ public class InvitationControllerTest extends AbstractControllerTest {
     when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
 
     autoWireMock(controller, teamService, TeamService.class);
-
   }
 
 }
