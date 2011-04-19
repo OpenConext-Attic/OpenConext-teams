@@ -91,7 +91,7 @@ public class JoinTeamController {
 
     if (!StringUtils.hasText(joinTeamRequest.getMessage())) {
       Locale locale = localeResolver.resolveLocale(request);
-      Object[] messageValues = {person.getDisplayName(), team.getDescription()};
+      Object[] messageValues = {person.getDisplayName(), team.getName()};
       joinTeamRequest.setMessage(messageSource.getMessage(
               "jsp.jointeam.Message", messageValues, locale));
     }
