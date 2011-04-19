@@ -70,19 +70,30 @@
               <c:param name="view" value="${view}"/>
             </c:url>
             <td><a href="${dodeleteinvite}">[x]</a></td>
-            <td><a href="#" id="invitationinfo_<c:out value="${invite.invitationHash}"/>"
+            <td></td>
+            <td><c:out value="${invite.email}"/></td>
+            <td colspan="3">
+
+              <c:choose>
+                <c:when test="${invite.declined eq true}">
+                  <spring:message code="jsp.detailteam.InvitationDeclined"/>
+                </c:when>
+                <c:otherwise>
+                  <spring:message code='jsp.detailteam.InvitationPending'/>
+                  <c:url var="resendUrl" value="resendInvitation.shtml">
+                    <c:param name="view" value="${view}"/>
+                    <c:param name="id" value="${invite.invitationHash}"/>
+                  </c:url>
+                  (<a href="${resendUrl}"><spring:message code="jsp.detailteam.Resend"/></a>)
+                </c:otherwise>
+              </c:choose>
+              <a href="#" id="invitationinfo_<c:out value="${invite.invitationHash}"/>"
                    class="open_invitationinfo">[I]</a>
               <div class="invitationinfo_<c:out value="${invite.invitationHash}"/> hide">
                 <dl class="inviteinfo">
                   <dt><spring:message code="jsp.detailteam.DateSent"/></dt>
                   <jsp:setProperty name="timestamp" property="time" value="${invite.timestamp}"/>
-                  <dd><fmt:formatDate value="${timestamp}" type="both" dateStyle="long"/>
-                    <p class="close">
-                      <a href="#" class="invitationinfo_<c:out value="${invite.invitationHash}"/>">
-                        <spring:message code="jsp.general.CloseForm"/>
-                      </a>
-                    </p>
-                  </dd>
+                  <dd><fmt:formatDate value="${timestamp}" type="both" dateStyle="long"/></dd>
                   <c:if test="${not empty invite.inviter}">
                     <dt><spring:message code="jsp.detailteam.InvitedBy"/></dt>
                     <dd>
@@ -99,21 +110,6 @@
                   </dd>
                 </dl>
               </div>
-            </td>
-            <td><c:out value="${invite.email}"/></td>
-            <td colspan="3"><c:choose>
-                <c:when test="${invite.declined eq true}">
-                  <spring:message code="jsp.detailteam.InvitationDeclined"/>
-                </c:when>
-                <c:otherwise>
-                  <spring:message code='jsp.detailteam.InvitationPending'/>
-                  <c:url var="resendUrl" value="resendInvitation.shtml">
-                    <c:param name="view" value="${view}"/>
-                    <c:param name="id" value="${invite.invitationHash}"/>
-                  </c:url>
-                  (<a href="${resendUrl}"><spring:message code="jsp.detailteam.Resend"/></a>)
-                </c:otherwise>
-              </c:choose>
             </td>
           </tr>
         </c:forEach>
