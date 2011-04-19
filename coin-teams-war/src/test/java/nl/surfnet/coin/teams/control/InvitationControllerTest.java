@@ -24,8 +24,7 @@ import nl.surfnet.coin.teams.service.TeamService;
  * Test for {@link InvitationController}
  */
 public class InvitationControllerTest extends AbstractControllerTest {
-  InvitationController controller = new InvitationController();
-  private static final String INVITATION_HASH = "0b733d119c3705ae4fc284203f1ee8ec";
+  private InvitationController controller;
   private HttpServletRequest mockRequest;
   private Invitation invitation;
 
@@ -69,6 +68,11 @@ public class InvitationControllerTest extends AbstractControllerTest {
   @Before
   public void setup() throws Exception {
     super.setup();
+
+    controller = new InvitationController();
+
+    String invitationHash = "0b733d119c3705ae4fc284203f1ee8ec";
+
     Person mockPerson = mock(Person.class);
     when(mockPerson.getId()).thenReturn("person-1");
 
@@ -78,7 +82,7 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
     mockRequest = mock(HttpServletRequest.class);
     when(mockRequest.getSession()).thenReturn(mockSession);
-    when(mockRequest.getParameter("id")).thenReturn(INVITATION_HASH);
+    when(mockRequest.getParameter("id")).thenReturn(invitationHash);
 
     Team mockTeam = mock(Team.class);
     when(mockTeam.getId()).thenReturn("team-1");
@@ -87,7 +91,7 @@ public class InvitationControllerTest extends AbstractControllerTest {
         "team-1", "test-inviter");
 
     TeamInviteService teamInviteService = mock(TeamInviteService.class);
-    when(teamInviteService.findInvitationByInviteId(INVITATION_HASH)).thenReturn(invitation);
+    when(teamInviteService.findInvitationByInviteId(invitationHash)).thenReturn(invitation);
 
     autoWireMock(controller, teamInviteService, TeamInviteService.class);
 
