@@ -8,6 +8,7 @@ import static org.mockito.Mockito.when;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.opensocial.models.Person;
 import org.springframework.ui.ModelMap;
@@ -24,30 +25,18 @@ import nl.surfnet.coin.teams.service.TeamService;
  */
 public class InvitationControllerTest extends AbstractControllerTest {
   InvitationController controller = new InvitationController();
+  private static final String INVITATION_HASH = "0b733d119c3705ae4fc284203f1ee8ec";
+  private HttpServletRequest mockRequest;
+  private Team mockTeam;
 
   @Test
   public void testAccept() throws Exception {
-    String hash = "0b733d119c3705ae4fc284203f1ee8ec";
-
-    Person mockPerson = mock(Person.class);
-    when(mockPerson.getId()).thenReturn("person-1");
-
-    HttpSession mockSession = mock(HttpSession.class);
-    when(mockSession.getAttribute(LoginInterceptor.PERSON_SESSION_KEY)).
-            thenReturn(mockPerson);
-
-    HttpServletRequest mockRequest = mock(HttpServletRequest.class);
-    when(mockRequest.getSession()).thenReturn(mockSession);
-    when(mockRequest.getParameter("id")).thenReturn(hash);
-
-    Team mockTeam = mock(Team.class);
-    when(mockTeam.getId()).thenReturn("team-1");
 
     Invitation invitation = new Invitation("test-email",
             "team-1", "test-inviter");
 
     TeamInviteService teamInviteService = mock(TeamInviteService.class);
-    when(teamInviteService.findInvitationByInviteId(hash)).thenReturn(invitation);
+    when(teamInviteService.findInvitationByInviteId(INVITATION_HASH)).thenReturn(invitation);
 
     TeamService teamService = mock(TeamService.class);
     when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
@@ -61,22 +50,12 @@ public class InvitationControllerTest extends AbstractControllerTest {
   }
   @Test
   public void testDecline() throws Exception {
-    String hash = "0b733d119c3705ae4fc284203f1ee8ec";
-
-    Person mockPerson = mock(Person.class);
-    HttpSession mockSession = mock(HttpSession.class);
-    when(mockSession.getAttribute(LoginInterceptor.PERSON_SESSION_KEY)).
-            thenReturn(mockPerson);
-
-    HttpServletRequest mockRequest = mock(HttpServletRequest.class);
-    when(mockRequest.getSession()).thenReturn(mockSession);
-    when(mockRequest.getParameter("id")).thenReturn(hash);
 
     Invitation invitation = new Invitation("test-email",
             "test-teamId", "test-inviter");
 
     TeamInviteService teamInviteService = mock(TeamInviteService.class);
-    when(teamInviteService.findInvitationByInviteId(hash)).thenReturn(invitation);
+    when(teamInviteService.findInvitationByInviteId(INVITATION_HASH)).thenReturn(invitation);
     autoWireMock(controller, teamInviteService, TeamInviteService.class);
 
     RedirectView view = controller.decline(mockRequest);
@@ -89,27 +68,12 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
   @Test
   public void testDoAccept() throws Exception {
-    String hash = "0b733d119c3705ae4fc284203f1ee8ec";
-
-    Person mockPerson = mock(Person.class);
-    when(mockPerson.getId()).thenReturn("person-1");
-
-    HttpSession mockSession = mock(HttpSession.class);
-    when(mockSession.getAttribute(LoginInterceptor.PERSON_SESSION_KEY)).
-            thenReturn(mockPerson);
-
-    HttpServletRequest mockRequest = mock(HttpServletRequest.class);
-    when(mockRequest.getSession()).thenReturn(mockSession);
-    when(mockRequest.getParameter("id")).thenReturn(hash);
-
-    Team mockTeam = mock(Team.class);
-    when(mockTeam.getId()).thenReturn("team-1");
 
     Invitation invitation = new Invitation("test-email",
             "team-1", "test-inviter");
 
     TeamInviteService teamInviteService = mock(TeamInviteService.class);
-    when(teamInviteService.findInvitationByInviteId(hash)).thenReturn(invitation);
+    when(teamInviteService.findInvitationByInviteId(INVITATION_HASH)).thenReturn(invitation);
 
     TeamService teamService = mock(TeamService.class);
     when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
@@ -126,27 +90,13 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
   @Test
   public void testDelete() throws Exception {
-    String hash = "0b733d119c3705ae4fc284203f1ee8ec";
 
-    Person mockPerson = mock(Person.class);
-    when(mockPerson.getId()).thenReturn("person-1");
-
-    HttpSession mockSession = mock(HttpSession.class);
-    when(mockSession.getAttribute(LoginInterceptor.PERSON_SESSION_KEY)).
-            thenReturn(mockPerson);
-
-    HttpServletRequest mockRequest = mock(HttpServletRequest.class);
-    when(mockRequest.getSession()).thenReturn(mockSession);
-    when(mockRequest.getParameter("id")).thenReturn(hash);
-
-    Team mockTeam = mock(Team.class);
-    when(mockTeam.getId()).thenReturn("team-1");
 
     Invitation invitation = new Invitation("test-email",
             "team-1", "test-inviter");
 
     TeamInviteService teamInviteService = mock(TeamInviteService.class);
-    when(teamInviteService.findInvitationByInviteId(hash)).thenReturn(invitation);
+    when(teamInviteService.findInvitationByInviteId(INVITATION_HASH)).thenReturn(invitation);
 
     TeamService teamService = mock(TeamService.class);
     when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
@@ -160,5 +110,23 @@ public class InvitationControllerTest extends AbstractControllerTest {
     assertEquals(redirectUrl, view.getUrl());
   }
 
+  @Before
+  public void setup() throws Exception {
+    super.setup();
+    Person mockPerson = mock(Person.class);
+    when(mockPerson.getId()).thenReturn("person-1");
+
+    HttpSession mockSession = mock(HttpSession.class);
+    when(mockSession.getAttribute(LoginInterceptor.PERSON_SESSION_KEY)).
+            thenReturn(mockPerson);
+
+    mockRequest = mock(HttpServletRequest.class);
+    when(mockRequest.getSession()).thenReturn(mockSession);
+    when(mockRequest.getParameter("id")).thenReturn(INVITATION_HASH);
+
+    mockTeam = mock(Team.class);
+    when(mockTeam.getId()).thenReturn("team-1");
+
+  }
 
 }
