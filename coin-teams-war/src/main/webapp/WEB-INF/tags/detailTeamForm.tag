@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://teamfn" prefix="teamfn" %>
+<jsp:useBean id="timestamp" class="java.util.Date"/>
 <form action="">
   <input type="hidden" name="teamId" value="<c:out value='${team.id}' />"/>
   <input type="hidden" name="view" value="<c:out value='${view}' />"/>
@@ -10,14 +11,16 @@
   <div class="team-table-wrapper">
     <table class="team-table">
       <thead>
-      <c:if test="${role eq adminRole or role eq managerRole}">
-        <th></th>
-      </c:if>
-      <th><spring:message code='jsp.detailteam.Name'/></th>
-      <th><spring:message code="jsp.general.Email"/></th>
-      <th><spring:message code='jsp.detailteam.Admin'/></th>
-      <th><spring:message code='jsp.detailteam.Manager'/></th>
-      <th><spring:message code='jsp.detailteam.Member'/></th>
+      <tr>
+        <c:if test="${role eq adminRole or role eq managerRole}">
+          <th></th>
+        </c:if>
+        <th><spring:message code='jsp.detailteam.Name'/></th>
+        <th><spring:message code="jsp.general.Email"/></th>
+        <th><spring:message code='jsp.detailteam.Admin'/></th>
+        <th><spring:message code='jsp.detailteam.Manager'/></th>
+        <th><spring:message code='jsp.detailteam.Member'/></th>
+      </tr>
       </thead>
       <tbody>
       <c:if test="${fn:length(team.members) > 0 }">
@@ -67,20 +70,51 @@
               <c:param name="view" value="${view}"/>
             </c:url>
             <td><a href="${dodeleteinvite}">[x]</a></td>
-            <td>
-              <c:choose>
+            <td><a href="#" id="invitationinfo_<c:out value="${invite.invitationHash}"/>"
+                   class="open_invitationinfo">[I]</a>
+              <div class="invitationinfo_<c:out value="${invite.invitationHash}"/> hide">
+                <dl class="inviteinfo">
+                  <dt><spring:message code="jsp.detailteam.DateSent"/></dt>
+                  <jsp:setProperty name="timestamp" property="time" value="${invite.timestamp}"/>
+                  <dd><fmt:formatDate value="${timestamp}" type="both" dateStyle="long"/>
+                    <p class="close">
+                      <a href="#" class="invitationinfo_<c:out value="${invite.invitationHash}"/>">
+                        <spring:message code="jsp.general.CloseForm"/>
+                      </a>
+                    </p>
+                  </dd>
+                  <c:if test="${not empty invite.inviter}">
+                    <dt><spring:message code="jsp.detailteam.InvitedBy"/></dt>
+                    <dd>
+                      <c:forEach var="member" items="${team.members}">
+                        <c:if test="${member.id eq invite.inviter}">
+                          <c:out value="${member.name}"/>
+                        </c:if>
+                      </c:forEach>
+                    </dd>
+                  </c:if>
+                  <dt><spring:message code="jsp.general.Message"/></dt>
+                  <dd>
+                    <pre><c:out value="${invite.message}"/></pre>
+                  </dd>
+                </dl>
+              </div>
+            </td>
+            <td><c:out value="${invite.email}"/></td>
+            <td colspan="3"><c:choose>
                 <c:when test="${invite.declined eq true}">
                   <spring:message code="jsp.detailteam.InvitationDeclined"/>
                 </c:when>
                 <c:otherwise>
                   <spring:message code='jsp.detailteam.InvitationPending'/>
+                  <c:url var="resendUrl" value="resendInvitation.shtml">
+                    <c:param name="view" value="${view}"/>
+                    <c:param name="id" value="${invite.invitationHash}"/>
+                  </c:url>
+                  (<a href="${resendUrl}"><spring:message code="jsp.detailteam.Resend"/></a>)
                 </c:otherwise>
               </c:choose>
             </td>
-            <td>${invite.email}</td>
-            <td><input type="checkbox" disabled="disabled"/></td>
-            <td><input type="checkbox" disabled="disabled"/></td>
-            <td><input type="checkbox" disabled="disabled"/></td>
           </tr>
         </c:forEach>
       </c:if>

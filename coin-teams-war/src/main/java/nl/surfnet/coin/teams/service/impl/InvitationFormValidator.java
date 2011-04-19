@@ -12,6 +12,8 @@ import nl.surfnet.coin.teams.domain.InvitationForm;
  */
 public class InvitationFormValidator implements Validator {
 
+  private static final EmailValidator EMAIL_VALIDATOR = new EmailValidator();
+
   /**
    * {@inheritDoc}
    */
@@ -31,10 +33,9 @@ public class InvitationFormValidator implements Validator {
     InvitationForm form = (InvitationForm) target;
 
     if (StringUtils.hasText(form.getEmails())) {
-      EmailValidator emailValidator = new EmailValidator();
       String[] emails = form.getEmails().split(",");
       for (String email : emails) {
-        if (!emailValidator.isValid(email.trim(), null)) {
+        if (!EMAIL_VALIDATOR.isValid(email.trim(), null)) {
           errors.rejectValue("emails", "error.wrongFormattedEmailList");
           break;
         }

@@ -4,7 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><spring:message code="jsp.general.Title" /></title>
+  <meta charset="UTF-8"/>
+  <title><spring:message code="jsp.general.Title" /></title>
     <c:choose>
       <c:when test='${view eq "gadget"}'>
         <link rel="stylesheet" href="css/gadget.css">
@@ -20,7 +21,7 @@
   <div class="wrapper">
     <c:if test='${view ne "gadget"}'>
       <!--  = Header -->
-      <div class="header" id="Header">
+      <div class="header">
         <a href="home.shtml"><img class="logo" src="media/surfnet_logo.gif" alt="surfnet logo" /></a> <span><spring:message code="jsp.general.Title" /></span>
         <span class="left"></span><span class="right"></span><img src="media/header_img.jpg" alt="header img" />
       </div>

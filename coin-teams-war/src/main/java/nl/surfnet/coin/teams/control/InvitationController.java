@@ -3,6 +3,7 @@ package nl.surfnet.coin.teams.control;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Date;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,9 +13,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
@@ -26,6 +29,7 @@ import nl.surfnet.coin.teams.util.ViewUtil;
  * {@link Controller} that handles the accept/decline of an Invitation
  */
 @Controller
+@SessionAttributes("invitation")
 public class InvitationController {
 
   @Autowired
@@ -36,7 +40,7 @@ public class InvitationController {
 
   /**
    * RequestMapping to show the accept invitation page.
-   * 
+   *
    * @param modelMap {@link ModelMap}
    * @param request
    *          {@link HttpServletRequest}
@@ -65,7 +69,7 @@ public class InvitationController {
   /**
    * RequestMapping to accept an invitation. If everything is okay, it redirects
    * to your new team detail view.
-   * 
+   *
    * @param request
    *          {@link HttpServletRequest}
    * @return detail view of your new team
@@ -105,12 +109,12 @@ public class InvitationController {
 
   /**
    * RequestMapping to decline an invitation as receiver.
-   * 
+   *
    * @param request
    *          {@link HttpServletRequest}
    * @return if everything is ok, go to home
    */
-  @RequestMapping(value = "/declineInvitation.shtml")
+  @RequestMapping(value = "declineInvitation.shtml")
   public RedirectView decline(HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
@@ -127,7 +131,7 @@ public class InvitationController {
 
   /**
    * RequestMapping to delete an invitation as admin
-   * 
+   *
    * @param modelMap
    *          {@link ModelMap}
    * @param request
@@ -151,6 +155,26 @@ public class InvitationController {
     return new RedirectView("detailteam.shtml?team="
         + URLEncoder.encode(teamId, "utf-8") + "&view="
         + ViewUtil.getView(request));
+  }
+
+  @RequestMapping("resendInvitation.shtml")
+  public String resendInvitation(ModelMap modelMap, HttpServletRequest request) {
+    Person person = (Person) request.getSession().getAttribute(
+            LoginInterceptor.PERSON_SESSION_KEY);
+    Invitation invitation = getInvitationByRequest(request);
+    Member member = teamService.findMember(invitation.getTeamId(), person.getId());
+    if (member == null) {
+      throw new SecurityException("You are not a member of this team");
+    }
+    Set<Role> roles = member.getRoles();
+    if (!(roles.contains(Role.Admin) || roles.contains(Role.Manager))) {
+      throw new SecurityException("You have insufficient rights to perform this action.");
+    }
+    
+    modelMap.addAttribute("invitation", invitation);
+
+    ViewUtil.addViewToModelMap(request, modelMap);
+    return "resendinvitation";
   }
 
   private Invitation getInvitationByRequest(HttpServletRequest request) {

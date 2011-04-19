@@ -39,6 +39,7 @@ import nl.surfnet.coin.teams.service.ShindigActivityService;
 import nl.surfnet.coin.teams.service.TeamInviteService;
 import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.service.impl.InvitationFormValidator;
+import nl.surfnet.coin.teams.service.impl.InvitationValidator;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 import nl.surfnet.coin.teams.util.ViewUtil;
 
@@ -49,7 +50,7 @@ import nl.surfnet.coin.teams.util.ViewUtil;
  *         user.
  */
 @Controller
-@SessionAttributes("invitationForm")
+@SessionAttributes({"invitationForm", "invitation"})
 public class AddMemberController {
 
   private static final String INVITE_SEND_INVITE_SUBJECT = "invite.SendInviteSubject";
@@ -181,6 +182,33 @@ public class AddMemberController {
             + ViewUtil.getView(request);
   }
 
+  @RequestMapping("doResendInvitation.shtml")
+  public String doResendInvitation(ModelMap modelMap,
+                                   @ModelAttribute("invitation") Invitation invitation,
+                                   BindingResult result,
+                                   HttpServletRequest request) throws UnsupportedEncodingException {
+    Validator validator = new InvitationValidator();
+    validator.validate(invitation, result);
+    if (result.hasErrors()) {
+      return "resendinvitation";
+    }
+
+    invitation.setTimestamp(new Date().getTime());
+    teamInviteService.saveOrUpdate(invitation);
+
+    Locale locale = localeResolver.resolveLocale(request);
+    String teamId = invitation.getTeamId();
+    Team team = teamService.findTeamById(teamId);
+    Object[] messageValuesSubject = {team.getName()};
+
+    String subject = messageSource.getMessage(INVITE_SEND_INVITE_SUBJECT,
+            messageValuesSubject, locale);
+    sendInvitationByMail(invitation, subject, locale);
+    return "redirect:/detailteam.shtml?team="
+            + URLEncoder.encode(teamId, UTF_8) + "&view="
+            + ViewUtil.getView(request);
+  }
+
   /**
    * Combines the input of the emails field and the csv file
    *
@@ -246,6 +274,13 @@ public class AddMemberController {
     }
   }
 
+  /**
+   * Sends an email based on the {@link Invitation}
+   *
+   * @param invitation {@link Invitation} that contains the necessary data
+   * @param subject    of the email
+   * @param locale     {@link Locale}
+   */
   private void sendInvitationByMail(final Invitation invitation,
                                     final String subject, final Locale locale) {
     Object[] messageValuesFooter = {environment.getTeamsURL(),

@@ -70,7 +70,19 @@ COIN.MODULES.Detailteam = function(sandbox) {
 				} else {
 					library.removeRole($(this));
 				}
-			})
+			});
+
+      $('a.open_invitationinfo').live('click', function(e) {
+        e.preventDefault();
+        var invitationInfo = $(this).attr('id');
+        $('.'+invitationInfo).removeClass('hide');
+      });
+      
+      $('dl.inviteinfo p.close a').live('click', function(e) {
+        e.preventDefault();
+        var myClass=$(this).attr('class');
+        $('div.'+myClass).addClass('hide');
+      });
 		},
 		
 		destroy: function() {

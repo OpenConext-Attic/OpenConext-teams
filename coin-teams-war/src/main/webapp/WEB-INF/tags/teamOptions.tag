@@ -13,7 +13,7 @@
     <c:set var="backClass">back</c:set>
   </c:otherwise>
 </c:choose>
-<c:url value="home.shtml" var="backUrl"><c:param name="teams" value="${teamsTab}" /><c:param name="view" value="${view}" /></c:url>
+<c:url value="home.shtml" var="backUrl" ><c:param name="teams" value="${teamsTab}" /><c:param name="view" value="${view}" /></c:url>
 <p class="${backClass}"><a href="${backUrl}">&lt; <spring:message code='jsp.detailteam.Back' /></a></p>
 
 <c:url value="editteam.shtml" var="editUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
