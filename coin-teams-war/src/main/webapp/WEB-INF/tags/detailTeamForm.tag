@@ -26,9 +26,25 @@
       <c:if test="${fn:length(team.members) > 0 }">
         <c:forEach items="${team.members}" var="member">
           <tr>
+            <%--
+            Deleting a member is allowed when:
+            1) You are admin but if you the last one, you cannot delete yourself
+            2) You are manager so you cannot delete an admin
+            --%>
+            <c:choose>
+              <c:when test="${role eq adminRole and not (teamfn:contains(member.roles, adminRole) and onlyAdmin)}">
+                <c:set var="canDelete" value="true"/>
+              </c:when>
+              <c:when test="${role eq managerRole and not teamfn:contains(member.roles, adminRole)}">
+                <c:set var="canDelete" value="true"/>
+              </c:when>
+              <c:otherwise>
+                <c:set var="canDelete" value="false"/>
+              </c:otherwise>
+            </c:choose>
             <c:if test="${role eq adminRole or role eq managerRole}">
               <td>
-                <c:if test="${member.id ne sessionScope.person.id}">
+                <c:if test="${canDelete eq true}">
                   <c:url var="dodeletemember" value="dodeletemember.shtml">
                     <c:param name="team" value="${team.id}"/>
                     <c:param name="member" value="${member.id}"/>
