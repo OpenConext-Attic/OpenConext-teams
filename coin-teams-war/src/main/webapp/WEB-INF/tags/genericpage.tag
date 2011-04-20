@@ -36,7 +36,7 @@
       </c:when>
       <c:when test='${view ne "gadget"}'>
         <div class="component-title-bar">
-          <h2 class="component-title"><spring:message code="jsp.general.Title" /><span class="right"><spring:message code="jsp.general.Welcome"/> <c:out value="${sessionScope.person.displayName}" /> | <a href="/Shibboleth.SSO/Logout?target=/teams"><spring:message code="jsp.general.Logout"/></a> | <a id="HelpPage" href="#"><spring:message code="jsp.general.Help" /></a></span></h2>
+          <h2 class="component-title"><spring:message code="jsp.general.Title" /><span class="right"><spring:message code="jsp.general.Welcome"/> <c:out value="${sessionScope.person.displayName}" /> | <a href="/Shibboleth.SSO/Logout?target=/teams"><spring:message code="jsp.general.Logout"/></a> | <a href="https://wiki.surfnetlabs.nl/display/conextsupport/SURFteams" target="_blank"><spring:message code="jsp.general.Help" /></a></span></h2>
         </div>
       </c:when>
     </c:choose>
@@ -76,7 +76,6 @@
     <!-- / DeleteTeamDialog -->
   </div>
 
-  
   <script type="text/javascript" src="js/jquery-ui-1.8.4.custom.min.js"></script>
   <script type="text/javascript" src="js/coin-teams.js"></script>
 </body>

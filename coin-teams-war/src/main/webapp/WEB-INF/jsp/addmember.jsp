@@ -26,7 +26,7 @@
         <input type="hidden" name="view" value="<c:out value='${view}' />" />
         <input type="hidden" name="team" value="<c:out value='${team.id}' />" />
         <form:label path="emails"><spring:message code='jsp.general.Email' /></form:label>
-        <c:set var="emailsPlaceholder"><spring:message code='jsp.addmember.Email' /></c:set>
+        <c:set var="emailsPlaceholder"><spring:message code='jsp.addmember.Email.placeholder' /></c:set>
         <form:input path="emails" id="MemberEmail" cssClass="multiemail"
                     placeholder="${emailsPlaceholder}" cssErrorClass="error"/>
         <form:errors path="emails" cssClass="error" element="label"/>

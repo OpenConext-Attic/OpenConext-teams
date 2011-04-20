@@ -17,12 +17,6 @@ COIN.MODULES.Home = function(sandbox) {
 				};
 			});
 			
-      // Clicked on the [ Help ]
-      $('#HelpPage').live('click', function(e) {
-        e.preventDefault();
-        window.open('help.shtml', 'Help','menubar=no,width=430,height=360,toolbar=no,screenX=400,screenY=300,resizable=yes,scrollbars=yes');
-      });
-
 		},
 		
 		destroy: function() {
