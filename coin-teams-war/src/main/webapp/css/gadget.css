@@ -32,7 +32,7 @@ p.back {
 }
 
 p.not-member {
-	float: none !;
+	float: none;
 }
 
 p.description {
@@ -92,6 +92,14 @@ td:first-child {
 	overflow-y: auto;
 }
 
+th.remove {
+  width: 20px;
+}
+
+th.name, th.description {
+  width: 150px;
+}
+
 /* FORMS */
 
 fieldset {
@@ -149,16 +157,24 @@ label[for=TeamViewability] {
 }
 
 /* INVITATION INFORMATION BLOCK */
+.inviteinfo pre {
+  width:150px;
+  overflow-x:auto;
+}
+
 a.open_invitationinfo {
   display: inline-block;
 	width: 15px;
 	height: 15px;
 	text-indent: -9999px;
-	background: transparent url("../media/btn-icons.png") no-repeat 0 -1150px;
+	background: transparent url("../media/teams-icons-sprite.png") no-repeat 0 -50px;
 }
 .inviteinfo dt {
   margin-top:1em;
   font-weight:bold;
+}
+.inviteinfo dd {
+  margin-left:0;
 }
 
 /* ADD SOMETHING */
@@ -260,7 +276,7 @@ button.ui-button:first-child:hover {
 	width: 15px;
 	height: 15px;
 	text-indent: -9999px;
-	background: transparent url("../media/btn-icons.png") no-repeat 0 -100px;
+	background: transparent url("../media/teams-icons-sprite.png") no-repeat 0 -100px;
 }
 
 .notify-bar-close {
@@ -389,7 +405,7 @@ input.submit-search {
 	padding: 0;
 	border: medium none;
 	text-indent: -9999em;
-	background:url("../media/icons-gadget-overview.png") no-repeat scroll 0 -347px transparent;
+  background:url("../media/teams-icons-sprite.png") no-repeat scroll 0 3px transparent;
 }
 
 fieldset.search-fieldset {
@@ -478,4 +494,11 @@ fieldset.search-fieldset {
 .last .selected {
 	background-position: 100% -100px;
 	color: white;
+}
+
+/* DELETE SOMEONE */
+a.delete {
+  display:block;
+  text-indent: -9999em;
+  background:url("../media/teams-icons-sprite.png") no-repeat scroll 0 -198px transparent;
 }

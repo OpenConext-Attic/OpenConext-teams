@@ -13,10 +13,10 @@
       <thead>
       <tr>
         <c:if test="${role eq adminRole or role eq managerRole}">
-          <th></th>
+          <th class="remove"></th>
         </c:if>
-        <th><spring:message code='jsp.detailteam.Name'/></th>
-        <th><spring:message code="jsp.general.Email"/></th>
+        <th class="name"><spring:message code='jsp.detailteam.Name'/></th>
+        <th class="description"><spring:message code="jsp.general.Email"/></th>
         <th><spring:message code='jsp.detailteam.Admin'/></th>
         <th><spring:message code='jsp.detailteam.Manager'/></th>
         <th><spring:message code='jsp.detailteam.Member'/></th>
@@ -34,7 +34,9 @@
                     <c:param name="member" value="${member.id}"/>
                     <c:param name="view" value="${view}"/>
                   </c:url>
-                  <a href="${dodeletemember}">[X]</a>
+                  <a href="${dodeletemember}" class="delete" title="<spring:message code="jsp.detailteam.RemoveMemberFromTeam"/>">
+                    <spring:message code="jsp.detailteam.RemoveMemberFromTeam"/>
+                  </a>
                 </c:if>
               </td>
             </c:if>
@@ -69,11 +71,12 @@
               <c:param name="id" value="${invite.invitationHash}"/>
               <c:param name="view" value="${view}"/>
             </c:url>
-            <td><a href="${dodeleteinvite}">[x]</a></td>
+            <td><a href="${dodeleteinvite}" class="delete" title="<spring:message code="jsp.detailteam.Delete"/>">
+              <spring:message code="jsp.detailteam.Delete"/>
+            </a></td>
             <td></td>
             <td><c:out value="${invite.email}"/></td>
             <td colspan="3">
-
               <c:choose>
                 <c:when test="${invite.declined eq true}">
                   <spring:message code="jsp.detailteam.InvitationDeclined"/>
@@ -88,7 +91,9 @@
                 </c:otherwise>
               </c:choose>
               <a href="#" id="invitationinfo_<c:out value="${invite.invitationHash}"/>"
-                   class="open_invitationinfo">[I]</a>
+                   class="open_invitationinfo" title="<spring:message code="jsp.detailteam.InvitationInformation"/>">
+                <spring:message code="jsp.detailteam.InvitationInformation"/>
+              </a>
               <div class="invitationinfo_<c:out value="${invite.invitationHash}"/> hide">
                 <dl class="inviteinfo">
                   <dt><spring:message code="jsp.detailteam.DateSent"/></dt>
