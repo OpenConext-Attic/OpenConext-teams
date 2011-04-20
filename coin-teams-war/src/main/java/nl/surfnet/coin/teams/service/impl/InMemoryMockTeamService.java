@@ -15,6 +15,7 @@ import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.DuplicateTeamException;
 
 /**
  * Mock implementation of {@link TeamService}
@@ -23,6 +24,7 @@ import nl.surfnet.coin.teams.service.TeamService;
 public class InMemoryMockTeamService implements TeamService {
 
   private Map<String, Team> teams = new HashMap<String, Team>();
+  private static final String STEM = "nl:surfnet:diensten";
 
   /**
    * Constructor
@@ -101,26 +103,20 @@ public class InMemoryMockTeamService implements TeamService {
     throw new RuntimeException("Member(id='" + memberId + "') does not exist");
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see nl.surfnet.coin.teams.service.TeamService#addTeam(java.lang.String,
-   * java.lang.String, java.lang.String)
+  /**
+   * {@inheritDoc}
    */
   @Override
   public String addTeam(String teamId, String displayName,
-      String teamDescription) {
+                        String teamDescription, String stemName)
+          throws DuplicateTeamException {
     Team team = new Team(teamId, displayName, teamDescription);
     teams.put(team.getId(), team);
     return team.getId();
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * nl.surfnet.coin.teams.service.TeamService#deleteMember(java.lang.String,
-   * java.lang.String)
+  /**
+   * {@inheritDoc}
    */
   @Override
   public void deleteMember(String teamId, String memberId) {
@@ -129,54 +125,45 @@ public class InMemoryMockTeamService implements TeamService {
     team.removeMembers(member);
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see nl.surfnet.coin.teams.service.TeamService#deleteTeam(java.lang.String)
+  /**
+   * {@inheritDoc}
    */
   @Override
   public void deleteTeam(String teamId) {
     teams.remove(teamId);
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see nl.surfnet.coin.teams.service.TeamService#findAllTeams()
+  /**
+   * {@inheritDoc}
    */
   @Override
-  public List<Team> findAllTeams() {
+  public List<Team> findAllTeams(String stemName) {
     List<Team> result = new ArrayList<Team>();
     List<Team> teamList = new ArrayList<Team>(teams.values());
-    
+
     for (Team team : teamList) {
       if (team.isViewable()) {
         result.add(team);
       }
     }
-    
+
     return result;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * nl.surfnet.coin.teams.service.TeamService#findTeamById(java.lang.String)
+  /**
+   * {@inheritDoc}
    */
   @Override
   public Team findTeamById(String teamId) {
     return findTeam(teamId);
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see nl.surfnet.coin.teams.service.TeamService#findTeams(java.lang.String)
+  /**
+   * {@inheritDoc}
    */
   @Override
   public List<Team> findTeams(String partOfTeamName) {
-    Collection<Team> values = findAllTeams();
+    Collection<Team> values = findAllTeams(STEM);
     List<Team> result = new ArrayList<Team>();
     for (Team team : values) {
       if (team.getName().toLowerCase().contains(partOfTeamName.toLowerCase())) {
@@ -186,12 +173,8 @@ public class InMemoryMockTeamService implements TeamService {
     return result;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * nl.surfnet.coin.teams.service.TeamService#getTeamsByPerson(java.lang.String
-   * )
+  /**
+   * {@inheritDoc}
    */
   @Override
   public List<Team> getTeamsByMember(String memberId) {
@@ -208,12 +191,18 @@ public class InMemoryMockTeamService implements TeamService {
     return new ArrayList<Team>(result);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void setVisibilityGroup(String teamId, boolean viewable) {
     Team team = findTeam(teamId);
     team.setViewable(viewable);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean addMemberRole(String teamId, String memberId, Role role, boolean addAsSuperUser) {
     Member member = findMember(teamId, memberId);
@@ -226,6 +215,9 @@ public class InMemoryMockTeamService implements TeamService {
     return true;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean removeMemberRole(String teamId, String memberId, Role role, boolean removeAsSuperUser) {
     Member member = findMember(teamId, memberId);
@@ -234,6 +226,9 @@ public class InMemoryMockTeamService implements TeamService {
     return true;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public List<Team> findTeams(String partOfTeamName, String memberId) {
     List<Team> teamsByMember = getTeamsByMember(memberId);
@@ -246,10 +241,13 @@ public class InMemoryMockTeamService implements TeamService {
     return result;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void addMember(String teamId, String personId) {
     // just find the member (in some other team), copy and add to team
-    List<Team> allTeams = findAllTeams();
+    List<Team> allTeams = findAllTeams(STEM);
     Member m = null;
     for (Team team : allTeams) {
       Set<Member> members = team.getMembers();
@@ -266,6 +264,9 @@ public class InMemoryMockTeamService implements TeamService {
     team.addMembers(m);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void updateTeam(String teamId, String displayName,
       String teamDescription) {
@@ -274,6 +275,9 @@ public class InMemoryMockTeamService implements TeamService {
     team.setDescription(teamDescription);
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Set<Member> findAdmins(Team team) {
     Set<Member> result = new HashSet<Member>();
@@ -288,6 +292,9 @@ public class InMemoryMockTeamService implements TeamService {
     return result;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Member findMember(Team team, String memberId) {
     Set<Member> members = team.getMembers();
