@@ -9,14 +9,14 @@ import static org.junit.Assert.assertNull;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.service.TeamService;
-
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
 import org.springframework.context.MessageSource;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.web.servlet.LocaleResolver;
+
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.service.TeamService;
 
 /**
  * @author steinwelberg
@@ -87,6 +87,21 @@ public class HomeControllerTest extends AbstractControllerTest {
     assertEquals(1, teams.size());
     assertEquals("my", display);
     assertEquals("1", query);
+  }
+
+  @Test
+  public void testGetStemName() throws Exception {
+    MockHttpServletRequest request = getRequest();
+    assertNull(HomeController.getStemName(request));
+
+    request.getSession().setAttribute("stem", true);
+    assertNull(HomeController.getStemName(request));
+
+    request.getSession().setAttribute("stem", "testStem");
+    assertEquals("testStem", HomeController.getStemName(request));
+
+    request.getSession().removeAttribute("stem");
+    assertNull(HomeController.getStemName(request));
   }
 
 }

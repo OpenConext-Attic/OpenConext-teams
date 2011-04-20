@@ -6,14 +6,6 @@ import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.ShindigActivityService;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.util.DuplicateTeamException;
-import nl.surfnet.coin.teams.util.PermissionUtil;
-import nl.surfnet.coin.teams.util.ViewUtil;
-
 import org.opensocial.RequestException;
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +17,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
+
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.ShindigActivityService;
+import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.DuplicateTeamException;
+import nl.surfnet.coin.teams.util.PermissionUtil;
+import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * @author steinwelberg
@@ -92,8 +92,9 @@ public class AddTeamController {
     // Colons conflict with the stem name
     teamName = teamName.replace(":", "");
 
+    String stem = HomeController.getStemName(request);
     // Add the team
-    String teamId = teamService.addTeam(teamName, teamName, teamDescription);
+    String teamId = teamService.addTeam(teamName, teamName, teamDescription, stem);
 
     // Set the visibility of the group
     teamService.setVisibilityGroup(teamId, viewable);

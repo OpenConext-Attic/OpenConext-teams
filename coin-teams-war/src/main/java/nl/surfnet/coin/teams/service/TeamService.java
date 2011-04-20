@@ -36,13 +36,13 @@ public interface TeamService {
    * @return {@link List} of {@link Team} instances
    */
   List<Team> findTeams(String partOfTeamName);
-  
+
   /**
-   * Return all teams
-   * 
+   * Return all teams using a specific stem
+   * @param stemName name of the stem
    * @return {@link List} of {@link Team} instances
    */
-  List<Team> findAllTeams();
+  List<Team> findAllTeams(String stemName);
 
   /**
    * Find {@link Team} by id
@@ -56,17 +56,20 @@ public interface TeamService {
   /**
    * Add a {@link Team}. Note that the teamId is altered if not compliant to the
    * rules for correct id's.
-   * 
+   *
    * @param teamId
    *          the teamId
    * @param displayName
    *          the displayName
    * @param teamDescription
    *          description of the team
+   * @param stemName
+   *          name of the stem
    * @return The id of the team
    * @throws DuplicateTeamException when a team with with the given teamId already exists.
    */
-  String addTeam(String teamId, String displayName, String teamDescription) throws DuplicateTeamException;
+  String addTeam(String teamId, String displayName, String teamDescription, String stemName)
+          throws DuplicateTeamException;
 
   /**
    * Update a {@link Team}
@@ -85,14 +88,14 @@ public interface TeamService {
   /**
    * Delete a Member from a {@link Team}
    * @param teamId the unique identifier for a {@link Team}
-   * @param memberId the unique identifier for a {@link Member}
+   * @param personId the unique identifier for a {@link Member}
    */
   void deleteMember(String teamId, String personId);
 
   /**
    * Update the {@link Team} to be (not) visible
-   * @param teamId
-   * @param viewable
+   * @param teamId unique identifier for a {@link Team}
+   * @param viewable boolean
    */
   void setVisibilityGroup(String teamId, boolean viewable);
 

@@ -8,14 +8,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.util.DuplicateTeamException;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
@@ -43,6 +35,13 @@ import edu.internet2.middleware.grouperClient.ws.beans.WsGrouperPrivilegeResult;
 import edu.internet2.middleware.grouperClient.ws.beans.WsQueryFilter;
 import edu.internet2.middleware.grouperClient.ws.beans.WsSubject;
 import edu.internet2.middleware.grouperClient.ws.beans.WsSubjectLookup;
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.DuplicateTeamException;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
 
 /**
  * {@link TeamService} using Grouper LDAP as persistent store
@@ -56,25 +55,25 @@ public class GrouperTeamService implements TeamService {
   private static String[] FORBIDDEN_CHARS = new String[] { "<", ">", "/", "\\",
       "*", ":", "," };
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see nl.surfnet.coin.teams.service.TeamService#findAllTeams()
+  /**
+   * {@inheritDoc}
    */
   @Override
-  public List<Team> findAllTeams() {
+  public List<Team> findAllTeams(String stemName) {
+    if (!StringUtils.hasText(stemName)) {
+      stemName = environment.getDefaultStemName();
+    }
     GcFindGroups findGroups = new GcFindGroups();
     findGroups.assignActAsSubject(getActAsSubject());
     findGroups.assignIncludeGroupDetail(Boolean.TRUE);
 
     WsQueryFilter queryFilter = new WsQueryFilter();
     queryFilter.setQueryFilterType("FIND_BY_STEM_NAME");
-    queryFilter.setStemName(environment.getDefaultStemName());
+    queryFilter.setStemName(stemName);
     findGroups.assignQueryFilter(queryFilter);
     WsFindGroupsResults findResults = findGroups.execute();
     WsGroup[] groupResults = findResults.getGroupResults();
     return convertWsGroupToTeam(groupResults, false);
-
   }
 
   /*
@@ -273,42 +272,43 @@ public class GrouperTeamService implements TeamService {
     return result;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see nl.surfnet.coin.teams.service.TeamService#addTeam(java.lang.String,
-   * java.lang.String, java.lang.String)
+  /**
+   * {@inheritDoc}
    */
   @Override
   public String addTeam(String teamId, String displayName,
-      String teamDescription) throws DuplicateTeamException {
+                        String teamDescription, String stemName)
+          throws DuplicateTeamException {
     if (!StringUtils.hasText(teamId)) {
       throw new IllegalArgumentException("teamId is not optional");
+    }
+    if (!StringUtils.hasText(stemName)) {
+      stemName = environment.getDefaultStemName();
     }
     for (String ch : FORBIDDEN_CHARS) {
       teamId = teamId.replace(ch, "");
     }
     teamId = teamId.replace(" ", "_").toLowerCase();
-    teamId = environment.getDefaultStemName() + ":" + teamId;
-    
+    teamId = stemName + ":" + teamId;
+
     WsGroup wsGroup = new WsGroup();
     wsGroup.setDescription(teamDescription);
     wsGroup.setDisplayExtension(displayName);
     wsGroup.setName(teamId);
-    
+
     WsGroupToSave group = new WsGroupToSave();
     group.setSaveMode("INSERT");
     group.setWsGroup(wsGroup);
-    
+
     GcGroupSave groupSave = new GcGroupSave();
     groupSave.assignActAsSubject(getActAsSubject(true));
     groupSave.addGroupToSave(group);
     try {
       groupSave.execute();
-    } catch(GcWebServiceError e) {
+    } catch (GcWebServiceError e) {
       WsGroupSaveResults results = (WsGroupSaveResults) e.getContainerResponseObject();
       String resultCode = results.getResults()[0].getResultMetadata().getResultCode();
-      if(resultCode.equals("GROUP_ALREADY_EXISTS")) {
+      if (resultCode.equals("GROUP_ALREADY_EXISTS")) {
         throw new DuplicateTeamException("Team already exists: " + teamId);
       }
     }
