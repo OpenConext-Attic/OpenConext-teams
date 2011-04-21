@@ -21,7 +21,7 @@
 						</goals>
 						<configuration>
 							<tasks>
-								<property name="coin-version" value="${pom.version}" />
+								<property name="coin-version" value="${project.version}" />
 								<ant target="build" inheritRefs="true" />
 							</tasks>
 						</configuration>
@@ -49,7 +49,7 @@
 			<groupId>org.surfnet.coin</groupId>
 			<artifactId>coin-teams-war</artifactId>
 			<type>war</type>
-			<version>${pom.version}</version>
+			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 </project>
