@@ -81,9 +81,6 @@ public class InvitationController {
       throws UnsupportedEncodingException {
     Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
-    if (person == null) {
-      return new RedirectView("landingpage.shtml");
-    }
 
     Invitation invitation = getInvitationByRequest(request);
 
@@ -109,6 +106,7 @@ public class InvitationController {
 
   /**
    * RequestMapping to decline an invitation as receiver.
+   * This URL is bypassed in {@link LoginInterceptor}
    *
    * @param request
    *          {@link HttpServletRequest}
@@ -116,11 +114,7 @@ public class InvitationController {
    */
   @RequestMapping(value = "declineInvitation.shtml")
   public RedirectView decline(HttpServletRequest request) {
-    Person person = (Person) request.getSession().getAttribute(
-        LoginInterceptor.PERSON_SESSION_KEY);
-    if (person == null) {
-      return new RedirectView("landingpage.shtml");
-    }
+
     Invitation invitation = getInvitationByRequest(request);
     invitation.setDeclined(true);
     teamInviteService.saveOrUpdate(invitation);

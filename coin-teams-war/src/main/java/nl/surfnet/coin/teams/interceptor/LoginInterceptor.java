@@ -1,17 +1,21 @@
 package nl.surfnet.coin.teams.interceptor;
 
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import nl.surfnet.coin.teams.service.TeamPersonService;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
-
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+import nl.surfnet.coin.teams.service.TeamPersonService;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
 
 /**
  * Intercepts calls to controllers to handle Single Sign On details from
@@ -24,6 +28,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   public static final String PERSON_SESSION_KEY = "person";
   public static final String USER_STATUS_SESSION_KEY = "userStatus";
   private static final ThreadLocal<String> loggedInUser = new ThreadLocal<String>();
+  private static final List<String> LOGIN_BYPASS = createLoginBypass();
 
   @Autowired
   private TeamEnvironment teamEnvironment;
@@ -74,17 +79,18 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         
         String view = request.getParameter("view");
 
-        // Unprotect the javascript files and teams.xml
-        if (urlSplit[2].equals("landingpage.shtml") || urlSplit[2].equals("js") || urlSplit[2].equals("teams.xml")) {
+        // Unprotect the items in bypass
+        if (LOGIN_BYPASS.contains(urlSplit[2])) {
           return super.preHandle(request, response, handler);
           // Send redirect to landingpage if gadget is not requested in app view.
         } else if (!GADGET.equals(view)) {
           response.sendRedirect(teamEnvironment.getTeamsURL() + "/landingpage.shtml");
           return false;
           // Send redirect to shibboleth if gadget view is requested.
-        } else { 
+        } else {
           response.sendRedirect("/Shibboleth.sso/Login?target="
-              + teamEnvironment.getTeamsURL() + "/home.shtml?teams=my");
+                  + request.getRequestURL()
+                  + URLEncoder.encode(request.getQueryString(), "utf-8"));
           return false;
         }
       }
@@ -148,4 +154,19 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   public void setPersonService(TeamPersonService personService) {
     this.personService = personService;
   }
+
+  /**
+   * @return {@link List} of url parts to bypass authentication
+   */
+  private static List<String> createLoginBypass() {
+    List<String> bypass = new ArrayList<String>();
+    bypass.add("landingpage.shtml");
+    bypass.add("js");
+    bypass.add("css");
+    bypass.add("media");
+    bypass.add("teams.xml");
+    bypass.add("declineInvitation.shtml");
+    return bypass;
+  }
+  
 }
