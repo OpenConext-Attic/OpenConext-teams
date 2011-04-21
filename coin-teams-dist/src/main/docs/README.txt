@@ -13,10 +13,7 @@ List of documentation files included:
 - README.txt
 		this file.
 
-- COPYRIGHT.txt
-		copyright information.
-		
-- LICENSE.txt
+- VIRTUAL_ORGANIZATION_README.txt
 		license information.
 		
 - INSTALL.txt
