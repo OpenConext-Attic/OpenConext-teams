@@ -12,11 +12,12 @@
     <div class="section" id="Main">
     
 		  <div id="Header">
-		    <h1><spring:message code='jsp.error.Title' /></h1>
+		    <h1>Error</h1>
 		  </div>
 		  
 		  <div id="Content">
-		  	<p><spring:message code='jsp.error.Message' /></p>
+		  	<p>Something went wrong. Please try to reload the page or go back to 
+          <a href="home.shtml?teams=my">My Teams</a></p>
 		    <p>
 		    	<%= exception.getMessage() %>
 		    </p>
