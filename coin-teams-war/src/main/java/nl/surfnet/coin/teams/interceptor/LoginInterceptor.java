@@ -85,17 +85,17 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         // Unprotect the items in bypass
         String urlPart = urlSplit[2];
 
-        logger.info("Request for '{}'", request.getRequestURI());
-        logger.info("urlPart: '{}", urlPart);
-        logger.info("view '{}'", view);
+        logger.trace("Request for '{}'", request.getRequestURI());
+        logger.debug("urlPart: '{}", urlPart);
+        logger.trace("view '{}'", view);
 
         if (LOGIN_BYPASS.contains(urlPart)) {
-          logger.info("Bypassing", urlPart);
+          logger.trace("Bypassing", urlPart);
           return super.preHandle(request, response, handler);
         } else if (GADGET.equals(view)
                 || "acceptInvitation.shtml".equals(urlPart)
                 || "detailteam.shtml".equals(urlPart)) {
-          logger.info("Going to shibboleth");
+          logger.trace("Going to shibboleth");
           response.sendRedirect("/Shibboleth.sso/Login?target="
                   + request.getRequestURL()
                   + URLEncoder.encode('?' + request.getQueryString(), "utf-8"));
@@ -103,7 +103,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
           // Send redirect to shibboleth if gadget view is requested.
         } else {
           // Send redirect to landingpage if gadget is not requested in app view.
-          logger.info("Redirect to landingpage");
+          logger.trace("Redirect to landingpage");
           response.sendRedirect(teamEnvironment.getTeamsURL() + "/landingpage.shtml");
           return false;
         }
