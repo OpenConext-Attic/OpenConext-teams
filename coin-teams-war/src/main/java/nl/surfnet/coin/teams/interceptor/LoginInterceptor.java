@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.opensocial.models.Person;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -29,6 +31,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   public static final String USER_STATUS_SESSION_KEY = "userStatus";
   private static final ThreadLocal<String> loggedInUser = new ThreadLocal<String>();
   private static final List<String> LOGIN_BYPASS = createLoginBypass();
+  private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
 
   @Autowired
   private TeamEnvironment teamEnvironment;
@@ -80,17 +83,28 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         String view = request.getParameter("view");
 
         // Unprotect the items in bypass
-        if (LOGIN_BYPASS.contains(urlSplit[2])) {
+        String urlPart = urlSplit[2];
+
+        logger.info("Request for '{}'", request.getRequestURI());
+        logger.info("urlPart: '{}", urlPart);
+        logger.info("view '{}'", view);
+
+        if (LOGIN_BYPASS.contains(urlPart)) {
+          logger.info("Bypassing", urlPart);
           return super.preHandle(request, response, handler);
-          // Send redirect to landingpage if gadget is not requested in app view.
-        } else if (!GADGET.equals(view)) {
-          response.sendRedirect(teamEnvironment.getTeamsURL() + "/landingpage.shtml");
+        } else if (GADGET.equals(view)
+                || "acceptInvitation.shtml".equals(urlPart)
+                || "detailteam.shtml".equals(urlPart)) {
+          logger.info("Going to shibboleth");
+          response.sendRedirect("/Shibboleth.sso/Login?target="
+                  + request.getRequestURL()
+                  + URLEncoder.encode('?' + request.getQueryString(), "utf-8"));
           return false;
           // Send redirect to shibboleth if gadget view is requested.
         } else {
-          response.sendRedirect("/Shibboleth.sso/Login?target="
-                  + request.getRequestURL()
-                  + URLEncoder.encode(request.getQueryString(), "utf-8"));
+          // Send redirect to landingpage if gadget is not requested in app view.
+          logger.info("Redirect to landingpage");
+          response.sendRedirect(teamEnvironment.getTeamsURL() + "/landingpage.shtml");
           return false;
         }
       }
