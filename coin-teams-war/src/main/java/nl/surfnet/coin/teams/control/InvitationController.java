@@ -83,6 +83,10 @@ public class InvitationController {
         LoginInterceptor.PERSON_SESSION_KEY);
 
     Invitation invitation = getInvitationByRequest(request);
+    if (invitation == null) {
+      throw new IllegalArgumentException(
+          "Cannot find your invitation. Invitations expire after 14 days.");
+    }
 
     String teamId = invitation.getTeamId();
     if (!StringUtils.hasText(teamId)) {
@@ -108,19 +112,26 @@ public class InvitationController {
    * RequestMapping to decline an invitation as receiver.
    * This URL is bypassed in {@link LoginInterceptor}
    *
+   * @param modelMap {@link ModelMap}
    * @param request
    *          {@link HttpServletRequest}
-   * @return if everything is ok, go to home
+   * @return view for decline result
    */
   @RequestMapping(value = "declineInvitation.shtml")
-  public RedirectView decline(HttpServletRequest request) {
+  public String decline(ModelMap modelMap,
+                        HttpServletRequest request) {
+    String viewTemplate = "invitationdeclined";
 
     Invitation invitation = getInvitationByRequest(request);
-    invitation.setDeclined(true);
-    teamInviteService.saveOrUpdate(invitation);
 
-    return new RedirectView("home.shtml?teams=my&view="
-        + ViewUtil.getView(request));
+    boolean found = (invitation != null);
+    if (found) {
+      invitation.setDeclined(true);
+      teamInviteService.saveOrUpdate(invitation);
+    }
+
+    modelMap.addAttribute("result", found);
+    return viewTemplate;
   }
 
   /**
@@ -156,6 +167,11 @@ public class InvitationController {
     Person person = (Person) request.getSession().getAttribute(
             LoginInterceptor.PERSON_SESSION_KEY);
     Invitation invitation = getInvitationByRequest(request);
+        if (invitation == null) {
+      throw new IllegalArgumentException(
+          "Cannot find the invitation. Invitations expire after 14 days.");
+    }
+
     Member member = teamService.findMember(invitation.getTeamId(), person.getId());
     if (member == null) {
       throw new SecurityException("You are not a member of this team");
@@ -179,13 +195,7 @@ public class InvitationController {
           "Missing parameter to identify the invitation");
     }
 
-    Invitation invitation = teamInviteService
-        .findInvitationByInviteId(invitationId);
-    if (invitation == null) {
-      throw new IllegalArgumentException(
-          "Cannot find your invitation. They expire after 14 days.");
-    }
-    return invitation;
+    return teamInviteService.findInvitationByInviteId(invitationId);
   }
 
 }

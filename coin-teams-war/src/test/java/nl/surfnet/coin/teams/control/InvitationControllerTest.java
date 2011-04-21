@@ -38,11 +38,11 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
   @Test
   public void testDecline() throws Exception {
-
-    RedirectView view = controller.decline(mockRequest);
+    String view = controller.decline(getModelMap(), mockRequest);
 
     assertTrue("Declined invitation", invitation.isDeclined());
-    assertEquals("home.shtml?teams=my&view=app", view.getUrl());
+    assertEquals("invitationdeclined", view);
+    assertTrue((Boolean) getModelMap().get("result"));
   }
 
 
