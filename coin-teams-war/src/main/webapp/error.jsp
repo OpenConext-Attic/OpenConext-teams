@@ -18,9 +18,13 @@
 		  <div id="Content">
 		  	<p>Something went wrong. Please try to reload the page or go back to 
           <a href="home.shtml?teams=my">My Teams</a></p>
-		    <p>
-		    	<%= exception.getMessage() %>
-		    </p>
+          <%
+            if (exception != null) {
+              out.print("<p>");
+              out.print(exception.getMessage());
+              out.print("</p>");
+            }
+          %>
 		  </div>
 	
     </div>
