@@ -27,30 +27,43 @@
     }
   %>
   <%-- / Header --%>
+    <div class="component">
 
-  <div class="component-content" id="PageContainer">
+      <%-- if not gadget --%>
+      <%
+        if(!("gadget".equals(view))) {
+      %>
+        <div class="component-title-bar">
+          <h2 class="component-title">Error</h2>
+        </div>
+      <%
+        }
+      %>
 
-    <div class="section" id="Main">
+      <div class="component-content" id="PageContainer">
 
-      <div id="Header">
-        <h1>Error</h1>
+        <div class="section" id="Main">
+
+          <div id="Header">
+            <h1>Error</h1>
+          </div>
+
+          <div id="Content">
+            <p>Something went wrong. Please try to reload the page or go back to
+              <a href="home.shtml?teams=my">My Teams</a></p>
+            <%
+              if (exception != null && exception.getMessage() != null) {
+                out.print("<p>");
+                out.print(exception.getMessage());
+                out.print("</p>");
+              }
+            %>
+          </div>
+
+        </div>
+
       </div>
-
-      <div id="Content">
-        <p>Something went wrong. Please try to reload the page or go back to
-          <a href="home.shtml?teams=my">My Teams</a></p>
-        <%
-          if (exception != null && exception.getMessage() != null) {
-            out.print("<p>");
-            out.print(exception.getMessage());
-            out.print("</p>");
-          }
-        %>
-      </div>
-
     </div>
-
-  </div>
 
   <%
     if (!("gadget".equals(view))) {
