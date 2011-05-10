@@ -23,8 +23,12 @@
         <form:label path="message"><spring:message code='jsp.general.Message' /></form:label>
         <form:textarea path="message" rows="4" cols="5"/>
       </p>
+      <p class="label-field-wrapper">
+        <span class="consent-wrapper">&nbsp;</span>
+        <input id ="TeamConsent" type="checkbox" name="consent" /><label for="TeamConsent" class="consent"><spring:message code='jsp.jointeam.Consent' /></label>
+      </p>
       <p class="submit-wrapper">
-        <input class="button-primary" type="submit" name="joinTeam"
+        <input class="button-disabled" type="submit" disabled="disabled" name="joinTeam"
                value="<spring:message code='jsp.jointeam.Submit' />" />
         <input class="button-secondary" type="submit" name="cancelJoinTeam"
                value="<spring:message code='jsp.general.Cancel' />" />

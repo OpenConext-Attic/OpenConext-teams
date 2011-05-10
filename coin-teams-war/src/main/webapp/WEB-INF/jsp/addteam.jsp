@@ -26,8 +26,12 @@
         <label for="TeamDescription"><spring:message code='jsp.general.Description' /></label>
         <input id="TeamDescription" name="description" type="text" />
       </p>
+      <p class="label-field-wrapper">
+        <span class="consent-wrapper">&nbsp;</span>
+        <input id="TeamConsent" name="consent" type="checkbox"><label class="consent" for="TeamConsent"><spring:message code='jsp.addteam.Consent' /></label>
+      </p>
       <p class="submit-wrapper">
-        <input class="button-primary" type="submit" name="createTeam" value="<spring:message code='jsp.addteam.Submit' />" />
+        <input class="button-disabled" type="submit" name="createTeam" value="<spring:message code='jsp.addteam.Submit' />" disabled="disabled" />
         <input class="button-secondary" type="submit" name="cancelCreateTeam" value="<spring:message code='jsp.general.Cancel' />" />
         <input id="TeamViewability" type="checkbox" name="viewabilityStatus" value="1" />
         <label for="TeamViewability"><spring:message code='jsp.general.TeamViewability' /></label>

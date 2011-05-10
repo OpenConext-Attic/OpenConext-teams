@@ -278,6 +278,10 @@ fieldset {
 	width: 200px;
 	margin: 0 0 15px 15px;
 }
+
+.label-field-wrapper input[type=checkbox] {
+	margin: 0 5px 15px 15px;	
+}
 .label-field-wrapper textarea {
 	width: 800px;
   height: 200px;
@@ -297,6 +301,16 @@ fieldset {
 .submit-wrapper label {
 	display: block;
 	float: left;
+}
+
+label.consent {
+	float: none;
+	width: inherit;
+}
+
+span.consent-wrapper {
+	float: left;
+	width: 100px;
 }
 
 #TeamViewability,
@@ -341,6 +355,7 @@ a.open_invitationinfo, .fieldinfo a {
 
 .button-primary, 
 .button-secondary, 
+.button-disabled,
 .ui-button {
 	cursor: pointer;
 	margin: 0 5px 0 0;
@@ -395,6 +410,13 @@ button.ui-button:first-child:hover {
 
 .button-secondary:active {
 	color: #676763;
+}
+
+.button-disabled {	
+	background-color: #676763;
+	color: #e8e8e8;
+	background-position: 0 -250px !important;
+	cursor: default;
 }
 
 /* CLEAR ME */
