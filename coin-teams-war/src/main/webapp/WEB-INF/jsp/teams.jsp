@@ -3,7 +3,7 @@
 <Module>
   <ModulePrefs
     title="SURFteams"
-    height="325">
+    height="350">
   </ModulePrefs>
   <UserPref name="groupContext" />
   <Content type="html">
