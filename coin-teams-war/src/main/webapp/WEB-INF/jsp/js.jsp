@@ -10,4 +10,5 @@
 <%@include file="/js/coin-teams/modules/editteam.js" %>
 <%@include file="/js/coin-teams/modules/jointeam.js" %>
 <%@include file="/js/coin-teams/modules/addmember.js" %>
+<%@include file="/js/coin-teams/modules/acceptinvitation.js" %>
 <%@include file="/js/coin-teams/modules/detailteam.js" %>

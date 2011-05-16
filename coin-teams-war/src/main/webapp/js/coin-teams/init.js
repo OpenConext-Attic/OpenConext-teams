@@ -37,7 +37,11 @@ $(function() {
 	if ($('#AddMemberForm').length > 0) {
 		COIN.Core.register('addmember', COIN.MODULES.Addmember);
 	}
-	
+
+  if ($('#AcceptInvitationForm').length > 0) {
+    COIN.Core.register('acceptinvitation', COIN.MODULES.Acceptinvitation);
+  }
+  
 	COIN.Core.register('detailteam', COIN.MODULES.Detailteam);
 	
 	
