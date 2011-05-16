@@ -80,7 +80,7 @@
           <span>For questions email:<span>
           </span><a class="extra" href="mailto:help@surfteams.nl">help@surfteams.nl</a></span>
       <a class="extra" href="http://www.surfnet.nl/nl/pages/copyright.aspx">Copyright</a>
-      <a class="extra" href="media/SURFteamsGebruiksvoorwaarden_1.0.pdf">Terms of use</a>
+      <a class="extra" href="https://wiki.surfnetlabs.nl/display/conextsupport/Terms+of+Service+%28EN%29" target="_blank">Terms of use</a>
     </address>
   </div>
   <%
