@@ -4,6 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://teamfn" prefix="teamfn" %>
 <jsp:useBean id="timestamp" class="java.util.Date"/>
+<jsp:useBean id="expires" class="java.util.Date"/>
 <form action="">
   <input type="hidden" name="teamId" value="<c:out value='${team.id}' />"/>
   <input type="hidden" name="view" value="<c:out value='${view}' />"/>
@@ -113,11 +114,17 @@
                 <spring:message code="jsp.detailteam.InvitationInformation"/>
               </a>
               <div class="invitationinfo_<c:out value="${invite.invitationHash}"/> hide">
-                <c:forEach var="invitationMessage" items="${invite.invitationMessagesReversed}">
+                <c:forEach var="invitationMessage" items="${invite.invitationMessagesReversed}"
+                        varStatus="loop">
                 <dl class="inviteinfo">
                     <dt><spring:message code="jsp.detailteam.DateSent"/></dt>
                   <jsp:setProperty name="timestamp" property="time" value="${invitationMessage.timestamp}"/>
                   <dd><fmt:formatDate value="${timestamp}" type="both" dateStyle="long"/></dd>
+                  <c:if test="${loop.first}">
+                    <dt><spring:message code="jsp.detailteam.Expires"/></dt>
+                    <jsp:setProperty name="expires" property="time" value="${invite.expireTime}"/>
+                    <dd><fmt:formatDate value="${expires}" type="both" dateStyle="long"/></dd>
+                  </c:if>
                   <c:if test="${not empty invitationMessage.inviter}">
                     <dt><spring:message code="jsp.detailteam.InvitedBy"/></dt>
                     <dd>

@@ -46,6 +46,9 @@ public class Invitation extends DomainObject {
   @Sort(type = SortType.NATURAL)
   private List<InvitationMessage> invitationMessages;
 
+  private static final long TWO_WEEKS = 14L * 24L * 60L * 60L * 1000L;
+  
+
   /**
    * Constructor Hibernate needs when fetching results from the db.
    * Do not use to create new Invitations.
@@ -162,7 +165,6 @@ public class Invitation extends DomainObject {
 
   /**
    * @return latest {@link InvitationMessage} or {@literal null} if none is set
-   *         // TODO: check which is newest?
    */
   public InvitationMessage getLatestInvitationMessage() {
     if (CollectionUtils.isEmpty(invitationMessages)) {
@@ -177,4 +179,8 @@ public class Invitation extends DomainObject {
     Collections.reverse(copy);
     return copy;
 }
+
+  public long getExpireTime() {
+    return timestamp + TWO_WEEKS;
+  }
 }
