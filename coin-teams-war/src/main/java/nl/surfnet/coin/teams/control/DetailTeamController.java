@@ -30,6 +30,7 @@ import nl.surfnet.coin.teams.service.JoinTeamRequestService;
 import nl.surfnet.coin.teams.service.TeamInviteService;
 import nl.surfnet.coin.teams.service.TeamPersonService;
 import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
 import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
@@ -61,6 +62,10 @@ public class DetailTeamController {
 
   @Autowired
   private TeamPersonService teamPersonService;
+
+  @Autowired
+  private TeamEnvironment teamEnvironment;
+  
 
   @RequestMapping("/detailteam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request)
@@ -107,6 +112,8 @@ public class DetailTeamController {
     modelMap.addAttribute("managerRole", Role.Manager);
     modelMap.addAttribute("memberRole", Role.Member);
     modelMap.addAttribute("noRole", Role.None);
+
+    modelMap.addAttribute("maxInvitations", teamEnvironment.getMaxInvitations());
 
     ViewUtil.addViewToModelMap(request, modelMap);
 

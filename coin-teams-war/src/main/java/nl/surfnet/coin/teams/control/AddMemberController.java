@@ -32,6 +32,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import nl.surfnet.coin.shared.service.MailService;
 import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.InvitationForm;
+import nl.surfnet.coin.teams.domain.InvitationMessage;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
@@ -189,10 +190,16 @@ public class AddMemberController {
                                    HttpServletRequest request) throws UnsupportedEncodingException {
     Validator validator = new InvitationValidator();
     validator.validate(invitation, result);
+    String messageText = request.getParameter("messageText");
     if (result.hasErrors()) {
+      modelMap.addAttribute("messageText", messageText);
       return "resendinvitation";
     }
-
+    Person person = (Person) request.getSession().getAttribute(
+            LoginInterceptor.PERSON_SESSION_KEY);
+    InvitationMessage invitationMessage =
+            new InvitationMessage(messageText, person.getId());
+    invitation.addInvitationMessage(invitationMessage);
     invitation.setTimestamp(new Date().getTime());
     teamInviteService.saveOrUpdate(invitation);
 
@@ -257,12 +264,13 @@ public class AddMemberController {
       boolean newInvitation = invitation == null;
 
       if (newInvitation) {
-        invitation = new Invitation(emailAddress, teamId,
-                inviter.getId());
+        invitation = new Invitation(emailAddress, teamId
+        );
       } else if (invitation.isDeclined()) {
         continue;
       }
-      invitation.setMessage(form.getMessage());
+      InvitationMessage invitationMessage = new InvitationMessage(form.getMessage(), inviterPersonId);
+      invitation.addInvitationMessage(invitationMessage);
       invitation.setTimestamp(new Date().getTime());
       teamInviteService.saveOrUpdate(invitation);
       sendInvitationByMail(invitation, subject, locale);
@@ -292,7 +300,15 @@ public class AddMemberController {
     mailMessage.setFrom(environment.getSystemEmail());
     mailMessage.setTo(invitation.getEmail());
     mailMessage.setSubject(subject);
-    mailMessage.setText(invitation.getMessage() + footer);
+
+    StringBuffer sb = new StringBuffer();
+    InvitationMessage latestInvitationMessage = invitation.getLatestInvitationMessage();
+    if (latestInvitationMessage != null) {
+      sb.append(latestInvitationMessage.getMessage());
+    }
+    sb.append(footer);
+    mailMessage.setText(sb.toString());
+
     mailService.sendAsync(mailMessage);
   }
 

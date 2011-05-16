@@ -42,7 +42,7 @@ public class TeamInviteServiceHibernateImplTest {
 
     assertNull(teamInviteService.findInvitation(email, team));
 
-    Invitation invitation = new Invitation(email, team.getId(), null);
+    Invitation invitation = new Invitation(email, team.getId());
     teamInviteService.saveOrUpdate(invitation);
 
     assertNotNull(teamInviteService.findInvitation(email, team));
@@ -54,7 +54,7 @@ public class TeamInviteServiceHibernateImplTest {
     Team team = mock(Team.class);
     when(team.getId()).thenReturn("team-1");
 
-    Invitation invitation = new Invitation(email, team.getId(), null);
+    Invitation invitation = new Invitation(email, team.getId());
     String hash = invitation.getInvitationHash();
 
     assertNull(teamInviteService.findInvitationByInviteId(hash));
@@ -69,7 +69,7 @@ public class TeamInviteServiceHibernateImplTest {
     Team team = mock(Team.class);
     when(team.getId()).thenReturn("team-1");
 
-    Invitation invitation = new Invitation(email, team.getId(), null);
+    Invitation invitation = new Invitation(email, team.getId());
     Calendar calendar = Calendar.getInstance();
     calendar.add(Calendar.DAY_OF_WEEK, -16);
     invitation.setTimestamp(calendar.getTimeInMillis());
@@ -91,11 +91,11 @@ public class TeamInviteServiceHibernateImplTest {
     Team team2 = mock(Team.class);
         when(team2.getId()).thenReturn("team-2");
     Invitation invitation1 = new Invitation(
-            "coincalendar@gmail.com", team1.getId(), null);
+            "coincalendar@gmail.com", team1.getId());
     Invitation invitation2 = new Invitation(
-            "coincalendar@yahoo.com", team1.getId(), null);
+            "coincalendar@yahoo.com", team1.getId());
     Invitation invitation3 = new Invitation(
-            "coincalendar@yahoo.com", team2.getId(), null);
+            "coincalendar@yahoo.com", team2.getId());
     assertEquals(0, teamInviteService.findInvitationsForTeam(team1).size());
     teamInviteService.saveOrUpdate(invitation1);
     teamInviteService.saveOrUpdate(invitation2);
@@ -111,13 +111,13 @@ public class TeamInviteServiceHibernateImplTest {
     when(team.getId()).thenReturn("team-1");
 
     Invitation oldInvitation = new Invitation(
-            email, team.getId(), null);
+            email, team.getId());
     Calendar calendar = Calendar.getInstance();
     calendar.add(Calendar.MONTH, -2);
     oldInvitation.setTimestamp(calendar.getTimeInMillis());
 
     Invitation newInvitation = new Invitation(
-            "coincalendar@yahoo.com", team.getId(), null);
+            "coincalendar@yahoo.com", team.getId());
 
     assertEquals(0, teamInviteService.findAll().size());
     teamInviteService.saveOrUpdate(oldInvitation);

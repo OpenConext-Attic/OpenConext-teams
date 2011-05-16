@@ -23,6 +23,8 @@ public class TeamEnvironment {
   private String openSocialUrl;
   private String systemEmail;
 
+  private int maxInvitations;
+
   private long maxUploadSize;
 
   /**
@@ -238,5 +240,20 @@ public class TeamEnvironment {
    */
   public void setMaxUploadSize(long maxUploadSize) {
     this.maxUploadSize = maxUploadSize;
+  }
+
+  /**
+   * @return maximum amount an invitation can be sent to an email address for a team
+   */
+  public int getMaxInvitations() {
+    return maxInvitations;
+  }
+
+  /**
+   * @param maxInvitations maximum amount an invitation can
+   *                       be sent to an email address for a team
+   */
+  public void setMaxInvitations(int maxInvitations) {
+    this.maxInvitations = maxInvitations;
   }
 }

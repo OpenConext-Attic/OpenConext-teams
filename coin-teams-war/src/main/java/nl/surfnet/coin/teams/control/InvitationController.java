@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.InvitationMessage;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
@@ -182,7 +183,10 @@ public class InvitationController {
     }
     
     modelMap.addAttribute("invitation", invitation);
-
+    InvitationMessage invitationMessage = invitation.getLatestInvitationMessage();
+    if (invitationMessage != null) {
+      modelMap.addAttribute("messageText", invitationMessage.getMessage());
+    }
     ViewUtil.addViewToModelMap(request, modelMap);
     return "resendinvitation";
   }

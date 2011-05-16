@@ -103,7 +103,9 @@
                     <c:param name="view" value="${view}"/>
                     <c:param name="id" value="${invite.invitationHash}"/>
                   </c:url>
+                  <c:if test="${maxInvitations > fn:length(invite.invitationMessages)}">
                   (<a href="${resendUrl}"><spring:message code="jsp.detailteam.Resend"/></a>)
+                </c:if>
                 </c:otherwise>
               </c:choose>
               <a href="#" id="invitationinfo_<c:out value="${invite.invitationHash}"/>"
@@ -111,15 +113,16 @@
                 <spring:message code="jsp.detailteam.InvitationInformation"/>
               </a>
               <div class="invitationinfo_<c:out value="${invite.invitationHash}"/> hide">
+                <c:forEach var="invitationMessage" items="${invite.invitationMessagesReversed}">
                 <dl class="inviteinfo">
-                  <dt><spring:message code="jsp.detailteam.DateSent"/></dt>
-                  <jsp:setProperty name="timestamp" property="time" value="${invite.timestamp}"/>
+                    <dt><spring:message code="jsp.detailteam.DateSent"/></dt>
+                  <jsp:setProperty name="timestamp" property="time" value="${invitationMessage.timestamp}"/>
                   <dd><fmt:formatDate value="${timestamp}" type="both" dateStyle="long"/></dd>
-                  <c:if test="${not empty invite.inviter}">
+                  <c:if test="${not empty invitationMessage.inviter}">
                     <dt><spring:message code="jsp.detailteam.InvitedBy"/></dt>
                     <dd>
                       <c:forEach var="member" items="${team.members}">
-                        <c:if test="${member.id eq invite.inviter}">
+                        <c:if test="${member.id eq invitationMessage.inviter}">
                           <c:out value="${member.name}"/>
                         </c:if>
                       </c:forEach>
@@ -127,9 +130,10 @@
                   </c:if>
                   <dt><spring:message code="jsp.general.Message"/></dt>
                   <dd>
-                    <pre><c:out value="${invite.message}"/></pre>
+                    <pre><c:out value="${invitationMessage.message}"/></pre>
                   </dd>
                 </dl>
+                </c:forEach>
               </div>
             </td>
           </tr>

@@ -87,7 +87,7 @@ public class InvitationControllerTest extends AbstractControllerTest {
     when(mockTeam.getId()).thenReturn("team-1");
 
     invitation = new Invitation("test-email",
-            "team-1", "test-inviter");
+            "team-1");
 
     TeamInviteService teamInviteService = mock(TeamInviteService.class);
     when(teamInviteService.findInvitationByInviteId(invitationHash)).thenReturn(invitation);

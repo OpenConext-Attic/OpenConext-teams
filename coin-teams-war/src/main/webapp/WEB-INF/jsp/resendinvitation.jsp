@@ -25,8 +25,8 @@
         <form:errors path="email" cssClass="error" element="label"/>
       </p>
       <p class="label-field-wrapper">
-        <form:label path="message"><spring:message code='jsp.general.Message' /></form:label>
-        <form:textarea path="message" cols="5" rows="4"/>
+        <label for="messageText"><spring:message code='jsp.general.Message' /></label>
+        <textarea id="messageText" name="messageText" rows="4" cols="5"><c:out value="${messageText}"/></textarea>
       </p>
       <p class="submit-wrapper">
         <input class="button-primary" type="submit" name="addMember" value="<spring:message code='jsp.addmember.Submit' />" />

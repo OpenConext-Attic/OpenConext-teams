@@ -1,13 +1,21 @@
 package nl.surfnet.coin.teams.domain;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Lob;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Proxy;
+import org.hibernate.annotations.Sort;
+import org.hibernate.annotations.SortType;
+import org.springframework.util.CollectionUtils;
 
 import nl.surfnet.coin.shared.domain.DomainObject;
 import nl.surfnet.coin.teams.util.InvitationHashGenerator;
@@ -17,31 +25,6 @@ import nl.surfnet.coin.teams.util.InvitationHashGenerator;
 @Table(name = "invitations")
 @Proxy(lazy = false)
 public class Invitation extends DomainObject {
-
-  /**
-   * Constructor Hibernate needs when fetching results from the db.
-   * Do not use to create new Invitations.
-   */
-  public Invitation() {
-    this(null, null, null);
-  }
-
-  /**
-   * Constructor with the most common fields
-   *
-   * @param email   address of the person to invite
-   * @param teamId  id of the team the person will join
-   * @param inviter identifier of the inviter
-   */
-  public Invitation(String email, String teamId, String inviter) {
-    super();
-    this.setEmail(email);
-    this.setTeamId(teamId);
-    this.setInviter(inviter);
-    this.setTimestamp(new Date().getTime());
-    this.setInvitationHash();
-
-  }
 
   @Column(name = "group_id", nullable = false)
   private String teamId;
@@ -59,12 +42,32 @@ public class Invitation extends DomainObject {
   @Column(name = "denied")
   private boolean declined;
 
-  // value: Person#getId
-  // TODO: find out where this was used in the PHP code
-  private String inviter;
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "invitation")
+  @Sort(type = SortType.NATURAL)
+  private List<InvitationMessage> invitationMessages;
 
-  @Lob
-  private String message;
+  /**
+   * Constructor Hibernate needs when fetching results from the db.
+   * Do not use to create new Invitations.
+   */
+  public Invitation() {
+    this(null, null);
+  }
+
+  /**
+   * Constructor with the most common fields
+   *
+   * @param email  address of the person to invite
+   * @param teamId id of the team the person will join
+   */
+  public Invitation(String email, String teamId) {
+    super();
+    this.setEmail(email);
+    this.setTeamId(teamId);
+    this.setInvitationHash();
+    this.setTimestamp(new Date().getTime());
+    this.setInvitationMessages(new ArrayList<InvitationMessage>());
+  }
 
   /**
    * @param teamId the teamId to set
@@ -95,14 +98,14 @@ public class Invitation extends DomainObject {
   }
 
   /**
-   * @return timestamp when the invitation was created
+   * @return timestamp when the invitation was last updates
    */
   public long getTimestamp() {
     return timestamp;
   }
 
   /**
-   * @param timestamp to indicate when the invitation was created
+   * @param timestamp to indicate when the invitation was last updated
    */
   public void setTimestamp(long timestamp) {
     this.timestamp = timestamp;
@@ -137,30 +140,41 @@ public class Invitation extends DomainObject {
   }
 
   /**
-   * @return identifier of the inviter, similar to {@link org.opensocial.models.Person#getId()}
+   * @return List of {@link InvitationMessage}'s
    */
-  public String getInviter() {
-    return inviter;
+  public List<InvitationMessage> getInvitationMessages() {
+    return invitationMessages;
+  }
+
+  private void setInvitationMessages(List<InvitationMessage> invitationMessages) {
+    this.invitationMessages = invitationMessages;
   }
 
   /**
-   * @param inviter similar to {@link org.opensocial.models.Person#getId()}
+   * Adds one {@link InvitationMessage} to this Invitation
+   *
+   * @param invitationMessage {@link InvitationMessage} to add
    */
-  public void setInviter(String inviter) {
-    this.inviter = inviter;
+  public void addInvitationMessage(InvitationMessage invitationMessage) {
+    invitationMessage.setInvitation(this);
+    this.invitationMessages.add(invitationMessage);
   }
 
   /**
-   * @return message body of the invitation mail
+   * @return latest {@link InvitationMessage} or {@literal null} if none is set
+   *         // TODO: check which is newest?
    */
-  public String getMessage() {
-    return message;
+  public InvitationMessage getLatestInvitationMessage() {
+    if (CollectionUtils.isEmpty(invitationMessages)) {
+      return null;
+    }
+    return invitationMessages.get(invitationMessages.size() - 1);
   }
 
-  /**
-   * @param message body of the invitation mail
-   */
-  public void setMessage(String message) {
-    this.message = message;
-  }
+  public List<InvitationMessage> getInvitationMessagesReversed() {
+    List<InvitationMessage> copy = new ArrayList<InvitationMessage>(invitationMessages.size());
+    copy.addAll(invitationMessages);
+    Collections.reverse(copy);
+    return copy;
+}
 }

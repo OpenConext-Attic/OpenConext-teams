@@ -23,7 +23,7 @@ public class InvitationValidatorTest {
 
   @Test
   public void testValidate() throws Exception {
-    Invitation invitation = new Invitation("valid@example.com", null, null);
+    Invitation invitation = new Invitation("valid@example.com", null);
     Errors errors = new BeanPropertyBindingResult(invitation, "invitation");
     validator.validate(invitation, errors);
     assertEquals(0, errors.getErrorCount());
@@ -31,7 +31,7 @@ public class InvitationValidatorTest {
 
   @Test
   public void testFailOnNoEmail() throws Exception {
-    Invitation invitation = new Invitation("", null, null);
+    Invitation invitation = new Invitation("", null);
     Errors errors = new BeanPropertyBindingResult(invitation, "invitation");
     validator.validate(invitation, errors);
     assertEquals(1, errors.getErrorCount());
@@ -39,7 +39,7 @@ public class InvitationValidatorTest {
 
   @Test
   public void testFailOnInvalidEmail() throws Exception {
-    Invitation invitation = new Invitation("invalid.email.example.com", null, null);
+    Invitation invitation = new Invitation("invalid.email.example.com", null);
     Errors errors = new BeanPropertyBindingResult(invitation, "invitation");
     validator.validate(invitation, errors);
     assertEquals(1, errors.getErrorCount());
