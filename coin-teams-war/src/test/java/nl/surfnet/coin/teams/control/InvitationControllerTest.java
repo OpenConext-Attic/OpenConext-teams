@@ -42,7 +42,6 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
     assertTrue("Declined invitation", invitation.isDeclined());
     assertEquals("invitationdeclined", view);
-    assertTrue((Boolean) getModelMap().get("result"));
   }
 
 
