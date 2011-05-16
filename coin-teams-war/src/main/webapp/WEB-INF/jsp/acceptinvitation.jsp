@@ -4,18 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="teams"%>
 <teams:genericpage>
-<!-- = Header -->
-<div id="Header">
-  <ul class="team-actions">
-    <c:url value="home.shtml" var="myTeamsUrl"><c:param name="teams" value="my" /><c:param name="view" value="${view}" /></c:url>
-    <c:url value="home.shtml" var="allTeamsUrl"><c:param name="teams" value="all" /><c:param name="view" value="${view}" /></c:url>
-    <li class="first"><a class="btn-my-teams" href="${myTeamsUrl}"><spring:message code='jsp.home.MyTeams' /></a></li>
-    <li class="last"><a class="btn-all-teams" href="${allTeamsUrl}"><spring:message code='jsp.home.AllTeams' /></a></li>
-  </ul>
-  <br class="clear" />
-<!-- / Header -->
-</div>
-<!-- = Content -->
+<%-- = Content --%>
 <div id="Content">
   <p><h1><spring:message code="jsp.acceptinvitation.Title" /></h1></p>
   <p><spring:message code="jsp.acceptinvitation.Explanation" /></p>
@@ -51,7 +40,7 @@
       <a class="button-secondary" href="${cancelInvitationUrl}"><spring:message code='jsp.general.Cancel' /></a>
     </p>
   </div>
-<!-- / Content -->
+<%-- / Content --%>
 </div>
 </teams:genericpage>
 
