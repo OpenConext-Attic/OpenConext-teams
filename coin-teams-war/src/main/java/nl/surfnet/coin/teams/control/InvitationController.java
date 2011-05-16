@@ -128,7 +128,7 @@ public class InvitationController {
 
     Invitation invitation = getInvitationByRequest(request);
 
-    if(invitation == null) {
+    if (invitation == null) {
       // even if we can't find the invitation, we'll display success!
       return viewTemplate;
     }

@@ -7,20 +7,25 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
 
+import nl.surfnet.coin.shared.service.MailService;
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
@@ -65,6 +70,15 @@ public class DetailTeamController {
 
   @Autowired
   private TeamEnvironment teamEnvironment;
+
+  @Autowired
+  private LocaleResolver localeResolver;
+
+  @Autowired
+  private MessageSource messageSource;
+
+  @Autowired
+  private MailService mailService;
   
 
   @RequestMapping("/detailteam.shtml")
@@ -356,9 +370,36 @@ public class DetailTeamController {
       joinTeamRequestService.delete(pendingRequest);
     }
 
+    if (!approve) {
+      Locale locale = localeResolver.resolveLocale(request);
+      sendDeclineMail(memberToAdd, team, locale);
+    }
+
     return new RedirectView("detailteam.shtml?team="
             + URLEncoder.encode(teamId, UTF_8)
             + "&view=" + ViewUtil.getView(request));
+  }
+
+  /**
+   * Notifies the user that requested to join a team that his request has been declined
+   *
+   * @param memberToAdd {@link Person} that wanted to join the team
+   * @param team        {@link Team} he wanted to join
+   * @param locale      {@link Locale}
+   */
+  private void sendDeclineMail(final Person memberToAdd,
+                               final Team team, final Locale locale) {
+    String subject = messageSource.getMessage("request.mail.declined.subject", null, locale);
+    Object[] bodyValues = {team.getName()};
+    String body = messageSource.getMessage("request.mail.declined.body", bodyValues, locale);
+
+    SimpleMailMessage mailMessage = new SimpleMailMessage();
+    mailMessage.setFrom(teamEnvironment.getSystemEmail());
+    mailMessage.setTo(memberToAdd.getEmail());
+    mailMessage.setSubject(subject);
+    mailMessage.setText(body);
+
+    mailService.sendAsync(mailMessage);
   }
 
 
