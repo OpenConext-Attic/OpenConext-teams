@@ -50,7 +50,10 @@ public class InvitationController {
   @RequestMapping(value = "acceptInvitation.shtml")
   public String accept(ModelMap modelMap, HttpServletRequest request) {
     Invitation invitation = getInvitationByRequest(request);
-
+    if (invitation==null) {
+      modelMap.addAttribute("action", "accepted");
+      return "invitationexception";
+    }
     String teamId = invitation.getTeamId();
     if (!StringUtils.hasText(teamId)) {
       throw new RuntimeException("Invalid invitation");
@@ -125,13 +128,13 @@ public class InvitationController {
 
     Invitation invitation = getInvitationByRequest(request);
 
-    boolean found = (invitation != null);
-    if (found) {
-      invitation.setDeclined(true);
-      teamInviteService.saveOrUpdate(invitation);
+    if(invitation == null) {
+      // even if we can't find the invitation, we'll display success!
+      return viewTemplate;
     }
-
-    modelMap.addAttribute("result", found);
+    
+    invitation.setDeclined(true);
+    teamInviteService.saveOrUpdate(invitation);
     return viewTemplate;
   }
 

@@ -7,12 +7,12 @@
   <div id="Header">
     <c:url value="home.shtml" var="backUrl" ><c:param name="teams" value="all" /><c:param name="view" value="app" /></c:url>
     <p class="${back}"><a href="${backUrl}">&lt; <spring:message code='jsp.home.AllTeams' /></a></p>
-    <h1><spring:message code='jsp.detailteam.InvitationDeclined' /></h1>
+    <h1><spring:message code='jsp.acceptinvitation.Title' /></h1>
   </div>
 
   <%-- = Content --%>
   <div id="Content">
-    <spring:message code="jsp.invitationdeclined.success" htmlEscape="false" />
+    <spring:message code="jsp.invitation${action}.failed" htmlEscape="false" />
   </div>
   <%-- / Content --%>
 </teams:genericpage>
