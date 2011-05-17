@@ -9,8 +9,8 @@ import static org.mockito.Mockito.when;
 
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.web.servlet.view.RedirectView;
 
+import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.TeamService;
 
 /**
@@ -36,7 +36,7 @@ public class AddTeamControllerTest extends AbstractControllerTest{
     // request team
     request.setParameter("team", "Team 1");
     request.setParameter("description", "description team 1");
-
+    Team team = new Team("Team 1", "Team 1", "description team 1", null);
     TeamService teamService = mock(TeamService.class);
     when(teamService.addTeam("Team 1", "Team 1", "description team 1",
             null)).thenReturn("team-1");
@@ -44,13 +44,13 @@ public class AddTeamControllerTest extends AbstractControllerTest{
     autoWireMock(addTeamController, teamService, TeamService.class);
     autoWireRemainingResources(addTeamController);
     
-    RedirectView view = addTeamController.addTeam(getModelMap(), request);
+    String view = addTeamController.addTeam(getModelMap(), team, request);
         
-    assertEquals("detailteam.shtml?team=team-1&view=app", view.getUrl());
+    assertEquals("redirect:detailteam.shtml?team=team-1&view=app", view);
   }
   
-  @Test (expected=RuntimeException.class)
-  public void testAddTeam() throws Exception {
+  @Test
+  public void testFailToAddTeamWithEmptyName() throws Exception {
     MockHttpServletRequest request = getRequest();
     // request team
     request.setParameter("description", "description team 1");
@@ -58,10 +58,12 @@ public class AddTeamControllerTest extends AbstractControllerTest{
     TeamService teamService = mock(TeamService.class);
     when(teamService.addTeam("Team 1", "Team 1", "description team 1",
             null)).thenReturn("team-1");
-    
+    Team team = new Team("Team 1", "", "description team 1", null);
+
     autoWireMock(addTeamController, teamService, TeamService.class);
     autoWireRemainingResources(addTeamController);
     
-    addTeamController.addTeam(getModelMap(), request);
+    String view = addTeamController.addTeam(getModelMap(), team, request);
+    assertEquals("addteam", view);
     }
 }

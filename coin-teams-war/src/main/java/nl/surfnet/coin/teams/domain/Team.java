@@ -22,11 +22,15 @@ public class Team implements Serializable {
   private Role viewerRole;
   private boolean viewable;
 
+  public Team() {
+    super();
+  }
+  
   /**
-   * @param id
-   * @param name
-   * @param description
-   * @param members
+   * @param id of the team
+   * @param name of the team
+   * @param description extra description
+   * @param members {@link Set} of {@link Member}'s
    */
   public Team(String id, String name, String description, Set<Member> members) {
     super();
@@ -37,11 +41,11 @@ public class Team implements Serializable {
   }
   
   /**
-   * @param id
-   * @param name
-   * @param description
-   * @param members
-   * @param viewable
+   * @param id of the team
+   * @param name of the team
+   * @param description extra description
+   * @param members {@link Set} of {@link Member}'s
+   * @param viewable if {@literal false} then it's a private team
    */
   public Team(String id, String name, String description, Set<Member> members, boolean viewable) {
     this(id, name, description, members);
@@ -49,19 +53,20 @@ public class Team implements Serializable {
   }
 
   /**
-   * @param id
-   * @param name
-   * @param description
+   * @param id of the team
+   * @param name of the team
+   * @param description extra description
+   *
    */
   public Team(String id, String name, String description) {
     this(id, name, description, new HashSet<Member>());
   }
   
   /**
-   * @param id
-   * @param name
-   * @param description
-   * @param viewable
+   * @param id of the team
+   * @param name of the team
+   * @param description extra description
+   * @param viewable if {@literal false} then it's a private team
    */
   public Team(String id, String name, String description, boolean viewable) {
     this(id, name, description, new HashSet<Member>());
@@ -109,10 +114,10 @@ public class Team implements Serializable {
   }
 
   /**
-   * Remove a member
+   * Remove members
    * 
-   * @param members
-   *          the members
+   * @param member
+   *          varag of {@link Member}
    */
   public void removeMembers(Member... member) {
     for (int i = 0; i < member.length; i++) {
@@ -135,7 +140,7 @@ public class Team implements Serializable {
   }
 
   /**
-   * @param viewerRole the viewerRole to set
+   * @param person id of the person to assign the viewerRole to
    */
   public void setViewerRole(String person) {
     Set<Member> members = getMembers();

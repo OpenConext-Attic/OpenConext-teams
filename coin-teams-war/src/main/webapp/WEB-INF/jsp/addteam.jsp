@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="teams"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <teams:genericpage>
 <!-- = TeamContainer -->
 <div class="section" id="TeamContainer">
@@ -16,15 +17,27 @@
   <!-- = Content -->
   <div id="Content">
     <c:url value="doaddteam.shtml" var="doAddTeamUrl"><c:param name="view" value="${view}" /></c:url>
-    <form id="AddTeamForm" action="<c:out value='${doAddTeamUrl}' />" method="post">
+    <form:form id="AddTeamForm" action="${doAddTeamUrl}" method="post" commandName="team">
       <input type="hidden" name="view" value="<c:out value='${view}' />" />
       <p class="label-field-wrapper">
+        <c:set var="errorClass"><c:if test="${not empty nameerror}">error</c:if></c:set>
         <label for="TeamName"><spring:message code='jsp.general.TeamName' /></label>
-        <input id="TeamName" type="text" name="team" class="required" />
+        <form:input path="name" id="TeamName" cssClass="required" cssErrorClass="error"/>
+        <%--<input id="TeamName" type="text" name="team" class="${errorClass} required" value="<c:out value="${teamName}"/>"/>--%>
+        <c:choose>
+          <c:when test="${nameerror eq 'empty'}">
+            <label for="TeamName" class="error"><spring:message code="jsp.error.Field.Required"/></label>
+          </c:when>
+          <c:when test="${nameerror eq 'duplicate'}">
+            <label for="TeamName" class="error"><spring:message code="jsp.addteam.error.duplicate"/></label>
+          </c:when>
+        </c:choose>
+
       </p>
       <p class="label-field-wrapper">
         <label for="TeamDescription"><spring:message code='jsp.general.Description' /></label>
-        <input id="TeamDescription" name="description" type="text" />
+        <form:input path="description" id="TeamDescription"/>
+        <%--<input id="TeamDescription" name="description" type="text" value="<c:out value="${teamDescription}"/>"/>--%>
       </p>
       <p class="label-field-wrapper">
         <span class="consent-wrapper">&nbsp;</span>
@@ -33,11 +46,13 @@
       <p class="submit-wrapper">
         <input class="button-disabled" type="submit" name="createTeam" value="<spring:message code='jsp.addteam.Submit' />" disabled="disabled" />
         <input class="button-secondary" type="submit" name="cancelCreateTeam" value="<spring:message code='jsp.general.Cancel' />" />
-        <input id="TeamViewability" type="checkbox" name="viewabilityStatus" value="1" />
+        <%-- Mindgame: Checkbox "Make private" has opposite value of Team#isViewable --%>
+        <c:set var="private"><c:if test="${team.viewable eq false}"> checked</c:if></c:set>
+        <input id="TeamViewability" type="checkbox" name="viewabilityStatus" value="1" ${private}/>
         <label for="TeamViewability"><spring:message code='jsp.general.TeamViewability' /></label>
       </p>
       <br class="clear" />
-    </form>
+    </form:form>
   <!-- / Content -->
   </div>
 <!-- / TeamContainer -->

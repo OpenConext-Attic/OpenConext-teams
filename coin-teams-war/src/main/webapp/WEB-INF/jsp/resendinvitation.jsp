@@ -7,14 +7,14 @@
 <teams:genericpage>
 <!-- = TeamContainer -->
 <div class="section" id="TeamContainer">
-  <!-- = Header -->
+  <%-- = Header --%>
   <div id="Header">
     <h1><spring:message code='jsp.resendInvite.Title' /></h1>
     <c:url value="home.shtml" var="closeUrl"><c:param name="teams" value="my" /><c:param name="view" value="${view}" /></c:url>
     <p class="close"><a href="${closeUrl}"><spring:message code='jsp.general.CloseForm' /></a></p>
-  <!-- / Header -->
+  <%-- / Header --%>
   </div>
-  <!-- = Content -->
+  <%-- = Content --%>
   <div id="Content">
     <form:form action="doResendInvitation.shtml" commandName="invitation" method="post">
       <p class="label-field-wrapper">
@@ -35,8 +35,8 @@
       <br class="clear" />
     </form:form>
 
-  <!-- / Content -->
+  <%-- / Content --%>
   </div>
-<!-- / TeamContainer -->
+<%-- / TeamContainer --%>
 </div>
 </teams:genericpage>

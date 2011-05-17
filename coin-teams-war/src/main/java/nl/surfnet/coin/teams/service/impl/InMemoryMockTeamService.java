@@ -111,6 +111,10 @@ public class InMemoryMockTeamService implements TeamService {
                         String teamDescription, String stemName)
           throws DuplicateTeamException {
     Team team = new Team(teamId, displayName, teamDescription);
+    if (teams.containsKey(teamId)) {
+      throw new DuplicateTeamException("There is already a team with id '"
+              + teamId + "'");
+    }
     teams.put(team.getId(), team);
     return team.getId();
   }
