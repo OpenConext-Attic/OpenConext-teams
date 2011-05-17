@@ -5,16 +5,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="teams"%>
 <teams:genericpage>
-<!-- = TeamContainer -->
+<%-- = TeamContainer --%>
 <div class="section" id="TeamContainer">
-  <!-- = Header -->
+  <%-- = Header --%>
   <div id="Header">
     <h1><spring:message code='jsp.addmember.Title' /></h1>
     <c:url value="home.shtml" var="closeUrl"><c:param name="teams" value="my" /><c:param name="view" value="${view}" /></c:url>
     <p class="close"><a href="${closeUrl}"><spring:message code='jsp.general.CloseForm' /></a></p>
-  <!-- / Header -->
+  <%-- / Header --%>
   </div>
-  <!-- = Content -->
+  <%-- = Content --%>
   <div id="Content">
     <div>
       <spring:message code="invite.introduction" htmlEscape="false"/>
@@ -35,6 +35,7 @@
         <form:label path="csvFile"><spring:message code="jsp.addmember.CsvEmail"/></form:label>
         <form:input type="file" path="csvFile" accept="text/csv" cssErrorClass="error"/>
         <form:errors path="csvFile" cssClass="error" element="label"/>
+        <span class="file-input-field-info"><spring:message code="jsp.addmember.CsvEmail.help"/></span>
       </p>
       <p class="label-field-wrapper">
         <form:label path="message"><spring:message code='jsp.general.Message' /></form:label>
@@ -47,8 +48,8 @@
       <br class="clear" />
     </form:form>
 
-  <!-- / Content -->
+  <%-- / Content --%>
   </div>
-<!-- / TeamContainer -->
+<%-- / TeamContainer --%>
 </div>
 </teams:genericpage>
