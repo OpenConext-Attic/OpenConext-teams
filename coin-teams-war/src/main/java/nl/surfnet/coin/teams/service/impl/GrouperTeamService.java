@@ -556,4 +556,11 @@ public class GrouperTeamService implements TeamService {
         + "') is not a member of the given team");
   }
 
+  /**
+   * @param environment the environment to set
+   */
+  public void setEnvironment(TeamEnvironment environment) {
+    this.environment = environment;
+  }
+
 }
