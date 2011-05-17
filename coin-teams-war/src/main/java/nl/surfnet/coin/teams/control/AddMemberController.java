@@ -10,6 +10,20 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.servlet.http.HttpServletRequest;
 
+import nl.surfnet.coin.shared.service.MailService;
+import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.InvitationForm;
+import nl.surfnet.coin.teams.domain.InvitationMessage;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.ShindigActivityService;
+import nl.surfnet.coin.teams.service.TeamInviteService;
+import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.service.impl.InvitationFormValidator;
+import nl.surfnet.coin.teams.service.impl.InvitationValidator;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
+import nl.surfnet.coin.teams.util.ViewUtil;
+
 import org.apache.commons.io.IOUtils;
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,21 +42,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
-
-import nl.surfnet.coin.shared.service.MailService;
-import nl.surfnet.coin.teams.domain.Invitation;
-import nl.surfnet.coin.teams.domain.InvitationForm;
-import nl.surfnet.coin.teams.domain.InvitationMessage;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.ShindigActivityService;
-import nl.surfnet.coin.teams.service.TeamInviteService;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.service.impl.InvitationFormValidator;
-import nl.surfnet.coin.teams.service.impl.InvitationValidator;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
-import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * @author steinwelberg
@@ -251,7 +250,6 @@ public class AddMemberController {
     Team team = teamService.findTeamById(teamId);
     String inviterPersonId = form.getInviter().getId();
 
-    Member inviter = teamService.findMember(team, inviterPersonId);
     Object[] messageValuesSubject = {team.getName()};
     String subject = messageSource.getMessage(INVITE_SEND_INVITE_SUBJECT,
             messageValuesSubject, locale);
