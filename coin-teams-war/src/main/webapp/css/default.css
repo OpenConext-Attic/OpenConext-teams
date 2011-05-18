@@ -49,6 +49,11 @@
     width: 100%;
 }
 
+.component-title-bar a {
+  color: #FFF;
+  text-decoration: underline;
+  }
+
 .component-content {
 	padding: 10px;
 	border: 1px solid #c1c1bd;
@@ -136,7 +141,8 @@ p.description {
 a {
 	outline: none;
 	text-decoration: none;
-	color: #288DD4;
+	/*color: #288DD4;*/
+  color: #F86D00;
 }
 
 dl, dd, dt {
@@ -699,4 +705,23 @@ a.delete {
   display:block;
   text-indent: -9999em;
   background:url("../media/teams-icons-sprite.png") no-repeat scroll 0 -198px transparent;
+}
+
+/* PAGINATION */
+.pagination li {
+  float:left;
+  list-style: none outside none;
+  margin: 0;
+  padding: 0;
+}
+.pagination .page {
+  display: block;
+  padding: 0 17px 0 15px;
+  background: transparent url(../media/teams-icons-sprite.png) 100% -250px no-repeat;
+}
+
+span.page {font-weight: bold;}
+
+.pagination .last {
+  background: none;
 }

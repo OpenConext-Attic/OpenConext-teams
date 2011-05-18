@@ -17,7 +17,7 @@
         <c:param name="offset" value="${offset - pagesize}"/>
         <c:param name="teams" value="${display}"/>
       </c:url>
-      <li><a href="<c:out value="${prev}"/>">&lsaquo;</a></li>
+      <li><a href="<c:out value="${prev}"/>" class="page first">&lsaquo;</a></li>
     </c:if>
 
     <c:set var="begin">
@@ -55,8 +55,8 @@
           <c:param name="teams" value="${display}"/>
         </c:url>
         <c:choose>
-          <c:when test="${localOffset eq offset}"><fmt:formatNumber pattern="#" value="${(localOffset / pagesize) + 1}"/></c:when>
-          <c:otherwise><a href="<c:out value="${pageUrl}"/>"><fmt:formatNumber pattern="#" value="${(localOffset / pagesize) + 1}"/></a></c:otherwise>
+          <c:when test="${localOffset eq offset}"><span class="page"><fmt:formatNumber pattern="#" value="${(localOffset / pagesize) + 1}"/></span></c:when>
+          <c:otherwise><a href="<c:out value="${pageUrl}"/>" class="page"><fmt:formatNumber pattern="#" value="${(localOffset / pagesize) + 1}"/></a></c:otherwise>
         </c:choose>
       </li>
     </c:forEach>
@@ -67,7 +67,7 @@
         <c:param name="offset" value="${offset + pagesize}"/>
         <c:param name="teams" value="${display}"/>
       </c:url>
-      <li><a href="<c:out value="${next}"/>">&rsaquo;</a></li>
+      <li><a href="<c:out value="${next}"/>" class="page last">&rsaquo;</a></li>
       <c:url value="home.shtml" var="last">
         <c:param name="view" value="${view}"/>
         <c:param name="teamSearch" value="${query}"/>
