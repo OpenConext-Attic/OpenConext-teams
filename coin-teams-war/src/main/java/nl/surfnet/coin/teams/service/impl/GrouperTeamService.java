@@ -156,7 +156,7 @@ public class GrouperTeamService implements TeamService {
         }
         String displayExtension = wsGroup.getDisplayExtension();
         String description = wsGroup.getDescription();
-        Set<Member> members = new HashSet<Member>();
+        List<Member> members = new ArrayList<Member>();
         if (retrieveAll) {
           members = getMembers(name, privilegeResults);
         }
@@ -199,8 +199,8 @@ public class GrouperTeamService implements TeamService {
 
   }
 
-  private Set<Member> getMembers(String teamId,
-      WsGrouperPrivilegeResult[] privilegeResults) {
+  private List<Member> getMembers(String teamId,
+                                  WsGrouperPrivilegeResult[] privilegeResults) {
     GcGetMembers getMember = new GcGetMembers();
     getMember.assignActAsSubject(getActAsSubject(true));
     getMember.assignIncludeSubjectDetail(Boolean.TRUE);
@@ -208,7 +208,7 @@ public class GrouperTeamService implements TeamService {
     getMember.addSubjectAttributeName("mail");
     getMember.addSubjectAttributeName("displayName");
     WsGetMembersResult[] getMembers = getMember.execute().getResults();
-    Set<Member> members = new HashSet<Member>();
+    List<Member> members = new ArrayList<Member>();
     if (getMembers[0].getWsSubjects() != null
         && getMembers[0].getWsSubjects().length > 0) {
       WsSubject[] subjects = getMembers[0].getWsSubjects();
@@ -224,7 +224,7 @@ public class GrouperTeamService implements TeamService {
     return members;
   }
 
-  private void addRolesToMembers(Set<Member> members, String teamId,
+  private void addRolesToMembers(List<Member> members, String teamId,
       WsGrouperPrivilegeResult[] privilegeResults) {
     if (privilegeResults != null) {
       for (Member member : members) {
@@ -500,7 +500,7 @@ public class GrouperTeamService implements TeamService {
   @Override
   public Member findMember(String teamId, String memberId) {
     Team team = findTeamById(teamId);
-    Set<Member> members = team.getMembers();
+    List<Member> members = team.getMembers();
 
     for (Member member : members) {
       if (member.getId().equals(memberId)) {
@@ -514,7 +514,7 @@ public class GrouperTeamService implements TeamService {
   @Override
   public Set<Member> findAdmins(Team team) {
     Set<Member> result = new HashSet<Member>();
-    Set<Member> members = team.getMembers();
+    List<Member> members = team.getMembers();
 
     for (Member member : members) {
       Set<Role> roles = member.getRoles();
@@ -545,7 +545,7 @@ public class GrouperTeamService implements TeamService {
 
   @Override
   public Member findMember(Team team, String memberId) {
-    Set<Member> members = team.getMembers();
+    List<Member> members = team.getMembers();
 
     for (Member member : members) {
       if (member.getId().equals(memberId)) {

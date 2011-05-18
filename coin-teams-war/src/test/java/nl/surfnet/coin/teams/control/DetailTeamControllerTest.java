@@ -9,9 +9,10 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
@@ -58,7 +59,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     admins.add(new Member(new HashSet<Role>(), "Jane Doe", "member-2",
         "jane@doe.com"));
 
-    Set<Member> members = new HashSet<Member>();
+    List<Member> members = new ArrayList<Member>();
     members.add(new Member(roles, "Jane Doe", "member-2", "jane@doe.com"));
 
     Team mockTeam = new Team("team-1", "Team 1", "team description", members);
@@ -73,14 +74,14 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     String result = detailTeamController.start(getModelMap(), request);
 
     Team team = (Team) getModelMap().get("team");
-    Member[] membersResult = team.getMembers().toArray(new Member[] {});
-    Member member = membersResult[0];
+
+    Member member = team.getMembers().get(0);
 
     assertEquals("team-1", team.getId());
     assertEquals("Team 1", team.getName());
     assertEquals("team description", team.getDescription());
     
-    assertEquals(1, membersResult.length);
+    assertEquals(1, team.getMembers().size());
     assertEquals("Jane Doe", member.getName());
     assertEquals("jane@doe.com", member.getEmail());
     assertEquals("member-2", member.getId());
@@ -103,7 +104,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     admins.add(new Member(new HashSet<Role>(), "Jane Doe", "member-2",
         "jane@doe.com"));
 
-    Set<Member> members = new HashSet<Member>();
+    List<Member> members = new ArrayList<Member>();
     members.add(new Member(roles, "John Doe", "member-1", "john@doe.com"));
     members.add(new Member(roles, "Jane Doe", "member-2", "jane@doe.com"));
 
@@ -144,7 +145,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     admins.add(new Member(new HashSet<Role>(), "Jane Doe", "member-2",
         "jane@doe.com"));
 
-    Set<Member> members = new HashSet<Member>();
+    List<Member> members = new ArrayList<Member>();
     members.add(new Member(roles, "John Doe", "member-1", "john@doe.com"));
     members.add(new Member(roles, "Jane Doe", "member-2", "jane@doe.com"));
 
@@ -187,7 +188,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     admins.add(new Member(new HashSet<Role>(), "Jane Doe", "member-2",
         "jane@doe.com"));
 
-    Set<Member> members = new HashSet<Member>();
+    List<Member> members = new ArrayList<Member>();
     members.add(new Member(roles, "John Doe", "member-1", "john@doe.com"));
     members.add(new Member(roles, "Jane Doe", "member-2", "jane@doe.com"));
 
@@ -234,7 +235,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     admins.add(new Member(new HashSet<Role>(), "John Doe", "member-1",
         "john@doe.com"));
 
-    Set<Member> members = new HashSet<Member>();
+    List<Member> members = new ArrayList<Member>();
     members.add(new Member(roles, "John Doe", "member-1", "john@doe.com"));
     members.add(new Member(roles, "Jane Doe", "member-2", "jane@doe.com"));
 
@@ -267,7 +268,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     admins.add(new Member(new HashSet<Role>(), "John Doe", "member-1",
         "john@doe.com"));
 
-    Set<Member> members = new HashSet<Member>();
+    List<Member> members = new ArrayList<Member>();
     members.add(new Member(roles, "John Doe", "member-1", "john@doe.com"));
     members.add(new Member(roles, "Jane Doe", "member-2", "jane@doe.com"));
 
@@ -463,7 +464,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     admins.add(new Member(new HashSet<Role>(), "Jane Doe", "member-2",
         "jane@doe.com"));
 
-    Set<Member> members = new HashSet<Member>();
+    List<Member> members = new ArrayList<Member>();
     members.add(new Member(roles, "Jane Doe", "member-2", "jane@doe.com"));
 
     Team mockTeam = new Team("team-1", "Team 1", "team description", members);
@@ -498,7 +499,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     admins.add(new Member(new HashSet<Role>(), "Jane Doe", "member-2",
         "jane@doe.com"));
 
-    Set<Member> members = new HashSet<Member>();
+    List<Member> members = new ArrayList<Member>();
     members.add(new Member(roles, "Jane Doe", "member-2", "jane@doe.com"));
 
     Team mockTeam = new Team("team-1", "Team 1", "team description", members);
@@ -545,7 +546,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     admins.add(new Member(new HashSet<Role>(), "Jane Doe", "member-1",
         "jane@doe.com"));
 
-    Set<Member> members = new HashSet<Member>();
+    List<Member> members = new ArrayList<Member>();
     Member loggedInMember = new Member(roles, "Jane Doe", "member-1", "jane@doe.com");
     members.add(loggedInMember);
 

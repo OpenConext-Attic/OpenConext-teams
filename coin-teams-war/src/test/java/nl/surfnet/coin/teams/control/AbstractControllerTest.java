@@ -7,6 +7,7 @@ import static org.mockito.Mockito.mock;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -61,7 +62,7 @@ public abstract class AbstractControllerTest {
   }
   
   protected Returns getMyTeamReturn() {
-    ArrayList<Team> teams = new ArrayList<Team>();
+    List<Team> teams = new ArrayList<Team>();
     Team team1 = new Team("team-1", "Team 1", "Description team 1");
     Team team2 = new Team("team-2", "Team 2", "Description team 2");
     Team team3 = new Team("team-3", "Team 3", "Description team 3");
@@ -72,7 +73,7 @@ public abstract class AbstractControllerTest {
   }
   
   protected Returns getAllTeamReturn() {
-    ArrayList<Team> teams = new ArrayList<Team>();
+    List<Team> teams = new ArrayList<Team>();
     Team team1 = new Team("team-1", "Team 1", "Description team 1");
     Team team2 = new Team("team-2", "Team 2", "Description team 2");
     Team team3 = new Team("team-3", "Team 3", "Description team 3");

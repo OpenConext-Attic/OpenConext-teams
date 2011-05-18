@@ -111,7 +111,7 @@ public class InMemoryMockTeamService implements TeamService {
   @Override
   public Member findMember(String teamId, String memberId) {
     Team team = findTeam(teamId);
-    Set<Member> members = team.getMembers();
+    List<Member> members = team.getMembers();
     for (Member member : members) {
       if (member.getId().equals(memberId)) {
         return member;
@@ -202,7 +202,7 @@ public class InMemoryMockTeamService implements TeamService {
     Collection<Team> values = teams.values();
     Set<Team> result = new HashSet<Team>();
     for (Team team : values) {
-      Set<Member> members = team.getMembers();
+      List<Member> members = team.getMembers();
       for (Member member : members) {
         if (member.getId().equalsIgnoreCase(memberId)) {
           result.add(team);
@@ -271,7 +271,7 @@ public class InMemoryMockTeamService implements TeamService {
     List<Team> allTeams = findAllTeams(STEM);
     Member m = null;
     for (Team team : allTeams) {
-      Set<Member> members = team.getMembers();
+      List<Member> members = team.getMembers();
       for (Member member : members) {
         if (member.getId().equals(personId)) {
           m = member.copy();
@@ -302,7 +302,7 @@ public class InMemoryMockTeamService implements TeamService {
   @Override
   public Set<Member> findAdmins(Team team) {
     Set<Member> result = new HashSet<Member>();
-    Set<Member> members = team.getMembers();
+    List<Member> members = team.getMembers();
     
     for (Member member : members) {
       if (member.getRoles().contains(Role.Admin)) {
@@ -318,7 +318,7 @@ public class InMemoryMockTeamService implements TeamService {
    */
   @Override
   public Member findMember(Team team, String memberId) {
-    Set<Member> members = team.getMembers();
+    List<Member> members = team.getMembers();
     for (Member member : members) {
       if (member.getId().equals(memberId)) {
         return member;

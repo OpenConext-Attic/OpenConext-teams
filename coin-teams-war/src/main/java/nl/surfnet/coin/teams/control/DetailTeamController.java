@@ -105,7 +105,7 @@ public class DetailTeamController {
       request.getSession().setAttribute(TEAM_PARAM, team);
     }
 
-    Set<Member> members = team.getMembers();
+    List<Member> members = team.getMembers();
 
     // Iterate over the members to get the roles for the logged in user.
     for (Member member : members) {

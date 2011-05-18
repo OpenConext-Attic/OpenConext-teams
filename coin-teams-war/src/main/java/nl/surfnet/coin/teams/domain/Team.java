@@ -4,7 +4,8 @@
 package nl.surfnet.coin.teams.domain;
 
 import java.io.Serializable;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.util.CollectionUtils;
@@ -18,7 +19,7 @@ public class Team implements Serializable {
   private String id;
   private String name;
   private String description;
-  private Set<Member> members = new HashSet<Member>();
+  private List<Member> members = new ArrayList<Member>();
   private Role viewerRole;
   private boolean viewable;
 
@@ -32,7 +33,7 @@ public class Team implements Serializable {
    * @param description extra description
    * @param members {@link Set} of {@link Member}'s
    */
-  public Team(String id, String name, String description, Set<Member> members) {
+  public Team(String id, String name, String description, List<Member> members) {
     super();
     this.id = id;
     this.name = name;
@@ -47,7 +48,7 @@ public class Team implements Serializable {
    * @param members {@link Set} of {@link Member}'s
    * @param viewable if {@literal false} then it's a private team
    */
-  public Team(String id, String name, String description, Set<Member> members, boolean viewable) {
+  public Team(String id, String name, String description, List<Member> members, boolean viewable) {
     this(id, name, description, members);
     this.viewable = viewable;
   }
@@ -59,7 +60,7 @@ public class Team implements Serializable {
    *
    */
   public Team(String id, String name, String description) {
-    this(id, name, description, new HashSet<Member>());
+    this(id, name, description, new ArrayList<Member>());
   }
   
   /**
@@ -69,7 +70,7 @@ public class Team implements Serializable {
    * @param viewable if {@literal false} then it's a private team
    */
   public Team(String id, String name, String description, boolean viewable) {
-    this(id, name, description, new HashSet<Member>());
+    this(id, name, description, new ArrayList<Member>());
     this.viewable = viewable;
   }
 
@@ -97,7 +98,7 @@ public class Team implements Serializable {
   /**
    * @return the members
    */
-  public Set<Member> getMembers() {
+  public List<Member> getMembers() {
     return members;
   }
 
@@ -143,7 +144,7 @@ public class Team implements Serializable {
    * @param person id of the person to assign the viewerRole to
    */
   public void setViewerRole(String person) {
-    Set<Member> members = getMembers();
+    List<Member> members = getMembers();
     
     for (Member member : members) {
       if (member.getId().equals(person) && !CollectionUtils.isEmpty(member.getRoles())) {
