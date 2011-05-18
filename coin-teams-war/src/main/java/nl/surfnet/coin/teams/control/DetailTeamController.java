@@ -56,6 +56,9 @@ public class DetailTeamController {
   private static final String MEMBER_PARAM = "member";
   private static final String ROLE_PARAM = "role";
 
+  private static final int PAGESIZE = 10;
+
+
   @Autowired
   private TeamService teamService;
 
@@ -89,16 +92,17 @@ public class DetailTeamController {
         LoginInterceptor.PERSON_SESSION_KEY);
     String personId = person.getId();
     String teamId = URLDecoder.decode(request.getParameter(TEAM_PARAM), UTF_8);
+    if(!StringUtils.hasText(teamId)) {
+      throw new IllegalArgumentException("Missing parameter for team");
+    }
     Set<Role> roles = new HashSet<Role>();
     String message = request.getParameter("mes");
-    Team team = null;
 
-    if (StringUtils.hasText(teamId)) {
+    Team team = (Team) request.getSession().getAttribute(TEAM_PARAM);
+
+    if (team == null || !(teamId.equals(team.getId()))) {
       team = teamService.findTeamById(request.getParameter(TEAM_PARAM));
-    }
-
-    if (team == null || !StringUtils.hasText(personId)) {
-      throw new RuntimeException("Wrong parameters.");
+      request.getSession().setAttribute(TEAM_PARAM, team);
     }
 
     Set<Member> members = team.getMembers();
@@ -119,6 +123,19 @@ public class DetailTeamController {
 
     modelMap.addAttribute("invitations",
             teamInviteService.findInvitationsForTeam(team));
+
+    int offset = 0;
+    String offsetParam = request.getParameter("offset");
+    if (StringUtils.hasText(offsetParam)) {
+      try {
+        offset = Integer.parseInt(offsetParam);
+      } catch (NumberFormatException e) {
+        // do nothing
+      }
+    }
+    modelMap.addAttribute("offset", offset);
+    modelMap.addAttribute("resultset", team.getMembers().size());
+    modelMap.addAttribute("pagesize", PAGESIZE);
 
     modelMap.addAttribute("onlyAdmin", onlyAdmin);
     modelMap.addAttribute(TEAM_PARAM, team);

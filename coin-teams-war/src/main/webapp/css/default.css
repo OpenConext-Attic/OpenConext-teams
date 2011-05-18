@@ -135,7 +135,6 @@ p.not-member {
 }
 
 p.description {
-	float: left;
 }
 
 a {
@@ -708,6 +707,14 @@ a.delete {
 }
 
 /* PAGINATION */
+.pagination-wrapper {
+  margin-bottom: 3em;
+}
+.pagination {
+  margin-left: 0;
+  padding: 0;
+}
+
 .pagination li {
   float:left;
   list-style: none outside none;
@@ -722,6 +729,22 @@ a.delete {
 
 span.page {font-weight: bold;}
 
-.pagination .last {
+.pagination .lastpage {
   background: none;
+}
+.pagination .first {
+  background: transparent url(../media/teams-icons-sprite.png) 0 -449px no-repeat;
+  margin-right: -7px;
+}
+.pagination .prev {
+  background: transparent url(../media/teams-icons-sprite.png) 100% -349px no-repeat;
+  margin-right: -12px;
+}
+.pagination .next {
+  margin-left: -10px;
+  background: transparent url(../media/teams-icons-sprite.png) 0% -299px no-repeat;
+}
+
+.pagination .last {
+  background: transparent url(../media/teams-icons-sprite.png) 100% -399px no-repeat;
 }

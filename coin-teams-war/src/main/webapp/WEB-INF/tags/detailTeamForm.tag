@@ -3,12 +3,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://teamfn" prefix="teamfn" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="teams"%>
+<div class="pagination-wrapper">
+  <teams:paginate baseUrl="detailteam.shtml"/>
+</div>
 <jsp:useBean id="timestamp" class="java.util.Date"/>
 <jsp:useBean id="expires" class="java.util.Date"/>
 <form action="">
   <input type="hidden" name="teamId" value="<c:out value='${team.id}' />"/>
   <input type="hidden" name="view" value="<c:out value='${view}' />"/>
-
   <div class="team-table-wrapper">
     <table class="team-table">
       <thead>
@@ -25,7 +28,13 @@
       </thead>
       <tbody>
       <c:if test="${fn:length(team.members) > 0 }">
-        <c:forEach items="${team.members}" var="member">
+        <c:set var="end">
+          <c:choose>
+            <c:when test="${offset + pagesize > resultset}">${resultset}</c:when>
+            <c:otherwise>${offset + pagesize - 1}</c:otherwise>
+          </c:choose>
+        </c:set>
+        <c:forEach items="${team.members}" var="member" begin="${offset}" end="${end}">
           <tr>
             <%--
             Deleting a member is allowed when:
