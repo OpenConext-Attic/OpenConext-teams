@@ -35,6 +35,7 @@
   <form action="doAcceptInvitation.shtml" id="AcceptInvitationForm">
     <fieldset>
       <input type="hidden" name="view" value="app"/>
+      <input type="hidden" name="id" value="<c:out value="${invitation.invitationHash}"/>">
       <p class="label-field-wrapper">
         <input id ="TeamConsent" type="checkbox" name="consent" /><label for="TeamConsent" class="consent"><spring:message code='jsp.jointeam.Consent' /></label>
       </p>
@@ -46,14 +47,6 @@
         <input class="button-secondary" type="submit" name="cancelJoinTeam"
                value="<spring:message code='jsp.general.Cancel' />" />
       </p>
-
-      <%--<c:url value="doAcceptInvitation.shtml" var="acceptInvitationUrl"><c:param name="id" value="${invitation.invitationHash}" /><c:param name="view" value="app" /></c:url>--%>
-      <%--<c:url value="home.shtml" var="cancelInvitationUrl"><c:param name="view" value="app" /></c:url>--%>
-      <%--<p class="accept">--%>
-        <%----%>
-        <%--<a class="button-primary" href="${acceptInvitationUrl}"><spring:message code='jsp.acceptinvitation.Accept' /></a>--%>
-        <%--<a class="button-secondary" href="${cancelInvitationUrl}"><spring:message code='jsp.general.Cancel' /></a>--%>
-      <%--</p>--%>
     </fieldset>
   </form>
 <%-- / Content --%>
