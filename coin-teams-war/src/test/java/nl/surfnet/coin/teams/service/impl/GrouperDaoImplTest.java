@@ -17,15 +17,47 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
     "classpath:coin-shared-context.xml"})
 public class GrouperDaoImplTest {
 
+  private static final String STEM = "nl:surfnet:diensten";
+  private static final String PERSON_ID = "urn:collab:person:test.surfguest.nl:personId";
+  
   @Autowired
   private GrouperDao grouperDao;
   
   @Test
   public void testFindAllTeams() {
-    TeamResultWrapper findAllTeams = grouperDao.findAllTeams("nl:surfnet:diensten", 2, 3);
-    assertEquals(findAllTeams.getTeams().size(), 3);
-    assertEquals(findAllTeams.getTeams().get(0).getName(), "Team 3");
-    assertEquals(findAllTeams.getTotalCount(),5);
+    TeamResultWrapper wrapper = grouperDao.findAllTeams(STEM, 2, 3);
+    assertEquals(wrapper.getTeams().size(), 3);
+    assertEquals(wrapper.getTeams().get(0).getName(), "Team 3");
+    assertEquals(wrapper.getTotalCount(),5);
   }
+  
+  @Test
+  public void testFindTeams() {
+    TeamResultWrapper wrapper = grouperDao.findTeams(STEM, "team", 3, 100);
+    assertEquals(wrapper.getTeams().size(), 2);
+    assertEquals(wrapper.getTeams().get(0).getName(), "Team 4");
+    assertEquals(wrapper.getTotalCount(),5);
+    
+    wrapper = grouperDao.findTeams(STEM, "2",  0, 100);
+    assertEquals(wrapper.getTeams().size(), 1);
+    assertEquals(wrapper.getTeams().get(0).getName(), "Team 2");
+    assertEquals(wrapper.getTotalCount(),1);
+  }
+
+  @Test
+  public void testFindTeamByMember() {
+    TeamResultWrapper wrapper = grouperDao.findTeamsByMember(STEM,PERSON_ID, "4", 0, 5);
+    assertEquals(wrapper.getTeams().size(),1);
+    assertEquals(wrapper.getTeams().get(0).getName(), "Team 4");
+    assertEquals(wrapper.getTotalCount(),1);
+   }
+
+  @Test
+  public void testFindAllTeamByMember() {
+    TeamResultWrapper wrapper = grouperDao.findAllTeamsByMember(STEM,PERSON_ID, 0, 5);
+    assertEquals(wrapper.getTeams().size(), 4);
+    assertEquals(wrapper.getTeams().get(0).getName(), "Team 1");
+    assertEquals(wrapper.getTotalCount(),4);
+   }
 
 }
