@@ -1,13 +1,11 @@
 package nl.surfnet.coin.teams.service.impl;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
+
+import org.junit.Ignore;
 
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
-
-import org.junit.Test;
 
 /**
  * 
@@ -16,7 +14,7 @@ import org.junit.Test;
  */
 public class GrouperTeamServiceTestIntegration {
 
-  @Test
+  @Ignore
   public void testFindAllTeams() {
     GrouperTeamService teamService = new GrouperTeamService();
     TeamEnvironment environment = new TeamEnvironment();
@@ -28,7 +26,6 @@ public class GrouperTeamServiceTestIntegration {
       List<Team> findAllTeams = teamService.findAllTeams(null);
       System.out.println(System.currentTimeMillis() - time);
     }
-//    assertEquals(100, findAllTeams.size());
   }
   
   

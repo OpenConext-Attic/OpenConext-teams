@@ -1,8 +1,9 @@
 /**
- * 
+ *
  */
 package nl.surfnet.coin.teams.control;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -24,15 +25,15 @@ import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * @author steinwelberg
- * 
+ *         <p/>
  *         {@link Controller} that handles the home page of a logged in user.
  */
 @Controller
 public class HomeController {
-  
+
   @Autowired
   private MessageSource messageSource;
-  
+
   @Autowired
   private LocaleResolver localeResolver;
 
@@ -41,11 +42,13 @@ public class HomeController {
 
   private static final String STEM_PARAM = "stem";
 
+  private static final int PAGESIZE = 10;
+
   @RequestMapping("/home.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request) {
 
     Person person = (Person) request.getSession().getAttribute(
-        LoginInterceptor.PERSON_SESSION_KEY);
+            LoginInterceptor.PERSON_SESSION_KEY);
     String display = request.getParameter("teams");
     String query = request.getParameter("teamSearch");
 
@@ -62,55 +65,81 @@ public class HomeController {
     return "home";
   }
 
-  private void addTeams(String query, String person, String display, ModelMap modelMap,
-      HttpServletRequest request) {
-    
+  private void addTeams(String query, final String person,
+                        final String display, ModelMap modelMap,
+                        HttpServletRequest request) {
+
     Locale locale = localeResolver.resolveLocale(request);
-    
+
     if (messageSource.getMessage("jsp.home.SearchTeam", null, locale).equals(query)) {
-        query = null;
+      query = null;
     }
-    
+    modelMap.addAttribute("query", query);
+
     // Display all teams when the person is empty or when display equals "all"
+    List<Team> teams;
     if ("all".equals(display) || !StringUtils.hasText(person)) {
-      List<Team> teams;
       if (!StringUtils.hasText(query)) {
         teams = teamService.findAllTeams(getStemName(request));
       } else {
         teams = teamService.findTeams(query);
       }
-      
       modelMap.addAttribute("display", "all");
-      modelMap.addAttribute("teams", teams);
-      
-      for (Team team : teams) {
-        team.setViewerRole(person);
-      }
-        
       // else always display my teams
     } else {
-      
-      List<Team> teams = null;
       if (!StringUtils.hasText(query)) {
         teams = teamService.getTeamsByMember(person);
       } else {
         teams = teamService.findTeams(query, person);
       }
-      
-      for (Team team : teams) {
-        team.setViewerRole(person);
-      }
-      
       modelMap.addAttribute("display", "my");
-      modelMap.addAttribute("teams", teams);
     }
-    
-    modelMap.addAttribute("query", query);
+
+    paginateTeams(teams, person, modelMap, request);
+  }
+
+  /**
+   * Limits the amount of {@link Team}'s that is passed to the view.
+   * <p/>
+   * Would be better if the {@link TeamService} was able to handle pagination,
+   * but the backing service (Grouper) does not support it.
+   *
+   * @param teams    List of Team's from the query result.
+   * @param person   id of the current logged in user
+   * @param modelMap {@link ModelMap} for this request
+   * @param request  current {@link HttpServletRequest}
+   */
+  private void paginateTeams(final List<Team> teams, final String person,
+                             ModelMap modelMap, HttpServletRequest request) {
+    int offset = 0;
+    String offsetParam = request.getParameter("offset");
+    if (StringUtils.hasText(offsetParam)) {
+      try {
+        offset = Integer.parseInt(offsetParam);
+      } catch (NumberFormatException e) {
+        // do nothing
+      }
+    }
+
+    List<Team> filteredTeams = new ArrayList<Team>(PAGESIZE);
+    int resultset = teams.size();
+    int max = offset + PAGESIZE < resultset ? offset + PAGESIZE : resultset;
+    for (int i = offset; i < max; i++) {
+      filteredTeams.add(teams.get(i));
+    }
+    for (Team team : filteredTeams) {
+      team.setViewerRole(person);
+    }
+    modelMap.addAttribute("offset", offset);
+    modelMap.addAttribute("pagesize", PAGESIZE);
+    modelMap.addAttribute("resultset", resultset);
+    modelMap.addAttribute("teams", filteredTeams);
   }
 
   /**
    * Sets the stem on the session based on the request param {@link #STEM_PARAM}.
    * If the param is missing and stem is on the session, it will be removed
+   *
    * @param request {@link HttpServletRequest}
    */
   private void setStemOnSession(HttpServletRequest request) {
@@ -139,5 +168,5 @@ public class HomeController {
     }
     return null;
   }
-  
+
 }
