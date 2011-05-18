@@ -3,7 +3,6 @@
  */
 package nl.surfnet.coin.teams.service;
 
-import java.util.List;
 import java.util.Set;
 
 import nl.surfnet.coin.teams.domain.Member;
@@ -17,32 +16,7 @@ import nl.surfnet.coin.teams.util.DuplicateTeamException;
  * Main interface for dealing with Teams
  * 
  */
-public interface TeamService {
-
-  /**
-   * Get Teams by Person
-   * 
-   * @param memberId
-   *          the id of the Member
-   * @return {@link List} of {@link Team} instances
-   */
-  List<Team> getTeamsByMember(String memberId);
-
-  /**
-   * Find Teams by part of the team name
-   * 
-   * @param partOfTeamName
-   *          query is based on %partOfTeamName%
-   * @return {@link List} of {@link Team} instances
-   */
-  List<Team> findTeams(String partOfTeamName);
-
-  /**
-   * Return all teams using a specific stem
-   * @param stemName name of the stem
-   * @return {@link List} of {@link Team} instances
-   */
-  List<Team> findAllTeams(String stemName);
+public interface TeamService extends GrouperDao {
 
   /**
    * Find {@link Team} by id
@@ -123,14 +97,11 @@ public interface TeamService {
    */
   boolean removeMemberRole(String teamId, String memberId, Role role, boolean removeAsSuperUser);
   
-  List<Team> findTeams(String partOfTeamName, String memberId);
 
   void addMember(String teamId, String personId);
   
   Member findMember(String teamId, String memberId);
-  
-  Member findMember(Team team, String memberId);
-  
+
   Set<Member> findAdmins(Team team);
   
 }

@@ -3,7 +3,6 @@
  */
 package nl.surfnet.coin.teams.control;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -19,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.LocaleResolver;
 
 import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.domain.TeamResultWrapper;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
 import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
@@ -39,6 +40,9 @@ public class HomeController {
 
   @Autowired
   private TeamService teamService;
+
+  @Autowired
+  private TeamEnvironment environment;
 
   private static final String STEM_PARAM = "stem";
 
@@ -76,41 +80,6 @@ public class HomeController {
     }
     modelMap.addAttribute("query", query);
 
-    // Display all teams when the person is empty or when display equals "all"
-    List<Team> teams;
-    if ("all".equals(display) || !StringUtils.hasText(person)) {
-      if (!StringUtils.hasText(query)) {
-        teams = teamService.findAllTeams(getStemName(request));
-      } else {
-        teams = teamService.findTeams(query);
-      }
-      modelMap.addAttribute("display", "all");
-      // else always display my teams
-    } else {
-      if (!StringUtils.hasText(query)) {
-        teams = teamService.getTeamsByMember(person);
-      } else {
-        teams = teamService.findTeams(query, person);
-      }
-      modelMap.addAttribute("display", "my");
-    }
-
-    paginateTeams(teams, person, modelMap, request);
-  }
-
-  /**
-   * Limits the amount of {@link Team}'s that is passed to the view.
-   * <p/>
-   * Would be better if the {@link TeamService} was able to handle pagination,
-   * but the backing service (Grouper) does not support it.
-   *
-   * @param teams    List of Team's from the query result.
-   * @param person   id of the current logged in user
-   * @param modelMap {@link ModelMap} for this request
-   * @param request  current {@link HttpServletRequest}
-   */
-  private void paginateTeams(final List<Team> teams, final String person,
-                             ModelMap modelMap, HttpServletRequest request) {
     int offset = 0;
     String offsetParam = request.getParameter("offset");
     if (StringUtils.hasText(offsetParam)) {
@@ -120,20 +89,41 @@ public class HomeController {
         // do nothing
       }
     }
+    modelMap.addAttribute("offset", offset);
 
-    List<Team> filteredTeams = new ArrayList<Team>(PAGESIZE);
-    int resultset = teams.size();
-    int max = offset + PAGESIZE < resultset ? offset + PAGESIZE : resultset;
-    for (int i = offset; i < max; i++) {
-      filteredTeams.add(teams.get(i));
+    TeamResultWrapper resultWrapper;
+    // Display all teams when the person is empty or when display equals "all"
+
+    if ("all".equals(display) || !StringUtils.hasText(person)) {
+      if (StringUtils.hasText(query)) {
+        resultWrapper = teamService.findTeams(
+                getStemName(request), query, offset, PAGESIZE);
+      } else {
+        resultWrapper = teamService.findAllTeams(
+                getStemName(request), offset, PAGESIZE);
+      }
+      modelMap.addAttribute("display", "all");
+      // else always display my teams
+    } else {
+      if (StringUtils.hasText(query)) {
+        resultWrapper = teamService.findTeamsByMember(
+                getStemName(request), person, query, offset, PAGESIZE);
+      } else {
+        resultWrapper = teamService.findAllTeamsByMember(
+                getStemName(request), person, offset, PAGESIZE);
+      }
+      modelMap.addAttribute("display", "my");
     }
-    for (Team team : filteredTeams) {
+
+    List<Team> teams = resultWrapper.getTeams();
+
+    for (Team team : teams) {
       team.setViewerRole(person);
     }
-    modelMap.addAttribute("offset", offset);
+
     modelMap.addAttribute("pagesize", PAGESIZE);
-    modelMap.addAttribute("resultset", resultset);
-    modelMap.addAttribute("teams", filteredTeams);
+    modelMap.addAttribute("resultset", resultWrapper.getTotalCount());
+    modelMap.addAttribute("teams", teams);
   }
 
   /**
@@ -158,15 +148,19 @@ public class HomeController {
    * @return the stem name on the session or
    *         {@literal null} if there is no stem
    */
-  static String getStemName(final HttpServletRequest request) {
+  private String getStemName(final HttpServletRequest request) {
     if (request.getSession(false) == null) {
-      return null;
+      return environment.getDefaultStemName();
     }
     Object stemObj = request.getSession(false).getAttribute(STEM_PARAM);
     if (stemObj instanceof String) {
       return (String) stemObj;
     }
-    return null;
+    return environment.getDefaultStemName();
+  }
+
+  void setTeamEnvironment(TeamEnvironment teamEnvironment) {
+    this.environment = teamEnvironment;
   }
 
 }

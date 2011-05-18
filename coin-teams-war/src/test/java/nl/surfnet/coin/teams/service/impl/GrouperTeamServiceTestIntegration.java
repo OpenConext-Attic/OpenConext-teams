@@ -1,10 +1,8 @@
 package nl.surfnet.coin.teams.service.impl;
 
-import java.util.List;
-
 import org.junit.Ignore;
 
-import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.domain.TeamResultWrapper;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 
 /**
@@ -23,7 +21,7 @@ public class GrouperTeamServiceTestIntegration {
     teamService.setEnvironment(environment );
     for (int i = 0; i < 100; i++) {
       long time = System.currentTimeMillis();
-      List<Team> findAllTeams = teamService.findAllTeams(null);
+      TeamResultWrapper allTeamsLimited = teamService.findAllTeams("nl:surfnet:diensten", 0, 10);
       System.out.println(System.currentTimeMillis() - time);
     }
   }

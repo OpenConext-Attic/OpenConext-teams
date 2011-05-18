@@ -92,18 +92,13 @@ public class DetailTeamController {
         LoginInterceptor.PERSON_SESSION_KEY);
     String personId = person.getId();
     String teamId = URLDecoder.decode(request.getParameter(TEAM_PARAM), UTF_8);
-    if(!StringUtils.hasText(teamId)) {
+    if (!StringUtils.hasText(teamId)) {
       throw new IllegalArgumentException("Missing parameter for team");
     }
     Set<Role> roles = new HashSet<Role>();
     String message = request.getParameter("mes");
 
-    Team team = (Team) request.getSession().getAttribute(TEAM_PARAM);
-
-    if (team == null || !(teamId.equals(team.getId()))) {
-      team = teamService.findTeamById(request.getParameter(TEAM_PARAM));
-      request.getSession().setAttribute(TEAM_PARAM, team);
-    }
+    Team team = teamService.findTeamById(request.getParameter(TEAM_PARAM));
 
     List<Member> members = team.getMembers();
 

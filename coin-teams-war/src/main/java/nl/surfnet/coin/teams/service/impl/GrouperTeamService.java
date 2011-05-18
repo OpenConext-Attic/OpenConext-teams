@@ -32,13 +32,14 @@ import edu.internet2.middleware.grouperClient.ws.beans.WsGroupLookup;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGroupSaveResults;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGroupToSave;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGrouperPrivilegeResult;
-import edu.internet2.middleware.grouperClient.ws.beans.WsQueryFilter;
 import edu.internet2.middleware.grouperClient.ws.beans.WsSubject;
 import edu.internet2.middleware.grouperClient.ws.beans.WsSubjectLookup;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.domain.TeamResultWrapper;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperDao;
 import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.util.DuplicateTeamException;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
@@ -52,29 +53,11 @@ public class GrouperTeamService implements TeamService {
   @Autowired
   private TeamEnvironment environment;
 
+  @Autowired
+  private GrouperDao grouperDao;
+
   private static String[] FORBIDDEN_CHARS = new String[] { "<", ">", "/", "\\",
       "*", ":", "," };
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public List<Team> findAllTeams(String stemName) {
-    if (!StringUtils.hasText(stemName)) {
-      stemName = environment.getDefaultStemName();
-    }
-    GcFindGroups findGroups = new GcFindGroups();
-    findGroups.assignActAsSubject(getActAsSubject());
-    findGroups.assignIncludeGroupDetail(Boolean.TRUE);
-
-    WsQueryFilter queryFilter = new WsQueryFilter();
-    queryFilter.setQueryFilterType("FIND_BY_STEM_NAME");
-    queryFilter.setStemName(stemName);
-    findGroups.assignQueryFilter(queryFilter);
-    WsFindGroupsResults findResults = findGroups.execute();
-    WsGroup[] groupResults = findResults.getGroupResults();
-    return convertWsGroupToTeam(groupResults, false);
-  }
 
   /*
    * (non-Javadoc)
@@ -124,25 +107,6 @@ public class GrouperTeamService implements TeamService {
     return actAsSubject;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see nl.surfnet.coin.teams.service.TeamService#findTeams(java.lang.String)
-   */
-  @Override
-  public List<Team> findTeams(String partOfTeamName) {
-    GcFindGroups findGroups = new GcFindGroups();
-    findGroups.assignActAsSubject(getActAsSubject());
-    findGroups.assignIncludeGroupDetail(Boolean.TRUE);
-
-    WsQueryFilter queryFilter = new WsQueryFilter();
-    queryFilter.setQueryFilterType("FIND_BY_GROUP_NAME_APPROXIMATE");
-    queryFilter.setGroupName(partOfTeamName);
-    findGroups.assignQueryFilter(queryFilter);
-    WsFindGroupsResults findResults = findGroups.execute();
-    WsGroup[] groupResults = findResults.getGroupResults();
-    return convertWsGroupToTeam(groupResults, true);
-  }
 
   private List<Team> convertWsGroupToTeam(WsGroup[] groupResults,
       boolean retrieveAll) {
@@ -176,27 +140,6 @@ public class GrouperTeamService implements TeamService {
     WsGrouperPrivilegeResult[] privilegeResults = privileges.execute()
         .getPrivilegeResults();
     return privilegeResults;
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * nl.surfnet.coin.teams.service.TeamService#getTeamsByPerson(java.lang.String
-   * )
-   */
-  @Override
-  public List<Team> getTeamsByMember(String memberId) {
-    GcGetGroups getGroups = new GcGetGroups();
-    getGroups.addSubjectId(memberId);
-    getGroups.assignActAsSubject(getActAsSubject());
-    WsGetGroupsResult[] groups = getGroups.execute().getResults();
-    if (groups.length > 0) {
-      WsGroup[] wsGroups = groups[0].getWsGroups();
-      return convertWsGroupToTeam(wsGroups, true);
-    }
-    return new ArrayList<Team>();
-
   }
 
   private List<Member> getMembers(String teamId,
@@ -486,18 +429,6 @@ public class GrouperTeamService implements TeamService {
   }
 
   @Override
-  public List<Team> findTeams(String partOfTeamName, String memberId) {
-    List<Team> teamsByMember = getTeamsByMember(memberId);
-    List<Team> result = new ArrayList<Team>();
-    for (Team team : teamsByMember) {
-      if (team.getName().toLowerCase().contains(partOfTeamName.toLowerCase())) {
-        result.add(team);
-      }
-    }
-    return result;
-  }
-
-  @Override
   public Member findMember(String teamId, String memberId) {
     Team team = findTeamById(teamId);
     List<Member> members = team.getMembers();
@@ -543,24 +474,65 @@ public class GrouperTeamService implements TeamService {
     return false;
   }
 
-  @Override
-  public Member findMember(Team team, String memberId) {
-    List<Member> members = team.getMembers();
-
-    for (Member member : members) {
-      if (member.getId().equals(memberId)) {
-        return member;
-      }
-    }
-    throw new RuntimeException("Member(id='" + memberId
-        + "') is not a member of the given team");
-  }
-
   /**
    * @param environment the environment to set
    */
   public void setEnvironment(TeamEnvironment environment) {
     this.environment = environment;
   }
+
+  @Override
+  public TeamResultWrapper findAllTeams(String stemName, int offset, int pageSize) {
+    return grouperDao.findAllTeams(stemName, offset, pageSize);
+  }
+
+  @Override
+  public TeamResultWrapper findTeams(String stemName, String partOfGroupname,
+                                     int offset, int pageSize) {
+    return grouperDao.findTeams(stemName, partOfGroupname, offset, pageSize);
+  }
+
+  @Override
+  public TeamResultWrapper findAllTeamsByMember(String stemName, String personId,
+                                                int offset, int pageSize) {
+    GcGetGroups getGroups = new GcGetGroups();
+    getGroups.addSubjectId(personId);
+    getGroups.assignActAsSubject(getActAsSubject());
+    WsGetGroupsResult[] groups = getGroups.execute().getResults();
+    List<Team> teams = new ArrayList<Team>();
+    if (groups.length > 0) {
+      WsGroup[] wsGroups = groups[0].getWsGroups();
+      teams = convertWsGroupToTeam(wsGroups, true);
+    }
+    List<Team> limited = new ArrayList<Team>();
+    int totalCount = teams.size();
+    int max = totalCount < offset + pageSize ? totalCount : offset + pageSize;
+    for (int i = offset; i < max; i++) {
+      limited.add(teams.get(i));
+    }
+    return new TeamResultWrapper(limited, totalCount);
+  }
+
+  @Override
+  public TeamResultWrapper findTeamsByMember(String stemName, String personId,
+                                             String partOfGroupname, int offset, int pageSize) {
+    TeamResultWrapper teamResultWrapper =
+            findAllTeamsByMember(stemName, personId, 0, Integer.MAX_VALUE);
+    List<Team> teamsByMember = teamResultWrapper.getTeams();
+    List<Team> result = new ArrayList<Team>();
+    for (Team team : teamsByMember) {
+      if (team.getName().toLowerCase().contains(partOfGroupname.toLowerCase())) {
+        result.add(team);
+      }
+    }
+    List<Team> limited = new ArrayList<Team>();
+    int totalCount = result.size();
+    int max = totalCount < offset + pageSize ? totalCount : offset + pageSize;
+    for (int i = offset; i < max; i++) {
+      limited.add(result.get(i));
+    }
+    return new TeamResultWrapper(limited, totalCount);
+  }
+
 
 }

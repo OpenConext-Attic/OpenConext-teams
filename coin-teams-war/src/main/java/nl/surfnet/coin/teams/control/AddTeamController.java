@@ -26,6 +26,7 @@ import nl.surfnet.coin.teams.service.ShindigActivityService;
 import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.util.DuplicateTeamException;
 import nl.surfnet.coin.teams.util.PermissionUtil;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
 import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
@@ -53,7 +54,12 @@ public class AddTeamController {
 
   @Autowired
   private LocaleResolver localeResolver;
+  
+  @Autowired
+  private TeamEnvironment environment;
 
+  private static final String STEM_PARAM = "stem";
+  
   @RequestMapping("/addteam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request) {
 
@@ -103,7 +109,7 @@ public class AddTeamController {
     // Colons conflict with the stem name
     teamName = teamName.replace(":", "");
 
-    String stem = HomeController.getStemName(request);
+    String stem = getStemName(request);
     // Add the team
     String teamId = null;
     try {
@@ -141,5 +147,23 @@ public class AddTeamController {
         messageValues, locale);
 
     shindigActivityService.addActivity(personId, teamId, title, body);
+  }
+
+    /**
+   * Returns the stem name for this request
+   *
+   * @param request {@link HttpServletRequest}
+   * @return the stem name on the session or
+   *         {@literal null} if there is no stem
+   */
+  private String getStemName(final HttpServletRequest request) {
+    if (request.getSession(false) == null) {
+      return environment.getDefaultStemName();
+    }
+    Object stemObj = request.getSession(false).getAttribute(STEM_PARAM);
+    if (stemObj instanceof String) {
+      return (String) stemObj;
+    }
+    return environment.getDefaultStemName();
   }
 }

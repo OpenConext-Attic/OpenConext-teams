@@ -5,6 +5,7 @@ package nl.surfnet.coin.teams.control;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.mockito.Mockito.mock;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.LocaleResolver;
 
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
 
 /**
  * @author steinwelberg
@@ -89,19 +91,11 @@ public class HomeControllerTest extends AbstractControllerTest {
     assertEquals("1", query);
   }
 
-  @Test
-  public void testGetStemName() throws Exception {
-    MockHttpServletRequest request = getRequest();
-    assertNull(HomeController.getStemName(request));
-
-    request.getSession().setAttribute("stem", true);
-    assertNull(HomeController.getStemName(request));
-
-    request.getSession().setAttribute("stem", "testStem");
-    assertEquals("testStem", HomeController.getStemName(request));
-
-    request.getSession().removeAttribute("stem");
-    assertNull(HomeController.getStemName(request));
+  @Override
+  public void setup() throws Exception {
+    super.setup();
+    TeamEnvironment mockTeamEnvironment = mock(TeamEnvironment.class);
+    mockTeamEnvironment.setDefaultStemName("nl:surfnet:diensten");
+    homeController.setTeamEnvironment(mockTeamEnvironment);
   }
-
 }

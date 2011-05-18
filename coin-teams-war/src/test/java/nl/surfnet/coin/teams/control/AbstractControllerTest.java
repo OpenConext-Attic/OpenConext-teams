@@ -24,6 +24,7 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.web.servlet.mvc.Controller;
 
 import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.domain.TeamResultWrapper;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 
 /**
@@ -69,7 +70,8 @@ public abstract class AbstractControllerTest {
     teams.add(team1);
     teams.add(team2);
     teams.add(team3);
-    return new Returns(teams);
+    TeamResultWrapper resultWrapper = new TeamResultWrapper(teams, teams.size());
+    return new Returns(resultWrapper);
   }
   
   protected Returns getAllTeamReturn() {
@@ -86,14 +88,16 @@ public abstract class AbstractControllerTest {
     teams.add(team4);
     teams.add(team5);
     teams.add(team6);
-    return new Returns(teams);
+    TeamResultWrapper resultWrapper = new TeamResultWrapper(teams, teams.size());
+    return new Returns(resultWrapper);
   }
   
   protected Returns getSearchTeamReturn() {
     ArrayList<Team> teams = new ArrayList<Team>();
     Team team1 = new Team("team-1", "Team 1", "Description team 1");
     teams.add(team1);
-    return new Returns(teams);
+    TeamResultWrapper resultWrapper = new TeamResultWrapper(teams, teams.size());
+    return new Returns(resultWrapper);
   }
 
   /**
