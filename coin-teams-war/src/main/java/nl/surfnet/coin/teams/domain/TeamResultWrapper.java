@@ -8,8 +8,8 @@ import java.util.List;
  */
 public class TeamResultWrapper {
  
-  List<Team> teams;
-  int totalCount;
+  private List<Team> teams;
+  private int totalCount;
   
   public TeamResultWrapper(List<Team> teams, int totalCount) {
     super();

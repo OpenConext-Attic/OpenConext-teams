@@ -56,7 +56,7 @@ public class GrouperTeamService implements TeamService {
   @Autowired
   private GrouperDao grouperDao;
 
-  private static String[] FORBIDDEN_CHARS = new String[] { "<", ">", "/", "\\",
+  private static final String[] FORBIDDEN_CHARS = new String[] { "<", ">", "/", "\\",
       "*", ":", "," };
 
   /*
@@ -188,14 +188,11 @@ public class GrouperTeamService implements TeamService {
   }
 
   /**
-   * @param privilegeName
-   * @return
+   * @param privilegeName De grouper rechten heten "admin" voor de group administrator,
+   * en "update" voor de group manager.
+   * @return {@link Role}
    */
   private Role getRole(String privilegeName) {
-    /*
-     * De grouper rechten heten "admin" voor de group administrator, en "update"
-     * voor de group manager.
-     */
     if (privilegeName.equalsIgnoreCase("admin")) {
       return Role.Admin;
     } else if (privilegeName.equalsIgnoreCase("update")) {

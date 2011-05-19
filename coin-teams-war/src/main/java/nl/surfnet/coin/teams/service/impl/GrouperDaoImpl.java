@@ -111,7 +111,7 @@ public class GrouperDaoImpl implements GrouperDao {
       public Team mapRow(ResultSet rs, int rowNum) throws SQLException {
         String id = rs.getString("name");
         String name = rs.getString("display_name");
-        name = name.substring(name.lastIndexOf(":") + 1);
+        name = name.substring(name.lastIndexOf(':') + 1);
         String description = rs.getString("description");
         return new Team(id, name, description, true);
       }

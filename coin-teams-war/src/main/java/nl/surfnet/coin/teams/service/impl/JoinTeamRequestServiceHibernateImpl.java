@@ -21,8 +21,6 @@ public class JoinTeamRequestServiceHibernateImpl
         extends GenericServiceHibernateImpl<JoinTeamRequest>
         implements JoinTeamRequestService {
 
-  private static final int ONE_RESULT = 1;
-
   public JoinTeamRequestServiceHibernateImpl() {
     super(JoinTeamRequest.class);
   }

@@ -143,8 +143,6 @@ public class Team implements Serializable {
    * @param person id of the person to assign the viewerRole to
    */
   public void setViewerRole(String person) {
-    List<Member> members = getMembers();
-    
     for (Member member : members) {
       if (member.getId().equals(person) && !CollectionUtils.isEmpty(member.getRoles())) {
         // Always display the role with the most privileges
