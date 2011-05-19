@@ -76,6 +76,16 @@ public class TeamInviteServiceHibernateImpl
    * {@inheritDoc}
    */
   @Override
+  public List<Invitation> findPendingInvitationsByEmail(String email) {
+    cleanupExpiredInvitations();
+    return findByCriteria(Restrictions.eq("email", email),
+            Restrictions.ne("declined", true));
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
   public void cleanupExpiredInvitations() {
     long thirtyDaysAgo = (new Date().getTime()) - THIRTY_DAYS;
     List<Invitation> invitations = findByCriteria(

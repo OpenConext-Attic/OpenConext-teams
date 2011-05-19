@@ -2,7 +2,9 @@ package nl.surfnet.coin.teams.control;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -193,6 +195,29 @@ public class InvitationController {
     ViewUtil.addViewToModelMap(request, modelMap);
     return "resendinvitation";
   }
+
+  @RequestMapping("myinvitations.shtml")
+  public String myInvitations(ModelMap modelMap, HttpServletRequest request) {
+    Person person = (Person) request.getSession().getAttribute(
+            LoginInterceptor.PERSON_SESSION_KEY);
+    String email = person.getEmail();
+    if (!StringUtils.hasText(email)) {
+      throw new IllegalArgumentException("Your profile does not contain an email address");
+    }
+    List<Invitation> invitations = teamInviteService.findPendingInvitationsByEmail(email);
+    modelMap.addAttribute("invitations", invitations);
+    List<Team> invitedTeams = new ArrayList<Team>();
+    for(Invitation invitation : invitations) {
+      String teamId = invitation.getTeamId();
+      Team team = teamService.findTeamById(teamId);
+      if(team != null) {
+        invitedTeams.add(team);
+      }
+    }
+    modelMap.addAttribute("teams", invitedTeams);
+    return "myinvitations";
+  }
+
 
   private Invitation getInvitationByRequest(HttpServletRequest request) {
     String invitationId = request.getParameter("id");

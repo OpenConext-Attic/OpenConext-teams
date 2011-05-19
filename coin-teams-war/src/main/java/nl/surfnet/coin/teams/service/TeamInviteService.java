@@ -16,7 +16,7 @@ public interface TeamInviteService extends GenericService<Invitation> {
    * May check for expiration.
    *
    * @param email address to send invitation to
-   * @param team {@link Team}
+   * @param team  {@link Team}
    * @return {@link Invitation} or {@literal null}
    */
   Invitation findInvitation(String email, Team team);
@@ -37,6 +37,14 @@ public interface TeamInviteService extends GenericService<Invitation> {
    * @return List of Invitation's, can be empty.
    */
   List<Invitation> findInvitationsForTeam(Team team);
+
+  /**
+   * Searches for pending {@link Invitation}'s by email address
+   *
+   * @param email {@link String}
+   * @return List of Invitation's, can be empty
+   */
+  List<Invitation> findPendingInvitationsByEmail(String email);
 
   /**
    * Cleans up expired {@link Invitation}'s

@@ -5,8 +5,10 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -25,20 +27,19 @@ import nl.surfnet.coin.teams.service.TeamService;
  */
 public class InvitationControllerTest extends AbstractControllerTest {
   private InvitationController controller;
-  private HttpServletRequest mockRequest;
   private Invitation invitation;
 
   @Test
   public void testAccept() throws Exception {
 
-    String page = controller.accept(getModelMap(), mockRequest);
+    String page = controller.accept(getModelMap(), getRequest());
 
     assertEquals("acceptinvitation", page);
   }
 
   @Test
   public void testDecline() throws Exception {
-    String view = controller.decline(getModelMap(), mockRequest);
+    String view = controller.decline(getModelMap(), getRequest());
 
     assertTrue("Declined invitation", invitation.isDeclined());
     assertEquals("invitationdeclined", view);
@@ -48,7 +49,7 @@ public class InvitationControllerTest extends AbstractControllerTest {
   @Test
   public void testDoAccept() throws Exception {
 
-    RedirectView view = controller.doAccept(mockRequest);
+    RedirectView view = controller.doAccept(getRequest());
 
     String redirectUrl = "detailteam.shtml?team=team-1&view=app";
     assertEquals(redirectUrl, view.getUrl());
@@ -57,10 +58,18 @@ public class InvitationControllerTest extends AbstractControllerTest {
   @Test
   public void testDelete() throws Exception {
 
-    RedirectView view = controller.deleteInvitation(new ModelMap(), mockRequest);
+    RedirectView view = controller.deleteInvitation(new ModelMap(), getRequest());
 
     String redirectUrl = "detailteam.shtml?team=team-1&view=app";
     assertEquals(redirectUrl, view.getUrl());
+  }
+
+  @Test
+  public void testMyInvitations() throws Exception {
+    String view = controller.myInvitations(getModelMap(), getRequest());
+    assertEquals("myinvitations", view);
+    List<Invitation> myInvitations = (List<Invitation>) getModelMap().get("invitations");
+    assertEquals(1, myInvitations.size());
   }
 
   @Before
@@ -71,25 +80,26 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
     String invitationHash = "0b733d119c3705ae4fc284203f1ee8ec";
 
-    Person mockPerson = mock(Person.class);
-    when(mockPerson.getId()).thenReturn("person-1");
-
-    HttpSession mockSession = mock(HttpSession.class);
-    when(mockSession.getAttribute(LoginInterceptor.PERSON_SESSION_KEY)).
-            thenReturn(mockPerson);
-
-    mockRequest = mock(HttpServletRequest.class);
-    when(mockRequest.getSession()).thenReturn(mockSession);
-    when(mockRequest.getParameter("id")).thenReturn(invitationHash);
+    getRequest().setParameter("id", invitationHash);
+    Person person = (Person)getRequest().getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
+    List<Map<String, String>> emailField = new ArrayList<Map<String, String>>();
+    Map<String,String> email = new HashMap<String, String>(1);
+    email.put("value", "person1@example.com");
+    emailField.add(email);
+    person.setField("emails", emailField);
+    getRequest().getSession().setAttribute(LoginInterceptor.PERSON_SESSION_KEY, person);
 
     Team mockTeam = mock(Team.class);
     when(mockTeam.getId()).thenReturn("team-1");
 
-    invitation = new Invitation("test-email",
-            "team-1");
+    invitation = new Invitation("person1@example.com", "team-1");
 
     TeamInviteService teamInviteService = mock(TeamInviteService.class);
     when(teamInviteService.findInvitationByInviteId(invitationHash)).thenReturn(invitation);
+    List<Invitation> pendingInvitations = new ArrayList<Invitation>(1);
+    pendingInvitations.add(invitation);
+    when(teamInviteService.findPendingInvitationsByEmail(
+            invitation.getEmail())).thenReturn(pendingInvitations);
 
     autoWireMock(controller, teamInviteService, TeamInviteService.class);
 

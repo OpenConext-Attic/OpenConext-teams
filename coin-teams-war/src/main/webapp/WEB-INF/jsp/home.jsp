@@ -7,10 +7,20 @@
 <!-- = Header -->
 <div id="Header">
   <ul class="team-actions">
-     <c:url value="home.shtml" var="myTeamsUrl"><c:param name="teams" value="my" /><c:param name="view" value="${view}" /></c:url>
-     <c:url value="home.shtml" var="allTeamsUrl"><c:param name="teams" value="all" /><c:param name="view" value="${view}" /></c:url>
-     <li class="first"><a class="btn-my-teams<c:if test='${display eq "my"}'> selected</c:if>" href="${myTeamsUrl}"><spring:message code='jsp.home.MyTeams' /></a></li>
-   <li class="last"><a class="btn-all-teams<c:if test='${display eq "all"}'> selected</c:if>" href="${allTeamsUrl}"><spring:message code='jsp.home.AllTeams' /></a></li>
+    <c:url value="home.shtml" var="myTeamsUrl"><c:param name="teams" value="my" /><c:param name="view" value="${view}" /></c:url>
+    <c:url value="home.shtml" var="allTeamsUrl"><c:param name="teams" value="all" /><c:param name="view" value="${view}" /></c:url>
+    <c:url value="myinvitations.shtml" var="myInvitationsUrl"><c:param name="view" value="${view}"/></c:url>
+    <li class="first"><a class="btn-my-teams<c:if test='${display eq "my"}'> selected</c:if>" href="${myTeamsUrl}"><spring:message code='jsp.home.MyTeams' /></a></li>
+
+    <c:choose>
+      <c:when test="${myinvitations eq true}">
+        <li class="middle"><a class="btn-all-teams<c:if test='${display eq "all"}'> selected</c:if>" href="${allTeamsUrl}"><spring:message code='jsp.home.AllTeams' /></a></li>
+        <li class="last"><a href="${myInvitationsUrl}"><spring:message code="jsp.home.MyInvitations"/></a></li>
+      </c:when>
+      <c:otherwise>
+        <li class="last"><a class="btn-all-teams<c:if test='${display eq "all"}'> selected</c:if>" href="${allTeamsUrl}"><spring:message code='jsp.home.AllTeams' /></a></li>
+      </c:otherwise>
+    </c:choose>
   </ul>
 
   <c:url value="home.shtml" var="searchUrl"><c:param name="teams" value="${display}" /><c:param name="view" value="${view}" /></c:url>
