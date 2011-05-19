@@ -8,6 +8,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
@@ -58,6 +60,8 @@ public class GrouperTeamService implements TeamService {
 
   private static final String[] FORBIDDEN_CHARS = new String[] { "<", ">", "/", "\\",
       "*", ":", "," };
+
+  private static final Logger LOGGER = LoggerFactory.getLogger(GrouperTeamService.class);
 
   /*
    * (non-Javadoc)
@@ -404,8 +408,14 @@ public class GrouperTeamService implements TeamService {
 
     }
     assignPrivilige.assignAllowed(false);
-    WsAssignGrouperPrivilegesResults result = assignPrivilige.execute();
-
+    WsAssignGrouperPrivilegesResults result;
+    try {
+      result = assignPrivilige.execute();
+    } catch (RuntimeException e) {
+      LOGGER.info("Could not remove role", e);
+      // Grouper converts every exception to RuntimeException
+      return false;
+    }
     return result.getResultMetadata().getResultCode().equals("SUCCESS") ? true
         : false;
   }
