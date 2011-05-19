@@ -6,7 +6,6 @@ package nl.surfnet.coin.teams.domain;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.util.CollectionUtils;
 
@@ -31,7 +30,7 @@ public class Team implements Serializable {
    * @param id of the team
    * @param name of the team
    * @param description extra description
-   * @param members {@link Set} of {@link Member}'s
+   * @param members {@link List} of {@link Member}'s
    */
   public Team(String id, String name, String description, List<Member> members) {
     super();
@@ -45,7 +44,7 @@ public class Team implements Serializable {
    * @param id of the team
    * @param name of the team
    * @param description extra description
-   * @param members {@link Set} of {@link Member}'s
+   * @param members {@link List} of {@link Member}'s
    * @param viewable if {@literal false} then it's a private team
    */
   public Team(String id, String name, String description, List<Member> members, boolean viewable) {
