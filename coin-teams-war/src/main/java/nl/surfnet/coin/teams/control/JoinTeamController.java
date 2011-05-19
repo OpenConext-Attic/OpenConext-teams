@@ -107,7 +107,7 @@ public class JoinTeamController {
   public RedirectView joinTeam(ModelMap modelMap,
                                @ModelAttribute(JOIN_TEAM_REQUEST) JoinTeamRequest joinTeamRequest,
                                HttpServletRequest request)
-          throws IllegalStateException, IOException {
+          throws IOException {
 
     ViewUtil.addViewToModelMap(request, modelMap);
 

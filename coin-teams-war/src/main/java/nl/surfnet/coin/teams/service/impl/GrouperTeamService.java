@@ -464,10 +464,8 @@ public class GrouperTeamService implements TeamService {
 
     for (Member member : members) {
       Set<Role> roles = member.getRoles();
-      if (!CollectionUtils.isEmpty(roles)) {
-        if (roles.contains(Role.Admin)) {
-          result.add(member);
-        }
+      if (!CollectionUtils.isEmpty(roles) && roles.contains(Role.Admin)) {
+        result.add(member);
       }
     }
 
@@ -477,13 +475,12 @@ public class GrouperTeamService implements TeamService {
   private boolean getVisibilityGroup(String teamId,
       WsGrouperPrivilegeResult[] privilegeResults) {
     for (WsGrouperPrivilegeResult privilege : privilegeResults) {
-      if (privilege.getWsGroup().getName().equals(teamId)) {
-        if (privilege.getPrivilegeName().equals("view")
+      if (privilege.getWsGroup().getName().equals(teamId)
+            && privilege.getPrivilegeName().equals("view")
             && privilege.getPrivilegeType().equals("access")
             && privilege.getAllowed().equals("T")
             && privilege.getOwnerSubject().getId().equals("GrouperAll")) {
-          return true;
-        }
+        return true;
       }
     }
     return false;

@@ -47,7 +47,7 @@ import nl.surfnet.coin.teams.util.ViewUtil;
 @Controller
 public class DetailTeamController {
 
-  private static final String MANAGER = "1";
+  //private static final String MANAGER = "1";
   private static final String ADMIN = "0";
   private static final String ADMIN_LEAVE_TEAM = "error.AdminCannotLeaveTeam";
   private static final String NOT_AUTHORIZED_DELETE_MEMBER = "error.NotAuthorizedToDeleteMember";
@@ -86,7 +86,7 @@ public class DetailTeamController {
 
   @RequestMapping("/detailteam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request)
-      throws IllegalStateException, IOException {
+      throws IOException {
 
     Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);

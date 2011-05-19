@@ -20,7 +20,7 @@ public final class ViewUtil {
    * @param request  current {@link HttpServletRequest}
    * @param modelMap {@link ModelMap} on which the view name is added
    */
-  public static final void addViewToModelMap(HttpServletRequest request,
+  public static void addViewToModelMap(HttpServletRequest request,
                                              ModelMap modelMap) {
     modelMap.addAttribute(VIEW, getView(request));
   }
@@ -31,7 +31,7 @@ public final class ViewUtil {
    * @param request current {@link HttpServletRequest}
    * @return the name of the view
    */
-  public static final String getView(HttpServletRequest request) {
+  public static String getView(HttpServletRequest request) {
     String view = request.getParameter(VIEW);
 
     if (!"gadget".equals(view)) {

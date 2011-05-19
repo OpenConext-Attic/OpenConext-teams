@@ -13,16 +13,16 @@ import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
  */
 public final class PermissionUtil {
 
-  public final static boolean isGuest(HttpServletRequest request) {
+  private PermissionUtil() {
+    
+  }
+
+  public static boolean isGuest(HttpServletRequest request) {
 
     // Check if user is guest
     String userStatus = (String) request
         .getSession().getAttribute(LoginInterceptor.USER_STATUS_SESSION_KEY);
-    if (userStatus == null || "guest".equals(userStatus)) {
-      return true;
-    }
-
-    return false;
+    return (userStatus == null || "guest".equals(userStatus));
   }
 
 }
