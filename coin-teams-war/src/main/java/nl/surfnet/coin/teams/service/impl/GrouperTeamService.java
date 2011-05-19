@@ -375,8 +375,14 @@ public class GrouperTeamService implements TeamService {
 
     }
     assignPrivilige.assignAllowed(true);
-    WsAssignGrouperPrivilegesResults result = assignPrivilige.execute();
-
+    WsAssignGrouperPrivilegesResults result;
+    try {
+      result = assignPrivilige.execute();
+    } catch (RuntimeException e) {
+      LOGGER.info("Could not add member role", e);
+      // Grouper converts every exception to RuntimeException
+      return false;
+    }
     return result.getResultMetadata().getResultCode().equals("SUCCESS") ? true
         : false;
   }
