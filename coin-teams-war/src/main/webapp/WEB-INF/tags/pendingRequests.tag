@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
-<c:if test="${fn:length(pendingRequests)>0}">
+<c:if test="${offset eq 0 and fn:length(pendingRequests)>0}">
   <br class="clear" />
   <h2><spring:message code="jsp.detailteam.PendingRequests"/></h2>
   <div class="team-table-wrapper">

@@ -90,7 +90,28 @@
           </tr>
         </c:forEach>
       </c:if>
-      <c:if test="${fn:length(invitations) > 0  and (role eq adminRole or role eq managerRole)}">
+      </tbody>
+    </table>
+    </div>
+  <c:if test="${offset eq 0 and fn:length(invitations) > 0  and (role eq adminRole or role eq managerRole)}">
+    <br class="clear"/>
+
+    <h2><spring:message code="jsp.detailteam.PendingInvitations"/></h2>
+
+    <div class="team-table-wrapper">
+      <table class="team-table">
+        <thead>
+        <tr>
+          <c:if test="${role eq adminRole or role eq managerRole}">
+            <th class="remove"></th>
+          </c:if>
+          <th class="name"><spring:message code='jsp.detailteam.Name'/></th>
+          <th class="description"><spring:message code="jsp.general.Email"/></th>
+          <th><spring:message code='jsp.detailteam.InvitationInformation'/></th>
+
+        </tr>
+        </thead>
+        <tbody>
         <c:forEach items="${invitations}" var="invite">
           <tr>
             <c:url var="dodeleteinvite" value="deleteInvitation.shtml">
@@ -102,7 +123,7 @@
             </a></td>
             <td></td>
             <td><c:out value="${invite.email}"/></td>
-            <td colspan="3">
+            <td>
               <c:choose>
                 <c:when test="${invite.declined eq true}">
                   <spring:message code="jsp.detailteam.InvitationDeclined"/>
@@ -114,48 +135,50 @@
                     <c:param name="id" value="${invite.invitationHash}"/>
                   </c:url>
                   <c:if test="${maxInvitations > fn:length(invite.invitationMessages)}">
-                  (<a href="${resendUrl}"><spring:message code="jsp.detailteam.Resend"/></a>)
-                </c:if>
+                    (<a href="${resendUrl}"><spring:message code="jsp.detailteam.Resend"/></a>)
+                  </c:if>
                 </c:otherwise>
               </c:choose>
               <a href="#" id="invitationinfo_<c:out value="${invite.invitationHash}"/>"
-                   class="open_invitationinfo" title="<spring:message code="jsp.detailteam.InvitationInformation"/>">
+                 class="open_invitationinfo" title="<spring:message code="jsp.detailteam.InvitationInformation"/>">
                 <spring:message code="jsp.detailteam.InvitationInformation"/>
               </a>
+
               <div class="invitationinfo_<c:out value="${invite.invitationHash}"/> hide">
                 <c:forEach var="invitationMessage" items="${invite.invitationMessagesReversed}"
-                        varStatus="loop">
-                <dl class="inviteinfo">
+                           varStatus="loop">
+                  <dl class="inviteinfo">
                     <dt><spring:message code="jsp.detailteam.DateSent"/></dt>
-                  <jsp:setProperty name="timestamp" property="time" value="${invitationMessage.timestamp}"/>
-                  <dd><fmt:formatDate value="${timestamp}" type="both" dateStyle="long"/></dd>
-                  <c:if test="${loop.first}">
-                    <dt><spring:message code="jsp.detailteam.Expires"/></dt>
-                    <jsp:setProperty name="expires" property="time" value="${invite.expireTime}"/>
-                    <dd><fmt:formatDate value="${expires}" type="both" dateStyle="long"/></dd>
-                  </c:if>
-                  <c:if test="${not empty invitationMessage.inviter}">
-                    <dt><spring:message code="jsp.detailteam.InvitedBy"/></dt>
+                    <jsp:setProperty name="timestamp" property="time" value="${invitationMessage.timestamp}"/>
+                    <dd><fmt:formatDate value="${timestamp}" type="both" dateStyle="long"/></dd>
+                    <c:if test="${loop.first}">
+                      <dt><spring:message code="jsp.detailteam.Expires"/></dt>
+                      <jsp:setProperty name="expires" property="time" value="${invite.expireTime}"/>
+                      <dd><fmt:formatDate value="${expires}" type="both" dateStyle="long"/></dd>
+                    </c:if>
+                    <c:if test="${not empty invitationMessage.inviter}">
+                      <dt><spring:message code="jsp.detailteam.InvitedBy"/></dt>
+                      <dd>
+                        <c:forEach var="member" items="${team.members}">
+                          <c:if test="${member.id eq invitationMessage.inviter}">
+                            <c:out value="${member.name}"/>
+                          </c:if>
+                        </c:forEach>
+                      </dd>
+                    </c:if>
+                    <dt><spring:message code="jsp.general.Message"/></dt>
                     <dd>
-                      <c:forEach var="member" items="${team.members}">
-                        <c:if test="${member.id eq invitationMessage.inviter}">
-                          <c:out value="${member.name}"/>
-                        </c:if>
-                      </c:forEach>
+                      <pre><c:out value="${invitationMessage.message}"/></pre>
                     </dd>
-                  </c:if>
-                  <dt><spring:message code="jsp.general.Message"/></dt>
-                  <dd>
-                    <pre><c:out value="${invitationMessage.message}"/></pre>
-                  </dd>
-                </dl>
+                  </dl>
                 </c:forEach>
               </div>
             </td>
           </tr>
         </c:forEach>
-      </c:if>
-      </tbody>
-    </table>
-  </div>
+        </tbody>
+      </table>
+    </div>
+  </c:if>
+
 </form>
