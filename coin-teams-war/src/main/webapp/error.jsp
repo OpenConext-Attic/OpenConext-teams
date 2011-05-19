@@ -77,8 +77,7 @@
       <span>Radboudkwartier 273</span>
       <span>Postbus 19035</span>
       <span>3501 DA Utrecht</span>
-          <span>For questions email:<span>
-          </span><a class="extra" href="mailto:help@surfteams.nl">help@surfteams.nl</a></span>
+      <span>For questions email:&nbsp;<a class="extra" href="mailto:help@surfteams.nl">help@surfteams.nl</a></span>
       <a class="extra" href="http://www.surfnet.nl/en/pages/copyright.aspx" target="_blank">Copyright</a>
       <a class="extra" href="https://wiki.surfnetlabs.nl/display/conextsupport/Terms+of+Service+%28EN%29" target="_blank">Terms of use</a>
     </address>
