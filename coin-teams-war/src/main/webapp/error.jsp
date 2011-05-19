@@ -50,7 +50,7 @@
 
           <div id="Content">
             <p>Something went wrong. Please try to reload the page or go back to
-              <a href="home.shtml?teams=my">My Teams</a></p>
+              <a href="home.shtml?teams=my&amp;view=<%=view%>">My Teams</a></p>
             <%
               if (exception != null && exception.getMessage() != null) {
                 out.print("<p>");
