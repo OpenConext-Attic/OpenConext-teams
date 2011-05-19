@@ -25,6 +25,7 @@ import edu.internet2.middleware.grouperClient.api.GcGetMembers;
 import edu.internet2.middleware.grouperClient.api.GcGroupDelete;
 import edu.internet2.middleware.grouperClient.api.GcGroupSave;
 import edu.internet2.middleware.grouperClient.ws.GcWebServiceError;
+import edu.internet2.middleware.grouperClient.ws.StemScope;
 import edu.internet2.middleware.grouperClient.ws.beans.WsAssignGrouperPrivilegesResults;
 import edu.internet2.middleware.grouperClient.ws.beans.WsFindGroupsResults;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGetGroupsResult;
@@ -34,6 +35,7 @@ import edu.internet2.middleware.grouperClient.ws.beans.WsGroupLookup;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGroupSaveResults;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGroupToSave;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGrouperPrivilegeResult;
+import edu.internet2.middleware.grouperClient.ws.beans.WsStemLookup;
 import edu.internet2.middleware.grouperClient.ws.beans.WsSubject;
 import edu.internet2.middleware.grouperClient.ws.beans.WsSubjectLookup;
 import nl.surfnet.coin.teams.domain.Member;
@@ -511,6 +513,10 @@ public class GrouperTeamService implements TeamService {
     GcGetGroups getGroups = new GcGetGroups();
     getGroups.addSubjectId(personId);
     getGroups.assignActAsSubject(getActAsSubject());
+    WsStemLookup wsStemLookup = new WsStemLookup();
+    wsStemLookup.setStemName(stemName);
+    getGroups.assignWsStemLookup(wsStemLookup);
+    getGroups.assignStemScope(StemScope.ALL_IN_SUBTREE);
     WsGetGroupsResult[] groups = getGroups.execute().getResults();
     List<Team> teams = new ArrayList<Team>();
     if (groups.length > 0) {
