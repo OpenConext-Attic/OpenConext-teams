@@ -45,7 +45,7 @@
               <c:when test="${role eq adminRole and not (teamfn:contains(member.roles, adminRole) and onlyAdmin)}">
                 <c:set var="canDelete" value="true"/>
               </c:when>
-              <c:when test="${role eq managerRole and not teamfn:contains(member.roles, adminRole)}">
+              <c:when test="${role eq managerRole and (member.id eq sessionScope.person.id or not (teamfn:contains(member.roles, adminRole) or teamfn:contains(member.roles, managerRole)))}">
                 <c:set var="canDelete" value="true"/>
               </c:when>
               <c:otherwise>
@@ -78,7 +78,7 @@
               <c:set var="checked"><c:if
                       test="${teamfn:contains(member.roles, managerRole)}">checked="checked"</c:if></c:set>
               <c:set var="disabled"><c:if
-                      test="${teamfn:contains(member.roles, adminRole) or not(role eq adminRole or role eq managerRole)}">disabled="disabled"</c:if></c:set>
+                      test="${not(role eq adminRole)}">disabled="disabled"</c:if></c:set>
               <input id="1_${member.id}" type="checkbox" name="managerRole" value="" ${checked} ${disabled}/>
             </td>
             <td>
