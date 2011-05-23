@@ -158,7 +158,7 @@ public class InMemoryMockTeamService implements TeamService {
    * {@inheritDoc}
    */
   @Override
-  public TeamResultWrapper findAllTeams(String stemName, int offset, int pageSize) {
+  public TeamResultWrapper findAllTeams(String stemName,String personId, int offset, int pageSize) {
     List<Team> teamList = new ArrayList<Team>(teams.values());
     List<Team> matches = new ArrayList<Team>();
     List<Team> limitedList = new ArrayList<Team>();
@@ -175,7 +175,7 @@ public class InMemoryMockTeamService implements TeamService {
   }
 
   @Override
-  public TeamResultWrapper findTeams(String stemName, String partOfGroupname, int offset, int pageSize) {
+  public TeamResultWrapper findTeams(String stemName, String personId, String partOfGroupname, int offset, int pageSize) {
     List<Team> teamList = new ArrayList<Team>(teams.values());
     List<Team> matches = new ArrayList<Team>();
     List<Team> limitedList = new ArrayList<Team>();
@@ -283,7 +283,7 @@ public class InMemoryMockTeamService implements TeamService {
   @Override
   public void addMember(String teamId, String personId) {
     // just find the member (in some other team), copy and add to team
-    List<Team> allTeams = findAllTeams(STEM, 0, 10).getTeams();
+    List<Team> allTeams = findAllTeams(STEM, "",0, 10).getTeams();
     Member m = null;
     for (Team team : allTeams) {
       List<Member> members = team.getMembers();

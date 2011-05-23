@@ -28,66 +28,48 @@ public class GrouperDaoImpl implements GrouperDao {
 
   @SuppressWarnings("unchecked")
   @Override
-  public TeamResultWrapper findAllTeams(String stemName, int offset,
-      int pageSize) {
-    int rowCount = this.jdbcTemplate.queryForInt(
-        "select count(distinct gg.name) from grouper_groups gg, grouper_stems gs "
-            + "where gg.parent_stem = gs.id and gs.name = ?", stemName);
-    List<Team> teams = performQuery(
-        "select distinct gg.name, gg.display_name ,gg.description from grouper_groups gg, grouper_stems gs "
-            + "where gg.parent_stem = gs.id and gs.name = ? order by gg.name limit ? offset ?",
-        new Object[] { stemName, pageSize, offset });
-    return new TeamResultWrapper(teams, rowCount);
-  }
-
-  @Override
-  public TeamResultWrapper findTeams(String stemName, String partOfGroupname,
+  public TeamResultWrapper findAllTeams(String stemName, String personId,
       int offset, int pageSize) {
-    partOfGroupname = wildCard(partOfGroupname);
     int rowCount = this.jdbcTemplate
         .queryForInt(
-            "select count(distinct gg.name) from grouper_groups gg, grouper_stems gs "
-                + "where gg.parent_stem = gs.id and gs.name = ? and upper(gg.name) like ?",
-            stemName, partOfGroupname);
+            "select count(distinct gg.name) from grouper_groups gg, grouper_stems gs, grouper_members gm, "
+                + "grouper_memberships gms, grouper_rpt_group_field_v ggf  "
+                + "where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
+                + "and gs.name = ? and ggf.group_name = gg.name "
+                + "and ((ggf.field_type = 'access' and ggf.field_name = 'viewers') or gm.subject_id = ?) ",
+            stemName, personId);
     List<Team> teams = performQuery(
-        "select distinct gg.name, gg.display_name ,gg.description from grouper_groups gg, grouper_stems gs "
-            + "where gg.parent_stem = gs.id and gs.name = ? and upper(gg.name) like ? order by gg.name limit ? offset ?",
-        new Object[] { stemName, partOfGroupname, pageSize, offset });
+        "select distinct gg.name, gg.display_name ,gg.description from grouper_groups gg, grouper_stems gs, grouper_members gm, "
+            + "grouper_memberships gms, grouper_rpt_group_field_v ggf   "
+            + "where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
+            + "and gs.name = ? and ggf.group_name = gg.name "
+            + "and ((ggf.field_type = 'access' and ggf.field_name = 'viewers') or gm.subject_id = ?) "
+            + "order by gg.name limit ? offset ?", new Object[] { stemName,
+            personId, pageSize, offset });
     return new TeamResultWrapper(teams, rowCount);
   }
 
   @Override
-  public TeamResultWrapper findAllTeamsByMember(String stemName,
-      String personId, int offset, int pageSize) {
-    int rowCount = this.jdbcTemplate
-        .queryForInt(
-            "select count(distinct gg.name) from grouper_groups gg, grouper_stems gs, grouper_members gm, grouper_memberships gms where"
-                + " gg.parent_stem = gs.id and gm.subject_id = ? and gms.member_id = gm.id "
-                + "and gms.owner_group_id = gg.id and gs.name = ?",
-            personId, stemName);
-    List<Team> teams = performQuery(
-        "select distinct gg.name, gg.display_name ,gg.description from grouper_groups gg, grouper_stems gs, grouper_members gm, grouper_memberships gms where"
-            + " gg.parent_stem = gs.id and gm.subject_id = ? and gms.member_id = gm.id "
-            + "and gms.owner_group_id = gg.id and gs.name = ? order by gg.name limit ? offset ?",
-        new Object[] { personId, stemName, pageSize, offset });
-    return new TeamResultWrapper(teams, rowCount);
-  }
-
-  @Override
-  public TeamResultWrapper findTeamsByMember(String stemName, String personId,
+  public TeamResultWrapper findTeams(String stemName, String personId,
       String partOfGroupname, int offset, int pageSize) {
     partOfGroupname = wildCard(partOfGroupname);
     int rowCount = this.jdbcTemplate
         .queryForInt(
-            "select count(distinct gg.name) from grouper_groups gg, grouper_stems gs, grouper_members gm, grouper_memberships gms where"
-                + " gg.parent_stem = gs.id and gm.subject_id = ? and gms.member_id = gm.id "
-                + "and gms.owner_group_id = gg.id and gs.name = ? and upper(gg.name) like ? ",
-            personId, stemName, partOfGroupname);
+            "select count(distinct gg.name) from grouper_groups gg, grouper_stems gs, grouper_members gm,"
+                + "grouper_memberships gms, grouper_rpt_group_field_v ggf  "
+                + "where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
+                + "and gs.name = ? and ggf.group_name = gg.name "
+                + "and ((ggf.field_type = 'access' and ggf.field_name = 'viewers') or gm.subject_id = ?) "
+                + "and upper(gg.name) like ?", stemName, personId,
+            partOfGroupname);
     List<Team> teams = performQuery(
-        "select distinct gg.name, gg.display_name ,gg.description from grouper_groups gg, grouper_stems gs, grouper_members gm, grouper_memberships gms where"
-            + " gg.parent_stem = gs.id and gm.subject_id = ? and gms.member_id = gm.id "
-            + "and gms.owner_group_id = gg.id and gs.name = ? and upper(gg.name) like ? order by gg.name limit ? offset ?",
-        new Object[] { personId, stemName, partOfGroupname, pageSize, offset });
+        "select distinct gg.name, gg.display_name ,gg.description from grouper_groups gg, grouper_stems gs, grouper_members gm,"
+            + "grouper_memberships gms, grouper_rpt_group_field_v ggf  "
+            + "where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
+            + "and gs.name = ? and ggf.group_name = gg.name "
+            + "and ((ggf.field_type = 'access' and ggf.field_name = 'viewers') or gm.subject_id = ?) "
+            + "and upper(gg.name) like ? order by gg.name limit ? offset ?",
+        new Object[] { stemName, personId, partOfGroupname, pageSize, offset });
     return new TeamResultWrapper(teams, rowCount);
   }
 

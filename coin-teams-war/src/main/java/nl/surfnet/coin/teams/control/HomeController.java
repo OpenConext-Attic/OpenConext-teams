@@ -107,12 +107,13 @@ public class HomeController {
     // Display all teams when the person is empty or when display equals "all"
 
     if ("all".equals(display) || !StringUtils.hasText(person)) {
+      String personId = LoginInterceptor.getLoggedInUser();
       if (StringUtils.hasText(query)) {
         resultWrapper = teamService.findTeams(
-                getStemName(request), query, offset, PAGESIZE);
+                getStemName(request), personId, query, offset, PAGESIZE);
       } else {
         resultWrapper = teamService.findAllTeams(
-                getStemName(request), offset, PAGESIZE);
+                getStemName(request), personId, offset, PAGESIZE);
       }
       modelMap.addAttribute("display", "all");
       // else always display my teams

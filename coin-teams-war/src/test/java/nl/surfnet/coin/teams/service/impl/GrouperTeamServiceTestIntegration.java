@@ -1,8 +1,10 @@
 package nl.surfnet.coin.teams.service.impl;
 
 import org.junit.Ignore;
+import org.junit.Test;
 
 import nl.surfnet.coin.teams.domain.TeamResultWrapper;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 
 /**
@@ -12,18 +14,16 @@ import nl.surfnet.coin.teams.util.TeamEnvironment;
  */
 public class GrouperTeamServiceTestIntegration {
 
-  @Ignore
+  @Test
   public void testFindAllTeams() {
+    LoginInterceptor.setLoggedInUser("urn:collab:person:test.surfguest.nl:oharsta");
+    
     GrouperTeamService teamService = new GrouperTeamService();
     TeamEnvironment environment = new TeamEnvironment();
     environment.setDefaultStemName("nl:surfnet:diensten");
     environment.setGrouperPowerUser("GrouperSystem");
     teamService.setEnvironment(environment );
-    for (int i = 0; i < 100; i++) {
-      long time = System.currentTimeMillis();
-      TeamResultWrapper allTeamsLimited = teamService.findAllTeams("nl:surfnet:diensten", 0, 10);
-      System.out.println(System.currentTimeMillis() - time);
-    }
+    teamService.findAllTeamsOld(null);
   }
   
   

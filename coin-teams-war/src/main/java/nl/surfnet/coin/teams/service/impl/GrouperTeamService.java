@@ -8,6 +8,16 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.domain.TeamResultWrapper;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperDao;
+import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.DuplicateTeamException;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,18 +45,10 @@ import edu.internet2.middleware.grouperClient.ws.beans.WsGroupLookup;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGroupSaveResults;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGroupToSave;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGrouperPrivilegeResult;
+import edu.internet2.middleware.grouperClient.ws.beans.WsQueryFilter;
 import edu.internet2.middleware.grouperClient.ws.beans.WsStemLookup;
 import edu.internet2.middleware.grouperClient.ws.beans.WsSubject;
 import edu.internet2.middleware.grouperClient.ws.beans.WsSubjectLookup;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.domain.TeamResultWrapper;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.GrouperDao;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.util.DuplicateTeamException;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
 
 /**
  * {@link TeamService} using Grouper LDAP as persistent store
@@ -494,14 +496,14 @@ public class GrouperTeamService implements TeamService {
   }
 
   @Override
-  public TeamResultWrapper findAllTeams(String stemName, int offset, int pageSize) {
-    return grouperDao.findAllTeams(stemName, offset, pageSize);
+  public TeamResultWrapper findAllTeams(String stemName, String personId, int offset, int pageSize) {
+   return grouperDao.findAllTeams(stemName,personId, offset, pageSize);
   }
 
   @Override
-  public TeamResultWrapper findTeams(String stemName, String partOfGroupname,
+  public TeamResultWrapper findTeams(String stemName, String personId, String partOfGroupname,
                                      int offset, int pageSize) {
-    return grouperDao.findTeams(stemName, partOfGroupname, offset, pageSize);
+    return grouperDao.findTeams(stemName, personId, partOfGroupname, offset, pageSize);
   }
 
   @Override
@@ -548,6 +550,27 @@ public class GrouperTeamService implements TeamService {
       limited.add(result.get(i));
     }
     return new TeamResultWrapper(limited, totalCount);
+  }
+  
+  /**
+   * {@inheritDoc}
+   */
+  
+  public List<Team> findAllTeamsOld(String stemName) {
+    if (!StringUtils.hasText(stemName)) {
+      stemName = environment.getDefaultStemName();
+    }
+    GcFindGroups findGroups = new GcFindGroups();
+    findGroups.assignActAsSubject(getActAsSubject());
+    findGroups.assignIncludeGroupDetail(Boolean.TRUE);
+
+    WsQueryFilter queryFilter = new WsQueryFilter();
+    queryFilter.setQueryFilterType("FIND_BY_STEM_NAME");
+    queryFilter.setStemName(stemName);
+    findGroups.assignQueryFilter(queryFilter);
+    WsFindGroupsResults findResults = findGroups.execute();
+    WsGroup[] groupResults = findResults.getGroupResults();
+    return convertWsGroupToTeam(groupResults, false);
   }
 
 
