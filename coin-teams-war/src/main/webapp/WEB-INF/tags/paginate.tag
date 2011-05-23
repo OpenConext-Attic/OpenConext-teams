@@ -59,8 +59,9 @@
     </c:set>
     <c:set var="end">
       <c:choose>
+        <c:when test="${resultset eq 0}">0</c:when>
         <%-- till the end --%>
-        <c:when test="${(begin + (4 * pagesize)) >= resultset}">${resultset}</c:when>
+        <c:when test="${(begin + (4 * pagesize)) >= resultset}">${resultset - 1}</c:when>
         <%-- Next 4 pages --%>
         <c:otherwise>${begin + (4 * pagesize)}</c:otherwise>
       </c:choose>
