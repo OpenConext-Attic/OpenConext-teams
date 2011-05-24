@@ -68,7 +68,7 @@ jQuery.notifyBar = function(settings) {
       default:
       asTime = notifyBarNS.animationSpeed;
     }
-    if( bar != 'object'); {
+    if( bar != 'object') {
       jQuery("#PageContainer").prepend(bar);
     }
     

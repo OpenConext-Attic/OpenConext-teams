@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="teams"%>
 <%--
-  ~ Copyright 2011 SURFnet bv
+  ~ Copyright 2011 SURFnet bv, The Netherlands
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.

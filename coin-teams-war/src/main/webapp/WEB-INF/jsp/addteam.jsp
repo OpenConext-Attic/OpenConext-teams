@@ -5,7 +5,7 @@
 <%@ taglib tagdir="/WEB-INF/tags" prefix="teams"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
-  ~ Copyright 2011 SURFnet bv
+  ~ Copyright 2011 SURFnet bv, The Netherlands
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
