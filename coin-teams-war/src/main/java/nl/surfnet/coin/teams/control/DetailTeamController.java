@@ -17,6 +17,7 @@
 package nl.surfnet.coin.teams.control;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -27,7 +28,10 @@ import java.util.Locale;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -37,7 +41,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -73,6 +76,10 @@ public class DetailTeamController {
   private static final String ROLE_PARAM = "role";
 
   private static final int PAGESIZE = 10;
+  private static final String APPLICATION_JSON = "application/json";
+  private static final String STATUS = "status";
+  private static final String SUCCESS = "success";
+  private static final String ERROR = "error";
 
 
   @Autowired
@@ -131,6 +138,7 @@ public class DetailTeamController {
 
     // Check if there is only one admin for a team
     boolean onlyAdmin = teamService.findAdmins(team).size() <= 1;
+    modelMap.addAttribute("onlyAdmin", onlyAdmin);
 
     modelMap.addAttribute("invitations",
             teamInviteService.findInvitationsForTeam(team));
@@ -148,7 +156,6 @@ public class DetailTeamController {
     modelMap.addAttribute("resultset", team.getMembers().size());
     modelMap.addAttribute("pagesize", PAGESIZE);
 
-    modelMap.addAttribute("onlyAdmin", onlyAdmin);
     modelMap.addAttribute(TEAM_PARAM, team);
     modelMap.addAttribute("adminRole", Role.Admin);
     modelMap.addAttribute("managerRole", Role.Manager);
@@ -294,54 +301,89 @@ public class DetailTeamController {
   }
 
   @RequestMapping(value = "/doaddrole.shtml", method = RequestMethod.POST)
-  public @ResponseBody
-  String addRole(ModelMap modelMap, HttpServletRequest request)
-          throws UnsupportedEncodingException {
+  public void addRole(ModelMap modelMap, HttpServletRequest request,
+                        HttpServletResponse response)
+          throws IOException, JSONException {
+    response.setContentType(APPLICATION_JSON);
+    PrintWriter writer = response.getWriter();
+
     String teamId = request.getParameter(TEAM_PARAM);
     String memberId = request.getParameter(MEMBER_PARAM);
     String roleString = request.getParameter(ROLE_PARAM);
 
+    JSONObject jsonObject = new JSONObject();
     if (!StringUtils.hasText(teamId) || !StringUtils.hasText(memberId)
         || !StringUtils.hasText(roleString)) {
-      return "error";
+      jsonObject.put(STATUS, ERROR);
+      writer.write(jsonObject.toString());
+      return;
     }
 
     Role role = roleString.equals(ADMIN) ? Role.Admin : Role.Manager;
-
-    return teamService.addMemberRole(teamId, memberId, role, false) ? "success"
-        : "error";
+    // Check if there is only one admin for a team
+    final boolean roleAdded = teamService.addMemberRole(teamId, memberId, role, false);
+    if(roleAdded) {
+      jsonObject.put(STATUS, SUCCESS);
+    } else {
+      jsonObject.put(STATUS, ERROR);
+    }
+    Team team = teamService.findTeamById(teamId);
+    boolean onlyAdmin = teamService.findAdmins(team).size() <= 1;
+    jsonObject.put("onlyadmin", onlyAdmin);
+    writer.write(jsonObject.toString());
+    return;
   }
 
   @RequestMapping(value = "/doremoverole.shtml", method = RequestMethod.POST)
-  public @ResponseBody
-  String removeRole(ModelMap modelMap, HttpServletRequest request) {
+  public void removeRole(ModelMap modelMap, HttpServletRequest request,
+                           HttpServletResponse response) throws JSONException, IOException {
+    response.setContentType(APPLICATION_JSON);
+    PrintWriter writer = response.getWriter();
     String teamId = request.getParameter(TEAM_PARAM);
     String memberId = request.getParameter(MEMBER_PARAM);
     String roleString = request.getParameter(ROLE_PARAM);
     Team team;
-
+    JSONObject jsonObject = new JSONObject();
     // Some of the parameters weren't correctly filled
     if (!StringUtils.hasText(teamId) || !StringUtils.hasText(memberId)
         || !StringUtils.hasText(roleString)) {
-      return "error";
+      jsonObject.put(STATUS, ERROR);
+      writer.write(jsonObject.toString());
+      return;
     }
 
     team = teamService.findTeamById(teamId);
 
     // is the team null? return error
     if (team == null) {
-      return "error";
+      jsonObject.put(STATUS, ERROR);
+      writer.write(jsonObject.toString());
+      return;
     }
 
     // The role admin can only be removed if there are more then one admins in a
     // team.
     if ((roleString.equals(ADMIN) && teamService.findAdmins(team).size() == 1)) {
-      return "onlyOneAdmin";
+      jsonObject.put(STATUS, ERROR);
+      jsonObject.put("onlyadmin", true);
+      writer.write(jsonObject.toString());
+      return;
     }
 
     Role role = roleString.equals(ADMIN) ? Role.Admin : Role.Manager;
-    return teamService.removeMemberRole(teamId, memberId, role, false) ? "success"
-        : "error";
+
+    final boolean roleRemoved = teamService.removeMemberRole(teamId, memberId, role, false);
+    if(roleRemoved) {
+      jsonObject.put(STATUS, SUCCESS);
+    } else {
+      jsonObject.put(STATUS, ERROR);
+    }
+    // fetch team again because the roles of its members have changed
+    team = teamService.findTeamById(teamId);
+    boolean onlyAdmin = teamService.findAdmins(team).size() <= 1;
+    jsonObject.put("onlyadmin", onlyAdmin);
+    writer.write(jsonObject.toString());
+    return;
   }
 
   @RequestMapping(value = "/dodeleterequest.shtml")

@@ -14,9 +14,6 @@
  * limitations under the License.
  */
 
-/**
- * 
- */
 package nl.surfnet.coin.teams.control;
 
 import static org.junit.Assert.assertEquals;
@@ -30,10 +27,13 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
 import org.opensocial.models.Person;
 import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.web.servlet.view.RedirectView;
 
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
@@ -51,6 +51,7 @@ import nl.surfnet.coin.teams.service.TeamService;
 public class DetailTeamControllerTest extends AbstractControllerTest {
 
   private DetailTeamController detailTeamController = new DetailTeamController();
+  private MockHttpServletResponse response;
 
   @Test(expected = RuntimeException.class)
   public void testStart() throws Exception {
@@ -420,7 +421,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     
     detailTeamController.deleteMember(getModelMap(), request);
   }
-  
+
   @Test
   public void testAddRoleHappyFlow() throws Exception {
     MockHttpServletRequest request = getRequest();
@@ -428,14 +429,19 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     request.addParameter("member", "member-1");
     request.addParameter("role", Role.Manager.toString());
 
-    autoWireMock(detailTeamController, new Returns(true), TeamService.class);
+    TeamService teamService = mock(TeamService.class);
+    when(teamService.addMemberRole("team-1", "member-1", Role.Manager, false))
+            .thenReturn(true);
+    autoWireMock(detailTeamController, teamService, TeamService.class);
     autoWireRemainingResources(detailTeamController);
 
-    String result = detailTeamController.addRole(getModelMap(), request);
-    
-    assertEquals("success", result);
+    detailTeamController.addRole(getModelMap(), request, response);
+    String result = response.getContentAsString();
+    JSONParser jsonParser = new JSONParser();
+    final JSONObject parse = (JSONObject) jsonParser.parse(result);
+    assertEquals("success", parse.get("status"));
   }
-  
+
   @Test
   public void testAddRoleNotAuthorized() throws Exception {
     MockHttpServletRequest request = getRequest();
@@ -447,21 +453,31 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireMock(detailTeamController, new Returns(false), TeamService.class);
     autoWireRemainingResources(detailTeamController);
 
-    String result = detailTeamController.addRole(getModelMap(), request);
-    
-    assertEquals("error", result);
+    TeamService teamService = mock(TeamService.class);
+    when(teamService.addMemberRole("team-1", "member-1", Role.Manager, false))
+            .thenReturn(false);
+    autoWireMock(detailTeamController, teamService, TeamService.class);
+
+    detailTeamController.addRole(getModelMap(), request, response);
+    String result = response.getContentAsString();
+    JSONParser jsonParser = new JSONParser();
+    final JSONObject parse = (JSONObject) jsonParser.parse(result);
+
+    assertEquals("error", parse.get("status"));
   }
-  
+
   @Test
   public void testAddRoleException() throws Exception {
     MockHttpServletRequest request = getRequest();
     // do NOT add the team, member & role
-    
+
     autoWireRemainingResources(detailTeamController);
 
-    String result = detailTeamController.addRole(getModelMap(), request);
-    
-    assertEquals("error", result);
+    detailTeamController.addRole(getModelMap(), request, response);
+    String result = response.getContentAsString();
+    JSONParser jsonParser = new JSONParser();
+    final JSONObject parse = (JSONObject) jsonParser.parse(result);
+    assertEquals("error", parse.get("status"));
   }
   
   @Test
@@ -493,11 +509,14 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireMock(detailTeamController, teamService, TeamService.class);
     autoWireRemainingResources(detailTeamController);
 
-    String result = detailTeamController.removeRole(getModelMap(), request);
-    
-    assertEquals("success", result);
+    detailTeamController.removeRole(getModelMap(), request, response);
+
+    String result = response.getContentAsString();
+    JSONParser jsonParser = new JSONParser();
+    final JSONObject parse = (JSONObject) jsonParser.parse(result);
+    assertEquals("success", parse.get("status"));
   }
-  
+
   @Test
   public void testRemoveRoleOneAdmin() throws Exception {
     MockHttpServletRequest request = getRequest();
@@ -505,7 +524,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     request.addParameter("team", "team-1");
     request.addParameter("member", "member-1");
     request.addParameter("role", "0");
-    
+
     HashSet<Role> roles = new HashSet<Role>();
     roles.add(Role.Member);
     roles.add(Role.Manager);
@@ -528,21 +547,27 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireMock(detailTeamController, teamService, TeamService.class);
     autoWireRemainingResources(detailTeamController);
 
-    String result = detailTeamController.removeRole(getModelMap(), request);
-    
-    assertEquals("onlyOneAdmin", result);
+    detailTeamController.removeRole(getModelMap(), request, response);
+    String result = response.getContentAsString();
+    JSONParser jsonParser = new JSONParser();
+    final JSONObject parse = (JSONObject) jsonParser.parse(result);
+    assertEquals("error", parse.get("status"));
+    assertTrue((Boolean) parse.get("onlyadmin"));
   }
-  
+
   @Test
   public void testRemoveRoleException() throws Exception {
     MockHttpServletRequest request = getRequest();
     // do NOT add the team, member & role
-    
+
     autoWireRemainingResources(detailTeamController);
 
-    String result = detailTeamController.removeRole(getModelMap(), request);
-    
-    assertEquals("error", result);
+    detailTeamController.removeRole(getModelMap(), request, response);
+
+    String result = response.getContentAsString();
+    JSONParser jsonParser = new JSONParser();
+    final JSONObject parse = (JSONObject) jsonParser.parse(result);
+    assertEquals("error", parse.get("status"));
   }
 
   @Test
@@ -597,4 +622,9 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     assertEquals("detailteam.shtml?team=team-1&view=app", result.getUrl());
   }
 
+  @Override
+  public void setup() throws Exception {
+    super.setup();
+    this.response = new MockHttpServletResponse();
+  }
 }

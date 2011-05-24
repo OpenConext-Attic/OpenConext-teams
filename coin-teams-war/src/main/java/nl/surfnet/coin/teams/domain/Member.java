@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package nl.surfnet.coin.teams.domain;
 
 import java.io.Serializable;
@@ -21,22 +22,21 @@ import java.util.Set;
 
 /**
  * A member of a team
- * 
  */
 public class Member implements Serializable {
- 
+
   private Set<Role> roles;
   private String name;
   private String id;
   private String email;
 
   public static final Set<Role> member = new HashSet<Role>();//Collections.singleton(Role.Member);
-  
+
   /**
-   * @param roles
-   * @param name
-   * @param id
-   * @param email
+   * @param roles Set of {@link Role}'s for this member
+   * @param name  full name
+   * @param id    uuid of the member
+   * @param email address of the member
    */
   public Member(Set<Role> roles, String name, String id, String email) {
     super();
@@ -76,26 +76,24 @@ public class Member implements Serializable {
     }
     return roles;
   }
-  
+
   /**
-   * 
    * @param role the role to be added
    * @return boolean is successful
    */
-  
+
   public boolean addRole(Role role) {
     if (this.roles == null) {
-      this.roles= new HashSet<Role>();
+      this.roles = new HashSet<Role>();
     }
     return roles.add(role);
   }
 
   /**
-   * 
    * @param role the role to be removed
    * @return boolean is successful
    */
-  
+
   public boolean removeRole(Role role) {
     if (this.roles == null) {
       return false;
@@ -105,40 +103,45 @@ public class Member implements Serializable {
 
   /**
    * Copy the {@link Member}
+   *
    * @return copy of this instance
    */
   public Member copy() {
-    return new Member(new HashSet<Role>(getRoles()),getName(),getId(),getEmail());
+    return new Member(new HashSet<Role>(getRoles()), getName(), getId(), getEmail());
   }
 
-  /* (non-Javadoc)
-   * @see java.lang.Object#hashCode()
+  /**
+   * {@inheritDoc}
    */
   @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + ((id == null) ? 0 : id.hashCode());
-    return result;
+    return prime * result + ((id == null) ? 0 : id.hashCode());
   }
 
-  /* (non-Javadoc)
-   * @see java.lang.Object#equals(java.lang.Object)
+  /**
+   * {@inheritDoc}
    */
   @Override
   public boolean equals(Object obj) {
-    if (this == obj)
+    if (this == obj) {
       return true;
-    if (obj == null)
+    }
+    if (obj == null) {
       return false;
-    if (getClass() != obj.getClass())
+    }
+    if (getClass() != obj.getClass()) {
       return false;
+    }
     Member other = (Member) obj;
     if (id == null) {
-      if (other.id != null)
+      if (other.id != null) {
         return false;
-    } else if (!id.equals(other.id))
+      }
+    } else if (!id.equals(other.id)) {
       return false;
+    }
     return true;
   }
 }

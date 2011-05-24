@@ -138,7 +138,7 @@ COIN.MODULES.Detailteam = function(sandbox) {
 			};
 			
 			sandbox.post('doaddrole.shtml', data, function(data) {
-				if (data === 'success') {
+				if (data["status"] === 'success') {
 					// is the admin role assigned?
 					if (role === '0') {
 						// Disable the manager role if the admin role has been assigned
@@ -150,6 +150,12 @@ COIN.MODULES.Detailteam = function(sandbox) {
             if(sandbox.typeOf($('#DeleteTeam'))!='undefined') {
               $('#DeleteTeam').parent().attr('class', 'middle');
               $('#LeaveTeam').parent().attr('class', 'last');
+            }
+            // display/hide only admin warning
+            if (data["onlyadmin"] && $('#onlyAdmin').hasClass('hide')) {
+              $('#onlyAdmin').removeClass('hide');
+            } else if (!data["onlyadmin"] && !$('#onlyAdmin').hasClass('hide')) {
+              $('#onlyAdmin').addClass('hide');
             }
 					}
 					
@@ -173,7 +179,7 @@ COIN.MODULES.Detailteam = function(sandbox) {
 			};
 			
 			sandbox.post('doremoverole.shtml', data, function(data) {
-				if (data === 'success') {
+				if (data["status"] === 'success') {
 					if ($('input[type=hidden][name=loggedInUser]').val() === memberId) {
 		        var view = $('input[name=view]').val();
 						sandbox.redirectBrowserTo('detailteam.shtml?team=' + teamId + '&view=' + view);
@@ -186,9 +192,15 @@ COIN.MODULES.Detailteam = function(sandbox) {
 						var admins = [];
 						// Count the checked admin roles that are left
 						$('input[name=adminRole]:checked').each(function(){admins.push($(this))});
-						
+            // display/hide only admin warning
+            if(data["onlyadmin"] && $('#onlyAdmin').hasClass('hide')) {
+              $('#onlyAdmin').removeClass('hide');
+            } else if (!data["onlyadmin"] && !$('#onlyAdmin').hasClass('hide')) {
+              $('#onlyAdmin').addClass('hide');
+            }
+
 						// Only one left?
-						if (admins.length == 1) {
+						if (data["onlyadmin"] && admins.length == 1) {
 							// Disable the admin role that is checked, because otherwise no admins will be left
 							admins[0].attr('disabled', true);
               var deleteTeam = $('#DeleteTeam');

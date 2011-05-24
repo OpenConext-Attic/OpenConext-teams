@@ -25,6 +25,11 @@
 <div class="section" id="TeamContainer">
   <!-- = Header -->
   <div id="Header">
+    <c:if test="${role eq adminRole}">
+      <div class="jquery-warning-bar <c:if test="${onlyAdmin ne true}">hide</c:if>" id="onlyAdmin">
+        <p><spring:message code="jsp.detailteam.OnlyAdminWarning"/></p>
+      </div>
+    </c:if>
     <c:if test="${fn:length(message) > 0}"><div id="__notifyBar" class="hide"><spring:message code='${message}' /></div></c:if>
     <teams:teamOptions/>
     <br class="clear" />
