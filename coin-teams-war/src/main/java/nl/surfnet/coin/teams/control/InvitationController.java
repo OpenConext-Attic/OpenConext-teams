@@ -120,7 +120,7 @@ public class InvitationController {
     }
 
     String memberId = person.getId();
-    teamService.addMember(teamId, memberId);
+    teamService.addMember(teamId, person);
     teamService.addMemberRole(teamId, memberId, Role.Member, true);
 
     teamInviteService.delete(invitation);

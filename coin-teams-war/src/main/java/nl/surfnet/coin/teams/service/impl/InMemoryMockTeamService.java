@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package nl.surfnet.coin.teams.service.impl;
 
 import java.util.ArrayList;
@@ -21,6 +22,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import org.opensocial.models.Person;
 
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
@@ -81,6 +84,7 @@ public class InMemoryMockTeamService implements TeamService {
         "member3@surfnet.nl");
     Member member4 = new Member(roles1, "member4-name", "member-4",
         "member4@surfnet.nl");
+    member4.setGuest(true);
     Member member5 = new Member(roles1, "member5-name", "member-5",
         "member5@surfnet.nl");
     Member member6 = new Member(roles1, "member6-name", "member-6",
@@ -91,24 +95,24 @@ public class InMemoryMockTeamService implements TeamService {
     team1.addMembers(member1.copy(), member2.copy(), member3.copy());
     team2.addMembers(member3.copy(), member4.copy(), member5.copy());
     team3.addMembers(member5.copy(), member6.copy(), member7.copy());
-    team4.addMembers(member1.copy(), member2.copy());
+    team4.addMembers(member1.copy(), member2.copy(), member4.copy());
 
     List<Member> dummyMembers = new ArrayList<Member>();
     dummyMembers.add(member1);
     dummyMembers.add(member2);
 
-    for (int memberId = 10; memberId < 110; memberId++) {
-      Member dummyMember = new Member(roles1, "member" + memberId + "-name",
-              "member-" + memberId, "member" + memberId + "@surfnet.nl");
-      dummyMembers.add(dummyMember);
-    }
-
-    for (int teamId = 5; teamId < 5000; teamId++) {
-      Team newTeam = new Team("test-team-" + teamId,
-              "test-team-" + teamId + "-name", "description-" + teamId, true);
-      newTeam.addMembers(dummyMembers.toArray(new Member[dummyMembers.size()]));
-      teams.put(newTeam.getId(), newTeam);
-    }
+//    for (int memberId = 10; memberId < 110; memberId++) {
+//      Member dummyMember = new Member(roles1, "member" + memberId + "-name",
+//              "member-" + memberId, "member" + memberId + "@surfnet.nl");
+//      dummyMembers.add(dummyMember);
+//    }
+//
+//    for (int teamId = 5; teamId < 5000; teamId++) {
+//      Team newTeam = new Team("test-team-" + teamId,
+//              "test-team-" + teamId + "-name", "description-" + teamId, true);
+//      newTeam.addMembers(dummyMembers.toArray(new Member[dummyMembers.size()]));
+//      teams.put(newTeam.getId(), newTeam);
+//    }
 
   }
 
@@ -293,21 +297,26 @@ public class InMemoryMockTeamService implements TeamService {
    * {@inheritDoc}
    */
   @Override
-  public void addMember(String teamId, String personId) {
+  public void addMember(String teamId, Person person) {
     // just find the member (in some other team), copy and add to team
-    List<Team> allTeams = findAllTeams(STEM, "",0, 10).getTeams();
+    List<Team> allTeams = findAllTeams(STEM, "",0, 10000).getTeams();
     Member m = null;
     for (Team team : allTeams) {
+      if (m != null) {
+        break;
+      }
       List<Member> members = team.getMembers();
       for (Member member : members) {
-        if (member.getId().equals(personId)) {
+        if (member.getId().equals(person.getId())) {
           m = member.copy();
+          break;
         }
       }  
     }
     if (m == null) {
-      throw new RuntimeException("Member('"+personId+"') not found");
+      throw new RuntimeException("Member('"+ person.getId() +"') not found");
     }
+    m.setGuest(person.isGuest());
     Team team = findTeam(teamId);
     team.addMembers(m);
   }

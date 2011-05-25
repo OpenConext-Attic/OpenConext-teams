@@ -87,7 +87,7 @@
             <td>
               <c:set var="checked"><c:if
                       test="${teamfn:contains(member.roles, adminRole)}">checked="checked"</c:if></c:set>
-              <c:set var="disabled"><c:if test="${not(role eq adminRole) or (not empty checked and onlyAdmin eq true)}">disabled="disabled"</c:if></c:set>
+              <c:set var="disabled"><c:if test="${member.guest eq true or not(role eq adminRole) or (not empty checked and onlyAdmin eq true)}">disabled="disabled"</c:if></c:set>
               <input id="0_${member.id}" type="checkbox" name="adminRole" value="" ${checked} ${disabled}/>
             </td>
             <td>

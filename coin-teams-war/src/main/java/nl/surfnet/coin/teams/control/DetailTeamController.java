@@ -310,7 +310,6 @@ public class DetailTeamController {
     String teamId = request.getParameter(TEAM_PARAM);
     String memberId = request.getParameter(MEMBER_PARAM);
     String roleString = request.getParameter(ROLE_PARAM);
-
     JSONObject jsonObject = new JSONObject();
     if (!StringUtils.hasText(teamId) || !StringUtils.hasText(memberId)
         || !StringUtils.hasText(roleString)) {
@@ -320,6 +319,14 @@ public class DetailTeamController {
     }
 
     Role role = roleString.equals(ADMIN) ? Role.Admin : Role.Manager;
+
+    Member other = teamService.findMember(teamId, memberId);
+    if (other.isGuest() && role == Role.Admin) {
+      jsonObject.put(STATUS, ERROR);
+      writer.write(jsonObject.toString());
+      return;
+    }
+
     // Check if there is only one admin for a team
     final boolean roleAdded = teamService.addMemberRole(teamId, memberId, role, false);
     if(roleAdded) {
@@ -413,8 +420,8 @@ public class DetailTeamController {
       throw new RuntimeException("Cannot find team with id " + teamId);
     }
 
-    Person memberToAdd = teamPersonService.getPerson(memberId);
-    if (memberToAdd == null) {
+    Person personToAddAsMember = teamPersonService.getPerson(memberId);
+    if (personToAddAsMember == null) {
       throw new RuntimeException("Cannot retrieve Person data for id " + memberId);
     }
 
@@ -431,18 +438,18 @@ public class DetailTeamController {
     }
 
     if (approve) {
-      teamService.addMember(teamId, memberId);
+      teamService.addMember(teamId, personToAddAsMember);
       teamService.addMemberRole(teamId, memberId, Role.Member, true);
     }
 
-    JoinTeamRequest pendingRequest = joinTeamRequestService.findPendingRequest(memberToAdd, team);
+    JoinTeamRequest pendingRequest = joinTeamRequestService.findPendingRequest(personToAddAsMember, team);
     if (pendingRequest != null) {
       joinTeamRequestService.delete(pendingRequest);
     }
 
     if (!approve) {
       Locale locale = localeResolver.resolveLocale(request);
-      sendDeclineMail(memberToAdd, team, locale);
+      sendDeclineMail(personToAddAsMember, team, locale);
     }
 
     return new RedirectView("detailteam.shtml?team="

@@ -17,11 +17,13 @@
 package nl.surfnet.coin.teams.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
- * A member of a team
+ * A member of a {@link Team}
  */
 public class Member implements Serializable {
 
@@ -29,6 +31,7 @@ public class Member implements Serializable {
   private String name;
   private String id;
   private String email;
+  private List<MemberAttribute> memberAttributes;
 
   public static final Set<Role> member = new HashSet<Role>();//Collections.singleton(Role.Member);
 
@@ -102,12 +105,71 @@ public class Member implements Serializable {
   }
 
   /**
+   * @return List of (custom) {@link MemberAttribute}'s,
+   *         can be empty but not {@literal null}
+   */
+  public List<MemberAttribute> getMemberAttributes() {
+    if (memberAttributes == null) {
+      memberAttributes = new ArrayList<MemberAttribute>();
+    }
+    return memberAttributes;
+  }
+
+  /**
+   * @param memberAttributes List of (custom) {@link MemberAttribute}'s
+   */
+  public void setMemberAttributes(List<MemberAttribute> memberAttributes) {
+    this.memberAttributes = memberAttributes;
+  }
+
+  /**
+   * Adds one {@link MemberAttribute} to the list
+   * @param memberAttribute MemberAttribute to add
+   */
+  public void addMemberAttribute(MemberAttribute memberAttribute) {
+    getMemberAttributes().add(memberAttribute);
+  }
+
+  /**
    * Copy the {@link Member}
    *
    * @return copy of this instance
    */
   public Member copy() {
-    return new Member(new HashSet<Role>(getRoles()), getName(), getId(), getEmail());
+    Member copy = new Member(new HashSet<Role>(this.getRoles()), this.getName(), this.getId(), this.getEmail());
+    copy.setMemberAttributes(this.getMemberAttributes());
+    return copy;
+  }
+
+  /**
+   * Defines if the Member has a guest status
+   *
+   * @return {@literal true} if the Member has a guest status
+   */
+  public boolean isGuest() {
+    for (MemberAttribute memberAttribute : getMemberAttributes()) {
+      if (MemberAttribute.ATTRIBUTE_GUEST.equals(memberAttribute.getAttributeName())) {
+        return Boolean.valueOf(memberAttribute.getAttributeValue());
+      }
+    }
+    return false;
+  }
+
+  /**
+   * Sets the value that indicates if the Member has guest status
+   *
+   * @param isGuest {@link}
+   */
+  public void setGuest(boolean isGuest) {
+    for (MemberAttribute memberAttribute : getMemberAttributes()) {
+      if (MemberAttribute.ATTRIBUTE_GUEST.equals(memberAttribute.getAttributeName())) {
+        memberAttribute.setAttributeValue(Boolean.toString(isGuest));
+        return;
+      }
+    }
+    MemberAttribute memberAttribute = new MemberAttribute(this.getId(),
+            MemberAttribute.ATTRIBUTE_GUEST, Boolean.toString(isGuest));
+    addMemberAttribute(memberAttribute);
   }
 
   /**

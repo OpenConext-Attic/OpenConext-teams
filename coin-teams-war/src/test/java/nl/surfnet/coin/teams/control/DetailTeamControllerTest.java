@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -430,6 +431,10 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     request.addParameter("role", Role.Manager.toString());
 
     TeamService teamService = mock(TeamService.class);
+    Set<Role> roles = new HashSet<Role>();
+    roles.add(Role.Member);
+    Member member = new Member(roles, "Member One", "member-1", "member1@example.com");
+    when(teamService.findMember("team-1", "member-1")).thenReturn(member);
     when(teamService.addMemberRole("team-1", "member-1", Role.Manager, false))
             .thenReturn(true);
     autoWireMock(detailTeamController, teamService, TeamService.class);
@@ -454,6 +459,10 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireRemainingResources(detailTeamController);
 
     TeamService teamService = mock(TeamService.class);
+    Set<Role> roles = new HashSet<Role>();
+    roles.add(Role.Member);
+    Member member = new Member(roles, "Member One", "member-1", "member1@example.com");
+    when(teamService.findMember("team-1", "member-1")).thenReturn(member);
     when(teamService.addMemberRole("team-1", "member-1", Role.Manager, false))
             .thenReturn(false);
     autoWireMock(detailTeamController, teamService, TeamService.class);

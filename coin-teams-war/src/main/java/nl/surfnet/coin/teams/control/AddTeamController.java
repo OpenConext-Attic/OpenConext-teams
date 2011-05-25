@@ -109,6 +109,14 @@ public class AddTeamController {
     }
     // (Ab)using a Team bean, do not use for actual storage
     String teamName = team.getName();
+    // Form not completely filled in.
+    if (!StringUtils.hasText(teamName)) {
+      modelMap.addAttribute("nameerror", "empty");
+      return "addteam";
+    }
+    // Colons conflict with the stem name
+    teamName = teamName.replace(":", "");
+
     String teamDescription = team.getDescription();
 
     // If viewablilityStatus is set this means that the team should be private
@@ -116,18 +124,9 @@ public class AddTeamController {
     boolean viewable = !StringUtils.hasText(viewabilityStatus);
     team.setViewable(viewable);
 
-    // Form not completely filled in.
-    if (!StringUtils.hasText(teamName)) {
-      modelMap.addAttribute("nameerror", "empty");
-      return "addteam";
-    }
-
-    // Colons conflict with the stem name
-    teamName = teamName.replace(":", "");
-
     String stem = getStemName(request);
     // Add the team
-    String teamId = null;
+    String teamId;
     try {
       teamId = teamService.addTeam(teamName, teamName, teamDescription, stem);
     } catch (DuplicateTeamException e) {
@@ -139,7 +138,7 @@ public class AddTeamController {
     teamService.setVisibilityGroup(teamId, viewable);
 
     // Add the person who has added the team as admin to the team.
-    teamService.addMember(teamId, personId);
+    teamService.addMember(teamId, person);
 
     // Give him the right permissions, add as the super user
     teamService.addMemberRole(teamId, personId, Role.Admin, true);

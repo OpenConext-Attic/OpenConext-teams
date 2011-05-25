@@ -13,13 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package nl.surfnet.coin.teams.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
+import org.opensocial.models.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,11 +56,13 @@ import edu.internet2.middleware.grouperClient.ws.beans.WsStemLookup;
 import edu.internet2.middleware.grouperClient.ws.beans.WsSubject;
 import edu.internet2.middleware.grouperClient.ws.beans.WsSubjectLookup;
 import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.MemberAttribute;
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamResultWrapper;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GrouperDao;
+import nl.surfnet.coin.teams.service.MemberAttributeService;
 import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.util.DuplicateTeamException;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
@@ -73,16 +79,16 @@ public class GrouperTeamService implements TeamService {
   @Autowired
   private GrouperDao grouperDao;
 
+  @Autowired
+  private MemberAttributeService memberAttributeService;
+
   private static final String[] FORBIDDEN_CHARS = new String[] { "<", ">", "/", "\\",
       "*", ":", "," };
 
   private static final Logger LOGGER = LoggerFactory.getLogger(GrouperTeamService.class);
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * nl.surfnet.coin.teams.service.TeamService#findTeamById(java.lang.String)
+  /**
+   * {@inheritDoc}
    */
   @Override
   public Team findTeamById(String teamId) {
@@ -106,15 +112,22 @@ public class GrouperTeamService implements TeamService {
             privilegeResults));
   }
 
-  /*
-   * 
+  /**
+   * Defines which user is performing the action in the Grouper service.
+   *
+   * @return {@link WsSubjectLookup} for the current logged in user
    */
   private WsSubjectLookup getActAsSubject() {
     return getActAsSubject(false);
   }
 
-  /*
-   * 
+  /**
+   * Defines which user is performing the action in the Grouper service.
+   *
+   * @param powerUser if {@literal true} a configured power user will
+   *                  perform the action, bypassing the current user's privileges.
+   *                  Otherwise the current user's privileges are used.
+   * @return {@link WsSubjectLookup} for either the power user or the logged in user
    */
   private WsSubjectLookup getActAsSubject(boolean powerUser) {
     WsSubjectLookup actAsSubject = new WsSubjectLookup();
@@ -126,84 +139,141 @@ public class GrouperTeamService implements TeamService {
     return actAsSubject;
   }
 
-
+  /**
+   * Converts an array of Grouper's {@link WsGroup} into a List of
+   * {@link Team}'s
+   *
+   * @param groupResults array of WsGroup
+   * @param retrieveAll  if {@link true} privileges and members are
+   *                     added to the Team objects
+   * @return List of {@link Team}, can be empty
+   */
   private List<Team> convertWsGroupToTeam(WsGroup[] groupResults,
-      boolean retrieveAll) {
+                                          boolean retrieveAll) {
     List<Team> result = new ArrayList<Team>();
-    if (groupResults != null && groupResults.length > 0) {
-      for (WsGroup wsGroup : groupResults) {
-        WsGrouperPrivilegeResult[] privilegeResults = new WsGrouperPrivilegeResult[] {};
-        String name = wsGroup.getName();
-        if (retrieveAll) {
-          privilegeResults = getGroupPrivileges(name);
-        }
-        String displayExtension = wsGroup.getDisplayExtension();
-        String description = wsGroup.getDescription();
-        List<Member> members = new ArrayList<Member>();
-        if (retrieveAll) {
-          members = getMembers(name, privilegeResults);
-        }
-        boolean visibilityGroup = getVisibilityGroup(name, privilegeResults);
-        Team team = new Team(name, displayExtension, description, members,
-            visibilityGroup);
-        result.add(team);
+    if (groupResults == null) {
+      return result;
+    }
+    for (WsGroup wsGroup : groupResults) {
+      WsGrouperPrivilegeResult[] privilegeResults = new WsGrouperPrivilegeResult[]{};
+      String name = wsGroup.getName();
+      if (retrieveAll) {
+        privilegeResults = getGroupPrivileges(name);
       }
+      String displayExtension = wsGroup.getDisplayExtension();
+      String description = wsGroup.getDescription();
+      List<Member> members = new ArrayList<Member>();
+      if (retrieveAll) {
+        members = getMembers(name, privilegeResults);
+      }
+      boolean visibilityGroup = getVisibilityGroup(name, privilegeResults);
+      Team team = new Team(name, displayExtension, description, members,
+              visibilityGroup);
+      result.add(team);
     }
     return result;
   }
 
+  /**
+   * Gets an array of all group privileges for a team
+   *
+   * @param teamId unique identifier for the team
+   * @return array of {@link WsGrouperPrivilegeResult}'s
+   */
   private WsGrouperPrivilegeResult[] getGroupPrivileges(String teamId) {
     GcGetGrouperPrivilegesLite privileges = new GcGetGrouperPrivilegesLite();
     privileges.assignActAsSubject(getActAsSubject(true));
     privileges.assignGroupName(teamId);
     WsGrouperPrivilegeResult[] privilegeResults = privileges.execute()
-        .getPrivilegeResults();
+            .getPrivilegeResults();
     return privilegeResults;
   }
 
-  private List<Member> getMembers(String teamId,
-                                  WsGrouperPrivilegeResult[] privilegeResults) {
+  /**
+   * Builds a List of {@link Member}'s based on a Grouper query result.<br />
+   * Enriches the Member's with their {@link Role}'s and custom attributes.
+   *
+   * @param teamId           unique identifier of the Team
+   * @param privilegeResults query result from Grouper as array
+   * @return List of Member's, can be empty
+   */
+  private List<Member> getMembers(final String teamId,
+                                  final WsGrouperPrivilegeResult[] privilegeResults) {
+    List<Member> members = new ArrayList<Member>();
+    if (privilegeResults == null) {
+      return members;
+    }
+
+    WsGetMembersResult[] getMembers = getMemberDataFromWs(teamId);
+    if (getMembers == null || getMembers.length == 0
+            || getMembers[0].getWsSubjects() == null) {
+      return members;
+    }
+
+    final WsSubject[] subjects = getMembers[0].getWsSubjects();
+    Map<String, Member> memberMap = new HashMap<String, Member>();
+    for (WsSubject wsSubject : subjects) {
+      final String id = wsSubject.getId();
+      final String mail = wsSubject.getAttributeValue(0);
+      final String displayName = wsSubject.getName();
+      final Set<Role> roles = getRolesForMember(id, privilegeResults);
+      memberMap.put(id, new Member(roles, displayName, id, mail));
+    }
+    assignAttributesToMembers(memberMap);
+    members.addAll(memberMap.values());
+    return members;
+  }
+
+  /**
+   * Retrieves member data from the webservice
+   *
+   * @param teamId unique identifier for a Team
+   * @return array that represents member data
+   */
+  private WsGetMembersResult[] getMemberDataFromWs(String teamId) {
     GcGetMembers getMember = new GcGetMembers();
     getMember.assignActAsSubject(getActAsSubject(true));
     getMember.assignIncludeSubjectDetail(Boolean.TRUE);
     getMember.addGroupName(teamId);
     getMember.addSubjectAttributeName("mail");
     getMember.addSubjectAttributeName("displayName");
-    WsGetMembersResult[] getMembers = getMember.execute().getResults();
-    List<Member> members = new ArrayList<Member>();
-    if (getMembers[0].getWsSubjects() != null
-        && getMembers[0].getWsSubjects().length > 0) {
-      WsSubject[] subjects = getMembers[0].getWsSubjects();
-      for (WsSubject wsSubject : subjects) {
-        String id = wsSubject.getId();
-        String mail = wsSubject.getAttributeValue(0);
-        String displayName = wsSubject.getName();
-        Member member = new Member(null, displayName, id, mail);
-        members.add(member);
-      }
-    }
-    addRolesToMembers(members, teamId, privilegeResults);
-    return members;
+    return getMember.execute().getResults();
   }
 
-  private void addRolesToMembers(List<Member> members, String teamId,
-      WsGrouperPrivilegeResult[] privilegeResults) {
-    if (privilegeResults != null) {
-      for (Member member : members) {
-        String id = member.getId();
-        List<WsGrouperPrivilegeResult> memberPrivs = getPrivilegeResultsForMember(
-            id, privilegeResults);
-        if (!memberPrivs.isEmpty()) {
-          for (WsGrouperPrivilegeResult priv : memberPrivs) {
-            member.addRole(getRole(priv.getPrivilegeName()));
-          }
-
-        }
+  /**
+   * Gets the SURFnet attributes for a member (from the db)
+   * and adds them to the Member object
+   *
+   * @param members Map of {@link nl.surfnet.coin.teams.domain.Member}'s
+   *                that need to be enriched with attributes
+   */
+  private void assignAttributesToMembers(Map<String, Member> members) {
+    final List<MemberAttribute> attributesForMembers =
+            memberAttributeService.findAttributesForMembers(members.values());
+    for (MemberAttribute memberAttribute : attributesForMembers) {
+      Member member = members.get(memberAttribute.getMemberId());
+      if (member != null) { // if db is not cleaned up
+        member.addMemberAttribute(memberAttribute);
       }
-    } else {
-      throw new RuntimeException("group (id='" + teamId
-          + "') has no privileges");
     }
+
+  }
+
+  /**
+   * Filters the roles for a single member based on an array of privileges
+   * @param memberId unique identifier of the {@link Member}
+   * @param privilegeResults array of {@link WsGrouperPrivilegeResult}'s
+   * @return Set of {@link Role}'s for this Member
+   */
+  private Set<Role> getRolesForMember(final String memberId,
+                                      final WsGrouperPrivilegeResult[] privilegeResults) {
+    Set<Role> roles = new HashSet<Role>();
+    final List<WsGrouperPrivilegeResult> memberPrivs =
+            getPrivilegeResultsForMember(memberId, privilegeResults);
+    for (WsGrouperPrivilegeResult priv : memberPrivs) {
+      roles.add(getRole(priv.getPrivilegeName()));
+    }
+    return roles;
   }
 
   /**
@@ -220,11 +290,16 @@ public class GrouperTeamService implements TeamService {
     return Role.Member;
   }
 
+  /**
+   * @param memberId unique identifier for a member
+   * @param privilegeResults an array of {@link WsGrouperPrivilegeResult}
+   * @return List of {@link WsGrouperPrivilegeResult} for a specific member, can be empty
+   */
   private List<WsGrouperPrivilegeResult> getPrivilegeResultsForMember(
-      String id, WsGrouperPrivilegeResult[] privilegeResults) {
+      String memberId, WsGrouperPrivilegeResult[] privilegeResults) {
     List<WsGrouperPrivilegeResult> result = new ArrayList<WsGrouperPrivilegeResult>();
     for (WsGrouperPrivilegeResult privilege : privilegeResults) {
-      if (privilege.getOwnerSubject().getId().equals(id)) {
+      if (privilege.getOwnerSubject().getId().equals(memberId)) {
         result.add(privilege);
       }
     }
@@ -274,12 +349,8 @@ public class GrouperTeamService implements TeamService {
     return teamId;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * nl.surfnet.coin.teams.service.TeamService#deleteMember(java.lang.String,
-   * java.lang.String)
+  /**
+   * {@inheritDoc}
    */
   @Override
   public void deleteMember(String teamId, String personId) {
@@ -300,10 +371,8 @@ public class GrouperTeamService implements TeamService {
 
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see nl.surfnet.coin.teams.service.TeamService#deleteTeam(java.lang.String)
+  /**
+   * {@inheritDoc}
    */
   @Override
   public void deleteTeam(String teamId) {
@@ -315,11 +384,8 @@ public class GrouperTeamService implements TeamService {
 
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see nl.surfnet.coin.teams.service.TeamService#updateTeam(java.lang.String,
-   * java.lang.String, java.lang.String)
+  /**
+   * {@inheritDoc}
    */
   @Override
   public void updateTeam(String teamId, String displayName,
@@ -341,6 +407,9 @@ public class GrouperTeamService implements TeamService {
 
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public void setVisibilityGroup(String teamId, boolean viewable) {
     GcAssignGrouperPrivilegesLite assignPrivilige = new GcAssignGrouperPrivilegesLite();
@@ -358,6 +427,9 @@ public class GrouperTeamService implements TeamService {
     assignPrivilige.execute();
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean addMemberRole(String teamId, String memberId, Role role,
       boolean addAsSuperUser) {
@@ -369,25 +441,24 @@ public class GrouperTeamService implements TeamService {
     assignPrivilige.addSubjectLookup(subject);
     assignPrivilige.assignPrivilegeType("access");
     switch (role) {
-    case Admin: {
-      assignPrivilige.addPrivilegeName("admin");
-      assignPrivilige.addPrivilegeName("read");
-      assignPrivilige.addPrivilegeName("optout");
-      assignPrivilige.addPrivilegeName("update");
-      break;
-    }
-    case Manager: {
-      assignPrivilige.addPrivilegeName("update");
-      assignPrivilige.addPrivilegeName("read");
-      assignPrivilige.addPrivilegeName("optout");
-      break;
-    }
-    case Member: {
-      assignPrivilige.addPrivilegeName("read");
-      assignPrivilige.addPrivilegeName("optout");
-      break;
-    }
-
+      case Admin: {
+        assignPrivilige.addPrivilegeName("admin");
+        assignPrivilige.addPrivilegeName("read");
+        assignPrivilige.addPrivilegeName("optout");
+        assignPrivilige.addPrivilegeName("update");
+        break;
+      }
+      case Manager: {
+        assignPrivilige.addPrivilegeName("update");
+        assignPrivilige.addPrivilegeName("read");
+        assignPrivilige.addPrivilegeName("optout");
+        break;
+      }
+      case Member: {
+        assignPrivilige.addPrivilegeName("read");
+        assignPrivilige.addPrivilegeName("optout");
+        break;
+      }
     }
     assignPrivilige.assignAllowed(true);
     WsAssignGrouperPrivilegesResults result;
@@ -402,6 +473,9 @@ public class GrouperTeamService implements TeamService {
         : false;
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public boolean removeMemberRole(String teamId, String memberId, Role role,
       boolean removeAsPowerUser) {
@@ -413,20 +487,19 @@ public class GrouperTeamService implements TeamService {
     assignPrivilige.addSubjectLookup(subject);
     assignPrivilige.assignPrivilegeType("access");
     switch (role) {
-    case Admin: {
-      assignPrivilige.addPrivilegeName("admin");
-      break;
-    }
-    case Manager: {
-      assignPrivilige.addPrivilegeName("update");
-      break;
-    }
-    case Member: {
-      assignPrivilige.addPrivilegeName("read");
-      assignPrivilige.addPrivilegeName("optout");
-      break;
-    }
-
+      case Admin: {
+        assignPrivilige.addPrivilegeName("admin");
+        break;
+      }
+      case Manager: {
+        assignPrivilige.addPrivilegeName("update");
+        break;
+      }
+      case Member: {
+        assignPrivilige.addPrivilegeName("read");
+        assignPrivilige.addPrivilegeName("optout");
+        break;
+      }
     }
     assignPrivilige.assignAllowed(false);
     WsAssignGrouperPrivilegesResults result;
@@ -441,21 +514,26 @@ public class GrouperTeamService implements TeamService {
         : false;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see nl.surfnet.coin.teams.service.TeamService#addMember(java.lang.String,
-   * java.lang.String)
+  /**
+   * {@inheritDoc}
    */
   @Override
-  public void addMember(String teamId, String personId) {
+  public void addMember(String teamId, Person person) {
     GcAddMember addMember = new GcAddMember();
     addMember.assignActAsSubject(getActAsSubject(true));
     addMember.assignGroupName(teamId);
-    addMember.addSubjectId(personId);
+    addMember.addSubjectId(person.getId());
     addMember.execute();
+    Member member = findMember(teamId, person.getId());
+    if (member.isGuest() != person.isGuest()) {
+      member.setGuest(person.isGuest());
+      memberAttributeService.saveOrUpdate(member.getMemberAttributes());
+    }
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Member findMember(String teamId, String memberId) {
     Team team = findTeamById(teamId);
@@ -466,10 +544,13 @@ public class GrouperTeamService implements TeamService {
         return member;
       }
     }
-    throw new RuntimeException("Member(id='" + memberId
+    throw new RuntimeException("Member(memberId='" + memberId
         + "') is not a member of the given team");
   }
 
+  /**
+   * {@inheritDoc}
+   */
   @Override
   public Set<Member> findAdmins(Team team) {
     Set<Member> result = new HashSet<Member>();
