@@ -22,7 +22,7 @@ COIN.MODULES.Acceptinvitation = function(sandbox) {
       $('input[name=cancelJoinTeam]').live('click', function(e) {
         e.preventDefault();
         var view = $('input[name=view]').val();
-        sandbox.redirectBrowserTo('home.shtml' + '&view=' + view);
+        sandbox.redirectBrowserTo('home.shtml?view=' + view);
       });
 
       $('input[name=consent]').live('click', function() {
