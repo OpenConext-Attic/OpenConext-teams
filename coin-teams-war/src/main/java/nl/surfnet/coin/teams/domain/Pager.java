@@ -28,6 +28,7 @@ public class Pager {
   private int pageSize;
 
   private static final int MAX_VISIBLE = 5;
+  private static final int PAGES_BEFORE = 2; // Math.ceil(MAX_VISIBLE/2)
 
   public Pager(int totalCount, int offset, int pageSize) {
     this.totalCount = totalCount;
@@ -116,7 +117,7 @@ public class Pager {
       start = totalFilledUp() - ((MAX_VISIBLE) * pageSize);
     } else {
       // 'in the middle'
-      start = offset - ((int) (Math.ceil(MAX_VISIBLE / 2)) * pageSize);
+      start = offset - (PAGES_BEFORE * pageSize);
     }
 
     for (int i = 0; i < MAX_VISIBLE; i++) {
