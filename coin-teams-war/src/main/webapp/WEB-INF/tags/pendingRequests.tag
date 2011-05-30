@@ -18,7 +18,7 @@
   ~ limitations under the License.
   --%>
 
-<c:if test="${offset eq 0 and fn:length(pendingRequests)>0}">
+<c:if test="${pager.offset eq 0 and fn:length(pendingRequests)>0}">
   <br class="clear" />
   <h2><spring:message code="jsp.detailteam.PendingRequests"/></h2>
   <div class="team-table-wrapper">

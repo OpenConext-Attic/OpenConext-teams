@@ -109,7 +109,7 @@
       </tbody>
     </table>
     </div>
-  <c:if test="${offset eq 0 and fn:length(invitations) > 0  and (role eq adminRole or role eq managerRole)}">
+  <c:if test="${pager.offset eq 0 and fn:length(invitations) > 0  and (role eq adminRole or role eq managerRole)}">
     <br class="clear"/>
 
     <h2><spring:message code="jsp.detailteam.PendingInvitations"/></h2>
