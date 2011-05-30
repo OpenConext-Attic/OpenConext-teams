@@ -47,6 +47,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import nl.surfnet.coin.shared.service.MailService;
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Pager;
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
@@ -152,9 +153,8 @@ public class DetailTeamController {
         // do nothing
       }
     }
-    modelMap.addAttribute("offset", offset);
-    modelMap.addAttribute("resultset", team.getMembers().size());
-    modelMap.addAttribute("pagesize", PAGESIZE);
+    Pager membersPager = new Pager(team.getMembers().size(), offset, PAGESIZE);
+    modelMap.addAttribute("pager", membersPager);
 
     modelMap.addAttribute(TEAM_PARAM, team);
     modelMap.addAttribute("adminRole", Role.Admin);

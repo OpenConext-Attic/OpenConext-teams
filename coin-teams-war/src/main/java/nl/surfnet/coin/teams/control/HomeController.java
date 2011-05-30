@@ -151,6 +151,7 @@ public class HomeController {
     }
 
     modelMap.addAttribute("pagesize", PAGESIZE);
+    modelMap.addAttribute("pager", resultWrapper.getPager());
     modelMap.addAttribute("resultset", resultWrapper.getTotalCount());
     modelMap.addAttribute("teams", teams);
   }

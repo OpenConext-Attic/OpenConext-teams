@@ -62,7 +62,7 @@ public class GrouperDaoImpl implements GrouperDao {
             + "and ((ggf.field_type = 'access' and ggf.field_name = 'viewers') or gm.subject_id = ?) "
             + "order by gg.name limit ? offset ?", new Object[] { stemName,
             personId, pageSize, offset });
-    return new TeamResultWrapper(teams, rowCount);
+    return new TeamResultWrapper(teams, rowCount, offset, pageSize);
   }
 
   @Override
@@ -86,7 +86,7 @@ public class GrouperDaoImpl implements GrouperDao {
             + "and ((ggf.field_type = 'access' and ggf.field_name = 'viewers') or gm.subject_id = ?) "
             + "and upper(gg.name) like ? order by gg.name limit ? offset ?",
         new Object[] { stemName, personId, partOfGroupname, pageSize, offset });
-    return new TeamResultWrapper(teams, rowCount);
+    return new TeamResultWrapper(teams, rowCount, offset, pageSize);
   }
 
   private List<Team> performQuery(String sql, Object[] args) {

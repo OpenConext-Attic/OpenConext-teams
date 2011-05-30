@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package nl.surfnet.coin.teams.control;
 
 import static org.mockito.Mockito.mock;
@@ -82,7 +83,7 @@ public abstract class AbstractControllerTest {
     teams.add(team1);
     teams.add(team2);
     teams.add(team3);
-    TeamResultWrapper resultWrapper = new TeamResultWrapper(teams, teams.size());
+    TeamResultWrapper resultWrapper = new TeamResultWrapper(teams, teams.size(), 0, 10);
     return new Returns(resultWrapper);
   }
   
@@ -100,7 +101,7 @@ public abstract class AbstractControllerTest {
     teams.add(team4);
     teams.add(team5);
     teams.add(team6);
-    TeamResultWrapper resultWrapper = new TeamResultWrapper(teams, teams.size());
+    TeamResultWrapper resultWrapper = new TeamResultWrapper(teams, teams.size(), 0, 10);
     return new Returns(resultWrapper);
   }
   
@@ -108,7 +109,7 @@ public abstract class AbstractControllerTest {
     ArrayList<Team> teams = new ArrayList<Team>();
     Team team1 = new Team("team-1", "Team 1", "Description team 1");
     teams.add(team1);
-    TeamResultWrapper resultWrapper = new TeamResultWrapper(teams, teams.size());
+    TeamResultWrapper resultWrapper = new TeamResultWrapper(teams, teams.size(), 0, 10);
     return new Returns(resultWrapper);
   }
 

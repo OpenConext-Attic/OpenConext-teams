@@ -21,7 +21,7 @@
   --%>
 
 <div class="pagination-wrapper">
-  <teams:paginate baseUrl="detailteam.shtml"/>
+  <teams:paginate baseUrl="detailteam.shtml" pager="${pager}"/>
 </div>
 <jsp:useBean id="timestamp" class="java.util.Date"/>
 <jsp:useBean id="expires" class="java.util.Date"/>
@@ -46,11 +46,11 @@
       <c:if test="${fn:length(team.members) > 0 }">
         <c:set var="end">
           <c:choose>
-            <c:when test="${offset + pagesize > resultset}">${resultset}</c:when>
-            <c:otherwise>${offset + pagesize - 1}</c:otherwise>
+            <c:when test="${pager.offset + pager.pageSize > pager.totalCount}">${pager.totalCount}</c:when>
+            <c:otherwise>${pager.offset + pager.pageSize - 1}</c:otherwise>
           </c:choose>
         </c:set>
-        <c:forEach items="${team.members}" var="member" begin="${offset}" end="${end}">
+        <c:forEach items="${team.members}" var="member" begin="${pager.offset}" end="${end}">
           <tr>
             <%--
             Deleting a member is allowed when:

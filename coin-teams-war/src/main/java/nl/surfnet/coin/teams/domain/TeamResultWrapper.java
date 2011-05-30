@@ -19,18 +19,24 @@ package nl.surfnet.coin.teams.domain;
 import java.util.List;
 
 /**
- * Result for a teams query 
- *
+ * Result for a teams query
  */
 public class TeamResultWrapper {
- 
+
   private List<Team> teams;
   private int totalCount;
-  
-  public TeamResultWrapper(List<Team> teams, int totalCount) {
+  private int offset;
+  private int pageSize;
+  private Pager pager;
+
+  private static final int MAX_VISIBLE = 5;
+
+  public TeamResultWrapper(List<Team> teams, int totalCount, int offset, int pageSize) {
     super();
     this.teams = teams;
     this.totalCount = totalCount;
+    this.offset = offset;
+    this.pageSize = pageSize;
   }
 
   /**
@@ -41,11 +47,30 @@ public class TeamResultWrapper {
   }
 
   /**
-   * @return the totalCount
+   * @return offset for the current resultset
    */
+  public int getOffset() {
+    return offset;
+  }
+
+  /**
+   * @return (maximum) pagesize for the current resultset
+   */
+  public int getPageSize() {
+    return pageSize;
+  }
+
   public int getTotalCount() {
     return totalCount;
   }
-  
-  
+
+  /**
+   * @return {@link Pager}
+   */
+  public Pager getPager() {
+    if (pager == null) {
+      pager = new Pager(totalCount, offset, pageSize);
+    }
+    return pager;
+  }
 }

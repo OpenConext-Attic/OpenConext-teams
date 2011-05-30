@@ -620,7 +620,7 @@ public class GrouperTeamService implements TeamService {
     for (int i = offset; i < max; i++) {
       limited.add(teams.get(i));
     }
-    return new TeamResultWrapper(limited, totalCount);
+    return new TeamResultWrapper(limited, totalCount, offset, pageSize);
   }
 
   @Override
@@ -641,7 +641,7 @@ public class GrouperTeamService implements TeamService {
     for (int i = offset; i < max; i++) {
       limited.add(result.get(i));
     }
-    return new TeamResultWrapper(limited, totalCount);
+    return new TeamResultWrapper(limited, totalCount, offset, pageSize);
   }
   
   /**
