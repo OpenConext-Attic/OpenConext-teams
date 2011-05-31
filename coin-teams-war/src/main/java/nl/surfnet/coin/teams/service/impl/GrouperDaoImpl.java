@@ -184,7 +184,19 @@ public class GrouperDaoImpl implements GrouperDao {
 
   private List<Team> performQuery(String sql, Object[] args) {
     try {
-      return this.jdbcTemplate.query(sql, args, getRowMapper());
+      return this.jdbcTemplate.query(sql, args, new RowMapper<Team>() {
+        @Override
+        public Team mapRow(ResultSet rs, int rowNum) throws SQLException {
+          String id = rs.getString("name");
+          String name = rs.getString("display_name");
+          name = name.substring(name.lastIndexOf(':') + 1);
+          String description = rs.getString("description");
+          int count = rs.getInt("membership_count");
+          Team team = new Team(id, name, description, true);
+          team.setNumberOfMembers(count);
+          return team;
+        }
+      });
     } catch (EmptyResultDataAccessException e) {
       return new ArrayList<Team>();
     }
@@ -194,22 +206,6 @@ public class GrouperDaoImpl implements GrouperDao {
     Assert.hasText(partOfGroupname);
     partOfGroupname = ("%" + partOfGroupname + "%").toUpperCase();
     return partOfGroupname;
-  }
-
-  private RowMapper<Team> getRowMapper() {
-    return new RowMapper<Team>() {
-      @Override
-      public Team mapRow(ResultSet rs, int rowNum) throws SQLException {
-        String id = rs.getString("name");
-        String name = rs.getString("display_name");
-        name = name.substring(name.lastIndexOf(':') + 1);
-        String description = rs.getString("description");
-        int count = rs.getInt("membership_count");
-        Team team = new Team(id, name, description, true);
-        team.setNumberOfMembers(count);
-        return team;
-      }
-    };
   }
 
   private void assignViewerRolesToTeam(List<Team> teams, Map<String, Role> roles) {
