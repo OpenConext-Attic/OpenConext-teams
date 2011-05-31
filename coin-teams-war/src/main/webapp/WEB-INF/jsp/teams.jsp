@@ -32,7 +32,7 @@
         } else {
           srcString += 'home.shtml?view=gadget';
         }
-        document.getElementById('SURFteamsContent').innerHTML = '<iframe frameborder="0" scrolling="auto" width="100%" height="374" src="'+srcString+'"></iframe>';
+        document.getElementById('SURFteamsContent').innerHTML = '<iframe frameborder="0" scrolling="auto" width="100%" height="375" src="'+srcString+'"></iframe>';
 
      ]]>
   </Content>
