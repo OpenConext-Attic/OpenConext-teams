@@ -52,4 +52,12 @@ public class MemberAttributeServiceHibernateImpl
     return findByCriteria(Restrictions.in("memberId", memberIds));
   }
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public List<MemberAttribute> findAttributesForMemberId(String memberId) {
+    return findByCriteria(Restrictions.eq("memberId", memberId));
+  }
+
 }

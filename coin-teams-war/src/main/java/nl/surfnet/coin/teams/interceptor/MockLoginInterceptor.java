@@ -17,6 +17,9 @@
 package nl.surfnet.coin.teams.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.opensocial.models.Person;
 
 /**
  * Like the LoginInterceptor but gets the user id from the environment instead
@@ -24,14 +27,21 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class MockLoginInterceptor extends LoginInterceptor {
 
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  void handleGuestStatus(HttpSession session, Person person) {
+    session.setAttribute(USER_STATUS_SESSION_KEY,
+            getTeamEnvironment().getMockUserStatus());
+  }
+
+  /**
+   * {@inheritDoc}
+   */
   @Override
   protected String getRemoteUser(HttpServletRequest request) {
     return getTeamEnvironment().getMockLogin();
-  }
-
-  @Override
-  protected String getUserStatus(HttpServletRequest request) {
-    return getTeamEnvironment().getMockUserStatus();
   }
 
 }

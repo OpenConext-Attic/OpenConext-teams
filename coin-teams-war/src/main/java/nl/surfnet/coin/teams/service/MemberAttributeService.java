@@ -36,4 +36,11 @@ public interface MemberAttributeService extends GenericService<MemberAttribute> 
    */
   List<MemberAttribute> findAttributesForMembers(Collection<Member> members);
 
+  /**
+   * Finds the {@link MemberAttribute}'s for the given member id
+   *
+   * @param memberId unique identifier of the member
+   * @return List of MemberAttribute's, can be empty
+   */
+  List<MemberAttribute> findAttributesForMemberId(String memberId);
 }

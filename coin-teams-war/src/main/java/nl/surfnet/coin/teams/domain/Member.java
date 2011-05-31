@@ -22,6 +22,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.opensocial.models.Person;
+
 /**
  * A member of a {@link Team}
  */
@@ -47,6 +49,14 @@ public class Member implements Serializable {
     this.name = name;
     this.id = id;
     this.email = email;
+  }
+
+  /**
+   * @param roles  Set of {@link Role}'s for this member
+   * @param person {@link Person} that represents this member
+   */
+  public Member(Set<Role> roles, Person person) {
+    this(roles, person.getDisplayName(), person.getId(), person.getEmail());
   }
 
   /**
@@ -124,6 +134,7 @@ public class Member implements Serializable {
 
   /**
    * Adds one {@link MemberAttribute} to the list
+   *
    * @param memberAttribute MemberAttribute to add
    */
   public void addMemberAttribute(MemberAttribute memberAttribute) {

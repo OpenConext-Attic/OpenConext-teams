@@ -32,6 +32,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.MemberAttribute;
+import nl.surfnet.coin.teams.service.MemberAttributeService;
 import nl.surfnet.coin.teams.service.TeamPersonService;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 
@@ -48,12 +51,17 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   private static final ThreadLocal<String> loggedInUser = new ThreadLocal<String>();
   private static final List<String> LOGIN_BYPASS = createLoginBypass();
   private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
+  private static final String STATUS_GUEST = "guest";
+  private static final String STATUS_MEMBER = "member";
 
   @Autowired
   private TeamEnvironment teamEnvironment;
 
   @Autowired
   private TeamPersonService personService;
+
+  @Autowired
+  private MemberAttributeService memberAttributeService;
 
   /*
    * Return the part of the path of the request
@@ -78,21 +86,17 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         person = personService.getPerson(remoteUser);
         // Add person to session:
         session.setAttribute(PERSON_SESSION_KEY, person);
-        
-        // Add the user status to the session
-        String userStatus = getUserStatus(request);
-        userStatus = StringUtils.hasText(userStatus) ? userStatus : "guest";
-        
-        session.setAttribute(USER_STATUS_SESSION_KEY, userStatus);
 
         if (person == null) {
           String errorMessage = "Cannot find user: " + remoteUser;
           throw new ServletException(errorMessage);
         }
+        handleGuestStatus(session, person);
+
+      } else {
         // User is not logged in, and REMOTE_USER header is empty.
         // Check whether the user is requesting the landing page, if not
         // redirect him to the landing page.
-      } else {
         String url = getRequestedPart(request);
         String[] urlSplit = url.split("/");
         
@@ -130,6 +134,28 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   }
 
   /**
+   * Defines if the stored guest status matches the guest status from EngineBlock
+   *
+   * @param session {@link javax.servlet.http.HttpSession}
+   * @param person  {@link org.opensocial.models.Person}
+   */
+  void handleGuestStatus(HttpSession session, Person person) {
+    Member member = new Member(null, person);
+    final List<MemberAttribute> memberAttributes =
+            memberAttributeService.findAttributesForMemberId(member.getId());
+    member.setMemberAttributes(memberAttributes);
+
+    if (member.isGuest() != person.isGuest()) {
+      member.setGuest(person.isGuest());
+      memberAttributeService.saveOrUpdate(member.getMemberAttributes());
+    }
+
+    // Add the user status to the session
+    String userStatus = person.isGuest() ? STATUS_GUEST : STATUS_MEMBER;
+    session.setAttribute(USER_STATUS_SESSION_KEY, userStatus);
+  }
+
+  /**
    * Hook for subclasses to override the shibboleth default behaviour
    * 
    * @param request
@@ -138,17 +164,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
    */
   protected String getRemoteUser(HttpServletRequest request) {
     return request.getHeader("REMOTE_USER");
-  }
-  
-  /**
-   * Hook for subclasses to override the shibboleth default behaviour
-   * 
-   * @param request
-   *          the httpRequest
-   * @return the String of the user status
-   */
-  protected String getUserStatus(HttpServletRequest request) {
-    return request.getHeader("coin-user-status");
   }
 
   /**
@@ -185,6 +200,10 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     this.personService = personService;
   }
 
+  public void setMemberAttributeService(MemberAttributeService memberAttributeService) {
+    this.memberAttributeService = memberAttributeService;
+  }
+  
   /**
    * @return {@link List} of url parts to bypass authentication
    */
