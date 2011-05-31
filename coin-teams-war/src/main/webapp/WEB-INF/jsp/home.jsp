@@ -73,8 +73,8 @@
           <th><spring:message code='jsp.home.table.Description' /></th>
           <c:if test='${display eq "my"}'>
             <th><spring:message code='jsp.home.table.Role' /></th>
-            <th><spring:message code='jsp.home.table.Members' /></th>
           </c:if>
+          <th><spring:message code='jsp.home.table.Members' /></th>
         </tr>
       </thead>
       <tbody>
@@ -87,8 +87,8 @@
               <td><c:out value="${team.description}" /></td>
               <c:if test='${display eq "my"}'>
                 <td><c:out value="${team.viewerRole}" /></td>
-                <td><c:out value="${fn:length(team.members)}" /></td>
               </c:if>
+              <td><c:out value="${team.numberOfMembers}" /></td>
             </tr>
           </c:forEach>
         </c:when>

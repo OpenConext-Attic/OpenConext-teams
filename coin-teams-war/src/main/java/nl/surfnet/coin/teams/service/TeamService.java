@@ -40,28 +40,6 @@ public interface TeamService extends GrouperDao {
    */
   Team findTeamById(String teamId);
 
-  /**
-   * Return all the teams for a person
-   *
-   * @param stemName the name of the Stem
-   * @param personId the id of the person
-   * @param offset   the row number of the start
-   * @param pageSize the maximum result size
-   * @return teams including the number of total records
-   */
-  TeamResultWrapper findAllTeamsByMember(String stemName, String personId,
-                                         int offset, int pageSize);
-
-  /**
-   * @param stemName        the name of the Stem
-   * @param personId        the id of the person
-   * @param partOfGroupname part of group name
-   * @param offset          the row number of the start
-   * @param pageSize        the maximum result size
-   * @return teams including the number of total records
-   */
-  TeamResultWrapper findTeamsByMember(String stemName, String personId,
-                                      String partOfGroupname, int offset, int pageSize);
 
   /**
    * Add a {@link Team}. Note that the teamId is altered if not compliant to the

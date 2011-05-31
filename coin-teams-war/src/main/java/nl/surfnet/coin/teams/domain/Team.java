@@ -35,6 +35,7 @@ public class Team implements Serializable {
   private List<Member> members = new ArrayList<Member>();
   private Role viewerRole;
   private boolean viewable;
+  private int numberOfMembers;
 
   public Team() {
     super();
@@ -154,19 +155,8 @@ public class Team implements Serializable {
   /**
    * @param person id of the person to assign the viewerRole to
    */
-  public void setViewerRole(String person) {
-    for (Member member : members) {
-      if (member.getId().equals(person) && !CollectionUtils.isEmpty(member.getRoles())) {
-        // Always display the role with the most privileges
-        if (member.getRoles().contains(Role.Admin)) {
-          this.viewerRole = Role.Admin;
-        } else if (member.getRoles().contains(Role.Manager)) {
-          this.viewerRole = Role.Manager;
-        } else if (member.getRoles().contains(Role.Member)) {
-          this.viewerRole = Role.Member;
-        }
-      }
-    }
+  public void setViewerRole(Role role) {
+    this.viewerRole = role;
   }
 
   /**
@@ -236,5 +226,19 @@ public class Team implements Serializable {
         return member1.getName().compareToIgnoreCase(member2.getName());
     }
 
+  }
+
+  /**
+   * @return the numberOfMembers
+   */
+  public int getNumberOfMembers() {
+    return numberOfMembers;
+  }
+
+  /**
+   * @param numberOfMembers the numberOfMembers to set
+   */
+  public void setNumberOfMembers(int numberOfMembers) {
+    this.numberOfMembers = numberOfMembers;
   }
 }

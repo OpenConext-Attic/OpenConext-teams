@@ -3,6 +3,7 @@ create table grouper_stems (id varchar(40) not null,  name varchar(40) not null,
 create table grouper_members (id varchar(40) not null,  subject_id varchar(40) not null,  primary key (id));
 create table grouper_memberships (id varchar(40) not null, member_id varchar(40) not null, owner_group_id varchar(40),  primary key (id));
 create table grouper_rpt_group_field_v (id varchar(40) not null, group_name varchar(40) not null, field_type varchar(40) not null, field_name varchar(40),  primary key (id));
+create table grouper_rpt_groups_v (id varchar(40) not null, membership_count varchar(11) not null, group_name varchar(40) not null,  primary key (id));
 
 -- two stems (1 default and 1 virtual organization stem)
 insert into grouper_stems (id, name) values ('1', 'nl:surfnet:diensten');
@@ -36,3 +37,10 @@ insert into grouper_memberships (id, member_id, owner_group_id) values ('3', '1'
 insert into grouper_memberships (id, member_id, owner_group_id) values ('4', '1', '4');
 insert into grouper_memberships (id, member_id, owner_group_id) values ('5', '2', '5');
 
+-- for all groups we need a grouper_rpt_groups_v entry
+insert into grouper_rpt_groups_v (id, membership_count, group_name) values ('1', '1', 'nl:surfnet:diensten:team1');
+insert into grouper_rpt_groups_v (id, membership_count, group_name) values ('2', '2', 'nl:surfnet:diensten:team2');
+insert into grouper_rpt_groups_v (id, membership_count, group_name) values ('3', '3', 'nl:surfnet:diensten:team3');
+insert into grouper_rpt_groups_v (id, membership_count, group_name) values ('4', '4', 'nl:surfnet:diensten:team4');
+insert into grouper_rpt_groups_v (id, membership_count, group_name) values ('5', '5', 'nl:surfnet:diensten:team5');
+insert into grouper_rpt_groups_v (id, membership_count, group_name) values ('6', '6', 'nl:surfnet:diensten:team6');

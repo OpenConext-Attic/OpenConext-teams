@@ -146,10 +146,6 @@ public class HomeController {
 
     List<Team> teams = resultWrapper.getTeams();
 
-    for (Team team : teams) {
-      team.setViewerRole(person);
-    }
-
     modelMap.addAttribute("pagesize", PAGESIZE);
     modelMap.addAttribute("pager", resultWrapper.getPager());
     modelMap.addAttribute("resultset", resultWrapper.getTotalCount());

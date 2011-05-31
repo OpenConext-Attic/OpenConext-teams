@@ -60,4 +60,38 @@ public interface GrouperDao {
   TeamResultWrapper findTeams(String stemName, String personId,
       String partOfGroupname, int offset, int pageSize);
 
+  /**
+   * Return all teams using a specific stem where the personId is a member
+   * 
+   * @param stemName
+   *          the name of the Stem
+   * @param personId
+   *          the logged in person
+   * @param offset
+   *          the row number of the start
+   * @param pageSize
+   *          the maximum result size
+   * @return teams including the number of total records
+   */
+  TeamResultWrapper findAllTeamsByMember(String stemName, String personId, int offset,
+      int pageSize);
+
+  /**
+   * Return all teams using a specific stem with a name like where the personId is a member
+   * 
+   * @param stemName
+   *          the name of the Stem
+   * @param personId
+   *          the logged in person
+   * @param partOfGroupname
+   *          part of group name
+   * @param offset
+   *          the row number of the start
+   * @param pageSize
+   *          the maximum result size
+   * @return teams including the number of total records
+   */
+  TeamResultWrapper findTeamsByMember(String stemName, String personId,
+      String partOfGroupname, int offset, int pageSize);
+  
 }

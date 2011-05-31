@@ -149,7 +149,7 @@ public class GrouperTeamService implements TeamService {
    * @return List of {@link Team}, can be empty
    */
   private List<Team> convertWsGroupToTeam(WsGroup[] groupResults,
-                                          boolean retrieveAll) {
+                                          boolean retrieveAll, String personId) {
     List<Team> result = new ArrayList<Team>();
     if (groupResults == null) {
       return result;
@@ -184,6 +184,8 @@ public class GrouperTeamService implements TeamService {
     GcGetGrouperPrivilegesLite privileges = new GcGetGrouperPrivilegesLite();
     privileges.assignActAsSubject(getActAsSubject(true));
     privileges.assignGroupName(teamId);
+    //changed
+  //  privileges.assignSubjectLookup(getActAsSubject(false));
     WsGrouperPrivilegeResult[] privilegeResults = privileges.execute()
             .getPrivilegeResults();
     return privilegeResults;
@@ -598,72 +600,26 @@ public class GrouperTeamService implements TeamService {
     return grouperDao.findTeams(stemName, personId, partOfGroupname, offset, pageSize);
   }
 
+  /* (non-Javadoc)
+   * @see nl.surfnet.coin.teams.service.GrouperDao#findAllTeamsByMember(java.lang.String, java.lang.String, int, int)
+   */
   @Override
-  public TeamResultWrapper findAllTeamsByMember(String stemName, String personId,
-                                                int offset, int pageSize) {
-    GcGetGroups getGroups = new GcGetGroups();
-    getGroups.addSubjectId(personId);
-    getGroups.assignActAsSubject(getActAsSubject());
-    WsStemLookup wsStemLookup = new WsStemLookup();
-    wsStemLookup.setStemName(stemName);
-    getGroups.assignWsStemLookup(wsStemLookup);
-    getGroups.assignStemScope(StemScope.ALL_IN_SUBTREE);
-    WsGetGroupsResult[] groups = getGroups.execute().getResults();
-    List<Team> teams = new ArrayList<Team>();
-    if (groups.length > 0) {
-      WsGroup[] wsGroups = groups[0].getWsGroups();
-      teams = convertWsGroupToTeam(wsGroups, true);
-    }
-    List<Team> limited = new ArrayList<Team>();
-    int totalCount = teams.size();
-    int max = totalCount < offset + pageSize ? totalCount : offset + pageSize;
-    for (int i = offset; i < max; i++) {
-      limited.add(teams.get(i));
-    }
-    return new TeamResultWrapper(limited, totalCount, offset, pageSize);
+  public TeamResultWrapper findAllTeamsByMember(String stemName,
+      String personId, int offset, int pageSize) {
+    return grouperDao.findAllTeamsByMember( stemName,
+         personId,  offset,  pageSize);
   }
 
+  /* (non-Javadoc)
+   * @see nl.surfnet.coin.teams.service.GrouperDao#findTeamsByMember(java.lang.String, java.lang.String, java.lang.String, int, int)
+   */
   @Override
   public TeamResultWrapper findTeamsByMember(String stemName, String personId,
-                                             String partOfGroupname, int offset, int pageSize) {
-    TeamResultWrapper teamResultWrapper =
-            findAllTeamsByMember(stemName, personId, 0, Integer.MAX_VALUE);
-    List<Team> teamsByMember = teamResultWrapper.getTeams();
-    List<Team> result = new ArrayList<Team>();
-    for (Team team : teamsByMember) {
-      if (team.getName().toLowerCase().contains(partOfGroupname.toLowerCase())) {
-        result.add(team);
-      }
-    }
-    List<Team> limited = new ArrayList<Team>();
-    int totalCount = result.size();
-    int max = totalCount < offset + pageSize ? totalCount : offset + pageSize;
-    for (int i = offset; i < max; i++) {
-      limited.add(result.get(i));
-    }
-    return new TeamResultWrapper(limited, totalCount, offset, pageSize);
-  }
-  
-  /**
-   * {@inheritDoc}
-   */
-  
-  public List<Team> findAllTeamsOld(String stemName) {
-    if (!StringUtils.hasText(stemName)) {
-      stemName = environment.getDefaultStemName();
-    }
-    GcFindGroups findGroups = new GcFindGroups();
-    findGroups.assignActAsSubject(getActAsSubject());
-    findGroups.assignIncludeGroupDetail(Boolean.TRUE);
-
-    WsQueryFilter queryFilter = new WsQueryFilter();
-    queryFilter.setQueryFilterType("FIND_BY_STEM_NAME");
-    queryFilter.setStemName(stemName);
-    findGroups.assignQueryFilter(queryFilter);
-    WsFindGroupsResults findResults = findGroups.execute();
-    WsGroup[] groupResults = findResults.getGroupResults();
-    return convertWsGroupToTeam(groupResults, false);
+      String partOfGroupname, int offset, int pageSize) {
+    return grouperDao.findTeamsByMember(stemName,personId, partOfGroupname,offset,pageSize);
   }
 
+ 
+  
 
 }
