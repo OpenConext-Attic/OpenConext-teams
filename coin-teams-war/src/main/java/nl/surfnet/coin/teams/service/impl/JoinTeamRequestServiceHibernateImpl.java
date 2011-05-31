@@ -18,6 +18,8 @@ package nl.surfnet.coin.teams.service.impl;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.criterion.SimpleExpression;
 import org.opensocial.models.Person;
@@ -53,9 +55,13 @@ public class JoinTeamRequestServiceHibernateImpl
   /**
    * {@inheritDoc}
    */
+  @SuppressWarnings({"unchecked"})
   @Override
   public List<JoinTeamRequest> findPendingRequests(Team team) {
-    return findByCriteria(Restrictions.eq("groupId", team.getId()));
+    Criteria criteria = createCriteria();
+    criteria.add(Restrictions.eq("groupId", team.getId()));
+    criteria.addOrder(Order.asc("personId"));
+    return criteria.list();
   }
 
   /**

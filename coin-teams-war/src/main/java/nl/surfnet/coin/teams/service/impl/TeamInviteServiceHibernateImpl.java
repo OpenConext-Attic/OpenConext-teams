@@ -19,6 +19,8 @@ package nl.surfnet.coin.teams.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
@@ -82,10 +84,15 @@ public class TeamInviteServiceHibernateImpl
   /**
    * {@inheritDoc}
    */
+  @SuppressWarnings({"unchecked"})
   @Override
   public List<Invitation> findInvitationsForTeam(Team team) {
     cleanupExpiredInvitations();
-    return findByCriteria(Restrictions.eq("teamId", team.getId()));
+    Criteria criteria = createCriteria();
+    criteria.add(Restrictions.eq("teamId", team.getId()));
+    criteria.addOrder(Order.asc("email"));
+    criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+    return criteria.list();
   }
 
   /**

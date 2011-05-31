@@ -13,17 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package nl.surfnet.coin.teams.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.util.CollectionUtils;
 
 /**
  * Team
- * 
  */
 @SuppressWarnings("serial")
 public class Team implements Serializable {
@@ -37,12 +39,12 @@ public class Team implements Serializable {
   public Team() {
     super();
   }
-  
+
   /**
-   * @param id of the team
-   * @param name of the team
+   * @param id          of the team
+   * @param name        of the team
    * @param description extra description
-   * @param members {@link List} of {@link Member}'s
+   * @param members     {@link List} of {@link Member}'s
    */
   public Team(String id, String name, String description, List<Member> members) {
     super();
@@ -51,13 +53,13 @@ public class Team implements Serializable {
     this.description = description;
     this.members = members;
   }
-  
+
   /**
-   * @param id of the team
-   * @param name of the team
+   * @param id          of the team
+   * @param name        of the team
    * @param description extra description
-   * @param members {@link List} of {@link Member}'s
-   * @param viewable if {@literal false} then it's a private team
+   * @param members     {@link List} of {@link Member}'s
+   * @param viewable    if {@literal false} then it's a private team
    */
   public Team(String id, String name, String description, List<Member> members, boolean viewable) {
     this(id, name, description, members);
@@ -65,20 +67,19 @@ public class Team implements Serializable {
   }
 
   /**
-   * @param id of the team
-   * @param name of the team
+   * @param id          of the team
+   * @param name        of the team
    * @param description extra description
-   *
    */
   public Team(String id, String name, String description) {
     this(id, name, description, new ArrayList<Member>());
   }
-  
+
   /**
-   * @param id of the team
-   * @param name of the team
+   * @param id          of the team
+   * @param name        of the team
    * @param description extra description
-   * @param viewable if {@literal false} then it's a private team
+   * @param viewable    if {@literal false} then it's a private team
    */
   public Team(String id, String name, String description, boolean viewable) {
     this(id, name, description, new ArrayList<Member>());
@@ -110,14 +111,14 @@ public class Team implements Serializable {
    * @return the members
    */
   public List<Member> getMembers() {
+    Collections.sort(members, new MemberComparator());
     return members;
   }
 
   /**
    * Add a member
-   * 
-   * @param member
-   *          the new member
+   *
+   * @param member the new member
    */
   public void addMembers(Member... member) {
     for (int i = 0; i < member.length; i++) {
@@ -127,9 +128,8 @@ public class Team implements Serializable {
 
   /**
    * Remove members
-   * 
-   * @param member
-   *          varag of {@link Member}
+   *
+   * @param member varag of {@link Member}
    */
   public void removeMembers(Member... member) {
     for (int i = 0; i < member.length; i++) {
@@ -206,19 +206,35 @@ public class Team implements Serializable {
    */
   @Override
   public boolean equals(Object obj) {
-    if (this == obj)
+    if (this == obj) {
       return true;
-    if (obj == null)
+    }
+    if (obj == null) {
       return false;
-    if (getClass() != obj.getClass())
+    }
+    if (getClass() != obj.getClass()) {
       return false;
+    }
     Team other = (Team) obj;
     if (id == null) {
-      if (other.id != null)
+      if (other.id != null) {
         return false;
-    } else if (!id.equals(other.id))
+      }
+    } else if (!id.equals(other.id)) {
       return false;
+    }
     return true;
   }
 
+  /**
+   * Comparator to sort members by name
+   */
+  class MemberComparator implements Comparator<Member> {
+
+    @Override
+    public int compare(Member member1, Member member2) {
+        return member1.getName().compareToIgnoreCase(member2.getName());
+    }
+
+  }
 }
