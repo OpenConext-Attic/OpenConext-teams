@@ -61,12 +61,11 @@ public class GrouperDaoImpl implements GrouperDao {
                 + "and ((ggf.field_type = 'access' and ggf.field_name = 'viewers') or gm.subject_id = ?) ",
             stemName, personId);
     List<Team> teams = performQuery(
-        "select distinct gg.name, gg.display_name ,gg.description, grgv.membership_count "
+        "select distinct gg.name, gg.display_name ,gg.description "
             + "from grouper_groups gg, grouper_stems gs, grouper_members gm, "
-            + "grouper_memberships gms, grouper_rpt_group_field_v ggf, grouper_rpt_groups_v grgv   "
+            + "grouper_memberships gms, grouper_rpt_group_field_v ggf   "
             + "where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
             + "and gs.name = ? and ggf.group_name = gg.name "
-            + "and grgv.group_name = gg.name "
             + "and ((ggf.field_type = 'access' and ggf.field_name = 'viewers') or gm.subject_id = ?) "
             + "order by gg.name limit ? offset ?", new Object[] { stemName,
             personId, pageSize, offset });
@@ -88,12 +87,11 @@ public class GrouperDaoImpl implements GrouperDao {
                 + "and upper(gg.name) like ?", stemName, personId,
             partOfGroupname);
     List<Team> teams = performQuery(
-        "select distinct gg.name, gg.display_name ,gg.description,grgv.membership_count "
+        "select distinct gg.name, gg.display_name ,gg.description "
             + "from grouper_groups gg, grouper_stems gs, grouper_members gm,"
-            + "grouper_memberships gms, grouper_rpt_group_field_v ggf , grouper_rpt_groups_v grgv   "
+            + "grouper_memberships gms, grouper_rpt_group_field_v ggf   "
             + "where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
             + "and gs.name = ? and ggf.group_name = gg.name "
-            + " and grgv.group_name = gg.name "
             + "and ((ggf.field_type = 'access' and ggf.field_name = 'viewers') or gm.subject_id = ?) "
             + "and upper(gg.name) like ? order by gg.name limit ? offset ?",
         new Object[] { stemName, personId, partOfGroupname, pageSize, offset });
@@ -118,24 +116,15 @@ public class GrouperDaoImpl implements GrouperDao {
                 + "and gs.name = ?  " + "and gm.subject_id = ? ", stemName,
             personId);
     List<Team> teams = performQuery(
-        "select distinct gg.name, gg.display_name ,gg.description, grgv.membership_count "
+        "select distinct gg.name, gg.display_name ,gg.description "
             + "from grouper_groups gg, grouper_stems gs, grouper_members gm, "
-            + "grouper_memberships gms, grouper_rpt_groups_v grgv   "
+            + "grouper_memberships gms  "
             + "where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
-            + "and grgv.group_name = gg.name "
             + "and gs.name = ? and gm.subject_id = ? "
             + "order by gg.name limit ? offset ?", new Object[] { stemName,
             personId, pageSize, offset });
-    Map<String, Role> roles = retrieveRoles(
-        " select gf.name as fieldname, gg.name as groupname from grouper_memberships gms, grouper_groups gg, grouper_fields gf, "
-            + " grouper_stems gs, grouper_members gm where "
-            + " gms.field_id = gf.id and  gms.owner_group_id = gg.id and "
-            + " gms.member_id = gm.id and gs.name = ? "
-            + " and gm.subject_id = ?  "
-            + " and gg.parent_stem = gs.id "
-            + " and (gf.name = 'admins' or gf.name = 'updaters') order by gg.name ",
-        new Object[] { stemName, personId });
-    assignViewerRolesToTeam(teams, roles);
+    addRolesToTeams(stemName, personId, teams);
+    addMemberCountToTeams(stemName, personId, teams);
     return new TeamResultWrapper(teams, rowCount, offset, pageSize);
   }
 
@@ -160,25 +149,15 @@ public class GrouperDaoImpl implements GrouperDao {
                 + "and gm.subject_id = ?  and upper(gg.name) like ?", stemName,
             personId, partOfGroupname);
     List<Team> teams = performQuery(
-        "select distinct gg.name, gg.display_name ,gg.description, grgv.membership_count "
+        "select distinct gg.name, gg.display_name ,gg.description "
             + "from grouper_groups gg, grouper_stems gs, grouper_members gm, "
-            + "grouper_memberships gms, grouper_rpt_groups_v grgv   "
+            + "grouper_memberships gms  "
             + "where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
-            + "and grgv.group_name = gg.name "
             + "and gs.name = ? and gm.subject_id = ? "
             + "and upper(gg.name) like ? order by gg.name limit ? offset ?",
         new Object[] { stemName, personId, partOfGroupname, pageSize, offset });
-    Map<String, Role> roles = retrieveRoles(
-        " select gf.name as fieldname, gg.name as groupname from grouper_memberships gms, grouper_groups gg, grouper_fields gf, "
-            + " grouper_stems gs, grouper_members gm where "
-            + " gms.field_id = gf.id and  gms.owner_group_id = gg.id and "
-            + " gms.member_id = gm.id "
-            + " and gs.name = ? and  gm.subject_id = ?  "
-            + " and gg.parent_stem = gs.id "
-            + " and (gf.name = 'admins' or gf.name = 'updaters') and "
-            + "upper(gg.name) like ? order by gg.name ", new Object[] {
-            stemName, personId, partOfGroupname });
-    assignViewerRolesToTeam(teams, roles);
+    addRolesToTeams(stemName, personId, teams);
+    addMemberCountToTeams(stemName, personId, teams);
     return new TeamResultWrapper(teams, rowCount, offset, pageSize);
   }
 
@@ -191,9 +170,7 @@ public class GrouperDaoImpl implements GrouperDao {
           String name = rs.getString("display_name");
           name = name.substring(name.lastIndexOf(':') + 1);
           String description = rs.getString("description");
-          int count = rs.getInt("membership_count");
           Team team = new Team(id, name, description, true);
-          team.setNumberOfMembers(count);
           return team;
         }
       });
@@ -208,28 +185,54 @@ public class GrouperDaoImpl implements GrouperDao {
     return partOfGroupname;
   }
 
-  private void assignViewerRolesToTeam(List<Team> teams, Map<String, Role> roles) {
-    for (Team team : teams) {
-      Role role = roles.get(team.getId());
-      role = (role == null ? Role.Member : role);
-      team.setViewerRole(role);
+  private void addRolesToTeams(String stemName, String personId,
+      List<Team> teams) {
+    try {
+      RolesRowCallbackHandler handler = new RolesRowCallbackHandler();
+      String sql = " select gf.name as fieldname, gg.name as groupname from grouper_memberships gms, grouper_groups gg, grouper_fields gf, "
+          + " grouper_stems gs, grouper_members gm where "
+          + " gms.field_id = gf.id and  gms.owner_group_id = gg.id and "
+          + " gms.member_id = gm.id and gs.name = ? "
+          + " and gm.subject_id = ?  "
+          + " and gg.parent_stem = gs.id "
+          + " and (gf.name = 'admins' or gf.name = 'updaters') order by gg.name ";
+      this.jdbcTemplate
+          .query(sql, new Object[] { stemName, personId }, handler);
+      Map<String, Role> roles = handler.roles;
+      for (Team team : teams) {
+        Role role = roles.get(team.getId());
+        role = (role == null ? Role.Member : role);
+        team.setViewerRole(role);
+      }
+    } catch (EmptyResultDataAccessException e) {
+      // this we can ignore
     }
 
   }
 
-  private Map<String, Role> retrieveRoles(String sql, Object[] args) {
-    try {
-      RolesRowCallbackHandler handler = new RolesRowCallbackHandler();
-      this.jdbcTemplate.query(sql, args, handler);
-      return handler.roles;
-    } catch (EmptyResultDataAccessException e) {
-      return new HashMap<String, Role>();
+  /*
+   * Difficulty here is to get a count not limited by a subject id, but limit
+   * the number of groups queried to the groups belonging to a certain subject
+   */
+  private void addMemberCountToTeams(String stemName, String personId,
+      List<Team> teams) {
+    String sql = "select gg.name  as groupname, count(distinct gms.member_id) as membercount from "
+        + " grouper_groups gg, grouper_stems gs, grouper_members gm, "
+        + " grouper_memberships gms "
+        + " where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
+        + " and gs.name = ? and gm.subject_type = 'person'  "
+        + " and gg.id in (select distinct(ggo.id) from grouper_groups ggo, grouper_members gmo, grouper_memberships gmso  "
+        + " where gmso.member_id = gmo.id and gmso.owner_group_id = ggo.id and gmo.subject_id = ?)   "
+        + " group by gg.name  ";
+    MemberCountRowCallbackHandler handler = new MemberCountRowCallbackHandler();
+    this.jdbcTemplate.query(sql, new Object[] { stemName, personId }, handler);
+    Map<String, Integer> memberCounts = handler.memberCounts;
+    for (Team team : teams) {
+      team.setNumberOfMembers(memberCounts.get(team.getId()));
     }
-
   }
 
   private class RolesRowCallbackHandler implements RowCallbackHandler {
-
     private Map<String, Role> roles;
 
     public RolesRowCallbackHandler() {
@@ -258,6 +261,29 @@ public class GrouperDaoImpl implements GrouperDao {
         roles.put(groupName, permission.equals("admins") ? Role.Admin
             : Role.Manager);
       }
+    }
+  }
+
+  private class MemberCountRowCallbackHandler implements RowCallbackHandler {
+    private Map<String, Integer> memberCounts;
+
+    public MemberCountRowCallbackHandler() {
+      super();
+      this.memberCounts = new HashMap<String, Integer>();
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.springframework.jdbc.core.RowCallbackHandler#processRow(java.sql.
+     * ResultSet)
+     */
+    @Override
+    public void processRow(ResultSet rs) throws SQLException {
+      String groupName = rs.getString("groupname");
+      int count = rs.getInt("membercount");
+      memberCounts.put(groupName, count);
     }
   }
 

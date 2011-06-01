@@ -93,7 +93,7 @@ public class GrouperTeamService implements TeamService {
   @Override
   public Team findTeamById(String teamId) {
     GcFindGroups findGroups = new GcFindGroups();
-    WsSubjectLookup actAsSubject = getActAsSubject();
+    WsSubjectLookup actAsSubject = getActAsSubject(true);
     findGroups.assignActAsSubject(actAsSubject);
     findGroups.assignIncludeGroupDetail(Boolean.TRUE);
     findGroups.addGroupName(teamId);
@@ -417,7 +417,6 @@ public class GrouperTeamService implements TeamService {
     GcAssignGrouperPrivilegesLite assignPrivilige = new GcAssignGrouperPrivilegesLite();
     assignPrivilige.assignActAsSubject(getActAsSubject(true));
     assignPrivilige.assignGroupName(teamId);
-    // assignPrivilige.assignSubjectLookup(getActAsSubject(true));
     WsSubjectLookup wsSubjectLookup = new WsSubjectLookup();
     wsSubjectLookup.setSubjectId("GrouperAll");
     assignPrivilige.assignSubjectLookup(wsSubjectLookup);
