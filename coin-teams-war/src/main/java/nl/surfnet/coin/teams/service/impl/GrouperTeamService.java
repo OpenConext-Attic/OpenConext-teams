@@ -139,40 +139,6 @@ public class GrouperTeamService implements TeamService {
     return actAsSubject;
   }
 
-  /**
-   * Converts an array of Grouper's {@link WsGroup} into a List of
-   * {@link Team}'s
-   *
-   * @param groupResults array of WsGroup
-   * @param retrieveAll  if {@link true} privileges and members are
-   *                     added to the Team objects
-   * @return List of {@link Team}, can be empty
-   */
-  private List<Team> convertWsGroupToTeam(WsGroup[] groupResults,
-                                          boolean retrieveAll, String personId) {
-    List<Team> result = new ArrayList<Team>();
-    if (groupResults == null) {
-      return result;
-    }
-    for (WsGroup wsGroup : groupResults) {
-      WsGrouperPrivilegeResult[] privilegeResults = new WsGrouperPrivilegeResult[]{};
-      String name = wsGroup.getName();
-      if (retrieveAll) {
-        privilegeResults = getGroupPrivileges(name);
-      }
-      String displayExtension = wsGroup.getDisplayExtension();
-      String description = wsGroup.getDescription();
-      List<Member> members = new ArrayList<Member>();
-      if (retrieveAll) {
-        members = getMembers(name, privilegeResults);
-      }
-      boolean visibilityGroup = getVisibilityGroup(name, privilegeResults);
-      Team team = new Team(name, displayExtension, description, members,
-              visibilityGroup);
-      result.add(team);
-    }
-    return result;
-  }
 
   /**
    * Gets an array of all group privileges for a team
@@ -184,8 +150,6 @@ public class GrouperTeamService implements TeamService {
     GcGetGrouperPrivilegesLite privileges = new GcGetGrouperPrivilegesLite();
     privileges.assignActAsSubject(getActAsSubject(true));
     privileges.assignGroupName(teamId);
-    //changed
-  //  privileges.assignSubjectLookup(getActAsSubject(false));
     WsGrouperPrivilegeResult[] privilegeResults = privileges.execute()
             .getPrivilegeResults();
     return privilegeResults;

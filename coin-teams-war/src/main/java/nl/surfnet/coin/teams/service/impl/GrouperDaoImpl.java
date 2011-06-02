@@ -23,19 +23,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ResultSetExtractor;
-import org.springframework.jdbc.core.RowCallbackHandler;
-import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Component;
-import org.springframework.util.Assert;
-
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamResultWrapper;
 import nl.surfnet.coin.teams.service.GrouperDao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowCallbackHandler;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
 
 /**
  * A {@link GrouperDao} that uses Spring jdbc
@@ -47,7 +46,6 @@ public class GrouperDaoImpl implements GrouperDao {
   @Autowired
   private JdbcTemplate jdbcTemplate;
 
-  @SuppressWarnings("unchecked")
   @Override
   public TeamResultWrapper findAllTeams(String stemName, String personId,
       int offset, int pageSize) {
@@ -189,7 +187,8 @@ public class GrouperDaoImpl implements GrouperDao {
       List<Team> teams) {
     try {
       RolesRowCallbackHandler handler = new RolesRowCallbackHandler();
-      String sql = " select gf.name as fieldname, gg.name as groupname from grouper_memberships gms, grouper_groups gg, grouper_fields gf, "
+      String sql = " select gf.name as fieldname, gg.name as groupname from grouper_memberships gms, " +
+      		"grouper_groups gg, grouper_fields gf, "
           + " grouper_stems gs, grouper_members gm where "
           + " gms.field_id = gf.id and  gms.owner_group_id = gg.id and "
           + " gms.member_id = gm.id and gs.name = ? "
