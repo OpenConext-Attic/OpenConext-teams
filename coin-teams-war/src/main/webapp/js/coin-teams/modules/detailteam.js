@@ -127,45 +127,9 @@ COIN.MODULES.Detailteam = function(sandbox) {
 			$('#DeleteTeamDialog').addClass('hide').dialog('close');
 		},
 		addRole: function(el) {
-			var teamId = $('input[name=teamId]').val();
-			var memberId = library.getMemberId(el);
-			var role = library.getRole(el);
-			
-			var data = {
-					'team' : teamId,
-					'member' : memberId,
-					'role' : role
-			};
-			
-			sandbox.post('doaddrole.shtml', data, function(data) {
-				if (data["status"] === 'success') {
-					// is the admin role assigned?
-					if (role === '0') {
-						// Disable the manager role if the admin role has been assigned
-						el.parent().parent().find('input[name=managerRole]').attr('checked', true).attr('disabled', true);
-						
-						// Enable all admin roles if an 'extra' admin role has been added.
-						$('input[name=adminRole]').attr('disabled', false);
-            var deleteTeam = $('#DeleteTeam');
-            if(sandbox.typeOf($('#DeleteTeam'))!='undefined') {
-              $('#DeleteTeam').parent().attr('class', 'middle');
-              $('#LeaveTeam').parent().attr('class', 'last');
-            }
-            // display/hide only admin warning
-            if (data["onlyadmin"] && $('#onlyAdmin').hasClass('hide')) {
-              $('#onlyAdmin').removeClass('hide');
-            } else if (!data["onlyadmin"] && !$('#onlyAdmin').hasClass('hide')) {
-              $('#onlyAdmin').addClass('hide');
-            }
-					}
-					
-					// Notify bar
-					$.notifyBar({ cls: "success", html: "<p><spring:message code='jsp.detailteam.AddRoleSuccess' /></p>", delay: 1000 });
-				} else {
-					el.attr('checked') ? el.attr('checked', false) : el.attr('checked', true);
-					$.notifyBar({ cls: "error", html: "<p><spring:message code='jsp.detailteam.AddRoleFailure' /></p>" });
-				}
-			});
+			$('#memberId').val(library.getMemberId(el));
+			$('#roleId').val(library.getRole(el));
+			$('#detailForm').submit();
 		},
 		removeRole: function(el) {
 			var teamId = $('input[name=teamId]').val();

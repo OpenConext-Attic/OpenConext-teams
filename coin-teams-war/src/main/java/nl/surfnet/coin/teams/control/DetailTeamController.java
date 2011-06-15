@@ -67,7 +67,7 @@ import nl.surfnet.coin.teams.util.ViewUtil;
 @Controller
 public class DetailTeamController {
 
-  //private static final String MANAGER = "1";
+  // private static final String MANAGER = "1";
   private static final String ADMIN = "0";
   private static final String ADMIN_LEAVE_TEAM = "error.AdminCannotLeaveTeam";
   private static final String NOT_AUTHORIZED_DELETE_MEMBER = "error.NotAuthorizedToDeleteMember";
@@ -81,7 +81,6 @@ public class DetailTeamController {
   private static final String STATUS = "status";
   private static final String SUCCESS = "success";
   private static final String ERROR = "error";
-
 
   @Autowired
   private TeamService teamService;
@@ -106,7 +105,6 @@ public class DetailTeamController {
 
   @Autowired
   private MailService mailService;
-  
 
   @RequestMapping("/detailteam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request)
@@ -142,17 +140,9 @@ public class DetailTeamController {
     modelMap.addAttribute("onlyAdmin", onlyAdmin);
 
     modelMap.addAttribute("invitations",
-            teamInviteService.findInvitationsForTeam(team));
+        teamInviteService.findInvitationsForTeam(team));
 
-    int offset = 0;
-    String offsetParam = request.getParameter("offset");
-    if (StringUtils.hasText(offsetParam)) {
-      try {
-        offset = Integer.parseInt(offsetParam);
-      } catch (NumberFormatException e) {
-        // do nothing
-      }
-    }
+    int offset = getOffset(request);
     Pager membersPager = new Pager(team.getMembers().size(), offset, PAGESIZE);
     modelMap.addAttribute("pager", membersPager);
 
@@ -162,7 +152,8 @@ public class DetailTeamController {
     modelMap.addAttribute("memberRole", Role.Member);
     modelMap.addAttribute("noRole", Role.None);
 
-    modelMap.addAttribute("maxInvitations", teamEnvironment.getMaxInvitations());
+    modelMap
+        .addAttribute("maxInvitations", teamEnvironment.getMaxInvitations());
 
     ViewUtil.addViewToModelMap(request, modelMap);
 
@@ -180,6 +171,19 @@ public class DetailTeamController {
     return "detailteam";
   }
 
+  private int getOffset(HttpServletRequest request) {
+    int offset = 0;
+    String offsetParam = request.getParameter("offset");
+    if (StringUtils.hasText(offsetParam)) {
+      try {
+        offset = Integer.parseInt(offsetParam);
+      } catch (NumberFormatException e) {
+        // do nothing
+      }
+    }
+    return offset;
+  }
+
   private List<Person> getRequesters(Team team) {
     List<JoinTeamRequest> pendingRequests = joinTeamRequestService
         .findPendingRequests(team);
@@ -195,7 +199,8 @@ public class DetailTeamController {
   @RequestMapping(value = "/doleaveteam.shtml", method = RequestMethod.GET)
   public RedirectView leaveTeam(ModelMap modelMap, HttpServletRequest request)
       throws UnsupportedEncodingException {
-    String teamId = URLDecoder.decode(request.getParameter(TEAM_PARAM), "utf-8");
+    String teamId = URLDecoder
+        .decode(request.getParameter(TEAM_PARAM), "utf-8");
     Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
     String personId = person.getId();
@@ -255,8 +260,8 @@ public class DetailTeamController {
   public RedirectView deleteMember(ModelMap modelMap, HttpServletRequest request)
       throws UnsupportedEncodingException {
     String teamId = URLDecoder.decode(request.getParameter(TEAM_PARAM), UTF_8);
-    String personId = URLDecoder
-        .decode(request.getParameter(MEMBER_PARAM), UTF_8);
+    String personId = URLDecoder.decode(request.getParameter(MEMBER_PARAM),
+        UTF_8);
     Person ownerPerson = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
     String ownerId = ownerPerson.getId();
@@ -296,54 +301,52 @@ public class DetailTeamController {
 
     return new RedirectView("detailteam.shtml?team="
         + URLEncoder.encode(teamId, UTF_8) + "&mes="
-        + NOT_AUTHORIZED_DELETE_MEMBER  + "&view="
-        + ViewUtil.getView(request));
+        + NOT_AUTHORIZED_DELETE_MEMBER + "&view=" + ViewUtil.getView(request));
   }
 
-  @RequestMapping(value = "/doaddrole.shtml", method = RequestMethod.POST)
-  public void addRole(ModelMap modelMap, HttpServletRequest request,
-                        HttpServletResponse response)
-          throws IOException, JSONException {
-    response.setContentType(APPLICATION_JSON);
-    PrintWriter writer = response.getWriter();
 
-    String teamId = request.getParameter(TEAM_PARAM);
-    String memberId = request.getParameter(MEMBER_PARAM);
-    String roleString = request.getParameter(ROLE_PARAM);
-    JSONObject jsonObject = new JSONObject();
+  @RequestMapping(value = "/doaddrole.shtml", method = RequestMethod.POST)
+  public RedirectView addRole(ModelMap modelMap, HttpServletRequest request,
+      HttpServletResponse response) throws IOException, JSONException {
+    String teamId = request.getParameter("teamId");
+    String memberId = request.getParameter("memberId");
+    String roleString = request.getParameter("roleId");
+    int offset = getOffset(request);
     if (!StringUtils.hasText(teamId) || !StringUtils.hasText(memberId)
         || !StringUtils.hasText(roleString)) {
-      jsonObject.put(STATUS, ERROR);
-      writer.write(jsonObject.toString());
-      return;
+      return new RedirectView("detailteam.shtml?team="
+          + URLEncoder.encode(teamId, UTF_8) + "&view="
+          + ViewUtil.getView(request) + "&mes=no.role.added" + "&offset="
+          + offset);
     }
 
     Role role = roleString.equals(ADMIN) ? Role.Admin : Role.Manager;
 
     Member other = teamService.findMember(teamId, memberId);
     if (other.isGuest() && role == Role.Admin) {
-      jsonObject.put(STATUS, ERROR);
-      writer.write(jsonObject.toString());
-      return;
+      return new RedirectView("detailteam.shtml?team="
+          + URLEncoder.encode(teamId, UTF_8) + "&view="
+          + ViewUtil.getView(request) + "&mes=no.role.added.guest.status"
+           + "&offset=" + offset);
     }
 
     // Check if there is only one admin for a team
-    final boolean roleAdded = teamService.addMemberRole(teamId, memberId, role, false);
-    if(roleAdded) {
-      jsonObject.put(STATUS, SUCCESS);
+    final boolean roleAdded = teamService.addMemberRole(teamId, memberId, role,
+        false);
+    String message;
+    if (roleAdded) {
+      message = "role.added";
     } else {
-      jsonObject.put(STATUS, ERROR);
+      message = "no.role.added";
     }
-    Team team = teamService.findTeamById(teamId);
-    boolean onlyAdmin = teamService.findAdmins(team).size() <= 1;
-    jsonObject.put("onlyadmin", onlyAdmin);
-    writer.write(jsonObject.toString());
-    return;
+    return new RedirectView("detailteam.shtml?team="
+        + URLEncoder.encode(teamId, UTF_8) + "&view="
+        + ViewUtil.getView(request) + "&mes=" + message + "&offset=" + offset);
   }
 
   @RequestMapping(value = "/doremoverole.shtml", method = RequestMethod.POST)
   public void removeRole(ModelMap modelMap, HttpServletRequest request,
-                           HttpServletResponse response) throws JSONException, IOException {
+      HttpServletResponse response) throws JSONException, IOException {
     response.setContentType(APPLICATION_JSON);
     PrintWriter writer = response.getWriter();
     String teamId = request.getParameter(TEAM_PARAM);
@@ -379,8 +382,9 @@ public class DetailTeamController {
 
     Role role = roleString.equals(ADMIN) ? Role.Admin : Role.Manager;
 
-    final boolean roleRemoved = teamService.removeMemberRole(teamId, memberId, role, false);
-    if(roleRemoved) {
+    final boolean roleRemoved = teamService.removeMemberRole(teamId, memberId,
+        role, false);
+    if (roleRemoved) {
       jsonObject.put(STATUS, SUCCESS);
     } else {
       jsonObject.put(STATUS, ERROR);
@@ -394,22 +398,22 @@ public class DetailTeamController {
   }
 
   @RequestMapping(value = "/dodeleterequest.shtml")
-  public RedirectView deleteRequest(ModelMap modelMap, HttpServletRequest request)
-          throws UnsupportedEncodingException {
+  public RedirectView deleteRequest(ModelMap modelMap,
+      HttpServletRequest request) throws UnsupportedEncodingException {
     return doHandleJoinRequest(request, false);
   }
 
-
   @RequestMapping(value = "/doapproverequest.shtml")
-  public RedirectView approveRequest(ModelMap modelMap, HttpServletRequest request)
-          throws UnsupportedEncodingException {
+  public RedirectView approveRequest(ModelMap modelMap,
+      HttpServletRequest request) throws UnsupportedEncodingException {
     return doHandleJoinRequest(request, true);
   }
 
-  private RedirectView doHandleJoinRequest(HttpServletRequest request, boolean approve)
-          throws UnsupportedEncodingException {
+  private RedirectView doHandleJoinRequest(HttpServletRequest request,
+      boolean approve) throws UnsupportedEncodingException {
     String teamId = URLDecoder.decode(request.getParameter(TEAM_PARAM), UTF_8);
-    String memberId = URLDecoder.decode(request.getParameter(MEMBER_PARAM), UTF_8);
+    String memberId = URLDecoder.decode(request.getParameter(MEMBER_PARAM),
+        UTF_8);
 
     if (!StringUtils.hasText(teamId) || !StringUtils.hasText(memberId)) {
       throw new RuntimeException("Missing parameters for team or member");
@@ -422,19 +426,21 @@ public class DetailTeamController {
 
     Person personToAddAsMember = teamPersonService.getPerson(memberId);
     if (personToAddAsMember == null) {
-      throw new RuntimeException("Cannot retrieve Person data for id " + memberId);
+      throw new RuntimeException("Cannot retrieve Person data for id "
+          + memberId);
     }
 
     Person loggedInPerson = (Person) request.getSession().getAttribute(
-            LoginInterceptor.PERSON_SESSION_KEY);
-    Member loggedInMember = teamService.findMember(teamId, loggedInPerson.getId());
+        LoginInterceptor.PERSON_SESSION_KEY);
+    Member loggedInMember = teamService.findMember(teamId,
+        loggedInPerson.getId());
 
-    if (!(loggedInMember.getRoles().contains(Role.Admin) ||
-            loggedInMember.getRoles().contains(Role.Manager))) {
+    if (!(loggedInMember.getRoles().contains(Role.Admin) || loggedInMember
+        .getRoles().contains(Role.Manager))) {
       return new RedirectView("detailteam.shtml?team="
-              + URLEncoder.encode(teamId, UTF_8)
-              + "&mes=error.NotAuthorizedForAction"
-              + "&view=" + ViewUtil.getView(request));
+          + URLEncoder.encode(teamId, UTF_8)
+          + "&mes=error.NotAuthorizedForAction" + "&view="
+          + ViewUtil.getView(request));
     }
 
     if (approve) {
@@ -442,7 +448,8 @@ public class DetailTeamController {
       teamService.addMemberRole(teamId, memberId, Role.Member, true);
     }
 
-    JoinTeamRequest pendingRequest = joinTeamRequestService.findPendingRequest(personToAddAsMember, team);
+    JoinTeamRequest pendingRequest = joinTeamRequestService.findPendingRequest(
+        personToAddAsMember, team);
     if (pendingRequest != null) {
       joinTeamRequestService.delete(pendingRequest);
     }
@@ -453,22 +460,28 @@ public class DetailTeamController {
     }
 
     return new RedirectView("detailteam.shtml?team="
-            + URLEncoder.encode(teamId, UTF_8)
-            + "&view=" + ViewUtil.getView(request));
+        + URLEncoder.encode(teamId, UTF_8) + "&view="
+        + ViewUtil.getView(request));
   }
 
   /**
-   * Notifies the user that requested to join a team that his request has been declined
-   *
-   * @param memberToAdd {@link Person} that wanted to join the team
-   * @param team        {@link Team} he wanted to join
-   * @param locale      {@link Locale}
+   * Notifies the user that requested to join a team that his request has been
+   * declined
+   * 
+   * @param memberToAdd
+   *          {@link Person} that wanted to join the team
+   * @param team
+   *          {@link Team} he wanted to join
+   * @param locale
+   *          {@link Locale}
    */
-  private void sendDeclineMail(final Person memberToAdd,
-                               final Team team, final Locale locale) {
-    String subject = messageSource.getMessage("request.mail.declined.subject", null, locale);
-    Object[] bodyValues = {team.getName()};
-    String body = messageSource.getMessage("request.mail.declined.body", bodyValues, locale);
+  private void sendDeclineMail(final Person memberToAdd, final Team team,
+      final Locale locale) {
+    String subject = messageSource.getMessage("request.mail.declined.subject",
+        null, locale);
+    Object[] bodyValues = { team.getName() };
+    String body = messageSource.getMessage("request.mail.declined.body",
+        bodyValues, locale);
 
     SimpleMailMessage mailMessage = new SimpleMailMessage();
     mailMessage.setFrom(teamEnvironment.getSystemEmail());
@@ -478,6 +491,5 @@ public class DetailTeamController {
 
     mailService.sendAsync(mailMessage);
   }
-
 
 }

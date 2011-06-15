@@ -231,6 +231,7 @@ public class InvitationController {
       }
     }
     modelMap.addAttribute("teams", invitedTeams);
+    ViewUtil.addViewToModelMap(request, modelMap);
     return "myinvitations";
   }
 
