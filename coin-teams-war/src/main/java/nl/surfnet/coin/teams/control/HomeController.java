@@ -66,8 +66,6 @@ public class HomeController {
   @Autowired
   private TeamEnvironment environment;
 
-  private static final String STEM_PARAM = "stem";
-
   private static final int PAGESIZE = 10;
 
   @RequestMapping("/home.shtml")
@@ -78,7 +76,6 @@ public class HomeController {
     String display = request.getParameter("teams");
     String query = request.getParameter("teamSearch");
 
-    setStemOnSession(request);
     // Set the display to my if no display is selected
     if (!StringUtils.hasText(display)) {
       display = "my";
@@ -91,7 +88,7 @@ public class HomeController {
       List<Invitation> invitations = teamInviteService.findPendingInvitationsByEmail(email);
       modelMap.addAttribute("myinvitations", !CollectionUtils.isEmpty(invitations));
     }
-
+    modelMap.addAttribute("app-version", environment.getVersion());
     ViewUtil.addViewToModelMap(request, modelMap);
     
     return "home";
@@ -153,21 +150,6 @@ public class HomeController {
   }
 
   /**
-   * Sets the stem on the session based on the request param {@link #STEM_PARAM}.
-   * If the param is missing and stem is on the session, it will be removed
-   *
-   * @param request {@link HttpServletRequest}
-   */
-  private void setStemOnSession(HttpServletRequest request) {
-    String stem = request.getParameter(STEM_PARAM);
-    if (StringUtils.hasText(stem)) {
-      request.getSession(true).setAttribute(STEM_PARAM, stem);
-    } else if (request.getSession(false) != null) {
-      request.getSession(false).removeAttribute(STEM_PARAM);
-    }
-  }
-
-  /**
    * Returns the stem name for this request
    *
    * @param request {@link HttpServletRequest}
@@ -175,13 +157,6 @@ public class HomeController {
    *         {@literal null} if there is no stem
    */
   private String getStemName(final HttpServletRequest request) {
-    if (request.getSession(false) == null) {
-      return environment.getDefaultStemName();
-    }
-    Object stemObj = request.getSession(false).getAttribute(STEM_PARAM);
-    if (stemObj instanceof String) {
-      return (String) stemObj;
-    }
     return environment.getDefaultStemName();
   }
 

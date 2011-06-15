@@ -25,12 +25,13 @@
 </div>
 <jsp:useBean id="timestamp" class="java.util.Date"/>
 <jsp:useBean id="expires" class="java.util.Date"/>
-<form id="detailForm" action="doaddrole.shtml" method="post">
+<form id="detailForm" action="doaddremoverole.shtml" method="post">
   <input type="hidden" name="teamId" value="<c:out value='${team.id}' />"/>
   <input type="hidden" name="view" value="<c:out value='${view}' />"/>
   <input type="hidden" name="offset" value="<c:out value='${pager.offset}' />"/>
   <input type="hidden" name="roleId" id="roleId"/>
   <input type="hidden" name="memberId" id="memberId"/>
+  <input type="hidden" name="doAction" id="doAction"/>
   <div class="team-table-wrapper">
     <table class="team-table">
       <thead>

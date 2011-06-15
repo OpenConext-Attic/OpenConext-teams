@@ -84,7 +84,7 @@ public class InvitationController {
     modelMap.addAttribute("invitation", invitation);
     modelMap.addAttribute("team", team);
     modelMap.addAttribute("date", new Date(invitation.getTimestamp()));
-
+    ViewUtil.addViewToModelMap(request, modelMap);
     return "acceptinvitation";
   }
 

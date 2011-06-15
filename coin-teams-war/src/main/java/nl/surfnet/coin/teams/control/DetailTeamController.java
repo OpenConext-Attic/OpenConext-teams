@@ -304,97 +304,71 @@ public class DetailTeamController {
         + NOT_AUTHORIZED_DELETE_MEMBER + "&view=" + ViewUtil.getView(request));
   }
 
-
-  @RequestMapping(value = "/doaddrole.shtml", method = RequestMethod.POST)
-  public RedirectView addRole(ModelMap modelMap, HttpServletRequest request,
-      HttpServletResponse response) throws IOException, JSONException {
+  @RequestMapping(value = "/doaddremoverole.shtml", method = RequestMethod.POST)
+  public RedirectView addOrRemoveRole(ModelMap modelMap,
+      HttpServletRequest request, HttpServletResponse response)
+      throws IOException, JSONException {
     String teamId = request.getParameter("teamId");
     String memberId = request.getParameter("memberId");
     String roleString = request.getParameter("roleId");
     int offset = getOffset(request);
-    if (!StringUtils.hasText(teamId) || !StringUtils.hasText(memberId)
-        || !StringUtils.hasText(roleString)) {
+    String action = request.getParameter("doAction");
+    if (!StringUtils.hasText(teamId)) {
+      return new RedirectView("home.shtml?teams=my" + "&view="
+          + ViewUtil.getView(request));
+    }
+    if (!StringUtils.hasText(memberId) || !StringUtils.hasText(roleString)
+        || !validAction(action)) {
       return new RedirectView("detailteam.shtml?team="
           + URLEncoder.encode(teamId, UTF_8) + "&view="
-          + ViewUtil.getView(request) + "&mes=no.role.added" + "&offset="
+          + ViewUtil.getView(request) + "&mes=no.role.action" + "&offset="
           + offset);
     }
-
-    Role role = roleString.equals(ADMIN) ? Role.Admin : Role.Manager;
-
-    Member other = teamService.findMember(teamId, memberId);
-    if (other.isGuest() && role == Role.Admin) {
-      return new RedirectView("detailteam.shtml?team="
-          + URLEncoder.encode(teamId, UTF_8) + "&view="
-          + ViewUtil.getView(request) + "&mes=no.role.added.guest.status"
-           + "&offset=" + offset);
-    }
-
-    // Check if there is only one admin for a team
-    final boolean roleAdded = teamService.addMemberRole(teamId, memberId, role,
-        false);
     String message;
-    if (roleAdded) {
-      message = "role.added";
+    if (action.equalsIgnoreCase("remove")) {
+      Team team = teamService.findTeamById(teamId);
+      // is the team null? return error
+      if (team == null) {
+        return new RedirectView("home.shtml?teams=my" + "&view="
+            + ViewUtil.getView(request));
+      }
+      message = removeRole(request, teamId, memberId, roleString, team);
     } else {
-      message = "no.role.added";
+      message = addRole(request, teamId, memberId, roleString, offset);
     }
     return new RedirectView("detailteam.shtml?team="
         + URLEncoder.encode(teamId, UTF_8) + "&view="
         + ViewUtil.getView(request) + "&mes=" + message + "&offset=" + offset);
   }
 
-  @RequestMapping(value = "/doremoverole.shtml", method = RequestMethod.POST)
-  public void removeRole(ModelMap modelMap, HttpServletRequest request,
-      HttpServletResponse response) throws JSONException, IOException {
-    response.setContentType(APPLICATION_JSON);
-    PrintWriter writer = response.getWriter();
-    String teamId = request.getParameter(TEAM_PARAM);
-    String memberId = request.getParameter(MEMBER_PARAM);
-    String roleString = request.getParameter(ROLE_PARAM);
-    Team team;
-    JSONObject jsonObject = new JSONObject();
-    // Some of the parameters weren't correctly filled
-    if (!StringUtils.hasText(teamId) || !StringUtils.hasText(memberId)
-        || !StringUtils.hasText(roleString)) {
-      jsonObject.put(STATUS, ERROR);
-      writer.write(jsonObject.toString());
-      return;
-    }
+  private boolean validAction(String action) {
+    return StringUtils.hasText(action)
+        && (action.equalsIgnoreCase("remove") || action.equalsIgnoreCase("add"));
+  }
 
-    team = teamService.findTeamById(teamId);
-
-    // is the team null? return error
-    if (team == null) {
-      jsonObject.put(STATUS, ERROR);
-      writer.write(jsonObject.toString());
-      return;
-    }
-
+  private String removeRole(HttpServletRequest request, String teamId,
+      String memberId, String roleString, Team team ) throws UnsupportedEncodingException {
     // The role admin can only be removed if there are more then one admins in a
     // team.
     if ((roleString.equals(ADMIN) && teamService.findAdmins(team).size() == 1)) {
-      jsonObject.put(STATUS, ERROR);
-      jsonObject.put("onlyadmin", true);
-      writer.write(jsonObject.toString());
-      return;
+      return "no.role.added.admin.status";
     }
-
     Role role = roleString.equals(ADMIN) ? Role.Admin : Role.Manager;
+    return (teamService.removeMemberRole(teamId, memberId, role,
+        false) ? "role.removed" : "no.role.removed");
+      }
 
-    final boolean roleRemoved = teamService.removeMemberRole(teamId, memberId,
-        role, false);
-    if (roleRemoved) {
-      jsonObject.put(STATUS, SUCCESS);
-    } else {
-      jsonObject.put(STATUS, ERROR);
+  private String addRole(HttpServletRequest request, String teamId,
+      String memberId, String roleString, int offset)
+      throws UnsupportedEncodingException {
+    Role role = roleString.equals(ADMIN) ? Role.Admin : Role.Manager;
+    Member other = teamService.findMember(teamId, memberId);
+    //Guests may not become admin
+    if (other.isGuest() && role == Role.Admin) {
+      return "no.role.added.guest.status";
     }
-    // fetch team again because the roles of its members have changed
-    team = teamService.findTeamById(teamId);
-    boolean onlyAdmin = teamService.findAdmins(team).size() <= 1;
-    jsonObject.put("onlyadmin", onlyAdmin);
-    writer.write(jsonObject.toString());
-    return;
+    return (teamService.addMemberRole(teamId, memberId, role, false) ? "role.added"
+        : "no.role.added");
   }
 
   @RequestMapping(value = "/dodeleterequest.shtml")

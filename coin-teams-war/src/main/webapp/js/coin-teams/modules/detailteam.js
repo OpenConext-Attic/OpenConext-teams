@@ -81,11 +81,7 @@ COIN.MODULES.Detailteam = function(sandbox) {
 			
 			// Clicked [ Permission ]
 			$('input[type=checkbox][name$=Role]').live('click', function() {
-				if($(this).attr('checked')) {
-					library.addRole($(this));
-				} else {
-					library.removeRole($(this));
-				}
+				library.actionRole($(this));
 			});
 
       $('a.open_invitationinfo').live('click', function(e) {
@@ -126,63 +122,15 @@ COIN.MODULES.Detailteam = function(sandbox) {
 		cancelDelete: function() {
 			$('#DeleteTeamDialog').addClass('hide').dialog('close');
 		},
-		addRole: function(el) {
+		actionRole: function(el) {
 			$('#memberId').val(library.getMemberId(el));
 			$('#roleId').val(library.getRole(el));
+			if(el.attr('checked')) {
+			  $('#doAction').val('add');
+      } else {
+        $('#doAction').val('remove');
+      }
 			$('#detailForm').submit();
-		},
-		removeRole: function(el) {
-			var teamId = $('input[name=teamId]').val();
-			var memberId = library.getMemberId(el);
-			var role = library.getRole(el);
-			
-			var data = {
-					'team' : teamId,
-					'member' : memberId,
-					'role' : role
-			};
-			
-			sandbox.post('doremoverole.shtml', data, function(data) {
-				if (data["status"] === 'success') {
-					if ($('input[type=hidden][name=loggedInUser]').val() === memberId) {
-		        var view = $('input[name=view]').val();
-						sandbox.redirectBrowserTo('detailteam.shtml?team=' + teamId + '&view=' + view);
-					}
-					// is the admin role removed?
-					if (role === '0') {
-						// Enable the manager role if the admin role has been assigned
-						el.parent().parent().find('input[name=managerRole]').attr('disabled', false);
-						
-						var admins = [];
-						// Count the checked admin roles that are left
-						$('input[name=adminRole]:checked').each(function(){admins.push($(this))});
-            // display/hide only admin warning
-            if(data["onlyadmin"] && $('#onlyAdmin').hasClass('hide')) {
-              $('#onlyAdmin').removeClass('hide');
-            } else if (!data["onlyadmin"] && !$('#onlyAdmin').hasClass('hide')) {
-              $('#onlyAdmin').addClass('hide');
-            }
-
-						// Only one left?
-						if (data["onlyadmin"] && admins.length == 1) {
-							// Disable the admin role that is checked, because otherwise no admins will be left
-							admins[0].attr('disabled', true);
-              var deleteTeam = $('#DeleteTeam');
-              if(sandbox.typeOf($('#DeleteTeam'))!='undefined') {
-                $('#DeleteTeam').parent().attr('class', 'last');
-                $('#LeaveTeam').parent().addClass('hide');
-              }
-						}
-					}
-					$.notifyBar({ cls: "success", html: "<p><spring:message code='jsp.detailteam.RemoveRoleSuccess' /></p>", delay: 1000 });
-				} else if (data === 'onlyOneAdmin') {
-					$.notifyBar({ close: "true", cls: "error", html: "<p><spring:message code='jsp.detailteam.RemoveRoleFailureOneAdmin' /></p>", delay: 10000 });
-					el.attr('checked') ? el.attr('checked', false) : el.attr('checked', true);
-				} else {
-					el.attr('checked') ? el.attr('checked', false) : el.attr('checked', true);
-					$.notifyBar({ close: "true", cls: "error", html: "<p><spring:message code='jsp.detailteam.RemoveRoleFailure' /></p>", delay: 10000 });
-				}
-			});
 		}
 	};
 

@@ -101,18 +101,18 @@ public class InMemoryMockTeamService implements TeamService {
     dummyMembers.add(member1);
     dummyMembers.add(member2);
 
-    for (int memberId = 10; memberId < 110; memberId++) {
-      Member dummyMember = new Member(roles1, "member" + memberId + "-name",
-              "member-" + memberId, "member" + memberId + "@surfnet.nl");
-      dummyMembers.add(dummyMember);
-    }
-
-    for (int teamId = 5; teamId < 5000; teamId++) {
-      Team newTeam = new Team("test-team-" + teamId,
-              "test-team-" + teamId + "-name", "description-" + teamId, true);
-      newTeam.addMembers(dummyMembers.toArray(new Member[dummyMembers.size()]));
-      teams.put(newTeam.getId(), newTeam);
-    }
+//    for (int memberId = 10; memberId < 110; memberId++) {
+//      Member dummyMember = new Member(roles1, "member" + memberId + "-name",
+//              "member-" + memberId, "member" + memberId + "@surfnet.nl");
+//      dummyMembers.add(dummyMember);
+//    }
+//
+//    for (int teamId = 5; teamId < 5000; teamId++) {
+//      Team newTeam = new Team("test-team-" + teamId,
+//              "test-team-" + teamId + "-name", "description-" + teamId, true);
+//      newTeam.addMembers(dummyMembers.toArray(new Member[dummyMembers.size()]));
+//      teams.put(newTeam.getId(), newTeam);
+//    }
 
   }
 

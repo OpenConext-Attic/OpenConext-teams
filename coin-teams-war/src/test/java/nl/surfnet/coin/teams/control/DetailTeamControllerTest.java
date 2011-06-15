@@ -445,6 +445,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     request.addParameter("teamId", "team-1");
     request.addParameter("memberId", "member-1");
     request.addParameter("roleId", Role.Manager.toString());
+    request.addParameter("doAction", "add");
 
     TeamService teamService = mock(TeamService.class);
     Set<Role> roles = new HashSet<Role>();
@@ -457,8 +458,8 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireMock(detailTeamController, teamService, TeamService.class);
     autoWireRemainingResources(detailTeamController);
 
-    RedirectView view = detailTeamController.addRole(getModelMap(), request,
-        response);
+    RedirectView view = detailTeamController.addOrRemoveRole(getModelMap(),
+        request, response);
     assertEquals(
         "detailteam.shtml?team=team-1&view=app&mes=role.added&offset=0",
         view.getUrl());
@@ -471,6 +472,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     request.addParameter("teamId", "team-1");
     request.addParameter("memberId", "member-1");
     request.addParameter("roleId", Role.Manager.toString());
+    request.addParameter("doAction", "add");
 
     autoWireMock(detailTeamController, new Returns(false), TeamService.class);
     autoWireRemainingResources(detailTeamController);
@@ -485,8 +487,8 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
         .thenReturn(false);
     autoWireMock(detailTeamController, teamService, TeamService.class);
 
-    RedirectView view = detailTeamController.addRole(getModelMap(), request,
-        response);
+    RedirectView view = detailTeamController.addOrRemoveRole(getModelMap(),
+        request, response);
     assertEquals(
         "detailteam.shtml?team=team-1&view=app&mes=no.role.added&offset=0",
         view.getUrl());
@@ -495,9 +497,10 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
   @Test
   public void testRemoveRoleHappyFlow() throws Exception {
     MockHttpServletRequest request = getRequest();
-    request.addParameter("team", "team-1");
-    request.addParameter("member", "member-1");
-    request.addParameter("role", "1");
+    request.addParameter("teamId", "team-1");
+    request.addParameter("memberId", "member-1");
+    request.addParameter("roleId", "1");
+    request.addParameter("doAction", "remove");
 
     HashSet<Role> roles = new HashSet<Role>();
     roles.add(Role.Member);
@@ -523,21 +526,22 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireMock(detailTeamController, teamService, TeamService.class);
     autoWireRemainingResources(detailTeamController);
 
-    detailTeamController.removeRole(getModelMap(), request, response);
+    RedirectView view = detailTeamController.addOrRemoveRole(getModelMap(),
+        request, response);
 
-    String result = response.getContentAsString();
-    JSONParser jsonParser = new JSONParser();
-    final JSONObject parse = (JSONObject) jsonParser.parse(result);
-    assertEquals("success", parse.get("status"));
+    assertEquals(
+        "detailteam.shtml?team=team-1&view=app&mes=role.removed&offset=0",
+        view.getUrl());
   }
 
   @Test
   public void testRemoveRoleOneAdmin() throws Exception {
     MockHttpServletRequest request = getRequest();
     // Add the team, member & role
-    request.addParameter("team", "team-1");
-    request.addParameter("member", "member-1");
-    request.addParameter("role", "0");
+    request.addParameter("teamId", "team-1");
+    request.addParameter("memberId", "member-1");
+    request.addParameter("roleId", "0");
+    request.addParameter("doAction", "remove");
 
     HashSet<Role> roles = new HashSet<Role>();
     roles.add(Role.Member);
@@ -562,12 +566,11 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireMock(detailTeamController, teamService, TeamService.class);
     autoWireRemainingResources(detailTeamController);
 
-    detailTeamController.removeRole(getModelMap(), request, response);
-    String result = response.getContentAsString();
-    JSONParser jsonParser = new JSONParser();
-    final JSONObject parse = (JSONObject) jsonParser.parse(result);
-    assertEquals("error", parse.get("status"));
-    assertTrue((Boolean) parse.get("onlyadmin"));
+    RedirectView view = detailTeamController.addOrRemoveRole(getModelMap(),
+        request, response);
+
+    assertEquals("detailteam.shtml?team=team-1&view=app&mes=no.role.added.admin.status&offset=0", view.getUrl());
+
   }
 
   @Test
@@ -577,12 +580,10 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
 
     autoWireRemainingResources(detailTeamController);
 
-    detailTeamController.removeRole(getModelMap(), request, response);
+    RedirectView view = detailTeamController.addOrRemoveRole(getModelMap(),
+        request, response);
 
-    String result = response.getContentAsString();
-    JSONParser jsonParser = new JSONParser();
-    final JSONObject parse = (JSONObject) jsonParser.parse(result);
-    assertEquals("error", parse.get("status"));
+    assertEquals("home.shtml?teams=my&view=app", view.getUrl());
   }
 
   @Test
