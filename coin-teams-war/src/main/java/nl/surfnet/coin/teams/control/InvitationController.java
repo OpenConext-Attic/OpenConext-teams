@@ -153,6 +153,7 @@ public class InvitationController {
     
     invitation.setDeclined(true);
     teamInviteService.saveOrUpdate(invitation);
+    ViewUtil.addViewToModelMap(request, modelMap);
     return viewTemplate;
   }
 

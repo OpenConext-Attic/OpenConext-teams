@@ -50,7 +50,7 @@
   <br class="clear" />
   <form action="doAcceptInvitation.shtml" id="AcceptInvitationForm">
     <fieldset>
-      <input type="hidden" name="view" value="app"/>
+      <input type="hidden" name="view" value="${view}"/>
       <input type="hidden" name="id" value="<c:out value="${invitation.invitationHash}"/>">
       <p class="label-field-wrapper">
         <input id ="TeamConsent" type="checkbox" name="consent" /><label for="TeamConsent" class="consent"><spring:message code='jsp.jointeam.Consent' /></label>
