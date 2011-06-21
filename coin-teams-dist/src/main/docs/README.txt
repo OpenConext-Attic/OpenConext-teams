@@ -14,7 +14,10 @@ List of documentation files included:
 		this file.
 
 - VIRTUAL_ORGANIZATION_README.txt
-		license information.
+		default stem information
+		
+- MAXIMUM_AMOUNT_OF_INVITATIONS_README.txt
+    configuration of max invites
 		
 - INSTALL.txt
 		install information.
