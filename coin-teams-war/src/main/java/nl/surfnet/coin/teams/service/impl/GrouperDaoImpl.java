@@ -53,18 +53,28 @@ public class GrouperDaoImpl implements GrouperDao {
         .queryForInt(
             "select count(distinct gg.name) "
                 + "from grouper_groups gg, grouper_stems gs, grouper_members gm, "
-                + "grouper_memberships gms, grouper_rpt_group_field_v ggf  "
+                + "grouper_memberships gms, "
+                + " grouper_fields gf, grouper_group_set ggs  "
                 + "where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
-                + "and gs.name = ? and ggf.group_name = gg.name "
-                + "and ((ggf.field_type = 'access' and ggf.field_name = 'viewers') or gm.subject_id = ?) ",
+                + "and gs.name = ? "
+                + " and ggs.field_id = gf.id "
+                + " and gg.id = ggs.owner_group_id "
+                + "and gms.owner_id = ggs.member_id "
+                + " and gms.field_id = ggs.member_field_id "
+                + "and ((gf.type = 'access' and gf.name = 'viewers') or gm.subject_id = ?) ",
             stemName, personId);
     List<Team> teams = performQuery(
         "select distinct gg.name, gg.display_name ,gg.description "
             + "from grouper_groups gg, grouper_stems gs, grouper_members gm, "
-            + "grouper_memberships gms, grouper_rpt_group_field_v ggf   "
+            + "grouper_memberships gms, "
+            + " grouper_fields gf, grouper_group_set ggs  "
             + "where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
-            + "and gs.name = ? and ggf.group_name = gg.name "
-            + "and ((ggf.field_type = 'access' and ggf.field_name = 'viewers') or gm.subject_id = ?) "
+            + "and gs.name = ? "
+            + " and ggs.field_id = gf.id "
+            + " and gg.id = ggs.owner_group_id "
+            + "and gms.owner_id = ggs.member_id "
+            + " and gms.field_id = ggs.member_field_id "
+            + "and ((gf.type = 'access' and gf.name = 'viewers') or gm.subject_id = ?) "
             + "order by gg.name limit ? offset ?", new Object[] { stemName,
             personId, pageSize, offset });
     return new TeamResultWrapper(teams, rowCount, offset, pageSize);
@@ -78,19 +88,29 @@ public class GrouperDaoImpl implements GrouperDao {
         .queryForInt(
             "select count(distinct gg.name) "
                 + "from grouper_groups gg, grouper_stems gs, grouper_members gm,"
-                + "grouper_memberships gms, grouper_rpt_group_field_v ggf  "
+                + "grouper_memberships gms, "
+                + " grouper_fields gf, grouper_group_set ggs  "
                 + "where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
-                + "and gs.name = ? and ggf.group_name = gg.name "
-                + "and ((ggf.field_type = 'access' and ggf.field_name = 'viewers') or gm.subject_id = ?) "
+                + "and gs.name = ? "
+                + " and ggs.field_id = gf.id "
+                + " and gg.id = ggs.owner_group_id "
+                + "and gms.owner_id = ggs.member_id "
+                + " and gms.field_id = ggs.member_field_id "
+                + "and ((gf.type = 'access' and gf.name = 'viewers') or gm.subject_id = ?) "
                 + "and upper(gg.name) like ?", stemName, personId,
             partOfGroupname);
     List<Team> teams = performQuery(
         "select distinct gg.name, gg.display_name ,gg.description "
             + "from grouper_groups gg, grouper_stems gs, grouper_members gm,"
-            + "grouper_memberships gms, grouper_rpt_group_field_v ggf   "
+            + "grouper_memberships gms, "
+            + " grouper_fields gf, grouper_group_set ggs  "
             + "where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
-            + "and gs.name = ? and ggf.group_name = gg.name "
-            + "and ((ggf.field_type = 'access' and ggf.field_name = 'viewers') or gm.subject_id = ?) "
+            + "and gs.name = ? "
+            + " and ggs.field_id = gf.id "
+            + " and gg.id = ggs.owner_group_id "
+            + "and gms.owner_id = ggs.member_id "
+            + " and gms.field_id = ggs.member_field_id "
+            + "and ((gf.type = 'access' and gf.name = 'viewers') or gm.subject_id = ?) "
             + "and upper(gg.name) like ? order by gg.name limit ? offset ?",
         new Object[] { stemName, personId, partOfGroupname, pageSize, offset });
     return new TeamResultWrapper(teams, rowCount, offset, pageSize);
@@ -187,8 +207,8 @@ public class GrouperDaoImpl implements GrouperDao {
       List<Team> teams) {
     try {
       RolesRowCallbackHandler handler = new RolesRowCallbackHandler();
-      String sql = " select gf.name as fieldname, gg.name as groupname from grouper_memberships gms, " +
-      		"grouper_groups gg, grouper_fields gf, "
+      String sql = " select gf.name as fieldname, gg.name as groupname from grouper_memberships gms, "
+          + "grouper_groups gg, grouper_fields gf, "
           + " grouper_stems gs, grouper_members gm where "
           + " gms.field_id = gf.id and  gms.owner_group_id = gg.id and "
           + " gms.member_id = gm.id and gs.name = ? "
