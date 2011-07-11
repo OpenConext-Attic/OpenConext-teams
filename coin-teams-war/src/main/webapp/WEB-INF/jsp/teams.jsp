@@ -18,16 +18,21 @@
 <Module>
   <ModulePrefs title="SURFteams" height="375">
   </ModulePrefs>
-  <UserPref name="groupContext" />
+  <UserPref name="groupContext"/>
   <Content type="html">
-        <![CDATA[
+    <![CDATA[
         <div id="SURFteamsContent"></div>
         <script type="text/javascript">
 
         var srcString ='${teamsURL}/';
         var prefs = new gadgets.Prefs();
+
         var groupContext = escape(prefs.getString('groupContext'));
-        if(groupContext != '') {
+        var groupNameContext = escape('${groupNameContext}');
+
+        if(groupContext != '' && groupContext.indexOf(groupNameContext) != -1) {
+          srcString += 'detailteam.shtml?view=gadget&team=' + groupContext.replace(groupNameContext, '');
+        } else if (groupContext != '') {
           srcString += 'detailteam.shtml?view=gadget&team=' + groupContext;
         } else {
           srcString += 'home.shtml?view=gadget';

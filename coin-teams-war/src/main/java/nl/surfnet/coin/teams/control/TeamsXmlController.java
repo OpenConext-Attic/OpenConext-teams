@@ -42,7 +42,8 @@ public class TeamsXmlController {
   public String start(ModelMap modelMap, HttpServletRequest request) {
 
     modelMap.addAttribute("teamsURL", teamEnvironment.getTeamsURL());
- 
+    modelMap.addAttribute("groupNameContext", teamEnvironment.getGroupNameContext());
+
     return "teams";
   }
   

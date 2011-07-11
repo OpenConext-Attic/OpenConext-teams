@@ -42,6 +42,7 @@
     <property name="mockLogin" value="${mockLogin}" />
     <property name="mockName" value="${mockName}" />
     <property name="mockUserStatus" value="${mock-user-status}" />
+    <property name="mockVOName" value="${mock-vo-name}" />
     <property name="defaultStemName" value="${defaultStemName}" />
     <property name="version" value="@VERSION@" />
     <property name="grouperPowerUser" value="${grouperPowerUser}"/>
@@ -55,8 +56,9 @@
     <property name="systemEmail" value="${systemEmail}"/>
     <property name="maxUploadSize" value="${form.maxuploadsize}" />
     <property name="maxInvitations" value="${maxInvitations}"/>
+    <property name="groupNameContext" value="${group-name-context}"/>
   </bean>
-  
+
   <bean id="teamService" class="${teamService}" />
 
    <!-- Configure the multipart resolver -->
@@ -86,7 +88,7 @@
     <property name="idleConnectionTestPeriod" value="15" />
     <property name="maxIdleTime" value="15" />
   </bean>
-  
+
   <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
     <constructor-arg ref="grouperDataSource"/>
   </bean>

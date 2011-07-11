@@ -17,13 +17,14 @@ package nl.surfnet.coin.teams.util;
 
 /**
  * Encapsulating properties for general use
- * 
+ *
  */
 public class TeamEnvironment {
   private String version;
   private String mockLogin;
   private String mockName;
   private String mockUserStatus;
+  private String mockVOName;
   private String defaultStemName;
   private String grouperPowerUser;
   private String oauthKey;
@@ -34,6 +35,7 @@ public class TeamEnvironment {
   private String teamsURL;
   private String openSocialUrl;
   private String systemEmail;
+  private String groupNameContext;
 
   private int maxInvitations;
 
@@ -96,6 +98,24 @@ public class TeamEnvironment {
    */
   public String getMockUserStatus() {
     return mockUserStatus;
+  }
+
+  /**
+   * Get the Mock VO name
+   *
+   * @return the mockVOName
+   */
+  public String getMockVOName() {
+    return mockVOName;
+  }
+
+  /**
+   * Set the mock VO Name
+   *
+   * @param mockVOName the Mock VO name
+   */
+  public void setMockVOName(String mockVOName) {
+    this.mockVOName = mockVOName;
   }
 
   /**
@@ -267,5 +287,23 @@ public class TeamEnvironment {
    */
   public void setMaxInvitations(int maxInvitations) {
     this.maxInvitations = maxInvitations;
+  }
+
+  /**
+   * get VO name context
+   *
+   * @return the voNameContext
+   */
+  public String getGroupNameContext() {
+    return groupNameContext;
+  }
+
+  /**
+   * Set the VO name context
+   *
+   * @param voNameContext the VO name context to set
+   */
+  public void setGroupNameContext(String voNameContext) {
+    this.groupNameContext = voNameContext;
   }
 }
