@@ -43,11 +43,29 @@ public class VOUtil {
   public String getStemName(final HttpServletRequest request) {
     String voName = VOInterceptor.getUserVo();
 
-    if (StringUtils.hasText(voName)) {
+    // Check whether a VO is requested, if not always return the default stem
+    if (isVoRequested(request) && StringUtils.hasText(voName)) {
       String voPrefix = environment.getVoStemPrefix();
       voPrefix = voPrefix.endsWith(":") ? voPrefix : voPrefix + ":";
       return voPrefix + voName;
     }
     return environment.getDefaultStemName();
+  }
+
+  /**
+   * Check whether a VO is requested in the request
+   *
+   * @param request {@link HttpServletRequest}
+   * @return {@link Boolean} true if a VO is requested, false if no VO is requested
+   */
+  public boolean isVoRequested(final HttpServletRequest request) {
+    String[] url = request.getRequestURI().split("/");
+
+    for (String s : url) {
+      if ("vo".equalsIgnoreCase(s)) {
+        return true;
+      }
+    }
+    return false;
   }
 }

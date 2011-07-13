@@ -37,7 +37,7 @@ public class VOInterceptorTest extends AbstractControllerTest {
   @Test
   public void testPreHandle() throws Exception {
     MockHttpServletRequest request = new MockHttpServletRequest(null, "/teams/vo/" + VONAME + "/");
-    request.addHeader("vo-name", VONAME);
+    request.addHeader(VOInterceptor.VO_NAME_HEADER, VONAME);
     MockHttpServletResponse response = new MockHttpServletResponse();
 
     boolean result = interceptor.preHandle(request, response, null);
@@ -47,7 +47,7 @@ public class VOInterceptorTest extends AbstractControllerTest {
   @Test
   public void testPreHandleHome() throws Exception {
     MockHttpServletRequest request = new MockHttpServletRequest(null, "/teams/vo/" + VONAME + "/home.shtml");
-    request.addHeader("vo-name", VONAME);
+    request.addHeader(VOInterceptor.VO_NAME_HEADER, VONAME);
     MockHttpServletResponse response = new MockHttpServletResponse();
 
     boolean result = interceptor.preHandle(request, response, null);
@@ -57,7 +57,7 @@ public class VOInterceptorTest extends AbstractControllerTest {
   @Test
   public void testPreHandleWrongVO() throws Exception {
     MockHttpServletRequest request = new MockHttpServletRequest(null, "/teams/vo/" + WRONGVO + "/home.shtml");
-    request.addHeader("vo-name", VONAME);
+    request.addHeader(VOInterceptor.VO_NAME_HEADER, VONAME);
     MockHttpServletResponse response = new MockHttpServletResponse();
 
     boolean result = interceptor.preHandle(request, response, null);

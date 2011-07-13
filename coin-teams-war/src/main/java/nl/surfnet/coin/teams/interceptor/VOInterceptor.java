@@ -32,6 +32,7 @@ public class VOInterceptor extends HandlerInterceptorAdapter {
 
   private static final Logger logger = LoggerFactory.getLogger(VOInterceptor.class);
   private static final ThreadLocal<String> userVo = new ThreadLocal<String>();
+  public static final String VO_NAME_HEADER = "coin-vo-name";
 
   @Autowired
   private TeamEnvironment teamEnvironment;
@@ -107,7 +108,7 @@ public class VOInterceptor extends HandlerInterceptorAdapter {
   }
 
   String getLoggedInVOName(HttpServletRequest request) {
-    return request.getHeader("vo-name");
+    return request.getHeader(VO_NAME_HEADER);
   }
 
   private String getRequestedVOName(HttpServletRequest request) {
