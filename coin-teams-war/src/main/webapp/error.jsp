@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ page isErrorPage="true" %>
 <%--
   ~ Copyright 2011 SURFnet bv, The Netherlands
@@ -23,9 +24,9 @@
 <head>
   <title>SURFconext teams</title>
   <% if ("gadget".equals(view)) { %>
-  <link rel="stylesheet" href="css/gadget.css">
+  <link rel="stylesheet" href="<c:url value="/css/gadget.css"/>">
   <% } else { %>
-  <link rel="stylesheet" href="css/default.css">
+  <link rel="stylesheet" href="<c:url value="/css/default.css"/>">
   <% } %>
 </head>
 <body>
@@ -35,9 +36,9 @@
     if(!("gadget".equals(view))) {
   %>
   <div class="header">
-    <a href="home.shtml"><img class="logo" src="media/surfnet_logo.gif" alt="surfnet logo"/></a>
+    <a href="home.shtml"><img class="logo" src="<c:url value="/media/surfnet_logo.gif"/>" alt="surfnet logo"/></a>
     <span>SURFconext teams</span>
-    <span class="left"></span><span class="right"></span><img src="media/header_img.jpg" alt="header img"/>
+    <span class="left"></span><span class="right"></span><img src="<c:url value="/media/header_img.jpg"/>" alt="header img"/>
   </div>
   <%
     }

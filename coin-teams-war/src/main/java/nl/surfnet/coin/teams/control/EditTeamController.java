@@ -16,22 +16,21 @@
 
 package nl.surfnet.coin.teams.control;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-
-import javax.servlet.http.HttpServletRequest;
-
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.ViewUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.view.RedirectView;
 
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.util.ViewUtil;
+import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 /**
  * @author steinwelberg
@@ -67,6 +66,11 @@ public class EditTeamController {
     return "editteam";
   }
 
+  @RequestMapping("/vo/{voName}/editteam.shtml")
+  public String startVO(@PathVariable String voName, ModelMap modelMap, HttpServletRequest request) {
+    return start(modelMap, request);
+  }
+
   @RequestMapping(value = "/doeditteam.shtml", method = RequestMethod.POST)
   public RedirectView editTeam(ModelMap modelMap, HttpServletRequest request)
       throws UnsupportedEncodingException {
@@ -98,4 +102,9 @@ public class EditTeamController {
         + ViewUtil.getView(request));
   }
 
+  @RequestMapping(value = "/vo/{voName}/doeditteam.shtml", method = RequestMethod.POST)
+  public RedirectView editTeamVO(@PathVariable String voName, ModelMap modelMap, HttpServletRequest request)
+      throws UnsupportedEncodingException {
+    return editTeam(modelMap, request);
+  }
 }

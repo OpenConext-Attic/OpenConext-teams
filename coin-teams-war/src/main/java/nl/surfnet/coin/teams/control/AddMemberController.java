@@ -16,35 +16,6 @@
 
 package nl.surfnet.coin.teams.control;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.Date;
-import java.util.Locale;
-
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.commons.io.IOUtils;
-import org.opensocial.models.Person;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.util.StringUtils;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
-import org.springframework.validation.Validator;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.LocaleResolver;
-import org.springframework.web.servlet.view.RedirectView;
-
 import nl.surfnet.coin.shared.service.MailService;
 import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.InvitationForm;
@@ -58,6 +29,30 @@ import nl.surfnet.coin.teams.service.impl.InvitationFormValidator;
 import nl.surfnet.coin.teams.service.impl.InvitationValidator;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 import nl.surfnet.coin.teams.util.ViewUtil;
+import org.apache.commons.io.IOUtils;
+import org.opensocial.models.Person;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.Validator;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.view.RedirectView;
+
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * @author steinwelberg
@@ -137,6 +132,18 @@ public class AddMemberController {
   }
 
   /**
+   * Shows form to invite others to your {@link Team} coming from a vo specific link
+   *
+   * @param modelMap {@link ModelMap}
+   * @param request  {@link HttpServletRequest}
+   * @return name of the add member form
+   */
+  @RequestMapping("/vo/{voName}/addmember.shtml")
+  public String startVO(@PathVariable String voName, ModelMap modelMap, HttpServletRequest request) {
+    return start(modelMap, request);
+  }
+
+  /**
    * In case someone clicks the cancel button
    *
    * @param form    {@link InvitationForm}
@@ -193,12 +200,34 @@ public class AddMemberController {
     Locale locale = localeResolver.resolveLocale(request);
     doInviteMembers(emails, form, locale);
 
-    return "redirect:/detailteam.shtml?team="
+    return "redirect:detailteam.shtml?team="
             + URLEncoder.encode(form.getTeamId(), UTF_8) + "&view="
             + ViewUtil.getView(request);
   }
 
-  @RequestMapping("doResendInvitation.shtml")
+  /**
+   * Called after submitting the add members form
+   *
+   * @param modelMap {@link ModelMap}
+   * @param form     {@link InvitationForm} from the session
+   * @param result   {@link BindingResult}
+   * @param request  {@link HttpServletRequest}
+   * @return the name of the form if something is wrong
+   *         before handling the invitation,
+   *         otherwise a redirect to the detailteam url
+   * @throws IOException if something goes wrong handling the invitation
+   */
+  @RequestMapping(value = "/vo/{voName}/doaddmember.shtml", method = RequestMethod.POST)
+  public String addMembersToTeamVO(@PathVariable String voName,
+                                 ModelMap modelMap,
+                                 @ModelAttribute("invitationForm") InvitationForm form,
+                                 BindingResult result,
+                                 HttpServletRequest request)
+          throws IOException {
+    return addMembersToTeam(modelMap, form, result, request);
+  }
+
+  @RequestMapping("/doResendInvitation.shtml")
   public String doResendInvitation(ModelMap modelMap,
                                    @ModelAttribute("invitation") Invitation invitation,
                                    BindingResult result,
@@ -226,9 +255,18 @@ public class AddMemberController {
     String subject = messageSource.getMessage(INVITE_SEND_INVITE_SUBJECT,
             messageValuesSubject, locale);
     sendInvitationByMail(invitation, subject, locale);
-    return "redirect:/detailteam.shtml?team="
+    return "redirect:detailteam.shtml?team="
             + URLEncoder.encode(teamId, UTF_8) + "&view="
             + ViewUtil.getView(request);
+  }
+
+  @RequestMapping("/vo/{voName}/doResendInvitation.shtml")
+  public String doResendInvitationVO(@PathVariable String voName,
+                                   ModelMap modelMap,
+                                   @ModelAttribute("invitation") Invitation invitation,
+                                   BindingResult result,
+                                   HttpServletRequest request) throws UnsupportedEncodingException {
+    return doResendInvitation(modelMap, invitation, result, request);
   }
 
   /**

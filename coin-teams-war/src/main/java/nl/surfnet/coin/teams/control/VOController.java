@@ -13,50 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-/**
- * 
- */
 package nl.surfnet.coin.teams.control;
 
-import nl.surfnet.coin.teams.util.TeamEnvironment;
-import nl.surfnet.coin.teams.util.ViewUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author steinwelberg
- * 
+ *
  */
 @Controller
-public class LandingPageController {
+public class VOController {
 
-  @Autowired
-  private TeamEnvironment teamEnvironment;
-
-  @RequestMapping("/landingpage.shtml")
-  public String start(ModelMap modelMap, HttpServletRequest request) {
-
-    ViewUtil.addViewToModelMap(request, modelMap);
-
-    modelMap.addAttribute("environment", teamEnvironment);
-
-    return "landingpage";
+  @RequestMapping("/vo/{voName}")
+  public RedirectView start(@PathVariable String voName, ModelMap modelMap, HttpServletRequest request) {
+    return new RedirectView(request.getContextPath() + "/vo/" + voName + "/home.shtml");
   }
 
-  @RequestMapping("/vo/{voName}/landingpage.shtml")
-  public String startVO(@PathVariable String voName, ModelMap modelMap, HttpServletRequest request) {
-    ViewUtil.addViewToModelMap(request, modelMap);
-
-    modelMap.addAttribute("environment", teamEnvironment);
-    modelMap.addAttribute("voContext", voName);
-
-    return "landingpage";
+  @RequestMapping("/vo/{voName}/wrongvo.shtml")
+  public String wrongVO(@PathVariable String voName, ModelMap modelMap, HttpServletRequest request) {
+    modelMap.addAttribute("requestedVo", voName);
+    return "wrongvo";
   }
 
+  @RequestMapping("/vo/{voName}/logintovo.shtml")
+  public String loginToVo(@PathVariable String voName, ModelMap modelMap, HttpServletRequest request) {
+    modelMap.addAttribute("requestedVo", voName);
+    return "logintovo";
+  }
 }

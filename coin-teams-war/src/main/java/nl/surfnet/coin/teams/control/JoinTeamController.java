@@ -16,31 +16,6 @@
 
 package nl.surfnet.coin.teams.control;
 
-import java.io.IOException;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.Set;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.opensocial.models.Person;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.servlet.LocaleResolver;
-import org.springframework.web.servlet.view.RedirectView;
-
 import nl.surfnet.coin.shared.service.MailService;
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Member;
@@ -50,6 +25,22 @@ import nl.surfnet.coin.teams.service.JoinTeamRequestService;
 import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 import nl.surfnet.coin.teams.util.ViewUtil;
+import org.opensocial.models.Person;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.view.RedirectView;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.net.URLEncoder;
+import java.util.*;
 
 /**
  * {@link Controller} that handles the join team page of a logged in
@@ -62,6 +53,8 @@ public class JoinTeamController {
   private static final String REQUEST_MEMBERSHIP_SUBJECT = "request.MembershipSubject";
 
   public static final String JOIN_TEAM_REQUEST = "joinTeamRequest";
+
+  private String voContext;
 
   @Autowired
   private TeamService teamService;
@@ -119,6 +112,11 @@ public class JoinTeamController {
     return "jointeam";
   }
 
+  @RequestMapping("vo/{voName}/jointeam.shtml")
+  public String startVO(ModelMap modelMap, HttpServletRequest request) {
+    return start(modelMap, request);
+  }
+
   @RequestMapping(value = "/dojointeam.shtml", method = RequestMethod.POST)
   public RedirectView joinTeam(ModelMap modelMap,
                                @ModelAttribute(JOIN_TEAM_REQUEST) JoinTeamRequest joinTeamRequest,
@@ -144,6 +142,16 @@ public class JoinTeamController {
             + ViewUtil.getView(request));
   }
 
+  @RequestMapping(value = "vo/{voName}/dojointeam.shtml", method = RequestMethod.POST)
+  public RedirectView joinTeamVO(@PathVariable String voName,
+                               ModelMap modelMap,
+                               @ModelAttribute(JOIN_TEAM_REQUEST) JoinTeamRequest joinTeamRequest,
+                               HttpServletRequest request)
+          throws IOException {
+    String voContext = "/vo/" + voName;
+    return joinTeam(modelMap, joinTeamRequest, request);
+  }
+
   private void sendJoinTeamMessage(final Team team, final Person person,
                                    final String message, final Locale locale)
           throws IllegalStateException, IOException {
@@ -157,7 +165,12 @@ public class JoinTeamController {
       messageBody.append(message);
     }
 
-    Object[] footerValues = {environment.getTeamsURL(), person.getDisplayName(),
+    String acceptURL = environment.getTeamsURL();
+//    if (StringUtils.hasText(voContext)) {
+//      acceptURL += voContext;
+//    }
+
+    Object[] footerValues = {acceptURL, person.getDisplayName(),
             person.getEmail(), URLEncoder.encode(team.getId(), "utf-8")};
     messageBody.append(messageSource.getMessage("request.mail.GoToUrlToAccept",
             footerValues, locale));

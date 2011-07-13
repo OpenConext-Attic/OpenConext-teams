@@ -16,40 +16,8 @@
 
 package nl.surfnet.coin.teams.control;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.Set;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.opensocial.models.Person;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.LocaleResolver;
-import org.springframework.web.servlet.view.RedirectView;
-
 import nl.surfnet.coin.shared.service.MailService;
-import nl.surfnet.coin.teams.domain.JoinTeamRequest;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Pager;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.JoinTeamRequestService;
 import nl.surfnet.coin.teams.service.TeamInviteService;
@@ -57,6 +25,27 @@ import nl.surfnet.coin.teams.service.TeamPersonService;
 import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 import nl.surfnet.coin.teams.util.ViewUtil;
+import org.json.JSONException;
+import org.opensocial.models.Person;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.view.RedirectView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.util.*;
 
 /**
  * @author steinwelberg
@@ -171,6 +160,12 @@ public class DetailTeamController {
     return "detailteam";
   }
 
+  @RequestMapping("/vo/{voName}/detailteam.shtml")
+  public String startVO(@PathVariable String voName, ModelMap modelMap, HttpServletRequest request)
+      throws IOException {
+    return start(modelMap, request);
+  }
+
   private int getOffset(HttpServletRequest request) {
     int offset = 0;
     String offsetParam = request.getParameter("offset");
@@ -230,6 +225,12 @@ public class DetailTeamController {
         + ViewUtil.getView(request));
   }
 
+  @RequestMapping(value = "vo/{voName}/doleaveteam.shtml", method = RequestMethod.GET)
+  public RedirectView leaveTeamVO(@PathVariable String voName, ModelMap modelMap, HttpServletRequest request)
+      throws UnsupportedEncodingException {
+    return leaveTeam(modelMap, request);
+  }
+
   @RequestMapping(value = "/dodeleteteam.shtml", method = RequestMethod.GET)
   public RedirectView deleteTeam(ModelMap modelMap, HttpServletRequest request)
       throws UnsupportedEncodingException {
@@ -254,6 +255,12 @@ public class DetailTeamController {
     return new RedirectView("detailteam.shtml?team="
         + URLEncoder.encode(teamId, UTF_8) + "&view="
         + ViewUtil.getView(request));
+  }
+
+  @RequestMapping(value = "/vo/{voName}/dodeleteteam.shtml", method = RequestMethod.GET)
+  public RedirectView deleteTeamVO(@PathVariable String voName, ModelMap modelMap, HttpServletRequest request)
+      throws UnsupportedEncodingException {
+    return deleteTeam(modelMap, request);
   }
 
   @RequestMapping(value = "/dodeletemember.shtml", method = RequestMethod.GET)
@@ -304,6 +311,12 @@ public class DetailTeamController {
         + NOT_AUTHORIZED_DELETE_MEMBER + "&view=" + ViewUtil.getView(request));
   }
 
+  @RequestMapping(value = "/vo/{voName}/dodeletemember.shtml", method = RequestMethod.GET)
+  public RedirectView deleteMemberVO(@PathVariable String voName, ModelMap modelMap, HttpServletRequest request)
+      throws UnsupportedEncodingException {
+    return deleteMember(modelMap, request);
+  }
+
   @RequestMapping(value = "/doaddremoverole.shtml", method = RequestMethod.POST)
   public RedirectView addOrRemoveRole(ModelMap modelMap,
       HttpServletRequest request, HttpServletResponse response)
@@ -339,6 +352,13 @@ public class DetailTeamController {
     return new RedirectView("detailteam.shtml?team="
         + URLEncoder.encode(teamId, UTF_8) + "&view="
         + ViewUtil.getView(request) + "&mes=" + message + "&offset=" + offset);
+  }
+
+  @RequestMapping(value = "/vo/{voName}/doaddremoverole.shtml", method = RequestMethod.POST)
+  public RedirectView addOrRemoveRoleVO(@PathVariable String voName, ModelMap modelMap,
+      HttpServletRequest request, HttpServletResponse response)
+      throws IOException, JSONException {
+    return addOrRemoveRole(modelMap, request, response);
   }
 
   private boolean validAction(String action) {
@@ -377,8 +397,20 @@ public class DetailTeamController {
     return doHandleJoinRequest(request, false);
   }
 
+  @RequestMapping(value = "/vo/{voName}/dodeleterequest.shtml")
+  public RedirectView deleteRequestVO(@PathVariable String voName, ModelMap modelMap,
+      HttpServletRequest request) throws UnsupportedEncodingException {
+    return doHandleJoinRequest(request, false);
+  }
+
   @RequestMapping(value = "/doapproverequest.shtml")
   public RedirectView approveRequest(ModelMap modelMap,
+      HttpServletRequest request) throws UnsupportedEncodingException {
+    return doHandleJoinRequest(request, true);
+  }
+
+  @RequestMapping(value = "/vo/{voName}/doapproverequest.shtml")
+  public RedirectView approveRequest(@PathVariable String voName, ModelMap modelMap,
       HttpServletRequest request) throws UnsupportedEncodingException {
     return doHandleJoinRequest(request, true);
   }

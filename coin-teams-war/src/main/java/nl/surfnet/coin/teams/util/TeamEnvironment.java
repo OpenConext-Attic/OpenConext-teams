@@ -17,7 +17,6 @@ package nl.surfnet.coin.teams.util;
 
 /**
  * Encapsulating properties for general use
- *
  */
 public class TeamEnvironment {
   private String version;
@@ -36,6 +35,8 @@ public class TeamEnvironment {
   private String openSocialUrl;
   private String systemEmail;
   private String groupNameContext;
+  private String voMetadataPrefix;
+  private String voStemPrefix;
 
   private int maxInvitations;
 
@@ -49,8 +50,7 @@ public class TeamEnvironment {
   }
 
   /**
-   * @param version
-   *          the version to set
+   * @param version the version to set
    */
   public void setVersion(String version) {
     this.version = version;
@@ -64,8 +64,7 @@ public class TeamEnvironment {
   }
 
   /**
-   * @param mockLogin
-   *          the mockLogin to set
+   * @param mockLogin the mockLogin to set
    */
   public void setMockLogin(String mockLogin) {
     this.mockLogin = mockLogin;
@@ -79,8 +78,7 @@ public class TeamEnvironment {
   }
 
   /**
-   * @param mockName
-   *          the mockName to set
+   * @param mockName the mockName to set
    */
   public void setMockName(String mockName) {
     this.mockName = mockName;
@@ -126,8 +124,7 @@ public class TeamEnvironment {
   }
 
   /**
-   * @param defaultStemName
-   *          the defaultStemName to set
+   * @param defaultStemName the defaultStemName to set
    */
   public void setDefaultStemName(String defaultStemName) {
     this.defaultStemName = defaultStemName;
@@ -239,8 +236,7 @@ public class TeamEnvironment {
   }
 
   /**
-   * @param openSocialUrl
-   *          the openSocialUrl to set
+   * @param openSocialUrl the openSocialUrl to set
    */
   public void setOpenSocialUrl(String openSocialUrl) {
     this.openSocialUrl = openSocialUrl;
@@ -305,5 +301,41 @@ public class TeamEnvironment {
    */
   public void setGroupNameContext(String voNameContext) {
     this.groupNameContext = voNameContext;
+  }
+
+  /**
+   * get the VO Metadata prefix
+   *
+   * @return voMetadataPrefix
+   */
+  public String getVoMetadataPrefix() {
+    return voMetadataPrefix;
+  }
+
+  /**
+   * Set the VO Metadata prefix
+   *
+   * @param voMetadataPrefix
+   */
+  public void setVoMetadataPrefix(String voMetadataPrefix) {
+    this.voMetadataPrefix = voMetadataPrefix;
+  }
+
+  /**
+   * Get VO Stem Prefix
+   *
+   * @return voStemPrefix
+   */
+  public String getVoStemPrefix() {
+    return voStemPrefix;
+  }
+
+  /**
+   * Set the VO Stem Prefix
+   *
+   * @param voStemPrefix
+   */
+  public void setVoStemPrefix(String voStemPrefix) {
+    this.voStemPrefix = voStemPrefix;
   }
 }

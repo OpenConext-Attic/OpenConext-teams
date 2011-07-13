@@ -19,11 +19,15 @@
  */
 package nl.surfnet.coin.teams.control;
 
-import java.util.List;
-import java.util.Locale;
-
-import javax.servlet.http.HttpServletRequest;
-
+import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.domain.TeamResultWrapper;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.interceptor.VOInterceptor;
+import nl.surfnet.coin.teams.service.TeamInviteService;
+import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
+import nl.surfnet.coin.teams.util.ViewUtil;
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -31,17 +35,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.LocaleResolver;
 
-import nl.surfnet.coin.teams.domain.Invitation;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.domain.TeamResultWrapper;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.TeamInviteService;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
-import nl.surfnet.coin.teams.util.ViewUtil;
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+import java.util.Locale;
 
 /**
  * @author steinwelberg
@@ -84,14 +84,19 @@ public class HomeController {
     addTeams(query, person.getId(), display, modelMap, request);
 
     String email = person.getEmail();
-    if (StringUtils.hasText(email)){
+    if (StringUtils.hasText(email)) {
       List<Invitation> invitations = teamInviteService.findPendingInvitationsByEmail(email);
       modelMap.addAttribute("myinvitations", !CollectionUtils.isEmpty(invitations));
     }
     modelMap.addAttribute("app-version", environment.getVersion());
     ViewUtil.addViewToModelMap(request, modelMap);
-    
+
     return "home";
+  }
+
+  @RequestMapping("/vo/{VOName}/home.shtml")
+  public String startVO(@PathVariable String VOName, ModelMap modelMap, HttpServletRequest request) {
+    return start(modelMap, request);
   }
 
   private void addTeams(String query, final String person,
@@ -150,13 +155,21 @@ public class HomeController {
   }
 
   /**
-   * Returns the stem name for this request
+   * Returns the stem name for this request.
+   * If a user is logged in to a VO stem name is returned
    *
    * @param request {@link HttpServletRequest}
    * @return the stem name on the session or
    *         {@literal null} if there is no stem
    */
   private String getStemName(final HttpServletRequest request) {
+    String voName = VOInterceptor.getUserVo();
+
+    if (StringUtils.hasText(voName)) {
+      String voPrefix = environment.getVoStemPrefix();
+      voPrefix = voPrefix.endsWith(":") ? voPrefix : voPrefix + "";
+      return voPrefix + voName;
+    }
     return environment.getDefaultStemName();
   }
 

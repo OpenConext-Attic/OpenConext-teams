@@ -64,6 +64,12 @@ maxInvitations=5
 #Group name context
 group-name-context=urn:collab:group:surfteams.nl:
 
+# The VO Stem prefix used to prefix when creating the VO stem name
+vo-stem-prefix=
+
+# EngineBlock VO entityID prefix
+vo-metadata-prefix=https://engine.dev.surfconext.nl/authentication/idp/metadata/vo:
+
 ##########################################################################
 # The following properties are the responsibility of development. The    #
 # values do NOT depend on the environment                                #
@@ -74,6 +80,10 @@ appId=SURFteams
 # Use the MockLoginInterceptor when you want to mock Shibboleth:
 #loginInterceptor=nl.surfnet.coin.teams.interceptor.MockLoginInterceptor
 loginInterceptor=nl.surfnet.coin.teams.interceptor.LoginInterceptor
+
+# Use the MockVOInterceptor when you want to mock the VOInterceptor
+#voInterceptor=nl.surfnet.coin.teams.interceptor.MockVOInterceptor
+voInterceptor=nl.surfnet.coin.teams.interceptor.VOInterceptor
 
 # Use the InMemoryMockTeamService when you want to mock the teamService
 #teamService=nl.surfnet.coin.teams.service.impl.InMemoryMockTeamService

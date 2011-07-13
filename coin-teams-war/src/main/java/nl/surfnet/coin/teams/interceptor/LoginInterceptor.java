@@ -16,15 +16,11 @@
 
 package nl.surfnet.coin.teams.interceptor;
 
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.MemberAttribute;
+import nl.surfnet.coin.teams.service.MemberAttributeService;
+import nl.surfnet.coin.teams.service.TeamPersonService;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
 import org.opensocial.models.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,11 +28,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.MemberAttribute;
-import nl.surfnet.coin.teams.service.MemberAttributeService;
-import nl.surfnet.coin.teams.service.TeamPersonService;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Intercepts calls to controllers to handle Single Sign On details from
@@ -99,15 +97,17 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         // redirect him to the landing page.
         String url = getRequestedPart(request);
         String[] urlSplit = url.split("/");
-        
+
         String view = request.getParameter("view");
 
         // Unprotect the items in bypass
         String urlPart = urlSplit[2];
 
         logger.trace("Request for '{}'", request.getRequestURI());
-        logger.debug("urlPart: '{}", urlPart);
+        logger.debug("urlPart: '{}'", urlPart);
         logger.trace("view '{}'", view);
+
+        String queryString = request.getQueryString() != null ? "?" + request.getQueryString() : "";
 
         if (LOGIN_BYPASS.contains(urlPart)) {
           logger.trace("Bypassing", urlPart);
@@ -118,7 +118,17 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
           logger.trace("Going to shibboleth");
           response.sendRedirect("/Shibboleth.sso/Login?target="
                   + request.getRequestURL()
-                  + URLEncoder.encode('?' + request.getQueryString(), "utf-8"));
+                  + URLEncoder.encode(queryString, "utf-8"));
+          return false;
+          // If user is requesting SURFteams for a VO redirect to Federation Login
+        } else if("vo".equals(urlPart.toLowerCase())
+                && urlSplit.length >= 4) {
+          logger.trace("Redirect to VO Login");
+          response.sendRedirect("/Shibboleth.sso/Login?entityId="
+                  + getTeamEnvironment().getVoMetadataPrefix()
+                  + URLEncoder.encode(urlSplit[3], "UTF-8")
+                  + "&target=" + request.getRequestURL()
+                  + URLEncoder.encode(queryString, "utf-8"));
           return false;
           // Send redirect to shibboleth if gadget view is requested.
         } else {
@@ -157,7 +167,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
   /**
    * Hook for subclasses to override the shibboleth default behaviour
-   * 
+   *
    * @param request
    *          the httpRequest
    * @return the String of the logged in user
@@ -196,6 +206,11 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     loggedInUser.set(userId);
   }
 
+  /**
+   * Set the User VO
+   *
+   * @param personService
+   */
   public void setPersonService(TeamPersonService personService) {
     this.personService = personService;
   }
@@ -203,7 +218,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   public void setMemberAttributeService(MemberAttributeService memberAttributeService) {
     this.memberAttributeService = memberAttributeService;
   }
-  
+
   /**
    * @return {@link List} of url parts to bypass authentication
    */
@@ -217,5 +232,4 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     bypass.add("declineInvitation.shtml");
     return bypass;
   }
-  
 }

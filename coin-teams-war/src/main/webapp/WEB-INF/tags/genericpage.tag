@@ -24,22 +24,20 @@
   <title><spring:message code="jsp.general.Title" /></title>
     <c:choose>
       <c:when test='${view eq "gadget"}'>
-        <link rel="stylesheet" href="css/gadget.css">
+        <link rel="stylesheet" href="<c:url value="/css/gadget.css" />">
       </c:when>
       <c:otherwise>
-      	<link rel="stylesheet" href="css/default.css">
+      	<link rel="stylesheet" href="<c:url value="/css/default.css" />">
       </c:otherwise>
     </c:choose>
-    <script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
-    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
 </head>
 <body>
   <div class="wrapper">
     <c:if test='${view ne "gadget"}'>
       <!--  = Header -->
       <div class="header">
-        <a href="home.shtml"><img class="logo" src="media/surfnet_logo.gif" alt="surfnet logo" /></a> <span><spring:message code="jsp.general.Title" /></span>
-        <span class="left"></span><span class="right"></span><img src="media/header_img.jpg" alt="header img" />
+        <a href="home.shtml"><img class="logo" src="<c:url value="/media/surfnet_logo.gif"/>" alt="surfnet logo" /></a> <span><spring:message code="jsp.general.Title" /></span>
+        <span class="left"></span><span class="right"></span><img src="<c:url value="/media/header_img.jpg"/>" alt="header img" />
       </div>
       <!-- / Header -->
     </c:if>
@@ -93,7 +91,9 @@
     <!-- / DeleteTeamDialog -->
   </div>
 
-  <script type="text/javascript" src="js/jquery-ui-1.8.13.custom.min.js"></script>
-  <script type="text/javascript" src="js/coin-teams.js"></script>
+  <script type="text/javascript" src="<c:url value="/js/jquery-1.4.4.min.js"/>"></script>
+  <script type="text/javascript" src="<c:url value="/js/jquery.validate.min.js"/>"></script>
+  <script type="text/javascript" src="<c:url value="/js/jquery-ui-1.8.13.custom.min.js"/>"></script>
+  <script type="text/javascript" src="<c:url value="/js/coin-teams.js"/>"></script>
 </body>
 </html>
