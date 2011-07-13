@@ -23,7 +23,7 @@ import nl.surfnet.coin.teams.service.ShindigActivityService;
 import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.util.DuplicateTeamException;
 import nl.surfnet.coin.teams.util.PermissionUtil;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
+import nl.surfnet.coin.teams.util.VOUtil;
 import nl.surfnet.coin.teams.util.ViewUtil;
 import org.opensocial.RequestException;
 import org.opensocial.models.Person;
@@ -42,12 +42,12 @@ import java.util.Locale;
 
 /**
  * @author steinwelberg
- * 
+ *         <p/>
  *         {@link Controller} that handles the add team page of a logged in
  *         user.
  */
 @Controller
-@SessionAttributes({"team"})
+@SessionAttributes({ "team" })
 public class AddTeamController {
 
   private static final String ACTIVITY_NEW_TEAM_BODY = "activity.NewTeamBody";
@@ -65,17 +65,15 @@ public class AddTeamController {
 
   @Autowired
   private LocaleResolver localeResolver;
-  
-  @Autowired
-  private TeamEnvironment environment;
 
-  private static final String STEM_PARAM = "stem";
-  
+  @Autowired
+  private VOUtil voUtil;
+
   @RequestMapping("/addteam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request) {
 
     ViewUtil.addViewToModelMap(request, modelMap);
-    
+
     // Check if the user has permission
     if (PermissionUtil.isGuest(request)) {
       //throw new RuntimeException("User is not allowed to view add team page");
@@ -96,11 +94,11 @@ public class AddTeamController {
   public String addTeam(ModelMap modelMap,
                         @ModelAttribute("team") Team team,
                         HttpServletRequest request)
-      throws RequestException, IOException {
+          throws RequestException, IOException {
     ViewUtil.addViewToModelMap(request, modelMap);
 
     Person person = (Person) request.getSession().getAttribute(
-        LoginInterceptor.PERSON_SESSION_KEY);
+            LoginInterceptor.PERSON_SESSION_KEY);
     String personId = person.getId();
 
     // Check if the user has permission
@@ -124,7 +122,7 @@ public class AddTeamController {
     boolean viewable = !StringUtils.hasText(viewabilityStatus);
     team.setViewable(viewable);
 
-    String stem = getStemName(request);
+    String stem = voUtil.getStemName(request);
     // Add the team
     String teamId;
     try {
@@ -145,48 +143,30 @@ public class AddTeamController {
 
     // Add the activity to the COIN portal
     addActivity(teamId, teamName, personId,
-    localeResolver.resolveLocale(request));
+            localeResolver.resolveLocale(request));
 
     return "redirect:detailteam.shtml?team="
-        + URLEncoder.encode(teamId, "utf-8") + "&view="
-        + ViewUtil.getView(request);
+            + URLEncoder.encode(teamId, "utf-8") + "&view="
+            + ViewUtil.getView(request);
   }
 
   @RequestMapping(value = "/vo/{voName}/doaddteam.shtml", method = RequestMethod.POST)
   public String addTeamVO(@PathVariable String voName, ModelMap modelMap,
-                        @ModelAttribute("team") Team team,
-                        HttpServletRequest request)
-      throws RequestException, IOException {
+                          @ModelAttribute("team") Team team,
+                          HttpServletRequest request)
+          throws RequestException, IOException {
     return addTeam(modelMap, team, request);
   }
 
   private void addActivity(String teamId, String teamName, String personId,
-      Locale locale) throws RequestException, IOException {
+                           Locale locale) throws RequestException, IOException {
     Object[] messageValues = { teamName };
 
     String title = messageSource.getMessage(ACTIVITY_NEW_TEAM_TITLE,
-        messageValues, locale);
+            messageValues, locale);
     String body = messageSource.getMessage(ACTIVITY_NEW_TEAM_BODY,
-        messageValues, locale);
+            messageValues, locale);
 
     shindigActivityService.addActivity(personId, teamId, title, body);
-  }
-
-    /**
-   * Returns the stem name for this request
-   *
-   * @param request {@link HttpServletRequest}
-   * @return the stem name on the session or
-   *         {@literal null} if there is no stem
-   */
-  private String getStemName(final HttpServletRequest request) {
-    if (request.getSession(false) == null) {
-      return environment.getDefaultStemName();
-    }
-    Object stemObj = request.getSession(false).getAttribute(STEM_PARAM);
-    if (stemObj instanceof String) {
-      return (String) stemObj;
-    }
-    return environment.getDefaultStemName();
   }
 }

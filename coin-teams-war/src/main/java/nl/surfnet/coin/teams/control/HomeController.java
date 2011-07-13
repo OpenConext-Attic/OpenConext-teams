@@ -23,10 +23,10 @@ import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamResultWrapper;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.interceptor.VOInterceptor;
 import nl.surfnet.coin.teams.service.TeamInviteService;
 import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
+import nl.surfnet.coin.teams.util.VOUtil;
 import nl.surfnet.coin.teams.util.ViewUtil;
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,6 +65,9 @@ public class HomeController {
 
   @Autowired
   private TeamEnvironment environment;
+
+  @Autowired
+  private VOUtil voUtil;
 
   private static final int PAGESIZE = 10;
 
@@ -128,20 +131,20 @@ public class HomeController {
       String personId = LoginInterceptor.getLoggedInUser();
       if (StringUtils.hasText(query)) {
         resultWrapper = teamService.findTeams(
-                getStemName(request), personId, query, offset, PAGESIZE);
+                voUtil.getStemName(request), personId, query, offset, PAGESIZE);
       } else {
         resultWrapper = teamService.findAllTeams(
-                getStemName(request), personId, offset, PAGESIZE);
+                voUtil.getStemName(request), personId, offset, PAGESIZE);
       }
       modelMap.addAttribute("display", "all");
       // else always display my teams
     } else {
       if (StringUtils.hasText(query)) {
         resultWrapper = teamService.findTeamsByMember(
-                getStemName(request), person, query, offset, PAGESIZE);
+                voUtil.getStemName(request), person, query, offset, PAGESIZE);
       } else {
         resultWrapper = teamService.findAllTeamsByMember(
-                getStemName(request), person, offset, PAGESIZE);
+                voUtil.getStemName(request), person, offset, PAGESIZE);
       }
       modelMap.addAttribute("display", "my");
     }
@@ -152,25 +155,6 @@ public class HomeController {
     modelMap.addAttribute("pager", resultWrapper.getPager());
     modelMap.addAttribute("resultset", resultWrapper.getTotalCount());
     modelMap.addAttribute("teams", teams);
-  }
-
-  /**
-   * Returns the stem name for this request.
-   * If a user is logged in to a VO stem name is returned
-   *
-   * @param request {@link HttpServletRequest}
-   * @return the stem name on the session or
-   *         {@literal null} if there is no stem
-   */
-  private String getStemName(final HttpServletRequest request) {
-    String voName = VOInterceptor.getUserVo();
-
-    if (StringUtils.hasText(voName)) {
-      String voPrefix = environment.getVoStemPrefix();
-      voPrefix = voPrefix.endsWith(":") ? voPrefix : voPrefix + "";
-      return voPrefix + voName;
-    }
-    return environment.getDefaultStemName();
   }
 
   void setTeamEnvironment(TeamEnvironment teamEnvironment) {
