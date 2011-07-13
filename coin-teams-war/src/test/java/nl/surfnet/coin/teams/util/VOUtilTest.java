@@ -17,6 +17,8 @@
 package nl.surfnet.coin.teams.util;
 
 import nl.surfnet.coin.teams.control.AbstractControllerTest;
+import org.junit.Ignore;
+import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -36,7 +38,8 @@ public class VOUtilTest extends AbstractControllerTest {
    *
    * @throws Exception
    */
-  //@Test
+  @Test
+  @Ignore
   //TODO fix test. Mock Static method VOInterceptor.getUserVo Otherwise the outcome of this test is not predictable!
   public void testGetVoName() throws Exception {
 
