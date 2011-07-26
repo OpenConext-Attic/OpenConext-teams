@@ -49,7 +49,7 @@ public class VOInterceptor extends HandlerInterceptorAdapter {
    * All the error redirects that we need to let through
    */
   private final static Set<String> BYPASS_LOCATIONS = new HashSet<String>(
-      Arrays.asList("wrongvo.shtml", "logintovo.shtml"));
+      Arrays.asList("wrongvo.shtml", "logintovo.shtml","wrongstem.shtml"));
 
   @Autowired
   private TeamEnvironment teamEnvironment;
@@ -117,7 +117,7 @@ public class VOInterceptor extends HandlerInterceptorAdapter {
           else {
             logger.error("Non existing stem name: '{}'",
                 stemName);
-            response.sendRedirect("logintovo.shtml");
+            response.sendRedirect("wrongstem.shtml");
             return false;
           }
         }
