@@ -54,8 +54,6 @@ public class JoinTeamController {
 
   public static final String JOIN_TEAM_REQUEST = "joinTeamRequest";
 
-  private String voContext;
-
   @Autowired
   private TeamService teamService;
 

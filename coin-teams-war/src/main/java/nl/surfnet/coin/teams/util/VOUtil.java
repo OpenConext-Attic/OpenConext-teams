@@ -33,18 +33,34 @@ public class VOUtil {
   private TeamEnvironment environment;
 
   /**
-   * Returns the stem name for this request.
-   * If a user is logged in to a VO stem name is returned
-   *
-   * @param request {@link javax.servlet.http.HttpServletRequest}
-   * @return the stem name on the session or
-   *         {@literal null} if there is no stem
+   * Returns the stem name for this request. If a user is logged in to a VO stem
+   * name is returned
+   * 
+   * @param request
+   *          {@link javax.servlet.http.HttpServletRequest}
+   * @return the stem name on the session or {@literal null} if there is no stem
    */
   public String getStemName(final HttpServletRequest request) {
-    String voName = VOInterceptor.getUserVo();
+    if (isVoRequested(request)) {
+      String voName = VOInterceptor.getUserVo();
+      return getStemName(voName);
+    } else {
+      return environment.getDefaultStemName();
+    }
+  }
+
+  /**
+   * Returns the stem name for this request. If a user is logged in to a VO stem
+   * name is returned
+   * 
+   * @param request
+   *          {@link javax.servlet.http.HttpServletRequest}
+   * @return the stem name on the session or {@literal null} if there is no stem
+   */
+  public String getStemName(final String voName) {
 
     // Check whether a VO is requested, if not always return the default stem
-    if (isVoRequested(request) && StringUtils.hasText(voName)) {
+    if (StringUtils.hasText(voName)) {
       String voPrefix = environment.getVoStemPrefix();
       voPrefix = voPrefix.endsWith(":") ? voPrefix : voPrefix + ":";
       return voPrefix + voName;
@@ -54,9 +70,11 @@ public class VOUtil {
 
   /**
    * Check whether a VO is requested in the request
-   *
-   * @param request {@link HttpServletRequest}
-   * @return {@link Boolean} true if a VO is requested, false if no VO is requested
+   * 
+   * @param request
+   *          {@link HttpServletRequest}
+   * @return {@link Boolean} true if a VO is requested, false if no VO is
+   *         requested
    */
   public boolean isVoRequested(final HttpServletRequest request) {
     String[] url = request.getRequestURI().split("/");
@@ -67,5 +85,12 @@ public class VOUtil {
       }
     }
     return false;
+  }
+
+  /**
+   * @param environment the environment to set
+   */
+  public void setEnvironment(TeamEnvironment environment) {
+    this.environment = environment;
   }
 }

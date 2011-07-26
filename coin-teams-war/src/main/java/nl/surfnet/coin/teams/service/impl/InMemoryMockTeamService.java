@@ -349,4 +349,12 @@ public class InMemoryMockTeamService implements TeamService {
     return result;
   }
 
+  /* (non-Javadoc)
+   * @see nl.surfnet.coin.teams.service.TeamService#doesStemExists(java.lang.String)
+   */
+  @Override
+  public boolean doesStemExists(String stemName) {
+    return STEM.equals(stemName);
+  }
+
 }
