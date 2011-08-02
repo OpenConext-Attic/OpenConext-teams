@@ -8,20 +8,20 @@ Date:              2010-11-04
 
 Content:
 
-	1.	Unpack tarball
-	
-	2.  Prepare Tomcat
-		2.1	Stop Tomcat
-		2.2	Undeploy a previous version
-		2.3	Copy / edit property files
-		
-	3.	Deploy war file
-	
-	4.	Start tomcat
-	
-	5.  Configure the OAuth key/secret for the Teams application SP
+    1.  Unpack tarball
 
-	
+    2.  Prepare Tomcat
+      2.1 Stop Tomcat
+      2.2 Undeploy a previous version
+      2.3 Copy / edit property files
+
+    3.  Deploy war file
+
+    4.  Start tomcat
+
+    5.  Configure the OAuth key/secret for the Teams application SP
+
+
 1. UNPACK TARBALL
 =================
 
@@ -38,18 +38,21 @@ application server.
 If you already have deployed a previous version of the COIN Teams application
 you must follow step 2.2 to undeploy the previous version
 
-2.1	Stop Tomcat
+2.1 Stop Tomcat
 
 Stop the tomcat application server
 
-2.2	Undeploy a previous version (optional)
+2.2 Undeploy a previous version (optional)
 
 Navigate to the '<<CATALINA_HOME>>/wars/'
 (e.g. /opt/tomcat/wars/)
 delete the 'coin-teams-war-<<VERION>>.war' file. 
 (e.g. coin-teams-war-0.1-SNAPSHOT.war)
 
-2.3	Copy / edit property files
+Navigate to '<<CATALINA_HOME>>/work/teams.{dev,test,acc}.surfconext.nl/
+Delete the entire teams directory listed there.
+
+2.3 Copy / edit property files
 
 Out-of-the-box the tarball comes with a number of different property files. 
 A number of property files are delivered:
