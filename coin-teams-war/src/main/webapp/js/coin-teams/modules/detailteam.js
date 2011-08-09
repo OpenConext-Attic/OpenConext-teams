@@ -15,125 +15,148 @@
  */
 
 COIN.MODULES.Detailteam = function(sandbox) {
-	// Public interface
-	var module = {
-		init: function() {
-			
-			// Add odd / even classes to table rows
-			sandbox.fixTableLayout($('table.team-table'));
-			
-			// Leave team admin message box
-			if ( $("#__notifyBar").length > 0 ) {
-				$.notifyBar({ close: true, cls: "error", html: "<p>" + $('#__notifyBar').html() + "</p>", delay: 100000 });
-			}
-			
-			// Leave Team Confirm (appears when a user clicks 
-			// the "Leave" button of a team in the detailteam screen)
-			$('#LeaveTeamDialog').dialog({
-				autoOpen   : false,
-				width      : 250,
-				resizable  : false,
-				modal      : true,
-				dialogClass: "ui-popup",
-				buttons: {
-					'<spring:message code='jsp.dialog.leaveteam.Submit' />': library.leaveTeam,
-					'<spring:message code='jsp.general.Cancel' />': library.cancelLeave
-				},
-				open: function() {
-//					$buttonPane = $(this).next();
-//		            $buttonPane.find('button:first').addClass('ui-priority-primary');
-//		            $buttonPane.find('button:last').addClass('ui-priority-secondary');   
-				},
-				closeOnEscape: true
-			});
-			
-			// Delete Team Confirm (appears when a user clicks 
-			// the "Delete" button of a team in the detailteam screen)
-			$('#DeleteTeamDialog').dialog({
-				autoOpen   : false,
-				width      : 250,
-				resizable  : false,
-				modal      : true,
-				dialogClass: "ui-popup",
-				buttons: {
-					'<spring:message code='jsp.dialog.deleteteam.Submit' />': library.deleteTeam,
-					'<spring:message code='jsp.general.Cancel' />': library.cancelDelete
-				},
-				open: function() {
-//					$buttonPane = $(this).next();
-//		            $buttonPane.find('button:first').addClass('ui-priority-primary');
-//		            $buttonPane.find('button:last').addClass('ui-priority-secondary');   
-				},
-				closeOnEscape: true
-			});
-			
-			// Clicked [ Leave ]
-			$('a#LeaveTeam').live('click', function(e) {
-				e.preventDefault();
-				$('#LeaveTeamDialog').removeClass('hide').dialog('open');
-			});
-			
-			// Clicked [ Delete ]
-			$('a#DeleteTeam').live('click', function(e) {
-				e.preventDefault();
-				$('#DeleteTeamDialog').removeClass('hide').dialog('open');
-			});	
-			
-			// Clicked [ Permission ]
-			$('input[type=checkbox][name$=Role]').live('click', function() {
-				library.actionRole($(this));
-			});
+  // Public interface
+  var module = {
+    init: function() {
+
+      // Add odd / even classes to table rows
+      sandbox.fixTableLayout($('table.team-table'));
+
+      // Leave team admin message box
+      if ($("#__notifyBar").length > 0) {
+        $.notifyBar({ close: true, cls: "error", html: "<p>" + $('#__notifyBar').html() + "</p>", delay: 100000 });
+      }
+
+      // Leave Team Confirm (appears when a user clicks
+      // the "Leave" button of a team in the detailteam screen)
+      $('#LeaveTeamDialog').dialog({
+        autoOpen   : false,
+        width      : 250,
+        resizable  : false,
+        modal      : true,
+        dialogClass: "ui-popup",
+        buttons: {
+          '<spring:message code='jsp.dialog.leaveteam.Submit' />': library.leaveTeam,
+          '<spring:message code='jsp.general.Cancel' />': library.cancelLeave
+        },
+        open: function() {
+        },
+        closeOnEscape: true
+      });
+
+      // Delete Team Confirm (appears when a user clicks
+      // the "Delete" button of a team in the detailteam screen)
+      $('#DeleteTeamDialog').dialog({
+        autoOpen   : false,
+        width      : 250,
+        resizable  : false,
+        modal      : true,
+        dialogClass: "ui-popup",
+        buttons: {
+          '<spring:message code='jsp.dialog.deleteteam.Submit' />': library.deleteTeam,
+          '<spring:message code='jsp.general.Cancel' />': library.cancelDelete
+        },
+        open: function() {
+        },
+        closeOnEscape: true
+      });
+
+      // Delete Member Confirm (appears when a user clicks
+      // the "Delete" button of a member in the detailteam screen)
+      $('#DeleteMemberDialog').dialog({
+        autoOpen   : false,
+        width      : 250,
+        resizable  : false,
+        modal      : true,
+        dialogClass: "ui-popup",
+        buttons: {
+          '<spring:message code='jsp.dialog.deletemember.Submit' />': library.deleteMember,
+          '<spring:message code='jsp.general.Cancel' />': library.cancelDeleteMember
+        },
+        open: function() {
+        },
+        closeOnEscape: true
+      });
+
+      // Clicked [ Leave ]
+      $('a#LeaveTeam').live('click', function(e) {
+        e.preventDefault();
+        $('#LeaveTeamDialog').removeClass('hide').dialog('open');
+      });
+
+      // Clicked [ Delete Team ]
+      $('a#DeleteTeam').live('click', function(e) {
+        e.preventDefault();
+        $('#DeleteTeamDialog').removeClass('hide').dialog('open');
+      });
+
+      // Clicked [ Delete Member ]
+      $('a#DeleteMember').live('click', function(e) {
+        e.preventDefault();
+        $('#DeleteMemberDialog').removeClass('hide').dialog('open');
+      });
+
+      // Clicked [ Permission ]
+      $('input[type=checkbox][name$=Role]').live('click', function() {
+        library.actionRole($(this));
+      });
 
       $('a.open_invitationinfo').live('click', function(e) {
         e.preventDefault();
         var invitationInfo = $(this).attr('id');
-        $('.'+invitationInfo).toggleClass('hide');
+        $('.' + invitationInfo).toggleClass('hide');
       });
-		},
-		
-		destroy: function() {
-			
-		}
-	};
-	
-	// Private library (through closure)
-	var library = {
-		getMemberId: function(el) {
-			if (el instanceof jQuery) {
-				var idSplit = el.attr('id').split('_', '2');
-				return idSplit[1];
-			}
-		},
-		getRole: function(el) {
-			if (el instanceof jQuery) {
-				var idSplit = el.attr('id').split('_', '2');
-				return idSplit[0];
-			}
-		},
-		leaveTeam: function() {
-			sandbox.redirectBrowserTo($('a#LeaveTeam').attr('href'));
-		},
-		cancelLeave: function() {
-			$('#LeaveTeamDialog').addClass('hide').dialog('close');
-		},
-		deleteTeam: function() {
-			sandbox.redirectBrowserTo($('a#DeleteTeam').attr('href'));
-		},
-		cancelDelete: function() {
-			$('#DeleteTeamDialog').addClass('hide').dialog('close');
-		},
-		actionRole: function(el) {
-			$('#memberId').val(library.getMemberId(el));
-			$('#roleId').val(library.getRole(el));
-			if(el.attr('checked')) {
-			  $('#doAction').val('add');
+    },
+
+    destroy: function() {
+
+    }
+  };
+
+  // Private library (through closure)
+  var library = {
+    getMemberId: function(el) {
+      if (el instanceof jQuery) {
+        var idSplit = el.attr('id').split('_', '2');
+        return idSplit[1];
+      }
+    },
+    getRole: function(el) {
+      if (el instanceof jQuery) {
+        var idSplit = el.attr('id').split('_', '2');
+        return idSplit[0];
+      }
+    },
+    leaveTeam: function() {
+      sandbox.redirectBrowserTo($('a#LeaveTeam').attr('href'));
+    },
+    cancelLeave: function() {
+      $('#LeaveTeamDialog').addClass('hide').dialog('close');
+    },
+    deleteTeam: function() {
+      sandbox.redirectBrowserTo($('a#DeleteTeam').attr('href'));
+    },
+    cancelDelete: function() {
+      $('#DeleteTeamDialog').addClass('hide').dialog('close');
+    },
+    deleteMember: function() {
+      sandbox.redirectBrowserTo($('a#DeleteMember').attr('href'));
+    },
+    cancelDeleteMember: function() {
+      $('#DeleteMemberDialog').addClass('hide').dialog('close');
+    },
+    actionRole: function(el) {
+      $('#memberId').val(library.getMemberId(el));
+      $('#roleId').val(library.getRole(el));
+      if (el.attr('checked')) {
+        $('#doAction').val('add');
       } else {
         $('#doAction').val('remove');
       }
-			$('#detailForm').submit();
-		}
-	};
+      $('#detailForm').submit();
+    }
+  };
 
-	// Return the public interface
-	return module;
+  // Return the public interface
+  return module;
 };

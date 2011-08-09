@@ -57,38 +57,44 @@
     <c:if test='${view ne "gadget"}'>
     </c:if>
       <div class="component-content" id="PageContainer">
-    
+
           <!-- = Main -->
           <div class="section" id="Main">
               <jsp:doBody/>
           </div>
           <!-- / Main -->
-    
+
       </div>
     </div>
     <c:if test='${view ne "gadget"}'>
       <!--  = Footer -->
       <div class="footer" id="Footer">
         <p>&nbsp;</p>
-        
+
         <address>
           <span><strong><spring:message code="jsp.general.surfnet.Name" /></strong></span><span><spring:message code="jsp.general.surfnet.Address" /></span><span><spring:message code="jsp.general.surfnet.Mailbox" /></span><span><spring:message code="jsp.general.surfnet.Zip" /></span><span><spring:message code="jsp.general.Question" /><span></span><a class="extra" href="mailto:help@surfteams.nl">help@surfteams.nl</a></span><a class="extra" href="http://www.surfnet.nl/en/pages/copyright.aspx" target="_blank"><spring:message code="jsp.general.Copyright" /></a><a class="extra" href="https://wiki.surfnetlabs.nl/display/conextsupport/Terms+of+Service+%28EN%29" target="_blank"><spring:message code="jsp.general.TermsOfUse" /></a>
         </address>
       </div>
       <!-- / Footer -->
     </c:if>
-    
-    <!-- / LeaveTeamDialog -->
+
+    <!-- = LeaveTeamDialog -->
     <div id="LeaveTeamDialog" class="hide" title="<spring:message code='jsp.dialog.leaveteam.Title' />">
       <p class="h4"><spring:message code='jsp.dialog.leaveteam.Confirmation' /></p>
     </div>
     <!-- / LeaveTeamDialog -->
-    
-      <!-- / DeleteTeamDialog -->
+
+    <!-- = DeleteTeamDialog -->
     <div id="DeleteTeamDialog" class="hide" title="<spring:message code='jsp.dialog.deleteteam.Title' />">
       <p class="h4"><spring:message code='jsp.dialog.deleteteam.Confirmation' /></p>
     </div>
     <!-- / DeleteTeamDialog -->
+
+    <!-- = DeleteMemberDialog -->
+    <div id="DeleteMemberDialog" class="hide" title="<spring:message code='jsp.dialog.deletemember.Title' />">
+      <p class="h4"><spring:message code='jsp.dialog.deletemember.Confirmation' /></p>
+    </div>
+    <!-- / DeleteMemberDialog -->
   </div>
 
   <script type="text/javascript" src="<c:url value="/js/jquery-1.4.4.min.js"/>"></script>
