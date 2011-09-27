@@ -16,12 +16,6 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
 import java.util.Calendar;
 
 import org.junit.Test;
@@ -35,6 +29,11 @@ import org.springframework.transaction.annotation.Transactional;
 import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.TeamInviteService;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * Test for {@link TeamInviteServiceHibernateImpl}
@@ -77,6 +76,22 @@ public class TeamInviteServiceHibernateImplTest {
     teamInviteService.saveOrUpdate(invitation);
 
     assertNotNull(teamInviteService.findInvitationByInviteId(hash));
+  }
+  @Test
+  public void testFindAllInvitationById() throws Exception {
+    String email = "coincalendar@gmail.com";
+    Team team = mock(Team.class);
+    when(team.getId()).thenReturn("team-1");
+
+    Invitation invitation = new Invitation(email, team.getId());
+    Calendar calendar = Calendar.getInstance();
+    calendar.add(Calendar.DAY_OF_WEEK, -20);
+    invitation.setTimestamp(calendar.getTimeInMillis());
+
+    String hash = invitation.getInvitationHash();
+
+    assertNull(teamInviteService.findInvitationByInviteId(hash));
+    teamInviteService.saveOrUpdate(invitation);
   }
 
   @Test

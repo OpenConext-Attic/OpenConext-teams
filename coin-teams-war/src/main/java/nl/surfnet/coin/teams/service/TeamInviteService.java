@@ -47,6 +47,15 @@ public interface TeamInviteService extends GenericService<Invitation> {
   Invitation findInvitationByInviteId(String invitationId);
 
   /**
+     * Searches for an {@link Invitation} by its generated hash
+     * (which is sent to the invitee). irrespective of their expiration date.
+     *
+     * @param invitationId String that was sent to the invitee
+     * @return {@link Invitation} if found, otherwise {@literal null}
+     */
+  Invitation findAllInvitationById(String invitationId);
+
+  /**
    * Searches for {@link Invitation}'s for a {@link Team}.
    *
    * @param team {@link Team}

@@ -106,6 +106,14 @@ COIN.MODULES.Detailteam = function(sandbox) {
         var invitationInfo = $(this).attr('id');
         $('.' + invitationInfo).toggleClass('hide');
       });
+
+      // Clicked [ Cancel ]
+      $('input[name=cancelAddMember]').live('click', function(e) {
+          e.preventDefault();
+      var view = $('input[name=view]').val();
+      var teamName = $('input[name=team]').val();
+      sandbox.redirectBrowserTo('detailteam.shtml?team=' + teamName + '&view=' + view);
+      });
     },
 
     destroy: function() {

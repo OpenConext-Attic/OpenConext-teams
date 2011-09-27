@@ -83,6 +83,17 @@ public class TeamInviteServiceHibernateImpl
 
   /**
    * {@inheritDoc}
+  */
+  @Override
+  public Invitation findAllInvitationById(final String invitationId) {
+    cleanupExpiredInvitations();
+    List<Invitation> invitations = findByCriteria(
+            Restrictions.eq("invitationHash", invitationId));
+    return CollectionUtils.isEmpty(invitations) ? null : invitations.get(0);
+    }
+
+  /**
+   * {@inheritDoc}
    */
   @SuppressWarnings({"unchecked"})
   @Override
