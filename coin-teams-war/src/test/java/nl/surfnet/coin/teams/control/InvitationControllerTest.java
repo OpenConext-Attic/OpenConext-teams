@@ -16,11 +16,6 @@
 
 package nl.surfnet.coin.teams.control;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -37,6 +32,10 @@ import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.TeamInviteService;
 import nl.surfnet.coin.teams.service.TeamService;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * Test for {@link InvitationController}
@@ -112,6 +111,7 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
     TeamInviteService teamInviteService = mock(TeamInviteService.class);
     when(teamInviteService.findInvitationByInviteId(invitationHash)).thenReturn(invitation);
+    when(teamInviteService.findAllInvitationById(invitationHash)).thenReturn(invitation);
     List<Invitation> pendingInvitations = new ArrayList<Invitation>(1);
     pendingInvitations.add(invitation);
     when(teamInviteService.findPendingInvitationsByEmail(
