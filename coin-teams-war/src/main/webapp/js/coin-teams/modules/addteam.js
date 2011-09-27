@@ -26,7 +26,7 @@ COIN.MODULES.Addteam = function(sandbox) {
 			});
 			
 			// Clicked [ Consent ]
-			$('input[name=consent]').live('click', function(e) {
+			$('input[name=consent]').live('change', function(e) {
 			  library.toggleDisable($('input[name=createTeam]'));
 			});
 			
@@ -42,7 +42,7 @@ COIN.MODULES.Addteam = function(sandbox) {
 	var library = {
 			toggleDisable : function(el) {
 			  if (el instanceof jQuery) {
-			    if (el.attr('disabled') == false) {
+			    if (!el.attr('disabled')) {
 			      el.removeClass('button-primary').addClass('button-disabled');
 			      el.attr('disabled', true);
 			    } else {

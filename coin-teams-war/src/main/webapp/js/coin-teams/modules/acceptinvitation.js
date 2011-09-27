@@ -25,7 +25,7 @@ COIN.MODULES.Acceptinvitation = function(sandbox) {
         sandbox.redirectBrowserTo('home.shtml?view=' + view);
       });
 
-      $('input[name=consent]').live('click', function() {
+      $('input[name=consent]').live('change', function() {
         library.toggleDisable($('input[name=joinTeam]'));
       });
     },

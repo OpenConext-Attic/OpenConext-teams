@@ -21,16 +21,16 @@
   --%>
 
 <teams:genericpage>
-<!-- = TeamContainer -->
+<%-- = TeamContainer --%>
 <div class="section" id="TeamContainer">
-  <!-- = Header -->
+  <%-- = Header --%>
   <div id="Header">
     <h1><spring:message code='jsp.jointeam.Title' /></h1>
     <c:url value="home.shtml" var="closeUrl"><c:param name="teams" value="all" /><c:param name="view" value="${view}" /></c:url>
-    <p class="close"><a href="${closeUrl}"><spring:message code='jsp.general.CloseForm' /></a></p>
-  <!-- / Header -->
+    <p class="close"><a href="<c:out value="${closeUrl}"/>"><spring:message code='jsp.general.CloseForm' /></a></p>
+  <%-- / Header --%>
   </div>
-  <!-- = Content -->
+  <%-- = Content --%>
   <div id="Content">
     <form:form id="JoinTeamForm" method="post" commandName="joinTeamRequest" action="dojointeam.shtml">
       <p class="label-field-wrapper">
@@ -41,7 +41,7 @@
       </p>
       <p class="label-field-wrapper">
         <span class="consent-wrapper">&nbsp;</span>
-        <label for="TeamConsent" class="consent"><input id ="TeamConsent" type="checkbox" name="consent" /><spring:message code='jsp.jointeam.Consent' /></label>
+        <input id ="TeamConsent" type="checkbox" name="consent" /><label for="TeamConsent" class="consent"><spring:message code='jsp.jointeam.Consent' /></label>
       </p>
       <p class="submit-wrapper">
         <input class="button-disabled" type="submit" disabled="disabled" name="joinTeam"
@@ -51,8 +51,8 @@
       </p>
     </form:form>
     <div class="clear" ></div>
-    <!-- / Content -->
+    <%-- / Content --%>
   </div>
-<!-- / TeamContainer -->
+<%-- / TeamContainer --%>
 </div>
 </teams:genericpage>
