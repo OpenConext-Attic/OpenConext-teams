@@ -20,12 +20,12 @@
 	background: url(../media/body_bck.gif) no-repeat scroll 0 0 transparent;
 	margin: 0 auto;
 	padding: 15px 0 30px 30px;
-	position: relative;
 	width: 994px;
 }
 
 .header {
-	position: relative;
+  margin: 0;
+  padding: 0;
 }
 
 .header span {
@@ -46,7 +46,6 @@
 
 .header img {
 	margin: 12px 0 0;
-	position: relative;
 	z-index: 1;
 }
 
@@ -186,11 +185,10 @@ dl, dd, dt {
 
 address {
     background: url("../media/footer_bottom_bck.jpg") no-repeat scroll left bottom transparent;
-    clear: both;
+    clear: left;
     font-style: normal;
     padding: 5px 0;
     height: 15px;
-    width: 960px;
 }
 address span {
     color: black;
@@ -199,12 +197,18 @@ address span {
     margin: 0 10px;
 }
 address a {
-    float: left;
     text-decoration: none;
 }
-address a.extra {
-    float: right;
-    padding-right: 8px;
+.footer ul  {
+  margin-top: -2em;
+  margin-right: 25px;
+  float: right;
+  padding-right: 15px;
+}
+.footer ul li {
+  display: inline;
+  list-style: none;
+  margin-left: 10px;
 }
 
 
@@ -298,7 +302,7 @@ fieldset {
 }
 
 .label-field-wrapper input[type=checkbox] {
-	margin: 0 5px 15px 15px;	
+	margin: 0 5px 15px 15px;
 }
 .label-field-wrapper textarea {
 	width: 800px;
@@ -324,6 +328,7 @@ fieldset {
 label.consent {
 	float: none;
 	width: inherit;
+  vertical-align: top;
 }
 
 span.consent-wrapper {

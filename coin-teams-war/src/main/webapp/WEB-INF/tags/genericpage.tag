@@ -50,7 +50,8 @@
       </c:when>
       <c:when test='${view ne "gadget"}'>
         <div class="component-title-bar">
-          <h2 class="component-title"><spring:message code="jsp.general.Title" /><span class="right"><spring:message code="jsp.general.Welcome"/> <c:out value="${sessionScope.person.displayName}" /> | <a href="/Shibboleth.sso/Logout?target=/teams"><spring:message code="jsp.general.Logout"/></a> | <a href="https://wiki.surfnetlabs.nl/display/conextsupport/SURFteams" target="_blank"><spring:message code="jsp.general.Help" /></a></span></h2>
+          <h2 class="component-title right"><spring:message code="jsp.general.Welcome"/> <c:out value="${sessionScope.person.displayName}" /> | <a href="/Shibboleth.sso/Logout?target=/teams"><spring:message code="jsp.general.Logout"/></a> | <a href="https://wiki.surfnetlabs.nl/display/conextsupport/SURFteams" target="_blank"><spring:message code="jsp.general.Help" /></a></h2>
+          <h2 class="component-title"><spring:message code="jsp.general.Title" /></h2>
         </div>
       </c:when>
     </c:choose>
@@ -72,8 +73,12 @@
         <p>&nbsp;</p>
 
         <address>
-          <span><strong><spring:message code="jsp.general.surfnet.Name" /></strong></span><span><spring:message code="jsp.general.surfnet.Address" /></span><span><spring:message code="jsp.general.surfnet.Mailbox" /></span><span><spring:message code="jsp.general.surfnet.Zip" /></span><span><spring:message code="jsp.general.Question" />&nbsp;<a class="extra" href="mailto:help@surfteams.nl">help@surfteams.nl</a></span><a class="extra" href="http://www.surfnet.nl/en/pages/copyright.aspx" target="_blank"><spring:message code="jsp.general.Copyright" /></a><a class="extra" href="https://wiki.surfnetlabs.nl/display/conextsupport/Terms+of+Service+%28EN%29" target="_blank"><spring:message code="jsp.general.TermsOfUse" /></a>
+          <span><strong><spring:message code="jsp.general.surfnet.Name" /></strong></span><span><spring:message code="jsp.general.surfnet.Address" /></span><span><spring:message code="jsp.general.surfnet.Mailbox" /></span><span><spring:message code="jsp.general.surfnet.Zip" /></span><span><spring:message code="jsp.general.Question" />&nbsp;<a href="mailto:help@surfteams.nl">help@surfteams.nl</a></span>
         </address>
+        <ul>
+          <li><a class="extra" href="https://wiki.surfnetlabs.nl/display/conextsupport/Terms+of+Service+%28EN%29" target="_blank"><spring:message code="jsp.general.TermsOfUse" /></a></li>
+          <li><a class="extra" href="http://www.surfnet.nl/en/pages/copyright.aspx" target="_blank"><spring:message code="jsp.general.Copyright" /></a></li>
+        </ul>
       </div>
       <!-- / Footer -->
     </c:if>

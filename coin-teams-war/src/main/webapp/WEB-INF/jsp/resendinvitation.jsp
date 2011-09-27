@@ -48,8 +48,8 @@
         <input class="button-primary" type="submit" name="addMember" value="<spring:message code='jsp.addmember.Submit' />" />
         <input class="button-secondary" type="submit" name="cancelAddMember" value="<spring:message code='jsp.general.Cancel' />" />
       </p>
-      <br class="clear" />
     </form:form>
+    <div class="clear"></div>
 
   <%-- / Content --%>
   </div>

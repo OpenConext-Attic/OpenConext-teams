@@ -66,7 +66,7 @@
             <c:param name="view" value="${view}"/></c:url>
           <a class="button-primary" href="${joinUrl}"><spring:message code='jsp.detailteam.Join'/></a>
         </p>
-        <br class="clear" />
+        <div class="clear" ></div>
       </c:otherwise>
     </c:choose>
 

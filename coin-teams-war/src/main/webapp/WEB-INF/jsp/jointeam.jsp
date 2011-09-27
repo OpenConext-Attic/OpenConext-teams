@@ -41,7 +41,7 @@
       </p>
       <p class="label-field-wrapper">
         <span class="consent-wrapper">&nbsp;</span>
-        <input id ="TeamConsent" type="checkbox" name="consent" /><label for="TeamConsent" class="consent"><spring:message code='jsp.jointeam.Consent' /></label>
+        <label for="TeamConsent" class="consent"><input id ="TeamConsent" type="checkbox" name="consent" /><spring:message code='jsp.jointeam.Consent' /></label>
       </p>
       <p class="submit-wrapper">
         <input class="button-disabled" type="submit" disabled="disabled" name="joinTeam"
@@ -49,9 +49,9 @@
         <input class="button-secondary" type="submit" name="cancelJoinTeam"
                value="<spring:message code='jsp.general.Cancel' />" />
       </p>
-      <br class="clear" />
     </form:form>
-  <!-- / Content -->
+    <div class="clear" ></div>
+    <!-- / Content -->
   </div>
 <!-- / TeamContainer -->
 </div>

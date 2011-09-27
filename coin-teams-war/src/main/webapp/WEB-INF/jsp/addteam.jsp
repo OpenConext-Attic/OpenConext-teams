@@ -67,9 +67,9 @@
         <input id="TeamViewability" type="checkbox" name="viewabilityStatus" value="1" ${private}/>
         <label for="TeamViewability"><spring:message code='jsp.general.TeamViewability' /></label>
       </p>
-      <br class="clear" />
     </form:form>
-  <!-- / Content -->
+    <div class="clear"></div>
+    <!-- / Content -->
   </div>
 <!-- / TeamContainer -->
 </div>
