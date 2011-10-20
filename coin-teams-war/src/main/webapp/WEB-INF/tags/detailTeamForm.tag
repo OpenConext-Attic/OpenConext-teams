@@ -80,7 +80,7 @@
                     <c:param name="member" value="${member.id}"/>
                     <c:param name="view" value="${view}"/>
                   </c:url>
-                  <a href="${dodeletemember}" id="DeleteMember" class="delete" title="<spring:message code="jsp.detailteam.RemoveMemberFromTeam"/>">
+                  <a href="${dodeletemember}" class="delete DeleteMember" title="<spring:message code="jsp.detailteam.RemoveMemberFromTeam"/>">
                     <spring:message code="jsp.detailteam.RemoveMemberFromTeam"/>
                   </a>
                 </c:if>
