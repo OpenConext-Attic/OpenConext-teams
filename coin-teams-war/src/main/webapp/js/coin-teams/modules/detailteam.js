@@ -61,23 +61,6 @@ COIN.MODULES.Detailteam = function(sandbox) {
         closeOnEscape: true
       });
 
-      // Delete Member Confirm (appears when a user clicks
-      // the "Delete" button of a member in the detailteam screen)
-      $('#DeleteMemberDialog').dialog({
-        autoOpen   : false,
-        width      : 250,
-        resizable  : false,
-        modal      : true,
-        dialogClass: "ui-popup",
-        buttons: {
-          '<spring:message code='jsp.dialog.deletemember.Submit' />': library.deleteMember,
-          '<spring:message code='jsp.general.Cancel' />': library.cancelDeleteMember
-        },
-        open: function() {
-        },
-        closeOnEscape: true
-      });
-
       // Clicked [ Leave ]
       $('a#LeaveTeam').live('click', function(e) {
         e.preventDefault();
@@ -91,9 +74,11 @@ COIN.MODULES.Detailteam = function(sandbox) {
       });
 
       // Clicked [ Delete Member ]
-      $('a#DeleteMember').live('click', function(e) {
+      $('a.DeleteMember').live('click', function(e) {
         e.preventDefault();
-        $('#DeleteMemberDialog').removeClass('hide').dialog('open');
+          if (window.confirm("<spring:message code='jsp.dialog.deletemember.Confirmation' />")) {
+              sandbox.redirectBrowserTo($(this).attr('href'));
+          }
       });
 
       // Clicked [ Permission ]
@@ -138,12 +123,6 @@ COIN.MODULES.Detailteam = function(sandbox) {
     },
     cancelDelete: function() {
       $('#DeleteTeamDialog').addClass('hide').dialog('close');
-    },
-    deleteMember: function() {
-      sandbox.redirectBrowserTo($('a#DeleteMember').attr('href'));
-    },
-    cancelDeleteMember: function() {
-      $('#DeleteMemberDialog').addClass('hide').dialog('close');
     },
     actionRole: function(el) {
       $('#memberId').val(library.getMemberId(el));

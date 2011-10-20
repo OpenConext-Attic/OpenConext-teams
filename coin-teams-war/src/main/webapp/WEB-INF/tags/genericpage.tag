@@ -89,12 +89,6 @@
       <p class="h4"><spring:message code='jsp.dialog.deleteteam.Confirmation' /></p>
     </div>
     <!-- / DeleteTeamDialog -->
-
-    <!-- = DeleteMemberDialog -->
-    <div id="DeleteMemberDialog" class="hide" title="<spring:message code='jsp.dialog.deletemember.Title' />">
-      <p class="h4"><spring:message code='jsp.dialog.deletemember.Confirmation' /></p>
-    </div>
-    <!-- / DeleteMemberDialog -->
   </div>
 
   <script type="text/javascript" src="<c:url value="/js/jquery-1.4.4.min.js"/>"></script>
