@@ -502,7 +502,7 @@ public class DetailTeamController {
     mailService.sendAsync(mailMessage);
   }
 
-    private boolean hasUserAdministrativePrivileges(Person person, String teamId) {
+  private boolean hasUserAdministrativePrivileges(Person person, String teamId) {
     // Check if the requester is member of the team AND
     // Check if the requester has the role admin or manager, so he is allowed to invite new members.
     Member member = teamService.findMember(teamId, person.getId());
