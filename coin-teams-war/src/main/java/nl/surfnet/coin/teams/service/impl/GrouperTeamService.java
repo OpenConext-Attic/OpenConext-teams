@@ -16,13 +16,16 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import edu.internet2.middleware.grouperClient.api.*;
+import edu.internet2.middleware.grouperClient.ws.GcWebServiceError;
+import edu.internet2.middleware.grouperClient.ws.beans.*;
+import nl.surfnet.coin.teams.domain.*;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperDao;
+import nl.surfnet.coin.teams.service.MemberAttributeService;
+import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.DuplicateTeamException;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
 import org.opensocial.models.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,46 +33,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
-import edu.internet2.middleware.grouperClient.api.GcAddMember;
-import edu.internet2.middleware.grouperClient.api.GcAssignGrouperPrivileges;
-import edu.internet2.middleware.grouperClient.api.GcAssignGrouperPrivilegesLite;
-import edu.internet2.middleware.grouperClient.api.GcDeleteMember;
-import edu.internet2.middleware.grouperClient.api.GcFindGroups;
-import edu.internet2.middleware.grouperClient.api.GcFindStems;
-import edu.internet2.middleware.grouperClient.api.GcGetGrouperPrivilegesLite;
-import edu.internet2.middleware.grouperClient.api.GcGetGroups;
-import edu.internet2.middleware.grouperClient.api.GcGetMembers;
-import edu.internet2.middleware.grouperClient.api.GcGroupDelete;
-import edu.internet2.middleware.grouperClient.api.GcGroupSave;
-import edu.internet2.middleware.grouperClient.ws.GcWebServiceError;
-import edu.internet2.middleware.grouperClient.ws.StemScope;
-import edu.internet2.middleware.grouperClient.ws.beans.WsAssignGrouperPrivilegesResults;
-import edu.internet2.middleware.grouperClient.ws.beans.WsFindGroupsResults;
-import edu.internet2.middleware.grouperClient.ws.beans.WsFindStemsResults;
-import edu.internet2.middleware.grouperClient.ws.beans.WsGetGroupsResult;
-import edu.internet2.middleware.grouperClient.ws.beans.WsGetMembersResult;
-import edu.internet2.middleware.grouperClient.ws.beans.WsGroup;
-import edu.internet2.middleware.grouperClient.ws.beans.WsGroupLookup;
-import edu.internet2.middleware.grouperClient.ws.beans.WsGroupSaveResults;
-import edu.internet2.middleware.grouperClient.ws.beans.WsGroupToSave;
-import edu.internet2.middleware.grouperClient.ws.beans.WsGrouperPrivilegeResult;
-import edu.internet2.middleware.grouperClient.ws.beans.WsQueryFilter;
-import edu.internet2.middleware.grouperClient.ws.beans.WsStem;
-import edu.internet2.middleware.grouperClient.ws.beans.WsStemLookup;
-import edu.internet2.middleware.grouperClient.ws.beans.WsStemQueryFilter;
-import edu.internet2.middleware.grouperClient.ws.beans.WsSubject;
-import edu.internet2.middleware.grouperClient.ws.beans.WsSubjectLookup;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.MemberAttribute;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.domain.TeamResultWrapper;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.GrouperDao;
-import nl.surfnet.coin.teams.service.MemberAttributeService;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.util.DuplicateTeamException;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
+import java.util.*;
 
 /**
  * {@link TeamService} using Grouper LDAP as persistent store
@@ -87,7 +51,7 @@ public class GrouperTeamService implements TeamService {
   private MemberAttributeService memberAttributeService;
 
   private static final String[] FORBIDDEN_CHARS = new String[] { "<", ">", "/",
-      "\\", "*", ":", "," };
+      "\\", "*", ":", ",", "%" };
 
   private static final Logger LOGGER = LoggerFactory
       .getLogger(GrouperTeamService.class);
