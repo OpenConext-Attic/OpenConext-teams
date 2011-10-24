@@ -436,13 +436,20 @@ public class DetailTeamController {
           + memberId);
     }
 
+    JoinTeamRequest pendingRequest = joinTeamRequestService.findPendingRequest(
+        personToAddAsMember, team);
+
     Person loggedInPerson = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
-    Member loggedInMember = teamService.findMember(teamId,
-        loggedInPerson.getId());
 
-    if (!(loggedInMember.getRoles().contains(Role.Admin) || loggedInMember
-        .getRoles().contains(Role.Manager))) {
+    // Check if there is an invitation for this approval request
+    if (pendingRequest == null) {
+      throw new RuntimeException("Member (" + loggedInPerson.getId() + ") is trying to add a member without a " +
+              "membership request");
+    }
+
+    // Check if the user has the correct privileges
+    if (!hasUserAdministrativePrivileges(loggedInPerson, teamId)) {
       return new RedirectView("detailteam.shtml?team="
           + URLEncoder.encode(teamId, UTF_8)
           + "&mes=error.NotAuthorizedForAction" + "&view="
@@ -454,11 +461,8 @@ public class DetailTeamController {
       teamService.addMemberRole(teamId, memberId, Role.Member, true);
     }
 
-    JoinTeamRequest pendingRequest = joinTeamRequestService.findPendingRequest(
-        personToAddAsMember, team);
-    if (pendingRequest != null) {
-      joinTeamRequestService.delete(pendingRequest);
-    }
+    // Cleanup request
+    joinTeamRequestService.delete(pendingRequest);
 
     if (!approve) {
       Locale locale = localeResolver.resolveLocale(request);
@@ -498,4 +502,10 @@ public class DetailTeamController {
     mailService.sendAsync(mailMessage);
   }
 
+    private boolean hasUserAdministrativePrivileges(Person person, String teamId) {
+    // Check if the requester is member of the team AND
+    // Check if the requester has the role admin or manager, so he is allowed to invite new members.
+    Member member = teamService.findMember(teamId, person.getId());
+    return member != null && (member.getRoles().contains(Role.Admin) || member.getRoles().contains(Role.Manager));
+  }
 }

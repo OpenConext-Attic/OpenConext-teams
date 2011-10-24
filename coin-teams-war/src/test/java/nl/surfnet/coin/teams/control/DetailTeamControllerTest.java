@@ -16,27 +16,6 @@
 
 package nl.surfnet.coin.teams.control;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.junit.Test;
-import org.mockito.internal.stubbing.answers.Returns;
-import org.opensocial.models.Person;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.mock.web.MockHttpServletResponse;
-import org.springframework.web.servlet.view.RedirectView;
-
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
@@ -44,6 +23,18 @@ import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.JoinTeamRequestService;
 import nl.surfnet.coin.teams.service.TeamPersonService;
 import nl.surfnet.coin.teams.service.TeamService;
+import org.junit.Test;
+import org.mockito.internal.stubbing.answers.Returns;
+import org.opensocial.models.Person;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.web.servlet.view.RedirectView;
+
+import java.util.*;
+
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * Tests for {@link DetailTeamController}
@@ -627,6 +618,61 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     JoinTeamRequestService joinTeamRequestService = mock(JoinTeamRequestService.class);
     when(joinTeamRequestService.findPendingRequest(memberToAdd, mockTeam))
         .thenReturn(joinTeamRequest);
+
+    TeamPersonService teamPersonService = mock(TeamPersonService.class);
+    when(teamPersonService.getPerson("member-2")).thenReturn(loggedInPerson);
+    when(teamPersonService.getPerson("potential-member-1")).thenReturn(
+        memberToAdd);
+
+    autoWireMock(detailTeamController, teamService, TeamService.class);
+    autoWireMock(detailTeamController, teamPersonService,
+        TeamPersonService.class);
+    autoWireMock(detailTeamController, joinTeamRequestService,
+        JoinTeamRequestService.class);
+    autoWireRemainingResources(detailTeamController);
+
+    RedirectView result = detailTeamController.deleteRequest(getModelMap(),
+        request);
+    assertEquals("detailteam.shtml?team=team-1&view=app", result.getUrl());
+  }
+
+  @Test(expected = RuntimeException.class)
+  public void testApproveRequestNoPendingRequest() throws Exception {
+    MockHttpServletRequest request = getRequest();
+    // Add the team, member & role
+    request.addParameter("team", "team-1");
+    request.addParameter("member", "potential-member-1");
+    request.addParameter("role", "0");
+
+    HashSet<Role> roles = new HashSet<Role>();
+    roles.add(Role.Member);
+    roles.add(Role.Manager);
+    roles.add(Role.Admin);
+
+    HashSet<Member> admins = new HashSet<Member>();
+    admins.add(new Member(new HashSet<Role>(), "Jane Doe", "member-1",
+        "jane@doe.com"));
+
+    List<Member> members = new ArrayList<Member>();
+    Member loggedInMember = new Member(roles, "Jane Doe", "member-1",
+        "jane@doe.com");
+    members.add(loggedInMember);
+
+    Person loggedInPerson = mock(Person.class);
+    when(loggedInPerson.getId()).thenReturn("member-1");
+
+    Person memberToAdd = mock(Person.class);
+    when(memberToAdd.getId()).thenReturn("potential-member-1");
+
+    Team mockTeam = new Team("team-1", "Team 1", "team description", members);
+    TeamService teamService = mock(TeamService.class);
+    when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
+    when(teamService.findMember("team-1", "member-1")).thenReturn(
+        loggedInMember);
+
+    JoinTeamRequestService joinTeamRequestService = mock(JoinTeamRequestService.class);
+    when(joinTeamRequestService.findPendingRequest(memberToAdd, mockTeam))
+        .thenReturn(null);
 
     TeamPersonService teamPersonService = mock(TeamPersonService.class);
     when(teamPersonService.getPerson("member-2")).thenReturn(loggedInPerson);
