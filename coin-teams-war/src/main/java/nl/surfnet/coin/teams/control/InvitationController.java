@@ -16,15 +16,11 @@
 
 package nl.surfnet.coin.teams.control;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
-
-import javax.servlet.http.HttpServletRequest;
-
+import nl.surfnet.coin.teams.domain.*;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.TeamInviteService;
+import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.ViewUtil;
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,15 +31,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
-import nl.surfnet.coin.teams.domain.Invitation;
-import nl.surfnet.coin.teams.domain.InvitationMessage;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.TeamInviteService;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.util.ViewUtil;
+import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 /**
  * {@link Controller} that handles the accept/decline of an Invitation
@@ -70,6 +64,10 @@ public class InvitationController {
   public String accept(ModelMap modelMap, HttpServletRequest request) {
     Invitation invitation = getInvitationByRequest(request);
     if (invitation==null) {
+      modelMap.addAttribute("action", "accepted");
+      return "invitationexception";
+    }
+    if (invitation.isDeclined()) {
       modelMap.addAttribute("action", "accepted");
       return "invitationexception";
     }
@@ -123,7 +121,9 @@ public class InvitationController {
       throw new IllegalArgumentException(
           "Cannot find your invitation. Invitations expire after 14 days.");
     }
-
+    if (invitation.isDeclined()) {
+      throw new RuntimeException("Invitation is Declined");
+    }
     String teamId = invitation.getTeamId();
     if (!StringUtils.hasText(teamId)) {
       throw new RuntimeException("Invalid invitation");

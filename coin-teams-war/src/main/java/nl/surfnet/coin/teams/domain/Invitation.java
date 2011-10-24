@@ -16,25 +16,18 @@
 
 package nl.surfnet.coin.teams.domain;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
+import nl.surfnet.coin.shared.domain.DomainObject;
+import nl.surfnet.coin.teams.util.InvitationHashGenerator;
 import org.hibernate.annotations.Proxy;
 import org.hibernate.annotations.Sort;
 import org.hibernate.annotations.SortType;
 import org.springframework.util.CollectionUtils;
 
-import nl.surfnet.coin.shared.domain.DomainObject;
-import nl.surfnet.coin.teams.util.InvitationHashGenerator;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
 
 @SuppressWarnings("serial")
 @Entity
@@ -141,7 +134,7 @@ public class Invitation extends DomainObject {
    * sets an md5 hash created from a UUID generated from the email address
    */
   void setInvitationHash() {
-    this.invitationHash = InvitationHashGenerator.generateHash(email + teamId);
+    this.invitationHash = InvitationHashGenerator.generateHash(email + teamId + timestamp);
   }
 
   /**
