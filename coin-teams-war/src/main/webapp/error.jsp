@@ -67,7 +67,8 @@
 
           <div id="Content">
             <p>Something went wrong. Please try to reload the page or go back to
-              <a href="home.shtml?teams=my&amp;view=<%=view%>">My Teams</a></p>
+              <c:url value="home.shtml" var="homeUrl"><c:param name="teams" value="my" /><c:param name="view"><c:out value="<%=view%>"/></c:param></c:url>
+              <a href="${homeUrl}">My Teams</a></p>
           </div>
 
         </div>
