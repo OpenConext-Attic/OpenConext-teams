@@ -134,7 +134,7 @@ public class Invitation extends DomainObject {
    * sets an md5 hash created from a UUID generated from the email address
    */
   void setInvitationHash() {
-    this.invitationHash = InvitationHashGenerator.generateHash(email + teamId + timestamp);
+    this.invitationHash = InvitationHashGenerator.generateHash();
   }
 
   /**
