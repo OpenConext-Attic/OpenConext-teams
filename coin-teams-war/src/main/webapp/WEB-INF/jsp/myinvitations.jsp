@@ -60,8 +60,8 @@
                   </c:if>
                 </c:forEach>
               </td>
-              <td><a href="acceptInvitation.shtml?id=${invitation.invitationHash}&view=${view}"><spring:message code="jsp.acceptinvitation.Accept"/></a></td>
-              <td><a href="declineInvitation.shtml?id=${invitation.invitationHash}&view=${view}"><spring:message code="jsp.declineinvitation.Decline"/></a></td>
+              <td><a href="<c:out value="acceptInvitation.shtml?id=${invitation.invitationHash}&view=${view}"/>"><spring:message code="jsp.acceptinvitation.Accept"/></a></td>
+              <td><a href="<c:out value="declineInvitation.shtml?id=${invitation.invitationHash}&view=${view}"/>"><spring:message code="jsp.declineinvitation.Decline"/></a></td>
             </tr>
           </c:forEach>
           </tbody>
