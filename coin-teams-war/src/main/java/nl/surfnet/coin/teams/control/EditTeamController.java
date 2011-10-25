@@ -43,7 +43,7 @@ import java.net.URLEncoder;
  *         user.
  */
 @Controller
-@SessionAttributes(TokenUtil.TOKENCHECK)
+@SessionAttributes({TokenUtil.TOKENCHECK})
 public class EditTeamController {
 
   @Autowired
@@ -113,7 +113,7 @@ public class EditTeamController {
     status.setComplete();
     return new RedirectView("detailteam.shtml?team="
             + URLEncoder.encode(teamId, "utf-8") + "&view="
-            + ViewUtil.getView(request));
+            + ViewUtil.getView(request), false, true, false);
   }
 
   @RequestMapping(value = "/vo/{voName}/doeditteam.shtml", method = RequestMethod.POST)
