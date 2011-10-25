@@ -34,10 +34,11 @@
     <c:url value="doeditteam.shtml" var="doEditTeamUrl"><c:param name="view" value="${view}" /></c:url>
     <form id="EditTeamForm" action="<c:out value='${doEditTeamUrl}' />" method="post">
       <p class="label-field-wrapper">
-        <input type="hidden" name="teamId" value="<c:out value='${team.id}' />" />
+        <input type="hidden" name="token" value="<c:out value="${tokencheck}"/>"/>
+        <input type="hidden" name="team" value="<c:out value='${team.id}' />" />
         <input type="hidden" name="view" value="<c:out value='${view}' />" />
         <label for="TeamName"><spring:message code='jsp.general.TeamName' /></label>
-        <input id="TeamName" type="text" name="team" value="<c:out value="${team.name}" />" readonly="readonly" class="required" />
+        <input id="TeamName" type="text" name="teamName" value="<c:out value="${team.name}" />" readonly="readonly" class="required" />
       </p>
       <p class="label-field-wrapper">
         <label for="TeamDescription"><spring:message code='jsp.general.Description' /></label>
