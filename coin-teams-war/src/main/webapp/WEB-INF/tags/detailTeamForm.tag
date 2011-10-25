@@ -26,6 +26,7 @@
 <jsp:useBean id="timestamp" class="java.util.Date"/>
 <jsp:useBean id="expires" class="java.util.Date"/>
 <form id="detailForm" action="doaddremoverole.shtml" method="post">
+  <input type="hidden" name="token" value="<c:out value="${tokencheck}"/>"/>
   <input type="hidden" name="teamId" value="<c:out value='${team.id}' />"/>
   <input type="hidden" name="view" value="<c:out value='${view}' />"/>
   <input type="hidden" name="offset" value="<c:out value='${pager.offset}' />"/>
@@ -78,6 +79,7 @@
                   <c:url var="dodeletemember" value="dodeletemember.shtml">
                     <c:param name="team" value="${team.id}"/>
                     <c:param name="member" value="${member.id}"/>
+                    <c:param name="token" value="${tokencheck}"/>
                     <c:param name="view" value="${view}"/>
                   </c:url>
                   <a href="${dodeletemember}" class="delete DeleteMember" title="<spring:message code="jsp.detailteam.RemoveMemberFromTeam"/>">

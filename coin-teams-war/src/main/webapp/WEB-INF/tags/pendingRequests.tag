@@ -30,20 +30,23 @@
     <c:forEach var="pending" items="${pendingRequests}">
       <tr>
         <td><c:out value="${pending.displayName}"/></td>
-        <c:url value="dodeleterequest.shtml" var="deleteRequestUrl">
-          <c:param name="team" value="${team.id}"/>
-          <c:param name="member" value="${pending.id}"/>
-          <c:param name="view" value="${view}" />
-        </c:url>
-        <td><a href="${deleteRequestUrl}">
-          <spring:message code="jsp.detailteam.DenyJoinRequest"/></a></td>
-        <c:url value="doapproverequest.shtml" var="approveRequestUrl">
-          <c:param name="team" value="${team.id}"/>
-          <c:param name="member" value="${pending.id}"/>
-          <c:param name="view" value="${view}" />
-        </c:url>
-        <td><a href="${approveRequestUrl}">
-          <spring:message code="jsp.detailteam.AcceptJoinRequest"/></a>
+        <td>
+          <form name="deleteRequestForm" action="dodeleterequest.shtml" method="POST">
+            <input type="hidden" name="token" value="<c:out value="${tokencheck}"/>"/>
+            <input type="hidden" name="team" value="<c:out value="${team.id}"/>"/>
+            <input type="hidden" name="member" value="<c:out value="${pending.id}"/>"/>
+            <input type="hidden" name="view" value="<c:out value="${view}"/>"/>
+          </form>
+          <a href="#" class="deny-join-request"><spring:message code="jsp.detailteam.DenyJoinRequest"/></a>
+        </td>
+        <td>
+          <form name="approveRequestForm" action="doapproverequest.shtml" method="POST">
+            <input type="hidden" name="token" value="<c:out value="${tokencheck}"/>"/>
+            <input type="hidden" name="team" value="<c:out value="${team.id}"/>"/>
+            <input type="hidden" name="member" value="<c:out value="${pending.id}"/>"/>
+            <input type="hidden" name="view" value="<c:out value="${view}"/>"/>
+          </form>
+          <a href="#" class="approve-join-request"><spring:message code="jsp.detailteam.AcceptJoinRequest"/></a>
         </td>
       </tr>
     </c:forEach>

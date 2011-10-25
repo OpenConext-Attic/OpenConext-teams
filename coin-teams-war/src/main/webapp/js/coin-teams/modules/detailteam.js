@@ -99,6 +99,18 @@ COIN.MODULES.Detailteam = function(sandbox) {
       var teamName = $('input[name=team]').val();
       sandbox.redirectBrowserTo('detailteam.shtml?team=' + teamName + '&view=' + view);
       });
+
+      // Clicked [ Decline ]
+      $('a.deny-join-request').live('click', function(e) {
+        e.preventDefault();
+        $(this).parent().find('form[name=deleteRequestForm]').submit();
+      });
+
+      // Clicked [ Add member ]
+      $('a.approve-join-request').live('click', function(e) {
+        e.preventDefault();
+        $(this).parent().find('form[name=approveRequestForm]').submit();
+      });
     },
 
     destroy: function() {
@@ -121,13 +133,15 @@ COIN.MODULES.Detailteam = function(sandbox) {
       }
     },
     leaveTeam: function() {
-      sandbox.redirectBrowserTo($('a#LeaveTeam').attr('href'));
+      $('form#LeaveTeamForm').submit();
+//      sandbox.redirectBrowserTo($('a#LeaveTeam').attr('href'));
     },
     cancelLeave: function() {
       $('#LeaveTeamDialog').addClass('hide').dialog('close');
     },
     deleteTeam: function() {
-      sandbox.redirectBrowserTo($('a#DeleteTeam').attr('href'));
+      $('form#DeleteTeamForm').submit();
+//      sandbox.redirectBrowserTo($('a#DeleteTeam').attr('href'));
     },
     cancelDelete: function() {
       $('#DeleteTeamDialog').addClass('hide').dialog('close');

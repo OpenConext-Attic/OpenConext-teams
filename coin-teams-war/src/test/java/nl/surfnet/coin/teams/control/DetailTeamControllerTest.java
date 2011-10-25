@@ -23,11 +23,13 @@ import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.JoinTeamRequestService;
 import nl.surfnet.coin.teams.service.TeamPersonService;
 import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.TokenUtil;
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
 import org.opensocial.models.Person;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.web.bind.support.SimpleSessionStatus;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.*;
@@ -38,7 +40,7 @@ import static org.mockito.Mockito.when;
 
 /**
  * Tests for {@link DetailTeamController}
- * 
+ *
  */
 public class DetailTeamControllerTest extends AbstractControllerTest {
 
@@ -236,6 +238,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
   @Test
   public void testLeaveTeamHappyFlow() throws Exception {
     MockHttpServletRequest request = getRequest();
+    String token = TokenUtil.generateSessionToken();
     // add team
     request.setParameter("team", "team-1");
 
@@ -264,7 +267,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireRemainingResources(detailTeamController);
 
     RedirectView result = detailTeamController
-        .leaveTeam(getModelMap(), request);
+        .leaveTeam(getModelMap(), request, token, token, new SimpleSessionStatus());
 
     assertEquals("home.shtml?teams=my&view=app", result.getUrl());
   }
@@ -272,6 +275,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
   @Test
   public void testLeaveTeam() throws Exception {
     MockHttpServletRequest request = getRequest();
+    String token = TokenUtil.generateSessionToken();
     // add team
     request.setParameter("team", "team-1");
 
@@ -298,7 +302,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireRemainingResources(detailTeamController);
 
     RedirectView result = detailTeamController
-        .leaveTeam(getModelMap(), request);
+        .leaveTeam(getModelMap(), request, token, token, new SimpleSessionStatus());
 
     assertEquals(
         "detailteam.shtml?team=team-1&view=app&mes=error.AdminCannotLeaveTeam",
@@ -308,6 +312,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
   @Test
   public void testDeleteTeamHappyFlow() throws Exception {
     MockHttpServletRequest request = getRequest();
+    String token = TokenUtil.generateSessionToken();
     // add team
     request.setParameter("team", "team-1");
 
@@ -322,7 +327,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireRemainingResources(detailTeamController);
 
     RedirectView result = detailTeamController.deleteTeam(getModelMap(),
-        request);
+        request, token, token, new SimpleSessionStatus());
 
     assertEquals("home.shtml?teams=my&view=app", result.getUrl());
   }
@@ -330,6 +335,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
   @Test
   public void testDeleteTeam() throws Exception {
     MockHttpServletRequest request = getRequest();
+    String token = TokenUtil.generateSessionToken();
     // add team
     request.setParameter("team", "team-1");
 
@@ -342,7 +348,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireRemainingResources(detailTeamController);
 
     RedirectView result = detailTeamController.deleteTeam(getModelMap(),
-        request);
+        request, token, token, new SimpleSessionStatus());
 
     assertEquals("detailteam.shtml?team=team-1&view=app", result.getUrl());
   }
@@ -350,6 +356,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
   @Test(expected = RuntimeException.class)
   public void testDeleteTeamException() throws Exception {
     MockHttpServletRequest request = getRequest();
+    String token = TokenUtil.generateSessionToken();
     // do NOT add the team
 
     HashSet<Role> roles = new HashSet<Role>();
@@ -360,12 +367,13 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireMock(detailTeamController, new Returns(member), TeamService.class);
     autoWireRemainingResources(detailTeamController);
 
-    detailTeamController.deleteTeam(getModelMap(), request);
+    detailTeamController.deleteTeam(getModelMap(), request, token, token, new SimpleSessionStatus());
   }
 
   @Test
   public void testDeleteMemberHappyFlow() throws Exception {
     MockHttpServletRequest request = getRequest();
+    String token = TokenUtil.generateSessionToken();
     // add the team & member
     request.addParameter("team", "team-1");
     request.addParameter("member", "member-2");
@@ -386,7 +394,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireRemainingResources(detailTeamController);
 
     RedirectView result = detailTeamController.deleteMember(getModelMap(),
-        request);
+        request, token, token, new SimpleSessionStatus());
 
     assertEquals("detailteam.shtml?team=team-1&view=app", result.getUrl());
   }
@@ -394,6 +402,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
   @Test
   public void testDeleteMember() throws Exception {
     MockHttpServletRequest request = getRequest();
+    String token = TokenUtil.generateSessionToken();
     // add the team & member
     request.addParameter("team", "team-1");
     request.addParameter("member", "member-1");
@@ -407,7 +416,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireRemainingResources(detailTeamController);
 
     RedirectView result = detailTeamController.deleteMember(getModelMap(),
-        request);
+        request, token, token, new SimpleSessionStatus());
 
     assertEquals(
         "detailteam.shtml?team=team-1&mes=error.NotAuthorizedToDeleteMember&view=app",
@@ -417,6 +426,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
   @Test(expected = RuntimeException.class)
   public void testDeleteMemberException() throws Exception {
     MockHttpServletRequest request = getRequest();
+    String token = TokenUtil.generateSessionToken();
     // do NOT add the team & member
 
     HashSet<Role> roles = new HashSet<Role>();
@@ -427,12 +437,13 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireMock(detailTeamController, new Returns(member), TeamService.class);
     autoWireRemainingResources(detailTeamController);
 
-    detailTeamController.deleteMember(getModelMap(), request);
+    detailTeamController.deleteMember(getModelMap(), request, token, token, new SimpleSessionStatus());
   }
 
   @Test
   public void testAddRoleHappyFlow() throws Exception {
     MockHttpServletRequest request = getRequest();
+    String token = TokenUtil.generateSessionToken();
     request.addParameter("teamId", "team-1");
     request.addParameter("memberId", "member-1");
     request.addParameter("roleId", Role.Manager.toString());
@@ -450,7 +461,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireRemainingResources(detailTeamController);
 
     RedirectView view = detailTeamController.addOrRemoveRole(getModelMap(),
-        request, response);
+        request, token, token, new SimpleSessionStatus());
     assertEquals(
         "detailteam.shtml?team=team-1&view=app&mes=role.added&offset=0",
         view.getUrl());
@@ -459,6 +470,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
   @Test
   public void testAddRoleNotAuthorized() throws Exception {
     MockHttpServletRequest request = getRequest();
+    String token = TokenUtil.generateSessionToken();
     // Add the team, member & role
     request.addParameter("teamId", "team-1");
     request.addParameter("memberId", "member-1");
@@ -479,7 +491,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireMock(detailTeamController, teamService, TeamService.class);
 
     RedirectView view = detailTeamController.addOrRemoveRole(getModelMap(),
-        request, response);
+        request, token, token, new SimpleSessionStatus());
     assertEquals(
         "detailteam.shtml?team=team-1&view=app&mes=no.role.added&offset=0",
         view.getUrl());
@@ -488,6 +500,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
   @Test
   public void testRemoveRoleHappyFlow() throws Exception {
     MockHttpServletRequest request = getRequest();
+    String token = TokenUtil.generateSessionToken();
     request.addParameter("teamId", "team-1");
     request.addParameter("memberId", "member-1");
     request.addParameter("roleId", "1");
@@ -518,7 +531,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireRemainingResources(detailTeamController);
 
     RedirectView view = detailTeamController.addOrRemoveRole(getModelMap(),
-        request, response);
+        request, token, token, new SimpleSessionStatus());
 
     assertEquals(
         "detailteam.shtml?team=team-1&view=app&mes=role.removed&offset=0",
@@ -528,6 +541,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
   @Test
   public void testRemoveRoleOneAdmin() throws Exception {
     MockHttpServletRequest request = getRequest();
+    String token = TokenUtil.generateSessionToken();
     // Add the team, member & role
     request.addParameter("teamId", "team-1");
     request.addParameter("memberId", "member-1");
@@ -558,7 +572,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireRemainingResources(detailTeamController);
 
     RedirectView view = detailTeamController.addOrRemoveRole(getModelMap(),
-        request, response);
+        request, token, token, new SimpleSessionStatus());
 
     assertEquals("detailteam.shtml?team=team-1&view=app&mes=no.role.added.admin.status&offset=0", view.getUrl());
 
@@ -567,12 +581,13 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
   @Test
   public void testRemoveRoleException() throws Exception {
     MockHttpServletRequest request = getRequest();
+    String token = TokenUtil.generateSessionToken();
     // do NOT add the team, member & role
 
     autoWireRemainingResources(detailTeamController);
 
     RedirectView view = detailTeamController.addOrRemoveRole(getModelMap(),
-        request, response);
+        request, token, token, new SimpleSessionStatus());
 
     assertEquals("home.shtml?teams=my&view=app", view.getUrl());
   }
@@ -580,6 +595,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
   @Test
   public void testDeleteRequest() throws Exception {
     MockHttpServletRequest request = getRequest();
+    String token = TokenUtil.generateSessionToken();
     // Add the team, member & role
     request.addParameter("team", "team-1");
     request.addParameter("member", "potential-member-1");
@@ -631,14 +647,15 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
         JoinTeamRequestService.class);
     autoWireRemainingResources(detailTeamController);
 
-    RedirectView result = detailTeamController.deleteRequest(getModelMap(),
-        request);
+    RedirectView result = detailTeamController.deleteRequest(
+        request, token, token, new SimpleSessionStatus());
     assertEquals("detailteam.shtml?team=team-1&view=app", result.getUrl());
   }
 
   @Test(expected = RuntimeException.class)
   public void testApproveRequestNoPendingRequest() throws Exception {
     MockHttpServletRequest request = getRequest();
+    String token = TokenUtil.generateSessionToken();
     // Add the team, member & role
     request.addParameter("team", "team-1");
     request.addParameter("member", "potential-member-1");
@@ -686,8 +703,8 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
         JoinTeamRequestService.class);
     autoWireRemainingResources(detailTeamController);
 
-    RedirectView result = detailTeamController.deleteRequest(getModelMap(),
-        request);
+    RedirectView result = detailTeamController.deleteRequest(request,
+            token, token, new SimpleSessionStatus());
     assertEquals("detailteam.shtml?team=team-1&view=app", result.getUrl());
   }
 

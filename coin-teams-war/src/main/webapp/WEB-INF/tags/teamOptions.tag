@@ -32,9 +32,17 @@
 <c:url value="home.shtml" var="backUrl" ><c:param name="teams" value="${teamsTab}" /><c:param name="view" value="${view}" /></c:url>
 <p class="${backClass}"><a href="${backUrl}">&lt; <spring:message code='jsp.detailteam.Back' /></a></p>
 
+<form id="DeleteTeamForm" action="dodeleteteam.shtml" method="POST">
+  <input type="hidden" name="token" value="<c:out value="${tokencheck}"/>"/>
+  <input type="hidden" name="team" value="<c:out value="${team.id}"/>"/>
+  <input type="hidden" name="view" value="<c:out value="${view}"/>"/>
+</form>
+<form id="LeaveTeamForm" action="doleaveteam.shtml" method="POST">
+  <input type="hidden" name="token" value="<c:out value="${tokencheck}"/>"/>
+  <input type="hidden" name="team" value="<c:out value="${team.id}"/>"/>
+  <input type="hidden" name="view" value="<c:out value="${view}"/>"/>
+</form>
 <c:url value="editteam.shtml" var="editUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
-<c:url value="dodeleteteam.shtml" var="deleteUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
-<c:url value="doleaveteam.shtml" var="leaveUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
 
 <c:choose>
   <c:when test="${role eq adminRole}">
@@ -52,8 +60,8 @@
           </c:otherwise>
         </c:choose>
         <c:set var="deleteclass"><c:choose><c:when test="${onlyAdmin eq true}">last</c:when><c:otherwise>middle</c:otherwise></c:choose></c:set>
-        <li class="${deleteclass}"><a id="DeleteTeam" href="${deleteUrl}"><spring:message code='jsp.detailteam.Delete' /></a></li>
-        <li class="${leaveClass}"><a id="LeaveTeam" href="${leaveUrl}"><spring:message code='jsp.detailteam.Leave' /></a></li>
+        <li class="${deleteclass}"><a id="DeleteTeam" href="#"><spring:message code='jsp.detailteam.Delete' /></a></li>
+        <li class="${leaveClass}"><a id="LeaveTeam" href="#"><spring:message code='jsp.detailteam.Leave' /></a></li>
       </ul>
     </div>
   </c:when>
