@@ -25,7 +25,7 @@ COIN.MODULES.Editteam = function(sandbox) {
 			// Clicked [ Cancel ]
 			$('input[name=cancelEditTeam]').live('click', function(e) {
 				e.preventDefault();
-				var teamId = $('input[name=teamId]').val();
+				var teamId = $('input[name=team]').val();
         var view = $('input[name=view]').val();
 				sandbox.redirectBrowserTo('detailteam.shtml?team=' + escape(teamId) + '&view=' + view);
 			});
