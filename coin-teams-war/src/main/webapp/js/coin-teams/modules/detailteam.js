@@ -36,8 +36,8 @@ COIN.MODULES.Detailteam = function(sandbox) {
         modal      : true,
         dialogClass: "ui-popup",
         buttons: {
-          '<spring:message code='jsp.dialog.leaveteam.Submit' />': library.leaveTeam,
-          '<spring:message code='jsp.general.Cancel' />': library.cancelLeave
+          "<spring:message code='jsp.dialog.leaveteam.Submit' />": library.leaveTeam,
+          "<spring:message code='jsp.general.Cancel' />": library.cancelLeave
         },
         open: function() {
         },
@@ -53,8 +53,8 @@ COIN.MODULES.Detailteam = function(sandbox) {
         modal      : true,
         dialogClass: "ui-popup",
         buttons: {
-          '<spring:message code='jsp.dialog.deleteteam.Submit' />': library.deleteTeam,
-          '<spring:message code='jsp.general.Cancel' />': library.cancelDelete
+          "<spring:message code='jsp.dialog.deleteteam.Submit' />": library.deleteTeam,
+          "<spring:message code='jsp.general.Cancel' />": library.cancelDelete
         },
         open: function() {
         },
