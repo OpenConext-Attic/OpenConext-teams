@@ -39,7 +39,6 @@
         <c:set var="errorClass"><c:if test="${not empty nameerror}">error</c:if></c:set>
         <label for="TeamName"><spring:message code='jsp.general.TeamName' /></label>
         <form:input path="name" id="TeamName" cssClass="required" cssErrorClass="error"/>
-        <%--<input id="TeamName" type="text" name="team" class="${errorClass} required" value="<c:out value="${teamName}"/>"/>--%>
         <c:choose>
           <c:when test="${nameerror eq 'empty'}">
             <label for="TeamName" class="error"><spring:message code="jsp.error.Field.Required"/></label>
@@ -53,7 +52,6 @@
       <p class="label-field-wrapper">
         <label for="TeamDescription"><spring:message code='jsp.general.Description' /></label>
         <form:input path="description" id="TeamDescription"/>
-        <%--<input id="TeamDescription" name="description" type="text" value="<c:out value="${teamDescription}"/>"/>--%>
       </p>
       <p class="label-field-wrapper">
         <span class="consent-wrapper">&nbsp;</span>
