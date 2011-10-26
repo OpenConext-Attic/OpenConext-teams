@@ -24,6 +24,7 @@ import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.TokenUtil;
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
@@ -60,24 +61,23 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     // request team
     request.setParameter("team", "team-1");
 
-
     autoWireMock(addMemberController, messageSource, MessageSource.class);
     autoWireMock(addMemberController, new Returns(Locale.ENGLISH), LocaleResolver.class);
 
     Team team1 = new Team("team-1", "Team 1", "description", true);
-    Set<Role> roles = new HashSet<Role>();
-    roles.add(Role.Admin);
-    Member member1 = new Member(roles, "Member 1", "member-1", "member@example.com");
+    Person person = new Person();
+    person.setField("id", "member-1");
 
-    TeamService teamService = createNiceMock(TeamService.class);
-    expect(teamService.findTeamById("team-1")).andReturn(team1);
-    expect(teamService.findMember("team-1", "member-1")).andReturn(member1);
-    replay(teamService);
+    ControllerUtil controllerUtil = createNiceMock(ControllerUtil.class);
+    expect(controllerUtil.getTeam(request)).andReturn(team1);
+    expect(controllerUtil.hasUserAdministrativePrivileges(person, "team-1")).andReturn(true);
+    replay(controllerUtil);
 
-    autoWireMock(addMemberController, teamService, TeamService.class);
+    autoWireMock(addMemberController, controllerUtil, ControllerUtil.class);
+    autoWireRemainingResources(addMemberController);
 
     addMemberController.start(getModelMap(), request);
-    verify(teamService);
+    verify(controllerUtil);
 
     Team team = (Team) getModelMap().get("team");
 
@@ -115,20 +115,19 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     autoWireMock(addMemberController, new Returns(Locale.ENGLISH), LocaleResolver.class);
 
     Team team1 = new Team("team-1", "Team 1", "description", false);
-    Set<Role> roles = new HashSet<Role>();
-    roles.add(Role.Admin);
-    Member member1 = new Member(roles, "Member 1", "member-1", "member@example.com");
+    Person person = new Person();
+    person.setField("id", "member-1");
 
-    TeamService teamService = createNiceMock(TeamService.class);
-    expect(teamService.findTeamById("team-1")).andReturn(team1);
-    expect(teamService.findMember("team-1", "member-1")).andReturn(member1);
-    replay(teamService);
+    ControllerUtil controllerUtil = createNiceMock(ControllerUtil.class);
+    expect(controllerUtil.getTeam(request)).andReturn(team1);
+    expect(controllerUtil.hasUserAdministrativePrivileges(person, "team-1")).andReturn(true);
+    replay(controllerUtil);
 
-    autoWireMock(addMemberController, teamService, TeamService.class);
+    autoWireMock(addMemberController, controllerUtil, ControllerUtil.class);
     autoWireRemainingResources(addMemberController);
 
     addMemberController.start(getModelMap(), request);
-    verify(teamService);
+    verify(controllerUtil);
 
     Team team = (Team) getModelMap().get("team");
 
@@ -149,51 +148,19 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     autoWireMock(addMemberController, new Returns(Locale.ENGLISH), LocaleResolver.class);
 
     Team team1 = new Team("team-1", "Team 1", "description", false);
-    Set<Role> roles = new HashSet<Role>();
-    roles.add(Role.Member);
-    Member member1 = new Member(roles, "Member 1", "member-1", "member@example.com");
+    Person person = new Person();
+    person.setField("id", "member-1");
 
-    TeamService teamService = createNiceMock(TeamService.class);
-    expect(teamService.findTeamById("team-1")).andReturn(team1);
-    expect(teamService.findMember("team-1", "member-1")).andReturn(member1);
-    replay(teamService);
+    ControllerUtil controllerUtil = createNiceMock(ControllerUtil.class);
+    expect(controllerUtil.getTeam(request)).andReturn(team1);
+    expect(controllerUtil.hasUserAdministrativePrivileges(person, "team-1")).andReturn(false);
+    replay(controllerUtil);
 
-    autoWireMock(addMemberController, teamService, TeamService.class);
+    autoWireMock(addMemberController, controllerUtil, ControllerUtil.class);
     autoWireRemainingResources(addMemberController);
 
     addMemberController.start(getModelMap(), request);
-    verify(teamService);
-
-    Team team = (Team) getModelMap().get("team");
-
-    assertEquals("team-1", team.getId());
-    assertEquals("Team 1", team.getName());
-    assertEquals("description", team.getDescription());
-  }
-
-  @Test(expected = RuntimeException.class)
-  public void testAddMemberRequesterNotMember() throws Exception {
-    MockHttpServletRequest request = getRequest();
-    // request team
-    request.setParameter("team", "team-1");
-    request.setParameter("memberEmail", "john@doe.com");
-    request.setParameter("message", "Nice description");
-
-    autoWireMock(addMemberController, messageSource, MessageSource.class);
-    autoWireMock(addMemberController, new Returns(Locale.ENGLISH), LocaleResolver.class);
-
-    Team team1 = new Team("team-1", "Team 1", "description", false);
-
-    TeamService teamService = createNiceMock(TeamService.class);
-    expect(teamService.findTeamById("team-1")).andReturn(team1);
-    expect(teamService.findMember("team-1", "member-1")).andReturn(null);
-    replay(teamService);
-
-    autoWireMock(addMemberController, teamService, TeamService.class);
-    autoWireRemainingResources(addMemberController);
-
-    addMemberController.start(getModelMap(), request);
-    verify(teamService);
+    verify(controllerUtil);
 
     Team team = (Team) getModelMap().get("team");
 
@@ -225,24 +192,19 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     form.setMessage("A nice invite message");
     form.setTeamId("team-1");
 
-    TeamService teamService = createNiceMock(TeamService.class);
-    expect(teamService.findTeamById("team-1")).andReturn(team1);
-    expect(teamService.findMember("team-1", "member-1")).andReturn(member1);
-    expect(teamService.findTeamById("team-1")).andReturn(team1);
-    replay(teamService);
+    ControllerUtil controllerUtil = createNiceMock(ControllerUtil.class);
+    expect(controllerUtil.hasUserAdministrativePrivileges(person, "team-1")).andReturn(true);
+    expect(controllerUtil.getTeamById("team-1")).andReturn(team1);
+    replay(controllerUtil);
 
-    autoWireMock(addMemberController, teamService, TeamService.class);
+    autoWireMock(addMemberController, controllerUtil, ControllerUtil.class);
     autoWireRemainingResources(addMemberController);
 
-    addMemberController.addMembersToTeam(token, form, new DirectFieldBindingResult(form, "invitationForm"), request, token, new SimpleSessionStatus(), getModelMap()
+    String result = addMemberController.addMembersToTeam(token, form, new DirectFieldBindingResult(form, "invitationForm"), request, token, new SimpleSessionStatus(), getModelMap()
     );
-    verify(teamService);
+    verify(controllerUtil);
 
-    Team team = (Team) getModelMap().get("team");
-
-    assertEquals("team-1", team.getId());
-    assertEquals("Team 1", team.getName());
-    assertEquals("description", team.getDescription());
+    assertEquals("redirect:detailteam.shtml?team=" + team1.getId() +"&view=app", result);
   }
 
   @Test(expected = RuntimeException.class)
@@ -280,12 +242,6 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     addMemberController.addMembersToTeam(token, form, new DirectFieldBindingResult(form, "invitationForm"), request, token, new SimpleSessionStatus(), getModelMap()
     );
     verify(teamService);
-
-    Team team = (Team) getModelMap().get("team");
-
-    assertEquals("team-1", team.getId());
-    assertEquals("Team 1", team.getName());
-    assertEquals("description", team.getDescription());
   }
 
   @Test(expected = RuntimeException.class)
@@ -323,12 +279,6 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     addMemberController.addMembersToTeam(token, form, new DirectFieldBindingResult(form, "invitationForm"), request, token, new SimpleSessionStatus(), getModelMap()
     );
     verify(teamService);
-
-    Team team = (Team) getModelMap().get("team");
-
-    assertEquals("team-1", team.getId());
-    assertEquals("Team 1", team.getName());
-    assertEquals("description", team.getDescription());
   }
 
 }

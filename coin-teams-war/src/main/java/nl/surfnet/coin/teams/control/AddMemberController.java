@@ -17,7 +17,10 @@
 package nl.surfnet.coin.teams.control;
 
 import nl.surfnet.coin.shared.service.MailService;
-import nl.surfnet.coin.teams.domain.*;
+import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.InvitationForm;
+import nl.surfnet.coin.teams.domain.InvitationMessage;
+import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.ShindigActivityService;
 import nl.surfnet.coin.teams.service.TeamInviteService;
@@ -108,10 +111,9 @@ public class AddMemberController {
   public String start(ModelMap modelMap, HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(
             LoginInterceptor.PERSON_SESSION_KEY);
-    String teamId = request.getParameter(TEAM_PARAM);
     Team team = controllerUtil.getTeam(request);
 
-    if (!hasUserAdministrativePrivileges(person, team.getId())) {
+    if (!controllerUtil.hasUserAdministrativePrivileges(person, team.getId())) {
       throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct " +
               "privileges to add (a) member(s)");
     }
@@ -187,7 +189,7 @@ public class AddMemberController {
     TokenUtil.checkTokens(sessionToken, token, status);
     Person person = (Person) request.getSession().getAttribute(
             LoginInterceptor.PERSON_SESSION_KEY);
-    if (!hasUserAdministrativePrivileges(person, request.getParameter(TEAM_PARAM))) {
+    if (!controllerUtil.hasUserAdministrativePrivileges(person, request.getParameter(TEAM_PARAM))) {
       status.setComplete();
       throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct " +
               "privileges to add (a) member(s)");
@@ -196,9 +198,8 @@ public class AddMemberController {
     Validator validator = new InvitationFormValidator();
     validator.validate(form, result);
 
-
     if (result.hasErrors()) {
-      modelMap.addAttribute(TEAM_PARAM, teamService.findTeamById(form.getTeamId()));
+      modelMap.addAttribute(TEAM_PARAM, controllerUtil.getTeamById(form.getTeamId()));
       return "addmember";
     }
 
@@ -264,7 +265,7 @@ public class AddMemberController {
     Person person = (Person) request.getSession().getAttribute(
             LoginInterceptor.PERSON_SESSION_KEY);
 
-    if (!hasUserAdministrativePrivileges(person, invitation.getTeamId())) {
+    if (!controllerUtil.hasUserAdministrativePrivileges(person, invitation.getTeamId())) {
       throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct " +
               "privileges to resend an invitation");
     }
@@ -329,7 +330,7 @@ public class AddMemberController {
           throws IOException {
     // Send the invitation
     String teamId = form.getTeamId();
-    Team team = teamService.findTeamById(teamId);
+    Team team = controllerUtil.getTeamById(teamId);
     String inviterPersonId = form.getInviter().getId();
 
     Object[] messageValuesSubject = {team.getName()};
@@ -406,12 +407,5 @@ public class AddMemberController {
 
     // Add the activity
     shindigActivityService.addActivity(personId, team.getId(), title, body);
-  }
-
-  private boolean hasUserAdministrativePrivileges(Person person, String teamId) {
-    // Check if the requester is member of the team AND
-    // Check if the requester has the role admin or manager, so he is allowed to invite new members.
-    Member member = teamService.findMember(teamId, person.getId());
-    return member != null && (member.getRoles().contains(Role.Admin) || member.getRoles().contains(Role.Manager));
   }
 }
