@@ -20,7 +20,7 @@ import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.TeamInviteService;
-import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.TokenUtil;
 import org.junit.Before;
 import org.junit.Test;
@@ -121,10 +121,11 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
     autoWireMock(controller, teamInviteService, TeamInviteService.class);
 
-    TeamService teamService = mock(TeamService.class);
-    when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
+    ControllerUtil controllerUtil = mock(ControllerUtil.class);
+    when(controllerUtil.getTeamById("team-1")).thenReturn(mockTeam);
 
-    autoWireMock(controller, teamService, TeamService.class);
+    autoWireMock(controller, controllerUtil, ControllerUtil.class);
+    autoWireRemainingResources(controller);
   }
 
 }

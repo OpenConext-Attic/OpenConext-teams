@@ -23,6 +23,7 @@ import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.JoinTeamRequestService;
 import nl.surfnet.coin.teams.service.TeamPersonService;
 import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.TokenUtil;
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
@@ -451,6 +452,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     when(teamService.findMember("team-1", "member-1")).thenReturn(member);
     when(teamService.addMemberRole("team-1", "member-1", Role.Manager, false))
         .thenReturn(true);
+    autoWireMock(detailTeamController, new Returns(true), ControllerUtil.class);
     autoWireMock(detailTeamController, teamService, TeamService.class);
     autoWireRemainingResources(detailTeamController);
 
@@ -480,6 +482,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     when(teamService.addMemberRole("team-1", "member-1", Role.Manager, false))
         .thenReturn(false);
     autoWireMock(detailTeamController, teamService, TeamService.class);
+    autoWireMock(detailTeamController, new Returns(false), ControllerUtil.class);
 
     RedirectView view = detailTeamController.addOrRemoveRole(getModelMap(),
         request, token, token, new SimpleSessionStatus());
@@ -518,6 +521,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
         teamService.removeMemberRole("team-1", "member-1", Role.Manager, false))
         .thenReturn(true);
 
+    autoWireMock(detailTeamController, new Returns(true), ControllerUtil.class);
     autoWireMock(detailTeamController, teamService, TeamService.class);
     autoWireRemainingResources(detailTeamController);
 
@@ -559,6 +563,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     when(teamService.removeMemberRole("team-1", "member-1", Role.Admin, false))
         .thenReturn(false);
 
+    autoWireMock(detailTeamController, new Returns(true), ControllerUtil.class);
     autoWireMock(detailTeamController, teamService, TeamService.class);
     autoWireRemainingResources(detailTeamController);
 
@@ -627,6 +632,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     when(teamPersonService.getPerson("potential-member-1")).thenReturn(
         memberToAdd);
 
+    autoWireMock(detailTeamController, new Returns(true), ControllerUtil.class);
     autoWireMock(detailTeamController, teamService, TeamService.class);
     autoWireMock(detailTeamController, teamPersonService,
         TeamPersonService.class);
@@ -634,8 +640,8 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
         JoinTeamRequestService.class);
     autoWireRemainingResources(detailTeamController);
 
-    RedirectView result = detailTeamController.deleteRequest(
-        request, token, token, new SimpleSessionStatus());
+    RedirectView result = detailTeamController.deleteRequest(request,
+            getModelMap(), token, token, new SimpleSessionStatus());
     assertEquals("detailteam.shtml?team=team-1&view=app", result.getUrl());
   }
 
@@ -679,6 +685,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     when(teamPersonService.getPerson("potential-member-1")).thenReturn(
         memberToAdd);
 
+    autoWireMock(detailTeamController, new Returns(true), ControllerUtil.class);
     autoWireMock(detailTeamController, teamService, TeamService.class);
     autoWireMock(detailTeamController, teamPersonService,
         TeamPersonService.class);
@@ -687,7 +694,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireRemainingResources(detailTeamController);
 
     RedirectView result = detailTeamController.deleteRequest(request,
-            token, token, new SimpleSessionStatus());
+            getModelMap(), token, token, new SimpleSessionStatus());
     assertEquals("detailteam.shtml?team=team-1&view=app", result.getUrl());
   }
 

@@ -23,6 +23,7 @@ import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.JoinTeamRequestService;
 import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 import nl.surfnet.coin.teams.util.ViewUtil;
 import org.opensocial.models.Person;
@@ -71,6 +72,9 @@ public class JoinTeamController {
 
   @Autowired
   private TeamEnvironment environment;
+
+  @Autowired
+  private ControllerUtil controllerUtil;
 
   @RequestMapping("/jointeam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request) {
@@ -123,7 +127,7 @@ public class JoinTeamController {
 
     ViewUtil.addViewToModelMap(request, modelMap);
 
-    Team team = teamService.findTeamById(joinTeamRequest.getGroupId());
+    Team team = controllerUtil.getTeamById(joinTeamRequest.getGroupId());
 
     Person person = (Person) request.getSession().getAttribute(
             LoginInterceptor.PERSON_SESSION_KEY);

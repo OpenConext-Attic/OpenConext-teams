@@ -79,4 +79,18 @@ public class ControllerUtilImpl implements ControllerUtil {
     Member member = teamService.findMember(teamId, person.getId());
     return member != null && (member.getRoles().contains(Role.Admin) || member.getRoles().contains(Role.Manager));
   }
+
+  /**
+   * Checks if the current user has admin privileges for a given team.
+   *
+   * @param person {@link Person}
+   * @param teamId {@link String} the team Id for which the person's privileges are checked
+   * @return {@link boolean} <code>true/code> if the user is admin AND/OR manager <code>false</code> if the user isn't
+   */
+  public boolean hasUserAdminPrivileges(Person person, String teamId) {
+    // Check if the requester is member of the team AND
+    // Check if the requester has the role admin or manager, so he is allowed to invite new members.
+    Member member = teamService.findMember(teamId, person.getId());
+    return member != null && (member.getRoles().contains(Role.Admin));
+  }
 }

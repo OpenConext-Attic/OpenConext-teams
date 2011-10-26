@@ -20,6 +20,7 @@ import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.TeamInviteService;
 import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.TokenUtil;
 import nl.surfnet.coin.teams.util.ViewUtil;
 import org.opensocial.models.Person;
@@ -52,6 +53,9 @@ public class InvitationController {
   @Autowired
   private TeamService teamService;
 
+  @Autowired
+  private ControllerUtil controllerUtil;
+
   /**
    * RequestMapping to show the accept invitation page.
    *
@@ -75,10 +79,7 @@ public class InvitationController {
     if (!StringUtils.hasText(teamId)) {
       throw new RuntimeException("Invalid invitation");
     }
-    Team team = teamService.findTeamById(teamId);
-    if (team == null) {
-      throw new RuntimeException("Invalid invitation");
-    }
+    Team team = controllerUtil.getTeamById(teamId);
 
     modelMap.addAttribute("invitation", invitation);
     modelMap.addAttribute("team", team);
@@ -128,10 +129,7 @@ public class InvitationController {
     if (!StringUtils.hasText(teamId)) {
       throw new RuntimeException("Invalid invitation");
     }
-    Team team = teamService.findTeamById(teamId);
-    if (team == null) {
-      throw new RuntimeException("Invalid invitation");
-    }
+    Team team = controllerUtil.getTeamById(teamId);
 
     String memberId = person.getId();
     teamService.addMember(teamId, person);
@@ -302,8 +300,7 @@ public class InvitationController {
     modelMap.addAttribute("invitations", invitations);
     List<Team> invitedTeams = new ArrayList<Team>();
     for(Invitation invitation : invitations) {
-      String teamId = invitation.getTeamId();
-      Team team = teamService.findTeamById(teamId);
+      Team team = controllerUtil.getTeamById(invitation.getTeamId());
       if(team != null) {
         invitedTeams.add(team);
       }

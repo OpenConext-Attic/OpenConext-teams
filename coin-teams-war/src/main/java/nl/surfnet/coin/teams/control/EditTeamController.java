@@ -16,11 +16,10 @@
 
 package nl.surfnet.coin.teams.control;
 
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.TokenUtil;
 import nl.surfnet.coin.teams.util.ViewUtil;
 import org.opensocial.models.Person;
@@ -49,6 +48,9 @@ public class EditTeamController {
   @Autowired
   private TeamService teamService;
 
+  @Autowired
+  private ControllerUtil controllerUtil;
+
   @RequestMapping("/editteam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(
@@ -56,7 +58,7 @@ public class EditTeamController {
     Team team = getTeam(request);
 
     // Check if a user has the privileges to edit the team
-    if (!hasUserAdminPrivileges(person, team.getId())) {
+    if (!controllerUtil.hasUserAdminPrivileges(person, team.getId())) {
       throw new RuntimeException("Member (" + person.getId() + ") does not have the correct privileges to edit team " +
               "(" + team.getName() + ")");
     }
@@ -92,7 +94,7 @@ public class EditTeamController {
     Team team = getTeam(request);
 
     // Check if a user has the privileges to edit the team
-    if (!hasUserAdminPrivileges(person, team.getId())) {
+    if (!controllerUtil.hasUserAdminPrivileges(person, team.getId())) {
       throw new RuntimeException("Member (" + person.getId() + ") does not have the correct privileges to edit team " +
               "(" + team.getName() + ")");
     }
@@ -111,9 +113,10 @@ public class EditTeamController {
     teamService.setVisibilityGroup(teamId, viewable);
 
     status.setComplete();
+    modelMap.clear();
     return new RedirectView("detailteam.shtml?team="
             + URLEncoder.encode(teamId, "utf-8") + "&view="
-            + ViewUtil.getView(request), false, true, false);
+            + ViewUtil.getView(request));
   }
 
   @RequestMapping(value = "/vo/{voName}/doeditteam.shtml", method = RequestMethod.POST)
@@ -138,12 +141,5 @@ public class EditTeamController {
       throw new RuntimeException("Team (" + teamId + ") not found");
     }
     return team;
-  }
-
-  private boolean hasUserAdminPrivileges(Person person, String teamId) {
-    // Check if the requester is member of the team AND
-    // Check if the requester has the role admin or manager, so he is allowed to invite new members.
-    Member member = teamService.findMember(teamId, person.getId());
-    return member != null && (member.getRoles().contains(Role.Admin));
   }
 }

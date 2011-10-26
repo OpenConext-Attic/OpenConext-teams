@@ -22,6 +22,7 @@ package nl.surfnet.coin.teams.control;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.TokenUtil;
 import org.junit.Before;
 import org.junit.Test;
@@ -62,6 +63,7 @@ public class EditTeamControllerTest extends AbstractControllerTest {
     when(teamService.findMember("team-1", "member-1")).thenReturn(
             mockAdminMember);
     autoWireMock(editTeamController, teamService, TeamService.class);
+    autoWireMock(editTeamController, new Returns(true), ControllerUtil.class);
     editTeamController.start(getModelMap(), request);
 
     Team team = (Team) getModelMap().get("team");
@@ -93,6 +95,8 @@ public class EditTeamControllerTest extends AbstractControllerTest {
     when(teamService.findMember("team-1", "member-1")).thenReturn(
             mockAdminMember);
     autoWireMock(editTeamController, teamService, TeamService.class);
+    autoWireMock(editTeamController, new Returns(true), ControllerUtil.class);
+    autoWireRemainingResources(editTeamController);
 
     RedirectView result = editTeamController.editTeam(getModelMap(), request, token, token, new SimpleSessionStatus());
 
@@ -114,10 +118,10 @@ public class EditTeamControllerTest extends AbstractControllerTest {
     when(teamService.findMember("team-1", "member-1")).thenReturn(
             mockMember);
     autoWireMock(editTeamController, teamService, TeamService.class);
+    autoWireMock(editTeamController, new Returns(false), ControllerUtil.class);
+    autoWireRemainingResources(editTeamController);
 
-    RedirectView result = editTeamController.editTeam(getModelMap(), request, token, token, new SimpleSessionStatus());
-
-    assertEquals("detailteam.shtml?team=team-1&view=app", result.getUrl());
+    editTeamController.editTeam(getModelMap(), request, token, token, new SimpleSessionStatus());
   }
 
   @Test(expected = RuntimeException.class)
@@ -135,10 +139,10 @@ public class EditTeamControllerTest extends AbstractControllerTest {
     when(teamService.findMember("team-1", "member-1")).thenReturn(
             mockAdminMember);
     autoWireMock(editTeamController, teamService, TeamService.class);
+    autoWireMock(editTeamController, new Returns(true), ControllerUtil.class);
+    autoWireRemainingResources(editTeamController);
 
-    RedirectView result = editTeamController.editTeam(getModelMap(), request, token, token, new SimpleSessionStatus());
-
-    assertEquals("detailteam.shtml?team=team-1&view=app", result.getUrl());
+    editTeamController.editTeam(getModelMap(), request, token, token, new SimpleSessionStatus());
   }
 
   @Test(expected = RuntimeException.class)
@@ -155,6 +159,8 @@ public class EditTeamControllerTest extends AbstractControllerTest {
     when(teamService.findMember("team-1", "member-1")).thenReturn(
             mockAdminMember);
     autoWireMock(editTeamController, teamService, TeamService.class);
+    autoWireMock(editTeamController, new Returns(true), ControllerUtil.class);
+    autoWireRemainingResources(editTeamController);
 
     editTeamController.editTeam(getModelMap(), request, token, token, new SimpleSessionStatus());
   }
@@ -170,6 +176,8 @@ public class EditTeamControllerTest extends AbstractControllerTest {
     request.addParameter("token", token);
 
     autoWireMock(editTeamController, new Returns(mockTeam), TeamService.class);
+    autoWireMock(editTeamController, new Returns(true), ControllerUtil.class);
+    autoWireRemainingResources(editTeamController);
 
     editTeamController.editTeam(getModelMap(), request, token, token, new SimpleSessionStatus());
   }
@@ -185,6 +193,8 @@ public class EditTeamControllerTest extends AbstractControllerTest {
     request.addParameter("token", token);
 
     autoWireMock(editTeamController, new Returns(mockTeam), TeamService.class);
+    autoWireMock(editTeamController, new Returns(true), ControllerUtil.class);
+    autoWireRemainingResources(editTeamController);
 
     editTeamController.editTeam(getModelMap(), request, token, "asfjkhsdjkfhsd", new SimpleSessionStatus());
   }

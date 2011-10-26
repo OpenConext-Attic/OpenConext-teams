@@ -52,4 +52,13 @@ public interface ControllerUtil {
    * @return {@link boolean} <code>true/code> if the user is admin AND/OR manager <code>false</code> if the user isn't
    */
   public boolean hasUserAdministrativePrivileges(Person person, String teamId);
+
+  /**
+   * Checks if the current user has admin privileges for a given team.
+   *
+   * @param person {@link Person}
+   * @param teamId {@link String} the team Id for which the person's privileges are checked
+   * @return {@link boolean} <code>true/code> if the user is admin AND/OR manager <code>false</code> if the user isn't
+   */
+  public boolean hasUserAdminPrivileges(Person person, String teamId);
 }
