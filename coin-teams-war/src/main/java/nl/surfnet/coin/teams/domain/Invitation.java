@@ -17,7 +17,7 @@
 package nl.surfnet.coin.teams.domain;
 
 import nl.surfnet.coin.shared.domain.DomainObject;
-import nl.surfnet.coin.teams.util.InvitationHashGenerator;
+import nl.surfnet.coin.teams.util.InvitationGenerator;
 import org.hibernate.annotations.Proxy;
 import org.hibernate.annotations.Sort;
 import org.hibernate.annotations.SortType;
@@ -134,7 +134,7 @@ public class Invitation extends DomainObject {
    * sets an md5 hash created from a UUID generated from the email address
    */
   void setInvitationHash() {
-    this.invitationHash = InvitationHashGenerator.generateHash();
+    this.invitationHash = InvitationGenerator.generateHash();
   }
 
   /**

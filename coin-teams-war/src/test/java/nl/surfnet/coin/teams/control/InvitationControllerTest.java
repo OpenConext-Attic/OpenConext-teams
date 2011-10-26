@@ -16,22 +16,23 @@
 
 package nl.surfnet.coin.teams.control;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.junit.Before;
-import org.junit.Test;
-import org.opensocial.models.Person;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.servlet.view.RedirectView;
-
 import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.TeamInviteService;
 import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.TokenUtil;
+import org.junit.Before;
+import org.junit.Test;
+import org.opensocial.models.Person;
+import org.springframework.web.bind.support.SimpleSessionStatus;
+import org.springframework.web.servlet.view.RedirectView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
@@ -73,7 +74,8 @@ public class InvitationControllerTest extends AbstractControllerTest {
   @Test
   public void testDelete() throws Exception {
 
-    RedirectView view = controller.deleteInvitation(new ModelMap(), getRequest());
+    String token = TokenUtil.generateSessionToken();
+    RedirectView view = controller.deleteInvitation(getRequest(), token, token, new SimpleSessionStatus(), getModelMap());
 
     String redirectUrl = "detailteam.shtml?team=team-1&view=app";
     assertEquals(redirectUrl, view.getUrl());

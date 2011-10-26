@@ -16,23 +16,23 @@
 
 package nl.surfnet.coin.teams.util;
 
-import org.apache.commons.codec.digest.DigestUtils;
-
-import java.util.UUID;
+import org.apache.commons.lang.RandomStringUtils;
 
 /**
  * Utility class to generate hash code for the invitations
  */
-public final class InvitationHashGenerator {
-  private InvitationHashGenerator() {
+public final class InvitationGenerator {
+
+  private static final int INVITATION_HASH_LENGTH = 255;
+  private InvitationGenerator() {
   }
 
   /**
-   * Generates (unique) hash for invitations
+   * Generates (unique) ramdom string for invitations
    *
-   * @return hash code
+   * @return random {@link String}
    */
   public static String generateHash() {
-    return DigestUtils.md5Hex(UUID.randomUUID().toString());
+    return RandomStringUtils.randomAlphanumeric(INVITATION_HASH_LENGTH);
   }
 }
