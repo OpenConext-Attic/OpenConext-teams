@@ -16,60 +16,40 @@
 
 package nl.surfnet.coin.teams.util;
 
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.service.TeamService;
 import org.opensocial.models.Person;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * This class includes methods that are often used by controllers
+ *
  */
-@Component("controllerUtil")
-public class ControllerUtil {
-
-  @Autowired
-  private TeamService teamService;
-
-  private ControllerUtil() {
-  }
+public interface ControllerUtil {
 
   /**
-   * Get the team from the {@link HttpServletRequest} request.
+   * Get the team from the {@link javax.servlet.http.HttpServletRequest} request.
    *
-   * @param request the {@link HttpServletRequest}
+   * @param request the {@link javax.servlet.http.HttpServletRequest}
+   * @return The {@link nl.surfnet.coin.teams.domain.Team} team
+   * @throws RuntimeException if the team cannot be found
+   */
+  public Team getTeam(HttpServletRequest request);
+
+  /**
+   * Get the team from the {@link String} teamId.
+   *
+   * @param teamId the {@link String} teamId
    * @return The {@link Team} team
    * @throws RuntimeException if the team cannot be found
    */
-  public Team getTeam(HttpServletRequest request) {
-    String teamId = request.getParameter("team");
-    Team team = null;
-
-    if (StringUtils.hasText(teamId)) {
-      team = teamService.findTeamById(teamId);
-    }
-    if (team == null) {
-      throw new RuntimeException("Team (" + teamId + ") not found");
-    }
-    return team;
-  }
+  public Team getTeamById(String teamId);
 
   /**
    * Checks if the current user has administrative privileges (whether he is admin OR manager) for a given team.
    *
-   * @param person {@link Person}
+   * @param person {@link org.opensocial.models.Person}
    * @param teamId {@link String} the team Id for which the person's privileges are checked
    * @return {@link boolean} <code>true/code> if the user is admin AND/OR manager <code>false</code> if the user isn't
    */
-  public boolean hasUserAdministrativePrivileges(Person person, String teamId) {
-    // Check if the requester is member of the team AND
-    // Check if the requester has the role admin or manager, so he is allowed to invite new members.
-    Member member = teamService.findMember(teamId, person.getId());
-    return member != null && (member.getRoles().contains(Role.Admin) || member.getRoles().contains(Role.Manager));
-  }
+  public boolean hasUserAdministrativePrivileges(Person person, String teamId);
 }
