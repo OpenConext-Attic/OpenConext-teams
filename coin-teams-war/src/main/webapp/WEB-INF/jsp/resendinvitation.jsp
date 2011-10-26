@@ -34,6 +34,7 @@
   <div id="Content">
     <form:form action="doResendInvitation.shtml" commandName="invitation" method="post">
       <p class="label-field-wrapper">
+        <input type="hidden" name="token" value="<c:out value='${tokencheck}'/>"/>
         <input type="hidden" name="view" value="<c:out value='${view}' />" />
         <input type="hidden" name="team" value="<c:out value='${invitation.teamId}' />" />
         <form:label path="email"><spring:message code ="jsp.general.Email"/></form:label>

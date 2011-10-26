@@ -249,12 +249,16 @@ public class AddMemberController {
     return addMembersToTeam(sessionToken, form, result, request, token, status, modelMap);
   }
 
-  @RequestMapping("/doResendInvitation.shtml")
+  @RequestMapping(value = "/doResendInvitation.shtml", method = RequestMethod.POST)
   public String doResendInvitation(ModelMap modelMap,
                                    @ModelAttribute("invitation") Invitation invitation,
                                    BindingResult result,
-                                   HttpServletRequest request)
+                                   HttpServletRequest request,
+                                   @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+                                   @RequestParam() String token,
+                                   SessionStatus status)
           throws UnsupportedEncodingException {
+    TokenUtil.checkTokens(sessionToken, token, status);
     Validator validator = new InvitationValidator();
     validator.validate(invitation, result);
     String messageText = request.getParameter("messageText");
@@ -266,6 +270,8 @@ public class AddMemberController {
             LoginInterceptor.PERSON_SESSION_KEY);
 
     if (!controllerUtil.hasUserAdministrativePrivileges(person, invitation.getTeamId())) {
+      status.setComplete();
+      modelMap.clear();
       throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct " +
               "privileges to resend an invitation");
     }
@@ -283,19 +289,23 @@ public class AddMemberController {
     String subject = messageSource.getMessage(INVITE_SEND_INVITE_SUBJECT,
             messageValuesSubject, locale);
     sendInvitationByMail(invitation, subject, locale);
+    status.setComplete();
+    modelMap.clear();
     return "redirect:detailteam.shtml?team="
             + URLEncoder.encode(teamId, UTF_8) + "&view="
             + ViewUtil.getView(request);
   }
 
-  @RequestMapping("/vo/{voName}/doResendInvitation.shtml")
-  public String doResendInvitationVO(@PathVariable String voName,
-                                   ModelMap modelMap,
-                                   @ModelAttribute("invitation") Invitation invitation,
-                                   BindingResult result,
-                                   HttpServletRequest request)
+  @RequestMapping(value = "/vo/{voName}/doResendInvitation.shtml", method = RequestMethod.POST)
+  public String doResendInvitationVO(ModelMap modelMap,
+                                     @ModelAttribute("invitation") Invitation invitation,
+                                     BindingResult result,
+                                     HttpServletRequest request,
+                                     @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+                                     @RequestParam() String token,
+                                     SessionStatus status)
           throws UnsupportedEncodingException {
-    return doResendInvitation(modelMap, invitation, result, request);
+    return doResendInvitation(modelMap, invitation, result, request, sessionToken, token, status);
   }
 
   /**
