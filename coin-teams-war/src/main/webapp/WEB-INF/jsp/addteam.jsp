@@ -34,6 +34,7 @@
   <div id="Content">
     <c:url value="doaddteam.shtml" var="doAddTeamUrl"><c:param name="view" value="${view}" /></c:url>
     <form:form id="AddTeamForm" action="${doAddTeamUrl}" method="post" commandName="team">
+      <input type="hidden" name="token" value="<c:out value='${tokencheck}'/>"/>
       <input type="hidden" name="view" value="<c:out value='${view}' />" />
       <p class="label-field-wrapper">
         <c:set var="errorClass"><c:if test="${not empty nameerror}">error</c:if></c:set>

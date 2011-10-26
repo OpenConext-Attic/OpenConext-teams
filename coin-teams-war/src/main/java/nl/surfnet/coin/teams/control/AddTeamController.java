@@ -21,10 +21,7 @@ import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.ShindigActivityService;
 import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.util.DuplicateTeamException;
-import nl.surfnet.coin.teams.util.PermissionUtil;
-import nl.surfnet.coin.teams.util.VOUtil;
-import nl.surfnet.coin.teams.util.ViewUtil;
+import nl.surfnet.coin.teams.util.*;
 import org.opensocial.RequestException;
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +30,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.LocaleResolver;
 
 import javax.servlet.http.HttpServletRequest;
@@ -47,7 +45,7 @@ import java.util.Locale;
  *         user.
  */
 @Controller
-@SessionAttributes({ "team" })
+@SessionAttributes({ "team", TokenUtil.TOKENCHECK })
 public class AddTeamController {
 
   private static final String ACTIVITY_NEW_TEAM_BODY = "activity.NewTeamBody";
@@ -82,6 +80,7 @@ public class AddTeamController {
     Team team = new Team();
     team.setViewable(true);
     modelMap.addAttribute("team", team);
+    modelMap.addAttribute(TokenUtil.TOKENCHECK, TokenUtil.generateSessionToken());
     return "addteam";
   }
 
@@ -93,8 +92,12 @@ public class AddTeamController {
   @RequestMapping(value = "/doaddteam.shtml", method = RequestMethod.POST)
   public String addTeam(ModelMap modelMap,
                         @ModelAttribute("team") Team team,
-                        HttpServletRequest request)
+                        HttpServletRequest request,
+                        @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+                        @RequestParam() String token,
+                        SessionStatus status)
           throws RequestException, IOException {
+    TokenUtil.checkTokens(sessionToken, token, status);
     ViewUtil.addViewToModelMap(request, modelMap);
 
     Person person = (Person) request.getSession().getAttribute(
@@ -145,6 +148,8 @@ public class AddTeamController {
     addActivity(teamId, teamName, personId,
             localeResolver.resolveLocale(request));
 
+    status.setComplete();
+    modelMap.clear();
     return "redirect:detailteam.shtml?team="
             + URLEncoder.encode(teamId, "utf-8") + "&view="
             + ViewUtil.getView(request);
@@ -153,9 +158,12 @@ public class AddTeamController {
   @RequestMapping(value = "/vo/{voName}/doaddteam.shtml", method = RequestMethod.POST)
   public String addTeamVO(@PathVariable String voName, ModelMap modelMap,
                           @ModelAttribute("team") Team team,
-                          HttpServletRequest request)
+                          HttpServletRequest request,
+                          @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+                          @RequestParam() String token,
+                          SessionStatus status)
           throws RequestException, IOException {
-    return addTeam(modelMap, team, request);
+    return addTeam(modelMap, team, request, sessionToken, token, status);
   }
 
   private void addActivity(String teamId, String teamName, String personId,
