@@ -24,7 +24,9 @@ import nl.surfnet.coin.teams.service.TeamInviteService;
 import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.service.impl.InvitationFormValidator;
 import nl.surfnet.coin.teams.service.impl.InvitationValidator;
+import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
+import nl.surfnet.coin.teams.util.TokenUtil;
 import nl.surfnet.coin.teams.util.ViewUtil;
 import org.apache.commons.io.IOUtils;
 import org.opensocial.models.Person;
@@ -38,6 +40,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
@@ -58,7 +61,7 @@ import java.util.Locale;
  *         user.
  */
 @Controller
-@SessionAttributes({"invitationForm", "invitation"})
+@SessionAttributes({"invitationForm", "invitation", TokenUtil.TOKENCHECK})
 public class AddMemberController {
 
   private static final String INVITE_SEND_INVITE_SUBJECT = "invite.SendInviteSubject";
@@ -91,6 +94,9 @@ public class AddMemberController {
   @Autowired
   private TeamEnvironment environment;
 
+  @Autowired
+  private ControllerUtil controllerUtil;
+
   /**
    * Shows form to invite others to your {@link Team}
    *
@@ -103,23 +109,15 @@ public class AddMemberController {
     Person person = (Person) request.getSession().getAttribute(
             LoginInterceptor.PERSON_SESSION_KEY);
     String teamId = request.getParameter(TEAM_PARAM);
-    Team team = null;
-
-    if (StringUtils.hasText(teamId)) {
-      team = teamService.findTeamById(teamId);
-    }
+    Team team = controllerUtil.getTeam(request);
 
     if (!hasUserAdministrativePrivileges(person, team.getId())) {
       throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct " +
               "privileges to add (a) member(s)");
     }
 
-    if (team != null) {
-      modelMap.addAttribute(TEAM_PARAM, team);
-    } else {
-      // Team does not exist
-      throw new RuntimeException("Parameter error.");
-    }
+    modelMap.addAttribute(TokenUtil.TOKENCHECK, TokenUtil.generateSessionToken());
+    modelMap.addAttribute(TEAM_PARAM, team);
     InvitationForm form = new InvitationForm();
     form.setTeamId(team.getId());
     form.setInviter(person);
@@ -156,34 +154,41 @@ public class AddMemberController {
   @RequestMapping(value = "/doaddmember.shtml", method = RequestMethod.POST,
           params = "cancelAddMember")
   public RedirectView cancelAddMembers(@ModelAttribute("invitationForm") InvitationForm form,
-                                       HttpServletRequest request)
+                                       HttpServletRequest request,
+                                       SessionStatus status)
           throws UnsupportedEncodingException {
+    status.setComplete();
     return new RedirectView("detailteam.shtml?team="
             + URLEncoder.encode(form.getTeamId(), UTF_8) + "&view="
-            + ViewUtil.getView(request));
+            + ViewUtil.getView(request), false, true, false);
   }
 
   /**
    * Called after submitting the add members form
    *
-   * @param modelMap {@link ModelMap}
-   * @param form     {@link InvitationForm} from the session
-   * @param result   {@link BindingResult}
-   * @param request  {@link HttpServletRequest}
+   *
+   *
+   * @param form     {@link nl.surfnet.coin.teams.domain.InvitationForm} from the session
+   * @param result   {@link org.springframework.validation.BindingResult}
+   * @param request  {@link javax.servlet.http.HttpServletRequest}
+   * @param modelMap {@link org.springframework.ui.ModelMap}
    * @return the name of the form if something is wrong
    *         before handling the invitation,
    *         otherwise a redirect to the detailteam url
    * @throws IOException if something goes wrong handling the invitation
    */
   @RequestMapping(value = "/doaddmember.shtml", method = RequestMethod.POST)
-  public String addMembersToTeam(ModelMap modelMap,
+  public String addMembersToTeam(@ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
                                  @ModelAttribute("invitationForm") InvitationForm form,
-                                 BindingResult result,
-                                 HttpServletRequest request)
+                                 BindingResult result, HttpServletRequest request,
+                                 @RequestParam() String token, SessionStatus status,
+                                 ModelMap modelMap)
           throws IOException {
+    TokenUtil.checkTokens(sessionToken, token, status);
     Person person = (Person) request.getSession().getAttribute(
             LoginInterceptor.PERSON_SESSION_KEY);
     if (!hasUserAdministrativePrivileges(person, request.getParameter(TEAM_PARAM))) {
+      status.setComplete();
       throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct " +
               "privileges to add (a) member(s)");
     }
@@ -191,9 +196,9 @@ public class AddMemberController {
     Validator validator = new InvitationFormValidator();
     validator.validate(form, result);
 
-    modelMap.addAttribute(TEAM_PARAM, teamService.findTeamById(form.getTeamId()));
 
     if (result.hasErrors()) {
+      modelMap.addAttribute(TEAM_PARAM, teamService.findTeamById(form.getTeamId()));
       return "addmember";
     }
 
@@ -209,6 +214,8 @@ public class AddMemberController {
     Locale locale = localeResolver.resolveLocale(request);
     doInviteMembers(emails, form, locale);
 
+    status.setComplete();
+    modelMap.clear();
     return "redirect:detailteam.shtml?team="
             + URLEncoder.encode(form.getTeamId(), UTF_8) + "&view="
             + ViewUtil.getView(request);
@@ -217,30 +224,36 @@ public class AddMemberController {
   /**
    * Called after submitting the add members form
    *
-   * @param modelMap {@link ModelMap}
-   * @param form     {@link InvitationForm} from the session
-   * @param result   {@link BindingResult}
-   * @param request  {@link HttpServletRequest}
+   *
+   *
+   *
+   * @param form     {@link nl.surfnet.coin.teams.domain.InvitationForm} from the session
+   * @param result   {@link org.springframework.validation.BindingResult}
+   * @param request  {@link javax.servlet.http.HttpServletRequest}
+   * @param modelMap {@link org.springframework.ui.ModelMap}
    * @return the name of the form if something is wrong
    *         before handling the invitation,
    *         otherwise a redirect to the detailteam url
    * @throws IOException if something goes wrong handling the invitation
    */
   @RequestMapping(value = "/vo/{voName}/doaddmember.shtml", method = RequestMethod.POST)
-  public String addMembersToTeamVO(@PathVariable String voName,
-                                 ModelMap modelMap,
-                                 @ModelAttribute("invitationForm") InvitationForm form,
-                                 BindingResult result,
-                                 HttpServletRequest request)
+  public String addMembersToTeamVO(@ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+                                   @ModelAttribute("invitationForm") InvitationForm form,
+                                   BindingResult result,
+                                   HttpServletRequest request,
+                                   @RequestParam() String token,
+                                   SessionStatus status,
+                                   ModelMap modelMap)
           throws IOException {
-    return addMembersToTeam(modelMap, form, result, request);
+    return addMembersToTeam(sessionToken, form, result, request, token, status, modelMap);
   }
 
   @RequestMapping("/doResendInvitation.shtml")
   public String doResendInvitation(ModelMap modelMap,
                                    @ModelAttribute("invitation") Invitation invitation,
                                    BindingResult result,
-                                   HttpServletRequest request) throws UnsupportedEncodingException {
+                                   HttpServletRequest request)
+          throws UnsupportedEncodingException {
     Validator validator = new InvitationValidator();
     validator.validate(invitation, result);
     String messageText = request.getParameter("messageText");
@@ -279,7 +292,8 @@ public class AddMemberController {
                                    ModelMap modelMap,
                                    @ModelAttribute("invitation") Invitation invitation,
                                    BindingResult result,
-                                   HttpServletRequest request) throws UnsupportedEncodingException {
+                                   HttpServletRequest request)
+          throws UnsupportedEncodingException {
     return doResendInvitation(modelMap, invitation, result, request);
   }
 

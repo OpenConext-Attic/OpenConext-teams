@@ -39,6 +39,7 @@
     <form:form action="${doAddMemberUrl}" commandName="invitationForm" method="post"
             enctype="multipart/form-data">
       <p class="label-field-wrapper">
+        <input type="hidden" name="token" value="<c:out value='${tokencheck}'/>"/>
         <input type="hidden" name="view" value="<c:out value='${view}' />" />
         <input type="hidden" name="team" value="<c:out value='${team.id}' />" />
         <form:label path="emails"><spring:message code='jsp.general.Email' /></form:label>

@@ -26,7 +26,7 @@
 <jsp:useBean id="timestamp" class="java.util.Date"/>
 <jsp:useBean id="expires" class="java.util.Date"/>
 <form id="detailForm" action="doaddremoverole.shtml" method="post">
-  <input type="hidden" name="token" value="<c:out value="${tokencheck}"/>"/>
+  <input type="hidden" name="token" value="<c:out value='${tokencheck}'/>"/>
   <input type="hidden" name="teamId" value="<c:out value='${team.id}' />"/>
   <input type="hidden" name="view" value="<c:out value='${view}' />"/>
   <input type="hidden" name="offset" value="<c:out value='${pager.offset}' />"/>
@@ -82,7 +82,7 @@
                     <c:param name="token" value="${tokencheck}"/>
                     <c:param name="view" value="${view}"/>
                   </c:url>
-                  <a href="${dodeletemember}" class="delete DeleteMember" title="<spring:message code="jsp.detailteam.RemoveMemberFromTeam"/>">
+                  <a href="<c:out value='${dodeletemember}'/>" class="delete DeleteMember" title="<spring:message code="jsp.detailteam.RemoveMemberFromTeam"/>">
                     <spring:message code="jsp.detailteam.RemoveMemberFromTeam"/>
                   </a>
                 </c:if>
@@ -94,20 +94,20 @@
               <c:set var="checked"><c:if
                       test="${teamfn:contains(member.roles, adminRole)}">checked="checked"</c:if></c:set>
               <c:set var="disabled"><c:if test="${member.guest eq true or not(role eq adminRole) or (not empty checked and onlyAdmin eq true)}">disabled="disabled"</c:if></c:set>
-              <input id="0_${member.id}" type="checkbox" name="adminRole" value="" ${checked} ${disabled}/>
+              <input id="0_<c:out value='${member.id}'/>" type="checkbox" name="adminRole" value="" ${checked} ${disabled}/>
             </td>
             <td>
               <c:set var="checked"><c:if
                       test="${teamfn:contains(member.roles, managerRole)}">checked="checked"</c:if></c:set>
               <c:set var="disabled"><c:if
                       test="${not(role eq adminRole) or teamfn:contains(member.roles, adminRole)}">disabled="disabled"</c:if></c:set>
-              <input id="1_${member.id}" type="checkbox" name="managerRole" value="" ${checked} ${disabled}/>
+              <input id="1_<c:out value='${member.id}'/>" type="checkbox" name="managerRole" value="" ${checked} ${disabled}/>
             </td>
             <td>
               <c:set var="checked"><c:if
                       test="${teamfn:contains(member.roles, memberRole)}">checked="checked"</c:if></c:set>
               <c:set var="disabled">disabled="disabled"</c:set>
-              <input id="2_${member.id}" type="checkbox" name="memberRole" value="" ${checked} ${disabled}/>
+              <input id="2_<c:out value='${member.id}'/>" type="checkbox" name="memberRole" value="" ${checked} ${disabled}/>
             </td>
           </tr>
         </c:forEach>
@@ -137,10 +137,11 @@
         <c:forEach items="${invitations}" var="invite">
           <tr>
             <c:url var="dodeleteinvite" value="deleteInvitation.shtml">
+              <c:param name="token" value="${tokencheck}"/>
               <c:param name="id" value="${invite.invitationHash}"/>
               <c:param name="view" value="${view}"/>
             </c:url>
-            <td><a href="${dodeleteinvite}" class="delete" title="<spring:message code="jsp.detailteam.Delete"/>">
+            <td><a href="<c:out value='${dodeleteinvite}'/>" class="delete" title="<spring:message code="jsp.detailteam.Delete"/>">
               <spring:message code="jsp.detailteam.Delete"/>
             </a></td>
             <td></td>
@@ -157,11 +158,11 @@
                     <c:param name="id" value="${invite.invitationHash}"/>
                   </c:url>
                   <c:if test="${maxInvitations > fn:length(invite.invitationMessages)}">
-                    (<a href="${resendUrl}"><spring:message code="jsp.detailteam.Resend"/></a>)
+                    (<a href="<c:out value='${resendUrl}'/>"><spring:message code="jsp.detailteam.Resend"/></a>)
                   </c:if>
                 </c:otherwise>
               </c:choose>
-              <a href="#" id="invitationinfo_<c:out value="${invite.invitationHash}"/>"
+              <a href="#" id="invitationinfo_<c:out value='${invite.invitationHash}'/>"
                  class="open_invitationinfo" title="<spring:message code="jsp.detailteam.InvitationInformation"/>">
                 <spring:message code="jsp.detailteam.InvitationInformation"/>
               </a>
