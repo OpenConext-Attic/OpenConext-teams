@@ -20,7 +20,6 @@
 package nl.surfnet.coin.teams.control;
 
 import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.util.TokenUtil;
@@ -30,9 +29,6 @@ import org.mockito.internal.stubbing.answers.Returns;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.web.bind.support.SimpleSessionStatus;
 import org.springframework.web.servlet.view.RedirectView;
-
-import java.util.HashSet;
-import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -50,15 +46,9 @@ public class EditTeamControllerTest extends AbstractControllerTest {
 
   @Before
   public void prepareData() {
-    mockTeam = new Team("team-1", "Team 1", "description");
-    Set<Role> adminRole = new HashSet<Role>();
-    adminRole.add(Role.Admin);
-    adminRole.add(Role.Manager);
-    adminRole.add(Role.Member);
-    Set<Role> memberRole = new HashSet<Role>();
-    memberRole.add(Role.Member);
-    mockAdminMember = new Member(adminRole, "Admin Member", "admin-member", "admin@example.com");
-    mockMember = new Member(memberRole, "Member", "member", "member@example.com");
+    mockTeam = getTeam1();
+    mockAdminMember = getAdministrativeMember();
+    mockMember = getMember();
   }
 
   @Test

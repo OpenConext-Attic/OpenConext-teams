@@ -17,15 +17,10 @@
 package nl.surfnet.coin.teams.util;
 
 import nl.surfnet.coin.teams.control.AbstractControllerTest;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.TeamService;
 import org.junit.Test;
-import org.opensocial.models.Person;
 import org.springframework.mock.web.MockHttpServletRequest;
-
-import java.util.HashSet;
 
 import static org.easymock.EasyMock.*;
 import static org.junit.Assert.*;
@@ -97,30 +92,6 @@ public class ControllerUtilTest extends AbstractControllerTest {
     boolean hasPrivileges = controllerUtil.hasUserAdministrativePrivileges(getPerson1(), getTeam1().getId());
     verify(teamService);
     assertFalse(hasPrivileges);
-  }
-
-  private Team getTeam1() {
-    return new Team("team-1", "Team 1", "Nice description", true);
-  }
-
-  private Person getPerson1() {
-    Person person = new Person();
-    person.setField("id", "member-1");
-    return person;
-  }
-
-  private Member getAdministrativeMember() {
-    HashSet<Role> roles = new HashSet<Role>();
-    roles.add(Role.Manager);
-    roles.add(Role.Member);
-    roles.add(Role.Admin);
-    return new Member(roles, "Member 1", "member-1", "member@example.com");
-  }
-
-  private Member getMember() {
-    HashSet<Role> roles = new HashSet<Role>();
-    roles.add(Role.Member);
-    return new Member(roles, "Member 1", "member-1", "member@example.com");
   }
 
   private MockHttpServletRequest getRequestWithTeam(String teamId) {

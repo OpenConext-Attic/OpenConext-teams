@@ -32,7 +32,10 @@ import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.web.bind.support.SimpleSessionStatus;
 import org.springframework.web.servlet.view.RedirectView;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
@@ -407,10 +410,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     request.addParameter("team", "team-1");
     request.addParameter("member", "member-1");
 
-    HashSet<Role> roles = new HashSet<Role>();
-    roles.add(Role.Member);
-
-    Member member = new Member(roles, "John Doe", "member-1", "john@doe.com");
+    Member member = getMember();
 
     autoWireMock(detailTeamController, new Returns(member), TeamService.class);
     autoWireRemainingResources(detailTeamController);
@@ -429,10 +429,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     String token = TokenUtil.generateSessionToken();
     // do NOT add the team & member
 
-    HashSet<Role> roles = new HashSet<Role>();
-    roles.add(Role.Member);
-
-    Member member = new Member(roles, "John Doe", "member-1", "john@doe.com");
+    Member member = getMember();
 
     autoWireMock(detailTeamController, new Returns(member), TeamService.class);
     autoWireRemainingResources(detailTeamController);
@@ -450,10 +447,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     request.addParameter("doAction", "add");
 
     TeamService teamService = mock(TeamService.class);
-    Set<Role> roles = new HashSet<Role>();
-    roles.add(Role.Member);
-    Member member = new Member(roles, "Member One", "member-1",
-        "member1@example.com");
+    Member member = getMember();
     when(teamService.findMember("team-1", "member-1")).thenReturn(member);
     when(teamService.addMemberRole("team-1", "member-1", Role.Manager, false))
         .thenReturn(true);
@@ -481,10 +475,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireRemainingResources(detailTeamController);
 
     TeamService teamService = mock(TeamService.class);
-    Set<Role> roles = new HashSet<Role>();
-    roles.add(Role.Member);
-    Member member = new Member(roles, "Member One", "member-1",
-        "member1@example.com");
+    Member member = getMember();
     when(teamService.findMember("team-1", "member-1")).thenReturn(member);
     when(teamService.addMemberRole("team-1", "member-1", Role.Manager, false))
         .thenReturn(false);
@@ -606,10 +597,6 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     roles.add(Role.Manager);
     roles.add(Role.Admin);
 
-    HashSet<Member> admins = new HashSet<Member>();
-    admins.add(new Member(new HashSet<Role>(), "Jane Doe", "member-1",
-        "jane@doe.com"));
-
     List<Member> members = new ArrayList<Member>();
     Member loggedInMember = new Member(roles, "Jane Doe", "member-1",
         "jane@doe.com");
@@ -665,10 +652,6 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     roles.add(Role.Member);
     roles.add(Role.Manager);
     roles.add(Role.Admin);
-
-    HashSet<Member> admins = new HashSet<Member>();
-    admins.add(new Member(new HashSet<Role>(), "Jane Doe", "member-1",
-        "jane@doe.com"));
 
     List<Member> members = new ArrayList<Member>();
     Member loggedInMember = new Member(roles, "Jane Doe", "member-1",

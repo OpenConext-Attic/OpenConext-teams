@@ -51,38 +51,38 @@ public class AddTeamControllerTest extends AbstractControllerTest{
   public void testAddTeamHappyFlow() throws Exception {
     MockHttpServletRequest request = getRequest();
     String token = TokenUtil.generateSessionToken();
+    Team team1 = getTeam1();
     // request team
-    request.setParameter("team", "Team 1");
-    request.setParameter("description", "description team 1");
-    Team team = new Team("Team 1", "Team 1", "description team 1", null);
+    request.setParameter("team", team1.getId());
+    request.setParameter("teamName", team1.getName());
+    request.setParameter("description", team1.getDescription());
+
     TeamService teamService = mock(TeamService.class);
-    when(teamService.addTeam("Team 1", "Team 1", "description team 1",
-            null)).thenReturn("team-1");
+    when(teamService.addTeam(team1.getName(), team1.getName(), team1.getDescription(),
+            null)).thenReturn(team1.getId());
     
     autoWireMock(addTeamController, teamService, TeamService.class);
     autoWireRemainingResources(addTeamController);
     
-    String view = addTeamController.addTeam(getModelMap(), team, request, token, token, new SimpleSessionStatus());
-        
-    assertEquals("redirect:detailteam.shtml?team=team-1&view=app", view);
+    String view = addTeamController.addTeam(getModelMap(), team1, request, token, token, new SimpleSessionStatus());
+
+    assertEquals("redirect:detailteam.shtml?team=" + team1.getId() + "&view=app", view);
   }
   
   @Test
   public void testFailToAddTeamWithEmptyName() throws Exception {
     MockHttpServletRequest request = getRequest();
     String token = TokenUtil.generateSessionToken();
-    // request team
-    request.setParameter("description", "description team 1");
+    Team team = getTeam1();
 
     TeamService teamService = mock(TeamService.class);
-    when(teamService.addTeam("Team 1", "Team 1", "description team 1",
-            null)).thenReturn("team-1");
-    Team team = new Team("Team 1", "", "description team 1", null);
+    when(teamService.addTeam(team.getName(), team.getName(), team.getDescription(),
+            null)).thenReturn(team.getId());
 
     autoWireMock(addTeamController, teamService, TeamService.class);
     autoWireRemainingResources(addTeamController);
     
-    String view = addTeamController.addTeam(getModelMap(), team, request, token, token, new SimpleSessionStatus());
+    String view = addTeamController.addTeam(getModelMap(), new Team(team.getId(), null, team.getDescription()), request, token, token, new SimpleSessionStatus());
     assertEquals("addteam", view);
     }
 }

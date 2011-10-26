@@ -16,15 +16,11 @@
 
 package nl.surfnet.coin.teams.control;
 
-import static org.mockito.Mockito.mock;
-
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.domain.TeamResultWrapper;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import org.junit.Before;
 import org.mockito.internal.stubbing.answers.DoesNothing;
 import org.mockito.internal.stubbing.answers.Returns;
@@ -36,13 +32,17 @@ import org.springframework.ui.ModelMap;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.web.servlet.mvc.Controller;
 
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.domain.TeamResultWrapper;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
+import static org.mockito.Mockito.mock;
 
 /**
  * Base class for testing {@link Controller} instances
- * 
  */
 public abstract class AbstractControllerTest {
 
@@ -52,9 +52,8 @@ public abstract class AbstractControllerTest {
   /**
    * Autowire all dependencies with a annotation autowired with a mock that does
    * nothing
-   * 
-   * @param target
-   *          the controller
+   *
+   * @param target the controller
    */
   protected void autoWireRemainingResources(Object target) throws Exception {
     Class<? extends Object> clazz = target.getClass();
@@ -63,18 +62,18 @@ public abstract class AbstractControllerTest {
       clazz = clazz.getSuperclass();
     }
   }
-  
+
   private void doAutoWireRemainingResources(Object target, Field[] fields)
-      throws IllegalAccessException {
+          throws IllegalAccessException {
     for (Field field : fields) {
       ReflectionUtils.makeAccessible(field);
       if (field.getAnnotation(Autowired.class) != null
-          && field.get(target) == null) {
+              && field.get(target) == null) {
         field.set(target, mock(field.getType(), new DoesNothing()));
       }
     }
   }
-  
+
   protected Returns getMyTeamReturn() {
     List<Team> teams = new ArrayList<Team>();
     Team team1 = new Team("team-1", "Team 1", "Description team 1");
@@ -86,7 +85,7 @@ public abstract class AbstractControllerTest {
     TeamResultWrapper resultWrapper = new TeamResultWrapper(teams, teams.size(), 0, 10);
     return new Returns(resultWrapper);
   }
-  
+
   protected Returns getAllTeamReturn() {
     List<Team> teams = new ArrayList<Team>();
     Team team1 = new Team("team-1", "Team 1", "Description team 1");
@@ -104,7 +103,31 @@ public abstract class AbstractControllerTest {
     TeamResultWrapper resultWrapper = new TeamResultWrapper(teams, teams.size(), 0, 10);
     return new Returns(resultWrapper);
   }
-  
+
+  protected Team getTeam1() {
+    return new Team("team-1", "Team 1", "Nice description", true);
+  }
+
+  protected Person getPerson1() {
+    Person person = new Person();
+    person.setField("id", "member-1");
+    return person;
+  }
+
+  protected Member getAdministrativeMember() {
+    HashSet<Role> roles = new HashSet<Role>();
+    roles.add(Role.Manager);
+    roles.add(Role.Member);
+    roles.add(Role.Admin);
+    return new Member(roles, "Member 1", "member-1", "member@example.com");
+  }
+
+  protected Member getMember() {
+    HashSet<Role> roles = new HashSet<Role>();
+    roles.add(Role.Member);
+    return new Member(roles, "Member 1", "member-1", "member@example.com");
+  }
+
   protected Returns getSearchTeamReturn() {
     ArrayList<Team> teams = new ArrayList<Team>();
     Team team1 = new Team("team-1", "Team 1", "Description team 1");
@@ -114,43 +137,35 @@ public abstract class AbstractControllerTest {
   }
 
   /**
-   * 
-   * @param target
-   *          the controller
-   * @param answer
-   *          the answer to return on method invocations
-   * @param interfaceClass
-   *          the class to mock
+   * @param target         the controller
+   * @param answer         the answer to return on method invocations
+   * @param interfaceClass the class to mock
    */
   @SuppressWarnings("unchecked")
   protected void autoWireMock(Object target, Answer answer, Class interfaceClass)
-      throws Exception {
+          throws Exception {
     Object mock = mock(interfaceClass, answer);
     autoWireMock(target, mock, interfaceClass);
   }
 
   /**
-   * 
-   * @param target
-   *          the controller
-   * @param mock
-   *          the mock Object to return on method invocations
-   * @param interfaceClass
-   *          the class to mock
+   * @param target         the controller
+   * @param mock           the mock Object to return on method invocations
+   * @param interfaceClass the class to mock
    */
   @SuppressWarnings("unchecked")
   protected void autoWireMock(Object target, Object mock, Class interfaceClass)
-      throws Exception {
+          throws Exception {
     boolean found = doAutoWireMock(target, mock, interfaceClass, target
-        .getClass().getDeclaredFields());
+            .getClass().getDeclaredFields());
     if (!found) {
       doAutoWireMock(target, mock, interfaceClass, target.getClass()
-          .getSuperclass().getDeclaredFields());
+              .getSuperclass().getDeclaredFields());
     }
   }
 
   private boolean doAutoWireMock(Object target, Object mock,
-      Class interfaceClass, Field[] fields) throws IllegalAccessException {
+                                 Class interfaceClass, Field[] fields) throws IllegalAccessException {
     boolean found = false;
     for (Field field : fields) {
       if (field.getType().equals(interfaceClass)) {
@@ -165,15 +180,14 @@ public abstract class AbstractControllerTest {
 
   /**
    * Put the Groups and Person in the session
-   * 
-   * @param request
-   *          the HttpServletRequest
+   *
+   * @param request the HttpServletRequest
    */
   private void setUpSession(HttpServletRequest request) {
     HttpSession session = request.getSession(true);
 
     Person person = new Person();
-    person.setField("id","member-1");
+    person.setField("id", "member-1");
     session.setAttribute(LoginInterceptor.PERSON_SESSION_KEY, person);
     session.setAttribute(LoginInterceptor.USER_STATUS_SESSION_KEY, "member");
 

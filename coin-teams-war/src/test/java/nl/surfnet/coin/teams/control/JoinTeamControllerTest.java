@@ -19,25 +19,21 @@
  */
 package nl.surfnet.coin.teams.control;
 
-import static org.easymock.EasyMock.createMock;
-import static org.easymock.EasyMock.expect;
-import static org.easymock.EasyMock.replay;
-import static org.junit.Assert.assertEquals;
-
-import java.util.HashSet;
-import java.util.Set;
-
+import nl.surfnet.coin.teams.domain.JoinTeamRequest;
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.service.TeamService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.web.servlet.view.RedirectView;
 
-import nl.surfnet.coin.teams.domain.JoinTeamRequest;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.service.TeamService;
+import java.util.HashSet;
+import java.util.Set;
+
+import static org.easymock.EasyMock.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author steinwelberg
@@ -92,9 +88,7 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
     joinTeamController.setTeamService(mockTeamService);
     expect(mockTeamService.findTeamById("team-1")).andReturn(mockTeam);
 
-    Set<Role> roleSet = new HashSet<Role>();
-    roleSet.add(Role.Admin);
-    Member admin = new Member(roleSet,"Mr Member", "ID2345", "member@example.com");
+    Member admin = getAdministrativeMember();
     Set<Member> admins = new HashSet<Member>();
     admins.add(admin);
     expect(mockTeamService.findAdmins(mockTeam)).andReturn(admins);
