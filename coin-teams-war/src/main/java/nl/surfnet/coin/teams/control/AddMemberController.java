@@ -134,18 +134,6 @@ public class AddMemberController {
   }
 
   /**
-   * Shows form to invite others to your {@link Team} coming from a vo specific link
-   *
-   * @param modelMap {@link ModelMap}
-   * @param request  {@link HttpServletRequest}
-   * @return name of the add member form
-   */
-  @RequestMapping("/vo/{voName}/addmember.shtml")
-  public String startVO(@PathVariable String voName, ModelMap modelMap, HttpServletRequest request) {
-    return start(modelMap, request);
-  }
-
-  /**
    * In case someone clicks the cancel button
    *
    * @param form    {@link InvitationForm}
@@ -222,33 +210,6 @@ public class AddMemberController {
             + ViewUtil.getView(request);
   }
 
-  /**
-   * Called after submitting the add members form
-   *
-   *
-   *
-   *
-   * @param form     {@link nl.surfnet.coin.teams.domain.InvitationForm} from the session
-   * @param result   {@link org.springframework.validation.BindingResult}
-   * @param request  {@link javax.servlet.http.HttpServletRequest}
-   * @param modelMap {@link org.springframework.ui.ModelMap}
-   * @return the name of the form if something is wrong
-   *         before handling the invitation,
-   *         otherwise a redirect to the detailteam url
-   * @throws IOException if something goes wrong handling the invitation
-   */
-  @RequestMapping(value = "/vo/{voName}/doaddmember.shtml", method = RequestMethod.POST)
-  public String addMembersToTeamVO(@ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-                                   @ModelAttribute("invitationForm") InvitationForm form,
-                                   BindingResult result,
-                                   HttpServletRequest request,
-                                   @RequestParam() String token,
-                                   SessionStatus status,
-                                   ModelMap modelMap)
-          throws IOException {
-    return addMembersToTeam(sessionToken, form, result, request, token, status, modelMap);
-  }
-
   @RequestMapping(value = "/doResendInvitation.shtml", method = RequestMethod.POST)
   public String doResendInvitation(ModelMap modelMap,
                                    @ModelAttribute("invitation") Invitation invitation,
@@ -294,18 +255,6 @@ public class AddMemberController {
     return "redirect:detailteam.shtml?team="
             + URLEncoder.encode(teamId, UTF_8) + "&view="
             + ViewUtil.getView(request);
-  }
-
-  @RequestMapping(value = "/vo/{voName}/doResendInvitation.shtml", method = RequestMethod.POST)
-  public String doResendInvitationVO(ModelMap modelMap,
-                                     @ModelAttribute("invitation") Invitation invitation,
-                                     BindingResult result,
-                                     HttpServletRequest request,
-                                     @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-                                     @RequestParam() String token,
-                                     SessionStatus status)
-          throws UnsupportedEncodingException {
-    return doResendInvitation(modelMap, invitation, result, request, sessionToken, token, status);
   }
 
   /**

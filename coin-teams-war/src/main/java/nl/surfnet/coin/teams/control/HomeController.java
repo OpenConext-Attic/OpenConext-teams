@@ -26,7 +26,6 @@ import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.TeamInviteService;
 import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
-import nl.surfnet.coin.teams.util.VOUtil;
 import nl.surfnet.coin.teams.util.ViewUtil;
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +34,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.LocaleResolver;
 
@@ -66,9 +64,6 @@ public class HomeController {
   @Autowired
   private TeamEnvironment environment;
 
-  @Autowired
-  private VOUtil voUtil;
-
   private static final int PAGESIZE = 10;
 
   @RequestMapping("/home.shtml")
@@ -95,11 +90,6 @@ public class HomeController {
     ViewUtil.addViewToModelMap(request, modelMap);
 
     return "home";
-  }
-
-  @RequestMapping("/vo/{VOName}/home.shtml")
-  public String startVO(@PathVariable String VOName, ModelMap modelMap, HttpServletRequest request) {
-    return start(modelMap, request);
   }
 
   private void addTeams(String query, final String person,
@@ -131,20 +121,20 @@ public class HomeController {
       String personId = LoginInterceptor.getLoggedInUser();
       if (StringUtils.hasText(query)) {
         resultWrapper = teamService.findTeams(
-                voUtil.getStemName(request), personId, query, offset, PAGESIZE);
+                environment.getDefaultStemName(), personId, query, offset, PAGESIZE);
       } else {
         resultWrapper = teamService.findAllTeams(
-                voUtil.getStemName(request), personId, offset, PAGESIZE);
+                environment.getDefaultStemName(), personId, offset, PAGESIZE);
       }
       modelMap.addAttribute("display", "all");
       // else always display my teams
     } else {
       if (StringUtils.hasText(query)) {
         resultWrapper = teamService.findTeamsByMember(
-                voUtil.getStemName(request), person, query, offset, PAGESIZE);
+                environment.getDefaultStemName(), person, query, offset, PAGESIZE);
       } else {
         resultWrapper = teamService.findAllTeamsByMember(
-                voUtil.getStemName(request), person, offset, PAGESIZE);
+                environment.getDefaultStemName(), person, offset, PAGESIZE);
       }
       modelMap.addAttribute("display", "my");
     }

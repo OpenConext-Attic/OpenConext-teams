@@ -22,7 +22,6 @@ package nl.surfnet.coin.teams.control;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
-import nl.surfnet.coin.teams.util.VOUtil;
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
 import org.springframework.context.MessageSource;
@@ -51,7 +50,7 @@ public class HomeControllerTest extends AbstractControllerTest {
     request.setParameter("teams", "my");
     request.setParameter("teamSearch", "query");
 
-    autoWireMock(homeController, new Returns(DEFAULTSTEM), VOUtil.class);
+    autoWireMock(homeController, new Returns(DEFAULTSTEM), TeamEnvironment.class);
     autoWireMock(homeController, new Returns("query"), MessageSource.class);
     autoWireMock(homeController, new Returns(Locale.ENGLISH), LocaleResolver.class);
     autoWireMock(homeController, getMyTeamReturn(), TeamService.class);
@@ -71,7 +70,7 @@ public class HomeControllerTest extends AbstractControllerTest {
     // This requests my teams
     request.setParameter("teams", "all");
 
-    autoWireMock(homeController, new Returns(DEFAULTSTEM), VOUtil.class);
+    autoWireMock(homeController, new Returns(DEFAULTSTEM), TeamEnvironment.class);
     autoWireMock(homeController, new Returns("query"), MessageSource.class);
     autoWireMock(homeController, new Returns(Locale.ENGLISH), LocaleResolver.class);
     autoWireMock(homeController, getAllTeamReturn(), TeamService.class);
@@ -94,7 +93,7 @@ public class HomeControllerTest extends AbstractControllerTest {
     request.setParameter("teams", "my");
     request.setParameter("teamSearch", "1");
 
-    autoWireMock(homeController, new Returns(DEFAULTSTEM), VOUtil.class);
+    autoWireMock(homeController, new Returns(DEFAULTSTEM), TeamEnvironment.class);
     autoWireMock(homeController, new Returns("query"), MessageSource.class);
     autoWireMock(homeController, new Returns(Locale.ENGLISH), LocaleResolver.class);
     autoWireMock(homeController, getSearchTeamReturn(), TeamService.class);

@@ -165,12 +165,6 @@ public class DetailTeamController {
     return "detailteam";
   }
 
-  @RequestMapping("/vo/{voName}/detailteam.shtml")
-  public String startVO(@PathVariable String voName, ModelMap modelMap, HttpServletRequest request)
-      throws IOException {
-    return start(modelMap, request);
-  }
-
   private int getOffset(HttpServletRequest request) {
     int offset = 0;
     String offsetParam = request.getParameter("offset");
@@ -239,17 +233,6 @@ public class DetailTeamController {
         + ViewUtil.getView(request));
   }
 
-  @RequestMapping(value = "vo/{voName}/doleaveteam.shtml", method = RequestMethod.POST)
-  public RedirectView leaveTeamVO(@PathVariable String voName,
-                                  ModelMap modelMap,
-                                  HttpServletRequest request,
-                                  @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-                                  @RequestParam() String token,
-                                  SessionStatus status)
-          throws UnsupportedEncodingException {
-    return leaveTeam(modelMap, request, sessionToken, token, status);
-  }
-
   @RequestMapping(value = "/dodeleteteam.shtml", method = RequestMethod.POST)
   public RedirectView deleteTeam(ModelMap modelMap,
                                  HttpServletRequest request,
@@ -285,17 +268,6 @@ public class DetailTeamController {
     return new RedirectView("detailteam.shtml?team="
         + URLEncoder.encode(teamId, UTF_8) + "&view="
         + ViewUtil.getView(request));
-  }
-
-  @RequestMapping(value = "/vo/{voName}/dodeleteteam.shtml", method = RequestMethod.GET)
-  public RedirectView deleteTeamVO(@PathVariable String voName,
-                                   ModelMap modelMap,
-                                   HttpServletRequest request,
-                                   @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-                                   @RequestParam() String token,
-                                   SessionStatus status)
-      throws UnsupportedEncodingException {
-    return deleteTeam(modelMap, request, sessionToken, token, status);
   }
 
   @RequestMapping(value = "/dodeletemember.shtml", method = RequestMethod.GET)
@@ -359,17 +331,6 @@ public class DetailTeamController {
         + NOT_AUTHORIZED_DELETE_MEMBER + "&view=" + ViewUtil.getView(request));
   }
 
-  @RequestMapping(value = "/vo/{voName}/dodeletemember.shtml", method = RequestMethod.GET)
-  public RedirectView deleteMemberVO(@PathVariable String voName,
-                                     ModelMap modelMap,
-                                     HttpServletRequest request,
-                                     @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-                                     @RequestParam() String token,
-                                     SessionStatus status)
-      throws UnsupportedEncodingException {
-    return deleteMember(modelMap, request, sessionToken, token, status);
-  }
-
   @RequestMapping(value = "/doaddremoverole.shtml", method = RequestMethod.POST)
   public RedirectView addOrRemoveRole(ModelMap modelMap,
                                       HttpServletRequest request,
@@ -420,16 +381,6 @@ public class DetailTeamController {
         + ViewUtil.getView(request) + "&mes=" + message + "&offset=" + offset);
   }
 
-  @RequestMapping(value = "/vo/{voName}/doaddremoverole.shtml", method = RequestMethod.POST)
-  public RedirectView addOrRemoveRoleVO(@PathVariable String voName, ModelMap modelMap,
-                                        HttpServletRequest request,
-                                        @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-                                        @RequestParam() String token,
-                                        SessionStatus status)
-      throws IOException, JSONException {
-    return addOrRemoveRole(modelMap, request, sessionToken, token, status);
-  }
-
   private boolean validAction(String action) {
     return StringUtils.hasText(action)
         && (action.equalsIgnoreCase("remove") || action.equalsIgnoreCase("add"));
@@ -469,31 +420,9 @@ public class DetailTeamController {
     return doHandleJoinRequest(modelMap, request, sessionToken, token, status, false);
   }
 
-  @RequestMapping(value = "/vo/{voName}/dodeleterequest.shtml", method = RequestMethod.POST)
-  public RedirectView deleteRequestVO(@PathVariable String voName,
-                                      ModelMap modelMap,
-                                      HttpServletRequest request,
-                                      @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-                                      @RequestParam() String token,
-                                      SessionStatus status)
-          throws UnsupportedEncodingException {
-    return doHandleJoinRequest(modelMap, request, sessionToken, token, status, false);
-  }
-
   @RequestMapping(value = "/doapproverequest.shtml", method = RequestMethod.POST)
   public RedirectView approveRequest(HttpServletRequest request,
                                      ModelMap modelMap,
-                                     @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-                                     @RequestParam() String token,
-                                     SessionStatus status)
-          throws UnsupportedEncodingException {
-    return doHandleJoinRequest(modelMap, request, sessionToken, token, status, true);
-  }
-
-  @RequestMapping(value = "/vo/{voName}/doapproverequest.shtml", method = RequestMethod.POST)
-  public RedirectView approveRequest(@PathVariable String voName,
-                                     ModelMap modelMap,
-                                     HttpServletRequest request,
                                      @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
                                      @RequestParam() String token,
                                      SessionStatus status)

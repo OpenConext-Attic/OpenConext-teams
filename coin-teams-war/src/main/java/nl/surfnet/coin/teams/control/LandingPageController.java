@@ -24,7 +24,6 @@ import nl.surfnet.coin.teams.util.ViewUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -48,15 +47,4 @@ public class LandingPageController {
 
     return "landingpage";
   }
-
-  @RequestMapping("/vo/{voName}/landingpage.shtml")
-  public String startVO(@PathVariable String voName, ModelMap modelMap, HttpServletRequest request) {
-    ViewUtil.addViewToModelMap(request, modelMap);
-
-    modelMap.addAttribute("environment", teamEnvironment);
-    modelMap.addAttribute("voContext", voName);
-
-    return "landingpage";
-  }
-
 }

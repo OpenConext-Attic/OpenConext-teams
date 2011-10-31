@@ -70,11 +70,6 @@ public class EditTeamController {
     return "editteam";
   }
 
-  @RequestMapping("/vo/{voName}/editteam.shtml")
-  public String startVO(@PathVariable String voName, ModelMap modelMap, HttpServletRequest request) {
-    return start(modelMap, request);
-  }
-
   @RequestMapping(value = "/doeditteam.shtml", method = RequestMethod.POST)
   public RedirectView editTeam(ModelMap modelMap,
                                HttpServletRequest request,
@@ -117,17 +112,6 @@ public class EditTeamController {
     return new RedirectView("detailteam.shtml?team="
             + URLEncoder.encode(teamId, "utf-8") + "&view="
             + ViewUtil.getView(request));
-  }
-
-  @RequestMapping(value = "/vo/{voName}/doeditteam.shtml", method = RequestMethod.POST)
-  public RedirectView editTeamVO(@PathVariable String voName,
-                                 ModelMap modelMap,
-                                 HttpServletRequest request,
-                                 @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-                                 @RequestParam() String token,
-                                 SessionStatus status)
-          throws UnsupportedEncodingException {
-    return editTeam(modelMap, request, sessionToken, token, status);
   }
 
   private Team getTeam(HttpServletRequest request) {

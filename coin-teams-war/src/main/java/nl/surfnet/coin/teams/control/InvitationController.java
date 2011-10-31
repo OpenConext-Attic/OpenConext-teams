@@ -28,7 +28,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -89,19 +92,6 @@ public class InvitationController {
   }
 
   /**
-   * RequestMapping to show the accept invitation page.
-   *
-   * @param modelMap {@link ModelMap}
-   * @param request
-   *          {@link HttpServletRequest}
-   * @return accept invitation page
-   */
-  @RequestMapping(value = "/vo/{voName}/acceptInvitation.shtml")
-  public String acceptVO(@PathVariable String voName, ModelMap modelMap, HttpServletRequest request) {
-    return accept(modelMap, request);
-  }
-
-  /**
    * RequestMapping to accept an invitation. If everything is okay, it redirects
    * to your new team detail view.
    *
@@ -143,22 +133,6 @@ public class InvitationController {
   }
 
   /**
-   * RequestMapping to accept an invitation. If everything is okay, it redirects
-   * to your new team detail view.
-   *
-   * @param request
-   *          {@link HttpServletRequest}
-   * @return detail view of your new team
-   * @throws UnsupportedEncodingException
-   *           if the server does not support utf-8
-   */
-  @RequestMapping(value = "/vo/{voName}/doAcceptInvitation.shtml")
-  public RedirectView doAcceptVO(@PathVariable String voName, HttpServletRequest request)
-      throws UnsupportedEncodingException {
-    return doAccept(request);
-  }
-
-  /**
    * RequestMapping to decline an invitation as receiver.
    * This URL is bypassed in {@link LoginInterceptor}
    *
@@ -183,21 +157,6 @@ public class InvitationController {
     teamInviteService.saveOrUpdate(invitation);
     ViewUtil.addViewToModelMap(request, modelMap);
     return viewTemplate;
-  }
-
-  /**
-   * RequestMapping to decline an invitation as receiver.
-   * This URL is bypassed in {@link LoginInterceptor}
-   *
-   * @param modelMap {@link ModelMap}
-   * @param request
-   *          {@link HttpServletRequest}
-   * @return view for decline result
-   */
-  @RequestMapping(value = "/vo/{voName}/declineInvitation.shtml")
-  public String declineVO(@PathVariable String voName, ModelMap modelMap,
-                        HttpServletRequest request) {
-    return decline(modelMap, request);
   }
 
   /**
@@ -235,26 +194,6 @@ public class InvitationController {
         + ViewUtil.getView(request));
   }
 
-  /**
-   * RequestMapping to delete an invitation as admin
-   *
-   *
-   * @param request
-   *          {@link javax.servlet.http.HttpServletRequest}
-   * @return redirect to detailteam if everything is okay
-   * @throws UnsupportedEncodingException
-   *           in the rare condition utf-8 is not supported
-   */
-  @RequestMapping(value = "/vo/{voName}/deleteInvitation.shtml")
-  public RedirectView deleteInvitationVO(HttpServletRequest request,
-                                         @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-                                         @RequestParam() String token,
-                                         SessionStatus status,
-                                         ModelMap modelMap)
-          throws UnsupportedEncodingException {
-    return deleteInvitation(request, sessionToken, token, status, modelMap);
-  }
-
   @RequestMapping("/resendInvitation.shtml")
   public String resendInvitation(ModelMap modelMap, HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(
@@ -282,12 +221,6 @@ public class InvitationController {
     ViewUtil.addViewToModelMap(request, modelMap);
     return "resendinvitation";
   }
-
-  @RequestMapping("vo/{voName}/resendInvitation.shtml")
-  public String resendInvitationVO(@PathVariable String voName, ModelMap modelMap, HttpServletRequest request) {
-    return resendInvitation(modelMap, request);
-  }
-
   @RequestMapping("/myinvitations.shtml")
   public String myInvitations(ModelMap modelMap, HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(
@@ -308,11 +241,6 @@ public class InvitationController {
     modelMap.addAttribute("teams", invitedTeams);
     ViewUtil.addViewToModelMap(request, modelMap);
     return "myinvitations";
-  }
-
-  @RequestMapping("/vo/{voName}/myinvitations.shtml")
-  public String myInvitationsVO(@PathVariable String voName, ModelMap modelMap, HttpServletRequest request) {
-    return  myInvitations(modelMap, request);
   }
 
   private Invitation getInvitationByRequest(HttpServletRequest request) {

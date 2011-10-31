@@ -50,14 +50,12 @@
     <property name="interceptors">
       <list>
         <ref bean="loginInterceptor"/>
-        <ref bean="voInterceptor"/>
       </list>
     </property>
     <property name="alwaysUseFullPath" value="true"/>
   </bean>
 
   <bean id="loginInterceptor" class="${loginInterceptor}"/>
-  <bean id="voInterceptor" class="${voInterceptor}" />
 
   <bean id="messageAdapter"
         class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">

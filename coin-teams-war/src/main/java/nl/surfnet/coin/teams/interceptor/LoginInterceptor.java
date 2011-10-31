@@ -121,17 +121,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
                   + URLEncoder.encode(queryString, "utf-8"));
           return false;
           // If user is requesting SURFteams for a VO redirect to Federation Login
-        } else if("vo".equals(urlPart.toLowerCase())
-                && urlSplit.length >= 4) {
-          String location = "/Shibboleth.sso/Login?entityID="
-                  + getTeamEnvironment().getVoMetadataPrefix()
-                  + URLEncoder.encode(urlSplit[3], "UTF-8")
-                  + "&target=" + request.getRequestURL()
-                  + URLEncoder.encode(queryString, "utf-8");
-          logger.trace("Redirect to VO Login: "+location);
-          response.sendRedirect(location);
-          return false;
-          // Send redirect to shibboleth if gadget view is requested.
         } else {
           // Send redirect to landingpage if gadget is not requested in app view.
           logger.trace("Redirect to landingpage");

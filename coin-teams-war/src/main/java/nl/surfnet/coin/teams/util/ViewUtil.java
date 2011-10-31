@@ -16,9 +16,9 @@
 
 package nl.surfnet.coin.teams.util;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.ui.ModelMap;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Util class to define which view should be used (gadget or app)

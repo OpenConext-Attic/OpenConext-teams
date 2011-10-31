@@ -65,7 +65,7 @@ public class AddTeamController {
   private LocaleResolver localeResolver;
 
   @Autowired
-  private VOUtil voUtil;
+  private TeamEnvironment environment;
 
   @RequestMapping("/addteam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request) {
@@ -82,11 +82,6 @@ public class AddTeamController {
     modelMap.addAttribute("team", team);
     modelMap.addAttribute(TokenUtil.TOKENCHECK, TokenUtil.generateSessionToken());
     return "addteam";
-  }
-
-  @RequestMapping("/vo/{voName}/addteam.shtml")
-  public String startVO(@PathVariable String voName, ModelMap modelMap, HttpServletRequest request) {
-    return start(modelMap, request);
   }
 
   @RequestMapping(value = "/doaddteam.shtml", method = RequestMethod.POST)
@@ -125,11 +120,10 @@ public class AddTeamController {
     boolean viewable = !StringUtils.hasText(viewabilityStatus);
     team.setViewable(viewable);
 
-    String stem = voUtil.getStemName(request);
     // Add the team
     String teamId;
     try {
-      teamId = teamService.addTeam(teamName, teamName, teamDescription, stem);
+      teamId = teamService.addTeam(teamName, teamName, teamDescription, environment.getDefaultStemName());
     } catch (DuplicateTeamException e) {
       modelMap.addAttribute("nameerror", "duplicate");
       return "addteam";
@@ -153,17 +147,6 @@ public class AddTeamController {
     return "redirect:detailteam.shtml?team="
             + URLEncoder.encode(teamId, "utf-8") + "&view="
             + ViewUtil.getView(request);
-  }
-
-  @RequestMapping(value = "/vo/{voName}/doaddteam.shtml", method = RequestMethod.POST)
-  public String addTeamVO(@PathVariable String voName, ModelMap modelMap,
-                          @ModelAttribute("team") Team team,
-                          HttpServletRequest request,
-                          @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-                          @RequestParam() String token,
-                          SessionStatus status)
-          throws RequestException, IOException {
-    return addTeam(modelMap, team, request, sessionToken, token, status);
   }
 
   private void addActivity(String teamId, String teamName, String personId,

@@ -34,7 +34,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -114,11 +117,6 @@ public class JoinTeamController {
     return "jointeam";
   }
 
-  @RequestMapping("vo/{voName}/jointeam.shtml")
-  public String startVO(ModelMap modelMap, HttpServletRequest request) {
-    return start(modelMap, request);
-  }
-
   @RequestMapping(value = "/dojointeam.shtml", method = RequestMethod.POST)
   public RedirectView joinTeam(ModelMap modelMap,
                                @ModelAttribute(JOIN_TEAM_REQUEST) JoinTeamRequest joinTeamRequest,
@@ -144,16 +142,6 @@ public class JoinTeamController {
             + ViewUtil.getView(request));
   }
 
-  @RequestMapping(value = "vo/{voName}/dojointeam.shtml", method = RequestMethod.POST)
-  public RedirectView joinTeamVO(@PathVariable String voName,
-                               ModelMap modelMap,
-                               @ModelAttribute(JOIN_TEAM_REQUEST) JoinTeamRequest joinTeamRequest,
-                               HttpServletRequest request)
-          throws IOException {
-    String voContext = "/vo/" + voName;
-    return joinTeam(modelMap, joinTeamRequest, request);
-  }
-
   private void sendJoinTeamMessage(final Team team, final Person person,
                                    final String message, final Locale locale)
           throws IllegalStateException, IOException {
@@ -168,9 +156,6 @@ public class JoinTeamController {
     }
 
     String acceptURL = environment.getTeamsURL();
-//    if (StringUtils.hasText(voContext)) {
-//      acceptURL += voContext;
-//    }
 
     Object[] footerValues = {acceptURL, person.getDisplayName(),
             person.getEmail(), URLEncoder.encode(team.getId(), "utf-8")};

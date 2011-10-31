@@ -23,7 +23,6 @@ public class TeamEnvironment {
   private String mockLogin;
   private String mockName;
   private String mockUserStatus;
-  private String mockVOName;
   private String defaultStemName;
   private String grouperPowerUser;
   private String oauthKey;
@@ -35,8 +34,6 @@ public class TeamEnvironment {
   private String openSocialUrl;
   private String systemEmail;
   private String groupNameContext;
-  private String voMetadataPrefix;
-  private String voStemPrefix;
 
   private int maxInvitations;
 
@@ -96,24 +93,6 @@ public class TeamEnvironment {
    */
   public String getMockUserStatus() {
     return mockUserStatus;
-  }
-
-  /**
-   * Get the Mock VO name
-   *
-   * @return the mockVOName
-   */
-  public String getMockVOName() {
-    return mockVOName;
-  }
-
-  /**
-   * Set the mock VO Name
-   *
-   * @param mockVOName the Mock VO name
-   */
-  public void setMockVOName(String mockVOName) {
-    this.mockVOName = mockVOName;
   }
 
   /**
@@ -301,41 +280,5 @@ public class TeamEnvironment {
    */
   public void setGroupNameContext(String voNameContext) {
     this.groupNameContext = voNameContext;
-  }
-
-  /**
-   * get the VO Metadata prefix
-   *
-   * @return voMetadataPrefix
-   */
-  public String getVoMetadataPrefix() {
-    return voMetadataPrefix;
-  }
-
-  /**
-   * Set the VO Metadata prefix
-   *
-   * @param voMetadataPrefix
-   */
-  public void setVoMetadataPrefix(String voMetadataPrefix) {
-    this.voMetadataPrefix = voMetadataPrefix;
-  }
-
-  /**
-   * Get VO Stem Prefix
-   *
-   * @return voStemPrefix
-   */
-  public String getVoStemPrefix() {
-    return voStemPrefix;
-  }
-
-  /**
-   * Set the VO Stem Prefix
-   *
-   * @param voStemPrefix
-   */
-  public void setVoStemPrefix(String voStemPrefix) {
-    this.voStemPrefix = voStemPrefix;
   }
 }
