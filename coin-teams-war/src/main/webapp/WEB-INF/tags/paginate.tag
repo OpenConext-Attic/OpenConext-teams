@@ -21,7 +21,7 @@
   ~ limitations under the License.
   --%>
 
-<c:if test="${fn:length(pager.visiblePages) > 0}">
+<c:if test="${fn:length(pager.visiblePages) > 1}">
   <ul class="pagination">
     <%-- First --%>
     <c:if test="${not empty pager.firstPage}">
