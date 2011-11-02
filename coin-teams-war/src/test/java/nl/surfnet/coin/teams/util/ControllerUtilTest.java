@@ -17,6 +17,7 @@
 package nl.surfnet.coin.teams.util;
 
 import nl.surfnet.coin.teams.control.AbstractControllerTest;
+import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.TeamService;
 import org.junit.Test;
@@ -30,12 +31,13 @@ import static org.junit.Assert.*;
  */
 public class ControllerUtilTest extends AbstractControllerTest {
 
+  private ControllerUtil controllerUtil = new ControllerUtilImpl();
+
   @Test
   public void getTeamTest() throws Exception {
 
     MockHttpServletRequest request = getRequestWithTeam(getTeam1().getId());
 
-    ControllerUtil controllerUtil = new ControllerUtilImpl();
     TeamService teamService = createNiceMock(TeamService.class);
     expect(teamService.findTeamById(getTeam1().getId())).andReturn(getTeam1());
     replay(teamService);
@@ -55,7 +57,6 @@ public class ControllerUtilTest extends AbstractControllerTest {
   public void getTeamNonExistingTest() throws Exception {
     MockHttpServletRequest request = getRequestWithTeam(getTeam1().getId());
 
-    ControllerUtil controllerUtil = new ControllerUtilImpl();
     TeamService teamService = createNiceMock(TeamService.class);
     expect(teamService.findTeamById(getTeam1().getId())).andReturn(null);
     replay(teamService);
@@ -66,7 +67,6 @@ public class ControllerUtilTest extends AbstractControllerTest {
 
   @Test
   public void hasUserAdministrativePrivilegesTest() throws Exception {
-    ControllerUtil controllerUtil = new ControllerUtilImpl();
     TeamService teamService = createNiceMock(TeamService.class);
     expect(teamService.findMember(getTeam1().getId(), getPerson1().getId())).andReturn(getAdministrativeMember());
     replay(teamService);
@@ -81,7 +81,6 @@ public class ControllerUtilTest extends AbstractControllerTest {
 
   @Test
   public void hasUserAdministrativePrivilegesWithoutPrivilegesTest() throws Exception {
-    ControllerUtil controllerUtil = new ControllerUtilImpl();
     TeamService teamService = createNiceMock(TeamService.class);
     expect(teamService.findMember(getTeam1().getId(), getPerson1().getId())).andReturn(getMember());
     replay(teamService);
@@ -92,6 +91,26 @@ public class ControllerUtilTest extends AbstractControllerTest {
     boolean hasPrivileges = controllerUtil.hasUserAdministrativePrivileges(getPerson1(), getTeam1().getId());
     verify(teamService);
     assertFalse(hasPrivileges);
+  }
+
+  @Test
+  public void isPersonMemberOfTeamIsMemberTest() {
+    Team team = getTeam1();
+    Member member = getMember();
+    team.addMembers(member);
+
+    boolean result = controllerUtil.isPersonMemberOfTeam(member.getId(), team);
+    assertTrue(result);
+  }
+
+  @Test
+  public void isPersonMemberOfTeamIsNotMemberTest() {
+    Team team = getTeam1();
+    Member member = new Member(null, "member-2", "member-2", "member-2@example.com");
+    team.addMembers(getMember());
+
+    boolean result = controllerUtil.isPersonMemberOfTeam(member.getId(), team);
+    assertFalse(result);
   }
 
   private MockHttpServletRequest getRequestWithTeam(String teamId) {

@@ -76,6 +76,9 @@
             <th><spring:message code='jsp.home.table.Role' /></th>
             <th><spring:message code='jsp.home.table.Members' /></th>
           </c:if>
+          <c:if test="${hasMultipleSources}">
+            <th><spring:message code='jsp.home.table.source' /></th>
+          </c:if>
         </tr>
       </thead>
       <tbody>
@@ -89,6 +92,9 @@
               <c:if test='${display eq "my"}'>
                 <td><c:out value="${team.viewerRole}" /></td>
                 <td><c:out value="${team.numberOfMembers}" /></td>
+              </c:if>
+              <c:if test="${hasMultipleSources}">
+                <td><c:out value="${team.stem.name}" /></td>
               </c:if>
             </tr>
           </c:forEach>

@@ -54,6 +54,14 @@
         <label for="TeamDescription"><spring:message code='jsp.general.Description' /></label>
         <form:input path="description" id="TeamDescription"/>
       </p>
+      <c:if test="${hasMultipleStems}">
+        <p class="label-field-wrapper">
+          <label for="TeamSource"><spring:message code='jsp.general.Source' /></label>
+          <form:select path="stem" id="TeamSource">
+            <form:options items="${stems}" itemValue="id" itemLabel="name"/>
+          </form:select>
+        </p>
+      </c:if>
       <p class="label-field-wrapper">
         <span class="consent-wrapper">&nbsp;</span>
         <input id="TeamConsent" name="consent" type="checkbox"><label class="consent" for="TeamConsent"><spring:message code='jsp.addteam.Consent' /></label>

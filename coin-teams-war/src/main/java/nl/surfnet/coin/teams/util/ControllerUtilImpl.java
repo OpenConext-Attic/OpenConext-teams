@@ -26,6 +26,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * This class includes methods that are often used by controllers
@@ -93,4 +94,20 @@ public class ControllerUtilImpl implements ControllerUtil {
     Member member = teamService.findMember(teamId, person.getId());
     return member != null && (member.getRoles().contains(Role.Admin));
   }
+
+  /**
+   * {@inheritDoc}
+   */
+  public boolean isPersonMemberOfTeam(String personId, Team team) {
+    List<Member> members = team.getMembers();
+    boolean isMember = false;
+
+    for (Member member : members) {
+      if (member.getId().equals(personId)) {
+        isMember = true;
+      }
+    }
+    return isMember;
+  }
+
 }

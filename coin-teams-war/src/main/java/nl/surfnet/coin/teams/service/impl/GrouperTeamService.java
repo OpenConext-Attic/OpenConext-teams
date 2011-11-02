@@ -75,9 +75,14 @@ public class GrouperTeamService implements TeamService {
     WsGrouperPrivilegeResult[] privilegeResults = getGroupPrivileges(wsGroup
         .getName());
 
+    // Add the stem to the group
+    int lastColonIndex = wsGroup.getName().lastIndexOf(":");
+    String stemId = wsGroup.getName().substring(0, lastColonIndex);
+    Stem stem = findStem(stemId);
+
     return new Team(wsGroup.getName(), wsGroup.getDisplayExtension(),
         wsGroup.getDescription(), getMembers(wsGroup.getName(),
-            privilegeResults), getVisibilityGroup(wsGroup.getName(),
+            privilegeResults), stem, getVisibilityGroup(wsGroup.getName(),
             privilegeResults));
   }
 
@@ -92,6 +97,30 @@ public class GrouperTeamService implements TeamService {
     } catch (GcWebServiceError e) {
       // The Grouper implementation throws an Error if there is no Stem
       return false;
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public List<Stem> findStemsByMember(String memberId) {
+    return grouperDao.findStemsByMember(memberId);
+  }
+
+  @Override
+  public Stem findStem(String stemId) {
+    GcFindStems findStems = new GcFindStems();
+    findStems.assignActAsSubject(getActAsSubject(true));
+    findStems.addStemName(stemId);
+    try {
+      WsFindStemsResults results = findStems.execute();
+      WsStem[] stemResults = results.getStemResults();
+      WsStem wsStem = stemResults[0];
+      return new Stem(wsStem.getName(), wsStem.getDisplayName(), wsStem.getDescription());
+    } catch (GcWebServiceError e) {
+      // The Grouper implementation throws an Error if there is no Stem
+      return null;
     }
   }
 
@@ -551,16 +580,16 @@ public class GrouperTeamService implements TeamService {
   }
 
   @Override
-  public TeamResultWrapper findAllTeams(String stemName, String personId,
-      int offset, int pageSize) {
-    return grouperDao.findAllTeams(stemName, personId, offset, pageSize);
+  public TeamResultWrapper findAllTeams(String personId,
+                                        int offset, int pageSize) {
+    return grouperDao.findAllTeams(personId, offset, pageSize);
   }
 
   @Override
-  public TeamResultWrapper findTeams(String stemName, String personId,
-      String partOfGroupname, int offset, int pageSize) {
-    return grouperDao.findTeams(stemName, personId, partOfGroupname, offset,
-        pageSize);
+  public TeamResultWrapper findTeams(String personId,
+                                     String partOfGroupname, int offset, int pageSize) {
+    return grouperDao.findTeams(personId, partOfGroupname, offset,
+            pageSize);
   }
 
   /*
@@ -571,10 +600,9 @@ public class GrouperTeamService implements TeamService {
    * .String, java.lang.String, int, int)
    */
   @Override
-  public TeamResultWrapper findAllTeamsByMember(String stemName,
-      String personId, int offset, int pageSize) {
+  public TeamResultWrapper findAllTeamsByMember(String personId, int offset, int pageSize) {
     return grouperDao
-        .findAllTeamsByMember(stemName, personId, offset, pageSize);
+        .findAllTeamsByMember(personId, offset, pageSize);
   }
 
   /*
@@ -585,9 +613,9 @@ public class GrouperTeamService implements TeamService {
    * , java.lang.String, java.lang.String, int, int)
    */
   @Override
-  public TeamResultWrapper findTeamsByMember(String stemName, String personId,
-      String partOfGroupname, int offset, int pageSize) {
-    return grouperDao.findTeamsByMember(stemName, personId, partOfGroupname,
+  public TeamResultWrapper findTeamsByMember(String personId,
+                                             String partOfGroupname, int offset, int pageSize) {
+    return grouperDao.findTeamsByMember(personId, partOfGroupname,
         offset, pageSize);
   }
 

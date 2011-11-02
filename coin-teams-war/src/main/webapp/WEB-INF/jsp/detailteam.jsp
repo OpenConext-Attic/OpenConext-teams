@@ -33,7 +33,7 @@
     <c:if test="${fn:length(message) > 0}"><div id="__notifyBar" class="hide"><spring:message code='${message}' /></div></c:if>
     <teams:teamOptions/>
     <br class="clear" />
-    <h1 class="team-title"><c:out value="${team.name}" /></h1>
+    <h1 class="team-title"><c:out value="${team.name}" /> (<c:out value="${team.stem.name}" />)</h1>
 
     <c:if test="${role eq adminRole or role eq managerRole}">
       <p class="add">

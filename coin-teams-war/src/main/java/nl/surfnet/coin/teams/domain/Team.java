@@ -22,8 +22,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import org.springframework.util.CollectionUtils;
-
 /**
  * Team
  */
@@ -36,6 +34,7 @@ public class Team implements Serializable {
   private Role viewerRole;
   private boolean viewable;
   private int numberOfMembers;
+  private Stem stem;
 
   public Team() {
     super();
@@ -71,6 +70,19 @@ public class Team implements Serializable {
    * @param id          of the team
    * @param name        of the team
    * @param description extra description
+   * @param members     {@link List} of {@link Member}'s
+   * @param stem        {@link Stem} of this team
+   * @param viewable    if {@literal false} then it's a private team
+   */
+  public Team(String id, String name, String description, List<Member> members, Stem stem, boolean viewable) {
+    this(id, name, description, members, viewable);
+    this.stem = stem;
+  }
+
+  /**
+   * @param id          of the team
+   * @param name        of the team
+   * @param description extra description
    */
   public Team(String id, String name, String description) {
     this(id, name, description, new ArrayList<Member>());
@@ -85,6 +97,18 @@ public class Team implements Serializable {
   public Team(String id, String name, String description, boolean viewable) {
     this(id, name, description, new ArrayList<Member>());
     this.viewable = viewable;
+  }
+
+  /**
+   * @param id          {@link String the identifier of the team}
+   * @param name        {@link String} the name of the team
+   * @param description {@link String} the description of the team
+   * @param stem        {@link nl.surfnet.coin.teams.domain.Stem} the stem that this team belongs to
+   * @param viewable    if {@literal false} then it's a private team
+   */
+  public Team(String id, String name, String description, Stem stem, boolean viewable) {
+    this(id, name, description, viewable);
+    this.stem = stem;
   }
 
   /**
@@ -153,7 +177,7 @@ public class Team implements Serializable {
   }
 
   /**
-   * @param person id of the person to assign the viewerRole to
+   * @param role id of the person to assign the viewerRole to
    */
   public void setViewerRole(Role role) {
     this.viewerRole = role;
@@ -214,6 +238,24 @@ public class Team implements Serializable {
       return false;
     }
     return true;
+  }
+
+  /**
+   * Get the stem that this team belongs to
+   *
+   * @return {@link Stem} the stem that this team belongs to
+   */
+  public Stem getStem() {
+    return stem;
+  }
+
+  /**
+   * Set the stem that this team belongs to
+   *
+   * @param stem {@link Stem} the stem that this team belongs to
+   */
+  public void setStem(Stem stem) {
+    this.stem = stem;
   }
 
   /**

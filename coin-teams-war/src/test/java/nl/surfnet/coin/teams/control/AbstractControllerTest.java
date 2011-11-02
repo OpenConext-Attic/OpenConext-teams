@@ -16,10 +16,7 @@
 
 package nl.surfnet.coin.teams.control;
 
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.domain.TeamResultWrapper;
+import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import org.junit.Before;
 import org.mockito.internal.stubbing.answers.DoesNothing;
@@ -74,7 +71,7 @@ public abstract class AbstractControllerTest {
     }
   }
 
-  protected Returns getMyTeamReturn() {
+  protected TeamResultWrapper getMyTeams() {
     List<Team> teams = new ArrayList<Team>();
     Team team1 = new Team("team-1", "Team 1", "Description team 1");
     Team team2 = new Team("team-2", "Team 2", "Description team 2");
@@ -82,11 +79,10 @@ public abstract class AbstractControllerTest {
     teams.add(team1);
     teams.add(team2);
     teams.add(team3);
-    TeamResultWrapper resultWrapper = new TeamResultWrapper(teams, teams.size(), 0, 10);
-    return new Returns(resultWrapper);
+    return new TeamResultWrapper(teams, teams.size(), 0, 10);
   }
 
-  protected Returns getAllTeamReturn() {
+  protected TeamResultWrapper getAllTeams() {
     List<Team> teams = new ArrayList<Team>();
     Team team1 = new Team("team-1", "Team 1", "Description team 1");
     Team team2 = new Team("team-2", "Team 2", "Description team 2");
@@ -100,18 +96,31 @@ public abstract class AbstractControllerTest {
     teams.add(team4);
     teams.add(team5);
     teams.add(team6);
-    TeamResultWrapper resultWrapper = new TeamResultWrapper(teams, teams.size(), 0, 10);
-    return new Returns(resultWrapper);
+    return new TeamResultWrapper(teams, teams.size(), 0, 10);
+  }
+
+  protected Returns getAllTeamReturn() {
+    return new Returns(getAllTeams());
   }
 
   protected Team getTeam1() {
-    return new Team("team-1", "Team 1", "Nice description", true);
+    Stem stem = new Stem("stem-1", "stem 1", "stem description");
+    return new Team("team-1", "Team 1", "Nice description", stem, true);
   }
 
   protected Person getPerson1() {
     Person person = new Person();
     person.setField("id", "member-1");
     return person;
+  }
+
+  protected List<Stem> getStems() {
+    Stem stem1 = new Stem("stem-1", "stem 1", "stem description");
+    Stem stem2 = new Stem("stem-2", "stem 2", "stem description");
+    List<Stem> stems = new ArrayList<Stem>();
+    stems.add(stem1);
+    stems.add(stem2);
+    return stems;
   }
 
   protected Member getAdministrativeMember() {
@@ -128,12 +137,11 @@ public abstract class AbstractControllerTest {
     return new Member(roles, "Member 1", "member-1", "member@example.com");
   }
 
-  protected Returns getSearchTeamReturn() {
+  protected TeamResultWrapper getSearchTeams() {
     ArrayList<Team> teams = new ArrayList<Team>();
     Team team1 = new Team("team-1", "Team 1", "Description team 1");
     teams.add(team1);
-    TeamResultWrapper resultWrapper = new TeamResultWrapper(teams, teams.size(), 0, 10);
-    return new Returns(resultWrapper);
+    return new TeamResultWrapper(teams, teams.size(), 0, 10);
   }
 
   /**

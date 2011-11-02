@@ -16,21 +16,12 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import org.opensocial.models.Person;
-
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.domain.TeamResultWrapper;
+import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.util.DuplicateTeamException;
+import org.opensocial.models.Person;
+
+import java.util.*;
 
 /**
  * Mock implementation of {@link TeamService}
@@ -174,7 +165,7 @@ public class InMemoryMockTeamService implements TeamService {
    * {@inheritDoc}
    */
   @Override
-  public TeamResultWrapper findAllTeams(String stemName,String personId, int offset, int pageSize) {
+  public TeamResultWrapper findAllTeams(String personId, int offset, int pageSize) {
     List<Team> teamList = new ArrayList<Team>(teams.values());
     List<Team> matches = new ArrayList<Team>();
     List<Team> limitedList = new ArrayList<Team>();
@@ -191,7 +182,7 @@ public class InMemoryMockTeamService implements TeamService {
   }
 
   @Override
-  public TeamResultWrapper findTeams(String stemName, String personId, String partOfGroupname, int offset, int pageSize) {
+  public TeamResultWrapper findTeams(String personId, String partOfGroupname, int offset, int pageSize) {
     List<Team> teamList = new ArrayList<Team>(teams.values());
     List<Team> matches = new ArrayList<Team>();
     List<Team> limitedList = new ArrayList<Team>();
@@ -207,7 +198,7 @@ public class InMemoryMockTeamService implements TeamService {
   }
 
   @Override
-  public TeamResultWrapper findAllTeamsByMember(String stemName, String personId, int offset, int pageSize) {
+  public TeamResultWrapper findAllTeamsByMember(String personId, int offset, int pageSize) {
     List<Team> teamList = new ArrayList<Team>(teams.values());
     List<Team> matches = new ArrayList<Team>();
     List<Team> limitedList = new ArrayList<Team>();
@@ -229,7 +220,7 @@ public class InMemoryMockTeamService implements TeamService {
   }
 
   @Override
-  public TeamResultWrapper findTeamsByMember(String stemName, String personId, String partOfGroupname, int offset, int pageSize) {
+  public TeamResultWrapper findTeamsByMember(String personId, String partOfGroupname, int offset, int pageSize) {
     List<Team> teamList = new ArrayList<Team>(teams.values());
     List<Team> matches = new ArrayList<Team>();
     List<Team> limitedList = new ArrayList<Team>();
@@ -248,6 +239,14 @@ public class InMemoryMockTeamService implements TeamService {
       limitedList.add(matches.get(i));
     }
     return new TeamResultWrapper(limitedList, matches.size(), offset, pageSize);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public List<Stem> findStemsByMember(String personId) {
+    return null;  //To change body of implemented methods use File | Settings | File Templates.
   }
 
   /**
@@ -299,7 +298,7 @@ public class InMemoryMockTeamService implements TeamService {
   @Override
   public void addMember(String teamId, Person person) {
     // just find the member (in some other team), copy and add to team
-    List<Team> allTeams = findAllTeams(STEM, "",0, 10000).getTeams();
+    List<Team> allTeams = findAllTeams("",0, 10000).getTeams();
     Member m = null;
     for (Team team : allTeams) {
       if (m != null) {
@@ -355,6 +354,14 @@ public class InMemoryMockTeamService implements TeamService {
   @Override
   public boolean doesStemExists(String stemName) {
     return STEM.equals(stemName);
+  }
+
+  /**
+   * {@inheritDoc}
+   */
+  @Override
+  public Stem findStem(String stemId) {
+    return null;  //To change body of implemented methods use File | Settings | File Templates.
   }
 
 }

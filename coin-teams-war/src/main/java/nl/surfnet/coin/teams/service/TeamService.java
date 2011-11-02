@@ -16,14 +16,14 @@
 
 package nl.surfnet.coin.teams.service;
 
-import java.util.Set;
-
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Stem;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.util.DuplicateTeamException;
-
 import org.opensocial.models.Person;
+
+import java.util.Set;
 
 /**
  * Main interface for dealing with Teams
@@ -172,4 +172,6 @@ public interface TeamService extends GrouperDao {
    * @return true if the Stem is an existing Stem
    */
   public boolean doesStemExists(String stemName);
+
+  Stem findStem(String stemId);
 }

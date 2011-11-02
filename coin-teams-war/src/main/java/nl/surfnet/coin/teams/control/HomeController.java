@@ -120,21 +120,25 @@ public class HomeController {
     if ("all".equals(display) || !StringUtils.hasText(person)) {
       String personId = LoginInterceptor.getLoggedInUser();
       if (StringUtils.hasText(query)) {
+        modelMap.addAttribute("hasMultipleSources", true);
         resultWrapper = teamService.findTeams(
-                environment.getDefaultStemName(), personId, query, offset, PAGESIZE);
+                personId, query, offset, PAGESIZE);
       } else {
+        modelMap.addAttribute("hasMultipleSources", true);
         resultWrapper = teamService.findAllTeams(
-                environment.getDefaultStemName(), personId, offset, PAGESIZE);
+                personId, offset, PAGESIZE);
       }
       modelMap.addAttribute("display", "all");
       // else always display my teams
     } else {
       if (StringUtils.hasText(query)) {
+        modelMap.addAttribute("hasMultipleSources", teamService.findStemsByMember(person).size() > 1);
         resultWrapper = teamService.findTeamsByMember(
-                environment.getDefaultStemName(), person, query, offset, PAGESIZE);
+                person, query, offset, PAGESIZE);
       } else {
+        modelMap.addAttribute("hasMultipleSources", teamService.findStemsByMember(person).size() > 1);
         resultWrapper = teamService.findAllTeamsByMember(
-                environment.getDefaultStemName(), person, offset, PAGESIZE);
+                person, offset, PAGESIZE);
       }
       modelMap.addAttribute("display", "my");
     }

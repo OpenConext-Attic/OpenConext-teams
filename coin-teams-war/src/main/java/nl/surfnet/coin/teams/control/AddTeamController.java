@@ -17,6 +17,7 @@
 package nl.surfnet.coin.teams.control;
 
 import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Stem;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.ShindigActivityService;
@@ -29,13 +30,17 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.LocaleResolver;
 
 import javax.servlet.http.HttpServletRequest;
+import java.beans.PropertyEditorSupport;
 import java.io.IOException;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -67,6 +72,20 @@ public class AddTeamController {
   @Autowired
   private TeamEnvironment environment;
 
+  @Autowired
+  private ControllerUtil controllerUtil;
+
+  @InitBinder
+  protected void initBinder(ServletRequestDataBinder binder) throws Exception {
+    binder.registerCustomEditor(Stem.class, "stem", new PropertyEditorSupport() {
+      @Override
+      public void setAsText(String text) {
+        Stem stem = new Stem(text, "", "");
+        setValue(stem);
+      }
+    });
+  }
+
   @RequestMapping("/addteam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request) {
 
@@ -77,8 +96,15 @@ public class AddTeamController {
       //throw new RuntimeException("User is not allowed to view add team page");
       return "redirect:home.shtml";
     }
+
+    Person person = (Person) request.getSession().getAttribute(
+            LoginInterceptor.PERSON_SESSION_KEY);
+
     Team team = new Team();
     team.setViewable(true);
+    List<Stem> stems = getStemsForMember(person.getId());
+    modelMap.addAttribute("hasMultipleStems", stems.size() > 1);
+    modelMap.addAttribute("stems", stems);
     modelMap.addAttribute("team", team);
     modelMap.addAttribute(TokenUtil.TOKENCHECK, TokenUtil.generateSessionToken());
     return "addteam";
@@ -103,6 +129,11 @@ public class AddTeamController {
     if (PermissionUtil.isGuest(request)) {
       throw new RuntimeException("User is not allowed to add a team!");
     }
+    // Check if the user is not requesting the wrong stem.
+    if (team.getStem() != null && !isPersonUsingAllowedStem(personId, team.getStem().getId())) {
+      throw new RuntimeException("User is not allowed to add a team!");
+    }
+    String stemId = team.getStem() != null ? team.getStem().getId() : environment.getDefaultStemName();
     // (Ab)using a Team bean, do not use for actual storage
     String teamName = team.getName();
     // Form not completely filled in.
@@ -123,7 +154,7 @@ public class AddTeamController {
     // Add the team
     String teamId;
     try {
-      teamId = teamService.addTeam(teamName, teamName, teamDescription, environment.getDefaultStemName());
+      teamId = teamService.addTeam(teamName, teamName, teamDescription, stemId);
     } catch (DuplicateTeamException e) {
       modelMap.addAttribute("nameerror", "duplicate");
       return "addteam";
@@ -159,5 +190,46 @@ public class AddTeamController {
             messageValues, locale);
 
     shindigActivityService.addActivity(personId, teamId, title, body);
+  }
+
+  private List<Stem> getStemsForMember(String personId) {
+    List<Stem> allUsersStems = teamService.findStemsByMember(personId);
+    List<Stem> stems = new ArrayList<Stem>();
+
+    if (allUsersStems.size() == 0 ) {
+      return allUsersStems;
+    }
+
+    // Now check if the stem has a members group and the user is actually in that members group
+    for(Stem stem : allUsersStems) {
+      // Always add the default stem
+      if (stem.getId().equalsIgnoreCase(environment.getDefaultStemName())) {
+        stems.add(stem);
+      }
+      // Find the members team for the stem and check if the current person is member of that team
+      String teamId = stem.getId() + ":" + "members";
+      try {
+        Team team = teamService.findTeamById(teamId);
+
+        if (controllerUtil.isPersonMemberOfTeam(personId, team)) {
+          stems.add(stem);
+        }
+      } catch (RuntimeException e) {
+        // do nothing
+      }
+    }
+    return stems;
+  }
+
+  private boolean isPersonUsingAllowedStem(String personId, String stemId) {
+    List<Stem> allowedStems = getStemsForMember(personId);
+    boolean isAllowed = false;
+
+    for (Stem allowedStem : allowedStems) {
+      if (allowedStem.getId().equalsIgnoreCase(stemId)) {
+        isAllowed = true;
+      }
+    }
+    return isAllowed;
   }
 }

@@ -34,6 +34,7 @@ import java.util.Locale;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * @author steinwelberg
@@ -50,10 +51,14 @@ public class HomeControllerTest extends AbstractControllerTest {
     request.setParameter("teams", "my");
     request.setParameter("teamSearch", "query");
 
+    TeamService teamService = mock(TeamService.class);
+    when(teamService.findAllTeamsByMember(getMember().getId(), 0, 10)).thenReturn(getMyTeams());
+    when(teamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
+
+    autoWireMock(homeController, teamService, TeamService.class);
     autoWireMock(homeController, new Returns(DEFAULTSTEM), TeamEnvironment.class);
     autoWireMock(homeController, new Returns("query"), MessageSource.class);
     autoWireMock(homeController, new Returns(Locale.ENGLISH), LocaleResolver.class);
-    autoWireMock(homeController, getMyTeamReturn(), TeamService.class);
 
     homeController.start(getModelMap(), request);
     @SuppressWarnings("unchecked")
@@ -93,10 +98,14 @@ public class HomeControllerTest extends AbstractControllerTest {
     request.setParameter("teams", "my");
     request.setParameter("teamSearch", "1");
 
+    TeamService teamService = mock(TeamService.class);
+    when(teamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
+    when(teamService.findTeamsByMember(getMember().getId(), "1", 0, 10)).thenReturn(getSearchTeams());
+
+    autoWireMock(homeController, teamService, TeamService.class);
     autoWireMock(homeController, new Returns(DEFAULTSTEM), TeamEnvironment.class);
     autoWireMock(homeController, new Returns("query"), MessageSource.class);
     autoWireMock(homeController, new Returns(Locale.ENGLISH), LocaleResolver.class);
-    autoWireMock(homeController, getSearchTeamReturn(), TeamService.class);
 
     homeController.start(getModelMap(), request);
     @SuppressWarnings("unchecked")
