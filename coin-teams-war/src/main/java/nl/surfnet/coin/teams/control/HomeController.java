@@ -119,12 +119,11 @@ public class HomeController {
 
     if ("all".equals(display) || !StringUtils.hasText(person)) {
       String personId = LoginInterceptor.getLoggedInUser();
+      modelMap.addAttribute("hasMultipleSources", true);
       if (StringUtils.hasText(query)) {
-        modelMap.addAttribute("hasMultipleSources", true);
         resultWrapper = teamService.findTeams(
                 personId, query, offset, PAGESIZE);
       } else {
-        modelMap.addAttribute("hasMultipleSources", true);
         resultWrapper = teamService.findAllTeams(
                 personId, offset, PAGESIZE);
       }
