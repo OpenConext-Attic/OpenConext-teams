@@ -130,12 +130,11 @@ public class HomeController {
       modelMap.addAttribute("display", "all");
       // else always display my teams
     } else {
+      modelMap.addAttribute("hasMultipleSources", teamService.findStemsByMember(person).size() > 1);
       if (StringUtils.hasText(query)) {
-        modelMap.addAttribute("hasMultipleSources", teamService.findStemsByMember(person).size() > 1);
         resultWrapper = teamService.findTeamsByMember(
                 person, query, offset, PAGESIZE);
       } else {
-        modelMap.addAttribute("hasMultipleSources", teamService.findStemsByMember(person).size() > 1);
         resultWrapper = teamService.findAllTeamsByMember(
                 person, offset, PAGESIZE);
       }
