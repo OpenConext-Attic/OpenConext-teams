@@ -16,12 +16,23 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
-import nl.surfnet.coin.teams.domain.*;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.util.DuplicateTeamException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import org.opensocial.models.Person;
 
-import java.util.*;
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Stem;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.domain.TeamResultWrapper;
+import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.util.DuplicateTeamException;
 
 /**
  * Mock implementation of {@link TeamService}
@@ -246,7 +257,7 @@ public class InMemoryMockTeamService implements TeamService {
    */
   @Override
   public List<Stem> findStemsByMember(String personId) {
-    return null;  //To change body of implemented methods use File | Settings | File Templates.
+      return Collections.emptyList();
   }
 
   /**
