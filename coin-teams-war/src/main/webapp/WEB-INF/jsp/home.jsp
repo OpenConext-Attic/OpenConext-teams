@@ -27,15 +27,15 @@
     <c:url value="home.shtml" var="myTeamsUrl"><c:param name="teams" value="my" /><c:param name="view" value="${view}" /></c:url>
     <c:url value="home.shtml" var="allTeamsUrl"><c:param name="teams" value="all" /><c:param name="view" value="${view}" /></c:url>
     <c:url value="myinvitations.shtml" var="myInvitationsUrl"><c:param name="view" value="${view}"/></c:url>
-    <li class="first"><a class="btn-my-teams<c:if test='${display eq "my"}'> selected</c:if>" href="${myTeamsUrl}"><spring:message code='jsp.home.MyTeams' /></a></li>
+    <li class="first"><a class="btn-my-teams<c:if test='${display eq "my"}'> selected</c:if>" href="<c:out value="${myTeamsUrl}"/>"><spring:message code='jsp.home.MyTeams' /></a></li>
 
     <c:choose>
       <c:when test="${myinvitations eq true}">
-        <li class="middle"><a class="btn-all-teams<c:if test='${display eq "all"}'> selected</c:if>" href="${allTeamsUrl}"><spring:message code='jsp.home.AllTeams' /></a></li>
+        <li class="middle"><a class="btn-all-teams<c:if test='${display eq "all"}'> selected</c:if>" href="<c:out value="${allTeamsUrl}"/>"><spring:message code='jsp.home.AllTeams' /></a></li>
         <li class="last"><a href="${myInvitationsUrl}"><spring:message code="jsp.home.MyInvitations"/></a></li>
       </c:when>
       <c:otherwise>
-        <li class="last"><a class="btn-all-teams<c:if test='${display eq "all"}'> selected</c:if>" href="${allTeamsUrl}"><spring:message code='jsp.home.AllTeams' /></a></li>
+        <li class="last"><a class="btn-all-teams<c:if test='${display eq "all"}'> selected</c:if>" href="<c:out value="${allTeamsUrl}"/>"><spring:message code='jsp.home.AllTeams' /></a></li>
       </c:otherwise>
     </c:choose>
   </ul>
@@ -71,11 +71,15 @@
       <thead>
         <tr>
           <th><spring:message code='jsp.home.table.Team' /></th>
-          <th><spring:message code='jsp.home.table.Description' /></th>
-          <c:if test='${display eq "my"}'>
-            <th><spring:message code='jsp.home.table.Role' /></th>
-            <th><spring:message code='jsp.home.table.Members' /></th>
-          </c:if>
+          <c:choose>
+            <c:when test="${display eq 'my'}">
+              <th><spring:message code='jsp.home.table.Role' /></th>
+              <th><spring:message code='jsp.home.table.Members' /></th>
+            </c:when>
+            <c:otherwise>
+              <th><spring:message code='jsp.home.table.Description' /></th>
+            </c:otherwise>
+          </c:choose>
           <c:if test="${hasMultipleSources}">
             <th><spring:message code='jsp.home.table.source' /></th>
           </c:if>
@@ -87,12 +91,19 @@
           <c:forEach items="${teams}" var="team">
             <tr>
               <c:url value="detailteam.shtml" var="detailUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
-              <td><a href="${detailUrl}"><c:out value="${team.name}" /></a></td>
-              <td><c:out value="${team.description}" /></td>
-              <c:if test='${display eq "my"}'>
-                <td><c:out value="${team.viewerRole}" /></td>
-                <td><c:out value="${team.numberOfMembers}" /></td>
-              </c:if>
+              <c:choose>
+                <c:when test="${display eq 'my'}">
+                  <td><a href="<c:out value="${detailUrl}"/>"><c:out value="${team.name}" /></a> <span class="fieldinfo">
+                    <a href="#" title="<c:out value="${team.description}"/>"></a>
+                  </span></td>
+                  <td><c:out value="${team.viewerRole}" /></td>
+                  <td><c:out value="${team.numberOfMembers}" /></td>
+                </c:when>
+                <c:otherwise>
+                  <td><a href="${detailUrl}"><c:out value="${team.name}" /></a></td>
+                  <td><c:out value="${team.description}" /></td>
+                </c:otherwise>
+              </c:choose>
               <c:if test="${hasMultipleSources}">
                 <td><c:out value="${team.stem.name}" /></td>
               </c:if>
