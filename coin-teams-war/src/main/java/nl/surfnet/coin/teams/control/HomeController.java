@@ -86,7 +86,7 @@ public class HomeController {
       List<Invitation> invitations = teamInviteService.findPendingInvitationsByEmail(email);
       modelMap.addAttribute("myinvitations", !CollectionUtils.isEmpty(invitations));
     }
-    modelMap.addAttribute("app-version", environment.getVersion());
+    modelMap.addAttribute("appversion", environment.getVersion());
     ViewUtil.addViewToModelMap(request, modelMap);
 
     return "home";

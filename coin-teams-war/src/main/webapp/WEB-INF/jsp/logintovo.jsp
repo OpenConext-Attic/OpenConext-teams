@@ -20,7 +20,7 @@
   --%>
 
 <teams:genericpage>
-<!-- Version <c:out value='${app-version}' /> -->
+<!-- Version <c:out value='${appversion}' /> -->
 <!-- = Header -->
 <div id="Header">
   <h1><spring:message code="jsp.error.Title"/></h1>

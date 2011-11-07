@@ -20,7 +20,7 @@
   --%>
 
 <teams:genericpage>
-<!-- Version <c:out value='${app-version}' /> -->
+<!-- Version <c:out value='${appversion}' /> -->
 <!-- = Header -->
 <div id="Header">
   <ul class="team-actions">
