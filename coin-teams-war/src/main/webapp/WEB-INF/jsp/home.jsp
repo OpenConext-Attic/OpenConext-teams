@@ -93,9 +93,13 @@
               <c:url value="detailteam.shtml" var="detailUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
               <c:choose>
                 <c:when test="${display eq 'my'}">
-                  <td><a href="<c:out value="${detailUrl}"/>"><c:out value="${team.name}" /></a> <span class="fieldinfo">
+                  <td><a href="<c:out value="${detailUrl}"/>"><c:out value="${team.name}" /></a>
+                    <c:if test="${not empty team.description}">
+                    <span class="fieldinfo">
                     <a href="#" title="<c:out value="${team.description}"/>"></a>
-                  </span></td>
+                    </span>
+                    </c:if>
+                    </td>
                   <td><c:out value="${team.viewerRole}" /></td>
                   <td><c:out value="${team.numberOfMembers}" /></td>
                 </c:when>
