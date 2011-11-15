@@ -20,16 +20,24 @@
 package nl.surfnet.coin.teams.control;
 
 import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
+import org.opensocial.models.Person;
 import org.springframework.context.MessageSource;
 import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.mock.web.MockHttpSession;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.LocaleResolver;
 
 import java.util.ArrayList;
 import java.util.Locale;
+
+import javax.servlet.http.HttpSession;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -80,6 +88,8 @@ public class HomeControllerTest extends AbstractControllerTest {
     autoWireMock(homeController, new Returns(Locale.ENGLISH), LocaleResolver.class);
     autoWireMock(homeController, getAllTeamReturn(), TeamService.class);
 
+    RequestContextHolder.setRequestAttributes(getRequestAttributes(), true);
+    
     homeController.start(getModelMap(), request);
     @SuppressWarnings("unchecked")
     ArrayList<Team> teams = (ArrayList<Team>) getModelMap().get("teams");
@@ -89,6 +99,19 @@ public class HomeControllerTest extends AbstractControllerTest {
     assertEquals(6, teams.size());
     assertEquals("all", display);
     assertNull(query);
+  }
+
+  /**
+   * @return
+   */
+  private RequestAttributes getRequestAttributes() {
+    MockHttpServletRequest request = new MockHttpServletRequest();
+    MockHttpSession session = new MockHttpSession();
+    Person person = new Person();
+    person.setField("id","test");
+    session.setAttribute(LoginInterceptor.PERSON_SESSION_KEY, person);
+    request.setSession(session);
+    return new ServletRequestAttributes(request);
   }
 
   @Test

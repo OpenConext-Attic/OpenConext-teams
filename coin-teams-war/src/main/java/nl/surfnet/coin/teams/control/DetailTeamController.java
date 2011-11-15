@@ -40,6 +40,8 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
 
+import sun.rmi.log.LogInputStream;
+
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -49,12 +51,12 @@ import java.util.*;
 
 /**
  * @author steinwelberg
- *
+ * 
  *         {@link Controller} that handles the detail team page of a logged in
  *         user.
  */
 @Controller
-@SessionAttributes({TokenUtil.TOKENCHECK})
+@SessionAttributes({ TokenUtil.TOKENCHECK })
 public class DetailTeamController {
 
   // private static final String MANAGER = "1";
@@ -144,7 +146,8 @@ public class DetailTeamController {
     modelMap.addAttribute("managerRole", Role.Manager);
     modelMap.addAttribute("memberRole", Role.Member);
     modelMap.addAttribute("noRole", Role.None);
-    modelMap.addAttribute(TokenUtil.TOKENCHECK, TokenUtil.generateSessionToken());
+    modelMap.addAttribute(TokenUtil.TOKENCHECK,
+        TokenUtil.generateSessionToken());
 
     modelMap
         .addAttribute("maxInvitations", teamEnvironment.getMaxInvitations());
@@ -184,18 +187,16 @@ public class DetailTeamController {
     List<Person> requestingPersons = new ArrayList<Person>(
         pendingRequests.size());
     for (JoinTeamRequest joinTeamRequest : pendingRequests) {
-      requestingPersons.add(teamPersonService.getPerson(joinTeamRequest
-          .getPersonId()));
+      requestingPersons.add(teamPersonService.getPerson(
+          joinTeamRequest.getPersonId(), LoginInterceptor.getLoggedInUser()));
     }
     return requestingPersons;
   }
 
   @RequestMapping(value = "/doleaveteam.shtml", method = RequestMethod.POST)
-  public RedirectView leaveTeam(ModelMap modelMap,
-                                HttpServletRequest request,
-                                @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-                                @RequestParam() String token,
-                                SessionStatus status)
+  public RedirectView leaveTeam(ModelMap modelMap, HttpServletRequest request,
+      @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+      @RequestParam() String token, SessionStatus status)
       throws UnsupportedEncodingException {
     String teamId = URLDecoder
         .decode(request.getParameter(TEAM_PARAM), "utf-8");
@@ -221,7 +222,8 @@ public class DetailTeamController {
       status.setComplete();
       return new RedirectView("detailteam.shtml?team="
           + URLEncoder.encode(teamId, UTF_8) + "&view="
-          + ViewUtil.getView(request) + "&mes=" + ADMIN_LEAVE_TEAM, false, true, false);
+          + ViewUtil.getView(request) + "&mes=" + ADMIN_LEAVE_TEAM, false,
+          true, false);
     }
 
     // Leave the team
@@ -234,11 +236,9 @@ public class DetailTeamController {
   }
 
   @RequestMapping(value = "/dodeleteteam.shtml", method = RequestMethod.POST)
-  public RedirectView deleteTeam(ModelMap modelMap,
-                                 HttpServletRequest request,
-                                 @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-                                 @RequestParam() String token,
-                                 SessionStatus status)
+  public RedirectView deleteTeam(ModelMap modelMap, HttpServletRequest request,
+      @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+      @RequestParam() String token, SessionStatus status)
       throws UnsupportedEncodingException {
     TokenUtil.checkTokens(sessionToken, token, status);
 
@@ -272,10 +272,9 @@ public class DetailTeamController {
 
   @RequestMapping(value = "/dodeletemember.shtml", method = RequestMethod.GET)
   public RedirectView deleteMember(ModelMap modelMap,
-                                   HttpServletRequest request,
-                                   @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-                                   @RequestParam() String token,
-                                   SessionStatus status)
+      HttpServletRequest request,
+      @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+      @RequestParam() String token, SessionStatus status)
       throws UnsupportedEncodingException {
     TokenUtil.checkTokens(sessionToken, token, status);
     String teamId = URLDecoder.decode(request.getParameter(TEAM_PARAM), UTF_8);
@@ -333,11 +332,10 @@ public class DetailTeamController {
 
   @RequestMapping(value = "/doaddremoverole.shtml", method = RequestMethod.POST)
   public RedirectView addOrRemoveRole(ModelMap modelMap,
-                                      HttpServletRequest request,
-                                      @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-                                      @RequestParam() String token,
-                                      SessionStatus status)
-      throws IOException, JSONException {
+      HttpServletRequest request,
+      @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+      @RequestParam() String token, SessionStatus status) throws IOException,
+      JSONException {
     TokenUtil.checkTokens(sessionToken, token, status);
     String teamId = request.getParameter("teamId");
     String memberId = request.getParameter("memberId");
@@ -387,23 +385,24 @@ public class DetailTeamController {
   }
 
   private String removeRole(HttpServletRequest request, String teamId,
-      String memberId, String roleString, Team team ) throws UnsupportedEncodingException {
+      String memberId, String roleString, Team team)
+      throws UnsupportedEncodingException {
     // The role admin can only be removed if there are more then one admins in a
     // team.
     if ((roleString.equals(ADMIN) && teamService.findAdmins(team).size() == 1)) {
       return "no.role.added.admin.status";
     }
     Role role = roleString.equals(ADMIN) ? Role.Admin : Role.Manager;
-    return (teamService.removeMemberRole(teamId, memberId, role,
-        false) ? "role.removed" : "no.role.removed");
-      }
+    return (teamService.removeMemberRole(teamId, memberId, role, false) ? "role.removed"
+        : "no.role.removed");
+  }
 
   private String addRole(HttpServletRequest request, String teamId,
       String memberId, String roleString, int offset)
       throws UnsupportedEncodingException {
     Role role = roleString.equals(ADMIN) ? Role.Admin : Role.Manager;
     Member other = teamService.findMember(teamId, memberId);
-    //Guests may not become admin
+    // Guests may not become admin
     if (other.isGuest() && role == Role.Admin) {
       return "no.role.added.guest.status";
     }
@@ -413,30 +412,28 @@ public class DetailTeamController {
 
   @RequestMapping(value = "/dodeleterequest.shtml", method = RequestMethod.POST)
   public RedirectView deleteRequest(HttpServletRequest request,
-                                    ModelMap modelMap,
-                                    @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-                                    @RequestParam() String token,
-                                    SessionStatus status) throws UnsupportedEncodingException {
-    return doHandleJoinRequest(modelMap, request, sessionToken, token, status, false);
+      ModelMap modelMap,
+      @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+      @RequestParam() String token, SessionStatus status)
+      throws UnsupportedEncodingException {
+    return doHandleJoinRequest(modelMap, request, sessionToken, token, status,
+        false);
   }
 
   @RequestMapping(value = "/doapproverequest.shtml", method = RequestMethod.POST)
   public RedirectView approveRequest(HttpServletRequest request,
-                                     ModelMap modelMap,
-                                     @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-                                     @RequestParam() String token,
-                                     SessionStatus status)
-          throws UnsupportedEncodingException {
-    return doHandleJoinRequest(modelMap, request, sessionToken, token, status, true);
+      ModelMap modelMap,
+      @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+      @RequestParam() String token, SessionStatus status)
+      throws UnsupportedEncodingException {
+    return doHandleJoinRequest(modelMap, request, sessionToken, token, status,
+        true);
   }
 
   private RedirectView doHandleJoinRequest(ModelMap modelMap,
-                                           HttpServletRequest request,
-                                           String sessionToken,
-                                           String token,
-                                           SessionStatus status,
-                                           boolean approve)
-          throws UnsupportedEncodingException {
+      HttpServletRequest request, String sessionToken, String token,
+      SessionStatus status, boolean approve)
+      throws UnsupportedEncodingException {
     TokenUtil.checkTokens(sessionToken, token, status);
     String teamId = URLDecoder.decode(request.getParameter(TEAM_PARAM), UTF_8);
     String memberId = URLDecoder.decode(request.getParameter(MEMBER_PARAM),
@@ -455,7 +452,8 @@ public class DetailTeamController {
       throw new RuntimeException("Cannot find team with id " + teamId);
     }
 
-    Person personToAddAsMember = teamPersonService.getPerson(memberId);
+    Person personToAddAsMember = teamPersonService.getPerson(memberId,
+        LoginInterceptor.getLoggedInUser());
     if (personToAddAsMember == null) {
       status.setComplete();
       modelMap.clear();
@@ -473,8 +471,9 @@ public class DetailTeamController {
     if (pendingRequest == null) {
       status.setComplete();
       modelMap.clear();
-      throw new RuntimeException("Member (" + loggedInPerson.getId() + ") is trying to add a member " +
-              "(" + personToAddAsMember.getId() + ") without a membership request");
+      throw new RuntimeException("Member (" + loggedInPerson.getId()
+          + ") is trying to add a member " + "(" + personToAddAsMember.getId()
+          + ") without a membership request");
     }
 
     // Check if the user has the correct privileges
@@ -510,7 +509,7 @@ public class DetailTeamController {
   /**
    * Notifies the user that requested to join a team that his request has been
    * declined
-   *
+   * 
    * @param memberToAdd
    *          {@link Person} that wanted to join the team
    * @param team

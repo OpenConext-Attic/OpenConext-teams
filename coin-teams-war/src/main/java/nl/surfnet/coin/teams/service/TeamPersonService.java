@@ -29,5 +29,5 @@ public interface TeamPersonService {
    * @param userId the unique identifier
    * @return the {@link org.opensocial.models.Person}
    */
-  Person getPerson(String userId);
+  Person getPerson(String userId, String loggedInUser);
 }

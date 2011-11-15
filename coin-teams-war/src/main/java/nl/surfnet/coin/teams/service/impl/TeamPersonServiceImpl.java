@@ -49,13 +49,13 @@ public class TeamPersonServiceImpl implements TeamPersonService {
    * {@inheritDoc}
    */
   @Override
-  public Person getPerson(String userId) {
+  public Person getPerson(String userId,String loggedInUser) {
     Request request = new Request(REST_TEMPLATE, "people.get", "GET");
     request.setModelClass(Person.class);
     request.setSelector(SELF);
     request.setGuid(userId);
     try {
-      return getClient().send(request).getEntry();
+      return getClient(loggedInUser).send(request).getEntry();
     } catch (RequestException e) {
       throw new IllegalArgumentException(
         "Unable to retrieve the person with uid: '" + userId + "'", e);
@@ -69,7 +69,7 @@ public class TeamPersonServiceImpl implements TeamPersonService {
    * We can't store state, because the scheme and therefore the client are bound
    * to the Id of the person
    */
-  private Client getClient() {
+  private Client getClient(String loggedInUser) {
     Provider provider = new ShindigProvider(true);
 
     provider.setRestEndpoint(environment.getOpenSocialUrl() + "/rest/");
@@ -77,7 +77,7 @@ public class TeamPersonServiceImpl implements TeamPersonService {
     provider.setVersion("0.9");
 
     AuthScheme scheme = new OAuth2LeggedScheme(environment.getOauthKey(),
-      environment.getOauthSecret(), LoginInterceptor.getLoggedInUser());
+      environment.getOauthSecret(), loggedInUser);
     return new Client(provider, scheme);
   }
 

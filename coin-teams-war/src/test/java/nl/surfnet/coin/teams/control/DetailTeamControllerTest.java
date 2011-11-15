@@ -20,6 +20,7 @@ import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.JoinTeamRequestService;
 import nl.surfnet.coin.teams.service.TeamPersonService;
 import nl.surfnet.coin.teams.service.TeamService;
@@ -30,7 +31,11 @@ import org.mockito.internal.stubbing.answers.Returns;
 import org.opensocial.models.Person;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.mock.web.MockHttpSession;
 import org.springframework.web.bind.support.SimpleSessionStatus;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
@@ -588,65 +593,10 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     assertEquals("home.shtml?teams=my&view=app", view.getUrl());
   }
 
-  @Test
-  public void testDeleteRequest() throws Exception {
-    MockHttpServletRequest request = getRequest();
-    String token = TokenUtil.generateSessionToken();
-    // Add the team, member & role
-    request.addParameter("team", "team-1");
-    request.addParameter("member", "potential-member-1");
-    request.addParameter("role", "0");
-
-    HashSet<Role> roles = new HashSet<Role>();
-    roles.add(Role.Member);
-    roles.add(Role.Manager);
-    roles.add(Role.Admin);
-
-    List<Member> members = new ArrayList<Member>();
-    Member loggedInMember = new Member(roles, "Jane Doe", "member-1",
-        "jane@doe.com");
-    members.add(loggedInMember);
-
-    Person loggedInPerson = mock(Person.class);
-    when(loggedInPerson.getId()).thenReturn("member-1");
-
-    Person memberToAdd = mock(Person.class);
-    when(memberToAdd.getId()).thenReturn("potential-member-1");
-
-    Team mockTeam = new Team("team-1", "Team 1", "team description", members);
-    TeamService teamService = mock(TeamService.class);
-    when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
-    when(teamService.findMember("team-1", "member-1")).thenReturn(
-        loggedInMember);
-
-    JoinTeamRequest joinTeamRequest = new JoinTeamRequest();
-    joinTeamRequest.setGroupId(mockTeam.getId());
-    joinTeamRequest.setPersonId(memberToAdd.getId());
-
-    JoinTeamRequestService joinTeamRequestService = mock(JoinTeamRequestService.class);
-    when(joinTeamRequestService.findPendingRequest(memberToAdd, mockTeam))
-        .thenReturn(joinTeamRequest);
-
-    TeamPersonService teamPersonService = mock(TeamPersonService.class);
-    when(teamPersonService.getPerson("member-2")).thenReturn(loggedInPerson);
-    when(teamPersonService.getPerson("potential-member-1")).thenReturn(
-        memberToAdd);
-
-    autoWireMock(detailTeamController, new Returns(true), ControllerUtil.class);
-    autoWireMock(detailTeamController, teamService, TeamService.class);
-    autoWireMock(detailTeamController, teamPersonService,
-        TeamPersonService.class);
-    autoWireMock(detailTeamController, joinTeamRequestService,
-        JoinTeamRequestService.class);
-    autoWireRemainingResources(detailTeamController);
-
-    RedirectView result = detailTeamController.deleteRequest(request,
-            getModelMap(), token, token, new SimpleSessionStatus());
-    assertEquals("detailteam.shtml?team=team-1&view=app", result.getUrl());
-  }
-
   @Test(expected = RuntimeException.class)
   public void testApproveRequestNoPendingRequest() throws Exception {
+    RequestContextHolder.setRequestAttributes(getRequestAttributes(), true);
+    
     MockHttpServletRequest request = getRequest();
     String token = TokenUtil.generateSessionToken();
     // Add the team, member & role
@@ -681,8 +631,8 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
         .thenReturn(null);
 
     TeamPersonService teamPersonService = mock(TeamPersonService.class);
-    when(teamPersonService.getPerson("member-2")).thenReturn(loggedInPerson);
-    when(teamPersonService.getPerson("potential-member-1")).thenReturn(
+    when(teamPersonService.getPerson("member-2",null)).thenReturn(loggedInPerson);
+    when(teamPersonService.getPerson("potential-member-1",null)).thenReturn(
         memberToAdd);
 
     autoWireMock(detailTeamController, new Returns(true), ControllerUtil.class);
@@ -702,5 +652,18 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
   public void setup() throws Exception {
     super.setup();
     this.response = new MockHttpServletResponse();
+  }
+  
+  /**
+   * @return
+   */
+  private RequestAttributes getRequestAttributes() {
+    MockHttpServletRequest request = new MockHttpServletRequest();
+    MockHttpSession session = new MockHttpSession();
+    Person person = new Person();
+    person.setField("id","test");
+    session.setAttribute(LoginInterceptor.PERSON_SESSION_KEY, person);
+    request.setSession(session);
+    return new ServletRequestAttributes(request);
   }
 }

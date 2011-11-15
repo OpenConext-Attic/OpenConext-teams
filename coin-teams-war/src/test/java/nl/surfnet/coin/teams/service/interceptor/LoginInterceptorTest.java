@@ -52,7 +52,7 @@ public class LoginInterceptorTest {
     TeamPersonService personService = mock(TeamPersonService.class);
     Person person = new Person();
     person.setField("id", remoteUser);
-    when(personService.getPerson(remoteUser)).thenReturn(person);
+    when(personService.getPerson(remoteUser,remoteUser)).thenReturn(person);
     MemberAttributeService memberAttributeService =
             mock(MemberAttributeService.class);
     when(memberAttributeService.findAttributesForMemberId(
@@ -79,7 +79,7 @@ public class LoginInterceptorTest {
     LoginInterceptor interceptor = new LoginInterceptor();
 
     TeamPersonService personService = mock(TeamPersonService.class);
-    when(personService.getPerson(remoteUser)).thenReturn(null);
+    when(personService.getPerson(remoteUser,remoteUser)).thenReturn(null);
     interceptor.setPersonService(personService);
 
     interceptor.setPersonService(personService);

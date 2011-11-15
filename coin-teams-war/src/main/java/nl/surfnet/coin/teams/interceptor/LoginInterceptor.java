@@ -26,6 +26,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.RequestContextListener;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.ServletException;
@@ -46,7 +49,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   private static final String GADGET = "gadget";
   public static final String PERSON_SESSION_KEY = "person";
   public static final String USER_STATUS_SESSION_KEY = "userStatus";
-  private static final ThreadLocal<String> loggedInUser = new ThreadLocal<String>();
   private static final List<String> LOGIN_BYPASS = createLoginBypass();
   private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
   private static final String STATUS_GUEST = "guest";
@@ -81,7 +83,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     if (person == null || !person.getId().equals(remoteUser)) {
 
       if (StringUtils.hasText(remoteUser)) {
-        person = personService.getPerson(remoteUser);
+        person = personService.getPerson(remoteUser, remoteUser);
         // Add person to session:
         session.setAttribute(PERSON_SESSION_KEY, person);
 
@@ -129,7 +131,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         }
       }
     }
-    loggedInUser.set(remoteUser);
     return super.preHandle(request, response, handler);
   }
 
@@ -185,15 +186,9 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
    * @return the loggedinuser
    */
   public static String getLoggedInUser() {
-    return loggedInUser.get();
-  }
-
-  /**
-   * @param userId
-   *          the user that has to be logged in
-   */
-  public static void setLoggedInUser(String userId) {
-    loggedInUser.set(userId);
+    RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+    Person person = (Person) requestAttributes.getAttribute(PERSON_SESSION_KEY, RequestAttributes.SCOPE_SESSION);
+    return person.getId();
   }
 
   /**
