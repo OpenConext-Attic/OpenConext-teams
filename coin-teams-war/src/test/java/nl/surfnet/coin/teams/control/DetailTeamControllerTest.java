@@ -16,13 +16,12 @@
 
 package nl.surfnet.coin.teams.control;
 
-import nl.surfnet.coin.teams.domain.JoinTeamRequest;
+import nl.surfnet.coin.shared.service.PersonService;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.JoinTeamRequestService;
-import nl.surfnet.coin.teams.service.TeamPersonService;
 import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.TokenUtil;
@@ -630,15 +629,15 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     when(joinTeamRequestService.findPendingRequest(memberToAdd, mockTeam))
         .thenReturn(null);
 
-    TeamPersonService teamPersonService = mock(TeamPersonService.class);
-    when(teamPersonService.getPerson("member-2",null)).thenReturn(loggedInPerson);
-    when(teamPersonService.getPerson("potential-member-1",null)).thenReturn(
-        memberToAdd);
+    PersonService personService = mock(PersonService.class);
+    when(personService.getPerson("member-2",null)).thenReturn(loggedInPerson);
+    when(personService.getPerson("potential-member-1",null)).thenReturn(
+            memberToAdd);
 
     autoWireMock(detailTeamController, new Returns(true), ControllerUtil.class);
     autoWireMock(detailTeamController, teamService, TeamService.class);
-    autoWireMock(detailTeamController, teamPersonService,
-        TeamPersonService.class);
+    autoWireMock(detailTeamController, personService,
+        PersonService.class);
     autoWireMock(detailTeamController, joinTeamRequestService,
         JoinTeamRequestService.class);
     autoWireRemainingResources(detailTeamController);

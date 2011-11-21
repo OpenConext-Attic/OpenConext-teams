@@ -17,11 +17,11 @@
 package nl.surfnet.coin.teams.control;
 
 import nl.surfnet.coin.shared.service.MailService;
+import nl.surfnet.coin.shared.service.PersonService;
 import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.JoinTeamRequestService;
 import nl.surfnet.coin.teams.service.TeamInviteService;
-import nl.surfnet.coin.teams.service.TeamPersonService;
 import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
@@ -30,6 +30,7 @@ import nl.surfnet.coin.teams.util.ViewUtil;
 import org.json.JSONException;
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.MessageSource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
@@ -39,8 +40,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
-
-import sun.rmi.log.LogInputStream;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -84,7 +83,8 @@ public class DetailTeamController {
   private JoinTeamRequestService joinTeamRequestService;
 
   @Autowired
-  private TeamPersonService teamPersonService;
+  @Qualifier("opensocialPersonService")
+  private PersonService teamPersonService;
 
   @Autowired
   private TeamEnvironment teamEnvironment;

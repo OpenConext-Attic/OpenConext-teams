@@ -16,19 +16,19 @@
 
 package nl.surfnet.coin.teams.interceptor;
 
+import nl.surfnet.coin.shared.service.PersonService;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.MemberAttribute;
 import nl.surfnet.coin.teams.service.MemberAttributeService;
-import nl.surfnet.coin.teams.service.TeamPersonService;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 import org.opensocial.models.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.RequestContextListener;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.ServletException;
@@ -58,7 +58,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   private TeamEnvironment teamEnvironment;
 
   @Autowired
-  private TeamPersonService personService;
+  @Qualifier("opensocialPersonService")
+  private PersonService personService;
 
   @Autowired
   private MemberAttributeService memberAttributeService;
@@ -196,7 +197,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
    *
    * @param personService
    */
-  public void setPersonService(TeamPersonService personService) {
+  public void setPersonService(PersonService personService) {
     this.personService = personService;
   }
 
