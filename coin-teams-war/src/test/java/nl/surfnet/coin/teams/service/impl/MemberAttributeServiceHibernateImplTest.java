@@ -43,7 +43,7 @@ import nl.surfnet.coin.teams.service.MemberAttributeService;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:coin-teams-context.xml",
-    "classpath:coin-teams-properties-hsqldb-context.xml",
+    "classpath:coin-teams-properties-hsqldb-context.xml", "classpath:coin-opensocial-context.xml",
     "classpath:coin-shared-context.xml"})
 @TransactionConfiguration(transactionManager = "teamTransactionManager", defaultRollback = true)
 @Transactional
