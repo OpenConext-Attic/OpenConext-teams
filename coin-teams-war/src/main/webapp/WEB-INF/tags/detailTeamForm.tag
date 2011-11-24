@@ -127,7 +127,6 @@
           <c:if test="${role eq adminRole or role eq managerRole}">
             <th class="remove"></th>
           </c:if>
-          <th class="name"><spring:message code='jsp.detailteam.Name'/></th>
           <th class="description"><spring:message code="jsp.general.Email"/></th>
           <th><spring:message code='jsp.detailteam.InvitationInformation'/></th>
 
@@ -144,7 +143,6 @@
             <td><a href="<c:out value='${dodeleteinvite}'/>" class="delete" title="<spring:message code="jsp.detailteam.Delete"/>">
               <spring:message code="jsp.detailteam.Delete"/>
             </a></td>
-            <td></td>
             <td><c:out value="${invite.email}"/></td>
             <td>
               <c:choose>
