@@ -38,8 +38,9 @@ public class TeamEnvironment {
   private int maxInvitations;
 
   private long maxUploadSize;
+  private String rpcRelayURL;
 
-  /**
+    /**
    * @return the version
    */
   public String getVersion() {
@@ -280,5 +281,16 @@ public class TeamEnvironment {
    */
   public void setGroupNameContext(String voNameContext) {
     this.groupNameContext = voNameContext;
+  }
+
+  /**
+   * @param rpcRelayURL the rpcRelayURL to set
+   */
+  public void setRpcRelayURL(String rpcRelayURL) {
+      this.rpcRelayURL = rpcRelayURL;
+  }
+
+  public String getRpcRelayURL() {
+    return rpcRelayURL;
   }
 }

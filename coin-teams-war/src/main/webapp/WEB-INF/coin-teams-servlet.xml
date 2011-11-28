@@ -50,12 +50,15 @@
     <property name="interceptors">
       <list>
         <ref bean="loginInterceptor"/>
+        <ref bean="commonModelHandlerInterceptor" />
       </list>
     </property>
     <property name="alwaysUseFullPath" value="true"/>
   </bean>
 
-  <bean id="loginInterceptor" class="${loginInterceptor}"/>
+  <bean id="loginInterceptor" class="${loginInterceptor}" />
+
+  <bean id="commonModelHandlerInterceptor" class="nl.surfnet.coin.teams.interceptor.CommonModelHandlerInterceptor" />
 
   <bean id="messageAdapter"
         class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">

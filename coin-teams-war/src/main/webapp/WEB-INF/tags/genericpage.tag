@@ -100,5 +100,32 @@
   <script type="text/javascript" src="<c:url value="/js/jquery.validate.min.js"/>"></script>
   <script type="text/javascript" src="<c:url value="/js/jquery-ui-1.8.13.custom.min.js"/>"></script>
   <script type="text/javascript" src="<c:url value="/js/coin-teams.js"/>"></script>
+
+  <c:if test='${view eq "gadget"}'>
+    <script src="http://localhost:8080/gadgets/js/rpc.js"></script>
+     <script type="text/javascript">
+       $(window).load(function () {
+         function setheight_callback() {
+           return false;
+         }
+
+         function getURLParameter(name) {
+           name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+           var regexS = "[\\?&]"+name+"=([^&#]*)";
+           var regex = new RegExp( regexS );
+           var results = regex.exec(window.location.href);
+           if (results == null)
+             return "";
+           else
+             return unescape(results[1]);
+         }
+
+         gadgets.rpc.setAuthToken('..', getURLParameter('rpctoken'));
+         gadgets.rpc.setRelayUrl('..', '<c:out value="${rpcRelayURL}" />');
+         gadgets.rpc.call('..', 'setheight', setheight_callback, document.body.scrollHeight);
+       });
+     </script>
+  </c:if>
+
 </body>
 </html>
