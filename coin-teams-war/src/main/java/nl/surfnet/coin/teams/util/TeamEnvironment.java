@@ -38,7 +38,7 @@ public class TeamEnvironment {
   private int maxInvitations;
 
   private long maxUploadSize;
-  private String rpcRelayURL;
+  private String shindigHost;
 
     /**
    * @return the version
@@ -284,13 +284,13 @@ public class TeamEnvironment {
   }
 
   /**
-   * @param rpcRelayURL the rpcRelayURL to set
+   * @param shindigHost the host for Shindig to set
    */
-  public void setRpcRelayURL(String rpcRelayURL) {
-      this.rpcRelayURL = rpcRelayURL;
+  public void setShindigHost(String shindigHost) {
+      this.shindigHost = shindigHost;
   }
 
-  public String getRpcRelayURL() {
-    return rpcRelayURL;
+  public String getShindigHost() {
+    return shindigHost;
   }
 }

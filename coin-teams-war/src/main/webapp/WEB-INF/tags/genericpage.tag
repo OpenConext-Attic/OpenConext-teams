@@ -102,7 +102,7 @@
   <script type="text/javascript" src="<c:url value="/js/coin-teams.js"/>"></script>
 
   <c:if test='${view eq "gadget"}'>
-    <script src="http://localhost:8080/gadgets/js/rpc.js"></script>
+    <script src="<c:out value="${shindigHost}" />/gadgets/js/rpc.js"></script>
      <script type="text/javascript">
        $(window).load(function () {
          function setheight_callback() {
@@ -121,7 +121,7 @@
          }
 
          gadgets.rpc.setAuthToken('..', getURLParameter('rpctoken'));
-         gadgets.rpc.setRelayUrl('..', '<c:out value="${rpcRelayURL}" />');
+         gadgets.rpc.setRelayUrl('..', '<c:out value="${shindigHost}" />/container/rpc_relay.html');
          gadgets.rpc.call('..', 'setheight', setheight_callback, document.body.scrollHeight);
        });
      </script>

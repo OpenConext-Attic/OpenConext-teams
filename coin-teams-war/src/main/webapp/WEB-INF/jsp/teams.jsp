@@ -44,7 +44,7 @@
 
       document.getElementById('SURFteamsContent').innerHTML = '<iframe id="teams-iframe" name="teams-iframe" frameborder="0" scrolling="auto" width="100%" height="375" src="'+srcString+'"></iframe>';
       gadgets.rpc.setAuthToken('teams-iframe', rpcToken);
-      gadgets.rpc.setRelayUrl('teams-iframe', '<c:out value="${rpcRelayURL}" />');
+      gadgets.rpc.setRelayUrl('teams-iframe', '<c:out value="${shindigHost}" />/container/rpc_relay.html');
       gadgets.util.registerOnLoadHandler(function() {
         gadgets.rpc.register("setheight", function(new_height) {
           document.getElementById('teams-iframe').height = new_height;
