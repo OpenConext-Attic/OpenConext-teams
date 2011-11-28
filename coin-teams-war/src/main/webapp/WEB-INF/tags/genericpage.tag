@@ -122,7 +122,7 @@
 
          gadgets.rpc.setAuthToken('..', getURLParameter('rpctoken'));
          gadgets.rpc.setRelayUrl('..', '<c:out value="${shindigHost}" />/container/rpc_relay.html');
-         gadgets.rpc.call('..', 'setheight', setheight_callback, document.body.scrollHeight);
+         gadgets.rpc.call('..', 'setheight', setheight_callback, $(document.body).outerHeight(true));
        });
      </script>
   </c:if>

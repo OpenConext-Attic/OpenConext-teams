@@ -17,7 +17,7 @@
   ~ limitations under the License.
   --%>
 <Module>
-  <ModulePrefs title="SURFteams" height="375">
+  <ModulePrefs title="SURFteams">
     <Require feature="dynamic-height"/>
   </ModulePrefs>
   <UserPref name="groupContext"/>
@@ -43,9 +43,9 @@
       srcString += '&rpctoken=' + rpcToken;
 
       document.getElementById('SURFteamsContent').innerHTML = '<iframe id="teams-iframe" name="teams-iframe" frameborder="0" scrolling="auto" width="100%" height="375" src="'+srcString+'"></iframe>';
-      gadgets.rpc.setAuthToken('teams-iframe', rpcToken);
-      gadgets.rpc.setRelayUrl('teams-iframe', '<c:out value="${shindigHost}" />/container/rpc_relay.html');
       gadgets.util.registerOnLoadHandler(function() {
+        gadgets.rpc.setAuthToken('teams-iframe', rpcToken);
+        gadgets.rpc.setRelayUrl('teams-iframe', '<c:out value="${shindigHost}" />/container/rpc_relay.html');
         gadgets.rpc.register("setheight", function(new_height) {
           document.getElementById('teams-iframe').height = new_height;
           gadgets.window.adjustHeight();
