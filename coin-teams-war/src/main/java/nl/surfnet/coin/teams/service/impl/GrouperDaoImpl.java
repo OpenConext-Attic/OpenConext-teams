@@ -132,10 +132,11 @@ public class GrouperDaoImpl implements GrouperDao {
     List<Team> teams = performQuery(
         "select distinct gg.name, gg.display_name ,gg.description, gs.name as stem_name, gs.display_name as stem_display_name, gs.description as stem_description "
             + "from grouper_groups gg, grouper_stems gs, grouper_members gm, "
-            + "grouper_memberships gms  "
+            + "grouper_memberships gms, grouper_fields gf "
             + "where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
             + "and gm.subject_id = ? "
             + "and gs.name != 'etc' "
+            + "and gf.id = gms.field_id and gf.name = 'members' "
             + "order by gg.name limit ? offset ?", new Object[] { personId, pageSize, offset });
     addRolesToTeams(personId, teams);
     addMemberCountToTeams(personId, teams);
@@ -163,10 +164,11 @@ public class GrouperDaoImpl implements GrouperDao {
     List<Team> teams = performQuery(
         "select distinct gg.name, gg.display_name ,gg.description, gs.name as stem_name, gs.display_name as stem_display_name, gs.description as stem_description "
             + "from grouper_groups gg, grouper_stems gs, grouper_members gm, "
-            + "grouper_memberships gms  "
+            + "grouper_memberships gms, grouper_fields gf "
             + "where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
             + "and gm.subject_id = ? "
             + "and gs.name != 'etc' "
+            + "and gf.id = gms.field_id and gf.name = 'members' "
             + "and upper(gg.name) like ? order by gg.name limit ? offset ?",
         new Object[] { personId, partOfGroupname, pageSize, offset });
     addRolesToTeams(personId, teams);
