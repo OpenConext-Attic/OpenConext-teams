@@ -202,8 +202,12 @@ public class DetailTeamController {
         pendingRequests.size());
     for (JoinTeamRequest joinTeamRequest : pendingRequests) {
       String personId = joinTeamRequest.getPersonId();
-      requestingPersons.add(teamPersonService.getPerson(
-          personId, personId));//LoginInterceptor.getLoggedInUser()));
+      /**
+       * In order to avoid a security exception in OpenSocial we need to ask the
+       * question to the teampersonservice as memberId and not as the currently
+       * logged-in user
+       */
+      requestingPersons.add(teamPersonService.getPerson(personId, personId));
     }
     return requestingPersons;
   }
@@ -467,8 +471,13 @@ public class DetailTeamController {
       throw new RuntimeException("Cannot find team with id " + teamId);
     }
 
-    Person personToAddAsMember = teamPersonService.getPerson(memberId, memberId);
-        //LoginInterceptor.getLoggedInUser());
+    /**
+     * In order to avoid a security exception in OpenSocial we need to ask the
+     * question to the teampersonservice as memberId and not as the currently
+     * logged-in user
+     */
+    Person personToAddAsMember = teamPersonService
+        .getPerson(memberId, memberId);
     if (personToAddAsMember == null) {
       status.setComplete();
       modelMap.clear();
