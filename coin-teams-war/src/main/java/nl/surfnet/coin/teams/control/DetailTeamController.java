@@ -201,8 +201,9 @@ public class DetailTeamController {
     List<Person> requestingPersons = new ArrayList<Person>(
         pendingRequests.size());
     for (JoinTeamRequest joinTeamRequest : pendingRequests) {
+      String personId = joinTeamRequest.getPersonId();
       requestingPersons.add(teamPersonService.getPerson(
-          joinTeamRequest.getPersonId(), LoginInterceptor.getLoggedInUser()));
+          personId, personId));//LoginInterceptor.getLoggedInUser()));
     }
     return requestingPersons;
   }
@@ -466,8 +467,8 @@ public class DetailTeamController {
       throw new RuntimeException("Cannot find team with id " + teamId);
     }
 
-    Person personToAddAsMember = teamPersonService.getPerson(memberId,
-        LoginInterceptor.getLoggedInUser());
+    Person personToAddAsMember = teamPersonService.getPerson(memberId, memberId);
+        //LoginInterceptor.getLoggedInUser());
     if (personToAddAsMember == null) {
       status.setComplete();
       modelMap.clear();
