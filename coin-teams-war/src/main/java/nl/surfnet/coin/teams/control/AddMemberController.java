@@ -36,6 +36,7 @@ import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
@@ -48,8 +49,11 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -336,20 +340,27 @@ public class AddMemberController {
     String footer = messageSource.getMessage(
             "invite.MessageFooter", messageValuesFooter, locale);
 
-    SimpleMailMessage mailMessage = new SimpleMailMessage();
-    mailMessage.setFrom(environment.getSystemEmail());
-    mailMessage.setTo(invitation.getEmail());
-    mailMessage.setSubject(subject);
-
     StringBuffer sb = new StringBuffer();
+    sb.append("<html><body>");
     InvitationMessage latestInvitationMessage = invitation.getLatestInvitationMessage();
     if (latestInvitationMessage != null) {
-      sb.append(latestInvitationMessage.getMessage());
+      sb.append(latestInvitationMessage.getMessage().replaceAll("<.*?>",""));
     }
     sb.append(footer);
-    mailMessage.setText(sb.toString());
+    sb.append("</body></html>");
+      
+    final String html = sb.toString();
 
-    mailService.sendAsync(mailMessage);
+    MimeMessagePreparator preparator = new MimeMessagePreparator() {
+      public void prepare(MimeMessage mimeMessage) throws MessagingException {
+        mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(invitation.getEmail()));
+        mimeMessage.setFrom(new InternetAddress(environment.getSystemEmail()));
+        mimeMessage.setSubject(subject);
+        mimeMessage.setText(html, "UTF-8", "html");
+      }
+    };
+
+    mailService.sendAsync(preparator);
   }
 
 
