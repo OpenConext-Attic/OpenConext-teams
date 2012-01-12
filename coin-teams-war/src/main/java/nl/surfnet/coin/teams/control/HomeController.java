@@ -74,6 +74,8 @@ public class HomeController {
     String display = request.getParameter("teams");
     String query = request.getParameter("teamSearch");
 
+    query = sanitizeQuery(query);
+
     // Set the display to my if no display is selected
     if (!StringUtils.hasText(display)) {
       display = "my";
@@ -92,7 +94,14 @@ public class HomeController {
     return "home";
   }
 
-  private void addTeams(String query, final String person,
+  protected String sanitizeQuery(final String query) {
+    if (query == null) {
+        return null;
+    }
+    return query.replaceAll(" ", "_");
+  }
+
+    private void addTeams(String query, final String person,
                         final String display, ModelMap modelMap,
                         HttpServletRequest request) {
 
