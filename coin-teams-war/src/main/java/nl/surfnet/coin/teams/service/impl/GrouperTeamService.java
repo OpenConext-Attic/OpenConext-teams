@@ -588,8 +588,8 @@ public class GrouperTeamService implements TeamService {
   @Override
   public TeamResultWrapper findTeams(String personId,
                                      String partOfGroupname, int offset, int pageSize) {
-    return grouperDao.findTeams(personId, partOfGroupname, offset,
-            pageSize);
+    final String sanitizedGroupname = partOfGroupname.replaceAll(" ", "_");
+    return grouperDao.findTeams(personId, sanitizedGroupname, offset, pageSize);
   }
 
   /*

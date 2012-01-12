@@ -141,11 +141,6 @@ public class HomeControllerTest extends AbstractControllerTest {
     assertEquals("1", query);
   }
 
-  @Test
-  public void testQuerySanitation() {
-    assertEquals("The_Team_Name", homeController.sanitizeQuery("The Team Name"));
-  }
-
   @Override
   public void setup() throws Exception {
     super.setup();
