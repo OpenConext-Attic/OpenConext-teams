@@ -28,7 +28,14 @@
 
   <%-- = Content --%>
   <div id="Content">
-    <spring:message code="jsp.invitation${action}.failed" htmlEscape="false" />
+    <c:choose>
+      <c:when test="${not empty teamUrl}">
+        <spring:message code="jsp.invitation${action}.failed" htmlEscape="false" arguments="${teamUrl}" />
+      </c:when>
+      <c:otherwise>
+        <spring:message code="jsp.invitation${action}.failed" htmlEscape="false" />
+      </c:otherwise>
+    </c:choose>
   </div>
   <%-- / Content --%>
 </teams:genericpage>

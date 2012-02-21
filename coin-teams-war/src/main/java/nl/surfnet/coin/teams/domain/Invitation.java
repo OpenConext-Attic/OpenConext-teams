@@ -51,6 +51,10 @@ public class Invitation extends DomainObject {
   @Column(name = "denied")
   private boolean declined;
 
+  // 0 or 1
+  @Column(name = "accepted")
+  private boolean accepted;
+
   @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "invitation")
   @Sort(type = SortType.NATURAL)
   private List<InvitationMessage> invitationMessages;
@@ -149,6 +153,20 @@ public class Invitation extends DomainObject {
    */
   public void setDeclined(boolean declined) {
     this.declined = declined;
+  }
+
+  /**
+   * @return {@literal true} if the invitee has accepted the invitation
+   */
+  public boolean isAccepted() {
+    return accepted;
+  }
+
+  /**
+   * @param accepted indicator if the invitation is denied
+   */
+  public void setAccepted(boolean accepted) {
+    this.accepted = accepted;
   }
 
   /**

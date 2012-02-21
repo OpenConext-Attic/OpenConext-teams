@@ -47,9 +47,7 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
   @Test
   public void testAccept() throws Exception {
-
     String page = controller.accept(getModelMap(), getRequest());
-
     assertEquals("acceptinvitation", page);
   }
 
@@ -67,8 +65,17 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
     RedirectView view = controller.doAccept(getRequest());
 
+    assertTrue("Accepted invitation", invitation.isAccepted());
+
     String redirectUrl = "detailteam.shtml?team=team-1&view=app";
     assertEquals(redirectUrl, view.getUrl());
+  }
+
+  @Test(expected = IllegalStateException.class)
+  public void testDoAcceptTwice() throws Exception {
+    controller.doAccept(getRequest());
+    assertTrue("Accepted invitation", invitation.isAccepted());
+    controller.doAccept(getRequest());
   }
 
   @Test

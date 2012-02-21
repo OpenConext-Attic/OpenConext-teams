@@ -66,16 +66,26 @@ public class InvitationController {
    * @param request
    *          {@link HttpServletRequest}
    * @return accept invitation page
+   * @throws UnsupportedEncodingException
+   *           if the server does not support utf-8
    */
   @RequestMapping(value = "/acceptInvitation.shtml")
-  public String accept(ModelMap modelMap, HttpServletRequest request) {
+  public String accept(ModelMap modelMap, HttpServletRequest request) throws UnsupportedEncodingException {
     Invitation invitation = getInvitationByRequest(request);
-    if (invitation==null) {
-      modelMap.addAttribute("action", "accepted");
+    if (invitation == null) {
+      modelMap.addAttribute("action", "missing");
       return "invitationexception";
     }
     if (invitation.isDeclined()) {
+      modelMap.addAttribute("action", "declined");
+      return "invitationexception";
+    }
+    if (invitation.isAccepted()) {
       modelMap.addAttribute("action", "accepted");
+      String teamId = invitation.getTeamId();
+      String teamUrl = "detailteam.shtml?team=" + URLEncoder.encode(teamId, "utf-8")
+              + "&view=" + ViewUtil.getView(request);
+      modelMap.addAttribute("teamUrl", teamUrl);
       return "invitationexception";
     }
     String teamId = invitation.getTeamId();
@@ -115,6 +125,9 @@ public class InvitationController {
     if (invitation.isDeclined()) {
       throw new RuntimeException("Invitation is Declined");
     }
+    if (invitation.isAccepted()) {
+      throw new IllegalStateException("Invitation is already Accepted");
+    }
     String teamId = invitation.getTeamId();
     if (!StringUtils.hasText(teamId)) {
       throw new RuntimeException("Invalid invitation");
@@ -125,7 +138,8 @@ public class InvitationController {
     teamService.addMember(teamId, person);
     teamService.addMemberRole(teamId, memberId, Role.Member, true);
 
-    teamInviteService.delete(invitation);
+    invitation.setAccepted(true);
+    teamInviteService.saveOrUpdate(invitation);
 
     return new RedirectView("detailteam.shtml?team="
         + URLEncoder.encode(teamId, "utf-8") + "&view="
