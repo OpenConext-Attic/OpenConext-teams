@@ -263,8 +263,7 @@ public class DetailTeamController {
     TokenUtil.checkTokens(sessionToken, token, status);
 
     String teamId = URLDecoder.decode(request.getParameter(TEAM_PARAM), UTF_8);
-    Person person = (Person) request.getSession().getAttribute(
-        LoginInterceptor.PERSON_SESSION_KEY);
+    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
     String personId = person.getId();
 
     if (!StringUtils.hasText(teamId)) {

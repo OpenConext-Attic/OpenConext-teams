@@ -28,11 +28,13 @@ import java.util.HashSet;
 import java.util.List;
 
 import nl.surfnet.coin.opensocial.service.PersonService;
+import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.JoinTeamRequestService;
+import nl.surfnet.coin.teams.service.TeamInviteService;
 import nl.surfnet.coin.teams.service.TeamService;
 import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.TokenUtil;
@@ -333,12 +335,24 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     roles.add(Role.Admin);
 
     Member member = new Member(roles, "John Doe", "member-1", "john@doe.com");
+      
+    Team team = mock(Team.class);
+    team.setName("team-1");
 
-    autoWireMock(detailTeamController, new Returns(member), TeamService.class);
+    TeamInviteService teamInviteService = mock(TeamInviteService.class);
+    when(teamInviteService.findInvitationsForTeam(team)).thenReturn(Collections.<Invitation>emptyList());
+
+    autoWireMock(detailTeamController, teamInviteService, TeamInviteService.class);
+
+    TeamService teamService = mock(TeamService.class);
+    when(teamService.findMember("team-1", "member-1")).thenReturn(member);
+    when(teamService.findTeamById("team-1")).thenReturn(team);
+      
+    autoWireMock(detailTeamController, teamService, TeamService.class);
     autoWireRemainingResources(detailTeamController);
 
-    RedirectView result = detailTeamController.deleteTeam(getModelMap(),
-        request, token, token, new SimpleSessionStatus());
+    RedirectView result = detailTeamController.deleteTeam(getModelMap(), 
+            request, token, token, new SimpleSessionStatus());
 
     assertEquals("home.shtml?teams=my&view=app", result.getUrl());
   }
