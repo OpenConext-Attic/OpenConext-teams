@@ -43,10 +43,12 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
 
   private JoinTeamController joinTeamController = new JoinTeamController();
   private Team mockTeam;
+  private Team mockPrivateTeam;
 
   @Before
   public void prepareData() {
-    mockTeam = new Team("team-1", "Team 1", "description");
+    mockTeam = new Team("team-1", "Team 1", "description", true);
+    mockPrivateTeam = new Team("team-2", "Team 2", "description", false);
   }
 
   @Test
@@ -111,6 +113,25 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
     autoWireRemainingResources(joinTeamController);
 
     joinTeamController.joinTeam(getModelMap(), null, request);
+  }
+    
+  @Test(expected = IllegalStateException.class)
+  public void testJoinPrivateTeam() throws Exception {
+    MockHttpServletRequest request = getRequest();
+    // Add the team
+    request.addParameter("team", "team-2");
+    request.addParameter("message", "message");
+
+    TeamService mockTeamService = createMock("mockTeamService", TeamService.class);
+    joinTeamController.setTeamService(mockTeamService);
+
+    JoinTeamRequest joinTeamRequest = new JoinTeamRequest("ID2345", "team-2");
+
+    autoWireMock(joinTeamController, new Returns(mockPrivateTeam), ControllerUtil.class);
+    autoWireRemainingResources(joinTeamController);
+    replay(mockTeamService);
+    RedirectView result = joinTeamController.joinTeam(getModelMap(), joinTeamRequest, request);
+
   }
 
 }

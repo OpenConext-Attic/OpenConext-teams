@@ -126,6 +126,10 @@ public class JoinTeamController {
     ViewUtil.addViewToModelMap(request, modelMap);
 
     Team team = controllerUtil.getTeamById(joinTeamRequest.getGroupId());
+      
+    if (!team.isViewable()) {
+      throw new IllegalStateException("The team you requested to join is private.");
+    }
 
     Person person = (Person) request.getSession().getAttribute(
             LoginInterceptor.PERSON_SESSION_KEY);
