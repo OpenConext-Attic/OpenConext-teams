@@ -353,6 +353,7 @@ public class AddMemberController {
 
     MimeMessagePreparator preparator = new MimeMessagePreparator() {
       public void prepare(MimeMessage mimeMessage) throws MessagingException {
+        mimeMessage.addHeader("Precedence", "bulk");
         mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(invitation.getEmail()));
         mimeMessage.setFrom(new InternetAddress(environment.getSystemEmail()));
         mimeMessage.setSubject(subject);
