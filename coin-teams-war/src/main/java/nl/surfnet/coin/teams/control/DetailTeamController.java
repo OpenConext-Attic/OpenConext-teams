@@ -30,6 +30,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import nl.surfnet.coin.opensocial.service.PersonService;
 import nl.surfnet.coin.shared.service.MailService;
+import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Pager;
@@ -275,6 +276,11 @@ public class DetailTeamController {
     Member member = teamService.findMember(teamId, personId);
     if (member.getRoles().contains(Role.Admin)) {
       // Delete the team
+      Team team = teamService.findTeamById(teamId);
+      final List<Invitation> invitationsForTeam = teamInviteService.findInvitationsForTeam(team);
+      for (Invitation invitation : invitationsForTeam) {
+        teamInviteService.delete(invitation);
+      }
       teamService.deleteTeam(teamId);
 
       status.setComplete();
