@@ -101,6 +101,7 @@ public class TeamInviteServiceHibernateImpl
     cleanupExpiredInvitations();
     Criteria criteria = createCriteria();
     criteria.add(Restrictions.eq("teamId", team.getId()));
+    criteria.add(Restrictions.eq("accepted", false));
     criteria.addOrder(Order.asc("email"));
     criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
     return criteria.list();
