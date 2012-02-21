@@ -17,7 +17,7 @@
   ~ limitations under the License.
   --%>
 <Module>
-  <ModulePrefs title="SURFteams">
+  <ModulePrefs title="SURFteams" height="375">
     <Require feature="dynamic-height"/>
   </ModulePrefs>
   <UserPref name="groupContext"/>
