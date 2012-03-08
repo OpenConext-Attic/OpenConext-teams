@@ -27,46 +27,15 @@
   <packaging>war</packaging>
   <name>coin-teams-war</name>
   <properties>
-    <jetty.version>6.1.26</jetty.version>
-    <spring.version>3.0.3.RELEASE</spring.version>
-    <httpclient.version>4.1</httpclient.version>
     <grouper.version>1.6.1</grouper.version>
-    <coin-shared.version>2.1.0-SNAPSHOT</coin-shared.version>
-    <coin-opensocial.version>2.1.0-SNAPSHOT</coin-opensocial.version>
-    <coin-test.version>2.1.0-SNAPSHOT</coin-test.version>
-    <mysql.version>5.1.10</mysql.version>
     <jackson.version>1.8.1</jackson.version>
   </properties>
-
 
   <build>
     <plugins>
       <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
-        <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <version>2.1.2</version>
-        <executions>
-          <execution>
-            <id>attach-sources</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>jar-no-fork</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
         <groupId>org.mortbay.jetty</groupId>
         <artifactId>maven-jetty-plugin</artifactId>
-        <version>${jetty.version}</version>
         <configuration>
           <webAppConfig>
             <contextPath>/teams</contextPath>
@@ -88,14 +57,14 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-eclipse-plugin</artifactId>
-        <version>2.9</version>
+        <version>${maven.plugin.eclipse.version}</version>
         <configuration>
           <ajdtVersion>none</ajdtVersion>
         </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
-        <version>1.7</version>
+        <version>${maven.plugin.antrun.version}</version>
         <executions>
           <execution>
             <id>replace-version</id>
@@ -120,12 +89,10 @@
     <dependency>
       <groupId>org.surfnet.coin</groupId>
       <artifactId>coin-shared</artifactId>
-      <version>${coin-shared.version}</version>
     </dependency>
     <dependency>
       <groupId>org.surfnet.coin</groupId>
       <artifactId>coin-opensocial</artifactId>
-      <version>${coin-opensocial.version}</version>
     </dependency>
 
     <dependency>
@@ -142,7 +109,6 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
-      <version>${spring.version}</version>
     </dependency>
 
     <dependency>
@@ -160,7 +126,6 @@
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
-      <version>1.2</version>
     </dependency>
 
     <!-- The next two slf4j dependencies are the ones we want to use. Other 
@@ -168,66 +133,47 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>1.5.8</version>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
-      <version>1.5.8</version>
     </dependency>
     <!-- test local -->
     <dependency>
       <groupId>org.surfnet.coin</groupId>
       <artifactId>coin-test</artifactId>
-      <version>${coin-test.version}</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.mortbay.jetty</groupId>
       <artifactId>jetty</artifactId>
-      <version>${jetty.version}</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.mortbay.jetty</groupId>
       <artifactId>jetty-util</artifactId>
-      <version>${jetty.version}</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.mortbay.jetty</groupId>
       <artifactId>jetty-management</artifactId>
-      <version>${jetty.version}</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.8.1</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
-      <version>${spring.version}</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
-      <version>1.8.5</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
-      <version>2.5</version>
-      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient</artifactId>
-      <version>${httpclient.version}</version>
     </dependency>
     <dependency>
       <groupId>c3p0</groupId>
@@ -239,11 +185,6 @@
       <artifactId>hsqldb</artifactId>
       <version>1.8.0.10</version>
       <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>${mysql.version}</version>
     </dependency>
     <dependency>
       <groupId>commons-dbcp</groupId>
@@ -258,7 +199,6 @@
     <dependency>
       <groupId>commons-lang</groupId>
       <artifactId>commons-lang</artifactId>
-      <version>2.6</version>
     </dependency>
   </dependencies>
 </project>
