@@ -27,6 +27,9 @@
   <packaging>war</packaging>
   <name>coin-teams-war</name>
   <properties>
+    <coin-shared.version>2.1.0-SNAPSHOT</coin-shared.version>
+    <coin-opensocial.version>2.1.0-SNAPSHOT</coin-opensocial.version>
+    <coin-test.version>2.1.0-SNAPSHOT</coin-test.version>
     <grouper.version>1.6.1</grouper.version>
     <jackson.version>1.8.1</jackson.version>
   </properties>
@@ -89,10 +92,12 @@
     <dependency>
       <groupId>org.surfnet.coin</groupId>
       <artifactId>coin-shared</artifactId>
+      <version>${coin-shared.version}</version>
     </dependency>
     <dependency>
       <groupId>org.surfnet.coin</groupId>
       <artifactId>coin-opensocial</artifactId>
+      <version>${coin-opensocial.version}</version>
     </dependency>
 
     <dependency>
@@ -149,6 +154,8 @@
     <dependency>
       <groupId>org.surfnet.coin</groupId>
       <artifactId>coin-test</artifactId>
+      <version>${coin-test.version}</version>
+      <scope>test</scope>
     </dependency>
 
     <dependency>
