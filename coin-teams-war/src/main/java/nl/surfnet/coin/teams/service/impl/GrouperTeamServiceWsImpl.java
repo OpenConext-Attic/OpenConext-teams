@@ -279,8 +279,8 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
 
   /**
    * @param privilegeName
-   *          De grouper rechten heten "admin" voor de group administrator, en
-   *          "update" voor de group manager.
+   *          The grouper privileges are "admin" for the group adminstrator and
+   *          "update" for the group manager.
    * @return {@link Role}
    */
   private Role getRole(String privilegeName) {
