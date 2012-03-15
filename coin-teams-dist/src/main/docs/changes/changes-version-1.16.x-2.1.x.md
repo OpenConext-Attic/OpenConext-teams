@@ -9,3 +9,11 @@
 ### MySQL in shared classloader
 MySQL jar is no longer provided in the war. See the instructions in coin-infra to put the jar into the shared classloader.
 
+### Renamed property
+The property
+
+    teamService=nl.surfnet.coin.teams.service.impl.GrouperTeamService
+
+is changed into
+
+    grouperTeamService=nl.surfnet.coin.teams.service.impl.GrouperTeamServiceWsImpl

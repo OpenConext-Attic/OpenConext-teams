@@ -59,7 +59,6 @@ import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Stem;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamResultWrapper;
-import nl.surfnet.coin.teams.service.GrouperDao;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.service.MemberAttributeService;
 import nl.surfnet.coin.teams.util.DuplicateTeamException;
@@ -69,13 +68,10 @@ import nl.surfnet.coin.teams.util.TeamEnvironment;
  * {@link nl.surfnet.coin.teams.service.GrouperTeamService} using Grouper LDAP as persistent store
  * 
  */
-public class GrouperTeamServiceWsImpl implements GrouperTeamService {
+public class GrouperTeamServiceWsImpl extends GrouperDaoImpl implements GrouperTeamService {
 
   @Autowired
   private TeamEnvironment environment;
-
-  @Autowired
-  private GrouperDao grouperDao;
 
   @Autowired
   private MemberAttributeService memberAttributeService;
@@ -128,14 +124,6 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
       // The Grouper implementation throws an Error if there is no Stem
       return false;
     }
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public List<Stem> findStemsByMember(String memberId) {
-    return grouperDao.findStemsByMember(memberId);
   }
 
   @Override
@@ -594,45 +582,12 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
   }
 
   @Override
-  public TeamResultWrapper findAllTeams(String personId,
-                                        int offset, int pageSize) {
-    return grouperDao.findAllTeams(personId, offset, pageSize);
-  }
-
-  @Override
   public TeamResultWrapper findTeams(String personId,
                                      String partOfGroupname, int offset, int pageSize) {
     final String sanitizedGroupname = partOfGroupname.replaceAll(" ", "_");
-    return grouperDao.findTeams(personId, sanitizedGroupname, offset, pageSize);
+    return super.findTeams(personId, sanitizedGroupname, offset, pageSize);
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * nl.surfnet.coin.teams.service.GrouperDao#findAllTeamsByMember(java.lang
-   * .String, java.lang.String, int, int)
-   */
-  @Override
-  public TeamResultWrapper findAllTeamsByMember(String personId, int offset, int pageSize) {
-    return grouperDao
-        .findAllTeamsByMember(personId, offset, pageSize);
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * nl.surfnet.coin.teams.service.GrouperDao#findTeamsByMember(java.lang.String
-   * , java.lang.String, java.lang.String, int, int)
-   */
-  @Override
-  public TeamResultWrapper findTeamsByMember(String personId,
-                                             String partOfGroupname, int offset, int pageSize) {
-    return grouperDao.findTeamsByMember(personId, partOfGroupname,
-        offset, pageSize);
-  }
-  
   public String getGrouperPowerUser() {
     return environment.getGrouperPowerUser();
   }
