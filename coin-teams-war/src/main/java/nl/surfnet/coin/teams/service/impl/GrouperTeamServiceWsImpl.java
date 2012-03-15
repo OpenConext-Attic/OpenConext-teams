@@ -418,18 +418,18 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
    */
   @Override
   public void setVisibilityGroup(String teamId, boolean viewable) {
-    GcAssignGrouperPrivilegesLite assignPrivilige = new GcAssignGrouperPrivilegesLite();
-    assignPrivilige.assignActAsSubject(getActAsSubject(getGrouperPowerUser()));
-    assignPrivilige.assignGroupName(teamId);
+    GcAssignGrouperPrivilegesLite assignPrivilege = new GcAssignGrouperPrivilegesLite();
+    assignPrivilege.assignActAsSubject(getActAsSubject(getGrouperPowerUser()));
+    assignPrivilege.assignGroupName(teamId);
     WsSubjectLookup wsSubjectLookup = new WsSubjectLookup();
     wsSubjectLookup.setSubjectId("GrouperAll");
-    assignPrivilige.assignSubjectLookup(wsSubjectLookup);
-    assignPrivilige.assignPrivilegeType("access");
-    assignPrivilige.assignPrivilegeName("view");
-    assignPrivilige.addSubjectAttributeName("GrouperAll");
+    assignPrivilege.assignSubjectLookup(wsSubjectLookup);
+    assignPrivilege.assignPrivilegeType("access");
+    assignPrivilege.assignPrivilegeName("view");
+    assignPrivilege.addSubjectAttributeName("GrouperAll");
 
-    assignPrivilige.assignAllowed(viewable);
-    assignPrivilige.execute();
+    assignPrivilege.assignAllowed(viewable);
+    assignPrivilege.execute();
   }
 
   /**
@@ -438,37 +438,37 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
   @Override
   public boolean addMemberRole(String teamId, String memberId, Role role,
                                String actAsUserId) {
-    GcAssignGrouperPrivileges assignPrivilige = new GcAssignGrouperPrivileges();
-    assignPrivilige.assignActAsSubject(getActAsSubject(actAsUserId));
-    assignPrivilige.assignGroupLookup(new WsGroupLookup(teamId, null));
+    GcAssignGrouperPrivileges assignPrivilege = new GcAssignGrouperPrivileges();
+    assignPrivilege.assignActAsSubject(getActAsSubject(actAsUserId));
+    assignPrivilege.assignGroupLookup(new WsGroupLookup(teamId, null));
     WsSubjectLookup subject = new WsSubjectLookup();
     subject.setSubjectId(memberId);
-    assignPrivilige.addSubjectLookup(subject);
-    assignPrivilige.assignPrivilegeType("access");
+    assignPrivilege.addSubjectLookup(subject);
+    assignPrivilege.assignPrivilegeType("access");
     switch (role) {
-    case Admin: {
-      assignPrivilige.addPrivilegeName("admin");
-      assignPrivilige.addPrivilegeName("read");
-      assignPrivilige.addPrivilegeName("optout");
-      assignPrivilige.addPrivilegeName("update");
-      break;
+      case Admin: {
+      assignPrivilege.addPrivilegeName("admin");
+        assignPrivilege.addPrivilegeName("read");
+      assignPrivilege.addPrivilegeName("optout");
+      assignPrivilege.addPrivilegeName("update");
+        break;
     }
     case Manager: {
-      assignPrivilige.addPrivilegeName("update");
-      assignPrivilige.addPrivilegeName("read");
-      assignPrivilige.addPrivilegeName("optout");
+      assignPrivilege.addPrivilegeName("update");
+      assignPrivilege.addPrivilegeName("read");
+      assignPrivilege.addPrivilegeName("optout");
       break;
     }
     case Member: {
-      assignPrivilige.addPrivilegeName("read");
-      assignPrivilige.addPrivilegeName("optout");
+      assignPrivilege.addPrivilegeName("read");
+      assignPrivilege.addPrivilegeName("optout");
       break;
     }
     }
-    assignPrivilige.assignAllowed(true);
+    assignPrivilege.assignAllowed(true);
     WsAssignGrouperPrivilegesResults result;
     try {
-      result = assignPrivilige.execute();
+      result = assignPrivilege.execute();
     } catch (RuntimeException e) {
       LOGGER.info("Could not add member role", e);
       // Grouper converts every exception to RuntimeException
@@ -484,32 +484,32 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
   @Override
   public boolean removeMemberRole(String teamId, String memberId, Role role,
                                   String actAsUserId) {
-    GcAssignGrouperPrivileges assignPrivilige = new GcAssignGrouperPrivileges();
-    assignPrivilige.assignActAsSubject(getActAsSubject(actAsUserId));
-    assignPrivilige.assignGroupLookup(new WsGroupLookup(teamId, null));
+    GcAssignGrouperPrivileges assignPrivilege = new GcAssignGrouperPrivileges();
+    assignPrivilege.assignActAsSubject(getActAsSubject(actAsUserId));
+    assignPrivilege.assignGroupLookup(new WsGroupLookup(teamId, null));
     WsSubjectLookup subject = new WsSubjectLookup();
     subject.setSubjectId(memberId);
-    assignPrivilige.addSubjectLookup(subject);
-    assignPrivilige.assignPrivilegeType("access");
+    assignPrivilege.addSubjectLookup(subject);
+    assignPrivilege.assignPrivilegeType("access");
     switch (role) {
     case Admin: {
-      assignPrivilige.addPrivilegeName("admin");
+      assignPrivilege.addPrivilegeName("admin");
       break;
     }
     case Manager: {
-      assignPrivilige.addPrivilegeName("update");
+      assignPrivilege.addPrivilegeName("update");
       break;
     }
     case Member: {
-      assignPrivilige.addPrivilegeName("read");
-      assignPrivilige.addPrivilegeName("optout");
+      assignPrivilege.addPrivilegeName("read");
+      assignPrivilege.addPrivilegeName("optout");
       break;
     }
     }
-    assignPrivilige.assignAllowed(false);
+    assignPrivilege.assignAllowed(false);
     WsAssignGrouperPrivilegesResults result;
     try {
-      result = assignPrivilige.execute();
+      result = assignPrivilege.execute();
     } catch (RuntimeException e) {
       LOGGER.info("Could not remove role", e);
       // Grouper converts every exception to RuntimeException
