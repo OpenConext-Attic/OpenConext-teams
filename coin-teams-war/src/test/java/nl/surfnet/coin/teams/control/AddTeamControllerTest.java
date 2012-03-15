@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,14 +19,15 @@
  */
 package nl.surfnet.coin.teams.control;
 
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.util.ControllerUtil;
-import nl.surfnet.coin.teams.util.TokenUtil;
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.web.bind.support.SimpleSessionStatus;
+
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.TokenUtil;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -43,7 +44,7 @@ public class AddTeamControllerTest extends AbstractControllerTest {
   public void testStart() throws Exception {
     MockHttpServletRequest request = getRequest();
 
-    autoWireMock(addTeamController, new Returns(getStems()), TeamService.class);
+    autoWireMock(addTeamController, new Returns(getStems()), GrouperTeamService.class);
     autoWireRemainingResources(addTeamController);
     String result = addTeamController.start(getModelMap(), request);
 
@@ -60,14 +61,14 @@ public class AddTeamControllerTest extends AbstractControllerTest {
     request.setParameter("teamName", team1.getName());
     request.setParameter("description", team1.getDescription());
 
-    TeamService teamService = mock(TeamService.class);
-    when(teamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
-    when(teamService.findTeamById(team1.getId())).thenReturn(team1);
-    when(teamService.addTeam(team1.getName(), team1.getName(), team1.getDescription(),
+    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
+    when(grouperTeamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
+    when(grouperTeamService.findTeamById(team1.getId())).thenReturn(team1);
+    when(grouperTeamService.addTeam(team1.getName(), team1.getName(), team1.getDescription(),
             team1.getStem().getId())).thenReturn(team1.getId());
 
     autoWireMock(addTeamController, new Returns(true), ControllerUtil.class);
-    autoWireMock(addTeamController, teamService, TeamService.class);
+    autoWireMock(addTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireRemainingResources(addTeamController);
 
     String view = addTeamController.addTeam(getModelMap(), team1, request, token, token, new SimpleSessionStatus());
@@ -81,11 +82,11 @@ public class AddTeamControllerTest extends AbstractControllerTest {
     String token = TokenUtil.generateSessionToken();
     Team team = getTeam1();
 
-    TeamService teamService = mock(TeamService.class);
-    when(teamService.addTeam(team.getName(), team.getName(), team.getDescription(),
+    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
+    when(grouperTeamService.addTeam(team.getName(), team.getName(), team.getDescription(),
             null)).thenReturn(team.getId());
 
-    autoWireMock(addTeamController, teamService, TeamService.class);
+    autoWireMock(addTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireRemainingResources(addTeamController);
 
     String view = addTeamController.addTeam(getModelMap(), new Team(team.getId(), null, team.getDescription()), request, token, token, new SimpleSessionStatus());
@@ -103,14 +104,14 @@ public class AddTeamControllerTest extends AbstractControllerTest {
     request.setParameter("description", team1.getDescription());
     request.setParameter("stem", team1.getStem().getId());
 
-    TeamService teamService = mock(TeamService.class);
-    when(teamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
-    when(teamService.findTeamById(team1.getId())).thenReturn(team1);
-    when(teamService.addTeam(team1.getName(), team1.getName(), team1.getDescription(),
+    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
+    when(grouperTeamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
+    when(grouperTeamService.findTeamById(team1.getId())).thenReturn(team1);
+    when(grouperTeamService.addTeam(team1.getName(), team1.getName(), team1.getDescription(),
             team1.getStem().getId())).thenReturn(team1.getId());
 
     autoWireMock(addTeamController, new Returns(true), ControllerUtil.class);
-    autoWireMock(addTeamController, teamService, TeamService.class);
+    autoWireMock(addTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireRemainingResources(addTeamController);
 
     String view = addTeamController.addTeam(getModelMap(), team1, request, token, token, new SimpleSessionStatus());
@@ -129,14 +130,14 @@ public class AddTeamControllerTest extends AbstractControllerTest {
     request.setParameter("description", team1.getDescription());
     request.setParameter("stem", "non-existing-stem");
 
-    TeamService teamService = mock(TeamService.class);
-    when(teamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
-    when(teamService.findTeamById(team1.getId())).thenReturn(team1);
-    when(teamService.addTeam(team1.getName(), team1.getName(), team1.getDescription(),
+    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
+    when(grouperTeamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
+    when(grouperTeamService.findTeamById(team1.getId())).thenReturn(team1);
+    when(grouperTeamService.addTeam(team1.getName(), team1.getName(), team1.getDescription(),
             team1.getStem().getId())).thenReturn(team1.getId());
 
     autoWireMock(addTeamController, new Returns(false), ControllerUtil.class);
-    autoWireMock(addTeamController, teamService, TeamService.class);
+    autoWireMock(addTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireRemainingResources(addTeamController);
 
     String view = addTeamController.addTeam(getModelMap(), team1, request, token, token, new SimpleSessionStatus());

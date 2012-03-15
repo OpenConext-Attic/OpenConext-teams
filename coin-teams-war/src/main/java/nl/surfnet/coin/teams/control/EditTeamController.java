@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,24 +16,30 @@
 
 package nl.surfnet.coin.teams.control;
 
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.util.ControllerUtil;
-import nl.surfnet.coin.teams.util.TokenUtil;
-import nl.surfnet.coin.teams.util.ViewUtil;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.view.RedirectView;
 
-import javax.servlet.http.HttpServletRequest;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.TokenUtil;
+import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * @author steinwelberg
@@ -46,7 +52,7 @@ import java.net.URLEncoder;
 public class EditTeamController {
 
   @Autowired
-  private TeamService teamService;
+  private GrouperTeamService grouperTeamService;
 
   @Autowired
   private ControllerUtil controllerUtil;
@@ -104,8 +110,8 @@ public class EditTeamController {
     }
 
     // Update the team info
-    teamService.updateTeam(teamId, teamName, teamDescription);
-    teamService.setVisibilityGroup(teamId, viewable);
+    grouperTeamService.updateTeam(teamId, teamName, teamDescription, person.getId());
+    grouperTeamService.setVisibilityGroup(teamId, viewable);
 
     status.setComplete();
     modelMap.clear();
@@ -119,7 +125,7 @@ public class EditTeamController {
     Team team = null;
 
     if (StringUtils.hasText(teamId)) {
-      team = teamService.findTeamById(teamId);
+      team = grouperTeamService.findTeamById(teamId);
     }
     if (team == null) {
       throw new RuntimeException("Team (" + teamId + ") not found");

@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,17 +16,19 @@
 
 package nl.surfnet.coin.teams.util;
 
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.service.TeamService;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.List;
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
 
 /**
  * This class includes methods that are often used by controllers
@@ -35,7 +37,7 @@ import java.util.List;
 public class ControllerUtilImpl implements ControllerUtil {
 
   @Autowired
-  private TeamService teamService;
+  private GrouperTeamService grouperTeamService;
 
   /**
    * Get the team from the {@link HttpServletRequest} request.
@@ -59,7 +61,7 @@ public class ControllerUtilImpl implements ControllerUtil {
   public Team getTeamById(String teamId) {
     Team team = null;
     if (StringUtils.hasText(teamId)) {
-      team = teamService.findTeamById(teamId);
+      team = grouperTeamService.findTeamById(teamId);
     }
     if (team == null) {
       throw new RuntimeException("Team (" + teamId + ") not found");
@@ -77,7 +79,7 @@ public class ControllerUtilImpl implements ControllerUtil {
   public boolean hasUserAdministrativePrivileges(Person person, String teamId) {
     // Check if the requester is member of the team AND
     // Check if the requester has the role admin or manager, so he is allowed to invite new members.
-    Member member = teamService.findMember(teamId, person.getId());
+    Member member = grouperTeamService.findMember(teamId, person.getId());
     return member != null && (member.getRoles().contains(Role.Admin) || member.getRoles().contains(Role.Manager));
   }
 
@@ -91,7 +93,7 @@ public class ControllerUtilImpl implements ControllerUtil {
   public boolean hasUserAdminPrivileges(Person person, String teamId) {
     // Check if the requester is member of the team AND
     // Check if the requester has the role admin or manager, so he is allowed to invite new members.
-    Member member = teamService.findMember(teamId, person.getId());
+    Member member = grouperTeamService.findMember(teamId, person.getId());
     return member != null && (member.getRoles().contains(Role.Admin));
   }
 

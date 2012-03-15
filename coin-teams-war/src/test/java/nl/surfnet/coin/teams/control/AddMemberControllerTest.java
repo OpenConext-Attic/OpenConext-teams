@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,12 +19,8 @@
  */
 package nl.surfnet.coin.teams.control;
 
-import nl.surfnet.coin.teams.domain.InvitationForm;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.util.ControllerUtil;
-import nl.surfnet.coin.teams.util.TokenUtil;
+import java.util.Locale;
+
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
 import org.opensocial.models.Person;
@@ -35,9 +31,17 @@ import org.springframework.validation.DirectFieldBindingResult;
 import org.springframework.web.bind.support.SimpleSessionStatus;
 import org.springframework.web.servlet.LocaleResolver;
 
-import java.util.Locale;
+import nl.surfnet.coin.teams.domain.InvitationForm;
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.TokenUtil;
 
-import static org.easymock.EasyMock.*;
+import static org.easymock.EasyMock.createNiceMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -92,7 +96,7 @@ public class AddMemberControllerTest extends AbstractControllerTest {
 
     Team team1 = getTeam1();
 
-    autoWireMock(addMemberController, new Returns(team1), TeamService.class);
+    autoWireMock(addMemberController, new Returns(team1), GrouperTeamService.class);
 
     addMemberController.start(getModelMap(), request);
   }
@@ -222,18 +226,18 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     form.setMessage("A nice invite message");
     form.setTeamId(getTeam1().getId());
 
-    TeamService teamService = createNiceMock(TeamService.class);
-    expect(teamService.findTeamById(team1.getId())).andReturn(team1);
-    expect(teamService.findMember(team1.getId(), member1.getId())).andReturn(member1);
-    expect(teamService.findTeamById(team1.getId())).andReturn(team1);
-    replay(teamService);
+    GrouperTeamService grouperTeamService = createNiceMock(GrouperTeamService.class);
+    expect(grouperTeamService.findTeamById(team1.getId())).andReturn(team1);
+    expect(grouperTeamService.findMember(team1.getId(), member1.getId())).andReturn(member1);
+    expect(grouperTeamService.findTeamById(team1.getId())).andReturn(team1);
+    replay(grouperTeamService);
 
-    autoWireMock(addMemberController, teamService, TeamService.class);
+    autoWireMock(addMemberController, grouperTeamService, GrouperTeamService.class);
     autoWireRemainingResources(addMemberController);
 
     addMemberController.addMembersToTeam(token, form, new DirectFieldBindingResult(form, "invitationForm"), request, token, new SimpleSessionStatus(), getModelMap()
     );
-    verify(teamService);
+    verify(grouperTeamService);
   }
 
   @Test(expected = RuntimeException.class)
@@ -256,13 +260,13 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     form.setMessage("A nice invite message");
     form.setTeamId(team1.getId());
 
-    TeamService teamService = createNiceMock(TeamService.class);
-    expect(teamService.findTeamById(team1.getId())).andReturn(team1);
-    expect(teamService.findMember(team1.getId(), member1.getId())).andReturn(null);
-    expect(teamService.findTeamById(team1.getId())).andReturn(team1);
-    replay(teamService);
+    GrouperTeamService grouperTeamService = createNiceMock(GrouperTeamService.class);
+    expect(grouperTeamService.findTeamById(team1.getId())).andReturn(team1);
+    expect(grouperTeamService.findMember(team1.getId(), member1.getId())).andReturn(null);
+    expect(grouperTeamService.findTeamById(team1.getId())).andReturn(team1);
+    replay(grouperTeamService);
 
-    autoWireMock(addMemberController, teamService, TeamService.class);
+    autoWireMock(addMemberController, grouperTeamService, GrouperTeamService.class);
     autoWireRemainingResources(addMemberController);
 
     addMemberController.addMembersToTeam(token,
@@ -272,6 +276,6 @@ public class AddMemberControllerTest extends AbstractControllerTest {
             token,
             new SimpleSessionStatus(),
             getModelMap());
-    verify(teamService);
+    verify(grouperTeamService);
   }
 }

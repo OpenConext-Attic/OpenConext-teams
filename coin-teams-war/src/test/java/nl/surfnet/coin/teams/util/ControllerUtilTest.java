@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,15 +16,21 @@
 
 package nl.surfnet.coin.teams.util;
 
-import nl.surfnet.coin.teams.control.AbstractControllerTest;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.service.TeamService;
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
 
-import static org.easymock.EasyMock.*;
-import static org.junit.Assert.*;
+import nl.surfnet.coin.teams.control.AbstractControllerTest;
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+
+import static org.easymock.EasyMock.createNiceMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Test for {@link ControllerUtil}
@@ -38,15 +44,15 @@ public class ControllerUtilTest extends AbstractControllerTest {
 
     MockHttpServletRequest request = getRequestWithTeam(getTeam1().getId());
 
-    TeamService teamService = createNiceMock(TeamService.class);
-    expect(teamService.findTeamById(getTeam1().getId())).andReturn(getTeam1());
-    replay(teamService);
+    GrouperTeamService grouperTeamService = createNiceMock(GrouperTeamService.class);
+    expect(grouperTeamService.findTeamById(getTeam1().getId())).andReturn(getTeam1());
+    replay(grouperTeamService);
 
-    autoWireMock(controllerUtil, teamService, TeamService.class);
+    autoWireMock(controllerUtil, grouperTeamService, GrouperTeamService.class);
     autoWireRemainingResources(controllerUtil);
 
     Team team = controllerUtil.getTeam(request);
-    verify(teamService);
+    verify(grouperTeamService);
 
     assertEquals(getTeam1().getId(), team.getId());
     assertEquals(getTeam1().getName(), team.getName());
@@ -57,39 +63,39 @@ public class ControllerUtilTest extends AbstractControllerTest {
   public void getTeamNonExistingTest() throws Exception {
     MockHttpServletRequest request = getRequestWithTeam(getTeam1().getId());
 
-    TeamService teamService = createNiceMock(TeamService.class);
-    expect(teamService.findTeamById(getTeam1().getId())).andReturn(null);
-    replay(teamService);
+    GrouperTeamService grouperTeamService = createNiceMock(GrouperTeamService.class);
+    expect(grouperTeamService.findTeamById(getTeam1().getId())).andReturn(null);
+    replay(grouperTeamService);
 
     Team team = controllerUtil.getTeam(request);
-    verify(teamService);
+    verify(grouperTeamService);
   }
 
   @Test
   public void hasUserAdministrativePrivilegesTest() throws Exception {
-    TeamService teamService = createNiceMock(TeamService.class);
-    expect(teamService.findMember(getTeam1().getId(), getPerson1().getId())).andReturn(getAdministrativeMember());
-    replay(teamService);
+    GrouperTeamService grouperTeamService = createNiceMock(GrouperTeamService.class);
+    expect(grouperTeamService.findMember(getTeam1().getId(), getPerson1().getId())).andReturn(getAdministrativeMember());
+    replay(grouperTeamService);
 
-    autoWireMock(controllerUtil, teamService, TeamService.class);
+    autoWireMock(controllerUtil, grouperTeamService, GrouperTeamService.class);
     autoWireRemainingResources(controllerUtil);
 
     boolean hasPrivileges = controllerUtil.hasUserAdministrativePrivileges(getPerson1(), getTeam1().getId());
-    verify(teamService);
+    verify(grouperTeamService);
     assertTrue(hasPrivileges);
   }
 
   @Test
   public void hasUserAdministrativePrivilegesWithoutPrivilegesTest() throws Exception {
-    TeamService teamService = createNiceMock(TeamService.class);
-    expect(teamService.findMember(getTeam1().getId(), getPerson1().getId())).andReturn(getMember());
-    replay(teamService);
+    GrouperTeamService grouperTeamService = createNiceMock(GrouperTeamService.class);
+    expect(grouperTeamService.findMember(getTeam1().getId(), getPerson1().getId())).andReturn(getMember());
+    replay(grouperTeamService);
 
-    autoWireMock(controllerUtil, teamService, TeamService.class);
+    autoWireMock(controllerUtil, grouperTeamService, GrouperTeamService.class);
     autoWireRemainingResources(controllerUtil);
 
     boolean hasPrivileges = controllerUtil.hasUserAdministrativePrivileges(getPerson1(), getTeam1().getId());
-    verify(teamService);
+    verify(grouperTeamService);
     assertFalse(hasPrivileges);
   }
 

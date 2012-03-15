@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,21 +25,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import nl.surfnet.coin.opensocial.service.PersonService;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.MemberAttribute;
-import nl.surfnet.coin.teams.service.MemberAttributeService;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
-
 import org.opensocial.models.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.util.StringUtils;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+import nl.surfnet.coin.opensocial.service.PersonService;
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.MemberAttribute;
+import nl.surfnet.coin.teams.service.MemberAttributeService;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
 
 /**
  * Intercepts calls to controllers to handle Single Sign On details from
@@ -183,15 +181,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
    */
   protected TeamEnvironment getTeamEnvironment() {
     return teamEnvironment;
-  }
-
-  /**
-   * @return the loggedinuser
-   */
-  public static String getLoggedInUser() {
-    RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
-    Person person = (Person) requestAttributes.getAttribute(PERSON_SESSION_KEY, RequestAttributes.SCOPE_SESSION);
-    return person.getId();
   }
 
   /**

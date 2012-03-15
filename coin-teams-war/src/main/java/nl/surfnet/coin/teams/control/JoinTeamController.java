@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,16 +16,16 @@
 
 package nl.surfnet.coin.teams.control;
 
-import nl.surfnet.coin.shared.service.MailService;
-import nl.surfnet.coin.teams.domain.JoinTeamRequest;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.JoinTeamRequestService;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.util.ControllerUtil;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
-import nl.surfnet.coin.teams.util.ViewUtil;
+import java.io.IOException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -41,10 +41,16 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
 
-import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
-import java.net.URLEncoder;
-import java.util.*;
+import nl.surfnet.coin.shared.service.MailService;
+import nl.surfnet.coin.teams.domain.JoinTeamRequest;
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.JoinTeamRequestService;
+import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
+import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * {@link Controller} that handles the join team page of a logged in
@@ -59,7 +65,7 @@ public class JoinTeamController {
   public static final String JOIN_TEAM_REQUEST = "joinTeamRequest";
 
   @Autowired
-  private TeamService teamService;
+  private GrouperTeamService grouperTeamService;
 
   @Autowired
   private JoinTeamRequestService joinTeamRequestService;
@@ -86,7 +92,7 @@ public class JoinTeamController {
     Team team = null;
 
     if (StringUtils.hasText(teamId)) {
-      team = teamService.findTeamById(teamId);
+      team = grouperTeamService.findTeamById(teamId);
     }
 
     if (team == null) {
@@ -166,7 +172,7 @@ public class JoinTeamController {
     messageBody.append(messageSource.getMessage("request.mail.GoToUrlToAccept",
             footerValues, locale));
 
-    Set<Member> admins = teamService.findAdmins(team);
+    Set<Member> admins = grouperTeamService.findAdmins(team);
     if (CollectionUtils.isEmpty(admins)) {
       throw new IllegalStateException("Team '" + team.getName()
               + "' has no admins to mail invites");
@@ -183,7 +189,7 @@ public class JoinTeamController {
     mailService.sendAsync(mailMessage);
   }
 
-  public void setTeamService(TeamService teamService) {
-    this.teamService = teamService;
+  public void setGrouperTeamService(GrouperTeamService grouperTeamService) {
+    this.grouperTeamService = grouperTeamService;
   }
 }

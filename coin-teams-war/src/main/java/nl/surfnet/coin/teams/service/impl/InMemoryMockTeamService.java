@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,14 +31,14 @@ import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Stem;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamResultWrapper;
-import nl.surfnet.coin.teams.service.TeamService;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.util.DuplicateTeamException;
 
 /**
- * Mock implementation of {@link TeamService}
+ * Mock implementation of {@link nl.surfnet.coin.teams.service.GrouperTeamService}
  * 
  */
-public class InMemoryMockTeamService implements TeamService {
+public class InMemoryMockTeamService implements GrouperTeamService {
 
   private Map<String, Team> teams = new HashMap<String, Team>();
   private static final String STEM = "nl:surfnet:diensten";
@@ -281,7 +281,7 @@ public class InMemoryMockTeamService implements TeamService {
    * {@inheritDoc}
    */
   @Override
-  public boolean addMemberRole(String teamId, String memberId, Role role, boolean addAsSuperUser) {
+  public boolean addMemberRole(String teamId, String memberId, Role role, String actAsUserId) {
     Member member = findMember(teamId, memberId);
     
     if (role.equals(Role.Admin) && !member.getRoles().contains(Role.Manager)) {
@@ -296,7 +296,7 @@ public class InMemoryMockTeamService implements TeamService {
    * {@inheritDoc}
    */
   @Override
-  public boolean removeMemberRole(String teamId, String memberId, Role role, boolean removeAsSuperUser) {
+  public boolean removeMemberRole(String teamId, String memberId, Role role, String actAsUserId) {
     Member member = findMember(teamId, memberId);
     member.removeRole(role);
     
@@ -336,7 +336,7 @@ public class InMemoryMockTeamService implements TeamService {
    */
   @Override
   public void updateTeam(String teamId, String displayName,
-      String teamDescription) {
+                         String teamDescription, String actAsSubject) {
     Team team = findTeamById(teamId);
     team.setName(displayName);
     team.setDescription(teamDescription);
@@ -360,7 +360,7 @@ public class InMemoryMockTeamService implements TeamService {
   }
 
   /* (non-Javadoc)
-   * @see nl.surfnet.coin.teams.service.TeamService#doesStemExists(java.lang.String)
+   * @see nl.surfnet.coin.teams.service.GrouperTeamService#doesStemExists(java.lang.String)
    */
   @Override
   public boolean doesStemExists(String stemName) {

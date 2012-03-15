@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,13 +16,15 @@
 
 package nl.surfnet.coin.teams.control;
 
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Stem;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.ShindigActivityService;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.util.*;
+import java.beans.PropertyEditorSupport;
+import java.io.IOException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.opensocial.RequestException;
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,17 +33,27 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.ServletRequestDataBinder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.LocaleResolver;
 
-import javax.servlet.http.HttpServletRequest;
-import java.beans.PropertyEditorSupport;
-import java.io.IOException;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Stem;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.ShindigActivityService;
+import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.DuplicateTeamException;
+import nl.surfnet.coin.teams.util.PermissionUtil;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
+import nl.surfnet.coin.teams.util.TokenUtil;
+import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * @author steinwelberg
@@ -58,7 +70,7 @@ public class AddTeamController {
   private static final String ACTIVITY_NEW_TEAM_TITLE = "activity.NewTeamTitle";
 
   @Autowired
-  private TeamService teamService;
+  private GrouperTeamService grouperTeamService;
 
   @Autowired
   private ShindigActivityService shindigActivityService;
@@ -154,20 +166,20 @@ public class AddTeamController {
     // Add the team
     String teamId;
     try {
-      teamId = teamService.addTeam(teamName, teamName, teamDescription, stemId);
+      teamId = grouperTeamService.addTeam(teamName, teamName, teamDescription, stemId);
     } catch (DuplicateTeamException e) {
       modelMap.addAttribute("nameerror", "duplicate");
       return "addteam";
     }
 
     // Set the visibility of the group
-    teamService.setVisibilityGroup(teamId, viewable);
+    grouperTeamService.setVisibilityGroup(teamId, viewable);
 
     // Add the person who has added the team as admin to the team.
-    teamService.addMember(teamId, person);
+    grouperTeamService.addMember(teamId, person);
 
     // Give him the right permissions, add as the super user
-    teamService.addMemberRole(teamId, personId, Role.Admin, true);
+    grouperTeamService.addMemberRole(teamId, personId, Role.Admin, environment.getGrouperPowerUser());
 
     // Add the activity to the COIN portal
     addActivity(teamId, teamName, personId,
@@ -193,7 +205,7 @@ public class AddTeamController {
   }
 
   private List<Stem> getStemsForMember(String personId) {
-    List<Stem> allUsersStems = teamService.findStemsByMember(personId);
+    List<Stem> allUsersStems = grouperTeamService.findStemsByMember(personId);
     List<Stem> stems = new ArrayList<Stem>();
 
     if (allUsersStems.size() == 0 ) {
@@ -209,7 +221,7 @@ public class AddTeamController {
       // Find the members team for the stem and check if the current person is member of that team
       String teamId = stem.getId() + ":" + "members";
       try {
-        Team team = teamService.findTeamById(teamId);
+        Team team = grouperTeamService.findTeamById(teamId);
 
         if (controllerUtil.isPersonMemberOfTeam(personId, team)) {
           stems.add(stem);

@@ -18,15 +18,16 @@
  */
 package nl.surfnet.coin.teams.service.impl;
 
-import static org.junit.Assert.*;
+import org.junit.Test;
 
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 
-import org.junit.Test;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 
 /**
- *  Integration test for TeamService
+ *  Integration test for GrouperTeamService
  *
  */
 public class TeamServiceTestIntegration {
@@ -36,7 +37,7 @@ public class TeamServiceTestIntegration {
    */
   @Test
   public void testStemName() {
-    GrouperTeamService teamService = new GrouperTeamService();
+    GrouperTeamServiceWsImpl teamService = new GrouperTeamServiceWsImpl();
     TeamEnvironment environment = new TeamEnvironment();
     environment.setGrouperPowerUser("GrouperSystem");
     teamService.setEnvironment(environment );

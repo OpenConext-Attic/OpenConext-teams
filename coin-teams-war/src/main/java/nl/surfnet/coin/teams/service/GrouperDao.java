@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,10 +16,10 @@
 
 package nl.surfnet.coin.teams.service;
 
+import java.util.List;
+
 import nl.surfnet.coin.teams.domain.Stem;
 import nl.surfnet.coin.teams.domain.TeamResultWrapper;
-
-import java.util.List;
 
 /**
  * Grouper Dao for accessing the grouper tables directly

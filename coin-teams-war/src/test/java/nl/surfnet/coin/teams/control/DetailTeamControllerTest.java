@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,28 +16,10 @@
 
 package nl.surfnet.coin.teams.control;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
-
-import nl.surfnet.coin.opensocial.service.PersonService;
-import nl.surfnet.coin.teams.domain.Invitation;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.JoinTeamRequestService;
-import nl.surfnet.coin.teams.service.TeamInviteService;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.util.ControllerUtil;
-import nl.surfnet.coin.teams.util.TokenUtil;
 
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
@@ -50,6 +32,24 @@ import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.view.RedirectView;
+
+import nl.surfnet.coin.opensocial.service.PersonService;
+import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.JoinTeamRequestService;
+import nl.surfnet.coin.teams.service.TeamInviteService;
+import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.TokenUtil;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * Tests for {@link DetailTeamController}
@@ -88,11 +88,11 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
 
     Team mockTeam = new Team("team-1", "Team 1", "team description", members);
 
-    TeamService teamService = mock(TeamService.class);
-    when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
-    when(teamService.findAdmins(mockTeam)).thenReturn(admins);
+    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
+    when(grouperTeamService.findTeamById("team-1")).thenReturn(mockTeam);
+    when(grouperTeamService.findAdmins(mockTeam)).thenReturn(admins);
 
-    autoWireMock(detailTeamController, teamService, TeamService.class);
+    autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireRemainingResources(detailTeamController);
 
     String result = detailTeamController.start(getModelMap(), request);
@@ -134,15 +134,15 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
 
     Team mockTeam = new Team("team-1", "Team 1", "team description", members);
 
-    TeamService teamService = mock(TeamService.class);
-    when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
-    when(teamService.findAdmins(mockTeam)).thenReturn(admins);
+    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
+    when(grouperTeamService.findTeamById("team-1")).thenReturn(mockTeam);
+    when(grouperTeamService.findAdmins(mockTeam)).thenReturn(admins);
 
     JoinTeamRequestService joinTeamRequestService = mock(JoinTeamRequestService.class);
     when(joinTeamRequestService.findPendingRequests(mockTeam)).thenReturn(
         Collections.EMPTY_LIST);
 
-    autoWireMock(detailTeamController, teamService, TeamService.class);
+    autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireMock(detailTeamController, joinTeamRequestService,
         JoinTeamRequestService.class);
     autoWireRemainingResources(detailTeamController);
@@ -177,15 +177,15 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
 
     Team mockTeam = new Team("team-1", "Team 1", "team description", members);
 
-    TeamService teamService = mock(TeamService.class);
-    when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
-    when(teamService.findAdmins(mockTeam)).thenReturn(admins);
+    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
+    when(grouperTeamService.findTeamById("team-1")).thenReturn(mockTeam);
+    when(grouperTeamService.findAdmins(mockTeam)).thenReturn(admins);
 
     JoinTeamRequestService joinTeamRequestService = mock(JoinTeamRequestService.class);
     when(joinTeamRequestService.findPendingRequests(mockTeam)).thenReturn(
         Collections.EMPTY_LIST);
 
-    autoWireMock(detailTeamController, teamService, TeamService.class);
+    autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireMock(detailTeamController, joinTeamRequestService,
         JoinTeamRequestService.class);
 
@@ -222,15 +222,15 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
 
     Team mockTeam = new Team("team-1", "Team 1", "team description", members);
 
-    TeamService teamService = mock(TeamService.class);
-    when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
-    when(teamService.findAdmins(mockTeam)).thenReturn(admins);
+    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
+    when(grouperTeamService.findTeamById("team-1")).thenReturn(mockTeam);
+    when(grouperTeamService.findAdmins(mockTeam)).thenReturn(admins);
 
     JoinTeamRequestService joinTeamRequestService = mock(JoinTeamRequestService.class);
     when(joinTeamRequestService.findPendingRequests(mockTeam)).thenReturn(
         Collections.EMPTY_LIST);
 
-    autoWireMock(detailTeamController, teamService, TeamService.class);
+    autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireMock(detailTeamController, joinTeamRequestService,
         JoinTeamRequestService.class);
 
@@ -272,11 +272,11 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
 
     Team mockTeam = new Team("team-1", "Team 1", "team description", members);
 
-    TeamService teamService = mock(TeamService.class);
-    when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
-    when(teamService.findAdmins(mockTeam)).thenReturn(admins);
+    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
+    when(grouperTeamService.findTeamById("team-1")).thenReturn(mockTeam);
+    when(grouperTeamService.findAdmins(mockTeam)).thenReturn(admins);
 
-    autoWireMock(detailTeamController, teamService, TeamService.class);
+    autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireRemainingResources(detailTeamController);
 
     RedirectView result = detailTeamController
@@ -307,11 +307,11 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
 
     Team mockTeam = new Team("team-1", "Team 1", "team description", members);
 
-    TeamService teamService = mock(TeamService.class);
-    when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
-    when(teamService.findAdmins(mockTeam)).thenReturn(admins);
+    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
+    when(grouperTeamService.findTeamById("team-1")).thenReturn(mockTeam);
+    when(grouperTeamService.findAdmins(mockTeam)).thenReturn(admins);
 
-    autoWireMock(detailTeamController, teamService, TeamService.class);
+    autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireRemainingResources(detailTeamController);
 
     RedirectView result = detailTeamController
@@ -344,11 +344,11 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
 
     autoWireMock(detailTeamController, teamInviteService, TeamInviteService.class);
 
-    TeamService teamService = mock(TeamService.class);
-    when(teamService.findMember("team-1", "member-1")).thenReturn(member);
-    when(teamService.findTeamById("team-1")).thenReturn(team);
+    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
+    when(grouperTeamService.findMember("team-1", "member-1")).thenReturn(member);
+    when(grouperTeamService.findTeamById("team-1")).thenReturn(team);
       
-    autoWireMock(detailTeamController, teamService, TeamService.class);
+    autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireRemainingResources(detailTeamController);
 
     RedirectView result = detailTeamController.deleteTeam(getModelMap(), 
@@ -369,7 +369,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
 
     Member member = new Member(roles, "John Doe", "member-1", "john@doe.com");
 
-    autoWireMock(detailTeamController, new Returns(member), TeamService.class);
+    autoWireMock(detailTeamController, new Returns(member), GrouperTeamService.class);
     autoWireRemainingResources(detailTeamController);
 
     RedirectView result = detailTeamController.deleteTeam(getModelMap(),
@@ -389,7 +389,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
 
     Member member = new Member(roles, "John Doe", "member-1", "john@doe.com");
 
-    autoWireMock(detailTeamController, new Returns(member), TeamService.class);
+    autoWireMock(detailTeamController, new Returns(member), GrouperTeamService.class);
     autoWireRemainingResources(detailTeamController);
 
     detailTeamController.deleteTeam(getModelMap(), request, token, token, new SimpleSessionStatus());
@@ -411,11 +411,11 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     Member owner = new Member(roles, "John Doe", "member-1", "john@doe.com");
     Member member = new Member(roles, "Jane Doe", "member-2", "jane@doe.com");
 
-    TeamService teamService = mock(TeamService.class);
-    when(teamService.findMember("team-1", "member-2")).thenReturn(member);
-    when(teamService.findMember("team-1", "member-1")).thenReturn(owner);
+    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
+    when(grouperTeamService.findMember("team-1", "member-2")).thenReturn(member);
+    when(grouperTeamService.findMember("team-1", "member-1")).thenReturn(owner);
 
-    autoWireMock(detailTeamController, teamService, TeamService.class);
+    autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireRemainingResources(detailTeamController);
 
     RedirectView result = detailTeamController.deleteMember(getModelMap(),
@@ -434,7 +434,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
 
     Member member = getMember();
 
-    autoWireMock(detailTeamController, new Returns(member), TeamService.class);
+    autoWireMock(detailTeamController, new Returns(member), GrouperTeamService.class);
     autoWireRemainingResources(detailTeamController);
 
     RedirectView result = detailTeamController.deleteMember(getModelMap(),
@@ -453,7 +453,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
 
     Member member = getMember();
 
-    autoWireMock(detailTeamController, new Returns(member), TeamService.class);
+    autoWireMock(detailTeamController, new Returns(member), GrouperTeamService.class);
     autoWireRemainingResources(detailTeamController);
 
     detailTeamController.deleteMember(getModelMap(), request, token, token, new SimpleSessionStatus());
@@ -468,13 +468,13 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     request.addParameter("roleId", Role.Manager.toString());
     request.addParameter("doAction", "add");
 
-    TeamService teamService = mock(TeamService.class);
+    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
     Member member = getMember();
-    when(teamService.findMember("team-1", "member-1")).thenReturn(member);
-    when(teamService.addMemberRole("team-1", "member-1", Role.Manager, false))
+    when(grouperTeamService.findMember("team-1", "member-1")).thenReturn(member);
+    when(grouperTeamService.addMemberRole("team-1", "member-1", Role.Manager, "member-1"))
         .thenReturn(true);
     autoWireMock(detailTeamController, new Returns(true), ControllerUtil.class);
-    autoWireMock(detailTeamController, teamService, TeamService.class);
+    autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireRemainingResources(detailTeamController);
 
     RedirectView view = detailTeamController.addOrRemoveRole(getModelMap(),
@@ -494,15 +494,15 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     request.addParameter("roleId", Role.Manager.toString());
     request.addParameter("doAction", "add");
 
-    autoWireMock(detailTeamController, new Returns(false), TeamService.class);
+    autoWireMock(detailTeamController, new Returns(false), GrouperTeamService.class);
     autoWireRemainingResources(detailTeamController);
 
-    TeamService teamService = mock(TeamService.class);
+    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
     Member member = getMember();
-    when(teamService.findMember("team-1", "member-1")).thenReturn(member);
-    when(teamService.addMemberRole("team-1", "member-1", Role.Manager, false))
+    when(grouperTeamService.findMember("team-1", "member-1")).thenReturn(member);
+    when(grouperTeamService.addMemberRole("team-1", "member-1", Role.Manager, "member-1"))
         .thenReturn(false);
-    autoWireMock(detailTeamController, teamService, TeamService.class);
+    autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireMock(detailTeamController, new Returns(false), ControllerUtil.class);
 
     RedirectView view = detailTeamController.addOrRemoveRole(getModelMap(),
@@ -535,15 +535,15 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
 
     Team mockTeam = new Team("team-1", "Team 1", "team description", members);
 
-    TeamService teamService = mock(TeamService.class);
-    when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
-    when(teamService.findAdmins(mockTeam)).thenReturn(admins);
+    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
+    when(grouperTeamService.findTeamById("team-1")).thenReturn(mockTeam);
+    when(grouperTeamService.findAdmins(mockTeam)).thenReturn(admins);
     when(
-        teamService.removeMemberRole("team-1", "member-1", Role.Manager, false))
+        grouperTeamService.removeMemberRole("team-1", "member-1", Role.Manager, "member-1"))
         .thenReturn(true);
 
     autoWireMock(detailTeamController, new Returns(true), ControllerUtil.class);
-    autoWireMock(detailTeamController, teamService, TeamService.class);
+    autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireRemainingResources(detailTeamController);
 
     RedirectView view = detailTeamController.addOrRemoveRole(getModelMap(),
@@ -578,14 +578,14 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
 
     Team mockTeam = new Team("team-1", "Team 1", "team description", members);
 
-    TeamService teamService = mock(TeamService.class);
-    when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
-    when(teamService.findAdmins(mockTeam)).thenReturn(admins);
-    when(teamService.removeMemberRole("team-1", "member-1", Role.Admin, false))
+    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
+    when(grouperTeamService.findTeamById("team-1")).thenReturn(mockTeam);
+    when(grouperTeamService.findAdmins(mockTeam)).thenReturn(admins);
+    when(grouperTeamService.removeMemberRole("team-1", "member-1", Role.Admin, "member-1"))
         .thenReturn(false);
 
     autoWireMock(detailTeamController, new Returns(true), ControllerUtil.class);
-    autoWireMock(detailTeamController, teamService, TeamService.class);
+    autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireRemainingResources(detailTeamController);
 
     RedirectView view = detailTeamController.addOrRemoveRole(getModelMap(),
@@ -637,9 +637,9 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     when(memberToAdd.getId()).thenReturn("potential-member-1");
 
     Team mockTeam = new Team("team-1", "Team 1", "team description", members);
-    TeamService teamService = mock(TeamService.class);
-    when(teamService.findTeamById("team-1")).thenReturn(mockTeam);
-    when(teamService.findMember("team-1", "member-1")).thenReturn(
+    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
+    when(grouperTeamService.findTeamById("team-1")).thenReturn(mockTeam);
+    when(grouperTeamService.findMember("team-1", "member-1")).thenReturn(
         loggedInMember);
 
     JoinTeamRequestService joinTeamRequestService = mock(JoinTeamRequestService.class);
@@ -652,7 +652,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
             memberToAdd);
 
     autoWireMock(detailTeamController, new Returns(true), ControllerUtil.class);
-    autoWireMock(detailTeamController, teamService, TeamService.class);
+    autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireMock(detailTeamController, personService,
         PersonService.class);
     autoWireMock(detailTeamController, joinTeamRequestService,

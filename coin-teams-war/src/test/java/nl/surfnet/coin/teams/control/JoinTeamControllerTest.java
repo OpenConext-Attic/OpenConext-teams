@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,21 +19,24 @@
  */
 package nl.surfnet.coin.teams.control;
 
-import nl.surfnet.coin.teams.domain.JoinTeamRequest;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.util.ControllerUtil;
+import java.util.HashSet;
+import java.util.Set;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.web.servlet.view.RedirectView;
 
-import java.util.HashSet;
-import java.util.Set;
+import nl.surfnet.coin.teams.domain.JoinTeamRequest;
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.util.ControllerUtil;
 
-import static org.easymock.EasyMock.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -57,7 +60,7 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
     // Add the team
     request.addParameter("team", "team-1");
 
-    autoWireMock(joinTeamController, new Returns(mockTeam), TeamService.class);
+    autoWireMock(joinTeamController, new Returns(mockTeam), GrouperTeamService.class);
     autoWireRemainingResources(joinTeamController);
 
     joinTeamController.start(getModelMap(), request);
@@ -86,20 +89,20 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
     request.addParameter("team", "team-1");
     request.addParameter("message", "message");
 
-    TeamService mockTeamService = createMock("mockTeamService", TeamService.class);
-    joinTeamController.setTeamService(mockTeamService);
+    GrouperTeamService mockGrouperTeamService = createMock("mockGrouperTeamService", GrouperTeamService.class);
+    joinTeamController.setGrouperTeamService(mockGrouperTeamService);
 
     Member admin = getAdministrativeMember();
     Set<Member> admins = new HashSet<Member>();
     admins.add(admin);
-    expect(mockTeamService.findAdmins(mockTeam)).andReturn(admins);
+    expect(mockGrouperTeamService.findAdmins(mockTeam)).andReturn(admins);
 
     JoinTeamRequest joinTeamRequest = new JoinTeamRequest("ID2345", "team-1");
 
     autoWireMock(joinTeamController, new Returns(mockTeam), ControllerUtil.class);
     autoWireRemainingResources(joinTeamController);
 
-    replay(mockTeamService);
+    replay(mockGrouperTeamService);
     RedirectView result = joinTeamController.joinTeam(getModelMap(), joinTeamRequest, request);
 
     assertEquals("home.shtml?teams=my&view=app", result.getUrl());
@@ -122,14 +125,14 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
     request.addParameter("team", "team-2");
     request.addParameter("message", "message");
 
-    TeamService mockTeamService = createMock("mockTeamService", TeamService.class);
-    joinTeamController.setTeamService(mockTeamService);
+    GrouperTeamService mockGrouperTeamService = createMock("mockGrouperTeamService", GrouperTeamService.class);
+    joinTeamController.setGrouperTeamService(mockGrouperTeamService);
 
     JoinTeamRequest joinTeamRequest = new JoinTeamRequest("ID2345", "team-2");
 
     autoWireMock(joinTeamController, new Returns(mockPrivateTeam), ControllerUtil.class);
     autoWireRemainingResources(joinTeamController);
-    replay(mockTeamService);
+    replay(mockGrouperTeamService);
     RedirectView result = joinTeamController.joinTeam(getModelMap(), joinTeamRequest, request);
 
   }

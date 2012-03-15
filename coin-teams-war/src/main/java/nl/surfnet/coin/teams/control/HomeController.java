@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,14 +19,11 @@
  */
 package nl.surfnet.coin.teams.control;
 
-import nl.surfnet.coin.teams.domain.Invitation;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.domain.TeamResultWrapper;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.TeamInviteService;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
-import nl.surfnet.coin.teams.util.ViewUtil;
+import java.util.List;
+import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -37,9 +34,14 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.LocaleResolver;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.List;
-import java.util.Locale;
+import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.domain.TeamResultWrapper;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.TeamInviteService;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
+import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * @author steinwelberg
@@ -56,7 +58,7 @@ public class HomeController {
   private LocaleResolver localeResolver;
 
   @Autowired
-  private TeamService teamService;
+  private GrouperTeamService grouperTeamService;
 
   @Autowired
   private TeamInviteService teamInviteService;
@@ -92,7 +94,7 @@ public class HomeController {
     return "home";
   }
 
-    private void addTeams(String query, final String person,
+  private void addTeams(String query, final String person,
                         final String display, ModelMap modelMap,
                         HttpServletRequest request) {
 
@@ -116,26 +118,24 @@ public class HomeController {
 
     TeamResultWrapper resultWrapper;
     // Display all teams when the person is empty or when display equals "all"
-
     if ("all".equals(display) || !StringUtils.hasText(person)) {
-      String personId = LoginInterceptor.getLoggedInUser();
       modelMap.addAttribute("hasMultipleSources", true);
       if (StringUtils.hasText(query)) {
-        resultWrapper = teamService.findTeams(
-                personId, query, offset, PAGESIZE);
+        resultWrapper = grouperTeamService.findTeams(
+                person, query, offset, PAGESIZE);
       } else {
-        resultWrapper = teamService.findAllTeams(
-                personId, offset, PAGESIZE);
+        resultWrapper = grouperTeamService.findAllTeams(
+                person, offset, PAGESIZE);
       }
       modelMap.addAttribute("display", "all");
       // else always display my teams
     } else {
-      modelMap.addAttribute("hasMultipleSources", teamService.findStemsByMember(person).size() > 1);
+      modelMap.addAttribute("hasMultipleSources", grouperTeamService.findStemsByMember(person).size() > 1);
       if (StringUtils.hasText(query)) {
-        resultWrapper = teamService.findTeamsByMember(
+        resultWrapper = grouperTeamService.findTeamsByMember(
                 person, query, offset, PAGESIZE);
       } else {
-        resultWrapper = teamService.findAllTeamsByMember(
+        resultWrapper = grouperTeamService.findAllTeamsByMember(
                 person, offset, PAGESIZE);
       }
       modelMap.addAttribute("display", "my");

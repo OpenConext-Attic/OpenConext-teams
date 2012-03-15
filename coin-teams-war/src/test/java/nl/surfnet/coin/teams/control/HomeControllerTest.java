@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,10 +19,9 @@
  */
 package nl.surfnet.coin.teams.control;
 
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
+import java.util.ArrayList;
+import java.util.Locale;
+
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
 import org.opensocial.models.Person;
@@ -34,10 +33,10 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.LocaleResolver;
 
-import java.util.ArrayList;
-import java.util.Locale;
-
-import javax.servlet.http.HttpSession;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -59,11 +58,11 @@ public class HomeControllerTest extends AbstractControllerTest {
     request.setParameter("teams", "my");
     request.setParameter("teamSearch", "query");
 
-    TeamService teamService = mock(TeamService.class);
-    when(teamService.findAllTeamsByMember(getMember().getId(), 0, 10)).thenReturn(getMyTeams());
-    when(teamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
+    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
+    when(grouperTeamService.findAllTeamsByMember(getMember().getId(), 0, 10)).thenReturn(getMyTeams());
+    when(grouperTeamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
 
-    autoWireMock(homeController, teamService, TeamService.class);
+    autoWireMock(homeController, grouperTeamService, GrouperTeamService.class);
     autoWireMock(homeController, new Returns(DEFAULTSTEM), TeamEnvironment.class);
     autoWireMock(homeController, new Returns("query"), MessageSource.class);
     autoWireMock(homeController, new Returns(Locale.ENGLISH), LocaleResolver.class);
@@ -86,7 +85,7 @@ public class HomeControllerTest extends AbstractControllerTest {
     autoWireMock(homeController, new Returns(DEFAULTSTEM), TeamEnvironment.class);
     autoWireMock(homeController, new Returns("query"), MessageSource.class);
     autoWireMock(homeController, new Returns(Locale.ENGLISH), LocaleResolver.class);
-    autoWireMock(homeController, getAllTeamReturn(), TeamService.class);
+    autoWireMock(homeController, getAllTeamReturn(), GrouperTeamService.class);
 
     RequestContextHolder.setRequestAttributes(getRequestAttributes(), true);
     
@@ -121,11 +120,11 @@ public class HomeControllerTest extends AbstractControllerTest {
     request.setParameter("teams", "my");
     request.setParameter("teamSearch", "1");
 
-    TeamService teamService = mock(TeamService.class);
-    when(teamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
-    when(teamService.findTeamsByMember(getMember().getId(), "1", 0, 10)).thenReturn(getSearchTeams());
+    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
+    when(grouperTeamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
+    when(grouperTeamService.findTeamsByMember(getMember().getId(), "1", 0, 10)).thenReturn(getSearchTeams());
 
-    autoWireMock(homeController, teamService, TeamService.class);
+    autoWireMock(homeController, grouperTeamService, GrouperTeamService.class);
     autoWireMock(homeController, new Returns(DEFAULTSTEM), TeamEnvironment.class);
     autoWireMock(homeController, new Returns("query"), MessageSource.class);
     autoWireMock(homeController, new Returns(Locale.ENGLISH), LocaleResolver.class);

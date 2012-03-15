@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,13 +16,15 @@
 
 package nl.surfnet.coin.teams.control;
 
-import nl.surfnet.coin.teams.domain.*;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.TeamInviteService;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.util.ControllerUtil;
-import nl.surfnet.coin.teams.util.TokenUtil;
-import nl.surfnet.coin.teams.util.ViewUtil;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,13 +37,18 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.view.RedirectView;
 
-import javax.servlet.http.HttpServletRequest;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
+import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.InvitationMessage;
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.TeamInviteService;
+import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
+import nl.surfnet.coin.teams.util.TokenUtil;
+import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * {@link Controller} that handles the accept/decline of an Invitation
@@ -54,7 +61,10 @@ public class InvitationController {
   private TeamInviteService teamInviteService;
 
   @Autowired
-  private TeamService teamService;
+  private TeamEnvironment teamEnvironment;
+
+  @Autowired
+  private GrouperTeamService grouperTeamService;
 
   @Autowired
   private ControllerUtil controllerUtil;
@@ -135,8 +145,8 @@ public class InvitationController {
     Team team = controllerUtil.getTeamById(teamId);
 
     String memberId = person.getId();
-    teamService.addMember(teamId, person);
-    teamService.addMemberRole(teamId, memberId, Role.Member, true);
+    grouperTeamService.addMember(teamId, person);
+    grouperTeamService.addMemberRole(teamId, memberId, Role.Member, teamEnvironment.getGrouperPowerUser());
 
     invitation.setAccepted(true);
     teamInviteService.saveOrUpdate(invitation);
@@ -218,7 +228,7 @@ public class InvitationController {
           "Cannot find the invitation. Invitations expire after 14 days.");
     }
 
-    Member member = teamService.findMember(invitation.getTeamId(), person.getId());
+    Member member = grouperTeamService.findMember(invitation.getTeamId(), person.getId());
     if (member == null) {
       throw new SecurityException("You are not a member of this team");
     }

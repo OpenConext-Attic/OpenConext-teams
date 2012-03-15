@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,23 +28,6 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
-import nl.surfnet.coin.opensocial.service.PersonService;
-import nl.surfnet.coin.shared.service.MailService;
-import nl.surfnet.coin.teams.domain.Invitation;
-import nl.surfnet.coin.teams.domain.JoinTeamRequest;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Pager;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.JoinTeamRequestService;
-import nl.surfnet.coin.teams.service.TeamInviteService;
-import nl.surfnet.coin.teams.service.TeamService;
-import nl.surfnet.coin.teams.util.ControllerUtil;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
-import nl.surfnet.coin.teams.util.TokenUtil;
-import nl.surfnet.coin.teams.util.ViewUtil;
-
 import org.json.JSONException;
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +45,23 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
+
+import nl.surfnet.coin.opensocial.service.PersonService;
+import nl.surfnet.coin.shared.service.MailService;
+import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.JoinTeamRequest;
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Pager;
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.JoinTeamRequestService;
+import nl.surfnet.coin.teams.service.TeamInviteService;
+import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
+import nl.surfnet.coin.teams.util.TokenUtil;
+import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * @author steinwelberg
@@ -89,7 +89,7 @@ public class DetailTeamController {
   private static final String ERROR = "error";
 
   @Autowired
-  private TeamService teamService;
+  private GrouperTeamService grouperTeamService;
 
   @Autowired
   private TeamInviteService teamInviteService;
@@ -130,7 +130,7 @@ public class DetailTeamController {
     Set<Role> roles = new HashSet<Role>();
     String message = request.getParameter("mes");
 
-    Team team = teamService.findTeamById(request.getParameter(TEAM_PARAM));
+    Team team = grouperTeamService.findTeamById(request.getParameter(TEAM_PARAM));
 
     List<Member> members = team.getMembers();
 
@@ -146,7 +146,7 @@ public class DetailTeamController {
     }
 
     // Check if there is only one admin for a team
-    boolean onlyAdmin = teamService.findAdmins(team).size() <= 1;
+    boolean onlyAdmin = grouperTeamService.findAdmins(team).size() <= 1;
     modelMap.addAttribute("onlyAdmin", onlyAdmin);
 
     modelMap.addAttribute("invitations",
@@ -226,7 +226,7 @@ public class DetailTeamController {
     Team team = null;
 
     if (StringUtils.hasText(teamId)) {
-      team = teamService.findTeamById(teamId);
+      team = grouperTeamService.findTeamById(teamId);
     }
 
     if (team == null) {
@@ -235,7 +235,7 @@ public class DetailTeamController {
       throw new RuntimeException("Parameter error.");
     }
 
-    Set<Member> admins = teamService.findAdmins(team);
+    Set<Member> admins = grouperTeamService.findAdmins(team);
     Member[] adminsArray = admins.toArray(new Member[admins.size()]);
 
     if (admins.size() == 1 && adminsArray[0].getId().equals(personId)) {
@@ -247,7 +247,7 @@ public class DetailTeamController {
     }
 
     // Leave the team
-    teamService.deleteMember(teamId, personId);
+    grouperTeamService.deleteMember(teamId, personId);
 
     status.setComplete();
     modelMap.clear();
@@ -272,15 +272,15 @@ public class DetailTeamController {
       throw new RuntimeException("Parameter error.");
     }
 
-    Member member = teamService.findMember(teamId, personId);
+    Member member = grouperTeamService.findMember(teamId, personId);
     if (member.getRoles().contains(Role.Admin)) {
       // Delete the team
-      Team team = teamService.findTeamById(teamId);
+      Team team = grouperTeamService.findTeamById(teamId);
       final List<Invitation> invitationsForTeam = teamInviteService.findInvitationsForTeam(team);
       for (Invitation invitation : invitationsForTeam) {
         teamInviteService.delete(invitation);
       }
-      teamService.deleteTeam(teamId);
+      grouperTeamService.deleteTeam(teamId);
 
       status.setComplete();
       return new RedirectView("home.shtml?teams=my&view="
@@ -315,8 +315,8 @@ public class DetailTeamController {
     }
 
     // fetch the logged in member
-    Member owner = teamService.findMember(teamId, ownerId);
-    Member member = teamService.findMember(teamId, personId);
+    Member owner = grouperTeamService.findMember(teamId, ownerId);
+    Member member = grouperTeamService.findMember(teamId, personId);
 
     // Check whether the owner is admin and thus is granted to delete the
     // member.
@@ -326,7 +326,7 @@ public class DetailTeamController {
     if (owner.getRoles().contains(Role.Admin) && !personId.equals(ownerId)) {
 
       // Delete the member
-      teamService.deleteMember(teamId, personId);
+      grouperTeamService.deleteMember(teamId, personId);
 
       status.setComplete();
       modelMap.clear();
@@ -338,7 +338,7 @@ public class DetailTeamController {
     } else if (owner.getRoles().contains(Role.Manager)
         && !member.getRoles().contains(Role.Admin) && !personId.equals(ownerId)) {
       // Delete the member
-      teamService.deleteMember(teamId, personId);
+      grouperTeamService.deleteMember(teamId, personId);
 
       status.setComplete();
       modelMap.clear();
@@ -381,9 +381,12 @@ public class DetailTeamController {
           + ViewUtil.getView(request) + "&mes=no.role.action" + "&offset="
           + offset);
     }
+    Person person = (Person) request.getSession().getAttribute(
+        LoginInterceptor.PERSON_SESSION_KEY);
+
     String message;
     if (action.equalsIgnoreCase("remove")) {
-      Team team = teamService.findTeamById(teamId);
+      Team team = grouperTeamService.findTeamById(teamId);
       // is the team null? return error
       if (team == null) {
         status.setComplete();
@@ -391,9 +394,9 @@ public class DetailTeamController {
         return new RedirectView("home.shtml?teams=my" + "&view="
             + ViewUtil.getView(request));
       }
-      message = removeRole(request, teamId, memberId, roleString, team);
+      message = removeRole(teamId, memberId, roleString, team, person.getId());
     } else {
-      message = addRole(request, teamId, memberId, roleString, offset);
+      message = addRole(teamId, memberId, roleString, person.getId());
     }
 
     status.setComplete();
@@ -408,29 +411,29 @@ public class DetailTeamController {
         && (action.equalsIgnoreCase("remove") || action.equalsIgnoreCase("add"));
   }
 
-  private String removeRole(HttpServletRequest request, String teamId,
-      String memberId, String roleString, Team team)
+  private String removeRole(String teamId,
+                            String memberId, String roleString, Team team, String loggedInUserId)
       throws UnsupportedEncodingException {
     // The role admin can only be removed if there are more then one admins in a
     // team.
-    if ((roleString.equals(ADMIN) && teamService.findAdmins(team).size() == 1)) {
+    if ((roleString.equals(ADMIN) && grouperTeamService.findAdmins(team).size() == 1)) {
       return "no.role.added.admin.status";
     }
     Role role = roleString.equals(ADMIN) ? Role.Admin : Role.Manager;
-    return (teamService.removeMemberRole(teamId, memberId, role, false) ? "role.removed"
+    return (grouperTeamService.removeMemberRole(teamId, memberId, role, loggedInUserId) ? "role.removed"
         : "no.role.removed");
   }
 
-  private String addRole(HttpServletRequest request, String teamId,
-      String memberId, String roleString, int offset)
+  private String addRole(String teamId,
+                         String memberId, String roleString, String loggedInUserId)
       throws UnsupportedEncodingException {
     Role role = roleString.equals(ADMIN) ? Role.Admin : Role.Manager;
-    Member other = teamService.findMember(teamId, memberId);
+    Member other = grouperTeamService.findMember(teamId, memberId);
     // Guests may not become admin
     if (other.isGuest() && role == Role.Admin) {
       return "no.role.added.guest.status";
     }
-    return (teamService.addMemberRole(teamId, memberId, role, false) ? "role.added"
+    return (grouperTeamService.addMemberRole(teamId, memberId, role, loggedInUserId) ? "role.added"
         : "no.role.added");
   }
 
@@ -469,7 +472,7 @@ public class DetailTeamController {
       throw new RuntimeException("Missing parameters for team or member");
     }
 
-    Team team = teamService.findTeamById(teamId);
+    Team team = grouperTeamService.findTeamById(teamId);
     if (team == null) {
       status.setComplete();
       modelMap.clear();
@@ -516,8 +519,8 @@ public class DetailTeamController {
     }
 
     if (approve) {
-      teamService.addMember(teamId, personToAddAsMember);
-      teamService.addMemberRole(teamId, memberId, Role.Member, true);
+      grouperTeamService.addMember(teamId, personToAddAsMember);
+      grouperTeamService.addMemberRole(teamId, memberId, Role.Member, teamEnvironment.getGrouperPowerUser());
     }
 
     // Cleanup request
