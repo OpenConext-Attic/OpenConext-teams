@@ -17,3 +17,7 @@ The property
 is changed into
 
     grouperTeamService=nl.surfnet.coin.teams.service.impl.GrouperTeamServiceWsImpl
+
+This property is configured in
+
+    /opt/tomcat/conf/classpath_properties/coin-teams.properties
