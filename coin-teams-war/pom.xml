@@ -30,9 +30,9 @@
   <properties>
     <coin-shared.version>2.1.0</coin-shared.version>
     <coin-opensocial.version>2.1.0</coin-opensocial.version>
-    <coin-test.version>2.1.0</coin-test.version>
+    <coin-api-client.version>2.2.0-SNAPSHOT</coin-api-client.version>
+    <coin-test.version>2.2.0</coin-test.version>
     <coin-master.test-dependencies.version>2.1.1</coin-master.test-dependencies.version>
-    <coin-api-external-groups.version>2.2.0-SNAPSHOT</coin-api-external-groups.version>
 
     <grouper.version>1.6.1</grouper.version>
     <jackson.version>1.8.1</jackson.version>
@@ -50,7 +50,8 @@
             <defaultsDescriptor>${basedir}/src/test/resources/jettywebdefault.xml</defaultsDescriptor>
           </webAppConfig>
           <connectors>
-            <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+            <connector
+              implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
               <port>8060</port>
               <host>0.0.0.0</host>
             </connector>
@@ -97,6 +98,11 @@
       <groupId>org.surfnet.coin</groupId>
       <artifactId>coin-shared</artifactId>
       <version>${coin-shared.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.surfnet.coin</groupId>
+      <artifactId>coin-api-client</artifactId>
+      <version>${coin-api-client.version}</version>
     </dependency>
     <dependency>
       <groupId>org.surfnet.coin</groupId>
@@ -201,6 +207,10 @@
     <dependency>
       <groupId>commons-lang</groupId>
       <artifactId>commons-lang</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.easymock</groupId>
+      <artifactId>easymock</artifactId>
     </dependency>
   </dependencies>
 </project>
