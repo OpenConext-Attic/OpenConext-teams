@@ -28,8 +28,6 @@ public class TeamEnvironment {
   private String grouperPowerUser;
   private String oauthKey;
   private String oauthSecret;
-  private String restEndpoint;
-  private String rpcEndpoint;
   private String appId;
   private String teamsURL;
   private String openSocialUrl;
@@ -125,34 +123,7 @@ public class TeamEnvironment {
     this.grouperPowerUser = grouperPowerUser;
   }
 
-  /**
-   * @param restEndpoint the restEndpoint to set
-   */
-  public void setRestEndpoint(String restEndpoint) {
-    this.restEndpoint = restEndpoint;
-  }
-
-  /**
-   * @return the restEndpoint
-   */
-  public String getRestEndpoint() {
-    return restEndpoint;
-  }
-
-  /**
-   * @param rpcEndpoint the rpcEndpoint to set
-   */
-  public void setRpcEndpoint(String rpcEndpoint) {
-    this.rpcEndpoint = rpcEndpoint;
-  }
-
-  /**
-   * @return the rpcEndpoint
-   */
-  public String getRpcEndpoint() {
-    return rpcEndpoint;
-  }
-
+ 
   /**
    * @param appId the appId to set
    */

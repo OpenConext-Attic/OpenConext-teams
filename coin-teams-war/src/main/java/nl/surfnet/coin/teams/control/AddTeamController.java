@@ -21,9 +21,20 @@ import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Stem;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.DuplicateTeamException;
+import nl.surfnet.coin.teams.util.PermissionUtil;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
+import nl.surfnet.coin.teams.util.TokenUtil;
+import nl.surfnet.coin.teams.util.ViewUtil;
 
 import org.opensocial.RequestException;
 import org.opensocial.models.Person;
@@ -42,19 +53,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.LocaleResolver;
 
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Stem;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.GrouperTeamService;
-import nl.surfnet.coin.teams.service.ShindigActivityService;
-import nl.surfnet.coin.teams.util.ControllerUtil;
-import nl.surfnet.coin.teams.util.DuplicateTeamException;
-import nl.surfnet.coin.teams.util.PermissionUtil;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
-import nl.surfnet.coin.teams.util.TokenUtil;
-import nl.surfnet.coin.teams.util.ViewUtil;
-
 /**
  * @author steinwelberg
  *         <p/>
@@ -71,9 +69,6 @@ public class AddTeamController {
 
   @Autowired
   private GrouperTeamService grouperTeamService;
-
-  @Autowired
-  private ShindigActivityService shindigActivityService;
 
   @Autowired
   private MessageSource messageSource;
@@ -181,10 +176,6 @@ public class AddTeamController {
     // Give him the right permissions, add as the super user
     grouperTeamService.addMemberRole(teamId, personId, Role.Admin, environment.getGrouperPowerUser());
 
-    // Add the activity to the COIN portal
-    addActivity(teamId, teamName, personId,
-            localeResolver.resolveLocale(request));
-
     status.setComplete();
     modelMap.clear();
     return "redirect:detailteam.shtml?team="
@@ -192,17 +183,6 @@ public class AddTeamController {
             + ViewUtil.getView(request);
   }
 
-  private void addActivity(String teamId, String teamName, String personId,
-                           Locale locale) throws RequestException, IOException {
-    Object[] messageValues = { teamName };
-
-    String title = messageSource.getMessage(ACTIVITY_NEW_TEAM_TITLE,
-            messageValues, locale);
-    String body = messageSource.getMessage(ACTIVITY_NEW_TEAM_BODY,
-            messageValues, locale);
-
-    shindigActivityService.addActivity(personId, teamId, title, body);
-  }
 
   private List<Stem> getStemsForMember(String personId) {
     List<Stem> allUsersStems = grouperTeamService.findStemsByMember(personId);
