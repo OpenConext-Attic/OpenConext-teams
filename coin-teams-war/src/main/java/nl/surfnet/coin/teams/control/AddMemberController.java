@@ -29,6 +29,21 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 
+import nl.surfnet.coin.shared.service.MailService;
+import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.InvitationForm;
+import nl.surfnet.coin.teams.domain.InvitationMessage;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.TeamInviteService;
+import nl.surfnet.coin.teams.service.impl.InvitationFormValidator;
+import nl.surfnet.coin.teams.service.impl.InvitationValidator;
+import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
+import nl.surfnet.coin.teams.util.TokenUtil;
+import nl.surfnet.coin.teams.util.ViewUtil;
+
 import org.apache.commons.io.IOUtils;
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,22 +64,6 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
-
-import nl.surfnet.coin.shared.service.MailService;
-import nl.surfnet.coin.teams.domain.Invitation;
-import nl.surfnet.coin.teams.domain.InvitationForm;
-import nl.surfnet.coin.teams.domain.InvitationMessage;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.GrouperTeamService;
-import nl.surfnet.coin.teams.service.ShindigActivityService;
-import nl.surfnet.coin.teams.service.TeamInviteService;
-import nl.surfnet.coin.teams.service.impl.InvitationFormValidator;
-import nl.surfnet.coin.teams.service.impl.InvitationValidator;
-import nl.surfnet.coin.teams.util.ControllerUtil;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
-import nl.surfnet.coin.teams.util.TokenUtil;
-import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * @author steinwelberg
@@ -90,9 +89,6 @@ public class AddMemberController {
 
   @Autowired
   private TeamInviteService teamInviteService;
-
-  @Autowired
-  private ShindigActivityService shindigActivityService;
 
   @Autowired
   private MessageSource messageSource;
@@ -324,10 +320,6 @@ public class AddMemberController {
       teamInviteService.saveOrUpdate(invitation);
       sendInvitationByMail(invitation, subject, locale);
 
-      if (newInvitation) {
-        addActivity(team, emailAddress, inviterPersonId,
-                locale);
-      }
     }
   }
 
@@ -370,18 +362,4 @@ public class AddMemberController {
   }
 
 
-  private void addActivity(final Team team,
-                           final String email, final String personId,
-                           final Locale locale)
-          throws IOException {
-    Object[] messageValues = {email, team.getName()};
-
-    String title = messageSource.getMessage(ACTIVITY_NEW_MEMBER_TITLE,
-            messageValues, locale);
-    String body = messageSource.getMessage(ACTIVITY_NEW_MEMBER_BODY,
-            messageValues, locale);
-
-    // Add the activity
-    shindigActivityService.addActivity(personId, team.getId(), title, body);
-  }
 }
