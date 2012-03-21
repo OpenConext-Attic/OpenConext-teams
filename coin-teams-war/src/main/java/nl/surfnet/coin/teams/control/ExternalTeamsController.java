@@ -43,7 +43,6 @@ public class ExternalTeamsController {
   public @ResponseBody List<GroupProvider> getMyExternalGroupProviders(HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(
             LoginInterceptor.PERSON_SESSION_KEY);
-
     return groupProviderService.getGroupProviders(person.getId());
   }
 
