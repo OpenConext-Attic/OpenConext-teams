@@ -14,3 +14,13 @@ OpenConext teams is now also connecting to the eb (engine block) database. New p
     coin-eb-db-username=ebrw
     coin-eb-db-password=???
     coin-eb-db-driver=com.mysql.jdbc.Driver
+
+### Removed properties
+The properties:
+
+    restEndpoint=http://localhost:8080/social/rest
+    rpcEndpoint=http://localhost:8080/social/rpc
+
+are removed. These properties are configured in
+
+    /opt/tomcat/conf/classpath_properties/coin-teams.properties
