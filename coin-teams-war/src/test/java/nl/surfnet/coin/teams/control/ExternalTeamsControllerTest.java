@@ -50,7 +50,7 @@ public class ExternalTeamsControllerTest extends AbstractControllerTest{
     MockHttpServletRequest request = getRequest();
     List<GroupProvider> groupProviders = new ArrayList<GroupProvider>();
 
-    when(groupProviderService.getGroupProviders(getMember().getId())).thenReturn(groupProviders);
+    when(groupProviderService.getOAuthGroupProviders(getMember().getId())).thenReturn(groupProviders);
     autoWireMock(externalTeamsController, groupProviderService, GroupProviderService.class);
 
     final List<GroupProvider> list = externalTeamsController.getMyExternalGroupProviders(request);
@@ -68,7 +68,7 @@ public class ExternalTeamsControllerTest extends AbstractControllerTest{
     groupProviders.add(external1);
     groupProviders.add(external2);
 
-    when(groupProviderService.getGroupProviders(getMember().getId())).thenReturn(groupProviders);
+    when(groupProviderService.getOAuthGroupProviders(getMember().getId())).thenReturn(groupProviders);
     autoWireMock(externalTeamsController, groupProviderService, GroupProviderService.class);
 
     final List<GroupProvider> list = externalTeamsController.getMyExternalGroupProviders(request);
