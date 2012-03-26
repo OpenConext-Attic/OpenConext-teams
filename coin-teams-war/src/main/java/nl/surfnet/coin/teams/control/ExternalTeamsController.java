@@ -48,6 +48,7 @@ import nl.surfnet.coin.teams.domain.ThreeLeggedOauth10aGroupProviderApi;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GroupProviderService;
 import nl.surfnet.coin.teams.service.impl.GroupProviderThreeLeggedOAuth10aService;
+import nl.surfnet.coin.teams.util.GroupProviderIdConverter;
 import nl.surfnet.coin.teams.util.GroupProviderOptionParameters;
 
 /**
@@ -96,7 +97,7 @@ public class ExternalTeamsController {
       final OAuthService oAuthService = tls.getOAuthService();
 
       Token accessToken = new Token(oauth.getoAuthToken(), oauth.getoAuthSecret());
-      String strippedID = personToExternalId(person);
+      String strippedID = GroupProviderIdConverter.convertToExternalPersonId(provider, person.getId());
       OAuthRequest oAuthRequest = new OAuthRequest(api.getRequestTokenVerb(),
           MessageFormat.format("{0}/groups/{1}",
               provider.getAllowedOptionAsString(GroupProviderOptionParameters.URL),
@@ -114,12 +115,6 @@ public class ExternalTeamsController {
 
     }
     return group20s;
-  }
-
-  private String personToExternalId(Person person) {
-    String internalId = person.getId();
-    String pattern = "urn:collab:(group|person):(.+):(.+)";
-    return internalId.replaceAll(pattern, "$3");
   }
 
   private List<Group20> getGroup20sFromResponse(Response oAuthResponse) {
