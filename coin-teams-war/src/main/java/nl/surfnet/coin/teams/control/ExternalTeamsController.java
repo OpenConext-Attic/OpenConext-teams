@@ -28,7 +28,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import nl.surfnet.coin.api.client.domain.Group20;
-import nl.surfnet.coin.teams.domain.GroupProvider;
 import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GroupProviderService;
@@ -47,14 +46,15 @@ public class ExternalTeamsController {
   @Autowired
   private GroupService groupService;
 
-  @RequestMapping("/myproviders.shtml")
+  // only enable myproviders.shtml if you need to debug. It reveals too much information.
+/*  @RequestMapping("/myproviders.shtml")
   public
   @ResponseBody
   List<GroupProvider> getMyExternalGroupProviders(HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
     return groupProviderService.getOAuthGroupProviders(person.getId());
-  }
+  }*/
 
   @RequestMapping("/mygroups.shtml")
   public
