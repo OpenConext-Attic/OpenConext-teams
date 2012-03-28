@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import nl.surfnet.coin.api.client.domain.Group20;
+import nl.surfnet.coin.teams.domain.GroupProvider;
 import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GroupProviderService;
@@ -69,7 +70,10 @@ public class ExternalTeamsController {
     final List<GroupProviderUserOauth> oauthList =
         groupProviderService.getGroupProviderUserOauths(person.getId());
     for (GroupProviderUserOauth oauth : oauthList) {
-      group20s.addAll(groupService.getGroup20s(oauth));
+      GroupProvider provider =
+          groupProviderService.getGroupProviderByStringIdentifier(oauth.getProvider());
+
+      group20s.addAll(groupService.getGroup20s(oauth, provider));
       // if 1 provider fails, error is returned, but this is not the final UI anyway
     }
     return group20s;
