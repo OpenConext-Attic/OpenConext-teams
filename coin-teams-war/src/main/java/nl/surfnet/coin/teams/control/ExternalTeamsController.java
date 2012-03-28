@@ -21,18 +21,20 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.opensocial.models.Person;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import nl.surfnet.coin.api.client.domain.Group20;
+import nl.surfnet.coin.api.client.domain.Person;
 import nl.surfnet.coin.teams.domain.GroupProvider;
 import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GroupProviderService;
 import nl.surfnet.coin.teams.service.GroupService;
+import nl.surfnet.coin.teams.util.GroupProviderPropertyConverter;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Controller for external teams
@@ -79,5 +81,25 @@ public class ExternalTeamsController {
     return group20s;
   }
 
+  @RequestMapping("/mygroupmembers.shtml/{groupId}")
+  public
+  @ResponseBody
+  List<Person> getMyExternalGroupMembers(HttpServletRequest request,@PathVariable("groupId") String groupId) {
+    Person person = (Person) request.getSession().getAttribute(
+        LoginInterceptor.PERSON_SESSION_KEY);
 
+
+    // get a list of my group providers that I already have an access token for
+    final List<GroupProviderUserOauth> oauthList =
+        groupProviderService.getGroupProviderUserOauths(person.getId());
+    for (GroupProviderUserOauth oauth : oauthList) {
+      GroupProvider provider =
+          groupProviderService.getGroupProviderByStringIdentifier(oauth.getProvider());
+      if (GroupProviderPropertyConverter.isGroupFromGroupProvider(groupId, provider)) {
+        return groupService.getGroupMembers(oauth, provider, groupId);
+      }
+    }
+    return new ArrayList<Person>();
+  }
+  
 }
