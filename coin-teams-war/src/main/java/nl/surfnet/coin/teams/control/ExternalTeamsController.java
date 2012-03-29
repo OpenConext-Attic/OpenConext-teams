@@ -16,13 +16,15 @@
 
 package nl.surfnet.coin.teams.control;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import nl.surfnet.coin.api.client.domain.Group20;
-import nl.surfnet.coin.api.client.domain.Person;
+
 import nl.surfnet.coin.teams.domain.GroupProvider;
 import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
@@ -30,6 +32,7 @@ import nl.surfnet.coin.teams.service.GroupProviderService;
 import nl.surfnet.coin.teams.service.GroupService;
 import nl.surfnet.coin.teams.util.GroupProviderPropertyConverter;
 
+import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,6 +45,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/externalgroups/*")
 public class ExternalTeamsController {
+
+  private static final String UTF_8 = "utf-8";
 
   @Autowired
   private GroupProviderService groupProviderService;
@@ -81,13 +86,13 @@ public class ExternalTeamsController {
     return group20s;
   }
 
-  @RequestMapping("/mygroupmembers.shtml/{groupId}")
+  @RequestMapping("/mygroupmembers.shtml")
   public
   @ResponseBody
-  List<Person> getMyExternalGroupMembers(HttpServletRequest request,@PathVariable("groupId") String groupId) {
+  List<nl.surfnet.coin.api.client.domain.Person> getMyExternalGroupMembers(HttpServletRequest request) throws UnsupportedEncodingException {
     Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
-
+    String groupId = URLDecoder.decode(request.getParameter("groupId"), UTF_8);
 
     // get a list of my group providers that I already have an access token for
     final List<GroupProviderUserOauth> oauthList =
@@ -99,7 +104,7 @@ public class ExternalTeamsController {
         return groupService.getGroupMembers(oauth, provider, groupId);
       }
     }
-    return new ArrayList<Person>();
+    return new ArrayList<nl.surfnet.coin.api.client.domain.Person>();
   }
   
 }
