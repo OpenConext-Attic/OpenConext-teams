@@ -21,18 +21,8 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.mock.web.MockHttpServletRequest;
 
-import nl.surfnet.coin.api.client.domain.Group20;
-import nl.surfnet.coin.teams.domain.GroupProvider;
-import nl.surfnet.coin.teams.domain.GroupProviderType;
 import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
-import nl.surfnet.coin.teams.service.GroupProviderService;
-import nl.surfnet.coin.teams.service.GroupService;
-
-import static junit.framework.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 /**
  * Tests for {@link ExternalGroupController}
@@ -44,32 +34,6 @@ public class ExternalGroupControllerTest extends AbstractControllerTest {
   public void setUp() throws Exception {
     super.setup();
     controller = new ExternalGroupController();
-
-  }
-
-  @Test
-  public void testGetMyExternalGroups() throws Exception {
-    MockHttpServletRequest request = getRequest();
-    Long groupProviderId = 4L;
-
-    GroupProviderService groupProviderService = mock(GroupProviderService.class);
-    when(groupProviderService.getGroupProviderUserOauths(getMember().getId())).thenReturn(getOAuths());
-
-    GroupProvider provider = new GroupProvider(groupProviderId, "hz", "HZ Groupen",
-        GroupProviderType.OAUTH_THREELEGGED.getStringValue());
-    when(groupProviderService.getGroupProviderByStringIdentifier("hz")).thenReturn(provider);
-
-    List<Group20> group20s = new ArrayList<Group20>();
-    GroupService groupService = mock(GroupService.class);
-    when(groupService.getGroup20s(getOAuths().get(0), provider)).thenReturn(group20s);
-
-    autoWireMock(controller, groupProviderService, GroupProviderService.class);
-    autoWireMock(controller, provider, GroupProvider.class);
-    autoWireMock(controller, groupService, GroupService.class);
-
-    final List<Group20> myExternalGroups = controller.getMyExternalGroups(groupProviderId, request);
-    assertEquals(group20s, myExternalGroups);
-
 
   }
 

@@ -16,27 +16,13 @@
 
 package nl.surfnet.coin.teams.control;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import nl.surfnet.coin.api.client.domain.Group20;
-import nl.surfnet.coin.teams.domain.GroupProvider;
-import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GroupProviderService;
 import nl.surfnet.coin.teams.service.GroupService;
-import nl.surfnet.coin.teams.util.GroupProviderPropertyConverter;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
 
 /**
  * Controller for external teams
@@ -53,6 +39,9 @@ public class ExternalGroupController {
   @Autowired
   private GroupService groupService;
 
+  @Autowired
+  private TeamEnvironment environment;
+
   // only enable myproviders.shtml if you need to debug. It reveals too much information.
 /*  @RequestMapping("/myproviders.shtml")
   public
@@ -63,10 +52,10 @@ public class ExternalGroupController {
     return groupProviderService.getOAuthGroupProviders(person.getId());
   }*/
 
+/*
   @RequestMapping("/mygroups.shtml")
-  public
-  @ResponseBody
-  List<Group20> getMyExternalGroups(@RequestParam Long groupProviderId,
+  public String getMyExternalGroups(@RequestParam Long groupProviderId,
+                                    ModelMap modelMap,
                                     HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
@@ -75,19 +64,27 @@ public class ExternalGroupController {
     // get a list of my group providers that I already have an access token for
     final List<GroupProviderUserOauth> oauthList =
         groupProviderService.getGroupProviderUserOauths(person.getId());
+    List<GroupProvider> groupProviders = new ArrayList<GroupProvider>();
 
     for (GroupProviderUserOauth oauth : oauthList) {
       GroupProvider provider =
           groupProviderService.getGroupProviderByStringIdentifier(oauth.getProvider());
+      groupProviders.add(provider);
       if (groupProviderId.equals(provider.getId())) {
         group20s.addAll(groupService.getGroup20s(oauth, provider));
       }
     }
+    modelMap.addAttribute("group20s", group20s);
+    modelMap.addAttribute("appversion", environment.getVersion());
+    modelMap.addAttribute("groupProviders", groupProviders);
+    modelMap.addAttribute("groupProviderId", groupProviderId);
+    ViewUtil.addViewToModelMap(request, modelMap);
 
-    return group20s;
+    return "home";
   }
+*/
 
-  @RequestMapping("/mygroupmembers.shtml")
+/*  @RequestMapping("/mygroupmembers.shtml")
   public
   @ResponseBody
   List<nl.surfnet.coin.api.client.domain.Person> getMyExternalGroupMembers(HttpServletRequest request) throws UnsupportedEncodingException {
@@ -106,6 +103,6 @@ public class ExternalGroupController {
       }
     }
     return new ArrayList<nl.surfnet.coin.api.client.domain.Person>();
-  }
+  }*/
 
 }
