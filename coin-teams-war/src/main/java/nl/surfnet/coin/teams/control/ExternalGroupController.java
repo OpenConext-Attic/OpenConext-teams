@@ -23,8 +23,14 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import nl.surfnet.coin.api.client.domain.Group20;
+import org.opensocial.models.Person;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import nl.surfnet.coin.api.client.domain.Group20;
 import nl.surfnet.coin.teams.domain.GroupProvider;
 import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
@@ -32,19 +38,12 @@ import nl.surfnet.coin.teams.service.GroupProviderService;
 import nl.surfnet.coin.teams.service.GroupService;
 import nl.surfnet.coin.teams.util.GroupProviderPropertyConverter;
 
-import org.opensocial.models.Person;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 /**
  * Controller for external teams
  */
 @Controller
 @RequestMapping("/externalgroups/*")
-public class ExternalTeamsController {
+public class ExternalGroupController {
 
   private static final String UTF_8 = "utf-8";
 
@@ -67,22 +66,24 @@ public class ExternalTeamsController {
   @RequestMapping("/mygroups.shtml")
   public
   @ResponseBody
-  List<Group20> getMyExternalGroups(HttpServletRequest request) {
+  List<Group20> getMyExternalGroups(@RequestParam Long groupProviderId,
+                                    HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
-
     List<Group20> group20s = new ArrayList<Group20>();
 
     // get a list of my group providers that I already have an access token for
     final List<GroupProviderUserOauth> oauthList =
         groupProviderService.getGroupProviderUserOauths(person.getId());
+
     for (GroupProviderUserOauth oauth : oauthList) {
       GroupProvider provider =
           groupProviderService.getGroupProviderByStringIdentifier(oauth.getProvider());
-
-      group20s.addAll(groupService.getGroup20s(oauth, provider));
-      // if 1 provider fails, error is returned, but this is not the final UI anyway
+      if (groupProviderId.equals(provider.getId())) {
+        group20s.addAll(groupService.getGroup20s(oauth, provider));
+      }
     }
+
     return group20s;
   }
 
@@ -106,5 +107,5 @@ public class ExternalTeamsController {
     }
     return new ArrayList<nl.surfnet.coin.api.client.domain.Person>();
   }
-  
+
 }

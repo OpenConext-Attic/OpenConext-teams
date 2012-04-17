@@ -1,7 +1,7 @@
 # OpenConext Teams Configuration changes
 
 ## Versions
- - Current Version: 2.2.x
+ - Current Version: 2.3.x
  - Previous Version: 2.1.x
 
 ## Instructions
@@ -24,3 +24,7 @@ The properties:
 are removed. These properties are configured in
 
     /opt/tomcat/conf/classpath_properties/coin-teams.properties
+
+### Database schema changes
+
+Execute the statements in `coin-teams-update-to-2.3.0.sql`

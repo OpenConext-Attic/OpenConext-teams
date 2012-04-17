@@ -19,6 +19,7 @@
  */
 package nl.surfnet.coin.teams.control;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -34,10 +35,13 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.LocaleResolver;
 
+import nl.surfnet.coin.teams.domain.GroupProvider;
+import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
 import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamResultWrapper;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GroupProviderService;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.service.TeamInviteService;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
@@ -66,6 +70,9 @@ public class HomeController {
   @Autowired
   private TeamEnvironment environment;
 
+  @Autowired
+  private GroupProviderService groupProviderService;
+
   private static final int PAGESIZE = 10;
 
   @RequestMapping("/home.shtml")
@@ -89,6 +96,13 @@ public class HomeController {
       modelMap.addAttribute("myinvitations", !CollectionUtils.isEmpty(invitations));
     }
     modelMap.addAttribute("appversion", environment.getVersion());
+
+    final List<GroupProviderUserOauth> groupProviderUserOauths = groupProviderService.getGroupProviderUserOauths(person.getId());
+    List<GroupProvider> groupProviders = new ArrayList<GroupProvider>();
+    for (GroupProviderUserOauth oauth : groupProviderUserOauths) {
+      groupProviders.add(groupProviderService.getGroupProviderByStringIdentifier(oauth.getProvider()));
+    }
+    modelMap.addAttribute("groupProviders", groupProviders);
     ViewUtil.addViewToModelMap(request, modelMap);
 
     return "home";

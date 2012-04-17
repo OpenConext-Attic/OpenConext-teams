@@ -20,6 +20,8 @@
 package nl.surfnet.coin.teams.control;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Locale;
 
 import org.junit.Test;
@@ -33,8 +35,12 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.LocaleResolver;
 
+import nl.surfnet.coin.teams.domain.GroupProvider;
+import nl.surfnet.coin.teams.domain.GroupProviderType;
+import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GroupProviderService;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 
@@ -62,7 +68,12 @@ public class HomeControllerTest extends AbstractControllerTest {
     when(grouperTeamService.findAllTeamsByMember(getMember().getId(), 0, 10)).thenReturn(getMyTeams());
     when(grouperTeamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
 
+    GroupProviderService groupProviderService = mock(GroupProviderService.class);
+    when(groupProviderService.getGroupProviderUserOauths(getMember().getId())).
+        thenReturn(Collections.<GroupProviderUserOauth>emptyList());
+
     autoWireMock(homeController, grouperTeamService, GrouperTeamService.class);
+    autoWireMock(homeController, groupProviderService, GroupProviderService.class);
     autoWireMock(homeController, new Returns(DEFAULTSTEM), TeamEnvironment.class);
     autoWireMock(homeController, new Returns("query"), MessageSource.class);
     autoWireMock(homeController, new Returns(Locale.ENGLISH), LocaleResolver.class);
@@ -77,11 +88,55 @@ public class HomeControllerTest extends AbstractControllerTest {
   }
 
   @Test
+    public void testStartMyTeams_withExternalTeams() throws Exception {
+      MockHttpServletRequest request = getRequest();
+      // This requests my teams
+      request.setParameter("teams", "my");
+      request.setParameter("teamSearch", "query");
+
+      GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
+      when(grouperTeamService.findAllTeamsByMember(getMember().getId(), 0, 10)).thenReturn(getMyTeams());
+      when(grouperTeamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
+
+      GroupProviderUserOauth gpua = new GroupProviderUserOauth(getMember().getId(), "uvh", "token", "secret");
+      GroupProvider groupProvider = new GroupProvider(1L, "uvh", "Universiteit van Harderwijk",
+          GroupProviderType.OAUTH_THREELEGGED.getStringValue());
+      List<GroupProviderUserOauth> oauthList = new ArrayList<GroupProviderUserOauth>();
+      oauthList.add(gpua);
+
+
+      GroupProviderService groupProviderService = mock(GroupProviderService.class);
+      when(groupProviderService.getGroupProviderUserOauths(getMember().getId())).
+          thenReturn(oauthList);
+      when(groupProviderService.getGroupProviderByStringIdentifier(gpua.getProvider())).thenReturn(groupProvider);
+
+      autoWireMock(homeController, grouperTeamService, GrouperTeamService.class);
+      autoWireMock(homeController, groupProviderService, GroupProviderService.class);
+      autoWireMock(homeController, new Returns(DEFAULTSTEM), TeamEnvironment.class);
+      autoWireMock(homeController, new Returns("query"), MessageSource.class);
+      autoWireMock(homeController, new Returns(Locale.ENGLISH), LocaleResolver.class);
+
+      homeController.start(getModelMap(), request);
+      @SuppressWarnings("unchecked")
+      List<Team> teams = (List<Team>) getModelMap().get("teams");
+      String display = (String) getModelMap().get("display");
+
+      assertEquals(3, teams.size());
+      assertEquals("my", display);
+      assertEquals(groupProvider, ((List<GroupProvider>) getModelMap().get("groupProviders")).get(0));
+    }
+
+  @Test
   public void testStartAllTeams() throws Exception {
     MockHttpServletRequest request = getRequest();
     // This requests my teams
     request.setParameter("teams", "all");
 
+    GroupProviderService groupProviderService = mock(GroupProviderService.class);
+    when(groupProviderService.getGroupProviderUserOauths(getMember().getId())).
+        thenReturn(Collections.<GroupProviderUserOauth>emptyList());
+
+    autoWireMock(homeController, groupProviderService, GroupProviderService.class);
     autoWireMock(homeController, new Returns(DEFAULTSTEM), TeamEnvironment.class);
     autoWireMock(homeController, new Returns("query"), MessageSource.class);
     autoWireMock(homeController, new Returns(Locale.ENGLISH), LocaleResolver.class);
@@ -124,6 +179,12 @@ public class HomeControllerTest extends AbstractControllerTest {
     when(grouperTeamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
     when(grouperTeamService.findTeamsByMember(getMember().getId(), "1", 0, 10)).thenReturn(getSearchTeams());
 
+
+    GroupProviderService groupProviderService = mock(GroupProviderService.class);
+    when(groupProviderService.getGroupProviderUserOauths(getMember().getId())).
+        thenReturn(Collections.<GroupProviderUserOauth>emptyList());
+
+    autoWireMock(homeController, groupProviderService, GroupProviderService.class);
     autoWireMock(homeController, grouperTeamService, GrouperTeamService.class);
     autoWireMock(homeController, new Returns(DEFAULTSTEM), TeamEnvironment.class);
     autoWireMock(homeController, new Returns("query"), MessageSource.class);
