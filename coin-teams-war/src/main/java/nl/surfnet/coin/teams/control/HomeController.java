@@ -33,8 +33,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.LocaleResolver;
 
+import nl.surfnet.coin.api.client.domain.Group20;
 import nl.surfnet.coin.teams.domain.GroupProvider;
 import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
 import nl.surfnet.coin.teams.domain.Invitation;
@@ -42,6 +44,7 @@ import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamResultWrapper;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GroupProviderService;
+import nl.surfnet.coin.teams.service.GroupService;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.service.TeamInviteService;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
@@ -73,36 +76,55 @@ public class HomeController {
   @Autowired
   private GroupProviderService groupProviderService;
 
+  @Autowired
+  private GroupService groupService;
+
   private static final int PAGESIZE = 10;
 
   @RequestMapping("/home.shtml")
-  public String start(ModelMap modelMap, HttpServletRequest request) {
+  public String start(ModelMap modelMap, HttpServletRequest request,
+                      @RequestParam(required = false, defaultValue = "my") String teams,
+                      @RequestParam(required = false) String teamSearch,
+                      @RequestParam(required = false) Long groupProviderId) {
 
     Person person = (Person) request.getSession().getAttribute(
             LoginInterceptor.PERSON_SESSION_KEY);
-    String display = request.getParameter("teams");
-    String query = request.getParameter("teamSearch");
+    String display = teams;
+    String query = teamSearch;
+    modelMap.addAttribute("groupProviderId", groupProviderId);
 
-    // Set the display to my if no display is selected
-    if (!StringUtils.hasText(display)) {
-      display = "my";
+    if ("externalGroups".equals(display)) {
+      modelMap.addAttribute("display", display);
+    } else {
+      addTeams(query, person.getId(), display, modelMap, request);
     }
-
-    addTeams(query, person.getId(), display, modelMap, request);
 
     String email = person.getEmail();
     if (StringUtils.hasText(email)) {
       List<Invitation> invitations = teamInviteService.findPendingInvitationsByEmail(email);
       modelMap.addAttribute("myinvitations", !CollectionUtils.isEmpty(invitations));
     }
-    modelMap.addAttribute("appversion", environment.getVersion());
 
+    // Get the OAuth keys for external group providers
     final List<GroupProviderUserOauth> groupProviderUserOauths = groupProviderService.getGroupProviderUserOauths(person.getId());
     List<GroupProvider> groupProviders = new ArrayList<GroupProvider>();
+
     for (GroupProviderUserOauth oauth : groupProviderUserOauths) {
-      groupProviders.add(groupProviderService.getGroupProviderByStringIdentifier(oauth.getProvider()));
+      // Get the external group provider belonging to this OAuth key
+      final GroupProvider groupProvider = groupProviderService.getGroupProviderByStringIdentifier(oauth.getProvider());
+      groupProviders.add(groupProvider);
+
+      // Get the external groups for the requested external group provider
+      if (groupProviderId != null && groupProviderId.equals(groupProvider.getId())) {
+        final List<Group20> group20s = groupService.getGroup20s(oauth, groupProvider);
+        modelMap.addAttribute("group20s", group20s);
+      }
+
     }
+    // Add the external group providers to the ModelMap for the navigation
     modelMap.addAttribute("groupProviders", groupProviders);
+
+    modelMap.addAttribute("appversion", environment.getVersion());
     ViewUtil.addViewToModelMap(request, modelMap);
 
     return "home";
