@@ -1,0 +1,1 @@
+ALTER TABLE `invitations` ADD `intended_role` varchar(255) default NULL;

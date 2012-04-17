@@ -1,0 +1,1 @@
+ALTER TABLE `invitations` DROP `intended_role`;
