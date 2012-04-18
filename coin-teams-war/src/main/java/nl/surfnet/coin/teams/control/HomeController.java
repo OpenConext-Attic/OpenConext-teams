@@ -116,7 +116,7 @@ public class HomeController {
 
       // Get the external groups for the requested external group provider
       if (groupProviderId != null && groupProviderId.equals(groupProvider.getId())) {
-        final List<Group20> group20s = groupService.getGroup20s(oauth, groupProvider);
+        final List<Group20> group20s = groupService.getGroup20List(oauth, groupProvider);
         modelMap.addAttribute("group20s", group20s);
       }
 

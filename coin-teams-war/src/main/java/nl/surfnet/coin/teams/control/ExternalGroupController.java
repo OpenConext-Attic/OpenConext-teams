@@ -16,13 +16,28 @@
 
 package nl.surfnet.coin.teams.control;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.opensocial.models.Person;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import nl.surfnet.coin.api.client.domain.Group20;
+import nl.surfnet.coin.teams.domain.GroupProvider;
+import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GroupProviderService;
 import nl.surfnet.coin.teams.service.GroupService;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
+import nl.surfnet.coin.teams.util.GroupProviderPropertyConverter;
+import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * Controller for external teams
@@ -31,78 +46,64 @@ import nl.surfnet.coin.teams.util.TeamEnvironment;
 @RequestMapping("/externalgroups/*")
 public class ExternalGroupController {
 
-  private static final String UTF_8 = "utf-8";
-
   @Autowired
   private GroupProviderService groupProviderService;
 
   @Autowired
   private GroupService groupService;
 
-  @Autowired
-  private TeamEnvironment environment;
+  private static final Logger log = LoggerFactory.getLogger(ExternalGroupController.class);
 
-  // only enable myproviders.shtml if you need to debug. It reveals too much information.
-/*  @RequestMapping("/myproviders.shtml")
-  public
-  @ResponseBody
-  List<GroupProvider> getMyExternalGroupProviders(HttpServletRequest request) {
+  @RequestMapping("/groupdetail.shtml")
+  public String groupDetail(@RequestParam String groupId,
+                            HttpServletRequest request,
+                            ModelMap modelMap) {
     Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
-    return groupProviderService.getOAuthGroupProviders(person.getId());
-  }*/
-
-/*
-  @RequestMapping("/mygroups.shtml")
-  public String getMyExternalGroups(@RequestParam Long groupProviderId,
-                                    ModelMap modelMap,
-                                    HttpServletRequest request) {
-    Person person = (Person) request.getSession().getAttribute(
-        LoginInterceptor.PERSON_SESSION_KEY);
-    List<Group20> group20s = new ArrayList<Group20>();
-
-    // get a list of my group providers that I already have an access token for
-    final List<GroupProviderUserOauth> oauthList =
-        groupProviderService.getGroupProviderUserOauths(person.getId());
-    List<GroupProvider> groupProviders = new ArrayList<GroupProvider>();
-
-    for (GroupProviderUserOauth oauth : oauthList) {
-      GroupProvider provider =
-          groupProviderService.getGroupProviderByStringIdentifier(oauth.getProvider());
-      groupProviders.add(provider);
-      if (groupProviderId.equals(provider.getId())) {
-        group20s.addAll(groupService.getGroup20s(oauth, provider));
-      }
-    }
-    modelMap.addAttribute("group20s", group20s);
-    modelMap.addAttribute("appversion", environment.getVersion());
-    modelMap.addAttribute("groupProviders", groupProviders);
-    modelMap.addAttribute("groupProviderId", groupProviderId);
-    ViewUtil.addViewToModelMap(request, modelMap);
-
-    return "home";
-  }
-*/
-
-/*  @RequestMapping("/mygroupmembers.shtml")
-  public
-  @ResponseBody
-  List<nl.surfnet.coin.api.client.domain.Person> getMyExternalGroupMembers(HttpServletRequest request) throws UnsupportedEncodingException {
-    Person person = (Person) request.getSession().getAttribute(
-        LoginInterceptor.PERSON_SESSION_KEY);
-    String groupId = URLDecoder.decode(request.getParameter("groupId"), UTF_8);
-
+    List<nl.surfnet.coin.api.client.domain.Person> members = new ArrayList<nl.surfnet.coin.api.client.domain.Person>();
     // get a list of my group providers that I already have an access token for
     final List<GroupProviderUserOauth> oauthList =
         groupProviderService.getGroupProviderUserOauths(person.getId());
     for (GroupProviderUserOauth oauth : oauthList) {
       GroupProvider provider =
           groupProviderService.getGroupProviderByStringIdentifier(oauth.getProvider());
+
       if (GroupProviderPropertyConverter.isGroupFromGroupProvider(groupId, provider)) {
-        return groupService.getGroupMembers(oauth, provider, groupId);
+        modelMap.addAttribute("groupProvider", provider);
+
+        Group20 group20 = getGroup20FromGroupProvider(groupId, oauth, provider);
+        modelMap.addAttribute("group20", group20);
+
+        // TODO replace with paging
+        final List<nl.surfnet.coin.api.client.domain.Person> groupMembers =
+            groupService.getGroupMembers(oauth, provider, groupId);
+        members.addAll(groupMembers);
       }
     }
-    return new ArrayList<nl.surfnet.coin.api.client.domain.Person>();
-  }*/
+    modelMap.addAttribute("members", members);
+    ViewUtil.addViewToModelMap(request, modelMap);
+    return "external-groupdetail";
+  }
 
+  /**
+   * TODO replace this method with {@link GroupService#getGroup20(nl.surfnet.coin.teams.domain.GroupProviderUserOauth, nl.surfnet.coin.teams.domain.GroupProvider, String)}
+   * when all institutions comply to the OS spec
+   */
+  private Group20 getGroup20FromGroupProvider(String groupId, GroupProviderUserOauth oauth, GroupProvider provider) {
+    Group20 group20 = null;
+    try {
+      group20 = groupService.getGroup20(oauth, provider, groupId);
+    } catch (RuntimeException e) {
+      log.debug("Group provider does not support retrieving single group, will iterate over all groups",
+          e.getMessage());
+      final List<Group20> group20List = groupService.getGroup20List(oauth, provider);
+      for (Group20 g : group20List) {
+        if (groupId.equals(group20.getId())) {
+          group20 = g;
+          break;
+        }
+      }
+    }
+    return group20;
+  }
 }

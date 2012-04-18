@@ -125,8 +125,11 @@
         </c:when>
         <c:when test="${fn:length(group20s) > 0}">
           <c:forEach items="${group20s}" var="group20">
+            <spring:url value="/externalgroups/groupdetail.shtml" var="detailUrl">
+              <spring:param name="groupId" value="${group20.id}"/>
+            </spring:url>
             <tr>
-              <td><c:out value="${group20.title}"/></td>
+              <td><a href="<c:out value="${detailUrl}"/>"><c:out value="${group20.title}"/></a></td>
               <td><c:out value="${group20.description}"/></td>
             </tr>
           </c:forEach>
