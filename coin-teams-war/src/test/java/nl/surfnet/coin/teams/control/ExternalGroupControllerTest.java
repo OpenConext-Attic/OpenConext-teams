@@ -21,8 +21,21 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.ui.ModelMap;
 
+import nl.surfnet.coin.api.client.domain.Group20;
+import nl.surfnet.coin.teams.domain.ConversionRule;
+import nl.surfnet.coin.teams.domain.GroupProvider;
+import nl.surfnet.coin.teams.domain.GroupProviderType;
 import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
+import nl.surfnet.coin.teams.service.GroupProviderService;
+import nl.surfnet.coin.teams.service.GroupService;
+
+import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * Tests for {@link ExternalGroupController}
@@ -38,8 +51,45 @@ public class ExternalGroupControllerTest extends AbstractControllerTest {
   }
 
   @Test
-  public void testGetMyExternalGroupMembers() throws Exception {
+  public void testGroupDetail() throws Exception {
+    final MockHttpServletRequest request = getRequest();
+    final ModelMap modelMap = getModelMap();
 
+    final String groupId = "urn:collab:group:hz.nl:HZG-1042";
+    final GroupProvider groupProvider = getGroupProvider();
+    final List<GroupProviderUserOauth> oAuths = getOAuths();
+
+    Group20 group20 = new Group20();
+    group20.setTitle("HZG-1042 Test Group");
+    group20.setId(groupId);
+
+    GroupProviderService providerService = mock(GroupProviderService.class);
+    when(providerService.getGroupProviderUserOauths(getMember().getId())).thenReturn(oAuths);
+    when(providerService.getGroupProviderByStringIdentifier("hz")).thenReturn(groupProvider);
+
+    GroupService groupService = mock(GroupService.class);
+    when(groupService.getGroup20(getOAuths().get(0), groupProvider, groupId)).thenReturn(group20);
+
+    autoWireMock(controller, providerService, GroupProviderService.class);
+    autoWireMock(controller, groupService, GroupService.class);
+
+    String view = controller.groupDetail(groupId, request, modelMap);
+
+    assertEquals("external-groupdetail", view);
+    assertEquals(groupProvider, modelMap.get("groupProvider"));
+    assertTrue(modelMap.containsKey("members"));
+    assertEquals(group20, modelMap.get("group20"));
+
+  }
+
+  private GroupProvider getGroupProvider() {
+    GroupProvider groupProvider = new GroupProvider(4L, "hz", "HZ", GroupProviderType.OAUTH_THREELEGGED.getStringValue());
+    ConversionRule groupDecorator = new ConversionRule();
+    groupDecorator.setPropertyName("id");
+    groupDecorator.setSearchPattern("urn:collab:group:hz.nl:(.+)");
+    groupDecorator.setReplaceWith("$1");
+    groupProvider.addGroupDecorator(groupDecorator);
+    return groupProvider;
   }
 
   private List<GroupProviderUserOauth> getOAuths() {

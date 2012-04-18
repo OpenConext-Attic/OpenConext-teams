@@ -113,7 +113,7 @@ public class HomeControllerTest extends AbstractControllerTest {
     group20s.add(group20);
 
     GroupService groupService = mock(GroupService.class);
-    when(groupService.getGroup20s(gpua, groupProvider)).thenReturn(group20s);
+    when(groupService.getGroup20List(gpua, groupProvider)).thenReturn(group20s);
 
     autoWireMock(homeController, grouperTeamService, GrouperTeamService.class);
     autoWireMock(homeController, groupProviderService, GroupProviderService.class);
