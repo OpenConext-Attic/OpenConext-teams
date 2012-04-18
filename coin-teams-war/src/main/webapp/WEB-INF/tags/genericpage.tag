@@ -37,7 +37,7 @@
     <c:if test='${view ne "gadget"}'>
       <!--  = Header -->
       <div class="header">
-        <a href="home.shtml"><img class="logo" src="<c:url value="/media/surfnet_logo.gif"/>" alt="surfnet logo" /></a> <span><spring:message code="jsp.general.Title" /></span>
+        <a href="home.shtml"><img class="logo" src="<c:url value="/media/surfnet_logo.png"/>" alt="SURFnet logo" /></a> <span><spring:message code="jsp.general.Title" /></span>
         <span class="left"></span><span class="right"></span><img src="<c:url value="/media/header_img.jpg"/>" alt="header img" />
       </div>
       <!-- / Header -->
