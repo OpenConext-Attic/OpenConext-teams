@@ -16,7 +16,6 @@
 
 package nl.surfnet.coin.teams.control;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,8 +30,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import nl.surfnet.coin.api.client.domain.Group20;
+import nl.surfnet.coin.api.client.domain.GroupMembersEntry;
 import nl.surfnet.coin.teams.domain.GroupProvider;
 import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
+import nl.surfnet.coin.teams.domain.Pager;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GroupProviderService;
 import nl.surfnet.coin.teams.service.GroupService;
@@ -46,6 +47,7 @@ import nl.surfnet.coin.teams.util.ViewUtil;
 @RequestMapping("/externalgroups/*")
 public class ExternalGroupController {
 
+  private static final int PAGE_SIZE = 10;
   @Autowired
   private GroupProviderService groupProviderService;
 
@@ -56,11 +58,12 @@ public class ExternalGroupController {
 
   @RequestMapping("/groupdetail.shtml")
   public String groupDetail(@RequestParam String groupId,
+                            @RequestParam(defaultValue = "0", required = false) int offset,
                             HttpServletRequest request,
                             ModelMap modelMap) {
     Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
-    List<nl.surfnet.coin.api.client.domain.Person> members = new ArrayList<nl.surfnet.coin.api.client.domain.Person>();
+    modelMap.addAttribute("groupId", groupId);
     // get a list of my group providers that I already have an access token for
     final List<GroupProviderUserOauth> oauthList =
         groupProviderService.getGroupProviderUserOauths(person.getId());
@@ -71,16 +74,18 @@ public class ExternalGroupController {
       if (GroupProviderPropertyConverter.isGroupFromGroupProvider(groupId, provider)) {
         modelMap.addAttribute("groupProvider", provider);
 
-        Group20 group20 = getGroup20FromGroupProvider(groupId, oauth, provider);
+        Group20 group20 = getGroup20FromGroupProvider(groupId, oauth, provider); //groupService.getGroup20(oauth, provider, groupId);
         modelMap.addAttribute("group20", group20);
 
-        // TODO replace with paging
-        final List<nl.surfnet.coin.api.client.domain.Person> groupMembers =
-            groupService.getGroupMembers(oauth, provider, groupId);
-        members.addAll(groupMembers);
+        final GroupMembersEntry groupMembersEntry =
+                    groupService.getGroupMembers(oauth, provider, groupId, PAGE_SIZE, offset);
+        modelMap.addAttribute("groupMembersEntry", groupMembersEntry);
+        if (groupMembersEntry != null && groupMembersEntry.getEntry().size() <= PAGE_SIZE) {
+          Pager pager = new Pager(groupMembersEntry.getTotalResults(), offset, PAGE_SIZE);
+          modelMap.addAttribute("pager", pager);
+        }
       }
     }
-    modelMap.addAttribute("members", members);
     ViewUtil.addViewToModelMap(request, modelMap);
     return "external-groupdetail";
   }
@@ -98,7 +103,7 @@ public class ExternalGroupController {
           e.getMessage());
       final List<Group20> group20List = groupService.getGroup20List(oauth, provider);
       for (Group20 g : group20List) {
-        if (groupId.equals(group20.getId())) {
+        if (groupId.equals(g.getId())) {
           group20 = g;
           break;
         }

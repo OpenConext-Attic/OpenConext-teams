@@ -126,8 +126,8 @@
             </tr>
           </c:forEach>
         </c:when>
-        <c:when test="${fn:length(group20s) > 0}">
-          <c:forEach items="${group20s}" var="group20">
+        <c:when test="${not empty group20Entry and fn:length(group20Entry.entry) > 0}">
+          <c:forEach items="${group20Entry.entry}" var="group20">
             <spring:url value="/externalgroups/groupdetail.shtml" var="detailUrl">
               <spring:param name="groupId" value="${group20.id}"/>
             </spring:url>
@@ -144,7 +144,7 @@
             </tr>
           </c:forEach>
         </c:when>
-        <c:when test="${display eq 'externalGroups' and fn:length(group20s) == 0}">
+        <c:when test="${display eq 'externalGroups' and (empty group20Entry or fn:length(group20Entry.entry) == 0)}">
           <tr><td colspan="4"><spring:message code="jsp.home.NoExternalGroups" /></td></tr>
         </c:when>
         <c:when test="${fn:length(query) > 0 && fn:length(teams) == 0}">

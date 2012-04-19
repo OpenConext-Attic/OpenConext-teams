@@ -36,6 +36,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.LocaleResolver;
 
 import nl.surfnet.coin.api.client.domain.Group20;
+import nl.surfnet.coin.api.client.domain.Group20Entry;
 import nl.surfnet.coin.teams.domain.GroupProvider;
 import nl.surfnet.coin.teams.domain.GroupProviderType;
 import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
@@ -51,9 +52,6 @@ import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-/**
- * @author steinwelberg
- */
 public class HomeControllerTest extends AbstractControllerTest {
 
   private HomeController homeController = new HomeController();
@@ -106,14 +104,16 @@ public class HomeControllerTest extends AbstractControllerTest {
         thenReturn(oauthList);
     when(groupProviderService.getGroupProviderByStringIdentifier(gpua.getProvider())).thenReturn(groupProvider);
 
+    Group20Entry entry = new Group20Entry();
     Group20 group20 = new Group20();
     group20.setId("externalGroupId");
     group20.setTitle("External Group");
     List<Group20> group20s = new ArrayList<Group20>();
     group20s.add(group20);
+    entry.setEntry(group20s);
 
     GroupService groupService = mock(GroupService.class);
-    when(groupService.getGroup20List(gpua, groupProvider)).thenReturn(group20s);
+    when(groupService.getGroup20Entry(gpua, groupProvider, 10, 0)).thenReturn(entry);
 
     autoWireMock(homeController, grouperTeamService, GrouperTeamService.class);
     autoWireMock(homeController, groupProviderService, GroupProviderService.class);
@@ -126,11 +126,11 @@ public class HomeControllerTest extends AbstractControllerTest {
     @SuppressWarnings("unchecked")
     List<Team> teams = (List<Team>) getModelMap().get("teams");
     @SuppressWarnings("unchecked")
-    List<Group20> externalGroups = (List<Group20>) getModelMap().get("group20s");
+    final Group20Entry group20Entry = (Group20Entry) getModelMap().get("group20Entry");
     String display = (String) getModelMap().get("display");
 
     assertNull(teams);
-    assertEquals(externalGroups, group20s);
+    assertEquals(group20Entry.getEntry(), group20s);
     assertEquals("externalGroups", display);
     assertEquals(groupProvider, ((List<GroupProvider>) getModelMap().get("groupProviders")).get(0));
   }

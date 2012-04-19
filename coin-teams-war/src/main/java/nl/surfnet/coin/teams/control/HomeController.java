@@ -36,10 +36,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.LocaleResolver;
 
-import nl.surfnet.coin.api.client.domain.Group20;
+import nl.surfnet.coin.api.client.domain.Group20Entry;
 import nl.surfnet.coin.teams.domain.GroupProvider;
 import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
 import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.Pager;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamResultWrapper;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
@@ -115,10 +116,7 @@ public class HomeController {
       groupProviders.add(groupProvider);
 
       // Get the external groups for the requested external group provider
-      if (groupProviderId != null && groupProviderId.equals(groupProvider.getId())) {
-        final List<Group20> group20s = groupService.getGroup20List(oauth, groupProvider);
-        modelMap.addAttribute("group20s", group20s);
-      }
+      getExternalGroupsForGroupProviderId(modelMap, request, groupProviderId, oauth, groupProvider);
 
     }
     // Add the external group providers to the ModelMap for the navigation
@@ -141,15 +139,7 @@ public class HomeController {
     }
     modelMap.addAttribute("query", query);
 
-    int offset = 0;
-    String offsetParam = request.getParameter("offset");
-    if (StringUtils.hasText(offsetParam)) {
-      try {
-        offset = Integer.parseInt(offsetParam);
-      } catch (NumberFormatException e) {
-        // do nothing
-      }
-    }
+    int offset = getOffset(request);
     modelMap.addAttribute("offset", offset);
 
     TeamResultWrapper resultWrapper;
@@ -183,6 +173,33 @@ public class HomeController {
     modelMap.addAttribute("pager", resultWrapper.getPager());
     modelMap.addAttribute("resultset", resultWrapper.getTotalCount());
     modelMap.addAttribute("teams", teams);
+  }
+
+  private void getExternalGroupsForGroupProviderId(ModelMap modelMap, HttpServletRequest request, Long groupProviderId,
+                                                   GroupProviderUserOauth oauth, GroupProvider groupProvider) {
+    if (groupProviderId != null && groupProviderId.equals(groupProvider.getId())) {
+      int offset = getOffset(request);
+      modelMap.addAttribute("offset", offset);
+      final Group20Entry group20Entry = groupService.getGroup20Entry(oauth, groupProvider, PAGESIZE, offset);
+      modelMap.addAttribute("group20Entry", group20Entry);
+      if (group20Entry != null && group20Entry.getEntry().size() <= PAGESIZE) {
+        Pager pager = new Pager(group20Entry.getTotalResults(), offset, PAGESIZE);
+        modelMap.addAttribute("pager", pager);
+      }
+    }
+  }
+
+  private int getOffset(HttpServletRequest request) {
+    int offset = 0;
+    String offsetParam = request.getParameter("offset");
+    if (StringUtils.hasText(offsetParam)) {
+      try {
+        offset = Integer.parseInt(offsetParam);
+      } catch (NumberFormatException e) {
+        // do nothing
+      }
+    }
+    return offset;
   }
 
   void setTeamEnvironment(TeamEnvironment teamEnvironment) {
