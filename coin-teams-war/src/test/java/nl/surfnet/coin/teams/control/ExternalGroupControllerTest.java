@@ -73,11 +73,12 @@ public class ExternalGroupControllerTest extends AbstractControllerTest {
     autoWireMock(controller, providerService, GroupProviderService.class);
     autoWireMock(controller, groupService, GroupService.class);
 
-    String view = controller.groupDetail(groupId, request, modelMap);
+    String view = controller.groupDetail(groupId, 0, request, modelMap);
 
+    assertEquals(groupId, modelMap.get("groupId"));
     assertEquals("external-groupdetail", view);
     assertEquals(groupProvider, modelMap.get("groupProvider"));
-    assertTrue(modelMap.containsKey("members"));
+    assertTrue(modelMap.containsKey("groupMembersEntry"));
     assertEquals(group20, modelMap.get("group20"));
 
   }

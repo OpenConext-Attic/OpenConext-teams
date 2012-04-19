@@ -21,21 +21,24 @@
 
 <teams:genericpage>
 <!-- Version <c:out value='${appversion}' /> -->
-<!-- = Header -->
+<%-- = Header --%>
 <div id="Header">
   <ul class="team-actions">
     <c:url value="/home.shtml" var="myTeamsUrl"><c:param name="teams" value="my" /><c:param name="view" value="${view}" /></c:url>
     <c:url value="/home.shtml" var="allTeamsUrl"><c:param name="teams" value="all" /><c:param name="view" value="${view}" /></c:url>
     <c:url value="/myinvitations.shtml" var="myInvitationsUrl"><c:param name="view" value="${view}"/></c:url>
     <li class="first"><a class="btn-my-teams<c:if test='${display eq "my"}'> selected</c:if>" href="<c:out value="${myTeamsUrl}"/>"><spring:message code='jsp.home.MyTeams' /></a></li>
-    <c:forEach items="${groupProviders}" var="groupProvider">
-      <spring:url value="/home.shtml" var="groupProviderUrl">
-        <spring:param name="groupProviderId" value="${groupProvider.id}"/>
-        <spring:param name="teams" value="externalGroups"/>
-        <spring:param name="view" value="${view}"/>
-      </spring:url>
-      <li class="middle"><a href="<c:out value="${groupProviderUrl}"/>" class="btn-all-teams <c:if test="${groupProviderId eq groupProvider.id}"> selected</c:if>"><c:out value="${groupProvider.name}"/></a></li>
-    </c:forEach>
+    <c:if test="${displayExternalTeams ne false}">
+      <c:forEach items="${groupProviders}" var="groupProvider">
+        <spring:url value="/home.shtml" var="groupProviderUrl">
+          <spring:param name="groupProviderId" value="${groupProvider.id}"/>
+          <spring:param name="teams" value="externalGroups"/>
+          <spring:param name="view" value="${view}"/>
+        </spring:url>
+        <li class="middle"><a href="<c:out value="${groupProviderUrl}"/>" class="btn-all-teams <c:if test="${groupProviderId eq groupProvider.id}"> selected</c:if>"><c:out value="${groupProvider.name}"/></a></li>
+      </c:forEach>
+    </c:if>
+
     <c:choose>
       <c:when test="${myinvitations eq true}">
         <li class="middle"><a class="btn-all-teams<c:if test='${display eq "all"}'> selected</c:if>" href="<c:out value="${allTeamsUrl}"/>"><spring:message code='jsp.home.AllTeams' /></a></li>
@@ -66,9 +69,9 @@
     </form>
   </c:if>
   <br class="clear" />
-<!-- / Header -->
+<%-- / Header --%>
 </div>
-<!-- = Content -->
+<%-- = Content --%>
 <div id="Content">
   <c:if test='${sessionScope.userStatus ne "guest" and display ne "externalGroups"}'>
     <c:url value="/addteam.shtml" var="addTeamUrl"><c:param name="view" value="${view}" /></c:url>
@@ -123,18 +126,25 @@
             </tr>
           </c:forEach>
         </c:when>
-        <c:when test="${fn:length(group20s) > 0}">
-          <c:forEach items="${group20s}" var="group20">
+        <c:when test="${not empty group20Entry and fn:length(group20Entry.entry) > 0}">
+          <c:forEach items="${group20Entry.entry}" var="group20">
             <spring:url value="/externalgroups/groupdetail.shtml" var="detailUrl">
               <spring:param name="groupId" value="${group20.id}"/>
             </spring:url>
             <tr>
-              <td><a href="<c:out value="${detailUrl}"/>"><c:out value="${group20.title}"/></a></td>
+              <td>
+                <c:choose>
+                  <c:when test="${not displayExternalTeamMembers eq false}">
+                    <a href="<c:out value="${detailUrl}"/>"><c:out value="${group20.title}"/></a>
+                  </c:when>
+                  <c:otherwise><c:out value="${group20.title}"/></c:otherwise>
+                </c:choose>
+              </td>
               <td><c:out value="${group20.description}"/></td>
             </tr>
           </c:forEach>
         </c:when>
-        <c:when test="${display eq 'externalGroups' and fn:length(group20s) == 0}">
+        <c:when test="${display eq 'externalGroups' and (empty group20Entry or fn:length(group20Entry.entry) == 0)}">
           <tr><td colspan="4"><spring:message code="jsp.home.NoExternalGroups" /></td></tr>
         </c:when>
         <c:when test="${fn:length(query) > 0 && fn:length(teams) == 0}">
@@ -150,7 +160,7 @@
       </tbody>
     </table>
   </div>
-<!-- / Content -->
+<%-- / Content --%>
 </div>
 </teams:genericpage>
 

@@ -6,19 +6,19 @@
 <%@ attribute name="pager" required="true" description="Pager object"
              type="nl.surfnet.coin.teams.domain.Pager" %>
 <%--
-  ~ Copyright 2011 SURFnet bv, The Netherlands
-  ~
-  ~ Licensed under the Apache License, Version 2.0 (the "License");
-  ~ you may not use this file except in compliance with the License.
-  ~ You may obtain a copy of the License at
-  ~
-  ~      http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing, software
-  ~ distributed under the License is distributed on an "AS IS" BASIS,
-  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~ See the License for the specific language governing permissions and
-  ~ limitations under the License.
+  Copyright 2012 SURFnet bv, The Netherlands
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
   --%>
 
 <c:if test="${fn:length(pager.visiblePages) > 1}">
@@ -30,6 +30,7 @@
         <c:if test="${not empty query}"><c:param name="teamSearch" value="${query}"/></c:if>
         <c:if test="${not empty display}"><c:param name="teams" value="${display}"/></c:if>
         <c:if test="${not empty team}"><c:param name="team" value="${team.id}"/></c:if>
+        <c:if test="${not empty groupId}"><c:param name="groupId" value="${groupId}"/></c:if>
       </c:url>
       <li><a href="<c:out value="${first}"/>" class="page first"><spring:message code="jsp.general.First"/></a></li>
     </c:if>
@@ -42,6 +43,7 @@
         <c:if test="${not empty query}"><c:param name="teamSearch" value="${query}"/></c:if>
         <c:if test="${not empty display}"><c:param name="teams" value="${display}"/></c:if>
         <c:if test="${not empty team}"><c:param name="team" value="${team.id}"/></c:if>
+        <c:if test="${not empty groupId}"><c:param name="groupId" value="${groupId}"/></c:if>
       </c:url>
       <li><a href="<c:out value="${prev}"/>" class="page prev"><spring:message code="jsp.general.Previous"/></a></li>
     </c:if>
@@ -55,6 +57,7 @@
           <c:if test="${not empty query}"><c:param name="teamSearch" value="${query}"/></c:if>
           <c:if test="${not empty display}"><c:param name="teams" value="${display}"/></c:if>
           <c:if test="${not empty team}"><c:param name="team" value="${team.id}"/></c:if>
+          <c:if test="${not empty groupId}"><c:param name="groupId" value="${groupId}"/></c:if>
         </c:url>
         <c:choose>
           <c:when test="${page.currentPage eq true}">
@@ -78,6 +81,7 @@
         <c:if test="${not empty query}"><c:param name="teamSearch" value="${query}"/></c:if>
         <c:if test="${not empty display}"><c:param name="teams" value="${display}"/></c:if>
         <c:if test="${not empty team}"><c:param name="team" value="${team.id}"/></c:if>
+        <c:if test="${not empty groupId}"><c:param name="groupId" value="${groupId}"/></c:if>
       </c:url>
       <li><a href="<c:out value="${next}"/>" class="page next"><spring:message code="jsp.general.Next"/></a></li>
     </c:if>
@@ -90,6 +94,7 @@
         <c:if test="${not empty query}"><c:param name="teamSearch" value="${query}"/></c:if>
         <c:if test="${not empty display}"><c:param name="teams" value="${display}"/></c:if>
         <c:if test="${not empty team}"><c:param name="team" value="${team.id}"/></c:if>
+        <c:if test="${not empty groupId}"><c:param name="groupId" value="${groupId}"/></c:if>
       </c:url>
       <li><a href="<c:out value="${last}"/>" class="page last"><spring:message code="jsp.general.Last"/></a></li>
     </c:if>

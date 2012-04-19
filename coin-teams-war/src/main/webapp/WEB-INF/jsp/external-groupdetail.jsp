@@ -44,42 +44,53 @@
       <p class="description"><c:out value="${group20.description}"/></p>
     </c:if>
 
-    <div class="team-table-wrapper">
-      <table class="team-table">
-        <thead>
-        <tr>
-          <th class="name"><spring:message code='jsp.detailteam.Name'/></th>
-          <th><spring:message code="jsp.general.Email"/></th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${members}" var="member">
-          <tr>
-            <td>
-              <c:choose>
-                <c:when test="${not empty member.displayName}">
-                  <c:out value="${member.displayName}"/>
-                </c:when>
-                <c:when test="${not empty member.name}">
-                  <c:out value="${member.name}"/>
-                </c:when>
-                <c:otherwise>
-                  <c:out value="${member.id}"/>
-                </c:otherwise>
-              </c:choose>
-            </td>
-            <td>
-              <c:forEach items="${member.emails}" var="email" end="1">
-                <c:out value="${email.value}"/>
-              </c:forEach>
-            </td>
-          </tr>
-        </c:forEach>
-        </tbody>
+    <c:choose>
+      <c:when test="${empty groupMembersEntry or fn:length(groupMembersEntry.entry) == 0}">
 
-      </table>
+      </c:when>
+      <c:otherwise>
+        <div class="pagination-wrapper">
+          <teams:paginate baseUrl="/externalgroups/groupdetail.shtml" pager="${pager}"/>
+        </div>
+        <div class="team-table-wrapper">
+          <table class="team-table">
+            <thead>
+            <tr>
+              <th class="name"><spring:message code='jsp.detailteam.Name'/></th>
+              <th><spring:message code="jsp.general.Email"/></th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${groupMembersEntry.entry}" var="member">
+              <tr>
+                <td>
+                  <c:choose>
+                    <c:when test="${not empty member.displayName}">
+                      <c:out value="${member.displayName}"/>
+                    </c:when>
+                    <c:when test="${not empty member.name}">
+                      <c:out value="${member.name}"/>
+                    </c:when>
+                    <c:otherwise>
+                      <c:out value="${member.id}"/>
+                    </c:otherwise>
+                  </c:choose>
+                </td>
+                <td>
+                  <c:forEach items="${member.emails}" var="email" end="1">
+                    <c:out value="${email.value}"/>
+                  </c:forEach>
+                </td>
+              </tr>
+            </c:forEach>
+            </tbody>
 
-    </div>
+          </table>
+
+        </div>
+
+      </c:otherwise>
+    </c:choose>
 
   </div>
 </div>
