@@ -15,6 +15,13 @@ OpenConext teams is now also connecting to the eb (engine block) database. New p
     coin-eb-db-password=???
     coin-eb-db-driver=com.mysql.jdbc.Driver
 
+### Added properties for feature enabling
+
+These new properties define if certain features are visible for the end user:
+
+    displayExternalTeams=true
+    displayExternalTeamMembers=true
+
 ### Removed properties
 The properties:
 
