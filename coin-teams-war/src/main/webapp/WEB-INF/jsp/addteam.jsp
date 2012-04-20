@@ -5,19 +5,19 @@
 <%@ taglib tagdir="/WEB-INF/tags" prefix="teams"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
-  ~ Copyright 2011 SURFnet bv, The Netherlands
-  ~
-  ~ Licensed under the Apache License, Version 2.0 (the "License");
-  ~ you may not use this file except in compliance with the License.
-  ~ You may obtain a copy of the License at
-  ~
-  ~      http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing, software
-  ~ distributed under the License is distributed on an "AS IS" BASIS,
-  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~ See the License for the specific language governing permissions and
-  ~ limitations under the License.
+  Copyright 2012 SURFnet bv, The Netherlands
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
   --%>
 
 <teams:genericpage>
@@ -52,7 +52,8 @@
       </p>
       <p class="label-field-wrapper">
         <label for="TeamDescription"><spring:message code='jsp.general.Description' /></label>
-        <form:input path="description" id="TeamDescription"/>
+        <form:textarea path="description" id="TeamDescription" cssClass="withinfo"/>
+        <span class="textareainfo"><spring:message code="jsp.addteam.description.info"/></span>
       </p>
       <c:if test="${hasMultipleStems}">
         <p class="label-field-wrapper">
@@ -64,15 +65,29 @@
       </c:if>
       <p class="label-field-wrapper">
         <span class="consent-wrapper">&nbsp;</span>
-        <input id="TeamConsent" name="consent" type="checkbox"><label class="consent" for="TeamConsent"><spring:message code='jsp.addteam.Consent' /></label>
+        <c:set var="visibleInIndex"><c:if test="${team.viewable ne false}"> checked</c:if></c:set>
+        <input id="TeamViewability" type="checkbox" name="viewabilityStatus" value="1" ${visibleInIndex}/>
+        <label class="consent" for="TeamViewability"><spring:message code='jsp.general.TeamViewability' /></label>
+
+      </p>
+      <p class="label-field-wrapper">
+        <span class="label"><spring:message code="jsp.addteam.admin1"/></span>
+        <span class="input"><c:out value="${sessionScope.person.displayName} "/><spring:message code="jsp.addteam.admin1.you"/></span>
+      </p>
+      <%--<p class="label-field-wrapper">
+        <label for="admin2"><spring:message code="jsp.addteam.admin2"/></label>
+        <spring:message code="jsp.addteam.admin2.placeholder" var="admin2Placeholder"/>
+        <input type="text" id="admin2" placeholder="${admin2Placeholder}"  />
+        <span class="inputinfo"><spring:message code="jsp.addteam.admin2.info"/></span>
+      </p>--%>
+      <p class="label-field-wrapper">
+        <span class="consent-wrapper">&nbsp;</span>
+        <input id="TeamConsent" name="consent" type="checkbox"/><label class="consent" for="TeamConsent"><spring:message code='jsp.addteam.Consent' /></label>
       </p>
       <p class="submit-wrapper">
         <input class="button-disabled" type="submit" name="createTeam" value="<spring:message code='jsp.addteam.Submit' />" disabled="disabled" />
         <input class="button-secondary" type="submit" name="cancelCreateTeam" value="<spring:message code='jsp.general.Cancel' />" />
-        <%-- Mindgame: Checkbox "Make private" has opposite value of Team#isViewable --%>
-        <c:set var="private"><c:if test="${team.viewable eq false}"> checked</c:if></c:set>
-        <input id="TeamViewability" type="checkbox" name="viewabilityStatus" value="1" ${private}/>
-        <label for="TeamViewability"><spring:message code='jsp.general.TeamViewability' /></label>
+
       </p>
     </form:form>
     <div class="clear"></div>

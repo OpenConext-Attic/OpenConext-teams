@@ -24,18 +24,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Stem;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.GrouperTeamService;
-import nl.surfnet.coin.teams.util.ControllerUtil;
-import nl.surfnet.coin.teams.util.DuplicateTeamException;
-import nl.surfnet.coin.teams.util.PermissionUtil;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
-import nl.surfnet.coin.teams.util.TokenUtil;
-import nl.surfnet.coin.teams.util.ViewUtil;
-
 import org.opensocial.RequestException;
 import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +40,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.LocaleResolver;
+
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Stem;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.DuplicateTeamException;
+import nl.surfnet.coin.teams.util.PermissionUtil;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
+import nl.surfnet.coin.teams.util.TokenUtil;
+import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * @author steinwelberg
@@ -153,9 +153,9 @@ public class AddTeamController {
 
     String teamDescription = team.getDescription();
 
-    // If viewablilityStatus is set this means that the team should be private
+    // If viewablilityStatus is set this means that the team should be public
     String viewabilityStatus = request.getParameter("viewabilityStatus");
-    boolean viewable = !StringUtils.hasText(viewabilityStatus);
+    boolean viewable = StringUtils.hasText(viewabilityStatus);
     team.setViewable(viewable);
 
     // Add the team

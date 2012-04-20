@@ -125,7 +125,7 @@ fieldset {
 	clear: both;
 }
 
-.label-field-wrapper label {
+.label-field-wrapper label, .label-field-wrapper .label {
 	float: left;
 	width: 100px;
 	margin-bottom: 15px;
@@ -139,16 +139,33 @@ fieldset {
 	color: #c00;
 }
 
+.label-field-wrapper .input,
 .label-field-wrapper input[type=text],
 .label-field-wrapper input[type=file],
-.label-field-wrapper textarea {
+.label-field-wrapper textarea,
+.label-field-wrapper select {
 	width: 200px;
 	margin: 0 0 15px 15px;
 }
 
+.label-field-wrapper select {
+  width: 206px;
+}
+
 .label-field-wrapper input[type=checkbox] {
-	margin: 3px 5px 25px 15px;	
+  margin: 0 5px 15px 15px;
+}
+
+.label-field-wrapper textarea {
+  width: 800px;
+  height: 200px;
+}
+
+.label-field-wrapper textarea.withinfo {
+  width: 600px;
 	float: left;
+  margin-right: 10px;
+
 }
 
 .label-field-wrapper input[type=text].error,
@@ -157,6 +174,20 @@ fieldset {
 	border: 1px #c00 solid;
 }
 
+.label-field-wrapper .textareainfo {
+  vertical-align: top;
+  color: #999;
+  font-style: italic;
+  margin: 0 10px 0 0;
+}
+
+.label-field-wrapper .inputinfo {
+  margin: -0.5em 0 0 117px;
+  clear: both;
+  float: left;
+  color: #999;
+  font-style: italic;
+}
 .submit-wrapper {
 	clear: both;
 	margin-left: 115px;
@@ -171,6 +202,7 @@ fieldset {
 label.consent {
 	float: none;
 	width: inherit;
+  vertical-align: top;
 }
 
 span.consent-wrapper {
@@ -181,11 +213,6 @@ span.consent-wrapper {
 .file-input-field-info{
   display: block;
   margin: -0.5em 0 2em 115px;
-}
-
-#TeamViewability,
-label[for=TeamViewability] {
-	margin-top: 5px;
 }
 
 /* INVITATION INFORMATION BLOCK */
@@ -211,6 +238,7 @@ a.open_invitationinfo, .fieldinfo a {
   margin-top:1em;
   font-weight:bold;
 }
+
 .inviteinfo dd, .landingpage dd {
   margin-left:0;
 }
@@ -445,6 +473,8 @@ input.search-query {
 	width: 150px;
 	padding: 3px 20px 3px 10px;
 	-moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -border-radius: 10px;
 	-moz-box-shadow: -1px 1px 1px #999999 inset;
 	color: #9E9E9C;
 }
@@ -562,6 +592,7 @@ a.delete {
 .pagination-wrapper .pagination {
   margin-bottom: 3em;
 }
+
 .pagination {
   margin-left: 0;
   padding: 0;
@@ -573,6 +604,7 @@ a.delete {
   margin: 0;
   padding: 0;
 }
+
 .pagination .page {
   display: block;
   padding: 0 17px 0 15px;
@@ -584,14 +616,17 @@ span.page {font-weight: bold;}
 .pagination .lastpage {
   background: none;
 }
+
 .pagination .first {
   background: transparent url(../media/teams-icons-sprite.png) 0 -449px no-repeat;
   margin-right: -7px;
 }
+
 .pagination .prev {
   background: transparent url(../media/teams-icons-sprite.png) 100% -349px no-repeat;
   margin-right: -12px;
 }
+
 .pagination .next {
   margin-left: -10px;
   background: transparent url(../media/teams-icons-sprite.png) 0% -299px no-repeat;
