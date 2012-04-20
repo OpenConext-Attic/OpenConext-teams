@@ -100,8 +100,8 @@ public class EditTeamController {
               "(" + team.getName() + ")");
     }
 
-    // If viewablilityStatus is set this means that the team should be private
-    boolean viewable = !StringUtils.hasText(request
+    // If viewablilityStatus is set this means that the team should be public
+    boolean viewable = StringUtils.hasText(request
             .getParameter("viewabilityStatus"));
 
     // Form not completely filled in.

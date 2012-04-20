@@ -283,7 +283,7 @@ fieldset {
   clear: both;
 }
 
-.label-field-wrapper label {
+.label-field-wrapper label, .label-field-wrapper .label {
   float: left;
   width: 100px;
   margin-bottom: 15px;
@@ -297,6 +297,7 @@ fieldset {
   color: #c00;
 }
 
+.label-field-wrapper .input,
 .label-field-wrapper input[type=text],
 .label-field-wrapper input[type=file],
 .label-field-wrapper textarea,
@@ -318,12 +319,33 @@ fieldset {
   height: 200px;
 }
 
+.label-field-wrapper textarea.withinfo {
+  width: 600px;
+  float: left;
+  margin-right: 10px;
+
+}
+
 .label-field-wrapper input[type=text].error,
 .label-field-wrapper input[type=file].error,
 .label-field-wrapper textarea.error {
   border: 1px #c00 solid;
 }
 
+.label-field-wrapper .textareainfo {
+  vertical-align: top;
+  color: #999;
+  font-style: italic;
+  margin: 0 10px 0 0;
+}
+
+.label-field-wrapper .inputinfo {
+  margin: -0.5em 0 0 117px;
+  clear: both;
+  float: left;
+  color: #999;
+  font-style: italic;
+}
 .submit-wrapper {
   clear: both;
   margin-left: 115px;
@@ -349,11 +371,6 @@ span.consent-wrapper {
 .file-input-field-info {
   display: block;
   margin: -0.5em 0 2em 115px;
-}
-
-#TeamViewability,
-label[for=TeamViewability] {
-  margin-top: 5px;
 }
 
 /* INVITATION INFORMATION BLOCK */
