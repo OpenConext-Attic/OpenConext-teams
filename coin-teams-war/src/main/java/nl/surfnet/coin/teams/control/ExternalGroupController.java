@@ -47,7 +47,7 @@ import nl.surfnet.coin.teams.util.ViewUtil;
 @RequestMapping("/externalgroups/*")
 public class ExternalGroupController {
 
-  private static final int PAGE_SIZE = 10;
+  private static final int PAGESIZE = 10;
   @Autowired
   private GroupProviderService groupProviderService;
 
@@ -78,10 +78,10 @@ public class ExternalGroupController {
         modelMap.addAttribute("group20", group20);
 
         final GroupMembersEntry groupMembersEntry =
-                    groupService.getGroupMembersEntry(oauth, provider, groupId, PAGE_SIZE, offset);
+                    groupService.getGroupMembersEntry(oauth, provider, groupId, PAGESIZE, offset);
         modelMap.addAttribute("groupMembersEntry", groupMembersEntry);
-        if (groupMembersEntry != null && groupMembersEntry.getEntry().size() <= PAGE_SIZE) {
-          Pager pager = new Pager(groupMembersEntry.getTotalResults(), offset, PAGE_SIZE);
+        if (groupMembersEntry != null && PAGESIZE > offset && groupMembersEntry.getEntry().size() <= PAGESIZE) {
+          Pager pager = new Pager(groupMembersEntry.getTotalResults(), offset, PAGESIZE);
           modelMap.addAttribute("pager", pager);
         }
       }

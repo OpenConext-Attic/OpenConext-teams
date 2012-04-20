@@ -182,7 +182,7 @@ public class HomeController {
       modelMap.addAttribute("offset", offset);
       final Group20Entry group20Entry = groupService.getGroup20Entry(oauth, groupProvider, PAGESIZE, offset);
       modelMap.addAttribute("group20Entry", group20Entry);
-      if (group20Entry != null && group20Entry.getEntry().size() <= PAGESIZE) {
+      if (group20Entry != null && PAGESIZE > offset && group20Entry.getEntry().size() <= PAGESIZE) {
         Pager pager = new Pager(group20Entry.getTotalResults(), offset, PAGESIZE);
         modelMap.addAttribute("pager", pager);
       }
