@@ -72,7 +72,7 @@
 <%-- / Header --%>
 </div>
 <%-- = Content --%>
-<div id="Content">
+<div id="Content"<c:if test="${display eq 'externalGroups'}"> class="home-external-groups"</c:if>>
   <c:if test='${sessionScope.userStatus ne "guest" and display ne "externalGroups"}'>
     <c:url value="/addteam.shtml" var="addTeamUrl"><c:param name="view" value="${view}" /></c:url>
     <p class="add"><a class="button-primary" href="${addTeamUrl}"><spring:message code='jsp.home.AddTeam' /></a></p>
