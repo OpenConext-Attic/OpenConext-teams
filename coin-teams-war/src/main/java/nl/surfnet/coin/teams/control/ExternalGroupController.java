@@ -80,7 +80,7 @@ public class ExternalGroupController {
         final GroupMembersEntry groupMembersEntry =
                     groupService.getGroupMembersEntry(oauth, provider, groupId, PAGESIZE, offset);
         modelMap.addAttribute("groupMembersEntry", groupMembersEntry);
-        if (groupMembersEntry != null && PAGESIZE > offset && groupMembersEntry.getEntry().size() <= PAGESIZE) {
+        if (groupMembersEntry != null && groupMembersEntry.getEntry().size() <= PAGESIZE) {
           Pager pager = new Pager(groupMembersEntry.getTotalResults(), offset, PAGESIZE);
           modelMap.addAttribute("pager", pager);
         }
