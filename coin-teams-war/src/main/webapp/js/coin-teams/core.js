@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,8 +17,8 @@
 COIN.Core = function() {
 	var moduleData = {}, debug = false;
 	function callConsoleMethod(method, args) {
-		if (typeof(console) !== 'undefined' && console != null) {
-			console[method].apply(console, args);
+		if (typeof(console) !== 'undefined' && console != null && typeof(console[method].apply) == 'function') {
+        console[method].apply(console, args);
 		}
 	}
 	

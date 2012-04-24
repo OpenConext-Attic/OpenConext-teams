@@ -99,6 +99,7 @@
       </thead>
       <tbody>
       <c:choose>
+        <%--@elvariable id="teams" type="java.util.List<nl.surfnet.coin.teams.domain.Team>"--%>
         <c:when test="${fn:length(teams) > 0 }">
           <c:forEach items="${teams}" var="team">
             <tr>
@@ -117,7 +118,7 @@
                 </c:when>
                 <c:otherwise>
                   <td><a href="${detailUrl}"><c:out value="${team.name}" /></a></td>
-                  <td><c:out value="${team.description}" /></td>
+                  <td><c:out value="${team.descriptionAsHtml}" escapeXml="false" /></td>
                 </c:otherwise>
               </c:choose>
               <c:if test="${hasMultipleSources}">

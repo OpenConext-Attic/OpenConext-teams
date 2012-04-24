@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,12 @@ COIN.Sandbox = function(core) {
 		}
 		return false;
 	}
-	
+
+  function _supportsPlaceholder() {
+    var testInput = document.createElement('input');
+    return ('placeholder' in testInput);
+  }
+
 	return {
 		log: function() {
 			core.log.apply(core, arguments);
@@ -159,6 +164,30 @@ COIN.Sandbox = function(core) {
 				table.find('tbody tr:nth-child(even)').addClass('even');
 				table.find('tbody tr:nth-child(odd)').addClass('odd');
 			}
-		}
-	};
+    },
+
+    addPlaceholderSupport :function () {
+      if (_supportsPlaceholder() === true) {
+        return;
+      }
+      var active = document.activeElement;
+      $(':text').focus(
+          function () {
+            if ($(this).attr('placeholder') != '' && $(this).val() == $(this).attr('placeholder')) {
+              $(this).val('').removeClass('hasPlaceholder');
+            }
+          }).blur(function () {
+            if ($(this).attr('placeholder') != '' && ($(this).val() == '' || $(this).val() == $(this).attr('placeholder'))) {
+              $(this).val($(this).attr('placeholder')).addClass('hasPlaceholder');
+            }
+          });
+      $(':text').blur();
+      $(active).focus();
+      $('form').submit(function () {
+        $(this).find('.hasPlaceholder').each(function () {
+          $(this).val('');
+        })
+      });
+    }
+  };
 }(COIN.Core);

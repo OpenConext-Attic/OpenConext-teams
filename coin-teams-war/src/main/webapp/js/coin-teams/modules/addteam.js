@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,10 @@ COIN.MODULES.Addteam = function(sandbox) {
 	// Public interface
 	var module = {
 		init: function() {
+      sandbox.addPlaceholderSupport();
+
+      var admin2messageContainer = $('#admin2messagecontainer');
+      admin2messageContainer.addClass('hide');
 			// Clicked [ Cancel ]
 			$('input[name=cancelCreateTeam]').live('click', function(e) {
 				e.preventDefault();
@@ -29,8 +33,19 @@ COIN.MODULES.Addteam = function(sandbox) {
 			$('input[name=consent]').live('change', function(e) {
 			  library.toggleDisable($('input[name=createTeam]'));
 			});
-			
-			$('#TeamName').focus();
+
+      $('input[id=admin2]').live('focus', function (e) {
+        e.preventDefault();
+        if (admin2messageContainer.hasClass('hide')) {
+          admin2messageContainer.removeClass('hide');
+          var messageArea = $('#admin2message');
+          var inviteMsg = messageArea.val();
+          var teamName = $('#TeamName').val();
+          messageArea.val(inviteMsg.replace('TEAMNAME', teamName));
+        }
+      });
+
+      $('#TeamName').focus();
 		},
 		
 		destroy: function() {

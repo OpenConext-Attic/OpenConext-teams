@@ -21,25 +21,24 @@
   --%>
 
 <teams:genericpage>
-<!-- = TeamContainer -->
+<%-- = TeamContainer --%>
 <div class="section" id="TeamContainer">
-  <!-- = Header -->
+  <%-- = Header --%>
   <div id="Header">
     <h1><spring:message code='jsp.addteam.Title' /></h1>
-    <c:url value="home.shtml" var="closeUrl"><c:param name="teams" value="my" /><c:param name="view" value="${view}" /></c:url>
+    <c:url value="/home.shtml" var="closeUrl"><c:param name="teams" value="my" /><c:param name="view" value="${view}" /></c:url>
     <p class="close"><a href="${closeUrl}"><spring:message code='jsp.general.CloseForm' /></a></p>
-  <!-- / Header -->
+  <%-- / Header --%>
   </div>
-  <!-- = Content -->
+  <%-- = Content --%>
   <div id="Content">
-    <c:url value="doaddteam.shtml" var="doAddTeamUrl"><c:param name="view" value="${view}" /></c:url>
+    <c:url value="/doaddteam.shtml" var="doAddTeamUrl"><c:param name="view" value="${view}" /></c:url>
     <form:form id="AddTeamForm" action="${doAddTeamUrl}" method="post" commandName="team">
       <input type="hidden" name="token" value="<c:out value='${tokencheck}'/>"/>
       <input type="hidden" name="view" value="<c:out value='${view}' />" />
       <p class="label-field-wrapper">
-        <c:set var="errorClass"><c:if test="${not empty nameerror}">error</c:if></c:set>
         <label for="TeamName"><spring:message code='jsp.general.TeamName' /></label>
-        <form:input path="name" id="TeamName" cssClass="required" cssErrorClass="error"/>
+        <form:input path="name" id="TeamName" cssClass="required" cssErrorClass="error" required="required"/>
         <c:choose>
           <c:when test="${nameerror eq 'empty'}">
             <label for="TeamName" class="error"><spring:message code="jsp.error.Field.Required"/></label>
@@ -65,21 +64,28 @@
       </c:if>
       <p class="label-field-wrapper">
         <span class="consent-wrapper">&nbsp;</span>
-        <c:set var="visibleInIndex"><c:if test="${team.viewable ne false}"> checked</c:if></c:set>
-        <input id="TeamViewability" type="checkbox" name="viewabilityStatus" value="1" ${visibleInIndex}/>
+        <form:checkbox id="TeamViewability" path="viewable" />
         <label class="consent" for="TeamViewability"><spring:message code='jsp.general.TeamViewability' /></label>
-
       </p>
       <p class="label-field-wrapper">
         <span class="label"><spring:message code="jsp.addteam.admin1"/></span>
         <span class="input"><c:out value="${sessionScope.person.displayName} "/><spring:message code="jsp.addteam.admin1.you"/></span>
       </p>
-      <%--<p class="label-field-wrapper">
+      <%-- admin2 not managed through Team object --%>
+      <p class="label-field-wrapper">
         <label for="admin2"><spring:message code="jsp.addteam.admin2"/></label>
         <spring:message code="jsp.addteam.admin2.placeholder" var="admin2Placeholder"/>
-        <input type="text" id="admin2" placeholder="${admin2Placeholder}"  />
+        <input type="email" id="admin2" name="admin2" placeholder="${admin2Placeholder}" value="<c:out value="${admin2}"/>" />
         <span class="inputinfo"><spring:message code="jsp.addteam.admin2.info"/></span>
-      </p>--%>
+      </p>
+
+      <p class="label-field-wrapper" id="admin2messagecontainer">
+        <label for="admin2message"><spring:message code='jsp.general.Message'/></label>
+        <c:if test="${empty admin2message}">
+          <spring:message code="jsp.addteam.Admin2Message.message" var="admin2message"/>
+        </c:if>
+        <textarea id="admin2message" name="admin2message" cols="5" rows="4"><c:out value="${admin2message}"/></textarea>
+      </p>
       <p class="label-field-wrapper">
         <span class="consent-wrapper">&nbsp;</span>
         <input id="TeamConsent" name="consent" type="checkbox"/><label class="consent" for="TeamConsent"><spring:message code='jsp.addteam.Consent' /></label>
@@ -87,12 +93,11 @@
       <p class="submit-wrapper">
         <input class="button-disabled" type="submit" name="createTeam" value="<spring:message code='jsp.addteam.Submit' />" disabled="disabled" />
         <input class="button-secondary" type="submit" name="cancelCreateTeam" value="<spring:message code='jsp.general.Cancel' />" />
-
       </p>
     </form:form>
     <div class="clear"></div>
-    <!-- / Content -->
+    <%-- / Content --%>
   </div>
-<!-- / TeamContainer -->
+<%-- / TeamContainer --%>
 </div>
 </teams:genericpage>

@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,23 +16,25 @@
 
 package nl.surfnet.coin.teams.control;
 
-import nl.surfnet.coin.teams.domain.Invitation;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.TeamInviteService;
-import nl.surfnet.coin.teams.util.ControllerUtil;
-import nl.surfnet.coin.teams.util.TokenUtil;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.opensocial.models.Person;
 import org.springframework.web.bind.support.SimpleSessionStatus;
 import org.springframework.web.servlet.view.RedirectView;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.service.TeamInviteService;
+import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.TokenUtil;
 
+import static nl.surfnet.coin.teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
@@ -59,13 +61,43 @@ public class InvitationControllerTest extends AbstractControllerTest {
     assertEquals("invitationdeclined", view);
   }
 
-
   @Test
   public void testDoAccept() throws Exception {
 
     RedirectView view = controller.doAccept(getRequest());
 
     assertTrue("Accepted invitation", invitation.isAccepted());
+
+    String redirectUrl = "detailteam.shtml?team=team-1&view=app";
+    assertEquals(redirectUrl, view.getUrl());
+  }
+
+  @Test
+  public void testDoAcceptAdmin() throws Exception {
+    RedirectView view = controller.doAccept(getRequest());
+    invitation.setIntendedRole(Role.Admin);
+    assertTrue("Accepted invitation", invitation.isAccepted());
+
+    assertEquals(invitation.getIntendedRole(), Role.Admin);
+
+    String redirectUrl = "detailteam.shtml?team=team-1&view=app";
+    assertEquals(redirectUrl, view.getUrl());
+  }
+
+  @Test
+  public void testDoAcceptAdminAsGuest() throws Exception {
+    List<String> tags = new ArrayList<String>();
+    tags.add("guest");
+    Person person = getPersonFromSession();
+    person.setField("tags", tags);
+    getRequest().getSession().setAttribute(PERSON_SESSION_KEY, person);
+
+    invitation.setIntendedRole(Role.Admin);
+
+    RedirectView view = controller.doAccept(getRequest());
+    assertTrue("Accepted invitation", invitation.isAccepted());
+
+    assertEquals(Role.Manager, invitation.getIntendedRole());
 
     String redirectUrl = "detailteam.shtml?team=team-1&view=app";
     assertEquals(redirectUrl, view.getUrl());
@@ -105,13 +137,13 @@ public class InvitationControllerTest extends AbstractControllerTest {
     String invitationHash = "0b733d119c3705ae4fc284203f1ee8ec";
 
     getRequest().setParameter("id", invitationHash);
-    Person person = (Person)getRequest().getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
+    Person person = getPersonFromSession();
     List<Map<String, String>> emailField = new ArrayList<Map<String, String>>();
     Map<String,String> email = new HashMap<String, String>(1);
     email.put("value", "person1@example.com");
     emailField.add(email);
     person.setField("emails", emailField);
-    getRequest().getSession().setAttribute(LoginInterceptor.PERSON_SESSION_KEY, person);
+    getRequest().getSession().setAttribute(PERSON_SESSION_KEY, person);
 
     Team mockTeam = mock(Team.class);
     when(mockTeam.getId()).thenReturn("team-1");
@@ -133,6 +165,10 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
     autoWireMock(controller, controllerUtil, ControllerUtil.class);
     autoWireRemainingResources(controller);
+  }
+
+  private Person getPersonFromSession() {
+    return (Person) getRequest().getSession().getAttribute(PERSON_SESSION_KEY);
   }
 
 }

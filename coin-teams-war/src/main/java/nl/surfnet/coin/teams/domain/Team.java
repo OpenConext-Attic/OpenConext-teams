@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import org.apache.commons.lang.StringEscapeUtils;
 
 /**
  * Team
@@ -130,6 +132,18 @@ public class Team implements Serializable {
    */
   public String getDescription() {
     return description;
+  }
+
+  /**
+   * Converts all line endings with an HTML line break &lt;br/&gt;
+   *
+   * @return description with HTML line breaks, can be {@literal null}
+   */
+  public String getDescriptionAsHtml() {
+    if (description == null) {
+      return null;
+    }
+    return StringEscapeUtils.escapeHtml(description).replaceAll("\n", "<br/>");
   }
 
   /**

@@ -4,19 +4,19 @@
 
 
 <%--
-  ~ Copyright 2011 SURFnet bv, The Netherlands
-  ~
-  ~ Licensed under the Apache License, Version 2.0 (the "License");
-  ~ you may not use this file except in compliance with the License.
-  ~ You may obtain a copy of the License at
-  ~
-  ~      http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing, software
-  ~ distributed under the License is distributed on an "AS IS" BASIS,
-  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~ See the License for the specific language governing permissions and
-  ~ limitations under the License.
+  Copyright 2012 SURFnet bv, The Netherlands
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
   --%>
 
 <c:choose>
@@ -29,8 +29,8 @@
     <c:set var="backClass">back</c:set>
   </c:otherwise>
 </c:choose>
-<c:url value="home.shtml" var="backUrl" ><c:param name="teams" value="${teamsTab}" /><c:param name="view" value="${view}" /></c:url>
-<p class="${backClass}"><a href="${backUrl}">&lt; <spring:message code='jsp.detailteam.Back' /></a></p>
+<c:url value="/home.shtml" var="backUrl" ><c:param name="teams" value="${teamsTab}" /><c:param name="view" value="${view}" /></c:url>
+<p class="${backClass}"><a href="<c:out value="${backUrl}"/>">&lt; <spring:message code='jsp.detailteam.Back' /></a></p>
 
 <form id="DeleteTeamForm" action="dodeleteteam.shtml" method="POST">
   <input type="hidden" name="token" value="<c:out value="${tokencheck}"/>"/>
@@ -42,7 +42,7 @@
   <input type="hidden" name="team" value="<c:out value="${team.id}"/>"/>
   <input type="hidden" name="view" value="<c:out value="${view}"/>"/>
 </form>
-<c:url value="editteam.shtml" var="editUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
+<c:url value="/editteam.shtml" var="editUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
 
 <c:choose>
   <c:when test="${role eq adminRole}">

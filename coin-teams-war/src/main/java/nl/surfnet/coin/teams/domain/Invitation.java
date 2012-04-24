@@ -225,9 +225,12 @@ public class Invitation extends DomainObject {
   }
 
   /**
-   * @return the {@link Role} the invitee should get within the team. Can be {@literal null}
+   * @return the {@link Role} the invitee should get within the team. Defaults to {@link Role#Member}
    */
   public Role getIntendedRole() {
+    if (intendedRole == null) {
+      intendedRole = Role.Member;
+    }
     return intendedRole;
   }
 

@@ -20,7 +20,9 @@ import java.beans.PropertyEditorSupport;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -41,11 +43,14 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.LocaleResolver;
 
+import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.InvitationMessage;
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Stem;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.TeamInviteService;
 import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.DuplicateTeamException;
 import nl.surfnet.coin.teams.util.PermissionUtil;
@@ -54,18 +59,12 @@ import nl.surfnet.coin.teams.util.TokenUtil;
 import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
- * @author steinwelberg
- *         <p/>
- *         {@link Controller} that handles the add team page of a logged in
- *         user.
+ * {@link Controller} that handles the add team page of a logged in
+ * user.
  */
 @Controller
-@SessionAttributes({ "team", TokenUtil.TOKENCHECK })
+@SessionAttributes({"team", TokenUtil.TOKENCHECK})
 public class AddTeamController {
-
-  private static final String ACTIVITY_NEW_TEAM_BODY = "activity.NewTeamBody";
-
-  private static final String ACTIVITY_NEW_TEAM_TITLE = "activity.NewTeamTitle";
 
   @Autowired
   private GrouperTeamService grouperTeamService;
@@ -81,6 +80,12 @@ public class AddTeamController {
 
   @Autowired
   private ControllerUtil controllerUtil;
+
+  @Autowired
+  private AddMemberController addMemberController;
+
+  @Autowired
+  private TeamInviteService teamInviteService;
 
   @InitBinder
   protected void initBinder(ServletRequestDataBinder binder) throws Exception {
@@ -105,7 +110,7 @@ public class AddTeamController {
     }
 
     Person person = (Person) request.getSession().getAttribute(
-            LoginInterceptor.PERSON_SESSION_KEY);
+        LoginInterceptor.PERSON_SESSION_KEY);
 
     Team team = new Team();
     team.setViewable(true);
@@ -114,6 +119,9 @@ public class AddTeamController {
     modelMap.addAttribute("stems", stems);
     modelMap.addAttribute("team", team);
     modelMap.addAttribute(TokenUtil.TOKENCHECK, TokenUtil.generateSessionToken());
+    Locale locale = localeResolver.resolveLocale(request);
+    Object[] messageParams = {person.getDisplayName(), "TEAMNAME"}; // TEAMNAME is replaced in addteam.js
+    modelMap.addAttribute("admin2message", messageSource.getMessage("jsp.addteam.Admin2Message.message", messageParams, locale));
     return "addteam";
   }
 
@@ -124,13 +132,18 @@ public class AddTeamController {
                         @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
                         @RequestParam() String token,
                         SessionStatus status)
-          throws RequestException, IOException {
+      throws RequestException, IOException {
     TokenUtil.checkTokens(sessionToken, token, status);
     ViewUtil.addViewToModelMap(request, modelMap);
 
     Person person = (Person) request.getSession().getAttribute(
-            LoginInterceptor.PERSON_SESSION_KEY);
+        LoginInterceptor.PERSON_SESSION_KEY);
     String personId = person.getId();
+
+    String admin2 = request.getParameter("admin2");
+    modelMap.addAttribute("admin2", admin2);
+    String admin2Message = request.getParameter("admin2message");
+    modelMap.addAttribute("admin2message", admin2Message);
 
     // Check if the user has permission
     if (PermissionUtil.isGuest(request)) {
@@ -153,22 +166,19 @@ public class AddTeamController {
 
     String teamDescription = team.getDescription();
 
-    // If viewablilityStatus is set this means that the team should be public
-    String viewabilityStatus = request.getParameter("viewabilityStatus");
-    boolean viewable = StringUtils.hasText(viewabilityStatus);
-    team.setViewable(viewable);
-
     // Add the team
     String teamId;
     try {
       teamId = grouperTeamService.addTeam(teamName, teamName, teamDescription, stemId);
+      final Locale locale = localeResolver.resolveLocale(request);
+      inviteAdmin(teamId, person, admin2, teamName, admin2Message ,locale);
     } catch (DuplicateTeamException e) {
       modelMap.addAttribute("nameerror", "duplicate");
       return "addteam";
     }
 
     // Set the visibility of the group
-    grouperTeamService.setVisibilityGroup(teamId, viewable);
+    grouperTeamService.setVisibilityGroup(teamId, team.isViewable());
 
     // Add the person who has added the team as admin to the team.
     grouperTeamService.addMember(teamId, person);
@@ -179,8 +189,32 @@ public class AddTeamController {
     status.setComplete();
     modelMap.clear();
     return "redirect:detailteam.shtml?team="
-            + URLEncoder.encode(teamId, "utf-8") + "&view="
-            + ViewUtil.getView(request);
+        + URLEncoder.encode(teamId, "utf-8") + "&view="
+        + ViewUtil.getView(request);
+  }
+
+  // TODO move this to AddMemberController when doing BACKLOG-422
+  private void inviteAdmin(final String teamId, final Person inviter, final String admin2, final String teamName,
+                           final String messageBody, final Locale locale) {
+    if (!StringUtils.hasText(admin2) || !admin2.contains("@")) {
+      return;
+    }
+    Invitation invitation = new Invitation(admin2, teamId);
+    invitation.setIntendedRole(Role.Admin);
+    invitation.setTimestamp(new Date().getTime());
+
+    InvitationMessage message = new InvitationMessage(messageBody, inviter.getDisplayName());
+
+    invitation.addInvitationMessage(message);
+    teamInviteService.saveOrUpdate(invitation);
+    Object[] messageValuesSubject = {teamName};
+
+    String subject = messageSource.getMessage(addMemberController.INVITE_SEND_INVITE_SUBJECT,
+        messageValuesSubject, locale);
+
+
+    addMemberController.sendInvitationByMail(invitation, subject, locale);
+
   }
 
 
@@ -188,12 +222,12 @@ public class AddTeamController {
     List<Stem> allUsersStems = grouperTeamService.findStemsByMember(personId);
     List<Stem> stems = new ArrayList<Stem>();
 
-    if (allUsersStems.size() == 0 ) {
+    if (allUsersStems.size() == 0) {
       return allUsersStems;
     }
 
     // Now check if the stem has a members group and the user is actually in that members group
-    for(Stem stem : allUsersStems) {
+    for (Stem stem : allUsersStems) {
       // Always add the default stem
       if (stem.getId().equalsIgnoreCase(environment.getDefaultStemName())) {
         stems.add(stem);

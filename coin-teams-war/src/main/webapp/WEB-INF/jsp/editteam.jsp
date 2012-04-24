@@ -4,19 +4,19 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="teams"%>
 <%--
-  ~ Copyright 2011 SURFnet bv, The Netherlands
-  ~
-  ~ Licensed under the Apache License, Version 2.0 (the "License");
-  ~ you may not use this file except in compliance with the License.
-  ~ You may obtain a copy of the License at
-  ~
-  ~      http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing, software
-  ~ distributed under the License is distributed on an "AS IS" BASIS,
-  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~ See the License for the specific language governing permissions and
-  ~ limitations under the License.
+  Copyright 2012 SURFnet bv, The Netherlands
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
   --%>
 
 <teams:genericpage>
@@ -42,13 +42,16 @@
       </p>
       <p class="label-field-wrapper">
         <label for="TeamDescription"><spring:message code='jsp.general.Description' /></label>
-        <input id="TeamDescription" name="description" type="text" value="<c:out value="${team.description}" />">
+        <textarea id="TeamDescription" name="description"><c:out value="${team.description}" /></textarea>
+      </p>
+      <p class="label-field-wrapper">
+        <span class="consent-wrapper">&nbsp;</span>
+        <input id="TeamViewability" type="checkbox" name="viewabilityStatus" value="1"<c:if test="${team.viewable ne false}"> checked</c:if> />
+        <label for="TeamViewability" class="consent"><spring:message code='jsp.general.TeamViewability' /></label>
       </p>
       <p class="submit-wrapper">
         <input class="button-primary" type="submit" name="editTeam" value="<spring:message code='jsp.editteam.Submit' />" />
         <input class="button-secondary" type="submit" name="cancelEditTeam" value="<spring:message code='jsp.general.Cancel' />" />
-        <input id="TeamViewability" type="checkbox" name="viewabilityStatus" value="1"<c:if test="${team.viewable eq false}"> checked</c:if> />
-        <label for="TeamViewability"><spring:message code='jsp.general.TeamViewability' /></label>
       </p>
     </form>
     <div class="clear"></div>

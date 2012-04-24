@@ -142,11 +142,18 @@ public class InvitationController {
     if (!StringUtils.hasText(teamId)) {
       throw new RuntimeException("Invalid invitation");
     }
-    Team team = controllerUtil.getTeamById(teamId);
+    controllerUtil.getTeamById(teamId);
 
     String memberId = person.getId();
     grouperTeamService.addMember(teamId, person);
-    grouperTeamService.addMemberRole(teamId, memberId, Role.Member, teamEnvironment.getGrouperPowerUser());
+
+    Role intendedRole = invitation.getIntendedRole();
+    if (person.isGuest() && Role.Admin.equals(intendedRole)) {
+      // cannot make a guest Admin
+      invitation.setIntendedRole(Role.Manager);
+    }
+    intendedRole = invitation.getIntendedRole();
+    grouperTeamService.addMemberRole(teamId, memberId, intendedRole, teamEnvironment.getGrouperPowerUser());
 
     invitation.setAccepted(true);
     teamInviteService.saveOrUpdate(invitation);

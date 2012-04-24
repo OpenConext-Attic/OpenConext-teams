@@ -1,6 +1,3 @@
-<%@ tag language="java" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%--
   Copyright 2012 SURFnet bv, The Netherlands
 
@@ -18,6 +15,9 @@
   --%>
 
 <!DOCTYPE html>
+<%@ tag language="java" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <html>
 <head>
   <meta charset="UTF-8"/>

@@ -5,25 +5,25 @@
 <%@ taglib uri="http://teamfn" prefix="teamfn" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="teams"%>
 <%--
-  ~ Copyright 2011 SURFnet bv, The Netherlands
-  ~
-  ~ Licensed under the Apache License, Version 2.0 (the "License");
-  ~ you may not use this file except in compliance with the License.
-  ~ You may obtain a copy of the License at
-  ~
-  ~      http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing, software
-  ~ distributed under the License is distributed on an "AS IS" BASIS,
-  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~ See the License for the specific language governing permissions and
-  ~ limitations under the License.
+  Copyright 2012 SURFnet bv, The Netherlands
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
   --%>
 
 <teams:genericpage>
-<!-- = TeamContainer -->
+<%-- = TeamContainer --%>
 <div class="section" id="TeamContainer">
-  <!-- = Header -->
+  <%-- = Header --%>
   <div id="Header">
     <c:if test="${role eq adminRole}">
       <div class="jquery-warning-bar <c:if test="${onlyAdmin ne true}">hide</c:if>" id="onlyAdmin">
@@ -37,19 +37,19 @@
 
     <c:if test="${role eq adminRole or role eq managerRole}">
       <p class="add">
-        <c:url value="addmember.shtml" var="addmemberUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
-        <a class="button-primary" href="${addmemberUrl}"><spring:message code='jsp.addmember.Title' /></a>
+        <c:url value="/addmember.shtml" var="addmemberUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
+        <a class="button-primary" href="<c:out value="${addmemberUrl}"/>"><spring:message code='jsp.addmember.Title' /></a>
       </p>
     </c:if>
 
     <br class="clear" />
-  <!-- / Header -->
+  <%-- / Header --%>
   </div>
-  <!-- = Content -->
+  <%-- = Content --%>
   <div id="Content">
     <p class="description">
       <c:set var="noDescription"><spring:message code='jsp.general.NoDescription' /></c:set>
-      <c:out value="${team.description}" default="${noDescription}"/>
+      <c:out value="${team.descriptionAsHtml}" default="${noDescription}" escapeXml="false"/>
     </p>
 
     <c:choose>
@@ -62,17 +62,17 @@
       </c:when>
       <c:otherwise>
         <p class="more">
-          <c:url value="jointeam.shtml" var="joinUrl"><c:param name="team" value="${team.id}"/>
+          <c:url value="/jointeam.shtml" var="joinUrl"><c:param name="team" value="${team.id}"/>
             <c:param name="view" value="${view}"/></c:url>
-          <a class="button-primary" href="${joinUrl}"><spring:message code='jsp.detailteam.Join'/></a>
+          <a class="button-primary" href="<c:out value="${joinUrl}"/>"><spring:message code='jsp.detailteam.Join'/></a>
         </p>
         <div class="clear" ></div>
       </c:otherwise>
     </c:choose>
 
 
-  <!-- / Content -->
+  <%-- / Content --%>
   </div>
-<!-- / TeamContainer -->
+<%-- / TeamContainer --%>
 </div>
 </teams:genericpage>
