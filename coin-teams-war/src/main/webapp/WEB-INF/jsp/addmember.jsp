@@ -47,12 +47,17 @@
         <form:input path="emails" id="MemberEmail" cssClass="multiemail"
                     placeholder="${emailsPlaceholder}" cssErrorClass="error"/>
         <form:errors path="emails" cssClass="error" element="label"/>
+        <spring:bind path="csvFile">
+          <a href="#" id="csvFileTrigger"><spring:message code="jsp.addmember.CsvEmail"/></a>
+          <span id="filePath"></span>
+          <input id="csvFile" name="csvFile" type="file" accept="text/csv"/>
+        </spring:bind>
+        <%--<form:input type="file" path="csvFile" accept="text/csv" cssErrorClass="error"/>--%>
+        <form:errors path="csvFile" cssClass="error" element="label"/>
       </p>
       <p class="label-field-wrapper">
-        <form:label path="csvFile"><spring:message code="jsp.addmember.CsvEmail"/></form:label>
-        <form:input type="file" path="csvFile" accept="text/csv" cssErrorClass="error"/>
-        <form:errors path="csvFile" cssClass="error" element="label"/>
-        <span class="file-input-field-info"><spring:message code="jsp.addmember.CsvEmail.help"/></span>
+        <%--<form:label path="csvFile"><spring:message code="jsp.addmember.CsvEmail"/></form:label>--%>
+        <%--<span class="file-input-field-info"><spring:message code="jsp.addmember.CsvEmail.help"/></span>--%>
       </p>
       <p class="label-field-wrapper">
         <form:label path="intendedRole"><spring:message code="jsp.addmember.Role"/></form:label>

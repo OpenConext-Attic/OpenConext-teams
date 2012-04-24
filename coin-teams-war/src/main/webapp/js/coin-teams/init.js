@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -50,7 +50,7 @@ $(function() {
 		COIN.Core.register('jointeam', COIN.MODULES.Jointeam);
 	}
 	
-	if ($('#AddMemberForm').length > 0) {
+	if ($('#invitationForm').length > 0) {
 		COIN.Core.register('addmember', COIN.MODULES.Addmember);
 	}
 

@@ -14,31 +14,41 @@
  * limitations under the License.
  */
 
-COIN.MODULES.Addmember = function(sandbox) {
-	// Public interface
-	var module = {
-		init : function() {
-      sandbox.addPlaceholderSupport();
+COIN.MODULES.Addmember = function (sandbox) {
+  // Public interface
+  var module = {
+    init:function () {
+//      sandbox.addPlaceholderSupport();
 
-			// Clicked [ Cancel ]
-			$('input[name=cancelAddMember]').live('click',function(e) {
-				e.preventDefault();
-				var team = $('input[name=team]').val();
-				var view = $('input[name=view]').val();
-				sandbox.redirectBrowserTo('detailteam.shtml?team=' + escape(team) + '&view=' + view);
-			});
-		},
+      // Clicked [ Cancel ]
+      $('input[name=cancelAddMember]').live('click', function (e) {
+        e.preventDefault();
+        var team = $('input[name=team]').val();
+        var view = $('input[name=view]').val();
+        sandbox.redirectBrowserTo('detailteam.shtml?team=' + escape(team) + '&view=' + view);
+      });
 
-		destroy : function() {
+      $('#csvFileTrigger,#filePath').live('click', function(e) {
+        e.preventDefault();
+        $('#csvFile').click();
+      });
+      $('#csvFile').addClass('transparent');
+      $('#csvFile').live('change', function (e) {
+        var fileName = $(this).val();
+        $('#filePath').text(fileName);
+      });
+    },
 
-		}
-	};
+    destroy:function () {
 
-	// Private library (through closure)
-	var library = {
+    }
+  };
 
-	};
+  // Private library (through closure)
+  var library = {
 
-	// Return the public interface
-	return module;
+  };
+
+  // Return the public interface
+  return module;
 };
