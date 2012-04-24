@@ -77,9 +77,16 @@
                   </c:choose>
                 </td>
                 <td>
-                  <c:forEach items="${member.emails}" var="email" end="1">
-                    <c:out value="${email.value}"/>
-                  </c:forEach>
+                  <c:choose>
+                    <c:when test="${fn:length(member.emails) == 0}">
+                      <spring:message code="jsp.general.NotShared"/>
+                    </c:when>
+                    <c:otherwise>
+                      <c:forEach items="${member.emails}" var="email" end="1">
+                        <c:out value="${email.value}"/>
+                      </c:forEach>
+                    </c:otherwise>
+                  </c:choose>
                 </td>
               </tr>
             </c:forEach>
