@@ -18,7 +18,7 @@ COIN.MODULES.Addmember = function (sandbox) {
   // Public interface
   var module = {
     init:function () {
-//      sandbox.addPlaceholderSupport();
+      sandbox.addPlaceholderSupport();
 
       // Clicked [ Cancel ]
       $('input[name=cancelAddMember]').live('click', function (e) {
