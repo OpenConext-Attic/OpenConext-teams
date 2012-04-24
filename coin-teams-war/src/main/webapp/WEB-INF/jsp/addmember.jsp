@@ -48,9 +48,11 @@
                     placeholder="${emailsPlaceholder}" cssErrorClass="error"/>
         <form:errors path="emails" cssClass="error" element="label"/>
         <spring:bind path="csvFile">
-          <a href="#" id="csvFileTrigger"><spring:message code="jsp.addmember.CsvEmail"/></a>
-          <span id="filePath"></span>
-          <input id="csvFile" name="csvFile" type="file" accept="text/csv"/>
+          <span id="fileUploadBox">
+            <label for="csvFile"><spring:message code="jsp.addmember.CsvEmail"/></label>
+            <i></i>
+            <input id="csvFile" name="csvFile" type="file" accept="text/csv" onchange="this.focus(); this.blur();"/>
+          </span>
         </spring:bind>
         <%--<form:input type="file" path="csvFile" accept="text/csv" cssErrorClass="error"/>--%>
         <form:errors path="csvFile" cssClass="error" element="label"/>

@@ -21,21 +21,36 @@ COIN.MODULES.Addmember = function (sandbox) {
       sandbox.addPlaceholderSupport();
 
       // Clicked [ Cancel ]
-      $('input[name=cancelAddMember]').live('click', function (e) {
+      $('input[name=cancelAddMember],.close a').live('click', function (e) {
         e.preventDefault();
         var team = $('input[name=team]').val();
         var view = $('input[name=view]').val();
         sandbox.redirectBrowserTo('detailteam.shtml?team=' + escape(team) + '&view=' + view);
       });
 
-      $('#csvFileTrigger,#filePath').live('click', function(e) {
-        e.preventDefault();
-        $('#csvFile').click();
-      });
-      $('#csvFile').addClass('transparent');
-      $('#csvFile').live('change', function (e) {
-        var fileName = $(this).val();
-        $('#filePath').text(fileName);
+      var fileUploadBox = $('#fileUploadBox');
+      fileUploadBox.addClass('fileUploadBox');
+      var fileUploader = fileUploadBox.find('input[type=file]');
+      fileUploader.addClass('transparent');
+
+      // MSIE clears the file upload if the click event was triggered automatically
+      if ($.browser.msie !== true) {
+        fileUploadBox.find('label, i').live('click', function (e) {
+          e.preventDefault();
+          fileUploader.focus();
+          fileUploader.click();
+          fileUploader.blur();
+        });
+      }
+
+      fileUploadBox.find('input[type=file]').live($.browser.msie? 'blur' : 'change', function (e) {
+        var fileNameTag = fileUploadBox.find('i');
+        if (fileNameTag.length > 0) {
+          fileNameTag.text($(this).val());
+        } else {
+          fileNameTag = '<i>'+$(this).val()+'</i>';
+          fileUploadBox.append(fileNameTag).show();
+        }
       });
     },
 

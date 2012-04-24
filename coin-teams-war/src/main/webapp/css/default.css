@@ -108,30 +108,14 @@
 }
 
 .transparent {
-	/* Required for IE 5, 6, 7 */
-	/* ...or something to trigger hasLayout, like zoom: 1; */
-	zoom: 1;
-
-	/* Theoretically for IE 8 & 9 (more valid) */
-	/* ...but not required as filter works too */
-	/* should come BEFORE filter */
-	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-
-	/* This works in IE 8 & 9 too */
-	/* ... but also 5, 6, 7 */
-	filter: alpha(opacity=0);
-
-	/* Older than Firefox 0.9 */
-	-moz-opacity:0;
-
-	/* Safari 1.x (pre WebKit!) */
-	-khtml-opacity: 0;
-
-	/* Modern!
-	/* Firefox 0.9+, Safari 2?, Chrome any?
-	/* Opera 9+, IE 9+ */
-	opacity: 0;
+  zoom: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity = 0);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
 }
+
 /* GENERIC ELEMENTS */
 
 body {
@@ -177,8 +161,7 @@ p.not-member {
 a {
   outline: none;
   text-decoration: none;
-  /*color: #288DD4;*/
-  color: #F86D00;
+	color: #f86d00;
 }
 
 dl, dd, dt {
@@ -402,6 +385,27 @@ span.consent-wrapper {
 
 .hasPlaceholder {
   color: #999;
+}
+
+.fileUploadBox {
+  margin-left: 15px;
+}
+
+.fileUploadBox label {
+  float: none;
+  color: #F86D00;
+  margin-bottom: 0;
+}
+
+.fileUploadBox i {
+  font-style: normal;
+}
+
+.label-field-wrapper .fileUploadBox input[type=file] {
+  margin: 0;
+  width: 1px;
+  height: 1px;
+  vertical-align: text-top;
 }
 
 /* INVITATION INFORMATION BLOCK */
