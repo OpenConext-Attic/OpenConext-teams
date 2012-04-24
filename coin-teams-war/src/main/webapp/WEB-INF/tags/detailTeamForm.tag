@@ -5,21 +5,23 @@
 <%@ taglib uri="http://teamfn" prefix="teamfn" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="teams"%>
 <%--
-  ~ Copyright 2011 SURFnet bv, The Netherlands
-  ~
-  ~ Licensed under the Apache License, Version 2.0 (the "License");
-  ~ you may not use this file except in compliance with the License.
-  ~ You may obtain a copy of the License at
-  ~
-  ~      http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing, software
-  ~ distributed under the License is distributed on an "AS IS" BASIS,
-  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~ See the License for the specific language governing permissions and
-  ~ limitations under the License.
-  --%>
+  Copyright 2012 SURFnet bv, The Netherlands
 
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  --%>
+<%--@elvariable id="role" type="nl.surfnet.coin.teams.domain.Role"--%>
+<%--@elvariable id="adminRole" type="nl.surfnet.coin.teams.domain.Role.Admin"--%>
+<%--@elvariable id="managerRole" type="nl.surfnet.coin.teams.domain.Role.Manager"--%>
 <div class="pagination-wrapper">
   <teams:paginate baseUrl="detailteam.shtml" pager="${pager}"/>
 </div>
@@ -115,6 +117,7 @@
       </tbody>
     </table>
     </div>
+  <%--@elvariable id="invitations" type="java.util.List<nl.surfnet.coin.teams.domain.Invitation>"--%>
   <c:if test="${pager.offset eq 0 and fn:length(invitations) > 0  and (role eq adminRole or role eq managerRole)}">
     <br class="clear"/>
 
@@ -150,7 +153,7 @@
                   <spring:message code="jsp.detailteam.InvitationDeclined"/>
                 </c:when>
                 <c:otherwise>
-                  <spring:message code='jsp.detailteam.InvitationPending'/>
+                  <spring:message code='jsp.detailteam.InvitationPending' arguments="${invite.intendedRole}"/>
                   <c:url var="resendUrl" value="resendInvitation.shtml">
                     <c:param name="view" value="${view}"/>
                     <c:param name="id" value="${invite.invitationHash}"/>

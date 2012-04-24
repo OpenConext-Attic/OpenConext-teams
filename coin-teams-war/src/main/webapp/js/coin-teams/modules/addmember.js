@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,8 @@ COIN.MODULES.Addmember = function(sandbox) {
 	// Public interface
 	var module = {
 		init : function() {
-			
+      sandbox.addPlaceholderSupport();
+
 			// Clicked [ Cancel ]
 			$('input[name=cancelAddMember]').live('click',function(e) {
 				e.preventDefault();

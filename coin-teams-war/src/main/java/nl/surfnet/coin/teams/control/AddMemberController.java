@@ -54,6 +54,7 @@ import nl.surfnet.coin.shared.service.MailService;
 import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.InvitationForm;
 import nl.surfnet.coin.teams.domain.InvitationMessage;
+import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
@@ -133,6 +134,8 @@ public class AddMemberController {
     Object[] messageParams = {person.getDisplayName(), team.getName()};
     form.setMessage(messageSource.getMessage("jsp.addmember.Message", messageParams, locale));
     modelMap.addAttribute("invitationForm", form);
+    Role[] roles = {Role.Admin, Role.Manager, Role.Member};
+    modelMap.addAttribute("roles", roles);
     ViewUtil.addViewToModelMap(request, modelMap);
 
     return "addmember";
@@ -309,14 +312,14 @@ public class AddMemberController {
       boolean newInvitation = invitation == null;
 
       if (newInvitation) {
-        invitation = new Invitation(emailAddress, teamId
-        );
+        invitation = new Invitation(emailAddress, teamId);
       } else if (invitation.isDeclined()) {
         continue;
       }
       InvitationMessage invitationMessage = new InvitationMessage(form.getMessage(), inviterPersonId);
       invitation.addInvitationMessage(invitationMessage);
       invitation.setTimestamp(new Date().getTime());
+      invitation.setIntendedRole(form.getIntendedRole());
       teamInviteService.saveOrUpdate(invitation);
       sendInvitationByMail(invitation, subject, locale);
 

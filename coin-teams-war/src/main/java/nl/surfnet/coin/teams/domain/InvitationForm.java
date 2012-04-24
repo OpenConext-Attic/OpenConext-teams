@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,7 @@ public class InvitationForm {
   private String teamId;
   private MultipartFile csvFile;
   private Person inviter;
+  private Role intendedRole = Role.Member;
 
   public String getEmails() {
     return emails;
@@ -73,5 +74,13 @@ public class InvitationForm {
 
   public boolean hasCsvFile() {
     return csvFile!=null && StringUtils.hasText(csvFile.getOriginalFilename());
+  }
+
+  public Role getIntendedRole() {
+    return intendedRole;
+  }
+
+  public void setIntendedRole(Role intendedRole) {
+    this.intendedRole = intendedRole;
   }
 }
