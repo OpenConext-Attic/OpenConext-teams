@@ -42,6 +42,7 @@ repository. Dependencies with groupId org.surfnet.coin can be built from source 
   - coin-shared: git://github.com/OpenConext/OpenConext-shared.git
   - coin-api: git://github.com/OpenConext/OpenConext-api.git
   - coin-opensocial: https://svn.surfnet.nl/svn/coin-gui/coin-opensocial (Subversion)
+  - com.google.code:opensocial-java-client: https://svn.surfnet.nl/svn/coin-os/vendor/opensocial-java-client/
 
 
 
