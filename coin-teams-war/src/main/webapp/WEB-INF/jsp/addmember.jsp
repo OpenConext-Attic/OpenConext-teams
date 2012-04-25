@@ -54,12 +54,7 @@
             <input id="csvFile" name="csvFile" type="file" accept="text/csv" onchange="this.focus(); this.blur();"/>
           </span>
         </spring:bind>
-        <%--<form:input type="file" path="csvFile" accept="text/csv" cssErrorClass="error"/>--%>
         <form:errors path="csvFile" cssClass="error" element="label"/>
-      </p>
-      <p class="label-field-wrapper">
-        <%--<form:label path="csvFile"><spring:message code="jsp.addmember.CsvEmail"/></form:label>--%>
-        <%--<span class="file-input-field-info"><spring:message code="jsp.addmember.CsvEmail.help"/></span>--%>
       </p>
       <p class="label-field-wrapper">
         <form:label path="intendedRole"><spring:message code="jsp.addmember.Role"/></form:label>

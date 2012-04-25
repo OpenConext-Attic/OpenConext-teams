@@ -245,6 +245,8 @@ public class InvitationController {
     }
 
     modelMap.addAttribute("invitation", invitation);
+    Role[] inviteRoles = {Role.Member, Role.Manager, Role.Admin};
+    modelMap.addAttribute("roles", inviteRoles);
     InvitationMessage invitationMessage = invitation.getLatestInvitationMessage();
     if (invitationMessage != null) {
       modelMap.addAttribute("messageText", invitationMessage.getMessage());

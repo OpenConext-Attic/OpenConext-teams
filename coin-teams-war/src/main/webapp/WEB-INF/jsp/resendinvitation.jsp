@@ -5,28 +5,28 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="teams"%>
 <%--
-  ~ Copyright 2011 SURFnet bv, The Netherlands
-  ~
-  ~ Licensed under the Apache License, Version 2.0 (the "License");
-  ~ you may not use this file except in compliance with the License.
-  ~ You may obtain a copy of the License at
-  ~
-  ~      http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing, software
-  ~ distributed under the License is distributed on an "AS IS" BASIS,
-  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~ See the License for the specific language governing permissions and
-  ~ limitations under the License.
+  Copyright 2012 SURFnet bv, The Netherlands
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
   --%>
 
 <teams:genericpage>
-<!-- = TeamContainer -->
+<%-- = TeamContainer --%>
 <div class="section" id="TeamContainer">
   <%-- = Header --%>
   <div id="Header">
     <h1><spring:message code='jsp.resendInvite.Title' /></h1>
-    <c:url value="home.shtml" var="closeUrl"><c:param name="teams" value="my" /><c:param name="view" value="${view}" /></c:url>
+    <c:url value="/detailteam.shtml" var="closeUrl"><c:param name="team" value="${invitation.teamId}" /><c:param name="view" value="${view}" /></c:url>
     <p class="close"><a href="${closeUrl}"><spring:message code='jsp.general.CloseForm' /></a></p>
   <%-- / Header --%>
   </div>
@@ -42,7 +42,12 @@
         <form:errors path="email" cssClass="error" element="label"/>
       </p>
       <p class="label-field-wrapper">
-        <label for="messageText"><spring:message code='jsp.general.Message' /></label>
+        <form:label path="intendedRole"><spring:message code="jsp.addmember.Role"/></form:label>
+          <%--@elvariable id="roles" type="nl.surfnet.coin.teams.domain.Role"--%>
+        <form:select path="intendedRole" items="${roles}"/>
+      </p>
+      <p class="label-field-wrapper">
+        <label for="messageText"><spring:message code='jsp.addmember.Message.label' /></label>
         <textarea id="messageText" name="messageText" rows="4" cols="5"><c:out value="${messageText}"/></textarea>
       </p>
       <p class="submit-wrapper">

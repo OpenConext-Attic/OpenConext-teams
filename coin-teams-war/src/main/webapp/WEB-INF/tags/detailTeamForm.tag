@@ -78,7 +78,7 @@
             <c:if test="${role eq adminRole or role eq managerRole}">
               <td>
                 <c:if test="${canDelete eq true}">
-                  <c:url var="dodeletemember" value="dodeletemember.shtml">
+                  <c:url var="dodeletemember" value="/dodeletemember.shtml">
                     <c:param name="team" value="${team.id}"/>
                     <c:param name="member" value="${member.id}"/>
                     <c:param name="token" value="${tokencheck}"/>
@@ -138,7 +138,7 @@
         <tbody>
         <c:forEach items="${invitations}" var="invite">
           <tr>
-            <c:url var="dodeleteinvite" value="deleteInvitation.shtml">
+            <c:url var="dodeleteinvite" value="/deleteInvitation.shtml">
               <c:param name="token" value="${tokencheck}"/>
               <c:param name="id" value="${invite.invitationHash}"/>
               <c:param name="view" value="${view}"/>
@@ -154,7 +154,7 @@
                 </c:when>
                 <c:otherwise>
                   <spring:message code='jsp.detailteam.InvitationPending' arguments="${invite.intendedRole}"/>
-                  <c:url var="resendUrl" value="resendInvitation.shtml">
+                  <c:url var="resendUrl" value="/resendInvitation.shtml">
                     <c:param name="view" value="${view}"/>
                     <c:param name="id" value="${invite.invitationHash}"/>
                   </c:url>
