@@ -29,29 +29,22 @@ COIN.MODULES.Addmember = function (sandbox) {
       });
 
       var fileUploadBox = $('#fileUploadBox');
-      fileUploadBox.addClass('fileUploadBox');
       var fileUploader = fileUploadBox.find('input[type=file]');
-      fileUploader.addClass('transparent');
 
-      // MSIE clears the file upload if the click event was triggered automatically
-      if ($.browser.msie !== true) {
-        fileUploadBox.find('label, i').live('click', function (e) {
-          e.preventDefault();
-          fileUploader.focus();
-          fileUploader.click();
-          fileUploader.blur();
-        });
+      // native IE7 (not IE9 acting as IE7) needs the real file input element
+      if (!library.isVeryOldMsie()) {
+        fileUploader.addClass('transparent');
       }
 
-      fileUploadBox.find('input[type=file]').live($.browser.msie? 'blur' : 'change', function (e) {
-        var fileNameTag = fileUploadBox.find('i');
-        if (fileNameTag.length > 0) {
-          fileNameTag.text($(this).val());
-        } else {
-          fileNameTag = '<i>'+$(this).val()+'</i>';
-          fileUploadBox.append(fileNameTag).show();
-        }
-      });
+      // MSIE clears the file upload if the click event was triggered automatically
+      if (library.isMsie() === false) {
+        library.clickBrowseButton(fileUploadBox, fileUploader);
+      }
+
+      // native IE7 (not IE9 acting as IE7) needs the real file input element
+      if (!library.isVeryOldMsie()) {
+        library.showFileNameToUpload(fileUploadBox, fileUploader);
+      }
     },
 
     destroy:function () {
@@ -61,7 +54,33 @@ COIN.MODULES.Addmember = function (sandbox) {
 
   // Private library (through closure)
   var library = {
-
+    isVeryOldMsie:function () {
+      return ($.browser.msie && $.browser.version.slice(0, 1) <= 7);
+    },
+    isMsie:function () {
+      return ($.browser.msie === true);
+    },
+    clickBrowseButton : function (parentContainer, fileUploader) {
+      parentContainer.find('label, i').live('click', function (e) {
+        e.preventDefault();
+        fileUploader.focus();
+        fileUploader.click();
+        fileUploader.blur();
+      });
+    },
+    showFileNameToUpload : function (parentContainer, fileUploader) {
+      fileUploader.live($.browser.msie ? 'blur' : 'change', function (e) {
+        var fileNameTag = parentContainer.find('i');
+        // some browsers add C:\fakepath\ before the file name to obfuscate the file system location
+        var filePath = $(this).val().replace("C:\\fakepath\\", "");
+        if (fileNameTag.length > 0) {
+          fileNameTag.text(filePath);
+        } else {
+          fileNameTag = '<i>' + filePath + '</i>';
+          parentContainer.append(fileNameTag).show();
+        }
+      });
+    }
   };
 
   // Return the public interface
