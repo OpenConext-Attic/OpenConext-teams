@@ -150,7 +150,7 @@ public class GrouperDaoImpl extends AbstractGrouperDaoImpl implements GrouperDao
       List<Team> teams) {
     try {
       RolesRowCallbackHandler handler = new RolesRowCallbackHandler();
-      String sql = SQL_ROLES_BY_TEAM_AND_MEMBERS;
+      String sql = SQL_ROLES_BY_TEAMS;
       this.jdbcTemplate
           .query(sql, new Object[] { personId }, handler);
       Map<String, Role> roles = handler.roles;
