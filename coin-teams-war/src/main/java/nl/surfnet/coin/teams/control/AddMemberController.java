@@ -134,11 +134,15 @@ public class AddMemberController {
     Object[] messageParams = {person.getDisplayName(), team.getName()};
     form.setMessage(messageSource.getMessage("jsp.addmember.Message", messageParams, locale));
     modelMap.addAttribute("invitationForm", form);
-    Role[] roles = {Role.Admin, Role.Manager, Role.Member};
-    modelMap.addAttribute("roles", roles);
+    addNewMemberRolesToModelMap(modelMap);
     ViewUtil.addViewToModelMap(request, modelMap);
 
     return "addmember";
+  }
+
+  private void addNewMemberRolesToModelMap(ModelMap modelMap) {
+    Role[] roles = {Role.Admin, Role.Manager, Role.Member};
+    modelMap.addAttribute("roles", roles);
   }
 
   /**
@@ -185,6 +189,7 @@ public class AddMemberController {
     TokenUtil.checkTokens(sessionToken, token, status);
     Person person = (Person) request.getSession().getAttribute(
             LoginInterceptor.PERSON_SESSION_KEY);
+    addNewMemberRolesToModelMap(modelMap);
     if (!controllerUtil.hasUserAdministrativePrivileges(person, request.getParameter(TEAM_PARAM))) {
       status.setComplete();
       throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct " +
