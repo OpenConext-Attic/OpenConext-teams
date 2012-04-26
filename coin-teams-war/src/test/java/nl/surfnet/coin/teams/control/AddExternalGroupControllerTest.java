@@ -39,6 +39,7 @@ import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.GroupProviderService;
 import nl.surfnet.coin.teams.service.GroupService;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.util.ControllerUtil;
 
 import static org.junit.Assert.assertEquals;
@@ -60,6 +61,11 @@ public class AddExternalGroupControllerTest extends AbstractControllerTest {
     controller = new AddExternalGroupController();
     final Person person1 = getPerson1();
     person1.setField("id", "urn:collab:person:hz.nl:member-1");
+
+    GrouperTeamService teamService = mock(GrouperTeamService.class);
+    when(teamService.findTeamById("team-1")).thenReturn(getTeam1());
+    autoWireMock(controller, teamService, GrouperTeamService.class);
+
   }
 
   @Test
@@ -88,6 +94,7 @@ public class AddExternalGroupControllerTest extends AbstractControllerTest {
     final String viewName = controller.showAddExternalGroupsForm(team1.getId(), modelMap, request);
 
     assertEquals("addexternalgroup", viewName);
+    assertEquals(team1, modelMap.get("team"));
     List<Group20> group20List = (List<Group20>) modelMap.get("group20List");
     assertEquals(3, group20List.size());
     assertEquals(hzProvider, ((List<GroupProvider>) modelMap.get("groupProviders")).get(0));
@@ -113,6 +120,7 @@ public class AddExternalGroupControllerTest extends AbstractControllerTest {
     final Team team1 = getTeam1();
     final ModelMap modelMap = getModelMap();
     final Person person1 = getPerson1();
+
     ControllerUtil controllerUtil = mock(ControllerUtil.class);
     when(controllerUtil.hasUserAdministrativePrivileges(person1, team1.getId())).thenReturn(true);
     autoWireMock(controller, controllerUtil, ControllerUtil.class);
@@ -155,10 +163,18 @@ public class AddExternalGroupControllerTest extends AbstractControllerTest {
     final String viewName = controller.showAddExternalGroupsForm(team1.getId(), modelMap, request);
 
     assertEquals("addexternalgroup", viewName);
+    assertEquals(team1, modelMap.get("team"));
     List<Group20> group20List = (List<Group20>) modelMap.get("group20List");
     assertEquals(0, group20List.size());
     assertEquals(hzProvider, ((List<GroupProvider>) modelMap.get("groupProviders")).get(0));
     assertTrue(modelMap.containsKey("view"));
+  }
+
+  @Test
+  public void testAddExternalGroups() {
+    final ModelMap modelMap = getModelMap();
+    final MockHttpServletRequest request = getRequest();
+    controller.addExternalGroups(modelMap, request);
   }
 
   private List<GroupProviderUserOauth> oauthKeys() {

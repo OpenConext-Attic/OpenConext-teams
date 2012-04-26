@@ -25,19 +25,24 @@ import org.opensocial.models.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import nl.surfnet.coin.api.client.domain.Group20;
 import nl.surfnet.coin.api.client.domain.Group20Entry;
 import nl.surfnet.coin.teams.domain.GroupProvider;
 import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
+import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GroupProviderService;
 import nl.surfnet.coin.teams.service.GroupService;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.TokenUtil;
 import nl.surfnet.coin.teams.util.ViewUtil;
@@ -56,11 +61,14 @@ public class AddExternalGroupController {
   private GroupService groupService;
 
   @Autowired
+  private GrouperTeamService teamService;
+
+  @Autowired
   private ControllerUtil controllerUtil;
 
   private static final Logger log = LoggerFactory.getLogger(AddExternalGroupController.class);
 
-  @RequestMapping("addexternalgroup.shtml")
+  @RequestMapping(value = "/addexternalgroup.shtml")
   public String showAddExternalGroupsForm(@RequestParam String teamId, ModelMap modelMap, HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
@@ -69,6 +77,8 @@ public class AddExternalGroupController {
       throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct " +
           "privileges to add external groups");
     }
+    final Team team = teamService.findTeamById(teamId);
+    modelMap.addAttribute("team", team);
 
     final List<GroupProviderUserOauth> oauthList = groupProviderService.getGroupProviderUserOauths(personId);
     final List<Group20> group20List = new ArrayList<Group20>();
@@ -92,4 +102,9 @@ public class AddExternalGroupController {
     return "addexternalgroup";
   }
 
+  @RequestMapping(value = "/doaddexternalgroup.shtml", method = RequestMethod.POST)
+  @ResponseStatus(value = HttpStatus.NOT_IMPLEMENTED)
+  public void addExternalGroups(ModelMap modelMap, HttpServletRequest request) {
+    log.debug("Received request to add external group");
+  }
 }

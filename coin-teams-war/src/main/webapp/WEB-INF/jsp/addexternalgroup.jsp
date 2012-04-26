@@ -40,7 +40,7 @@
   <div class="section" id="TeamContainer">
       <%-- = Header --%>
     <div id="Header">
-      <h1><spring:message code='jsp.addmember.Title'/></h1>
+      <h1><spring:message code='jsp.addexternalgroup.Title'/></h1>
       <c:url value="/detailteam.shtml" var="closeUrl">
         <c:param name="team" value="${team.id}"/><c:param name="view" value="${view}"/>
       </c:url>
@@ -49,7 +49,21 @@
     </div>
       <%-- = Content --%>
     <div id="Content">
-      <%-- TODO Insert magic here --%>
+      <c:choose>
+        <c:when test="${fn:length(group20List)==0}">
+ERR
+        </c:when>
+        <c:otherwise>
+          <p><spring:message code="jsp.addexternalgroup.TeamsYouCanAdd" arguments="${team.name}"
+                          htmlEscape="true"/></p>
+
+          <%-- TODO Insert magic here --%>
+          <form action="<c:url value="/doaddexternalgroup.shtml"/>" method="post">
+          </form>
+
+        </c:otherwise>
+      </c:choose>
+
 
       <div class="clear"></div>
         <%-- / Content --%>
