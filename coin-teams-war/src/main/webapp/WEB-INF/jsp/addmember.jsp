@@ -46,7 +46,6 @@
         <c:set var="emailsPlaceholder"><spring:message code='jsp.addmember.Email.placeholder' /></c:set>
         <form:input path="emails" id="MemberEmail" cssClass="multiemail"
                     placeholder="${emailsPlaceholder}" cssErrorClass="error"/>
-        <form:errors path="emails" cssClass="error" element="label"/>
         <spring:bind path="csvFile">
           <span id="fileUploadBox" class="fileUploadBox">
             <label for="csvFile"><spring:message code="jsp.addmember.CsvEmail"/></label>
@@ -54,6 +53,7 @@
             <input id="csvFile" name="csvFile" type="file" accept="text/csv" onchange="this.focus(); this.blur();"/>
           </span>
         </spring:bind>
+        <form:errors path="emails" cssClass="error" element="label"/>
         <form:errors path="csvFile" cssClass="error" element="label"/>
       </p>
       <p class="label-field-wrapper">
