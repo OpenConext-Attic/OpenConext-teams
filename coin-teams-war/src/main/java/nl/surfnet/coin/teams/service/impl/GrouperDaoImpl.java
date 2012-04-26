@@ -29,7 +29,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
-import org.springframework.util.Assert;
 
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Stem;
@@ -42,7 +41,8 @@ import nl.surfnet.coin.teams.service.GrouperDao;
  * 
  */
 @Component("grouperDao")
-public class GrouperDaoImpl implements GrouperDao {
+public class GrouperDaoImpl extends AbstractGrouperDaoImpl implements GrouperDao {
+
 
   @Autowired
   private JdbcTemplate jdbcTemplate;
@@ -51,66 +51,17 @@ public class GrouperDaoImpl implements GrouperDao {
   public TeamResultWrapper findAllTeams(String personId,
       int offset, int pageSize) {
     int rowCount = this.jdbcTemplate
-        .queryForInt(
-            "select count(distinct gg.name) "
-                + "from grouper_groups gg, grouper_stems gs, grouper_members gm, "
-                + "grouper_memberships gms, "
-                + " grouper_fields gf, grouper_group_set ggs  "
-                + "where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
-                + " and gs.name != 'etc' "
-                + "and ggs.field_id = gf.id "
-                + " and gg.id = ggs.owner_group_id "
-                + "and gms.owner_id = ggs.member_id "
-                + " and gms.field_id = ggs.member_field_id "
-                + "and ((gf.type = 'access' and gf.name = 'viewers') or gm.subject_id = ?) ", personId);
+        .queryForInt(SQL_FIND_ALL_TEAMS_ROWCOUNT, personId);
     List<Team> teams = performQuery(
-        "select distinct gg.name, gg.display_name ,gg.description, gs.name as stem_name, gs.display_name as stem_display_name, gs.description as stem_description "
-            + "from grouper_groups gg, grouper_stems gs, grouper_members gm, "
-            + "grouper_memberships gms, "
-            + " grouper_fields gf, grouper_group_set ggs  "
-            + "where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
-            + " and gs.name != 'etc' "
-            + " and ggs.field_id = gf.id "
-            + " and gg.id = ggs.owner_group_id "
-            + "and gms.owner_id = ggs.member_id "
-            + " and gms.field_id = ggs.member_field_id "
-            + "and ((gf.type = 'access' and gf.name = 'viewers') or gm.subject_id = ?) "
-            + "order by gg.name limit ? offset ?", new Object[] { personId, pageSize, offset });
+        SQL_FIND_ALL_TEAMS, new Object[] { personId, pageSize, offset });
     return new TeamResultWrapper(teams, rowCount, offset, pageSize);
   }
 
   @Override
-  public TeamResultWrapper findTeams(String personId,
-      String partOfGroupname, int offset, int pageSize) {
+  public TeamResultWrapper findTeams(String personId, String partOfGroupname, int offset, int pageSize) {
     partOfGroupname = wildCard(partOfGroupname);
-    int rowCount = this.jdbcTemplate
-        .queryForInt(
-            "select count(distinct gg.name) "
-                + "from grouper_groups gg, grouper_stems gs, grouper_members gm,"
-                + "grouper_memberships gms, "
-                + " grouper_fields gf, grouper_group_set ggs  "
-                + "where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
-                + " and gs.name != 'etc' "
-                + " and ggs.field_id = gf.id "
-                + " and gg.id = ggs.owner_group_id "
-                + "and gms.owner_id = ggs.member_id "
-                + " and gms.field_id = ggs.member_field_id "
-                + "and ((gf.type = 'access' and gf.name = 'viewers') or gm.subject_id = ?) "
-                + "and upper(gg.name) like ?", personId,
-            partOfGroupname);
-    List<Team> teams = performQuery(
-        "select distinct gg.name, gg.display_name ,gg.description, gs.name as stem_name, gs.display_name as stem_display_name, gs.description as stem_description "
-            + "from grouper_groups gg, grouper_stems gs, grouper_members gm,"
-            + "grouper_memberships gms, "
-            + " grouper_fields gf, grouper_group_set ggs  "
-            + "where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
-            + " and gs.name != 'etc' "
-            + " and ggs.field_id = gf.id "
-            + " and gg.id = ggs.owner_group_id "
-            + "and gms.owner_id = ggs.member_id "
-            + " and gms.field_id = ggs.member_field_id "
-            + "and ((gf.type = 'access' and gf.name = 'viewers') or gm.subject_id = ?) "
-            + "and upper(gg.name) like ? order by gg.name limit ? offset ?",
+    int rowCount = this.jdbcTemplate.queryForInt(SQL_FIND_TEAMS_LIKE_GROUPNAME_ROWCOUNT, personId, partOfGroupname);
+    List<Team> teams = performQuery(SQL_FIND_TEAMS_LIKE_GROUPNAME,
         new Object[] { personId, partOfGroupname, pageSize, offset });
     return new TeamResultWrapper(teams, rowCount, offset, pageSize);
   }
@@ -124,21 +75,8 @@ public class GrouperDaoImpl implements GrouperDao {
    */
   @Override
   public TeamResultWrapper findAllTeamsByMember(String personId, int offset, int pageSize) {
-    int rowCount = this.jdbcTemplate
-        .queryForInt(
-            "select count(distinct gg.name) from grouper_groups gg, grouper_stems gs, grouper_members gm, "
-                + "grouper_memberships gms "
-                + "where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
-                + "and gm.subject_id = ? and gs.name != 'etc'", personId);
-    List<Team> teams = performQuery(
-        "select distinct gg.name, gg.display_name ,gg.description, gs.name as stem_name, gs.display_name as stem_display_name, gs.description as stem_description "
-            + "from grouper_groups gg, grouper_stems gs, grouper_members gm, "
-            + "grouper_memberships gms, grouper_fields gf "
-            + "where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
-            + "and gm.subject_id = ? "
-            + "and gs.name != 'etc' "
-            + "and gf.id = gms.field_id and gf.name = 'members' "
-            + "order by gg.name limit ? offset ?", new Object[] { personId, pageSize, offset });
+    int rowCount = this.jdbcTemplate.queryForInt(SQL_FIND_ALL_TEAMS_BY_MEMBER_ROWCOUNT, personId);
+    List<Team> teams = performQuery(SQL_FIND_ALL_TEAMS_BY_MEMBER, new Object[] { personId, pageSize, offset });
     addRolesToTeams(personId, teams);
     addMemberCountToTeams(personId, teams);
     return new TeamResultWrapper(teams, rowCount, offset, pageSize);
@@ -152,25 +90,11 @@ public class GrouperDaoImpl implements GrouperDao {
    * , java.lang.String, java.lang.String, int, int)
    */
   @Override
-  public TeamResultWrapper findTeamsByMember(String personId,
-      String partOfGroupname, int offset, int pageSize) {
+  public TeamResultWrapper findTeamsByMember(String personId, String partOfGroupname, int offset, int pageSize) {
     partOfGroupname = wildCard(partOfGroupname);
     int rowCount = this.jdbcTemplate
-        .queryForInt(
-            "select count(distinct gg.name) "
-                + "from grouper_groups gg, grouper_stems gs, grouper_members gm, "
-                + "grouper_memberships gms "
-                + "where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
-                + "and gm.subject_id = ?  and upper(gg.name) like ?", personId, partOfGroupname);
-    List<Team> teams = performQuery(
-        "select distinct gg.name, gg.display_name ,gg.description, gs.name as stem_name, gs.display_name as stem_display_name, gs.description as stem_description "
-            + "from grouper_groups gg, grouper_stems gs, grouper_members gm, "
-            + "grouper_memberships gms, grouper_fields gf "
-            + "where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
-            + "and gm.subject_id = ? "
-            + "and gs.name != 'etc' "
-            + "and gf.id = gms.field_id and gf.name = 'members' "
-            + "and upper(gg.name) like ? order by gg.name limit ? offset ?",
+        .queryForInt(SQL_FIND_TEAMS_BY_MEMBER_ROWCOUNT, personId, partOfGroupname);
+    List<Team> teams = performQuery(SQL_FIND_TEAMS_BY_MEMBER,
         new Object[] { personId, partOfGroupname, pageSize, offset });
     addRolesToTeams(personId, teams);
     addMemberCountToTeams(personId, teams);
@@ -182,12 +106,7 @@ public class GrouperDaoImpl implements GrouperDao {
    */
   @Override
   public List<Stem> findStemsByMember(String personId) {
-    String sql = "select distinct gs.name, gs.display_name, gs.description "
-            + "from grouper_groups gg, grouper_stems gs, grouper_members gm, "
-            + "grouper_memberships gms  "
-            + "where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
-            + "and gm.subject_id = ? "
-            + "and gs.name != 'etc' ";
+    String sql = SQL_FIND_STEMS_BY_MEMBER;
 
     Object[] args = new Object[] { personId, };
     try {
@@ -227,25 +146,11 @@ public class GrouperDaoImpl implements GrouperDao {
     }
   }
 
-  private String wildCard(String partOfGroupname) {
-    Assert.hasText(partOfGroupname);
-    partOfGroupname = ("%" + partOfGroupname + "%").toUpperCase();
-    return partOfGroupname;
-  }
-
   private void addRolesToTeams(String personId,
       List<Team> teams) {
     try {
       RolesRowCallbackHandler handler = new RolesRowCallbackHandler();
-      String sql = " select gf.name as fieldname, gg.name as groupname from grouper_memberships gms, "
-          + "grouper_groups gg, grouper_fields gf, "
-          + " grouper_stems gs, grouper_members gm where "
-          + " gms.field_id = gf.id and  gms.owner_group_id = gg.id and "
-          + " gms.member_id = gm.id "
-          + " and gm.subject_id = ?  "
-          + " and gg.parent_stem = gs.id "
-          + " and gs.name != 'etc' "
-          + " and (gf.name = 'admins' or gf.name = 'updaters') order by gg.name ";
+      String sql = SQL_ROLES_BY_TEAM_AND_MEMBERS;
       this.jdbcTemplate
           .query(sql, new Object[] { personId }, handler);
       Map<String, Role> roles = handler.roles;
@@ -266,17 +171,8 @@ public class GrouperDaoImpl implements GrouperDao {
    */
   private void addMemberCountToTeams(String personId,
       List<Team> teams) {
-    String sql = "select gg.name  as groupname, count(distinct gms.member_id) as membercount from "
-        + " grouper_groups gg, grouper_stems gs, grouper_members gm, "
-        + " grouper_memberships gms "
-        + " where gg.parent_stem = gs.id and gms.member_id = gm.id and gms.owner_group_id = gg.id "
-        + " and gm.subject_type = 'person' "
-        + " and gs.name != 'etc' "
-        + " and gg.id in (select distinct(ggo.id) from grouper_groups ggo, grouper_members gmo, grouper_memberships gmso  "
-        + " where gmso.member_id = gmo.id and gmso.owner_group_id = ggo.id and gmo.subject_id = ?)   "
-        + " group by gg.name  ";
     MemberCountRowCallbackHandler handler = new MemberCountRowCallbackHandler();
-    this.jdbcTemplate.query(sql, new Object[] { personId }, handler);
+    this.jdbcTemplate.query(SQL_ADD_MEMBER_COUNT_TO_TEAMS, new Object[] { personId }, handler);
     Map<String, Integer> memberCounts = handler.memberCounts;
     for (Team team : teams) {
       team.setNumberOfMembers(memberCounts.get(team.getId()));
