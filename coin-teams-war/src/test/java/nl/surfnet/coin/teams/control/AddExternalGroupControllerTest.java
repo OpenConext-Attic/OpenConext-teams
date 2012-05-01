@@ -41,6 +41,7 @@ import nl.surfnet.coin.teams.service.GroupProviderService;
 import nl.surfnet.coin.teams.service.GroupService;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.TokenUtil;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -99,6 +100,7 @@ public class AddExternalGroupControllerTest extends AbstractControllerTest {
     assertEquals(3, group20List.size());
     assertEquals(hzProvider, ((List<GroupProvider>) modelMap.get("groupProviders")).get(0));
     assertTrue(modelMap.containsKey("view"));
+    assertTrue(modelMap.containsKey(TokenUtil.TOKENCHECK));
   }
 
   @Test(expected = RuntimeException.class)
@@ -168,13 +170,15 @@ public class AddExternalGroupControllerTest extends AbstractControllerTest {
     assertEquals(0, group20List.size());
     assertEquals(hzProvider, ((List<GroupProvider>) modelMap.get("groupProviders")).get(0));
     assertTrue(modelMap.containsKey("view"));
+    assertTrue(modelMap.containsKey(TokenUtil.TOKENCHECK));
   }
 
   @Test
   public void testAddExternalGroups() {
     final ModelMap modelMap = getModelMap();
     final MockHttpServletRequest request = getRequest();
-    controller.addExternalGroups(modelMap, request);
+    final String token = TokenUtil.generateSessionToken();
+    controller.addExternalGroups(token, modelMap, request);
   }
 
   private List<GroupProviderUserOauth> oauthKeys() {

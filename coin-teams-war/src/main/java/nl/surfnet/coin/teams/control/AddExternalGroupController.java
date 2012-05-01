@@ -28,6 +28,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -77,6 +78,8 @@ public class AddExternalGroupController {
       throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct " +
           "privileges to add external groups");
     }
+    modelMap.addAttribute(TokenUtil.TOKENCHECK, TokenUtil.generateSessionToken());
+
     final Team team = teamService.findTeamById(teamId);
     modelMap.addAttribute("team", team);
 
@@ -104,7 +107,8 @@ public class AddExternalGroupController {
 
   @RequestMapping(value = "/doaddexternalgroup.shtml", method = RequestMethod.POST)
   @ResponseStatus(value = HttpStatus.NOT_IMPLEMENTED)
-  public void addExternalGroups(ModelMap modelMap, HttpServletRequest request) {
+  public void addExternalGroups(@ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+                                ModelMap modelMap, HttpServletRequest request) {
     log.debug("Received request to add external group");
   }
 }
