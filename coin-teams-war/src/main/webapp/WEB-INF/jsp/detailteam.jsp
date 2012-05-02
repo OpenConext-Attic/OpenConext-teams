@@ -36,6 +36,12 @@
     <h1 class="team-title"><c:out value="${team.name}" /> (<c:out value="${team.stem.name}" />)</h1>
 
     <c:if test="${role eq adminRole or role eq managerRole}">
+      <c:if test="${displayAddExternalGroupToTeam eq true}">
+        <p class="add">
+          <c:url value="/addexternalgroup.shtml" var="addexternalgroupUrl"><c:param name="teamId" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
+          <a class="button-primary" href="<c:out value="${addexternalgroupUrl}"/>"><spring:message code="jsp.addexternalgroup.Title"/></a>
+        </p>
+      </c:if>
       <p class="add">
         <c:url value="/addmember.shtml" var="addmemberUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
         <a class="button-primary" href="<c:out value="${addmemberUrl}"/>"><spring:message code='jsp.addmember.Title' /></a>

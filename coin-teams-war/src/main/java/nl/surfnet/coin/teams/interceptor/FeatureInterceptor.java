@@ -29,6 +29,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 public class FeatureInterceptor extends HandlerInterceptorAdapter {
   private boolean displayExternalTeams;
   private boolean displayExternalTeamMembers;
+  private boolean displayAddExternalGroupToTeam;
 
   @Override
   public void postHandle(HttpServletRequest request, HttpServletResponse response,
@@ -37,6 +38,7 @@ public class FeatureInterceptor extends HandlerInterceptorAdapter {
       ModelMap map = modelAndView.getModelMap();
       map.addAttribute("displayExternalTeams", displayExternalTeams);
       map.addAttribute("displayExternalTeamMembers", displayExternalTeamMembers);
+      map.addAttribute("displayAddExternalGroupToTeam", displayAddExternalGroupToTeam);
     }
     super.postHandle(request, response, handler, modelAndView);
   }
@@ -50,4 +52,7 @@ public class FeatureInterceptor extends HandlerInterceptorAdapter {
     this.displayExternalTeamMembers = displayExternalTeamMembers;
   }
 
+  public void setDisplayAddExternalGroupToTeam(boolean displayAddExternalGroupToTeam) {
+    this.displayAddExternalGroupToTeam = displayAddExternalGroupToTeam;
+  }
 }

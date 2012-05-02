@@ -52,11 +52,11 @@ public class TeamExternalGroup extends DomainObject {
     this.grouperTeamId = grouperTeamId;
   }
 
-  public ExternalGroup getExternalGroups() {
+  public ExternalGroup getExternalGroup() {
     return externalGroup;
   }
 
-  public void setExternalGroups(ExternalGroup externalGroup) {
+  public void setExternalGroup(ExternalGroup externalGroup) {
     this.externalGroup = externalGroup;
   }
 
