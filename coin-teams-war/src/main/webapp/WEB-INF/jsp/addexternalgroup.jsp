@@ -21,21 +21,6 @@
   --%>
 
 <teams:genericpage>
-  <%--
-  Copyright 2012 SURFnet bv, The Netherlands
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-  --%>
   <%-- = TeamContainer --%>
   <div class="section" id="TeamContainer">
       <%-- = Header --%>
@@ -49,16 +34,40 @@
     </div>
       <%-- = Content --%>
     <div id="Content">
+        <%--@elvariable id="externalGroups" type="java.util.List<nl.surfnet.coin.teams.domain.ExternalGroup>"--%>
       <c:choose>
-        <c:when test="${fn:length(group20List)==0}">
-ERR
+        <c:when test="${fn:length(sessionScope.externalGroups)==0}">
+          <p>___Sorry, there are no groups to be linked to this team</p>
         </c:when>
         <c:otherwise>
           <p><spring:message code="jsp.addexternalgroup.TeamsYouCanAdd" arguments="${team.name}"
-                          htmlEscape="true"/></p>
+                             htmlEscape="true"/></p>
 
           <%-- TODO Insert magic here --%>
-          <form action="<c:url value="/doaddexternalgroup.shtml"/>" method="post">
+          <c:url value="/doaddexternalgroup.shtml" var="actionUrl"/>
+          <form action="${actionUrl}" method="post">
+            <p class="label-field-wrapper">
+              <input type="hidden" name="token" value="<c:out value='${tokencheck}'/>"/>
+              <input type="hidden" name="view" value="<c:out value='${view}' />"/>
+            </p>
+            <ul>
+              <c:forEach var="externalGroup" items="${sessionScope.externalGroups}" varStatus="loop">
+                <li>
+                  <input type="checkbox" name="externalGroups" id="externalGroups${loop.index}"
+                         value="<c:out value="${externalGroup.identifier}"/>"/>
+                  <label for="externalGroups${loop.index}">
+                    <c:if test="${not empty externalGroup.groupProvider.logoUrl}">
+                      <img src="<c:out value="${externalGroup.groupProvider.logoUrl}"/>" alt="" height="20px"/>
+                    </c:if>
+                    <c:out value="${externalGroup.name}"/></label>
+                </li>
+              </c:forEach>
+            </ul>
+
+            <p class="submit-wrapper">
+              <input class="button-primary" type="submit" name="addMember"
+                     value="<spring:message code='jsp.addexternalgroup.Submit' />"/>
+            </p>
           </form>
 
         </c:otherwise>

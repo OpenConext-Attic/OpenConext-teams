@@ -20,9 +20,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.Proxy;
 
+import nl.surfnet.coin.api.client.domain.Group20;
 import nl.surfnet.coin.shared.domain.DomainObject;
 
 /**
@@ -45,7 +47,22 @@ public class ExternalGroup extends DomainObject {
   private String description;
 
   @Column(name = "group_provider")
-  private String groupProvider;
+  private String groupProviderIdentifier;
+
+  @Transient
+  private GroupProvider groupProvider;
+
+  // For Hibernate
+  public ExternalGroup() {
+  }
+
+  public ExternalGroup(Group20 group20, GroupProvider groupProvider) {
+    this.setIdentifier(group20.getId());
+    this.setName(group20.getTitle());
+    this.setDescription(group20.getDescription());
+    this.setGroupProvider(groupProvider);
+    this.setGroupProviderIdentifier(groupProvider.getIdentifier());
+  }
 
   /**
    * @return identifier of the group {@literal urn:collab:groups:university.nl:students}
@@ -84,11 +101,65 @@ public class ExternalGroup extends DomainObject {
   /**
    * @return identifier of the group provider {@literal University.nl}
    */
-  public String getGroupProvider() {
+  public String getGroupProviderIdentifier() {
+    return groupProviderIdentifier;
+  }
+
+  public void setGroupProviderIdentifier(String groupProviderIdentifier) {
+    this.groupProviderIdentifier = groupProviderIdentifier;
+  }
+
+  /**
+   * Should be the {@link GroupProvider} object for {@link #getGroupProviderIdentifier()}. This object is not maintained by
+   * Hibernate, so we need to populate it manually
+   *
+   * @return {@link GroupProvider} object, may be {@literal null}
+   */
+  public GroupProvider getGroupProvider() {
     return groupProvider;
   }
 
-  public void setGroupProvider(String groupProvider) {
+  public void setGroupProvider(GroupProvider groupProvider) {
     this.groupProvider = groupProvider;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    if (!super.equals(o)) {
+      return false;
+    }
+
+    ExternalGroup that = (ExternalGroup) o;
+
+    if (identifier != null ? !identifier.equals(that.identifier) : that.identifier != null) {
+      return false;
+    }
+
+    return true;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = super.hashCode();
+    result = 31 * result + (identifier != null ? identifier.hashCode() : 0);
+    return result;
+  }
+
+  @Override
+  public String toString() {
+    final StringBuffer sb = new StringBuffer();
+    sb.append("ExternalGroup");
+    sb.append("{identifier='").append(identifier).append('\'');
+    sb.append(", name='").append(name).append('\'');
+    sb.append(", description='").append(description).append('\'');
+    sb.append(", groupProviderIdentifier='").append(groupProviderIdentifier).append('\'');
+    sb.append('}');
+    return sb.toString();
   }
 }
