@@ -18,13 +18,13 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   --%>
-
-<teams:genericpage>
+<c:set var="pageTitle"><spring:message code='jsp.editteam.Title' /></c:set>
+<teams:genericpage pageTitle="${pageTitle}">
 <!-- = TeamContainer -->
 <div class="section" id="TeamContainer">
   <!-- = Header -->
   <div id="Header">
-    <h1><spring:message code='jsp.editteam.Title' /></h1>
+    <h1>${pageTitle}</h1>
     <c:url value="home.shtml" var="closeUrl"><c:param name="teams" value="my" /><c:param name="view" value="${view}" /></c:url>
     <p class="close"><a href="${closeUrl}"><spring:message code='jsp.general.CloseForm' /></a></p>
   <!-- / Header -->

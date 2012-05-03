@@ -19,8 +19,8 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   --%>
-
-<teams:genericpage>
+<c:set var="pageTitle"><c:out value="${group20.title}"/> (<c:out value="${groupProvider.name}"/>)</c:set>
+<teams:genericpage pageTitle="${pageTitle}">
   <%-- = TeamContainer --%>
 <div class="section" id="TeamContainer">
     <%-- = Header --%>
@@ -35,8 +35,7 @@
     </c:url>
     <p class="${backClass}"><a href="<c:out value="${backUrl}"/>">&lt; <spring:message code='jsp.detailteam.Back' /></a></p>
 
-
-    <h1 class="team-title"><c:out value="${group20.title}"/> (<c:out value="${groupProvider.name}"/>)</h1>
+    <h1 class="team-title">${pageTitle}</h1>
     <br class="clear"/>
   </div>
   <div id="Content">

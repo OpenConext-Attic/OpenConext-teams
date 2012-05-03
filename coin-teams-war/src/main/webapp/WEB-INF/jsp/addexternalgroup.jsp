@@ -20,12 +20,13 @@
   limitations under the License.
   --%>
 
-<teams:genericpage>
+<c:set var="pageTitle"><spring:message code='jsp.addexternalgroup.Title'/></c:set>
+<teams:genericpage pageTitle="${pageTitle}">
   <%-- = TeamContainer --%>
   <div class="section" id="TeamContainer">
       <%-- = Header --%>
     <div id="Header">
-      <h1><spring:message code='jsp.addexternalgroup.Title'/></h1>
+      <h1>${pageTitle}</h1>
       <c:url value="/detailteam.shtml" var="closeUrl">
         <c:param name="team" value="${team.id}"/><c:param name="view" value="${view}"/>
       </c:url>

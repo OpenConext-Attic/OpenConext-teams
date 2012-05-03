@@ -18,11 +18,20 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ attribute name="pageTitle" required="false" description="Optional page title" %>
 <html>
 <head>
   <meta charset="UTF-8"/>
   <meta content="width=device-width,initial-scale=1" name="viewport"/>
-  <title><spring:message code="jsp.general.Title" /></title>
+  <c:choose>
+    <c:when test="${not empty pageTitle}">
+      <title><c:out value="${pageTitle} - "/><spring:message code="jsp.general.Title" /></title>
+    </c:when>
+    <c:otherwise>
+      <title><spring:message code="jsp.general.Title" /></title>
+    </c:otherwise>
+  </c:choose>
+
   <link rel="stylesheet" href="<c:url value="/css/teams.css" />">
   <c:if test="${view ne 'gadget'}">
     <link rel="stylesheet" href="<c:url value="/css/app.css" />">

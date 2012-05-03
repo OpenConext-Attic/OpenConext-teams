@@ -5,34 +5,28 @@
 <%@ taglib uri="http://teamfn" prefix="teamfn" %>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="teams" %>
 <%--
-  ~ Copyright 2011 SURFnet bv, The Netherlands
-  ~
-  ~ Licensed under the Apache License, Version 2.0 (the "License");
-  ~ you may not use this file except in compliance with the License.
-  ~ You may obtain a copy of the License at
-  ~
-  ~      http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing, software
-  ~ distributed under the License is distributed on an "AS IS" BASIS,
-  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~ See the License for the specific language governing permissions and
-  ~ limitations under the License.
-  --%>
+  Copyright 2012 SURFnet bv, The Netherlands
 
-<teams:genericpage>
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  --%>
+<c:set var="pageTitle"><spring:message code="jsp.home.MyInvitations"/></c:set>
+<teams:genericpage pageTitle="${pageTitle}">
   <div id="header">
-    <ul class="team-actions">
-      <c:url value="home.shtml" var="myTeamsUrl"><c:param name="teams" value="my"/><c:param name="view"
-                                                                                            value="${view}"/></c:url>
-      <c:url value="home.shtml" var="allTeamsUrl"><c:param name="teams" value="all"/><c:param name="view"
-                                                                                              value="${view}"/></c:url>
-      <c:url value="myinvitations.shtml" var="myInvitationsUrl"><c:param name="view" value="${view}"/></c:url>
-      <li class="first"><a class="btn-my-teams" href="${myTeamsUrl}"><spring:message code='jsp.home.MyTeams'/></a></li>
-      <li class="middle"><a class="btn-all-teams" href="${allTeamsUrl}"><spring:message code='jsp.home.AllTeams'/></a></li>
-      <li class="last"><a href="${myInvitationsUrl}" class="selected"><spring:message code="jsp.home.MyInvitations"/></a></li>
-    </ul>
-    <br class="clear" />
+    <c:url value="home.shtml" var="backUrl"><c:param name="teams" value="my"/><c:param name="view"
+                                                                                       value="${view}"/></c:url>
+    <p class="back"><a href="${backUrl}">&lt; <spring:message code='jsp.home.MyTeams'/></a></p>
+    <br class="clear"/>
+    <h1>${pageTitle}</h1>
   </div>
   <div id="content">
     <br class="clear" />

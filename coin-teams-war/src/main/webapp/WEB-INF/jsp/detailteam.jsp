@@ -20,7 +20,8 @@
   limitations under the License.
   --%>
 
-<teams:genericpage>
+<c:set var="pageTitle"><c:out value="${team.name}" /> (<c:out value="${team.stem.name}" />)</c:set>
+<teams:genericpage pageTitle="${pageTitle}">
 <%-- = TeamContainer --%>
 <div class="section" id="TeamContainer">
   <%-- = Header --%>
@@ -33,7 +34,7 @@
     <c:if test="${fn:length(message) > 0}"><div id="__notifyBar" class="hide"><spring:message code='${message}' /></div></c:if>
     <teams:teamOptions/>
     <br class="clear" />
-    <h1 class="team-title"><c:out value="${team.name}" /> (<c:out value="${team.stem.name}" />)</h1>
+    <h1 class="team-title">${pageTitle}</h1>
 
     <c:if test="${role eq adminRole or role eq managerRole}">
       <c:if test="${displayAddExternalGroupToTeam eq true}">
