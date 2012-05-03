@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -97,7 +97,18 @@ public class TeamInviteServiceHibernateImpl
    */
   @SuppressWarnings({"unchecked"})
   @Override
-  public List<Invitation> findInvitationsForTeam(Team team) {
+  public List<Invitation> findAllInvitationsForTeam(Team team) {
+    cleanupExpiredInvitations();
+    Criteria criteria = createCriteria();
+    criteria.add(Restrictions.eq("teamId", team.getId()));
+    criteria.addOrder(Order.asc("email"));
+    criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+    return criteria.list();
+  }
+
+  @SuppressWarnings("unchecked")
+  @Override
+  public List<Invitation> findInvitationsForTeamExcludeAccepted(Team team) {
     cleanupExpiredInvitations();
     Criteria criteria = createCriteria();
     criteria.add(Restrictions.eq("teamId", team.getId()));

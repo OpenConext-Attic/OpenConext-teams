@@ -354,7 +354,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     team.setName("team-1");
 
     TeamInviteService teamInviteService = mock(TeamInviteService.class);
-    when(teamInviteService.findInvitationsForTeam(team)).thenReturn(Collections.<Invitation>emptyList());
+    when(teamInviteService.findAllInvitationsForTeam(team)).thenReturn(Collections.<Invitation>emptyList());
 
     autoWireMock(detailTeamController, teamInviteService, TeamInviteService.class);
 
@@ -363,6 +363,11 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     when(grouperTeamService.findTeamById("team-1")).thenReturn(team);
       
     autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
+
+    TeamExternalGroupDao teamExternalGroupDao = mock(TeamExternalGroupDao.class);
+    when(teamExternalGroupDao.getByTeamIdentifier("team-1")).thenReturn(Collections.<TeamExternalGroup>emptyList());
+    autoWireMock(detailTeamController, teamExternalGroupDao, TeamExternalGroupDao.class);
+
     autoWireRemainingResources(detailTeamController);
 
     RedirectView result = detailTeamController.deleteTeam(getModelMap(), 
