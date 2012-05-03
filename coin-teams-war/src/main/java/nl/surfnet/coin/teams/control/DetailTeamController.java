@@ -21,9 +21,11 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -48,6 +50,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import nl.surfnet.coin.opensocial.service.PersonService;
 import nl.surfnet.coin.shared.service.MailService;
+import nl.surfnet.coin.teams.domain.GroupProvider;
 import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Member;
@@ -56,6 +59,7 @@ import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamExternalGroup;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GroupProviderService;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.service.JoinTeamRequestService;
 import nl.surfnet.coin.teams.service.TeamExternalGroupDao;
@@ -105,6 +109,9 @@ public class DetailTeamController {
 
   @Autowired
   private TeamExternalGroupDao teamExternalGroupDao;
+
+  @Autowired
+  private GroupProviderService groupProviderService;
 
   @Autowired
   private TeamEnvironment teamEnvironment;
@@ -186,8 +193,7 @@ public class DetailTeamController {
       modelMap.addAttribute(ROLE_PARAM, Role.None);
     }
 
-    final List<TeamExternalGroup> teamExternalGroups = teamExternalGroupDao.getByTeamIdentifier(teamId);
-    modelMap.addAttribute("teamExternalGroups", teamExternalGroups);
+    addLinkedExternalGroupsToModelMap(teamId, modelMap);
 
     return "detailteam";
   }
@@ -221,6 +227,20 @@ public class DetailTeamController {
     }
     return requestingPersons;
   }
+
+  private void addLinkedExternalGroupsToModelMap(String teamId, ModelMap modelMap) {
+    final List<TeamExternalGroup> teamExternalGroups = teamExternalGroupDao.getByTeamIdentifier(teamId);
+    if (!teamExternalGroups.isEmpty()) {
+      final List<GroupProvider> groupProviders = groupProviderService.getAllGroupProviders();
+      Map<String, GroupProvider> groupProviderMap = new HashMap<String, GroupProvider>();
+      for (GroupProvider gp : groupProviders) {
+        groupProviderMap.put(gp.getIdentifier(), gp);
+      }
+      modelMap.addAttribute("groupProviderMap", groupProviderMap);
+      modelMap.addAttribute("teamExternalGroups", teamExternalGroups);
+    }
+  }
+
 
   @RequestMapping(value = "/doleaveteam.shtml", method = RequestMethod.POST)
   public RedirectView leaveTeam(ModelMap modelMap, HttpServletRequest request,
