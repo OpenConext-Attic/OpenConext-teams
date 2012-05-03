@@ -192,8 +192,9 @@ public class DetailTeamController {
     } else {
       modelMap.addAttribute(ROLE_PARAM, Role.None);
     }
-
-    addLinkedExternalGroupsToModelMap(teamId, modelMap);
+    if (!Role.None.equals(modelMap.get(ROLE_PARAM))) {
+      addLinkedExternalGroupsToModelMap(teamId, modelMap);
+    }
 
     return "detailteam";
   }

@@ -38,9 +38,11 @@ import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.domain.TeamExternalGroup;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.service.JoinTeamRequestService;
+import nl.surfnet.coin.teams.service.TeamExternalGroupDao;
 import nl.surfnet.coin.teams.service.TeamInviteService;
 import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.TokenUtil;
@@ -142,9 +144,13 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     when(joinTeamRequestService.findPendingRequests(mockTeam)).thenReturn(
         Collections.EMPTY_LIST);
 
+    TeamExternalGroupDao teamExternalGroupDao = mock(TeamExternalGroupDao.class);
+    when(teamExternalGroupDao.getByTeamIdentifier("team-1")).thenReturn(new ArrayList<TeamExternalGroup>());
+
     autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireMock(detailTeamController, joinTeamRequestService,
         JoinTeamRequestService.class);
+    autoWireMock(detailTeamController, teamExternalGroupDao, TeamExternalGroupDao.class);
     autoWireRemainingResources(detailTeamController);
 
     String result = detailTeamController.start(getModelMap(), request);
@@ -185,9 +191,13 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     when(joinTeamRequestService.findPendingRequests(mockTeam)).thenReturn(
         Collections.EMPTY_LIST);
 
+    TeamExternalGroupDao teamExternalGroupDao = mock(TeamExternalGroupDao.class);
+    when(teamExternalGroupDao.getByTeamIdentifier("team-1")).thenReturn(new ArrayList<TeamExternalGroup>());
+
     autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireMock(detailTeamController, joinTeamRequestService,
         JoinTeamRequestService.class);
+    autoWireMock(detailTeamController, teamExternalGroupDao, TeamExternalGroupDao.class);
 
     autoWireRemainingResources(detailTeamController);
 
@@ -230,9 +240,13 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     when(joinTeamRequestService.findPendingRequests(mockTeam)).thenReturn(
         Collections.EMPTY_LIST);
 
+    TeamExternalGroupDao teamExternalGroupDao = mock(TeamExternalGroupDao.class);
+    when(teamExternalGroupDao.getByTeamIdentifier("team-1")).thenReturn(new ArrayList<TeamExternalGroup>());
+
     autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireMock(detailTeamController, joinTeamRequestService,
         JoinTeamRequestService.class);
+    autoWireMock(detailTeamController, teamExternalGroupDao, TeamExternalGroupDao.class);
 
     autoWireRemainingResources(detailTeamController);
 
