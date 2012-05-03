@@ -133,7 +133,7 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
     autoWireMock(joinTeamController, new Returns(mockPrivateTeam), ControllerUtil.class);
     autoWireRemainingResources(joinTeamController);
     replay(mockGrouperTeamService);
-    RedirectView result = joinTeamController.joinTeam(getModelMap(), joinTeamRequest, request);
+    joinTeamController.joinTeam(getModelMap(), joinTeamRequest, request);
 
   }
 

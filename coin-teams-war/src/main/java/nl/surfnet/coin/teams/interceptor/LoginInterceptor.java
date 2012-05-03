@@ -186,7 +186,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   /**
    * Set the User VO
    *
-   * @param personService
+   * @param personService {@link PersonService} to set
    */
   public void setPersonService(PersonService personService) {
     this.personService = personService;

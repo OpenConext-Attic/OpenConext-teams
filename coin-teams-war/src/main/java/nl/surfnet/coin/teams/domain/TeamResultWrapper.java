@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,8 +28,6 @@ public class TeamResultWrapper {
   private int offset;
   private int pageSize;
   private Pager pager;
-
-  private static final int MAX_VISIBLE = 5;
 
   public TeamResultWrapper(List<Team> teams, int totalCount, int offset, int pageSize) {
     super();

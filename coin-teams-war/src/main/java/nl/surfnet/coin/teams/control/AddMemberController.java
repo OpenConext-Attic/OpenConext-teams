@@ -78,10 +78,6 @@ public class AddMemberController {
 
   protected static final String INVITE_SEND_INVITE_SUBJECT = "invite.SendInviteSubject";
 
-  private static final String ACTIVITY_NEW_MEMBER_BODY = "activity.NewMemberBody";
-
-  private static final String ACTIVITY_NEW_MEMBER_TITLE = "activity.NewMemberTitle";
-
   private static final String UTF_8 = "utf-8";
   private static final String TEAM_PARAM = "team";
 
@@ -311,8 +307,7 @@ public class AddMemberController {
 
   private void doInviteMembers(final InternetAddress[] emails,
                                final InvitationForm form,
-                               final Locale locale)
-      throws IOException {
+                               final Locale locale) {
     // Send the invitation
     String teamId = form.getTeamId();
     Team team = controllerUtil.getTeamById(teamId);

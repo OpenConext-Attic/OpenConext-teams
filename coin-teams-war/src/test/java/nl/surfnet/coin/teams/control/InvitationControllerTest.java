@@ -124,7 +124,7 @@ public class InvitationControllerTest extends AbstractControllerTest {
   public void testMyInvitations() throws Exception {
     String view = controller.myInvitations(getModelMap(), getRequest());
     assertEquals("myinvitations", view);
-    List<Invitation> myInvitations = (List<Invitation>) getModelMap().get("invitations");
+    @SuppressWarnings("unchecked") List<Invitation> myInvitations = (List<Invitation>) getModelMap().get("invitations");
     assertEquals(1, myInvitations.size());
   }
 

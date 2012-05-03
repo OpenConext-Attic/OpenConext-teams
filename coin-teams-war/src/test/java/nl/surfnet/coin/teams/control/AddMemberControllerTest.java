@@ -48,7 +48,7 @@ import static org.mockito.Mockito.when;
 public class AddMemberControllerTest extends AbstractControllerTest {
 
   private AddMemberController addMemberController = new AddMemberController();
-  final MessageSource messageSource = new ResourceBundleMessageSource() {
+  private final MessageSource messageSource = new ResourceBundleMessageSource() {
     {
       setBasename("messages");
     }

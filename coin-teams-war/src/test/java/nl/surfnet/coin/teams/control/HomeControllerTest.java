@@ -163,9 +163,6 @@ public class HomeControllerTest extends AbstractControllerTest {
     assertNull(query);
   }
 
-  /**
-   * @return
-   */
   private RequestAttributes getRequestAttributes() {
     MockHttpServletRequest request = new MockHttpServletRequest();
     MockHttpSession session = new MockHttpSession();

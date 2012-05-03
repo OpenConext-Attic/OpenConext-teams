@@ -372,7 +372,7 @@ public class InMemoryMockTeamService implements GrouperTeamService {
    */
   @Override
   public Stem findStem(String stemId) {
-    return null;  //To change body of implemented methods use File | Settings | File Templates.
+    return null;
   }
 
 }

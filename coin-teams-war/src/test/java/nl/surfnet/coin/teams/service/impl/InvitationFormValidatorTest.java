@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,9 +16,6 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.validation.BeanPropertyBindingResult;
@@ -27,12 +24,15 @@ import org.springframework.web.multipart.MultipartFile;
 
 import nl.surfnet.coin.teams.domain.InvitationForm;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 /**
  * Test for {@link InvitationForm}
  */
 public class InvitationFormValidatorTest {
 
-  InvitationFormValidator validator = new InvitationFormValidator();
+  private InvitationFormValidator validator = new InvitationFormValidator();
 
   @Test
   public void testSupports() throws Exception {

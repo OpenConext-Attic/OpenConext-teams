@@ -67,7 +67,7 @@ public class ControllerUtilTest extends AbstractControllerTest {
     expect(grouperTeamService.findTeamById(getTeam1().getId())).andReturn(null);
     replay(grouperTeamService);
 
-    Team team = controllerUtil.getTeam(request);
+    controllerUtil.getTeam(request);
     verify(grouperTeamService);
   }
 

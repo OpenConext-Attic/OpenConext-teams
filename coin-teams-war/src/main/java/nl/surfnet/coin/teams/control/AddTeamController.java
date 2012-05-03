@@ -209,7 +209,7 @@ public class AddTeamController {
     teamInviteService.saveOrUpdate(invitation);
     Object[] messageValuesSubject = {teamName};
 
-    String subject = messageSource.getMessage(addMemberController.INVITE_SEND_INVITE_SUBJECT,
+    String subject = messageSource.getMessage(AddMemberController.INVITE_SEND_INVITE_SUBJECT,
         messageValuesSubject, locale);
 
 

@@ -62,13 +62,11 @@ public interface GrouperTeamService extends GrouperDao {
   /**
    * Update a {@link Team}
    *
-   * @param teamId
-   *          the id of a {@link nl.surfnet.coin.teams.domain.Team}
-   * @param displayName
-   *          the new displayName
-   * @param teamDescription
- *          the new description of the {@link nl.surfnet.coin.teams.domain.Team}
-   * @param actAsSubject
+   * @param teamId          the id of a {@link nl.surfnet.coin.teams.domain.Team}
+   * @param displayName     the new displayName
+   * @param teamDescription the new description of the {@link nl.surfnet.coin.teams.domain.Team}
+   * @param actAsSubject    the unique identifier that performs the request in Grouper. Can be the power user
+   *                        or the memberId
    */
   void updateTeam(String teamId, String displayName, String teamDescription, String actAsSubject);
 
@@ -111,7 +109,7 @@ public interface GrouperTeamService extends GrouperDao {
    *          the {@link nl.surfnet.coin.teams.domain.Role} to be added
    * @param actAsUserId
    *          the unique identifier that performs the request in Grouper. Can be the power user
-   *          of the memberId
+   *          or the memberId
    * @return boolean true if the {@link Role} has been successfully added false
    *         if the {@link Role} has not been added
    */

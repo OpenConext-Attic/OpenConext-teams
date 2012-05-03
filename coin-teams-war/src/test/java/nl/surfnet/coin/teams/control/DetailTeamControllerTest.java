@@ -34,6 +34,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import nl.surfnet.coin.opensocial.service.PersonService;
 import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
@@ -140,7 +141,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
 
     JoinTeamRequestService joinTeamRequestService = mock(JoinTeamRequestService.class);
     when(joinTeamRequestService.findPendingRequests(mockTeam)).thenReturn(
-        Collections.EMPTY_LIST);
+        Collections.<JoinTeamRequest>emptyList());
 
     TeamExternalGroupDao teamExternalGroupDao = mock(TeamExternalGroupDao.class);
     when(teamExternalGroupDao.getByTeamIdentifier("team-1")).thenReturn(new ArrayList<TeamExternalGroup>());
@@ -187,7 +188,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
 
     JoinTeamRequestService joinTeamRequestService = mock(JoinTeamRequestService.class);
     when(joinTeamRequestService.findPendingRequests(mockTeam)).thenReturn(
-        Collections.EMPTY_LIST);
+        Collections.<JoinTeamRequest>emptyList());
 
     TeamExternalGroupDao teamExternalGroupDao = mock(TeamExternalGroupDao.class);
     when(teamExternalGroupDao.getByTeamIdentifier("team-1")).thenReturn(new ArrayList<TeamExternalGroup>());
@@ -236,7 +237,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
 
     JoinTeamRequestService joinTeamRequestService = mock(JoinTeamRequestService.class);
     when(joinTeamRequestService.findPendingRequests(mockTeam)).thenReturn(
-        Collections.EMPTY_LIST);
+        Collections.<JoinTeamRequest>emptyList());
 
     TeamExternalGroupDao teamExternalGroupDao = mock(TeamExternalGroupDao.class);
     when(teamExternalGroupDao.getByTeamIdentifier("team-1")).thenReturn(new ArrayList<TeamExternalGroup>());
@@ -686,9 +687,6 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     super.setup();
   }
   
-  /**
-   * @return
-   */
   private RequestAttributes getRequestAttributes() {
     MockHttpServletRequest request = new MockHttpServletRequest();
     MockHttpSession session = new MockHttpSession();

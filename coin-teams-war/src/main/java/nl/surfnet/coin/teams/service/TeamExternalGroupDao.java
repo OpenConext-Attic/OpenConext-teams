@@ -62,7 +62,7 @@ public interface TeamExternalGroupDao {
   /**
    * Deletes the link between a SURFteam and an external group
    *
-   * @param teamExternalGroup
+   * @param teamExternalGroup {@link TeamExternalGroup} to delete
    */
   void delete(TeamExternalGroup teamExternalGroup);
 }

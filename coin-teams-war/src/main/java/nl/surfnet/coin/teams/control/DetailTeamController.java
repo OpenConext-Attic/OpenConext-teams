@@ -89,10 +89,6 @@ public class DetailTeamController {
   private static final String ROLE_PARAM = "role";
 
   private static final int PAGESIZE = 10;
-  private static final String APPLICATION_JSON = "application/json";
-  private static final String STATUS = "status";
-  private static final String SUCCESS = "success";
-  private static final String ERROR = "error";
 
   @Autowired
   private GrouperTeamService grouperTeamService;
@@ -446,8 +442,7 @@ public class DetailTeamController {
   }
 
   private String removeRole(String teamId,
-                            String memberId, String roleString, Team team, String loggedInUserId)
-      throws UnsupportedEncodingException {
+                            String memberId, String roleString, Team team, String loggedInUserId) {
     // The role admin can only be removed if there are more then one admins in a
     // team.
     if ((roleString.equals(ADMIN) && grouperTeamService.findAdmins(team).size() == 1)) {
@@ -459,8 +454,7 @@ public class DetailTeamController {
   }
 
   private String addRole(String teamId,
-                         String memberId, String roleString, String loggedInUserId)
-      throws UnsupportedEncodingException {
+                         String memberId, String roleString, String loggedInUserId) {
     Role role = roleString.equals(ADMIN) ? Role.Admin : Role.Manager;
     Member other = grouperTeamService.findMember(teamId, memberId);
     // Guests may not become admin
