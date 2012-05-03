@@ -43,8 +43,8 @@ import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GroupProviderService;
-import nl.surfnet.coin.teams.service.GroupService;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.OauthGroupService;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 
 import static org.junit.Assert.assertEquals;
@@ -112,12 +112,12 @@ public class HomeControllerTest extends AbstractControllerTest {
     group20s.add(group20);
     entry.setEntry(group20s);
 
-    GroupService groupService = mock(GroupService.class);
+    OauthGroupService groupService = mock(OauthGroupService.class);
     when(groupService.getGroup20Entry(gpua, groupProvider, 10, 0)).thenReturn(entry);
 
     autoWireMock(homeController, grouperTeamService, GrouperTeamService.class);
     autoWireMock(homeController, groupProviderService, GroupProviderService.class);
-    autoWireMock(homeController, groupService, GroupService.class);
+    autoWireMock(homeController, groupService, OauthGroupService.class);
     autoWireMock(homeController, new Returns(DEFAULTSTEM), TeamEnvironment.class);
     autoWireMock(homeController, new Returns("query"), MessageSource.class);
     autoWireMock(homeController, new Returns(Locale.ENGLISH), LocaleResolver.class);
@@ -132,6 +132,7 @@ public class HomeControllerTest extends AbstractControllerTest {
     assertNull(teams);
     assertEquals(group20Entry.getEntry(), group20s);
     assertEquals("externalGroups", display);
+    //noinspection unchecked
     assertEquals(groupProvider, ((List<GroupProvider>) getModelMap().get("groupProviders")).get(0));
   }
 

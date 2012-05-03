@@ -30,7 +30,7 @@ import nl.surfnet.coin.teams.domain.GroupProvider;
 import nl.surfnet.coin.teams.domain.GroupProviderType;
 import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
 import nl.surfnet.coin.teams.service.GroupProviderService;
-import nl.surfnet.coin.teams.service.GroupService;
+import nl.surfnet.coin.teams.service.OauthGroupService;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
@@ -67,11 +67,11 @@ public class ExternalGroupControllerTest extends AbstractControllerTest {
     when(providerService.getGroupProviderUserOauths(getMember().getId())).thenReturn(oAuths);
     when(providerService.getGroupProviderByStringIdentifier("hz")).thenReturn(groupProvider);
 
-    GroupService groupService = mock(GroupService.class);
+    OauthGroupService groupService = mock(OauthGroupService.class);
     when(groupService.getGroup20(getOAuths().get(0), groupProvider, groupId)).thenReturn(group20);
 
     autoWireMock(controller, providerService, GroupProviderService.class);
-    autoWireMock(controller, groupService, GroupService.class);
+    autoWireMock(controller, groupService, OauthGroupService.class);
 
     String view = controller.groupDetail(groupId, 0, request, modelMap);
 

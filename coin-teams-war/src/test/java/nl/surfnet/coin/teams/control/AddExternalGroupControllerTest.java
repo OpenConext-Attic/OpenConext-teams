@@ -40,8 +40,8 @@ import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamExternalGroup;
 import nl.surfnet.coin.teams.service.GroupProviderService;
-import nl.surfnet.coin.teams.service.GroupService;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.OauthGroupService;
 import nl.surfnet.coin.teams.service.TeamExternalGroupDao;
 import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.ExternalGroupUtil;
@@ -91,9 +91,9 @@ public class AddExternalGroupControllerTest extends AbstractControllerTest {
     when(groupProviderService.getGroupProviderByStringIdentifier(groupProviderIdentifier)).thenReturn(hzProvider);
     autoWireMock(controller, groupProviderService, GroupProviderService.class);
 
-    GroupService groupService = mock(GroupService.class);
+    OauthGroupService groupService = mock(OauthGroupService.class);
     when(groupService.getGroup20Entry(oauthKeys().get(0), hzProvider, 250, 0)).thenReturn(getMyHzGroups());
-    autoWireMock(controller, groupService, GroupService.class);
+    autoWireMock(controller, groupService, OauthGroupService.class);
 
     TeamExternalGroupDao teamExternalGroupDao = mock(TeamExternalGroupDao.class);
     when(teamExternalGroupDao.getByTeamIdentifier(team1.getId())).thenReturn(new ArrayList<TeamExternalGroup>());
@@ -128,9 +128,9 @@ public class AddExternalGroupControllerTest extends AbstractControllerTest {
     when(groupProviderService.getGroupProviderByStringIdentifier(groupProviderIdentifier)).thenReturn(hzProvider);
     autoWireMock(controller, groupProviderService, GroupProviderService.class);
 
-    GroupService groupService = mock(GroupService.class);
+    OauthGroupService groupService = mock(OauthGroupService.class);
     when(groupService.getGroup20Entry(oauthKeys().get(0), hzProvider, 250, 0)).thenReturn(getMyHzGroups());
-    autoWireMock(controller, groupService, GroupService.class);
+    autoWireMock(controller, groupService, OauthGroupService.class);
 
     TeamExternalGroupDao teamExternalGroupDao = mock(TeamExternalGroupDao.class);
     when(teamExternalGroupDao.getByTeamIdentifier(team1.getId())).thenReturn(getLinkedHzGroups(team1.getId()));
@@ -201,9 +201,9 @@ public class AddExternalGroupControllerTest extends AbstractControllerTest {
     when(groupProviderService.getGroupProviderByStringIdentifier(groupProviderIdentifier)).thenReturn(hzProvider);
     autoWireMock(controller, groupProviderService, GroupProviderService.class);
 
-    GroupService groupService = mock(GroupService.class);
+    OauthGroupService groupService = mock(OauthGroupService.class);
     when(groupService.getGroup20Entry(oauthKeys().get(0), hzProvider, 250, 0)).thenReturn(null);
-    autoWireMock(controller, groupService, GroupService.class);
+    autoWireMock(controller, groupService, OauthGroupService.class);
 
 
     final String viewName = controller.showAddExternalGroupsForm(team1.getId(), modelMap, request);

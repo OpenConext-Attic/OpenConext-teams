@@ -49,8 +49,8 @@ import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamExternalGroup;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GroupProviderService;
-import nl.surfnet.coin.teams.service.GroupService;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.OauthGroupService;
 import nl.surfnet.coin.teams.service.TeamExternalGroupDao;
 import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.ExternalGroupUtil;
@@ -68,7 +68,7 @@ public class AddExternalGroupController {
   private GroupProviderService groupProviderService;
 
   @Autowired
-  private GroupService groupService;
+  private OauthGroupService oauthGroupService;
 
   @Autowired
   private GrouperTeamService teamService;
@@ -155,7 +155,7 @@ public class AddExternalGroupController {
       final GroupProvider groupProvider = groupProviderService.getGroupProviderByStringIdentifier(oauth.getProvider());
       groupProviders.add(groupProvider);
       try {
-        final Group20Entry entry = groupService.getGroup20Entry(oauth, groupProvider, 250, 0);
+        final Group20Entry entry = oauthGroupService.getGroup20Entry(oauth, groupProvider, 250, 0);
         if (entry == null) {
           continue;
         }

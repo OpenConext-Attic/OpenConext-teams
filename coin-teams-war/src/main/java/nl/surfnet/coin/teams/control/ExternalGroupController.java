@@ -36,7 +36,7 @@ import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
 import nl.surfnet.coin.teams.domain.Pager;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GroupProviderService;
-import nl.surfnet.coin.teams.service.GroupService;
+import nl.surfnet.coin.teams.service.OauthGroupService;
 import nl.surfnet.coin.teams.util.GroupProviderPropertyConverter;
 import nl.surfnet.coin.teams.util.ViewUtil;
 
@@ -52,7 +52,7 @@ public class ExternalGroupController {
   private GroupProviderService groupProviderService;
 
   @Autowired
-  private GroupService groupService;
+  private OauthGroupService oauthGroupService;
 
   private static final Logger log = LoggerFactory.getLogger(ExternalGroupController.class);
 
@@ -78,7 +78,7 @@ public class ExternalGroupController {
         modelMap.addAttribute("group20", group20);
 
         final GroupMembersEntry groupMembersEntry =
-                    groupService.getGroupMembersEntry(oauth, provider, groupId, PAGESIZE, offset);
+                    oauthGroupService.getGroupMembersEntry(oauth, provider, groupId, PAGESIZE, offset);
         modelMap.addAttribute("groupMembersEntry", groupMembersEntry);
         if (groupMembersEntry != null && groupMembersEntry.getEntry().size() <= PAGESIZE) {
           Pager pager = new Pager(groupMembersEntry.getTotalResults(), offset, PAGESIZE);
@@ -91,17 +91,17 @@ public class ExternalGroupController {
   }
 
   /**
-   * TODO replace this method with {@link GroupService#getGroup20(nl.surfnet.coin.teams.domain.GroupProviderUserOauth, nl.surfnet.coin.teams.domain.GroupProvider, String)}
+   * TODO replace this method with {@link OauthGroupService#getGroup20(nl.surfnet.coin.teams.domain.GroupProviderUserOauth, nl.surfnet.coin.teams.domain.GroupProvider, String)}
    * when all institutions comply to the OS spec
    */
   private Group20 getGroup20FromGroupProvider(String groupId, GroupProviderUserOauth oauth, GroupProvider provider) {
     Group20 group20 = null;
     try {
-      group20 = groupService.getGroup20(oauth, provider, groupId);
+      group20 = oauthGroupService.getGroup20(oauth, provider, groupId);
     } catch (RuntimeException e) {
       log.debug("Group provider does not support retrieving single group, will iterate over all groups",
           e.getMessage());
-      final List<Group20> group20List = groupService.getGroup20List(oauth, provider);
+      final List<Group20> group20List = oauthGroupService.getGroup20List(oauth, provider);
       for (Group20 g : group20List) {
         if (groupId.equals(g.getId())) {
           group20 = g;
