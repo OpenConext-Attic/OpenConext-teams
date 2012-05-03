@@ -16,9 +16,7 @@
 
 package nl.surfnet.coin.teams.control;
 
-import java.beans.PropertyEditorSupport;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -33,8 +31,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,7 +38,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import nl.surfnet.coin.api.client.domain.Group20;
 import nl.surfnet.coin.api.client.domain.Group20Entry;
 import nl.surfnet.coin.teams.domain.ExternalGroup;
 import nl.surfnet.coin.teams.domain.GroupProvider;
@@ -55,6 +50,7 @@ import nl.surfnet.coin.teams.service.GroupService;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.service.TeamExternalGroupDao;
 import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.ExternalGroupUtil;
 import nl.surfnet.coin.teams.util.TokenUtil;
 import nl.surfnet.coin.teams.util.ViewUtil;
 
@@ -82,6 +78,7 @@ public class AddExternalGroupController {
 
   private static final Logger log = LoggerFactory.getLogger(AddExternalGroupController.class);
 
+/*
   @InitBinder
   public void initBinder(WebDataBinder binder) {
     binder.registerCustomEditor(ExternalGroup.class, new PropertyEditorSupport() {
@@ -93,6 +90,7 @@ public class AddExternalGroupController {
       }
     });
   }
+*/
 
   @RequestMapping(value = "/addexternalgroup.shtml")
   public String showAddExternalGroupsForm(@RequestParam String teamId, ModelMap modelMap, HttpServletRequest request) {
@@ -109,27 +107,25 @@ public class AddExternalGroupController {
     modelMap.addAttribute("team", team);
 
     List<ExternalGroup> myExternalGroups = getExternalGroups(personId, request);
-    final List<TeamExternalGroup> byTeamIdentifier = teamExternalGroupDao.getByTeamIdentifier(team.getId());
-    if (!byTeamIdentifier.isEmpty()) {
-      // filter out the groups that are already linked
-      Iterator<ExternalGroup> iterator = myExternalGroups.iterator();
-      while (iterator.hasNext()) {
-        ExternalGroup myNext = iterator.next();
-        for (TeamExternalGroup teg : byTeamIdentifier) {
-          if (myNext.getIdentifier().equals(teg.getExternalGroup().getIdentifier())) {
-            iterator.remove();
-          }
-        }
-      }
-    }
+    myExternalGroups = filterLinkedExternalGroups(team, myExternalGroups);
     request.getSession().setAttribute("externalGroups", myExternalGroups);
     modelMap.addAttribute("team", team);
     ViewUtil.addViewToModelMap(request, modelMap);
     return "addexternalgroup";
   }
 
+  /**
+   * Gets a List of {@link ExternalGroup}'s the person is a member of.
+   * First tries to get the list from the session. If this returns nothing, the groups are retrieved from the external
+   * {@link GroupProvider}.
+   *
+   * @param personId unique identifier of a person
+   * @param request  current {@link HttpServletRequest}
+   * @return List of {@link ExternalGroup}'s, may be empty
+   */
   private List<ExternalGroup> getExternalGroups(String personId, HttpServletRequest request) {
-    @SuppressWarnings("unchecked") List<ExternalGroup> externalGroups = (List<ExternalGroup>) request.getSession().getAttribute("externalGroups");
+    @SuppressWarnings("unchecked") List<ExternalGroup> externalGroups =
+        (List<ExternalGroup>) request.getSession().getAttribute("externalGroups");
     if (CollectionUtils.isNotEmpty(externalGroups)) {
       return externalGroups;
     }
@@ -144,7 +140,7 @@ public class AddExternalGroupController {
         if (entry == null) {
           continue;
         }
-        externalGroups.addAll(convertToExternalGroups(groupProvider, entry));
+        externalGroups.addAll(ExternalGroupUtil.convertToExternalGroups(groupProvider, entry));
       } catch (RuntimeException e) {
         log.info("Failed to retrieve external groups for user " + personId + " and provider " + groupProvider.getIdentifier(), e);
       }
@@ -152,16 +148,36 @@ public class AddExternalGroupController {
     return externalGroups;
   }
 
-  private Collection<ExternalGroup> convertToExternalGroups(GroupProvider groupProvider, Group20Entry entry) {
-    List<ExternalGroup> externalGroups = new ArrayList<ExternalGroup>();
-    if (entry == null || entry.getEntry() == null) {
+
+  /**
+   * Iterates over a List of {@link ExternalGroup}'s and removes the ExternalGroup's from the list that have already a
+   * link to the SURFteam {@link Team}
+   *
+   * @param team           SURFteam
+   * @param externalGroups List of {@link ExternalGroup}'s
+   * @return List of ExternalGroups that are not yet linked to the Team, may be empty
+   */
+  private List<ExternalGroup> filterLinkedExternalGroups(Team team, List<ExternalGroup> externalGroups) {
+    if (externalGroups.isEmpty()) {
       return externalGroups;
     }
-    for (Group20 group20 : entry.getEntry()) {
-      ExternalGroup externalGroup = new ExternalGroup(group20, groupProvider);
-      externalGroups.add(externalGroup);
+    List<ExternalGroup> filteredGroups = externalGroups;
+
+    final List<TeamExternalGroup> byTeamIdentifier = teamExternalGroupDao.getByTeamIdentifier(team.getId());
+    if (byTeamIdentifier.isEmpty()) {
+      return filteredGroups;
     }
-    return externalGroups;
+
+    Iterator<ExternalGroup> iterator = filteredGroups.iterator();
+    while (iterator.hasNext()) {
+      ExternalGroup myNext = iterator.next();
+      for (TeamExternalGroup teg : byTeamIdentifier) {
+        if (myNext.getIdentifier().equals(teg.getExternalGroup().getIdentifier())) {
+          iterator.remove();
+        }
+      }
+    }
+    return filteredGroups;
   }
 
   @RequestMapping(value = "/doaddexternalgroup.shtml", method = RequestMethod.POST)
@@ -192,7 +208,6 @@ public class AddExternalGroupController {
       ExternalGroup externalGroup = map.get(identifier);
       t.setExternalGroup(externalGroup);
       teamExternalGroups.add(t);
-//      log.debug("Calling teamExternalGroupDao#saveOrUpdate for {}", t);
       teamExternalGroupDao.saveOrUpdate(t);
     }
 
