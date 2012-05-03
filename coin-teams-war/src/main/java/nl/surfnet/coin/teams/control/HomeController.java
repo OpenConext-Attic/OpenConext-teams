@@ -45,8 +45,8 @@ import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamResultWrapper;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GroupProviderService;
-import nl.surfnet.coin.teams.service.GroupService;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.OauthGroupService;
 import nl.surfnet.coin.teams.service.TeamInviteService;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 import nl.surfnet.coin.teams.util.ViewUtil;
@@ -78,7 +78,7 @@ public class HomeController {
   private GroupProviderService groupProviderService;
 
   @Autowired
-  private GroupService groupService;
+  private OauthGroupService oauthGroupService;
 
   private static final int PAGESIZE = 10;
 
@@ -180,7 +180,7 @@ public class HomeController {
     if (groupProviderId != null && groupProviderId.equals(groupProvider.getId())) {
       int offset = getOffset(request);
       modelMap.addAttribute("offset", offset);
-      final Group20Entry group20Entry = groupService.getGroup20Entry(oauth, groupProvider, PAGESIZE, offset);
+      final Group20Entry group20Entry = oauthGroupService.getGroup20Entry(oauth, groupProvider, PAGESIZE, offset);
       modelMap.addAttribute("group20Entry", group20Entry);
       if (group20Entry != null && group20Entry.getEntry().size() <= PAGESIZE) {
         Pager pager = new Pager(group20Entry.getTotalResults(), offset, PAGESIZE);
