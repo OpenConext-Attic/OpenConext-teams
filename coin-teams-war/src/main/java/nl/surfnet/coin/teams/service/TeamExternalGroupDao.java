@@ -22,17 +22,47 @@ import nl.surfnet.coin.teams.domain.ExternalGroup;
 import nl.surfnet.coin.teams.domain.TeamExternalGroup;
 
 /**
- * Service for CRUD operations for the link between a SURFteam and an External Group
+ * DAO for CRUD operations for the link between a SURFteam and an External Group
  */
 public interface TeamExternalGroupDao {
-// TODO: BACKLOG-329 Javadocs
+
+  /**
+   * Gets an {@link ExternalGroup} by its SURFconext identifier (urn:collab:groups:univ.nl:nl.univ.mygroup) from the
+   * local store
+   *
+   * @param identifier unique identifier of the external group within the SURFconext platform
+   * @return {@link ExternalGroup} that is stored, or {@literal null} if not present
+   */
   ExternalGroup getExternalGroupByIdentifier(String identifier);
 
+  /**
+   * Gets a List of links between a SURFteam and external groups by the identifier of the SURFteam
+   *
+   * @param identifier unique identifier of the SURFteam
+   * @return List of {@link TeamExternalGroup}, can be empty
+   */
   List<TeamExternalGroup> getByTeamIdentifier(String identifier);
 
+  /**
+   * Gets a specific link between a SURFteam and an external group by their respective SURFconext identifiers
+   *
+   * @param teamId                  unique identifier of the SURFteam
+   * @param externalGroupIdentifier unique identifier of the external group
+   * @return {@link TeamExternalGroup} if the link exists, otherwise {@literal null}
+   */
   TeamExternalGroup getByTeamIdentifierAndExternalGroupIdentifier(String teamId, String externalGroupIdentifier);
 
+  /**
+   * Saves or updates the link between a SURFteam and an external group
+   *
+   * @param teamExternalGroup {@link TeamExternalGroup} to persist
+   */
   void saveOrUpdate(TeamExternalGroup teamExternalGroup);
 
+  /**
+   * Deletes the link between a SURFteam and an external group
+   *
+   * @param teamExternalGroup
+   */
   void delete(TeamExternalGroup teamExternalGroup);
 }
