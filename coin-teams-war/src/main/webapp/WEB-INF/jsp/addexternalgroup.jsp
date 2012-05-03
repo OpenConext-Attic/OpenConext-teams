@@ -43,7 +43,6 @@
           <p><spring:message code="jsp.addexternalgroup.TeamsYouCanAdd" arguments="${team.name}"
                              htmlEscape="true"/></p>
 
-          <%-- TODO Insert magic here --%>
           <c:url value="/doaddexternalgroup.shtml" var="actionUrl"/>
           <form action="${actionUrl}" method="post">
             <p class="label-field-wrapper">
