@@ -25,7 +25,6 @@ import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
 import org.opensocial.models.Person;
 import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.mock.web.MockHttpSession;
 import org.springframework.web.bind.support.SimpleSessionStatus;
 import org.springframework.web.context.request.RequestAttributes;
@@ -60,7 +59,6 @@ import static org.mockito.Mockito.when;
 public class DetailTeamControllerTest extends AbstractControllerTest {
 
   private DetailTeamController detailTeamController = new DetailTeamController();
-  private MockHttpServletResponse response;
 
   @Test(expected = RuntimeException.class)
   public void testStart() throws Exception {
@@ -686,7 +684,6 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
   @Override
   public void setup() throws Exception {
     super.setup();
-    this.response = new MockHttpServletResponse();
   }
   
   /**
