@@ -37,7 +37,7 @@
         <%--@elvariable id="externalGroups" type="java.util.List<nl.surfnet.coin.teams.domain.ExternalGroup>"--%>
       <c:choose>
         <c:when test="${fn:length(sessionScope.externalGroups)==0}">
-          <p>___Sorry, there are no groups to be linked to this team</p>
+          <p><spring:message code="jsp.addexternalgroup.NoGroups"/></p>
         </c:when>
         <c:otherwise>
           <p><spring:message code="jsp.addexternalgroup.TeamsYouCanAdd" arguments="${team.name}"
@@ -50,13 +50,13 @@
               <input type="hidden" name="token" value="<c:out value='${tokencheck}'/>"/>
               <input type="hidden" name="view" value="<c:out value='${view}' />"/>
             </p>
-            <ul>
+            <ul class="label-field-wrapper nobullets">
               <c:forEach var="externalGroup" items="${sessionScope.externalGroups}" varStatus="loop">
                 <li>
                   <input type="checkbox" name="externalGroups" id="externalGroups${loop.index}"
                          value="<c:out value="${externalGroup.identifier}"/>"/>
-                  <label for="externalGroups${loop.index}">
-                    <c:if test="${not empty externalGroup.groupProvider.logoUrl}">
+                  <label for="externalGroups${loop.index}" class="external-group">
+                    <c:if test="${not empty externalGroup.groupProvider and not empty externalGroup.groupProvider.logoUrl}">
                       <img src="<c:out value="${externalGroup.groupProvider.logoUrl}"/>" alt="" height="20px"/>
                     </c:if>
                     <c:out value="${externalGroup.name}"/></label>
