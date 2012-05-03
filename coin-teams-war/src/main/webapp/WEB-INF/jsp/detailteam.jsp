@@ -59,6 +59,45 @@
       <c:out value="${team.descriptionAsHtml}" default="${noDescription}" escapeXml="false"/>
     </p>
 
+    <c:if test="${fn:length(teamExternalGroups)>0}">
+      <h2>_Institutional groups</h2>
+      <div class="team-table-wrapper">
+        <table class="team-table">
+          <thead>
+          <tr>
+            <c:if test="${role eq adminRole}">
+              <th class="remove"></th>
+            </c:if>
+            <th class="logo"></th>
+            <th class="name"><spring:message code='jsp.detailteam.Name'/></th>
+            <th class="description"><spring:message code="jsp.general.Description"/></th>
+          </tr>
+          </thead>
+          <tbody>
+          <c:forEach var="teg" items="${teamExternalGroups}">
+            <c:url var="deleteexternalgroup" value="/deleteexternalgroup.shtml">
+              <c:param name="teamId" value="${team.id}"/>
+              <c:param name="groupIdentifier" value="${teg.externalGroup.identifier}"/>
+              <c:param name="token" value="${tokencheck}"/>
+              <c:param name="view" value="${view}"/>
+            </c:url>
+            <td><c:if test="${role eq adminRole}"><a href="${deleteexternalgroup}" class="RemoveExternalGroup delete"><spring:message
+                code="jsp.detailteam.RemoveExternalGroupFromTeam"/></a></c:if></td>
+            <td>
+                <%-- TODO BACKLOG-329 get logo for group provider --%>
+                <%--<img src="https://wayf-test.surfnet.nl/federate/surfnet/img/logo/avans.png" alt="" height="15px"/>--%>
+            </td>
+            <td><c:out value="${teg.externalGroup.name}"/></td>
+            <td><c:out value="${teg.externalGroup.description}"/></td>
+          </c:forEach>
+          </tbody>
+        </table>
+      </div>
+      <br class="clear"/>
+
+      <h2>_Individual members</h2>
+    </c:if>
+
     <c:choose>
       <c:when test="${role eq adminRole or role eq managerRole}">
         <teams:pendingRequests/>

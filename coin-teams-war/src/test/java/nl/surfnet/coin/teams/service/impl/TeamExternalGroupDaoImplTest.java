@@ -41,6 +41,7 @@ public class TeamExternalGroupDaoImplTest extends AbstractInMemoryDatabaseTest {
   private static final String AVANS_GROUP_IDENT = "urn:collab:group:avans.nl:nl.avans.avans-employee_grp";
   private static final String HZ_GROUP_IDENT = "urn:collab:group:hz.nl:nl.hz.hz-1234";
   private static final String TEAM_JASHA = "nl:surfnet:diensten:team_jasha";
+  private static final String TEAM_OKKE = "nl:surfnet:diensten:team_okke";
   private static final String NON_EXISTING_EXTERNAL_GROUP_IDENT = "urn:collab:group:foo.nl:nl.foo.bar";
 
   @Before
@@ -69,7 +70,7 @@ public class TeamExternalGroupDaoImplTest extends AbstractInMemoryDatabaseTest {
 
   @Test
   public void testGetByTeamIdentifierAndExternalGroupIdentifier() throws Exception {
-    String teamId = "nl:surfnet:diensten:team_okke";
+    String teamId = TEAM_OKKE;
     String externalGroupIdentifier = HZ_GROUP_IDENT;
 
     final TeamExternalGroup teamExternalGroup =
@@ -206,10 +207,58 @@ public class TeamExternalGroupDaoImplTest extends AbstractInMemoryDatabaseTest {
   }
 
 
-  @Test(expected = UnsupportedOperationException.class)
-  public void testDelete() throws Exception {
-    TeamExternalGroup t = new TeamExternalGroup();
-    teamExternalGroupDao.delete(t);
+  @Test
+  public void testDelete_groupHasMultipleLinks() throws Exception {
+    TeamExternalGroup teamExternalGroup =
+        teamExternalGroupDao.getByTeamIdentifierAndExternalGroupIdentifier(TEAM_JASHA, AVANS_GROUP_IDENT);
+    ExternalGroup externalGroup = teamExternalGroupDao.getExternalGroupByIdentifier(AVANS_GROUP_IDENT);
+
+    assertNotNull(teamExternalGroup);
+    assertNotNull(externalGroup);
+
+    teamExternalGroupDao.delete(teamExternalGroup);
+
+    teamExternalGroup =
+            teamExternalGroupDao.getByTeamIdentifierAndExternalGroupIdentifier(TEAM_JASHA, AVANS_GROUP_IDENT);
+    assertNull(teamExternalGroup);
+
+    externalGroup = teamExternalGroupDao.getExternalGroupByIdentifier(AVANS_GROUP_IDENT);
+    assertNotNull(externalGroup);
+  }
+
+  @Test
+  public void testDelete_groupHasSingleLinks() throws Exception {
+    TeamExternalGroup teamExternalGroup =
+        teamExternalGroupDao.getByTeamIdentifierAndExternalGroupIdentifier(TEAM_OKKE, HZ_GROUP_IDENT);
+    ExternalGroup externalGroup = teamExternalGroupDao.getExternalGroupByIdentifier(HZ_GROUP_IDENT);
+
+    assertNotNull(teamExternalGroup);
+    assertNotNull(externalGroup);
+
+    teamExternalGroupDao.delete(teamExternalGroup);
+
+    teamExternalGroup =
+            teamExternalGroupDao.getByTeamIdentifierAndExternalGroupIdentifier(TEAM_OKKE, HZ_GROUP_IDENT);
+    assertNull(teamExternalGroup);
+
+    externalGroup = teamExternalGroupDao.getExternalGroupByIdentifier(HZ_GROUP_IDENT);
+    assertNull(externalGroup);
+  }
+
+  @Test
+  public void testDelete_LinkToDeleteFails() {
+    String orphanGroup = "urn:collab:group:hz.nl:nl.hz.hz-2345";
+    ExternalGroup externalGroup = teamExternalGroupDao.getExternalGroupByIdentifier(orphanGroup);
+
+    TeamExternalGroup teg = new TeamExternalGroup();
+    teg.setId(12345L);
+    teg.setGrouperTeamId("this.id.is.fake");
+    teg.setExternalGroup(externalGroup);
+
+    teamExternalGroupDao.delete(teg);
+
+    externalGroup = teamExternalGroupDao.getExternalGroupByIdentifier(orphanGroup);
+    assertNotNull(externalGroup);
   }
 
   @Override

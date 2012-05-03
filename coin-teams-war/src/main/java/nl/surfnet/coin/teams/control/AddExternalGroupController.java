@@ -16,6 +16,8 @@
 
 package nl.surfnet.coin.teams.control;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -35,8 +37,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.view.RedirectView;
 
 import nl.surfnet.coin.api.client.domain.Group20Entry;
 import nl.surfnet.coin.teams.domain.ExternalGroup;
@@ -77,20 +80,7 @@ public class AddExternalGroupController {
   private ControllerUtil controllerUtil;
 
   private static final Logger log = LoggerFactory.getLogger(AddExternalGroupController.class);
-
-/*
-  @InitBinder
-  public void initBinder(WebDataBinder binder) {
-    binder.registerCustomEditor(ExternalGroup.class, new PropertyEditorSupport() {
-      @Override
-      public void setAsText(String text) throws IllegalArgumentException {
-        ExternalGroup externalGroup = new ExternalGroup();
-        externalGroup.setIdentifier(text);
-        setValue(externalGroup);
-      }
-    });
-  }
-*/
+  private static final String UTF_8 = "utf-8";
 
   @RequestMapping(value = "/addexternalgroup.shtml")
   public String showAddExternalGroupsForm(@RequestParam String teamId, ModelMap modelMap, HttpServletRequest request) {
@@ -112,6 +102,35 @@ public class AddExternalGroupController {
     modelMap.addAttribute("team", team);
     ViewUtil.addViewToModelMap(request, modelMap);
     return "addexternalgroup";
+  }
+
+  @RequestMapping(value = "/deleteexternalgroup.shtml")
+  public RedirectView deleteTeamExternalGroupLink(@ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+                                                  @RequestParam String teamId,
+                                                  @RequestParam String groupIdentifier,
+                                                  @RequestParam String token,
+                                                  ModelMap modelMap, SessionStatus status,
+                                                  HttpServletRequest request)
+      throws UnsupportedEncodingException {
+    TokenUtil.checkTokens(sessionToken, token, status);
+
+    Person person = (Person) request.getSession().getAttribute(
+        LoginInterceptor.PERSON_SESSION_KEY);
+    if (!controllerUtil.hasUserAdminPrivileges(person, teamId)) {
+      throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct " +
+          "privileges to remove external groups");
+    }
+
+    TeamExternalGroup teamExternalGroup =
+        teamExternalGroupDao.getByTeamIdentifierAndExternalGroupIdentifier(teamId, groupIdentifier);
+    if (teamExternalGroup != null) {
+      teamExternalGroupDao.delete(teamExternalGroup);
+    }
+
+    status.setComplete();
+    modelMap.clear();
+    return new RedirectView("detailteam.shtml?team=" + URLEncoder.encode(teamId, UTF_8) + "&view="
+        + ViewUtil.getView(request), false, true, false);
   }
 
   /**
@@ -181,11 +200,13 @@ public class AddExternalGroupController {
   }
 
   @RequestMapping(value = "/doaddexternalgroup.shtml", method = RequestMethod.POST)
-  @ResponseBody
-  public List<TeamExternalGroup> addExternalGroups(@ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+  public RedirectView addExternalGroups(@ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
                                                    @ModelAttribute("team") Team team,
-                                                   ModelMap modelMap, HttpServletRequest request) {
+                                                   @RequestParam String token,
+                                                   ModelMap modelMap, SessionStatus status,
+                                                   HttpServletRequest request) throws UnsupportedEncodingException {
 
+    TokenUtil.checkTokens(sessionToken, token, status);
     Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
     String personId = person.getId();
@@ -211,6 +232,10 @@ public class AddExternalGroupController {
       teamExternalGroupDao.saveOrUpdate(t);
     }
 
-    return teamExternalGroupDao.getByTeamIdentifier(team.getId());
+    request.getSession().removeAttribute("externalGroups");
+    status.setComplete();
+    modelMap.clear();
+    return new RedirectView("detailteam.shtml?team=" + URLEncoder.encode(team.getId(), UTF_8) + "&view="
+        + ViewUtil.getView(request), false, true, false);
   }
 }

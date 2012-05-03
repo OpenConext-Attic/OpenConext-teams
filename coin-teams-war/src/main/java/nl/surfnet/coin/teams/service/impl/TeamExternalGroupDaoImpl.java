@@ -168,6 +168,19 @@ public class TeamExternalGroupDaoImpl implements TeamExternalGroupDao {
 
   @Override
   public void delete(TeamExternalGroup teamExternalGroup) {
-    throw new UnsupportedOperationException("Deleting a relation between team and external group is not yet supported");
+    Object[] args = {teamExternalGroup.getId()};
+    final int deleted = this.jdbcTemplate.update("DELETE FROM team_external_groups WHERE id = ?;", args);
+
+    if (deleted == 0) {
+      return;
+    }
+
+    args[0] = teamExternalGroup.getExternalGroup().getId();
+
+    final int linksToExternalGroup = this.jdbcTemplate.queryForInt(
+        "SELECT COUNT(id) FROM team_external_groups WHERE external_groups_id = ?;", args);
+    if (linksToExternalGroup == 0) {
+      this.jdbcTemplate.update("DELETE FROM external_groups WHERE id = ?;", args);
+    }
   }
 }

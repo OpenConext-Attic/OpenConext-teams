@@ -54,9 +54,11 @@ import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Pager;
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.domain.TeamExternalGroup;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.service.JoinTeamRequestService;
+import nl.surfnet.coin.teams.service.TeamExternalGroupDao;
 import nl.surfnet.coin.teams.service.TeamInviteService;
 import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
@@ -100,6 +102,9 @@ public class DetailTeamController {
   @Autowired
   @Qualifier("opensocialPersonService")
   private PersonService teamPersonService;
+
+  @Autowired
+  private TeamExternalGroupDao teamExternalGroupDao;
 
   @Autowired
   private TeamEnvironment teamEnvironment;
@@ -180,6 +185,10 @@ public class DetailTeamController {
     } else {
       modelMap.addAttribute(ROLE_PARAM, Role.None);
     }
+
+    final List<TeamExternalGroup> teamExternalGroups = teamExternalGroupDao.getByTeamIdentifier(teamId);
+    modelMap.addAttribute("teamExternalGroups", teamExternalGroups);
+
     return "detailteam";
   }
 

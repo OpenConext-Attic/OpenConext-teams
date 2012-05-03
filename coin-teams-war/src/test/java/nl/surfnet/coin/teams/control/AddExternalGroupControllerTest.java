@@ -28,6 +28,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.support.SessionStatus;
 
 import nl.surfnet.coin.api.client.OpenConextJsonParser;
 import nl.surfnet.coin.api.client.domain.Group20Entry;
@@ -215,11 +216,14 @@ public class AddExternalGroupControllerTest extends AbstractControllerTest {
     assertTrue(modelMap.containsKey(TokenUtil.TOKENCHECK));
   }
 
+  // TODO BACKLOG-329 complete test, write test for delete
   @Test
   public void testAddExternalGroups() {
     final ModelMap modelMap = getModelMap();
     final MockHttpServletRequest request = getRequest();
     final String token = TokenUtil.generateSessionToken();
+    final Team team1 = getTeam1();
+    SessionStatus status = mock(SessionStatus.class);
 //    controller.addExternalGroups(token, modelMap, request);
   }
 
