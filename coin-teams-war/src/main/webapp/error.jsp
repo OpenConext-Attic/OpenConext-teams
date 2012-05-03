@@ -1,5 +1,3 @@
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
-<%@ page isErrorPage="true" %>
 <%--
   Copyright 2012 SURFnet bv, The Netherlands
 
@@ -17,16 +15,18 @@
   --%>
 
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ page isErrorPage="true" %>
+
   <%
     String view = request.getParameter("view");
   %>
 <html>
 <head>
   <title>SURFconext teams</title>
-  <% if ("gadget".equals(view)) { %>
-  <link rel="stylesheet" href="<c:url value="/css/gadget.css"/>">
-  <% } else { %>
-  <link rel="stylesheet" href="<c:url value="/css/default.css"/>">
+  <link rel="stylesheet" href="<c:url value="/css/teams.css"/>">
+  <% if (!"gadget".equals(view)) { %>
+  <link rel="stylesheet" href="<c:url value="/css/app.css"/>">
   <% } %>
 </head>
 <body>

@@ -23,14 +23,10 @@
   <meta charset="UTF-8"/>
   <meta content="width=device-width,initial-scale=1" name="viewport"/>
   <title><spring:message code="jsp.general.Title" /></title>
-    <c:choose>
-      <c:when test='${view eq "gadget"}'>
-        <link rel="stylesheet" href="<c:url value="/css/gadget.css" />">
-      </c:when>
-      <c:otherwise>
-      	<link rel="stylesheet" href="<c:url value="/css/default.css" />">
-      </c:otherwise>
-    </c:choose>
+  <link rel="stylesheet" href="<c:url value="/css/teams.css" />">
+  <c:if test="${view ne 'gadget'}">
+    <link rel="stylesheet" href="<c:url value="/css/app.css" />">
+  </c:if>
 </head>
 <body>
   <div class="wrapper">
