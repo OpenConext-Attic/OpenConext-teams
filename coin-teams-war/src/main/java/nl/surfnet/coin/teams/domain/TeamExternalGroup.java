@@ -16,32 +16,31 @@
 
 package nl.surfnet.coin.teams.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-
-import org.hibernate.annotations.Proxy;
-
 import nl.surfnet.coin.shared.domain.DomainObject;
 
 /**
- * The link between a team (SURFConext) and external groups from the universities
+ * The link between a team (SURFConext) and external groups from the universities.
+ * <p/>
+ * * Because the original data behind this bean comes from external sources, we do all CRUD operations by jdbc templates
+ * instead of Hibernate.
+ * <p/>
+ * MySQL query to create this table:
+ * <pre>
+ *   CREATE TABLE `team_external_groups` (
+ * `id` bigint(20) NOT NULL AUTO_INCREMENT,
+ * `grouper_team_id` varchar(255) DEFAULT NULL,
+ * `external_groups_id` bigint(20) DEFAULT NULL,
+ * PRIMARY KEY (`id`),
+ * UNIQUE KEY `grouper_team_id` (`grouper_team_id`,`external_groups_id`),
+ * KEY `FKB046E6E69AB3B3FA` (`external_groups_id`),
+ * CONSTRAINT `FKB046E6E69AB3B3FA` FOREIGN KEY (`external_groups_id`) REFERENCES `external_groups` (`id`)
+ * ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+ * </pre>
  */
-@SuppressWarnings("serial")
-@Entity
-@Table(name = "team_external_groups",
-    uniqueConstraints = @UniqueConstraint(columnNames = {"grouper_team_id", "external_groups_id"}))
-@Proxy(lazy = false)
 public class TeamExternalGroup extends DomainObject {
 
-  @Column(name = "grouper_team_id")
   private String grouperTeamId;
 
-  @ManyToOne
-  @JoinColumn(name = "external_groups_id")
   private ExternalGroup externalGroup;
 
   public String getGrouperTeamId() {
@@ -60,4 +59,14 @@ public class TeamExternalGroup extends DomainObject {
     this.externalGroup = externalGroup;
   }
 
+  @Override
+  public String toString() {
+    final StringBuffer sb = new StringBuffer();
+    sb.append("TeamExternalGroup");
+    sb.append("{id='").append(getId()).append('\'');
+    sb.append(", grouperTeamId='").append(grouperTeamId).append('\'');
+    sb.append(", externalGroup=").append(externalGroup);
+    sb.append('}');
+    return sb.toString();
+  }
 }

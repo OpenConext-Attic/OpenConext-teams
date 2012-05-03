@@ -16,43 +16,43 @@
 
 package nl.surfnet.coin.teams.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Lob;
-import javax.persistence.Table;
-import javax.persistence.Transient;
-
-import org.hibernate.annotations.Proxy;
-
 import nl.surfnet.coin.api.client.domain.Group20;
 import nl.surfnet.coin.shared.domain.DomainObject;
 
 /**
- * Metadata of an external group
+ * Metadata of an external group stored in the SURFteams database. We have this redundant storage to show
+ * the metadata to SURFteam member who are not a member of the external group.
+ * <p/>
+ * Because the original data behind this bean comes from external sources, we do all CRUD operations by jdbc templates
+ * instead of Hibernate.
+ * <p/>
+ * MySQL query to create this table:
+ * <pre>
+ *   CREATE TABLE `external_groups` (
+ * `id` bigint(20) NOT NULL AUTO_INCREMENT,
+ * `description` longtext,
+ * `group_provider` varchar(255) DEFAULT NULL,
+ * `identifier` varchar(255) DEFAULT NULL,
+ * `name` varchar(255) DEFAULT NULL,
+ * PRIMARY KEY (`id`)
+ * ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8
+ * </pre>
  */
-@SuppressWarnings("serial")
-@Entity
-@Table(name = "external_groups")
-@Proxy(lazy = false)
 public class ExternalGroup extends DomainObject {
 
-  @Column
   private String identifier;
 
-  @Column
   private String name;
 
-  @Column
-  @Lob
   private String description;
 
-  @Column(name = "group_provider")
   private String groupProviderIdentifier;
 
-  @Transient
+  /**
+   * Field not stored in this database
+   */
   private GroupProvider groupProvider;
 
-  // For Hibernate
   public ExternalGroup() {
   }
 
@@ -99,7 +99,7 @@ public class ExternalGroup extends DomainObject {
   }
 
   /**
-   * @return identifier of the group provider {@literal University.nl}
+   * @return identifier of the group provider, e.g. {@literal University.nl}
    */
   public String getGroupProviderIdentifier() {
     return groupProviderIdentifier;
@@ -110,8 +110,9 @@ public class ExternalGroup extends DomainObject {
   }
 
   /**
-   * Should be the {@link GroupProvider} object for {@link #getGroupProviderIdentifier()}. This object is not maintained by
-   * Hibernate, so we need to populate it manually
+   * Gets the {@link GroupProvider} that matches the {@link #getGroupProviderIdentifier()}.
+   * <p/>
+   * This information comes from an external data source and is not always retrieved.
    *
    * @return {@link GroupProvider} object, may be {@literal null}
    */
@@ -155,7 +156,8 @@ public class ExternalGroup extends DomainObject {
   public String toString() {
     final StringBuffer sb = new StringBuffer();
     sb.append("ExternalGroup");
-    sb.append("{identifier='").append(identifier).append('\'');
+    sb.append("{id='").append(getId()).append('\'');
+    sb.append(", identifier='").append(identifier).append('\'');
     sb.append(", name='").append(name).append('\'');
     sb.append(", description='").append(description).append('\'');
     sb.append(", groupProviderIdentifier='").append(groupProviderIdentifier).append('\'');
