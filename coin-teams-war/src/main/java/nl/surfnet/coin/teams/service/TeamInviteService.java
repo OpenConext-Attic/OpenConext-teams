@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -61,7 +61,15 @@ public interface TeamInviteService extends GenericService<Invitation> {
    * @param team {@link Team}
    * @return List of Invitation's, can be empty.
    */
-  List<Invitation> findInvitationsForTeam(Team team);
+  List<Invitation> findAllInvitationsForTeam(Team team);
+
+  /**
+   * Searches for {@link Invitation}'s for a {@link Team}.
+   *
+   * @param team {@link Team}
+   * @return List of Invitation's, can be empty.
+   */
+  List<Invitation> findInvitationsForTeamExcludeAccepted(Team team);
 
   /**
    * Searches for pending {@link Invitation}'s by email address

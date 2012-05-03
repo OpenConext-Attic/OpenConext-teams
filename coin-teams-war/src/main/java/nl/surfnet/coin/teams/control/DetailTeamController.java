@@ -162,7 +162,7 @@ public class DetailTeamController {
     modelMap.addAttribute("onlyAdmin", onlyAdmin);
 
     modelMap.addAttribute("invitations",
-        teamInviteService.findInvitationsForTeam(team));
+        teamInviteService.findInvitationsForTeamExcludeAccepted(team));
 
     int offset = getOffset(request);
     Pager membersPager = new Pager(team.getMembers().size(), offset, PAGESIZE);
@@ -306,9 +306,13 @@ public class DetailTeamController {
     if (member.getRoles().contains(Role.Admin)) {
       // Delete the team
       Team team = grouperTeamService.findTeamById(teamId);
-      final List<Invitation> invitationsForTeam = teamInviteService.findInvitationsForTeam(team);
+      final List<Invitation> invitationsForTeam = teamInviteService.findAllInvitationsForTeam(team);
       for (Invitation invitation : invitationsForTeam) {
         teamInviteService.delete(invitation);
+      }
+      final List<TeamExternalGroup> teamExternalGroups = teamExternalGroupDao.getByTeamIdentifier(teamId);
+      for (TeamExternalGroup teamExternalGroup : teamExternalGroups) {
+        teamExternalGroupDao.delete(teamExternalGroup);
       }
       grouperTeamService.deleteTeam(teamId);
 

@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.springframework.transaction.annotation.Transactional;
 import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.TeamInviteService;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -127,11 +128,11 @@ public class TeamInviteServiceHibernateImplTest {
             "coincalendar@yahoo.com", team1.getId());
     Invitation invitation3 = new Invitation(
             "coincalendar@yahoo.com", team2.getId());
-    assertEquals(0, teamInviteService.findInvitationsForTeam(team1).size());
+    assertEquals(0, teamInviteService.findAllInvitationsForTeam(team1).size());
     teamInviteService.saveOrUpdate(invitation1);
     teamInviteService.saveOrUpdate(invitation2);
     teamInviteService.saveOrUpdate(invitation3);
-    assertEquals(2, teamInviteService.findInvitationsForTeam(team1).size());
+    assertEquals(2, teamInviteService.findAllInvitationsForTeam(team1).size());
     assertEquals(3, teamInviteService.findAll().size());
   }
 
