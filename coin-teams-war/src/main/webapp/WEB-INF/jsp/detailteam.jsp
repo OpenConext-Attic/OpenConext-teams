@@ -60,7 +60,7 @@
     </p>
 
     <c:if test="${fn:length(teamExternalGroups)>0}">
-      <h2>_Institutional groups</h2>
+      <h2><spring:message code="jsp.detailteam.InstitutionalGroups"/></h2>
       <div class="team-table-wrapper">
         <table class="team-table">
           <thead>
@@ -74,8 +74,9 @@
           </tr>
           </thead>
           <tbody>
-          <c:forEach var="teg" items="${teamExternalGroups}">
-            <c:url var="deleteexternalgroup" value="/deleteexternalgroup.shtml">
+          <%--@elvariable id="teamExternalGroups" type="java.util.List<nl.surfnet.coin.teams.domain.TeamExternalGroup>"--%>
+          <%--@elvariable id="groupProviderMap" type="java.util.Map<java.lang.String, nl.surfnet.coin.teams.domain.GroupProvider>"--%>
+          <c:forEach var="teg" items="${teamExternalGroups}"><c:url var="deleteexternalgroup" value="/deleteexternalgroup.shtml">
               <c:param name="teamId" value="${team.id}"/>
               <c:param name="groupIdentifier" value="${teg.externalGroup.identifier}"/>
               <c:param name="token" value="${tokencheck}"/>
@@ -84,8 +85,11 @@
             <td><c:if test="${role eq adminRole}"><a href="${deleteexternalgroup}" class="RemoveExternalGroup delete"><spring:message
                 code="jsp.detailteam.RemoveExternalGroupFromTeam"/></a></c:if></td>
             <td>
-                <%-- TODO BACKLOG-329 get logo for group provider --%>
-                <%--<img src="https://wayf-test.surfnet.nl/federate/surfnet/img/logo/avans.png" alt="" height="15px"/>--%>
+              <c:set var="groupProvider" target="nl.surfnet.coin.teams.domain.GroupProvider"
+                     value="${groupProviderMap[teg.externalGroup.groupProviderIdentifier]}"/>
+              <c:if test="${not empty groupProvider and not empty groupProvider.logoUrl}">
+              <img src="<c:out value="${groupProvider.logoUrl}"/>" alt="" height="15px"/>
+              </c:if>
             </td>
             <td><c:out value="${teg.externalGroup.name}"/></td>
             <td><c:out value="${teg.externalGroup.description}"/></td>
@@ -95,7 +99,7 @@
       </div>
       <br class="clear"/>
 
-      <h2>_Individual members</h2>
+      <h2><spring:message code="jsp.detailteam.IndividualMembers"/></h2>
     </c:if>
 
     <c:choose>
