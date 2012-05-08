@@ -68,6 +68,7 @@
             <c:if test="${role eq adminRole}">
               <th class="remove"></th>
             </c:if>
+
             <th class="logo"></th>
             <th class="name"><spring:message code='jsp.detailteam.Name'/></th>
             <th class="description"><spring:message code="jsp.general.Description"/></th>
@@ -82,8 +83,8 @@
               <c:param name="token" value="${tokencheck}"/>
               <c:param name="view" value="${view}"/>
             </c:url>
-            <td><c:if test="${role eq adminRole}"><a href="${deleteexternalgroup}" class="RemoveExternalGroup delete"><spring:message
-                code="jsp.detailteam.RemoveExternalGroupFromTeam"/></a></c:if></td>
+            <c:if test="${role eq adminRole}"><td><a href="${deleteexternalgroup}" class="RemoveExternalGroup delete"><spring:message
+                code="jsp.detailteam.RemoveExternalGroupFromTeam"/></a></td></c:if>
             <td>
               <c:set var="groupProvider" target="nl.surfnet.coin.teams.domain.GroupProvider"
                      value="${groupProviderMap[teg.externalGroup.groupProviderIdentifier]}"/>
