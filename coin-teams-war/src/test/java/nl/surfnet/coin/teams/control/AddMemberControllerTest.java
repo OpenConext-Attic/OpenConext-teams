@@ -19,6 +19,7 @@
  */
 package nl.surfnet.coin.teams.control;
 
+import java.io.IOException;
 import java.util.Locale;
 
 import org.junit.Test;
@@ -26,19 +27,29 @@ import org.mockito.internal.stubbing.answers.Returns;
 import org.opensocial.models.Person;
 import org.springframework.context.MessageSource;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.validation.DirectFieldBindingResult;
 import org.springframework.web.bind.support.SimpleSessionStatus;
 import org.springframework.web.servlet.LocaleResolver;
 
+import freemarker.template.Configuration;
+import freemarker.template.DefaultObjectWrapper;
+import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.InvitationForm;
+import nl.surfnet.coin.teams.domain.InvitationMessage;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
 import nl.surfnet.coin.teams.util.TokenUtil;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -163,10 +174,16 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     MockHttpServletRequest request = getRequest();
     Team team1 = getTeam1();
     Person person = getPerson1();
+    person.setField("displayName", "Member 1");
+    request.getSession().setAttribute(LoginInterceptor.PERSON_SESSION_KEY, person);
 
     // request team
     String token = TokenUtil.generateSessionToken();
     request.setParameter("team", team1.getId());
+
+    GrouperTeamService teamService = mock(GrouperTeamService.class);
+    when(teamService.findTeamById(team1.getId())).thenReturn(team1);
+    autoWireMock(addMemberController, teamService, GrouperTeamService.class);
 
     autoWireMock(addMemberController, messageSource, MessageSource.class);
     autoWireMock(addMemberController, new Returns(Locale.ENGLISH), LocaleResolver.class);
@@ -182,6 +199,14 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     when(controllerUtil.getTeamById(team1.getId())).thenReturn(team1);
 
     autoWireMock(addMemberController, controllerUtil, ControllerUtil.class);
+
+    Configuration freemarkerConfiguration = getFreemarkerConfig();
+    autoWireMock(addMemberController, freemarkerConfiguration, Configuration.class);
+
+    TeamEnvironment environment = new TeamEnvironment();
+    environment.setTeamsURL("http://localhost:8060/teams");
+    addMemberController.setTeamEnvironment(environment);
+
     autoWireRemainingResources(addMemberController);
 
     String result = addMemberController.addMembersToTeam(token,
@@ -262,5 +287,43 @@ public class AddMemberControllerTest extends AbstractControllerTest {
             token,
             new SimpleSessionStatus(),
             getModelMap());
+  }
+
+  @Test
+  public void testComposeInvitationMailMessage() throws Exception {
+    Configuration freemarkerConfiguration = getFreemarkerConfig();
+    autoWireMock(addMemberController, freemarkerConfiguration, Configuration.class);
+    autoWireMock(addMemberController, messageSource, MessageSource.class);
+    autoWireMock(addMemberController, new Returns(Locale.ENGLISH), LocaleResolver.class);
+
+    TeamEnvironment environment = new TeamEnvironment();
+    environment.setTeamsURL("http://localhost:8060/teams");
+    addMemberController.setTeamEnvironment(environment);
+
+    GrouperTeamService teamService = mock(GrouperTeamService.class);
+    when(teamService.findTeamById(getTeam1().getId())).thenReturn(getTeam1());
+    autoWireMock(addMemberController, teamService, GrouperTeamService.class);
+
+    Invitation invitation= new Invitation("johndoe@example.com", getTeam1().getId());
+    InvitationMessage message = new InvitationMessage("Hello John,\n\nplease join my team", getPerson1().getId());
+    invitation.addInvitationMessage(message);
+
+    Person inviter = getPerson1();
+    inviter.setField("displayName", "Member One");
+
+    String msg = addMemberController.composeInvitationMailMessage(invitation, inviter, Locale.ENGLISH, "html");
+
+    assertNotNull(msg);
+    System.out.println(msg);
+    assertTrue(msg.contains("You are invited by Member One to join team <strong>Team 1</strong>."));
+    assertTrue(msg.contains("<strong>Personal message from Member One:</strong> \"Hello John,<br /><br />please join my team\""));
+  }
+
+  private Configuration getFreemarkerConfig() throws IOException {
+    Configuration freemarkerConfiguration = new Configuration();
+    Resource templateDir = new ClassPathResource("/ftl/");
+    freemarkerConfiguration.setDirectoryForTemplateLoading(templateDir.getFile());
+    freemarkerConfiguration.setObjectWrapper(new DefaultObjectWrapper());
+    return freemarkerConfiguration;
   }
 }

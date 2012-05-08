@@ -20,13 +20,18 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
+import javax.mail.BodyPart;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.IOUtils;
@@ -36,6 +41,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -50,6 +56,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
 
+import freemarker.template.Configuration;
+import freemarker.template.TemplateException;
 import nl.surfnet.coin.shared.service.MailService;
 import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.InvitationForm;
@@ -67,10 +75,8 @@ import nl.surfnet.coin.teams.util.TokenUtil;
 import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
- * @author steinwelberg
- *         <p/>
- *         {@link Controller} that handles the add member page of a logged in
- *         user.
+ * {@link Controller} that handles the add member page of a logged in
+ * user.
  */
 @Controller
 @SessionAttributes({"invitationForm", "invitation", TokenUtil.TOKENCHECK})
@@ -101,6 +107,9 @@ public class AddMemberController {
 
   @Autowired
   private ControllerUtil controllerUtil;
+
+  @Autowired
+  private Configuration freemarkerConfiguration;
 
   /**
    * Shows form to invite others to your {@link Team}
@@ -145,7 +154,7 @@ public class AddMemberController {
       roles = new Role[]{Role.Member};
     } else {
       throw new RuntimeException("User " + person.getId() +
-          "has not enough privileges to invite others in team " + teamId);
+          " has not enough privileges to invite others in team " + teamId);
     }
     modelMap.addAttribute("roles", roles);
   }
@@ -271,7 +280,7 @@ public class AddMemberController {
 
     String subject = messageSource.getMessage(INVITE_SEND_INVITE_SUBJECT,
         messageValuesSubject, locale);
-    sendInvitationByMail(invitation, subject, locale);
+    sendInvitationByMail(invitation, subject, person, locale);
     status.setComplete();
     modelMap.clear();
     return "redirect:detailteam.shtml?team="
@@ -334,7 +343,7 @@ public class AddMemberController {
       invitation.setTimestamp(new Date().getTime());
       invitation.setIntendedRole(form.getIntendedRole());
       teamInviteService.saveOrUpdate(invitation);
-      sendInvitationByMail(invitation, subject, locale);
+      sendInvitationByMail(invitation, subject, form.getInviter(), locale);
 
     }
   }
@@ -344,25 +353,16 @@ public class AddMemberController {
    *
    * @param invitation {@link Invitation} that contains the necessary data
    * @param subject    of the email
-   * @param locale     {@link Locale}
+   * @param inviter    {@link Person} who sends the invitation
+   * @param locale     {@link Locale} for the mail
    */
   protected void sendInvitationByMail(final Invitation invitation,
-                                      final String subject, final Locale locale) {
-    Object[] messageValuesFooter = {environment.getTeamsURL(),
-        invitation.getInvitationHash()};
-    String footer = messageSource.getMessage(
-        "invite.MessageFooter", messageValuesFooter, locale);
+                                      final String subject,
+                                      final Person inviter,
+                                      final Locale locale) {
 
-    StringBuffer sb = new StringBuffer();
-    sb.append("<html><body>");
-    InvitationMessage latestInvitationMessage = invitation.getLatestInvitationMessage();
-    if (latestInvitationMessage != null) {
-      sb.append(latestInvitationMessage.getMessage().replaceAll("<.*?>", ""));
-    }
-    sb.append(footer);
-    sb.append("</body></html>");
-
-    final String html = sb.toString();
+    final String html = composeInvitationMailMessage(invitation, inviter, locale, "html");
+    final String plainText = composeInvitationMailMessage(invitation, inviter, locale, "plaintext");
 
     MimeMessagePreparator preparator = new MimeMessagePreparator() {
       public void prepare(MimeMessage mimeMessage) throws MessagingException {
@@ -370,12 +370,82 @@ public class AddMemberController {
         mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(invitation.getEmail()));
         mimeMessage.setFrom(new InternetAddress(environment.getSystemEmail()));
         mimeMessage.setSubject(subject);
-        mimeMessage.setText(html, "UTF-8", "html");
+
+        MimeMultipart rootMixedMultipart = new MimeMultipart("mixed");
+        mimeMessage.setContent(rootMixedMultipart);
+
+        MimeMultipart nestedRelatedMultipart = new MimeMultipart("related");
+        MimeBodyPart relatedBodyPart = new MimeBodyPart();
+        relatedBodyPart.setContent(nestedRelatedMultipart);
+        rootMixedMultipart.addBodyPart(relatedBodyPart);
+
+        MimeMultipart messageBody = new MimeMultipart("alternative");
+        MimeBodyPart bodyPart = null;
+        for (int i = 0; i < nestedRelatedMultipart.getCount(); i++) {
+          BodyPart bp = nestedRelatedMultipart.getBodyPart(i);
+          if (bp.getFileName() == null) {
+            bodyPart = (MimeBodyPart) bp;
+          }
+        }
+        if (bodyPart == null) {
+          MimeBodyPart mimeBodyPart = new MimeBodyPart();
+          nestedRelatedMultipart.addBodyPart(mimeBodyPart);
+          bodyPart = mimeBodyPart;
+        }
+        bodyPart.setContent(messageBody, "text/alternative");
+
+        // Create the plain text part of the message.
+        MimeBodyPart plainTextPart = new MimeBodyPart();
+        plainTextPart.setText(plainText, "UTF-8");
+        messageBody.addBodyPart(plainTextPart);
+
+        // Create the HTML text part of the message.
+        MimeBodyPart htmlTextPart = new MimeBodyPart();
+        htmlTextPart.setContent(html, "text/html;charset=UTF-8");
+        messageBody.addBodyPart(htmlTextPart);
+
       }
     };
 
     mailService.sendAsync(preparator);
   }
 
+  String composeInvitationMailMessage(Invitation invitation, Person inviter, Locale locale, String variant) {
+    String templateName;
+    if ("plaintext".equals(variant)) {
+      templateName = "invitationmail-plaintext.ftl";
+    } else {
+      templateName = "invitationmail.ftl";
+    }
+    Map<String, Object> templateVars = new HashMap<String, Object>();
 
+    templateVars.put("invitation", invitation);
+    templateVars.put("inviter", inviter);
+    final Team team = grouperTeamService.findTeamById(invitation.getTeamId());
+    templateVars.put("team", team);
+    templateVars.put("teamsURL", environment.getTeamsURL());
+
+    StringBuffer sb = new StringBuffer();
+    try {
+      sb.append(FreeMarkerTemplateUtils.processTemplateIntoString(
+          freemarkerConfiguration.getTemplate(templateName, locale), templateVars
+      ));
+    } catch (IOException e) {
+      throw new RuntimeException("Failed to create invitation mail", e);
+    } catch (TemplateException e) {
+      throw new RuntimeException("Failed to create invitation mail", e);
+    }
+
+    return sb.toString();
+  }
+
+
+  /**
+   * Method to set the TeamEnvironment in case {@link @Autowired} is not used
+   *
+   * @param environment {@link TeamEnvironment} to set
+   */
+  void setTeamEnvironment(TeamEnvironment environment) {
+    this.environment = environment;
+  }
 }

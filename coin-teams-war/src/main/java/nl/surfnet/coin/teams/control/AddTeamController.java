@@ -213,7 +213,7 @@ public class AddTeamController {
         messageValuesSubject, locale);
 
 
-    addMemberController.sendInvitationByMail(invitation, subject, locale);
+    addMemberController.sendInvitationByMail(invitation, subject, inviter, locale);
 
   }
 

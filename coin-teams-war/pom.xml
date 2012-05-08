@@ -36,6 +36,8 @@
     <coin-master.test-dependencies.version>2.4.0</coin-master.test-dependencies.version>
     <grouper.version>1.6.1</grouper.version>
     <jackson.version>1.9.5</jackson.version>
+    <freemarker.version>[2.3.19,2.4)</freemarker.version>
+
   </properties>
 
   <build>
@@ -156,7 +158,7 @@
       <artifactId>jstl</artifactId>
     </dependency>
 
-    <!-- The next two slf4j dependencies are the ones we want to use. Other 
+    <!-- The next two slf4j dependencies are the ones we want to use. Other
       will be excluded. -->
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -212,6 +214,11 @@
     <dependency>
       <groupId>commons-lang</groupId>
       <artifactId>commons-lang</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.freemarker</groupId>
+      <artifactId>freemarker</artifactId>
+      <version>${freemarker.version}</version>
     </dependency>
     <dependency>
       <groupId>org.easymock</groupId>
