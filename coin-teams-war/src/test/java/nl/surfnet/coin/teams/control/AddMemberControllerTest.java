@@ -25,6 +25,8 @@ import java.util.Locale;
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
 import org.opensocial.models.Person;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.io.ClassPathResource;
@@ -57,6 +59,8 @@ import static org.mockito.Mockito.when;
  * Test for {@link AddMemberController}
  */
 public class AddMemberControllerTest extends AbstractControllerTest {
+
+  private final static Logger log = LoggerFactory.getLogger(AddMemberControllerTest.class);
 
   private AddMemberController addMemberController = new AddMemberController();
   private final MessageSource messageSource = new ResourceBundleMessageSource() {
@@ -290,7 +294,7 @@ public class AddMemberControllerTest extends AbstractControllerTest {
   }
 
   @Test
-  public void testComposeInvitationMailMessage() throws Exception {
+  public void testComposeInvitationMailMessage_HTML() throws Exception {
     Configuration freemarkerConfiguration = getFreemarkerConfig();
     autoWireMock(addMemberController, freemarkerConfiguration, Configuration.class);
     autoWireMock(addMemberController, messageSource, MessageSource.class);
@@ -314,9 +318,38 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     String msg = addMemberController.composeInvitationMailMessage(invitation, inviter, Locale.ENGLISH, "html");
 
     assertNotNull(msg);
-    System.out.println(msg);
+    log.debug(msg);
     assertTrue(msg.contains("You are invited by Member One to join team <strong>Team 1</strong>."));
-    assertTrue(msg.contains("<strong>Personal message from Member One:</strong> \"Hello John,<br /><br />please join my team\""));
+    assertTrue(msg.contains("<strong>Personal message from Member One:</strong><br /> \"Hello John,<br /><br />please join my team\""));
+  }
+  @Test
+  public void testComposeInvitationMailMessage_plaintext() throws Exception {
+    Configuration freemarkerConfiguration = getFreemarkerConfig();
+    autoWireMock(addMemberController, freemarkerConfiguration, Configuration.class);
+    autoWireMock(addMemberController, messageSource, MessageSource.class);
+    autoWireMock(addMemberController, new Returns(Locale.ENGLISH), LocaleResolver.class);
+
+    TeamEnvironment environment = new TeamEnvironment();
+    environment.setTeamsURL("http://localhost:8060/teams");
+    addMemberController.setTeamEnvironment(environment);
+
+    GrouperTeamService teamService = mock(GrouperTeamService.class);
+    when(teamService.findTeamById(getTeam1().getId())).thenReturn(getTeam1());
+    autoWireMock(addMemberController, teamService, GrouperTeamService.class);
+
+    Invitation invitation= new Invitation("johndoe@example.com", getTeam1().getId());
+    InvitationMessage message = new InvitationMessage("Hello John,\n\nplease join my team", getPerson1().getId());
+    invitation.addInvitationMessage(message);
+
+    Person inviter = getPerson1();
+    inviter.setField("displayName", "Member One");
+
+    String msg = addMemberController.composeInvitationMailMessage(invitation, inviter, Locale.ENGLISH, "plaintext");
+
+    assertNotNull(msg);
+    log.debug(msg);
+    assertTrue(msg.contains("You are invited by Member One to join team *Team 1*."));
+    assertTrue(msg.contains("*Personal message from Member One:*\n\"Hello John,\n\nplease join my team\""));
   }
 
   private Configuration getFreemarkerConfig() throws IOException {

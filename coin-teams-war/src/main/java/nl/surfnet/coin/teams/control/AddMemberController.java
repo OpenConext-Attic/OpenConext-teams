@@ -137,7 +137,6 @@ public class AddMemberController {
 
     Locale locale = localeResolver.resolveLocale(request);
     Object[] messageParams = {person.getDisplayName(), team.getName()};
-    form.setMessage(messageSource.getMessage("jsp.addmember.Message", messageParams, locale));
     modelMap.addAttribute("invitationForm", form);
     addNewMemberRolesToModelMap(person, team.getId(), modelMap);
     ViewUtil.addViewToModelMap(request, modelMap);

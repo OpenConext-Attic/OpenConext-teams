@@ -92,40 +92,37 @@ String teamsURL
         <h1 style="mso-line-height-rule:exactly;line-height:33px;font-weight:normal;font-size:28px;margin-top:0;">
           SURFteams</h1>
 
-        <p>
+        <p lang="en">
           You are invited by ${inviter.displayName?html} to join team <strong>${team.name?html}</strong>.
         </p>
 
         [#if invitation.latestInvitationMessage?has_content && invitation.latestInvitationMessage.message?has_content]
         <p>
           [#assign msg]${invitation.latestInvitationMessage.message?html}[/#assign]
-          <strong>Personal message from ${inviter.displayName?html}:</strong> "${msg?replace("\n","<br />")}"
+          <strong>Personal message from ${inviter.displayName?html}:</strong><br /> "${msg?replace("\n","<br />")}"
         </p>
         [/#if]
 
         [#if team.description?has_content]
+        [#assign description]${team.description?html}[/#assign]
         <p>
-          <strong>Team description:</strong> "${team.description?html}"
+          <strong>Team description:</strong><br /> "${description?replace("\n","<br />")}"
         </p>
         [/#if]
 
         [#assign acceptUrl]${teamsURL}/acceptInvitation.shtml?id=${invitation.invitationHash}[/#assign]
         [#assign declineUrl]${teamsURL}/declineInvitation.shtml?id=${invitation.invitationHash}[/#assign]
-        <table style="width:90%;margin-bottom:1em;margin-left:auto;margin-right:auto;margin-top:1em;">
+        <table cellpadding="10" width="90%" align="center" style="margin-bottom:1em;margin-left:auto;margin-right:auto;margin-top:1em;">
           <tr>
-            <td style="mso-line-height-rule:exactly;line-height:18px;font-size:13px;font-family:Arial, sans-serif;border-radius:4px 4px 4px 4px;color:#489406;background-color:#EDFFDE;padding-bottom:10px;padding-left:10px;padding-right:10px;padding-top:10px;border-style:solid;border-width:1px;border-color:#489406;"
+            <td bgcolor="#EDFFDE" style="mso-line-height-rule:exactly;line-height:18px;font-size:13px;font-family:Arial, sans-serif;border-radius:4px 4px 4px 4px;color:#489406;border-style:solid;border-width:1px;border-color:#489406;"
                 align="center" width="50%">
-              <div style="margin-bottom:0 ;margin-left:auto;margin-right:auto;margin-top:0 ;">
                 <span lang="en"><a href="${acceptUrl}" style="color:#0088CC;">Login to accept this invitation</a></span>
                 <br/><span lang="nl"><a href="${acceptUrl}" style="color:#0088CC;">Inloggen om de uitnodiging te accepteren</a></span>
-              </div>
             </td>
-            <td style="color:#333333;mso-line-height-rule:exactly;line-height:18px;font-size:13px;font-family:Arial, sans-serif;padding-bottom:10px;padding-left:10px;padding-right:10px;padding-top:10px;"
+            <td style="color:#333333;mso-line-height-rule:exactly;line-height:18px;font-size:13px;font-family:Arial, sans-serif;"
                 align="center" width="50%">
-              <div style="margin-bottom:0 ;margin-left:auto;margin-right:auto;margin-top:0 ;">
                 <span lang="en"><a href="${declineUrl}" style="color:#0088CC;">Decline this invitation</a></span>
                 <br/><span lang="nl"><a href="${declineUrl}" style="color:#0088CC;">De uitnodiging afwijzen</a></span>
-              </div>
             </td>
           </tr>
         </table>
@@ -133,13 +130,13 @@ String teamsURL
           This invitation automatically expires after 14 days.
         </p>
 
-        <p>
+        <p lang="en">
           Consult the manual for specific information on SURFteams
           <a href="https://wiki.surfnetlabs.nl/display/conextsupport/SURFteams" style="color:#0088CC;">https://wiki.surfnetlabs.nl/display/conextsupport/SURFteams</a>
           or contact SURFteams support at <a href="mailto:help@surfteams.nl" style="color:#0088CC;">help@surfteams.nl</a>.
         </p>
 
-        <p>
+        <p lang="en">
           This service is powered by <a href="http://www.surfconext.nl" style="color:#0088CC;">SURFconext</a> - brought
           to you by SURFnet
         </p>

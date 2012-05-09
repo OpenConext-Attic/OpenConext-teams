@@ -30,10 +30,12 @@ String teamsURL
 You are invited by ${inviter.displayName?html} to join team *${team.name?html}*.
 
 [#if invitation.latestInvitationMessage?has_content && invitation.latestInvitationMessage.message?has_content]
-*Personal message from ${inviter.displayName?html}:* "${invitation.latestInvitationMessage.message?html}"[/#if]
+*Personal message from ${inviter.displayName?html}:*
+"${invitation.latestInvitationMessage.message?html}"[/#if]
 
 [#if team.description?has_content]
-*Team description:* "${team.description?html}"
+*Team description:*
+"${team.description?html}"
 [/#if]
 
 Login to accept this invitation: ${acceptUrl}
