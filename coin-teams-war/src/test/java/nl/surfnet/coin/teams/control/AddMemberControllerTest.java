@@ -19,7 +19,6 @@
  */
 package nl.surfnet.coin.teams.control;
 
-import java.io.IOException;
 import java.util.Locale;
 
 import org.junit.Test;
@@ -29,15 +28,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
 import org.springframework.context.support.ResourceBundleMessageSource;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.validation.DirectFieldBindingResult;
 import org.springframework.web.bind.support.SimpleSessionStatus;
 import org.springframework.web.servlet.LocaleResolver;
 
 import freemarker.template.Configuration;
-import freemarker.template.DefaultObjectWrapper;
 import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.InvitationForm;
 import nl.surfnet.coin.teams.domain.InvitationMessage;
@@ -322,6 +318,7 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     assertTrue(msg.contains("You are invited by Member One to join team <strong>Team 1</strong>."));
     assertTrue(msg.contains("<strong>Personal message from Member One:</strong><br /> \"Hello John,<br /><br />please join my team\""));
   }
+
   @Test
   public void testComposeInvitationMailMessage_plaintext() throws Exception {
     Configuration freemarkerConfiguration = getFreemarkerConfig();
@@ -352,11 +349,4 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     assertTrue(msg.contains("*Personal message from Member One:*\n\"Hello John,\n\nplease join my team\""));
   }
 
-  private Configuration getFreemarkerConfig() throws IOException {
-    Configuration freemarkerConfiguration = new Configuration();
-    Resource templateDir = new ClassPathResource("/ftl/");
-    freemarkerConfiguration.setDirectoryForTemplateLoading(templateDir.getFile());
-    freemarkerConfiguration.setObjectWrapper(new DefaultObjectWrapper());
-    return freemarkerConfiguration;
-  }
 }

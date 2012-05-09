@@ -36,7 +36,7 @@
       <p class="label-field-wrapper">
         <input type="hidden" name="team" value="<c:out value='${joinTeamRequest.groupId}' />" />
         <input type="hidden" name="view" value="<c:out value='${view}' />" />
-        <form:label path="message"><spring:message code='jsp.general.Message' /></form:label>
+        <form:label path="message"><spring:message code='jsp.jointeam.Message.label' /></form:label>
         <form:textarea path="message" rows="4" cols="5"/>
       </p>
       <p class="label-field-wrapper">

@@ -19,31 +19,43 @@
  */
 package nl.surfnet.coin.teams.control;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
+import org.opensocial.models.Person;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
 
+import freemarker.template.Configuration;
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
 
-import static org.easymock.EasyMock.createMock;
-import static org.easymock.EasyMock.expect;
-import static org.easymock.EasyMock.replay;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
- * @author steinwelberg
+ * Test for {@link JoinTeamController}
  */
 public class JoinTeamControllerTest extends AbstractControllerTest {
 
+  private static final Logger log = LoggerFactory.getLogger(JoinTeamControllerTest.class);
   private JoinTeamController joinTeamController = new JoinTeamController();
   private Team mockTeam;
   private Team mockPrivateTeam;
@@ -85,24 +97,40 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
   @Test
   public void testJoinTeamHappyFlow() throws Exception {
     MockHttpServletRequest request = getRequest();
-    // Add the team
-    request.addParameter("team", "team-1");
-    request.addParameter("message", "message");
 
-    GrouperTeamService mockGrouperTeamService = createMock("mockGrouperTeamService", GrouperTeamService.class);
-    joinTeamController.setGrouperTeamService(mockGrouperTeamService);
+    Person requester = new Person();
+    requester.setField("id", "urn:collab:person:com.example:john.doe");
+    requester.setField("displayName", "John Doe");
+    List<String> emails = new ArrayList<String>();
+    emails.add("john.doe@example.com");
+    requester.setField("emails", emails);
+    request.getSession().setAttribute(LoginInterceptor.PERSON_SESSION_KEY, requester);
+
+    TeamEnvironment environment = new TeamEnvironment();
+    environment.setTeamsURL("http://localhost:8060/teams");
+    joinTeamController.setTeamEnvironment(environment);
 
     Member admin = getAdministrativeMember();
     Set<Member> admins = new HashSet<Member>();
     admins.add(admin);
-    expect(mockGrouperTeamService.findAdmins(mockTeam)).andReturn(admins);
 
-    JoinTeamRequest joinTeamRequest = new JoinTeamRequest("ID2345", "team-1");
+    GrouperTeamService mockGrouperTeamService = mock(GrouperTeamService.class);
+    when(mockGrouperTeamService.findAdmins(mockTeam)).thenReturn(admins);
+    autoWireMock(joinTeamController, mockGrouperTeamService, GrouperTeamService.class);
+
+    LocaleResolver localeResolver = mock(LocaleResolver.class);
+    when(localeResolver.resolveLocale(request)).thenReturn(Locale.ENGLISH);
+    autoWireMock(joinTeamController, localeResolver, LocaleResolver.class);
+
+    JoinTeamRequest joinTeamRequest = new JoinTeamRequest("ID2345", "team-2");
+    joinTeamRequest.setMessage("Hello,\ncan I please join this team?");
+
+    Configuration freemarkerConfiguration = getFreemarkerConfig();
+    autoWireMock(joinTeamController, freemarkerConfiguration, Configuration.class);
 
     autoWireMock(joinTeamController, new Returns(mockTeam), ControllerUtil.class);
     autoWireRemainingResources(joinTeamController);
 
-    replay(mockGrouperTeamService);
     RedirectView result = joinTeamController.joinTeam(getModelMap(), joinTeamRequest, request);
 
     assertEquals("home.shtml?teams=my&view=app", result.getUrl());
@@ -125,16 +153,65 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
     request.addParameter("team", "team-2");
     request.addParameter("message", "message");
 
-    GrouperTeamService mockGrouperTeamService = createMock("mockGrouperTeamService", GrouperTeamService.class);
-    joinTeamController.setGrouperTeamService(mockGrouperTeamService);
+    GrouperTeamService mockGrouperTeamService = mock(GrouperTeamService.class);
+    autoWireMock(joinTeamController, mockGrouperTeamService, GrouperTeamService.class);
 
     JoinTeamRequest joinTeamRequest = new JoinTeamRequest("ID2345", "team-2");
 
     autoWireMock(joinTeamController, new Returns(mockPrivateTeam), ControllerUtil.class);
     autoWireRemainingResources(joinTeamController);
-    replay(mockGrouperTeamService);
     joinTeamController.joinTeam(getModelMap(), joinTeamRequest, request);
 
   }
 
+  @Test
+  public void testComposeJoinRequestMailMessage_html() throws Exception {
+    Person requester = getPerson1();
+    requester.setField("displayName", "Humble User");
+    List<String> emails = new ArrayList<String>(1);
+    emails.add("humble.user@example.com");
+    requester.setField("emails", emails);
+
+    Configuration freemarkerConfiguration = getFreemarkerConfig();
+    autoWireMock(joinTeamController, freemarkerConfiguration, Configuration.class);
+
+    TeamEnvironment environment = new TeamEnvironment();
+    environment.setTeamsURL("http://localhost:8060/teams");
+    joinTeamController.setTeamEnvironment(environment);
+
+    String message = "Hello admin,\n\ncan I join this team please?\n\nRegards,\nHumble User";
+    final String body = joinTeamController.composeJoinRequestMailMessage(mockPrivateTeam, requester, message, Locale.ENGLISH, "html");
+
+    assertNotNull(body);
+    log.debug(body);
+
+    assertTrue(body.contains("Humble User (humble.user@example.com) would like to join team <strong>Team 2</strong>."));
+    assertTrue(body.contains("<strong>Personal message from Humble User:</strong><br /> \"Hello admin,<br /><br />" +
+        "can I join this team please?<br /><br />Regards,<br />Humble User\""));
+
+  }
+
+  @Test
+  public void testComposeJoinRequestMailMessage_text() throws Exception {
+    Person requester = getPerson1();
+    requester.setField("displayName", "Humble User");
+    List<String> emails = new ArrayList<String>(1);
+    emails.add("humble.user@example.com");
+    requester.setField("emails", emails);
+
+    Configuration freemarkerConfiguration = getFreemarkerConfig();
+    autoWireMock(joinTeamController, freemarkerConfiguration, Configuration.class);
+
+    TeamEnvironment environment = new TeamEnvironment();
+    environment.setTeamsURL("http://localhost:8060/teams");
+    joinTeamController.setTeamEnvironment(environment);
+
+    String message = "Hello admin,\n\ncan I join this team please?\n\nRegards,\nHumble User";
+    final String body = joinTeamController.composeJoinRequestMailMessage(mockPrivateTeam, requester, message, Locale.ENGLISH, "plaintext");
+
+    assertNotNull(body);
+    log.debug(body);
+    assertTrue(body.contains("Humble User (humble.user@example.com) would like to join team *Team 2*."));
+    assertTrue(body.contains("*Personal message from Humble User:*\n\"" + message + "\""));
+  }
 }

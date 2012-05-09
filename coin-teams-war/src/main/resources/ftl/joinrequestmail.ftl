@@ -1,4 +1,5 @@
 [#ftl]
+[#setting url_escaping_charset="UTF-8"]
 [#--<!doctype html>--]
 [#--
   Copyright 2012 SURFnet bv, The Netherlands
@@ -18,10 +19,11 @@
 
 [#--
 Template variables:
-Invitation invitation
-Person inviter
+String requesterName
+String requesterEmail
 Team team
 String teamsURL
+String message
  --]
 [#-- In head: Generate more than 1109 spaces for iOS devices, but no more than 250 chars at a time --]
 <html>
@@ -91,13 +93,13 @@ String teamsURL
           SURFteams</h1>
 
         <p lang="en">
-          You are invited by ${inviter.displayName?html} to join team <strong>${team.name?html}</strong>.
+          ${requesterName?html} (${requesterEmail?html}) would like to join team <strong>${team.name?html}</strong>.
         </p>
 
-        [#if invitation.latestInvitationMessage?has_content && invitation.latestInvitationMessage.message?has_content]
+        [#if message?has_content]
         <p>
-          [#assign msg]${invitation.latestInvitationMessage.message?html}[/#assign]
-          <strong>Personal message from ${inviter.displayName?html}:</strong><br /> "${msg?replace("\n","<br />")}"
+          [#assign msg]${message?html}[/#assign]
+          <strong>Personal message from ${requesterName?html}:</strong><br /> "${msg?replace("\n","<br />")}"
         </p>
         [/#if]
 
@@ -108,28 +110,19 @@ String teamsURL
         </p>
         [/#if]
 
-        [#assign acceptUrl]${teamsURL}/acceptInvitation.shtml?id=${invitation.invitationHash}[/#assign]
-        [#assign declineUrl]${teamsURL}/declineInvitation.shtml?id=${invitation.invitationHash}[/#assign]
+        [#assign detailTeamUrl]${teamsURL}/detailteam.shtml?view=app&team=${team.id?url}[/#assign]
         <table cellpadding="10" width="90%" align="center" style="margin-bottom:1em;margin-left:auto;margin-right:auto;margin-top:1em;">
           <tr>
-            <td bgcolor="#EDFFDE" style="mso-line-height-rule:exactly;line-height:18px;font-size:13px;font-family:Arial, sans-serif;border-radius:4px 4px 4px 4px;color:#489406;border-style:solid;border-width:1px;border-color:#489406;"
-                align="center" width="50%">
-                <span lang="en"><a href="${acceptUrl}" style="color:#0088CC;">Login to accept this invitation</a></span>
-                <br/><span lang="nl"><a href="${acceptUrl}" style="color:#0088CC;">Inloggen om de uitnodiging te accepteren</a></span>
-            </td>
-            <td style="color:#333333;mso-line-height-rule:exactly;line-height:18px;font-size:13px;font-family:Arial, sans-serif;"
-                align="center" width="50%">
-                <span lang="en"><a href="${declineUrl}" style="color:#0088CC;">Decline this invitation</a></span>
-                <br/><span lang="nl"><a href="${declineUrl}" style="color:#0088CC;">De uitnodiging afwijzen</a></span>
+            <td bgcolor="#D9EDF7" style="mso-line-height-rule:exactly;line-height:18px;font-size:13px;font-family:Arial, sans-serif;border-radius:4px 4px 4px 4px;color:#333333;border-style:solid;border-width:1px;border-color:#4FB3CF;"
+                align="center" width="100%">
+                <span lang="en"><a href="${detailTeamUrl}" style="color:#0088CC;">Login to process this request</a></span>
+                <br/><span lang="nl"><a href="${detailTeamUrl}" style="color:#0088CC;">Inloggen om dit verzoek af te handelen</a></span>
             </td>
           </tr>
         </table>
-        <p lang="en">
-          This invitation automatically expires after 14 days.
-        </p>
 
         <p lang="en">
-          Consult the manual for specific information on SURFteams
+          Consult the
           <a href="https://wiki.surfnetlabs.nl/display/conextsupport/SURFteams" style="color:#0088CC;">manual for specific information on SURFteams</a>
           or contact SURFteams support at <a href="mailto:help@surfteams.nl" style="color:#0088CC;">help@surfteams.nl</a>.
         </p>

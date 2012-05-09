@@ -17,21 +17,33 @@
 package nl.surfnet.coin.teams.control;
 
 import java.io.IOException;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 
+import javax.mail.BodyPart;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServletRequest;
 
 import org.opensocial.models.Person;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -41,6 +53,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
 
+import freemarker.template.Configuration;
+import freemarker.template.TemplateException;
 import nl.surfnet.coin.shared.service.MailService;
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Member;
@@ -61,6 +75,7 @@ import nl.surfnet.coin.teams.util.ViewUtil;
 public class JoinTeamController {
 
   private static final String REQUEST_MEMBERSHIP_SUBJECT = "request.MembershipSubject";
+  private static final Logger log = LoggerFactory.getLogger(JoinTeamController.class);
 
   public static final String JOIN_TEAM_REQUEST = "joinTeamRequest";
 
@@ -85,6 +100,9 @@ public class JoinTeamController {
   @Autowired
   private ControllerUtil controllerUtil;
 
+  @Autowired
+  private Configuration freemarkerConfiguration;
+
   @RequestMapping("/jointeam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request) {
 
@@ -99,21 +117,14 @@ public class JoinTeamController {
       throw new RuntimeException("Cannot find team for parameter 'team'");
     }
     Person person = (Person) request.getSession().getAttribute(
-            LoginInterceptor.PERSON_SESSION_KEY);
+        LoginInterceptor.PERSON_SESSION_KEY);
 
 
     modelMap.addAttribute("team", team);
     JoinTeamRequest joinTeamRequest =
-            joinTeamRequestService.findPendingRequest(person, team);
+        joinTeamRequestService.findPendingRequest(person, team);
     if (joinTeamRequest == null) {
       joinTeamRequest = new JoinTeamRequest(person.getId(), team.getId());
-    }
-
-    if (!StringUtils.hasText(joinTeamRequest.getMessage())) {
-      Locale locale = localeResolver.resolveLocale(request);
-      Object[] messageValues = {person.getDisplayName(), team.getName()};
-      joinTeamRequest.setMessage(messageSource.getMessage(
-              "jsp.jointeam.Message", messageValues, locale));
     }
 
     modelMap.addAttribute(JOIN_TEAM_REQUEST, joinTeamRequest);
@@ -127,69 +138,140 @@ public class JoinTeamController {
   public RedirectView joinTeam(ModelMap modelMap,
                                @ModelAttribute(JOIN_TEAM_REQUEST) JoinTeamRequest joinTeamRequest,
                                HttpServletRequest request)
-          throws IOException {
+      throws IOException {
 
     ViewUtil.addViewToModelMap(request, modelMap);
 
     Team team = controllerUtil.getTeamById(joinTeamRequest.getGroupId());
-      
+
     if (!team.isViewable()) {
       throw new IllegalStateException("The team you requested to join is private.");
     }
 
     Person person = (Person) request.getSession().getAttribute(
-            LoginInterceptor.PERSON_SESSION_KEY);
+        LoginInterceptor.PERSON_SESSION_KEY);
 
     String message = joinTeamRequest.getMessage();
     // First send mail, then optionally create record in db
     sendJoinTeamMessage(team, person, message,
-            localeResolver.resolveLocale(request));
+        localeResolver.resolveLocale(request));
 
     joinTeamRequest.setTimestamp(new Date().getTime());
     joinTeamRequestService.saveOrUpdate(joinTeamRequest);
 
     return new RedirectView("home.shtml?teams=my&view="
-            + ViewUtil.getView(request));
+        + ViewUtil.getView(request));
   }
 
   private void sendJoinTeamMessage(final Team team, final Person person,
                                    final String message, final Locale locale)
-          throws IllegalStateException, IOException {
+      throws IllegalStateException, IOException {
 
     Object[] subjectValues = {team.getName()};
-    String subject = messageSource.getMessage(REQUEST_MEMBERSHIP_SUBJECT,
-            subjectValues, locale);
+    final String subject = messageSource.getMessage(REQUEST_MEMBERSHIP_SUBJECT,
+        subjectValues, locale);
 
-    StringBuilder messageBody = new StringBuilder();
-    if (message != null) {
-      messageBody.append(message);
-    }
-
-    String acceptURL = environment.getTeamsURL();
-
-    Object[] footerValues = {acceptURL, person.getDisplayName(),
-            person.getEmail(), URLEncoder.encode(team.getId(), "utf-8")};
-    messageBody.append(messageSource.getMessage("request.mail.GoToUrlToAccept",
-            footerValues, locale));
-
-    Set<Member> admins = grouperTeamService.findAdmins(team);
+    final Set<Member> admins = grouperTeamService.findAdmins(team);
     if (CollectionUtils.isEmpty(admins)) {
       throw new IllegalStateException("Team '" + team.getName()
-              + "' has no admins to mail invites");
+          + "' has no admins to mail invites");
     }
-    SimpleMailMessage mailMessage = new SimpleMailMessage();
-    mailMessage.setFrom(environment.getSystemEmail());
-    List<String> bcc = new ArrayList<String>();
-    for (Member admin : admins) {
-      bcc.add(admin.getEmail());
-    }
-    mailMessage.setBcc(bcc.toArray(new String[bcc.size()]));
-    mailMessage.setSubject(subject);
-    mailMessage.setText(messageBody.toString());
-    mailService.sendAsync(mailMessage);
+
+    final String html = composeJoinRequestMailMessage(team, person, message, locale, "html");
+    final String plainText = composeJoinRequestMailMessage(team, person, message, locale, "plaintext");
+
+    MimeMessagePreparator preparator = new MimeMessagePreparator() {
+      public void prepare(MimeMessage mimeMessage) throws MessagingException {
+        mimeMessage.addHeader("Precedence", "bulk");
+        List<InternetAddress> bcc = new ArrayList<InternetAddress>();
+        for (Member admin : admins) {
+          try {
+            bcc.add(new InternetAddress(admin.getEmail()));
+          } catch (AddressException ae) {
+            log.debug("Admin has malformed email address", ae);
+          }
+        }
+
+        mimeMessage.setFrom(new InternetAddress(environment.getSystemEmail()));
+        mimeMessage.setRecipients(Message.RecipientType.BCC, bcc.toArray(new InternetAddress[bcc.size()]));
+        mimeMessage.setSubject(subject);
+
+        MimeMultipart rootMixedMultipart = new MimeMultipart("mixed");
+        mimeMessage.setContent(rootMixedMultipart);
+
+        MimeMultipart nestedRelatedMultipart = new MimeMultipart("related");
+        MimeBodyPart relatedBodyPart = new MimeBodyPart();
+        relatedBodyPart.setContent(nestedRelatedMultipart);
+        rootMixedMultipart.addBodyPart(relatedBodyPart);
+
+        MimeMultipart messageBody = new MimeMultipart("alternative");
+        MimeBodyPart bodyPart = null;
+        for (int i = 0; i < nestedRelatedMultipart.getCount(); i++) {
+          BodyPart bp = nestedRelatedMultipart.getBodyPart(i);
+          if (bp.getFileName() == null) {
+            bodyPart = (MimeBodyPart) bp;
+          }
+        }
+        if (bodyPart == null) {
+          MimeBodyPart mimeBodyPart = new MimeBodyPart();
+          nestedRelatedMultipart.addBodyPart(mimeBodyPart);
+          bodyPart = mimeBodyPart;
+        }
+        bodyPart.setContent(messageBody, "text/alternative");
+
+        // Create the plain text part of the message.
+        MimeBodyPart plainTextPart = new MimeBodyPart();
+        plainTextPart.setText(plainText, "UTF-8");
+        messageBody.addBodyPart(plainTextPart);
+
+        // Create the HTML text part of the message.
+        MimeBodyPart htmlTextPart = new MimeBodyPart();
+        htmlTextPart.setContent(html, "text/html;charset=UTF-8");
+        messageBody.addBodyPart(htmlTextPart);
+
+      }
+    };
+
+    mailService.sendAsync(preparator);
+
   }
 
-  public void setGrouperTeamService(GrouperTeamService grouperTeamService) {
-    this.grouperTeamService = grouperTeamService;
+  String composeJoinRequestMailMessage(final Team team, final Person person,
+                                       final String message, final Locale locale,
+                                       final String variant) {
+    StringBuilder sb = new StringBuilder();
+    String templateName;
+    if ("plaintext".equals(variant)) {
+      templateName = "joinrequestmail-plaintext.ftl";
+    } else {
+      templateName = "joinrequestmail.ftl";
+    }
+    Map<String, Object> templateVars = new HashMap<String, Object>();
+    templateVars.put("requesterName", person.getDisplayName());
+    templateVars.put("requesterEmail", person.getEmail());// for some reason Freemarker cannot call this method
+    templateVars.put("team", team);
+    templateVars.put("teamsURL", environment.getTeamsURL());
+    templateVars.put("message", message);
+
+    try {
+      sb.append(FreeMarkerTemplateUtils.processTemplateIntoString(
+          freemarkerConfiguration.getTemplate(templateName, locale), templateVars
+      ));
+    } catch (IOException e) {
+      throw new RuntimeException("Failed to create invitation mail", e);
+    } catch (TemplateException e) {
+      throw new RuntimeException("Failed to create invitation mail", e);
+    }
+
+    return sb.toString();
+  }
+
+  /**
+   * Setter for {@link TeamEnvironment} in case {@link @Autowired} is not used
+   *
+   * @param environment TeamEnvironment to set
+   */
+  void setTeamEnvironment(TeamEnvironment environment) {
+    this.environment = environment;
   }
 }
