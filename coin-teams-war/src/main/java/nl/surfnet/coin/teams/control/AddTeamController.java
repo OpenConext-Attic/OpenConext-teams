@@ -119,9 +119,6 @@ public class AddTeamController {
     modelMap.addAttribute("stems", stems);
     modelMap.addAttribute("team", team);
     modelMap.addAttribute(TokenUtil.TOKENCHECK, TokenUtil.generateSessionToken());
-    Locale locale = localeResolver.resolveLocale(request);
-    Object[] messageParams = {person.getDisplayName(), "TEAMNAME"}; // TEAMNAME is replaced in addteam.js
-    modelMap.addAttribute("admin2message", messageSource.getMessage("jsp.addteam.Admin2Message.message", messageParams, locale));
     return "addteam";
   }
 

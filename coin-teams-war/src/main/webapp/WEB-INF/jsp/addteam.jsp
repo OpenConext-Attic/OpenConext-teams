@@ -80,10 +80,7 @@
       </p>
 
       <p class="label-field-wrapper" id="admin2messagecontainer">
-        <label for="admin2message"><spring:message code='jsp.general.Message'/></label>
-        <c:if test="${empty admin2message}">
-          <spring:message code="jsp.addteam.Admin2Message.message" var="admin2message"/>
-        </c:if>
+        <label for="admin2message"><spring:message code='jsp.addmember.Message.label'/></label>
         <textarea id="admin2message" name="admin2message" cols="5" rows="4"><c:out value="${admin2message}"/></textarea>
       </p>
       <p class="label-field-wrapper">
