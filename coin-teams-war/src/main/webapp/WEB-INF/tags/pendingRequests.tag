@@ -3,19 +3,19 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <%--
-  ~ Copyright 2011 SURFnet bv, The Netherlands
-  ~
-  ~ Licensed under the Apache License, Version 2.0 (the "License");
-  ~ you may not use this file except in compliance with the License.
-  ~ You may obtain a copy of the License at
-  ~
-  ~      http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing, software
-  ~ distributed under the License is distributed on an "AS IS" BASIS,
-  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~ See the License for the specific language governing permissions and
-  ~ limitations under the License.
+  Copyright 2012 SURFnet bv, The Netherlands
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
   --%>
 
 <c:if test="${pager.offset eq 0 and fn:length(pendingRequests)>0}">
@@ -24,12 +24,31 @@
   <div class="team-table-wrapper">
   <table class="team-table">
     <thead>
-    <th colspan="3"><spring:message code='jsp.detailteam.Name'/></th>
+    <th><spring:message code='jsp.detailteam.Name'/></th>
+    <th><spring:message code='jsp.general.Email'/></th>
+    <th colspan="2"></th>
     </thead>
     <tbody>
     <c:forEach var="pending" items="${pendingRequests}">
+      <%-- Ugly hack to either call org.opensocial.models.Person#getEmail first.
+      Doesn't always work, so then try org.opensocial.models.Person#get("emails") --%>
+      <c:catch>
+        <c:if test="${not empty pending.email}">
+          <c:set var="email" value="${pending.email}"/>
+        </c:if>
+      </c:catch>
+      <c:if test="${empty email}">
+        <c:catch>
+          <c:if test="${fn:length(pending.emails)>0}">
+            <c:set var="email" value="${pending.emails[0].value}"/>
+          </c:if>
+        </c:catch>
+      </c:if>
       <tr>
         <td><c:out value="${pending.displayName}"/></td>
+        <td>
+          <c:out value="${email}"/>
+        </td>
         <td>
           <form name="deleteRequestForm" action="dodeleterequest.shtml" method="POST">
             <input type="hidden" name="token" value="<c:out value="${tokencheck}"/>"/>
