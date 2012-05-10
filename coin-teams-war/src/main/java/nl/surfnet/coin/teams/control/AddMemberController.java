@@ -424,18 +424,15 @@ public class AddMemberController {
     templateVars.put("team", team);
     templateVars.put("teamsURL", environment.getTeamsURL());
 
-    StringBuffer sb = new StringBuffer();
     try {
-      sb.append(FreeMarkerTemplateUtils.processTemplateIntoString(
+      return FreeMarkerTemplateUtils.processTemplateIntoString(
           freemarkerConfiguration.getTemplate(templateName, locale), templateVars
-      ));
+      );
     } catch (IOException e) {
       throw new RuntimeException("Failed to create invitation mail", e);
     } catch (TemplateException e) {
       throw new RuntimeException("Failed to create invitation mail", e);
     }
-
-    return sb.toString();
   }
 
 

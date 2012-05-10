@@ -239,7 +239,6 @@ public class JoinTeamController {
   String composeJoinRequestMailMessage(final Team team, final Person person,
                                        final String message, final Locale locale,
                                        final String variant) {
-    StringBuilder sb = new StringBuilder();
     String templateName;
     if ("plaintext".equals(variant)) {
       templateName = "joinrequestmail-plaintext.ftl";
@@ -248,22 +247,21 @@ public class JoinTeamController {
     }
     Map<String, Object> templateVars = new HashMap<String, Object>();
     templateVars.put("requesterName", person.getDisplayName());
-    templateVars.put("requesterEmail", person.getEmail());// for some reason Freemarker cannot call this method
+    // for unknown reasons Freemarker cannot call person.getEmail()
+    templateVars.put("requesterEmail", person.getEmail());
     templateVars.put("team", team);
     templateVars.put("teamsURL", environment.getTeamsURL());
     templateVars.put("message", message);
 
     try {
-      sb.append(FreeMarkerTemplateUtils.processTemplateIntoString(
+      return FreeMarkerTemplateUtils.processTemplateIntoString(
           freemarkerConfiguration.getTemplate(templateName, locale), templateVars
-      ));
+      );
     } catch (IOException e) {
       throw new RuntimeException("Failed to create invitation mail", e);
     } catch (TemplateException e) {
       throw new RuntimeException("Failed to create invitation mail", e);
     }
-
-    return sb.toString();
   }
 
   /**
