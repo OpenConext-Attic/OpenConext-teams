@@ -565,8 +565,10 @@ public class DetailTeamController {
     // Cleanup request
     joinTeamRequestService.delete(pendingRequest);
 
-    if (!approve) {
-      Locale locale = localeResolver.resolveLocale(request);
+    Locale locale = localeResolver.resolveLocale(request);
+    if (approve) {
+      sendAcceptMail(personToAddAsMember, team, locale);
+    } else {
       sendDeclineMail(personToAddAsMember, team, locale);
     }
 
@@ -627,6 +629,57 @@ public class DetailTeamController {
     } catch (TemplateException e) {
       throw new RuntimeException("Failed to create decline join request mail", e);
     }
+  }
 
+  /**
+   * Notifies the user that requested to join a team that his request has been
+   * declined
+   *
+   * @param memberToAdd {@link Person} that wanted to join the team
+   * @param team        {@link Team} he wanted to join
+   * @param locale      {@link Locale}
+   */
+  private void sendAcceptMail(final Person memberToAdd, final Team team,
+                               final Locale locale) {
+    final String subject = messageSource.getMessage("request.mail.accepted.subject",
+        null, locale);
+    final String html = composeAcceptMailMessage(team, locale, "html");
+    final String plainText = composeAcceptMailMessage(team, locale, "plaintext");
+
+    MimeMessagePreparator preparator = new MimeMessagePreparator() {
+      public void prepare(MimeMessage mimeMessage) throws MessagingException {
+        mimeMessage.addHeader("Precedence", "bulk");
+
+        mimeMessage.setFrom(new InternetAddress(teamEnvironment.getSystemEmail()));
+        mimeMessage.setRecipients(Message.RecipientType.TO, memberToAdd.getEmail());
+        mimeMessage.setSubject(subject);
+
+        MimeMultipart rootMixedMultipart = controllerUtil.getMimeMultipartMessageBody(plainText, html);
+        mimeMessage.setContent(rootMixedMultipart);
+      }
+    };
+
+    mailService.sendAsync(preparator);
+  }
+
+  String composeAcceptMailMessage(final Team team, final Locale locale, final String variant) {
+    String templateName;
+    if ("plaintext".equals(variant)) {
+      templateName = "joinrequest-acceptmail-plaintext.ftl";
+    } else {
+      templateName = "joinrequest-acceptmail.ftl";
+    }
+    Map<String, Object> templateVars = new HashMap<String, Object>();
+    templateVars.put("team", team);
+
+    try {
+      return FreeMarkerTemplateUtils.processTemplateIntoString(
+          freemarkerConfiguration.getTemplate(templateName, locale), templateVars
+      );
+    } catch (IOException e) {
+      throw new RuntimeException("Failed to create accept join request mail", e);
+    } catch (TemplateException e) {
+      throw new RuntimeException("Failed to create accept join request mail", e);
+    }
   }
 }
