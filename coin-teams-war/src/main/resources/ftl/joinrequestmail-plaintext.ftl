@@ -1,5 +1,4 @@
 [#ftl]
-[#setting url_escaping_charset="UTF-8"]
 [#--
 Copyright 2012 SURFnet bv, The Netherlands
 
@@ -15,6 +14,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 --]
+[#setting url_escaping_charset="UTF-8"]
+[#import "macros_plaintextmail.ftl" as macros_plaintextmail/]
 
 [#--
 Template variables:
@@ -25,7 +26,7 @@ String teamsURL
 String message
 --]
 
-*SURFteams*
+[@macros_plaintextmail.mailheader/]
 
 ${requesterName?html} (${requesterEmail?html}) would like to join team *${team.name?html}*.
 
@@ -43,7 +44,4 @@ ${requesterName?html} (${requesterEmail?html}) would like to join team *${team.n
 Login to process this request: ${detailTeamUrl}
 Inloggen om dit verzoek af te handelen: ${detailTeamUrl}
 
-Consult the manual for specific information on SURFteams: https://wiki.surfnetlabs.nl/display/conextsupport/SURFteams
-or contact SURFteams support at help@surfteams.nl.
-
-This service is powered by SURFconext http://www.surfconext.nl/ - brought to you by SURFnet
+[@macros_plaintextmail.mailfooter/]

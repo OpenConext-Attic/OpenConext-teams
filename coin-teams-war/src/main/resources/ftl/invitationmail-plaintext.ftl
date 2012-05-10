@@ -14,7 +14,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   --]
-
+[#import "macros_plaintextmail.ftl" as macros_plaintextmail/]
 [#--
 Template variables:
 Invitation invitation
@@ -25,7 +25,7 @@ String teamsURL
 [#assign acceptUrl]${teamsURL}/acceptInvitation.shtml?id=${invitation.invitationHash}[/#assign]
 [#assign declineUrl]${teamsURL}/declineInvitation.shtml?id=${invitation.invitationHash}[/#assign]
 
-*SURFteams*
+[@macros_plaintextmail.mailheader/]
 
 You are invited by ${inviter.displayName?html} to join team *${team.name?html}*.
 
@@ -46,7 +46,4 @@ De uitnodiging afwijzen: ${declineUrl}
 
 This invitation automatically expires after 14 days.
 
-Consult the manual for specific information on SURFteams: https://wiki.surfnetlabs.nl/display/conextsupport/SURFteams
-or contact SURFteams support at help@surfteams.nl.
-
-This service is powered by SURFconext http://www.surfconext.nl/ - brought to you by SURFnet
+[@macros_plaintextmail.mailfooter/]

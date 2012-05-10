@@ -15,7 +15,7 @@
   limitations under the License.
   --]
 
-[#import "macros_htmlmail.ftl" as macros_htmlmail]
+[#import "macros_htmlmail.ftl" as macros_htmlmail/]
 [#--
 Template variables:
 Invitation invitation

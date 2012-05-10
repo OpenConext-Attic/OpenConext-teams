@@ -28,6 +28,11 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServletRequest;
 
 import org.json.JSONException;
@@ -35,9 +40,10 @@ import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.MessageSource;
-import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,6 +54,8 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
 
+import freemarker.template.Configuration;
+import freemarker.template.TemplateException;
 import nl.surfnet.coin.opensocial.service.PersonService;
 import nl.surfnet.coin.shared.service.MailService;
 import nl.surfnet.coin.teams.domain.GroupProvider;
@@ -123,6 +131,9 @@ public class DetailTeamController {
 
   @Autowired
   private ControllerUtil controllerUtil;
+
+  @Autowired
+  private Configuration freemarkerConfiguration;
 
   @RequestMapping("/detailteam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request)
@@ -569,28 +580,53 @@ public class DetailTeamController {
   /**
    * Notifies the user that requested to join a team that his request has been
    * declined
-   * 
-   * @param memberToAdd
-   *          {@link Person} that wanted to join the team
-   * @param team
-   *          {@link Team} he wanted to join
-   * @param locale
-   *          {@link Locale}
+   *
+   * @param memberToAdd {@link Person} that wanted to join the team
+   * @param team        {@link Team} he wanted to join
+   * @param locale      {@link Locale}
    */
   private void sendDeclineMail(final Person memberToAdd, final Team team,
-      final Locale locale) {
-    String subject = messageSource.getMessage("request.mail.declined.subject",
+                               final Locale locale) {
+    final String subject = messageSource.getMessage("request.mail.declined.subject",
         null, locale);
-    Object[] bodyValues = { team.getName() };
-    String body = messageSource.getMessage("request.mail.declined.body",
-        bodyValues, locale);
+    final String html = composeDeclineMailMessage(team, locale, "html");
+    final String plainText = composeDeclineMailMessage(team, locale, "plaintext");
 
-    SimpleMailMessage mailMessage = new SimpleMailMessage();
-    mailMessage.setFrom(teamEnvironment.getSystemEmail());
-    mailMessage.setTo(memberToAdd.getEmail());
-    mailMessage.setSubject(subject);
-    mailMessage.setText(body);
+    MimeMessagePreparator preparator = new MimeMessagePreparator() {
+      public void prepare(MimeMessage mimeMessage) throws MessagingException {
+        mimeMessage.addHeader("Precedence", "bulk");
 
-    mailService.sendAsync(mailMessage);
+        mimeMessage.setFrom(new InternetAddress(teamEnvironment.getSystemEmail()));
+        mimeMessage.setRecipients(Message.RecipientType.TO, memberToAdd.getEmail());
+        mimeMessage.setSubject(subject);
+
+        MimeMultipart rootMixedMultipart = controllerUtil.getMimeMultipartMessageBody(plainText, html);
+        mimeMessage.setContent(rootMixedMultipart);
+      }
+    };
+
+    mailService.sendAsync(preparator);
+  }
+
+  String composeDeclineMailMessage(final Team team, final Locale locale, final String variant) {
+    String templateName;
+    if ("plaintext".equals(variant)) {
+      templateName = "joinrequest-declinemail-plaintext.ftl";
+    } else {
+      templateName = "joinrequest-declinemail.ftl";
+    }
+    Map<String, Object> templateVars = new HashMap<String, Object>();
+    templateVars.put("team", team);
+
+    try {
+      return FreeMarkerTemplateUtils.processTemplateIntoString(
+          freemarkerConfiguration.getTemplate(templateName, locale), templateVars
+      );
+    } catch (IOException e) {
+      throw new RuntimeException("Failed to create decline join request mail", e);
+    } catch (TemplateException e) {
+      throw new RuntimeException("Failed to create decline join request mail", e);
+    }
+
   }
 }
