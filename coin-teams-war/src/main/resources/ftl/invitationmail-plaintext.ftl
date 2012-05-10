@@ -27,7 +27,7 @@ String teamsURL
 
 [@macros_plaintextmail.mailheader/]
 
-You are invited by ${inviter.displayName?html} to join team *${team.name?html}*.
+You have been invited by ${inviter.displayName?html} to join team *${team.name?html}*.
 
 [#if invitation.latestInvitationMessage?has_content && invitation.latestInvitationMessage.message?has_content]
 *Personal message from ${inviter.displayName?html}:*
