@@ -33,9 +33,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Test for {@link ControllerUtil}
+ * Test for {@link ControllerUtilImpl}
  */
-public class ControllerUtilTest extends AbstractControllerTest {
+public class ControllerUtilImplTest extends AbstractControllerTest {
 
   private ControllerUtil controllerUtil = new ControllerUtilImpl();
 
