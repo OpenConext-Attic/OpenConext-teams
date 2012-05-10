@@ -1,5 +1,5 @@
 /*
- * Copyright 2011 SURFnet bv, The Netherlands
+ * Copyright 2012 SURFnet bv, The Netherlands
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,10 +16,13 @@
 
 package nl.surfnet.coin.teams.util;
 
-import nl.surfnet.coin.teams.domain.Team;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMultipart;
+import javax.servlet.http.HttpServletRequest;
+
 import org.opensocial.models.Person;
 
-import javax.servlet.http.HttpServletRequest;
+import nl.surfnet.coin.teams.domain.Team;
 
 /**
  *
@@ -70,4 +73,15 @@ public interface ControllerUtil {
    * @return {@literal true} if the user is member of the team, {@literal false} if the user isn't member
    */
   public boolean isPersonMemberOfTeam(String personId, Team team);
+
+  /**
+   * Makes {@link MimeMultipart} with a plain text and html version of the mail
+   *
+   * @param plainText contents of the plain text part of the mail
+   * @param html      contents of the html part of the mail
+   * @return MimeMultipart
+   * @throws {@link MessagingException} if making the multipart fails
+   */
+  public MimeMultipart getMimeMultipartMessageBody(String plainText, String html)
+      throws MessagingException;
 }

@@ -18,6 +18,10 @@ package nl.surfnet.coin.teams.util;
 
 import java.util.List;
 
+import javax.mail.BodyPart;
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServletRequest;
 
 import org.opensocial.models.Person;
@@ -110,6 +114,41 @@ public class ControllerUtilImpl implements ControllerUtil {
       }
     }
     return isMember;
+  }
+
+  @Override
+  public MimeMultipart getMimeMultipartMessageBody(String plainText, String html) throws MessagingException {
+    MimeMultipart rootMixedMultipart = new MimeMultipart("mixed");
+    MimeMultipart nestedRelatedMultipart = new MimeMultipart("related");
+    MimeBodyPart relatedBodyPart = new MimeBodyPart();
+    relatedBodyPart.setContent(nestedRelatedMultipart);
+    rootMixedMultipart.addBodyPart(relatedBodyPart);
+
+    MimeMultipart messageBody = new MimeMultipart("alternative");
+    MimeBodyPart bodyPart = null;
+    for (int i = 0; i < nestedRelatedMultipart.getCount(); i++) {
+      BodyPart bp = nestedRelatedMultipart.getBodyPart(i);
+      if (bp.getFileName() == null) {
+        bodyPart = (MimeBodyPart) bp;
+      }
+    }
+    if (bodyPart == null) {
+      MimeBodyPart mimeBodyPart = new MimeBodyPart();
+      nestedRelatedMultipart.addBodyPart(mimeBodyPart);
+      bodyPart = mimeBodyPart;
+    }
+    bodyPart.setContent(messageBody, "text/alternative");
+
+    // Create the plain text part of the message.
+    MimeBodyPart plainTextPart = new MimeBodyPart();
+    plainTextPart.setText(plainText, "UTF-8");
+    messageBody.addBodyPart(plainTextPart);
+
+    // Create the HTML text part of the message.
+    MimeBodyPart htmlTextPart = new MimeBodyPart();
+    htmlTextPart.setContent(html, "text/html;charset=UTF-8");
+    messageBody.addBodyPart(htmlTextPart);
+    return rootMixedMultipart;
   }
 
 }

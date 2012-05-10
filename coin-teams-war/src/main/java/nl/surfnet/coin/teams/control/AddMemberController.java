@@ -24,12 +24,10 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
-import javax.mail.BodyPart;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServletRequest;
@@ -370,44 +368,14 @@ public class AddMemberController {
         mimeMessage.setFrom(new InternetAddress(environment.getSystemEmail()));
         mimeMessage.setSubject(subject);
 
-        MimeMultipart rootMixedMultipart = new MimeMultipart("mixed");
+        MimeMultipart rootMixedMultipart = controllerUtil.getMimeMultipartMessageBody(plainText, html);
         mimeMessage.setContent(rootMixedMultipart);
-
-        MimeMultipart nestedRelatedMultipart = new MimeMultipart("related");
-        MimeBodyPart relatedBodyPart = new MimeBodyPart();
-        relatedBodyPart.setContent(nestedRelatedMultipart);
-        rootMixedMultipart.addBodyPart(relatedBodyPart);
-
-        MimeMultipart messageBody = new MimeMultipart("alternative");
-        MimeBodyPart bodyPart = null;
-        for (int i = 0; i < nestedRelatedMultipart.getCount(); i++) {
-          BodyPart bp = nestedRelatedMultipart.getBodyPart(i);
-          if (bp.getFileName() == null) {
-            bodyPart = (MimeBodyPart) bp;
-          }
-        }
-        if (bodyPart == null) {
-          MimeBodyPart mimeBodyPart = new MimeBodyPart();
-          nestedRelatedMultipart.addBodyPart(mimeBodyPart);
-          bodyPart = mimeBodyPart;
-        }
-        bodyPart.setContent(messageBody, "text/alternative");
-
-        // Create the plain text part of the message.
-        MimeBodyPart plainTextPart = new MimeBodyPart();
-        plainTextPart.setText(plainText, "UTF-8");
-        messageBody.addBodyPart(plainTextPart);
-
-        // Create the HTML text part of the message.
-        MimeBodyPart htmlTextPart = new MimeBodyPart();
-        htmlTextPart.setContent(html, "text/html;charset=UTF-8");
-        messageBody.addBodyPart(htmlTextPart);
-
       }
     };
 
     mailService.sendAsync(preparator);
   }
+
 
   String composeInvitationMailMessage(Invitation invitation, Person inviter, Locale locale, String variant) {
     String templateName;
