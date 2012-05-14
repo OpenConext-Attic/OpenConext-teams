@@ -23,7 +23,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
+
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;
@@ -44,7 +45,7 @@ import nl.surfnet.coin.teams.service.GrouperDao;
 public class GrouperDaoImpl extends AbstractGrouperDaoImpl implements GrouperDao {
 
 
-  @Autowired
+  @Resource(name = "grouperJdbcTemplate")
   private JdbcTemplate jdbcTemplate;
 
   @Override

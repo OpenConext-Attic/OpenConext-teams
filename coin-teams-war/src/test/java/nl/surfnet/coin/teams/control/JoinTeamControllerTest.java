@@ -212,6 +212,7 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
     assertNotNull(body);
     log.debug(body);
     assertTrue(body.contains("Humble User (humble.user@example.com) would like to join team *Team 2*."));
-    assertTrue(body.contains("*Personal message from Humble User:*\n\"" + message + "\""));
+    assertTrue(body.contains("*Personal message from Humble User:*" + System.getProperty("line.separator") + "\"" +
+        message + "\""));
   }
 }

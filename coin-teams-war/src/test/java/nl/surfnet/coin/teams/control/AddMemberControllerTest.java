@@ -346,7 +346,8 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     assertNotNull(msg);
     log.debug(msg);
     assertTrue(msg.contains("You have been invited by Member One to join team *Team 1*."));
-    assertTrue(msg.contains("*Personal message from Member One:*\n\"Hello John,\n\nplease join my team\""));
+    assertTrue(msg.contains("*Personal message from Member One:*" + System.getProperty("line.separator") + "\"Hello " +
+        "John,\n\nplease join my team\""));
   }
 
 }

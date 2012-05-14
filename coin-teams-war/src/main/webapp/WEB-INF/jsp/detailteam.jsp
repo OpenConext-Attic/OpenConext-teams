@@ -75,7 +75,7 @@
           </tr>
           </thead>
           <tbody>
-          <%--@elvariable id="teamExternalGroups" type="java.util.List<nl.surfnet.coin.teams.domain.TeamExternalGroup>"--%>
+            <%--@elvariable id="teamExternalGroups" type="java.util.List<nl.surfnet.coin.teams.domain.TeamExternalGroup>"--%>
           <%--@elvariable id="groupProviderMap" type="java.util.Map<java.lang.String, nl.surfnet.coin.teams.domain.GroupProvider>"--%>
           <c:forEach var="teg" items="${teamExternalGroups}"><c:url var="deleteexternalgroup" value="/deleteexternalgroup.shtml">
               <c:param name="teamId" value="${team.id}"/>
