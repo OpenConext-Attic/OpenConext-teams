@@ -124,8 +124,11 @@ public class TeamInviteServiceHibernateImpl
   @Override
   public List<Invitation> findPendingInvitationsByEmail(String email) {
     cleanupExpiredInvitations();
-    return findByCriteria(Restrictions.eq("email", email),
-            Restrictions.ne("declined", true));
+    return findByCriteria(
+        Restrictions.eq("email", email),
+        Restrictions.ne("declined", true),
+        Restrictions.ne("accepted", true)
+    );
   }
 
   /**
