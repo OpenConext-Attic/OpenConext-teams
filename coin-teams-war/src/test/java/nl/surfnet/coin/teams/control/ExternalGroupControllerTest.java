@@ -16,26 +16,29 @@
 
 package nl.surfnet.coin.teams.control;
 
+import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
+import nl.surfnet.coin.api.client.domain.Group20;
+import nl.surfnet.coin.api.client.domain.Group20Entry;
+import nl.surfnet.coin.api.client.domain.GroupMembersEntry;
+import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.ConversionRule;
+import nl.surfnet.coin.teams.domain.ExternalGroupDetailWrapper;
+import nl.surfnet.coin.teams.domain.GroupProvider;
+import nl.surfnet.coin.teams.domain.GroupProviderType;
+import nl.surfnet.coin.teams.service.ExternalGroupProviderProcessor;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.ui.ModelMap;
-
-import nl.surfnet.coin.api.client.domain.Group20;
-import nl.surfnet.coin.teams.domain.ConversionRule;
-import nl.surfnet.coin.teams.domain.GroupProvider;
-import nl.surfnet.coin.teams.domain.GroupProviderType;
-import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
-import nl.surfnet.coin.teams.service.GroupProviderService;
-import nl.surfnet.coin.teams.service.OauthGroupService;
-
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 /**
  * Tests for {@link ExternalGroupController}
@@ -57,23 +60,21 @@ public class ExternalGroupControllerTest extends AbstractControllerTest {
 
     final String groupId = "urn:collab:group:hz.nl:HZG-1042";
     final GroupProvider groupProvider = getGroupProvider();
-    final List<GroupProviderUserOauth> oAuths = getOAuths();
 
     Group20 group20 = new Group20();
     group20.setTitle("HZG-1042 Test Group");
     group20.setId(groupId);
 
-    GroupProviderService providerService = mock(GroupProviderService.class);
-    when(providerService.getGroupProviderUserOauths(getMember().getId())).thenReturn(oAuths);
-    when(providerService.getGroupProviderByStringIdentifier("hz")).thenReturn(groupProvider);
+    ExternalGroupProviderProcessor processor = mock(ExternalGroupProviderProcessor.class);
 
-    OauthGroupService groupService = mock(OauthGroupService.class);
-    when(groupService.getGroup20(getOAuths().get(0), groupProvider, groupId)).thenReturn(group20);
+    List<GroupProvider> groupProviders = Collections.<GroupProvider>singletonList(groupProvider);
+    request.getSession().setAttribute(HomeController.ALL_GROUP_PROVIDERS_SESSION_KEY, groupProviders);
 
-    autoWireMock(controller, providerService, GroupProviderService.class);
-    autoWireMock(controller, groupService, OauthGroupService.class);
+    when(processor.getGroupDetails("member-1",groupId,groupProviders,"hz",0,10)).thenReturn(new ExternalGroupDetailWrapper(group20, new GroupMembersEntry(Collections.<Person>singletonList(new Person()) )));
+    when(processor.getGroupProviderByStringIdentifier("hz",groupProviders)).thenReturn(groupProvider);
 
-    String view = controller.groupDetail(groupId, 0, request, modelMap);
+    autoWireMock(controller, processor, ExternalGroupProviderProcessor.class);
+    String view = controller.groupDetail(groupId,"hz", 0, request, modelMap);
 
     assertEquals(groupId, modelMap.get("groupId"));
     assertEquals("external-groupdetail", view);
@@ -92,11 +93,5 @@ public class ExternalGroupControllerTest extends AbstractControllerTest {
     groupProvider.addGroupDecorator(groupDecorator);
     return groupProvider;
   }
-
-  private List<GroupProviderUserOauth> getOAuths() {
-    List<GroupProviderUserOauth> oAuths = new ArrayList<GroupProviderUserOauth>();
-    GroupProviderUserOauth oauth = new GroupProviderUserOauth(getMember().getId(), "hz", "token", "secret");
-    oAuths.add(oauth);
-    return oAuths;
-  }
+ 
 }

@@ -16,41 +16,35 @@
 
 package nl.surfnet.coin.teams.control;
 
-import java.io.IOException;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.opensocial.models.Person;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.support.SessionStatus;
-
 import nl.surfnet.coin.api.client.OpenConextJsonParser;
+import nl.surfnet.coin.api.client.domain.Group20;
 import nl.surfnet.coin.api.client.domain.Group20Entry;
 import nl.surfnet.coin.teams.domain.ConversionRule;
 import nl.surfnet.coin.teams.domain.ExternalGroup;
 import nl.surfnet.coin.teams.domain.GroupProvider;
 import nl.surfnet.coin.teams.domain.GroupProviderType;
-import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamExternalGroup;
-import nl.surfnet.coin.teams.service.GroupProviderService;
+import nl.surfnet.coin.teams.service.ExternalGroupProviderProcessor;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
-import nl.surfnet.coin.teams.service.OauthGroupService;
 import nl.surfnet.coin.teams.service.TeamExternalGroupDao;
 import nl.surfnet.coin.teams.util.ControllerUtil;
-import nl.surfnet.coin.teams.util.ExternalGroupUtil;
 import nl.surfnet.coin.teams.util.TokenUtil;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import org.junit.Before;
+import org.junit.Test;
+import org.opensocial.models.Person;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.ui.ModelMap;
 
 /**
  * Test class for {@link AddExternalGroupController}
@@ -58,8 +52,6 @@ import static org.mockito.Mockito.when;
 public class AddExternalGroupControllerTest extends AbstractControllerTest {
 
   private AddExternalGroupController controller;
-  private OpenConextJsonParser parser = new OpenConextJsonParser();
-
 
   @Before
   public void setUp() throws Exception {
@@ -74,6 +66,7 @@ public class AddExternalGroupControllerTest extends AbstractControllerTest {
   }
 
   @Test
+  @SuppressWarnings("unchecked")
   public void testShowAddExternalGroupsForm() throws Exception {
     final MockHttpServletRequest request = getRequest();
     final Team team1 = getTeam1();
@@ -86,26 +79,28 @@ public class AddExternalGroupControllerTest extends AbstractControllerTest {
     when(controllerUtil.hasUserAdministrativePrivileges(person1, team1.getId())).thenReturn(true);
     autoWireMock(controller, controllerUtil, ControllerUtil.class);
 
-    GroupProviderService groupProviderService = mock(GroupProviderService.class);
-    when(groupProviderService.getGroupProviderUserOauths(person1.getId())).thenReturn(oauthKeys());
-    when(groupProviderService.getGroupProviderByStringIdentifier(groupProviderIdentifier)).thenReturn(hzProvider);
-    autoWireMock(controller, groupProviderService, GroupProviderService.class);
+    ExternalGroupProviderProcessor processor = mock(ExternalGroupProviderProcessor.class);
 
-    OauthGroupService groupService = mock(OauthGroupService.class);
-    when(groupService.getGroup20Entry(oauthKeys().get(0), hzProvider, 250, 0)).thenReturn(getMyHzGroups());
-    autoWireMock(controller, groupService, OauthGroupService.class);
+    List<GroupProvider> groupProviders = Collections.<GroupProvider> singletonList(hzProvider);
+    request.getSession().setAttribute(HomeController.ALL_GROUP_PROVIDERS_SESSION_KEY, groupProviders);
+    when(processor.getGroupProvidersForUser("member-1", groupProviders)).thenReturn(groupProviders);
+    Group20Entry groupEntry = new Group20Entry(Collections.<Group20> singletonList(new Group20("id", "title",
+        "description")));
+    when(processor.getExternalGroupsForGroupProviderId(hzProvider, "member-1", 0, Integer.MAX_VALUE)).thenReturn(
+        groupEntry);
+
+    autoWireMock(controller, processor, ExternalGroupProviderProcessor.class);
 
     TeamExternalGroupDao teamExternalGroupDao = mock(TeamExternalGroupDao.class);
     when(teamExternalGroupDao.getByTeamIdentifier(team1.getId())).thenReturn(new ArrayList<TeamExternalGroup>());
     autoWireMock(controller, teamExternalGroupDao, TeamExternalGroupDao.class);
 
-
     final String viewName = controller.showAddExternalGroupsForm(team1.getId(), modelMap, request);
 
     assertEquals("addexternalgroup", viewName);
     assertEquals(team1, modelMap.get("team"));
-    @SuppressWarnings("unchecked") List<ExternalGroup> externalGroups = (List<ExternalGroup>) request.getSession().getAttribute("externalGroups");
-    assertEquals(3, externalGroups.size());
+    List<ExternalGroup> externalGroups = (List<ExternalGroup>) request.getSession().getAttribute("externalGroups");
+    assertEquals(1, externalGroups.size());
     assertTrue(modelMap.containsKey("view"));
     assertTrue(modelMap.containsKey(TokenUtil.TOKENCHECK));
   }
@@ -123,19 +118,24 @@ public class AddExternalGroupControllerTest extends AbstractControllerTest {
     when(controllerUtil.hasUserAdministrativePrivileges(person1, team1.getId())).thenReturn(true);
     autoWireMock(controller, controllerUtil, ControllerUtil.class);
 
-    GroupProviderService groupProviderService = mock(GroupProviderService.class);
-    when(groupProviderService.getGroupProviderUserOauths(person1.getId())).thenReturn(oauthKeys());
-    when(groupProviderService.getGroupProviderByStringIdentifier(groupProviderIdentifier)).thenReturn(hzProvider);
-    autoWireMock(controller, groupProviderService, GroupProviderService.class);
-
-    OauthGroupService groupService = mock(OauthGroupService.class);
-    when(groupService.getGroup20Entry(oauthKeys().get(0), hzProvider, 250, 0)).thenReturn(getMyHzGroups());
-    autoWireMock(controller, groupService, OauthGroupService.class);
+    ExternalGroupProviderProcessor processor = mock(ExternalGroupProviderProcessor.class);
+    
+    List<GroupProvider> groupProviders = Collections.<GroupProvider>singletonList(hzProvider);
+    request.getSession().setAttribute(HomeController.ALL_GROUP_PROVIDERS_SESSION_KEY, groupProviders);
+    when(processor.getGroupProvidersForUser("member-1",groupProviders)).thenReturn(groupProviders);
+    Group20 group20 = new Group20(team1.getId(), "title", "description");
+    Group20Entry groupEntry = new Group20Entry(Collections.<Group20>singletonList(group20));
+    when(processor.getExternalGroupsForGroupProviderId(hzProvider ,"member-1",0,Integer.MAX_VALUE)).thenReturn(groupEntry );
+     
+    autoWireMock(controller, processor, ExternalGroupProviderProcessor.class);
 
     TeamExternalGroupDao teamExternalGroupDao = mock(TeamExternalGroupDao.class);
-    when(teamExternalGroupDao.getByTeamIdentifier(team1.getId())).thenReturn(getLinkedHzGroups(team1.getId()));
+    TeamExternalGroup teamExternalGroup = new TeamExternalGroup();
+    teamExternalGroup.setGrouperTeamId(team1.getId());
+    teamExternalGroup.setExternalGroup(new ExternalGroup(group20, hzProvider));
+    
+    when(teamExternalGroupDao.getByTeamIdentifier(team1.getId())).thenReturn(Collections.singletonList(teamExternalGroup));
     autoWireMock(controller, teamExternalGroupDao, TeamExternalGroupDao.class);
-
 
     final String viewName = controller.showAddExternalGroupsForm(team1.getId(), modelMap, request);
 
@@ -171,12 +171,9 @@ public class AddExternalGroupControllerTest extends AbstractControllerTest {
     when(controllerUtil.hasUserAdministrativePrivileges(person1, team1.getId())).thenReturn(true);
     autoWireMock(controller, controllerUtil, ControllerUtil.class);
 
-    GroupProviderService groupProviderService = mock(GroupProviderService.class);
-
-    when(groupProviderService.getGroupProviderUserOauths(person1.getId())).
-        thenReturn(Collections.<GroupProviderUserOauth>emptyList());
-    autoWireMock(controller, groupProviderService, GroupProviderService.class);
-
+    ExternalGroupProviderProcessor processor = mock(ExternalGroupProviderProcessor.class);
+    autoWireMock(controller, processor, ExternalGroupProviderProcessor.class);
+    
     final String viewName = controller.showAddExternalGroupsForm(team1.getId(), modelMap, request);
 
     assertEquals("addexternalgroup", viewName);
@@ -189,59 +186,33 @@ public class AddExternalGroupControllerTest extends AbstractControllerTest {
     final Team team1 = getTeam1();
     final ModelMap modelMap = getModelMap();
     final Person person1 = getPerson1();
-    final String groupProviderIdentifier = "hz";
-    final GroupProvider hzProvider = getHzProvider(groupProviderIdentifier);
 
     ControllerUtil controllerUtil = mock(ControllerUtil.class);
     when(controllerUtil.hasUserAdministrativePrivileges(person1, team1.getId())).thenReturn(true);
     autoWireMock(controller, controllerUtil, ControllerUtil.class);
 
-    GroupProviderService groupProviderService = mock(GroupProviderService.class);
-    when(groupProviderService.getGroupProviderUserOauths(person1.getId())).thenReturn(oauthKeys());
-    when(groupProviderService.getGroupProviderByStringIdentifier(groupProviderIdentifier)).thenReturn(hzProvider);
-    autoWireMock(controller, groupProviderService, GroupProviderService.class);
+    ExternalGroupProviderProcessor processor = mock(ExternalGroupProviderProcessor.class);
 
-    OauthGroupService groupService = mock(OauthGroupService.class);
-    when(groupService.getGroup20Entry(oauthKeys().get(0), hzProvider, 250, 0)).thenReturn(null);
-    autoWireMock(controller, groupService, OauthGroupService.class);
-
-
+    autoWireMock(controller, processor, ExternalGroupProviderProcessor.class);
+    
     final String viewName = controller.showAddExternalGroupsForm(team1.getId(), modelMap, request);
 
     assertEquals("addexternalgroup", viewName);
     assertEquals(team1, modelMap.get("team"));
-    @SuppressWarnings("unchecked") List<ExternalGroup> externalGroups = (List<ExternalGroup>) request.getSession().getAttribute("externalGroups");
+    @SuppressWarnings("unchecked")
+    List<ExternalGroup> externalGroups = (List<ExternalGroup>) request.getSession().getAttribute("externalGroups");
     assertEquals(0, externalGroups.size());
     assertTrue(modelMap.containsKey("view"));
     assertTrue(modelMap.containsKey(TokenUtil.TOKENCHECK));
   }
 
-  // TODO BACKLOG-329 complete test, write test for delete
-  @Test
-  public void testAddExternalGroups() {
-    final ModelMap modelMap = getModelMap();
-    final MockHttpServletRequest request = getRequest();
-    final String token = TokenUtil.generateSessionToken();
-    final Team team1 = getTeam1();
-    SessionStatus status = mock(SessionStatus.class);
-//    controller.addExternalGroups(token, modelMap, request);
-  }
-
-
-  // ======== Mocks =========
-
-  private List<GroupProviderUserOauth> oauthKeys() {
-    List<GroupProviderUserOauth> oauthList = new ArrayList<GroupProviderUserOauth>();
-    GroupProviderUserOauth oauth = new GroupProviderUserOauth(getPerson1().getId(), "hz", "token", "secret");
-    oauthList.add(oauth);
-    return oauthList;
-  }
 
   private GroupProvider getHzProvider(String identifier) {
     if (!"hz".equals(identifier)) {
       return null;
     }
-    GroupProvider groupProvider = new GroupProvider(4L, "hz", "HZ", GroupProviderType.OAUTH_THREELEGGED.getStringValue());
+    GroupProvider groupProvider = new GroupProvider(4L, "hz", "HZ",
+        GroupProviderType.OAUTH_THREELEGGED.getStringValue());
     ConversionRule groupDecorator = new ConversionRule();
     groupDecorator.setPropertyName("id");
     groupDecorator.setSearchPattern("urn:collab:group:hz.nl:(.+)");
@@ -251,21 +222,6 @@ public class AddExternalGroupControllerTest extends AbstractControllerTest {
     return groupProvider;
   }
 
-  private Group20Entry getMyHzGroups() throws IOException {
-    Resource resource = new ClassPathResource("mocks/hz-groups.json");
-    return parser.parseGroups20(resource.getInputStream());
-  }
-
-  private List<TeamExternalGroup> getLinkedHzGroups(String team1Id) throws IOException {
-    List<TeamExternalGroup> tegs = new ArrayList<TeamExternalGroup>();
-    final List<ExternalGroup> externalGroups = ExternalGroupUtil.convertToExternalGroups(getHzProvider("hz"), getMyHzGroups());
-    for (ExternalGroup eg : externalGroups) {
-      TeamExternalGroup teg = new TeamExternalGroup();
-      teg.setGrouperTeamId(team1Id);
-      teg.setExternalGroup(eg);
-      tegs.add(teg);
-    }
-    return tegs;
-  }
-
+ 
+ 
 }

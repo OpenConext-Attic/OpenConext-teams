@@ -42,6 +42,7 @@ import nl.surfnet.coin.teams.domain.GroupProviderType;
 import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.ExternalGroupProviderProcessor;
 import nl.surfnet.coin.teams.service.GroupProviderService;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.service.OauthGroupService;
@@ -65,12 +66,11 @@ public class HomeControllerTest extends AbstractControllerTest {
     when(grouperTeamService.findAllTeamsByMember(getMember().getId(), 0, 10)).thenReturn(getMyTeams());
     when(grouperTeamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
 
-    GroupProviderService groupProviderService = mock(GroupProviderService.class);
-    when(groupProviderService.getGroupProviderUserOauths(getMember().getId())).
-        thenReturn(Collections.<GroupProviderUserOauth>emptyList());
+    ExternalGroupProviderProcessor processor = mock(ExternalGroupProviderProcessor.class);
+    when(processor.getAllGroupProviders()).thenReturn(Collections.<GroupProvider>emptyList());
 
+    autoWireMock(homeController, processor, ExternalGroupProviderProcessor.class);
     autoWireMock(homeController, grouperTeamService, GrouperTeamService.class);
-    autoWireMock(homeController, groupProviderService, GroupProviderService.class);
     autoWireMock(homeController, new Returns(DEFAULTSTEM), TeamEnvironment.class);
     autoWireMock(homeController, new Returns("query"), MessageSource.class);
     autoWireMock(homeController, new Returns(Locale.ENGLISH), LocaleResolver.class);
@@ -93,17 +93,11 @@ public class HomeControllerTest extends AbstractControllerTest {
     when(grouperTeamService.findAllTeamsByMember(getMember().getId(), 0, 10)).thenReturn(getMyTeams());
     when(grouperTeamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
 
-    GroupProviderUserOauth gpua = new GroupProviderUserOauth(getMember().getId(), "uvh", "token", "secret");
+    ExternalGroupProviderProcessor processor = mock(ExternalGroupProviderProcessor.class);
+    
     GroupProvider groupProvider = new GroupProvider(1L, "uvh", "Universiteit van Harderwijk",
         GroupProviderType.OAUTH_THREELEGGED.getStringValue());
-    List<GroupProviderUserOauth> oauthList = new ArrayList<GroupProviderUserOauth>();
-    oauthList.add(gpua);
-
-    GroupProviderService groupProviderService = mock(GroupProviderService.class);
-    when(groupProviderService.getGroupProviderUserOauths(getMember().getId())).
-        thenReturn(oauthList);
-    when(groupProviderService.getGroupProviderByStringIdentifier(gpua.getProvider())).thenReturn(groupProvider);
-
+    List<GroupProvider> groupProviders = Collections.<GroupProvider>singletonList(groupProvider);
     Group20Entry entry = new Group20Entry();
     Group20 group20 = new Group20();
     group20.setId("externalGroupId");
@@ -112,12 +106,13 @@ public class HomeControllerTest extends AbstractControllerTest {
     group20s.add(group20);
     entry.setEntry(group20s);
 
-    OauthGroupService groupService = mock(OauthGroupService.class);
-    when(groupService.getGroup20Entry(gpua, groupProvider, 10, 0)).thenReturn(entry);
+    when(processor.getAllGroupProviders()).thenReturn(groupProviders);
+    when(processor.getGroupProvidersForUser("member-1", groupProviders)).thenReturn(groupProviders);
+    when(processor.getGroupProviderByLongIdentifier(1L,groupProviders)).thenReturn(groupProvider);
+    when(processor.getExternalGroupsForGroupProviderId(groupProvider,"member-1",0,10)).thenReturn(entry);
 
     autoWireMock(homeController, grouperTeamService, GrouperTeamService.class);
-    autoWireMock(homeController, groupProviderService, GroupProviderService.class);
-    autoWireMock(homeController, groupService, OauthGroupService.class);
+    autoWireMock(homeController, processor, ExternalGroupProviderProcessor.class);
     autoWireMock(homeController, new Returns(DEFAULTSTEM), TeamEnvironment.class);
     autoWireMock(homeController, new Returns("query"), MessageSource.class);
     autoWireMock(homeController, new Returns(Locale.ENGLISH), LocaleResolver.class);
@@ -140,11 +135,9 @@ public class HomeControllerTest extends AbstractControllerTest {
   public void testStartAllTeams() throws Exception {
     MockHttpServletRequest request = getRequest();
 
-    GroupProviderService groupProviderService = mock(GroupProviderService.class);
-    when(groupProviderService.getGroupProviderUserOauths(getMember().getId())).
-        thenReturn(Collections.<GroupProviderUserOauth>emptyList());
+    ExternalGroupProviderProcessor processor = mock(ExternalGroupProviderProcessor.class);
 
-    autoWireMock(homeController, groupProviderService, GroupProviderService.class);
+    autoWireMock(homeController, processor, ExternalGroupProviderProcessor.class);
     autoWireMock(homeController, new Returns(DEFAULTSTEM), TeamEnvironment.class);
     autoWireMock(homeController, new Returns("query"), MessageSource.class);
     autoWireMock(homeController, new Returns(Locale.ENGLISH), LocaleResolver.class);
@@ -181,12 +174,9 @@ public class HomeControllerTest extends AbstractControllerTest {
     when(grouperTeamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
     when(grouperTeamService.findTeamsByMember(getMember().getId(), "1", 0, 10)).thenReturn(getSearchTeams());
 
+    ExternalGroupProviderProcessor processor = mock(ExternalGroupProviderProcessor.class);
+    autoWireMock(homeController, processor, ExternalGroupProviderProcessor.class);
 
-    GroupProviderService groupProviderService = mock(GroupProviderService.class);
-    when(groupProviderService.getGroupProviderUserOauths(getMember().getId())).
-        thenReturn(Collections.<GroupProviderUserOauth>emptyList());
-
-    autoWireMock(homeController, groupProviderService, GroupProviderService.class);
     autoWireMock(homeController, grouperTeamService, GrouperTeamService.class);
     autoWireMock(homeController, new Returns(DEFAULTSTEM), TeamEnvironment.class);
     autoWireMock(homeController, new Returns("query"), MessageSource.class);

@@ -131,6 +131,7 @@
           <c:forEach items="${group20Entry.entry}" var="group20">
             <spring:url value="/externalgroups/groupdetail.shtml" var="detailUrl">
               <spring:param name="groupId" value="${group20.id}"/>
+              <spring:param name="externalGroupProviderIdentifier" value="${externalGroupProvider.identifier}"/>
             </spring:url>
             <tr>
               <td>

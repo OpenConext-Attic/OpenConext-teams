@@ -20,25 +20,20 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import nl.surfnet.coin.api.client.domain.GroupMembersEntry;
+import nl.surfnet.coin.teams.domain.ExternalGroupDetailWrapper;
+import nl.surfnet.coin.teams.domain.GroupProvider;
+import nl.surfnet.coin.teams.domain.Pager;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.ExternalGroupProviderProcessor;
+import nl.surfnet.coin.teams.util.ViewUtil;
+
 import org.opensocial.models.Person;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import nl.surfnet.coin.api.client.domain.Group20;
-import nl.surfnet.coin.api.client.domain.GroupMembersEntry;
-import nl.surfnet.coin.teams.domain.GroupProvider;
-import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
-import nl.surfnet.coin.teams.domain.Pager;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.GroupProviderService;
-import nl.surfnet.coin.teams.service.OauthGroupService;
-import nl.surfnet.coin.teams.util.GroupProviderPropertyConverter;
-import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * Controller for external teams
@@ -48,67 +43,34 @@ import nl.surfnet.coin.teams.util.ViewUtil;
 public class ExternalGroupController {
 
   private static final int PAGESIZE = 10;
+  
   @Autowired
-  private GroupProviderService groupProviderService;
-
-  @Autowired
-  private OauthGroupService oauthGroupService;
-
-  private static final Logger log = LoggerFactory.getLogger(ExternalGroupController.class);
+  private ExternalGroupProviderProcessor processor;
 
   @RequestMapping("/groupdetail.shtml")
-  public String groupDetail(@RequestParam String groupId,
-                            @RequestParam(defaultValue = "0", required = false) int offset,
-                            HttpServletRequest request,
-                            ModelMap modelMap) {
-    Person person = (Person) request.getSession().getAttribute(
-        LoginInterceptor.PERSON_SESSION_KEY);
+  public String groupDetail(@RequestParam
+  String groupId, @RequestParam
+  String externalGroupProviderIdentifier, @RequestParam(defaultValue = "0", required = false)
+  int offset, HttpServletRequest request, ModelMap modelMap) {
+    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
+    List<GroupProvider> allGroupProviders = (List<GroupProvider>) request.getSession().getAttribute(
+        HomeController.ALL_GROUP_PROVIDERS_SESSION_KEY);
     modelMap.addAttribute("groupId", groupId);
-    // get a list of my group providers that I already have an access token for
-    final List<GroupProviderUserOauth> oauthList =
-        groupProviderService.getGroupProviderUserOauths(person.getId());
-    for (GroupProviderUserOauth oauth : oauthList) {
-      GroupProvider provider =
-          groupProviderService.getGroupProviderByStringIdentifier(oauth.getProvider());
 
-      if (GroupProviderPropertyConverter.isGroupFromGroupProvider(groupId, provider)) {
-        modelMap.addAttribute("groupProvider", provider);
-
-        Group20 group20 = getGroup20FromGroupProvider(groupId, oauth, provider); //groupService.getGroup20(oauth, provider, groupId);
-        modelMap.addAttribute("group20", group20);
-
-        final GroupMembersEntry groupMembersEntry =
-                    oauthGroupService.getGroupMembersEntry(oauth, provider, groupId, PAGESIZE, offset);
-        modelMap.addAttribute("groupMembersEntry", groupMembersEntry);
-        if (groupMembersEntry != null && groupMembersEntry.getEntry().size() <= PAGESIZE) {
-          Pager pager = new Pager(groupMembersEntry.getTotalResults(), offset, PAGESIZE);
-          modelMap.addAttribute("pager", pager);
-        }
-      }
+    ExternalGroupDetailWrapper groupDetails = processor.getGroupDetails(person.getId(), groupId, allGroupProviders,
+        externalGroupProviderIdentifier, offset, PAGESIZE);
+    GroupProvider groupProvider = processor.getGroupProviderByStringIdentifier(externalGroupProviderIdentifier,
+        allGroupProviders);
+    modelMap.addAttribute("groupProvider", groupProvider);
+    modelMap.addAttribute("group20", groupDetails.getGroup20());
+    GroupMembersEntry groupMembersEntry = groupDetails.getGroupMembersEntry();
+    modelMap.addAttribute("groupMembersEntry", groupMembersEntry);
+    if (groupMembersEntry != null && groupMembersEntry.getEntry().size() <= PAGESIZE) {
+      Pager pager = new Pager(groupMembersEntry.getTotalResults(), offset, PAGESIZE);
+      modelMap.addAttribute("pager", pager);
     }
     ViewUtil.addViewToModelMap(request, modelMap);
     return "external-groupdetail";
   }
 
-  /**
-   * TODO replace this method with {@link OauthGroupService#getGroup20(nl.surfnet.coin.teams.domain.GroupProviderUserOauth, nl.surfnet.coin.teams.domain.GroupProvider, String)}
-   * when all institutions comply to the OS spec
-   */
-  private Group20 getGroup20FromGroupProvider(String groupId, GroupProviderUserOauth oauth, GroupProvider provider) {
-    Group20 group20 = null;
-    try {
-      group20 = oauthGroupService.getGroup20(oauth, provider, groupId);
-    } catch (RuntimeException e) {
-      log.debug("Group provider does not support retrieving single group, will iterate over all groups",
-          e.getMessage());
-      final List<Group20> group20List = oauthGroupService.getGroup20List(oauth, provider);
-      for (Group20 g : group20List) {
-        if (groupId.equals(g.getId())) {
-          group20 = g;
-          break;
-        }
-      }
-    }
-    return group20;
-  }
 }
