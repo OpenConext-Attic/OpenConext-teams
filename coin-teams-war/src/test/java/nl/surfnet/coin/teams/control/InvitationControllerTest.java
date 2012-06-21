@@ -17,16 +17,20 @@
 package nl.surfnet.coin.teams.control;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.opensocial.models.Person;
 import org.springframework.web.bind.support.SimpleSessionStatus;
 import org.springframework.web.servlet.view.RedirectView;
 
+import nl.surfnet.coin.api.client.domain.Email;
+import nl.surfnet.coin.api.client.domain.Person;
 import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
@@ -86,10 +90,8 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
   @Test
   public void testDoAcceptAdminAsGuest() throws Exception {
-    List<String> tags = new ArrayList<String>();
-    tags.add("guest");
     Person person = getPersonFromSession();
-    person.setField("tags", tags);
+    person.setTags(Collections.singleton("guest"));
     getRequest().getSession().setAttribute(PERSON_SESSION_KEY, person);
 
     invitation.setIntendedRole(Role.Admin);
@@ -138,11 +140,9 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
     getRequest().setParameter("id", invitationHash);
     Person person = getPersonFromSession();
-    List<Map<String, String>> emailField = new ArrayList<Map<String, String>>();
-    Map<String,String> email = new HashMap<String, String>(1);
-    email.put("value", "person1@example.com");
-    emailField.add(email);
-    person.setField("emails", emailField);
+    Set<Email> emails = new TreeSet<Email>();
+    emails.add(new Email("person1@example.com"));
+    person.setEmails(emails);
     getRequest().getSession().setAttribute(PERSON_SESSION_KEY, person);
 
     Team mockTeam = mock(Team.class);

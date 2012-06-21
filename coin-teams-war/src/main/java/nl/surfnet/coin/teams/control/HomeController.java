@@ -37,7 +37,7 @@ import nl.surfnet.coin.teams.service.TeamInviteService;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 import nl.surfnet.coin.teams.util.ViewUtil;
 
-import org.opensocial.models.Person;
+import nl.surfnet.coin.api.client.domain.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -47,6 +47,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.LocaleResolver;
+
+import static nl.surfnet.coin.teams.util.PersonUtil.getFirstEmail;
 
 /**
  * @author steinwelberg
@@ -96,7 +98,7 @@ public class HomeController {
       addTeams(query, person.getId(), display, modelMap, request);
     }
 
-    String email = person.getEmail();
+    String email = getFirstEmail(person);
     if (StringUtils.hasText(email)) {
       List<Invitation> invitations = teamInviteService.findPendingInvitationsByEmail(email);
       modelMap.addAttribute("myinvitations", !CollectionUtils.isEmpty(invitations));

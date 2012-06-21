@@ -33,7 +33,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServletRequest;
 
-import org.opensocial.models.Person;
+import nl.surfnet.coin.api.client.domain.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +63,7 @@ import nl.surfnet.coin.teams.service.JoinTeamRequestService;
 import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 import nl.surfnet.coin.teams.util.ViewUtil;
+import static nl.surfnet.coin.teams.util.PersonUtil.getFirstEmail;
 
 /**
  * {@link Controller} that handles the join team page of a logged in
@@ -220,7 +221,7 @@ public class JoinTeamController {
     Map<String, Object> templateVars = new HashMap<String, Object>();
     templateVars.put("requesterName", person.getDisplayName());
     // for unknown reasons Freemarker cannot call person.getEmail()
-    templateVars.put("requesterEmail", person.getEmail());
+    templateVars.put("requesterEmail", getFirstEmail(person));
     templateVars.put("team", team);
     templateVars.put("teamsURL", environment.getTeamsURL());
     templateVars.put("message", message);

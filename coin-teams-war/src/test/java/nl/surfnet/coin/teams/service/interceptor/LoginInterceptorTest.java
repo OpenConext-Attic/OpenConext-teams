@@ -26,15 +26,15 @@ import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 
-import nl.surfnet.coin.opensocial.service.PersonService;
+import nl.surfnet.coin.api.client.domain.Person;
 import nl.surfnet.coin.teams.domain.MemberAttribute;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.ApiService;
 import nl.surfnet.coin.teams.service.MemberAttributeService;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.opensocial.models.Person;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
@@ -49,17 +49,17 @@ public class LoginInterceptorTest {
 
     LoginInterceptor interceptor = new LoginInterceptor();
 
-    PersonService personService = mock(PersonService.class);
+    ApiService apiService = mock(ApiService.class);
     Person person = new Person();
-    person.setField("id", remoteUser);
-    when(personService.getPerson(remoteUser,remoteUser)).thenReturn(person);
+    person.setId(remoteUser);
+    when(apiService.getPerson(remoteUser)).thenReturn(person);
     MemberAttributeService memberAttributeService =
             mock(MemberAttributeService.class);
     when(memberAttributeService.findAttributesForMemberId(
             person.getId())).thenReturn(new ArrayList<MemberAttribute>());
     interceptor.setMemberAttributeService(memberAttributeService);
 
-    interceptor.setPersonService(personService);
+    interceptor.setApiService(apiService);
     interceptor.setTeamEnvironment(new TeamEnvironment());
 
 
@@ -78,11 +78,10 @@ public class LoginInterceptorTest {
 
     LoginInterceptor interceptor = new LoginInterceptor();
 
-    PersonService personService = mock(PersonService.class);
-    when(personService.getPerson(remoteUser,remoteUser)).thenReturn(null);
-    interceptor.setPersonService(personService);
+    ApiService apiService = mock(ApiService.class);
+    when(apiService.getPerson(remoteUser)).thenReturn(null);
+    interceptor.setApiService(apiService);
 
-    interceptor.setPersonService(personService);
     interceptor.setTeamEnvironment(new TeamEnvironment());
 
     MockHttpServletRequest request = new MockHttpServletRequest();

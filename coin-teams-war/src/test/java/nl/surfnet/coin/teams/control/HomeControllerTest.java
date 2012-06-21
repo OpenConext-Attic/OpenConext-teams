@@ -26,7 +26,6 @@ import java.util.Locale;
 
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
-import org.opensocial.models.Person;
 import org.springframework.context.MessageSource;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpSession;
@@ -37,6 +36,7 @@ import org.springframework.web.servlet.LocaleResolver;
 
 import nl.surfnet.coin.api.client.domain.Group20;
 import nl.surfnet.coin.api.client.domain.Group20Entry;
+import nl.surfnet.coin.api.client.domain.Person;
 import nl.surfnet.coin.teams.domain.GroupProvider;
 import nl.surfnet.coin.teams.domain.GroupProviderType;
 import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
@@ -160,7 +160,7 @@ public class HomeControllerTest extends AbstractControllerTest {
     MockHttpServletRequest request = new MockHttpServletRequest();
     MockHttpSession session = new MockHttpSession();
     Person person = new Person();
-    person.setField("id", "test");
+    person.setId("test");
     session.setAttribute(LoginInterceptor.PERSON_SESSION_KEY, person);
     request.setSession(session);
     return new ServletRequestAttributes(request);

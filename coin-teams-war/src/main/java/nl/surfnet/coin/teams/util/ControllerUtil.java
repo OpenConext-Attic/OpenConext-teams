@@ -20,7 +20,7 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServletRequest;
 
-import org.opensocial.models.Person;
+import nl.surfnet.coin.api.client.domain.Person;
 
 import nl.surfnet.coin.teams.domain.Team;
 
@@ -50,7 +50,7 @@ public interface ControllerUtil {
   /**
    * Checks if the current user has administrative privileges (whether he is admin OR manager) for a given team.
    *
-   * @param person {@link org.opensocial.models.Person}
+   * @param person {@link nl.surfnet.coin.api.client.domain.Person}
    * @param teamId {@link String} the team Id for which the person's privileges are checked
    * @return {@link boolean} <code>true/code> if the user is admin AND/OR manager <code>false</code> if the user isn't
    */

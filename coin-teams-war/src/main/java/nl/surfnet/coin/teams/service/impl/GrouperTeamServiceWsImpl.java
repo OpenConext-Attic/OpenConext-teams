@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.opensocial.models.Person;
+import nl.surfnet.coin.api.client.domain.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +63,7 @@ import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.service.MemberAttributeService;
 import nl.surfnet.coin.teams.util.DuplicateTeamException;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
+import static nl.surfnet.coin.teams.util.PersonUtil.isGuest;
 
 /**
  * {@link nl.surfnet.coin.teams.service.GrouperTeamService} using Grouper LDAP as persistent store
@@ -518,8 +519,8 @@ public class GrouperTeamServiceWsImpl extends GrouperDaoImpl implements GrouperT
     addMember.addSubjectId(person.getId());
     addMember.execute();
     Member member = findMember(teamId, person.getId());
-    if (member.isGuest() != person.isGuest()) {
-      member.setGuest(person.isGuest());
+    if (member.isGuest() != isGuest(person)) {
+      member.setGuest(person.getTags().contains("guest"));
       memberAttributeService.saveOrUpdate(member.getMemberAttributes());
     }
   }

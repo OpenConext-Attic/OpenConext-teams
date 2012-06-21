@@ -23,7 +23,6 @@ import java.util.List;
 
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
-import org.opensocial.models.Person;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpSession;
 import org.springframework.web.bind.support.SimpleSessionStatus;
@@ -32,7 +31,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
-import nl.surfnet.coin.opensocial.service.PersonService;
+import nl.surfnet.coin.api.client.domain.Person;
 import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Member;
@@ -40,6 +39,7 @@ import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamExternalGroup;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.ApiService;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.service.JoinTeamRequestService;
 import nl.surfnet.coin.teams.service.TeamExternalGroupDao;
@@ -664,15 +664,15 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     when(joinTeamRequestService.findPendingRequest(memberToAdd, mockTeam))
         .thenReturn(null);
 
-    PersonService personService = mock(PersonService.class);
-    when(personService.getPerson("member-2",null)).thenReturn(loggedInPerson);
-    when(personService.getPerson("potential-member-1",null)).thenReturn(
+      ApiService apiService = mock(ApiService.class);
+    when(apiService.getPerson("member-2")).thenReturn(loggedInPerson);
+    when(apiService.getPerson("potential-member-1")).thenReturn(
             memberToAdd);
 
     autoWireMock(detailTeamController, new Returns(true), ControllerUtil.class);
     autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
-    autoWireMock(detailTeamController, personService,
-        PersonService.class);
+    autoWireMock(detailTeamController, apiService,
+        ApiService.class);
     autoWireMock(detailTeamController, joinTeamRequestService,
         JoinTeamRequestService.class);
     autoWireRemainingResources(detailTeamController);
@@ -691,7 +691,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     MockHttpServletRequest request = new MockHttpServletRequest();
     MockHttpSession session = new MockHttpSession();
     Person person = new Person();
-    person.setField("id","test");
+    person.setId("test");
     session.setAttribute(LoginInterceptor.PERSON_SESSION_KEY, person);
     request.setSession(session);
     return new ServletRequestAttributes(request);

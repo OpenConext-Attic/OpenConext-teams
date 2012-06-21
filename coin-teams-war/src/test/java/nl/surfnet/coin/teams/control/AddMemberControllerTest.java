@@ -23,7 +23,6 @@ import java.util.Locale;
 
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
-import org.opensocial.models.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
@@ -34,6 +33,7 @@ import org.springframework.web.bind.support.SimpleSessionStatus;
 import org.springframework.web.servlet.LocaleResolver;
 
 import freemarker.template.Configuration;
+import nl.surfnet.coin.api.client.domain.Person;
 import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.InvitationForm;
 import nl.surfnet.coin.teams.domain.InvitationMessage;
@@ -174,7 +174,7 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     MockHttpServletRequest request = getRequest();
     Team team1 = getTeam1();
     Person person = getPerson1();
-    person.setField("displayName", "Member 1");
+    person.setDisplayName("Member 1");
     request.getSession().setAttribute(LoginInterceptor.PERSON_SESSION_KEY, person);
 
     // request team
@@ -309,7 +309,7 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     invitation.addInvitationMessage(message);
 
     Person inviter = getPerson1();
-    inviter.setField("displayName", "Member One");
+    inviter.setDisplayName("Member One");
 
     String msg = addMemberController.composeInvitationMailMessage(invitation, inviter, Locale.ENGLISH, "html");
 
@@ -339,7 +339,7 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     invitation.addInvitationMessage(message);
 
     Person inviter = getPerson1();
-    inviter.setField("displayName", "Member One");
+    inviter.setDisplayName("Member One");
 
     String msg = addMemberController.composeInvitationMailMessage(invitation, inviter, Locale.ENGLISH, "plaintext");
 

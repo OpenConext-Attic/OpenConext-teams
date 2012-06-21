@@ -25,19 +25,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.opensocial.models.Person;
+import nl.surfnet.coin.api.client.domain.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import nl.surfnet.coin.opensocial.service.PersonService;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.MemberAttribute;
+import nl.surfnet.coin.teams.service.ApiService;
 import nl.surfnet.coin.teams.service.MemberAttributeService;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
+import static nl.surfnet.coin.teams.util.PersonUtil.isGuest;
 
 /**
  * Intercepts calls to controllers to handle Single Sign On details from
@@ -55,11 +55,10 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   private static final String STATUS_MEMBER = "member";
 
   @Autowired
-  private TeamEnvironment teamEnvironment;
+  ApiService apiService;
 
   @Autowired
-  @Qualifier("opensocialPersonService")
-  private PersonService personService;
+  private TeamEnvironment teamEnvironment;
 
   @Autowired
   private MemberAttributeService memberAttributeService;
@@ -84,7 +83,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     if (person == null || !person.getId().equals(remoteUser)) {
 
       if (StringUtils.hasText(remoteUser)) {
-        person = personService.getPerson(remoteUser, remoteUser);
+        person = apiService.getPerson(remoteUser);
         // Add person to session:
         session.setAttribute(PERSON_SESSION_KEY, person);
 
@@ -139,7 +138,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
    * Defines if the stored guest status matches the guest status from EngineBlock
    *
    * @param session {@link javax.servlet.http.HttpSession}
-   * @param person  {@link org.opensocial.models.Person}
+   * @param person  {@link nl.surfnet.coin.api.client.domain.Person}
    */
   void handleGuestStatus(HttpSession session, Person person) {
     Member member = new Member(null, person);
@@ -147,17 +146,17 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
             memberAttributeService.findAttributesForMemberId(member.getId());
     member.setMemberAttributes(memberAttributes);
 
-    if (member.isGuest() != person.isGuest()) {
-      member.setGuest(person.isGuest());
+    if (member.isGuest() != isGuest(person)) {
+      member.setGuest(isGuest(person));
       memberAttributeService.saveOrUpdate(member.getMemberAttributes());
     }
 
     // Add the user status to the session
-    String userStatus = person.isGuest() ? STATUS_GUEST : STATUS_MEMBER;
+    String userStatus = isGuest(person) ? STATUS_GUEST : STATUS_MEMBER;
     session.setAttribute(USER_STATUS_SESSION_KEY, userStatus);
   }
 
-  /**
+    /**
    * Hook for subclasses to override the shibboleth default behaviour
    *
    * @param request
@@ -183,15 +182,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     return teamEnvironment;
   }
 
-  /**
-   * Set the User VO
-   *
-   * @param personService {@link PersonService} to set
-   */
-  public void setPersonService(PersonService personService) {
-    this.personService = personService;
-  }
-
   public void setMemberAttributeService(MemberAttributeService memberAttributeService) {
     this.memberAttributeService = memberAttributeService;
   }
@@ -209,4 +199,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     bypass.add("declineInvitation.shtml");
     return bypass;
   }
+
+    public void setApiService(final ApiService apiService) {
+        this.apiService = apiService;
+    }
 }

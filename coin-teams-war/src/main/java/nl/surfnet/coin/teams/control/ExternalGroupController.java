@@ -28,7 +28,7 @@ import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.ExternalGroupProviderProcessor;
 import nl.surfnet.coin.teams.util.ViewUtil;
 
-import org.opensocial.models.Person;
+import nl.surfnet.coin.api.client.domain.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

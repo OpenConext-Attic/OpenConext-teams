@@ -30,8 +30,8 @@
     </thead>
     <tbody>
     <c:forEach var="pending" items="${pendingRequests}">
-      <%-- Ugly hack to either call org.opensocial.models.Person#getEmail first.
-      Doesn't always work, so then try org.opensocial.models.Person#get("emails") --%>
+      <%-- Ugly hack to either call nl.surfnet.coin.teams.domain.Person#getEmail first.
+      Doesn't always work, so then try nl.surfnet.coin.teams.domain.Person#get("emails") --%>
       <c:catch>
         <c:if test="${not empty pending.email}">
           <c:set var="email" value="${pending.email}"/>

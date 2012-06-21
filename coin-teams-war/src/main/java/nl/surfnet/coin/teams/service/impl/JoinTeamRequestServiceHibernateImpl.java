@@ -22,7 +22,7 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.criterion.SimpleExpression;
-import org.opensocial.models.Person;
+import nl.surfnet.coin.api.client.domain.Person;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 

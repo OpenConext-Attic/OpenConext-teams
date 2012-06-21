@@ -24,13 +24,13 @@ import static org.mockito.Mockito.when;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.opensocial.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
+import nl.surfnet.coin.api.client.domain.Person;
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.JoinTeamRequestService;
@@ -39,8 +39,9 @@ import nl.surfnet.coin.teams.service.JoinTeamRequestService;
  *Test for {@link JoinTeamRequestServiceHibernateImpl}
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:coin-teams-context.xml",
-    "classpath:coin-teams-properties-hsqldb-context.xml", "classpath:coin-opensocial-context.xml",
+@ContextConfiguration(locations = {
+    "classpath:coin-teams-context.xml",
+    "classpath:coin-teams-properties-hsqldb-context.xml",
     "classpath:coin-shared-context.xml"})
 @TransactionConfiguration(transactionManager = "teamTransactionManager", defaultRollback = true)
 @Transactional

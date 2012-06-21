@@ -28,6 +28,7 @@ import java.util.List;
 import nl.surfnet.coin.api.client.OpenConextJsonParser;
 import nl.surfnet.coin.api.client.domain.Group20;
 import nl.surfnet.coin.api.client.domain.Group20Entry;
+import nl.surfnet.coin.api.client.domain.Person;
 import nl.surfnet.coin.teams.domain.ConversionRule;
 import nl.surfnet.coin.teams.domain.ExternalGroup;
 import nl.surfnet.coin.teams.domain.GroupProvider;
@@ -42,7 +43,6 @@ import nl.surfnet.coin.teams.util.TokenUtil;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.opensocial.models.Person;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.ui.ModelMap;
 
@@ -57,7 +57,7 @@ public class AddExternalGroupControllerTest extends AbstractControllerTest {
   public void setUp() throws Exception {
     controller = new AddExternalGroupController();
     final Person person1 = getPerson1();
-    person1.setField("id", "urn:collab:person:hz.nl:member-1");
+    person1.setId("urn:collab:person:hz.nl:member-1");
 
     GrouperTeamService teamService = mock(GrouperTeamService.class);
     when(teamService.findTeamById("team-1")).thenReturn(getTeam1());

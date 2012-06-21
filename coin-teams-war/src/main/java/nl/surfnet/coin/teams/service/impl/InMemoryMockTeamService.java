@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.opensocial.models.Person;
+import nl.surfnet.coin.api.client.domain.Person;
 
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
@@ -33,6 +33,7 @@ import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamResultWrapper;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.util.DuplicateTeamException;
+import static nl.surfnet.coin.teams.util.PersonUtil.isGuest;
 
 /**
  * Mock implementation of {@link nl.surfnet.coin.teams.service.GrouperTeamService}
@@ -326,7 +327,7 @@ public class InMemoryMockTeamService implements GrouperTeamService {
     if (m == null) {
       throw new RuntimeException("Member('"+ person.getId() +"') not found");
     }
-    m.setGuest(person.isGuest());
+    m.setGuest(isGuest(person));
     Team team = findTeam(teamId);
     team.addMembers(m);
   }

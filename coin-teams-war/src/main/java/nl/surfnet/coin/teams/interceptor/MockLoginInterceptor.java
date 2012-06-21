@@ -19,7 +19,7 @@ package nl.surfnet.coin.teams.interceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.opensocial.models.Person;
+import nl.surfnet.coin.api.client.domain.Person;
 
 /**
  * Like the LoginInterceptor but gets the user id from the environment instead

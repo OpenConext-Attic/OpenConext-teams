@@ -16,7 +16,7 @@
 
 package nl.surfnet.coin.teams.domain;
 
-import org.opensocial.models.Person;
+import nl.surfnet.coin.api.client.domain.Person;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 

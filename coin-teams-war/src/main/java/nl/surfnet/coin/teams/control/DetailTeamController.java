@@ -28,17 +28,23 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
+import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServletRequest;
 
 import org.json.JSONException;
-import org.opensocial.models.Person;
+
+import nl.surfnet.coin.api.client.domain.Email;
+import nl.surfnet.coin.api.client.domain.Person;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.MessageSource;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Controller;
@@ -56,7 +62,6 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import freemarker.template.Configuration;
 import freemarker.template.TemplateException;
-import nl.surfnet.coin.opensocial.service.PersonService;
 import nl.surfnet.coin.shared.service.MailService;
 import nl.surfnet.coin.teams.domain.GroupProvider;
 import nl.surfnet.coin.teams.domain.Invitation;
@@ -67,6 +72,7 @@ import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamExternalGroup;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.ApiService;
 import nl.surfnet.coin.teams.service.GroupProviderService;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.service.JoinTeamRequestService;
@@ -87,6 +93,9 @@ import nl.surfnet.coin.teams.util.ViewUtil;
 @SessionAttributes({ TokenUtil.TOKENCHECK })
 public class DetailTeamController {
 
+    public static final Address[] EMPTY_ADDRESSES = new Address[0];
+    private Logger log = LoggerFactory.getLogger(DetailTeamController.class);
+
   // private static final String MANAGER = "1";
   private static final String ADMIN = "0";
   private static final String ADMIN_LEAVE_TEAM = "error.AdminCannotLeaveTeam";
@@ -99,6 +108,9 @@ public class DetailTeamController {
   private static final int PAGESIZE = 10;
 
   @Autowired
+  private ApiService apiService;
+
+  @Autowired
   private GrouperTeamService grouperTeamService;
 
   @Autowired
@@ -106,10 +118,6 @@ public class DetailTeamController {
 
   @Autowired
   private JoinTeamRequestService joinTeamRequestService;
-
-  @Autowired
-  @Qualifier("opensocialPersonService")
-  private PersonService teamPersonService;
 
   @Autowired
   private TeamExternalGroupDao teamExternalGroupDao;
@@ -231,7 +239,7 @@ public class DetailTeamController {
        * question to the teampersonservice as memberId and not as the currently
        * logged-in user
        */
-      requestingPersons.add(teamPersonService.getPerson(personId, personId));
+      requestingPersons.add(apiService.getPerson(personId));
     }
     return requestingPersons;
   }
@@ -523,8 +531,7 @@ public class DetailTeamController {
      * question to the teampersonservice as memberId and not as the currently
      * logged-in user
      */
-    Person personToAddAsMember = teamPersonService
-        .getPerson(memberId, memberId);
+    Person personToAddAsMember = apiService.getPerson(memberId);
     if (personToAddAsMember == null) {
       status.setComplete();
       modelMap.clear();
@@ -599,7 +606,7 @@ public class DetailTeamController {
         mimeMessage.addHeader("Precedence", "bulk");
 
         mimeMessage.setFrom(new InternetAddress(teamEnvironment.getSystemEmail()));
-        mimeMessage.setRecipients(Message.RecipientType.TO, memberToAdd.getEmail());
+        mimeMessage.setRecipients(Message.RecipientType.TO, convertEmailAdresses(memberToAdd.getEmails()));
         mimeMessage.setSubject(subject);
 
         MimeMultipart rootMixedMultipart = controllerUtil.getMimeMultipartMessageBody(plainText, html);
@@ -651,7 +658,7 @@ public class DetailTeamController {
         mimeMessage.addHeader("Precedence", "bulk");
 
         mimeMessage.setFrom(new InternetAddress(teamEnvironment.getSystemEmail()));
-        mimeMessage.setRecipients(Message.RecipientType.TO, memberToAdd.getEmail());
+        mimeMessage.setRecipients(Message.RecipientType.TO, convertEmailAdresses(memberToAdd.getEmails()));
         mimeMessage.setSubject(subject);
 
         MimeMultipart rootMixedMultipart = controllerUtil.getMimeMultipartMessageBody(plainText, html);
@@ -662,7 +669,19 @@ public class DetailTeamController {
     mailService.sendAsync(preparator);
   }
 
-  String composeAcceptMailMessage(final Team team, final Locale locale, final String variant) {
+    private Address[] convertEmailAdresses(final Set<Email> emails) {
+        List<Address> addresses  = new ArrayList<Address>();
+        for (Email email : emails) {
+            try {
+                addresses.add(new InternetAddress(email.getValue()));
+            } catch (AddressException e) {
+                log.warn("Invalid email addres, {}", email.getValue());
+            }
+        }
+        return addresses.toArray(EMPTY_ADDRESSES);
+    }
+
+    String composeAcceptMailMessage(final Team team, final Locale locale, final String variant) {
     String templateName;
     if ("plaintext".equals(variant)) {
       templateName = "joinrequest-acceptmail-plaintext.ftl";

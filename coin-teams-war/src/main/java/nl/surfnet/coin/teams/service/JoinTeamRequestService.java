@@ -18,7 +18,7 @@ package nl.surfnet.coin.teams.service;
 
 import java.util.List;
 
-import org.opensocial.models.Person;
+import nl.surfnet.coin.api.client.domain.Person;
 
 import nl.surfnet.coin.shared.service.GenericService;
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;

@@ -59,7 +59,7 @@ public class JoinTeamRequest extends DomainObject {
   /**
    * Constructor with required fields
    *
-   * @param personId id of the {@link org.opensocial.models.Person}
+   * @param personId id of the {@link nl.surfnet.coin.api.client.domain.Person}
    * @param groupId  id of the {@link Team}
    */
   public JoinTeamRequest(String personId, String groupId) {

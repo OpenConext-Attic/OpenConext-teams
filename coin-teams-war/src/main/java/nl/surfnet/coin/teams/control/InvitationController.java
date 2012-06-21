@@ -25,7 +25,7 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.opensocial.models.Person;
+import nl.surfnet.coin.api.client.domain.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -49,6 +49,8 @@ import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 import nl.surfnet.coin.teams.util.TokenUtil;
 import nl.surfnet.coin.teams.util.ViewUtil;
+import static nl.surfnet.coin.teams.util.PersonUtil.getFirstEmail;
+import static nl.surfnet.coin.teams.util.PersonUtil.isGuest;
 
 /**
  * {@link Controller} that handles the accept/decline of an Invitation
@@ -148,7 +150,7 @@ public class InvitationController {
     grouperTeamService.addMember(teamId, person);
 
     Role intendedRole = invitation.getIntendedRole();
-    if (person.isGuest() && Role.Admin.equals(intendedRole)) {
+    if (isGuest(person) && Role.Admin.equals(intendedRole)) {
       // cannot make a guest Admin
       invitation.setIntendedRole(Role.Manager);
     }
@@ -258,7 +260,7 @@ public class InvitationController {
   public String myInvitations(ModelMap modelMap, HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(
             LoginInterceptor.PERSON_SESSION_KEY);
-    String email = person.getEmail();
+    String email = getFirstEmail(person);
     if (!StringUtils.hasText(email)) {
       throw new IllegalArgumentException("Your profile does not contain an email address");
     }

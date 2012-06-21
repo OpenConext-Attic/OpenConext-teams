@@ -26,8 +26,7 @@ import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.opensocial.RequestException;
-import org.opensocial.models.Person;
+import nl.surfnet.coin.api.client.domain.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -129,7 +128,7 @@ public class AddTeamController {
                         @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
                         @RequestParam() String token,
                         SessionStatus status)
-      throws RequestException, IOException {
+      throws IOException {
     TokenUtil.checkTokens(sessionToken, token, status);
     ViewUtil.addViewToModelMap(request, modelMap);
 

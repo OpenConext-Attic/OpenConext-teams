@@ -29,7 +29,8 @@ import org.junit.Before;
 import org.mockito.internal.stubbing.answers.DoesNothing;
 import org.mockito.internal.stubbing.answers.Returns;
 import org.mockito.stubbing.Answer;
-import org.opensocial.models.Person;
+
+import nl.surfnet.coin.api.client.domain.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
@@ -121,7 +122,7 @@ public abstract class AbstractControllerTest {
 
   protected Person getPerson1() {
     Person person = new Person();
-    person.setField("id", "member-1");
+    person.setId("member-1");
     return person;
   }
 
@@ -220,7 +221,7 @@ public abstract class AbstractControllerTest {
     HttpSession session = request.getSession(true);
 
     Person person = new Person();
-    person.setField("id", "member-1");
+    person.setId("member-1");
     session.setAttribute(LoginInterceptor.PERSON_SESSION_KEY, person);
     session.setAttribute(LoginInterceptor.USER_STATUS_SESSION_KEY, "member");
 

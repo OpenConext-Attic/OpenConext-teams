@@ -22,7 +22,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.opensocial.models.Person;
+import nl.surfnet.coin.api.client.domain.Person;
+import static nl.surfnet.coin.teams.util.PersonUtil.getFirstEmail;
 
 /**
  * A member of a {@link Team}
@@ -56,7 +57,7 @@ public class Member implements Serializable {
    * @param person {@link Person} that represents this member
    */
   public Member(Set<Role> roles, Person person) {
-    this(roles, person.getDisplayName(), person.getId(), person.getEmail());
+    this(roles, person.getDisplayName(), person.getId(), getFirstEmail(person));
   }
 
   /**

@@ -42,7 +42,7 @@ import nl.surfnet.coin.teams.util.TokenUtil;
 import nl.surfnet.coin.teams.util.ViewUtil;
 
 import org.apache.commons.collections.CollectionUtils;
-import org.opensocial.models.Person;
+import nl.surfnet.coin.api.client.domain.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -24,11 +24,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
-import org.opensocial.models.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.mock.web.MockHttpServletRequest;
@@ -36,6 +36,8 @@ import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
 
 import freemarker.template.Configuration;
+import nl.surfnet.coin.api.client.domain.Email;
+import nl.surfnet.coin.api.client.domain.Person;
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Team;
@@ -99,11 +101,11 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
     MockHttpServletRequest request = getRequest();
 
     Person requester = new Person();
-    requester.setField("id", "urn:collab:person:com.example:john.doe");
-    requester.setField("displayName", "John Doe");
-    List<String> emails = new ArrayList<String>();
-    emails.add("john.doe@example.com");
-    requester.setField("emails", emails);
+    requester.setId("urn:collab:person:com.example:john.doe");
+    requester.setDisplayName("John Doe");
+    Set<Email> emails = new TreeSet<Email>();
+    emails.add(new Email("john.doe@example.com"));
+    requester.setEmails(emails);
     request.getSession().setAttribute(LoginInterceptor.PERSON_SESSION_KEY, requester);
 
     TeamEnvironment environment = new TeamEnvironment();
@@ -167,10 +169,10 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
   @Test
   public void testComposeJoinRequestMailMessage_html() throws Exception {
     Person requester = getPerson1();
-    requester.setField("displayName", "Humble User");
-    List<String> emails = new ArrayList<String>(1);
-    emails.add("humble.user@example.com");
-    requester.setField("emails", emails);
+    requester.setDisplayName("Humble User");
+    Set<Email> emails = new TreeSet<Email>();
+    emails.add(new Email("humble.user@example.com"));
+    requester.setEmails(emails);
 
     Configuration freemarkerConfiguration = getFreemarkerConfig();
     autoWireMock(joinTeamController, freemarkerConfiguration, Configuration.class);
@@ -194,10 +196,10 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
   @Test
   public void testComposeJoinRequestMailMessage_text() throws Exception {
     Person requester = getPerson1();
-    requester.setField("displayName", "Humble User");
-    List<String> emails = new ArrayList<String>(1);
-    emails.add("humble.user@example.com");
-    requester.setField("emails", emails);
+    requester.setDisplayName("Humble User");
+    Set<Email> emails = new TreeSet<Email>();
+    emails.add(new Email("humble.user@example.com"));
+    requester.setEmails(emails);
 
     Configuration freemarkerConfiguration = getFreemarkerConfig();
     autoWireMock(joinTeamController, freemarkerConfiguration, Configuration.class);
