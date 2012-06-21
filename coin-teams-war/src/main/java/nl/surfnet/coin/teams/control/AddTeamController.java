@@ -189,7 +189,6 @@ public class AddTeamController {
         + ViewUtil.getView(request);
   }
 
-  // TODO move this to AddMemberController when doing BACKLOG-422
   private void inviteAdmin(final String teamId, final Person inviter, final String admin2, final String teamName,
                            final String messageBody, final Locale locale) {
     if (!StringUtils.hasText(admin2) || !admin2.contains("@")) {
