@@ -40,7 +40,7 @@
     </property>
   </bean>
 
-  <bean class="nl.surfnet.coin.api.client.OpenConextOAuthClientImpl">
+  <bean id="apiClient" class="nl.surfnet.coin.api.client.OpenConextOAuthClientImpl">
     <property name="endpointBaseUrl" value="${api-location}" />
     <property name="consumerKey" value="${oauth-key}"/>
     <property name="consumerSecret" value="${oauth-secret}" />
