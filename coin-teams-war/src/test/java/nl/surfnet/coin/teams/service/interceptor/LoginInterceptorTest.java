@@ -16,27 +16,27 @@
 
 package nl.surfnet.coin.teams.service.interceptor;
 
-import static junit.framework.Assert.assertFalse;
-import static junit.framework.Assert.assertTrue;
-import static junit.framework.Assert.fail;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
-
-import nl.surfnet.coin.api.client.domain.Person;
-import nl.surfnet.coin.teams.domain.MemberAttribute;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.ApiService;
-import nl.surfnet.coin.teams.service.MemberAttributeService;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
+
+import nl.surfnet.coin.api.client.OpenConextOAuthClient;
+import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.MemberAttribute;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.MemberAttributeService;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
+
+import static junit.framework.Assert.assertFalse;
+import static junit.framework.Assert.assertTrue;
+import static junit.framework.Assert.fail;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * Test for {@link LoginInterceptor}
@@ -49,17 +49,17 @@ public class LoginInterceptorTest {
 
     LoginInterceptor interceptor = new LoginInterceptor();
 
-    ApiService apiService = mock(ApiService.class);
+    OpenConextOAuthClient apiClient = mock(OpenConextOAuthClient.class);
     Person person = new Person();
     person.setId(remoteUser);
-    when(apiService.getPerson(remoteUser)).thenReturn(person);
+    when(apiClient.getPerson(remoteUser, null)).thenReturn(person);
     MemberAttributeService memberAttributeService =
             mock(MemberAttributeService.class);
     when(memberAttributeService.findAttributesForMemberId(
             person.getId())).thenReturn(new ArrayList<MemberAttribute>());
     interceptor.setMemberAttributeService(memberAttributeService);
 
-    interceptor.setApiService(apiService);
+    interceptor.setApiClient(apiClient);
     interceptor.setTeamEnvironment(new TeamEnvironment());
 
 
@@ -78,9 +78,9 @@ public class LoginInterceptorTest {
 
     LoginInterceptor interceptor = new LoginInterceptor();
 
-    ApiService apiService = mock(ApiService.class);
-    when(apiService.getPerson(remoteUser)).thenReturn(null);
-    interceptor.setApiService(apiService);
+    OpenConextOAuthClient apiClient = mock(OpenConextOAuthClient.class);
+    when(apiClient.getPerson(remoteUser, null)).thenReturn(null);
+    interceptor.setApiClient(apiClient);
 
     interceptor.setTeamEnvironment(new TeamEnvironment());
 

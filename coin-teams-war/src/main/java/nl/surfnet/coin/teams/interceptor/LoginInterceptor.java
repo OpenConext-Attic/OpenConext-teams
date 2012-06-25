@@ -25,18 +25,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import nl.surfnet.coin.api.client.domain.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import nl.surfnet.coin.api.client.OpenConextOAuthClient;
+import nl.surfnet.coin.api.client.domain.Person;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.MemberAttribute;
-import nl.surfnet.coin.teams.service.ApiService;
 import nl.surfnet.coin.teams.service.MemberAttributeService;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
+
 import static nl.surfnet.coin.teams.util.PersonUtil.isGuest;
 
 /**
@@ -55,7 +56,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   private static final String STATUS_MEMBER = "member";
 
   @Autowired
-  ApiService apiService;
+  OpenConextOAuthClient apiClient;
 
   @Autowired
   private TeamEnvironment teamEnvironment;
@@ -83,7 +84,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     if (person == null || !person.getId().equals(remoteUser)) {
 
       if (StringUtils.hasText(remoteUser)) {
-        person = apiService.getPerson(remoteUser);
+        person = apiClient.getPerson(remoteUser, null);
         // Add person to session:
         session.setAttribute(PERSON_SESSION_KEY, person);
 
@@ -200,7 +201,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     return bypass;
   }
 
-    public void setApiService(final ApiService apiService) {
-        this.apiService = apiService;
+    public void setApiClient(final OpenConextOAuthClient apiClient) {
+        this.apiClient = apiClient;
     }
 }

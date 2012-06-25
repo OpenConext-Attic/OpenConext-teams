@@ -40,10 +40,11 @@
     </property>
   </bean>
 
-  <bean class="nl.surfnet.coin.teams.service.impl.ApiServiceImpl">
-    <constructor-arg index="0" value="${oauth-secret}"/>
-    <constructor-arg index="1" value="${oauth-key}"/>
-    <constructor-arg index="2" value="${api-location}"/>
+  <bean class="nl.surfnet.coin.api.client.OpenConextOAuthClientImpl">
+    <property name="endpointBaseUrl" value="${api-location}" />
+    <property name="consumerKey" value="${oauth-key}"/>
+    <property name="consumerSecret" value="${oauth-secret}" />
+    <property name="version" value="v10a" />
   </bean>
 
   <bean id="teamEnvironment" class="nl.surfnet.coin.teams.util.TeamEnvironment">

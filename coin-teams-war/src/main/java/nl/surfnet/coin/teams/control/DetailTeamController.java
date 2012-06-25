@@ -38,10 +38,6 @@ import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServletRequest;
 
 import org.json.JSONException;
-
-import nl.surfnet.coin.api.client.domain.Email;
-import nl.surfnet.coin.api.client.domain.Person;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +58,9 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import freemarker.template.Configuration;
 import freemarker.template.TemplateException;
+import nl.surfnet.coin.api.client.OpenConextOAuthClient;
+import nl.surfnet.coin.api.client.domain.Email;
+import nl.surfnet.coin.api.client.domain.Person;
 import nl.surfnet.coin.shared.service.MailService;
 import nl.surfnet.coin.teams.domain.GroupProvider;
 import nl.surfnet.coin.teams.domain.Invitation;
@@ -72,7 +71,6 @@ import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamExternalGroup;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.ApiService;
 import nl.surfnet.coin.teams.service.GroupProviderService;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.service.JoinTeamRequestService;
@@ -108,7 +106,7 @@ public class DetailTeamController {
   private static final int PAGESIZE = 10;
 
   @Autowired
-  private ApiService apiService;
+  private OpenConextOAuthClient apiClient;
 
   @Autowired
   private GrouperTeamService grouperTeamService;
@@ -239,7 +237,7 @@ public class DetailTeamController {
        * question to the teampersonservice as memberId and not as the currently
        * logged-in user
        */
-      requestingPersons.add(apiService.getPerson(personId));
+      requestingPersons.add(apiClient.getPerson(personId, null));
     }
     return requestingPersons;
   }
@@ -531,7 +529,7 @@ public class DetailTeamController {
      * question to the teampersonservice as memberId and not as the currently
      * logged-in user
      */
-    Person personToAddAsMember = apiService.getPerson(memberId);
+    Person personToAddAsMember = apiClient.getPerson(memberId, null);
     if (personToAddAsMember == null) {
       status.setComplete();
       modelMap.clear();

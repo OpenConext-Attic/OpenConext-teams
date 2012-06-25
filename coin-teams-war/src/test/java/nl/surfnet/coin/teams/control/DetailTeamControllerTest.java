@@ -31,6 +31,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
+import nl.surfnet.coin.api.client.OpenConextOAuthClient;
 import nl.surfnet.coin.api.client.domain.Person;
 import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
@@ -39,7 +40,6 @@ import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamExternalGroup;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.ApiService;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.service.JoinTeamRequestService;
 import nl.surfnet.coin.teams.service.TeamExternalGroupDao;
@@ -664,15 +664,14 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     when(joinTeamRequestService.findPendingRequest(memberToAdd, mockTeam))
         .thenReturn(null);
 
-      ApiService apiService = mock(ApiService.class);
-    when(apiService.getPerson("member-2")).thenReturn(loggedInPerson);
-    when(apiService.getPerson("potential-member-1")).thenReturn(
+    OpenConextOAuthClient apiClient = mock(OpenConextOAuthClient.class);
+    when(apiClient.getPerson("member-2", null)).thenReturn(loggedInPerson);
+    when(apiClient.getPerson("potential-member-1", null)).thenReturn(
             memberToAdd);
 
     autoWireMock(detailTeamController, new Returns(true), ControllerUtil.class);
     autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
-    autoWireMock(detailTeamController, apiService,
-        ApiService.class);
+    autoWireMock(detailTeamController, apiClient, OpenConextOAuthClient.class);
     autoWireMock(detailTeamController, joinTeamRequestService,
         JoinTeamRequestService.class);
     autoWireRemainingResources(detailTeamController);
