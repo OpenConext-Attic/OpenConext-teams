@@ -13,3 +13,11 @@ The properties below are configured in
 ### Added properties
 
     api-location=https://api.dev.surfconext.nl/v1/
+
+## Instructions for SURFconext admin
+
+### Service registry metadata
+
+For the service provider SURFteams, add metadata:
+
+    coin:oauth:two_legged_allowed √ (checked)
