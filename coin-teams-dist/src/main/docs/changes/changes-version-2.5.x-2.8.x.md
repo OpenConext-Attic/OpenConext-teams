@@ -12,7 +12,7 @@ The properties below are configured in
 
 ### Added properties
 
-    api-location=https://api.dev.surfconext.nl/v1/
+    api-location=https://api.<environment>.surfconext.nl/v1/
 
 ## Instructions for SURFconext admin
 
