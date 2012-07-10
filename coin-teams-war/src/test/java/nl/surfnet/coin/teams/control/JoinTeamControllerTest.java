@@ -19,12 +19,9 @@
  */
 package nl.surfnet.coin.teams.control;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Locale;
 import java.util.Set;
-import java.util.TreeSet;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -103,7 +100,7 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
     Person requester = new Person();
     requester.setId("urn:collab:person:com.example:john.doe");
     requester.setDisplayName("John Doe");
-    Set<Email> emails = new TreeSet<Email>();
+    Set<Email> emails = new HashSet<Email>();
     emails.add(new Email("john.doe@example.com"));
     requester.setEmails(emails);
     request.getSession().setAttribute(LoginInterceptor.PERSON_SESSION_KEY, requester);
@@ -170,7 +167,7 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
   public void testComposeJoinRequestMailMessage_html() throws Exception {
     Person requester = getPerson1();
     requester.setDisplayName("Humble User");
-    Set<Email> emails = new TreeSet<Email>();
+    Set<Email> emails = new HashSet<Email>();
     emails.add(new Email("humble.user@example.com"));
     requester.setEmails(emails);
 
@@ -197,7 +194,7 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
   public void testComposeJoinRequestMailMessage_text() throws Exception {
     Person requester = getPerson1();
     requester.setDisplayName("Humble User");
-    Set<Email> emails = new TreeSet<Email>();
+    Set<Email> emails = new HashSet<Email>();
     emails.add(new Email("humble.user@example.com"));
     requester.setEmails(emails);
 
