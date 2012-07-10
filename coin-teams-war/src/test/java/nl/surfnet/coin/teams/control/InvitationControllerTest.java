@@ -18,11 +18,9 @@ package nl.surfnet.coin.teams.control;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
-import java.util.TreeSet;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -140,7 +138,7 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
     getRequest().setParameter("id", invitationHash);
     Person person = getPersonFromSession();
-    Set<Email> emails = new TreeSet<Email>();
+    Set<Email> emails = new HashSet<Email>();
     emails.add(new Email("person1@example.com"));
     person.setEmails(emails);
     getRequest().getSession().setAttribute(PERSON_SESSION_KEY, person);
