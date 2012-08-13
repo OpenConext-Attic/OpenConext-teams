@@ -81,8 +81,9 @@ public class ExternalGroupProviderProcessorImpl implements ExternalGroupProvider
     }
     // Get all basic authentication group providers (constrained by the userId)
     for (GroupProvider groupProvider : allGroupProviders) {
-      if (groupProvider.getGroupProviderType().equals(GroupProviderType.BASIC_AUTHENTICATION)
-          && groupProvider.isMeantForUser(userId)) {
+      boolean isBasicAuth = groupProvider.getGroupProviderType().equals(GroupProviderType.BASIC_AUTHENTICATION);
+      boolean meantForUser = groupProvider.isMeantForUser(userId);
+      if (isBasicAuth && meantForUser) {
         groupProviders.add(groupProvider);
       }
     }
@@ -101,7 +102,7 @@ public class ExternalGroupProviderProcessorImpl implements ExternalGroupProvider
       List<GroupProvider> allGroupProviders, String groupProviderIdentifier, int offset, int pageSize) {
     GroupProvider groupProvider = getGroupProviderByStringIdentifier(groupProviderIdentifier, allGroupProviders);
 
-    if (GroupProviderPropertyConverter.isGroupFromGroupProvider(groupId, groupProvider)) {
+    if (!GroupProviderPropertyConverter.isGroupFromGroupProvider(groupId, groupProvider)) {
       throw new RuntimeException(String.format("GroupId(%s) can not be retrieved from external group provider(%s)",
           groupId, groupProvider));
     }
