@@ -40,8 +40,6 @@ public interface ExternalGroupProviderProcessor {
   /**
    * Gets a List of {@link GroupProvider}'s for a given user
    * 
-   * @param userId
-   *          unique identifier of the user
    * @return List of GroupProvider's, can be empty
    */
   List<GroupProvider> getAllGroupProviders();
