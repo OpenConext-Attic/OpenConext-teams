@@ -18,8 +18,6 @@ COIN.MODULES.Addteam = function (sandbox) {
   // Public interface
   var module = {
     init:function () {
-      sandbox.addPlaceholderSupport();
-
       var admin2messageContainer = $('#admin2messagecontainer');
       admin2messageContainer.addClass('hide');
       // Clicked [ Cancel ]
