@@ -27,6 +27,7 @@ import nl.surfnet.coin.api.client.domain.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.expression.Operation;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
@@ -61,6 +62,7 @@ import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamResultWrapper;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.service.MemberAttributeService;
+import nl.surfnet.coin.teams.service.ProvisioningManager;
 import nl.surfnet.coin.teams.util.DuplicateTeamException;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 import static nl.surfnet.coin.teams.util.PersonUtil.isGuest;
@@ -76,6 +78,9 @@ public class GrouperTeamServiceWsImpl extends GrouperDaoImpl implements GrouperT
 
   @Autowired
   private MemberAttributeService memberAttributeService;
+  
+  @Autowired
+  private ProvisioningManager provisioningManager;
 
   private static final String[] FORBIDDEN_CHARS = new String[] { "<", ">", "/",
       "\\", "*", ":", ",", "%" };
@@ -341,6 +346,7 @@ public class GrouperTeamServiceWsImpl extends GrouperDaoImpl implements GrouperT
         throw new DuplicateTeamException("Team already exists: " + teamId);
       }
     }
+    provisioningManager.groupEvent(teamId, displayName, ProvisioningManager.Operation.CREATE);
     return teamId;
   }
 
@@ -363,7 +369,7 @@ public class GrouperTeamServiceWsImpl extends GrouperDaoImpl implements GrouperT
     deleteMember.assignActAsSubject(getActAsSubject(getGrouperPowerUser()));
     deleteMember.assignGroupName(teamId);
     deleteMember.execute();
-
+    provisioningManager.teamMemberEvent(teamId, personId, null, ProvisioningManager.Operation.DELETE);
   }
 
   /**
@@ -376,7 +382,7 @@ public class GrouperTeamServiceWsImpl extends GrouperDaoImpl implements GrouperT
     WsGroupLookup wsGroupLookup = new WsGroupLookup(teamId, null);
     groupDelete.addGroupLookup(wsGroupLookup);
     groupDelete.execute();
-
+    provisioningManager.groupEvent(teamId, null, ProvisioningManager.Operation.DELETE);
   }
 
   /**
@@ -463,8 +469,12 @@ public class GrouperTeamServiceWsImpl extends GrouperDaoImpl implements GrouperT
       // Grouper converts every exception to RuntimeException
       return false;
     }
-    return result.getResultMetadata().getResultCode().equals("SUCCESS") ? true
+    boolean success = result.getResultMetadata().getResultCode().equals("SUCCESS") ? true
         : false;
+    if (success) {
+      provisioningManager.roleEvent(teamId, memberId, role.name().toLowerCase(), ProvisioningManager.Operation.CREATE);
+    }
+    return success;
   }
 
   /**
@@ -504,8 +514,12 @@ public class GrouperTeamServiceWsImpl extends GrouperDaoImpl implements GrouperT
       // Grouper converts every exception to RuntimeException
       return false;
     }
-    return result.getResultMetadata().getResultCode().equals("SUCCESS") ? true
+    boolean success = result.getResultMetadata().getResultCode().equals("SUCCESS") ? true
         : false;
+    if (success) {
+      provisioningManager.roleEvent(teamId, memberId, role.name().toLowerCase(), ProvisioningManager.Operation.DELETE);
+    }
+    return success;
   }
 
   /**
@@ -523,6 +537,7 @@ public class GrouperTeamServiceWsImpl extends GrouperDaoImpl implements GrouperT
       member.setGuest(person.getTags().contains("guest"));
       memberAttributeService.saveOrUpdate(member.getMemberAttributes());
     }
+    provisioningManager.teamMemberEvent(teamId, person.getId(), "member", ProvisioningManager.Operation.CREATE);
   }
 
   /**

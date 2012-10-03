@@ -16,6 +16,8 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
+import static nl.surfnet.coin.teams.util.PersonUtil.isGuest;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -25,15 +27,16 @@ import java.util.Map;
 import java.util.Set;
 
 import nl.surfnet.coin.api.client.domain.Person;
-
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Stem;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamResultWrapper;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.ProvisioningManager;
 import nl.surfnet.coin.teams.util.DuplicateTeamException;
-import static nl.surfnet.coin.teams.util.PersonUtil.isGuest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Mock implementation of {@link nl.surfnet.coin.teams.service.GrouperTeamService}
@@ -44,6 +47,9 @@ public class InMemoryMockTeamService implements GrouperTeamService {
   private Map<String, Team> teams = new HashMap<String, Team>();
   private static final String STEM = "nl:surfnet:diensten";
 
+  @Autowired
+  private ProvisioningManager provisioningManager;
+  
   /**
    * Constructor
    */

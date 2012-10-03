@@ -19,6 +19,17 @@
 # values depend on the environment and are unknown to the developers     #
 ##########################################################################
 
+#Use the ASyncProvisioningManager when the iwelcome implementation is ready
+provisioningManagerClass=nl.surfnet.coin.teams.service.NoOpProvisioningManager
+#provisioningManagerClass=nl.surfnet.coin.teams.service.ASyncProvisioningManager
+
+#something like example.iwelcome.com
+provisioner.baseurl=???
+
+#basic authentication
+provisioner.user=???
+provisioner.password=???
+
 #the database for non-grouper tables (e.g. invitations, requests, invitation_message) 
 coin-team-db-url=jdbc:mysql://db.test.surfconext.nl:3306/teams
 coin-team-db-username=teamsrw
