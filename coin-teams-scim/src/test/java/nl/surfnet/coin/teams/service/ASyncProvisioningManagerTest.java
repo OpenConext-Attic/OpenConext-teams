@@ -40,7 +40,7 @@ import org.junit.Test;
 import org.springframework.core.env.Environment;
 
 /**
- * RedisSubscriberTestIT.java
+ * {@link Test} for {@link ASyncProvisioningManager}
  * 
  */
 public class ASyncProvisioningManagerTest implements HttpRequestHandler {
@@ -83,54 +83,54 @@ public class ASyncProvisioningManagerTest implements HttpRequestHandler {
   public void testGroupCreate() {
     provisioningManager.groupEvent("teamId", "displayName", Operation.CREATE);
     assertEquals(method, "POST");
-    assertEquals(result, "{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"id\":\"teamId\",\"displayName\":\"displayName\"}");
+    assertEquals("{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"id\":\"teamId\",\"displayName\":\"displayName\"}", result);
   }
 
   @Test
   public void testGroupUpdate() {
     provisioningManager.groupEvent("teamId", "displayName", Operation.UPDATE);
-    assertEquals(method, "PATCH");
-    assertEquals(result, "{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"displayName\":\"displayName\"}");
+    assertEquals( "PATCH", method);
+    assertEquals("{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"displayName\":\"displayName\"}", result);
     assertEquals("/prov/Groups/teamId", uri);
   }
 
   @Test
   public void testGroupDelete() {
     provisioningManager.groupEvent("teamId", null, Operation.DELETE);
-    assertEquals(method, "DELETE");
-    assertEquals(result, null);
+    assertEquals( "DELETE",method);
+    assertEquals( null,result);
     assertEquals("/prov/Groups/teamId", uri);
   }
 
   @Test
   public void testMemberCreate() {
     provisioningManager.teamMemberEvent("teamId", "memberId", "admin", Operation.CREATE);
-    assertEquals(method, "PATCH");
-    assertEquals(result, "{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"value\":\"memberId\",\"role\":[\"admin\"]}]}");
+    assertEquals( "PATCH",method);
+    assertEquals( "{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"value\":\"memberId\",\"role\":[\"admin\"]}]}",result);
     assertEquals("/prov/Groups/teamId", uri);
   }
 
   @Test
   public void testMemberDelete() {
     provisioningManager.teamMemberEvent("teamId", "memberId", null, Operation.DELETE);
-    assertEquals(method, "PATCH");
-    assertEquals(result, "{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"value\":\"memberId\",\"operation\":\"delete\"}]}");
+    assertEquals( "PATCH",method);
+    assertEquals( "{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"value\":\"memberId\",\"operation\":\"delete\"}]}",result);
     assertEquals("/prov/Groups/teamId", uri);
   }
 
   @Test
   public void testRoleCreate() {
     provisioningManager.roleEvent("teamId", "memberId", "admin", Operation.CREATE);
-    assertEquals(method, "PATCH");
-    assertEquals(result, "{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"role\":[\"admin\"]}]}");
+    assertEquals( "PATCH",method);
+    assertEquals( "{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"role\":[\"admin\"]}]}",result);
     assertEquals("/prov/Groups/teamId/memberId", uri);
   }
 
   @Test
   public void testRoleDelete() {
     provisioningManager.roleEvent("teamId", "memberId", "manager", Operation.DELETE);
-    assertEquals(method, "PATCH");
-    assertEquals(result, "{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"role\":[\"manager\"],\"operation\":\"delete\"}]}");
+    assertEquals( "PATCH",method);
+    assertEquals( "{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"role\":[\"manager\"],\"operation\":\"delete\"}]}",result);
     assertEquals("/prov/Groups/teamId/memberId", uri);
   }
 
