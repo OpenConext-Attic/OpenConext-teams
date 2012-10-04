@@ -26,6 +26,7 @@ import nl.surfnet.coin.teams.model.ScimMember;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpEntityEnclosingRequest;
+import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.ClientProtocolException;
@@ -54,12 +55,12 @@ import org.springframework.scheduling.annotation.Async;
  */
 public class ASyncProvisioningManager implements ProvisioningManager {
 
+  private static final String UTF_8 = "UTF-8";
+
   private HttpClient client;
 
   private String baseUri;
-
   private String username;
-
   private String password;
 
   private ObjectMapper mapper = new ObjectMapper().enable(DeserializationConfig.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
@@ -79,12 +80,12 @@ public class ASyncProvisioningManager implements ProvisioningManager {
         request = new HttpPost(uriPath);
         break;
       case DELETE:
-        uriPath = uriPath.concat("/").concat(URLEncoder.encode(teamId, "UTF-8"));
+        uriPath = uriPath.concat("/").concat(URLEncoder.encode(teamId, UTF_8));
         request = new HttpDelete(uriPath);
         break;
       case UPDATE:
         event.setDisplayName(displayName);
-        uriPath = uriPath.concat("/").concat(URLEncoder.encode(teamId, "UTF-8"));
+        uriPath = uriPath.concat("/").concat(URLEncoder.encode(teamId, UTF_8));
         request = new HttpPatch(uriPath);
         break;
       default:
@@ -103,7 +104,7 @@ public class ASyncProvisioningManager implements ProvisioningManager {
     try {
       HttpUriRequest request;
       ScimEvent event = new ScimEvent();
-      String uriPath = baseUri.concat("/").concat(URLEncoder.encode(teamId, "UTF-8"));
+      String uriPath = baseUri.concat("/").concat(URLEncoder.encode(teamId, UTF_8));
       request = new HttpPatch(uriPath);
       switch (operation) {
       case CREATE:
@@ -128,8 +129,8 @@ public class ASyncProvisioningManager implements ProvisioningManager {
     try {
       HttpUriRequest request;
       ScimEvent event = new ScimEvent();
-      String uriPath = baseUri.concat("/").concat(URLEncoder.encode(teamId, "UTF-8")).concat("/")
-          .concat(URLEncoder.encode(memberId, "UTF-8"));
+      String uriPath = baseUri.concat("/").concat(URLEncoder.encode(teamId, UTF_8)).concat("/")
+          .concat(URLEncoder.encode(memberId, UTF_8));
       request = new HttpPatch(uriPath);
       switch (operation) {
       case CREATE:
@@ -159,9 +160,9 @@ public class ASyncProvisioningManager implements ProvisioningManager {
 
   private void execute(HttpUriRequest request, ScimEvent event) throws IOException, JsonGenerationException, JsonMappingException,
       ClientProtocolException {
-    request.addHeader("Content-Type", "application/json");
+    request.addHeader(HttpHeaders.CONTENT_TYPE, ContentType.APPLICATION_JSON.getMimeType());
     UsernamePasswordCredentials credentials = new UsernamePasswordCredentials(username, password);
-    request.addHeader(BasicScheme.authenticate(credentials, "UTF-8", false));
+    request.addHeader(BasicScheme.authenticate(credentials, UTF_8, false));
     if (request instanceof HttpEntityEnclosingRequest) {
       HttpEntityEnclosingRequest enclosingRequest = (HttpEntityEnclosingRequest) request;
       HttpEntity entity = new StringEntity(mapper.writeValueAsString(event), ContentType.APPLICATION_JSON);
