@@ -26,11 +26,13 @@ import nl.surfnet.coin.teams.service.ProvisioningManager.Operation;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntityEnclosingRequest;
 import org.apache.http.HttpException;
+import org.apache.http.HttpHeaders;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.RequestLine;
 import org.apache.http.auth.UsernamePasswordCredentials;
+import org.apache.http.entity.ContentType;
 import org.apache.http.impl.auth.BasicScheme;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.HttpRequestHandler;
@@ -44,6 +46,9 @@ import org.springframework.core.env.Environment;
  * 
  */
 public class ASyncProvisioningManagerTest implements HttpRequestHandler {
+
+  private static final String PASSWORD = "password";
+  private static final String USERNAME = "username";
 
   private static LocalTestServerHack localTestServer;
 
@@ -67,8 +72,8 @@ public class ASyncProvisioningManagerTest implements HttpRequestHandler {
         .getPort());
     Environment env = mock(Environment.class);
     when(env.getRequiredProperty("provisioner.baseurl")).thenReturn(baseurl);
-    when(env.getRequiredProperty("provisioner.user")).thenReturn("username");
-    when(env.getRequiredProperty("provisioner.password")).thenReturn("password");
+    when(env.getRequiredProperty("provisioner.user")).thenReturn(USERNAME);
+    when(env.getRequiredProperty("provisioner.password")).thenReturn(PASSWORD);
     provisioningManager.init(env);
   }
 
@@ -89,7 +94,7 @@ public class ASyncProvisioningManagerTest implements HttpRequestHandler {
   @Test
   public void testGroupUpdate() {
     provisioningManager.groupEvent("teamId", "displayName", Operation.UPDATE);
-    assertEquals( "PATCH", method);
+    assertEquals("PATCH", method);
     assertEquals("{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"displayName\":\"displayName\"}", result);
     assertEquals("/prov/Groups/teamId", uri);
   }
@@ -97,40 +102,40 @@ public class ASyncProvisioningManagerTest implements HttpRequestHandler {
   @Test
   public void testGroupDelete() {
     provisioningManager.groupEvent("teamId", null, Operation.DELETE);
-    assertEquals( "DELETE",method);
-    assertEquals( null,result);
+    assertEquals("DELETE", method);
+    assertEquals(null, result);
     assertEquals("/prov/Groups/teamId", uri);
   }
 
   @Test
   public void testMemberCreate() {
     provisioningManager.teamMemberEvent("teamId", "memberId", "admin", Operation.CREATE);
-    assertEquals( "PATCH",method);
-    assertEquals( "{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"value\":\"memberId\",\"role\":[\"admin\"]}]}",result);
+    assertEquals("PATCH", method);
+    assertEquals("{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"value\":\"memberId\",\"role\":[\"admin\"]}]}", result);
     assertEquals("/prov/Groups/teamId", uri);
   }
 
   @Test
   public void testMemberDelete() {
     provisioningManager.teamMemberEvent("teamId", "memberId", null, Operation.DELETE);
-    assertEquals( "PATCH",method);
-    assertEquals( "{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"value\":\"memberId\",\"operation\":\"delete\"}]}",result);
+    assertEquals("PATCH", method);
+    assertEquals("{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"value\":\"memberId\",\"operation\":\"delete\"}]}", result);
     assertEquals("/prov/Groups/teamId", uri);
   }
 
   @Test
   public void testRoleCreate() {
     provisioningManager.roleEvent("teamId", "memberId", "admin", Operation.CREATE);
-    assertEquals( "PATCH",method);
-    assertEquals( "{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"role\":[\"admin\"]}]}",result);
+    assertEquals("PATCH", method);
+    assertEquals("{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"role\":[\"admin\"]}]}", result);
     assertEquals("/prov/Groups/teamId/memberId", uri);
   }
 
   @Test
   public void testRoleDelete() {
     provisioningManager.roleEvent("teamId", "memberId", "manager", Operation.DELETE);
-    assertEquals( "PATCH",method);
-    assertEquals( "{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"role\":[\"manager\"],\"operation\":\"delete\"}]}",result);
+    assertEquals("PATCH", method);
+    assertEquals("{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"role\":[\"manager\"],\"operation\":\"delete\"}]}", result);
     assertEquals("/prov/Groups/teamId/memberId", uri);
   }
 
@@ -143,9 +148,9 @@ public class ASyncProvisioningManagerTest implements HttpRequestHandler {
    */
   @Override
   public void handle(HttpRequest request, HttpResponse response, HttpContext context) throws HttpException, IOException {
-    assertEquals(BasicScheme.authenticate(new UsernamePasswordCredentials("username", "password"), "UTF-8", false).getValue(), request
-        .getFirstHeader("Authorization").getValue());
-    assertEquals("application/json", request.getFirstHeader("Content-type").getValue());
+    assertEquals(BasicScheme.authenticate(new UsernamePasswordCredentials(USERNAME, PASSWORD), "UTF-8", false).getValue(), request
+        .getFirstHeader(HttpHeaders.AUTHORIZATION).getValue());
+    assertEquals(ContentType.APPLICATION_JSON.getMimeType(), request.getFirstHeader(HttpHeaders.CONTENT_TYPE).getValue());
 
     if (request instanceof HttpEntityEnclosingRequest) {
       this.result = IOUtils.toString(((HttpEntityEnclosingRequest) request).getEntity().getContent());
