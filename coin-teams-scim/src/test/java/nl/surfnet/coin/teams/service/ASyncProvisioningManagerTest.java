@@ -89,6 +89,7 @@ public class ASyncProvisioningManagerTest implements HttpRequestHandler {
     provisioningManager.groupEvent("teamId", "displayName", Operation.CREATE);
     assertEquals(method, "POST");
     assertEquals("{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"id\":\"teamId\",\"displayName\":\"displayName\"}", result);
+    assertEquals("/prov/Groups", uri);
   }
 
   @Test
