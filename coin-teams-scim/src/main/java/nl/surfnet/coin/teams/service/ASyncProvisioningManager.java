@@ -16,6 +16,7 @@
 package nl.surfnet.coin.teams.service;
 
 import static java.util.Arrays.asList;
+import static org.apache.commons.codec.CharEncoding.UTF_8;
 
 import java.io.IOException;
 import java.net.URLEncoder;
@@ -54,8 +55,6 @@ import org.springframework.scheduling.annotation.Async;
  * 
  */
 public class ASyncProvisioningManager implements ProvisioningManager {
-
-  private static final String UTF_8 = "UTF-8";
 
   private HttpClient client;
 
