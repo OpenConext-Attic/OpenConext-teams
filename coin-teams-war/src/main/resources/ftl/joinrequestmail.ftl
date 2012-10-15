@@ -55,15 +55,4 @@ String message
             </td>
           </tr>
         </table>
-
-        <p lang="en">
-          Consult the
-          <a href="https://wiki.surfnetlabs.nl/display/conextsupport/SURFteams" style="color:#0088CC;">manual for specific information on SURFteams</a>
-          or contact SURFteams support at <a href="mailto:help@surfteams.nl" style="color:#0088CC;">help@surfteams.nl</a>.
-        </p>
-
-        <p lang="en">
-          This service is powered by <a href="http://www.surfconext.nl" style="color:#0088CC;">SURFconext</a> - brought
-          to you by SURFnet
-        </p>
 [@macros_htmlmail.mailfooter/]
