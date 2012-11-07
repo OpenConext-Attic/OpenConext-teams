@@ -15,28 +15,44 @@
  */
 package nl.surfnet.coin.teams.service;
 
+import java.io.IOException;
+
+import org.apache.commons.io.IOUtils;
+import org.apache.http.HttpEntityEnclosingRequest;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.HttpUriRequest;
 import org.springframework.core.env.Environment;
+import org.springframework.scheduling.annotation.Async;
 
 /**
  * NoOpProvisioningManager.java
  * 
  */
-public class NoOpProvisioningManager implements ProvisioningManager {
+public class NoOpProvisioningManager extends ASyncProvisioningManager {
+
+  @Override
+  protected void doExecute(HttpUriRequest request) throws IOException, ClientProtocolException {
+    String json = "";
+    if (request instanceof HttpEntityEnclosingRequest) {
+      json = IOUtils.toString(((HttpEntityEnclosingRequest) request).getEntity().getContent());
+    }
+    log.info("Broadcasting team change (" + request.getMethod() + " : " + json + ")");
+  }
 
   @Override
   public void groupEvent(String teamId, String displayName, Operation operation) {
+    super.groupEvent(teamId, displayName, operation);
   }
 
   @Override
   public void teamMemberEvent(String teamId, String memberId, String role, Operation operation) {
+    super.teamMemberEvent(teamId, memberId, role, operation);
   }
 
   @Override
   public void roleEvent(String teamId, String memberId, String role, Operation operation) {
+    super.roleEvent(teamId, memberId, role, operation);
   }
 
-  @Override
-  public void init(Environment env) {
-  }
 
 }

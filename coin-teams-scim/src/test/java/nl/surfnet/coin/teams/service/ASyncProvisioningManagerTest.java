@@ -70,11 +70,15 @@ public class ASyncProvisioningManagerTest implements HttpRequestHandler {
     provisioningManager = new ASyncProvisioningManager();
     String baseurl = String.format("http://%s:%d", localTestServer.getServiceAddress().getHostName(), localTestServer.getServiceAddress()
         .getPort());
+    initEnv(provisioningManager, baseurl);
+  }
+
+  private static void initEnv(ProvisioningManager manager, String baseurl) {
     Environment env = mock(Environment.class);
     when(env.getRequiredProperty("provisioner.baseurl")).thenReturn(baseurl);
     when(env.getRequiredProperty("provisioner.user")).thenReturn(USERNAME);
     when(env.getRequiredProperty("provisioner.password")).thenReturn(PASSWORD);
-    provisioningManager.init(env);
+    manager.init(env);
   }
 
   @Before
@@ -138,6 +142,15 @@ public class ASyncProvisioningManagerTest implements HttpRequestHandler {
     assertEquals("PATCH", method);
     assertEquals("{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"role\":[\"manager\"],\"operation\":\"delete\"}]}", result);
     assertEquals("/prov/Groups/teamId/memberId", uri);
+  }
+  
+  @Test
+  public void testNoopManager() {
+    NoOpProvisioningManager manager = new NoOpProvisioningManager();
+    String baseurl = String.format("http://%s:%d", localTestServer.getServiceAddress().getHostName(), localTestServer.getServiceAddress()
+        .getPort());
+    initEnv(manager, baseurl);
+    manager.roleEvent("teamId", "memberId", "admin", Operation.CREATE);
   }
 
   /*

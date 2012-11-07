@@ -84,6 +84,12 @@
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mrbean</artifactId>
 			<version>${jackson.version}</version>
+            <exclusions>
+              <exclusion>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+              </exclusion>
+            </exclusions>
 		</dependency>
 
 		<!-- The next two slf4j dependencies are the ones we want to use. Other 

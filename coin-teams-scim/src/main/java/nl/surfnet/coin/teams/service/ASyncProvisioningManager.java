@@ -47,6 +47,8 @@ import org.codehaus.jackson.map.DeserializationConfig;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.env.Environment;
 import org.springframework.scheduling.annotation.Async;
 
@@ -56,6 +58,8 @@ import org.springframework.scheduling.annotation.Async;
  */
 public class ASyncProvisioningManager implements ProvisioningManager {
 
+  protected static final Logger log = LoggerFactory.getLogger(ASyncProvisioningManager.class);
+  
   private HttpClient client;
 
   private String baseUri;
@@ -64,6 +68,8 @@ public class ASyncProvisioningManager implements ProvisioningManager {
 
   private ObjectMapper mapper = new ObjectMapper().enable(DeserializationConfig.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
       .setSerializationInclusion(JsonSerialize.Inclusion.NON_NULL).setVisibility(JsonMethod.FIELD, Visibility.ANY);
+
+  private UsernamePasswordCredentials credentials;
 
   @Async
   @Override
@@ -128,8 +134,7 @@ public class ASyncProvisioningManager implements ProvisioningManager {
     try {
       HttpUriRequest request;
       ScimEvent event = new ScimEvent();
-      String uriPath = baseUri.concat("/").concat(URLEncoder.encode(teamId, UTF_8)).concat("/")
-          .concat(URLEncoder.encode(memberId, UTF_8));
+      String uriPath = baseUri.concat("/").concat(URLEncoder.encode(teamId, UTF_8)).concat("/").concat(URLEncoder.encode(memberId, UTF_8));
       request = new HttpPatch(uriPath);
       switch (operation) {
       case CREATE:
@@ -155,19 +160,23 @@ public class ASyncProvisioningManager implements ProvisioningManager {
     this.username = env.getRequiredProperty("provisioner.user");
     this.password = env.getRequiredProperty("provisioner.password");
     this.client = new DefaultHttpClient();
-  }
+    this.credentials = new UsernamePasswordCredentials(username, password);  }
 
   private void execute(HttpUriRequest request, ScimEvent event) throws IOException, JsonGenerationException, JsonMappingException,
       ClientProtocolException {
     request.addHeader(HttpHeaders.CONTENT_TYPE, ContentType.APPLICATION_JSON.getMimeType());
-    UsernamePasswordCredentials credentials = new UsernamePasswordCredentials(username, password);
     request.addHeader(BasicScheme.authenticate(credentials, UTF_8, false));
     if (request instanceof HttpEntityEnclosingRequest) {
       HttpEntityEnclosingRequest enclosingRequest = (HttpEntityEnclosingRequest) request;
       HttpEntity entity = new StringEntity(mapper.writeValueAsString(event), ContentType.APPLICATION_JSON);
       enclosingRequest.setEntity(entity);
     }
+    doExecute(request);
+  }
+
+  protected void doExecute(HttpUriRequest request) throws IOException, ClientProtocolException {
     HttpResponse response = client.execute(request);
+    //need to ensure everything is read otherwise the connection is not released
     IOUtils.toString(response.getEntity().getContent());
     int status = response.getStatusLine().getStatusCode();
     if (status < 200 || status > 299) {
