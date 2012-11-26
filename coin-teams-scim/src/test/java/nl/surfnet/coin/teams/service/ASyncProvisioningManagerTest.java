@@ -34,6 +34,7 @@ import org.apache.http.RequestLine;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.entity.ContentType;
 import org.apache.http.impl.auth.BasicScheme;
+import org.apache.http.localserver.LocalTestServer;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.HttpRequestHandler;
 import org.junit.Before;
@@ -50,7 +51,7 @@ public class ASyncProvisioningManagerTest implements HttpRequestHandler {
   private static final String PASSWORD = "password";
   private static final String USERNAME = "username";
 
-  private static LocalTestServerHack localTestServer;
+  private static LocalTestServer localTestServer;
 
   private static ASyncProvisioningManager provisioningManager;
 
@@ -61,7 +62,7 @@ public class ASyncProvisioningManagerTest implements HttpRequestHandler {
 
   @BeforeClass
   public static void beforeClass() throws Exception {
-    localTestServer = new LocalTestServerHack(null, null);
+    localTestServer = new LocalTestServerPatch(  null, null);
     localTestServer.start();
 
     /*
@@ -143,7 +144,7 @@ public class ASyncProvisioningManagerTest implements HttpRequestHandler {
     assertEquals("{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"role\":[\"manager\"],\"operation\":\"delete\"}]}", result);
     assertEquals("/prov/Groups/teamId/memberId", uri);
   }
-  
+
   @Test
   public void testNoopManager() {
     NoOpProvisioningManager manager = new NoOpProvisioningManager();
@@ -154,11 +155,8 @@ public class ASyncProvisioningManagerTest implements HttpRequestHandler {
   }
 
   /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.apache.http.protocol.HttpRequestHandler#handle(org.apache.http.HttpRequest
-   * , org.apache.http.HttpResponse, org.apache.http.protocol.HttpContext)
+   * Here we respond to the actual HTTP call and save the body content, method
+   * and url in class variables to make assertions against.
    */
   @Override
   public void handle(HttpRequest request, HttpResponse response, HttpContext context) throws HttpException, IOException {
