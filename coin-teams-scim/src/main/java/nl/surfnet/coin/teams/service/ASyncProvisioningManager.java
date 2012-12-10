@@ -24,7 +24,6 @@ import java.net.URLEncoder;
 import nl.surfnet.coin.teams.model.ScimEvent;
 import nl.surfnet.coin.teams.model.ScimMember;
 
-import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpEntityEnclosingRequest;
 import org.apache.http.HttpHeaders;
@@ -40,6 +39,9 @@ import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.auth.BasicScheme;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.conn.PoolingClientConnectionManager;
+import org.apache.http.impl.conn.SchemeRegistryFactory;
+import org.apache.http.util.EntityUtils;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
 import org.codehaus.jackson.annotate.JsonMethod;
@@ -59,17 +61,19 @@ import org.springframework.scheduling.annotation.Async;
 public class ASyncProvisioningManager implements ProvisioningManager {
 
   protected static final Logger log = LoggerFactory.getLogger(ASyncProvisioningManager.class);
-  
+
   private HttpClient client;
 
   private String baseUri;
   private String username;
   private String password;
+  private String extraUri;
 
   private ObjectMapper mapper = new ObjectMapper().enable(DeserializationConfig.Feature.ACCEPT_SINGLE_VALUE_AS_ARRAY)
       .setSerializationInclusion(JsonSerialize.Inclusion.NON_NULL).setVisibility(JsonMethod.FIELD, Visibility.ANY);
 
   private UsernamePasswordCredentials credentials;
+
 
   @Async
   @Override
@@ -98,8 +102,7 @@ public class ASyncProvisioningManager implements ProvisioningManager {
       }
       execute(request, event);
     } catch (Throwable e) {
-      // todo - save to database
-      throw new RuntimeException(e);
+      handleException(e);
     }
   }
 
@@ -123,8 +126,7 @@ public class ASyncProvisioningManager implements ProvisioningManager {
       }
       execute(request, event);
     } catch (Throwable e) {
-      // todo - save to database
-      throw new RuntimeException(e);
+      handleException(e);
     }
   }
 
@@ -134,7 +136,7 @@ public class ASyncProvisioningManager implements ProvisioningManager {
     try {
       HttpUriRequest request;
       ScimEvent event = new ScimEvent();
-      String uriPath = baseUri.concat("/").concat(URLEncoder.encode(teamId, UTF_8)).concat("/").concat(URLEncoder.encode(memberId, UTF_8));
+      String uriPath = extraUri.concat("/").concat(URLEncoder.encode(teamId, UTF_8)).concat("/").concat(URLEncoder.encode(memberId, UTF_8));
       request = new HttpPatch(uriPath);
       switch (operation) {
       case CREATE:
@@ -148,19 +150,23 @@ public class ASyncProvisioningManager implements ProvisioningManager {
       }
       execute(request, event);
     } catch (Throwable e) {
-      // todo - save to database
-      throw new RuntimeException(e);
+      handleException(e);
     }
 
   }
 
   @Override
   public void init(Environment env) {
-    this.baseUri = env.getRequiredProperty("provisioner.baseurl").concat("/prov/Groups");
+    this.baseUri = env.getRequiredProperty("provisioner.baseurl").concat("/Groups/v1.1");
+    this.extraUri = env.getRequiredProperty("provisioner.baseurl").concat("/extra/Groups/v1.1");
     this.username = env.getRequiredProperty("provisioner.user");
     this.password = env.getRequiredProperty("provisioner.password");
-    this.client = new DefaultHttpClient();
-    this.credentials = new UsernamePasswordCredentials(username, password);  }
+    this.credentials = new UsernamePasswordCredentials(username, password);
+    
+    PoolingClientConnectionManager cxMgr = new PoolingClientConnectionManager();
+    cxMgr.setMaxTotal(100);
+    this.client = new DefaultHttpClient(cxMgr);
+  }
 
   private void execute(HttpUriRequest request, ScimEvent event) throws IOException, JsonGenerationException, JsonMappingException,
       ClientProtocolException {
@@ -174,13 +180,24 @@ public class ASyncProvisioningManager implements ProvisioningManager {
     doExecute(request);
   }
 
+  private void handleException(Throwable e) {
+    log.error("ASyncProvisioningManager#handleException", e);
+    throw new RuntimeException(e);
+  }
+
   protected void doExecute(HttpUriRequest request) throws IOException, ClientProtocolException {
-    HttpResponse response = client.execute(request);
-    //need to ensure everything is read otherwise the connection is not released
-    IOUtils.toString(response.getEntity().getContent());
-    int status = response.getStatusLine().getStatusCode();
-    if (status < 200 || status > 299) {
-      throw new RuntimeException("Status = " + status);
+    log.info("Broadcasting team change (" + request + ")");
+    HttpEntity entity = null;
+    try {
+      HttpResponse response = client.execute(request);
+      entity = response.getEntity();
+      int status = response.getStatusLine().getStatusCode();
+      if (status < 200 || status > 307) {
+        throw new RuntimeException("Status = " + status);
+      }
+    }
+    finally {
+      EntityUtils.consume(entity);
     }
   }
 

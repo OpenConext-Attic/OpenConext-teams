@@ -85,7 +85,8 @@ public class ASyncProvisioningManagerTest implements HttpRequestHandler {
   @Before
   public void before() {
     // we can't do this statically
-    localTestServer.register("/prov/*", this);
+    localTestServer.register("/Groups/*", this);
+    localTestServer.register("/extra/*", this);
     status = HttpStatus.SC_OK;
   }
 
@@ -94,7 +95,7 @@ public class ASyncProvisioningManagerTest implements HttpRequestHandler {
     provisioningManager.groupEvent("teamId", "displayName", Operation.CREATE);
     assertEquals(method, "POST");
     assertEquals("{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"id\":\"teamId\",\"displayName\":\"displayName\"}", result);
-    assertEquals("/prov/Groups", uri);
+    assertEquals("/Groups/v1.1", uri);
   }
 
   @Test
@@ -102,7 +103,7 @@ public class ASyncProvisioningManagerTest implements HttpRequestHandler {
     provisioningManager.groupEvent("teamId", "displayName", Operation.UPDATE);
     assertEquals("PATCH", method);
     assertEquals("{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"displayName\":\"displayName\"}", result);
-    assertEquals("/prov/Groups/teamId", uri);
+    assertEquals("/Groups/v1.1/teamId", uri);
   }
 
   @Test
@@ -110,7 +111,7 @@ public class ASyncProvisioningManagerTest implements HttpRequestHandler {
     provisioningManager.groupEvent("teamId", null, Operation.DELETE);
     assertEquals("DELETE", method);
     assertEquals(null, result);
-    assertEquals("/prov/Groups/teamId", uri);
+    assertEquals("/Groups/v1.1/teamId", uri);
   }
 
   @Test
@@ -118,7 +119,7 @@ public class ASyncProvisioningManagerTest implements HttpRequestHandler {
     provisioningManager.teamMemberEvent("teamId", "memberId", "admin", Operation.CREATE);
     assertEquals("PATCH", method);
     assertEquals("{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"value\":\"memberId\",\"role\":[\"admin\"]}]}", result);
-    assertEquals("/prov/Groups/teamId", uri);
+    assertEquals("/Groups/v1.1/teamId", uri);
   }
 
   @Test
@@ -126,7 +127,7 @@ public class ASyncProvisioningManagerTest implements HttpRequestHandler {
     provisioningManager.teamMemberEvent("teamId", "memberId", null, Operation.DELETE);
     assertEquals("PATCH", method);
     assertEquals("{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"value\":\"memberId\",\"operation\":\"delete\"}]}", result);
-    assertEquals("/prov/Groups/teamId", uri);
+    assertEquals("/Groups/v1.1/teamId", uri);
   }
 
   @Test
@@ -134,7 +135,7 @@ public class ASyncProvisioningManagerTest implements HttpRequestHandler {
     provisioningManager.roleEvent("teamId", "memberId", "admin", Operation.CREATE);
     assertEquals("PATCH", method);
     assertEquals("{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"role\":[\"admin\"]}]}", result);
-    assertEquals("/prov/Groups/teamId/memberId", uri);
+    assertEquals("/extra/Groups/v1.1/teamId/memberId", uri);
   }
 
   @Test
@@ -142,7 +143,7 @@ public class ASyncProvisioningManagerTest implements HttpRequestHandler {
     provisioningManager.roleEvent("teamId", "memberId", "manager", Operation.DELETE);
     assertEquals("PATCH", method);
     assertEquals("{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"role\":[\"manager\"],\"operation\":\"delete\"}]}", result);
-    assertEquals("/prov/Groups/teamId/memberId", uri);
+    assertEquals("/extra/Groups/v1.1/teamId/memberId", uri);
   }
 
   @Test
