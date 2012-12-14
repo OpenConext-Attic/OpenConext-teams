@@ -40,7 +40,6 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.auth.BasicScheme;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.conn.PoolingClientConnectionManager;
-import org.apache.http.impl.conn.SchemeRegistryFactory;
 import org.apache.http.util.EntityUtils;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.annotate.JsonAutoDetect.Visibility;
@@ -185,7 +184,7 @@ public class ASyncProvisioningManager implements ProvisioningManager {
     throw new RuntimeException(e);
   }
 
-  protected void doExecute(HttpUriRequest request) throws IOException, ClientProtocolException {
+  protected synchronized void doExecute(HttpUriRequest request) throws IOException, ClientProtocolException {
     log.info("Broadcasting team change (" + request + ")");
     HttpEntity entity = null;
     try {
