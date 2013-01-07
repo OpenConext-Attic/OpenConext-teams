@@ -15,9 +15,6 @@
  */
 package nl.surfnet.coin.teams.service;
 
-import static java.util.Arrays.asList;
-import static org.apache.commons.codec.CharEncoding.UTF_8;
-
 import java.io.IOException;
 import java.net.URLEncoder;
 
@@ -52,6 +49,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.env.Environment;
 import org.springframework.scheduling.annotation.Async;
+
+import static java.util.Arrays.asList;
+import static org.apache.commons.codec.CharEncoding.UTF_8;
 
 /**
  * ASyncProvisioningManager.java
@@ -191,7 +191,7 @@ public class ASyncProvisioningManager implements ProvisioningManager {
       HttpResponse response = client.execute(request);
       entity = response.getEntity();
       int status = response.getStatusLine().getStatusCode();
-      if (status < 200 || status > 307) {
+      if (status < 200 || status > 299) {
         throw new RuntimeException("Status = " + status);
       }
     }
