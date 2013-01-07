@@ -24,10 +24,21 @@ import java.util.Map;
 import java.util.Set;
 
 import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.MemberAttribute;
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Stem;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.domain.TeamResultWrapper;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.MemberAttributeService;
+import nl.surfnet.coin.teams.service.ProvisioningManager;
+import nl.surfnet.coin.teams.util.DuplicateTeamException;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.expression.Operation;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
@@ -54,17 +65,6 @@ import edu.internet2.middleware.grouperClient.ws.beans.WsGrouperPrivilegeResult;
 import edu.internet2.middleware.grouperClient.ws.beans.WsStem;
 import edu.internet2.middleware.grouperClient.ws.beans.WsSubject;
 import edu.internet2.middleware.grouperClient.ws.beans.WsSubjectLookup;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.MemberAttribute;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Stem;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.domain.TeamResultWrapper;
-import nl.surfnet.coin.teams.service.GrouperTeamService;
-import nl.surfnet.coin.teams.service.MemberAttributeService;
-import nl.surfnet.coin.teams.service.ProvisioningManager;
-import nl.surfnet.coin.teams.util.DuplicateTeamException;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
 import static nl.surfnet.coin.teams.util.PersonUtil.isGuest;
 
 /**
@@ -346,7 +346,7 @@ public class GrouperTeamServiceWsImpl extends GrouperDaoImpl implements GrouperT
         throw new DuplicateTeamException("Team already exists: " + teamId);
       }
     }
-    provisioningManager.groupEvent(teamId, displayName, ProvisioningManager.Operation.CREATE);
+    provisioningManager.groupEvent(teamIdWithContext(teamId), displayName, ProvisioningManager.Operation.CREATE);
     return teamId;
   }
 
@@ -369,7 +369,7 @@ public class GrouperTeamServiceWsImpl extends GrouperDaoImpl implements GrouperT
     deleteMember.assignActAsSubject(getActAsSubject(getGrouperPowerUser()));
     deleteMember.assignGroupName(teamId);
     deleteMember.execute();
-    provisioningManager.teamMemberEvent(teamId, personId, null, ProvisioningManager.Operation.DELETE);
+    provisioningManager.teamMemberEvent(teamIdWithContext(teamId), personId, null, ProvisioningManager.Operation.DELETE);
   }
 
   /**
@@ -382,7 +382,7 @@ public class GrouperTeamServiceWsImpl extends GrouperDaoImpl implements GrouperT
     WsGroupLookup wsGroupLookup = new WsGroupLookup(teamId, null);
     groupDelete.addGroupLookup(wsGroupLookup);
     groupDelete.execute();
-    provisioningManager.groupEvent(teamId, null, ProvisioningManager.Operation.DELETE);
+    provisioningManager.groupEvent(teamIdWithContext(teamId), null, ProvisioningManager.Operation.DELETE);
   }
 
   /**
@@ -472,7 +472,7 @@ public class GrouperTeamServiceWsImpl extends GrouperDaoImpl implements GrouperT
     boolean success = result.getResultMetadata().getResultCode().equals("SUCCESS") ? true
         : false;
     if (success) {
-      provisioningManager.roleEvent(teamId, memberId, role.name().toLowerCase(), ProvisioningManager.Operation.CREATE);
+      provisioningManager.roleEvent(teamIdWithContext(teamId), memberId, role.name().toLowerCase(), ProvisioningManager.Operation.CREATE);
     }
     return success;
   }
@@ -517,7 +517,7 @@ public class GrouperTeamServiceWsImpl extends GrouperDaoImpl implements GrouperT
     boolean success = result.getResultMetadata().getResultCode().equals("SUCCESS") ? true
         : false;
     if (success) {
-      provisioningManager.roleEvent(teamId, memberId, role.name().toLowerCase(), ProvisioningManager.Operation.DELETE);
+      provisioningManager.roleEvent(teamIdWithContext(teamId), memberId, role.name().toLowerCase(), ProvisioningManager.Operation.DELETE);
     }
     return success;
   }
@@ -537,7 +537,7 @@ public class GrouperTeamServiceWsImpl extends GrouperDaoImpl implements GrouperT
       member.setGuest(person.getTags().contains("guest"));
       memberAttributeService.saveOrUpdate(member.getMemberAttributes());
     }
-    provisioningManager.teamMemberEvent(teamId, person.getId(), "member", ProvisioningManager.Operation.CREATE);
+    provisioningManager.teamMemberEvent(teamIdWithContext(teamId), person.getId(), "member", ProvisioningManager.Operation.CREATE);
   }
 
   /**
@@ -608,4 +608,13 @@ public class GrouperTeamServiceWsImpl extends GrouperDaoImpl implements GrouperT
     return environment.getGrouperPowerUser();
   }
 
+  /**
+   * Prepend the teamId with the (environment specific) context. E.g.:
+   * urn:collab:group:surfteams.nl:
+   * @param teamId the teamId without context (e.g.: nl:surfnet:diensten:mygroup)
+   * @return the concatenation:  urn:collab:group:surfteams.nl:nl:surfnet:diensten:mygroup
+   */
+  protected String teamIdWithContext(String teamId) {
+    return environment.getGroupNameContext() + teamId;
+  }
 }
