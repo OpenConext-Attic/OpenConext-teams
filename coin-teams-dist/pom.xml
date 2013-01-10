@@ -26,10 +26,23 @@
   <packaging>pom</packaging>
   <name>coin-teams-dist</name>
   <description>OpenConext Teams distribution package</description>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.surfnet.coin</groupId>
+      <artifactId>coin-teams-war</artifactId>
+      <type>war</type>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+
+
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.7</version>
         <executions>
           <execution>
             <id>replace-version</id>
@@ -38,16 +51,18 @@
               <goal>run</goal>
             </goals>
             <configuration>
-              <tasks>
+              <target>
                 <property name="coin-version" value="${project.version}" />
                 <ant target="build" inheritRefs="true" />
-              </tasks>
+              </target>
             </configuration>
           </execution>
         </executions>
       </plugin>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.2-beta-5</version>
         <executions>
           <execution>
             <goals>
@@ -62,12 +77,4 @@
       </plugin>
     </plugins>
   </build>
-  <dependencies>
-    <dependency>
-      <groupId>org.surfnet.coin</groupId>
-      <artifactId>coin-teams-war</artifactId>
-      <type>war</type>
-      <version>${project.version}</version>
-    </dependency>
-  </dependencies>
 </project>
