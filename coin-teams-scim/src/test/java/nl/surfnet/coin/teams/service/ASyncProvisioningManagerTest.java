@@ -15,10 +15,6 @@
  */
 package nl.surfnet.coin.teams.service;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
 import java.io.IOException;
 
 import nl.surfnet.coin.teams.service.ProvisioningManager.Operation;
@@ -41,6 +37,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.core.env.Environment;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * {@link Test} for {@link ASyncProvisioningManager}
@@ -119,7 +119,7 @@ public class ASyncProvisioningManagerTest implements HttpRequestHandler {
     provisioningManager.teamMemberEvent("teamId", "memberId", "admin", Operation.CREATE);
     assertEquals("PATCH", method);
     assertEquals("{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"value\":\"memberId\",\"role\":[\"admin\"]}]}", result);
-    assertEquals("/Groups/v1.1/teamId", uri);
+    assertEquals("/extra/Groups/v1.1/teamId", uri);
   }
 
   @Test
@@ -127,7 +127,7 @@ public class ASyncProvisioningManagerTest implements HttpRequestHandler {
     provisioningManager.teamMemberEvent("teamId", "memberId", null, Operation.DELETE);
     assertEquals("PATCH", method);
     assertEquals("{\"schemas\":[\"urn:scim:schemas:core:1.0\"],\"members\":[{\"value\":\"memberId\",\"operation\":\"delete\"}]}", result);
-    assertEquals("/Groups/v1.1/teamId", uri);
+    assertEquals("/extra/Groups/v1.1/teamId", uri);
   }
 
   @Test

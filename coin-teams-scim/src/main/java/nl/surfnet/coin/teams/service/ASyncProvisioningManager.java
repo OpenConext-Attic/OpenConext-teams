@@ -111,7 +111,7 @@ public class ASyncProvisioningManager implements ProvisioningManager {
     try {
       HttpUriRequest request;
       ScimEvent event = new ScimEvent();
-      String uriPath = baseUri.concat("/").concat(URLEncoder.encode(teamId, UTF_8));
+      String uriPath = extraUri.concat("/").concat(URLEncoder.encode(teamId, UTF_8));
       request = new HttpPatch(uriPath);
       switch (operation) {
       case CREATE:
