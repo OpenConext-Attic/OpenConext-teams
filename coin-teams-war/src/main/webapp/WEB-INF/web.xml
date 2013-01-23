@@ -13,7 +13,9 @@
   xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
   <display-name>coin-teams</display-name>
-
+  <listener>
+    <listener-class>nl.iprofs.modules.contextlogging.InitParameterLogbackContextListener</listener-class>
+  </listener>
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
