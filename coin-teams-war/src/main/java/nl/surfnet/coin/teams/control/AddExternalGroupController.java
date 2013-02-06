@@ -27,22 +27,22 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import nl.surfnet.coin.api.client.domain.Group20Entry;
+import nl.surfnet.coin.api.client.domain.Person;
 import nl.surfnet.coin.teams.domain.ExternalGroup;
 import nl.surfnet.coin.teams.domain.GroupProvider;
-import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamExternalGroup;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.ExternalGroupProviderProcessor;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.service.TeamExternalGroupDao;
+import nl.surfnet.coin.teams.util.AuditLog;
 import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.ExternalGroupUtil;
 import nl.surfnet.coin.teams.util.TokenUtil;
 import nl.surfnet.coin.teams.util.ViewUtil;
 
 import org.apache.commons.collections.CollectionUtils;
-import nl.surfnet.coin.api.client.domain.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,7 +77,8 @@ public class AddExternalGroupController {
   @Autowired
   private ControllerUtil controllerUtil;
 
-  private static final Logger log = LoggerFactory.getLogger(AddExternalGroupController.class);
+  private static final Logger LOG = LoggerFactory.getLogger(AddExternalGroupController.class);
+
   private static final String UTF_8 = "utf-8";
 
   @RequestMapping(value = "/addexternalgroup.shtml")
@@ -103,11 +104,12 @@ public class AddExternalGroupController {
   }
 
   @RequestMapping(value = "/deleteexternalgroup.shtml")
-  public RedirectView deleteTeamExternalGroupLink(@ModelAttribute(TokenUtil.TOKENCHECK)
-  String sessionToken, @RequestParam
-  String teamId, @RequestParam
-  String groupIdentifier, @RequestParam
-  String token, ModelMap modelMap, SessionStatus status, HttpServletRequest request)
+  public RedirectView deleteTeamExternalGroupLink(
+      @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+      @RequestParam String teamId,
+      @RequestParam String groupIdentifier,
+      @RequestParam String token,
+      ModelMap modelMap, SessionStatus status, HttpServletRequest request)
       throws UnsupportedEncodingException {
     TokenUtil.checkTokens(sessionToken, token, status);
 
@@ -121,6 +123,7 @@ public class AddExternalGroupController {
         groupIdentifier);
     if (teamExternalGroup != null) {
       teamExternalGroupDao.delete(teamExternalGroup);
+      AuditLog.log("User {} deleted external group from team {}: {}", person.getId(), teamId, teamExternalGroup.getExternalGroup());
     }
 
     status.setComplete();
@@ -161,9 +164,7 @@ public class AddExternalGroupController {
         }
         externalGroups.addAll(ExternalGroupUtil.convertToExternalGroups(groupProvider, entry));
       } catch (RuntimeException e) {
-        log.info(
-            "Failed to retrieve external groups for user " + personId + " and provider "
-                + groupProvider.getIdentifier(), e);
+        LOG.info("Failed to retrieve external groups for user " + personId + " and provider " + groupProvider.getIdentifier(), e);
       }
       
     }
@@ -235,6 +236,7 @@ public class AddExternalGroupController {
       t.setExternalGroup(externalGroup);
       teamExternalGroups.add(t);
       teamExternalGroupDao.saveOrUpdate(t);
+      AuditLog.log("User {} added external group to team {}: {}", personId, team, externalGroup);
     }
 
     request.getSession().removeAttribute(EXTERNAL_GROUPS_SESSION_KEY);
