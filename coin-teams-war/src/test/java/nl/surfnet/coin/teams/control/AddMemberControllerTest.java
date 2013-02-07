@@ -173,6 +173,9 @@ public class AddMemberControllerTest extends AbstractControllerTest {
 
   @Test
   public void testDoAddMemberHappyFlow() throws Exception {
+    ListAppender auditAppender = getAuditLogAppender();
+    auditAppender.list.clear();
+    
     MockHttpServletRequest request = getRequest();
     Team team1 = getTeam1();
     Person person = getPerson1();
@@ -224,7 +227,6 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     /*
     Assert auditing output
      */
-    ListAppender auditAppender = getAuditLogAppender();
     assertEquals("Two audit events should be appended to audit log: one detailed, one global", 2, auditAppender.list.size());
     LoggingEvent auditEvent = (LoggingEvent) auditAppender.list.get(0);
     assertTrue("Detailed audit event should contain invitee's email address", auditEvent.getFormattedMessage().contains("nonmember@example.com"));
