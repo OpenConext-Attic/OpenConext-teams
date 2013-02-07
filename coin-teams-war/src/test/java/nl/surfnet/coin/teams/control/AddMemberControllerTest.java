@@ -21,18 +21,6 @@ package nl.surfnet.coin.teams.control;
 
 import java.util.Locale;
 
-import org.junit.Test;
-import org.mockito.internal.stubbing.answers.Returns;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.context.MessageSource;
-import org.springframework.context.support.ResourceBundleMessageSource;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.validation.DirectFieldBindingResult;
-import org.springframework.web.bind.support.SimpleSessionStatus;
-import org.springframework.web.servlet.LocaleResolver;
-
-import freemarker.template.Configuration;
 import nl.surfnet.coin.api.client.domain.Person;
 import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.InvitationForm;
@@ -45,6 +33,20 @@ import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 import nl.surfnet.coin.teams.util.TokenUtil;
 
+import org.junit.Test;
+import org.mockito.internal.stubbing.answers.Returns;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.MessageSource;
+import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.validation.DirectFieldBindingResult;
+import org.springframework.web.bind.support.SimpleSessionStatus;
+import org.springframework.web.servlet.LocaleResolver;
+
+import ch.qos.logback.classic.spi.LoggingEvent;
+import ch.qos.logback.core.read.ListAppender;
+import freemarker.template.Configuration;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -218,6 +220,15 @@ public class AddMemberControllerTest extends AbstractControllerTest {
             getModelMap());
 
     assertEquals("redirect:detailteam.shtml?team=" + team1.getId() + "&view=app", result);
+
+    /*
+    Assert auditing output
+     */
+    ListAppender auditAppender = getAuditLogAppender();
+    assertEquals("Two audit events should be appended to audit log: one detailed, one global", 2, auditAppender.list.size());
+    LoggingEvent auditEvent = (LoggingEvent) auditAppender.list.get(0);
+    assertTrue("Detailed audit event should contain invitee's email address", auditEvent.getFormattedMessage().contains("nonmember@example.com"));
+    assertTrue("Detailed audit event should contain inviter's name", auditEvent.getFormattedMessage().contains("member-1"));
   }
 
   @Test(expected = RuntimeException.class)
@@ -314,7 +325,7 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     String msg = addMemberController.composeInvitationMailMessage(invitation, inviter, Locale.ENGLISH, "html");
 
     assertNotNull(msg);
-    log.debug(msg);
+//    log.debug(msg);
     assertTrue(msg.contains("You have been invited by Member One to join team <strong>Team 1</strong>."));
     assertTrue(msg.contains("<strong>Personal message from Member One:</strong><br /> \"Hello John,<br /><br />please join my team\""));
   }
@@ -344,7 +355,7 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     String msg = addMemberController.composeInvitationMailMessage(invitation, inviter, Locale.ENGLISH, "plaintext");
 
     assertNotNull(msg);
-    log.debug(msg);
+//    log.debug(msg);
     assertTrue(msg.contains("You have been invited by Member One to join team *Team 1*."));
     assertTrue(msg.contains("*Personal message from Member One:*" + System.getProperty("line.separator") + "\"Hello " +
         "John,\n\nplease join my team\""));

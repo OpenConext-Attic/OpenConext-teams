@@ -350,8 +350,8 @@ public class AddMemberController {
       teamInviteService.saveOrUpdate(invitation);
       sendInvitationByMail(invitation, subject, form.getInviter(), locale);
 
-      AuditLog.log("Sent invitation and saved to database: team: {}, inviter: {}, hash: {}, email: {}, role: {}",
-        teamId, inviterPersonId, invitation.getInvitationHash(), emailAddress, form.getIntendedRole());
+      AuditLog.log("Sent invitation and saved to database: team: {}, inviter: {}, email: {}, role: {}, hash: {}",
+        teamId, inviterPersonId, emailAddress, form.getIntendedRole(), invitation.getInvitationHash());
     }
   }
 

@@ -25,12 +25,19 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Stem;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.domain.TeamResultWrapper;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+
 import org.junit.Before;
 import org.mockito.internal.stubbing.answers.DoesNothing;
 import org.mockito.internal.stubbing.answers.Returns;
 import org.mockito.stubbing.Answer;
-
-import nl.surfnet.coin.api.client.domain.Person;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
@@ -39,15 +46,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.web.servlet.mvc.Controller;
 
+import ch.qos.logback.core.read.ListAppender;
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Stem;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.domain.TeamResultWrapper;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-
 import static org.mockito.Mockito.mock;
 
 /**
@@ -247,4 +248,15 @@ public abstract class AbstractControllerTest {
   protected ModelMap getModelMap() {
     return modelMap;
   }
+
+
+  /**
+   * Get the Logback appender that is used for audit logging.
+   * @return
+   */
+  protected ListAppender getAuditLogAppender() {
+    // We know that logback logs auditing events to a listappender by this name
+    return (ListAppender) ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("nl.surfnet.coin.teams.audit")).getAppender("list");
+  }
+
 }

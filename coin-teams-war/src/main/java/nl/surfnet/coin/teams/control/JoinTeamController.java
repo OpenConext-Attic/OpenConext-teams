@@ -34,6 +34,18 @@ import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServletRequest;
 
 import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.shared.service.MailService;
+import nl.surfnet.coin.teams.domain.JoinTeamRequest;
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.JoinTeamRequestService;
+import nl.surfnet.coin.teams.util.AuditLog;
+import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
+import nl.surfnet.coin.teams.util.ViewUtil;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,16 +65,6 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import freemarker.template.Configuration;
 import freemarker.template.TemplateException;
-import nl.surfnet.coin.shared.service.MailService;
-import nl.surfnet.coin.teams.domain.JoinTeamRequest;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.GrouperTeamService;
-import nl.surfnet.coin.teams.service.JoinTeamRequestService;
-import nl.surfnet.coin.teams.util.ControllerUtil;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
-import nl.surfnet.coin.teams.util.ViewUtil;
 import static nl.surfnet.coin.teams.util.PersonUtil.getFirstEmail;
 
 /**
@@ -157,7 +159,7 @@ public class JoinTeamController {
 
     joinTeamRequest.setTimestamp(new Date().getTime());
     joinTeamRequestService.saveOrUpdate(joinTeamRequest);
-
+    AuditLog.log("User {} requested to join team {}", joinTeamRequest.getPersonId(), team.getId());
     return new RedirectView("home.shtml?teams=my&view="
         + ViewUtil.getView(request));
   }

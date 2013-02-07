@@ -22,6 +22,14 @@ import java.net.URLEncoder;
 import javax.servlet.http.HttpServletRequest;
 
 import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.util.AuditLog;
+import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.TokenUtil;
+import nl.surfnet.coin.teams.util.ViewUtil;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -33,13 +41,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.view.RedirectView;
-
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.GrouperTeamService;
-import nl.surfnet.coin.teams.util.ControllerUtil;
-import nl.surfnet.coin.teams.util.TokenUtil;
-import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * @author steinwelberg
@@ -112,6 +113,10 @@ public class EditTeamController {
     // Update the team info
     grouperTeamService.updateTeam(teamId, teamName, teamDescription, person.getId());
     grouperTeamService.setVisibilityGroup(teamId, viewable);
+    AuditLog.log("User {} edited team details of team {}. Original name, description, viewability: '{}', '{}', {}. New: '{}', '{}', {}.",
+      person.getId(), teamId,
+      team.getName(), team.getDescription(), team.isViewable(),
+      teamName, teamDescription, viewable);
 
     status.setComplete();
     modelMap.clear();

@@ -37,6 +37,30 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServletRequest;
 
+import nl.surfnet.coin.api.client.OpenConextOAuthClient;
+import nl.surfnet.coin.api.client.domain.Email;
+import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.shared.service.MailService;
+import nl.surfnet.coin.teams.domain.GroupProvider;
+import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.JoinTeamRequest;
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Pager;
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.domain.TeamExternalGroup;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GroupProviderService;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.JoinTeamRequestService;
+import nl.surfnet.coin.teams.service.TeamExternalGroupDao;
+import nl.surfnet.coin.teams.service.TeamInviteService;
+import nl.surfnet.coin.teams.util.AuditLog;
+import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
+import nl.surfnet.coin.teams.util.TokenUtil;
+import nl.surfnet.coin.teams.util.ViewUtil;
+
 import org.json.JSONException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -58,28 +82,6 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import freemarker.template.Configuration;
 import freemarker.template.TemplateException;
-import nl.surfnet.coin.api.client.OpenConextOAuthClient;
-import nl.surfnet.coin.api.client.domain.Email;
-import nl.surfnet.coin.api.client.domain.Person;
-import nl.surfnet.coin.shared.service.MailService;
-import nl.surfnet.coin.teams.domain.GroupProvider;
-import nl.surfnet.coin.teams.domain.Invitation;
-import nl.surfnet.coin.teams.domain.JoinTeamRequest;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Pager;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.domain.TeamExternalGroup;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.GroupProviderService;
-import nl.surfnet.coin.teams.service.GrouperTeamService;
-import nl.surfnet.coin.teams.service.JoinTeamRequestService;
-import nl.surfnet.coin.teams.service.TeamExternalGroupDao;
-import nl.surfnet.coin.teams.service.TeamInviteService;
-import nl.surfnet.coin.teams.util.ControllerUtil;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
-import nl.surfnet.coin.teams.util.TokenUtil;
-import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * @author steinwelberg
@@ -291,6 +293,7 @@ public class DetailTeamController {
 
     // Leave the team
     grouperTeamService.deleteMember(teamId, personId);
+    AuditLog.log("User {} left team {}", personId, teamId);
 
     status.setComplete();
     modelMap.clear();
@@ -328,6 +331,8 @@ public class DetailTeamController {
         teamExternalGroupDao.delete(teamExternalGroup);
       }
       grouperTeamService.deleteTeam(teamId);
+      AuditLog.log("User {} deleted team {}", personId, teamId);
+
 
       status.setComplete();
       return new RedirectView("home.shtml?teams=my&view="
@@ -374,6 +379,7 @@ public class DetailTeamController {
 
       // Delete the member
       grouperTeamService.deleteMember(teamId, personId);
+      AuditLog.log("Admin user {} deleted user {} from team {}", ownerId, personId, teamId);
 
       status.setComplete();
       modelMap.clear();
@@ -386,6 +392,7 @@ public class DetailTeamController {
         && !member.getRoles().contains(Role.Admin) && !personId.equals(ownerId)) {
       // Delete the member
       grouperTeamService.deleteMember(teamId, personId);
+      AuditLog.log("Manager user {} deleted user {} from team {}", ownerId, personId, teamId);
 
       status.setComplete();
       modelMap.clear();
@@ -466,8 +473,12 @@ public class DetailTeamController {
       return "no.role.added.admin.status";
     }
     Role role = roleString.equals(ADMIN) ? Role.Admin : Role.Manager;
-    return (grouperTeamService.removeMemberRole(teamId, memberId, role, loggedInUserId) ? "role.removed"
-        : "no.role.removed");
+    if (grouperTeamService.removeMemberRole(teamId, memberId, role, loggedInUserId)) {
+      AuditLog.log("User {} removed role {} from user {} in team {}", loggedInUserId, role, memberId, teamId);
+      return "role.removed";
+    } else {
+      return "no.role.removed";
+    }
   }
 
   private String addRole(String teamId,
@@ -478,8 +489,12 @@ public class DetailTeamController {
     if (other.isGuest() && role == Role.Admin) {
       return "no.role.added.guest.status";
     }
-    return (grouperTeamService.addMemberRole(teamId, memberId, role, loggedInUserId) ? "role.added"
-        : "no.role.added");
+    if (grouperTeamService.addMemberRole(teamId, memberId, role, loggedInUserId)) {
+      AuditLog.log("User {} added role {} to user {} in team {}", loggedInUserId, role, memberId, teamId);
+      return "role.added";
+    } else {
+      return "no.role.added";
+    }
   }
 
   @RequestMapping(value = "/dodeleterequest.shtml", method = RequestMethod.POST)
@@ -565,10 +580,13 @@ public class DetailTeamController {
     if (approve) {
       grouperTeamService.addMember(teamId, personToAddAsMember);
       grouperTeamService.addMemberRole(teamId, memberId, Role.Member, teamEnvironment.getGrouperPowerUser());
+      AuditLog.log("User {} approved join-team-request of user {} in team {}", loggedInPerson.getId(), personToAddAsMember.getId(), teamId);
     }
 
     // Cleanup request
     joinTeamRequestService.delete(pendingRequest);
+    AuditLog.log("Deleted join-team-request for user {} in team {}", pendingRequest.getPersonId(), teamId);
+
 
     Locale locale = localeResolver.resolveLocale(request);
     if (approve) {

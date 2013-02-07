@@ -25,18 +25,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-
 import nl.surfnet.coin.api.client.OpenConextOAuthClient;
 import nl.surfnet.coin.api.client.domain.Person;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.MemberAttribute;
 import nl.surfnet.coin.teams.service.MemberAttributeService;
+import nl.surfnet.coin.teams.util.AuditLog;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import static nl.surfnet.coin.teams.util.PersonUtil.isGuest;
 
@@ -92,6 +93,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
           String errorMessage = "Cannot find user: " + remoteUser;
           throw new ServletException(errorMessage);
         }
+        AuditLog.log("Login by user {}", person.getId());
         handleGuestStatus(session, person);
 
       } else {
