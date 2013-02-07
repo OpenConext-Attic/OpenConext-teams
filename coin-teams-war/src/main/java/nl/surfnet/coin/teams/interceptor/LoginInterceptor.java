@@ -109,13 +109,13 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         String urlPart = urlSplit[2];
 
         logger.trace("Request for '{}'", request.getRequestURI());
-        logger.debug("urlPart: '{}'", urlPart);
+        logger.trace("urlPart: '{}'", urlPart);
         logger.trace("view '{}'", view);
 
         String queryString = request.getQueryString() != null ? "?" + request.getQueryString() : "";
 
         if (LOGIN_BYPASS.contains(urlPart)) {
-          logger.trace("Bypassing", urlPart);
+          logger.trace("Bypassing {}", urlPart);
           return super.preHandle(request, response, handler);
         } else if (GADGET.equals(view)
                 || "acceptInvitation.shtml".equals(urlPart)

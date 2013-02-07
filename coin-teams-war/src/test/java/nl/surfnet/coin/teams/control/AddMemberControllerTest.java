@@ -175,7 +175,7 @@ public class AddMemberControllerTest extends AbstractControllerTest {
   public void testDoAddMemberHappyFlow() throws Exception {
     ListAppender auditAppender = getAuditLogAppender();
     auditAppender.list.clear();
-    
+
     MockHttpServletRequest request = getRequest();
     Team team1 = getTeam1();
     Person person = getPerson1();

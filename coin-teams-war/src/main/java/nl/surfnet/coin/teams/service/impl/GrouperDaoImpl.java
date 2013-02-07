@@ -25,17 +25,19 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowCallbackHandler;
-import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Component;
-
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Stem;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamResultWrapper;
 import nl.surfnet.coin.teams.service.GrouperDao;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowCallbackHandler;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
 /**
  * A {@link GrouperDao} that uses Spring jdbc
@@ -44,6 +46,7 @@ import nl.surfnet.coin.teams.service.GrouperDao;
 @Component("grouperDao")
 public class GrouperDaoImpl extends AbstractGrouperDaoImpl implements GrouperDao {
 
+  private static final Logger LOG = LoggerFactory.getLogger(GrouperDaoImpl.class);
 
   @Resource(name = "grouperJdbcTemplate")
   private JdbcTemplate jdbcTemplate;
@@ -53,45 +56,41 @@ public class GrouperDaoImpl extends AbstractGrouperDaoImpl implements GrouperDao
       int offset, int pageSize) {
     int rowCount = this.jdbcTemplate
         .queryForInt(SQL_FIND_ALL_TEAMS_ROWCOUNT, personId);
+    LOG.debug("Finding visible teams for person {}", personId);
     List<Team> teams = performQuery(
         SQL_FIND_ALL_TEAMS, new Object[] { personId, pageSize, offset });
-    return new TeamResultWrapper(teams, rowCount, offset, pageSize);
+    TeamResultWrapper teamResultWrapper = new TeamResultWrapper(teams, rowCount, offset, pageSize);
+    LOG.debug("Result from grouper dao: {}", teamResultWrapper);
+    return teamResultWrapper;
   }
 
   @Override
   public TeamResultWrapper findTeams(String personId, String partOfGroupname, int offset, int pageSize) {
     partOfGroupname = wildCard(partOfGroupname);
     int rowCount = this.jdbcTemplate.queryForInt(SQL_FIND_TEAMS_LIKE_GROUPNAME_ROWCOUNT, personId, partOfGroupname);
+    LOG.debug("Finding visible teams for person {} matching groupname-part '{}' (offset {}, pageSize {})", personId, partOfGroupname, offset, pageSize);
     List<Team> teams = performQuery(SQL_FIND_TEAMS_LIKE_GROUPNAME,
         new Object[] { personId, partOfGroupname, pageSize, offset });
-    return new TeamResultWrapper(teams, rowCount, offset, pageSize);
+    TeamResultWrapper teamResultWrapper = new TeamResultWrapper(teams, rowCount, offset, pageSize);
+    LOG.debug("Result from grouper dao: {}", teamResultWrapper);
+    return teamResultWrapper;
   }
 
-  /*
-   * (non-Javadoc)
-   *
-   * @see
-   * nl.surfnet.coin.teams.service.GrouperDao#findAllTeamsByMember(java.lang
-   * .String, java.lang.String, int, int)
-   */
   @Override
   public TeamResultWrapper findAllTeamsByMember(String personId, int offset, int pageSize) {
+    LOG.debug("Finding teams having member {} (offset {}, pageSize {})", personId, offset, pageSize);
     int rowCount = this.jdbcTemplate.queryForInt(SQL_FIND_ALL_TEAMS_BY_MEMBER_ROWCOUNT, personId);
     List<Team> teams = performQuery(SQL_FIND_ALL_TEAMS_BY_MEMBER, new Object[] { personId, pageSize, offset });
     addRolesToTeams(personId, teams);
     addMemberCountToTeams(personId, teams);
-    return new TeamResultWrapper(teams, rowCount, offset, pageSize);
+    TeamResultWrapper teamResultWrapper = new TeamResultWrapper(teams, rowCount, offset, pageSize);
+    LOG.debug("Result from grouper dao: {}", teamResultWrapper);
+    return teamResultWrapper;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * nl.surfnet.coin.teams.service.GrouperDao#findTeamsByMember(java.lang.String
-   * , java.lang.String, java.lang.String, int, int)
-   */
   @Override
   public TeamResultWrapper findTeamsByMember(String personId, String partOfGroupname, int offset, int pageSize) {
+    LOG.debug("Finding teams having member {}, matching groupname-part '{}' (offset {}, pageSize {})", personId, partOfGroupname, offset, pageSize);
     partOfGroupname = wildCard(partOfGroupname);
     int rowCount = this.jdbcTemplate
         .queryForInt(SQL_FIND_TEAMS_BY_MEMBER_ROWCOUNT, personId, partOfGroupname);
@@ -99,7 +98,9 @@ public class GrouperDaoImpl extends AbstractGrouperDaoImpl implements GrouperDao
         new Object[] { personId, partOfGroupname, pageSize, offset });
     addRolesToTeams(personId, teams);
     addMemberCountToTeams(personId, teams);
-    return new TeamResultWrapper(teams, rowCount, offset, pageSize);
+    TeamResultWrapper teamResultWrapper = new TeamResultWrapper(teams, rowCount, offset, pageSize);
+    LOG.debug("Result from grouper dao: {}", teamResultWrapper);
+    return teamResultWrapper;
   }
 
   /**
@@ -107,11 +108,13 @@ public class GrouperDaoImpl extends AbstractGrouperDaoImpl implements GrouperDao
    */
   @Override
   public List<Stem> findStemsByMember(String personId) {
+    LOG.debug("Finding stems by member {}", personId);
+
     String sql = SQL_FIND_STEMS_BY_MEMBER;
 
     Object[] args = new Object[] { personId, };
     try {
-      return this.jdbcTemplate.query(sql, args, new RowMapper<Stem>() {
+      List<Stem> stems = this.jdbcTemplate.query(sql, args, new RowMapper<Stem>() {
         @Override
         public Stem mapRow(ResultSet rs, int rowNum) throws SQLException {
           String id = rs.getString("name");
@@ -120,6 +123,8 @@ public class GrouperDaoImpl extends AbstractGrouperDaoImpl implements GrouperDao
           return new Stem(id, name, description);
         }
       });
+      LOG.debug("Result from grouper dao: {}", stems);
+      return stems;
     } catch (EmptyResultDataAccessException e) {
       return new ArrayList<Stem>();
     }
@@ -188,13 +193,6 @@ public class GrouperDaoImpl extends AbstractGrouperDaoImpl implements GrouperDao
       this.roles = new HashMap<String, Role>();
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * org.springframework.jdbc.core.RowCallbackHandler#processRow(java.sql.
-     * ResultSet)
-     */
     @Override
     public void processRow(ResultSet rs) throws SQLException {
       String groupName = rs.getString("groupname");
@@ -220,13 +218,6 @@ public class GrouperDaoImpl extends AbstractGrouperDaoImpl implements GrouperDao
       this.memberCounts = new HashMap<String, Integer>();
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * org.springframework.jdbc.core.RowCallbackHandler#processRow(java.sql.
-     * ResultSet)
-     */
     @Override
     public void processRow(ResultSet rs) throws SQLException {
       String groupName = rs.getString("groupname");
