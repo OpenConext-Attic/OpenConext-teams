@@ -1,9 +1,13 @@
 package nl.surfnet.coin.teams.domain;
 
-/**
- *
- */
-public class Stem {
+import java.io.Serializable;
+
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
+
+public class Stem implements Serializable {
+
+  private static final long serialVersionUID = 0L;
 
   private String id;
   private String name;
@@ -75,4 +79,12 @@ public class Stem {
   public void setDescription(String description) {
     this.description = description;
   }
+
+  public String toString() {
+    return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
+      .append("id", id)
+      .append("name", name)
+      .toString();
+  }
+
 }

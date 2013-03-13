@@ -19,6 +19,12 @@
  */
 package nl.surfnet.coin.teams.control;
 
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.TokenUtil;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
@@ -26,13 +32,10 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.web.bind.support.SimpleSessionStatus;
 import org.springframework.web.servlet.view.RedirectView;
 
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.service.GrouperTeamService;
-import nl.surfnet.coin.teams.util.ControllerUtil;
-import nl.surfnet.coin.teams.util.TokenUtil;
-
+import ch.qos.logback.classic.spi.LoggingEvent;
+import ch.qos.logback.core.read.ListAppender;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -83,10 +86,14 @@ public class EditTeamControllerTest extends AbstractControllerTest {
 
   @Test
   public void testEditTeamHappyFlow() throws Exception {
+
+    ListAppender auditAppender = getAuditLogAppender();
+    auditAppender.list.clear();
+
     MockHttpServletRequest request = getRequest();
     String token = TokenUtil.generateSessionToken();
     // Add the teamId, team name, description & token
-    request.addParameter("teamName", "Team 1");
+    request.addParameter("teamName", "Another name");
     request.addParameter("team", "team-1");
     request.addParameter("description", "description");
     request.addParameter("token", token);
@@ -102,6 +109,13 @@ public class EditTeamControllerTest extends AbstractControllerTest {
     RedirectView result = editTeamController.editTeam(getModelMap(), request, token, token, new SimpleSessionStatus());
 
     assertEquals("detailteam.shtml?team=team-1&view=app", result.getUrl());
+
+
+
+    assertEquals("An audit event should be appended to audit log", 1, auditAppender.list.size());
+    LoggingEvent auditEvent = (LoggingEvent) auditAppender.list.get(0);
+    assertTrue("Audit event should contain old team name", auditEvent.getFormattedMessage().contains("Team 1"));
+    assertTrue("Audit event should contain new team name", auditEvent.getFormattedMessage().contains("Another name"));
   }
 
   @Test(expected = RuntimeException.class)

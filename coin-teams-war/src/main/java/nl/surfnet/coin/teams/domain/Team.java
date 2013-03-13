@@ -23,6 +23,8 @@ import java.util.Comparator;
 import java.util.List;
 
 import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
 
 /**
  * Team
@@ -254,6 +256,12 @@ public class Team implements Serializable {
     return true;
   }
 
+  public String toString() {
+    return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
+      .append("id", id)
+      .append("name", name)
+      .toString();
+  }
   /**
    * Get the stem that this team belongs to
    *

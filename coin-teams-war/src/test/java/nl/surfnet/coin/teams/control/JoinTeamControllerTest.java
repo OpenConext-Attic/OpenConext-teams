@@ -23,16 +23,6 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.internal.stubbing.answers.Returns;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.web.servlet.LocaleResolver;
-import org.springframework.web.servlet.view.RedirectView;
-
-import freemarker.template.Configuration;
 import nl.surfnet.coin.api.client.domain.Email;
 import nl.surfnet.coin.api.client.domain.Person;
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
@@ -43,6 +33,16 @@ import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.internal.stubbing.answers.Returns;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.view.RedirectView;
+
+import freemarker.template.Configuration;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -182,7 +182,7 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
     final String body = joinTeamController.composeJoinRequestMailMessage(mockPrivateTeam, requester, message, Locale.ENGLISH, "html");
 
     assertNotNull(body);
-    log.debug(body);
+//    log.debug(body);
 
     assertTrue(body.contains("Humble User (humble.user@example.com) would like to join team <strong>Team 2</strong>."));
     assertTrue(body.contains("<strong>Personal message from Humble User:</strong><br /> \"Hello admin,<br /><br />" +
@@ -209,7 +209,7 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
     final String body = joinTeamController.composeJoinRequestMailMessage(mockPrivateTeam, requester, message, Locale.ENGLISH, "plaintext");
 
     assertNotNull(body);
-    log.debug(body);
+//    log.debug(body);
     assertTrue(body.contains("Humble User (humble.user@example.com) would like to join team *Team 2*."));
     assertTrue(body.contains("*Personal message from Humble User:*" + System.getProperty("line.separator") + "\"" +
         message + "\""));

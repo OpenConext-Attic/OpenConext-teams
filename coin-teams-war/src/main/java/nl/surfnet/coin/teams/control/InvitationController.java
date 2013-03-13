@@ -26,6 +26,20 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 
 import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.InvitationMessage;
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.TeamInviteService;
+import nl.surfnet.coin.teams.util.AuditLog;
+import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
+import nl.surfnet.coin.teams.util.TokenUtil;
+import nl.surfnet.coin.teams.util.ViewUtil;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -37,18 +51,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.view.RedirectView;
 
-import nl.surfnet.coin.teams.domain.Invitation;
-import nl.surfnet.coin.teams.domain.InvitationMessage;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.GrouperTeamService;
-import nl.surfnet.coin.teams.service.TeamInviteService;
-import nl.surfnet.coin.teams.util.ControllerUtil;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
-import nl.surfnet.coin.teams.util.TokenUtil;
-import nl.surfnet.coin.teams.util.ViewUtil;
 import static nl.surfnet.coin.teams.util.PersonUtil.getFirstEmail;
 import static nl.surfnet.coin.teams.util.PersonUtil.isGuest;
 
@@ -156,7 +158,7 @@ public class InvitationController {
     }
     intendedRole = invitation.getIntendedRole();
     grouperTeamService.addMemberRole(teamId, memberId, intendedRole, teamEnvironment.getGrouperPowerUser());
-
+    AuditLog.log("User {} accepted invitation for team {} with intended role {}", person.getId(), teamId, intendedRole);
     invitation.setAccepted(true);
     teamInviteService.saveOrUpdate(invitation);
 
@@ -179,6 +181,9 @@ public class InvitationController {
                         HttpServletRequest request) {
     String viewTemplate = "invitationdeclined";
 
+    Person person = (Person) request.getSession().getAttribute(
+      LoginInterceptor.PERSON_SESSION_KEY);
+
     Invitation invitation = getInvitationByRequest(request);
 
     if (invitation == null) {
@@ -188,6 +193,7 @@ public class InvitationController {
 
     invitation.setDeclined(true);
     teamInviteService.saveOrUpdate(invitation);
+    AuditLog.log("User {} declined invitation for team {} with intended role {}", person.getId(), invitation.getTeamId(), invitation.getIntendedRole());
     ViewUtil.addViewToModelMap(request, modelMap);
     return viewTemplate;
   }
@@ -219,6 +225,7 @@ public class InvitationController {
     Invitation invitation = getAllInvitationByRequest(request);
     String teamId = invitation.getTeamId();
     teamInviteService.delete(invitation);
+    AuditLog.log("User {} deleted invitation for email {} for team {} with intended role {}", person.getId(), invitation.getEmail(), invitation.getTeamId(), invitation.getIntendedRole());
 
     status.setComplete();
     modelMap.clear();

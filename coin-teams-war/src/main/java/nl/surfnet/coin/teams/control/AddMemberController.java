@@ -32,8 +32,27 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.io.IOUtils;
 import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.shared.service.MailService;
+import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.InvitationForm;
+import nl.surfnet.coin.teams.domain.InvitationMessage;
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.TeamInviteService;
+import nl.surfnet.coin.teams.service.impl.InvitationFormValidator;
+import nl.surfnet.coin.teams.service.impl.InvitationValidator;
+import nl.surfnet.coin.teams.util.AuditLog;
+import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
+import nl.surfnet.coin.teams.util.TokenUtil;
+import nl.surfnet.coin.teams.util.ViewUtil;
+
+import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.mail.javamail.MimeMessagePreparator;
@@ -56,21 +75,6 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import freemarker.template.Configuration;
 import freemarker.template.TemplateException;
-import nl.surfnet.coin.shared.service.MailService;
-import nl.surfnet.coin.teams.domain.Invitation;
-import nl.surfnet.coin.teams.domain.InvitationForm;
-import nl.surfnet.coin.teams.domain.InvitationMessage;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.GrouperTeamService;
-import nl.surfnet.coin.teams.service.TeamInviteService;
-import nl.surfnet.coin.teams.service.impl.InvitationFormValidator;
-import nl.surfnet.coin.teams.service.impl.InvitationValidator;
-import nl.surfnet.coin.teams.util.ControllerUtil;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
-import nl.surfnet.coin.teams.util.TokenUtil;
-import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * {@link Controller} that handles the add member page of a logged in
@@ -79,6 +83,9 @@ import nl.surfnet.coin.teams.util.ViewUtil;
 @Controller
 @SessionAttributes({"invitationForm", "invitation", TokenUtil.TOKENCHECK})
 public class AddMemberController {
+
+  private static final Logger LOG = LoggerFactory.getLogger(AddMemberController.class);
+
 
   protected static final String INVITE_SEND_INVITE_SUBJECT = "invite.SendInviteSubject";
 
@@ -230,6 +237,7 @@ public class AddMemberController {
 
     Locale locale = localeResolver.resolveLocale(request);
     doInviteMembers(emails, form, locale);
+    AuditLog.log("User {} sent invitations for team {}, with role {} to addresses: {}", person.getId(), form.getTeamId(), form.getIntendedRole(), emails);
 
     status.setComplete();
     modelMap.clear();
@@ -328,7 +336,7 @@ public class AddMemberController {
       String emailAddress = email.getAddress();
 
       Invitation invitation = teamInviteService.findInvitation(emailAddress, team);
-      boolean newInvitation = invitation == null;
+      boolean newInvitation = (invitation == null);
 
       if (newInvitation) {
         invitation = new Invitation(emailAddress, teamId);
@@ -342,6 +350,8 @@ public class AddMemberController {
       teamInviteService.saveOrUpdate(invitation);
       sendInvitationByMail(invitation, subject, form.getInviter(), locale);
 
+      AuditLog.log("Sent invitation and saved to database: team: {}, inviter: {}, email: {}, role: {}, hash: {}",
+        teamId, inviterPersonId, emailAddress, form.getIntendedRole(), invitation.getInvitationHash());
     }
   }
 
