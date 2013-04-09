@@ -48,19 +48,17 @@ public class ExternalGroupController {
   private ExternalGroupProviderProcessor processor;
 
   @RequestMapping("/groupdetail.shtml")
-  public String groupDetail(@RequestParam
-  String groupId, @RequestParam
-  String externalGroupProviderIdentifier, @RequestParam(defaultValue = "0", required = false)
-  int offset, HttpServletRequest request, ModelMap modelMap) {
+  public String groupDetail(@RequestParam String groupId,
+        @RequestParam String externalGroupProviderIdentifier,
+        @RequestParam(defaultValue = "0", required = false)
+        int offset, HttpServletRequest request, ModelMap modelMap) {
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
-    List<GroupProvider> allGroupProviders = (List<GroupProvider>) request.getSession().getAttribute(
-        HomeController.ALL_GROUP_PROVIDERS_SESSION_KEY);
+    List<GroupProvider> allGroupProviders = processor.getAllGroupProviders();
     modelMap.addAttribute("groupId", groupId);
 
     ExternalGroupDetailWrapper groupDetails = processor.getGroupDetails(person.getId(), groupId, allGroupProviders,
         externalGroupProviderIdentifier, offset, PAGESIZE);
-    GroupProvider groupProvider = processor.getGroupProviderByStringIdentifier(externalGroupProviderIdentifier,
-        allGroupProviders);
+    GroupProvider groupProvider = processor.getGroupProviderByStringIdentifier(externalGroupProviderIdentifier, allGroupProviders);
     modelMap.addAttribute("groupProvider", groupProvider);
     modelMap.addAttribute("group20", groupDetails.getGroup20());
     GroupMembersEntry groupMembersEntry = groupDetails.getGroupMembersEntry();
@@ -72,5 +70,4 @@ public class ExternalGroupController {
     ViewUtil.addViewToModelMap(request, modelMap);
     return "external-groupdetail";
   }
-
 }
