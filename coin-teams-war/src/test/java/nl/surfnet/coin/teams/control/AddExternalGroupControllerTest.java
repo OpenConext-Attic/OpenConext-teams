@@ -16,11 +16,6 @@
 
 package nl.surfnet.coin.teams.control;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -44,6 +39,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.ui.ModelMap;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * Test class for {@link AddExternalGroupController}
@@ -81,7 +81,7 @@ public class AddExternalGroupControllerTest extends AbstractControllerTest {
     ExternalGroupProviderProcessor processor = mock(ExternalGroupProviderProcessor.class);
 
     List<GroupProvider> groupProviders = Collections.<GroupProvider> singletonList(hzProvider);
-    request.getSession().setAttribute(HomeController.ALL_GROUP_PROVIDERS_SESSION_KEY, groupProviders);
+    when(processor.getAllGroupProviders()).thenReturn(groupProviders);
     when(processor.getGroupProvidersForUser("member-1", groupProviders)).thenReturn(groupProviders);
     Group20Entry groupEntry = new Group20Entry(Collections.<Group20> singletonList(new Group20("id", "title",
         "description")));
@@ -120,7 +120,7 @@ public class AddExternalGroupControllerTest extends AbstractControllerTest {
     ExternalGroupProviderProcessor processor = mock(ExternalGroupProviderProcessor.class);
     
     List<GroupProvider> groupProviders = Collections.<GroupProvider>singletonList(hzProvider);
-    request.getSession().setAttribute(HomeController.ALL_GROUP_PROVIDERS_SESSION_KEY, groupProviders);
+    when(processor.getAllGroupProviders()).thenReturn(groupProviders);
     when(processor.getGroupProvidersForUser("member-1",groupProviders)).thenReturn(groupProviders);
     Group20 group20 = new Group20(team1.getId(), "title", "description");
     Group20Entry groupEntry = new Group20Entry(Collections.<Group20>singletonList(group20));
