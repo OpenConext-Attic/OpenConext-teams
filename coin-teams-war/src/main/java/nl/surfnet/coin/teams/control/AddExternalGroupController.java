@@ -152,8 +152,8 @@ public class AddExternalGroupController {
     }
     externalGroups = new ArrayList<ExternalGroup>();
     
-    List<GroupProvider> allGroupProviders = (List<GroupProvider>) request.getSession().getAttribute(
-        HomeController.ALL_GROUP_PROVIDERS_SESSION_KEY);
+    List<GroupProvider> allGroupProviders = processor.getAllGroupProviders();
+
     List<GroupProvider> groupProviders = processor.getGroupProvidersForUser(personId, allGroupProviders);
 
     for (GroupProvider groupProvider : groupProviders) {

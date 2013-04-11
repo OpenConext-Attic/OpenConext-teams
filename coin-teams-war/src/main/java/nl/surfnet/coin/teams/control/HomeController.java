@@ -58,8 +58,6 @@ import static nl.surfnet.coin.teams.util.PersonUtil.getFirstEmail;
 @Controller
 public class HomeController {
 
-  public static final String ALL_GROUP_PROVIDERS_SESSION_KEY = "ALL_GROUP_PROVIDERS_SESSION_KEY";
-
   @Autowired
   private MessageSource messageSource;
 
@@ -104,7 +102,7 @@ public class HomeController {
       modelMap.addAttribute("myinvitations", !CollectionUtils.isEmpty(invitations));
     }
 
-    List<GroupProvider> allGroupProviders = getAllGroupProviders(request);
+    List<GroupProvider> allGroupProviders = processor.getAllGroupProviders();
 
     List<GroupProvider> groupProviders = processor.getGroupProvidersForUser(person.getId(), allGroupProviders);
 
@@ -134,21 +132,6 @@ public class HomeController {
       modelMap.addAttribute("pager", pager);
     }
   }
-
-  /*
-   * We store all groupProviders in the session
-   */
-  @SuppressWarnings("unchecked")
-  private List<GroupProvider> getAllGroupProviders(HttpServletRequest request) {
-    List<GroupProvider> allGroupProviders = (List<GroupProvider>) request.getSession().getAttribute(
-        ALL_GROUP_PROVIDERS_SESSION_KEY);
-    if (allGroupProviders == null) {
-      allGroupProviders = processor.getAllGroupProviders();
-      request.getSession().setAttribute(ALL_GROUP_PROVIDERS_SESSION_KEY, allGroupProviders);
-    }
-    return allGroupProviders;
-  }
-
 
   private void addTeams(String query, final String person, final String display, ModelMap modelMap,
       HttpServletRequest request) {

@@ -16,17 +16,10 @@
 
 package nl.surfnet.coin.teams.control;
 
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 import nl.surfnet.coin.api.client.domain.Group20;
-import nl.surfnet.coin.api.client.domain.Group20Entry;
 import nl.surfnet.coin.api.client.domain.GroupMembersEntry;
 import nl.surfnet.coin.api.client.domain.Person;
 import nl.surfnet.coin.teams.domain.ConversionRule;
@@ -39,6 +32,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.ui.ModelMap;
+
+import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * Tests for {@link ExternalGroupController}
@@ -68,7 +66,7 @@ public class ExternalGroupControllerTest extends AbstractControllerTest {
     ExternalGroupProviderProcessor processor = mock(ExternalGroupProviderProcessor.class);
 
     List<GroupProvider> groupProviders = Collections.<GroupProvider>singletonList(groupProvider);
-    request.getSession().setAttribute(HomeController.ALL_GROUP_PROVIDERS_SESSION_KEY, groupProviders);
+    when(processor.getAllGroupProviders()).thenReturn(groupProviders);
 
     when(processor.getGroupDetails("member-1",groupId,groupProviders,"hz",0,10)).thenReturn(new ExternalGroupDetailWrapper(group20, new GroupMembersEntry(Collections.<Person>singletonList(new Person()) )));
     when(processor.getGroupProviderByStringIdentifier("hz",groupProviders)).thenReturn(groupProvider);
