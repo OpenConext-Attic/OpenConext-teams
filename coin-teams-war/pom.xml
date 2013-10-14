@@ -14,7 +14,6 @@
     <version>3.3.1-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
-  <groupId>org.surfnet.coin</groupId>
   <artifactId>coin-teams-war</artifactId>
   <packaging>war</packaging>
   <name>coin-teams-war</name>
@@ -39,7 +38,7 @@
           </connectors>
           <stopKey>stopteam</stopKey>
           <stopPort>9060</stopPort>
-          <scanIntervalSeconds>3</scanIntervalSeconds>
+          <reload>manual</reload>
           <useTestClasspath>true</useTestClasspath>
         </configuration>
         <dependencies>
@@ -50,14 +49,6 @@
             <type>pom</type>
           </dependency>
         </dependencies>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-eclipse-plugin</artifactId>
-        <version>${maven.plugin.eclipse.version}</version>
-        <configuration>
-          <ajdtVersion>none</ajdtVersion>
-        </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
@@ -156,7 +147,6 @@
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.0.6</version>
     </dependency>
     <!-- test local -->
     <dependency>
@@ -164,6 +154,11 @@
       <artifactId>coin-test</artifactId>
       <version>${coin-test.version}</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.googlecode.flyway</groupId>
+      <artifactId>flyway-core</artifactId>
+      <version>1.5</version>
     </dependency>
 
     <dependency>
