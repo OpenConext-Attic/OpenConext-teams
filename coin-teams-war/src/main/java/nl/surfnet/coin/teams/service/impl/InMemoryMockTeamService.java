@@ -33,10 +33,7 @@ import nl.surfnet.coin.teams.domain.Stem;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamResultWrapper;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
-import nl.surfnet.coin.teams.service.ProvisioningManager;
 import nl.surfnet.coin.teams.util.DuplicateTeamException;
-
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Mock implementation of {@link nl.surfnet.coin.teams.service.GrouperTeamService}
@@ -45,10 +42,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class InMemoryMockTeamService implements GrouperTeamService {
 
   private Map<String, Team> teams = new HashMap<String, Team>();
-  private static final String STEM = "nl:surfnet:diensten";
-
-  @Autowired
-  private ProvisioningManager provisioningManager;
   
   /**
    * Constructor
@@ -84,9 +77,8 @@ public class InMemoryMockTeamService implements GrouperTeamService {
     roles3.add(Role.Manager);
     roles3.add(Role.Member);
 
-    Member member1 = new Member(roles3, "member1-name", "urn:collab:person:surfnet.nl:hansz",
+    Member member1 = new Member(roles3, "member1-name", "member1",
         "member1@surfnet.nl");
-
     Member member2 = new Member(roles2, "member2-name", "member-2",
         "member2@surfnet.nl");
     Member member3 = new Member(roles1, "member3-name", "member-3",
@@ -105,24 +97,6 @@ public class InMemoryMockTeamService implements GrouperTeamService {
     team2.addMembers(member3.copy(), member4.copy(), member5.copy());
     team3.addMembers(member5.copy(), member6.copy(), member7.copy());
     team4.addMembers(member1.copy(), member2.copy(), member4.copy());
-
-    List<Member> dummyMembers = new ArrayList<Member>();
-    dummyMembers.add(member1);
-    dummyMembers.add(member2);
-
-//    for (int memberId = 10; memberId < 110; memberId++) {
-//      Member dummyMember = new Member(roles1, "member" + memberId + "-name",
-//              "member-" + memberId, "member" + memberId + "@surfnet.nl");
-//      dummyMembers.add(dummyMember);
-//    }
-//
-//    for (int teamId = 5; teamId < 5000; teamId++) {
-//      Team newTeam = new Team("test-team-" + teamId,
-//              "test-team-" + teamId + "-name", "description-" + teamId, true);
-//      newTeam.addMembers(dummyMembers.toArray(new Member[dummyMembers.size()]));
-//      teams.put(newTeam.getId(), newTeam);
-//    }
-
   }
 
   private Team findTeam(String teamId) {
@@ -221,9 +195,6 @@ public class InMemoryMockTeamService implements GrouperTeamService {
     List<Team> matches = new ArrayList<Team>();
     List<Team> limitedList = new ArrayList<Team>();
     for (Team team : teamList) {
-      if (!team.isViewable()) {
-        continue;
-      }
       List<Member> members = team.getMembers();
       for (Member member : members) {
         if (personId.equals(member.getId())) {
@@ -331,7 +302,7 @@ public class InMemoryMockTeamService implements GrouperTeamService {
       }  
     }
     if (m == null) {
-      throw new RuntimeException("Member('"+ person.getId() +"') not found");
+      m = new Member(new HashSet<Role>(), person);
     }
     m.setGuest(isGuest(person));
     Team team = findTeam(teamId);
@@ -371,7 +342,7 @@ public class InMemoryMockTeamService implements GrouperTeamService {
    */
   @Override
   public boolean doesStemExists(String stemName) {
-    return STEM.equals(stemName);
+    return true;
   }
 
   /**

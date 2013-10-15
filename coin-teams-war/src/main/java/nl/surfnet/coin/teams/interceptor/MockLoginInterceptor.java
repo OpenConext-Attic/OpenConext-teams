@@ -40,15 +40,16 @@ public class MockLoginInterceptor extends LoginInterceptor {
   
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-    if (StringUtils.isBlank(request.getParameter(MOCK_USER_ATTR))) {
+    HttpSession session = request.getSession();
+    if (null == session.getAttribute(PERSON_SESSION_KEY) &&
+        StringUtils.isBlank(request.getParameter(MOCK_USER_ATTR))) {
       sendLoginHtml(response);
       return false;
-    } else {
+    } else if (null == session.getAttribute(PERSON_SESSION_KEY)) {
       //handle mock user
-      HttpSession session = request.getSession();
       String userId = request.getParameter(MOCK_USER_ATTR);
       Person person = new Person();
-      person.setId("urn:collab:person:"+userId);
+      person.setId(userId);
       person.setDisplayName(userId);
       session.setAttribute(PERSON_SESSION_KEY, person);
       
