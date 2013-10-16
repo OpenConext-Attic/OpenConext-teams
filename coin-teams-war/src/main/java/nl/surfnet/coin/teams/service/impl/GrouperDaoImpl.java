@@ -16,35 +16,12 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+public class GrouperDaoImpl {}
+/*
 
-import javax.annotation.Resource;
+TODO: remove this class entirely
 
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Stem;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.domain.TeamResultWrapper;
-import nl.surfnet.coin.teams.service.GrouperDao;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowCallbackHandler;
-import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Component;
-
-/**
- * A {@link GrouperDao} that uses Spring jdbc
- * 
- */
-@Component("grouperDao")
-public class GrouperDaoImpl extends AbstractGrouperDaoImpl implements GrouperDao {
+extends AbstractGrouperDaoImpl implements GrouperDao {
 
   private static final Logger LOG = LoggerFactory.getLogger(GrouperDaoImpl.class);
 
@@ -103,9 +80,7 @@ public class GrouperDaoImpl extends AbstractGrouperDaoImpl implements GrouperDao
     return teamResultWrapper;
   }
 
-  /**
-   * {@inheritDoc}
-   */
+
   @Override
   public List<Stem> findStemsByMember(String personId) {
     LOG.debug("Finding stems by member {}", personId);
@@ -171,10 +146,9 @@ public class GrouperDaoImpl extends AbstractGrouperDaoImpl implements GrouperDao
 
   }
 
-  /*
    * Difficulty here is to get a count not limited by a subject id, but limit
    * the number of groups queried to the groups belonging to a certain subject
-   */
+
   private void addMemberCountToTeams(String personId,
       List<Team> teams) {
     MemberCountRowCallbackHandler handler = new MemberCountRowCallbackHandler();
@@ -201,7 +175,7 @@ public class GrouperDaoImpl extends AbstractGrouperDaoImpl implements GrouperDao
        * If the permission equals 'admins' then we have an Role.Admin, else we
        * have a role Role.Manager, but we must not overwrite a previous
        * Role.Admin
-       */
+
       Role role = roles.get(groupName);
       if (!Role.Admin.equals(role)) {
         roles.put(groupName, permission.equals("admins") ? Role.Admin
@@ -227,3 +201,4 @@ public class GrouperDaoImpl extends AbstractGrouperDaoImpl implements GrouperDao
   }
 
 }
+*/
