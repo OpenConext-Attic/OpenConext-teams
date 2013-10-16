@@ -16,62 +16,32 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import edu.internet2.middleware.grouperClient.api.*;
+import edu.internet2.middleware.grouperClient.ws.GcWebServiceError;
+import edu.internet2.middleware.grouperClient.ws.beans.*;
 import nl.surfnet.coin.api.client.domain.Person;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.MemberAttribute;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Stem;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.domain.TeamResultWrapper;
+import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.service.MemberAttributeService;
 import nl.surfnet.coin.teams.service.ProvisioningManager;
 import nl.surfnet.coin.teams.util.DuplicateTeamException;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
-
+import org.apache.commons.lang.NotImplementedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
-import edu.internet2.middleware.grouperClient.api.GcAddMember;
-import edu.internet2.middleware.grouperClient.api.GcAssignGrouperPrivileges;
-import edu.internet2.middleware.grouperClient.api.GcAssignGrouperPrivilegesLite;
-import edu.internet2.middleware.grouperClient.api.GcDeleteMember;
-import edu.internet2.middleware.grouperClient.api.GcFindGroups;
-import edu.internet2.middleware.grouperClient.api.GcFindStems;
-import edu.internet2.middleware.grouperClient.api.GcGetGrouperPrivilegesLite;
-import edu.internet2.middleware.grouperClient.api.GcGetMembers;
-import edu.internet2.middleware.grouperClient.api.GcGroupDelete;
-import edu.internet2.middleware.grouperClient.api.GcGroupSave;
-import edu.internet2.middleware.grouperClient.ws.GcWebServiceError;
-import edu.internet2.middleware.grouperClient.ws.beans.WsAssignGrouperPrivilegesResults;
-import edu.internet2.middleware.grouperClient.ws.beans.WsFindGroupsResults;
-import edu.internet2.middleware.grouperClient.ws.beans.WsFindStemsResults;
-import edu.internet2.middleware.grouperClient.ws.beans.WsGetMembersResult;
-import edu.internet2.middleware.grouperClient.ws.beans.WsGroup;
-import edu.internet2.middleware.grouperClient.ws.beans.WsGroupLookup;
-import edu.internet2.middleware.grouperClient.ws.beans.WsGroupSaveResults;
-import edu.internet2.middleware.grouperClient.ws.beans.WsGroupToSave;
-import edu.internet2.middleware.grouperClient.ws.beans.WsGrouperPrivilegeResult;
-import edu.internet2.middleware.grouperClient.ws.beans.WsStem;
-import edu.internet2.middleware.grouperClient.ws.beans.WsSubject;
-import edu.internet2.middleware.grouperClient.ws.beans.WsSubjectLookup;
+import java.util.*;
+
 import static nl.surfnet.coin.teams.util.PersonUtil.isGuest;
 
 /**
  * {@link nl.surfnet.coin.teams.service.GrouperTeamService} using Grouper LDAP as persistent store
  * 
  */
-public class GrouperTeamServiceWsImpl extends GrouperDaoImpl implements GrouperTeamService {
+public class GrouperTeamServiceWsImpl implements GrouperTeamService {
 
   @Autowired
   private TeamEnvironment environment;
@@ -118,19 +88,6 @@ public class GrouperTeamServiceWsImpl extends GrouperDaoImpl implements GrouperT
             privilegeResults));
   }
 
-  public boolean doesStemExists(String stemName) {
-    GcFindStems findStems = new GcFindStems();
-    findStems.assignActAsSubject(getActAsSubject(getGrouperPowerUser()));
-    findStems.addStemName(stemName);
-    try {
-      WsFindStemsResults results = findStems.execute();
-      WsStem[] stemResults = results.getStemResults();
-      return stemResults != null && stemResults.length > 0;
-    } catch (GcWebServiceError e) {
-      // The Grouper implementation throws an Error if there is no Stem
-      return false;
-    }
-  }
 
   @Override
   public Stem findStem(String stemId) {
@@ -601,8 +558,31 @@ public class GrouperTeamServiceWsImpl extends GrouperDaoImpl implements GrouperT
   public TeamResultWrapper findTeams(String personId,
                                      String partOfGroupname, int offset, int pageSize) {
     final String sanitizedGroupname = partOfGroupname.replaceAll(" ", "_");
-    return super.findTeams(personId, sanitizedGroupname, offset, pageSize);
+
+    throw new NotImplementedException("Not yet implemented in grouper-dao-less teams");
+//    return super.findTeams(personId, sanitizedGroupname, offset, pageSize);
   }
+
+  @Override
+  public TeamResultWrapper findAllTeamsByMember(String personId, int offset, int pageSize) {
+    throw new NotImplementedException("Not yet implemented in grouper-dao-less teams");
+  }
+
+  @Override
+  public TeamResultWrapper findTeamsByMember(String personId, String partOfGroupname, int offset, int pageSize) {
+    throw new NotImplementedException("Not yet implemented in grouper-dao-less teams");
+  }
+
+  @Override
+  public List<Stem> findStemsByMember(String personId) {
+    throw new NotImplementedException("Not yet implemented in grouper-dao-less teams");
+  }
+
+  @Override
+  public TeamResultWrapper findAllTeams(String personId, int offset, int pageSize) {
+    throw new NotImplementedException("Not yet implemented in grouper-dao-less teams");
+  }
+
 
   public String getGrouperPowerUser() {
     return environment.getGrouperPowerUser();

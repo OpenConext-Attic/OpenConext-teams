@@ -16,24 +16,14 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
-import static nl.surfnet.coin.teams.util.PersonUtil.isGuest;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import nl.surfnet.coin.api.client.domain.Person;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Stem;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.domain.TeamResultWrapper;
+import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.util.DuplicateTeamException;
+
+import java.util.*;
+
+import static nl.surfnet.coin.teams.util.PersonUtil.isGuest;
 
 /**
  * Mock implementation of {@link nl.surfnet.coin.teams.service.GrouperTeamService}
@@ -335,14 +325,6 @@ public class InMemoryMockTeamService implements GrouperTeamService {
     }
     
     return result;
-  }
-
-  /* (non-Javadoc)
-   * @see nl.surfnet.coin.teams.service.GrouperTeamService#doesStemExists(java.lang.String)
-   */
-  @Override
-  public boolean doesStemExists(String stemName) {
-    return true;
   }
 
   /**
