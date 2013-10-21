@@ -65,7 +65,7 @@
             </ul>
 
             <p class="submit-wrapper">
-              <input class="button-primary" type="submit" name="addMember"
+              <input class="button" type="submit" name="addMember"
                      value="<spring:message code='jsp.addexternalgroup.Submit' />"/>
             </p>
           </form>

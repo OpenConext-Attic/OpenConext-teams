@@ -24,6 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import nl.surfnet.coin.api.client.domain.Email;
 import nl.surfnet.coin.api.client.domain.Person;
 
 import org.apache.commons.lang.StringUtils;
@@ -40,6 +41,14 @@ public class MockLoginInterceptor extends LoginInterceptor {
   
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    //no login required for landingpage, css and js
+    if (request.getRequestURI().contains("landingpage.shtml") ||
+        request.getRequestURI().contains(".js") ||
+        request.getRequestURI().contains(".css") ||
+        request.getRequestURI().contains(".png")) {
+      return true;
+    }
+    
     HttpSession session = request.getSession();
     if (null == session.getAttribute(PERSON_SESSION_KEY) &&
         StringUtils.isBlank(request.getParameter(MOCK_USER_ATTR))) {
@@ -51,6 +60,8 @@ public class MockLoginInterceptor extends LoginInterceptor {
       Person person = new Person();
       person.setId(userId);
       person.setDisplayName(userId);
+      Email email = new Email(userId+"@mockorg.org");
+      person.addEmail(email);
       session.setAttribute(PERSON_SESSION_KEY, person);
       
       //handle guest status

@@ -18,6 +18,7 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="teams"%>
 <%@ attribute name="pageTitle" required="false" description="Optional page title" %>
 <html>
 <head>
@@ -42,8 +43,7 @@
     <c:if test='${view ne "gadget"}'>
       <!--  = Header -->
       <div class="header">
-        <a href="home.shtml"><img class="logo" src="<c:url value="/media/surfnet_logo.png"/>" alt="SURFnet logo" /></a> <span><spring:message code="jsp.general.Title" /></span>
-        <span class="left"></span><span class="right"></span><img src="<c:url value="/media/header_img.jpg"/>" alt="header img" />
+        <a href="home.shtml"><img class="logo" src="<c:url value="/media/surf-conext-logo.png"/>" alt="SURFnet logo" /></a>
       </div>
       <!-- / Header -->
     </c:if>
@@ -51,12 +51,22 @@
     <c:choose>
       <c:when test='${view ne "gadget" && empty sessionScope.person}'>
         <div class="component-title-bar">
-          <h2 class="component-title"><spring:message code="jsp.general.Welcome" /></h2>
+          <h2 class="component-title right">
+            <a href="https://wiki.surfnetlabs.nl/display/conextsupport/SURFteams" target="_blank"><spring:message code="jsp.general.Help" /></a>
+            &nbsp;|&nbsp;<a href="${loginUrl}">Log&nbsp;in</a>
+            <teams:language />
+          </h2>
+          <h2 class="component-title"><spring:message code="jsp.general.Title" /></h2>
         </div>
       </c:when>
       <c:when test='${view ne "gadget"}'>
         <div class="component-title-bar">
-          <h2 class="component-title right"><spring:message code="jsp.general.Welcome"/> <c:out value="${sessionScope.person.displayName}" /> | <a href="/Shibboleth.sso/Logout?target=/teams"><spring:message code="jsp.general.Logout"/></a> | <a href="https://wiki.surfnetlabs.nl/display/conextsupport/SURFteams" target="_blank"><spring:message code="jsp.general.Help" /></a></h2>
+          <h2 class="component-title right">
+            <spring:message code="jsp.general.Welcome"/>&nbsp;<c:out value="${sessionScope.person.displayName}" />
+            &nbsp;|&nbsp;<a href="/Shibboleth.sso/Logout?target=/teams"><spring:message code="jsp.general.Logout"/></a>
+            &nbsp;|&nbsp;<a href="https://wiki.surfnetlabs.nl/display/conextsupport/SURFteams" target="_blank"><spring:message code="jsp.general.Help" /></a>
+            <teams:language />
+          </h2>
           <h2 class="component-title"><spring:message code="jsp.general.Title" /></h2>
         </div>
       </c:when>
@@ -76,15 +86,7 @@
     <c:if test='${view ne "gadget"}'>
       <!--  = Footer -->
       <div class="footer" id="Footer">
-        <p>&nbsp;</p>
-
-        <address>
-          <span><strong><spring:message code="jsp.general.surfnet.Name" /></strong></span><span><spring:message code="jsp.general.surfnet.Address" /></span><span><spring:message code="jsp.general.surfnet.Mailbox" /></span><span><spring:message code="jsp.general.surfnet.Zip" /></span><span><spring:message code="jsp.general.Question" />&nbsp;<a href="mailto:help@surfteams.nl">help@surfteams.nl</a></span>
-        </address>
-        <ul>
-          <li><a class="extra" href="https://wiki.surfnetlabs.nl/display/conextsupport/Terms+of+Service+%28EN%29" target="_blank"><spring:message code="jsp.general.TermsOfUse" /></a></li>
-          <li><a class="extra" href="http://www.surfnet.nl/en/pages/copyright.aspx" target="_blank"><spring:message code="jsp.general.Copyright" /></a></li>
-        </ul>
+        <span><spring:message code="jsp.general.surfnet.Name" /></span>&nbsp;|&nbsp;</span><span><a href="mailto:help@surfconext.nl">help@surfconext.nl</a></span>&nbsp;|&nbsp;<span><a href="https://wiki.surfnetlabs.nl/display/conextsupport/Terms+of+Service+%28EN%29" target="_blank"><spring:message code="jsp.general.TermsOfUse" /></a></span>
       </div>
       <!-- / Footer -->
     </c:if>

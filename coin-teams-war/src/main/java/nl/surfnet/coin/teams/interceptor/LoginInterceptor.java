@@ -57,7 +57,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   private static final String STATUS_MEMBER = "member";
 
   @Autowired
-  OpenConextOAuthClient apiClient;
+  private OpenConextOAuthClient apiClient;
 
   @Autowired
   private TeamEnvironment teamEnvironment;

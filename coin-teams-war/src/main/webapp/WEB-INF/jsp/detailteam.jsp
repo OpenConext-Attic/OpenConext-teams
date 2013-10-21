@@ -40,12 +40,12 @@
       <c:if test="${displayAddExternalGroupToTeam eq true}">
         <p class="add">
           <c:url value="/addexternalgroup.shtml" var="addexternalgroupUrl"><c:param name="teamId" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
-          <a class="button-primary" href="<c:out value="${addexternalgroupUrl}"/>"><spring:message code="jsp.addexternalgroup.Title"/></a>
+          <a class="button" href="<c:out value="${addexternalgroupUrl}"/>"><spring:message code="jsp.addexternalgroup.Title"/></a>
         </p>
       </c:if>
       <p class="add">
         <c:url value="/addmember.shtml" var="addmemberUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
-        <a class="button-primary" href="<c:out value="${addmemberUrl}"/>"><spring:message code='jsp.addmember.Title' /></a>
+        <a class="button" href="<c:out value="${addmemberUrl}"/>"><spring:message code='jsp.addmember.Title' /></a>
       </p>
     </c:if>
 
@@ -118,7 +118,7 @@
         <p class="more">
           <c:url value="/jointeam.shtml" var="joinUrl"><c:param name="team" value="${team.id}"/>
             <c:param name="view" value="${view}"/></c:url>
-          <a class="button-primary" href="<c:out value="${joinUrl}"/>"><spring:message code='jsp.detailteam.Join'/></a>
+          <a class="button" href="<c:out value="${joinUrl}"/>"><spring:message code='jsp.detailteam.Join'/></a>
         </p>
         <div class="clear" ></div>
       </c:otherwise>

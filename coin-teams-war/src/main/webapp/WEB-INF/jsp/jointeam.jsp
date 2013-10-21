@@ -46,7 +46,7 @@
       <p class="submit-wrapper">
         <input class="button-disabled" type="submit" disabled="disabled" name="joinTeam"
                value="<spring:message code='jsp.jointeam.Submit' />" />
-        <input class="button-secondary" type="submit" name="cancelJoinTeam"
+        <input class="button" type="submit" name="cancelJoinTeam"
                value="<spring:message code='jsp.general.Cancel' />" />
       </p>
     </form:form>

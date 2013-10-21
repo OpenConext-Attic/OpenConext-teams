@@ -52,11 +52,11 @@ COIN.MODULES.Addteam = function (sandbox) {
     toggleDisable:function (el) {
       if (el instanceof jQuery) {
         if (!el.attr('disabled')) {
-          el.removeClass('button-primary').addClass('button-disabled');
+          el.removeClass('button').addClass('button-disabled');
           el.attr('disabled', true);
         } else {
           el.removeAttr('disabled');
-          el.removeClass('button-disabled').addClass('button-primary');
+          el.removeClass('button-disabled').addClass('button');
         }
       }
     }

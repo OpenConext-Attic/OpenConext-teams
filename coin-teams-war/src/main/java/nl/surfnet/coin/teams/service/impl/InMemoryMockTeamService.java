@@ -97,6 +97,20 @@ public class InMemoryMockTeamService implements GrouperTeamService {
     team2.addMembers(member3.copy(), member4.copy(), member5.copy());
     team3.addMembers(member5.copy(), member6.copy(), member7.copy());
     team4.addMembers(member1.copy(), member2.copy(), member4.copy());
+    
+    List<Member> dummyMembers = new ArrayList<Member>();
+  for (int memberId = 10; memberId < 110; memberId++) {
+  Member dummyMember = new Member(roles1, "member" + memberId + "-name",
+          "member-" + memberId, "member" + memberId + "@surfnet.nl");
+  dummyMembers.add(dummyMember);
+}
+
+for (int teamId = 5; teamId < 50; teamId++) {
+  Team newTeam = new Team("test-team-" + teamId,
+          "test-team-" + teamId + "-name", "description-" + teamId, true);
+  newTeam.addMembers(dummyMembers.toArray(new Member[dummyMembers.size()]));
+  teams.put(newTeam.getId(), newTeam);
+}
   }
 
   private Team findTeam(String teamId) {

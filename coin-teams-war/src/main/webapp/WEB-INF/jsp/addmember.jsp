@@ -68,8 +68,8 @@
         <form:textarea path="message" cols="5" rows="4"/>
       </p>
       <p class="submit-wrapper">
-        <input class="button-primary" type="submit" name="addMember" value="<spring:message code='jsp.addmember.Submit' />" />
-        <input class="button-secondary" type="submit" name="cancelAddMember" value="<spring:message code='jsp.general.Cancel' />" />
+        <input class="button" type="submit" name="addMember" value="<spring:message code='jsp.addmember.Submit' />" />
+        <input class="button" type="submit" name="cancelAddMember" value="<spring:message code='jsp.general.Cancel' />" />
       </p>
     </form:form>
     <div class="clear"></div>

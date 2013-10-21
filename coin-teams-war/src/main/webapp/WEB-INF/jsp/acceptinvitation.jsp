@@ -22,31 +22,30 @@
 <teams:genericpage pageTitle="${pageTitle}">
 <%-- = Content --%>
 <div id="Content">
-  <h1>${pageTitle}</h1>
-  <p><spring:message code="jsp.acceptinvitation.Explanation" /></p>
+  <h2>Invitation to join <c:out value="${team.name}" /></h2>
   <br class="clear" />
-  <div class="column-container">
-    <div class="column first-column">
-      <h3><spring:message code="jsp.acceptinvitation.PersonDetails" /></h3>
-      <dl>
-        <dt><spring:message code="jsp.acceptinvitation.UserName" /></dt>
-        <dd><c:out value="${sessionScope.person.displayName}" /></dd>
-        <dt><spring:message code="jsp.acceptinvitation.UserID" /></dt>
-        <dd><c:out value="${sessionScope.person.id}" /></dd>
-        <dt><spring:message code="jsp.acceptinvitation.HomeOrganization" /></dt>
-        <dd class="last"><c:out value="${header.schacHomeOrganization}" /></dd>
-      </dl>
-    </div>
-    <div class="column second-column">
-      <h3><spring:message code="jsp.acceptinvitation.InvitationDetails" /></h3>
-      <dl>
-        <dt><spring:message code="jsp.acceptinvitation.InvitedFor" /></dt>
-        <dd><c:out value="${team.name}" /></dd>
-        <dt><spring:message code="jsp.acceptinvitation.CreatedOn" /></dt>
-        <dd class="last"><fmt:formatDate value="${date}" pattern="dd-MM-yyyy"/></dd>
-      </dl>
-    </div>
-  </div>
+  <table class="invitationDetails">
+    <tr class="odd">
+      <td class="width200"><spring:message code="jsp.acceptinvitation.DisplayName" /></td>
+      <td><c:out value="${sessionScope.person.displayName}" /></td>
+    </tr>
+    <tr class="even">
+      <td><spring:message code="jsp.acceptinvitation.UserID" /></td>
+      <td><c:out value="${sessionScope.person.id}" /></td>
+    </tr>
+    <tr class="odd">
+      <td>E-mailaddress</td>
+      <td>
+        <c:forEach var="email" items="${sessionScope.person.emails}">
+          <c:out value="${email.value}" />&nbsp;
+        </c:forEach>
+      </td>
+    </tr>
+    <tr class="even">
+      <td><spring:message code="jsp.acceptinvitation.HomeOrganization" /></td>
+      <td><c:out value="${header.schacHomeOrganization}" /></td>
+    </tr>
+  </table>
   <br class="clear" />
   <form action="doAcceptInvitation.shtml" id="AcceptInvitationForm">
     <fieldset>
@@ -60,7 +59,7 @@
       <p class="submit-wrapper">
         <input class="button-disabled" type="submit" disabled="disabled" name="joinTeam"
                value="<spring:message code='jsp.acceptinvitation.Accept' />" />
-        <input class="button-secondary" type="submit" name="cancelJoinTeam"
+        <input class="button" type="submit" name="cancelJoinTeam"
                value="<spring:message code='jsp.general.Cancel' />" />
       </p>
     </fieldset>

@@ -41,10 +41,10 @@ COIN.MODULES.Acceptinvitation = function(sandbox) {
       if (el instanceof jQuery) {
         if (!el.attr('disabled')) {
           el.attr('disabled', true);
-          el.removeClass('button-primary').addClass('button-disabled');
+          el.removeClass('button').addClass('button-disabled');
         } else {
           el.removeAttr('disabled');
-          el.removeClass('button-disabled').addClass('button-primary');
+          el.removeClass('button-disabled').addClass('button');
         }
       }
     }

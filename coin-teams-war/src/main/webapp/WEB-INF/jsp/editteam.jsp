@@ -50,8 +50,8 @@
         <label for="TeamViewability" class="consent"><spring:message code='jsp.general.TeamViewability' /></label>
       </p>
       <p class="submit-wrapper">
-        <input class="button-primary" type="submit" name="editTeam" value="<spring:message code='jsp.editteam.Submit' />" />
-        <input class="button-secondary" type="submit" name="cancelEditTeam" value="<spring:message code='jsp.general.Cancel' />" />
+        <input class="button" type="submit" name="editTeam" value="<spring:message code='jsp.editteam.Submit' />" />
+        <input class="button" type="submit" name="cancelEditTeam" value="<spring:message code='jsp.general.Cancel' />" />
       </p>
     </form>
     <div class="clear"></div>

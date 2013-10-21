@@ -23,7 +23,8 @@
 <div id="Content">
   <spring:message code="jsp.landingpage.Content" htmlEscape="false" />
   <c:url context="/Shibboleth.sso" value="/Login" var="loginUrl"><c:param name="target" value="${environment.teamsURL}" /></c:url>
-  <a href="${loginUrl}"><spring:message code="jsp.landingpage.Login" /></a>
+  <a class="button" href="${loginUrl}"><spring:message code="jsp.landingpage.Login" /></a>
+  <spring:message code="jsp.landingpage.Content.footer" htmlEscape="false" />
 <!-- / Content -->
 </div>
 </teams:genericpage>
