@@ -36,9 +36,7 @@
     if(!("gadget".equals(view))) {
   %>
   <div class="header">
-    <a href="home.shtml"><img class="logo" src="<c:url value="/media/surfnet_logo.png"/>" alt="SURFnet logo"/></a>
-    <span>SURFconext teams</span>
-    <span class="left"></span><span class="right"></span><img src="<c:url value="/media/header_img.jpg"/>" alt="header img"/>
+    <a href="home.shtml"><img class="logo" src="<c:url value="/media/surf-conext-logo.png"/>" alt="SURFconext logo"/></a>
   </div>
   <%
     }
@@ -82,18 +80,7 @@
 
   <%--  = Footer --%>
   <div class="footer" id="Footer">
-    <p>&nbsp;</p>
-    <address>
-      <span><strong>SURFnet bv</strong></span>
-      <span>Radboudkwartier 273</span>
-      <span>Postbus 19035</span>
-      <span>3501 DA Utrecht</span>
-      <span>For questions email:&nbsp;<a href="mailto:help@surfteams.nl">help@surfteams.nl</a></span>
-    </address>
-    <ul>
-      <li><a class="extra" href="https://wiki.surfnetlabs.nl/display/conextsupport/Terms+of+Service+%28EN%29" target="_blank">Terms of Service</a></li>
-      <li><a class="extra" href="http://www.surfnet.nl/en/pages/copyright.aspx" target="_blank">Copyright</a></li>
-    </ul>
+    <span>SURFnet</span>&nbsp;|&nbsp;</span><span><a href="mailto:help@surfconext.nl">help@surfconext.nl</a></span>&nbsp;|&nbsp;<span><a href="https://wiki.surfnetlabs.nl/display/conextsupport/Terms+of+Service+%28EN%29" target="_blank">Terms of Service</a></span>
   </div>
   <%
     }
