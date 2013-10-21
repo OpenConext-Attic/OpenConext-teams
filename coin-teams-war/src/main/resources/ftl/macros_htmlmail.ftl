@@ -83,7 +83,7 @@
             alt="SURFconext logo" align="right"/>
 
         <h1 style="mso-line-height-rule:exactly;line-height:33px;font-weight:normal;font-size:28px;margin-top:0;">
-          SURFteams</h1>
+          SURFconext teams</h1>
 
 [/#macro]
 
