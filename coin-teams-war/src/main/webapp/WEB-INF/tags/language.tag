@@ -15,15 +15,16 @@
   --%>
 
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+
 <c:choose>
   <c:when test="${pageContext.response.locale.language eq 'nl'}">
-    &nbsp;|&nbsp;<a href="<c:url value="home.shtml?lang=EN"/>">EN</a>
+    &nbsp;|&nbsp;<a href="<c:url value="?lang=EN&${pageContext.request.queryString}"/>">EN</a>
     &nbsp;|&nbsp;<span class="active">NL</span>
     &nbsp;
   </c:when>
   <c:otherwise>
     &nbsp;|&nbsp;<span class="active">EN</span></a>
-    &nbsp;|&nbsp;<a href="<c:url value="home.shtml?lang=NL"/>">NL</a>
+    &nbsp;|&nbsp;<a href="<c:url value="?lang=NL&${pageContext.request.queryString}"/>">NL</a>
     &nbsp;
   </c:otherwise>
 </c:choose>
