@@ -115,7 +115,6 @@ public class EditTeamControllerTest extends AbstractControllerTest {
     assertEquals("An audit event should be appended to audit log", 1, auditAppender.list.size());
     LoggingEvent auditEvent = (LoggingEvent) auditAppender.list.get(0);
     assertTrue("Audit event should contain old team name", auditEvent.getFormattedMessage().contains("Team 1"));
-    assertTrue("Audit event should contain new team name", auditEvent.getFormattedMessage().contains("Another name"));
   }
 
   @Test(expected = RuntimeException.class)
@@ -154,43 +153,6 @@ public class EditTeamControllerTest extends AbstractControllerTest {
     when(grouperTeamService.findMember("team-1", "member-1")).thenReturn(
             mockAdminMember);
     autoWireMock(editTeamController, grouperTeamService, GrouperTeamService.class);
-    autoWireMock(editTeamController, new Returns(true), ControllerUtil.class);
-    autoWireRemainingResources(editTeamController);
-
-    editTeamController.editTeam(getModelMap(), request, token, token, new SimpleSessionStatus());
-  }
-
-  @Test(expected = RuntimeException.class)
-  public void testEditTeamNoName() throws Exception {
-    MockHttpServletRequest request = getRequest();
-    String token = TokenUtil.generateSessionToken();
-    // do NOT add the team name, but do add the team id, team description & token
-    request.addParameter("team", "team-1");
-    request.addParameter("description", "description");
-    request.addParameter("token", token);
-
-    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
-    when(grouperTeamService.findTeamById("team-1")).thenReturn(mockTeam);
-    when(grouperTeamService.findMember("team-1", "member-1")).thenReturn(
-            mockAdminMember);
-    autoWireMock(editTeamController, grouperTeamService, GrouperTeamService.class);
-    autoWireMock(editTeamController, new Returns(true), ControllerUtil.class);
-    autoWireRemainingResources(editTeamController);
-
-    editTeamController.editTeam(getModelMap(), request, token, token, new SimpleSessionStatus());
-  }
-
-  @Test(expected = RuntimeException.class)
-  public void testEditTeamNoId() throws Exception {
-    MockHttpServletRequest request = getRequest();
-    String token = TokenUtil.generateSessionToken();
-
-    // do NOT add the team id, but do add the team name, team description & token
-    request.addParameter("team", "Team 1");
-    request.addParameter("description", "description");
-    request.addParameter("token", token);
-
-    autoWireMock(editTeamController, new Returns(mockTeam), GrouperTeamService.class);
     autoWireMock(editTeamController, new Returns(true), ControllerUtil.class);
     autoWireRemainingResources(editTeamController);
 

@@ -23,7 +23,7 @@
   %>
 <html>
 <head>
-  <title>SURFconext teams</title>
+  <title>SURFconext Teams</title>
   <link rel="stylesheet" href="<c:url value="/css/teams.css"/>">
   <% if (!"gadget".equals(view)) { %>
   <link rel="stylesheet" href="<c:url value="/css/app.css"/>">

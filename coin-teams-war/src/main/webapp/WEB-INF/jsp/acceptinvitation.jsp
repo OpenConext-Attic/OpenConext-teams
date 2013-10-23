@@ -41,10 +41,6 @@
         </c:forEach>
       </td>
     </tr>
-    <tr class="even">
-      <td><spring:message code="jsp.acceptinvitation.HomeOrganization" /></td>
-      <td><c:out value="${header.schacHomeOrganization}" /></td>
-    </tr>
   </table>
   <br class="clear" />
   <form action="doAcceptInvitation.shtml" id="AcceptInvitationForm">

@@ -67,7 +67,7 @@
   </c:when>
   <c:when test="${role eq managerRole or role eq memberRole}">
     <p class="team-option">
-      <a class="button-secondary" id="LeaveTeam" href="${leaveUrl}"><spring:message code='jsp.detailteam.Leave' /></a>
+      <a class="button" id="LeaveTeam" href="${leaveUrl}"><spring:message code='jsp.detailteam.Leave' /></a>
     </p>
   </c:when>
 </c:choose>

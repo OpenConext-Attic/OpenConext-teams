@@ -22,16 +22,16 @@
 
 <c:set var="pageTitle"><c:out value="${team.name}" /> (<c:out value="${team.stem.name}" />)</c:set>
 <teams:genericpage pageTitle="${pageTitle}">
+<c:if test="${fn:length(message) > 0}"><div id="__notifyBar" class="hide"><spring:message code='${message}' /></div></c:if>
+<c:if test="${role eq adminRole}">
+  <div class="jquery-warning-bar <c:if test="${onlyAdmin ne true}">hide</c:if>" id="onlyAdmin">
+    <p><spring:message code="jsp.detailteam.OnlyAdminWarning"/><a href="https://wiki.surfnetlabs.nl/display/conextsupport/SURFteams+Best+Practice" target="_blank"><img src="media/question-mark.jpg"/></a></p>
+  </div>
+</c:if>
 <%-- = TeamContainer --%>
 <div class="section" id="TeamContainer">
   <%-- = Header --%>
   <div id="Header">
-    <c:if test="${role eq adminRole}">
-      <div class="jquery-warning-bar <c:if test="${onlyAdmin ne true}">hide</c:if>" id="onlyAdmin">
-        <p><spring:message code="jsp.detailteam.OnlyAdminWarning"/><a href="https://wiki.surfnetlabs.nl/display/conextsupport/SURFteams+Best+Practice" target="_blank"><img src="media/question-mark.jpg"/></a></p>
-      </div>
-    </c:if>
-    <c:if test="${fn:length(message) > 0}"><div id="__notifyBar" class="hide"><spring:message code='${message}' /></div></c:if>
     <teams:teamOptions/>
     <br class="clear" />
     <h1 class="team-title">${pageTitle}</h1>

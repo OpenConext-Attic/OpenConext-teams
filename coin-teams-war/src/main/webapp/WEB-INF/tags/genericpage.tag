@@ -23,7 +23,7 @@
 <html>
 <head>
   <meta charset="UTF-8"/>
-  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="width=device-width,initial-scale=0.5" name="viewport"/>
   <c:choose>
     <c:when test="${not empty pageTitle}">
       <title><c:out value="${pageTitle} - "/><spring:message code="jsp.general.Title" /></title>
@@ -52,9 +52,9 @@
       <c:when test='${view ne "gadget" && empty sessionScope.person}'>
         <div class="component-title-bar">
           <h2 class="component-title right">
+            <teams:language />
             <a href="https://wiki.surfnetlabs.nl/display/conextsupport/SURFteams" target="_blank"><spring:message code="jsp.general.Help" /></a>
             &nbsp;|&nbsp;<a href="${loginUrl}">Log&nbsp;in</a>
-            <teams:language />
           </h2>
           <h2 class="component-title"><spring:message code="jsp.general.Title" /></h2>
         </div>
@@ -63,9 +63,9 @@
         <div class="component-title-bar">
           <h2 class="component-title right">
             <spring:message code="jsp.general.Welcome"/>&nbsp;<c:out value="${sessionScope.person.displayName}" />
-            &nbsp;|&nbsp;<a href="/Shibboleth.sso/Logout?target=/teams"><spring:message code="jsp.general.Logout"/></a>
-            &nbsp;|&nbsp;<a href="https://wiki.surfnetlabs.nl/display/conextsupport/SURFteams" target="_blank"><spring:message code="jsp.general.Help" /></a>
             <teams:language />
+            <a href="https://wiki.surfnetlabs.nl/display/conextsupport/SURFteams" target="_blank"><spring:message code="jsp.general.Help" /></a>
+            &nbsp;|&nbsp;<a href="/Shibboleth.sso/Logout?target=/teams"><spring:message code="jsp.general.Logout"/></a>
           </h2>
           <h2 class="component-title"><spring:message code="jsp.general.Title" /></h2>
         </div>

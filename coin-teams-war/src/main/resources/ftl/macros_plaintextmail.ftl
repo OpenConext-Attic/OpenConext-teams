@@ -15,10 +15,10 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 --]
-[#macro mailheader]*SURFconext teams*[/#macro]
+[#macro mailheader]*SURFconext Teams*[/#macro]
 
 [#macro mailfooter]
-Consult the manual for specific information on SURFconext teams: https://wiki.surfnetlabs.nl/display/conextsupport/SURFteams
+Consult the manual for specific information on SURFconext Teams: https://wiki.surfnetlabs.nl/display/conextsupport/SURFteams
 or contact SURFteams support at help@surfteams.nl.
 
 This service is powered by SURFconext http://www.surfconext.nl/ - brought to you by SURFnet

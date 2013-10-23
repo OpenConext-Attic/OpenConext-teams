@@ -112,6 +112,7 @@ td {
 
 td:first-child {
 	border-left: 0;
+	min-width: 12px;
 }
 
 .odd {
@@ -178,12 +179,11 @@ fieldset {
 }
 
 .label-field-wrapper textarea {
-  width: 800px;
+	width: 80%;
   height: 100px;
 }
 
 .label-field-wrapper textarea.withinfo {
-  width: 600px;
 	float: left;
   margin-right: 10px;
 
@@ -416,17 +416,13 @@ td.width200 {
 	background: transparent url("../media/teams-icons-sprite.png") no-repeat 0 -100px;
 }
 
-.notify-bar-close {
-	background-position: 0 0;
-}
-
 .close a:hover,
 .ui-dialog-titlebar-close .ui-icon:hover {
 	background-position: 0 -150px;
 }
 
 .notify-bar-close:hover {
-	background-position: 0 -50px;
+	background-position: 0 -150px;
 }
 
 /* COMPACT */
@@ -488,20 +484,19 @@ td.width200 {
 */
 
 .jquery-notify-bar {
-	position: absolute;
-	top: 0;
-	left: 0;
- 	width: 100%;
-  z-index: 5;
- 	border-bottom: 1px solid #ccc;
+	position: relative;
  	font-size: 12px;
 	font-family: Arial, Verdana, sans-serif;
-	background: url("../media/bg-portal-msg.png") repeat-x scroll 0 50% #C5EFFE;
+  border-bottom: 2px solid #DBDBDB;
+  top: -10px;
+  left: -10px;
+  padding-right: 20px;
 }
 
 .jquery-notify-bar p {
 	margin: 0;
 	padding: 10px;
+	
 }
 
 /* WARNING bar */

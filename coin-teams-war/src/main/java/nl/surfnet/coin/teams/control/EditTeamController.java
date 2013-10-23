@@ -90,10 +90,10 @@ public class EditTeamController {
     Person person = (Person) request.getSession().getAttribute(
             LoginInterceptor.PERSON_SESSION_KEY);
     String teamId = request.getParameter("team");
-    String teamName = request.getParameter("teamName");
     String teamDescription = request.getParameter("description");
 
     Team team = getTeam(request);
+    String teamName = team.getName(); // the name does not change on edit
 
     // Check if a user has the privileges to edit the team
     if (!controllerUtil.hasUserAdminPrivileges(person, team.getId())) {
@@ -104,11 +104,6 @@ public class EditTeamController {
     // If viewablilityStatus is set this means that the team should be public
     boolean viewable = StringUtils.hasText(request
             .getParameter("viewabilityStatus"));
-
-    // Form not completely filled in.
-    if (!StringUtils.hasText(teamName)) {
-      throw new RuntimeException("Parameter error.");
-    }
 
     // Update the team info
     grouperTeamService.updateTeam(teamId, teamName, teamDescription, person.getId());
