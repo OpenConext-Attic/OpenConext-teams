@@ -25,7 +25,7 @@ extends AbstractGrouperDaoImpl implements GrouperDao {
 
   private static final Logger LOG = LoggerFactory.getLogger(GrouperDaoImpl.class);
 
-  @Resource(name = "grouperJdbcTemplate")
+  @Resource(name = "grouperJdbcxTemplate")
   private JdbcTemplate jdbcTemplate;
 
   @Override

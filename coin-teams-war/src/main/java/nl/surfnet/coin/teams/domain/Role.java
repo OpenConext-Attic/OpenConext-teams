@@ -15,10 +15,48 @@
  */
 package nl.surfnet.coin.teams.domain;
 
+import edu.internet2.middleware.grouperClient.ws.beans.WsGrouperPrivilegeResult;
+
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * The Role of a {@link Member} in a {@link Team}
  * 
  */
 public enum Role {
     Admin, Member, Manager, None;
+
+  /**
+   * Get the Teams role, by the set of privileges as returned by Grouper WS
+   * @param wsPrivilegeResults the Grouper WS results from getGrouperPrivileges
+   * @return teams Role
+   */
+  public static Role fromGrouperPrivileges(WsGrouperPrivilegeResult[] wsPrivilegeResults) {
+    if (wsPrivilegeResults == null || wsPrivilegeResults.length == 0) {
+      return None;
+    }
+
+    Set<String> privilegeNames = new HashSet<>();
+    for (WsGrouperPrivilegeResult priv : wsPrivilegeResults) {
+      // Exclude privileges that were inherited through special group memberships (etc:sysadminwhatever...)
+      if (priv.getOwnerSubject() != null
+              && priv.getOwnerSubject().getSourceId() != null
+              && priv.getOwnerSubject().getSourceId().equals("g:isa")) {
+        continue;
+      }
+      privilegeNames.add(priv.getPrivilegeName());
+    }
+
+    if (privilegeNames.contains("admin")) {
+      return Admin;
+    }
+    if (privilegeNames.contains("update")) {
+      return Manager;
+    }
+    if (privilegeNames.contains("optout")) {
+      return Member;
+    }
+    return None;
+  }
 }
