@@ -573,7 +573,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
 
       // Get total count
       filter.setPageNumber(null);
-      filter.setPageNumber(null);
+      filter.setPageSize(null);
       WsFindGroupsResults totalCountResults = new GcFindGroups()
               .assignQueryFilter(filter)
               .assignActAsSubject(getActAsSubject(getGrouperPowerUser()))
