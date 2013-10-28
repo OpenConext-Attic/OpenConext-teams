@@ -571,7 +571,17 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
               .assignIncludeGroupDetail(false)
               .execute();
 
-      return buildTeamResultWrapper(results, offset, pageSize, null);
+      // Get total count
+      filter.setPageNumber(null);
+      filter.setPageNumber(null);
+      WsFindGroupsResults totalCountResults = new GcFindGroups()
+              .assignQueryFilter(filter)
+              .assignActAsSubject(getActAsSubject(getGrouperPowerUser()))
+              .assignIncludeGroupDetail(false)
+              .execute();
+      int totalCount = (totalCountResults.getGroupResults() != null) ? totalCountResults.getGroupResults().length : 0;
+
+      return buildTeamResultWrapper(results, offset, pageSize, personId, totalCount);
     } catch (GcWebServiceError e) {
       LOG.debug("Could not get teams by member {}. Perhaps no groups for this user? Will return empty list. Exception msg: {}", personId, e.getMessage());
       return new TeamResultWrapper(new ArrayList<Team>(), 0, offset, pageSize);
@@ -588,7 +598,19 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
       .assignPageSize(pageSize)
       .assignPageNumber(pagenumber(offset, pageSize))
       .execute();
-      return buildTeamResultWrapper(results, offset, pageSize, personId);
+
+      // Get total count
+      WsGetGroupsResults totalCountResults = new GcGetGroups()
+              .assignActAsSubject(getActAsSubject(getGrouperPowerUser()))
+              .addSubjectId(personId)
+              .execute();
+      int totalCount = (totalCountResults.getResults() != null
+              && totalCountResults.getResults().length > 0
+              && totalCountResults.getResults()[0].getWsGroups() != null)
+              ? totalCountResults.getResults()[0].getWsGroups().length
+              : 0;
+
+      return buildTeamResultWrapper(results, offset, pageSize, personId, totalCount);
     } catch (GcWebServiceError e) {
       LOG.debug("Could not get all teams by member {}. Perhaps no groups for this user? Will return empty list. Exception msg: {}", personId, e.getMessage());
       return new TeamResultWrapper(new ArrayList<Team>(), 0, offset, pageSize);
@@ -612,7 +634,21 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
             .assignPageSize(pageSize)
             .assignScope("%" + partOfGroupname + "%")
             .execute();
-    return buildTeamResultWrapper(results, offset, pageSize, personId);
+
+    // Get total count
+    WsGetGroupsResults totalCountResults = new GcGetGroups()
+            .addSubjectId(personId)
+            .assignActAsSubject(getActAsSubject(getGrouperPowerUser()))
+            .assignScope("%" + partOfGroupname + "%")
+            .execute();
+
+    int totalCount = (totalCountResults.getResults() != null
+            && totalCountResults.getResults().length > 0
+            && totalCountResults.getResults()[0].getWsGroups() != null)
+      ? totalCountResults.getResults()[0].getWsGroups().length
+      : 0;
+
+    return buildTeamResultWrapper(results, offset, pageSize, personId, totalCount);
   }
 
   @Override
@@ -649,18 +685,27 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
             .assignIncludeGroupDetail(true)
             .assignActAsSubject(new WsSubjectLookup(personId, null, null))
             .execute();
-    return buildTeamResultWrapper(results, offset, pageSize, personId);
+
+    // Get total count
+    filter.setPageNumber(null);
+    filter.setPageSize(null);
+    WsFindGroupsResults totalCountResults = new GcFindGroups()
+            .assignQueryFilter(filter)
+            .assignIncludeGroupDetail(true)
+            .assignActAsSubject(new WsSubjectLookup(personId, null, null))
+            .execute();
+    int totalCount = (totalCountResults.getGroupResults() != null) ? totalCountResults.getGroupResults().length : 0;
+    return buildTeamResultWrapper(results, offset, pageSize, personId, totalCount);
   }
 
-  private TeamResultWrapper buildTeamResultWrapper(WsFindGroupsResults results, int offset, int pageSize, String userId) {
+  private TeamResultWrapper buildTeamResultWrapper(WsFindGroupsResults results, int offset, int pageSize, String userId, int totalCount) {
     List<Team> teams = new ArrayList<>();
     if (results.getGroupResults() != null && results.getGroupResults().length > 0) {
       for (WsGroup group : results.getGroupResults()) {
         teams.add(buildTeam(group, userId));
       }
     }
-    // FIXME: get total from textual metadata or otherwise
-    return new TeamResultWrapper(teams, 9999, offset, pageSize);
+    return new TeamResultWrapper(teams, totalCount, offset, pageSize);
   }
 
   private Team buildTeam(WsGroup group, String userId) {
@@ -687,7 +732,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
     return team;
   }
 
-  private TeamResultWrapper buildTeamResultWrapper(WsGetGroupsResults results, int offset, int pageSize, String userId) {
+  private TeamResultWrapper buildTeamResultWrapper(WsGetGroupsResults results, int offset, int pageSize, String userId, int totalCount) {
     List<Team> teams = new ArrayList<>();
     if (results.getResults() != null && results.getResults().length > 0) {
       for (WsGetGroupsResult wsGetGroupsResult : results.getResults()) {
@@ -698,8 +743,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
         }
       }
     }
-    // FIXME: get total from textual metadata
-    return new TeamResultWrapper(teams, 9999, offset, pageSize);
+    return new TeamResultWrapper(teams, totalCount, offset, pageSize);
   }
 
   public String getGrouperPowerUser() {
