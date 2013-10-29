@@ -54,7 +54,7 @@ public enum Role {
     if (privilegeNames.contains("update")) {
       return Manager;
     }
-    if (privilegeNames.contains("optout")) {
+    if (privilegeNames.contains("read")) {
       return Member;
     }
     return None;

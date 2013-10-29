@@ -29,6 +29,23 @@ public class GrouperTestIntegration {
   }
 
   @Test
+  public void foo() {
+    WsQueryFilter filter = new WsQueryFilter();
+    String partOfGroupname = "foo";
+
+    filter.setGroupName("nl:surfnet:diensten:%" + partOfGroupname + "%");
+    filter.setQueryFilterType("FIND_BY_GROUP_NAME_APPROXIMATE");
+    filter.setStemName("nl:surfnet:diensten");
+    WsFindGroupsResults results = new GcFindGroups()
+            .assignQueryFilter(filter)
+            .assignActAsSubject(new WsSubjectLookup("urn:collab:person:example.com:somuser", "", ""))
+            .assignIncludeGroupDetail(false)
+            .execute();
+    System.out.println(results.getGroupResults()[0].getName());
+    System.out.println(results.getGroupResults()[1].getName());
+    assertEquals(2, results.getGroupResults().length);
+  }
+  @Test
   public void getPublicGroupsForUserFiltered() {
     WsQueryFilter filter = new WsQueryFilter();
     filter.setPageSize("10");

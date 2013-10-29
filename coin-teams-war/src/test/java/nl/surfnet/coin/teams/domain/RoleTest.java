@@ -36,7 +36,7 @@ public class RoleTest {
 
     assertEquals("manage role", Role.Manager, Role.fromGrouperPrivileges(privs("member", "read", "optout", "update")));
 
-    assertEquals("None", Role.None, Role.fromGrouperPrivileges(privs("read")));
+    assertEquals("None", Role.None, Role.fromGrouperPrivileges(privs("optout")));
 
   }
 

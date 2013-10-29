@@ -157,40 +157,17 @@ for (int teamId = 5; teamId < 50; teamId++) {
     teams.remove(teamId);
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
-  public TeamResultWrapper findAllTeams(String personId, int offset, int pageSize) {
+  public TeamResultWrapper findPublicTeams(String personId, String partOfGroupname) {
     List<Team> teamList = new ArrayList<Team>(teams.values());
     List<Team> matches = new ArrayList<Team>();
-    List<Team> limitedList = new ArrayList<Team>();
-
-    for (Team team : teamList) {
-      if (team.isViewable()) {
-        matches.add(team);
-      }
-    }
-    for (int i = offset; i < matches.size() && i < offset + pageSize; i++) {
-      limitedList.add(matches.get(i));
-    }
-    return new TeamResultWrapper(limitedList, matches.size(), offset, pageSize);
-  }
-
-  @Override
-  public TeamResultWrapper findTeams(String personId, String partOfGroupname, int offset, int pageSize) {
-    List<Team> teamList = new ArrayList<Team>(teams.values());
-    List<Team> matches = new ArrayList<Team>();
-    List<Team> limitedList = new ArrayList<Team>();
     for (Team team : teamList) {
       if (team.isViewable() && team.getName().contains(partOfGroupname)) {
         matches.add(team);
       }
     }
-    for (int i = offset; i < matches.size() && i < offset + pageSize; i++) {
-      limitedList.add(matches.get(i));
-    }
-    return new TeamResultWrapper(limitedList, matches.size(), offset, pageSize);
+
+    return new TeamResultWrapper(matches, matches.size(), 0, 1000);
   }
 
   @Override
@@ -239,7 +216,7 @@ for (int teamId = 5; teamId < 50; teamId++) {
    */
   @Override
   public List<Stem> findStemsByMember(String personId) {
-      return Collections.emptyList();
+      return new ArrayList<Stem>();
   }
 
   /**
@@ -291,7 +268,7 @@ for (int teamId = 5; teamId < 50; teamId++) {
   @Override
   public void addMember(String teamId, Person person) {
     // just find the member (in some other team), copy and add to team
-    List<Team> allTeams = findAllTeams("",0, 10000).getTeams();
+    List<Team> allTeams = findPublicTeams("", "").getTeams();
     Member m = null;
     for (Team team : allTeams) {
       if (m != null) {

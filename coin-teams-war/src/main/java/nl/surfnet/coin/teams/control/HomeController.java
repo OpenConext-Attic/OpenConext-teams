@@ -76,10 +76,9 @@ public class HomeController {
 
   @RequestMapping("/home.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request,
-      @RequestParam(required = false, defaultValue = "my")
-      String teams, @RequestParam(required = false)
-      String teamSearch, @RequestParam(required = false)
-      Long groupProviderId) {
+      @RequestParam(required = false, defaultValue = "my") String teams,
+      @RequestParam(required = false) String teamSearch,
+      @RequestParam(required = false) Long groupProviderId) {
 
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
     String display = teams;
@@ -147,7 +146,7 @@ public class HomeController {
     if ("all".equals(display) || !StringUtils.hasText(person)) {
       modelMap.addAttribute("hasMultipleSources", true);
       if (StringUtils.hasText(query)) {
-        resultWrapper = grouperTeamService.findTeams(person, query, offset, PAGESIZE);
+        resultWrapper = grouperTeamService.findPublicTeams(person, query);
       } else {
         resultWrapper = new TeamResultWrapper(new ArrayList<Team>(), 0, 0, 1);
 //        resultWrapper = grouperTeamService.findAllTeams(person, offset, PAGESIZE);
@@ -155,13 +154,13 @@ public class HomeController {
       modelMap.addAttribute("display", "all");
       // else always display my teams
     } else {
-      modelMap.addAttribute("hasMultipleSources", grouperTeamService.findStemsByMember(person).size() > 1);
-      if (StringUtils.hasText(query)) {
-        resultWrapper = grouperTeamService.findTeamsByMember(person, query, offset, PAGESIZE);
-      } else {
-        resultWrapper = grouperTeamService.findAllTeamsByMember(person, offset, PAGESIZE);
-      }
-      modelMap.addAttribute("display", "my");
+    modelMap.addAttribute("hasMultipleSources", grouperTeamService.findStemsByMember(person).size() > 1);
+    if (StringUtils.hasText(query)) {
+      resultWrapper = grouperTeamService.findTeamsByMember(person, query, offset, PAGESIZE);
+    } else {
+      resultWrapper = grouperTeamService.findAllTeamsByMember(person, offset, PAGESIZE);
+    }
+    modelMap.addAttribute("display", "my");
     }
 
     List<Team> teams = resultWrapper.getTeams();
@@ -178,7 +177,7 @@ public class HomeController {
                                      @RequestParam(required = false) String teamSearch) {
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
 
-    return grouperTeamService.findTeams(person.getId(), teamSearch, 0, 1000);
+    return grouperTeamService.findPublicTeams(person.getId(), teamSearch);
   }
 
   private int getOffset(HttpServletRequest request) {

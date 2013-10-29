@@ -428,8 +428,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
       // Grouper converts every exception to RuntimeException
       return false;
     }
-    boolean success = result.getResultMetadata().getResultCode().equals("SUCCESS") ? true
-        : false;
+    boolean success = result.getResultMetadata().getResultCode().equals("SUCCESS");
     if (success) {
       provisioningManager.roleEvent(teamIdWithContext(teamId), memberId, role.name().toLowerCase(), ProvisioningManager.Operation.CREATE);
     }
@@ -556,43 +555,28 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
   }
 
   @Override
-  public TeamResultWrapper findTeams(String personId,
-                                     String partOfGroupname, int offset, int pageSize) {
+  public TeamResultWrapper findPublicTeams(String personId,
+                                           String partOfGroupname) {
 
     // FIXME: exclude teams from etc stem
     try {
       long start = System.currentTimeMillis();
       WsQueryFilter filter = new WsQueryFilter();
-      filter.setPageSize(String.valueOf(pageSize));
-      filter.setPageNumber(String.valueOf(pagenumber(offset, pageSize)));
       filter.setGroupName(environment.getDefaultStemName() + ":%" + partOfGroupname + "%");
       filter.setQueryFilterType("FIND_BY_GROUP_NAME_APPROXIMATE");
       filter.setStemName(environment.getDefaultStemName());
       WsFindGroupsResults results = new GcFindGroups()
               .assignQueryFilter(filter)
-              .assignActAsSubject(getActAsSubject(getGrouperPowerUser()))
+              .assignActAsSubject(getActAsSubject(personId))
               .assignIncludeGroupDetail(false)
               .execute();
       long end = System.currentTimeMillis();
       LOG.trace("findTeams: {} ms", end - start);
 
-      // Get total count
-      long start2 = System.currentTimeMillis();
-      filter.setPageNumber(null);
-      filter.setPageSize(null);
-      WsFindGroupsResults totalCountResults = new GcFindGroups()
-              .assignQueryFilter(filter)
-              .assignActAsSubject(getActAsSubject(getGrouperPowerUser()))
-              .assignIncludeGroupDetail(false)
-              .execute();
-      int totalCount = (totalCountResults.getGroupResults() != null) ? totalCountResults.getGroupResults().length : 0;
-      long end2 = System.currentTimeMillis();
-      LOG.trace("findTeams, count: {} ms", end2 - start2);
-
-      return buildTeamResultWrapper(results, offset, pageSize, personId, totalCount, false);
+      return buildTeamResultWrapper(results, 0, 1000, personId, false);
     } catch (GcWebServiceError e) {
       LOG.debug("Could not get teams by member {}. Perhaps no groups for this user? Will return empty list. Exception msg: {}", personId, e.getMessage());
-      return new TeamResultWrapper(new ArrayList<Team>(), 0, offset, pageSize);
+      return new TeamResultWrapper(new ArrayList<Team>(), 0, 0, 1000);
     }
   }
 
@@ -700,52 +684,14 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
     return stems;
   }
 
-  /**
-   * @deprecated should not be used anymore: public teams should not be browsable, only searchable
-   */
-  @Override
-  @Deprecated
-  public TeamResultWrapper findAllTeams(String personId, int offset, int pageSize) {
-    // FIXME: exclude teams from etc stem
-    WsQueryFilter filter = new WsQueryFilter();
-    filter.setPageSize(String.valueOf(pageSize));
-    filter.setPageNumber(String.valueOf(pagenumber(offset, pageSize)));
-
-    filter.setQueryFilterType("FIND_BY_GROUP_NAME_APPROXIMATE");
-    filter.setGroupName("%");
-    filter.setStemName(environment.getDefaultStemName());
-    long start = System.currentTimeMillis();
-    WsFindGroupsResults results = new GcFindGroups()
-            .assignQueryFilter(filter)
-            .assignIncludeGroupDetail(false)
-            .assignActAsSubject(new WsSubjectLookup(personId, null, null))
-            .execute();
-    long end = System.currentTimeMillis();
-    LOG.trace("findAllTeams: {} ms", end - start);
-
-    // Get total count
-    filter.setPageNumber(null);
-    filter.setPageSize(null);
-    long start2 = System.currentTimeMillis();
-    WsFindGroupsResults totalCountResults = new GcFindGroups()
-            .assignQueryFilter(filter)
-            .assignIncludeGroupDetail(false)
-            .assignActAsSubject(new WsSubjectLookup(personId, null, null))
-            .execute();
-    long end2 = System.currentTimeMillis();
-    LOG.trace("findAllTeams count: {} ms", end2 - start2);
-    int totalCount = (totalCountResults.getGroupResults() != null) ? totalCountResults.getGroupResults().length : 0;
-    return buildTeamResultWrapper(results, offset, pageSize, personId, totalCount, false);
-  }
-
-  private TeamResultWrapper buildTeamResultWrapper(WsFindGroupsResults results, int offset, int pageSize, String userId, int totalCount, boolean addMemberCountAndRoles) {
+  private TeamResultWrapper buildTeamResultWrapper(WsFindGroupsResults results, int offset, int pageSize, String userId, boolean addMemberCountAndRoles) {
     List<Team> teams = new ArrayList<>();
     if (results.getGroupResults() != null && results.getGroupResults().length > 0) {
       for (WsGroup group : results.getGroupResults()) {
         teams.add(buildTeam(group, userId, addMemberCountAndRoles));
       }
     }
-    return new TeamResultWrapper(teams, totalCount, offset, pageSize);
+    return new TeamResultWrapper(teams, teams.size(), offset, pageSize);
   }
 
   private Team buildTeam(WsGroup group, String userId, boolean addMemberCountAndRoles) {

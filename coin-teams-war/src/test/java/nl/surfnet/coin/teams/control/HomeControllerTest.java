@@ -86,7 +86,7 @@ public class HomeControllerTest extends AbstractControllerTest {
     // This requests my teams
 
     GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
-    when(grouperTeamService.findAllTeamsByMember(getMember().getId(), 0, 10)).thenReturn(getMyTeams());
+//    when(grouperTeamService.findAllTeamsByMember(getMember().getId(), 0, 10)).thenReturn(getMyTeams());
     when(grouperTeamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
 
     ExternalGroupProviderProcessor processor = mock(ExternalGroupProviderProcessor.class);
