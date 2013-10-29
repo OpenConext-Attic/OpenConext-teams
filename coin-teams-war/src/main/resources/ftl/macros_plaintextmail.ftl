@@ -19,7 +19,7 @@ limitations under the License.
 
 [#macro mailfooter]
 Consult the manual for specific information on SURFconext Teams: https://wiki.surfnet.nl/display/conextsupport/SURFconext+teams
-or contact SURFteams support at help@surfteams.nl.
+or contact SURFteams support at help@surfconext.nl.
 
 This service is powered by SURFconext http://www.surfconext.nl/ - brought to you by SURFnet
 [/#macro]

@@ -25,7 +25,7 @@
 <c:if test="${fn:length(message) > 0}"><div id="__notifyBar" class="hide"><spring:message code='${message}' /></div></c:if>
 <c:if test="${role eq adminRole}">
   <div class="jquery-warning-bar <c:if test="${onlyAdmin ne true}">hide</c:if>" id="onlyAdmin">
-    <p><spring:message code="jsp.detailteam.OnlyAdminWarning"/><a href="https://wiki.surfnet.nl/display/conextsupport/SURFteams+Best+Practice" target="_blank"><img src="media/question-mark.jpg"/></a></p>
+    <p><spring:message code="jsp.detailteam.OnlyAdminWarning"/><a href="https://wiki.surfnet.nl/display/conextsupport/SURFconext+Teams+Best+Practice" target="_blank"><img src="media/question-mark.jpg"/></a></p>
   </div>
 </c:if>
 <%-- = TeamContainer --%>
