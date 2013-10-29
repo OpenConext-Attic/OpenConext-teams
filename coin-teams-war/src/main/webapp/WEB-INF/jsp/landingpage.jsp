@@ -23,9 +23,9 @@
 <div id="Content">
   <spring:message code="jsp.landingpage.Content" htmlEscape="false" />
   <c:url context="/Shibboleth.sso" value="/Login" var="loginUrl"><c:param name="target" value="${environment.teamsURL}" /></c:url>
-  <a id="loginButton" class="button" href="${loginUrl}"><spring:message code="jsp.landingpage.Login" /></a>
+  <a class="button" id="loginbutton" href="${loginUrl}"><spring:message code="jsp.landingpage.Login" /></a>
   <br>
-  <input type="checkbox" onClick="return requestCookie();"></input>skip landing page next time
+  <input type="checkbox" onClick="return requestCookie();"/>skip landing page next time
 <!-- / Content -->
 </div>
 <script src="js/jquery-1.4.4.min.js"></script>
@@ -50,7 +50,7 @@
 	
 	/* focus the login button */
 	$(function() {
-		$("#loginButton").focus();
+		$("#loginbutton").focus();
 	});
 </script>
 </teams:genericpage>
