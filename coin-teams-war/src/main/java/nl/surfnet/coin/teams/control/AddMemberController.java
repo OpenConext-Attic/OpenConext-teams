@@ -51,8 +51,6 @@ import nl.surfnet.coin.teams.util.TokenUtil;
 import nl.surfnet.coin.teams.util.ViewUtil;
 
 import org.apache.commons.io.IOUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.mail.javamail.MimeMessagePreparator;
@@ -83,10 +81,6 @@ import freemarker.template.TemplateException;
 @Controller
 @SessionAttributes({"invitationForm", "invitation", TokenUtil.TOKENCHECK})
 public class AddMemberController {
-
-  private static final Logger LOG = LoggerFactory.getLogger(AddMemberController.class);
-
-
   protected static final String INVITE_SEND_INVITE_SUBJECT = "invite.SendInviteSubject";
 
   private static final String UTF_8 = "utf-8";
