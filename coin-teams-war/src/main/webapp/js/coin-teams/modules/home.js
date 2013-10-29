@@ -23,20 +23,6 @@ COIN.MODULES.Home = function(sandbox) {
 	var module = {
 		init: function() {
 
-			// Focus on the search box
-      $(searchInputSelector).live('focus', function() {
-				if ($(this).val() == '<spring:message code="jsp.home.DefaultSearchTerm" />') {
-					$(this).val('');
-				};
-			});
-
-			// Blur on the search box
-			$(searchInputSelector).live('blur', function() {
-				if ($(this).val() == '') {
-					$(this).val('<spring:message code="jsp.home.DefaultSearchTerm" />');
-				};
-			});
-
       // Handle search queries
       $("form#searchTeamsForm").submit(function(e) {
         library.showSearchThrobbler();

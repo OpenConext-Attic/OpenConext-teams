@@ -56,12 +56,12 @@
       <fieldset class="search-fieldset team-search">
         <c:choose>
           <c:when test="${fn:length(query) == 0}">
-            <input class="text search-query" type="text" name="teamSearch" value="<spring:message code='jsp.home.SearchTeam' />"  />
+            <input class="text search-query" type="text" name="teamSearch" placeholder="<spring:message code='jsp.home.SearchTeam' />"  />
           </c:when>
           <c:otherwise>
             <c:url value="/home.shtml" var="viewAllUrl"><c:param name="teams" value="${display}" /><c:param name="view" value="${view}" /></c:url>
             <span class="view-all"><a href="${viewAllUrl}"><spring:message code='jsp.home.ViewAll' /></a></span>
-            <input class="text search-query" type="text" name="teamSearch" value="<c:out value='${query}' />" />
+            <input class="text search-query" type="text" name="teamSearch" placeholder="<spring:message code='jsp.home.SearchTeam' />"value="<c:out value='${query}' />" />
           </c:otherwise>
         </c:choose>
         <input class="submit-search" id="SubmitTeamSearch" type="submit" value="" />
