@@ -23,25 +23,34 @@
 <div id="Content">
   <spring:message code="jsp.landingpage.Content" htmlEscape="false" />
   <c:url context="/Shibboleth.sso" value="/Login" var="loginUrl"><c:param name="target" value="${environment.teamsURL}" /></c:url>
-  <a class="button" href="${loginUrl}"><spring:message code="jsp.landingpage.Login" /></a>
+  <a id="loginButton" class="button" href="${loginUrl}"><spring:message code="jsp.landingpage.Login" /></a>
   <br>
   <input type="checkbox" onClick="return requestCookie();"></input>skip landing page next time
 <!-- / Content -->
 </div>
-</teams:genericpage>
+<script src="js/jquery-1.4.4.min.js"></script>
 <script>
-function requestCookie() {
-	console.log('requesting cookie from teams');
-	$.ajax({
-		  type: 'POST',
-		  data: "",
-		  success: success,
-		  dataType: "text/html",
-		  async:false
-		});
-	return true;
-}
-function success() {
-	console.log("received reply");
-}
+  /* AJAX call to retrieve a cookie */
+	function requestCookie() {
+		console.log('requesting cookie from teams');
+		$.ajax({
+			  type: 'POST',
+			  data: "",
+			  success: success,
+			  dataType: "text/html",
+			  async:false
+			});
+		return true;
+	}
+	
+	/* nothing to do here */
+	function success() {
+		console.log("received reply");
+	}
+	
+	/* focus the login button */
+	$(function() {
+		$("#loginButton").focus();
+	});
 </script>
+</teams:genericpage>
