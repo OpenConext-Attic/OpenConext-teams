@@ -80,9 +80,16 @@ COIN.MODULES.Home = function(sandbox) {
        $(teamsTableSelector).find("tbody tr").remove();
 
        $(results["teams"]).each(function() {
-          $(teamsTableSelector).append("<tr class='odd'><td><a href='detailteam.shtml?team=" + this['id'] + "'>" + this['name'] + "</a></td><td>" + (this['description'] || "") + "</td><td></td></tr>");
+          $(teamsTableSelector).append("<tr class='odd'><td><a href='detailteam.shtml?team=" + this['id'] + "'>" + library.htmlEncode(this['name']) + "</a></td><td>" + library.htmlEncode((this['description'] || "")) + "</td><td></td></tr>");
        });
-     }
+     },
+    htmlEncode: function(value){
+    if (value) {
+      return $('<div />').text(value).html();
+    } else {
+      return '';
+    }
+  }
 	};
 
 	// Return the public interface
