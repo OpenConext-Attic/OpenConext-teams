@@ -178,7 +178,10 @@ public interface GrouperTeamService {
    * @param pageSize
    *          the maximum result size
    * @return teams including the number of total records
+   *
+   * @deprecated should not be used anymore: public teams should not be browsable, only searchable
    */
+  @Deprecated
   TeamResultWrapper findAllTeams(String personId, int offset,
                                  int pageSize);
 

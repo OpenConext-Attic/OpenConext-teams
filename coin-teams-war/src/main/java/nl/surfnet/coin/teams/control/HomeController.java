@@ -19,25 +19,15 @@
  */
 package nl.surfnet.coin.teams.control;
 
-import java.util.List;
-import java.util.Locale;
-
-import javax.servlet.http.HttpServletRequest;
-
 import nl.surfnet.coin.api.client.domain.Group20Entry;
-import nl.surfnet.coin.teams.domain.GroupProvider;
-import nl.surfnet.coin.teams.domain.Invitation;
-import nl.surfnet.coin.teams.domain.Pager;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.domain.TeamResultWrapper;
+import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.ExternalGroupProviderProcessor;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.service.TeamInviteService;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 import nl.surfnet.coin.teams.util.ViewUtil;
-
-import nl.surfnet.coin.api.client.domain.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -46,7 +36,13 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.LocaleResolver;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 import static nl.surfnet.coin.teams.util.PersonUtil.getFirstEmail;
 
@@ -153,7 +149,8 @@ public class HomeController {
       if (StringUtils.hasText(query)) {
         resultWrapper = grouperTeamService.findTeams(person, query, offset, PAGESIZE);
       } else {
-        resultWrapper = grouperTeamService.findAllTeams(person, offset, PAGESIZE);
+        resultWrapper = new TeamResultWrapper(new ArrayList<Team>(), 0, 0, 1);
+//        resultWrapper = grouperTeamService.findAllTeams(person, offset, PAGESIZE);
       }
       modelMap.addAttribute("display", "all");
       // else always display my teams
@@ -173,6 +170,15 @@ public class HomeController {
     modelMap.addAttribute("pager", resultWrapper.getPager());
     modelMap.addAttribute("resultset", resultWrapper.getTotalCount());
     modelMap.addAttribute("teams", teams);
+  }
+
+  @RequestMapping("/findPublicTeams.json")
+  @ResponseBody
+  public TeamResultWrapper findTeams(HttpServletRequest request,
+                                     @RequestParam(required = false) String teamSearch) {
+    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
+
+    return grouperTeamService.findTeams(person.getId(), teamSearch, 0, 1000);
   }
 
   private int getOffset(HttpServletRequest request) {

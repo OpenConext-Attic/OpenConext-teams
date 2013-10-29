@@ -19,11 +19,16 @@
  */
 package nl.surfnet.coin.teams.control;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Locale;
-
+import nl.surfnet.coin.api.client.domain.Group20;
+import nl.surfnet.coin.api.client.domain.Group20Entry;
+import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.GroupProvider;
+import nl.surfnet.coin.teams.domain.GroupProviderType;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.ExternalGroupProviderProcessor;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
 import org.springframework.context.MessageSource;
@@ -34,19 +39,10 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.LocaleResolver;
 
-import nl.surfnet.coin.api.client.domain.Group20;
-import nl.surfnet.coin.api.client.domain.Group20Entry;
-import nl.surfnet.coin.api.client.domain.Person;
-import nl.surfnet.coin.teams.domain.GroupProvider;
-import nl.surfnet.coin.teams.domain.GroupProviderType;
-import nl.surfnet.coin.teams.domain.GroupProviderUserOauth;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.ExternalGroupProviderProcessor;
-import nl.surfnet.coin.teams.service.GroupProviderService;
-import nl.surfnet.coin.teams.service.GrouperTeamService;
-import nl.surfnet.coin.teams.service.OauthGroupService;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -151,7 +147,7 @@ public class HomeControllerTest extends AbstractControllerTest {
     String display = (String) getModelMap().get("display");
     String query = (String) getModelMap().get("query");
 
-    assertEquals(6, teams.size());
+    assertEquals(0, teams.size());
     assertEquals("all", display);
     assertNull(query);
   }

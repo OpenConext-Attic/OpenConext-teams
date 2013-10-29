@@ -52,7 +52,7 @@
 
   <c:if test="${display ne 'externalGroups'}">
   <c:url value="/home.shtml" var="searchUrl"><c:param name="teams" value="${display}" /><c:param name="view" value="${view}" /></c:url>
-    <form action="<c:out value='${searchUrl}' />" method="post">
+    <form action="<c:out value='${searchUrl}' />" method="post" id="searchTeamsForm">
       <fieldset class="search-fieldset team-search">
         <c:choose>
           <c:when test="${fn:length(query) == 0}">
@@ -151,6 +151,9 @@
         </c:when>
         <c:when test="${fn:length(query) > 0 && fn:length(teams) == 0}">
           <tr><td colspan="4"><spring:message code="jsp.home.NoTeamsFound" /></td></tr>
+        </c:when>
+        <c:when test="${fn:length(query) == 0 && fn:length(teams) == 0}">
+          <tr><td colspan="4"><spring:message code="jsp.home.NoSearchQuery" /></td></tr>
         </c:when>
         <c:when test="${sessionScope.userStatus eq 'guest'}">
           <tr><td colspan="4"><spring:message code="jsp.home.NoTeams.Guest" /></td></tr>
