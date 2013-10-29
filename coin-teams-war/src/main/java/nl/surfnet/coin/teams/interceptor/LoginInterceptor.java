@@ -16,11 +16,14 @@
 
 package nl.surfnet.coin.teams.interceptor;
 
+import static nl.surfnet.coin.teams.util.PersonUtil.isGuest;
+
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -39,8 +42,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import static nl.surfnet.coin.teams.util.PersonUtil.isGuest;
-
 /**
  * Intercepts calls to controllers to handle Single Sign On details from
  * Shibboleth and sets a Person object on the session when the user is logged
@@ -55,6 +56,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
   private static final String STATUS_GUEST = "guest";
   private static final String STATUS_MEMBER = "member";
+  public static final String TEAMS_COOKIE = "SURFconextTeams";
 
   @Autowired
   private OpenConextOAuthClient apiClient;
@@ -102,39 +104,60 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         // redirect him to the landing page.
         String url = getRequestedPart(request);
         String[] urlSplit = url.split("/");
-
+  
         String view = request.getParameter("view");
-
+  
         // Unprotect the items in bypass
         String urlPart = urlSplit[2];
-
+  
         logger.trace("Request for '{}'", request.getRequestURI());
         logger.trace("urlPart: '{}'", urlPart);
         logger.trace("view '{}'", view);
-
+  
         String queryString = request.getQueryString() != null ? "?" + request.getQueryString() : "";
-
+  
         if (LOGIN_BYPASS.contains(urlPart)) {
-          logger.trace("Bypassing {}", urlPart);
-          return super.preHandle(request, response, handler);
+            logger.trace("Bypassing {}", urlPart);
+            return super.preHandle(request, response, handler);
         } else if (GADGET.equals(view)
-                || "acceptInvitation.shtml".equals(urlPart)
-                || "detailteam.shtml".equals(urlPart)) {
-          logger.trace("Going to shibboleth");
-          response.sendRedirect("/Shibboleth.sso/Login?target="
-                  + request.getRequestURL()
-                  + URLEncoder.encode(queryString, "utf-8"));
-          return false;
-          // If user is requesting SURFteams for a VO redirect to Federation Login
+                  || "acceptInvitation.shtml".equals(urlPart)
+                  || "detailteam.shtml".equals(urlPart)) {
+            logger.trace("Going to shibboleth");
+            response.sendRedirect("/Shibboleth.sso/Login?target="
+                    + request.getRequestURL()
+                    + URLEncoder.encode(queryString, "utf-8"));
+            return false;
+            // If user is requesting SURFteams for a VO redirect to Federation Login
         } else {
-          // Send redirect to landingpage if gadget is not requested in app view.
-          logger.trace("Redirect to landingpage");
-          response.sendRedirect(teamEnvironment.getTeamsURL() + "/landingpage.shtml");
-          return false;
+          if (getTeamsCookie(request).contains("skipLanding")) {
+            response.sendRedirect("/Shibboleth.sso/Login?target="
+                + request.getRequestURL()
+                + URLEncoder.encode(queryString, "utf-8"));
+            return false;
+          } else {
+            // Send redirect to landingpage if gadget is not requested in app view.
+            logger.trace("Redirect to landingpage");
+            response.sendRedirect(teamEnvironment.getTeamsURL() + "/landingpage.shtml");
+            return false;
+          }
         }
       }
     }
     return super.preHandle(request, response, handler);
+  }
+
+  private String getTeamsCookie(HttpServletRequest request) {
+    String result = "";
+    Cookie[] cookies = request.getCookies();
+    if (null != cookies) {
+      for (Cookie current : cookies) {
+       if (current.getName().equals(TEAMS_COOKIE)) {
+         result = current.getValue();
+         break;
+       }
+      }
+    }
+    return result;
   }
 
   /**

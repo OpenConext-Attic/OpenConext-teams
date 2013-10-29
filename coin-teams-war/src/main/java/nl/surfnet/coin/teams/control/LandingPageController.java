@@ -19,14 +19,19 @@
  */
 package nl.surfnet.coin.teams.control;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 import nl.surfnet.coin.teams.util.ViewUtil;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * @author steinwelberg
@@ -38,13 +43,18 @@ public class LandingPageController {
   @Autowired
   private TeamEnvironment teamEnvironment;
 
-  @RequestMapping("/landingpage.shtml")
+  @RequestMapping(value="/landingpage.shtml", method=RequestMethod.GET)
   public String start(ModelMap modelMap, HttpServletRequest request) {
-
     ViewUtil.addViewToModelMap(request, modelMap);
 
     modelMap.addAttribute("environment", teamEnvironment);
 
     return "landingpage";
+  }
+  
+  @RequestMapping(value="/landingpage.shtml", method=RequestMethod.POST)
+  public void storeCookie(HttpServletResponse response) {
+    Cookie cookie = new Cookie(LoginInterceptor.TEAMS_COOKIE, "skipLanding=true");
+    response.addCookie(cookie);
   }
 }

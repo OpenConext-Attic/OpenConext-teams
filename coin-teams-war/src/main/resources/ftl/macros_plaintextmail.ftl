@@ -18,7 +18,7 @@ limitations under the License.
 [#macro mailheader]*SURFconext Teams*[/#macro]
 
 [#macro mailfooter]
-Consult the manual for specific information on SURFconext Teams: https://wiki.surfnetlabs.nl/display/conextsupport/SURFteams
+Consult the manual for specific information on SURFconext Teams: https://wiki.surfnet.nl/display/conextsupport/SURFconext+teams
 or contact SURFteams support at help@surfteams.nl.
 
 This service is powered by SURFconext http://www.surfconext.nl/ - brought to you by SURFnet

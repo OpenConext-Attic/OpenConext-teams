@@ -53,7 +53,7 @@
         <div class="component-title-bar">
           <h2 class="component-title right">
             <teams:language />
-            <a href="https://wiki.surfnetlabs.nl/display/conextsupport/SURFteams" target="_blank"><spring:message code="jsp.general.Help" /></a>
+            <a href="https://wiki.surfnet.nl/display/conextsupport/SURFconext+teams" target="_blank"><spring:message code="jsp.general.Help" /></a>
             &nbsp;|&nbsp;<a href="${loginUrl}">Log&nbsp;in</a>
           </h2>
           <h2 class="component-title"><spring:message code="jsp.general.Title" /></h2>
@@ -64,7 +64,7 @@
           <h2 class="component-title right">
             <spring:message code="jsp.general.Welcome"/>&nbsp;<c:out value="${sessionScope.person.displayName}" />
             <teams:language />
-            <a href="https://wiki.surfnetlabs.nl/display/conextsupport/SURFteams" target="_blank"><spring:message code="jsp.general.Help" /></a>
+            <a href="https://wiki.surfnet.nl/display/conextsupport/SURFconext+teams" target="_blank"><spring:message code="jsp.general.Help" /></a>
             &nbsp;|&nbsp;<a href="/Shibboleth.sso/Logout?target=/teams"><spring:message code="jsp.general.Logout"/></a>
           </h2>
           <h2 class="component-title"><spring:message code="jsp.general.Title" /></h2>
@@ -86,7 +86,7 @@
     <c:if test='${view ne "gadget"}'>
       <!--  = Footer -->
       <div class="footer" id="Footer">
-        <span><spring:message code="jsp.general.surfnet.Name" /></span>&nbsp;|&nbsp;</span><span><a href="mailto:help@surfconext.nl">help@surfconext.nl</a></span>&nbsp;|&nbsp;<span><a href="https://wiki.surfnetlabs.nl/display/conextsupport/Terms+of+Service+%28EN%29" target="_blank"><spring:message code="jsp.general.TermsOfUse" /></a></span>
+        <span><spring:message code="jsp.general.surfnet.Name" /></span>&nbsp;|&nbsp;</span><span><a href="mailto:help@surfconext.nl">help@surfconext.nl</a></span>&nbsp;|&nbsp;<span><a href="https://wiki.surfnet.nl/display/conextsupport/Terms+of+Service+%28EN%29" target="_blank"><spring:message code="jsp.general.TermsOfUse" /></a></span>
       </div>
       <!-- / Footer -->
     </c:if>

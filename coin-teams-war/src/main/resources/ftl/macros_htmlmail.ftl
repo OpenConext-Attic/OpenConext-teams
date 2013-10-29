@@ -90,7 +90,7 @@
 
 [#macro mailfooter]
           <p lang="en">
-            Consult the <a href="https://wiki.surfnetlabs.nl/display/conextsupport/SURFteams" style="color:#0088CC;">manual for specific information on SURFteams</a>
+            Consult the <a href="https://wiki.surfnet.nl/display/conextsupport/SURFconext+teams" style="color:#0088CC;">manual for specific information on SURFteams</a>
             or contact SURFteams support at <a href="mailto:help@surfteams.nl" style="color:#0088CC;">help@surfteams.nl</a>.
           </p>
 
