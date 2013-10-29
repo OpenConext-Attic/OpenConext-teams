@@ -16,20 +16,17 @@
 
 package nl.surfnet.coin.teams.service;
 
-import java.util.Set;
-
 import nl.surfnet.coin.api.client.domain.Person;
-
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Stem;
-import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.util.DuplicateTeamException;
+
+import java.util.List;
+import java.util.Set;
 
 /**
  * Main interface for dealing with Teams
  */
-public interface GrouperTeamService extends GrouperDao {
+public interface GrouperTeamService {
 
   /**
    * Find {@link Team} by id
@@ -166,14 +163,83 @@ public interface GrouperTeamService extends GrouperDao {
    */
   Set<Member> findAdmins(Team team);
 
-  /**
-   * Does the Stem exists?
-   * 
-   * @param stemName
-   *          the exact name of the stem
-   * @return true if the Stem is an existing Stem
-   */
-  public boolean doesStemExists(String stemName);
-
   Stem findStem(String stemId);
+
+
+  /**
+   * Return all teams using a specific stem, without the teams being private
+   * except if the personId is a member of the private team
+   *
+   *
+   * @param personId
+   *          the logged in person
+   * @param offset
+   *          the row number of the start
+   * @param pageSize
+   *          the maximum result size
+   * @return teams including the number of total records
+   *
+   * @deprecated should not be used anymore: public teams should not be browsable, only searchable
+   */
+  @Deprecated
+  TeamResultWrapper findAllTeams(String personId, int offset,
+                                 int pageSize);
+
+  /**
+   * Return all teams using a specific stem with a name like, , without the
+   * teams being private except if the personId is a member of the private team
+   *
+   *
+   * @param personId
+   *          the logged in person
+   * @param partOfGroupname
+   *          part of group name
+   * @param offset
+   *          the row number of the start
+   * @param pageSize
+   *          the maximum result size
+   * @return teams including the number of total records
+   */
+  TeamResultWrapper findTeams(String personId,
+                              String partOfGroupname, int offset, int pageSize);
+
+  /**
+   * Return all teams using a specific stem where the personId is a member
+   *
+   *
+   * @param personId
+   *          the logged in person
+   * @param offset
+   *          the row number of the start
+   * @param pageSize
+   *          the maximum result size
+   * @return teams including the number of total records
+   */
+  TeamResultWrapper findAllTeamsByMember(String personId, int offset,
+                                         int pageSize);
+
+  /**
+   * Return all teams using a specific stem with a name like where the personId is a member
+   *
+   *
+   * @param personId
+   *          the logged in person
+   * @param partOfGroupname
+   *          part of group name
+   * @param offset
+   *          the row number of the start
+   * @param pageSize
+   *          the maximum result size
+   * @return teams including the number of total records
+   */
+  TeamResultWrapper findTeamsByMember(String personId,
+                                      String partOfGroupname, int offset, int pageSize);
+
+  /**
+   * Return all stems for a person
+   *
+   * @param personId {@link String} the identifier of the logged in person
+   * @return {@link java.util.List} the list with stems that this user is a member of.
+   */
+  List<Stem> findStemsByMember(String personId);
 }
