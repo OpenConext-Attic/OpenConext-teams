@@ -723,7 +723,6 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
               .execute();
       long end2 = System.currentTimeMillis();
       LOG.trace("buildTeam : {} ms, {} ms", end - start, end2 - start2);
-
       team.setViewerRole(Role.fromGrouperPrivileges(privilegesResults.getPrivilegeResults()));
     }
     return team;

@@ -29,12 +29,23 @@ public enum Role {
 
   /**
    * Get the Teams role, by the set of privileges as returned by Grouper WS
+   *
+   * Grouper UI explains:
+   * <pre>
+   * MEMBER: Entity is a member of this group
+   * OPTOUT: Entity may choose to leave this group
+   * OPTIN: Entity may choose to join this group
+   * VIEW: Entity may see that this group exists
+   * READ: Entity may see the membership list for this group
+   * UPDATE: Entity may modify the membership of this group
+   * ADMIN: Entity may modify group attributes, delete this group, or assign any privilege to any entity
+   * </pre>
    * @param wsPrivilegeResults the Grouper WS results from getGrouperPrivileges
    * @return teams Role
    */
   public static Role fromGrouperPrivileges(WsGrouperPrivilegeResult[] wsPrivilegeResults) {
     if (wsPrivilegeResults == null || wsPrivilegeResults.length == 0) {
-      return None;
+      return Member;
     }
 
     Set<String> privilegeNames = new HashSet<>();
@@ -54,9 +65,6 @@ public enum Role {
     if (privilegeNames.contains("update")) {
       return Manager;
     }
-    if (privilegeNames.contains("read")) {
-      return Member;
-    }
-    return None;
+    return Member;
   }
 }

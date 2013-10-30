@@ -29,14 +29,11 @@ public class RoleTest {
   @Test
   public void testFromGrouperPrivileges() throws Exception {
 
-    assertEquals("view, read, optout should result in Member", Role.Member, Role.fromGrouperPrivileges(privs("view", "read", "optout")));
-
-
     assertEquals("admin role", Role.Admin, Role.fromGrouperPrivileges(privs("member", "read", "optout", "admin", "update")));
 
     assertEquals("manage role", Role.Manager, Role.fromGrouperPrivileges(privs("member", "read", "optout", "update")));
 
-    assertEquals("None", Role.None, Role.fromGrouperPrivileges(privs("optout")));
+    assertEquals("No special roles should result in Member", Role.Member, Role.fromGrouperPrivileges(privs("optout", "read", "view")));
 
   }
 

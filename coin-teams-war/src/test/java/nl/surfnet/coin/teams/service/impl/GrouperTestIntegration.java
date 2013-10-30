@@ -1,17 +1,18 @@
 package nl.surfnet.coin.teams.service.impl;
 
 import edu.internet2.middleware.grouperClient.api.GcFindGroups;
+import edu.internet2.middleware.grouperClient.api.GcGetGrouperPrivilegesLite;
 import edu.internet2.middleware.grouperClient.api.GcGetGroups;
-import edu.internet2.middleware.grouperClient.ws.beans.WsFindGroupsResults;
-import edu.internet2.middleware.grouperClient.ws.beans.WsGetGroupsResults;
-import edu.internet2.middleware.grouperClient.ws.beans.WsQueryFilter;
-import edu.internet2.middleware.grouperClient.ws.beans.WsSubjectLookup;
+import edu.internet2.middleware.grouperClient.ws.beans.*;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.assertEquals;
 
 public class GrouperTestIntegration {
 
+  private static final Logger LOG = LoggerFactory.getLogger(GrouperTestIntegration.class);
 
   @Test
   public void getPublicGroupsForUserUnFiltered() {
@@ -81,4 +82,38 @@ public class GrouperTestIntegration {
     System.out.println(results.getResults()[0].getWsGroups()[0].getDisplayExtension());
   }
 
+  @Test
+  public void privs() {
+    System.out.println(" select gf.name as fieldname, " +
+            "gg.name as groupname from grouper_memberships gms, "
+            + "grouper_groups gg, grouper_fields gf, "
+            + " grouper_stems gs, grouper_members gm where "
+            + " gms.field_id = gf.id and  gms.owner_group_id = gg.id and "
+            + " gms.member_id = gm.id "
+            + " and gm.subject_id = ?  "
+            + " and gg.parent_stem = gs.id "
+            + " and gs.name != 'etc' "
+            + " and (gf.name = 'admins' or gf.name = 'updaters') order by gg.name ");
+    String groupName = "nl:surfnet:diensten:archimate_cursisten";
+    String userId = "urn:collab:person:surfnet.nl:niels";
+    WsGetGrouperPrivilegesLiteResult privilegesResults = new GcGetGrouperPrivilegesLite()
+            .assignSubjectLookup(new WsSubjectLookup(userId, null, null))
+            .assignActAsSubject(new WsSubjectLookup(userId, "", ""))
+            .assignGroupName(groupName)
+            .assignIncludeGroupDetail(false)
+            .assignIncludeSubjectDetail(false)
+            .execute();
+
+    for (WsGrouperPrivilegeResult privResult : privilegesResults.getPrivilegeResults()) {
+      LOG.debug("{} {}, {}, {}, {}, {}",
+              privResult.getPrivilegeName(),
+              privResult.getPrivilegeType(),
+              privResult.getAllowed(),
+              privResult.getRevokable(),
+              privResult.getOwnerSubject().getSourceId(),
+              privResult.getWsStem()
+//              privResult.g
+      );
+    }
+  }
 }
