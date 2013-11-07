@@ -87,7 +87,7 @@
     <c:if test='${view ne "gadget"}'>
       <!--  = Footer -->
       <div class="footer" id="Footer">
-        <span><spring:message code="jsp.general.surfnet.Name" /></span>&nbsp;|&nbsp;</span><span><a href="mailto:help@surfconext.nl">help@surfconext.nl</a></span>&nbsp;|&nbsp;<span><a href="https://wiki.surfnet.nl/display/conextsupport/Terms+of+Service+%28EN%29" target="_blank"><spring:message code="jsp.general.TermsOfUse" /></a></span>
+        <span><spring:message code="jsp.general.surfnet.Name" /></span>&nbsp;|&nbsp;</span><span><a href="mailto:help@surfconext.nl">help@surfconext.nl</a></span>&nbsp;|&nbsp;<span><a href="<spring:message code="jsp.general.TermsOfUse.url" />" target="_blank"><spring:message code="jsp.general.TermsOfUse" /></a></span>
       </div>
       <!-- / Footer -->
     </c:if>

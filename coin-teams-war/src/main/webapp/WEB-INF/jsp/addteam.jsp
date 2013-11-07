@@ -52,6 +52,8 @@
       <p class="label-field-wrapper">
         <label for="TeamDescription"><spring:message code='jsp.general.Description' /></label>
         <form:textarea path="description" id="TeamDescription" cssClass="withinfo"/>
+        <br>
+        <span class="consent-wrapper">&nbsp;</span>
         <span class="textareainfo"><spring:message code="jsp.addteam.description.info"/></span>
       </p>
       <c:if test="${hasMultipleStems}">
@@ -85,7 +87,9 @@
       </p>
       <p class="label-field-wrapper">
         <span class="consent-wrapper">&nbsp;</span>
-        <input id="TeamConsent" name="consent" type="checkbox"/><label class="consent" for="TeamConsent"><spring:message code='jsp.addteam.Consent' /></label>
+        <span class="consent">
+          <input id="TeamConsent" name="consent" type="checkbox"/><label class="consent" for="TeamConsent"><spring:message code='jsp.addteam.Consent' /></label>
+        </span>
       </p>
       <p class="submit-wrapper">
         <input class="button-disabled" type="submit" name="createTeam" value="<spring:message code='jsp.addteam.Submit' />" disabled="disabled" />
