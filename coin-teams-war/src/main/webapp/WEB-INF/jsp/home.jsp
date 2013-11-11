@@ -92,9 +92,6 @@
               <th><spring:message code='jsp.home.table.Description' /></th>
             </c:otherwise>
           </c:choose>
-          <c:if test="${hasMultipleSources}">
-            <th><spring:message code='jsp.home.table.source' /></th>
-          </c:if>
         </tr>
       </thead>
       <tbody>
@@ -121,9 +118,6 @@
                   <td><c:out value="${team.descriptionAsHtml}" escapeXml="false" /></td>
                 </c:otherwise>
               </c:choose>
-              <c:if test="${hasMultipleSources}">
-                <td><c:out value="${team.stem.name}" /></td>
-              </c:if>
             </tr>
           </c:forEach>
         </c:when>

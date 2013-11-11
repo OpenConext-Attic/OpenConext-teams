@@ -104,12 +104,17 @@
     </div>
     <!-- / DeleteTeamDialog -->
   </div>
-
   <script type="text/javascript" src="<c:url value="/js/jquery-1.4.4.min.js"/>"></script>
   <script type="text/javascript" src="<c:url value="/js/jquery.validate.min.js"/>"></script>
   <script type="text/javascript" src="<c:url value="/js/jquery-ui-1.8.13.custom.min.js"/>"></script>
   <script type="text/javascript" src="<c:url value="/js/coin-teams.js"/>"></script>
-
+  <%--
+    We need the view parameter in the search result, which is now Ajax, we use this JavaScipt variable for it
+   --%>
+   <script language="JavaScript">
+     var view = '<c:out value="${view}"/>';
+   </script>
+  
   <c:if test='${view eq "gadget"}'>
     <script src="<c:out value="${shindigHost}" />/gadgets/js/rpc.js"></script>
      <script type="text/javascript">
