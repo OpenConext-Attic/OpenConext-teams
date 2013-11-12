@@ -33,9 +33,9 @@
     </c:otherwise>
   </c:choose>
 
-  <link rel="stylesheet" href="<c:url value="/css/teams.css" />">
+  <link rel="stylesheet" href="<c:url value="/css/teams.css?v=20131111" />">
   <c:if test="${view ne 'gadget'}">
-    <link rel="stylesheet" href="<c:url value="/css/app.css" />">
+    <link rel="stylesheet" href="<c:url value="/css/app.css?v=20131111" />">
   </c:if>
   <c:url context="/Shibboleth.sso" value="/Login" var="loginUrl"><c:param name="target" value="${environment.teamsURL}" /></c:url>
 </head>
@@ -107,7 +107,7 @@
   <script type="text/javascript" src="<c:url value="/js/jquery-1.4.4.min.js"/>"></script>
   <script type="text/javascript" src="<c:url value="/js/jquery.validate.min.js"/>"></script>
   <script type="text/javascript" src="<c:url value="/js/jquery-ui-1.8.13.custom.min.js"/>"></script>
-  <script type="text/javascript" src="<c:url value="/js/coin-teams.js"/>"></script>
+  <script type="text/javascript" src="<c:url value="/js/coin-teams.js?v=20131111"/>"></script>
   <%--
     We need the view parameter in the search result, which is now Ajax, we use this JavaScipt variable for it
    --%>
