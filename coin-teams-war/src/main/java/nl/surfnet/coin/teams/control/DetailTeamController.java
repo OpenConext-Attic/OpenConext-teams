@@ -101,7 +101,6 @@ public class DetailTeamController {
   private static final String ADMIN_LEAVE_TEAM = "error.AdminCannotLeaveTeam";
   private static final String NOT_AUTHORIZED_DELETE_MEMBER = "error.NotAuthorizedToDeleteMember";
   private static final String UTF_8 = "utf-8";
-  private static final String TEAM_PARAM = "team";
   private static final String MEMBER_PARAM = "member";
   private static final String ROLE_PARAM = "role";
 
@@ -144,20 +143,19 @@ public class DetailTeamController {
   private Configuration freemarkerConfiguration;
 
   @RequestMapping("/detailteam.shtml")
-  public String start(ModelMap modelMap, HttpServletRequest request)
+  public String start(ModelMap modelMap, HttpServletRequest request, @RequestParam("team") String teamId)
       throws IOException {
 
     Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
     String personId = person.getId();
-    String teamId = URLDecoder.decode(request.getParameter(TEAM_PARAM), UTF_8);
     if (!StringUtils.hasText(teamId)) {
       throw new IllegalArgumentException("Missing parameter for team");
     }
     Set<Role> roles = new HashSet<Role>();
     String message = request.getParameter("mes");
 
-    Team team = grouperTeamService.findTeamById(request.getParameter(TEAM_PARAM));
+    Team team = grouperTeamService.findTeamById(teamId);
 
     List<Member> members = team.getMembers();
 
@@ -183,7 +181,7 @@ public class DetailTeamController {
     Pager membersPager = new Pager(team.getMembers().size(), offset, PAGESIZE);
     modelMap.addAttribute("pager", membersPager);
 
-    modelMap.addAttribute(TEAM_PARAM, team);
+    modelMap.addAttribute("team", team);
     modelMap.addAttribute("adminRole", Role.Admin);
     modelMap.addAttribute("managerRole", Role.Manager);
     modelMap.addAttribute("memberRole", Role.Member);
@@ -261,10 +259,8 @@ public class DetailTeamController {
   @RequestMapping(value = "/doleaveteam.shtml", method = RequestMethod.POST)
   public RedirectView leaveTeam(ModelMap modelMap, HttpServletRequest request,
       @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-      @RequestParam() String token, SessionStatus status)
+      @RequestParam() String token, @RequestParam("team") String teamId, SessionStatus status)
       throws UnsupportedEncodingException {
-    String teamId = URLDecoder
-        .decode(request.getParameter(TEAM_PARAM), "utf-8");
     Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
     String personId = person.getId();
@@ -304,11 +300,10 @@ public class DetailTeamController {
   @RequestMapping(value = "/dodeleteteam.shtml", method = RequestMethod.POST)
   public RedirectView deleteTeam(ModelMap modelMap, HttpServletRequest request,
       @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-      @RequestParam() String token, SessionStatus status)
+      @RequestParam() String token, @RequestParam("team") String teamId, SessionStatus status)
       throws UnsupportedEncodingException {
     TokenUtil.checkTokens(sessionToken, token, status);
 
-    String teamId = URLDecoder.decode(request.getParameter(TEAM_PARAM), UTF_8);
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
     String personId = person.getId();
 
@@ -350,10 +345,9 @@ public class DetailTeamController {
   public RedirectView deleteMember(ModelMap modelMap,
       HttpServletRequest request,
       @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-      @RequestParam() String token, SessionStatus status)
+      @RequestParam() String token, @RequestParam("team") String teamId, SessionStatus status)
       throws UnsupportedEncodingException {
     TokenUtil.checkTokens(sessionToken, token, status);
-    String teamId = URLDecoder.decode(request.getParameter(TEAM_PARAM), UTF_8);
     String personId = URLDecoder.decode(request.getParameter(MEMBER_PARAM),
         UTF_8);
     Person ownerPerson = (Person) request.getSession().getAttribute(
@@ -501,9 +495,9 @@ public class DetailTeamController {
   public RedirectView deleteRequest(HttpServletRequest request,
       ModelMap modelMap,
       @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-      @RequestParam() String token, SessionStatus status)
+      @RequestParam() String token, @RequestParam("team") String teamId, SessionStatus status)
       throws UnsupportedEncodingException {
-    return doHandleJoinRequest(modelMap, request, sessionToken, token, status,
+    return doHandleJoinRequest(modelMap, request, sessionToken, token, teamId, status,
         false);
   }
 
@@ -511,18 +505,17 @@ public class DetailTeamController {
   public RedirectView approveRequest(HttpServletRequest request,
       ModelMap modelMap,
       @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-      @RequestParam() String token, SessionStatus status)
+      @RequestParam() String token, @RequestParam("team") String teamId, SessionStatus status)
       throws UnsupportedEncodingException {
-    return doHandleJoinRequest(modelMap, request, sessionToken, token, status,
+    return doHandleJoinRequest(modelMap, request, sessionToken, token, teamId, status,
         true);
   }
 
   private RedirectView doHandleJoinRequest(ModelMap modelMap,
-      HttpServletRequest request, String sessionToken, String token,
+      HttpServletRequest request, String sessionToken, String token, String teamId,
       SessionStatus status, boolean approve)
       throws UnsupportedEncodingException {
     TokenUtil.checkTokens(sessionToken, token, status);
-    String teamId = URLDecoder.decode(request.getParameter(TEAM_PARAM), UTF_8);
     String memberId = URLDecoder.decode(request.getParameter(MEMBER_PARAM),
         UTF_8);
 

@@ -18,25 +18,28 @@ COIN.MODULES.Home = function(sandbox) {
 
   var searchInputSelector = 'input[type=text][name=teamSearch]';
   var teamsTableSelector = "table.team-table";
+  var teamsSearchResultSelector = "table.team-search-result";
 
 	// Public interface
 	var module = {
 		init: function() {
-
-      // Handle search queries
-      $("form#searchTeamsForm").submit(function(e) {
-        library.showSearchThrobbler();
-        $.post("findPublicTeams.json",
-          $(searchInputSelector).parents('form:first').serialize(),
-          function(data) {
-            library.displaySearchResults(data);
-            library.hideSearchThrobbler();
-          }
-          );
-
-        // do not trigger regular post
-        return false;
-      });
+	      // Handle search queries
+	      $("form#searchTeamsForm").submit(function(e) {
+	        library.showSearchThrobbler();
+	        $.post("findPublicTeams.json",
+	          $(searchInputSelector).parents('form:first').serialize(),
+	          function(data) {
+	            library.displaySearchResults(data);
+	            library.hideSearchThrobbler();
+	          }
+	          );
+	
+	        // do not trigger regular post
+	        return false;
+	      });
+	      
+	      // by default hide the table for search result
+	      $(teamsSearchResultSelector).hide();
 		},
 
 		destroy: function() {
@@ -49,6 +52,7 @@ COIN.MODULES.Home = function(sandbox) {
 	
     showSearchThrobbler: function() {
       $(teamsTableSelector).hide();
+      $(teamsSearchResultSelector).hide();
 
       $("<img/>")
         .attr("src", "media/ajax-loader.gif")
@@ -58,15 +62,12 @@ COIN.MODULES.Home = function(sandbox) {
     },
     hideSearchThrobbler: function() {
       $("img#searchThrobbler").remove();
-      $(teamsTableSelector).show();
+      $(teamsSearchResultSelector).show();
     },
 
     displaySearchResults: function(results) {
-       // Remove current table contents
-       $(teamsTableSelector).find("tbody tr").remove();
-
        $(results["teams"]).each(function() {
-          $(teamsTableSelector).append("<tr class='odd'><td><a href='detailteam.shtml?view="+view+"&team=" + this['id'] + "'>" + library.htmlEncode(this['name']) + "</a></td><td>" + library.htmlEncode((this['description'] || "")) + "</td></tr>");
+          $(teamsSearchResultSelector).append("<tr class='odd'><td><a href=\"detailteam.shtml?view="+view+"&team=" + encodeURIComponent(this['id']) + "\">" + library.htmlEncode(this['name']) + "</a></td><td>" + library.htmlEncode((this['description'] || "")) + "</td></tr>");
        });
      },
     htmlEncode: function(value){

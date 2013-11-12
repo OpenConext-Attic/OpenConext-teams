@@ -158,6 +158,16 @@
       </c:choose>
       </tbody>
     </table>
+    <table class="team-search-result">
+    <thead>
+        <tr>
+          <th><spring:message code='jsp.home.table.Team' /></th>
+          <th><spring:message code='jsp.home.table.Description' /></th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+    </table>
   </div>
 <%-- / Content --%>
 </div>
