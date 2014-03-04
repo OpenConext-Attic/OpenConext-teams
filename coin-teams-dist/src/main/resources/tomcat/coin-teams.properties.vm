@@ -30,16 +30,16 @@ provisioner.baseurl=???
 provisioner.user=???
 provisioner.password=???
 
-#the database for non-grouper tables (e.g. invitations, requests, invitation_message) 
+#the database for non-grouper tables (e.g. invitations, requests, invitation_message) which are stored in the Teams database
 coin-team-db-url=jdbc:mysql://localhost:3306/teams
-coin-team-db-username=root
-coin-team-db-password=c0n3xt
+coin-team-db-username=_TEAMS_DB_USER_
+coin-team-db-password=_TEAMS_DB_PASS_
 
 teams.db.migrations.folder=db/migration/mysql
 
 coin-eb-db-url=jdbc:mysql://localhost:3306/engineblock
-coin-eb-db-username=root
-coin-eb-db-password=c0n3xt
+coin-eb-db-username=_ENGINE_DB_USER_
+coin-eb-db-password=_ENGINE_DB_PASS_
 
 #the stem name to find all groups
 defaultStemName=nl:surfnet:diensten
@@ -65,7 +65,7 @@ coin-mailserver=localhost
 coin-mailserver-port=25
 
 # Email address that is the sender of invitations/requests
-systemEmail=SURFconext Teams <root@_OPENCONEXT_DOMAIN_>
+systemEmail=OpenConext Teams <root@_OPENCONEXT_DOMAIN_>
 
 # Email address that recieves error notifications
 coin-errormail-to=
