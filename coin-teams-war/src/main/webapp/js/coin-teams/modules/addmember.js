@@ -14,14 +14,15 @@
  * limitations under the License.
  */
 
-COIN.MODULES.Addmember = function (sandbox) {
+COIN.MODULES.Addmember = function(sandbox) {
   // Public interface
   var module = {
-    init:function () {
+    init: function() {
       sandbox.addPlaceholderSupport();
 
       // Clicked [ Cancel ]
-      $('input[name=cancelAddMember],.close a').live('click', function (e) {
+
+      $(document).on("click", 'input[name=cancelAddMember],.close a', function(e) {
         e.preventDefault();
         var team = $('input[name=team]').val();
         var view = $('input[name=view]').val();
@@ -47,29 +48,30 @@ COIN.MODULES.Addmember = function (sandbox) {
       }
     },
 
-    destroy:function () {
+    destroy: function() {
 
     }
   };
 
   // Private library (through closure)
   var library = {
-    isVeryOldMsie:function () {
+    isVeryOldMsie: function() {
       return ($.browser.msie && $.browser.version.slice(0, 1) <= 7);
     },
-    isMsie:function () {
+    isMsie: function() {
       return ($.browser.msie === true);
     },
-    clickBrowseButton : function (parentContainer, fileUploader) {
-      parentContainer.find('label, i').live('click', function (e) {
+    clickBrowseButton: function(parentContainer, fileUploader) {
+      $(document).on("click", '#fileUploadBox label, #fileUploadBox i', function(e) {
         e.preventDefault();
         fileUploader.focus();
         fileUploader.click();
         fileUploader.blur();
       });
     },
-    showFileNameToUpload : function (parentContainer, fileUploader) {
-      fileUploader.live($.browser.msie ? 'blur' : 'change', function (e) {
+    showFileNameToUpload: function(parentContainer, fileUploader) {
+      var event = $.browser.msie ? 'blur' : 'change';
+      $(document).on(event, fileUploader, function(e) {
         var fileNameTag = parentContainer.find('i');
         // some browsers add C:\fakepath\ before the file name to obfuscate the file system location
         var filePath = $(this).val().replace("C:\\fakepath\\", "");

@@ -62,19 +62,19 @@ COIN.MODULES.Detailteam = function(sandbox) {
       });
 
       // Clicked [ Leave ]
-      $('a#LeaveTeam').live('click', function(e) {
+      $(document).on("click", 'a#LeaveTeam', function(e) {
         e.preventDefault();
         $('#LeaveTeamDialog').removeClass('hide').dialog('open');
       });
 
       // Clicked [ Delete Team ]
-      $('a#DeleteTeam').live('click', function(e) {
+      $(document).on("click", 'a#DeleteTeam', function(e) {
         e.preventDefault();
         $('#DeleteTeamDialog').removeClass('hide').dialog('open');
       });
 
       // Clicked [ Delete Member ]
-      $('a.DeleteMember').live('click', function(e) {
+      $(document).on("click", 'a.DeleteMember', function(e) {
         e.preventDefault();
           if (window.confirm("<spring:message code='jsp.dialog.deletemember.Confirmation' />")) {
               sandbox.redirectBrowserTo($(this).attr('href'));
@@ -82,7 +82,7 @@ COIN.MODULES.Detailteam = function(sandbox) {
       });
 
       // Clicked [ Delete Member ]
-      $('a.RemoveExternalGroup').live('click', function(e) {
+      $(document).on("click", 'a.RemoveExternalGroup', function(e) {
         e.preventDefault();
           if (window.confirm("<spring:message code='jsp.dialog.removeexternalgroup.Confirmation' />")) {
               sandbox.redirectBrowserTo($(this).attr('href'));
@@ -90,18 +90,18 @@ COIN.MODULES.Detailteam = function(sandbox) {
       });
 
       // Clicked [ Permission ]
-      $('input[type=checkbox][name$=Role]').live('click', function() {
+      $(document).on("click", 'input[type=checkbox][name$=Role]', function() {
         library.actionRole($(this));
       });
 
-      $('a.open_invitationinfo').live('click', function(e) {
+      $(document).on("click", 'a.open_invitationinfo', function(e) {
         e.preventDefault();
         var invitationInfo = $(this).attr('id');
         $('.' + invitationInfo).toggleClass('hide');
       });
 
       // Clicked [ Cancel ]
-      $('input[name=cancelAddMember]').live('click', function(e) {
+      $(document).on("click", 'input[name=cancelAddMember]', function(e) {
           e.preventDefault();
       var view = $('input[name=view]').val();
       var teamName = $('input[name=team]').val();
@@ -109,13 +109,13 @@ COIN.MODULES.Detailteam = function(sandbox) {
       });
 
       // Clicked [ Decline ]
-      $('a.deny-join-request').live('click', function(e) {
+      $(document).on("click", 'a.deny-join-request', function(e) {
         e.preventDefault();
         $(this).parent().find('form[name=deleteRequestForm]').submit();
       });
 
       // Clicked [ Add member ]
-      $('a.approve-join-request').live('click', function(e) {
+      $(document).on("click", 'a.approve-join-request', function(e) {
         e.preventDefault();
         $(this).parent().find('form[name=approveRequestForm]').submit();
       });

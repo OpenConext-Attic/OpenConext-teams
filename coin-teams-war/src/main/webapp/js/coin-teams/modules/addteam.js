@@ -21,18 +21,18 @@ COIN.MODULES.Addteam = function (sandbox) {
       var admin2messageContainer = $('#admin2messagecontainer');
       admin2messageContainer.addClass('hide');
       // Clicked [ Cancel ]
-      $('input[name=cancelCreateTeam]').live('click', function (e) {
+      $(document).on("click", 'input[name=cancelCreateTeam]', function (e) {
         e.preventDefault();
         var view = $('input[name=view]').val();
         sandbox.redirectBrowserTo('home.shtml?teams=my&view=' + view);
       });
 
       // Clicked [ Consent ]
-      $('input[name=consent]').live('change', function (e) {
+      $(document).on("change", 'input[name=consent]', function (e) {
         library.toggleDisable($('input[name=createTeam]'));
       });
 
-      $('input[id=admin2]').live('focus', function (e) {
+      $(document).on("focus", 'input[id=admin2]', function (e) {
         e.preventDefault();
         if (admin2messageContainer.hasClass('hide')) {
           admin2messageContainer.removeClass('hide');

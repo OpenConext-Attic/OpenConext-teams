@@ -19,13 +19,13 @@ COIN.MODULES.Acceptinvitation = function(sandbox) {
   var module = {
     init: function() {
       // Clicked [ Cancel ]
-      $('input[name=cancelJoinTeam]').live('click', function(e) {
+      $(document).on("click", 'input[name=cancelJoinTeam]', function(e) {
         e.preventDefault();
         var view = $('input[name=view]').val();
         sandbox.redirectBrowserTo('home.shtml?view=' + view);
       });
 
-      $('input[name=consent]').live('change', function() {
+      $(document).on("change", 'input[name=consent]', function() {
         library.toggleDisable($('input[name=joinTeam]'));
       });
     },
