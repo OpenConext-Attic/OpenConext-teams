@@ -6,7 +6,8 @@
   OR CONDITIONS OF ANY KIND, either express or implied. See the License for 
   the specific language governing permissions and limitations under the License. -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.surfnet.coin</groupId>
@@ -18,7 +19,9 @@
   <packaging>war</packaging>
   <name>coin-teams-war</name>
   <description>OpenConext Teams WAR</description>
-
+  <properties>
+    <groupzy.enabled>false</groupzy.enabled>
+  </properties>
   <build>
     <plugins>
       <plugin>
@@ -40,6 +43,13 @@
           <stopPort>9060</stopPort>
           <reload>manual</reload>
           <useTestClasspath>true</useTestClasspath>
+          <systemProperties>
+            <systemProperty>
+              <name>enableGroupzy</name>
+              <value>${groupzy.enabled}</value>
+            </systemProperty>
+          </systemProperties>
+
         </configuration>
         <dependencies>
           <dependency>
@@ -62,8 +72,8 @@
             </goals>
             <configuration>
               <tasks>
-                <property name="coin-teams-version" value="${project.version}" />
-                <ant target="build" inheritRefs="true" />
+                <property name="coin-teams-version" value="${project.version}"/>
+                <ant target="build" inheritRefs="true"/>
               </tasks>
             </configuration>
           </execution>
@@ -73,6 +83,7 @@
   </build>
 
   <dependencies>
+
     <dependency>
       <groupId>org.surfnet.coin</groupId>
       <artifactId>coin-teams-scim</artifactId>
@@ -183,7 +194,7 @@
     </dependency>
     <dependency>
       <groupId>org.hsqldb</groupId>
-      <artifactId>hsqldb</artifactId>      
+      <artifactId>hsqldb</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>

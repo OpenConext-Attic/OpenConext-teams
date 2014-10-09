@@ -14,30 +14,86 @@
  * limitations under the License.
  */
 
-/**
- * What does your module do?
- *
- * And don't forget adding it to:
- * - webapp/WEB-INF/jsp/js.jsp and
- * - webapp/js/coin-teams/init.js.
- */
-COIN.MODULES.MY_NAME = function(sandbox) {
-	// Public interface
-	var module = {
-		init: function() {
-			
-		},
-		
-		destroy: function() {
-			
-		}
-	};
-	
-	// Private library (through closure)
-	var library = {
-			
-	};
+COIN.MODULES.AddAllowedServiceProviders = function(sandbox) {
+  // Public interface
+  var serviceProviders = [];
+  var module = {
+    init: function() {
+      var url = $("#search-service-providers-container").data("url");
+      $.get(url, function(data) {
+        $.merge(serviceProviders, data.map(function(val) {
+          val.displayNameEn = $.trim(val.displayNameEn);
+          val.displayNameNl = $.trim(val.displayNameNl);
+          return val;
+        }));
+      });
 
-	// Return the public interface
-	return module;
+      $('#search-service-providers').typeahead(
+        {
+          hint: false,
+          highlight: true,
+          minLength: 1
+        },
+        {
+          name: 'sps',
+          displayKey: 'displayNameEn',
+          source: library.substringMatcher(serviceProviders)
+        });
+
+      $('#search-service-providers').on("typeahead:selected", function(e, selected) {
+        var element = $("#selected-service-providers .hidden-service-provider").clone();
+        element.attr("class", "new-service-provider").find("span").text(selected.displayNameEn);
+        element.find("input").val(selected.entityId);
+//
+//        var element = $("<li class=\"new-service-provider\">" + selected.displayNameEn + "</li>");
+//        element.append($("<input type=\"hidden\" name=\"services[]\" value=\"" + selected.entityId + "\" />"));
+//        element.append($("<a class=\"add-service-provider\" href='#'>x</a>"));
+//
+        $("#selected-service-providers").append(element);
+
+
+        $(this).typeahead('val', '');
+      });
+
+      $(document).on("click", "a.delete-service-provider", function(e) {
+        console.log(e);
+        $(this).parents("li").remove();
+      });
+
+    },
+
+    destroy: function() {
+
+    }
+  };
+
+  // Private library (through closure)
+  var library = {
+    substringMatcher: function(serviceProviders) {
+      return function findMatches(q, cb) {
+        var matches, substrRegex;
+
+        // an array that will be populated with substring matches
+        matches = [];
+
+        // regex used to determine if a string contains the substring `q`
+        substrRegex = new RegExp(q, 'i');
+
+        // iterate through the pool of strings and for any string that
+        // contains the substring `q`, add it to the `matches` array
+        $.each(serviceProviders, function(i, serviceProvider) {
+          if (substrRegex.test(serviceProvider.displayNameEn)) {
+            // the typeahead jQuery plugin expects suggestions to a
+            // JavaScript object, refer to typeahead docs for more info
+            matches.push(serviceProvider);
+          }
+        });
+
+        cb(matches);
+      };
+    }
+  };
+
+  // Return the public interface
+  return module;
 };

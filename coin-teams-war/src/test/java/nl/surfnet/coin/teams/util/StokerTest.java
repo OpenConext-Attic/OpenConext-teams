@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 
+import java.io.IOException;
 import java.util.Collection;
 
 import static org.junit.Assert.assertEquals;
@@ -13,7 +14,7 @@ public class StokerTest {
 
   private Stoker stoker;
 
-  @Test(expected = RuntimeException.class)
+  @Test(expected = IOException.class)
   public void testThrowsExceptionWhenFileDoesNotExist() throws Exception {
     stoker = new Stoker(new FileSystemResource("not exists"));
     Collection<StokerEntry> serviceProviders = stoker.getEduGainServiceProviders();

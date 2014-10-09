@@ -50,6 +50,7 @@
     <property name="maxInvitations" value="${maxInvitations}"/>
     <property name="groupNameContext" value="${group-name-context}"/>
     <property name="shindigHost" value="${shindigHost}"/>
+    <property name="groupzyEnabled" value="${enableGroupzy}" />
   </bean>
 
   <bean id="grouperTeamService" class="${grouperTeamService}" />
@@ -168,6 +169,14 @@
 
   <bean id="freemarkerConfiguration" class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean">
      <property name="templateLoaderPath" value="classpath:/ftl/"/>
+  </bean>
+
+  <bean id="stoker" class="nl.surfnet.coin.teams.util.Stoker">
+    <constructor-arg value="${stoker.file}" />
+  </bean>
+
+  <bean id="teamsDao" class="${teams.dao.class}">
+
   </bean>
 
 </beans>

@@ -44,7 +44,7 @@
     <c:if test='${view ne "gadget"}'>
       <!--  = Header -->
       <div class="header">
-        <a href="home.shtml"><img class="logo" src="<c:url value="/media/surf-conext-logo.png"/>" alt="SURFnet logo" /></a>
+        <a href="<c:url value="/home.shtml"/>"><img class="logo" src="<c:url value="/media/surf-conext-logo.png"/>" alt="SURFnet logo" /></a>
       </div>
       <!-- / Header -->
     </c:if>
