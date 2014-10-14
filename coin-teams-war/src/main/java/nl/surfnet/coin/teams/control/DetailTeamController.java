@@ -208,7 +208,7 @@ public class DetailTeamController {
     if (!Role.None.equals(modelMap.get(ROLE_PARAM))) {
       addLinkedExternalGroupsToModelMap(teamId, modelMap);
     }
-
+    modelMap.addAttribute("groupzyEnabled", teamEnvironment.isGroupzyEnabled());
     return "detailteam";
   }
 

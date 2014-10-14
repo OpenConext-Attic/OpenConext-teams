@@ -47,10 +47,12 @@
         <c:url value="/addmember.shtml" var="addmemberUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
         <a class="button" href="<c:out value="${addmemberUrl}"/>"><spring:message code='jsp.addmember.Title' /></a>
       </p>
-      <p class="add">
-        <c:url value="/teams/${team.id}/service-providers.shtml" var="editserviceproviders"><c:param name="view" value="${view}" /></c:url>
-        <a class="button" href="<c:out value="${editserviceproviders}"/>"><spring:message code='jsp.addallowedserviceproviders.edit' /></a>
-      </p>
+      <c:if test="${groupzyEnabled}">
+        <p class="add">
+          <c:url value="/teams/${team.id}/service-providers.shtml" var="editserviceproviders"><c:param name="view" value="${view}" /></c:url>
+          <a class="button" href="<c:out value="${editserviceproviders}"/>"><spring:message code='jsp.addallowedserviceproviders.edit' /></a>
+        </p>
+      </c:if>
     </c:if>
 
     <br class="clear" />
