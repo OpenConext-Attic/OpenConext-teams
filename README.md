@@ -23,3 +23,8 @@ To run locally:
 
     cd coin-teams-war
     mvn jetty:run
+
+To run with groupzy feature enabled:
+
+    cd coin-teams-war
+    mvn jetty:run -Dspring.profiles.active=groupzy,groupzy-dev
