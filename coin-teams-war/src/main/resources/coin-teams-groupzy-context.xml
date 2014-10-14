@@ -23,14 +23,16 @@
     <property name="acquireRetryDelay" value="1000"/>
   </bean>
 
-  <bean class="com.googlecode.flyway.core.Flyway" init-method="migrate">
-    <property name="baseDir" value="${teams.groupzy.group_provider_acl_db.migrations.folder}"/>
-    <property name="dataSource" ref="groupZyDatasource"/>
-  </bean>
-
-
   <bean id="teamsDao" class="nl.surfnet.coin.teams.service.impl.JdbcServiceProviderTeamDao">
     <constructor-arg ref="groupZyDatasource"/>
   </bean>
+
+
+  <beans profile="groupzy-dev">
+    <bean class="com.googlecode.flyway.core.Flyway" init-method="migrate">
+      <property name="baseDir" value="${teams.groupzy.group_provider_acl_db.migrations.folder}"/>
+      <property name="dataSource" ref="groupZyDatasource"/>
+    </bean>
+  </beans>
 
 </beans>
