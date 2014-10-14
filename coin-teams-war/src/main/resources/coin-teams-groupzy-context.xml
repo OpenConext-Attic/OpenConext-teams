@@ -1,0 +1,36 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+  <bean id="teamEnvironment" parent="teamEnvironmentBase">
+    <property name="groupzyEnabled" value="true"/>
+  </bean>
+
+  <bean id="stoker" class="nl.surfnet.coin.teams.util.Stoker">
+    <constructor-arg value="${teams.groupzy.stoker.file}" />
+  </bean>
+
+  <bean id="groupZyDatasource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+    <property name="driverClass" value="${teams.groupzy.jdbc.driver}"/>
+    <property name="jdbcUrl" value="${teams.groupzy.jdbc.url}"/>
+    <property name="user" value="${teams.groupzy.jdbc.user}"/>
+    <property name="password" value="${teams.groupzy.jdbc.password}"/>
+    <property name="acquireIncrement" value="5"/>
+    <property name="minPoolSize" value="5"/>
+    <property name="maxPoolSize" value="5"/>
+    <property name="maxConnectionAge" value="60"/>
+    <property name="acquireRetryAttempts" value="3"/>
+    <property name="acquireRetryDelay" value="1000"/>
+  </bean>
+
+  <bean class="com.googlecode.flyway.core.Flyway" init-method="migrate">
+    <property name="baseDir" value="${teams.groupzy.group_provider_acl_db.migrations.folder}"/>
+    <property name="dataSource" ref="groupZyDatasource"/>
+  </bean>
+
+
+  <bean id="teamsDao" class="nl.surfnet.coin.teams.service.impl.JdbcServiceProviderTeamDao">
+    <constructor-arg ref="groupZyDatasource"/>
+  </bean>
+
+</beans>

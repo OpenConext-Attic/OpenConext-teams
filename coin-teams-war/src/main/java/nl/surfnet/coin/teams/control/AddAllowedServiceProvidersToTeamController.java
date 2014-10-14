@@ -14,6 +14,7 @@ import nl.surfnet.coin.teams.util.ViewUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
@@ -28,6 +29,7 @@ import static com.google.common.collect.Collections2.filter;
 import static com.google.common.collect.Collections2.transform;
 
 @Controller
+@Profile("groupzy")
 public class AddAllowedServiceProvidersToTeamController {
 
   private final static Log logger = LogFactory.getLog(AddAllowedServiceProvidersToTeamController.class);

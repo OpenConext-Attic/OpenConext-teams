@@ -20,7 +20,7 @@
   <name>coin-teams-war</name>
   <description>OpenConext Teams WAR</description>
   <properties>
-    <groupzy.enabled>false</groupzy.enabled>
+    <spring.profiles.active>openconext</spring.profiles.active>
   </properties>
   <build>
     <plugins>
@@ -45,8 +45,8 @@
           <useTestClasspath>true</useTestClasspath>
           <systemProperties>
             <systemProperty>
-              <name>enableGroupzy</name>
-              <value>${groupzy.enabled}</value>
+              <name>spring.profiles.active</name>
+              <value>${spring.profiles.active}</value>
             </systemProperty>
           </systemProperties>
 
