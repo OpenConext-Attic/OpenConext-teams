@@ -50,22 +50,22 @@
     <property name="interceptors">
       <list>
         <ref bean="loginInterceptor"/>
-        <ref bean="commonModelHandlerInterceptor" />
+        <ref bean="commonModelHandlerInterceptor"/>
         <ref bean="featureInterceptor"/>
-        <ref bean="localeChangeInterceptor" />
+        <ref bean="localeChangeInterceptor"/>
       </list>
     </property>
     <property name="alwaysUseFullPath" value="true"/>
   </bean>
-  
+
   <bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
-    <property name="paramName" value="lang" />
-  </bean> 
+    <property name="paramName" value="lang"/>
+  </bean>
 
-  <bean id="loginInterceptor" class="${loginInterceptor}" />
+  <bean id="loginInterceptor" class="${loginInterceptor}"/>
 
-  <bean id="commonModelHandlerInterceptor" class="nl.surfnet.coin.teams.interceptor.CommonModelHandlerInterceptor" />
-  
+  <bean id="commonModelHandlerInterceptor" class="nl.surfnet.coin.teams.interceptor.CommonModelHandlerInterceptor"/>
+
   <bean id="featureInterceptor" class="nl.surfnet.coin.teams.interceptor.FeatureInterceptor">
     <property name="displayExternalTeams" value="${displayExternalTeams}"/>
     <property name="displayExternalTeamMembers" value="${displayExternalTeamMembers}"/>
@@ -78,7 +78,7 @@
       <list>
         <!-- Support JSON -->
         <bean
-                class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
+          class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
       </list>
     </property>
     <property name="alwaysUseFullPath" value="true"/>
@@ -89,7 +89,7 @@
       <list>
         <!-- Support JSON -->
         <bean
-                class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
+          class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
       </list>
     </property>
   </bean>

@@ -55,7 +55,7 @@
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
       <param-name>spring.profiles.active</param-name>
-      <param-value>openconext</param-value>
+      <param-value>openconext,production</param-value>
     </init-param>
     <load-on-startup>2</load-on-startup>
   </servlet>
@@ -88,8 +88,7 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>
       classpath:coin-teams-properties-context.xml,
-      classpath:coin-teams-context.xml,
-      classpath:coin-shared-context.xml
+      classpath:coin-teams-context.xml
     </param-value>
   </context-param>
 

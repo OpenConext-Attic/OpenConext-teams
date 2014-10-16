@@ -30,41 +30,41 @@
 
 
   <bean id="apiClient" class="nl.surfnet.coin.api.client.OpenConextOAuthClientImpl">
-    <property name="endpointBaseUrl" value="${api-location}" />
+    <property name="endpointBaseUrl" value="${api-location}"/>
     <property name="consumerKey" value="${oauth-key}"/>
-    <property name="consumerSecret" value="${oauth-secret}" />
-    <property name="version" value="v10a" />
+    <property name="consumerSecret" value="${oauth-secret}"/>
+    <property name="version" value="v10a"/>
   </bean>
 
   <bean id="teamEnvironmentBase" class="nl.surfnet.coin.teams.util.TeamEnvironment" abstract="true">
-    <property name="mockUserStatus" value="${mock-user-status}" />
-    <property name="defaultStemName" value="${defaultStemName}" />
-    <property name="version" value="@VERSION@" />
+    <property name="mockUserStatus" value="${mock-user-status}"/>
+    <property name="defaultStemName" value="${defaultStemName}"/>
+    <property name="version" value="@VERSION@"/>
     <property name="grouperPowerUser" value="${grouperPowerUser}"/>
     <property name="oauthKey" value="${oauth-key}"/>
     <property name="oauthSecret" value="${oauth-secret}"/>
-    <property name="appId" value="${appId}" />
-    <property name="teamsURL" value="${teamsURL}" />
-    <property name="openSocialUrl" value="${coin-container-url}" />
+    <property name="appId" value="${appId}"/>
+    <property name="teamsURL" value="${teamsURL}"/>
+    <property name="openSocialUrl" value="${coin-container-url}"/>
     <property name="systemEmail" value="${systemEmail}"/>
-    <property name="maxUploadSize" value="${form.maxuploadsize}" />
+    <property name="maxUploadSize" value="${form.maxuploadsize}"/>
     <property name="maxInvitations" value="${maxInvitations}"/>
     <property name="groupNameContext" value="${group-name-context}"/>
     <property name="shindigHost" value="${shindigHost}"/>
   </bean>
 
-  <bean id="grouperTeamService" class="${grouperTeamService}" />
+  <bean id="grouperTeamService" class="${grouperTeamService}"/>
 
-   <!-- Configure the multipart resolver -->
+  <!-- Configure the multipart resolver -->
   <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
     <!-- maxUploadSize: in bytes -->
-    <property name="maxUploadSize" value="${form.maxuploadsize}" />
+    <property name="maxUploadSize" value="${form.maxuploadsize}"/>
   </bean>
 
   <bean id="localeResolver"
-    class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+        class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
     <!-- Set the default Locale to English -->
-    <property name="defaultLocale" value="en_EN" />
+    <property name="defaultLocale" value="en_EN"/>
   </bean>
 
   <bean id="teamsJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
@@ -72,19 +72,19 @@
   </bean>
 
   <bean id="ebDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
-    destroy-method="close">
-    <property name="driverClass" value="${coin-eb-db-driver}" />
-    <property name="jdbcUrl" value="${coin-eb-db-url}" />
-    <property name="user" value="${coin-eb-db-username}" />
-    <property name="password" value="${coin-eb-db-password}" />
-    <property name="initialPoolSize" value="1" />
-    <property name="maxPoolSize" value="20" />
-    <property name="minPoolSize" value="1" />
-    <property name="acquireIncrement" value="2" />
-    <property name="acquireRetryAttempts" value="15" />
+        destroy-method="close">
+    <property name="driverClass" value="${coin-eb-db-driver}"/>
+    <property name="jdbcUrl" value="${coin-eb-db-url}"/>
+    <property name="user" value="${coin-eb-db-username}"/>
+    <property name="password" value="${coin-eb-db-password}"/>
+    <property name="initialPoolSize" value="1"/>
+    <property name="maxPoolSize" value="20"/>
+    <property name="minPoolSize" value="1"/>
+    <property name="acquireIncrement" value="2"/>
+    <property name="acquireRetryAttempts" value="15"/>
     <!--Check every 15 minutes -->
-    <property name="idleConnectionTestPeriod" value="15" />
-    <property name="maxIdleTime" value="15" />
+    <property name="idleConnectionTestPeriod" value="15"/>
+    <property name="maxIdleTime" value="15"/>
   </bean>
 
   <bean id="ebJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
@@ -96,25 +96,25 @@
   </bean>
 
   <bean id="teamDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
-    destroy-method="close">
-    <property name="driverClass" value="${coin-team-db-driver}" />
-    <property name="jdbcUrl" value="${coin-team-db-url}" />
-    <property name="user" value="${coin-team-db-username}" />
-    <property name="password" value="${coin-team-db-password}" />
-    <property name="initialPoolSize" value="1" />
-    <property name="maxPoolSize" value="20" />
-    <property name="minPoolSize" value="1" />
-    <property name="acquireIncrement" value="2" />
-    <property name="acquireRetryAttempts" value="15" />
+        destroy-method="close">
+    <property name="driverClass" value="${coin-team-db-driver}"/>
+    <property name="jdbcUrl" value="${coin-team-db-url}"/>
+    <property name="user" value="${coin-team-db-username}"/>
+    <property name="password" value="${coin-team-db-password}"/>
+    <property name="initialPoolSize" value="1"/>
+    <property name="maxPoolSize" value="20"/>
+    <property name="minPoolSize" value="1"/>
+    <property name="acquireIncrement" value="2"/>
+    <property name="acquireRetryAttempts" value="15"/>
     <!--Check every 15 minutes -->
-    <property name="idleConnectionTestPeriod" value="15" />
-    <property name="maxIdleTime" value="15" />
+    <property name="idleConnectionTestPeriod" value="15"/>
+    <property name="maxIdleTime" value="15"/>
   </bean>
 
   <bean id="teamSessionFactory" autowire="byName"
-    class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
     <property name="dataSource">
-      <ref local="teamDataSource" />
+      <ref local="teamDataSource"/>
     </property>
     <property name="hibernateProperties">
       <props>
@@ -147,29 +147,37 @@
       </list>
     </property>
     <property name="namingStrategy">
-      <bean class="org.hibernate.cfg.ImprovedNamingStrategy" />
+      <bean class="org.hibernate.cfg.ImprovedNamingStrategy"/>
     </property>
-    <property name="useTransactionAwareDataSource" value="true" />
+    <property name="useTransactionAwareDataSource" value="true"/>
   </bean>
 
-  <tx:annotation-driven transaction-manager="teamTransactionManager" />
+  <tx:annotation-driven transaction-manager="teamTransactionManager"/>
 
   <bean id="teamTransactionManager"
-    class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        class="org.springframework.orm.hibernate3.HibernateTransactionManager">
     <property name="sessionFactory">
-      <ref local="teamSessionFactory" />
+      <ref local="teamSessionFactory"/>
     </property>
   </bean>
-  
+
   <bean class="com.googlecode.flyway.core.Flyway" init-method="migrate">
-    <property name="baseDir" value="${teams.db.migrations.folder}" />
-    <property name="dataSource" ref="teamDataSource" />
-    <property name="disableInitCheck" value="true" />
+    <property name="baseDir" value="${teams.db.migrations.folder}"/>
+    <property name="dataSource" ref="teamDataSource"/>
+    <property name="disableInitCheck" value="true"/>
   </bean>
 
   <bean id="freemarkerConfiguration" class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean">
-     <property name="templateLoaderPath" value="classpath:/ftl/"/>
+    <property name="templateLoaderPath" value="classpath:/ftl/"/>
   </bean>
+
+  <beans profile="production">
+    <import resource="classpath:coin-shared-context.xml"/>
+  </beans>
+
+  <beans profile="dev">
+    <bean id="mailSender" class="nl.surfnet.coin.teams.util.LetterOpener" />
+  </beans>
 
   <beans profile="openconext">
     <bean id="teamEnvironment" parent="teamEnvironmentBase">
@@ -178,7 +186,7 @@
   </beans>
 
   <beans profile="groupzy">
-    <import resource="coin-teams-groupzy-context.xml" />
+    <import resource="coin-teams-groupzy-context.xml"/>
   </beans>
 
 </beans>

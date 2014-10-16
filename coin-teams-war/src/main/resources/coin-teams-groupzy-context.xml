@@ -28,11 +28,12 @@
   </bean>
 
 
-  <beans profile="groupzy-dev">
+  <beans profile="dev">
     <bean class="com.googlecode.flyway.core.Flyway" init-method="migrate">
       <property name="baseDir" value="${teams.groupzy.group_provider_acl_db.migrations.folder}"/>
       <property name="dataSource" ref="groupZyDatasource"/>
     </bean>
+
   </beans>
 
 </beans>

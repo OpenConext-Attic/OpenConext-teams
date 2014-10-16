@@ -24,7 +24,14 @@ To run locally:
     cd coin-teams-war
     mvn jetty:run
 
+To run locally with LetterOpener enabled:
+LetterOpener will open the e-mails send out in your browser and will log the content in the console.
+Opening in the browser for now only works on a Mac.
+
+    cd coin-teams-war
+    mvn jetty:run -Dspring.profiles.active=openconext,dev
+
 To run with groupzy feature enabled:
 
     cd coin-teams-war
-    mvn jetty:run -Dspring.profiles.active=groupzy,groupzy-dev
+    mvn jetty:run -Dspring.profiles.active=groupzy,dev

@@ -18,27 +18,19 @@ package nl.surfnet.coin.teams.control;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.google.common.base.Function;
+import com.google.common.collect.Collections2;
 import nl.surfnet.coin.api.client.domain.Person;
-import nl.surfnet.coin.teams.domain.Invitation;
-import nl.surfnet.coin.teams.domain.InvitationMessage;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.service.TeamInviteService;
-import nl.surfnet.coin.teams.util.AuditLog;
-import nl.surfnet.coin.teams.util.ControllerUtil;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
-import nl.surfnet.coin.teams.util.TokenUtil;
-import nl.surfnet.coin.teams.util.ViewUtil;
+import nl.surfnet.coin.teams.service.TeamsDao;
+import nl.surfnet.coin.teams.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -72,6 +64,12 @@ public class InvitationController {
 
   @Autowired
   private ControllerUtil controllerUtil;
+
+  @Autowired(required = false)
+  private TeamsDao teamsDao;
+
+  @Autowired(required = false)
+  private Stoker stoker;
 
   /**
    * RequestMapping to show the accept invitation page.
@@ -111,6 +109,19 @@ public class InvitationController {
     modelMap.addAttribute("invitation", invitation);
     modelMap.addAttribute("team", team);
     modelMap.addAttribute("date", new Date(invitation.getTimestamp()));
+    modelMap.addAttribute("groupzyEnabled", teamEnvironment.isGroupzyEnabled());
+
+    if(teamEnvironment.isGroupzyEnabled()) {
+      Collection<TeamServiceProvider> serviceProviders = teamsDao.forTeam(teamId);
+
+      Collection<StokerEntry> eduGainServiceProviders = stoker.getEduGainServiceProviders(Collections2.transform(serviceProviders, new Function<TeamServiceProvider, String>() {
+        @Override
+        public String apply(TeamServiceProvider input) {
+          return input.getSpEntityId();
+        }
+      }));
+      modelMap.addAttribute("serviceProviders", eduGainServiceProviders);
+    }
     ViewUtil.addViewToModelMap(request, modelMap);
     return "acceptinvitation";
   }
