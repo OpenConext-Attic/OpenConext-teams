@@ -25,6 +25,8 @@ import javax.servlet.http.HttpServletRequest;
 import com.google.common.base.Function;
 import com.google.common.collect.Collections2;
 import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.stoker.Stoker;
+import nl.surfnet.coin.stoker.StokerEntry;
 import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GrouperTeamService;

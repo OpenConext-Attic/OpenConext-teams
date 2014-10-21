@@ -3,13 +3,10 @@ package nl.surfnet.coin.teams.control;
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Ordering;
-
-import java.util.List;
-
+import nl.surfnet.coin.stoker.Stoker;
+import nl.surfnet.coin.stoker.StokerEntry;
 import nl.surfnet.coin.teams.domain.TeamServiceProvider;
 import nl.surfnet.coin.teams.service.TeamsDao;
-import nl.surfnet.coin.teams.util.Stoker;
-import nl.surfnet.coin.teams.util.StokerEntry;
 import nl.surfnet.coin.teams.util.ViewUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -24,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Collection;
+import java.util.List;
 
 import static com.google.common.collect.Collections2.filter;
 import static com.google.common.collect.Collections2.transform;
