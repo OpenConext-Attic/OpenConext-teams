@@ -35,7 +35,7 @@ public interface TeamInviteService extends GenericService<Invitation> {
    * @param team  {@link Team}
    * @return {@link Invitation} or {@literal null}
    */
-  Invitation findInvitation(String email, Team team);
+  Invitation findOpenInvitation(String email, Team team);
 
   /**
    * Searches for an {@link Invitation} by its generated hash

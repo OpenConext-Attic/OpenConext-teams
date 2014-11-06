@@ -61,7 +61,7 @@ public class TeamInviteServiceHibernateImpl
    * {@inheritDoc}
    */
   @Override
-  public Invitation findInvitation(String email, Team team) {
+  public Invitation findOpenInvitation(String email, Team team) {
     List<Invitation> invitations = findByCriteria(
         Restrictions.eq("email", email),
         Restrictions.eq("teamId", team.getId()));
