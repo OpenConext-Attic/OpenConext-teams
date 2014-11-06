@@ -74,6 +74,24 @@ public class TeamInviteServiceHibernateImplTest {
   }
 
   @Test
+  public void testDoesNotReturnAcceptedInvitation() throws Exception {
+    Invitation invitation = new Invitation(email, team.getId());
+    invitation.accept();
+    teamInviteService.saveOrUpdate(invitation);
+
+    assertNull(teamInviteService.findOpenInvitation(email, team));
+  }
+
+  @Test
+  public void testDoesNotReturnDeclinedInvitation() throws Exception {
+    Invitation invitation = new Invitation(email, team.getId());
+    invitation.decline();
+    teamInviteService.saveOrUpdate(invitation);
+
+    assertNull(teamInviteService.findOpenInvitation(email, team));
+  }
+
+  @Test
   public void testFindInvitationByInviteId() throws Exception {
     Invitation invitation = new Invitation(email, team.getId());
     String hash = invitation.getInvitationHash();
@@ -83,6 +101,7 @@ public class TeamInviteServiceHibernateImplTest {
 
     assertNotNull(teamInviteService.findInvitationByInviteId(hash));
   }
+
   @Test
   public void testFindAllInvitationById() throws Exception {
     Invitation invitation = new Invitation(email, team.getId());
