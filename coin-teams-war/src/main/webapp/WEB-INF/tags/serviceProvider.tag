@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
-<%@ attribute name="existingServiceProvider" required="false" type="nl.surfnet.coin.teams.util.StokerEntry" %>
+<%@ attribute name="existingServiceProvider" required="false" type="nl.surfnet.coin.stoker.StokerEntry" %>
 <%@ attribute name="cssClass" required="true" %>
 
 <li class="${cssClass}">
