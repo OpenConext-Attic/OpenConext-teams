@@ -1,0 +1,89 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://aishib.agropolis.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2013-06-06T11:49:20Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">agropolis.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Agropolis International</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDNzCCAh+gAwIBAgIUYY3sGXwChkj2CRy6QFDvkdj2zlAwDQYJKoZIhvcNAQEF
+BQAwHjEcMBoGA1UEAxMTYWlzaGliLmFncm9wb2xpcy5mcjAeFw0xMzA1MTUxMzM3
+MTJaFw0zMzA1MTUxMzM3MTJaMB4xHDAaBgNVBAMTE2Fpc2hpYi5hZ3JvcG9saXMu
+ZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCxrDy6lrhIBjcxv16n
+4UJ2cEMYPO4wSmfDwhO6feoSIEuIblYRHE2nQKirMokwD6seF4rbDHyxLXg/ColL
+VLv+0CJteIOZjSCgSN90WzQRrC1Ex5sJfPu6yPEXvW8H1906gEg6ok8rlCIHRGfE
+15pHK5eqxQS5f2n8c2t/Uk33/FBj79/hb3Cd7vE4mdlvReD3AFswC0lV4bPmj3Ka
+KUuMj9xwipwnfWCu6p2/ZJF4M3ADU5grXHJ2Vqmd8DWm5raaObKjYwJddbRBByI8
+bJJLIwAQQmX4Dh4hf1QKlf2oqWPWVQxLQp0erL1U8IWmj1RG8TTH9xOJl6kkEhYq
+Z2gfAgMBAAGjbTBrMEoGA1UdEQRDMEGCE2Fpc2hpYi5hZ3JvcG9saXMuZnKGKmh0
+dHBzOi8vYWlzaGliLmFncm9wb2xpcy5mci9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4E
+FgQU9A7iQ8Qo+t2JCpKuOOV9YBoYs4MwDQYJKoZIhvcNAQEFBQADggEBAG0LOW6I
+F+M8n2NpzyQjfVCJCA6QhWjbXrfemiPJFZGZZb2dVmHof4yCpCUYgHOBoZaXPOlB
+nLYsUWvFZ6V2GELZpLHzHSSrYidieW07qQkh1DwcIYpvtZgLviOtT/tCEGsk925f
+DUoGdeIqpqt54WZcW9+TbKicvjg3JT4BFOQ17bFNwPW+YjTbvsWYxen+e0mRp4vM
+V0yMu2f3bccVhePASSZGL3yod3sJ1dPvlrJO9c35BekhtirolVjZqMQ0AYPVifua
+yIU0dWXsZkAOcBL9kZFbJcYRUIxMgvp8U2Zdv1+ZlwOyXnnWDOOh9wjuT7FAyObU
+ChvjHlgZHkvLwJI=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://aishib.agropolis.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aishib.agropolis.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://aishib.agropolis.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Agropolis International</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Agropolis International</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Jean Cerda</SurName>
+				 <EmailAddress>cerda@agropolis.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Jean-Pierre  Allano</SurName>
+				 <EmailAddress>allano@agropolis.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

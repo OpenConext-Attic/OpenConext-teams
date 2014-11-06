@@ -1,0 +1,112 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="uk000275" entityID="https://idp-dev.cardiff.ac.uk/idp/shibboleth">
+	
+	<Extensions>
+
+
+
+
+
+
+		<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://ukfederation.org.uk" registrationInstant="2007-12-20T15:18:56.122159Z">
+			<mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+		</mdrpi:RegistrationInfo>
+	</Extensions>
+	<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol urn:mace:shibboleth:1.0">
+		<Extensions>
+			<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">cardiff.ac.uk</shibmd:Scope>
+			<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+				<mdui:DisplayName xml:lang="en">Cardiff University (Test - Dev)</mdui:DisplayName>
+				<mdui:Logo height="16" width="16">https://iam.cf.ac.uk/images/CU-Dev-logo-16x16.png</mdui:Logo>
+				<mdui:Logo height="60" width="80">https://iam.cf.ac.uk/images/CU-Dev-logo-80x60.png</mdui:Logo>
+			</mdui:UIInfo>
+		</Extensions>
+		<KeyDescriptor use="signing">
+			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+				<ds:X509Data>
+					<ds:X509Certificate>
+						MIIDLDCCAhSgAwIBAgIVALNT+AdUt2+81m3rncPOX7CvBavdMA0GCSqGSIb3DQEB
+						BQUAMBsxGTAXBgNVBAMTEGlkcC1kZXYuY2YuYWMudWswHhcNMTEwNjEwMTYzNjE1
+						WhcNMzEwNjEwMTYzNjE1WjAbMRkwFwYDVQQDExBpZHAtZGV2LmNmLmFjLnVrMIIB
+						IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwHK/62C9csv4UEWcGy5lo97k
+						7zXUCDf1wW5k83sn9BzqG4YJoM9G9pefXU2AHFZtEhZjgxQgbOUdG9MdOHmeeuXr
+						8/izvK6BOyFmNFgBi/h2uwjI1T86WHMJG91IQFUTWbRlDm43zAoigsscOYDJ8+Fk
+						6KZWDAngo5Ip0NlwUcKGqjdZbHeWyuLITCwgqU1aQHEg2eLzT+eC2/c+sbTy6GqO
+						5wsTLZGNNSifEPo2JzMi9WvdyklXcHj1X5cVExixeQ9cgb6VeqS6NtKRgG7PvZZU
+						REdZZAQ3yMWZeqOoWyhOteUcnlZQo3yWytLXy7vsVpMZWG6dXw90XTVuLwObTQID
+						AQABo2cwZTBEBgNVHREEPTA7ghBpZHAtZGV2LmNmLmFjLnVrhidodHRwczovL2lk
+						cC1kZXYuY2YuYWMudWsvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFMJ9mnoUnJdL
+						2PYWanl07bVy1yRbMA0GCSqGSIb3DQEBBQUAA4IBAQA0vIW7kIcy6RA+OkshiraI
+						9D8m8H3Q5ye4QgbqdiLAaMy2/pHjHKirdseOl+3XLyrzDelXtl/4DhQCHAbUPssS
+						pgZIVEk4aOVuzjbqKfUOW/Dny9cPYLTVcU/ybhGdMC1FwGikZ499qISPoyJ2zmnC
+						6WH5uvbdmmiBmbvipWBRu6/imITVjzH7hWoz5SMuSFzy68yn5C00t7L9dtI3DgXo
+						zCmMlR+TxITKeAh433Gv+ldwYr4/NRClZBPKtOg4EHun7G7FVjXfEjNYts5aUwfF
+						WlUNTYrQTmfEqypOCvR3sjkLbbv3H/li9NLbE0dCr2DkR0SaOp7mjFqiiXR7z8JT
+					</ds:X509Certificate>
+				</ds:X509Data>
+			</ds:KeyInfo>
+		</KeyDescriptor>
+		<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp-dev.cf.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+		<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp-dev.cf.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp-dev.cf.ac.uk/idp/profile/SAML2/Redirect/SLO"/>
+		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp-dev.cf.ac.uk/idp/profile/SAML2/POST/SLO"/>
+		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp-dev.cf.ac.uk/idp/profile/SAML2/POST-SimpleSign/SLO"/>
+		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp-dev.cf.ac.uk:8443/idp/profile/SAML2/SOAP/SLO"/>
+		<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+		<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp-dev.cf.ac.uk/idp/profile/Shibboleth/SSO"/>
+		<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp-dev.cf.ac.uk/idp/profile/SAML2/POST/SSO"/>
+		<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp-dev.cf.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+		<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp-dev.cf.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+		<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp-dev.cf.ac.uk/idp/profile/SAML2/SOAP/ECP"/>
+	</IDPSSODescriptor>
+	<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+		<Extensions>
+			<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">cardiff.ac.uk</shibmd:Scope>
+		</Extensions>
+		<KeyDescriptor use="signing">
+			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+				<ds:X509Data>
+					<ds:X509Certificate>
+						MIIDLDCCAhSgAwIBAgIVALNT+AdUt2+81m3rncPOX7CvBavdMA0GCSqGSIb3DQEB
+						BQUAMBsxGTAXBgNVBAMTEGlkcC1kZXYuY2YuYWMudWswHhcNMTEwNjEwMTYzNjE1
+						WhcNMzEwNjEwMTYzNjE1WjAbMRkwFwYDVQQDExBpZHAtZGV2LmNmLmFjLnVrMIIB
+						IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwHK/62C9csv4UEWcGy5lo97k
+						7zXUCDf1wW5k83sn9BzqG4YJoM9G9pefXU2AHFZtEhZjgxQgbOUdG9MdOHmeeuXr
+						8/izvK6BOyFmNFgBi/h2uwjI1T86WHMJG91IQFUTWbRlDm43zAoigsscOYDJ8+Fk
+						6KZWDAngo5Ip0NlwUcKGqjdZbHeWyuLITCwgqU1aQHEg2eLzT+eC2/c+sbTy6GqO
+						5wsTLZGNNSifEPo2JzMi9WvdyklXcHj1X5cVExixeQ9cgb6VeqS6NtKRgG7PvZZU
+						REdZZAQ3yMWZeqOoWyhOteUcnlZQo3yWytLXy7vsVpMZWG6dXw90XTVuLwObTQID
+						AQABo2cwZTBEBgNVHREEPTA7ghBpZHAtZGV2LmNmLmFjLnVrhidodHRwczovL2lk
+						cC1kZXYuY2YuYWMudWsvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFMJ9mnoUnJdL
+						2PYWanl07bVy1yRbMA0GCSqGSIb3DQEBBQUAA4IBAQA0vIW7kIcy6RA+OkshiraI
+						9D8m8H3Q5ye4QgbqdiLAaMy2/pHjHKirdseOl+3XLyrzDelXtl/4DhQCHAbUPssS
+						pgZIVEk4aOVuzjbqKfUOW/Dny9cPYLTVcU/ybhGdMC1FwGikZ499qISPoyJ2zmnC
+						6WH5uvbdmmiBmbvipWBRu6/imITVjzH7hWoz5SMuSFzy68yn5C00t7L9dtI3DgXo
+						zCmMlR+TxITKeAh433Gv+ldwYr4/NRClZBPKtOg4EHun7G7FVjXfEjNYts5aUwfF
+						WlUNTYrQTmfEqypOCvR3sjkLbbv3H/li9NLbE0dCr2DkR0SaOp7mjFqiiXR7z8JT
+					</ds:X509Certificate>
+				</ds:X509Data>
+			</ds:KeyInfo>
+		</KeyDescriptor>
+		<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp-dev.cf.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+		<AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp-dev.cf.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+		<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+		<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+	</AttributeAuthorityDescriptor>
+	<Organization>
+		<OrganizationName xml:lang="en">Cardiff University</OrganizationName>
+		<OrganizationDisplayName xml:lang="en">Cardiff University (Test - Dev)</OrganizationDisplayName>
+		<OrganizationURL xml:lang="en">http://www.cardiff.ac.uk/insrv/</OrganizationURL>
+	</Organization>
+	<ContactPerson contactType="support">
+		<GivenName>Rhys</GivenName>
+		<SurName>Smith</SurName>
+		<EmailAddress>mailto:smith@cardiff.ac.uk</EmailAddress>
+	</ContactPerson>
+	<ContactPerson contactType="technical">
+		<GivenName>Rhys</GivenName>
+		<SurName>Smith</SurName>
+		<EmailAddress>mailto:smith@cardiff.ac.uk</EmailAddress>
+	</ContactPerson>
+
+</EntityDescriptor>

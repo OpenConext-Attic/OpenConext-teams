@@ -1,0 +1,115 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://idp1.hogent.be/idp/shibboleth">
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <Extensions>
+            <shibmd:Scope regexp="false">hogent.be</shibmd:Scope>
+        </Extensions>
+
+        <KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDJDCCAgygAwIBAgIVAKN8lW+W0bwU2Fgdizh1Fc78eC1cMA0GCSqGSIb3DQEB
+BQUAMBkxFzAVBgNVBAMTDmlkcDEuaG9nZW50LmJlMB4XDTEzMTAwNzE0MzI1M1oX
+DTMzMTAwNzE0MzI1M1owGTEXMBUGA1UEAxMOaWRwMS5ob2dlbnQuYmUwggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCpFqqWVjzACwe3pHH4Z+zxtqD0UjIF
+upRkh8638dhdPTsEAS/dIdoG9vI5Bo0o/3Mds/2Vcasih1aEtLpOZA5szGjbQyF3
+Bif6ExfNRc07D9o4o1wEzkkOEaNV6edkBJAENNnuFBZVES13FIhvyW673sdFMU26
+q/PTgXt+DVejhpdgkMtqTLaAbD3G4aViVeNIstuJcrIXwZv3YgD4lgU/fXNjjLDE
+Hk8DuL+aGVmalg37cnxNtq+i7O6lW3/yrLxExCOiFkdvcQq2lCfwECU41ira4M2o
+YuB0CDsYqK8rk3Btk4VueIDJsnivARPrJiRNSN7z1WhDjNe7M5pkC4E9AgMBAAGj
+YzBhMEAGA1UdEQQ5MDeCDmlkcDEuaG9nZW50LmJlhiVodHRwczovL2lkcDEuaG9n
+ZW50LmJlL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBQC4xxZFlWHXKtFqS2uu3pI
+8k+42jANBgkqhkiG9w0BAQUFAAOCAQEAXFNa7quzgSZt+SBCYhjI/5L5EF5ZkZv1
+VSViW5l/vIyFNfMZiXKKsZXZ55WfGePMbrnWh7l0GPlLzgRpFnLuBRS2+VwzWpzA
+H5KAS7a7R0rgvKd7/21l7XrRcBr6z/TNewOb8mpySJTH5M3in2PejUd5+Ae6PsU9
+PY4KiNwdLjzlzJPo/IBFLxiu70X5hTxip+OxTp7bxMleEG7PnlTzQIWMmBehHnDa
+YCtYQpTwBizo6WlwrYOpE/KWQRYL5BB/Q3aW2KeUy87jEpbgU/SojjBrp5y8wRsp
+4rV7/SlPD5jEYnPfqLEiiXz/yXbN2dNfvlO47aV2d/GdWvKDGnijBw==
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </KeyDescriptor>
+        
+        <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp1.hogent.be:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+        <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp1.hogent.be:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+        
+        <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp1.hogent.be/idp/profile/SAML2/Redirect/SLO"/>
+        
+        <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp1.hogent.be/idp/profile/SAML2/POST/SLO"/>
+        
+        <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp1.hogent.be:8443/idp/profile/SAML2/SOAP/SLO"/>
+                                   
+        <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+        <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp1.hogent.be/idp/profile/Shibboleth/SSO"/>
+        
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp1.hogent.be/idp/profile/SAML2/POST/SSO"/>
+
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp1.hogent.be/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+        
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp1.hogent.be/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <Extensions>
+            <shibmd:Scope regexp="false">hogent.be</shibmd:Scope>
+        </Extensions>
+
+        <KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDJDCCAgygAwIBAgIVAKN8lW+W0bwU2Fgdizh1Fc78eC1cMA0GCSqGSIb3DQEB
+BQUAMBkxFzAVBgNVBAMTDmlkcDEuaG9nZW50LmJlMB4XDTEzMTAwNzE0MzI1M1oX
+DTMzMTAwNzE0MzI1M1owGTEXMBUGA1UEAxMOaWRwMS5ob2dlbnQuYmUwggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCpFqqWVjzACwe3pHH4Z+zxtqD0UjIF
+upRkh8638dhdPTsEAS/dIdoG9vI5Bo0o/3Mds/2Vcasih1aEtLpOZA5szGjbQyF3
+Bif6ExfNRc07D9o4o1wEzkkOEaNV6edkBJAENNnuFBZVES13FIhvyW673sdFMU26
+q/PTgXt+DVejhpdgkMtqTLaAbD3G4aViVeNIstuJcrIXwZv3YgD4lgU/fXNjjLDE
+Hk8DuL+aGVmalg37cnxNtq+i7O6lW3/yrLxExCOiFkdvcQq2lCfwECU41ira4M2o
+YuB0CDsYqK8rk3Btk4VueIDJsnivARPrJiRNSN7z1WhDjNe7M5pkC4E9AgMBAAGj
+YzBhMEAGA1UdEQQ5MDeCDmlkcDEuaG9nZW50LmJlhiVodHRwczovL2lkcDEuaG9n
+ZW50LmJlL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBQC4xxZFlWHXKtFqS2uu3pI
+8k+42jANBgkqhkiG9w0BAQUFAAOCAQEAXFNa7quzgSZt+SBCYhjI/5L5EF5ZkZv1
+VSViW5l/vIyFNfMZiXKKsZXZ55WfGePMbrnWh7l0GPlLzgRpFnLuBRS2+VwzWpzA
+H5KAS7a7R0rgvKd7/21l7XrRcBr6z/TNewOb8mpySJTH5M3in2PejUd5+Ae6PsU9
+PY4KiNwdLjzlzJPo/IBFLxiu70X5hTxip+OxTp7bxMleEG7PnlTzQIWMmBehHnDa
+YCtYQpTwBizo6WlwrYOpE/KWQRYL5BB/Q3aW2KeUy87jEpbgU/SojjBrp5y8wRsp
+4rV7/SlPD5jEYnPfqLEiiXz/yXbN2dNfvlO47aV2d/GdWvKDGnijBw==
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </KeyDescriptor>
+
+        <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp1.hogent.be:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+        
+        <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp1.hogent.be:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+        
+        <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+        
+    </AttributeAuthorityDescriptor>
+    <Organization>
+    <OrganizationName xml:lang="en">
+    Hogeschool Gent
+    </OrganizationName>
+    <OrganizationDisplayName xml:lang="en">
+    Hogeschool Gent
+    </OrganizationDisplayName>
+    <OrganizationURL xml:lang="en">
+    http://www.hogent.be
+    </OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+    <GivenName>Technical Support</GivenName>
+    <SurName>Technical Support</SurName>
+    <EmailAddress>helpdesk@hogent.be</EmailAddress>
+    </ContactPerson>     
+</EntityDescriptor>

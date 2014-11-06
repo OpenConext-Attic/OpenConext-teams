@@ -1,0 +1,137 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://cafe.udesc.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">udesc.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">UDESC - Universidade do Estado de Santa Catarina</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">UDESC - Universidade do Estado de Santa Catarina</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UDESC - Universidade do Estado de Santa Catarina</mdui:Description>
+          <mdui:Description xml:lang="pt-br">UDESC - Universidade do Estado de Santa Catarina</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.udesc.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.udesc.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIEgDCCA2gCAQAwDQYJKoZIhvcNAQEFBQAwggEEMTkwNwYDVQQKEzBVREVTQyAt
+IFVuaXZlcnNpZGFkZSBkbyBFc3RhZG8gZGUgU2FudGEgQ2F0YXJpbmExSTBHBgNV
+BAsUQFNFVElDIC0gU2VjcmV0YXJpYSBkZSBUZWNub2xvZ2lhIGRhIEluZm9ybWHD
+p8OjbyBlIENvbXVuaWNhw6fDo28xJTAjBgkqhkiG9w0BCQEWFnNlaW5mcmEuc2V0
+aWNAdWRlc2MuYnIxFzAVBgNVBAcUDkZsb3JpYW7Ds3BvbGlzMRcwFQYDVQQIEw5T
+YW50YSBDYXRhcmluYTELMAkGA1UEBhMCQlIxFjAUBgNVBAMTDWNhZmUudWRlc2Mu
+YnIwHhcNMTQwNTE1MjAxMjEyWhcNMTcwNTE0MjAxMjEyWjCCAQQxOTA3BgNVBAoT
+MFVERVNDIC0gVW5pdmVyc2lkYWRlIGRvIEVzdGFkbyBkZSBTYW50YSBDYXRhcmlu
+YTFJMEcGA1UECxRAU0VUSUMgLSBTZWNyZXRhcmlhIGRlIFRlY25vbG9naWEgZGEg
+SW5mb3JtYcOnw6NvIGUgQ29tdW5pY2HDp8OjbzElMCMGCSqGSIb3DQEJARYWc2Vp
+bmZyYS5zZXRpY0B1ZGVzYy5icjEXMBUGA1UEBxQORmxvcmlhbsOzcG9saXMxFzAV
+BgNVBAgTDlNhbnRhIENhdGFyaW5hMQswCQYDVQQGEwJCUjEWMBQGA1UEAxMNY2Fm
+ZS51ZGVzYy5icjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL9PTe5l
+WC7jplN9PsFwipaPk1bB5UPXxEOeJgr/6xf5RMT//l1L6T/X4uOj+lK6KI8a4pRc
+oD+a83AlKb8cvYzDIQEBCDOPqjruIy+TyTwQ358x45mPM/aNivkugPKMaK8Aidma
+nUgeiRuZ1rtFyVqenDkH7qs9SwExR4NnJ/1l7DNkP6znKksBq7PGlYkj0mryxNCV
+1CAEZT6zEIyptWwd0TRHaybJc2uDD5Kl8HE54IvCwxfdKgJVQ/9FK2W9vvZowUQl
+bOGdUHqFvtudcU6VWOPxuRv4NgmkFGRaNBisnfZ3XfUah8yMIvlYXgkAevQNBjnz
+g3P3o8BU5YU6ieECAwEAATANBgkqhkiG9w0BAQUFAAOCAQEAUu6oCJTJ51HQeuiD
+06G3V1HddwBdddkaHK+WVNux+s8fVQH1Z6ZvkIH2xgmi9ZI9jK7OoBv1H0TfM27g
+4i8RC4jkVM9SHJFR5YFlNs/5tMaohIMZ2zURG72tRLtq603OqSzaeZPIthDasWww
+VEfbfbckLrCcjuLzb608J8d0brg+Cgn8YxQY17r/4GbkXYuC9k9zYshOCZelS703
+C7ZdXXJuI6/VXffvbqifT9BsY3SmAPw/JQAiSxpp2+ZTwauq3YLwxDcIq9b5YX35
+qcmfM3D3mVPH/aUvLhgtMSlmaGYm8o1mD9LUIR5b5C4A+j/qmzu1IIf3JYqMjb/V
+WiKadQ==
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.udesc.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.udesc.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafe.udesc.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafe.udesc.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafe.udesc.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafe.udesc.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">udesc.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIEgDCCA2gCAQAwDQYJKoZIhvcNAQEFBQAwggEEMTkwNwYDVQQKEzBVREVTQyAt
+IFVuaXZlcnNpZGFkZSBkbyBFc3RhZG8gZGUgU2FudGEgQ2F0YXJpbmExSTBHBgNV
+BAsUQFNFVElDIC0gU2VjcmV0YXJpYSBkZSBUZWNub2xvZ2lhIGRhIEluZm9ybWHD
+p8OjbyBlIENvbXVuaWNhw6fDo28xJTAjBgkqhkiG9w0BCQEWFnNlaW5mcmEuc2V0
+aWNAdWRlc2MuYnIxFzAVBgNVBAcUDkZsb3JpYW7Ds3BvbGlzMRcwFQYDVQQIEw5T
+YW50YSBDYXRhcmluYTELMAkGA1UEBhMCQlIxFjAUBgNVBAMTDWNhZmUudWRlc2Mu
+YnIwHhcNMTQwNTE1MjAxMjEyWhcNMTcwNTE0MjAxMjEyWjCCAQQxOTA3BgNVBAoT
+MFVERVNDIC0gVW5pdmVyc2lkYWRlIGRvIEVzdGFkbyBkZSBTYW50YSBDYXRhcmlu
+YTFJMEcGA1UECxRAU0VUSUMgLSBTZWNyZXRhcmlhIGRlIFRlY25vbG9naWEgZGEg
+SW5mb3JtYcOnw6NvIGUgQ29tdW5pY2HDp8OjbzElMCMGCSqGSIb3DQEJARYWc2Vp
+bmZyYS5zZXRpY0B1ZGVzYy5icjEXMBUGA1UEBxQORmxvcmlhbsOzcG9saXMxFzAV
+BgNVBAgTDlNhbnRhIENhdGFyaW5hMQswCQYDVQQGEwJCUjEWMBQGA1UEAxMNY2Fm
+ZS51ZGVzYy5icjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL9PTe5l
+WC7jplN9PsFwipaPk1bB5UPXxEOeJgr/6xf5RMT//l1L6T/X4uOj+lK6KI8a4pRc
+oD+a83AlKb8cvYzDIQEBCDOPqjruIy+TyTwQ358x45mPM/aNivkugPKMaK8Aidma
+nUgeiRuZ1rtFyVqenDkH7qs9SwExR4NnJ/1l7DNkP6znKksBq7PGlYkj0mryxNCV
+1CAEZT6zEIyptWwd0TRHaybJc2uDD5Kl8HE54IvCwxfdKgJVQ/9FK2W9vvZowUQl
+bOGdUHqFvtudcU6VWOPxuRv4NgmkFGRaNBisnfZ3XfUah8yMIvlYXgkAevQNBjnz
+g3P3o8BU5YU6ieECAwEAATANBgkqhkiG9w0BAQUFAAOCAQEAUu6oCJTJ51HQeuiD
+06G3V1HddwBdddkaHK+WVNux+s8fVQH1Z6ZvkIH2xgmi9ZI9jK7OoBv1H0TfM27g
+4i8RC4jkVM9SHJFR5YFlNs/5tMaohIMZ2zURG72tRLtq603OqSzaeZPIthDasWww
+VEfbfbckLrCcjuLzb608J8d0brg+Cgn8YxQY17r/4GbkXYuC9k9zYshOCZelS703
+C7ZdXXJuI6/VXffvbqifT9BsY3SmAPw/JQAiSxpp2+ZTwauq3YLwxDcIq9b5YX35
+qcmfM3D3mVPH/aUvLhgtMSlmaGYm8o1mD9LUIR5b5C4A+j/qmzu1IIf3JYqMjb/V
+WiKadQ==
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.udesc.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.udesc.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">UDESC - Universidade do Estado de Santa Catarina</OrganizationName>
+      <OrganizationName xml:lang="pt-br">UDESC - Universidade do Estado de Santa Catarina</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">UDESC - Universidade do Estado de Santa Catarina</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">UDESC - Universidade do Estado de Santa Catarina</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.udesc.br/</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.udesc.br/</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Setor de Infraestrutura - SETIC</SurName>
+      <EmailAddress>seinfra.setic@udesc.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

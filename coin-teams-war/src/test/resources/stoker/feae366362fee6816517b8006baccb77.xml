@@ -1,0 +1,111 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp1.crous-toulouse.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-02-22T14:37:55Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">etu.crous-toulouse.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">CROUS Toulouse - Etudiants</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDLDCCAhSgAwIBAgIVANP/syULUNCGiJ6jMUcqvbTYvZ74MA0GCSqGSIb3DQEB
+BQUAMBsxGTAXBgNVBAMTEFNSVmlEUC5jcm91cy5sYW4wHhcNMTExMDI4MTQwMDAx
+WhcNMzExMDI4MTUwMDAxWjAbMRkwFwYDVQQDExBTUlZpRFAuY3JvdXMubGFuMIIB
+IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkYnPcZx0e0Ce2gh7d7wyIkME
+ovrrzv0vlruzvby4oU2L0ebZwMb9cxQQBYu7jEgnvITkoAqzzAjnNW0aiPbTDnX0
+Ma1OC1H7yG2HjdjMUmu9Dn7o8nhluFzXk7my3v6Cblt4SrMmsjh8aDFbixEIVLhp
+NdS80dAvUzhxlYd6JzJSdwcqB4pt9Syb4ahJxRh6BuzIQzqM4j+7ChIKkMP8BVYU
+Zl3R0hkTcgB24Ha6GlWBeW15/mKSKnbXmQOy74Jhkhyh/jJ/0u03STQUx9mKnC5R
+OPyQNhIA7eBBQ1soxAXe59UURfcvMHj1u4Zw1jj09sHNLMaQDtf9f13H5bwo8wID
+AQABo2cwZTBEBgNVHREEPTA7ghBTUlZpRFAuY3JvdXMubGFuhidodHRwczovL1NS
+VmlEUC5jcm91cy5sYW4vaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFAawx20ceqtg
+Jga00U1mDWS7Y0uJMA0GCSqGSIb3DQEBBQUAA4IBAQByK4s5e6Mx/3Kfiph8sbOV
+Jlnm3mL8MrnOchYVGZ+qF/9Od66OH7wDv45gZ53EcuLBIFyPO8d1UjXGaMmjx5Un
+pqjvYXU/lWWx1wSa5NzVXHNk/JMbSjvG5eqB4/HNy8PIhK/eviNX31N+tK40iTAP
+AY5+hwohjB3vH2jNsQgnSLqNG23N0XP+gywXbe4DeQyQeOSXCWF1cmN2AyJcwlX4
++9yrgYP8FwS+60ev2v26ZY7fERxUSDtlpwvuWqor0ANFpPg8HbTiTxw4UCyOyLdL
+Fm2Z0wb+tZB2P+GVyIVeS5Kk7SBtWd6iOnuhPvXdTZxSMTCnBOPDqwuSKJNzYSQL
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+				
+				<KeyDescriptor use="signing">
+				       <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIEWzCCA0OgAwIBAgIBBDANBgkqhkiG9w0BAQUFADB+MQswCQYDVQQGEwJmcjEO
+MAwGA1UECBMFRmFuY2UxETAPBgNVBAcTCFRvdWxvdXNlMQ4wDAYDVQQKEwVDcm91
+czEmMCQGCSqGSIb3DQEJARYXY3JvdXMtc2lAYWMtdG91bG91c2UuZnIxFDASBgNV
+BAMTC2ludGVybmFsLWNhMB4XDTExMTAyNzE0MjQxOFoXDTIxMTAyNDE0MjQxOFow
+gYMxCzAJBgNVBAYTAmZyMQ4wDAYDVQQIEwVGYW5jZTERMA8GA1UEBxMIVG91bG91
+c2UxDjAMBgNVBAoTBUNyb3VzMSYwJAYJKoZIhvcNAQkBFhdjcm91cy1zaUBhYy10
+b3Vsb3VzZS5mcjEZMBcGA1UEAxMQU1JWaURQLmNyb3VzLmxhbjCCASIwDQYJKoZI
+hvcNAQEBBQADggEPADCCAQoCggEBAMgpkRfNo/rn5xeuCDLvQPoaFrMwq3tjCcCM
+O00rQSCNy81KOtPQOqTtbw+0CiOgHr0oC2jhUqV+IIkXP5rzBcBQw9IkGrHCQLPm
+Yg0Yik1eQPGf8UYZKb5ulvArG2t0HuEfD+npSbsPhJPBmNhr5OkP9aZx+ey3+wQ7
+3RLhR3aDzTyFqwFjkkJcUANLQLmz2CbxnZ3c84OA//SVdDPe/iSqkBwPNOyi/ZsA
+sPSMYGf1OngY2lJJSllKssPIOkYNZPP7EIZxMv9jd7deMtTjEcAnoVJUOb0yb2HE
++TBXShU4dSE46PBu8K9+/W90woEM11kwkHETwLDHuxzmfde5mrkCAwEAAaOB3TCB
+2jAdBgNVHQ4EFgQU7/P8O36Gwrq+uyg6sDWqG8jN3d4wgaoGA1UdIwSBojCBn4AU
+trBU7BEx8lPtHYx+4HWHX6l5gguhgYOkgYAwfjELMAkGA1UEBhMCZnIxDjAMBgNV
+BAgTBUZhbmNlMREwDwYDVQQHEwhUb3Vsb3VzZTEOMAwGA1UEChMFQ3JvdXMxJjAk
+BgkqhkiG9w0BCQEWF2Nyb3VzLXNpQGFjLXRvdWxvdXNlLmZyMRQwEgYDVQQDEwtp
+bnRlcm5hbC1jYYIBADAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQAV
+UtC7q5CB5NpDeJLsh7Caq5yTBD0Aq6QBp9fgjirq4U6wHxlriGTFqhGtc90t0lxQ
+8x/Xd+sXKT/65+yHj8BlfjGgT/1jTuUuLZNO67eIh04aMv/VGqCifo+6+B41ot77
+/XYb8OCrLhZdTrMyo3k+/tlXC4cZqY8e3q4EhQZm4YCA4/HIwd+VyBN1pjaYT7j/
+J8VDIxl4TLSZqOQQdl/kMZhp5FtvJW6hB5IvFXiPzUru/eSelrTiCErPWDooGVol
+xaAGmA2uF92HwcV8uKkqzq8HVzznIXjR35te/qaKm6SO31RiK6/PxM2hfPK1UeOT
+efZl8BTyGK4ETamE3ANP
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					</ds:KeyInfo>
+				</KeyDescriptor>
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp1.crous-toulouse.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp1.crous-toulouse.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp1.crous-toulouse.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">CROUS Toulouse - Etudiants</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">CROUS Toulouse - Etudiants</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>crous-reseau@crous-toulouse.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

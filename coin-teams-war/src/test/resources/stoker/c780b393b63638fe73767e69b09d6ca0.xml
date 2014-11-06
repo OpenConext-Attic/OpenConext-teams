@@ -1,0 +1,129 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="urn:mace:cru.fr:federation:univ-reims.fr">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-04-27T15:31:10Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-reims.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de Reims Champagne-Ardenne</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDMDCCAhigAwIBAgIVAL2jIgsvdHaiW3jhATYWI0XNX8mEMA0GCSqGSIb3DQEB
+BQUAMBwxGjAYBgNVBAMTEWlkcC51bml2LXJlaW1zLmZyMB4XDTA5MDQwOTA3MDY1
+MloXDTI5MDQwOTA3MDY1MlowHDEaMBgGA1UEAxMRaWRwLnVuaXYtcmVpbXMuZnIw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCAzPcBanTJ7Dz5EJtyHuRo
+jH43UwmGsVSmYXYHCBS5dR/OmxClgdsAnFAfLadx37gO4Ib60Rut5Fj8VzMMNZSY
+7QMoxxswchbFWfeQ+Ouo7f78XFlr3uvrREjdBy6wOG9AKpFdoXN1YqDLmSJ8NUXS
+tLHIqfuG1LQuBGvZeFTd8Aq1KluFbUBlDgJeqfXASR+f+NeRhfi4+/neUsmffOJs
+cF4LLR9htO8wAQ5jqT38g6Mef15m2YbvfbamS1K0gJ+xkUHdfn2QEChXgBUEA07e
+BbhhtyO5hF7NdoDwmChrUwOLa19DzvXsq+NtPFXgNyzhrWDWHcxQyNbqif558Agp
+AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEWlkcC51bml2LXJlaW1zLmZyhihodHRwczov
+L2lkcC51bml2LXJlaW1zLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBTGzm17
+rh/LTbtXmOsK6s5WTYAj4DANBgkqhkiG9w0BAQUFAAOCAQEAVcEL+y4/0UQ7glis
+R63eyvaAwsHWpxxHgCCOeKLzEUI1psi/vysmlWJa5R/EE+yJZqTvUyGEurZLgIJv
+OFxmQBsasPsFKvrvFvwBDuJsC49sYjQeNw30iro9lGNqsqQ9dzVSrGEgqF67uYeV
+3wDkziL1KeqOs+Rx6m6YFRGsDbkZ6iQ9G7PFvD6XbNkKscox94T768AFvF69hVTJ
+L2xmGFNJLLSoZPnMUL2K3EcXychLRIfAzaK0hRvJUrx8HTcHVmdh477BespRaHsB
+/M7dFoRtQlh4cfry/iAqcvigNqzLB2d2cs52M+VdtWuXnG96iRnCQohf1+u6Tnor
+Eby/Nw==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.univ-reims.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.univ-reims.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.univ-reims.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-reims.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDMDCCAhigAwIBAgIVAL2jIgsvdHaiW3jhATYWI0XNX8mEMA0GCSqGSIb3DQEB
+BQUAMBwxGjAYBgNVBAMTEWlkcC51bml2LXJlaW1zLmZyMB4XDTA5MDQwOTA3MDY1
+MloXDTI5MDQwOTA3MDY1MlowHDEaMBgGA1UEAxMRaWRwLnVuaXYtcmVpbXMuZnIw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCAzPcBanTJ7Dz5EJtyHuRo
+jH43UwmGsVSmYXYHCBS5dR/OmxClgdsAnFAfLadx37gO4Ib60Rut5Fj8VzMMNZSY
+7QMoxxswchbFWfeQ+Ouo7f78XFlr3uvrREjdBy6wOG9AKpFdoXN1YqDLmSJ8NUXS
+tLHIqfuG1LQuBGvZeFTd8Aq1KluFbUBlDgJeqfXASR+f+NeRhfi4+/neUsmffOJs
+cF4LLR9htO8wAQ5jqT38g6Mef15m2YbvfbamS1K0gJ+xkUHdfn2QEChXgBUEA07e
+BbhhtyO5hF7NdoDwmChrUwOLa19DzvXsq+NtPFXgNyzhrWDWHcxQyNbqif558Agp
+AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEWlkcC51bml2LXJlaW1zLmZyhihodHRwczov
+L2lkcC51bml2LXJlaW1zLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBTGzm17
+rh/LTbtXmOsK6s5WTYAj4DANBgkqhkiG9w0BAQUFAAOCAQEAVcEL+y4/0UQ7glis
+R63eyvaAwsHWpxxHgCCOeKLzEUI1psi/vysmlWJa5R/EE+yJZqTvUyGEurZLgIJv
+OFxmQBsasPsFKvrvFvwBDuJsC49sYjQeNw30iro9lGNqsqQ9dzVSrGEgqF67uYeV
+3wDkziL1KeqOs+Rx6m6YFRGsDbkZ6iQ9G7PFvD6XbNkKscox94T768AFvF69hVTJ
+L2xmGFNJLLSoZPnMUL2K3EcXychLRIfAzaK0hRvJUrx8HTcHVmdh477BespRaHsB
+/M7dFoRtQlh4cfry/iAqcvigNqzLB2d2cs52M+VdtWuXnG96iRnCQohf1+u6Tnor
+Eby/Nw==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.univ-reims.fr/idp/profile/SAML2/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Reims Champagne-Ardenne</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Reims Champagne-Ardenne</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Monclin Yannick</SurName>
+				 <EmailAddress>yannick.monclin@univ-reims.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Canart Arnaud</SurName>
+				 <EmailAddress>arnaud.canart@univ-reims.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

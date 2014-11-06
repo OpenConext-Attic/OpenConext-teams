@@ -1,0 +1,120 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" ID="IDEM-EDUGAIN00020" entityID="https://ecsg.dch-rp.eu/shibboleth">
+        <Extensions>
+            <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.idem.garr.it/" registrationInstant="2013-06-10T15:00:00Z">
+                <mdrpi:RegistrationPolicy xml:lang="en">https://www.idem.garr.it/idem-metadata-registration-practice-statement</mdrpi:RegistrationPolicy>
+            </mdrpi:RegistrationInfo>
+        </Extensions>
+        
+        <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+            <Extensions>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">
+                        e-Culture Science Gateway
+                    </mdui:DisplayName>
+                    <mdui:DisplayName xml:lang="it">
+                        e-Culture Science Gateway
+                    </mdui:DisplayName>
+                    <mdui:Description xml:lang="en">
+                        This service allows to use on a Grid infrastructure the applications of the DCH-RP Project which provides tools to store and preserve digital cultural heritage.
+                    </mdui:Description>
+                    <mdui:Description xml:lang="it">
+                        Questo servizio permette l'accesso e l'uso delle applicazioni/servizi sviluppati per il progetto europeo DCH-RP che ha come obiettivo quello di fornire strumenti per la memo
+                        rizzazione ed il mantenimento del patrimonio culturale
+                    </mdui:Description>
+                </mdui:UIInfo>
+                <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://earthserver-sg.consorzio-cometa.it/Shibboleth.sso/DS"/>
+                <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://ecsg.dch-rp.eu/Shibboleth.sso/DS" index="1"/>
+            </Extensions>
+            <KeyDescriptor>
+                <ds:KeyInfo>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <ds:X509Data>
+                        
+                        <ds:X509Certificate>
+MIIF0TCCBLmgAwIBAgIRAJjvs9uxU/ydSPVPqQh6szEwDQYJKoZIhvcNAQEFBQAw
+NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+IFNTTCBDQTAeFw0xMzAxMDcwMDAwMDBaFw0xNjAxMDcyMzU5NTlaMIHFMQswCQYD
+VQQGEwJJVDEOMAwGA1UEERMFOTUxMjMxDjAMBgNVBAgTBUl0YWx5MRAwDgYDVQQH
+EwdDYXRhbmlhMRkwFwYDVQQJExBWaWEgUy5Tb2ZpYSBuLjY0MS4wLAYDVQQKEyVJ
+c3RpdHV0byBOYXppb25hbGUgZGkgRmlzaWNhIE51Y2xlYXJlMQ8wDQYDVQQLEwZD
+T01FVEExKDAmBgNVBAMTH3d3dy5jYXRhbmlhLXNjaWVuY2UtZ2F0ZXdheXMuaXQw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDMR2RMw4cNImWSKdvZjDhz
+3JuO7/pMOnGw4hF6uu09cqX8qqBpkU/gd33xq7J254ojywwiIlLT7QaTce4YQU2W
+O5mPyqdHjnpA+C0fJWrQgRyJEXsOzwpxyUG42tim/9jgNNDaUuNSGgrMLGlzl0sU
+i3Cq04AY0hukrtFGe6DFvDsm8xoNwfV8jmO3IipWJdJdezRnCGDgTZqgIWj3yrHo
+LjfgLbs85AJ31plMahcEni1jDZYgzu7FurbKpO4FGSLUEI8VUxncdYx3IWidqYBD
+TjxFGIiRIcD59DTIBxZYT4IgGHhG1whnUtE7nZhtuxFvnxfH4gPi7mPcRwidNHg9
+AgMBAAGjggJIMIICRDAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAd
+BgNVHQ4EFgQU+qOkofxo+Ei3aGD2lLEkM4L7LS0wDgYDVR0PAQH/BAQDAgWgMAwG
+A1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMCIGA1Ud
+IAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQICMDoGA1UdHwQzMDEwL6AtoCuG
+KWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3JsMG0GCCsG
+AQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2NydC50Y3MudGVyZW5hLm9y
+Zy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6Ly9vY3NwLnRjcy50
+ZXJlbmEub3JnMIH1BgNVHREEge0wgeqCH3d3dy5jYXRhbmlhLXNjaWVuY2UtZ2F0
+ZXdheXMuaXSCFWFnaW5mcmEtc2cuY3QuaW5mbi5pdIIVY29naXRvLW1lZC5jdC5p
+bmZuLml0giJlYXJ0aHNlcnZlci1zZy5jb25zb3J6aW8tY29tZXRhLml0gg5lY3Nn
+LmRjaC1ycC5ldYISZ2Fyci1zZy5jdC5pbmZuLml0ghBrbGlvcy5jdC5pbmZuLml0
+ghNsaWZlcmF5Mi5jdC5pbmZuLml0ghNzZ3cuYWZyaWNhLWdyaWQub3JnghV3d3cu
+cHJvZ2V0dG8taWNhcm8uaXQwDQYJKoZIhvcNAQEFBQADggEBAIzikPZKDI8rXlUU
+iF8KUeEVYZMyBfRtl0sQYBZCprDoVpCr74CPTxQ72Jrh2mD8oAz0ZYVgOA19AbM8
+PskJlhx4bmDJvWU/C2FrOgYDNg9Tl7dqLnr18GDt7DuC0KXCDupgtBmwy7mayNgA
+n2jbIaYsfMI7k1msS1XoaVX7kBMgmeGY3V11Om9Te7iMWKFOhpavI2hbf741ODtV
+zBen58Q2WzjVEKVQYbY7UgtcYzOM44GhMcdS65lLsBviK7HzyB6I5Iu3TR0bcpFE
+2V4bd6L5foq3Qn+WO9wqOwnOk3qfD/TQId7NWv0ZE2vp8fPPaaRF2XcA7Qh5xltt
+j/MCNlE=
+</ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://ecsg.dch-rp.eu/Shibboleth.sso/Artifact/SOAP" index="1"/>
+            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://ecsg.dch-rp.eu/Shibboleth.sso/SLO/SOAP"/>
+            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://ecsg.dch-rp.eu/Shibboleth.sso/SLO/Redirect"/>
+            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ecsg.dch-rp.eu/Shibboleth.sso/SLO/POST"/>
+            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ecsg.dch-rp.eu/Shibboleth.sso/SLO/Artifact"/>
+            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ecsg.dch-rp.eu/Shibboleth.sso/SAML2/POST" index="1"/>
+            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://ecsg.dch-rp.eu/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ecsg.dch-rp.eu/Shibboleth.sso/SAML2/Artifact" index="3"/>
+            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://ecsg.dch-rp.eu/Shibboleth.sso/SAML2/ECP" index="4"/>
+            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://ecsg.dch-rp.eu/Shibboleth.sso/SAML/POST" index="5"/>
+            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://ecsg.dch-rp.eu/Shibboleth.sso/SAML/Artifact" index="6"/>
+            
+            <AttributeConsumingService index="1">
+                <ServiceName xml:lang="en">e-Culture Science Gateway</ServiceName>
+                <ServiceDescription xml:lang="en">
+                    This service allows to use on a Grid infrastructure the applications of the DCH-RP Project which provides tools to store and preserve digital cultural heritage.
+                </ServiceDescription>
+                
+                <RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+                
+            </AttributeConsumingService>
+        </SPSSODescriptor>
+        
+        <Organization>
+            <OrganizationName xml:lang="en">INFN Catania</OrganizationName>
+            <OrganizationDisplayName xml:lang="en">INFN Catania</OrganizationDisplayName>
+            <OrganizationURL xml:lang="en">http://www.ct.infn.it/</OrganizationURL>
+        </Organization>
+        <ContactPerson contactType="technical">
+            <GivenName>Marco</GivenName>
+            <SurName>Fargetta</SurName>
+            <EmailAddress>mailto:marco.fargetta@ct.infn.it</EmailAddress>
+            <EmailAddress>mailto:credentials-admin@ct.infn.it</EmailAddress>
+        </ContactPerson>
+        <ContactPerson contactType="administrative">
+            <GivenName>Roberto</GivenName>
+            <SurName>Barbera</SurName>
+            <EmailAddress>mailto:roberto.barbera@ct.infn.it</EmailAddress>
+            <EmailAddress>mailto:credentials-admin@ct.infn.it</EmailAddress>
+        </ContactPerson>
+        
+    </EntityDescriptor>

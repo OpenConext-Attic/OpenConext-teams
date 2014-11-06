@@ -1,0 +1,129 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.univ-lehavre.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-05-25T10:50:14Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-lehavre.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université du Havre</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDODCCAiCgAwIBAgIVAKVZEzNuUG9OyP1vnILb2oaJys+2MA0GCSqGSIb3DQEB
+BQUAMB4xHDAaBgNVBAMTE2lkcC51bml2LWxlaGF2cmUuZnIwHhcNMTAwMjAxMDc0
+MTAyWhcNMzAwMjAxMDc0MTAyWjAeMRwwGgYDVQQDExNpZHAudW5pdi1sZWhhdnJl
+LmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhJ6/Nn9ySl33BpPd
+S6L9nanWg1w/xaTcjsv0XSZXmLToc2iP0tpNg0VYok5SrFzl+Hw+4QtDvHVTmWLu
+wssMqg0mUHqnObwJE+/KKIN0Olchhpod2YfKbhko6w0QRSA57BkkUa4IPzlnJY58
+Nhz6ZdKn8tiA5NibD7K8JSaP3eurVgO2GKSpz62oQBFLAZNP7WPNC2kRIT6X8D9J
+NgreBINUGhAAsPzv7TmUK5L6lOipeLY3nQMwyOKCYUNViKonkZKE0lxNHWTPMIR0
+8DvVBbFMxn9IjAc+RRuCT24WrJrUhVGI1D+n+aDOgnSdxfFOVjb+grrLbsRRI/lj
+9hRezQIDAQABo20wazBKBgNVHREEQzBBghNpZHAudW5pdi1sZWhhdnJlLmZyhipo
+dHRwczovL2lkcC51bml2LWxlaGF2cmUuZnIvaWRwL3NoaWJib2xldGgwHQYDVR0O
+BBYEFG9bkcW0TdTyz6LDBdJArcI+NflfMA0GCSqGSIb3DQEBBQUAA4IBAQBHfdlt
+GfykSuvsXF1U3BZHLuZb8rsSBNXjkYJ/cAa8owWXMeQ0Z/YFiylsVzuexflm8Zeh
+mvHVJK1IKyUGlNq8XEDxKW+Z9qdaFrXkASExQACMsrITYiYjS51mr14AUsbpJ9VX
+bzqXS0On3K9tjgVXUV4CxkHbb1Ce+9x6lEjtna3Tw4WsNleuz2tWVvB2SecmeCJk
+9rl3+lSEotK7cepJY/AzW9wVBDfFI03j1u7GxY2hlD8r3jEII78lLNQzxUBTYUEf
+Kh1cWQw98Mp+EFgBRhkOjAzOXC58eYmrzBUXqK6y49R2AyBcZZ/uEigEinRINPi7
+TLwIDMskmL3PeTdF
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.univ-lehavre.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.univ-lehavre.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.univ-lehavre.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-lehavre.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDODCCAiCgAwIBAgIVAKVZEzNuUG9OyP1vnILb2oaJys+2MA0GCSqGSIb3DQEB
+BQUAMB4xHDAaBgNVBAMTE2lkcC51bml2LWxlaGF2cmUuZnIwHhcNMTAwMjAxMDc0
+MTAyWhcNMzAwMjAxMDc0MTAyWjAeMRwwGgYDVQQDExNpZHAudW5pdi1sZWhhdnJl
+LmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhJ6/Nn9ySl33BpPd
+S6L9nanWg1w/xaTcjsv0XSZXmLToc2iP0tpNg0VYok5SrFzl+Hw+4QtDvHVTmWLu
+wssMqg0mUHqnObwJE+/KKIN0Olchhpod2YfKbhko6w0QRSA57BkkUa4IPzlnJY58
+Nhz6ZdKn8tiA5NibD7K8JSaP3eurVgO2GKSpz62oQBFLAZNP7WPNC2kRIT6X8D9J
+NgreBINUGhAAsPzv7TmUK5L6lOipeLY3nQMwyOKCYUNViKonkZKE0lxNHWTPMIR0
+8DvVBbFMxn9IjAc+RRuCT24WrJrUhVGI1D+n+aDOgnSdxfFOVjb+grrLbsRRI/lj
+9hRezQIDAQABo20wazBKBgNVHREEQzBBghNpZHAudW5pdi1sZWhhdnJlLmZyhipo
+dHRwczovL2lkcC51bml2LWxlaGF2cmUuZnIvaWRwL3NoaWJib2xldGgwHQYDVR0O
+BBYEFG9bkcW0TdTyz6LDBdJArcI+NflfMA0GCSqGSIb3DQEBBQUAA4IBAQBHfdlt
+GfykSuvsXF1U3BZHLuZb8rsSBNXjkYJ/cAa8owWXMeQ0Z/YFiylsVzuexflm8Zeh
+mvHVJK1IKyUGlNq8XEDxKW+Z9qdaFrXkASExQACMsrITYiYjS51mr14AUsbpJ9VX
+bzqXS0On3K9tjgVXUV4CxkHbb1Ce+9x6lEjtna3Tw4WsNleuz2tWVvB2SecmeCJk
+9rl3+lSEotK7cepJY/AzW9wVBDfFI03j1u7GxY2hlD8r3jEII78lLNQzxUBTYUEf
+Kh1cWQw98Mp+EFgBRhkOjAzOXC58eYmrzBUXqK6y49R2AyBcZZ/uEigEinRINPi7
+TLwIDMskmL3PeTdF
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.univ-lehavre.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université du Havre</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université du Havre</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>AUGER Géraldine</SurName>
+				 <EmailAddress>geraldine.auger@univ-lehavre.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>COIRRE Mickaël</SurName>
+				 <EmailAddress>mickael.coirre@univ-lehavre.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

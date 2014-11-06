@@ -1,0 +1,119 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="uk002329" entityID="https://idp.dante.net/idp/shibboleth">
+	
+	<Extensions>
+
+
+
+		<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-01-03T09:32:28Z">
+			<mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+		</mdrpi:RegistrationInfo>
+
+	</Extensions>
+	<IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+		<Extensions>
+			<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">dante.net</shibmd:Scope>
+			<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+				<mdui:DisplayName xml:lang="en">DANTE</mdui:DisplayName>
+				<mdui:Description xml:lang="en">DANTE plans, procures, builds and operates large scale, advanced high speed networks for global research and education.</mdui:Description>
+				<mdui:Logo height="16" width="16">https://idp.dante.net/idp/images/16x16-DANTE.jpg</mdui:Logo>
+				<mdui:Logo height="60" width="80">https://idp.dante.net/idp/images/80x60-DANTE.jpg</mdui:Logo>
+			</mdui:UIInfo>
+			<mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+				<mdui:DomainHint>dante.net</mdui:DomainHint>
+				<mdui:IPHint>193.63.90.0/24</mdui:IPHint>
+				<mdui:IPHint>2001:630:280::/48</mdui:IPHint>
+				<mdui:GeolocationHint>geo:52.191818,0.133772</mdui:GeolocationHint>
+			</mdui:DiscoHints>
+		</Extensions>
+		<KeyDescriptor>
+			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+				<ds:X509Data>
+					<ds:X509Certificate>
+						MIIDqjCCApICCQCOEbOuEI0OxzANBgkqhkiG9w0BAQUFADCBljELMAkGA1UEBhMC
+						R0IxFzAVBgNVBAgMDkNhbWJyaWRnZXNoaXJlMRIwEAYDVQQHDAlDYW1icmlkZ2Ux
+						QjBABgNVBAoMOURlbGl2ZXJ5IG9mIEFkdmFuY2VkIE5ldHdvcmsgVGVjaG5vbG9n
+						eSB0byBFdXJvcGUgTGltaXRlZDEWMBQGA1UEAwwNaWRwLmRhbnRlLm5ldDAeFw0x
+						MzEyMjMxMTEzMzlaFw0xNjEyMjIxMTEzMzlaMIGWMQswCQYDVQQGEwJHQjEXMBUG
+						A1UECAwOQ2FtYnJpZGdlc2hpcmUxEjAQBgNVBAcMCUNhbWJyaWRnZTFCMEAGA1UE
+						Cgw5RGVsaXZlcnkgb2YgQWR2YW5jZWQgTmV0d29yayBUZWNobm9sb2d5IHRvIEV1
+						cm9wZSBMaW1pdGVkMRYwFAYDVQQDDA1pZHAuZGFudGUubmV0MIIBIjANBgkqhkiG
+						9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxOW6u4C7wEIQdogPpt/CNjn84HnsdJsadN0s
+						XQQg+SzfJICuxXYGAMDV4k/W9wTGIodOM4Be7O7edGzOdw4RLSJq4vxW5yu4gOuJ
+						yMSYPkEl8nwDOpU4uRTCh2wXE6xe8Eu2eUnXVu+puye4VdKRbQe4Ni1sWgupHO9O
+						+9YWBYkwRN/Gqca9PrPr28nZ+XrX+S/NaSRNwjAHEORgFOUqdcPSztCqq8y2924F
+						dU7PXE6Twh3qx0aEMfKyZGrheuHzSVwb6DC1TMTkY48onXflF84V1CYF9xXbLcSW
+						TZlnzsOW5XbDlQHPEMqFzoyYxfa9zUyd3tNgomu4Ak1t/JO1OQIDAQABMA0GCSqG
+						SIb3DQEBBQUAA4IBAQCTMnPRHLCez8ElwBmqvQaEExeDh4DmPsSnv+M1DdrQ/Da5
+						Bx4xi1lMclBNDMRJ8jTcXDoJAvYkZYAGR1o+doJZrU5dv+JM4QWQsNLVwBJg8gSB
+						ITDrzrpwFUCwVLudO9w/6yDoTbKpyogeMffcGcmiGniKytpI0KK3FhmnFJs+E+0E
+						IA9xqZmnx9NyC2BMTeQqqgKi7wM4Q9oIYk6sbm0a//tsryhXcAjX5GRndGfoKBhY
+						GmwKzvlHvpu3bwazqP56S2ea/AzbBt7s3fsCWTEdWTsCR44JQwvdalxFCvNlEOf6
+						Enuvw8UbosJkAsJVoee8FgQi1WZ/WcIkP0O1hCKz
+					</ds:X509Certificate>
+				</ds:X509Data>
+			</ds:KeyInfo>
+		</KeyDescriptor>
+		<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.dante.net:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+		<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.dante.net:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.dante.net/idp/profile/SAML2/Redirect/SLO"/>
+		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.dante.net/idp/profile/SAML2/POST/SLO"/>
+		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.dante.net:8443/idp/profile/SAML2/SOAP/SLO"/>
+		<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+		<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.dante.net/idp/profile/Shibboleth/SSO"/>
+		<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.dante.net/idp/profile/SAML2/POST/SSO"/>
+		<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.dante.net/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+		<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.dante.net/idp/profile/SAML2/Redirect/SSO"/>
+	</IDPSSODescriptor>
+	<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+		<Extensions>
+			<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">dante.net</shibmd:Scope>
+		</Extensions>
+		<KeyDescriptor>
+			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+				<ds:X509Data>
+					<ds:X509Certificate>
+						MIIDqjCCApICCQCOEbOuEI0OxzANBgkqhkiG9w0BAQUFADCBljELMAkGA1UEBhMC
+						R0IxFzAVBgNVBAgMDkNhbWJyaWRnZXNoaXJlMRIwEAYDVQQHDAlDYW1icmlkZ2Ux
+						QjBABgNVBAoMOURlbGl2ZXJ5IG9mIEFkdmFuY2VkIE5ldHdvcmsgVGVjaG5vbG9n
+						eSB0byBFdXJvcGUgTGltaXRlZDEWMBQGA1UEAwwNaWRwLmRhbnRlLm5ldDAeFw0x
+						MzEyMjMxMTEzMzlaFw0xNjEyMjIxMTEzMzlaMIGWMQswCQYDVQQGEwJHQjEXMBUG
+						A1UECAwOQ2FtYnJpZGdlc2hpcmUxEjAQBgNVBAcMCUNhbWJyaWRnZTFCMEAGA1UE
+						Cgw5RGVsaXZlcnkgb2YgQWR2YW5jZWQgTmV0d29yayBUZWNobm9sb2d5IHRvIEV1
+						cm9wZSBMaW1pdGVkMRYwFAYDVQQDDA1pZHAuZGFudGUubmV0MIIBIjANBgkqhkiG
+						9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxOW6u4C7wEIQdogPpt/CNjn84HnsdJsadN0s
+						XQQg+SzfJICuxXYGAMDV4k/W9wTGIodOM4Be7O7edGzOdw4RLSJq4vxW5yu4gOuJ
+						yMSYPkEl8nwDOpU4uRTCh2wXE6xe8Eu2eUnXVu+puye4VdKRbQe4Ni1sWgupHO9O
+						+9YWBYkwRN/Gqca9PrPr28nZ+XrX+S/NaSRNwjAHEORgFOUqdcPSztCqq8y2924F
+						dU7PXE6Twh3qx0aEMfKyZGrheuHzSVwb6DC1TMTkY48onXflF84V1CYF9xXbLcSW
+						TZlnzsOW5XbDlQHPEMqFzoyYxfa9zUyd3tNgomu4Ak1t/JO1OQIDAQABMA0GCSqG
+						SIb3DQEBBQUAA4IBAQCTMnPRHLCez8ElwBmqvQaEExeDh4DmPsSnv+M1DdrQ/Da5
+						Bx4xi1lMclBNDMRJ8jTcXDoJAvYkZYAGR1o+doJZrU5dv+JM4QWQsNLVwBJg8gSB
+						ITDrzrpwFUCwVLudO9w/6yDoTbKpyogeMffcGcmiGniKytpI0KK3FhmnFJs+E+0E
+						IA9xqZmnx9NyC2BMTeQqqgKi7wM4Q9oIYk6sbm0a//tsryhXcAjX5GRndGfoKBhY
+						GmwKzvlHvpu3bwazqP56S2ea/AzbBt7s3fsCWTEdWTsCR44JQwvdalxFCvNlEOf6
+						Enuvw8UbosJkAsJVoee8FgQi1WZ/WcIkP0O1hCKz
+					</ds:X509Certificate>
+				</ds:X509Data>
+			</ds:KeyInfo>
+		</KeyDescriptor>
+		<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.dante.net:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+		<AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.dante.net:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+		<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+		<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+	</AttributeAuthorityDescriptor>
+	<Organization>
+		<OrganizationName xml:lang="en">Delivery of Advanced Network Technology to Europe Limited</OrganizationName>
+		<OrganizationDisplayName xml:lang="en">DANTE</OrganizationDisplayName>
+		<OrganizationURL xml:lang="en">http://www.dante.net/</OrganizationURL>
+	</Organization>
+	<ContactPerson contactType="support">
+		<GivenName>DANTE Support</GivenName>
+		<EmailAddress>mailto:idp-support@dante.net</EmailAddress>
+	</ContactPerson>
+	<ContactPerson contactType="technical">
+		<GivenName>DANTE Support</GivenName>
+		<EmailAddress>mailto:idp-support@dante.net</EmailAddress>
+	</ContactPerson>
+
+</EntityDescriptor>

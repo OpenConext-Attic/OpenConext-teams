@@ -1,0 +1,78 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth.u-bourgogne.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-02-05T17:33:05Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">u-bourgogne.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de Bourgogne</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDUDCCAjigAwIBAgIVAIeNiIDKvgtvFqf45aiuB8pnYHO3MA0GCSqGSIb3DQEB
+BQUAMCQxIjAgBgNVBAMTGXNoaWJib2xldGgudS1ib3VyZ29nbmUuZnIwHhcNMTMw
+MzA0MTQwODU5WhcNMzMwMzA0MTQwODU5WjAkMSIwIAYDVQQDExlzaGliYm9sZXRo
+LnUtYm91cmdvZ25lLmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA
+u4o6aNzFq5dFOOJ3FjDd+yUWvuKjHbjxZZXITTSkTY1dJWnNeWgU5/hMqe1eT0b3
+mkREk+0lLOFpIgc8XP7komHv/+oTRBWyrZiHYEBMLa+I7OxNYG9maHm7hABBAMlp
+aCNHLnd3e2mX4ZFiCAx6boIwrXPs1jo3vaEqdqU6t2U6WexjUXscGP7x0P7xthFd
+Givnhf9ibWnQ3FHFsjFK0J0NQJ7gakfiop2OcacHIS7NBFtKzj+F7/4u0OW4yJmq
+TJD3BlbzVWASv40bnETttxYFMysr95/lZ8fE3xHQ+JNZizt4xDQw+43hrxF9z05U
+0gfLMPtaaREZmw7jVjW6NwIDAQABo3kwdzBWBgNVHREETzBNghlzaGliYm9sZXRo
+LnUtYm91cmdvZ25lLmZyhjBodHRwczovL3NoaWJib2xldGgudS1ib3VyZ29nbmUu
+ZnIvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFGXgakJMT66MdgHobQe6tYhWEVpn
+MA0GCSqGSIb3DQEBBQUAA4IBAQA/R7RnXq7N0ZByIkA4xB0LA8EK2e7+ArChE6hN
+44ocg1dUJ1KGCKI22K9RlGC0qyQ/SjXvlyEbTyVxUSeu2ofFb2Q0WtdE/BIIs6PB
+vK4DxIEhIEeNjucQ1nOS0k1U1Yz/vjQ0BtSxOj+ULknjrXLlA+LKXtvi5se+1xu2
++ibSc3IIu6Xdz3M7tFhB6/OAQ7JJzRG6CI9w3WM6DhE3KsZTBm2duAhH/kV59uey
+fIZ7HFB/k2F6vh0EBz5mpkF3wzax185buQRXhVht8HNm6NBoORp/QxhZmG5RUT5T
+yV61jCIPDC1n3CFjzdLHuvT82V/1Rus0mDey+D8kXZygQRbs
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.u-bourgogne.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.u-bourgogne.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.u-bourgogne.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Bourgogne</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Bourgogne</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>shibboleth@u-bourgogne.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

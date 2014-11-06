@@ -1,0 +1,78 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.univ-paris3.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-12-16T22:34:29Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-paris3.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      <mdui:DisplayName xml:lang="en">University Paris 3 - Sorbonne Nouvelle</mdui:DisplayName>
+          		      <mdui:Description xml:lang="en">All members of the Sorbonne Nouvelle - Paris 3 community: staff, students, library readers, alumni, staff from other institutions working locally, guests, etc.</mdui:Description>
+          		      <mdui:DisplayName xml:lang="fr">Université de Paris 3 - Sorbonne Nouvelle</mdui:DisplayName>
+          		      <mdui:Description xml:lang="fr">Tous les membres de la communauté Sorbonne Nouvelle - Paris 3 : personnels, étudiants, lecteurs des bibliothèques, anciens étudiants, personnels d'autres établissements travaillant dans l'université, invités, prestataires, anciens personnels gardant une activité.</mdui:Description>
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDNDCCAhygAwIBAgIVAMSFD1SXsksxsNe7dgs+bu0/1u4hMA0GCSqGSIb3DQEB
+BQUAMB0xGzAZBgNVBAMTEmlkcC51bml2LXBhcmlzMy5mcjAeFw0xMTEyMTUxNzE1
+MTZaFw0zMTEyMTUxNzE1MTZaMB0xGzAZBgNVBAMTEmlkcC51bml2LXBhcmlzMy5m
+cjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJjhxfTL8BVpjd1mzrxA
+7zmEcJk8ekFMaUfPm6HL1ScUyiun5Fm9JJQBHEuCSH/VEPrKLNrxz4lctcWWvCyI
+mDk63MLPCBlEZMV8hiFxZt2/VEo1OsQL5eKVDPNBRIwBK8d8CYw/xOWEaiYOvlZa
+7e5fvjQNti0pwWsdGi5jo029tCFkApIeSidl9p/L6C0NIIR58T6cZvShCIIV1rHi
+4MSEdw2iR7w2YE84ljfooVcRhUDSpxMA+ym7FlH6IJD24w4tRrB/oDyQqLQTzEXB
+yb6RhwrLKUFb3KVBKwrq9uTRpEZWIEpWkgbH4KSsPWEGBGXc6CtKhXtcjRFMNuu4
+hXcCAwEAAaNrMGkwSAYDVR0RBEEwP4ISaWRwLnVuaXYtcGFyaXMzLmZyhilodHRw
+czovL2lkcC51bml2LXBhcmlzMy5mci9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU
+J54xxsuDg3aueO3Q3HHJvMzmqUUwDQYJKoZIhvcNAQEFBQADggEBAI+TkGwGCEWZ
+uthkU8kUaUwop79gqH2yBzSw0OOkRZ3Q3OPg8Qv/s7zD+46gv1b5/YbbzYfvViEq
+S9TthYeos4lqSZJTMPIMnbcF8TX0dCtJ/IKy9JNxEetKzSHWdWgkkm/93onk1gPo
+K0JNyD1AlCipNrHSnNmYkDYUjNzuC2ltXFmqrzBYD4NxkZzXhcnrqd5zxKdI6tQy
+IBbAxUnoEmbTqImHVmF229LIlNphqKpuduDhOtSs+Szd2ZoooyRaSTu9SVMplJ4Y
+bZMYCQGSG0R+xeFXPOJHMRl0brK4iwveaUGTXC2yg8W/wLm9f4MVOKKRKrMTYHGY
+HKtGROgixJI=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.univ-paris3.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.univ-paris3.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.univ-paris3.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Paris 3 - Sorbonne Nouvelle</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Paris 3 - Sorbonne Nouvelle</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>fed-admin@univ-paris3.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

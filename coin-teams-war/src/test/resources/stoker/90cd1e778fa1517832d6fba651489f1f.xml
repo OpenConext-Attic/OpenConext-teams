@@ -1,0 +1,95 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.crous-rennes.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-01-28T15:00:42Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">crous-rennes.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">CROUS Rennes - Personnels</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIEdDCCA1ygAwIBAgIRAL5fVabkZawTDxzKI0ESjOYwDQYJKoZIhvcNAQEFBQAw
+NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+IFNTTCBDQTAeFw0xMzEyMDUwMDAwMDBaFw0xNjEyMDQyMzU5NTlaMEExITAfBgNV
+BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEcMBoGA1UEAxMTaWRwLmNyb3Vz
+LXJlbm5lcy5mcjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMToPjIY
+EKGrNIwJhXle5sZXA9vse+uVBEU2CpCHfx7X+sD2RQCPtIrcw0g2CMQqCJV8ZYLM
+3ZQU22KCDsmmaabvs1xvumWRtXMEEB8CTyveGX+qYMYi2M/a4I+Q+LIpBIBaSdcs
+uNj0ICIbdLM0i6g1qEpG6F+uUFziVqIbzgs0lS+P54AeIS6mKe5JddPQXlwPpgd4
+DYkKYeL9++ItnOpoaCg6Jc3j48G9y4+2R1RcTXwxtvCW+2Tpz9cNGH6UC04NdoUk
+Vd72lwRqA25wubIU7ZVzRnlpkegMX01u/FoeQack5jmlI8pBHZMaLqB0pNLBeFEK
+6eJxAe5fb1DSV78CAwEAAaOCAXAwggFsMB8GA1UdIwQYMBaAFAy9k2gM896ro0lr
+KzdXR+qQ47ntMB0GA1UdDgQWBBQdYX2QH6UnjgYOd4KnbTh8YmDJrTAOBgNVHQ8B
+Af8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYB
+BQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEwOgYDVR0f
+BDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xD
+QS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRj
+cy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDov
+L29jc3AudGNzLnRlcmVuYS5vcmcwHgYDVR0RBBcwFYITaWRwLmNyb3VzLXJlbm5l
+cy5mcjANBgkqhkiG9w0BAQUFAAOCAQEAbgsDlas2dzrysn9qqmxmpqXHBGDIoXuq
+GQifopkpEVi51JmrvMl6ztKqyYVXLEdhbv2ZRJmitDyfxtvTvFfFlAU9iJiErVsq
+zbZAATD/8aC8kUoFmuRK6uvzec+chMS5kGlf7AKJSxgPIhTGdBGwllBUof5aE50Q
+BJ1R3SvSeovh8KBplnsI1v9nozPP3Yjc28BdMLs9p5Yeo+6htHVRTsec8SG4GjKQ
+VJWsJn9dlBNT8g9POrU7cyE7qnHs7ErkMFri0sPKSZbwD6vwBjViJ1KU3C9U9B9C
+1uRv0KqVOs4YO9ig3CbOEAszIIxNZvN6p++GOnm771PGXTWTF1DAfw==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.crous-rennes.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.crous-rennes.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.crous-rennes.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">CROUS Rennes - Personnels</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">CROUS Rennes - Personnels</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Jean-Louis Allier</SurName>
+				 <EmailAddress>jean-louis.allier@crous-rennes.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Michel Gaigeard</SurName>
+				 <EmailAddress>michel.gaigeard@crous-rennes.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

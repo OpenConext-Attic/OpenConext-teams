@@ -1,0 +1,138 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://ldap-dariah.esc.rzg.mpg.de/idp/shibboleth">
+    <Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-04-11T07:17:38Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">dariah.eu</saml1md:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="de">DARIAH</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">DARIAH</mdui:DisplayName>
+          <mdui:Description xml:lang="de">DARIAH Homeless IdP</mdui:Description>
+          <mdui:Description xml:lang="en">DARIAH Homeless IdP</mdui:Description>
+          <mdui:Logo height="16" width="16">https://ldap-dariah.esc.rzg.mpg.de/images/DARIAH_flower_icon.png</mdui:Logo>
+          <mdui:Logo height="154" width="160">https://ldap-dariah.esc.rzg.mpg.de/images/DARIAH_flower.png</mdui:Logo>
+          <mdui:InformationURL xml:lang="de">http://www.dariah.eu/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">http://www.dariah.eu/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>ldap-dariah.esc.rzg.mpg.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=ldap-dariah.esc.rzg.mpg.de,OU=Rechenzentrum Garching (RZG),O=Max-Planck-Gesellschaft,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIFEDCCA/igAwIBAgIHEy5eQihwbDANBgkqhkiG9w0BAQUFADBeMQswCQYDVQQG
+EwJERTEgMB4GA1UEChMXTWF4LVBsYW5jay1HZXNlbGxzY2hhZnQxDzANBgNVBAMT
+Bk1QRyBDQTEcMBoGCSqGSIb3DQEJARYNbXBnLWNhQG1wZy5kZTAeFw0xMjAxMTIx
+MzMxMzFaFw0xNzAxMTAxMzMxMzFaMHsxCzAJBgNVBAYTAkRFMSAwHgYDVQQKExdN
+YXgtUGxhbmNrLUdlc2VsbHNjaGFmdDElMCMGA1UECxMcUmVjaGVuemVudHJ1bSBH
+YXJjaGluZyAoUlpHKTEjMCEGA1UEAxMabGRhcC1kYXJpYWguZXNjLnJ6Zy5tcGcu
+ZGUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDbyc9BVBglxQEt8MmI
+cbf3GKqCdQADGnnNXAwx9gjq5mQI2+VNGcBk8aq24p5a++hlemue+6P6RQONiv5z
+sAXlIZb6MuGOcF6gOUqRijMuWW1OueysiO4F5ODOJ8TaGSjWytCSQ28cpJbc7wWo
+mnlZxL6NvVyRiDCJuUfDyIW8ICgk7Aw1K0UdpJXeVzFUiBtTIM7Ira80o3yeLDhi
+DDPc+swDZA9syWvn8/W57kN0/vtUYKzGs6Ae+uRxahSfNg/kx1Rnv0sUln1hgUHh
+VuiKqu1MlAIcckNt00Ck/v7LQV98KJJx+rWWPV1F09a6vPEAesEY+GnJQkwAzh/O
+xiTjAgMBAAGjggG0MIIBsDAJBgNVHRMEAjAAMAsGA1UdDwQEAwIF4DAdBgNVHSUE
+FjAUBggrBgEFBQcDAgYIKwYBBQUHAwEwHQYDVR0OBBYEFEnnIPu9e2M7ABKF66CA
+uTWv1Jf8MB8GA1UdIwQYMBaAFALWHm4Jq79YZacKPEgzYdHOfcNbMCkGA1UdEQQi
+MCCBHnNlcnZlci1jZXJ0aWZpY2F0ZXNAcnpnLm1wZy5kZTB3BgNVHR8EcDBuMDWg
+M6Axhi9odHRwOi8vY2RwMS5wY2EuZGZuLmRlL21wZy1jYS9wdWIvY3JsL2NhY3Js
+LmNybDA1oDOgMYYvaHR0cDovL2NkcDIucGNhLmRmbi5kZS9tcGctY2EvcHViL2Ny
+bC9jYWNybC5jcmwwgZIGCCsGAQUFBwEBBIGFMIGCMD8GCCsGAQUFBzAChjNodHRw
+Oi8vY2RwMS5wY2EuZGZuLmRlL21wZy1jYS9wdWIvY2FjZXJ0L2NhY2VydC5jcnQw
+PwYIKwYBBQUHMAKGM2h0dHA6Ly9jZHAyLnBjYS5kZm4uZGUvbXBnLWNhL3B1Yi9j
+YWNlcnQvY2FjZXJ0LmNydDANBgkqhkiG9w0BAQUFAAOCAQEAxDSpJ7Mn2hmiyDzK
+VVtARi1U9EvfTcSIWZFanc1xn9DaFI8s3c6vnEB7+BL/HMbAwnDauWjUPoNzc5I2
+TeH5IjX8MGDjEh7TyNyycWRNJ88ah0LtQoaCgXc0vpTtXZzGelh0A25Hw80sHKa1
+xY4iDAPYwaPY+kFxxAGyeAL9M4q9Z39t6ZIoze+lQm0sxQ3eTvQUPwukAeI9xOzb
+KsbO/Q7VBdzaH75dVrc+dSQqXy1bOQUAext9foXlso8ECt0b1vQVdspe5tQ1+y3u
+aDG4T0gWjN5P3enk6TN3v4V9UaBA4J1DkBCxC/RNFnNZc22GqQ1Bbf9rKXjyXECp
+q1AZvg==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://ldap-dariah.esc.rzg.mpg.de:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://ldap-dariah.esc.rzg.mpg.de:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://ldap-dariah.esc.rzg.mpg.de/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ldap-dariah.esc.rzg.mpg.de/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://ldap-dariah.esc.rzg.mpg.de/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://ldap-dariah.esc.rzg.mpg.de/idp/profile/SAML2/Redirect/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://ldap-dariah.esc.rzg.mpg.de/idp/profile/SAML2/SOAP/ECP"/>
+    </IDPSSODescriptor>
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">dariah.eu</saml1md:Scope>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>ldap-dariah.esc.rzg.mpg.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=ldap-dariah.esc.rzg.mpg.de,OU=Rechenzentrum Garching (RZG),O=Max-Planck-Gesellschaft,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIFEDCCA/igAwIBAgIHEy5eQihwbDANBgkqhkiG9w0BAQUFADBeMQswCQYDVQQG
+EwJERTEgMB4GA1UEChMXTWF4LVBsYW5jay1HZXNlbGxzY2hhZnQxDzANBgNVBAMT
+Bk1QRyBDQTEcMBoGCSqGSIb3DQEJARYNbXBnLWNhQG1wZy5kZTAeFw0xMjAxMTIx
+MzMxMzFaFw0xNzAxMTAxMzMxMzFaMHsxCzAJBgNVBAYTAkRFMSAwHgYDVQQKExdN
+YXgtUGxhbmNrLUdlc2VsbHNjaGFmdDElMCMGA1UECxMcUmVjaGVuemVudHJ1bSBH
+YXJjaGluZyAoUlpHKTEjMCEGA1UEAxMabGRhcC1kYXJpYWguZXNjLnJ6Zy5tcGcu
+ZGUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDbyc9BVBglxQEt8MmI
+cbf3GKqCdQADGnnNXAwx9gjq5mQI2+VNGcBk8aq24p5a++hlemue+6P6RQONiv5z
+sAXlIZb6MuGOcF6gOUqRijMuWW1OueysiO4F5ODOJ8TaGSjWytCSQ28cpJbc7wWo
+mnlZxL6NvVyRiDCJuUfDyIW8ICgk7Aw1K0UdpJXeVzFUiBtTIM7Ira80o3yeLDhi
+DDPc+swDZA9syWvn8/W57kN0/vtUYKzGs6Ae+uRxahSfNg/kx1Rnv0sUln1hgUHh
+VuiKqu1MlAIcckNt00Ck/v7LQV98KJJx+rWWPV1F09a6vPEAesEY+GnJQkwAzh/O
+xiTjAgMBAAGjggG0MIIBsDAJBgNVHRMEAjAAMAsGA1UdDwQEAwIF4DAdBgNVHSUE
+FjAUBggrBgEFBQcDAgYIKwYBBQUHAwEwHQYDVR0OBBYEFEnnIPu9e2M7ABKF66CA
+uTWv1Jf8MB8GA1UdIwQYMBaAFALWHm4Jq79YZacKPEgzYdHOfcNbMCkGA1UdEQQi
+MCCBHnNlcnZlci1jZXJ0aWZpY2F0ZXNAcnpnLm1wZy5kZTB3BgNVHR8EcDBuMDWg
+M6Axhi9odHRwOi8vY2RwMS5wY2EuZGZuLmRlL21wZy1jYS9wdWIvY3JsL2NhY3Js
+LmNybDA1oDOgMYYvaHR0cDovL2NkcDIucGNhLmRmbi5kZS9tcGctY2EvcHViL2Ny
+bC9jYWNybC5jcmwwgZIGCCsGAQUFBwEBBIGFMIGCMD8GCCsGAQUFBzAChjNodHRw
+Oi8vY2RwMS5wY2EuZGZuLmRlL21wZy1jYS9wdWIvY2FjZXJ0L2NhY2VydC5jcnQw
+PwYIKwYBBQUHMAKGM2h0dHA6Ly9jZHAyLnBjYS5kZm4uZGUvbXBnLWNhL3B1Yi9j
+YWNlcnQvY2FjZXJ0LmNydDANBgkqhkiG9w0BAQUFAAOCAQEAxDSpJ7Mn2hmiyDzK
+VVtARi1U9EvfTcSIWZFanc1xn9DaFI8s3c6vnEB7+BL/HMbAwnDauWjUPoNzc5I2
+TeH5IjX8MGDjEh7TyNyycWRNJ88ah0LtQoaCgXc0vpTtXZzGelh0A25Hw80sHKa1
+xY4iDAPYwaPY+kFxxAGyeAL9M4q9Z39t6ZIoze+lQm0sxQ3eTvQUPwukAeI9xOzb
+KsbO/Q7VBdzaH75dVrc+dSQqXy1bOQUAext9foXlso8ECt0b1vQVdspe5tQ1+y3u
+aDG4T0gWjN5P3enk6TN3v4V9UaBA4J1DkBCxC/RNFnNZc22GqQ1Bbf9rKXjyXECp
+q1AZvg==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://ldap-dariah.esc.rzg.mpg.de:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://ldap-dariah.esc.rzg.mpg.de:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+    </AttributeAuthorityDescriptor>
+    <Organization>
+      <OrganizationName xml:lang="de">e112</OrganizationName>
+      <OrganizationName xml:lang="en">e112</OrganizationName>
+      <OrganizationDisplayName xml:lang="de">Gesellschaft für wissenschaftliche Datenverarbeitung mbH</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="en">Gesellschaft für wissenschaftliche Datenverarbeitung mbH</OrganizationDisplayName>
+      <OrganizationURL xml:lang="de">http://www.gwdg.de</OrganizationURL>
+      <OrganizationURL xml:lang="en">http://www.gwdg.de</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Martin</GivenName>
+      <SurName>Haase</SurName>
+      <EmailAddress>mailto:martin.haase@daasi.de</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="administrative">
+      <GivenName>Peter</GivenName>
+      <SurName>Gietz</SurName>
+      <EmailAddress>mailto:peter.gietz@daasi.de</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="support">
+      <GivenName>DARIAH</GivenName>
+      <SurName>Support</SurName>
+      <EmailAddress>mailto:info@de.dariah.eu</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

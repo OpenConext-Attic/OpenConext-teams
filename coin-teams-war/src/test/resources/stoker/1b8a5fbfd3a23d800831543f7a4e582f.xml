@@ -1,0 +1,149 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://login-idp.auth.gr/idp/shibboleth">
+        <Extensions xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi">
+            <mdrpi:RegistrationInfo registrationAuthority="http://aai.grnet.gr/">
+                <mdrpi:RegistrationPolicy xml:lang="en">http://aai.grnet.gr/static/policy/policy-en-1.1.0.pdf</mdrpi:RegistrationPolicy>
+                <mdrpi:RegistrationPolicy xml:lang="el">http://aai.grnet.gr/static/policy/policy-el-1.1.0.pdf</mdrpi:RegistrationPolicy>
+            </mdrpi:RegistrationInfo>
+        </Extensions>
+        <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+            <Extensions>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">auth.gr</shibmd:Scope>
+                <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+                    <mdui:DisplayName xml:lang="en">Aristotle University of Thessaloniki</mdui:DisplayName>
+                    <mdui:DisplayName xml:lang="el">Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</mdui:DisplayName>
+                    <mdui:InformationURL xml:lang="en">http://www.auth.gr/</mdui:InformationURL>
+                    <mdui:InformationURL xml:lang="el">http://www.auth.gr/</mdui:InformationURL>
+                </mdui:UIInfo>
+                <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+                    <mdui:DomainHint>auth.gr</mdui:DomainHint>
+                    <mdui:IPHint>155.207.0.0/16</mdui:IPHint>
+                    <mdui:IPHint>192.104.147.0/24</mdui:IPHint>
+                    <mdui:IPHint>2001:648:2800::/48</mdui:IPHint>
+                    <mdui:GeolocationHint>geo:40.6308255004333, 22.959268014038116</mdui:GeolocationHint>
+                </mdui:DiscoHints>
+            </Extensions>
+            <KeyDescriptor use="signing">
+                <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIGkjCCBXqgAwIBAgIIFYOcoI+l1dUwDQYJKoZIhvcNAQEFBQAwgZAxCzAJBgNV
+                            BAYTAkdSMUQwQgYDVQQKEztIZWxsZW5pYyBBY2FkZW1pYyBhbmQgUmVzZWFyY2gg
+                            SW5zdGl0dXRpb25zIENlcnQuIEF1dGhvcml0eTE7MDkGA1UEAxMyQXJpc3RvdGxl
+                            IFVuaXZlcnNpdHkgb2YgVGhlc3NhbG9uaWtpIENlbnRyYWwgQ0EgUjQwHhcNMTQw
+                            NTA2MDAwMDAwWhcNMTYwNTA1MjI0NjQzWjB/MQswCQYDVQQGEwJHUjEtMCsGA1UE
+                            ChMkQXJpc3RvdGxlIFVuaXZlcnNpdHkgb2YgVGhlc3NhbG9uaWtpMRIwEAYDVQQL
+                            EwlJVCBDZW50ZXIxLTArBgNVBAMTJElkZW50aXR5IFByb3ZpZGVyIGZvciBzaW5n
+                            bGUtc2lnbi1vbjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAPEkfAH9
+                            KWWtM1cux4wPBESwyAGk/SmEWCpj9OyOohQnaaTuRMgK6Athqr0MeKyQSX7TQrAF
+                            0xbmB3zIqIjhP20JiyC3FuYa+h9U/vGD5yMStCk3i6kVYr+gjmqymChIhYlJXhhR
+                            VZGt38nr5p7iScUixgf5AXRdHjrNkiwdA8RhCEgsgELytCvtuZaWGRpyvJ3TKYcC
+                            3evvLv9X7GyvVnMOibcBdgRZ5WgyWphu7WIMWL/bYdkit8amJQppq72AQ8bsALgI
+                            9dt8c69R6gAFv0tMSuimVc1b0sbZ1seu4FAIPo3s1JT/Kpx6mlmz+0mWlYmwEo/V
+                            j+W1Ee72myVZz8sCAwEAAaOCAv4wggL6MAsGA1UdDwQEAwIFoDA7BgNVHSUENDAy
+                            BggrBgEFBQcDAgYIKwYBBQUHAwEGCCsGAQUFBwMFBggrBgEFBQcDBgYIKwYBBQUH
+                            AwcwHQYDVR0OBBYEFAVWQ1l2u4IqtEcqJX4xdkAM8tarMB8GA1UdIwQYMBaAFPWT
+                            F0odc7Z/fyCypRSUV3IZMzbSMHEGCCsGAQUFBwEBBGUwYzAjBggrBgEFBQcwAYYX
+                            aHR0cDovL29jc3AucGtpLmF1dGguZ3IwPAYIKwYBBQUHMAKGMGh0dHA6Ly93d3cu
+                            cGtpLmF1dGguZ3IvY2VydHMvQXV0aENlbnRyYWxDQVI0LnBlbTBHBgNVHR8EQDA+
+                            MDygOqA4hjZodHRwOi8vY3JsdjEucGtpLmF1dGguZ3IvQXV0aENlbnRyYWxDQVI0
+                            L2NybHYxLmRlci5jcmwwggEgBgNVHSAEggEXMIIBEzCCAQ8GCysGAQQBvB0CAAMF
+                            MIH/MDQGCCsGAQUFBwIBFihodHRwOi8vd3d3LnBraS5hdXRoLmdyL2RvY3VtZW50
+                            cy9DUFMucGhwMIHGBggrBgEFBQcCAjCBuTArFiRBcmlzdG90bGUgVW5pdmVyc2l0
+                            eSBvZiBUaGVzc2Fsb25pa2kwAwIBARqBiVRoaXMgY2VydGlmaWNhdGUgaXMgc3Vi
+                            amVjdCB0byBHcmVlayBsYXdzIGFuZCBvdXIgQ1BTLiBUaGlzIENlcnRpZmljYXRl
+                            IG11c3Qgb25seSBiZSB1c2VkIGZvciBhY2FkZW1pYywgcmVzZWFyY2ggb3IgZWR1
+                            Y2F0aW9uYWwgcHVycG9zZXMuMIGNBgNVHREEgYUwgYKCEWxvZ2luLWlkcC5hdXRo
+                            LmdyghRsb2dpbi1pZHAuaXQuYXV0aC5ncoIVbG9naW4taWRwMS5pdC5hdXRoLmdy
+                            ghVsb2dpbi1pZHAxLml0LmF1dGguZ3KCFWxvZ2luLWlkcDIuaXQuYXV0aC5ncoIS
+                            bG9naW4taWRwMi5hdXRoLmdyMA0GCSqGSIb3DQEBBQUAA4IBAQAC990lHYriaAC8
+                            ytQP/AeYS5vsltSv2exJDK21E6+/KmlpWh2t/0UFk4bIvJJc9YKDURurAV3TJ78a
+                            aRMxNCo57TXV54dQNiHw+8pSjvoDCJjEXiVqJX93SPtzD9f26oFG23UBo+MDBEyV
+                            WEugwrXZ3sTrR7SFXNc6+pjEidNSzH4Es4TSa7yHKx5xJzFRcPAFwIFUw35GHxhG
+                            EWOy5M46Ik4/nBvl6CYk52aTjE/uP2WLn61Cd34oQnWspazclxgVENaVJOyWF6Lv
+                            ea+x68KwePqG5bRs+iOrVG/8NNGTlS0TSvDlubnVYNuyHffDHitYaPd3jg8U2q0q
+                            z6v6NL8x
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://login-idp.auth.gr:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login-idp.auth.gr:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+            <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://login-idp.auth.gr/idp/profile/Shibboleth/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login-idp.auth.gr/idp/profile/SAML2/POST/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://login-idp.auth.gr/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login-idp.auth.gr/idp/profile/SAML2/Redirect/SSO"/>
+        </IDPSSODescriptor>
+        <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+            <Extensions>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">auth.gr</shibmd:Scope>
+            </Extensions>
+            <KeyDescriptor use="signing">
+                <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIGkjCCBXqgAwIBAgIIFYOcoI+l1dUwDQYJKoZIhvcNAQEFBQAwgZAxCzAJBgNV
+                            BAYTAkdSMUQwQgYDVQQKEztIZWxsZW5pYyBBY2FkZW1pYyBhbmQgUmVzZWFyY2gg
+                            SW5zdGl0dXRpb25zIENlcnQuIEF1dGhvcml0eTE7MDkGA1UEAxMyQXJpc3RvdGxl
+                            IFVuaXZlcnNpdHkgb2YgVGhlc3NhbG9uaWtpIENlbnRyYWwgQ0EgUjQwHhcNMTQw
+                            NTA2MDAwMDAwWhcNMTYwNTA1MjI0NjQzWjB/MQswCQYDVQQGEwJHUjEtMCsGA1UE
+                            ChMkQXJpc3RvdGxlIFVuaXZlcnNpdHkgb2YgVGhlc3NhbG9uaWtpMRIwEAYDVQQL
+                            EwlJVCBDZW50ZXIxLTArBgNVBAMTJElkZW50aXR5IFByb3ZpZGVyIGZvciBzaW5n
+                            bGUtc2lnbi1vbjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAPEkfAH9
+                            KWWtM1cux4wPBESwyAGk/SmEWCpj9OyOohQnaaTuRMgK6Athqr0MeKyQSX7TQrAF
+                            0xbmB3zIqIjhP20JiyC3FuYa+h9U/vGD5yMStCk3i6kVYr+gjmqymChIhYlJXhhR
+                            VZGt38nr5p7iScUixgf5AXRdHjrNkiwdA8RhCEgsgELytCvtuZaWGRpyvJ3TKYcC
+                            3evvLv9X7GyvVnMOibcBdgRZ5WgyWphu7WIMWL/bYdkit8amJQppq72AQ8bsALgI
+                            9dt8c69R6gAFv0tMSuimVc1b0sbZ1seu4FAIPo3s1JT/Kpx6mlmz+0mWlYmwEo/V
+                            j+W1Ee72myVZz8sCAwEAAaOCAv4wggL6MAsGA1UdDwQEAwIFoDA7BgNVHSUENDAy
+                            BggrBgEFBQcDAgYIKwYBBQUHAwEGCCsGAQUFBwMFBggrBgEFBQcDBgYIKwYBBQUH
+                            AwcwHQYDVR0OBBYEFAVWQ1l2u4IqtEcqJX4xdkAM8tarMB8GA1UdIwQYMBaAFPWT
+                            F0odc7Z/fyCypRSUV3IZMzbSMHEGCCsGAQUFBwEBBGUwYzAjBggrBgEFBQcwAYYX
+                            aHR0cDovL29jc3AucGtpLmF1dGguZ3IwPAYIKwYBBQUHMAKGMGh0dHA6Ly93d3cu
+                            cGtpLmF1dGguZ3IvY2VydHMvQXV0aENlbnRyYWxDQVI0LnBlbTBHBgNVHR8EQDA+
+                            MDygOqA4hjZodHRwOi8vY3JsdjEucGtpLmF1dGguZ3IvQXV0aENlbnRyYWxDQVI0
+                            L2NybHYxLmRlci5jcmwwggEgBgNVHSAEggEXMIIBEzCCAQ8GCysGAQQBvB0CAAMF
+                            MIH/MDQGCCsGAQUFBwIBFihodHRwOi8vd3d3LnBraS5hdXRoLmdyL2RvY3VtZW50
+                            cy9DUFMucGhwMIHGBggrBgEFBQcCAjCBuTArFiRBcmlzdG90bGUgVW5pdmVyc2l0
+                            eSBvZiBUaGVzc2Fsb25pa2kwAwIBARqBiVRoaXMgY2VydGlmaWNhdGUgaXMgc3Vi
+                            amVjdCB0byBHcmVlayBsYXdzIGFuZCBvdXIgQ1BTLiBUaGlzIENlcnRpZmljYXRl
+                            IG11c3Qgb25seSBiZSB1c2VkIGZvciBhY2FkZW1pYywgcmVzZWFyY2ggb3IgZWR1
+                            Y2F0aW9uYWwgcHVycG9zZXMuMIGNBgNVHREEgYUwgYKCEWxvZ2luLWlkcC5hdXRo
+                            LmdyghRsb2dpbi1pZHAuaXQuYXV0aC5ncoIVbG9naW4taWRwMS5pdC5hdXRoLmdy
+                            ghVsb2dpbi1pZHAxLml0LmF1dGguZ3KCFWxvZ2luLWlkcDIuaXQuYXV0aC5ncoIS
+                            bG9naW4taWRwMi5hdXRoLmdyMA0GCSqGSIb3DQEBBQUAA4IBAQAC990lHYriaAC8
+                            ytQP/AeYS5vsltSv2exJDK21E6+/KmlpWh2t/0UFk4bIvJJc9YKDURurAV3TJ78a
+                            aRMxNCo57TXV54dQNiHw+8pSjvoDCJjEXiVqJX93SPtzD9f26oFG23UBo+MDBEyV
+                            WEugwrXZ3sTrR7SFXNc6+pjEidNSzH4Es4TSa7yHKx5xJzFRcPAFwIFUw35GHxhG
+                            EWOy5M46Ik4/nBvl6CYk52aTjE/uP2WLn61Cd34oQnWspazclxgVENaVJOyWF6Lv
+                            ea+x68KwePqG5bRs+iOrVG/8NNGTlS0TSvDlubnVYNuyHffDHitYaPd3jg8U2q0q
+                            z6v6NL8x
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://login-idp.auth.gr:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+            <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login-idp.auth.gr:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+        </AttributeAuthorityDescriptor>
+        <Organization>
+            <OrganizationName xml:lang="en">Aristotle University of Thessaloniki</OrganizationName>
+            <OrganizationName xml:lang="el">Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</OrganizationName>
+            <OrganizationDisplayName xml:lang="en">Aristotle University of Thessaloniki</OrganizationDisplayName>
+            <OrganizationDisplayName xml:lang="el">Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</OrganizationDisplayName>
+            <OrganizationURL xml:lang="en">http://www.auth.gr/</OrganizationURL>
+            <OrganizationURL xml:lang="el">http://www.auth.gr/</OrganizationURL>
+        </Organization>
+        <ContactPerson contactType="technical">
+            <Company>AUTH IT Center AAI Administrators</Company>
+            <EmailAddress>aaiadmin@it.auth.gr</EmailAddress>
+            <TelephoneNumber>+30-2310999000</TelephoneNumber>
+        </ContactPerson>
+        <ContactPerson contactType="support">
+            <Company>AUTH IT Center Helpdesk</Company>
+            <EmailAddress>support@auth.gr</EmailAddress>
+            <TelephoneNumber>+30-2310999000</TelephoneNumber>
+        </ContactPerson>
+    </EntityDescriptor>

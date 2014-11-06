@@ -1,0 +1,86 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.crihan.fr/saml2/idp/metadata.php">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2013-02-26T22:24:07Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">crihan.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      <mdui:DisplayName xml:lang="en">CRIHAN</mdui:DisplayName>
+          		      
+          		      <mdui:DisplayName xml:lang="fr">CRIHAN</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDuTCCAqGgAwIBAgIJAOLMseq7bx2/MA0GCSqGSIb3DQEBBQUAMHMxCzAJBgNV
+BAYTAkZSMRgwFgYDVQQIDA9IYXV0ZS1Ob3JtYW5kaWUxITAfBgNVBAcMGFNhaW50
+LUV0aWVubmUgZHUgUm91dnJheTEPMA0GA1UECgwGQ1JJSEFOMRYwFAYDVQQDDA1p
+ZHAuY3JpaGFuLmZyMB4XDTE0MDMzMDIwMzMwOVoXDTE1MDMzMDIwMzMwOVowczEL
+MAkGA1UEBhMCRlIxGDAWBgNVBAgMD0hhdXRlLU5vcm1hbmRpZTEhMB8GA1UEBwwY
+U2FpbnQtRXRpZW5uZSBkdSBSb3V2cmF5MQ8wDQYDVQQKDAZDUklIQU4xFjAUBgNV
+BAMMDWlkcC5jcmloYW4uZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+AQDYz/YtjOJXUDjxiYvZ7DgydKh6SprShSQNGmnuGPiSG3gy/BGu3o4RdYcwpjjb
+juNiOfO3NO/d5CRd0Q/+/oZ+U428dR7TZ4KXLIeNq1Uc1yArkCw5C1PKATvhIrYf
+mfkeTSm5fVTidjpPTyausemv2tfL3TVRsQCWN/AvM60X2W2c1urXUF1z0j1aujGf
+ZagdEN/cZqd5vfr9gzt4z+h37Pfu2l2VFbrYvwUmqocAxJtbK9VGh1iy2Bwv7XFo
+xB0ARBIAo5NiKvimN+yDeckZUuxnOiy4DypabitPZxW7EkrQFZnn8xlFxFltAR5A
+alP/+NiJo5LTAbjVAcgumBx7AgMBAAGjUDBOMB0GA1UdDgQWBBTDMtkGXCjC/fQO
+Qo5ghr96ywqGJzAfBgNVHSMEGDAWgBTDMtkGXCjC/fQOQo5ghr96ywqGJzAMBgNV
+HRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQAGtApy7G1jQfy7qR3mvdEgj1ky
+UbunBQDtVIZf+OvrkhA225cnTFmrV8GEYiBKh5HWqbd1NOcRv3ynmx23u4JuOmLL
+kiXdrp0C7R3hqacCtIhkZqxwWYUsI6+cYSnJZK/hKwHC/FF/bflIwpHdcQchcnZt
+UlVpjCV44kLfXMuY6v6oN/tiyOtNCf20tt37h0O6PwEnbUWLlRXLo/tEMqXCQiGo
+TKaE/UzvPPpWoq0UNSlyvCM6BuzQnjnFVnN1pDTab+7MBvPLwet5hQ5CvoI5OmrW
+Ql1AtWmKiPR7Z3TUg7a1NbLmPHM1WvzuRGxvxvCzG4mMmJcGpbFGYl70P0tL
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.crihan.fr/saml2/idp/SSOService.php"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.crihan.fr/saml2/idp/SSOService.php"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.crihan.fr/shib13/idp/SSOService.php"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">CRIHAN</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">CRIHAN</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Alain Bidaud</SurName>
+				 <EmailAddress>alain.bidaud@crihan.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    		
+
+				
+			
+	</EntityDescriptor>

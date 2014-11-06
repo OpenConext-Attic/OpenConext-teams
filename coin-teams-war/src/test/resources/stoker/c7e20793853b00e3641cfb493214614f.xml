@@ -1,0 +1,105 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://gn-vho.grnet.gr/idp/shibboleth">
+        <Extensions>
+            <mdrpi:RegistrationInfo registrationAuthority="http://aai.grnet.gr/">
+                <mdrpi:RegistrationPolicy xml:lang="en">http://aai.grnet.gr/static/policy/policy-en-1.1.0.pdf</mdrpi:RegistrationPolicy>
+                <mdrpi:RegistrationPolicy xml:lang="el">http://aai.grnet.gr/static/policy/policy-el-1.1.0.pdf</mdrpi:RegistrationPolicy>
+            </mdrpi:RegistrationInfo>
+        </Extensions>
+        <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+            <Extensions>
+                <shibmd:Scope regexp="false">gn-vho.grnet.gr</shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">GRNET Virtual Home Organization (VHO) for GÉANT</mdui:DisplayName>
+                    <mdui:DisplayName xml:lang="el">Εικονικός Οικείος Φορέας (VHO) του ΕΔΕΤ για το GÉANT</mdui:DisplayName>
+                    <mdui:Description xml:lang="en">GRNET Virtual Home Organization (VHO) for GÉANT</mdui:Description>
+                    <mdui:Description xml:lang="el">Εικονικός Οικείος Φορέας (VHO) του ΕΔΕΤ για το GÉANT</mdui:Description>
+                    <mdui:InformationURL xml:lang="en">http://www.noc.grnet.gr/</mdui:InformationURL>
+                </mdui:UIInfo>
+            </Extensions>
+            <KeyDescriptor>
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDHDCCAgSgAwIBAgIJAJMOS4lZGZTGMA0GCSqGSIb3DQEBBQUAMBoxGDAWBgNV
+                            BAMTD2duLXZoby5ncm5ldC5ncjAeFw0xNDAzMDcxODI1MzNaFw0xOTAzMDYxODI1
+                            MzNaMBoxGDAWBgNVBAMTD2duLXZoby5ncm5ldC5ncjCCASIwDQYJKoZIhvcNAQEB
+                            BQADggEPADCCAQoCggEBAOh9S7NB2MuQqUBKOiEe05XHFCBBc9e6icfod97VFeug
+                            hdLsAZK/hpPAADzXQsKz2eHG3abRgxWUneQ7e8hSPCckGRG06FtbSI4zOitlx9id
+                            QHk1ah1vaVFLKiFdFhpqsE8Gjbb7FfA4cwXjMO4l8D4m3kFkKQk5x0Ok5EIumDlx
+                            RHPSRxIS6RsGE9y/xvCu+NNvc8zG6eSXrNLPgLHau3aNPY/NeYaV9UZg6pV8PlS4
+                            DbNLIg6U+rbYMBztRzfkHL5UTuykGwmECgKP7E/cajAS3siR6c7avkeMaqmdyCSt
+                            GB0JofKDSWEC+rIIMUafxM2JMpcmqDSe1a7gRij/Gk0CAwEAAaNlMGMwQgYDVR0R
+                            BDswOYIPZ24tdmhvLmdybmV0LmdyhiZodHRwczovL2duLXZoby5ncm5ldC5nci9p
+                            ZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUbS3VHThd6Vyhy9/Pki68p/j4ZRYwDQYJ
+                            KoZIhvcNAQEFBQADggEBAOMWzzekuxdAwdr8DY8tM6tCKjq/YRP70b9eKH3zwXWc
+                            XZZwcv57B7z1wwt/4eCLQai4bPIIAGnFJIr+LRV2hhy3HJZ/CtFs5LqYFP/OCaLa
+                            VbwyzBQMRwAy5Jbt7ikfc7P7BOPjQ1zQzTxkNUmWGXoTIkPJ4naSmNUV26WWSvA9
+                            15ZjygTLXMVwuOAFXhuBBU5AWfzfQa6nxlFUQ4NYw7ow4h73KWrVRRpXTV7U4g3s
+                            ytc1mR50M3dyL1uT7lpfSyTJ8fdzjSuw0xknlCY2rmOGq9RVPZwoz8ZP2xrVdcNW
+                            8Y/HvCvcXUMu/2w1Xei++WItO1eyS80x8+/VjQ7h+50=
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://gn-vho.grnet.gr:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://gn-vho.grnet.gr:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+            <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://gn-vho.grnet.gr/idp/profile/Shibboleth/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://gn-vho.grnet.gr/idp/profile/SAML2/POST/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://gn-vho.grnet.gr/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://gn-vho.grnet.gr/idp/profile/SAML2/Redirect/SSO"/>
+        </IDPSSODescriptor>
+        <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+            <Extensions>
+                <shibmd:Scope regexp="false">gn-vho.grnet.gr</shibmd:Scope>
+            </Extensions>
+            <KeyDescriptor>
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDHDCCAgSgAwIBAgIJAJMOS4lZGZTGMA0GCSqGSIb3DQEBBQUAMBoxGDAWBgNV
+                            BAMTD2duLXZoby5ncm5ldC5ncjAeFw0xNDAzMDcxODI1MzNaFw0xOTAzMDYxODI1
+                            MzNaMBoxGDAWBgNVBAMTD2duLXZoby5ncm5ldC5ncjCCASIwDQYJKoZIhvcNAQEB
+                            BQADggEPADCCAQoCggEBAOh9S7NB2MuQqUBKOiEe05XHFCBBc9e6icfod97VFeug
+                            hdLsAZK/hpPAADzXQsKz2eHG3abRgxWUneQ7e8hSPCckGRG06FtbSI4zOitlx9id
+                            QHk1ah1vaVFLKiFdFhpqsE8Gjbb7FfA4cwXjMO4l8D4m3kFkKQk5x0Ok5EIumDlx
+                            RHPSRxIS6RsGE9y/xvCu+NNvc8zG6eSXrNLPgLHau3aNPY/NeYaV9UZg6pV8PlS4
+                            DbNLIg6U+rbYMBztRzfkHL5UTuykGwmECgKP7E/cajAS3siR6c7avkeMaqmdyCSt
+                            GB0JofKDSWEC+rIIMUafxM2JMpcmqDSe1a7gRij/Gk0CAwEAAaNlMGMwQgYDVR0R
+                            BDswOYIPZ24tdmhvLmdybmV0LmdyhiZodHRwczovL2duLXZoby5ncm5ldC5nci9p
+                            ZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUbS3VHThd6Vyhy9/Pki68p/j4ZRYwDQYJ
+                            KoZIhvcNAQEFBQADggEBAOMWzzekuxdAwdr8DY8tM6tCKjq/YRP70b9eKH3zwXWc
+                            XZZwcv57B7z1wwt/4eCLQai4bPIIAGnFJIr+LRV2hhy3HJZ/CtFs5LqYFP/OCaLa
+                            VbwyzBQMRwAy5Jbt7ikfc7P7BOPjQ1zQzTxkNUmWGXoTIkPJ4naSmNUV26WWSvA9
+                            15ZjygTLXMVwuOAFXhuBBU5AWfzfQa6nxlFUQ4NYw7ow4h73KWrVRRpXTV7U4g3s
+                            ytc1mR50M3dyL1uT7lpfSyTJ8fdzjSuw0xknlCY2rmOGq9RVPZwoz8ZP2xrVdcNW
+                            8Y/HvCvcXUMu/2w1Xei++WItO1eyS80x8+/VjQ7h+50=
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://gn-vho.grnet.gr:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+            <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://gn-vho.grnet.gr:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+        </AttributeAuthorityDescriptor>
+        <Organization>
+            <OrganizationName xml:lang="en">GRNET Virtual Home Organization (VHO) for GÉANT</OrganizationName>
+            <OrganizationName xml:lang="el">Εικονικός Οικείος Φορέας (VHO) του ΕΔΕΤ για το GÉANT</OrganizationName>
+            <OrganizationDisplayName xml:lang="en">GRNET Virtual Home Organization (VHO) for GÉANT</OrganizationDisplayName>
+            <OrganizationDisplayName xml:lang="el">Εικονικός Οικείος Φορέας (VHO) του ΕΔΕΤ για το GÉANT</OrganizationDisplayName>
+            <OrganizationURL xml:lang="en">http://www.noc.grnet.gr/</OrganizationURL>
+        </Organization>
+        <ContactPerson contactType="technical">
+            <Company>Greek Research and Technology Network</Company>
+            <EmailAddress>helpdesk@grnet.gr</EmailAddress>
+            <TelephoneNumber>800-11-47638</TelephoneNumber>
+            <TelephoneNumber>+30-2109569181</TelephoneNumber>
+        </ContactPerson>
+        <ContactPerson contactType="support">
+            <Company>Greek Research and Technology Network</Company>
+            <EmailAddress>helpdesk@grnet.gr</EmailAddress>
+            <TelephoneNumber>800-11-47638</TelephoneNumber>
+        </ContactPerson>
+    </EntityDescriptor>

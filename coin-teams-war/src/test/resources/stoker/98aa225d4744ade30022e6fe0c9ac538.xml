@@ -1,0 +1,84 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.crous-creteil.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-03-06T15:51:29Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">crous-creteil.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      <mdui:DisplayName xml:lang="en">CROUS Créteil</mdui:DisplayName>
+          		      <mdui:Description xml:lang="en">Administratifs</mdui:Description>
+          		      <mdui:DisplayName xml:lang="fr">CROUS Créteil</mdui:DisplayName>
+          		      <mdui:Description xml:lang="fr">Administratifs</mdui:Description>
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIEdjCCA16gAwIBAgIRAJ5lMINLv4KL948DJ4za9FIwDQYJKoZIhvcNAQEFBQAw
+NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+IFNTTCBDQTAeFw0xNDAzMTAwMDAwMDBaFw0xNzAzMDkyMzU5NTlaMEIxITAfBgNV
+BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEdMBsGA1UEAxMUaWRwLmNyb3Vz
+LWNyZXRlaWwuZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDhR4WQ
+mTRASe7QJ+SnbMD4o2Ol6ZGgThvO+B7UvPL63IVUydDq1bDO0S7QvFdg/79pX9GP
++WyALvuCPLDNmLXo0akCstsXmDeDgbwSumE1vgH49bCyo8LsaIm4CGyEv8EyBGIf
+5ocwzeIChFZIz93+ckldwv2cANfPNFeZehC2pprBtQwZWpHaB773p/vkkJB9ZnAc
+FHCGBDZK83Z8diQ0gcGWT5I458Iyy/GsspkboahISiH4E3RXv/crfXA3NPiz1MEl
+0DJ2Fsa5FZbUPWBVrxyITyhr3D6CBS3uPBzr52d/hycV7sIu2yE1IouoMTnrDRix
+gIyzzBOuncz7XqR1AgMBAAGjggFxMIIBbTAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJ
+ays3V0fqkOO57TAdBgNVHQ4EFgQU12L8b6JRjRbvP/2h8rSpSyj/NcwwDgYDVR0P
+AQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsG
+AQUFBwMCMCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQIBMDoGA1Ud
+HwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NM
+Q0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2NydC50
+Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6
+Ly9vY3NwLnRjcy50ZXJlbmEub3JnMB8GA1UdEQQYMBaCFGlkcC5jcm91cy1jcmV0
+ZWlsLmZyMA0GCSqGSIb3DQEBBQUAA4IBAQB1+6zzpZFAyRF9Sp3qwwPQkuV7bRLV
+5hLkfhEAfCMP25E9DuAMWC9Vb0rldlneSl06dk2pA72AHrQZ+n799wCmynxNzooB
+fJXUOunDwz37fDJAbb729YAXmt4iPPG8NCSlIu2WkueaOhH2GJPJOPatItGQIUEy
+HAJ1OzN3e3zX8iuyXkZJVa+ddsWEeUPrS59CBvjk1Y8SYe2uHRNv+g8DX0wVkjKq
+laTKYcW1rY22QD6/RLQr0EpQ9BXoZbJq7CyGsBDPMs/K80DCYNaaOBxWyWNH1X9A
+Jb3ZR1qKEgKubKYH73VLMDHwl1IEyS+6D44aMSlHdTqE8OJfTRKMANX8
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.crous-creteil.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.crous-creteil.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.crous-creteil.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">CROUS Créteil</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">CROUS Créteil</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>informatique@crous-creteil.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

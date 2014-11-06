@@ -1,0 +1,89 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.crous-orleans-tours.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-06-02T15:51:56Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">crous-orleans-tours.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      <mdui:DisplayName xml:lang="en">CROUS Orléans-Tours - Personnels</mdui:DisplayName>
+          		      <mdui:Description xml:lang="en">Crous Orléans-Tours staff</mdui:Description>
+          		      <mdui:DisplayName xml:lang="fr">CROUS Orléans-Tours - Personnels</mdui:DisplayName>
+          		      <mdui:Description xml:lang="fr">Membres du personnel du Crous d'Orléans-Tours</mdui:Description>
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDVDCCAjygAwIBAgIVAMl6t3QQN7SBNiEk1q64K1duI81gMA0GCSqGSIb3DQEB
+BQUAMCUxIzAhBgNVBAMTGmlkcC5jcm91cy1vcmxlYW5zLXRvdXJzLmZyMB4XDTE0
+MDUyNjEzNTUwNVoXDTM0MDUyNjEzNTUwNVowJTEjMCEGA1UEAxMaaWRwLmNyb3Vz
+LW9ybGVhbnMtdG91cnMuZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+AQDMVDqwA5RAg6HnDR7KyX0G3DKH0AnRsMZcbL2nU3Kt7eOnn/vKncGA/VoYPW7o
+CPWEPJZ8WsHODOtt//PCIVwfp7REAol0oUDPu2XYRHkKOtbhpp4mqF/CSuWT7bSQ
+EmLv94O9/aPjN5b/D1z8oj6di7EJz7JGr4ARHw9NEcVEgsg5b5gAT87A5wASoNbn
+T0fpOpmJQy2lCNfxAfJsq0O2PSa5Hfxg1KeVI6mDsSSLnlaS/n4uMXLGono7QbeB
+6tXq0D4wy3f2tUF54CiG9epe79VU+VqZQjb+33LO+r+DbizBbl0Q1pqvNHeaN07i
+rMVAuAFYBBquiReXwzXVlZ/pAgMBAAGjezB5MFgGA1UdEQRRME+CGmlkcC5jcm91
+cy1vcmxlYW5zLXRvdXJzLmZyhjFodHRwczovL2lkcC5jcm91cy1vcmxlYW5zLXRv
+dXJzLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBQteIp+4pKTwpW1QSeCeYi3
+ZwHBdDANBgkqhkiG9w0BAQUFAAOCAQEAa2opfhVRYW/GQmbtQC7HzNd/E5ovBrns
+l3Feh3q6gyL5kZlxcM2LasVUiv99v9hqw4eLmOhZrYtieQyPNTmijxGhFFqCCd+m
+sPQWi85i0R4/y7BKoZ7IkdeBuFxYsT9hGKMYtPXFHu2oNAAF9n19MY48vuVxJse5
+3W4/oX/WiSm1Fj+mDMmo11+zRjk2dwykd8TPKlo4klWxN0rcLrcUc9Zr1BRbZngi
+6wPYkfBTz+RpN3vmE3nMLlNTMS0OaU0BhOaL8hNBJKmPnWE7yJDZCFRE4pP8SojZ
+w7nR324InrWagttK/tkzxBOggWr5VB7dXlu+mc/Bhicd+yCGgLK1tg==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.crous-orleans-tours.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.crous-orleans-tours.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.crous-orleans-tours.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">CROUS Orléans-Tours - Personnels</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">CROUS Orléans-Tours - Personnels</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>LEROY Thierry</SurName>
+				 <EmailAddress>thierry.leroy@crous-orleans-tours.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>VINCENT Régis</SurName>
+				 <EmailAddress>regis.vincent@crous-orleans-tours.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

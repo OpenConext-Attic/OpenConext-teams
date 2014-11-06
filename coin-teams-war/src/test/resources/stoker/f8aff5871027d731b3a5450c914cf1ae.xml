@@ -1,0 +1,129 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth.insa-rouen.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2010-03-02T14:41:38Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">insa-rouen.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">INSA de Rouen</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDTDCCAjSgAwIBAgIVAMjnzzUZMi+gw/G65zb8aEmhPMcsMA0GCSqGSIb3DQEB
+BQUAMCMxITAfBgNVBAMTGHNoaWJib2xldGguaW5zYS1yb3Vlbi5mcjAeFw0xMDAy
+MTIxNDE0MTNaFw0zMDAyMTIxNDE0MTNaMCMxITAfBgNVBAMTGHNoaWJib2xldGgu
+aW5zYS1yb3Vlbi5mcjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIrS
++3iUIFUKCA9bdG5CkzYxYKWg6huMkcRrqruetEbUobvCf/B5Q4R2SuEHa+VG2SMd
+bgjcHSjPIqwtzcaFq9cEK+I24UPSpBUYei/m9//CWMUNR0YGJWgQdtMi9v4N60qP
+Fiep4U5vj/whakGeMY5J3E8mKrzITemh0yLFThQh+edav5QaPOuOuWW1kx8e3Y2P
+uCEdDDvxXS6vtUJ0Y9OOmq824e9Olo2DIHsbicraB3hnHVDwljw4gwKGDqlkr7kJ
+P/5ORgPyRa51RcD21XHaMcNbiZ9BWuyZkgIX7MwY5Pucn9xZBLOCF1XVPrIz5Thw
+3JBDfons1+l52SpmlW0CAwEAAaN3MHUwVAYDVR0RBE0wS4IYc2hpYmJvbGV0aC5p
+bnNhLXJvdWVuLmZyhi9odHRwczovL3NoaWJib2xldGguaW5zYS1yb3Vlbi5mci9p
+ZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUVroJwDQMTj+P/Qy2rF0hgSrMGd0wDQYJ
+KoZIhvcNAQEFBQADggEBABzLkZCSjBO68HuRhDjlVblgc9up8dN5pZZMxxWyQfQM
+GZgv3sYwktpBL/I7jUuEhiMbr5n8I/hq0HrxiBAFulVvuLhahzfY4GxMwEBHTYm/
+gOoNn2cJD+ZKFF1PPZ3TYnlbM1nJ17AbSCjS2QxzNygTzi2tDulpOJgUmacLr81Q
+VZrWGgkPWyDKh3foQ7Olh9eiySh1jSl55uJE4ze1yopOiFyLfe4PHYnsfanu9F0k
+2VITeNSh7Epbl3wutJnfXFpa4XpmWMIzeQD7Eowrs5Oewk1peM6kl2fzn4gKcFXo
+u1n3Fa3LxTYXo8TB+XbBKdEFD+MdaGILc/H8Gb5EEak=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.insa-rouen.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.insa-rouen.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.insa-rouen.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">insa-rouen.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDTDCCAjSgAwIBAgIVAMjnzzUZMi+gw/G65zb8aEmhPMcsMA0GCSqGSIb3DQEB
+BQUAMCMxITAfBgNVBAMTGHNoaWJib2xldGguaW5zYS1yb3Vlbi5mcjAeFw0xMDAy
+MTIxNDE0MTNaFw0zMDAyMTIxNDE0MTNaMCMxITAfBgNVBAMTGHNoaWJib2xldGgu
+aW5zYS1yb3Vlbi5mcjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIrS
++3iUIFUKCA9bdG5CkzYxYKWg6huMkcRrqruetEbUobvCf/B5Q4R2SuEHa+VG2SMd
+bgjcHSjPIqwtzcaFq9cEK+I24UPSpBUYei/m9//CWMUNR0YGJWgQdtMi9v4N60qP
+Fiep4U5vj/whakGeMY5J3E8mKrzITemh0yLFThQh+edav5QaPOuOuWW1kx8e3Y2P
+uCEdDDvxXS6vtUJ0Y9OOmq824e9Olo2DIHsbicraB3hnHVDwljw4gwKGDqlkr7kJ
+P/5ORgPyRa51RcD21XHaMcNbiZ9BWuyZkgIX7MwY5Pucn9xZBLOCF1XVPrIz5Thw
+3JBDfons1+l52SpmlW0CAwEAAaN3MHUwVAYDVR0RBE0wS4IYc2hpYmJvbGV0aC5p
+bnNhLXJvdWVuLmZyhi9odHRwczovL3NoaWJib2xldGguaW5zYS1yb3Vlbi5mci9p
+ZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUVroJwDQMTj+P/Qy2rF0hgSrMGd0wDQYJ
+KoZIhvcNAQEFBQADggEBABzLkZCSjBO68HuRhDjlVblgc9up8dN5pZZMxxWyQfQM
+GZgv3sYwktpBL/I7jUuEhiMbr5n8I/hq0HrxiBAFulVvuLhahzfY4GxMwEBHTYm/
+gOoNn2cJD+ZKFF1PPZ3TYnlbM1nJ17AbSCjS2QxzNygTzi2tDulpOJgUmacLr81Q
+VZrWGgkPWyDKh3foQ7Olh9eiySh1jSl55uJE4ze1yopOiFyLfe4PHYnsfanu9F0k
+2VITeNSh7Epbl3wutJnfXFpa4XpmWMIzeQD7Eowrs5Oewk1peM6kl2fzn4gKcFXo
+u1n3Fa3LxTYXo8TB+XbBKdEFD+MdaGILc/H8Gb5EEak=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.insa-rouen.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">INSA de Rouen</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">INSA de Rouen</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>LE GUILLOUS Franck</SurName>
+				 <EmailAddress>franck.le-guillous@insa-rouen.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Kesraoui Nadir</SurName>
+				 <EmailAddress>nadir.kesraoui@insa-rouen.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

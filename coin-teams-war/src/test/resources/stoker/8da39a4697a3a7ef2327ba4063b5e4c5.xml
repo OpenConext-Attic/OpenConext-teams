@@ -1,0 +1,161 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://rr.funet.fi/attribute-test">
+    <Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.csc.fi/haka">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.csc.fi/english/institutions/haka/instructions/join/eduGAINRegistrationStatement/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </Extensions>
+    <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://rr.funet.fi/attribute-test/Shibboleth.sso/Login" index="1"/>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="fi">Haka attribuuttitestipalvelu</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Haka Attribute Test Service</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Attributes released by IdP-server can be tested against this SP.</mdui:Description>
+          <mdui:Description xml:lang="fi">Palvelua vasten voi testata IdP-palvelimen luovuttamia attribuutteja.</mdui:Description>
+          <mdui:Keywords xml:lang="en">attribute test</mdui:Keywords>
+          <mdui:PrivacyStatementURL xml:lang="en">https://confluence.csc.fi/x/6o4uAg</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="fi">https://confluence.csc.fi/x/6o4uAg</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="sv">https://confluence.csc.fi/x/6o4uAg</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIFijCCBHKgAwIBAgIRAOpF8XtkiUr3wCQ16Yh9PYYwDQYJKoZIhvcNAQEFBQAw
+NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+IFNTTCBDQTAeFw0xNDA0MDkwMDAwMDBaFw0xNzA0MDgyMzU5NTlaMDkxITAfBgNV
+BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEUMBIGA1UEAxMLcnIuZnVuZXQu
+ZmkwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQCo3JlR09DvNOKqY8J0
+X+OnAIgOz8mhKid0kjE/2sYlxPf+NJljQnIZYixD/Oj1eX0E2pb7XNZeSaUeBN+y
+Ge0L9b5r72910p0N8G2ZsycUfpzwUc80jJKPi0Vj0wE7M4itwF6ix7wUDLVKm7WF
+j19VdNhEO5v6oKql+Y1+LioWAGymfhxIf92r4VxUq7x4g5AFUwLE3U6MDa7KPreQ
+MVaPYX6MQBjhl1IksuMYiL9l32vRIBnsvKgJLPuj9w4rRLQksIS3Kq/ubaWcHRLV
+2vdTAlwSJGyFVvsKKUaLMa8PDi7Qh9XyGKBYNqpVT/y73Jen0qxB2ey/i/7s8Wpv
+bVaBmtPaSdrEzJAiF97wvShgKsMsMre5gQwb5Xm9+ivBr73nHyDOw8pPCgcXAZRS
+lMTu6YhVDqWpOj/FyGMmMo0Mr0CAsIKPN3uG2iT5ORkVBhtHufUkKbKtA/lHzGVq
+Wd5UXhvqJJCkdIR+6hW0KuhZCV3rQmav9uT5n0TLQehRL1MQWdno/U7e3gx364vt
+kBbSK6fLvRvUsdHI+82MkWfTFNa9auCgQr55cY5o6kDiEc1d7ofqXbMZFY4+9V9s
+A5b4a2rYfYKmA6QzoNz4Ed0ls45i44AbgBVMgB6gjWWnl8cwLGwbtXIXG2lLHJuJ
+ebv5jS3kU2+biivwcXfacBT+XwIDAQABo4IBjjCCAYowHwYDVR0jBBgwFoAUDL2T
+aAzz3qujSWsrN1dH6pDjue0wHQYDVR0OBBYEFGdyR9kleLAF9CwyvqrCaVT6cRNi
+MA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUF
+BwMBBggrBgEFBQcDAjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAEC
+ATA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RF
+UkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6
+Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzAB
+hhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9yZzA8BgNVHREENTAzggtyci5mdW5l
+dC5maYIQaGFrYS1yci5mdW5ldC5maYISaGFrYS1ycjAxLmZ1bmV0LmZpMA0GCSqG
+SIb3DQEBBQUAA4IBAQCqH0bVH4duhVkYw63tkRZTRLG83JGJWuZYA6bmntr80Wdp
+1OUW3Ez66sByA6hddAX1trKs+ChOehatsSVV4g9YvZzOT5fEU5kkl5ZX+j8aVHwc
+55q2VVkv9RmCdt23hLPZD6eoNc7uDmz8/Ol94zmd/jcXz5lwq3FNss0yMOJ5W5hz
+HnVn+FAnphU6TsJhBYuXkNziSOkrUeZyUTPpRMsz7OlmdrW+i6sLS6RxUprMM6rV
+aUiD/5UIQRBIZKprBZPaQHh3M9a6FfXTAKWnwrePtRcite62ajmeGa3G0Ldh0TLO
+7RGEenBRxaphXGAv1Eb0nZKFlktgZNSVgkJTGQH0</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://rr.funet.fi/attribute-test/Shibboleth.sso/SLO/Redirect"/>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://rr.funet.fi/attribute-test/Shibboleth.sso/SAML2/POST" index="1" isDefault="true"/>
+      <AttributeConsumingService index="1" isDefault="true">
+        <ServiceName xml:lang="fi">Haka attribuuttitestipalvelu</ServiceName>
+        <ServiceName xml:lang="en">Haka Attribute Test Service</ServiceName>
+        <ServiceDescription xml:lang="fi">Palvelua vasten voi testata IdP-palvelimen luovuttamia attribuutteja.</ServiceDescription>
+        <ServiceDescription xml:lang="en">Attributes released by IdP-server can be tested against this SP.</ServiceDescription>
+        <RequestedAttribute FriendlyName="businessCategory" Name="urn:oid:2.5.4.15" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="businessCode" Name="urn:oid:1.2.246.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="cn" Name="urn:oid:2.5.4.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="CountryOfResidence" Name="urn:oid:1.3.6.1.4.1.25178.1.2.11" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="description" Name="urn:oid:2.5.4.13" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="eduCourseMember" Name="urn:oid:1.3.6.1.4.1.5923.1.6.1.2" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="eduCourseOffering" Name="urn:oid:1.3.6.1.4.1.5923.1.6.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="eduPersonAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="eduPersonEntitlement" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.7" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="eduPersonOrgDN" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="eduPersonOrgUnitDN" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="eduPersonPrimaryAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.5" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="eduPersonPrimaryOrgUnitDN" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.8" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="electronicIdentificationNumber" Name="urn:oid:1.2.246.22" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="employeeNumber" Name="urn:oid:2.16.840.1.113730.3.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="facsimileTelephoneNumber" Name="urn:oid:2.5.4.23" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="funetEduPersonCreditUnits" Name="urn:oid:1.3.6.1.4.1.16161.1.1.18" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="funetEduPersonECTS" Name="urn:oid:1.3.6.1.4.1.16161.1.1.19" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="funetEduPersonEPPNTimeStamp" Name="urn:oid:1.3.6.1.4.1.16161.1.1.24" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="funetEduPersonHomeCity" Name="urn:oid:1.3.6.1.4.1.16161.1.1.23" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="funetEduPersonPrimaryStudyStart" Name="urn:oid:1.3.6.1.4.1.16161.1.1.15" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="funetEduPersonProgram" Name="urn:oid:1.3.6.1.4.1.16161.1.1.12" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="funetEduPersonSpecialisation" Name="urn:oid:1.3.6.1.4.1.16161.1.1.13" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="funetEduPersonStudentCategory" Name="urn:oid:1.3.6.1.4.1.16161.1.1.20" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="funetEduPersonStudentStatus" Name="urn:oid:1.3.6.1.4.1.16161.1.1.21" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="funetEduPersonStudentUnion" Name="urn:oid:1.3.6.1.4.1.16161.1.1.22" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="funetEduPersonStudyStart" Name="urn:oid:1.3.6.1.4.1.16161.1.1.14" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="funetEduPersonStudyToEnd" Name="urn:oid:1.3.6.1.4.1.16161.1.1.16" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="funetEduPersonTargetDegree" Name="urn:oid:1.3.6.1.4.1.16161.1.1.11" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="homePhone" Name="urn:oid:0.9.2342.19200300.100.1.20" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="homePostalAddress" Name="urn:oid:0.9.2342.19200300.100.1.39" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="initials" Name="urn:oid:2.5.4.43" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="jpegPhoto" Name="urn:oid:0.9.2342.19200300.100.1.60" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="l" Name="urn:oid:2.5.4.7" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="labeledURI" Name="urn:oid:1.3.6.1.4.1.250.1.57" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="mobile" Name="urn:oid:0.9.2342.19200300.100.1.41" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="nationalIdentificationNumber" Name="urn:oid:1.2.246.21" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="Nickname" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.2" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="o" Name="urn:oid:2.5.4.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="ou" Name="urn:oid:2.5.4.11" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="postalAddress" Name="urn:oid:2.5.4.16" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="postalCode" Name="urn:oid:2.5.4.17" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="postOfficeBox" Name="urn:oid:2.5.4.18" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="preferredLanguage" Name="urn:oid:2.16.840.1.113730.3.1.39" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="schacCountryOfCitizenship" Name="urn:oid:1.3.6.1.4.1.25178.1.2.5" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="schacDateOfBirth" Name="urn:oid:1.3.6.1.4.1.25178.1.2.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="schacGender" Name="urn:oid:1.3.6.1.4.1.25178.1.2.2" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="schacHomeOrganization" Name="urn:oid:1.3.6.1.4.1.25178.1.2.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="schacHomeOrganizationType" Name="urn:oid:1.3.6.1.4.1.25178.1.2.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="schacMotherTongue" Name="urn:oid:1.3.6.1.4.1.25178.1.2.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="schacPersonalUniqueCode" Name="urn:oid:1.3.6.1.4.1.25178.1.2.14" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="schacPersonalUniqueID" Name="urn:oid:1.3.6.1.4.1.25178.1.2.15" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="schacPlaceOfBirth" Name="urn:oid:1.3.6.1.4.1.25178.1.2.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="seeAlso" Name="urn:oid:2.5.4.34" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="sn" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="street" Name="urn:oid:2.5.4.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="telephoneNumber" Name="urn:oid:2.5.4.20" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="title" Name="urn:oid:2.5.4.12" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="uid" Name="urn:oid:0.9.2342.19200300.100.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="userCertificate" Name="urn:oid:2.5.4.36" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="userPresenceID" Name="urn:oid:1.3.6.1.4.1.25178.1.2.12" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="userStatus" Name="urn:oid:1.3.6.1.4.1.25178.1.2.19" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+      </AttributeConsumingService>
+    </SPSSODescriptor>
+    <Organization>
+      <OrganizationName xml:lang="fi">CSC - Tieteen tietotekniikan keskus Oy</OrganizationName>
+      <OrganizationName xml:lang="en">CSC - IT Center for Science Ltd.</OrganizationName>
+      <OrganizationName xml:lang="sv">CSC - Tieteen tietotekniikan keskus Oy</OrganizationName>
+      <OrganizationDisplayName xml:lang="fi">CSC - Tieteen tietotekniikan keskus Oy</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="en">CSC - IT Center for Science Ltd.</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="sv">CSC - Tieteen tietotekniikan keskus Oy</OrganizationDisplayName>
+      <OrganizationURL xml:lang="fi">http://www.csc.fi</OrganizationURL>
+      <OrganizationURL xml:lang="en">http://www.csc.fi</OrganizationURL>
+      <OrganizationURL xml:lang="sv">http://www.csc.fi</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Kari</GivenName>
+      <SurName>Laalo</SurName>
+      <EmailAddress>mailto:kari.laalo@csc.fi</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="support">
+      <GivenName>Timo</GivenName>
+      <SurName>Mustonen</SurName>
+      <EmailAddress>mailto:haka@csc.fi</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

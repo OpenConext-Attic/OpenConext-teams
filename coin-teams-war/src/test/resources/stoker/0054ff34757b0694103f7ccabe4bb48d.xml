@@ -1,0 +1,129 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.u-bordeaux1.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-11-10T09:27:33Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">u-bordeaux1.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de Bordeaux 1</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDMzCCAhugAwIBAgIUYibTz+Dskx28GtVQ2//RrkKDqr8wDQYJKoZIhvcNAQEF
+BQAwHTEbMBkGA1UEAxMSaWRwLnUtYm9yZGVhdXgxLmZyMB4XDTA5MTEwOTA4NDcx
+M1oXDTI5MTEwOTA4NDcxM1owHTEbMBkGA1UEAxMSaWRwLnUtYm9yZGVhdXgxLmZy
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzOR5TePy0ieJG9TAQBKb
+HxfHdPm7Js3sfkvHdCcM0YKVO2S9XmCgR3SLs8Cu6/MZPosaDmz9qE6xD3RdHA+h
+OZck8PDUOkmlZmJP56XR5LJ5GWkfNFj5spYc330kkmd/pHc1Gvkpg/UTUZHxQ2oC
+S4a86CvRRLxYV2DJw9Xs6xTQdmq3htBjD1UZt1DdEAfKAB+pAym201O09HtVUKEi
+f6rF2/V1aPzBiOLkUI/qjFd0Nxv1AmrfzR6iikCwQow0RixV0JSe4fd3L8OsRl4+
+Og+HvxMgT1gGtS0l0IxskwBadNORi0izo/+QI72KjQuhwlo4qpHz+5IZQxGG7ZBF
+fwIDAQABo2swaTBIBgNVHREEQTA/ghJpZHAudS1ib3JkZWF1eDEuZnKGKWh0dHBz
+Oi8vaWRwLnUtYm9yZGVhdXgxLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBR8
+ZWiS0Xn8gBy8RcQS0rxq2mv18DANBgkqhkiG9w0BAQUFAAOCAQEAfBUQ2pwfnv8r
+DT1XgVFPYNqDHwAg34D4iiFiD/LxSBxVucCUGNTvBD6G3r/Q7aKpHmQdxhqZgqKF
+mij0A7JKugv/mXFdjmyA9/GiqPabfQJdDi3QIMgfBb5Vpvcoth+yxRnJ2MzpKAxH
+BeaIdvQ7FXzDhW7vTFDfbpkC1mLEI5/febpi7CAvMkE6AFa9YpnCNvN2MiW9n/jP
+bxoITGkd9gp938GswozJ4c8CLWVPt85EOPdpOqNCVXtL661myHQdSYltGFvT+jgd
+yaUfAtl8hB0qTx/dI2xOtYJa5ROvs2OVSp0mi8otLv2fgDnkRDISwt8QpRTqsMaP
+PuVhZrOujQ==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.u-bordeaux1.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.u-bordeaux1.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.u-bordeaux1.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">u-bordeaux1.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDMzCCAhugAwIBAgIUYibTz+Dskx28GtVQ2//RrkKDqr8wDQYJKoZIhvcNAQEF
+BQAwHTEbMBkGA1UEAxMSaWRwLnUtYm9yZGVhdXgxLmZyMB4XDTA5MTEwOTA4NDcx
+M1oXDTI5MTEwOTA4NDcxM1owHTEbMBkGA1UEAxMSaWRwLnUtYm9yZGVhdXgxLmZy
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzOR5TePy0ieJG9TAQBKb
+HxfHdPm7Js3sfkvHdCcM0YKVO2S9XmCgR3SLs8Cu6/MZPosaDmz9qE6xD3RdHA+h
+OZck8PDUOkmlZmJP56XR5LJ5GWkfNFj5spYc330kkmd/pHc1Gvkpg/UTUZHxQ2oC
+S4a86CvRRLxYV2DJw9Xs6xTQdmq3htBjD1UZt1DdEAfKAB+pAym201O09HtVUKEi
+f6rF2/V1aPzBiOLkUI/qjFd0Nxv1AmrfzR6iikCwQow0RixV0JSe4fd3L8OsRl4+
+Og+HvxMgT1gGtS0l0IxskwBadNORi0izo/+QI72KjQuhwlo4qpHz+5IZQxGG7ZBF
+fwIDAQABo2swaTBIBgNVHREEQTA/ghJpZHAudS1ib3JkZWF1eDEuZnKGKWh0dHBz
+Oi8vaWRwLnUtYm9yZGVhdXgxLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBR8
+ZWiS0Xn8gBy8RcQS0rxq2mv18DANBgkqhkiG9w0BAQUFAAOCAQEAfBUQ2pwfnv8r
+DT1XgVFPYNqDHwAg34D4iiFiD/LxSBxVucCUGNTvBD6G3r/Q7aKpHmQdxhqZgqKF
+mij0A7JKugv/mXFdjmyA9/GiqPabfQJdDi3QIMgfBb5Vpvcoth+yxRnJ2MzpKAxH
+BeaIdvQ7FXzDhW7vTFDfbpkC1mLEI5/febpi7CAvMkE6AFa9YpnCNvN2MiW9n/jP
+bxoITGkd9gp938GswozJ4c8CLWVPt85EOPdpOqNCVXtL661myHQdSYltGFvT+jgd
+yaUfAtl8hB0qTx/dI2xOtYJa5ROvs2OVSp0mi8otLv2fgDnkRDISwt8QpRTqsMaP
+PuVhZrOujQ==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.u-bordeaux1.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Bordeaux 1</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Bordeaux 1</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>RAYNAL Karen</SurName>
+				 <EmailAddress>karen.raynal@u-bordeaux1.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>BONNET Pascal</SurName>
+				 <EmailAddress>pascal.bonnet@u-bordeaux1.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

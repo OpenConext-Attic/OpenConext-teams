@@ -1,0 +1,88 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.univ-amu.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-04-16T08:27:18Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-amu.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université d'Aix-Marseille</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDJzCCAg+gAwIBAgIULCzb5nQYuu/jKvNfhCenMAkGKm8wDQYJKoZIhvcNAQEF
+BQAwGjEYMBYGA1UEAxMPaWRwLnVuaXYtYW11LmZyMB4XDTEyMDQxMzE1MTIzM1oX
+DTMyMDQxMzE1MTIzM1owGjEYMBYGA1UEAxMPaWRwLnVuaXYtYW11LmZyMIIBIjAN
+BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnIH5qfsDRJQDkVQ70lGQbkcAoT2g
+wCu7QruDZGG/Bk6qzCx8vNJh9rfAmrQ33GmsKOVQOxWIfImgdYgmZWsV52CPobHy
+rPsiE64INWyM/W/TEJP79GAQzGsiZ7xID6CfMbhVG83hNpWg3SxXyoh+B0/SVr/8
+IBNUtcVTe0d4Jjiv7ztHFwZXT2UBYxRJKU45V6y9Wss5RH7aAz9QVPK0K4f3r5pi
++Y+dxiw7dEWHO5QEZqx/9gQayfatac5lzX03QBZr1me5EePFwQJ3eM9raUuS1cbi
+dUxFptkQHJWoUGImaFcTHsuny2G438sM4s+ao6CkE/8WIQYTEBu0jwfIZwIDAQAB
+o2UwYzBCBgNVHREEOzA5gg9pZHAudW5pdi1hbXUuZnKGJmh0dHBzOi8vaWRwLnVu
+aXYtYW11LmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBQP7J5/7grId0BA/iS3
+EQAuh8HTUzANBgkqhkiG9w0BAQUFAAOCAQEAZT28dZUnmtUIuiob36b/jNzT/3dY
+iBZDHu3z1HMzFc6efhPhBuJ20SpLfH9oMBVDCUCktH9tv4VO5LJv0N02FL+r9uuo
+fbeNry2w9g78LM/z/0IWGtcdfEHnHA+6nYad1PEf0vv+K5v82l+atRSDoOR/s9dk
+m3A/gjFibKMSIIXDFvLncxiHYHLrhsrMFeG5HlWXx+pVCunuvo2nNk2uL1ZBWW0Z
+JRO79CP7W1ndIuM+8v1G7C1gjYqkO6rdEKdJArm7hqEMzjUdL60okDqsVX+IYFUX
+VmCmZvTACtUurXS0zocVZTUfQcTaSXkKLSKLU6TQQy4Wf/c9CfNalbv6Sw==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.univ-amu.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.univ-amu.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.univ-amu.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université d'Aix-Marseille</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université d'Aix-Marseille</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>LALOT Dominique</SurName>
+				 <EmailAddress>dominique.lalot@univ-amu.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>AIMAR Michel</SurName>
+				 <EmailAddress>michel.aimar@univ-amu.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

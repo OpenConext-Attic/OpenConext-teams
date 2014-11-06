@@ -1,0 +1,123 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://idp.unoesc.edu.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">unoesc.lan</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">UNOESC - Universidade do Oeste de Santa Catarina</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">UNOESC - Universidade do Oeste de Santa Catarina</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UNOESC - Universidade do Oeste de Santa Catarina</mdui:Description>
+          <mdui:Description xml:lang="pt-br">UNOESC - Universidade do Oeste de Santa Catarina</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.unoesc.edu.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.unoesc.edu.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIDMDCCAhigAwIBAgIVAKF0Ji/vZztY4mCNEZ7pPefws602MA0GCSqGSIb3DQEB
+BQUAMBwxGjAYBgNVBAMTEWlkcC51bm9lc2MuZWR1LmJyMB4XDTEzMDgyMDE0MDU0
+NFoXDTMzMDgyMDE0MDU0NFowHDEaMBgGA1UEAxMRaWRwLnVub2VzYy5lZHUuYnIw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCrzalfKRn2m+07ik20IeYC
+ZRH0VTEHLlWsJpPqWjhcUv6cztdeE5yfHzzmqKpPUj+VROgS8N0WO7ET8v66naDv
+D8XwcJpUsWNTjObGT4ZtsuRe223I/mN9GAlDFW9EyRudEJ9JPkAu94ZWzcv/kX4b
+3m5OQKYPI3nqVnsXObowJhjJeOOPNFAq/uVa2mSSVNcpWgdGbMPcISWoW8mIk+e7
+j6R350cHy+jVmEJLkYorIIgUFAq4v5BXk6tcDUw7Zw+BmoKkSCqTXL6Mne7siSzt
+e4kFRDbrtYgC7xYoqUrbj/LAQE29iHvcci1E6x1hpeX1YssgrkXHSa4sS6bJD+nt
+AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEWlkcC51bm9lc2MuZWR1LmJyhihodHRwczov
+L2lkcC51bm9lc2MuZWR1LmJyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBSEKtwq
+Me8m63UoHRkKdnyxHXMbfjANBgkqhkiG9w0BAQUFAAOCAQEAQeayBPOHksOEXqL6
+9dMRRhsaJOsmEQV8FLQbED5fkIi+WmBvHZ+OUCzYgnYH391/1iL+/KqmIq2kRXFQ
+L5VjytIJrjGyE+PLuycinRAdWgfzCnV47vXZ5agYjsuPBRFH9EI2j7xcZm/Bao6Q
+EOJQJ1edlst14UuaTuPOFql+3mgcKNoTt7tXJggkehJqkCAV1fl1LC7q3Tnkj/rT
+tOPnCI2V0hFiMzPkuhtDDWd8r3/B/SCuBf/gDkQKTjIMemKKBIsrqGg13A9Br23f
+veKi8jp2UG9e1Ws1DXaGXlkGklegRePCGIKEBaggZ6Y59ZJBOoHGBnq8nodIcqo4
+gjfpFw==
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.unoesc.edu.br:443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.unoesc.edu.br:443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.unoesc.edu.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.unoesc.edu.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.unoesc.edu.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.unoesc.edu.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">unoesc.lan</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIDMDCCAhigAwIBAgIVAKF0Ji/vZztY4mCNEZ7pPefws602MA0GCSqGSIb3DQEB
+BQUAMBwxGjAYBgNVBAMTEWlkcC51bm9lc2MuZWR1LmJyMB4XDTEzMDgyMDE0MDU0
+NFoXDTMzMDgyMDE0MDU0NFowHDEaMBgGA1UEAxMRaWRwLnVub2VzYy5lZHUuYnIw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCrzalfKRn2m+07ik20IeYC
+ZRH0VTEHLlWsJpPqWjhcUv6cztdeE5yfHzzmqKpPUj+VROgS8N0WO7ET8v66naDv
+D8XwcJpUsWNTjObGT4ZtsuRe223I/mN9GAlDFW9EyRudEJ9JPkAu94ZWzcv/kX4b
+3m5OQKYPI3nqVnsXObowJhjJeOOPNFAq/uVa2mSSVNcpWgdGbMPcISWoW8mIk+e7
+j6R350cHy+jVmEJLkYorIIgUFAq4v5BXk6tcDUw7Zw+BmoKkSCqTXL6Mne7siSzt
+e4kFRDbrtYgC7xYoqUrbj/LAQE29iHvcci1E6x1hpeX1YssgrkXHSa4sS6bJD+nt
+AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEWlkcC51bm9lc2MuZWR1LmJyhihodHRwczov
+L2lkcC51bm9lc2MuZWR1LmJyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBSEKtwq
+Me8m63UoHRkKdnyxHXMbfjANBgkqhkiG9w0BAQUFAAOCAQEAQeayBPOHksOEXqL6
+9dMRRhsaJOsmEQV8FLQbED5fkIi+WmBvHZ+OUCzYgnYH391/1iL+/KqmIq2kRXFQ
+L5VjytIJrjGyE+PLuycinRAdWgfzCnV47vXZ5agYjsuPBRFH9EI2j7xcZm/Bao6Q
+EOJQJ1edlst14UuaTuPOFql+3mgcKNoTt7tXJggkehJqkCAV1fl1LC7q3Tnkj/rT
+tOPnCI2V0hFiMzPkuhtDDWd8r3/B/SCuBf/gDkQKTjIMemKKBIsrqGg13A9Br23f
+veKi8jp2UG9e1Ws1DXaGXlkGklegRePCGIKEBaggZ6Y59ZJBOoHGBnq8nodIcqo4
+gjfpFw==
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.unoesc.edu.br:443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.unoesc.edu.br:443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">Unoesc - Universidade do Oeste de Santa Catarina</OrganizationName>
+      <OrganizationName xml:lang="pt-br">Unoesc - Universidade do Oeste de Santa Catarina</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">UNOESC - Universidade do Oeste de Santa Catarina</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">UNOESC - Universidade do Oeste de Santa Catarina</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.unoesc.edu.br/</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.unoesc.edu.br/</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Adalberto Freiberger</SurName>
+      <EmailAddress>ctic.jba@unoesc.edu.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

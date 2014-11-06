@@ -1,0 +1,78 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://cerbere2.mines-douai.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2013-10-03T09:42:09Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">mines-douai.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Mines Douai</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDSDCCAjCgAwIBAgIVAPf+z/Alo2UGcIQMpD8+yoRE9DjEMA0GCSqGSIb3DQEB
+BQUAMCIxIDAeBgNVBAMTF2NlcmJlcmUyLm1pbmVzLWRvdWFpLmZyMB4XDTEzMDkz
+MDEyMTA0N1oXDTMzMDkzMDEyMTA0N1owIjEgMB4GA1UEAxMXY2VyYmVyZTIubWlu
+ZXMtZG91YWkuZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCsehUd
+QZAcFM8YQRAuQ4MSbuE5yrEu7ZpH8ICDmKMlVudlEWSLSkCZqrbtNYOev8gdHQTh
+OvKd5IzIph5TaRjY1qQI5v2ud/ov+Xk0JLWkYWnh2wMIQ07LoQ66zQqHxVbfq6lR
+lNtaHXhcPNPp/61j4OOoHNbztglqpAeVnkgUqMksnDofsjVsVMYG+9naGfwHKJlH
+I9HW7aUEvYYl/mUKrHbu9+QWpLsJukiJEF6hyRgijs/kr2pm0pBB4djy1NTgrqfz
+qjYmCzxtkbogHsOs0KGdoMg6R5PmHojtQ00beeKC8/hfHP+sU3wnNO+Hb14B/NLB
+veexLjO3AQpMtMY5AgMBAAGjdTBzMFIGA1UdEQRLMEmCF2NlcmJlcmUyLm1pbmVz
+LWRvdWFpLmZyhi5odHRwczovL2NlcmJlcmUyLm1pbmVzLWRvdWFpLmZyL2lkcC9z
+aGliYm9sZXRoMB0GA1UdDgQWBBTHtKE6G3SkaEo+yuSQU4KTB9wxkDANBgkqhkiG
+9w0BAQUFAAOCAQEAqXrF4OYsvzcJ6djLo7hq52yqhYJtEdSGJkJ4n7CKX4WrHs5M
+YwWM3B6qbIjni0+cel8TJTCPG94ZZZOKZIPRv6eS2j77sRgnsht+mYpl9o4+zjrE
+CPVr99SlBCSuArEnnqDe26EJyV5M0fALwgHaBTPUlHhObgUuPuzlQQGEZKpoSlGT
+Hx5ewqQ+m/jii2h1IOzex/1uFA3euE8trn5LMmNZpvQ24yRBCVQ1LyTmmdTkNeHk
+GiluYTYk7G0sXbJWur7gK8jpHdojNfR2SUay9Z2lAllZ2V/cwxVOgOMgaFkaHAq1
+1Zj4drFJWcGthEvZ8uVYsc6wJoIy1fbrkBcMng==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cerbere2.mines-douai.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cerbere2.mines-douai.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cerbere2.mines-douai.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Mines Douai</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Mines Douai</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>net.supervision@mines-douai.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

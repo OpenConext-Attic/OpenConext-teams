@@ -1,0 +1,84 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://identites.ec-lyon.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-04-20T10:17:21Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ec-lyon.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Ecole Centrale de Lyon</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDQDCCAiigAwIBAgIVAJrguR/jXhFque4KJfEyebuerBj4MA0GCSqGSIb3DQEB
+BQUAMCAxHjAcBgNVBAMTFXNoaWJib2xldGguZWMtbHlvbi5mcjAeFw0xMjAzMDcx
+MzUxMDFaFw0zMjAzMDcxMzUxMDFaMCAxHjAcBgNVBAMTFXNoaWJib2xldGguZWMt
+bHlvbi5mcjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMFBE2ZGRJed
+X1yuAPuuFwufY2BHUSXDcF+pYE5e9YpBcljwE9DWgoQLRtBzsEBR7EyRZJDe+XZI
+DGe+gT7p0yrIsNjVXAJld3l9YHo3EKZ2YcTDC9EtUVDF70EqQL1+KFzMqHLmnojr
+/7FYR5iiRwcQ7+dQa8RBLwgXckpTzsjiJyuHzvUrDJmatKMsct5a16Hk/UG/BEjz
+m270xkFclPImp5hgG3Y0yLcuPAVoj/0aydnp8+/ZRaRL03EHbuSt2ewf4OvoQeAm
+J/xtpiOpVFQwApeCx+G7YEgC4W48lo797QlCpaw7fXUPxKhBxU38yDXE27mIt6Zh
+k0/JtUTCCG0CAwEAAaNxMG8wTgYDVR0RBEcwRYIVc2hpYmJvbGV0aC5lYy1seW9u
+LmZyhixodHRwczovL3NoaWJib2xldGguZWMtbHlvbi5mci9pZHAvc2hpYmJvbGV0
+aDAdBgNVHQ4EFgQUQwnjctonyj2JIsIKaPFhCV9oIFEwDQYJKoZIhvcNAQEFBQAD
+ggEBAC0S2ZzH4X+GcKFny1NkFcMz6z1tlJ+iDgcKrv44m1ZyqOtiPm8k91rYYr5f
+NqezE6TGWH/taqN+/Y5+cTnPOjmJKwbIGu56Pt3nilhtcRShgVmW6msVdaKtf5Sr
+2dfNYQTHRm/YBAU+VzBUraMijeL2XnR+PFm3VNE+TdfParaLAMHurmYBE/6tQfXt
+4D6wA3/uLosIJ9ofWuJlPEsmYBTm5RukxnH0Qb1Gb5n2E8V+ZNCImpjZFsxSSrYz
+RiwCcgJOD+DOge8blZpwqnL6EKHFiSVauCzZAQ4B/k+9m0kZBXapgA2Fs3FI8uC3
+ywgk8luEHvdrWWSkFWa4yb2TuI4=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://identites.ec-lyon.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://identites.ec-lyon.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://identites.ec-lyon.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Ecole Centrale de Lyon</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Ecole Centrale de Lyon</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Cheval Régis</SurName>
+				 <EmailAddress>regis.cheval@ec-lyon.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    		
+
+				
+			
+	</EntityDescriptor>

@@ -1,0 +1,55 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.szie.hu/idp/shibboleth">
+        <Extensions>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href-test</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href-edugain</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">szie</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href-idps</ns9:MetadataSet>
+            <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://eduid.hu"/>
+        </Extensions>
+        <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+            <Extensions>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">szie.hu</shibmd:Scope>
+                <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+                <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <mdui:Logo height="78" width="111">https://idp.szie.hu/idp/szie-logo.png</mdui:Logo>
+                </mdui:UIInfo>
+            </Extensions>
+            <KeyDescriptor>
+                <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:X509Data>
+                        <ds:X509Certificate>MIIDFzCCAf+gAwIBAgIUSscIknb+7vqGVUw6Kl9kxz2bcWAwDQYJKoZIhvcNAQEFBQAwFjEUMBIGA1UEAxMLaWRwLnN6aWUuaHUwHhcNMTAxMTA4MTExOTEzWhcNMzAxMTA4MTExOTEzWjAWMRQwEgYDVQQDEwtpZHAuc3ppZS5odTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJ3NmFZGZxB5neVKIfq5+RTZO1apk0MNGinQYVD8T9PXXm4g4d8ZkNAdY/eUW8z3IdkStf0I/7imKjnnC4Px5ImUJ4tOblJ1n1DDYmqYf7ivNuM89gpt8yE+ffGa/EZeGizeVLJLDT0X3+k22otLEZt3s/gDgCRBal80VtiE0IPT9y2L9XOyzzawRAWlfnjCxBrQiJb35OlUnctOHGc4004Jp+3O9xCr9lOqO/UaQPKpTUFQvK9NIBaV8VqCA62+SQsiSjWtg8Rc/AcdBjrmVcMrU8mia26VyRwtZ0vZpIlpiUhKnuwmWuFMJvAymXI74OwrmYkudzqGgvbk+N10snMCAwEAAaNdMFswOgYDVR0RBDMwMYILaWRwLnN6aWUuaHWGImh0dHBzOi8vaWRwLnN6aWUuaHUvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFJ/ZbxqsxhPifPOOGn+OHtet0wYvMA0GCSqGSIb3DQEBBQUAA4IBAQBHjf0B9D8VtyZu2zstLmGw9Mw+f/dRxOBhzXLJVMxHa3XDykxX1MeG70nKFlSz/UsFy/2jH1zU8E/2WLQDGPu6kZtjuxD1xihyJ5bPTHWfn5IlNHjydMoOt4CnC1xTYB9ObhKqATdVFJMXdRegCpasOV4gLfdFGIneU9YhSB9WFCISjvE76iUJbwsitPtRcDfIqsTFnrwDWbeZhEtlmHp0W71JSkrmCOP9tbiyfH7ujW/DLHuHRa1rxiZYGDKvI3sfwjqRnHkBOTWvs/h7xIQxDUJWwkX0JyVSIp4YuhfSTxVq+cWmtLHfaisY7nSEECcM4m6U2T5YmnogM2Rw8Vqc</ds:X509Certificate>
+                    </ds:X509Data>
+                    <ds:KeyName>idp.szie.hu</ds:KeyName>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.szie.hu:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="1"/>
+            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.szie.hu/idp/profile/SAML2/Redirect/SLO"/>
+            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.szie.hu/idp/profile/SAML2/POST/SLO"/>
+            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.szie.hu/idp/profile/SAML2/POST/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.szie.hu/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.szie.hu/idp/profile/SAML2/Redirect/SSO"/>
+        </IDPSSODescriptor>
+        <Organization>
+            <OrganizationName xml:lang="hu">Szent István Egyetem</OrganizationName>
+            <OrganizationName xml:lang="en">Szent István University</OrganizationName>
+            <OrganizationDisplayName xml:lang="hu">Szent István Egyetem</OrganizationDisplayName>
+            <OrganizationDisplayName xml:lang="en">Szent István University</OrganizationDisplayName>
+            <OrganizationURL xml:lang="hu">http://www.szie.hu</OrganizationURL>
+            <OrganizationURL xml:lang="en">http://www.szie.hu</OrganizationURL>
+        </Organization>
+        <ContactPerson contactType="technical">
+            <SurName>Cseh Vendel</SurName>
+            <EmailAddress>mailto:cseh.vendel@ih.szie.hu</EmailAddress>
+        </ContactPerson>
+        <ContactPerson contactType="support">
+            <SurName>Cseh Vendel</SurName>
+            <EmailAddress>mailto:cseh.vendel@ih.szie.hu</EmailAddress>
+        </ContactPerson>
+        <ContactPerson contactType="administrative">
+            <SurName>Cseh Vendel</SurName>
+            <EmailAddress>mailto:cseh.vendel@ih.szie.hu</EmailAddress>
+        </ContactPerson>
+    </EntityDescriptor>

@@ -1,0 +1,152 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://aai-integration.dfn.de/idp/shibboleth">
+    <Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-02-09T13:52:03Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">dfn.de</saml1md:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="de">DFN AAI Integration + Test IdP</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">DFN AAI Integration + Test IdP</mdui:DisplayName>
+          <mdui:Description xml:lang="de">AAI Integration and Test IdP operated by DFN-AAI</mdui:Description>
+          <mdui:Description xml:lang="en">AAI Integration and Test IdP operated by DFN-AAI</mdui:Description>
+          <mdui:Logo height="16" width="16">https://www.aai.dfn.de/fileadmin/pics/dfn_small.png</mdui:Logo>
+          <mdui:Logo height="130" width="236">https://www.aai.dfn.de/fileadmin/pics/dfn_big.png</mdui:Logo>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>aai-integration.dfn.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=aai-integration.dfn.de,OU=Geschaeftsstelle,O=DFN-Verein,L=Berlin,ST=Berlin,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGsTCCBZmgAwIBAgIHF2OL1edpCjANBgkqhkiG9w0BAQsFADBeMQswCQYDVQQG
+EwJERTETMBEGA1UEChMKREZOLVZlcmVpbjEZMBcGA1UECxMQR2VzY2hhZWZ0c3N0
+ZWxsZTEfMB0GA1UEAxMWREZOLVZlcmVpbi1HUy1DQSAtIEcwMjAeFw0xNDA0MDgx
+NDU3MDlaFw0xODExMzAyMjAwMDBaMIGAMQswCQYDVQQGEwJERTEPMA0GA1UECBMG
+QmVybGluMQ8wDQYDVQQHEwZCZXJsaW4xEzARBgNVBAoTCkRGTi1WZXJlaW4xGTAX
+BgNVBAsTEEdlc2NoYWVmdHNzdGVsbGUxHzAdBgNVBAMTFmFhaS1pbnRlZ3JhdGlv
+bi5kZm4uZGUwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQCwFs5WqdeU
+cYUa1Q1E+XzX41AljqcXIrkD0DNQ/80AvGDYZ5IKXs5SwlimXhkaNSW/tvqHAlMJ
+F2aZd0q2jjZBSaKd+DPOfP+tX2jg+2FMz+wGSnvP8BOnru44GRMlZr2nbJSxy6Pp
+gAliaX4xT03xJMqAT5KcdVyG6ZnOofBXDw3DJZTmHrZWw+mnxzvW1+O/ySO+E5q7
+iro+Zn40OZfQZaIDbH5qciE3XwrfMr8tZ2XJC62faGW7ZIr1vNGhAQZj3OBLYDtf
+KJP37LxBuy0zYjOMIWUudfRz9oe8GYTs4sOFpovtX+cO8hZzQtom24fph7+hJPc+
+GQArFjPwoa2QkuQQKXoZRJE3IGSRKutNkpZH4s0kwDfly1qPoMqv8EsjwGQgFe+e
+gmzEyyc4tB4AjldCxObvUjKDcUHsmoc2st2bm0+VUxmwoio4hGi0w4rW/FC9M7UH
+2hKEF9paUMeePRfxDLOG3na4ccK65RcSlYpTHizC8HU3AuQ0AzYB/Tes9Oczder/
+ah/U+b/IeJ7ADm/v1m/2p5GMlrAo78XZt6HhLmm4DKKzdiW6uxAHXv30B0houGgn
+E353AyUzBfERLXEkH3FUFYmOySRGStiUBQ1X4zYOQcvkaYruN4PPvOrHW/8H04lu
+Qfp9kynkF3ivk2RBtJFn6k8Z9g1B4kMOwwIDAQABo4ICTzCCAkswOQYDVR0gBDIw
+MDARBg8rBgEEAYGtIYIsAQEEAwEwEQYPKwYBBAGBrSGCLAIBBAMBMAgGBmeBDAEC
+AjAJBgNVHRMEAjAAMAsGA1UdDwQEAwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYI
+KwYBBQUHAwEwHQYDVR0OBBYEFCVvQOYyQfLPymaCGHMtdPpSAi9aMB8GA1UdIwQY
+MBaAFHmiYi/O8QY5Uud2bWLH3ptqdUtJMCEGA1UdEQQaMBiCFmFhaS1pbnRlZ3Jh
+dGlvbi5kZm4uZGUwgZEGA1UdHwSBiTCBhjBBoD+gPYY7aHR0cDovL2NkcDEucGNh
+LmRmbi5kZS9kZm4tdmVyZWluLWdzLWNhL3B1Yi9jcmwvZ19jYWNybC5jcmwwQaA/
+oD2GO2h0dHA6Ly9jZHAyLnBjYS5kZm4uZGUvZGZuLXZlcmVpbi1ncy1jYS9wdWIv
+Y3JsL2dfY2FjcmwuY3JsMIHfBggrBgEFBQcBAQSB0jCBzzAzBggrBgEFBQcwAYYn
+aHR0cDovL29jc3AucGNhLmRmbi5kZS9PQ1NQLVNlcnZlci9PQ1NQMEsGCCsGAQUF
+BzAChj9odHRwOi8vY2RwMS5wY2EuZGZuLmRlL2Rmbi12ZXJlaW4tZ3MtY2EvcHVi
+L2NhY2VydC9nX2NhY2VydC5jcnQwSwYIKwYBBQUHMAKGP2h0dHA6Ly9jZHAyLnBj
+YS5kZm4uZGUvZGZuLXZlcmVpbi1ncy1jYS9wdWIvY2FjZXJ0L2dfY2FjZXJ0LmNy
+dDANBgkqhkiG9w0BAQsFAAOCAQEAZS3H79/HypaZdIGGU640RM1XrWC+A6iaeiJM
+cCIh7rzi++k3bbJWqZqRIxahtOJ0eyFryzc3CO1fhxIK1hRadvp/ZRxhzMH8Gzxo
+FZDU0uD4dzEHyAlo7Rl6Fvn6Zavl+6zbqr9ZNNJDnzPBD89YNCzMR1tGlhctAqE3
+MGTrIX43sYg3o/dEtE3cGV0H37Ea+vnboIvs4NWnFp9VP/iZfCft+anBrMU9VWjv
+sdBn7ycJhT+qKS+RCATDfldXmV3YUH5h5AegQBJhqoODwAR8pjVEl5p8JYMt2Gay
+fpkR3SKNxMqfBlCFiPbXwVv6m+f8qXHVN6Wp1YCP+XaP5IigLw==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-integration.dfn.de:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-integration.dfn.de:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai-integration.dfn.de/idp/profile/SAML2/Redirect/SLO"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://aai-integration.dfn.de/idp/profile/SAML2/POST/SLO"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-integration.dfn.de:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://aai-integration.dfn.de/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://aai-integration.dfn.de/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://aai-integration.dfn.de/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai-integration.dfn.de/idp/profile/SAML2/Redirect/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-integration.dfn.de/idp/profile/SAML2/SOAP/ECP"/>
+    </IDPSSODescriptor>
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">dfn.de</saml1md:Scope>
+      </Extensions>
+      <KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>aai-integration.dfn.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=aai-integration.dfn.de,OU=Geschaeftsstelle,O=DFN-Verein,L=Berlin,ST=Berlin,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGsTCCBZmgAwIBAgIHF2OL1edpCjANBgkqhkiG9w0BAQsFADBeMQswCQYDVQQG
+EwJERTETMBEGA1UEChMKREZOLVZlcmVpbjEZMBcGA1UECxMQR2VzY2hhZWZ0c3N0
+ZWxsZTEfMB0GA1UEAxMWREZOLVZlcmVpbi1HUy1DQSAtIEcwMjAeFw0xNDA0MDgx
+NDU3MDlaFw0xODExMzAyMjAwMDBaMIGAMQswCQYDVQQGEwJERTEPMA0GA1UECBMG
+QmVybGluMQ8wDQYDVQQHEwZCZXJsaW4xEzARBgNVBAoTCkRGTi1WZXJlaW4xGTAX
+BgNVBAsTEEdlc2NoYWVmdHNzdGVsbGUxHzAdBgNVBAMTFmFhaS1pbnRlZ3JhdGlv
+bi5kZm4uZGUwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQCwFs5WqdeU
+cYUa1Q1E+XzX41AljqcXIrkD0DNQ/80AvGDYZ5IKXs5SwlimXhkaNSW/tvqHAlMJ
+F2aZd0q2jjZBSaKd+DPOfP+tX2jg+2FMz+wGSnvP8BOnru44GRMlZr2nbJSxy6Pp
+gAliaX4xT03xJMqAT5KcdVyG6ZnOofBXDw3DJZTmHrZWw+mnxzvW1+O/ySO+E5q7
+iro+Zn40OZfQZaIDbH5qciE3XwrfMr8tZ2XJC62faGW7ZIr1vNGhAQZj3OBLYDtf
+KJP37LxBuy0zYjOMIWUudfRz9oe8GYTs4sOFpovtX+cO8hZzQtom24fph7+hJPc+
+GQArFjPwoa2QkuQQKXoZRJE3IGSRKutNkpZH4s0kwDfly1qPoMqv8EsjwGQgFe+e
+gmzEyyc4tB4AjldCxObvUjKDcUHsmoc2st2bm0+VUxmwoio4hGi0w4rW/FC9M7UH
+2hKEF9paUMeePRfxDLOG3na4ccK65RcSlYpTHizC8HU3AuQ0AzYB/Tes9Oczder/
+ah/U+b/IeJ7ADm/v1m/2p5GMlrAo78XZt6HhLmm4DKKzdiW6uxAHXv30B0houGgn
+E353AyUzBfERLXEkH3FUFYmOySRGStiUBQ1X4zYOQcvkaYruN4PPvOrHW/8H04lu
+Qfp9kynkF3ivk2RBtJFn6k8Z9g1B4kMOwwIDAQABo4ICTzCCAkswOQYDVR0gBDIw
+MDARBg8rBgEEAYGtIYIsAQEEAwEwEQYPKwYBBAGBrSGCLAIBBAMBMAgGBmeBDAEC
+AjAJBgNVHRMEAjAAMAsGA1UdDwQEAwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYI
+KwYBBQUHAwEwHQYDVR0OBBYEFCVvQOYyQfLPymaCGHMtdPpSAi9aMB8GA1UdIwQY
+MBaAFHmiYi/O8QY5Uud2bWLH3ptqdUtJMCEGA1UdEQQaMBiCFmFhaS1pbnRlZ3Jh
+dGlvbi5kZm4uZGUwgZEGA1UdHwSBiTCBhjBBoD+gPYY7aHR0cDovL2NkcDEucGNh
+LmRmbi5kZS9kZm4tdmVyZWluLWdzLWNhL3B1Yi9jcmwvZ19jYWNybC5jcmwwQaA/
+oD2GO2h0dHA6Ly9jZHAyLnBjYS5kZm4uZGUvZGZuLXZlcmVpbi1ncy1jYS9wdWIv
+Y3JsL2dfY2FjcmwuY3JsMIHfBggrBgEFBQcBAQSB0jCBzzAzBggrBgEFBQcwAYYn
+aHR0cDovL29jc3AucGNhLmRmbi5kZS9PQ1NQLVNlcnZlci9PQ1NQMEsGCCsGAQUF
+BzAChj9odHRwOi8vY2RwMS5wY2EuZGZuLmRlL2Rmbi12ZXJlaW4tZ3MtY2EvcHVi
+L2NhY2VydC9nX2NhY2VydC5jcnQwSwYIKwYBBQUHMAKGP2h0dHA6Ly9jZHAyLnBj
+YS5kZm4uZGUvZGZuLXZlcmVpbi1ncy1jYS9wdWIvY2FjZXJ0L2dfY2FjZXJ0LmNy
+dDANBgkqhkiG9w0BAQsFAAOCAQEAZS3H79/HypaZdIGGU640RM1XrWC+A6iaeiJM
+cCIh7rzi++k3bbJWqZqRIxahtOJ0eyFryzc3CO1fhxIK1hRadvp/ZRxhzMH8Gzxo
+FZDU0uD4dzEHyAlo7Rl6Fvn6Zavl+6zbqr9ZNNJDnzPBD89YNCzMR1tGlhctAqE3
+MGTrIX43sYg3o/dEtE3cGV0H37Ea+vnboIvs4NWnFp9VP/iZfCft+anBrMU9VWjv
+sdBn7ycJhT+qKS+RCATDfldXmV3YUH5h5AegQBJhqoODwAR8pjVEl5p8JYMt2Gay
+fpkR3SKNxMqfBlCFiPbXwVv6m+f8qXHVN6Wp1YCP+XaP5IigLw==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-integration.dfn.de:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-integration.dfn.de:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+    </AttributeAuthorityDescriptor>
+    <Organization>
+      <OrganizationName xml:lang="de">e15</OrganizationName>
+      <OrganizationName xml:lang="en">e15</OrganizationName>
+      <OrganizationDisplayName xml:lang="de">Verein zur Förderung eines Deutschen Forschungsnetzes</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="en">German National Research and Education Network, DFN</OrganizationDisplayName>
+      <OrganizationURL xml:lang="de">http://www.dfn.de</OrganizationURL>
+      <OrganizationURL xml:lang="en">http://www.dfn.de/en/</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Wolfgang</GivenName>
+      <SurName>Pempe</SurName>
+      <EmailAddress>mailto:hotline@aai.dfn.de</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="support">
+      <GivenName>DFN-AAI</GivenName>
+      <SurName>Hotline</SurName>
+      <EmailAddress>mailto:hotline@aai.dfn.de</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

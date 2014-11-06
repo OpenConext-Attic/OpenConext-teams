@@ -1,0 +1,152 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://sivic.redclara.net/shibboleth">
+<md:Extensions>
+<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cofre.reuna.cl" registrationInstant="2014-02-21T00:00:00Z">
+<mdrpi:RegistrationPolicy xml:lang="es">
+http://cofre.reuna.cl/index.php/es/reglas-federacion
+</mdrpi:RegistrationPolicy>
+</mdrpi:RegistrationInfo>
+</md:Extensions>
+  <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+    <md:Extensions>
+	  <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+		<mdui:DisplayName xml:lang="en">SIVIC - RedCLARA</mdui:DisplayName>
+		<mdui:DisplayName xml:lang="es">SIVIC - RedCLARA</mdui:DisplayName>
+		<mdui:Description xml:lang="en">RedCLARA's SIVIC Service</mdui:Description>
+		<mdui:Description xml:lang="es">SIVIC de RedCLARA</mdui:Description>
+		<mdui:InformationURL xml:lang="en">http://www.redclara.net/index.php?lang=en</mdui:InformationURL>
+		<mdui:InformationURL xml:lang="es">http://www.redclara.net/index.php?lang=es</mdui:InformationURL>
+    </mdui:UIInfo>
+      <DiscoveryResponse xmlns="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sivic.redclara.net/Shibboleth.sso/DS" index="1"/>
+   	  <DiscoveryResponse xmlns="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sivic.redclara.net/Shibboleth.sso/DS" index="2"/>
+    </md:Extensions>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyName>redclara.net</ds:KeyName>
+        <ds:KeyName>sivic.redclara.net</ds:KeyName>
+        <ds:X509Data>
+          <ds:X509SubjectName>emailAddress=postmaster@redclara.net,CN=sivic.redclara.net,C=CL,description=g3XkHflq7oMCiH0l
+</ds:X509SubjectName>
+          
+<ds:X509Certificate>MIIGXjCCBUagAwIBAgIDDVYzMA0GCSqGSIb3DQEBBQUAMIGMMQswCQYDVQQGEwJJ
+TDEWMBQGA1UEChMNU3RhcnRDb20gTHRkLjErMCkGA1UECxMiU2VjdXJlIERpZ2l0
+YWwgQ2VydGlmaWNhdGUgU2lnbmluZzE4MDYGA1UEAxMvU3RhcnRDb20gQ2xhc3Mg
+MSBQcmltYXJ5IEludGVybWVkaWF0ZSBTZXJ2ZXIgQ0EwHhcNMTMxMjA5MTQxMTUx
+WhcNMTQxMjEwMDk0NTM0WjBtMRkwFwYDVQQNExBnM1hrSGZscTdvTUNpSDBsMQsw
+CQYDVQQGEwJDTDEbMBkGA1UEAxMSc2l2aWMucmVkY2xhcmEubmV0MSYwJAYJKoZI
+hvcNAQkBFhdwb3N0bWFzdGVyQHJlZGNsYXJhLm5ldDCCASIwDQYJKoZIhvcNAQEB
+BQADggEPADCCAQoCggEBANKco/ktHClnGMI875YaOxX4N7aoYzUMq/o+i/k9AdGM
+GTx4TZvF5WzZyaf/4r7DGjQli9T4/qUHkbC+Htkhx3RM0AV78fcA+nbL55gTmc6c
+FbzZ0prZBAoEccg6/TfJmZvbf1fNUESlTDtjnuR3vwnE2t8IfSNelz3agNprjLT6
+3U6M7M9nyyfqrk1nZ33WgugJgxUL/+nzGsyRZ6RvUpNV/p71wTzJw/HealNVSV+/
+pDoo1aosyJaJ8H6ftA+Cn5UDqwdb24evVxdpOyqO7JLonQDlZeekS92J2XmBnZ4B
+Q0DELszvnOFeO+hiznBIEQBmdmpYve7pHpkKl9hr78MCAwEAAaOCAuUwggLhMAkG
+A1UdEwQCMAAwCwYDVR0PBAQDAgOoMBMGA1UdJQQMMAoGCCsGAQUFBwMBMB0GA1Ud
+DgQWBBTQXYm5du9yHiVrCQ4cEDMZ3Tox/jAfBgNVHSMEGDAWgBTrQjTQmLCrn/Qb
+awj3zGQu7w4sRTArBgNVHREEJDAighJzaXZpYy5yZWRjbGFyYS5uZXSCDHJlZGNs
+YXJhLm5ldDCCAVYGA1UdIASCAU0wggFJMAgGBmeBDAECATCCATsGCysGAQQBgbU3
+AQIDMIIBKjAuBggrBgEFBQcCARYiaHR0cDovL3d3dy5zdGFydHNzbC5jb20vcG9s
+aWN5LnBkZjCB9wYIKwYBBQUHAgIwgeowJxYgU3RhcnRDb20gQ2VydGlmaWNhdGlv
+biBBdXRob3JpdHkwAwIBARqBvlRoaXMgY2VydGlmaWNhdGUgd2FzIGlzc3VlZCBh
+Y2NvcmRpbmcgdG8gdGhlIENsYXNzIDEgVmFsaWRhdGlvbiByZXF1aXJlbWVudHMg
+b2YgdGhlIFN0YXJ0Q29tIENBIHBvbGljeSwgcmVsaWFuY2Ugb25seSBmb3IgdGhl
+IGludGVuZGVkIHB1cnBvc2UgaW4gY29tcGxpYW5jZSBvZiB0aGUgcmVseWluZyBw
+YXJ0eSBvYmxpZ2F0aW9ucy4wNQYDVR0fBC4wLDAqoCigJoYkaHR0cDovL2NybC5z
+dGFydHNzbC5jb20vY3J0MS1jcmwuY3JsMIGOBggrBgEFBQcBAQSBgTB/MDkGCCsG
+AQUFBzABhi1odHRwOi8vb2NzcC5zdGFydHNzbC5jb20vc3ViL2NsYXNzMS9zZXJ2
+ZXIvY2EwQgYIKwYBBQUHMAKGNmh0dHA6Ly9haWEuc3RhcnRzc2wuY29tL2NlcnRz
+L3N1Yi5jbGFzczEuc2VydmVyLmNhLmNydDAjBgNVHRIEHDAahhhodHRwOi8vd3d3
+LnN0YXJ0c3NsLmNvbS8wDQYJKoZIhvcNAQEFBQADggEBAERLEsxQlX9E4GGHisEp
+fniTTQz8LmQlsBHffw6r8yvml7ZVsWUV9gSYtmps6YIPT6aDPw1HyolB7CKZOWc9
+vCYQAgpw5wvtKMrv2SJSEhNJAoGbzADBVUZNrMYlRUX52L6bMTFSa8nbm1ZKn4w1
+x2FAuM2x6YSgo7AcpSUnWs8ORMZPK0P6rdBpSV6mv48RS+pzDTzNOotuuV4+KWsS
+6QbjmaC4pHRr5Wa+GkCD99HZl9xesToHBD07ru6cX8PAJ/7p9/S13+BjvElg7vYZ
+tdSiOm5NfPEpVHjPeufoeM6M1N356akvZKYJIcOSY+TVPzQT4yvcqVbhayixcOs0
+0UE=
+
+</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:KeyDescriptor use="encryption">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyName>redclara.net</ds:KeyName>
+        <ds:KeyName>sivic.redclara.net</ds:KeyName>
+        <ds:X509Data>
+          <ds:X509SubjectName>emailAddress=postmaster@redclara.net,CN=sivic.redclara.net,C=CL,description=g3XkHflq7oMCiH0l
+</ds:X509SubjectName>
+          
+<ds:X509Certificate>MIIGXjCCBUagAwIBAgIDDVYzMA0GCSqGSIb3DQEBBQUAMIGMMQswCQYDVQQGEwJJ
+TDEWMBQGA1UEChMNU3RhcnRDb20gTHRkLjErMCkGA1UECxMiU2VjdXJlIERpZ2l0
+YWwgQ2VydGlmaWNhdGUgU2lnbmluZzE4MDYGA1UEAxMvU3RhcnRDb20gQ2xhc3Mg
+MSBQcmltYXJ5IEludGVybWVkaWF0ZSBTZXJ2ZXIgQ0EwHhcNMTMxMjA5MTQxMTUx
+WhcNMTQxMjEwMDk0NTM0WjBtMRkwFwYDVQQNExBnM1hrSGZscTdvTUNpSDBsMQsw
+CQYDVQQGEwJDTDEbMBkGA1UEAxMSc2l2aWMucmVkY2xhcmEubmV0MSYwJAYJKoZI
+hvcNAQkBFhdwb3N0bWFzdGVyQHJlZGNsYXJhLm5ldDCCASIwDQYJKoZIhvcNAQEB
+BQADggEPADCCAQoCggEBANKco/ktHClnGMI875YaOxX4N7aoYzUMq/o+i/k9AdGM
+GTx4TZvF5WzZyaf/4r7DGjQli9T4/qUHkbC+Htkhx3RM0AV78fcA+nbL55gTmc6c
+FbzZ0prZBAoEccg6/TfJmZvbf1fNUESlTDtjnuR3vwnE2t8IfSNelz3agNprjLT6
+3U6M7M9nyyfqrk1nZ33WgugJgxUL/+nzGsyRZ6RvUpNV/p71wTzJw/HealNVSV+/
+pDoo1aosyJaJ8H6ftA+Cn5UDqwdb24evVxdpOyqO7JLonQDlZeekS92J2XmBnZ4B
+Q0DELszvnOFeO+hiznBIEQBmdmpYve7pHpkKl9hr78MCAwEAAaOCAuUwggLhMAkG
+A1UdEwQCMAAwCwYDVR0PBAQDAgOoMBMGA1UdJQQMMAoGCCsGAQUFBwMBMB0GA1Ud
+DgQWBBTQXYm5du9yHiVrCQ4cEDMZ3Tox/jAfBgNVHSMEGDAWgBTrQjTQmLCrn/Qb
+awj3zGQu7w4sRTArBgNVHREEJDAighJzaXZpYy5yZWRjbGFyYS5uZXSCDHJlZGNs
+YXJhLm5ldDCCAVYGA1UdIASCAU0wggFJMAgGBmeBDAECATCCATsGCysGAQQBgbU3
+AQIDMIIBKjAuBggrBgEFBQcCARYiaHR0cDovL3d3dy5zdGFydHNzbC5jb20vcG9s
+aWN5LnBkZjCB9wYIKwYBBQUHAgIwgeowJxYgU3RhcnRDb20gQ2VydGlmaWNhdGlv
+biBBdXRob3JpdHkwAwIBARqBvlRoaXMgY2VydGlmaWNhdGUgd2FzIGlzc3VlZCBh
+Y2NvcmRpbmcgdG8gdGhlIENsYXNzIDEgVmFsaWRhdGlvbiByZXF1aXJlbWVudHMg
+b2YgdGhlIFN0YXJ0Q29tIENBIHBvbGljeSwgcmVsaWFuY2Ugb25seSBmb3IgdGhl
+IGludGVuZGVkIHB1cnBvc2UgaW4gY29tcGxpYW5jZSBvZiB0aGUgcmVseWluZyBw
+YXJ0eSBvYmxpZ2F0aW9ucy4wNQYDVR0fBC4wLDAqoCigJoYkaHR0cDovL2NybC5z
+dGFydHNzbC5jb20vY3J0MS1jcmwuY3JsMIGOBggrBgEFBQcBAQSBgTB/MDkGCCsG
+AQUFBzABhi1odHRwOi8vb2NzcC5zdGFydHNzbC5jb20vc3ViL2NsYXNzMS9zZXJ2
+ZXIvY2EwQgYIKwYBBQUHMAKGNmh0dHA6Ly9haWEuc3RhcnRzc2wuY29tL2NlcnRz
+L3N1Yi5jbGFzczEuc2VydmVyLmNhLmNydDAjBgNVHRIEHDAahhhodHRwOi8vd3d3
+LnN0YXJ0c3NsLmNvbS8wDQYJKoZIhvcNAQEFBQADggEBAERLEsxQlX9E4GGHisEp
+fniTTQz8LmQlsBHffw6r8yvml7ZVsWUV9gSYtmps6YIPT6aDPw1HyolB7CKZOWc9
+vCYQAgpw5wvtKMrv2SJSEhNJAoGbzADBVUZNrMYlRUX52L6bMTFSa8nbm1ZKn4w1
+x2FAuM2x6YSgo7AcpSUnWs8ORMZPK0P6rdBpSV6mv48RS+pzDTzNOotuuV4+KWsS
+6QbjmaC4pHRr5Wa+GkCD99HZl9xesToHBD07ru6cX8PAJ/7p9/S13+BjvElg7vYZ
+tdSiOm5NfPEpVHjPeufoeM6M1N356akvZKYJIcOSY+TVPzQT4yvcqVbhayixcOs0
+0UE=
+
+</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sivic.redclara.net/Shibboleth.sso/Artifact/SOAP" index="1"/>    
+	<md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sivic.redclara.net/Shibboleth.sso/SLO/SOAP"/>    
+	<md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sivic.redclara.net/Shibboleth.sso/SLO/Redirect"/>    
+	<md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sivic.redclara.net/Shibboleth.sso/SLO/POST"/>    
+	<md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sivic.redclara.net/Shibboleth.sso/SLO/Artifact"/>    
+	<md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sivic.redclara.net/Shibboleth.sso/NIM/SOAP"/>    
+	<md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sivic.redclara.net/Shibboleth.sso/NIM/Redirect"/>    
+	<md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sivic.redclara.net/Shibboleth.sso/NIM/POST"/>    
+	<md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sivic.redclara.net/Shibboleth.sso/NIM/Artifact"/>    
+	<md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sivic.redclara.net/Shibboleth.sso/SAML2/POST" index="1"/>    
+	<md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sivic.redclara.net/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>    
+	<md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sivic.redclara.net/Shibboleth.sso/SAML2/Artifact" index="3"/>    
+	<md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://sivic.redclara.net/Shibboleth.sso/SAML2/ECP" index="4"/>    
+	<md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://sivic.redclara.net/Shibboleth.sso/SAML/POST" index="5"/>    
+	<md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://sivic.redclara.net/Shibboleth.sso/SAML/Artifact" index="6"/>
+  </md:SPSSODescriptor>
+  <md:Organization>      
+	<md:OrganizationName xml:lang="en">RedCLARA</md:OrganizationName>      
+	<md:OrganizationDisplayName xml:lang="en">RedCLARA</md:OrganizationDisplayName>      
+	<md:OrganizationURL xml:lang="en">http://www.redclara.net/</md:OrganizationURL>   
+  </md:Organization>    
+  <md:ContactPerson contactType="support">      
+	<md:GivenName>Authentication Support</md:GivenName>      
+	<md:EmailAddress>seg@redclara.net</md:EmailAddress>
+  </md:ContactPerson>
+  <md:ContactPerson contactType="technical">      
+	<md:GivenName>Technical Support</md:GivenName>      
+	<md:EmailAddress>seg@redclara.net</md:EmailAddress>   
+  </md:ContactPerson>
+	<md:ContactPerson contactType="administrative">      
+	<md:GivenName>Mark</md:GivenName>      
+	<md:SurName>Urban</md:SurName>      
+	<md:EmailAddress>mark.urban@redclara.net</md:EmailAddress>   
+  </md:ContactPerson>
+</md:EntityDescriptor>

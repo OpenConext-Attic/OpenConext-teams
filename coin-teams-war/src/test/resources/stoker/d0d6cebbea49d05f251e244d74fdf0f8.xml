@@ -1,0 +1,171 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://aai-logon.switch.ch/idp/shibboleth">
+		<Extensions>
+                <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://rr.aai.switch.ch/" registrationInstant="2014-08-20T13:37:28Z">
+                    <mdrpi:RegistrationPolicy xml:lang="en">https://www.switch.ch/aai/federation/switchaai/metadata-registration-practice-statement-20110711.txt</mdrpi:RegistrationPolicy>
+                </mdrpi:RegistrationInfo>
+                <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+                    <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+                        <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+                    </saml:Attribute>
+                </mdattr:EntityAttributes>
+		</Extensions>
+		<IDPSSODescriptor errorURL="http://www.switch.ch/aai/contact/" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+			<Extensions>
+				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">switch.ch</shibmd:Scope>
+				<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+					<mdui:DisplayName xml:lang="de">SWITCH</mdui:DisplayName>
+					<mdui:DisplayName xml:lang="en">SWITCH</mdui:DisplayName>
+					<mdui:DisplayName xml:lang="fr">SWITCH</mdui:DisplayName>
+					<mdui:DisplayName xml:lang="it">SWITCH</mdui:DisplayName>
+					<mdui:Description xml:lang="de">SWITCH erbringt innovative, einzigartige Internet-Dienstleistungen für die Schweizer Hochschulen und Internetbenutzer.</mdui:Description>
+					<mdui:Description xml:lang="en">SWITCH provides innovative, unique internet services for the Swiss universities and internet users.</mdui:Description>
+					<mdui:Description xml:lang="fr">SWITCH fournit des prestations innovantes et uniques pour les hautes écoles suisses et les utilisateurs d'Internet.</mdui:Description>
+					<mdui:Description xml:lang="it">SWITCH eroga servizi Internet innovativi e unici per le scuole universitarie svizzere e per gli utenti di Internet.</mdui:Description>
+					<mdui:Keywords xml:lang="en">Zurich</mdui:Keywords>
+					<mdui:Keywords xml:lang="de">Zürich</mdui:Keywords>
+					<mdui:Keywords xml:lang="fr">Zurich</mdui:Keywords>
+					<mdui:Keywords xml:lang="it">Zurigo</mdui:Keywords>
+					<mdui:Logo height="16" width="16">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAACF0RVh0U29mdHdhcmUAR3JhcGhpY0NvbnZlcnRlciAoSW50ZWwpd4f6GQAAAgFJREFUeJxi+P//P8PHXd1nfj484w1ik4rBxNsVeR+f1Kr+/7ira/Pfr++USTbg3aqCj4/LJP8/Lpf6/6LP8ce38+tb/v/7y0W8AWtKnj8qFvn/pFrp/+NKOTB+syD+0a/HF0KJMuD324eS79eVzwd64+/jCpn/T2qABgHpp/Ua/z9sadz759NLbbwGwPDP+ydNXs+NPPK4UhbsiifVimBvPe+2+f3l1LL+f39+8eM1AIz//mH8em5N5Is+p0cgzU+BhjytAhpWIf3/zeywF7/uH08EqmPEbQAU//v2nuvnockNj1uMv96r1vh/r0bz/70K5f/367T/P1pVc/zr2+cmeA348+8/49KtZ8Nt/ItvGzklvzd2SX2vZ5/0Xtc24X1xWevVp48e+uI04PCZW0YeKb2HWLWT/7PopIExg2rif1WP6p/z1x/v/P7rLy9WL9x59EoivW7hXF6jzL/Mmkn/ufTT/jMBaRHz3P9VfWt2vH73WR1rIL7/+JW9a862Mhn7oo+MGolgjSDb2XVT/gflTLl3/trDALzRmN+69DKDcux/Dt3U/xx6qf9BhhgF1H9bu+tM3b9//zkJJqSEyjkfGdUT/jMBNUpYF/xvnbF57ftP3+SJTsoJFXM+MgM1x5TOunbj3nNXkjNTet2Cx/PWHCoGsllJ0QzCAAAAAP//AwC4nrtuPmwfNwAAAABJRU5ErkJggg==</mdui:Logo>
+					<mdui:Logo height="60" width="80">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAA8CAYAAADxJz2MAAAC0GlDQ1BJQ0NQcm9maWxlAAB4nI2Uz0sUYRjHv7ONGChBYGZ7iKFDSKhMFmVE5a6/2LRtWX+UEsTs7Lu7k7Oz08zsmiIRXjpm0T0qDx76Azx46JSXwsAsAuluUUSCl5LteWfG3RHtxwsz83mfH9/ned/hfYEaWTFNPSQBecOxkn1R6fromFT7ESEcQR3CqFNU24wkEgOgwWOxa2y+h8C/K617+/866tK2mgeE/UDoR5rZKrDvF9kLWWoEELlew4RjOsT3OFue/THnlMfzrn0o2UW8SHxANS0e/5q4Q80paaBGJG7JBmJSAc7rRdXv5yA99cwYHqTvcerpLrN7fBZm0kp3P3Eb8ec06+7hmsTzGa03RtxMz1rG6h32WDihObEhj0Mjhh4f8LnJSMWv+pqi6UST2/p2abBn235LuZwgDhMnxwv9PKaRcjunckPXPBb0qVxX3Od3VjHJ6x6jmDlTd/8X9RZ6hVHoYNBg0NuAhCT6EEUrTFgoIEMejSI0sjI3xiK2Mb5npI5EgCXyr1POuptzG0XK5lkjiMYx01JRkOQP8ld5VX4qz8lfZsPF5qpnxrqpqcsPvpMur7yt63v9njx9lepGyKsjS9Z8ZU12oNNAdxljNlxV4jXY/fhmYJUsUKkVKVdp3K1Ucn02vSOBan/aPYpdml5sqtZaFRdurNQvTe/Yq8KuVbHKqnbOq3HBfCYeFU+KMbFDPAdJvCR2ihfFbpqdFwcqGcOkomHCVbKhUJaBSfKaO/6ZFwvvrLmjoY8ZzNJUiZ//hFXIaDoLHNF/uP9z8HvFo7Ei8MIGDp+u2jaS7h0iNC5Xbc4V4MI3ug/eVm3NdB4OPQEWzqhFq+RLC8IbimZ3HD7pKpiTlpbNOVK7LJ+VInQlMSlmqG0tkqLrkuuyJYvZzCqxdBvszKl2T6WedqXmU7m8Qeev9hGw9bBc/vmsXN56Tj2sAS/138C8/UXN/ALEAAAJI2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNC40LjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiAgIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAKPD94cGFja2V0IGVuZD0idyI/Pqfd9JIAAAAhdEVYdFNvZnR3YXJlAEdyYXBoaWNDb252ZXJ0ZXIgKEludGVsKXeH+hkAAAiDSURBVHic7Fh7bFPXGT9x4vgR29fva1/HsRM78StODE0CCTQoJiEPh7wgNoFAgkt4jpF2/aNTira0/2za2qGC1IcoUwlTaaF0XRJRaLRB2QCxTtAHrxUWNfQBnWAPprFNNN5377UTO7GzKop2dKQc6ed7z3dev/O73znnO0aRSATNY/bAToB0YCdAOrATIB3YCZAO7ARIB3YCpAM7AdKBnQDpwE6AdGAnQDqwEyAd2AmQDuwESAd2AqQDOwHSgZ0A6cBOgHRgJ0A6sBMgHdgJkA7sBEgHdgKkg/9hk1jlkJvKX1LmN/9B62y/oXe03YTnNWV+06CMWbQBxSWpqWKv0tZwRiBjsnlLWqwoU5pTdUJhrdmPxBRnyFYj40AbdbqvSvyDWKUMAf/sKBbuOhpSXgiXiCr4AimSWfw/zzJXvslmTSZaMDh0HF4azirtjROgbIHJdwBC/rNjtz5ndj/9dDxNeZZh4ePKvLphtXP1ZXY+eseqm1oAZVkO3E01PPX0iQbpipx0hS0wLNF5f4pSJ4HcunwPlVf7m0kBhTKruqDlnrE4/GfaFTqhdwWPAF7Xu0Lv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</mdui:Logo>
+					<mdui:InformationURL xml:lang="en">http://www.switch.ch/about/</mdui:InformationURL>
+					<mdui:InformationURL xml:lang="de">http://www.switch.ch/de/about/</mdui:InformationURL>
+					<mdui:InformationURL xml:lang="fr">http://www.switch.ch/fr/about/</mdui:InformationURL>
+					<mdui:InformationURL xml:lang="it">http://www.switch.ch/it/about/</mdui:InformationURL>
+				</mdui:UIInfo>
+				<mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+					<mdui:IPHint>130.59.0.0/16</mdui:IPHint>
+					<mdui:IPHint>2001:620::/48</mdui:IPHint>
+					<mdui:DomainHint>switch.ch</mdui:DomainHint>
+					<mdui:GeolocationHint>geo:47.37333,8.53111</mdui:GeolocationHint>
+				</mdui:DiscoHints>
+			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					<ds:X509Data>
+						<ds:X509Certificate>
+MIIDLDCCAhSgAwIBAgIJAIHilzMu/j8KMA0GCSqGSIb3DQEBBQUAMB4xHDAaBgNV
+BAMTE2FhaS1sb2dvbi5zd2l0Y2guY2gwHhcNMTMxMjAyMTUxNzI5WhcNMTYxMjAx
+MTUxNzI5WjAeMRwwGgYDVQQDExNhYWktbG9nb24uc3dpdGNoLmNoMIIBIjANBgkq
+hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA72Gf8Be0k33Ucdk6+m/wpe70eZdL8n9Q
+Dk4AuJ7uLFqo9vfJFRpEDbfGAt2s9esAfxX0harLVhEP7bX4HQxDt7uM9PeDXZ3M
+GGiKL4hCNR4RKY1pfx7PoLDHthiO5vVgQzlBAis3R24kL1omDGcHaxuazC5esJ5W
+cW3utZiVvmuLyysAuRupkMsLe2Cy4nEYA3IKVjqJskTACOyBhrv1TjJyVHgUPfqk
+acqMwIHL9fVmLpJwvNHd43btsx4RWtyTMeHxN4N09LnhUP7xlJZeFTgCW02Aqz8J
+HMzqwDJLBmSo7S3tQDUcoID8wXjjC0FH2WcrAi+A6mIaSwweXPXI1wIDAQABo20w
+azBKBgNVHREEQzBBghNhYWktbG9nb24uc3dpdGNoLmNohipodHRwczovL2FhaS1s
+b2dvbi5zd2l0Y2guY2gvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFKCIdiqWvBra
+kKosFDkwV2lqXHPPMA0GCSqGSIb3DQEBBQUAA4IBAQCebaL+8PbVVbIpGsr+ZwvG
+06XdJYWW6adQiOy110041UBodrjqi40rsqfJjhysrNxW9eCyVhJ8tq7Q/QUI6KHJ
+iOOciw+p2c2KNI1nq54Nebjkal+hTbUvS8N7HTMvhYdu7gqqDgnvgP7s3iFAXI5b
+qyPh4TWKXlb45GinyZ3T8OjB6UsHAmhn1hRFuwOa27csxu1qPvFhTgEgbXieo2Nr
+vmIdMu967nRbVMztmAfd7Vv0eMj+YoKuA/RUWqJI6lMjHVpkl2ggE/Kb8mXX/wX1
+pSfkm5o6j1ysHdGdoojvd+BikyPR7hGEs1lukWxump98WxdIHzmo5ErBr770nWRR
+						</ds:X509Certificate>
+					</ds:X509Data>
+				</ds:KeyInfo>
+			</KeyDescriptor>
+			<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-logon.switch.ch/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+			<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-logon.switch.ch/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://aai-logon.switch.ch/idp/profile/Shibboleth/SSO"/>
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai-logon.switch.ch/idp/profile/SAML2/Redirect/SSO"/>
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://aai-logon.switch.ch/idp/profile/SAML2/POST/SSO"/>
+		</IDPSSODescriptor>
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">switch.ch</shibmd:Scope>
+			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					<ds:X509Data>
+						<ds:X509Certificate>
+MIIFVDCCBDygAwIBAgIULqFVZ3v/ZWU2QoNe1Y/XyQSqGeAwDQYJKoZIhvcNAQEL
+BQAwTTELMAkGA1UEBhMCQk0xGTAXBgNVBAoTEFF1b1ZhZGlzIExpbWl0ZWQxIzAh
+BgNVBAMTGlF1b1ZhZGlzIEdsb2JhbCBTU0wgSUNBIEcyMB4XDTEzMTIwOTEyMTgw
+N1oXDTE1MTIwOTEyMTcyNFowgcgxEzARBgsrBgEEAYI3PAIBAxMCQ0gxFTATBgsr
+BgEEAYI3PAIBAhMEQmVybjEdMBsGA1UEDxMUUHJpdmF0ZSBPcmdhbml6YXRpb24x
+GzAZBgNVBAUTEkNILTAzNS43LjAwMS4yNzgtOTELMAkGA1UEBhMCQ0gxEDAOBgNV
+BAgTB1p1ZXJpY2gxEDAOBgNVBAcTB1p1ZXJpY2gxDzANBgNVBAoTBlNXSVRDSDEc
+MBoGA1UEAxMTYWFpLWxvZ29uLnN3aXRjaC5jaDCCASIwDQYJKoZIhvcNAQEBBQAD
+ggEPADCCAQoCggEBAKplsvC4tYqZuV9IOjCWn6r5gMxMnmJ2EVZkMU8SSW4To8aB
+/dhPc8MUkHQ3bQoew4iolSzBdQ8dCeALCHQLmHD5rqXsRvsTjtkPS7SjaEM4viLF
+dz8oC8Y3x9RA5ruZf5KKPh6f2Dd/1s0IKpf7lPJx6px4ho2QwnOmwIAe3+QWrhK5
+136hmtyObl+rDDkzCwBnir6BXYEPHMSXqR9u9McfCXHjw3qow/qSv2+Ae4lVHh2K
+fiNbFTMa2t5zF53NyQNbK33ckrAJ1R1QcysBT3lyPK4wy3IACZkR2S6Af/GLGE5y
+DWCiwZqKRI+TUcGGHNj7+GEFCfdfHgY8og8Rl/MCAwEAAaOCAa4wggGqMHMGCCsG
+AQUFBwEBBGcwZTAqBggrBgEFBQcwAYYeaHR0cDovL29jc3AucXVvdmFkaXNnbG9i
+YWwuY29tMDcGCCsGAQUFBzAChitodHRwOi8vdHJ1c3QucXVvdmFkaXNnbG9iYWwu
+Y29tL3F2c3NsZzIuY3J0MFEGA1UdIARKMEgwRgYMKwYBBAG+WAACZAECMDYwNAYI
+KwYBBQUHAgEWKGh0dHA6Ly93d3cucXVvdmFkaXNnbG9iYWwuY29tL3JlcG9zaXRv
+cnkwOAYDVR0RBDEwL4ITYWFpLWxvZ29uLnN3aXRjaC5jaIIYeDUwOS5hYWktbG9n
+b24uc3dpdGNoLmNoMAsGA1UdDwQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYI
+KwYBBQUHAwIwHwYDVR0jBBgwFoAUkRlirVsXpzD78N45JbG9jLm4UScwOgYDVR0f
+BDMwMTAvoC2gK4YpaHR0cDovL2NybC5xdW92YWRpc2dsb2JhbC5jb20vcXZzc2xn
+Mi5jcmwwHQYDVR0OBBYEFO5qHZPNwV4RRgjWgE/kQYdVOMgYMA0GCSqGSIb3DQEB
+CwUAA4IBAQAwEck5/yI4crrtFbfMDQzqBCXVQqLQPLZQuy6LcltubJgMY2gixwUk
+g11zTpP8ydZWUzZJ4TdmJwQSxWOiHrmrkpXjPMJ/NKCS7VUjsR9qSLDeJzEs61E0
+Pk8ssP/Caza7B5kUoY52NAfgCLyqGNNqDSCM02JD/sUIF4T5+OiVaDDzKPdBkOHE
+Rei3SQPXcLygCnwaXVWkmQLoqXESIXqmOwbWoACmBolMHKPGzp/4rvp3ejPUwYru
+FIwRkLdxvdKOzE/feFbX4GkXgvg6GmELxSZbakbuQoNeS/aTLYR2Y/GuE4UrA533
+Sih8+vYwOym3ZyV+cdIM1uoInD5lJmgl
+						</ds:X509Certificate>
+					</ds:X509Data>
+				</ds:KeyInfo>
+			</KeyDescriptor>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					<ds:X509Data>
+						<ds:X509Certificate>
+MIIDLDCCAhSgAwIBAgIJAIHilzMu/j8KMA0GCSqGSIb3DQEBBQUAMB4xHDAaBgNV
+BAMTE2FhaS1sb2dvbi5zd2l0Y2guY2gwHhcNMTMxMjAyMTUxNzI5WhcNMTYxMjAx
+MTUxNzI5WjAeMRwwGgYDVQQDExNhYWktbG9nb24uc3dpdGNoLmNoMIIBIjANBgkq
+hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA72Gf8Be0k33Ucdk6+m/wpe70eZdL8n9Q
+Dk4AuJ7uLFqo9vfJFRpEDbfGAt2s9esAfxX0harLVhEP7bX4HQxDt7uM9PeDXZ3M
+GGiKL4hCNR4RKY1pfx7PoLDHthiO5vVgQzlBAis3R24kL1omDGcHaxuazC5esJ5W
+cW3utZiVvmuLyysAuRupkMsLe2Cy4nEYA3IKVjqJskTACOyBhrv1TjJyVHgUPfqk
+acqMwIHL9fVmLpJwvNHd43btsx4RWtyTMeHxN4N09LnhUP7xlJZeFTgCW02Aqz8J
+HMzqwDJLBmSo7S3tQDUcoID8wXjjC0FH2WcrAi+A6mIaSwweXPXI1wIDAQABo20w
+azBKBgNVHREEQzBBghNhYWktbG9nb24uc3dpdGNoLmNohipodHRwczovL2FhaS1s
+b2dvbi5zd2l0Y2guY2gvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFKCIdiqWvBra
+kKosFDkwV2lqXHPPMA0GCSqGSIb3DQEBBQUAA4IBAQCebaL+8PbVVbIpGsr+ZwvG
+06XdJYWW6adQiOy110041UBodrjqi40rsqfJjhysrNxW9eCyVhJ8tq7Q/QUI6KHJ
+iOOciw+p2c2KNI1nq54Nebjkal+hTbUvS8N7HTMvhYdu7gqqDgnvgP7s3iFAXI5b
+qyPh4TWKXlb45GinyZ3T8OjB6UsHAmhn1hRFuwOa27csxu1qPvFhTgEgbXieo2Nr
+vmIdMu967nRbVMztmAfd7Vv0eMj+YoKuA/RUWqJI6lMjHVpkl2ggE/Kb8mXX/wX1
+pSfkm5o6j1ysHdGdoojvd+BikyPR7hGEs1lukWxump98WxdIHzmo5ErBr770nWRR
+						</ds:X509Certificate>
+					</ds:X509Data>
+				</ds:KeyInfo>
+			</KeyDescriptor>
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-logon.switch.ch/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-logon.switch.ch/idp/profile/SAML2/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+		<Organization>
+			<OrganizationName xml:lang="en">switch.ch</OrganizationName>
+			<OrganizationDisplayName xml:lang="de">SWITCH</OrganizationDisplayName>
+			<OrganizationDisplayName xml:lang="en">SWITCH</OrganizationDisplayName>
+			<OrganizationDisplayName xml:lang="fr">SWITCH</OrganizationDisplayName>
+			<OrganizationDisplayName xml:lang="it">SWITCH</OrganizationDisplayName>
+			<OrganizationURL xml:lang="de">http://www.switch.ch/</OrganizationURL>
+			<OrganizationURL xml:lang="en">http://www.switch.ch/</OrganizationURL>
+			<OrganizationURL xml:lang="fr">http://www.switch.ch/</OrganizationURL>
+			<OrganizationURL xml:lang="it">http://www.switch.ch/</OrganizationURL>
+		</Organization>
+		<ContactPerson contactType="support">
+			<GivenName>SWITCHaai</GivenName>
+			<SurName>Team</SurName>
+			<EmailAddress>mailto:aai@switch.ch</EmailAddress>
+			<TelephoneNumber>+41 44 268 1505</TelephoneNumber>
+		</ContactPerson>
+		<ContactPerson contactType="technical">
+			<GivenName>SWITCHaai</GivenName>
+			<SurName>Team</SurName>
+			<EmailAddress>mailto:aai@switch.ch</EmailAddress>
+			<TelephoneNumber>+41 44 268 1505</TelephoneNumber>
+		</ContactPerson>
+	</EntityDescriptor>

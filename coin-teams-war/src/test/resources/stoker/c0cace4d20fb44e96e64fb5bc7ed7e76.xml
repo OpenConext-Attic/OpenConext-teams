@@ -1,0 +1,59 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://owncloud.cesnet.cz/saml/sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.eduid.cz/" registrationInstant="2014-02-19T21:13:48Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">OwnCloud</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">OwnCloud</mdui:DisplayName>
+          <mdui:Description xml:lang="en">CESNETs servis for sharing files.</mdui:Description>
+          <mdui:Description xml:lang="cs">Cesnetí služba pro sdílení souborů.</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://owncloud.cesnet.cz/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">http://owncloud.cesnet.cz/</mdui:InformationURL>
+        </mdui:UIInfo>
+        <eduidmd:RepublishRequest xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0">
+          <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
+        </eduidmd:RepublishRequest>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEcjCCA1qgAwIBAgIRAPQ1mOW1ZRv5p0ikek6IvdEwDQYJKoZIhvcNAQEFBQAwNjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5BIFNTTCBDQTAeFw0xNDAyMTkwMDAwMDBaFw0xNzAyMTgyMzU5NTlaMEAxITAfBgNVBAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEbMBkGA1UEAxMSb3duY2xvdWQuY2VzbmV0LmN6MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAv79fWh8u/3sVzPN6yxyosMnAxKXqR5DfXnI29E8KOFF5yP+yj23FJqzbEuGsLNKUHZZ4sNcJTcTXi53U78t8pAyerwbPou+vVhxEL+a6wnpqJ/Q2XJ2jJ+OvbFRG4T+5oWyY/KOSqddzlEJhKplm0uMKkuZxC6kn+tUei58rexj4NwUPHTAFsMcLc997hn3yPmwEE0YQ2O9Vn+MuVYxGq+ytAEyBE97Gle1kbQreZ66Gn5R63FxcD6NN/Uvm/gX8Go04L+BPos+nhMD7VvcgbKPkHu/LNYPODaS0/zRUxjDsWiTsma8DbsdrmKdXxcqEkv+IHQaLOTNkwN4sh236yQIDAQABo4IBbzCCAWswHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH6pDjue0wHQYDVR0OBBYEFLVNdYAnQ4MAHsI0R854KPZHpdmhMA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAECATA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9yZzAdBgNVHREEFjAUghJvd25jbG91ZC5jZXNuZXQuY3owDQYJKoZIhvcNAQEFBQADggEBADqbluvi3u51NAFwIZli9b/d/oX6X56uZjs81nu8jniC6r9Wt4dGKDF6t3VIoqpFJ1ZtT1Kj+xr5c3g2UJ6HLXiPwcipjtJ5YckfTZAcoKMtAJAxI82SiHBMO5jgqEtvZJuw9FjStNxDIt1JkcmZVpsvoMCOJk3jqonypoKHbG0nq7jg52Ahp2sI/fFcyDmdYwLpV5f3j5DpACol4/anu02Li7Nf7VrnQLsKhvXqNkV8sGDoPJcA1zuseszaPV9RTONMzcZHoWAtzK3Fd5rT5sr+7qVpm+lmEi0TNhFSSW68Yp+4XqDvKLviDkhv1R/Yjqi5XRlMo0KjBerAbs1Un6Q=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEcjCCA1qgAwIBAgIRAPQ1mOW1ZRv5p0ikek6IvdEwDQYJKoZIhvcNAQEFBQAwNjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5BIFNTTCBDQTAeFw0xNDAyMTkwMDAwMDBaFw0xNzAyMTgyMzU5NTlaMEAxITAfBgNVBAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEbMBkGA1UEAxMSb3duY2xvdWQuY2VzbmV0LmN6MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAv79fWh8u/3sVzPN6yxyosMnAxKXqR5DfXnI29E8KOFF5yP+yj23FJqzbEuGsLNKUHZZ4sNcJTcTXi53U78t8pAyerwbPou+vVhxEL+a6wnpqJ/Q2XJ2jJ+OvbFRG4T+5oWyY/KOSqddzlEJhKplm0uMKkuZxC6kn+tUei58rexj4NwUPHTAFsMcLc997hn3yPmwEE0YQ2O9Vn+MuVYxGq+ytAEyBE97Gle1kbQreZ66Gn5R63FxcD6NN/Uvm/gX8Go04L+BPos+nhMD7VvcgbKPkHu/LNYPODaS0/zRUxjDsWiTsma8DbsdrmKdXxcqEkv+IHQaLOTNkwN4sh236yQIDAQABo4IBbzCCAWswHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH6pDjue0wHQYDVR0OBBYEFLVNdYAnQ4MAHsI0R854KPZHpdmhMA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAECATA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9yZzAdBgNVHREEFjAUghJvd25jbG91ZC5jZXNuZXQuY3owDQYJKoZIhvcNAQEFBQADggEBADqbluvi3u51NAFwIZli9b/d/oX6X56uZjs81nu8jniC6r9Wt4dGKDF6t3VIoqpFJ1ZtT1Kj+xr5c3g2UJ6HLXiPwcipjtJ5YckfTZAcoKMtAJAxI82SiHBMO5jgqEtvZJuw9FjStNxDIt1JkcmZVpsvoMCOJk3jqonypoKHbG0nq7jg52Ahp2sI/fFcyDmdYwLpV5f3j5DpACol4/anu02Li7Nf7VrnQLsKhvXqNkV8sGDoPJcA1zuseszaPV9RTONMzcZHoWAtzK3Fd5rT5sr+7qVpm+lmEi0TNhFSSW68Yp+4XqDvKLviDkhv1R/Yjqi5XRlMo0KjBerAbs1Un6Q=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://owncloud.cesnet.cz/simplesamlphp/module.php/saml/sp/saml2-logout.php/default-sp"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://owncloud6.cesnet.cz/simplesamlphp/module.php/saml/sp/saml2-logout.php/default-sp"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://owncloud.cesnet.cz/simplesamlphp/module.php/saml/sp/saml2-acs.php/default-sp" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://owncloud.cesnet.cz/simplesamlphp/module.php/saml/sp/saml1-acs.php/default-sp" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://owncloud.cesnet.cz/simplesamlphp/module.php/saml/sp/saml2-acs.php/default-sp" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://owncloud.cesnet.cz/simplesamlphp/module.php/saml/sp/saml1-acs.php/default-sp/artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://owncloud6.cesnet.cz/simplesamlphp/module.php/saml/sp/saml2-acs.php/default-sp" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://owncloud6.cesnet.cz/simplesamlphp/module.php/saml/sp/saml1-acs.php/default-sp" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://owncloud6.cesnet.cz/simplesamlphp/module.php/saml/sp/saml2-acs.php/default-sp" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://owncloud6.cesnet.cz/simplesamlphp/module.php/saml/sp/saml1-acs.php/default-sp/artifact" index="3"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">CESNET</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">CESNET</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="cs">CESNET</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ces.net/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="cs">http://www.cesnet.cz/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Lubos</md:GivenName>
+      <md:SurName>Kopecky - administrator</md:SurName>
+      <md:EmailAddress>du-support@cesnet.cz</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

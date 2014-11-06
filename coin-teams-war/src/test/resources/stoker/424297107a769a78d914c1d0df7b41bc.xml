@@ -1,0 +1,78 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="urn:mace:cru.fr:federation:univ-nantes.fr">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-02-23T15:56:05Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-nantes.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      <mdui:DisplayName xml:lang="en">University of Nantes (FRANCE)</mdui:DisplayName>
+          		      <mdui:Description xml:lang="en">Students and staff belonging to University of Nantes</mdui:Description>
+          		      <mdui:DisplayName xml:lang="fr">Université de Nantes</mdui:DisplayName>
+          		      <mdui:Description xml:lang="fr">Etudiants et personnels de l'Université de Nantes</mdui:Description>
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDMzCCAhugAwIBAgIUXhtC9sGfg8MZ1QOlWpmnARmmHMYwDQYJKoZIhvcNAQEF
+BQAwHTEbMBkGA1UEAxMSaWRwLnVuaXYtbmFudGVzLmZyMB4XDTA5MDMzMTA4MTA1
+OVoXDTI5MDMzMTA4MTA1OVowHTEbMBkGA1UEAxMSaWRwLnVuaXYtbmFudGVzLmZy
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAktwRMpbzUDURWbJkTiTj
+24JSlknu7dufbohqxC5S5MDGpRx4kZFZFIy+adMWMV/DhS85ggU059xm4PGdoWSd
+nLfYxWNFma2elqpE4ErVbrRyo66m5wP3Xs2VCQQJqcb9YUM5+8yBU04yXAEPYGUv
+QX4R6F2J4K6l2xFlX95aHycjJoAqFq3EPkBs3B8svjK3DWZAYPQP0LbxI1VGvzDn
+Dkl4LrzwOPXTdGuJIQUWULWq1KV/RK9mdTTW7Xm5QBh61U1WQLl3EKJJUD5ziaq0
+KttLIND72IKHWYiU5YgC28J6J31BzI2L/TeKk0jmEJl34G6AJ/T82ulrpLZwzu3o
+1wIDAQABo2swaTBIBgNVHREEQTA/ghJpZHAudW5pdi1uYW50ZXMuZnKGKWh0dHBz
+Oi8vaWRwLnVuaXYtbmFudGVzLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBR0
+v7zvoB8/1wVaVqBJiix3/eDmPTANBgkqhkiG9w0BAQUFAAOCAQEAY7x0Byy9iv25
+8QhZ7CAD5B0ewKhgS1UO4wmr5UC9bpCAqLdJ1B0PyMZ1Bx3c/TzGloEBoGfiJLu5
+DXg61rAdqYa4ihIC5hXCpt9l02EWxWXintKDZ07kcG2aama1EBRh0s3usR8QzLyB
+giEcLiXmysSZgy1k/VAx2R5DaHimMFk9vJkTckprB/mSlB4aFFVtfsk6b6dxf0JY
+pF1bmgLeWzeQlAtCz8sNNPwXDvAVbBLLHXnOUa8V9TzhaPlInHHhUs6DLNdGml/9
+fLM8XuyqV7zxR0P8IGEgoEuNDgaBilEU3IeExFo/eOojuKJbQkV9w18Q5cxIzGPR
+9yMUR1nBIg==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.univ-nantes.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.univ-nantes.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.univ-nantes.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Nantes</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Nantes</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>shibboleth@univ-nantes.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

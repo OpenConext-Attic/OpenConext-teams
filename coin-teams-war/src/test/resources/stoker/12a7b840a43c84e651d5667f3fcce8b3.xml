@@ -1,0 +1,130 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.crous-clermont.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2013-02-07T15:26:52Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">crous-clermont.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">CROUS Clermont-Ferrand</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIEeDCCA2CgAwIBAgIRALsQfprdKL/wDycsZup+t2UwDQYJKoZIhvcNAQEFBQAw
+NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+IFNTTCBDQTAeFw0xMzAyMDYwMDAwMDBaFw0xNjAyMDYyMzU5NTlaMEMxITAfBgNV
+BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEeMBwGA1UEAxMVaWRwLmNyb3Vz
+LWNsZXJtb250LmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyeWI
+rH5JgGXXLn1toJKE4uQB2O8Inq44XRbzewIM/NHxn3tsreYba2Yce8xPrMf4gYzZ
+Rp+93mlMPk/e9M95bIcPCt46yPk6jVl3TXO5ITrXnsgW5Bs9/Mr23YrBhanNotGs
+o2vKJ7FrLv0Iy7VGcGRT9b5mKQ0Ir5TbfwEC11FEAIgE21mi4FV2TJI+JC4Pj2U7
+u9GWguzZr7Z4k0XQkZuhhf3tpm5wiDI4tDgSJytrv8ypGc3fMhqv3ot5v3i+kbga
+7XyFXFGcRkfaQHwZh/nOCJ4E6WXn1OgBa81tt6ofy3LfWJ18DUf3K1Nkx9pOTDs4
+jSjIbf765ZxttnoyDQIDAQABo4IBcjCCAW4wHwYDVR0jBBgwFoAUDL2TaAzz3quj
+SWsrN1dH6pDjue0wHQYDVR0OBBYEFDwwqrZsAbpKnPY7+y5tue2HeOZGMA4GA1Ud
+DwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggr
+BgEFBQcDAjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAECATA6BgNV
+HR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNT
+TENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQu
+dGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRw
+Oi8vb2NzcC50Y3MudGVyZW5hLm9yZzAgBgNVHREEGTAXghVpZHAuY3JvdXMtY2xl
+cm1vbnQuZnIwDQYJKoZIhvcNAQEFBQADggEBAGvcMZiDnaj4ancf6aD2HI91jhPn
+kRLo2jkhCLostGVCqtifeF6Iqr8xupBmLHNnT81DHHmgsqpqVa9Mqm9mpdHF6T27
+o2lbKuarjHXj0PXQMvunxVRFZwgUsu0pxIuV4HmydbSaZgHoNcv0+NkwOQ++ulJW
+X/gRzlyJR7PfXIiPu4qmfi2ke60hVg9+c7E2Diyj7y9D0pgZ7KgpodYH7AanQiIF
+kPD96G/i31YlrxNcHekcHT2l/KnzVqvD0Pwc3GLMTvdMtcktTGG68leu+XnrnXuj
+q9mjbunZ1wMETpOgXde+gZJ5/yyLI1G0oAp5fBmOH994BmtO4BCj9f/g/yA=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.crous-clermont.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.crous-clermont.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.crous-clermont.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">crous-clermont.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIEeDCCA2CgAwIBAgIRALsQfprdKL/wDycsZup+t2UwDQYJKoZIhvcNAQEFBQAw
+NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+IFNTTCBDQTAeFw0xMzAyMDYwMDAwMDBaFw0xNjAyMDYyMzU5NTlaMEMxITAfBgNV
+BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEeMBwGA1UEAxMVaWRwLmNyb3Vz
+LWNsZXJtb250LmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyeWI
+rH5JgGXXLn1toJKE4uQB2O8Inq44XRbzewIM/NHxn3tsreYba2Yce8xPrMf4gYzZ
+Rp+93mlMPk/e9M95bIcPCt46yPk6jVl3TXO5ITrXnsgW5Bs9/Mr23YrBhanNotGs
+o2vKJ7FrLv0Iy7VGcGRT9b5mKQ0Ir5TbfwEC11FEAIgE21mi4FV2TJI+JC4Pj2U7
+u9GWguzZr7Z4k0XQkZuhhf3tpm5wiDI4tDgSJytrv8ypGc3fMhqv3ot5v3i+kbga
+7XyFXFGcRkfaQHwZh/nOCJ4E6WXn1OgBa81tt6ofy3LfWJ18DUf3K1Nkx9pOTDs4
+jSjIbf765ZxttnoyDQIDAQABo4IBcjCCAW4wHwYDVR0jBBgwFoAUDL2TaAzz3quj
+SWsrN1dH6pDjue0wHQYDVR0OBBYEFDwwqrZsAbpKnPY7+y5tue2HeOZGMA4GA1Ud
+DwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggr
+BgEFBQcDAjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAECATA6BgNV
+HR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNT
+TENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQu
+dGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRw
+Oi8vb2NzcC50Y3MudGVyZW5hLm9yZzAgBgNVHREEGTAXghVpZHAuY3JvdXMtY2xl
+cm1vbnQuZnIwDQYJKoZIhvcNAQEFBQADggEBAGvcMZiDnaj4ancf6aD2HI91jhPn
+kRLo2jkhCLostGVCqtifeF6Iqr8xupBmLHNnT81DHHmgsqpqVa9Mqm9mpdHF6T27
+o2lbKuarjHXj0PXQMvunxVRFZwgUsu0pxIuV4HmydbSaZgHoNcv0+NkwOQ++ulJW
+X/gRzlyJR7PfXIiPu4qmfi2ke60hVg9+c7E2Diyj7y9D0pgZ7KgpodYH7AanQiIF
+kPD96G/i31YlrxNcHekcHT2l/KnzVqvD0Pwc3GLMTvdMtcktTGG68leu+XnrnXuj
+q9mjbunZ1wMETpOgXde+gZJ5/yyLI1G0oAp5fBmOH994BmtO4BCj9f/g/yA=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.crous-clermont.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">CROUS Clermont-Ferrand</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">CROUS Clermont-Ferrand</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>dsi@crous-clermont.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

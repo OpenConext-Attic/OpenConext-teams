@@ -1,0 +1,62 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="uk001081" entityID="https://auth.services.bmj.com/auth">
+	
+	<Extensions>
+
+
+		<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://ukfederation.org.uk" registrationInstant="2009-08-05T11:42:00Z">
+			<mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+		</mdrpi:RegistrationInfo>
+
+	</Extensions>
+	<SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+		<KeyDescriptor>
+			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+				<ds:X509Data>
+					<ds:X509Certificate>
+						MIIDqjCCApICCQCaKbK0unVYnjANBgkqhkiG9w0BAQUFADCBljELMAkGA1UEBhMC
+						R0IxEDAOBgNVBAgTB0VuZ2xhbmQxDzANBgNVBAcTBkxvbmRvbjEMMAoGA1UEChMD
+						Qk1KMRMwEQYDVQQLEwpUZWNobm9sb2d5MR4wHAYDVQQDExVhdXRoLnNlcnZpY2Vz
+						LmJtai5jb20xITAfBgkqhkiG9w0BCQEWEm9wZXJhdGlvbnNAYm1qLmNvbTAeFw0x
+						NDA3MTAxMzEyMzNaFw0yNDA3MDkxMzEyMzNaMIGWMQswCQYDVQQGEwJHQjEQMA4G
+						A1UECBMHRW5nbGFuZDEPMA0GA1UEBxMGTG9uZG9uMQwwCgYDVQQKEwNCTUoxEzAR
+						BgNVBAsTClRlY2hub2xvZ3kxHjAcBgNVBAMTFWF1dGguc2VydmljZXMuYm1qLmNv
+						bTEhMB8GCSqGSIb3DQEJARYSb3BlcmF0aW9uc0BibWouY29tMIIBIjANBgkqhkiG
+						9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2mKuJbaYm3cLrHLBDGh4Bw2Vvnars2/KLDLX
+						eTW/pqu0ePzYMwKO33MDxNtSJk1oAzVpu7fqjJnosdmC0iIuRssUfBDluh4K/heW
+						txI+9+2GEldxat1g1rgvyDncKuRd41BvOX5TwDnGSlQsC/KUaxxcBq5v6gA08vJS
+						QPjvTNRbDV0EJOyAkHteob9EQTAE1hMpFP1zUgHBnlAE8Ab02g8kbczsoaqqrjDY
+						QiVEz51xT/5sI/d554wCqyvukbapIYYU/TsEt/mg7d0dc/ios868l7N39nXae6+s
+						To+iY9C30RrgHfVw0dy3F1UURfu6UHWF6ghS4Ci4l8pfyeQczwIDAQABMA0GCSqG
+						SIb3DQEBBQUAA4IBAQBXgJlzJX3Q8QMoxJdPTaeVY79y6nBLWf/PvIazYlgUePmU
+						ZmRhKo50L18R0X98OKCayw79q893a3uCkS/NfEqB819+AajzboYAalYHf+jD9NwB
+						z+vff+oRNERM9khBBnxQZhq21UnPcB4EpYyu9FygjmLrxxwZDzoMmG+sMRVrC1ff
+						LQtlqTHYLsAoyqjs/vmD72kr4MZUNEDwyk/SIRJUU86Axx0/F4XWHA5uzSpD8TM9
+						PN6l+KjcBSxV+BZ0RTY3AXUjDyEug23U8bCaXTaUmCIlIpJMxUwswuoKwSPCwesC
+						4j9ZrnewfA82UxIdQeHXbcTG4FME758xOTVMWUIr
+					</ds:X509Certificate>
+				</ds:X509Data>
+			</ds:KeyInfo>
+		</KeyDescriptor>
+		<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://auth.services.bmj.com/auth/rcv" index="0"/>
+		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://auth.services.bmj.com/auth/rcv" index="1"/>
+		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://auth.services.bmj.com/auth/rcv/saml1" index="2"/>
+		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://auth.services.bmj.com/auth/rcv/saml1" index="3"/>
+	</SPSSODescriptor>
+	<Organization>
+		<OrganizationName xml:lang="en">BMJ Publishing Group Limited</OrganizationName>
+		<OrganizationDisplayName xml:lang="en">The BMJ Group</OrganizationDisplayName>
+		<OrganizationURL xml:lang="en">http://group.bmj.com/group/about</OrganizationURL>
+	</Organization>
+	<ContactPerson contactType="support">
+		<GivenName>BMJ Customer Support</GivenName>
+		<EmailAddress>mailto:support@bmjgroup.com</EmailAddress>
+	</ContactPerson>
+	<ContactPerson contactType="technical">
+		<GivenName>Chris</GivenName>
+		<SurName>Highfield</SurName>
+		<EmailAddress>mailto:chighfield@bmj.com</EmailAddress>
+	</ContactPerson>
+
+
+</EntityDescriptor>

@@ -1,0 +1,77 @@
+<md:EntityDescriptor xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth.mzk.cz/simplesaml/metadata.xml">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.eduid.cz/" registrationInstant="2011-08-10T11:54:57Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <mdasrt:Attribute xmlns:mdasrt="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <mdasrt:AttributeValue>http://eduid.cz/uri/idp-group/library</mdasrt:AttributeValue>
+        </mdasrt:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">mzk.cz</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">The Moravian Library in Brno</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">Moravská zemská knihovna</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity Provider for employees and readers of the Moravian Library in Brno</mdui:Description>
+          <mdui:Description xml:lang="cs">Identity Provider pro zaměstnance a čtenáře Moravské zemské knihovny</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.mzk.cz/en</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">http://www.mzk.cz/</mdui:InformationURL>
+          <mdui:Logo height="68" width="92">https://www2.eduid.cz/idp-loga/mzk.png</mdui:Logo>
+        </mdui:UIInfo>
+        <eduidmd:RepublishRequest xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0">
+          <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
+        </eduidmd:RepublishRequest>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIE9zCCA9+gAwIBAgIQdHGSoLeaV4jnLePN/TAq4TANBgkqhkiG9w0BAQUFADA2MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEgU1NMIENBMB4XDTEzMDEzMDAwMDAwMFoXDTE2MDEzMDIzNTk1OVowTDELMAkGA1UEBhMCQ1oxKDAmBgNVBAoTH01vcmF2c2thIHplbXNrYSBrbmlob3ZuYSB2IEJybmUxEzARBgNVBAMTCnd3dy5temsuY3owggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDOcSiUXQ2KY7dO4ImB2hokEwDxG3UlAXfH4XBGn417uzrG6VLcSh/OqiEpljmLSaOMkTAQ8C6oT7HqwxnAmheuDgYCCCsAA1ltTdaoWEhyG7D8ForDbnJVGcCOjOSqQpfzP91NrrHNVvPTIqecsGg8cEstubYhAP0jiRXZMa4Xt53WXUvO9FrBpT81WWgJ44Npy1SgDbflgd2YXT9GZCpNoNlL78NE+/m64Ccx4pvheMp/7tTqBzpo1IRUrjYr8eGVPYfu5rSRUTCQaEySfmLkbdIEKr7BMRZxf01DaW17MqK0srOUbarGNSilJ5sfv+h3C5lpoVfaMGFelBuV8DWtAgMBAAGjggHpMIIB5TAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAdBgNVHQ4EFgQUre4x48667NN4iCQRNTZfTXIGadAwDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBgGA1UdIAQRMA8wDQYLKwYBBAGyMQECAh0wOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwgaAGA1UdEQSBmDCBlYIKd3d3Lm16ay5jeoILYmV0YS5temsuY3qCC2R1aGEubXprLmN6gg9oZWxwZGVzay5temsuY3qCD2ludHJhbmV0Lm16ay5jeoIGbXprLmN6ghFwbGF5Z3JvdW5kLm16ay5jeoIMc2FmZXEubXprLmN6ghFzaGliYm9sZXRoLm16ay5jeoIPc3Bpc292a2EubXprLmN6MA0GCSqGSIb3DQEBBQUAA4IBAQCtIwmPzQ97KOX2Mul/EeDbM2Rz5lXrw54sGKg7xB8l9RUf7ttt94AdNoduPL7es6qrByspdK8XwgC0Et8QWEZ1OJhJlgVtqEvb9dzgv93QAaSNwDL/PZyXrfkoR+iBM4nAbnTn/joInC2Dbyl2KOUsb42V8qmHoIAWZAhRwqKMEtXhbxQArtL98RJRaIW0lkXVN4r8ep1/jF7kua4dIzeK2XpKiXxi77rW8lAkSXcTBitG7RhXwbTPB8MroQ9QVSBq/RS9ArCHap6+wCMmy5H6+0KJ9nsVi4AOqfwh79vx0AuKGL2sEqnniw17UExbcwM1s7ZI/NynOvs1I/HL6Yjg
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIE9zCCA9+gAwIBAgIQdHGSoLeaV4jnLePN/TAq4TANBgkqhkiG9w0BAQUFADA2MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEgU1NMIENBMB4XDTEzMDEzMDAwMDAwMFoXDTE2MDEzMDIzNTk1OVowTDELMAkGA1UEBhMCQ1oxKDAmBgNVBAoTH01vcmF2c2thIHplbXNrYSBrbmlob3ZuYSB2IEJybmUxEzARBgNVBAMTCnd3dy5temsuY3owggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDOcSiUXQ2KY7dO4ImB2hokEwDxG3UlAXfH4XBGn417uzrG6VLcSh/OqiEpljmLSaOMkTAQ8C6oT7HqwxnAmheuDgYCCCsAA1ltTdaoWEhyG7D8ForDbnJVGcCOjOSqQpfzP91NrrHNVvPTIqecsGg8cEstubYhAP0jiRXZMa4Xt53WXUvO9FrBpT81WWgJ44Npy1SgDbflgd2YXT9GZCpNoNlL78NE+/m64Ccx4pvheMp/7tTqBzpo1IRUrjYr8eGVPYfu5rSRUTCQaEySfmLkbdIEKr7BMRZxf01DaW17MqK0srOUbarGNSilJ5sfv+h3C5lpoVfaMGFelBuV8DWtAgMBAAGjggHpMIIB5TAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAdBgNVHQ4EFgQUre4x48667NN4iCQRNTZfTXIGadAwDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBgGA1UdIAQRMA8wDQYLKwYBBAGyMQECAh0wOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwgaAGA1UdEQSBmDCBlYIKd3d3Lm16ay5jeoILYmV0YS5temsuY3qCC2R1aGEubXprLmN6gg9oZWxwZGVzay5temsuY3qCD2ludHJhbmV0Lm16ay5jeoIGbXprLmN6ghFwbGF5Z3JvdW5kLm16ay5jeoIMc2FmZXEubXprLmN6ghFzaGliYm9sZXRoLm16ay5jeoIPc3Bpc292a2EubXprLmN6MA0GCSqGSIb3DQEBBQUAA4IBAQCtIwmPzQ97KOX2Mul/EeDbM2Rz5lXrw54sGKg7xB8l9RUf7ttt94AdNoduPL7es6qrByspdK8XwgC0Et8QWEZ1OJhJlgVtqEvb9dzgv93QAaSNwDL/PZyXrfkoR+iBM4nAbnTn/joInC2Dbyl2KOUsb42V8qmHoIAWZAhRwqKMEtXhbxQArtL98RJRaIW0lkXVN4r8ep1/jF7kua4dIzeK2XpKiXxi77rW8lAkSXcTBitG7RhXwbTPB8MroQ9QVSBq/RS9ArCHap6+wCMmy5H6+0KJ9nsVi4AOqfwh79vx0AuKGL2sEqnniw17UExbcwM1s7ZI/NynOvs1I/HL6Yjg
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEmDCCA4CgAwIBAgIJAP7tUyCsoo2RMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJDWjEXMBUGA1UECBMOQ3plY2ggUmVwdWJsaWMxDTALBgNVBAcTBEJybm8xGTAXBgNVBAoTEE1vcmF2aWFuIExpYnJhcnkxGjAYBgNVBAMTEXNoaWJib2xldGgubXprLmN6MSAwHgYJKoZIhvcNAQkBFhFzaGliYm9sZXRoQG16ay5jejAeFw0xMTA3MjAwNjUyMjFaFw0xNDA3MTkwNjUyMjFaMIGOMQswCQYDVQQGEwJDWjEXMBUGA1UECBMOQ3plY2ggUmVwdWJsaWMxDTALBgNVBAcTBEJybm8xGTAXBgNVBAoTEE1vcmF2aWFuIExpYnJhcnkxGjAYBgNVBAMTEXNoaWJib2xldGgubXprLmN6MSAwHgYJKoZIhvcNAQkBFhFzaGliYm9sZXRoQG16ay5jejCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAM3A8vApmQ5m5S+vblZKdVzA7z3ef+3jqE5XfdVX9ehRTuQ1FZfjcooX6G7/Y3cR4ylFBwQSJ1TNm8vX1s8w/sbmuP6t40HLezMiwdj7gDr6HY8roXF2I+UQPxsCM+c0SleOAoZiVNQsWGAi9w0jU8AN+VsmPuRqeAUdkVGFzaiS2lsWPiriP/EOWBxo0i4rc1jE0bwam4/hJEfUub6n+11YmmKFTtieYVRomWmlwuCOMQ30xwXJwrF7p8rMNhKLohBQKU/3BhDZC1U269AAlAa9WVF1hhXjypkzFXdwKA42rGVKl5G17tWwmhv9kTmgZnLtK1KDq1mBYfo9VUOysA8CAwEAAaOB9jCB8zAdBgNVHQ4EFgQUK1gE2KOVHyAUVS5m/2wK40F0ohkwgcMGA1UdIwSBuzCBuIAUK1gE2KOVHyAUVS5m/2wK40F0ohmhgZSkgZEwgY4xCzAJBgNVBAYTAkNaMRcwFQYDVQQIEw5DemVjaCBSZXB1YmxpYzENMAsGA1UEBxMEQnJubzEZMBcGA1UEChMQTW9yYXZpYW4gTGlicmFyeTEaMBgGA1UEAxMRc2hpYmJvbGV0aC5temsuY3oxIDAeBgkqhkiG9w0BCQEWEXNoaWJib2xldGhAbXprLmN6ggkA/u1TIKyijZEwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOCAQEAvkpXj3KlQ+dRxqvw5WX338tepnd070CV0cEIf06e4BBDkdOKsKxwKuY+26/G8kYLdok22GCZPDkpOe0j+IDXWfjy48X65+anIY75jEOZRBIgQkjeNMC9+PkRxV9w7k1qlWsQ8sJVNX9d7npkhA6fNItrWSm79nPRoT6GURgDvRRRddIyPS+RHtQIPe7a/bbWD4Sw7RdqZw0BEWiVEg6odFK1XQ72XYeIxfWvpCqcsLtlb6zCjOH5X31UYPrccoKKUGPs7IMP4NFkCnS28FpCAxRMqOEdwt7iWhedJFr51k+vX6wKGI/AiyHkhHm97+w7OsrwIZfpX4yUDfALdaN10Q==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.mzk.cz/simplesaml/saml2/idp/SingleLogoutService.php"/>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.mzk.cz/simplesaml/shib13/idp/SSOService.php"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.mzk.cz/simplesaml/saml2/idp/SSOService.php"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.mzk.cz/simplesaml/saml2/idp/SSOService.php"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Moravian Library</md:OrganizationName>
+      <md:OrganizationName xml:lang="cs">Moravská zemská knihovna</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Moravian Library</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="cs">Moravská zemská knihovna</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.mzk.cz/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="cs">http://www.mzk.cz/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Administrator</md:SurName>
+      <md:EmailAddress>shibboleth@mzk.cz</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

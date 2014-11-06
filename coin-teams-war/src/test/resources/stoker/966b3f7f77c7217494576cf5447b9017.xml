@@ -1,0 +1,127 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://cafe.iec.pa.gov.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">iec.pa.gov.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">IEC - Instituto Evandro Chagas</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">IEC - Instituto Evandro Chagas</mdui:DisplayName>
+          <mdui:Description xml:lang="en">IEC - Instituto Evandro Chagas</mdui:Description>
+          <mdui:Description xml:lang="pt-br">IEC - Instituto Evandro Chagas</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.iec.pa.gov.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.iec.pa.gov.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIDuDCCAqACAQAwDQYJKoZIhvcNAQEFBQAwgaExJzAlBgNVBAoTHklFQyAtIElu
+c3RpdHV0byBFdmFuZHJvIENoYWdhczEOMAwGA1UECxMFU09JTkYxITAfBgkqhkiG
+9w0BCQEWEnJlZGVAaWVjLnBhLmdvdi5icjEOMAwGA1UEBxMFYmVsZW0xDTALBgNV
+BAgTBFBBUkExCzAJBgNVBAYTAkJSMRcwFQYDVQQDEw5jYWZlLmllYy5sb2NhbDAe
+Fw0xNDA1MTMxNjIxMzFaFw0xNzA1MTIxNjIxMzFaMIGhMScwJQYDVQQKEx5JRUMg
+LSBJbnN0aXR1dG8gRXZhbmRybyBDaGFnYXMxDjAMBgNVBAsTBVNPSU5GMSEwHwYJ
+KoZIhvcNAQkBFhJyZWRlQGllYy5wYS5nb3YuYnIxDjAMBgNVBAcTBWJlbGVtMQ0w
+CwYDVQQIEwRQQVJBMQswCQYDVQQGEwJCUjEXMBUGA1UEAxMOY2FmZS5pZWMubG9j
+YWwwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC4e4hLNjYvI/xid2cN
+ozfVwKY2flC+dJyQwC+F3i7j+3u8ml5VuAU1P+ZKVchCjARurXRkZIQIQMknTJ2B
+nr5TLIe57cd6yE3vSEui+x/ZhwWxPJtyCWqHtw9emOrZ+X9UmTg+TKWaMaUBnyAd
+b0nCn4P7ohWfrlinhaFPk7+/OPf5rg7DPkUuqGPtOoyrotKFS0BrIE1cyxWPfOUS
+AmQz72t5uOMDuzLIkmgL9CHbSxudTfBsxAyWhwTaTM9ePIHaOyNHnExe+M6sFrwb
+3LitMRN/v94/4Az603CM6neLw/G3MMHna2OtjgpTwhg9+4SwRn2Sjs/A169LuIV/
+qnO5AgMBAAEwDQYJKoZIhvcNAQEFBQADggEBAGw3xN4fIch/7ZemmiIJO4SfcTiA
+MnnYpOL72tvaWm9Cz6jojUy3q5+/qfQKYYpdi0QgmZSD9W7Qi0CfsPTnh5TlKXGQ
+7SOa41lTVz9nWogz7gZjxKfVeC+52vQppkjhJquxpFzP7Vl3oaXoxdMNTMjzCNgG
+R8X+bipsWg0m2NWnZFq12T/qf139XlTRZdube41eU4LrmKaCRCx5LrSUc1ZUxvrY
+6pXgywuLBdDwr8nWSvtjkUszeTmK2s8k5glOmotvqggeFCBlKX5VREDzagTq8plQ
+Bdyy5D7y1xwm3x9CEhmG0/zei8OgU3ir0T/sHAfNMjKZGzA1KJdWQ7hXE40=
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.iec.pa.gov.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.iec.pa.gov.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafe.iec.pa.gov.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafe.iec.pa.gov.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafe.iec.pa.gov.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafe.iec.pa.gov.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">iec.pa.gov.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIDuDCCAqACAQAwDQYJKoZIhvcNAQEFBQAwgaExJzAlBgNVBAoTHklFQyAtIElu
+c3RpdHV0byBFdmFuZHJvIENoYWdhczEOMAwGA1UECxMFU09JTkYxITAfBgkqhkiG
+9w0BCQEWEnJlZGVAaWVjLnBhLmdvdi5icjEOMAwGA1UEBxMFYmVsZW0xDTALBgNV
+BAgTBFBBUkExCzAJBgNVBAYTAkJSMRcwFQYDVQQDEw5jYWZlLmllYy5sb2NhbDAe
+Fw0xNDA1MTMxNjIxMzFaFw0xNzA1MTIxNjIxMzFaMIGhMScwJQYDVQQKEx5JRUMg
+LSBJbnN0aXR1dG8gRXZhbmRybyBDaGFnYXMxDjAMBgNVBAsTBVNPSU5GMSEwHwYJ
+KoZIhvcNAQkBFhJyZWRlQGllYy5wYS5nb3YuYnIxDjAMBgNVBAcTBWJlbGVtMQ0w
+CwYDVQQIEwRQQVJBMQswCQYDVQQGEwJCUjEXMBUGA1UEAxMOY2FmZS5pZWMubG9j
+YWwwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC4e4hLNjYvI/xid2cN
+ozfVwKY2flC+dJyQwC+F3i7j+3u8ml5VuAU1P+ZKVchCjARurXRkZIQIQMknTJ2B
+nr5TLIe57cd6yE3vSEui+x/ZhwWxPJtyCWqHtw9emOrZ+X9UmTg+TKWaMaUBnyAd
+b0nCn4P7ohWfrlinhaFPk7+/OPf5rg7DPkUuqGPtOoyrotKFS0BrIE1cyxWPfOUS
+AmQz72t5uOMDuzLIkmgL9CHbSxudTfBsxAyWhwTaTM9ePIHaOyNHnExe+M6sFrwb
+3LitMRN/v94/4Az603CM6neLw/G3MMHna2OtjgpTwhg9+4SwRn2Sjs/A169LuIV/
+qnO5AgMBAAEwDQYJKoZIhvcNAQEFBQADggEBAGw3xN4fIch/7ZemmiIJO4SfcTiA
+MnnYpOL72tvaWm9Cz6jojUy3q5+/qfQKYYpdi0QgmZSD9W7Qi0CfsPTnh5TlKXGQ
+7SOa41lTVz9nWogz7gZjxKfVeC+52vQppkjhJquxpFzP7Vl3oaXoxdMNTMjzCNgG
+R8X+bipsWg0m2NWnZFq12T/qf139XlTRZdube41eU4LrmKaCRCx5LrSUc1ZUxvrY
+6pXgywuLBdDwr8nWSvtjkUszeTmK2s8k5glOmotvqggeFCBlKX5VREDzagTq8plQ
+Bdyy5D7y1xwm3x9CEhmG0/zei8OgU3ir0T/sHAfNMjKZGzA1KJdWQ7hXE40=		
+		
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.iec.pa.gov.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.iec.pa.gov.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">IEC - Instituto Evandro Chagas </OrganizationName>
+      <OrganizationName xml:lang="pt-br">IEC - Instituto Evandro Chagas </OrganizationName>
+      <OrganizationDisplayName xml:lang="en">IEC - Instituto Evandro Chagas</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">IEC - Instituto Evandro Chagas</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.iec.pa.gov.br/</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.iec.pa.gov.br/</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Equipe de Operacao da Rede IEC</SurName>
+      <EmailAddress>rede@iec.pa.gov.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

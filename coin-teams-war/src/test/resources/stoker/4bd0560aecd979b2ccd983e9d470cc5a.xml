@@ -1,0 +1,113 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://ghgtool.grnet.gr/shibboleth">
+        <Extensions xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi">
+            <mdrpi:RegistrationInfo registrationAuthority="http://aai.grnet.gr/">
+                <mdrpi:RegistrationPolicy xml:lang="en">http://aai.grnet.gr/static/policy/policy-en-1.1.0.pdf</mdrpi:RegistrationPolicy>
+                <mdrpi:RegistrationPolicy xml:lang="el">http://aai.grnet.gr/static/policy/policy-el-1.1.0.pdf</mdrpi:RegistrationPolicy>
+            </mdrpi:RegistrationInfo>
+        </Extensions>
+        <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+            <Extensions>
+                <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+                    <mdui:DisplayName xml:lang="en">GHG report tool</mdui:DisplayName>
+                    <mdui:Description xml:lang="en">GHG online reporting tool</mdui:Description>
+                    <mdui:InformationURL xml:lang="en">https://ghgtool.grnet.gr/about/</mdui:InformationURL>
+                    <mdui:PrivacyStatementURL xml:lang="en">https://ghgtool.grnet.gr/about/privacy</mdui:PrivacyStatementURL>
+                    <mdui:PrivacyStatementURL xml:lang="el">https://ghgtool.grnet.gr/about/privacy#greek</mdui:PrivacyStatementURL>
+                    <mdui:Logo height="64" width="250" xml:lang="en">https://ghgtool.grnet.gr/about/ghgtoollogo.png</mdui:Logo>
+                </mdui:UIInfo>
+                <init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://ghgtool.grnet.gr/Shibboleth.sso/Login"/>
+                <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://ghgtool.grnet.gr/Shibboleth.sso/Login" index="1"/>
+            </Extensions>
+            <KeyDescriptor>
+                <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:X509Data>
+                        <ds:X509Certificate>MIIFwTCCA6mgAwIBAgIJAMzPE0+nt+YbMA0GCSqGSIb3DQEBBQUAMEkxCzAJBgNV
+                            BAYTAkdSMQ4wDAYDVQQIEwVQQVRSQTEMMAoGA1UEBxMDUklPMQ4wDAYDVQQKEwVH
+                            Uk5FVDEMMAoGA1UECxMDUlU2MB4XDTEzMTExMjAxMjI1NloXDTE0MTExMjAxMjI1
+                            NlowSTELMAkGA1UEBhMCR1IxDjAMBgNVBAgTBVBBVFJBMQwwCgYDVQQHEwNSSU8x
+                            DjAMBgNVBAoTBUdSTkVUMQwwCgYDVQQLEwNSVTYwggIiMA0GCSqGSIb3DQEBAQUA
+                            A4ICDwAwggIKAoICAQDCNiDRCIEqgOS4RtYPP04QBw632zSJ9tklRo5VcnzrneYH
+                            r2APRVeUQO4uPUMeJEs3a/MQkh8C/zWctIrTWyJh/RVO77uXhxYFQyptNx3hhg3Y
+                            GABTxJ5Jv6Jkzznhr2+Rq/ayEKLuIxQDt5aG3pcBEX9M59LLjIJa1gtT06wYq2Bn
+                            eHBJshDCeEQvC4N7bZLbcCo60Yge7cPfam67Gyrrvr2e7VW/VJJ0hFSvjbh3bGco
+                            TRYRurdtIyjxKRoUvDMFujcbnP1KaHQS5vZlneWcVanu0FWW3ieOYiDPZcZ5yKUq
+                            MGGY3OzWpEOzrOh2Bmgx7zWmcoye+5Rj+1+NvOmkkNqTJs0x+Y0mKY63xfzpHbzj
+                            1iyzSkfoW0sd4V+3ymd951gUkgigJs7WPpkUz5PMt8QmIUH9e+nxBiU2UPA3TTXw
+                            DWs3i40tiGBSkAKLLEz/7wCOgiA733JgkKAbi6TLUFr0VNAQlRZwlyjzD3j8ixis
+                            qBKjnKJ+3uAJ7T3pRNnZCw9s0Qg9Hj6st3u7DmQ9McH3QFgvmS9pWAVKqW95PPtO
+                            MvIASOCdDDnry8yrMG/sUYmbAc8+Nr2+GZR5e14ZmMaN2ImM7xDdLEUdE9jFqInv
+                            fErEbIu+00EVYYijNmIamywaCrSr09LlXXC6/1vPlZdiGhBcFE/i5KbUeUlwMwID
+                            AQABo4GrMIGoMB0GA1UdDgQWBBTiec00rlpZRRGu2TrFpqW1sjMCRzB5BgNVHSME
+                            cjBwgBTiec00rlpZRRGu2TrFpqW1sjMCR6FNpEswSTELMAkGA1UEBhMCR1IxDjAM
+                            BgNVBAgTBVBBVFJBMQwwCgYDVQQHEwNSSU8xDjAMBgNVBAoTBUdSTkVUMQwwCgYD
+                            VQQLEwNSVTaCCQDMzxNPp7fmGzAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUA
+                            A4ICAQA7Ii3a/ZLBsRavzMBp54dnbC66oSiIPylHo2Xkc413uHVrMJEnroT/o1jk
+                            RKq90Mvqr2sGfTpYjz6fGX3A+LHUOW2XYnqQCTILMcJgvSnqXW3Fxcd00ogSdZWx
+                            0KS5VVNCZ5mPEgsQwr+BtOKdB2sb8PGhWYKnVSKYLCrt4FjX7gJBYLpqUGWxMyoq
+                            fWg2ovutdRW/izFIGuEEW1031+HZ+9f66AMexswnAIUhEeF6Ew14saA2f23Rvoyl
+                            4rFqQ0wbXsnOy+PeS9bnF6QLCEXMVlEkJg+MNPkESPY6Lns98ExIP0gh9rcOSR97
+                            4KHhgFsJMWG6PfcQ328wjeMtQF9ZqThhtb+//5eODBtIZZvZjZfcICh6lEHiwh2a
+                            8pX39iau26q7Oy5WtMXf8lLFS/ECfmc1WLfZZlh9C/cjHRkrFLwqyCiwpQ/QfGFZ
+                            HgfCEKwvZ7gS7UuiT7Aa6gGy8IXwZFC4gwtcQ5n7Fo35K6WBeA9tJ+n2GWwDF/5M
+                            tkmYhp5t+sCXM4ygUfHnvwLvxkLN2yUzFZCpPsoaQwbWOhvmAsvaz4c9ZMlySGia
+                            hr0y8arTsb1cPFQvcM/1xvjWw8nlx3OaoHV4hV3K+B2e+heYkP11DLoY5ZiG2Dh/
+                            eMqY26cZtNFIW4tgT7/uLpwzbeTrVDCG/PuoSyYicbEMLQ+hDA==
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://ghgtool.grnet.gr/Shibboleth.sso/Artifact/SOAP" index="1"/>
+            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://ghgtool.grnet.gr/Shibboleth.sso/SLO/SOAP"/>
+            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://ghgtool.grnet.gr/Shibboleth.sso/SLO/Redirect"/>
+            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ghgtool.grnet.gr/Shibboleth.sso/SLO/POST"/>
+            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ghgtool.grnet.gr/Shibboleth.sso/SLO/Artifact"/>
+            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ghgtool.grnet.gr/Shibboleth.sso/SAML2/POST" index="1"/>
+            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://ghgtool.grnet.gr/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ghgtool.grnet.gr/Shibboleth.sso/SAML2/Artifact" index="3"/>
+            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://ghgtool.grnet.gr/Shibboleth.sso/SAML2/ECP" index="4"/>
+            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://ghgtool.grnet.gr/Shibboleth.sso/SAML/POST" index="5"/>
+            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://ghgtool.grnet.gr/Shibboleth.sso/SAML/Artifact" index="6"/>
+            <AttributeConsumingService index="0" isDefault="true">
+                <ServiceName xml:lang="en">GHG report tool</ServiceName>
+                <ServiceDescription xml:lang="en">GHG online reporting tool</ServiceDescription>
+                <RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+                <RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:mace:shibboleth:1.0:attributeNamespace:uri" isRequired="true"/>
+                <RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:mace:dir:attribute-def:eduPersonTargetedID" NameFormat="urn:mace:shibboleth:1.0:attributeNamespace:uri" isRequired="true"/>
+                <RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+                <RequestedAttribute FriendlyName="mail" Name="urn:mace:dir:attribute-def:mail" NameFormat="urn:mace:shibboleth:1.0:attributeNamespace:uri" isRequired="false"/>
+                <RequestedAttribute FriendlyName="cn" Name="urn:oid:2.5.4.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+                <RequestedAttribute FriendlyName="cn" Name="urn:mace:dir:attribute-def:cn" NameFormat="urn:mace:shibboleth:1.0:attributeNamespace:uri" isRequired="true"/>
+                <RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+                <RequestedAttribute FriendlyName="displayName" Name="urn:mace:dir:attribute-def:displayName" NameFormat="urn:mace:shibboleth:1.0:attributeNamespace:uri" isRequired="true"/>
+                <RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+                <RequestedAttribute FriendlyName="givenName" Name="urn:mace:dir:attribute-def:givenName" NameFormat="urn:mace:shibboleth:1.0:attributeNamespace:uri" isRequired="true"/>
+                <RequestedAttribute FriendlyName="surname" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+                <RequestedAttribute FriendlyName="surname" Name="urn:mace:dir:attribute-def:sn" NameFormat="urn:mace:shibboleth:1.0:attributeNamespace:uri" isRequired="true"/>
+                <RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+                <RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:mace:dir:attribute-def:eduPersonPrincipalName" NameFormat="urn:mace:shibboleth:1.0:attributeNamespace:uri" isRequired="true"/>
+                <RequestedAttribute FriendlyName="shacHomeOrganization" Name="urn:oid:1.3.6.1.4.1.25178.1.2.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+                <RequestedAttribute FriendlyName="shacHomeOrganization" Name="urn:mace:terena.org:attribute-def:schacHomeOrganization" NameFormat="urn:mace:shibboleth:1.0:attributeNamespace:uri" isRequired="true"/>
+                <RequestedAttribute FriendlyName="orgName" Name="urn:oid:2.5.4.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+                <RequestedAttribute FriendlyName="orgName" Name="urn:mace:dir:attribute-def:o" NameFormat="urn:mace:shibboleth:1.0:attributeNamespace:uri" isRequired="false"/>
+            </AttributeConsumingService>
+        </SPSSODescriptor>
+        <Organization>
+            <OrganizationName xml:lang="en">Greek Research and Technology Network</OrganizationName>
+            <OrganizationName xml:lang="el">Εθνικό Δίκτυο Έρευνας και Τεχνολογίας</OrganizationName>
+            <OrganizationDisplayName xml:lang="en">Greek Research and Technology Network</OrganizationDisplayName>
+            <OrganizationDisplayName xml:lang="el">Εθνικό Δίκτυο Έρευνας και Τεχνολογίας</OrganizationDisplayName>
+            <OrganizationURL xml:lang="en">http://www.grnet.gr/</OrganizationURL>
+            <OrganizationURL xml:lang="el">http://www.grnet.gr/</OrganizationURL>
+        </Organization>
+        <ContactPerson contactType="technical">
+            <GivenName>Vasiliki Giannikopoulou</GivenName>
+            <EmailAddress>vasilg@admin.grnet.gr</EmailAddress>
+        </ContactPerson>
+        <ContactPerson contactType="support">
+            <GivenName>Constantinos Vassilakis</GivenName>
+            <EmailAddress>cvassilakis@admin.grnet.gr</EmailAddress>
+        </ContactPerson>
+    </EntityDescriptor>

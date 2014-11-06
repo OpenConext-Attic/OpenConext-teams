@@ -1,0 +1,88 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.unicaen.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-11-20T14:38:11Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">unicaen.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de Caen - Basse Normandie</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDJDCCAgygAwIBAgIVALLJNRifsaDgq9SZsGgf6vqdEpntMA0GCSqGSIb3DQEB
+BQUAMBkxFzAVBgNVBAMTDmlkcC51bmljYWVuLmZyMB4XDTA5MDcyNzEzNDMxMFoX
+DTI5MDcyNzEzNDMxMFowGTEXMBUGA1UEAxMOaWRwLnVuaWNhZW4uZnIwggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCE/YcYohNvzICcNO78kljWYODlicgW
+xGoXBtCNtVN3z2E0S58zQdfGDelCvCgmRECKjeHEUJPCj0Ruarg9q9eqcOz44/9D
+CBZo2uLuNPURnaUeEPt502EPhSXPercAJVjmks7CeqbrA9192EnGWYe8hv5ZqY7d
+oanvW63YYzwIUtyYShUND7TgZFL6GD08o9prPZrBltL+fuodwXI+aFT5XIX25Su1
+FC67/8WU9jbWb4WiIZZnHD6cQDpkhfMTUAmVtZ7sj+qqueCixP0yMTbLpQCisAIP
+p2mqjC3j5i4ZHm++lrjhtfKOE8emD8V41e7z++Hb/ho95hNl5qOD7MP1AgMBAAGj
+YzBhMEAGA1UdEQQ5MDeCDmlkcC51bmljYWVuLmZyhiVodHRwczovL2lkcC51bmlj
+YWVuLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBTBGIdWisheOftwSUFEzpIO
+Sm4I9jANBgkqhkiG9w0BAQUFAAOCAQEADIDOox8I0gRyY3uetAbe1n2Kfy/pxsQZ
+Nr4Tn90NUMG8i2mp7KVoMuBhmJS5/BHJPdHNMprB6PjzlTDiriNxdl3NPSASUq7D
+E5oMcyemphYHMxcKvXDXif/uRX/dOmRZy77Wt3yjkQjy/Md/fmOYrxd8yKptnhpp
+sjYkdQpopHxBW3npgmOSS1/5X7qy1di8ckgLfEs7u3qfOZfw6i+nn1/98CjMKlv7
+TRVhM943X1kgV4l/lvaMWsPxvgTT8RRvaoAYClmyg6XLbdFC5QQUCjVCPldcbeIY
+IsKc8ui7+rEvhoAKrdmvAPrxTSfN8KMFQ3tbQDz2E3YzAELQD+4zWg==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.unicaen.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.unicaen.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.unicaen.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Caen - Basse Normandie</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Caen - Basse Normandie</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Nicolas HEURTEL</SurName>
+				 <EmailAddress>nicolas.heurtel@unicaen.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>David SURVILLE</SurName>
+				 <EmailAddress>david.surville@unicaen.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

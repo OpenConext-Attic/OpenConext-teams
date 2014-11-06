@@ -1,0 +1,101 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://filesender.funet.fi">
+    <Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.csc.fi/haka">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.csc.fi/english/institutions/haka/instructions/join/eduGAINRegistrationStatement/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </Extensions>
+    <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://filesender.funet.fi/simplesaml/module.php/saml/disco.php" index="1"/>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="fi">Funet FileSender</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="sv">Funet FileSender</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Funet FileSender</mdui:DisplayName>
+          <mdui:Description xml:lang="fi">Funet FileSender tarjoaa helpon ja turvallisen tavan jakaa suuria tiedostoja.</mdui:Description>
+          <mdui:Description xml:lang="en">Funet FileSender offers an easy and a secure way to share large files with anyone.</mdui:Description>
+          <mdui:Description xml:lang="sv">Funet FileSender erbjuder en lätt och säker sätt att dela stora datafilar till vem som helst.</mdui:Description>
+          <mdui:PrivacyStatementURL xml:lang="sv">https://filesender.funet.fi/privacypolicy.html</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="fi">https://filesender.funet.fi/privacypolicy.html</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://filesender.funet.fi/privacypolicy.html</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIE2TCCA8GgAwIBAgIQX2leAqJlB3Q/3iPF8QljNTANBgkqhkiG9w0BAQUFADA2
+MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+U1NMIENBMB4XDTEyMDYyNjAwMDAwMFoXDTE1MDYyNjIzNTk1OVowgbAxCzAJBgNV
+BAYTAkZJMQ4wDAYDVQQREwUwMjEwMTEQMA4GA1UECBMHdXVzaW1hYTEOMAwGA1UE
+BxMFRXNwb28xFjAUBgNVBAkTDUtlaWxhcmFudGEgMTQxKTAnBgNVBAoTIENTQyAt
+IElUIENlbnRlciBmb3IgU2NpZW5jZSBMdGQuMQ4wDAYDVQQLEwVGVU5FVDEcMBoG
+A1UEAxMTZmlsZXNlbmRlci5mdW5ldC5maTCCASIwDQYJKoZIhvcNAQEBBQADggEP
+ADCCAQoCggEBAMZgasarh1nW+r5+zxxElcXiJm7oQVBGDSVwlkZr+7Op8NvdG+Hg
+qC3r64lrmNUgI6LgQ56BH0lDZCdWmH1r4IWmps+VUHEyRb83uDNis+61wnyPW2+k
+0O7JCygTwvltycl4Iw6eaPxERHhgV27r85jMJQbeLMaN+oNZ2HgLEAK8mnksa+IS
+VYULX9ybvh/0YrqfKvhs3bO0fNP9IvUj3HVGCOu5lxHSrZWG5ppmxrVZcRbTYyfz
+PcU5xp0wpvNKju8NQhPlpOhmtvaC8zEDDiRGGG5BTLBc/dMz7gExcjFRh7uUFImx
+kaQBMgbC4Q1PEAfc1HW4dCXH63rTvx7+yNECAwEAAaOCAWYwggFiMB8GA1UdIwQY
+MBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBS0whoofsD3sLHsJarO
+fwv9F9uGyzAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAU
+BggrBgEFBQcDAQYIKwYBBQUHAwIwGAYDVR0gBBEwDzANBgsrBgEEAbIxAQICHTA6
+BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVO
+QVNTTENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9j
+cnQudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpo
+dHRwOi8vb2NzcC50Y3MudGVyZW5hLm9yZzAeBgNVHREEFzAVghNmaWxlc2VuZGVy
+LmZ1bmV0LmZpMA0GCSqGSIb3DQEBBQUAA4IBAQCo97bKpkoqXDVVfg868CNBrSYi
+1bWlUGH732ijBmo3CIDV08G5Q7/0hejeKKTJfw02XNAxHBjatcB9umyuZUKa2Xf/
+Fq9C5c4z3aH1DOpUaVDzRr3gKxEloP0iJfp/jR00cs8hNKw0Lzw/dXVIQ+ObT1B7
+4Qm4RJUOIO/yHNqLvs0QRhYCnonyfUN5Hg5RA0hGwBXJzLZpVYG4yNVYEuSS47BA
+NuSoiRuRqUwvjh1crrpK3aEPzrhwALKEQo0tIKOpSHjVUwvGXWtoljY7JJJt94y1
+o9pAScnCYOeqNoQ//wrcSVQcwozZLhGlymlLAyDI0rx/hM9v+8PL1E0iFmf/</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://filesender.funet.fi/simplesaml/module.php/saml/sp/saml2-acs.php/SP" index="1" isDefault="true"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://filesender.funet.fi/simplesaml/module.php/saml/sp/saml2-acs.php/SP" index="2" isDefault="false"/>
+      <AttributeConsumingService index="1" isDefault="true">
+        <ServiceName xml:lang="fi">Funet FileSender</ServiceName>
+        <ServiceName xml:lang="en">Funet FileSender</ServiceName>
+        <ServiceName xml:lang="sv">Funet FileSender</ServiceName>
+        <ServiceDescription xml:lang="fi">Funet FileSender tarjoaa helpon ja turvallisen tavan jakaa suuria tiedostoja.</ServiceDescription>
+        <ServiceDescription xml:lang="en">Funet FileSender offers an easy and a secure way to share large files with anyone.</ServiceDescription>
+        <ServiceDescription xml:lang="sv">Funet FileSender erbjuder en latt och saker satt att dela stora datafilar till vem som helst.</ServiceDescription>
+        <RequestedAttribute FriendlyName="cn" Name="urn:oid:2.5.4.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+      </AttributeConsumingService>
+    </SPSSODescriptor>
+    <Organization>
+      <OrganizationName xml:lang="fi">CSC - Tieteen tietotekniikan keskus Oy</OrganizationName>
+      <OrganizationName xml:lang="en">CSC - IT Center for Science Ltd.</OrganizationName>
+      <OrganizationName xml:lang="sv">CSC - Tieteen tietotekniikan keskus Oy</OrganizationName>
+      <OrganizationDisplayName xml:lang="fi">CSC - Tieteen tietotekniikan keskus Oy</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="en">CSC - IT Center for Science Ltd.</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="sv">CSC - Tieteen tietotekniikan keskus Oy</OrganizationDisplayName>
+      <OrganizationURL xml:lang="fi">http://www.csc.fi</OrganizationURL>
+      <OrganizationURL xml:lang="en">http://www.csc.fi</OrganizationURL>
+      <OrganizationURL xml:lang="sv">http://www.csc.fi</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="administrative">
+      <GivenName>Harri</GivenName>
+      <SurName>Kuusisto</SurName>
+      <EmailAddress>mailto:funyht@csc.fi</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="technical">
+      <GivenName>Tomi</GivenName>
+      <SurName>Salmi</SurName>
+      <EmailAddress>mailto:noc@funet.fi</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="support">
+      <GivenName>Tomi</GivenName>
+      <SurName>Salmi</SurName>
+      <EmailAddress>mailto:noc@funet.fi</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

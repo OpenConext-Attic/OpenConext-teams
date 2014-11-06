@@ -1,0 +1,62 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.dkit.ie/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.heanet.ie" registrationInstant="2010-11-09T00:00:00Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">dkit.ie</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Dundalk Institute of Technology</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="ga">Institiúid Teicneolaíochta Dhún Dealgan</mdui:DisplayName>
+          <mdui:Logo height="98" width="155">https://edugate.heanet.ie/rr3/logos/dkit.png</mdui:Logo>
+          <mdui:InformationURL xml:lang="en">http://www.dkit.ie</mdui:InformationURL>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:GeolocationHint>geo:53.984667,-6.394150</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDFzCCAf+gAwIBAgIUXWnVlumk2ydwS9DRW7Xoxc2vfvcwDQYJKoZIhvcNAQEF
+BQAwFjEUMBIGA1UEAxMLaWRwLmRraXQuaWUwHhcNMDkwODExMTAyNTQ3WhcNMjkw
+ODExMTAyNTQ3WjAWMRQwEgYDVQQDEwtpZHAuZGtpdC5pZTCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBANkYoFuj1yxD2P68jA2zsEtokAAUExRcur1pdVIF
+3iTS3l/vifRLxstc0IVniaOcWvBxWcLKLueZeBMTuWsyePGz5BhecXzs2u6alYZW
+ITUxJTE0jxZ+WfpPQqnWsysa4rIzksw9l7sbccSz7qvZPLFlwdprrU1rMAMqAcXv
+hYg5iJLRPfRHMN9piFrlibi0RM+u9QPj8/KqJnYVjDZ1+oMeVArEdLk787YlMp79
+GaiKbP6u1cJ3FIgtnWmtph4XWhdMNoh3VBVIo30LnxANGSotMEo+pz/UphUarBjF
+wUzy8vyJdF5+L/Lh/3q6JKVIViC064jQe+PsSJYG0R3ynVcCAwEAAaNdMFswOgYD
+VR0RBDMwMYILaWRwLmRraXQuaWWGImh0dHBzOi8vaWRwLmRraXQuaWUvaWRwL3No
+aWJib2xldGgwHQYDVR0OBBYEFHrvvvBubZqHTcyxZa3VdPhPDWX3MA0GCSqGSIb3
+DQEBBQUAA4IBAQAPn2bTK88XJI8cyWVVRvKXQuNTwIY3KLE+dRs+6EGeF46Ipzfn
+fGIF1je7IrsIUAIKs+8KBWoCwoOp0Nasilib/F90OK6NwEXNKqGdwZXQxJLdvOK7
+yHOXKS+J27t05krcLbutSwcNdnOVEdWbtOz7+/qbx2CSxbrOIDSgTcVDwn/wqm7G
+QW48Aoz0QReQV0oYglj3D9zNUfpnshQqcv45i9+toGTLTdkQfFm/4DUMEWQXM/IE
++hxh2RRIl0wE/qVYfd5hahptuNWfhjSbTtUB4iPaY18z1TMG3JfgQvtKszQeHRa9
+LKIUf4wMQHssUFNv5TXV1zu1W4f9ctYYLexH
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.dkit.ie/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Dundalk Institute of Technology</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Dundalk Institute of Technology</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.dkit.ie</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Andrew</md:GivenName>
+      <md:SurName>Clarke</md:SurName>
+      <md:EmailAddress>andrew.clarke@dkit.ie</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Paul</md:GivenName>
+      <md:SurName>Scollon</md:SurName>
+      <md:EmailAddress>paul.scollon@dkit.ie</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,79 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.ut-capitole.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-03-30T15:33:11Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ut-capitole.fr</shibmd:Scope>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-tlse1.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de Toulouse 1 Capitole</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDNDCCAhygAwIBAgIVALxLFXefFrTC9DNxwQJ5rG/49hVDMA0GCSqGSIb3DQEB
+BQUAMB0xGzAZBgNVBAMTEmlkcC51dC1jYXBpdG9sZS5mcjAeFw0xMjA2MDcxNDUz
+NTBaFw0zMjA2MDcxNDUzNTBaMB0xGzAZBgNVBAMTEmlkcC51dC1jYXBpdG9sZS5m
+cjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKwkRsoTpYYbJf4f+0Vz
+z7ZaAZrsQeDWLgtpyjwOcBtdaRvZzpFNHfp2P/zQhPTdvE0HMU4gaVV5wkCDsKRH
+LolPH3UcgGpZgJ8A3aSm9InPNTMnkFWWASuUssivJvxK30lE/w3JcIzyZwNAwZbP
+syvpXN+mZxY0r1J2wD+cMhubSVVTM7aiGKm8nKZpRP/9GEr9TlKiaq39VA9YXdZt
+q7g1sWgU51eRRmuBCg3SuLaqNabWxrE9u+b04QfPs2LnMduLcykIhOhgs2V3TnLA
+UUGZYnkv9heRngdqbGtR0dK5XgzF9eRHrG9feW5swumQ47fehGO6F+wz8+C6JZ1s
+3s0CAwEAAaNrMGkwSAYDVR0RBEEwP4ISaWRwLnV0LWNhcGl0b2xlLmZyhilodHRw
+czovL2lkcC51dC1jYXBpdG9sZS5mci9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU
+pQc7jVB0iT0c/A1SJwl6+dQRHl0wDQYJKoZIhvcNAQEFBQADggEBAIY0wIOPgk0d
+w3jg69RkQO+RShp5gO1IMozCDrO/A/oYWo8jQUO6tVXQP9SVhQmRxLIXHIt6uhEn
+3Y5lVdrySy2CzdQbcXi4E4COkJPCWhfy6O5yVFlYXDAl1KDic5CMRaH9fJ6kjAMN
+8TTSUvH0tO/ZAbLMeveuSUQG0uVZ+8hA3hciH0CoRrk3XoJhlM+rrIaWQc3W23rd
+c7C+wWTEXDd31gwpaV3mdXA/Ll8KxqtSw4UFX7mKna86JLkD1RnInHj+47g2KSAa
+icpGH7BFG5C/Y8WID/SDMcDwUBI55XFzBmDdgRkaZ5Sh3Ncfd+op3Rp0KWHeidql
+j9Itfb+dnWQ=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ut-capitole.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ut-capitole.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ut-capitole.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Toulouse 1 Capitole</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Toulouse 1 Capitole</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>systeme@ut-capitole.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

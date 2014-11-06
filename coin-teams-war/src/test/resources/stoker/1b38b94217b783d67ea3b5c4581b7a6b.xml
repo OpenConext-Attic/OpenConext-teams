@@ -1,0 +1,78 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://sesame.ifsttar.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2013-07-09T15:33:20Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ifsttar.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">IFSTTAR</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDLzCCAhegAwIBAgIUFBBFYZ1kzTq980fHApAgt04rr94wDQYJKoZIhvcNAQEF
+BQAwHDEaMBgGA1UEAxMRc2VzYW1lLmlmc3R0YXIuZnIwHhcNMTIxMDE4MTI0NzIw
+WhcNMzIxMDE4MTI0NzIwWjAcMRowGAYDVQQDExFzZXNhbWUuaWZzdHRhci5mcjCC
+ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAITYkLPB/bNFZ5N45Mbt3Qpu
+ln2afxx+yKPW6GmrNVSNF9P8WUoG3ThL1zzgjcfbstBjvG/kDYE93+ltFqIH7tbl
+VzHxVB+tKQW/+343lwuu0efE8bS/KeIwcGc7Z/HHBYj3uMGKwb3uGCuT9NL0OkYw
+PCVruRk9okCFSi4ae1ObBVkuItgvgpTDI/kdj7KmIIMr/yLFAkyMz1DuV3l9+AZz
+duqcJiF+LHJSE0lZf0svHQCLzD6Pe1JQ45OGCWwnoBLmeVKf/b7j2h6W6RXq4RMT
+lrZ5fzWwJ0KsGdEGQVXj5GimCDS9dBogdj2r/talnEQLqPjMiXhp30jhOJwcoFEC
+AwEAAaNpMGcwRgYDVR0RBD8wPYIRc2VzYW1lLmlmc3R0YXIuZnKGKGh0dHBzOi8v
+c2VzYW1lLmlmc3R0YXIuZnIvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFE+NF0RZ
+ywRw9y1ZNpMcW8EacqukMA0GCSqGSIb3DQEBBQUAA4IBAQAHY1rVEQaKk+8ppYzL
+ov5SpSlw9ET6XgBLdOcqa8sR0+ON0AMWc/wAeAKSeZhgSe6rPOppfiupEshtW0GK
+JWcq/QlK1jG8S/MnP3qSrwezdBVpRz305E5u6DDHu2q1WP+2N/zk9WEd/T6q5H23
+whwyEA7h89qOhhU/MmrnogQcF0tNY54dz6faTjhoEUNTniRB1+Wc4yrrLoikBONr
+jfwiOmxdx8Rh/05DYJIU5hv9mjFdpBrpFUrOFup68kp4tqnNhwPmvHWF0E6FiRdU
+0iPZrN+gUvb3I0gaxKAR7bvJIvKlcRZxpMfizcIFnTNI6olY9hCGPPbPsbfZH+b1
+oTFF
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sesame.ifsttar.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sesame.ifsttar.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://sesame.ifsttar.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">IFSTTAR</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">IFSTTAR</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>expl@ifsttar.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

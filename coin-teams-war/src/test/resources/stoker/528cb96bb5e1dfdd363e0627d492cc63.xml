@@ -1,0 +1,99 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://ssso.uni-muenster.de/shibboleth-sp">
+    <Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-03-24T12:09:33Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+    <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://ssso.uni-muenster.de/-shibboleth.sso/Login" index="1"/>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="de">Universität Münster</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Universität Münster</mdui:DisplayName>
+          <mdui:Description xml:lang="de">Das zentrale Single Sign-On umfasst fast alle Dienste der Universität Münster. Es gibt verschiedene Zugangswege (Reverse Proxy) für verschiedene Authentifizierungsverfahren:&lt;ul compact&gt; &lt;li&gt;http(s)://www.uni-muenster.de = unidentifiziert &lt;li&gt;https://sso.uni-muenster.de = lokales Passwort &lt;li&gt;https://xsso.uni-muenster.de = X.509-Zertifikat (DFN-PKI, Sicherheitsstufe Global) &lt;li&gt;https://&lt;strong&gt;ssso.uni-muenster.de&lt;/strong&gt; = Shibboleth-SP in der DFN-AAI &lt;/ul&gt; &lt;p&gt;Hinweis für IdP-Betreiber: Zur erfolgreichen Authentifizierung ist eduPersonPrincipalName oder eduPersonTargetedID erforderlich. Übergebene Attribute (erbeten wird insbesondere eduPersonScopedAffiliation) können von den einzelnen Webspacebetreibern u. a. zur Zugangskontrolle genutzt werden. &lt;p&gt;Ansprechpartner für technische Fragen: wwwadmin@uni-muenster.de</mdui:Description>
+          <mdui:Description xml:lang="en">Das zentrale Single Sign-On umfasst fast alle Dienste der Universität Münster. Es gibt verschiedene Zugangswege (Reverse Proxy) für verschiedene Authentifizierungsverfahren:&lt;ul compact&gt; &lt;li&gt;http(s)://www.uni-muenster.de = unidentifiziert &lt;li&gt;https://sso.uni-muenster.de = lokales Passwort &lt;li&gt;https://xsso.uni-muenster.de = X.509-Zertifikat (DFN-PKI, Sicherheitsstufe Global) &lt;li&gt;https://&lt;strong&gt;ssso.uni-muenster.de&lt;/strong&gt; = Shibboleth-SP in der DFN-AAI &lt;/ul&gt; &lt;p&gt;Hinweis für IdP-Betreiber: Zur erfolgreichen Authentifizierung ist eduPersonPrincipalName oder eduPersonTargetedID erforderlich. Übergebene Attribute (erbeten wird insbesondere eduPersonScopedAffiliation) können von den einzelnen Webspacebetreibern u. a. zur Zugangskontrolle genutzt werden. &lt;p&gt;Ansprechpartner für technische Fragen: wwwadmin@uni-muenster.de</mdui:Description>
+          <mdui:Logo height="32" width="32">https://www.uni-muenster.de/imperia/md/content/allgemein/farbunabhaengig/favicon.ico</mdui:Logo>
+          <mdui:Logo height="60" width="278">https://www.uni-muenster.de/imperia/md/images/allgemein/farbunabhaengig/wwu_logo.png</mdui:Logo>
+          <mdui:InformationURL xml:lang="de">http://www.uni-muenster.de/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">http://www.uni-muenster.de/en/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>ssso.uni-muenster.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=ssso.uni-muenster.de,O=Universitaet Muenster,L=Muenster,ST=Nordrhein-Westfalen,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIFvzCCBKegAwIBAgIHFCkMo05xmTANBgkqhkiG9w0BAQUFADCBjDELMAkGA1UE
+BhMCREUxHjAcBgNVBAoTFVVuaXZlcnNpdGFldCBNdWVuc3RlcjE6MDgGA1UEAxMx
+WmVydGlmaXppZXJ1bmdzc3RlbGxlIFVuaXZlcnNpdGFldCBNdWVuc3RlciAtIEcw
+MjEhMB8GCSqGSIb3DQEJARYSY2FAdW5pLW11ZW5zdGVyLmRlMB4XDTEyMDcyMDE3
+MDIxMVoXDTE3MDcxOTE3MDIxMVowfTELMAkGA1UEBhMCREUxHDAaBgNVBAgTE05v
+cmRyaGVpbi1XZXN0ZmFsZW4xETAPBgNVBAcTCE11ZW5zdGVyMR4wHAYDVQQKExVV
+bml2ZXJzaXRhZXQgTXVlbnN0ZXIxHTAbBgNVBAMTFHNzc28udW5pLW11ZW5zdGVy
+LmRlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5ooho1OmPzYpi1Fm
+Eki2gPfFbnrzRlPl+NKU2Q4vfTPYvr3kw4TVc2Zju74QOPfSevEl8LvKKoD0kN+f
+k6jvUDxqYQvzg+7g3r5YzOCyrbfPEfXTcmdE9npsiwAUCUXnYvwPXDFfplZbh4Gh
+U0AXnMsyslNZ87zPzw/tyO+sOhgBhs+VO6EbRaf91qcr3cagVy1JlRU7VdOGfZjg
+WEvWxCYVFBYY80JLAu4uYZSZ5esASTlrxCdZM3VCJYM891/gqkG5NCXDSMesvmKL
+D6d0sGziFPvZxbS/l0NZ3UgsXu/0okQJAHch0vKxKI376BAb8NBuISCpXET7Jqpy
+btCBLQIDAQABo4ICMjCCAi4wLwYDVR0gBCgwJjARBg8rBgEEAYGtIYIsAQEEAgMw
+EQYPKwYBBAGBrSGCLAIBBAIDMAkGA1UdEwQCMAAwCwYDVR0PBAQDAgXgMB0GA1Ud
+JQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATAdBgNVHQ4EFgQUN0KPcQA+aQQMs4gA
+IOGr5lwrQ+UwHwYDVR0jBBgwFoAUvp5RosmSfLtgi+awaGR3WlIZoQAwOQYDVR0R
+BDIwMIIUc3Nzby51bmktbXVlbnN0ZXIuZGWBGHd3d2FkbWluQHVuaS1tdWVuc3Rl
+ci5kZTB7BgNVHR8EdDByMDegNaAzhjFodHRwOi8vY2RwMS5wY2EuZGZuLmRlL3d3
+dS1jYS9wdWIvY3JsL2dfY2FjcmwuY3JsMDegNaAzhjFodHRwOi8vY2RwMi5wY2Eu
+ZGZuLmRlL3d3dS1jYS9wdWIvY3JsL2dfY2FjcmwuY3JsMIHLBggrBgEFBQcBAQSB
+vjCBuzAzBggrBgEFBQcwAYYnaHR0cDovL29jc3AucGNhLmRmbi5kZS9PQ1NQLVNl
+cnZlci9PQ1NQMEEGCCsGAQUFBzAChjVodHRwOi8vY2RwMS5wY2EuZGZuLmRlL3d3
+dS1jYS9wdWIvY2FjZXJ0L2dfY2FjZXJ0LmNydDBBBggrBgEFBQcwAoY1aHR0cDov
+L2NkcDIucGNhLmRmbi5kZS93d3UtY2EvcHViL2NhY2VydC9nX2NhY2VydC5jcnQw
+DQYJKoZIhvcNAQEFBQADggEBAGjAt30eQ+pgzCeIYGdqsQQZd0uKk6HM+ddwxHJp
+xJI7RSD0fzcX5NbdziqIh4CM0jxCQmg7p848kiUpkWkyaKWR8TBIgGAih7hh74jx
+bVRufQdHH0mWtHCwX5xyIP8c2rXeBBvHXW8YLunmHXrYjZT4Bjg55APNX6eQoqC9
+8V8d9Cfo7LqzAdIn+l5g01yVCjDIgDApisQUrshnf9PDJE9IAm06A8/SR8q54Hsy
+WlWHVpREkz7XctQ8fMDBP6oOfeVsGSV4uZir591FX6Kl31A2n1emhntVhRWvUcyv
+V9T2iObbqKU1YkNBmgQ61s8Uyqty9zYZQNRknR0Lox4A8h4=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://ssso.uni-muenster.de/-shibboleth.sso/SLO/SOAP"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://ssso.uni-muenster.de/-shibboleth.sso/SLO/Redirect"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ssso.uni-muenster.de/-shibboleth.sso/SLO/POST"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ssso.uni-muenster.de/-shibboleth.sso/SLO/Artifact"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ssso.uni-muenster.de/-shibboleth.sso/SAML2/POST" index="0"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://ssso.uni-muenster.de/-shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ssso.uni-muenster.de/-shibboleth.sso/SAML2/Artifact" index="2"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://ssso.uni-muenster.de/-shibboleth.sso/SAML2/ECP" index="3"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://ssso.uni-muenster.de/-shibboleth.sso/SAML/POST" index="4"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://ssso.uni-muenster.de/-shibboleth.sso/SAML/Artifact" index="5"/>
+      <AttributeConsumingService index="1">
+        <ServiceName xml:lang="de">Universität Münster</ServiceName>
+        <ServiceName xml:lang="en">Universität Münster</ServiceName>
+        <ServiceDescription xml:lang="de">Das zentrale Single Sign-On umfasst fast alle Dienste der Universität Münster. Es gibt verschiedene Zugangswege (Reverse Proxy) für verschiedene Authentifizierungsverfahren:&lt;ul compact&gt; &lt;li&gt;http(s)://www.uni-muenster.de = unidentifiziert &lt;li&gt;https://sso.uni-muenster.de = lokales Passwort &lt;li&gt;https://xsso.uni-muenster.de = X.509-Zertifikat (DFN-PKI, Sicherheitsstufe Global) &lt;li&gt;https://&lt;strong&gt;ssso.uni-muenster.de&lt;/strong&gt; = Shibboleth-SP in der DFN-AAI &lt;/ul&gt; &lt;p&gt;Hinweis für IdP-Betreiber: Zur erfolgreichen Authentifizierung ist eduPersonPrincipalName oder eduPersonTargetedID erforderlich. Übergebene Attribute (erbeten wird insbesondere eduPersonScopedAffiliation) können von den einzelnen Webspacebetreibern u. a. zur Zugangskontrolle genutzt werden. &lt;p&gt;Ansprechpartner für technische Fragen: wwwadmin@uni-muenster.de</ServiceDescription>
+        <ServiceDescription xml:lang="en">Das zentrale Single Sign-On umfasst fast alle Dienste der Universität Münster. Es gibt verschiedene Zugangswege (Reverse Proxy) für verschiedene Authentifizierungsverfahren:&lt;ul compact&gt; &lt;li&gt;http(s)://www.uni-muenster.de = unidentifiziert &lt;li&gt;https://sso.uni-muenster.de = lokales Passwort &lt;li&gt;https://xsso.uni-muenster.de = X.509-Zertifikat (DFN-PKI, Sicherheitsstufe Global) &lt;li&gt;https://&lt;strong&gt;ssso.uni-muenster.de&lt;/strong&gt; = Shibboleth-SP in der DFN-AAI &lt;/ul&gt; &lt;p&gt;Hinweis für IdP-Betreiber: Zur erfolgreichen Authentifizierung ist eduPersonPrincipalName oder eduPersonTargetedID erforderlich. Übergebene Attribute (erbeten wird insbesondere eduPersonScopedAffiliation) können von den einzelnen Webspacebetreibern u. a. zur Zugangskontrolle genutzt werden. &lt;p&gt;Ansprechpartner für technische Fragen: wwwadmin@uni-muenster.de</ServiceDescription>
+        <RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+      </AttributeConsumingService>
+    </SPSSODescriptor>
+    <Organization>
+      <OrganizationName xml:lang="de">e247</OrganizationName>
+      <OrganizationName xml:lang="en">e247</OrganizationName>
+      <OrganizationDisplayName xml:lang="de">Westfälische Wilhelms-Universität Münster</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="en">Westfälische Wilhelms-Universität Münster</OrganizationDisplayName>
+      <OrganizationURL xml:lang="de">http://www.uni-muenster.de/</OrganizationURL>
+      <OrganizationURL xml:lang="en">http://www.uni-muenster.de/en/</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Rainer</GivenName>
+      <SurName>Perske</SurName>
+      <EmailAddress>mailto:wwwadmin@uni-muenster.de</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="support">
+      <GivenName>Rainer</GivenName>
+      <SurName>Perske</SurName>
+      <EmailAddress>mailto:wwwadmin@uni-muenster.de</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

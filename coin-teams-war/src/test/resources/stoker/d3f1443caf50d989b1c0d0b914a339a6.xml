@@ -1,0 +1,129 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://marte.ifsertao-pe.edu.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">IFSERTAO-PE - Instituto Federal do Sertao Pernambucano</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">IFSERTAO-PE - Instituto Federal do Sertao Pernambucano</mdui:DisplayName>
+          <mdui:Description xml:lang="en">IFSERTAO-PE - Instituto Federal do Sertao Pernambucano</mdui:Description>
+          <mdui:Description xml:lang="pt-br">IFSERTAO-PE - Instituto Federal do Sertao Pernambucano</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ifsertao-pe.edu.br</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ifsertao-pe.edu.br</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIDwjCCAqoCAQAwDQYJKoZIhvcNAQEFBQAwgaYxFDASBgNVBAoTC0lGU0VSVEFP
+LVBFMQ0wCwYDVQQLEwRER1RJMSYwJAYJKoZIhvcNAQkBFhdjYWZlQGlmc2VydGFv
+LXBlLmVkdS5icjESMBAGA1UEBxMJUGV0cm9saW5hMRMwEQYDVQQIEwpQZXJuYW1i
+dWNvMQswCQYDVQQGEwJCUjEhMB8GA1UEAxMYbWFydGUuaWZzZXJ0YW8tcGUuZWR1
+LmJyMB4XDTEzMTIwNDEzMjExOFoXDTE2MTIwMzEzMjExOFowgaYxFDASBgNVBAoT
+C0lGU0VSVEFPLVBFMQ0wCwYDVQQLEwRER1RJMSYwJAYJKoZIhvcNAQkBFhdjYWZl
+QGlmc2VydGFvLXBlLmVkdS5icjESMBAGA1UEBxMJUGV0cm9saW5hMRMwEQYDVQQI
+EwpQZXJuYW1idWNvMQswCQYDVQQGEwJCUjEhMB8GA1UEAxMYbWFydGUuaWZzZXJ0
+YW8tcGUuZWR1LmJyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0JDE
+PZ1eD+TXUZG+HP4FX/SfAqONECwpduJLWNaX2VSorGCmNyQfjyFil0Fce0RdxL2B
+oLc/B4EgGvm9/KCEnhK8EwhWIy9eAi34mJ6dsQnYL40afuO2NFBiGc7TeB+Lj3Hj
+Z/y5g40t50LCnwWUrqzNedUbSLtmJVXWIwn9iO0jPuHuemhTs7YiSt+qIBzBpY2g
+7AeeNkE8VQoJwUFaj5mlmtE4SU9WgURp+u7k05q9La8nIn/xfHFcuVMEzGvQcHsR
+T8lyvJMBjcVJsiJeNCD565GdRTfu3W4tlysQQBM2V/uttteCZ8BpdMQLOop0oNbh
+BPHafdSvF8bLnebtcwIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQBwKBvF2yL3oSI9
+sqKlq1ktY18vHBT58Lc928kyVOWSQH+nDGGJsYOYXCh+zJQdq8Ow3aZA7tXQili3
+avGOhmOM5LfaRvkWCEigfw5frMj4/gRDXk0I7mONk5o5c47XxhSjHg2OiGpQQdqm
+/6MnIQMt98zXoy47mzCtkdgH3qc+hvv2biZtFExcmuZsbjun9TbaCQs1WlTX4Yr9
+ICLuROVF4HNDdN1IeVc+YjL3dIZBw294A3cg8CpSY+5qKEBJF6MgRzrDPy2vzTGP
+UeJoFHTC661va14QsI92zQQCObT42jGq0hRml0MKslZo+c7Cwet0N1xBPQmkjNbe
+DH5XzO/u
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://marte.ifsertao-pe.edu.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://marte.ifsertao-pe.edu.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://marte.ifsertao-pe.edu.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://marte.ifsertao-pe.edu.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://marte.ifsertao-pe.edu.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://marte.ifsertao-pe.edu.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIDwjCCAqoCAQAwDQYJKoZIhvcNAQEFBQAwgaYxFDASBgNVBAoTC0lGU0VSVEFP
+LVBFMQ0wCwYDVQQLEwRER1RJMSYwJAYJKoZIhvcNAQkBFhdjYWZlQGlmc2VydGFv
+LXBlLmVkdS5icjESMBAGA1UEBxMJUGV0cm9saW5hMRMwEQYDVQQIEwpQZXJuYW1i
+dWNvMQswCQYDVQQGEwJCUjEhMB8GA1UEAxMYbWFydGUuaWZzZXJ0YW8tcGUuZWR1
+LmJyMB4XDTEzMTIwNDEzMjExOFoXDTE2MTIwMzEzMjExOFowgaYxFDASBgNVBAoT
+C0lGU0VSVEFPLVBFMQ0wCwYDVQQLEwRER1RJMSYwJAYJKoZIhvcNAQkBFhdjYWZl
+QGlmc2VydGFvLXBlLmVkdS5icjESMBAGA1UEBxMJUGV0cm9saW5hMRMwEQYDVQQI
+EwpQZXJuYW1idWNvMQswCQYDVQQGEwJCUjEhMB8GA1UEAxMYbWFydGUuaWZzZXJ0
+YW8tcGUuZWR1LmJyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0JDE
+PZ1eD+TXUZG+HP4FX/SfAqONECwpduJLWNaX2VSorGCmNyQfjyFil0Fce0RdxL2B
+oLc/B4EgGvm9/KCEnhK8EwhWIy9eAi34mJ6dsQnYL40afuO2NFBiGc7TeB+Lj3Hj
+Z/y5g40t50LCnwWUrqzNedUbSLtmJVXWIwn9iO0jPuHuemhTs7YiSt+qIBzBpY2g
+7AeeNkE8VQoJwUFaj5mlmtE4SU9WgURp+u7k05q9La8nIn/xfHFcuVMEzGvQcHsR
+T8lyvJMBjcVJsiJeNCD565GdRTfu3W4tlysQQBM2V/uttteCZ8BpdMQLOop0oNbh
+BPHafdSvF8bLnebtcwIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQBwKBvF2yL3oSI9
+sqKlq1ktY18vHBT58Lc928kyVOWSQH+nDGGJsYOYXCh+zJQdq8Ow3aZA7tXQili3
+avGOhmOM5LfaRvkWCEigfw5frMj4/gRDXk0I7mONk5o5c47XxhSjHg2OiGpQQdqm
+/6MnIQMt98zXoy47mzCtkdgH3qc+hvv2biZtFExcmuZsbjun9TbaCQs1WlTX4Yr9
+ICLuROVF4HNDdN1IeVc+YjL3dIZBw294A3cg8CpSY+5qKEBJF6MgRzrDPy2vzTGP
+UeJoFHTC661va14QsI92zQQCObT42jGq0hRml0MKslZo+c7Cwet0N1xBPQmkjNbe
+DH5XzO/u
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://marte.ifsertao-pe.edu.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://marte.ifsertao-pe.edu.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">IFSERTAO-PE - Instituto Federal do Sertao Pernambucano</OrganizationName>
+      <OrganizationName xml:lang="pt-br">IFSERTAO-PE - Instituto Federal do Sertao Pernambucano</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">IFSERTAO-PE - Instituto Federal do Sertao Pernambucano</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">IFSERTAO-PE - Instituto Federal do Sertao Pernambucano</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.ifsertao-pe.edu.br</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.ifsertao-pe.edu.br</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Francisco Hamilton</SurName>
+      <EmailAddress>cafe@ifsertao-pe.edu.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

@@ -1,0 +1,127 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://cafetools.ufpi.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">ufpi.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">UFPI - Universidade Federal do Piaui</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">UFPI - Universidade Federal do Piaui</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UFPI - Universidade Federal do Piaui</mdui:Description>
+          <mdui:Description xml:lang="pt-br">UFPI - Universidade Federal do Piaui</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ufpi.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ufpi.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIDqjCCApICAQAwDQYJKoZIhvcNAQEFBQAwgZoxJjAkBgNVBAoTHVVuaXZlcnNp
+ZGFkZSBGZWRlcmFsIGRvIFBpYXVpMQwwCgYDVQQLEwNOVEkxHjAcBgkqhkiG9w0B
+CQEWD250aUB1ZnBpLmVkdS5icjERMA8GA1UEBxMIVGVyZXNpbmExDjAMBgNVBAgT
+BVBpYXVpMQswCQYDVQQGEwJCUjESMBAGA1UEAxMJY2FmZXRvb2xzMB4XDTEzMDcx
+NTE4NDUxMVoXDTE2MDcxNDE4NDUxMVowgZoxJjAkBgNVBAoTHVVuaXZlcnNpZGFk
+ZSBGZWRlcmFsIGRvIFBpYXVpMQwwCgYDVQQLEwNOVEkxHjAcBgkqhkiG9w0BCQEW
+D250aUB1ZnBpLmVkdS5icjERMA8GA1UEBxMIVGVyZXNpbmExDjAMBgNVBAgTBVBp
+YXVpMQswCQYDVQQGEwJCUjESMBAGA1UEAxMJY2FmZXRvb2xzMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqkjRNJykzf+pYQwfB+HpWRnkVcg+lLI/wjQj
+CNfcjNeSFsXRVaPCrWzVJ6DlMnYM1sxkp9b+We5B5/t4P92XM+ZeFLvFEd5kbi50
+JlAqFLVQxVBjLJdJ9AvUxMn55bQAh9mw4ANMb0U0iYcB25POJ6vWjxCuQR68xV4t
+nqgYOk8/d299pXxeZd8VMPfasfazzov1fa2aqpdrb8dqX+6/RMJm71d3nBHsPJuO
+y5ixRrE3HHYS8K52Eah59GY0NBF3EpearDjCI/W2KVmMJE6kNtMDkq8cjOGLZCsb
+7sEb/uLpWn0Sxd7NPc6VkRzN5m1eFe4dQB3rz1dy9ngEa+GQjwIDAQABMA0GCSqG
+SIb3DQEBBQUAA4IBAQBfGXW54W7Y8WE5naezc3cFKrxErBdQ5ZvViX77Bsc3uNal
+EE2cXAkaYQbwKRa9Pp2zpkkr/wSKu2gZ1OwH4y8tWZf3kKzwxZa41fj2drWHYC88
++d4igeWI86UWoIA9HcQ9LZtY6gZSqpkaeOeKniFR/xTXrOwFOtreWkkZ6w4mhCAj
+EEK4mjitPz1kjBkaaZcnDOYysPjZ7Iq5mrEFwVvW6xXSs0LnGevKMig8Bi8Kr+nW
+UXJvN7r9gpaML2SGcEcAmqVExt2IuPrtUGvIS7CaN3+gaFAC53gmK+30nwLwvBkC
+DqmYcKWK/3TMzk3nUXEJx2H36Knb+Hv/Hig1rx35
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafetools.ufpi.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafetools.ufpi.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafetools.ufpi.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafetools.ufpi.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafetools.ufpi.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafetools.ufpi.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">ufpi.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIDqjCCApICAQAwDQYJKoZIhvcNAQEFBQAwgZoxJjAkBgNVBAoTHVVuaXZlcnNp
+ZGFkZSBGZWRlcmFsIGRvIFBpYXVpMQwwCgYDVQQLEwNOVEkxHjAcBgkqhkiG9w0B
+CQEWD250aUB1ZnBpLmVkdS5icjERMA8GA1UEBxMIVGVyZXNpbmExDjAMBgNVBAgT
+BVBpYXVpMQswCQYDVQQGEwJCUjESMBAGA1UEAxMJY2FmZXRvb2xzMB4XDTEzMDcx
+NTE4NDUxMVoXDTE2MDcxNDE4NDUxMVowgZoxJjAkBgNVBAoTHVVuaXZlcnNpZGFk
+ZSBGZWRlcmFsIGRvIFBpYXVpMQwwCgYDVQQLEwNOVEkxHjAcBgkqhkiG9w0BCQEW
+D250aUB1ZnBpLmVkdS5icjERMA8GA1UEBxMIVGVyZXNpbmExDjAMBgNVBAgTBVBp
+YXVpMQswCQYDVQQGEwJCUjESMBAGA1UEAxMJY2FmZXRvb2xzMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqkjRNJykzf+pYQwfB+HpWRnkVcg+lLI/wjQj
+CNfcjNeSFsXRVaPCrWzVJ6DlMnYM1sxkp9b+We5B5/t4P92XM+ZeFLvFEd5kbi50
+JlAqFLVQxVBjLJdJ9AvUxMn55bQAh9mw4ANMb0U0iYcB25POJ6vWjxCuQR68xV4t
+nqgYOk8/d299pXxeZd8VMPfasfazzov1fa2aqpdrb8dqX+6/RMJm71d3nBHsPJuO
+y5ixRrE3HHYS8K52Eah59GY0NBF3EpearDjCI/W2KVmMJE6kNtMDkq8cjOGLZCsb
+7sEb/uLpWn0Sxd7NPc6VkRzN5m1eFe4dQB3rz1dy9ngEa+GQjwIDAQABMA0GCSqG
+SIb3DQEBBQUAA4IBAQBfGXW54W7Y8WE5naezc3cFKrxErBdQ5ZvViX77Bsc3uNal
+EE2cXAkaYQbwKRa9Pp2zpkkr/wSKu2gZ1OwH4y8tWZf3kKzwxZa41fj2drWHYC88
++d4igeWI86UWoIA9HcQ9LZtY6gZSqpkaeOeKniFR/xTXrOwFOtreWkkZ6w4mhCAj
+EEK4mjitPz1kjBkaaZcnDOYysPjZ7Iq5mrEFwVvW6xXSs0LnGevKMig8Bi8Kr+nW
+UXJvN7r9gpaML2SGcEcAmqVExt2IuPrtUGvIS7CaN3+gaFAC53gmK+30nwLwvBkC
+DqmYcKWK/3TMzk3nUXEJx2H36Knb+Hv/Hig1rx35
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafetools.ufpi.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafetools.ufpi.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">UFPI - Univerisdade Federal do Piaui</OrganizationName>
+      <OrganizationName xml:lang="pt-br">UFPI - Univerisdade Federal do Piaui</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">UFPI - Universidade Federal do Piaui</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">UFPI - Universidade Federal do Piaui</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.ufpi.br/</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.ufpi.br/</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Arinaldo Silva</SurName>
+      <EmailAddress>arinaldo@ufpi.edu.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

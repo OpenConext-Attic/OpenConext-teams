@@ -1,0 +1,127 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://cafernp.insa.gov.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">insa.gov.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">INSA - Instituto Nacional do Semiarido</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">INSA - Instituto Nacional do Semiarido</mdui:DisplayName>
+          <mdui:Description xml:lang="en">INSA - Instituto Nacional do Semiarido</mdui:Description>
+          <mdui:Description xml:lang="pt-br">INSA - Instituto Nacional do Semiarido</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.insa.gov.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.insa.gov.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIDpjCCAo4CAQAwDQYJKoZIhvcNAQEFBQAwgZgxDTALBgNVBAoTBElOU0ExDDAK
+BgNVBAsTA0NQRDEjMCEGCSqGSIb3DQEJARYUcHBhY2hlY29AaW5zYS5nb3YuYnIx
+FzAVBgNVBAcTDkNhbXBpbmEgR3JhbmRlMRAwDgYDVQQIEwdQYXJhaWJhMQswCQYD
+VQQGEwJCUjEcMBoGA1UEAxMTY2FmZXJucC5pbnNhLmdvdi5icjAeFw0xMzA5MDUx
+MTQ3MDRaFw0xNjA5MDQxMTQ3MDRaMIGYMQ0wCwYDVQQKEwRJTlNBMQwwCgYDVQQL
+EwNDUEQxIzAhBgkqhkiG9w0BCQEWFHBwYWNoZWNvQGluc2EuZ292LmJyMRcwFQYD
+VQQHEw5DYW1waW5hIEdyYW5kZTEQMA4GA1UECBMHUGFyYWliYTELMAkGA1UEBhMC
+QlIxHDAaBgNVBAMTE2NhZmVybnAuaW5zYS5nb3YuYnIwggEiMA0GCSqGSIb3DQEB
+AQUAA4IBDwAwggEKAoIBAQC6e7hlynC3DhhZh4vMpmlAGM9jGjQIRJNXmDIBU+YN
+TVhwfM8+HzMGuUhqPdoFL2aGJmJVn5TRsOjAIlK6TuHYPVJjZFrV5CGaimuXDkqH
+6nFgKoFLI6Zg0+vNUOGIQvfT1TpZaonPRqIu4MpKEDEtEk8bFkfsqxq55ivcLLYp
+GwGTZMGGBcaAztR0GRBooh3WDLIQR9gkzhxeTHEPiwF5jXGLIFZNR+kxo1ddmg4j
+svohDefVHSkTQZt6QptsGVa408tn2pokQ4K8Enmi9zMdR6LuKvdhoC8Rs1Cc8rlJ
+7Kj5KOMmOjniR03aokncdqNoBIUBijfV0gI58L1Uca53AgMBAAEwDQYJKoZIhvcN
+AQEFBQADggEBAGVgBV46eVFwW+kASWxOC3FprDP5q/1GDcaD3rKu471uU+nd/L5n
+p5xIKFBVIhx42FbAW7wpLRvhjPDCRDlXVKBgthbWGFawAyjtfPwJvR0aAowP0xHX
+QFFg7t0AXj88u89109tEaxLXpm7tzPHUiuk/D/ZtFy1JtJxZfLPHII5q53ioxF7A
+GgD+wSudqXEc3gKs2bynFcvlWgiali2b3dxNWZ5qRP652Mebtdl4H67/bSsKnhEX
+CcE/6M9wD9oWIdgaoL49rKZnU3ubSz0A5AwNhZiqGk70SbcAYrVWfZH1ApyBnt+8
+jMogdK5eP4afg8zXeCSXaDF45MMQP7+gRsY=
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafernp.insa.gov.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafernp.insa.gov.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafernp.insa.gov.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafernp.insa.gov.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafernp.insa.gov.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafernp.insa.gov.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">insa.gov.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIDpjCCAo4CAQAwDQYJKoZIhvcNAQEFBQAwgZgxDTALBgNVBAoTBElOU0ExDDAK
+BgNVBAsTA0NQRDEjMCEGCSqGSIb3DQEJARYUcHBhY2hlY29AaW5zYS5nb3YuYnIx
+FzAVBgNVBAcTDkNhbXBpbmEgR3JhbmRlMRAwDgYDVQQIEwdQYXJhaWJhMQswCQYD
+VQQGEwJCUjEcMBoGA1UEAxMTY2FmZXJucC5pbnNhLmdvdi5icjAeFw0xMzA5MDUx
+MTQ3MDRaFw0xNjA5MDQxMTQ3MDRaMIGYMQ0wCwYDVQQKEwRJTlNBMQwwCgYDVQQL
+EwNDUEQxIzAhBgkqhkiG9w0BCQEWFHBwYWNoZWNvQGluc2EuZ292LmJyMRcwFQYD
+VQQHEw5DYW1waW5hIEdyYW5kZTEQMA4GA1UECBMHUGFyYWliYTELMAkGA1UEBhMC
+QlIxHDAaBgNVBAMTE2NhZmVybnAuaW5zYS5nb3YuYnIwggEiMA0GCSqGSIb3DQEB
+AQUAA4IBDwAwggEKAoIBAQC6e7hlynC3DhhZh4vMpmlAGM9jGjQIRJNXmDIBU+YN
+TVhwfM8+HzMGuUhqPdoFL2aGJmJVn5TRsOjAIlK6TuHYPVJjZFrV5CGaimuXDkqH
+6nFgKoFLI6Zg0+vNUOGIQvfT1TpZaonPRqIu4MpKEDEtEk8bFkfsqxq55ivcLLYp
+GwGTZMGGBcaAztR0GRBooh3WDLIQR9gkzhxeTHEPiwF5jXGLIFZNR+kxo1ddmg4j
+svohDefVHSkTQZt6QptsGVa408tn2pokQ4K8Enmi9zMdR6LuKvdhoC8Rs1Cc8rlJ
+7Kj5KOMmOjniR03aokncdqNoBIUBijfV0gI58L1Uca53AgMBAAEwDQYJKoZIhvcN
+AQEFBQADggEBAGVgBV46eVFwW+kASWxOC3FprDP5q/1GDcaD3rKu471uU+nd/L5n
+p5xIKFBVIhx42FbAW7wpLRvhjPDCRDlXVKBgthbWGFawAyjtfPwJvR0aAowP0xHX
+QFFg7t0AXj88u89109tEaxLXpm7tzPHUiuk/D/ZtFy1JtJxZfLPHII5q53ioxF7A
+GgD+wSudqXEc3gKs2bynFcvlWgiali2b3dxNWZ5qRP652Mebtdl4H67/bSsKnhEX
+CcE/6M9wD9oWIdgaoL49rKZnU3ubSz0A5AwNhZiqGk70SbcAYrVWfZH1ApyBnt+8
+jMogdK5eP4afg8zXeCSXaDF45MMQP7+gRsY=
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafernp.insa.gov.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafernp.insa.gov.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">INSA - Instituto Nacional do Semiarido</OrganizationName>
+      <OrganizationName xml:lang="pt-br">INSA - Instituto Nacional do Semiarido</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">INSA - Instituto Nacional do Semiarido</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">INSA - Instituto Nacional do Semiarido</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.insa.gov.br/</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.insa.gov.br/</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Pedro Pacheco</SurName>
+      <EmailAddress>ppacheco@insa.gov.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

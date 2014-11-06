@@ -1,0 +1,116 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.upmc.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2010-03-30T10:20:06Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">upmc.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de Paris 6 - Pierre et Marie Curie</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDGDCCAgCgAwIBAgIVAN1AZOqK88JKnAIFyCt2qtu7oPjcMA0GCSqGSIb3DQEB
+BQUAMBYxFDASBgNVBAMTC2lkcC51cG1jLmZyMB4XDTA5MTIyOTEyMDUwN1oXDTI5
+MTIyOTEyMDUwN1owFjEUMBIGA1UEAxMLaWRwLnVwbWMuZnIwggEiMA0GCSqGSIb3
+DQEBAQUAA4IBDwAwggEKAoIBAQCoXzLI2AobGhWJRoofrUz1FYBOgAk68Q5TIZ+h
+GvBAJj7/23JkOyaz6vaGqls+iqycDPHx3grJ6KsDbIoCPcgbyb3vyAJOkxT49fzp
+C0RGJVKGPZoNaCV2KXSO49Il5yWb7zIwXBKBn5QSRSOE7S2YINHzzlGVj2SWCaCJ
+LY3K7R+O5TMaiqqKXcO20tmme7FDckHc/fPw8H+R8r9TgLvoPbCIqjnvCHsj+192
+WNtzs99sMwZ21xaMo0QS9VsX6JMmsJViQwNyAgE6gxbG1SEWD2G1ja7bW/o9LuUG
+JvDjfDmzNj316AeYMWnzY+275B2fr/JcawcmmF3aK6xPjqRZAgMBAAGjXTBbMDoG
+A1UdEQQzMDGCC2lkcC51cG1jLmZyhiJodHRwczovL2lkcC51cG1jLmZyL2lkcC9z
+aGliYm9sZXRoMB0GA1UdDgQWBBQHbFPNG0miSxq1PVDJGqFQbHEdtjANBgkqhkiG
+9w0BAQUFAAOCAQEAiznIMyBVikg8EfABaENTvB0ND8rZN1cVNIU/LoiBHL6DF7bQ
+hGd7JManqhNH5TdHXmfK5CsIZMBGbYIMhyTDxsW3ASNR5Ip2Lpq+9YgTSi+k4FzM
+VYCRAJw9mjTrDfCVVG2ZdN0FaWLezJhGG0iJDlmpzhDDpBsAt88Aj6uqXJrKGp3Z
+ExxnD0z0ECRqrbfgM8lUgAW2hS1C4wgO8sz6FpOIJ1kkXZ54TjI9UE2rmWKkD+iT
+nBrz6NcdhS32ZUARncfqoFZvOY+9rh4Q2SQIRyjKrAG/2TNVxVo6E+xEzx8nN63D
+Gz5/Q64Ts766vZwDA9u1fXIedZRbjJHYD4o6Fw==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.upmc.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.upmc.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.upmc.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">upmc.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDGDCCAgCgAwIBAgIVAN1AZOqK88JKnAIFyCt2qtu7oPjcMA0GCSqGSIb3DQEB
+BQUAMBYxFDASBgNVBAMTC2lkcC51cG1jLmZyMB4XDTA5MTIyOTEyMDUwN1oXDTI5
+MTIyOTEyMDUwN1owFjEUMBIGA1UEAxMLaWRwLnVwbWMuZnIwggEiMA0GCSqGSIb3
+DQEBAQUAA4IBDwAwggEKAoIBAQCoXzLI2AobGhWJRoofrUz1FYBOgAk68Q5TIZ+h
+GvBAJj7/23JkOyaz6vaGqls+iqycDPHx3grJ6KsDbIoCPcgbyb3vyAJOkxT49fzp
+C0RGJVKGPZoNaCV2KXSO49Il5yWb7zIwXBKBn5QSRSOE7S2YINHzzlGVj2SWCaCJ
+LY3K7R+O5TMaiqqKXcO20tmme7FDckHc/fPw8H+R8r9TgLvoPbCIqjnvCHsj+192
+WNtzs99sMwZ21xaMo0QS9VsX6JMmsJViQwNyAgE6gxbG1SEWD2G1ja7bW/o9LuUG
+JvDjfDmzNj316AeYMWnzY+275B2fr/JcawcmmF3aK6xPjqRZAgMBAAGjXTBbMDoG
+A1UdEQQzMDGCC2lkcC51cG1jLmZyhiJodHRwczovL2lkcC51cG1jLmZyL2lkcC9z
+aGliYm9sZXRoMB0GA1UdDgQWBBQHbFPNG0miSxq1PVDJGqFQbHEdtjANBgkqhkiG
+9w0BAQUFAAOCAQEAiznIMyBVikg8EfABaENTvB0ND8rZN1cVNIU/LoiBHL6DF7bQ
+hGd7JManqhNH5TdHXmfK5CsIZMBGbYIMhyTDxsW3ASNR5Ip2Lpq+9YgTSi+k4FzM
+VYCRAJw9mjTrDfCVVG2ZdN0FaWLezJhGG0iJDlmpzhDDpBsAt88Aj6uqXJrKGp3Z
+ExxnD0z0ECRqrbfgM8lUgAW2hS1C4wgO8sz6FpOIJ1kkXZ54TjI9UE2rmWKkD+iT
+nBrz6NcdhS32ZUARncfqoFZvOY+9rh4Q2SQIRyjKrAG/2TNVxVo6E+xEzx8nN63D
+Gz5/Q64Ts766vZwDA9u1fXIedZRbjJHYD4o6Fw==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.upmc.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Paris 6 - Pierre et Marie Curie</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Paris 6 - Pierre et Marie Curie</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>exploitationdsi@upmc.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

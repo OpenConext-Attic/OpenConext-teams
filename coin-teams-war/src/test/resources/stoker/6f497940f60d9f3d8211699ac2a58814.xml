@@ -1,0 +1,129 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://cafe.unisc.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">unisc.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">UNISC - Universidade de Santa Cruz do Sul</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">UNISC - Universidade de Santa Cruz do Sul</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UNISC - Universidade de Santa Cruz do Sul</mdui:Description>
+          <mdui:Description xml:lang="pt-br">UNISC - Universidade de Santa Cruz do Sul</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.unisc.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.unisc.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIID4DCCAsgCAQAwDQYJKoZIhvcNAQEFBQAwgbUxMjAwBgNVBAoTKVVuaXNjIC0g
+VW5pdmVyc2lkYWRlIGRlIFNhbnRhIENydXogZG8gU3VsMQ0wCwYDVQQLEwRTaW5m
+MRwwGgYJKoZIhvcNAQkBFg1yZWRlQHVuaXNjLmJyMRowGAYDVQQHExFTYW50YSBD
+cnV6IGRvIHN1bDEaMBgGA1UECBMRUmlvIEdyYW5kZSBkbyBTdWwxCzAJBgNVBAYT
+AkJSMQ0wCwYDVQQDEwRjYWZlMB4XDTE0MDQxNzEzMTIyM1oXDTE5MDQxNjEzMTIy
+M1owgbUxMjAwBgNVBAoTKVVuaXNjIC0gVW5pdmVyc2lkYWRlIGRlIFNhbnRhIENy
+dXogZG8gU3VsMQ0wCwYDVQQLEwRTaW5mMRwwGgYJKoZIhvcNAQkBFg1yZWRlQHVu
+aXNjLmJyMRowGAYDVQQHExFTYW50YSBDcnV6IGRvIHN1bDEaMBgGA1UECBMRUmlv
+IEdyYW5kZSBkbyBTdWwxCzAJBgNVBAYTAkJSMQ0wCwYDVQQDEwRjYWZlMIIBIjAN
+BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvEDiskDVSzfG170Jdhxh+TEf+SY6
+wTWP030Gpxy5ZXzBJW4yRDxXwkNICb4zK9dOy7pzCGgZ5Zm278PAXO9LBfy9pdex
+IUUrH5YHpC2Y6pZfasRyfpnqcY0TjW9spgfzGbvWB7js1tMuSUkyXomdHypdqOvh
+7ApHiZyxnSbFrfGKLtovPkx54TRNBPg31hfyiQTwUAM1MKHducLt4RyNiGBs/vVU
+NlEkW4ceIiaf68ETZ1+wsXyxFZszyGFSRR9kS7fPmsNy2MfpNd92RYPYNTWRFKl3
+pnFuqgmwGthMZGUs3zcKQ2z+kzI/fJDYJDn/weEfkyHuqBG48DYedbJ73QIDAQAB
+MA0GCSqGSIb3DQEBBQUAA4IBAQA8U3vYfawqzdWKtXKlFBJDe/cyGt35ZaS3STUp
+uMJCyF5+LHZ0Wg63F7p/rCe2K3I1n4YEOsc7838Egj2SQTBDamk+JkjKkBlXJTeZ
+c/q1x5wFGcYe1cPPWaN9IRomPWV1PBejZGqRAhuE1iU/jMX26OL9ll1UpHa3TFSb
+qgLKYYAOySR6bHBjKyTWhzb+7J19MkWfJlQelwJmMQN2oWhmTyzp24dVCwaRVO16
+7vKl+BQtSYOdanuO0JBC0/91A5GvLH6/O2Dkb0bI18KZPamN+9gBKu14fiK0j+Fp
+nj+u1r3qFps5kydBvlBDl3JOZA34f1F5ZkrjnWjRokMdjiXl
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.unisc.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.unisc.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafe.unisc.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafe.unisc.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafe.unisc.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafe.unisc.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">unisc.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIID4DCCAsgCAQAwDQYJKoZIhvcNAQEFBQAwgbUxMjAwBgNVBAoTKVVuaXNjIC0g
+VW5pdmVyc2lkYWRlIGRlIFNhbnRhIENydXogZG8gU3VsMQ0wCwYDVQQLEwRTaW5m
+MRwwGgYJKoZIhvcNAQkBFg1yZWRlQHVuaXNjLmJyMRowGAYDVQQHExFTYW50YSBD
+cnV6IGRvIHN1bDEaMBgGA1UECBMRUmlvIEdyYW5kZSBkbyBTdWwxCzAJBgNVBAYT
+AkJSMQ0wCwYDVQQDEwRjYWZlMB4XDTE0MDQxNzEzMTIyM1oXDTE5MDQxNjEzMTIy
+M1owgbUxMjAwBgNVBAoTKVVuaXNjIC0gVW5pdmVyc2lkYWRlIGRlIFNhbnRhIENy
+dXogZG8gU3VsMQ0wCwYDVQQLEwRTaW5mMRwwGgYJKoZIhvcNAQkBFg1yZWRlQHVu
+aXNjLmJyMRowGAYDVQQHExFTYW50YSBDcnV6IGRvIHN1bDEaMBgGA1UECBMRUmlv
+IEdyYW5kZSBkbyBTdWwxCzAJBgNVBAYTAkJSMQ0wCwYDVQQDEwRjYWZlMIIBIjAN
+BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvEDiskDVSzfG170Jdhxh+TEf+SY6
+wTWP030Gpxy5ZXzBJW4yRDxXwkNICb4zK9dOy7pzCGgZ5Zm278PAXO9LBfy9pdex
+IUUrH5YHpC2Y6pZfasRyfpnqcY0TjW9spgfzGbvWB7js1tMuSUkyXomdHypdqOvh
+7ApHiZyxnSbFrfGKLtovPkx54TRNBPg31hfyiQTwUAM1MKHducLt4RyNiGBs/vVU
+NlEkW4ceIiaf68ETZ1+wsXyxFZszyGFSRR9kS7fPmsNy2MfpNd92RYPYNTWRFKl3
+pnFuqgmwGthMZGUs3zcKQ2z+kzI/fJDYJDn/weEfkyHuqBG48DYedbJ73QIDAQAB
+MA0GCSqGSIb3DQEBBQUAA4IBAQA8U3vYfawqzdWKtXKlFBJDe/cyGt35ZaS3STUp
+uMJCyF5+LHZ0Wg63F7p/rCe2K3I1n4YEOsc7838Egj2SQTBDamk+JkjKkBlXJTeZ
+c/q1x5wFGcYe1cPPWaN9IRomPWV1PBejZGqRAhuE1iU/jMX26OL9ll1UpHa3TFSb
+qgLKYYAOySR6bHBjKyTWhzb+7J19MkWfJlQelwJmMQN2oWhmTyzp24dVCwaRVO16
+7vKl+BQtSYOdanuO0JBC0/91A5GvLH6/O2Dkb0bI18KZPamN+9gBKu14fiK0j+Fp
+nj+u1r3qFps5kydBvlBDl3JOZA34f1F5ZkrjnWjRokMdjiXl
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.unisc.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.unisc.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">UNISC - Universidade de Santa Cruz do Sul</OrganizationName>
+      <OrganizationName xml:lang="pt-br">UNISC - Universidade de Santa Cruz do Sul</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">UNISC - Universidade de Santa Cruz do Sul</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">UNISC - Universidade de Santa Cruz do Sul</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.unisc.br/</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.unisc.br/</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Cristiano Maynart</SurName>
+      <EmailAddress>rede@unisc.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

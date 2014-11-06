@@ -1,0 +1,90 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://federationrenater.univ-montp2.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-07-02T16:09:31Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-montp2.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de Montpellier 2</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDbTCCAlWgAwIBAgIUd7qthRFKphaqjAKa3OfPkTgoQCgwDQYJKoZIhvcNAQEF
+BQAwKzEpMCcGA1UEAxMgZmVkZXJhdGlvbnJlbmF0ZXIudW5pdi1tb250cDIuZnIw
+HhcNMDkwMTI5MTYwOTI1WhcNMjkwMTI5MTYwOTI1WjArMSkwJwYDVQQDEyBmZWRl
+cmF0aW9ucmVuYXRlci51bml2LW1vbnRwMi5mcjCCASIwDQYJKoZIhvcNAQEBBQAD
+ggEPADCCAQoCggEBAKbCEkUY6PCN5cAR9Xm2tLH78tkAas47YTI8ExEkF7VBiusg
+I+xopi8kCGN3wXufANOyfHI3zsphl3eLlwhdsF6c+IbegBywKSnDfMimvB3YWFbh
+jYOMOZOiFEphCdB2p6hvIKk+YFXH0m4KT1DVHMSzX8CwvXJ2am9lyI6wQdYShFdM
+zlDIqtQJR48n6HUlDQnWwq9jXxS/rXOOUzIe6w53cG6/mNMutXBoGfMVNSIoNSEC
+NHBD9RSwTJ5bzv2S2wiBjnCOj5vOpfysZ+duZgEGWM8JNpapB6M4YLoPr3OhcU+e
+pRahD0suZZUqU0R14hMJgEh2phxXF5pttQM0dwkCAwEAAaOBiDCBhTBkBgNVHREE
+XTBbgiBmZWRlcmF0aW9ucmVuYXRlci51bml2LW1vbnRwMi5mcoY3aHR0cHM6Ly9m
+ZWRlcmF0aW9ucmVuYXRlci51bml2LW1vbnRwMi5mci9pZHAvc2hpYmJvbGV0aDAd
+BgNVHQ4EFgQUWzhOl/tjSF/4azXQikbyjjVrPMEwDQYJKoZIhvcNAQEFBQADggEB
+AB4ts6C72K9/Wi1Tq91wHJdE83rJrfNpAVyZ1qKUSx6Okrkjga2keVBHSBXuNdfr
+eYkjMNbj2xLbX+BxKRxMgUnBjmaAdfOrOJFgsN/cqc3TEYo8BQZ7MiCOvzJWAgPV
+9TVhrm5qRx8AICoXee0NenuxWoSKYzH2pv4VIkGM0IIRVkDrkOxbxTQCk3Y0yUZ4
+iPn+hAxA9eFoYosSr16IJsBRCYiS0Rdr61YUCLgqf87nhWMbpKz5aPc3S0s0SEqa
+do3SW6CiYjzJ2ZYrYdmDzP0OuN/ZZK9gzH2hyOFaKlDJRKQtkdZ7RKb2tik/PPD6
+cHXXZfLohck3GRQ/MJmd5x4=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://federationrenater.univ-montp2.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://federationrenater.univ-montp2.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://federationrenater.univ-montp2.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Montpellier 2</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Montpellier 2</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Loïc Bonavent</SurName>
+				 <EmailAddress>loic.bonavent@univ-montp2.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Nicolas Arles</SurName>
+				 <EmailAddress>nicolas.arles@univ-montp2.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

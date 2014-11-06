@@ -1,0 +1,80 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://fed.id.univ-bordeaux.fr/idp_ubx/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-05-24T11:30:09Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-bordeaux.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">CUEA - Communauté d'universités et d'établissements d'Aquitaine</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDlDCCAnygAwIBAgIJAMmv2toaoAEMMA0GCSqGSIb3DQEBBQUAMDoxCzAJBgNV
+BAYTAkZSMQwwCgYDVQQKEwNVQngxHTAbBgNVBAMTFGlkcC51bml2LWJvcmRlYXV4
+LmZyMB4XDTExMDUxOTEwMTMzMVoXDTMxMDUxNDEwMTMzMVowOjELMAkGA1UEBhMC
+RlIxDDAKBgNVBAoTA1VCeDEdMBsGA1UEAxMUaWRwLnVuaXYtYm9yZGVhdXguZnIw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC/fbuGXQzSGD9NIpWeKHgx
+uUOIFJnnuGTkASR2nUsiLVC5T85Pc23LHd2q+QVuEzrApgZHPaQ/dvwkoyD26K+z
+JPfsVSFNObGxTHIh3erH8ELPVSUWWBTBdxhOqqjsY2Oi6wOiiPRAHJIJ8GtR+WiY
+flaN2pyuP6E6y9klVO1a5A592ClTEJW+TjpcqE3REmcwqjEBcx2rGOlgipwBGRbt
+g2VjDWfP745U9Nu7s77bWbcP1fFlSYX6fY5jlBsS9KiTkjNEyLQv6H7f6gkA4JAf
+vtlg/+wgT5yjoeLnO1PXU94Fg9MiwXw9bmBccrdZEYbRE4Yj7erzk8yAqZkdeRx5
+AgMBAAGjgZwwgZkwHQYDVR0OBBYEFEDi7aDbyQrP92cicg3Ybs52s69CMGoGA1Ud
+IwRjMGGAFEDi7aDbyQrP92cicg3Ybs52s69CoT6kPDA6MQswCQYDVQQGEwJGUjEM
+MAoGA1UEChMDVUJ4MR0wGwYDVQQDExRpZHAudW5pdi1ib3JkZWF1eC5mcoIJAMmv
+2toaoAEMMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBAK4ev4MBRPS6
+jZgF6rlty35EfLflTFhQNFtTypW7O/yljgpIs1UNahDNmlJBSBZpw1DeZvuLJwsw
+sK8mb9ldbs3+euCK/6N/zXj48S7/2KIt32jUTsjMcByOvhxqrsax4APYKCqh0ErB
+f5aCPGBKrlMf99jeG4Iegf8YkkU2i+ZCq04GkBDZPawtEWNJL1LTykMvY09Wf1pU
+oiMV0/Zcv53VXdVLsHwCYFg3lf1uIlGcwaJPxb4NCAGAktixPig8B2sqE7ryk8ss
+QiRmgUZzF4TgaBu7lYjlYOmUMvrC+KaOPvT+UlYrWidEok60vOY+kIJ683KK7QhE
+V+xNY9y95Z8=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://fed.id.univ-bordeaux.fr/idp_ubx/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://fed.id.univ-bordeaux.fr/idp_ubx/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://fed.id.univ-bordeaux.fr/idp_ubx/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">CUEA - Communauté d'universités et d'établissements d'Aquitaine</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">CUEA - Communauté d'universités et d'établissements d'Aquitaine</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>ssr@univ-bordeaux.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

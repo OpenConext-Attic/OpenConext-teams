@@ -1,0 +1,127 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://rtrvirshib.ifmt.edu.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">ifmt.edu.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">IFMT - Instituto Federal de Mato Grosso</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">IFMT - Instituto Federal de Mato Grosso</mdui:DisplayName>
+          <mdui:Description xml:lang="en">IFMT - Instituto Federal de Mato Grosso</mdui:Description>
+          <mdui:Description xml:lang="pt-br">IFMT - Instituto Federal de Mato Grosso</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ifmt.edu.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ifmt.edu.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIDnjCCAoYCAQAwDQYJKoZIhvcNAQEFBQAwgZQxDTALBgNVBAoTBElGTVQxDTAL
+BgNVBAsTBERHVEkxHzAdBgkqhkiG9w0BCQEWEGRndGlAaWZtdC5lZHUuYnIxDzAN
+BgNVBAcTBkN1aWFiYTEUMBIGA1UECBMLTWF0byBHcm9zc28xCzAJBgNVBAYTAkJS
+MR8wHQYDVQQDExZydHJ2aXJzaGliLmlmbXQuZWR1LmJyMB4XDTE0MDQxNzEyMzIw
+N1oXDTE5MDQxNjEyMzIwN1owgZQxDTALBgNVBAoTBElGTVQxDTALBgNVBAsTBERH
+VEkxHzAdBgkqhkiG9w0BCQEWEGRndGlAaWZtdC5lZHUuYnIxDzANBgNVBAcTBkN1
+aWFiYTEUMBIGA1UECBMLTWF0byBHcm9zc28xCzAJBgNVBAYTAkJSMR8wHQYDVQQD
+ExZydHJ2aXJzaGliLmlmbXQuZWR1LmJyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+MIIBCgKCAQEA2eCAjelNjPyH/68OkUNA7eZF2Edd1saA5wL3uYVu7sF3+JeJ/VnL
+th4oBh/AEvoP6GribfKu9kL3la0j3M92Y0R50t/U/oesWlP571lmtt/ktGcrjXsG
+F//9EukOVOhN58kMF9D2ZAxvE2oTrlmwrzZk3ZdxAdmY4BxchfJms8EH9osCfiYC
+kIY/7lc2w3X9OME67Dvg9Z+5EF+KvYs8mkueMQh7azrXXHtcxG8RSpZsaORza6mc
+eA5nsPLpXp0/fr6rj47EZ0LHZdE74jGAdqMYheLwhH0BqlCdNrU+G2DhrsHXMK/A
+XFiaB9OluEe8Ofr41TxnAXrEkwA6CKlOhQIDAQABMA0GCSqGSIb3DQEBBQUAA4IB
+AQCRb5yEkQ9X4IuihBjIb/dI+BN08UCNdASV8qM7kdZU8JmlOyg8QgI6L8rhAEpO
+xY5xIBsfSHm50zgtHvSA8OW2SBL0TOOHQvvIyWDBpaUdy6kneJSqlzibpsOYfB92
+DguqBhy6NfQN+m1aSf7nqxbk0cIbj76eQiq139Gf1tHR9T/bR+ui9Qch4gKvEcxb
+JbfovcHp8joKV/PdoQ3Ibmu5JCwr8lvzgrsxyzO+x74LXE2DTY+eslmIZkBW4/xv
+vJ5FdfQheB90r4to4riv5EjWadshdQBgHaCHqLOrRgaFqHY4r6C6Ot8D8i26FXHq
+mmlVzkmXDVDPlyf/vhWQDReo
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://rtrvirshib.ifmt.edu.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://rtrvirshib.ifmt.edu.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://rtrvirshib.ifmt.edu.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://rtrvirshib.ifmt.edu.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://rtrvirshib.ifmt.edu.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://rtrvirshib.ifmt.edu.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">ifmt.edu.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIDnjCCAoYCAQAwDQYJKoZIhvcNAQEFBQAwgZQxDTALBgNVBAoTBElGTVQxDTAL
+BgNVBAsTBERHVEkxHzAdBgkqhkiG9w0BCQEWEGRndGlAaWZtdC5lZHUuYnIxDzAN
+BgNVBAcTBkN1aWFiYTEUMBIGA1UECBMLTWF0byBHcm9zc28xCzAJBgNVBAYTAkJS
+MR8wHQYDVQQDExZydHJ2aXJzaGliLmlmbXQuZWR1LmJyMB4XDTE0MDQxNzEyMzIw
+N1oXDTE5MDQxNjEyMzIwN1owgZQxDTALBgNVBAoTBElGTVQxDTALBgNVBAsTBERH
+VEkxHzAdBgkqhkiG9w0BCQEWEGRndGlAaWZtdC5lZHUuYnIxDzANBgNVBAcTBkN1
+aWFiYTEUMBIGA1UECBMLTWF0byBHcm9zc28xCzAJBgNVBAYTAkJSMR8wHQYDVQQD
+ExZydHJ2aXJzaGliLmlmbXQuZWR1LmJyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+MIIBCgKCAQEA2eCAjelNjPyH/68OkUNA7eZF2Edd1saA5wL3uYVu7sF3+JeJ/VnL
+th4oBh/AEvoP6GribfKu9kL3la0j3M92Y0R50t/U/oesWlP571lmtt/ktGcrjXsG
+F//9EukOVOhN58kMF9D2ZAxvE2oTrlmwrzZk3ZdxAdmY4BxchfJms8EH9osCfiYC
+kIY/7lc2w3X9OME67Dvg9Z+5EF+KvYs8mkueMQh7azrXXHtcxG8RSpZsaORza6mc
+eA5nsPLpXp0/fr6rj47EZ0LHZdE74jGAdqMYheLwhH0BqlCdNrU+G2DhrsHXMK/A
+XFiaB9OluEe8Ofr41TxnAXrEkwA6CKlOhQIDAQABMA0GCSqGSIb3DQEBBQUAA4IB
+AQCRb5yEkQ9X4IuihBjIb/dI+BN08UCNdASV8qM7kdZU8JmlOyg8QgI6L8rhAEpO
+xY5xIBsfSHm50zgtHvSA8OW2SBL0TOOHQvvIyWDBpaUdy6kneJSqlzibpsOYfB92
+DguqBhy6NfQN+m1aSf7nqxbk0cIbj76eQiq139Gf1tHR9T/bR+ui9Qch4gKvEcxb
+JbfovcHp8joKV/PdoQ3Ibmu5JCwr8lvzgrsxyzO+x74LXE2DTY+eslmIZkBW4/xv
+vJ5FdfQheB90r4to4riv5EjWadshdQBgHaCHqLOrRgaFqHY4r6C6Ot8D8i26FXHq
+mmlVzkmXDVDPlyf/vhWQDReo
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://rtrvirshib.ifmt.edu.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://rtrvirshib.ifmt.edu.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">IFMT - Instituto Federal de Mato Grosso</OrganizationName>
+      <OrganizationName xml:lang="pt-br">IFMT - Instituto Federal de Mato Grosso</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">IFMT - Instituto Federal de Mato Grosso</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">IFMT - Instituto Federal de Mato Grosso</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.ifmt.edu.br/</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.ifmt.edu.br/</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Diretoria de Gestao da Tecnologia da Informacao</SurName>
+      <EmailAddress>dgti@ifmt.edu.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

@@ -1,0 +1,77 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://identites.enim.fr/idp/">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-12-10T10:41:49Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">enim.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">ENIM</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDFzCCAf+gAwIBAgIUXFUXeBlCuUekINLHfPFZiIPUrsAwDQYJKoZIhvcNAQEF
+BQAwFjEUMBIGA1UEAxMLaWRwLmVuaW0uZnIwHhcNMTIxMTE0MTMzODMyWhcNMzIx
+MTE0MTMzODMyWjAWMRQwEgYDVQQDEwtpZHAuZW5pbS5mcjCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAPzw0RQQQxTO08j91FfloACjUJPfi7MnbcVZ5wpX
+v7DSZ1FOxQ+4qK6lBnNjqj2d6Y7q/6hfpU/jywg0WMzzUq+mJ+cLBKwBECJcYHt3
+V+EKb5+iLQ7jFIKn2IKOla/xTnNdhAcPhNfYRZ0b9MW5ZvSqB+Ype9cOiAgaE13i
+QszdnZQCt7iZPaWuRILIqOL9r+bzIjBT3ueQK6Pdofe4+D9bCD+Rw7K9ucj//Xwm
+oJtfFUM79Lwtd4mVs+qleXUEwYSCttBnNWh4mIj9+s46JlN9XE2OLdtLE8E4wRla
+wF6s0mbvZIWJ0UMFdlOSANu6qCEusFa+N+a3k1aLbjD3y60CAwEAAaNdMFswOgYD
+VR0RBDMwMYILaWRwLmVuaW0uZnKGImh0dHBzOi8vaWRwLmVuaW0uZnIvaWRwL3No
+aWJib2xldGgwHQYDVR0OBBYEFOexEULHTKANUZhFIldEyXBwm7EiMA0GCSqGSIb3
+DQEBBQUAA4IBAQCx5cOFFV30wtnqGHbRTkwDqRTkNV5DJlYaFIW9YAVuzokQuAym
+lUUBC1QjNusjF2+iI+iKwp8D18sW9ZONF+Kw4D+uPtIfT4SDms1NQWrw4+Huvy30
+lCGjPWut+kDsKco2xhQdG2DoU9NrnoAFrs5uC3SjWYIhWAKAp57VuXt8RhN4BeBt
+IJgOBe5S+60ftF+69kjdQquJLlbpk9nhZTrhJnjcxppDJhXskc2pE1zplKAl98q6
+1yBtIBFoXawK3loQMMGbW+qWhm4+WWATRl3a25GnYmq4+EgUMocSshp/dwVFB6hl
+P69qvJb0PazcY4DgIwXlIliGgHdjRIiFAYNA
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://authshib.enim.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://authshib.enim.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://authshib.enim.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">ENIM</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">ENIM</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>admininfo@enim.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

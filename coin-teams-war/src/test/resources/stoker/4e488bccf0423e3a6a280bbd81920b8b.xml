@@ -1,0 +1,117 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.bc.cas.cz/idp/shibboleth">
+    <Extensions>
+      <eduidmd:RepublishRequest xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0">
+        <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
+      </eduidmd:RepublishRequest>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.eduid.cz/" registrationInstant="2014-05-02T15:40:40Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <mdasrt:Attribute xmlns:mdasrt="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <mdasrt:AttributeValue>http://eduid.cz/uri/idp-group/avcr</mdasrt:AttributeValue>
+        </mdasrt:Attribute>
+      </mdattr:EntityAttributes>
+    </Extensions>
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">bc.cas.cz</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">Biology Centre AS CR</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">Biologické centrum AV ČR, AV ČR</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity Provider  BC AS CR employees.</mdui:Description>
+          <mdui:Description xml:lang="cs">Identity Provider pro zaměstnance BC AV ČR</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.bc.cas.cz/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">http://www.bc.cas.cz/</mdui:InformationURL>
+          <mdui:Logo height="44" width="74">https://jiftach.cas.cz/loga/logo-bc-44.png</mdui:Logo>
+          <mdui:Logo height="411" width="960">https://jiftach.cas.cz/loga/logo-bc-255.png</mdui:Logo>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDIDCCAgigAwIBAgIVAPqdd5taKpjAToNxaMGZQFNCCsUiMA0GCSqGSIb3DQEB
+BQUAMBgxFjAUBgNVBAMTDWlkcC5iYy5jYXMuY3owHhcNMTQwNDAxMDk0NTU3WhcN
+MzQwNDAxMDk0NTU3WjAYMRYwFAYDVQQDEw1pZHAuYmMuY2FzLmN6MIIBIjANBgkq
+hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAg+Edl/InvpuZlyI4uXGWWh3byDeowddy
+kgO3jp88IR3C7zBnSD40HavmkPRbhBr85ZcUkOZCAyAWrYu6fseN9cRa+ILGQZtT
+vkgLGYHk8FM/Eo3U3FZn+SM/9i9Zow5u/BZJNO2PtX/GUqb1IC1lL+7l1aN5NZ6n
+nOERRJOhWLnckDCgGpu1lQFMUUb6LdHmZUvw7nV0qCQQL1KzDmAkX7Rowylycf1/
+975mMLKSDvHPeiOlORbYSZEaDKVbg+iV+L7ecZvNR1RxPy1E5JRr/dB+Pw6UjAXN
+O1azxIVdoCkumVjZM9LfIF+vPdaJcSkHoZJiu6T+GSQaS9jKtwjvNQIDAQABo2Ew
+XzA+BgNVHREENzA1gg1pZHAuYmMuY2FzLmN6hiRodHRwczovL2lkcC5iYy5jYXMu
+Y3ovaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFCHLsDXLe66ZYx4c1WiJSKuOD8YW
+MA0GCSqGSIb3DQEBBQUAA4IBAQBQKv6/5c6F4+LPXk6wd40PkPNMilJ2GZAiXhBt
+OIdP6L4sClDnsvs2mIIoOk7rvdt3fUILskSdd+sApjN8MemZXKxfsrXLIKnyrF1Z
+ieIGIzWbbteGotGaSPEadpHy9PKY/mfkNuEoIjfcjitqxMktTCsq40P+Z6EzExpL
+RUxZJa5mDx51/ENu7PSKaQsFNNfdmaLzjb4gtwtTQTnbw1sdSX5NwwMJNZsqt5J6
+6f0TcqgbfoS8WaaylyEOk/mIA5/f7GrLQnwSR3bVkmwsSrQQgIxx18LSLc05bNya
+Q+dMM6gJ5hG79Yj0n643KGUcqRHC2+WXmQadp5voCQC//M44
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.bc.cas.cz:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.bc.cas.cz:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.bc.cas.cz/idp/profile/SAML2/Redirect/SLO"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.bc.cas.cz/idp/profile/SAML2/POST/SLO"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.bc.cas.cz:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.bc.cas.cz/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.bc.cas.cz/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.bc.cas.cz/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.bc.cas.cz/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">bc.cas.cz</shibmd:Scope>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDIDCCAgigAwIBAgIVAPqdd5taKpjAToNxaMGZQFNCCsUiMA0GCSqGSIb3DQEB
+BQUAMBgxFjAUBgNVBAMTDWlkcC5iYy5jYXMuY3owHhcNMTQwNDAxMDk0NTU3WhcN
+MzQwNDAxMDk0NTU3WjAYMRYwFAYDVQQDEw1pZHAuYmMuY2FzLmN6MIIBIjANBgkq
+hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAg+Edl/InvpuZlyI4uXGWWh3byDeowddy
+kgO3jp88IR3C7zBnSD40HavmkPRbhBr85ZcUkOZCAyAWrYu6fseN9cRa+ILGQZtT
+vkgLGYHk8FM/Eo3U3FZn+SM/9i9Zow5u/BZJNO2PtX/GUqb1IC1lL+7l1aN5NZ6n
+nOERRJOhWLnckDCgGpu1lQFMUUb6LdHmZUvw7nV0qCQQL1KzDmAkX7Rowylycf1/
+975mMLKSDvHPeiOlORbYSZEaDKVbg+iV+L7ecZvNR1RxPy1E5JRr/dB+Pw6UjAXN
+O1azxIVdoCkumVjZM9LfIF+vPdaJcSkHoZJiu6T+GSQaS9jKtwjvNQIDAQABo2Ew
+XzA+BgNVHREENzA1gg1pZHAuYmMuY2FzLmN6hiRodHRwczovL2lkcC5iYy5jYXMu
+Y3ovaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFCHLsDXLe66ZYx4c1WiJSKuOD8YW
+MA0GCSqGSIb3DQEBBQUAA4IBAQBQKv6/5c6F4+LPXk6wd40PkPNMilJ2GZAiXhBt
+OIdP6L4sClDnsvs2mIIoOk7rvdt3fUILskSdd+sApjN8MemZXKxfsrXLIKnyrF1Z
+ieIGIzWbbteGotGaSPEadpHy9PKY/mfkNuEoIjfcjitqxMktTCsq40P+Z6EzExpL
+RUxZJa5mDx51/ENu7PSKaQsFNNfdmaLzjb4gtwtTQTnbw1sdSX5NwwMJNZsqt5J6
+6f0TcqgbfoS8WaaylyEOk/mIA5/f7GrLQnwSR3bVkmwsSrQQgIxx18LSLc05bNya
+Q+dMM6gJ5hG79Yj0n643KGUcqRHC2+WXmQadp5voCQC//M44
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.bc.cas.cz:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.bc.cas.cz:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+    </AttributeAuthorityDescriptor>
+    <Organization>
+      <OrganizationName xml:lang="en">Biology Centre AS CR</OrganizationName>
+      <OrganizationName xml:lang="cs">Biologické centrum AV ČR</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">Biology Centre AS CR</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="cs">Biologické centrum AV ČR, v.v.i.</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.bc.cas.cz/</OrganizationURL>
+      <OrganizationURL xml:lang="cs">http://www.bc.cas.cz/</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Petr</GivenName>
+      <SurName>Vaníček</SurName>
+      <EmailAddress>vanicekp@utia.cas.cz</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

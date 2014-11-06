@@ -1,0 +1,129 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://siaiap08.univali.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">univali.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">UNIVALI - Universidade do Vale do Itajai</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">UNIVALI - Universidade do Vale do Itajai</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UNIVALI - Universidade do Vale do Itajai</mdui:Description>
+          <mdui:Description xml:lang="pt-br">UNIVALI - Universidade do Vale do Itajai</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.univali.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.univali.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIID0DCCArgCAQAwDQYJKoZIhvcNAQEFBQAwga0xJzAlBgNVBAoTHlVuaXZlcnNp
+ZGFkZSBkbyBWYWxlIGRvIEl0YWphaTEMMAoGA1UECxMDR1RJMR8wHQYJKoZIhvcN
+AQkBFhBhZG1pbkB1bml2YWxpLmJyMQ8wDQYDVQQHEwZJdGFqYWkxFzAVBgNVBAgT
+DlNhbnRhIENhdGFyaW5hMQswCQYDVQQGEwJCUjEcMBoGA1UEAxMTc2lhaWFwMDgu
+dW5pdmFsaS5icjAeFw0xNDA0MTcxMjMzNTdaFw0xOTA0MTYxMjMzNTdaMIGtMScw
+JQYDVQQKEx5Vbml2ZXJzaWRhZGUgZG8gVmFsZSBkbyBJdGFqYWkxDDAKBgNVBAsT
+A0dUSTEfMB0GCSqGSIb3DQEJARYQYWRtaW5AdW5pdmFsaS5icjEPMA0GA1UEBxMG
+SXRhamFpMRcwFQYDVQQIEw5TYW50YSBDYXRhcmluYTELMAkGA1UEBhMCQlIxHDAa
+BgNVBAMTE3NpYWlhcDA4LnVuaXZhbGkuYnIwggEiMA0GCSqGSIb3DQEBAQUAA4IB
+DwAwggEKAoIBAQC0j73uQz7HKNv3mF/UfQ4qiCC/A1o8QwYJGhvyT7Ie9DQUP1UL
+yxF4hSYQ/Xtla7Bm0E3iJBZkcJDZ9k6xOhIwMrWa7reWzDzqUCdzbb0DtvSqiR1e
+iDiHfS0kjS482IBaBsO9hYOueRm8FlrAe8JBEVWaild1/9o3OazFb6Nnm97tbuW0
+kLHeAjM5z5Q2HDaAPH4mw78ctdZrQgLgdwKn71EPIrD2Dw00Bz/1Ndvx1KJPUFxB
+hDHT0cMTQ3imeWptocy65Tq7q2xpBwtkWjJqGMLYoGVbr4+aBq8CahoW+8zMrlqo
+aVNU9398awtGiLuFKQRQzwoYOOAy9CoDlcJHAgMBAAEwDQYJKoZIhvcNAQEFBQAD
+ggEBAByTETZ7kpMiPJvt/zy+0q5ClKYda3WpqLpaTwnLl359k72A0KSYrZn6siv6
+GcSrTzlf5X+gEH1rFqySh+JYfIUo/xS2CYJC9zbtuCXiJKuzuXBgR69aPlzBP5kG
+qXMP3r2nGYCZhoVdtONZR7i1V9tzhjEziRi8FTj0RMxxE01pNYd34mp82tRxZsFk
++dmRQQjNfM5zWaEosG94oV1X+QP06y4AER/kTVZKh1TJOPzHvY/fG8QheEKOHO1j
+xEaJyWk8Zd0mumri/3t63hxIHiILLh+rYK+0qYV/5SF51Qb6a+V93w0FfR0X+vbF
+bDtUbUIh3bPnDHUI9So2aC1i27Q=
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://siaiap08.univali.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://siaiap08.univali.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://siaiap08.univali.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://siaiap08.univali.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://siaiap08.univali.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://siaiap08.univali.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">univali.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIID0DCCArgCAQAwDQYJKoZIhvcNAQEFBQAwga0xJzAlBgNVBAoTHlVuaXZlcnNp
+ZGFkZSBkbyBWYWxlIGRvIEl0YWphaTEMMAoGA1UECxMDR1RJMR8wHQYJKoZIhvcN
+AQkBFhBhZG1pbkB1bml2YWxpLmJyMQ8wDQYDVQQHEwZJdGFqYWkxFzAVBgNVBAgT
+DlNhbnRhIENhdGFyaW5hMQswCQYDVQQGEwJCUjEcMBoGA1UEAxMTc2lhaWFwMDgu
+dW5pdmFsaS5icjAeFw0xNDA0MTcxMjMzNTdaFw0xOTA0MTYxMjMzNTdaMIGtMScw
+JQYDVQQKEx5Vbml2ZXJzaWRhZGUgZG8gVmFsZSBkbyBJdGFqYWkxDDAKBgNVBAsT
+A0dUSTEfMB0GCSqGSIb3DQEJARYQYWRtaW5AdW5pdmFsaS5icjEPMA0GA1UEBxMG
+SXRhamFpMRcwFQYDVQQIEw5TYW50YSBDYXRhcmluYTELMAkGA1UEBhMCQlIxHDAa
+BgNVBAMTE3NpYWlhcDA4LnVuaXZhbGkuYnIwggEiMA0GCSqGSIb3DQEBAQUAA4IB
+DwAwggEKAoIBAQC0j73uQz7HKNv3mF/UfQ4qiCC/A1o8QwYJGhvyT7Ie9DQUP1UL
+yxF4hSYQ/Xtla7Bm0E3iJBZkcJDZ9k6xOhIwMrWa7reWzDzqUCdzbb0DtvSqiR1e
+iDiHfS0kjS482IBaBsO9hYOueRm8FlrAe8JBEVWaild1/9o3OazFb6Nnm97tbuW0
+kLHeAjM5z5Q2HDaAPH4mw78ctdZrQgLgdwKn71EPIrD2Dw00Bz/1Ndvx1KJPUFxB
+hDHT0cMTQ3imeWptocy65Tq7q2xpBwtkWjJqGMLYoGVbr4+aBq8CahoW+8zMrlqo
+aVNU9398awtGiLuFKQRQzwoYOOAy9CoDlcJHAgMBAAEwDQYJKoZIhvcNAQEFBQAD
+ggEBAByTETZ7kpMiPJvt/zy+0q5ClKYda3WpqLpaTwnLl359k72A0KSYrZn6siv6
+GcSrTzlf5X+gEH1rFqySh+JYfIUo/xS2CYJC9zbtuCXiJKuzuXBgR69aPlzBP5kG
+qXMP3r2nGYCZhoVdtONZR7i1V9tzhjEziRi8FTj0RMxxE01pNYd34mp82tRxZsFk
++dmRQQjNfM5zWaEosG94oV1X+QP06y4AER/kTVZKh1TJOPzHvY/fG8QheEKOHO1j
+xEaJyWk8Zd0mumri/3t63hxIHiILLh+rYK+0qYV/5SF51Qb6a+V93w0FfR0X+vbF
+bDtUbUIh3bPnDHUI9So2aC1i27Q=
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://siaiap08.univali.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://siaiap08.univali.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">UNIVALI - Universidade do Vale do Itajai</OrganizationName>
+      <OrganizationName xml:lang="pt-br">UNIVALI - Universidade do Vale do Itajai</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">UNIVALI - Universidade do Vale do Itajai</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">UNIVALI - Universidade do Vale do Itajai</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.univali.br/</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.univali.br/</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Marcio Luiz Ota</SurName>
+      <EmailAddress>admin@univali.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

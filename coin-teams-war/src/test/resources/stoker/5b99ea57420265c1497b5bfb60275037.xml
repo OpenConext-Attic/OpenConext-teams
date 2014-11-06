@@ -1,0 +1,58 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://terena.org/sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.surfconext.nl/" registrationInstant="2011-06-08T02:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://wiki.surfnetlabs.nl/display/eduGAIN/EduGAIN</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">TERENA Service Provider Proxy</mdui:DisplayName>
+          <mdui:Description xml:lang="en">A service provider proxy for all TERENA federated services</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://confluence.terena.org/display/aai/Service+Provider+Proxy</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">http://www.terena.org/p3p</mdui:PrivacyStatementURL>
+          <mdui:Logo height="94" width="350">https://www.terena.org/gfx/terena_logo_slogan_rgb-350x97.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEkjCCA3qgAwIBAgIJAL90CxMEVb/kMA0GCSqGSIb3DQEBBQUAMIGMMQswCQYDVQQGEwJOTDELMAkGA1UECBMCTkgxEjAQBgNVBAcTCUFtc3RlcmRhbTEPMA0GA1UEChMGVEVSRU5BMQwwCgYDVQQLEwNJVFMxHjAcBgNVBAMTFWh0dHBzOi8vdGVyZW5hLm9yZy9zcDEdMBsGCSqGSIb3DQEJARYOYWFpQHRlcmVuYS5vcmcwHhcNMTEwMTEyMTUyNjM4WhcNMjEwMTExMTUyNjM4WjCBjDELMAkGA1UEBhMCTkwxCzAJBgNVBAgTAk5IMRIwEAYDVQQHEwlBbXN0ZXJkYW0xDzANBgNVBAoTBlRFUkVOQTEMMAoGA1UECxMDSVRTMR4wHAYDVQQDExVodHRwczovL3RlcmVuYS5vcmcvc3AxHTAbBgkqhkiG9w0BCQEWDmFhaUB0ZXJlbmEub3JnMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwTxx8JBWSpBJiZgdvGOJDXLwaE29Opx1CBbIrYHm47Oy4btsf0BzCmfdSPDlydDm6//355hsQU8BgIh/waEwFZZCg/XyzrJEXCDTZBm1H210aT7FNp356azqKOO1bYWcku0xpFOWWf3jCIkjtOiTkbl12Tw7Y+zJRhV2+jleC5td3JxZ6k1qotgN+1cGwZ2Tv2HhSNeMC4QsGOyBqeP+7B1CLFqFZSiLWGVqcZi0fGkXf+SrTSEH/kLzdciEg2EePyQPcLCKNz9RiIhSmsLE/Rr1ksOvZGmyWFe7YsPyJOLsNyYcZTufDVwpl9fDuJdYy2GdMT1kSNNOpZXZ7QcgYwIDAQABo4H0MIHxMB0GA1UdDgQWBBQ6tVqjpKC8+30XF/qWlaZ3fUKTvDCBwQYDVR0jBIG5MIG2gBQ6tVqjpKC8+30XF/qWlaZ3fUKTvKGBkqSBjzCBjDELMAkGA1UEBhMCTkwxCzAJBgNVBAgTAk5IMRIwEAYDVQQHEwlBbXN0ZXJkYW0xDzANBgNVBAoTBlRFUkVOQTEMMAoGA1UECxMDSVRTMR4wHAYDVQQDExVodHRwczovL3RlcmVuYS5vcmcvc3AxHTAbBgkqhkiG9w0BCQEWDmFhaUB0ZXJlbmEub3JnggkAv3QLEwRVv+QwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOCAQEAn+06i7zZE7MjuB68gCaNvnCkrgfumi4PWiP6kaE6+LU2MTbxdFyoSAoKh6Ft9TDi+8ANAsn5jRQ5xLUE4YoVbub/KufMwdlX0zO9i+Q//npDTFESnWsiMi7DHg/av1LtzrYYZvE2E1e5c/7wo/axx8Bk7qsE9YXFRs372vDkDwOGSkLbRtgwdCUX47CE/fXvccPDHH217XMed2cVOGFjQgidsFZlJbSfSvQjWYw5LIE0wo9RtsEu5I3WAIar8Wr6/nhVOgIBUStpcw94GwlPxLywfij5CJ9HT+sN2SOj4YmKPBtcwHI75uNZp7XRy85jRjrvhahg5baIQ0u3aL8aMA==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEkjCCA3qgAwIBAgIJAL90CxMEVb/kMA0GCSqGSIb3DQEBBQUAMIGMMQswCQYDVQQGEwJOTDELMAkGA1UECBMCTkgxEjAQBgNVBAcTCUFtc3RlcmRhbTEPMA0GA1UEChMGVEVSRU5BMQwwCgYDVQQLEwNJVFMxHjAcBgNVBAMTFWh0dHBzOi8vdGVyZW5hLm9yZy9zcDEdMBsGCSqGSIb3DQEJARYOYWFpQHRlcmVuYS5vcmcwHhcNMTEwMTEyMTUyNjM4WhcNMjEwMTExMTUyNjM4WjCBjDELMAkGA1UEBhMCTkwxCzAJBgNVBAgTAk5IMRIwEAYDVQQHEwlBbXN0ZXJkYW0xDzANBgNVBAoTBlRFUkVOQTEMMAoGA1UECxMDSVRTMR4wHAYDVQQDExVodHRwczovL3RlcmVuYS5vcmcvc3AxHTAbBgkqhkiG9w0BCQEWDmFhaUB0ZXJlbmEub3JnMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwTxx8JBWSpBJiZgdvGOJDXLwaE29Opx1CBbIrYHm47Oy4btsf0BzCmfdSPDlydDm6//355hsQU8BgIh/waEwFZZCg/XyzrJEXCDTZBm1H210aT7FNp356azqKOO1bYWcku0xpFOWWf3jCIkjtOiTkbl12Tw7Y+zJRhV2+jleC5td3JxZ6k1qotgN+1cGwZ2Tv2HhSNeMC4QsGOyBqeP+7B1CLFqFZSiLWGVqcZi0fGkXf+SrTSEH/kLzdciEg2EePyQPcLCKNz9RiIhSmsLE/Rr1ksOvZGmyWFe7YsPyJOLsNyYcZTufDVwpl9fDuJdYy2GdMT1kSNNOpZXZ7QcgYwIDAQABo4H0MIHxMB0GA1UdDgQWBBQ6tVqjpKC8+30XF/qWlaZ3fUKTvDCBwQYDVR0jBIG5MIG2gBQ6tVqjpKC8+30XF/qWlaZ3fUKTvKGBkqSBjzCBjDELMAkGA1UEBhMCTkwxCzAJBgNVBAgTAk5IMRIwEAYDVQQHEwlBbXN0ZXJkYW0xDzANBgNVBAoTBlRFUkVOQTEMMAoGA1UECxMDSVRTMR4wHAYDVQQDExVodHRwczovL3RlcmVuYS5vcmcvc3AxHTAbBgkqhkiG9w0BCQEWDmFhaUB0ZXJlbmEub3JnggkAv3QLEwRVv+QwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOCAQEAn+06i7zZE7MjuB68gCaNvnCkrgfumi4PWiP6kaE6+LU2MTbxdFyoSAoKh6Ft9TDi+8ANAsn5jRQ5xLUE4YoVbub/KufMwdlX0zO9i+Q//npDTFESnWsiMi7DHg/av1LtzrYYZvE2E1e5c/7wo/axx8Bk7qsE9YXFRs372vDkDwOGSkLbRtgwdCUX47CE/fXvccPDHH217XMed2cVOGFjQgidsFZlJbSfSvQjWYw5LIE0wo9RtsEu5I3WAIar8Wr6/nhVOgIBUStpcw94GwlPxLywfij5CJ9HT+sN2SOj4YmKPBtcwHI75uNZp7XRy85jRjrvhahg5baIQ0u3aL8aMA==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.terena.org/wayf/module.php/saml/sp/saml2-logout.php/default-sp"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.terena.org/wayf/module.php/saml/sp/saml2-acs.php/default-sp" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://login.terena.org/wayf/module.php/saml/sp/saml1-acs.php/default-sp" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://login.terena.org/wayf/module.php/saml/sp/saml2-acs.php/default-sp" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://login.terena.org/wayf/module.php/saml/sp/saml1-acs.php/default-sp/artifact" index="3"/>
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="en">TERENA Service Provider Proxy</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">A Service Provider Proxy for all TERENA Federated Services</md:ServiceDescription>
+        <md:RequestedAttribute Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+        <md:RequestedAttribute Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+        <md:RequestedAttribute Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+        <md:RequestedAttribute Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">TERENA</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">TERENA</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.terena.org/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>TERENA</md:GivenName>
+      <md:SurName>AAI team</md:SurName>
+      <md:EmailAddress>aai@terena.org</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

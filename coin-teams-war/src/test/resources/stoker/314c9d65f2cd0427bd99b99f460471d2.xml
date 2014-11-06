@@ -1,0 +1,78 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.univ-lyon3.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-01-28T10:43:17Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-lyon3.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de Lyon 3 - Jean Moulin</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDMDCCAhigAwIBAgIVALk8mZ+AAF53uwidDGYBnH0PYWxbMA0GCSqGSIb3DQEB
+BQUAMBwxGjAYBgNVBAMTEWlkcC51bml2LWx5b24zLmZyMB4XDTEwMTAxMjEzMzk1
+NVoXDTMwMTAxMjEzMzk1NVowHDEaMBgGA1UEAxMRaWRwLnVuaXYtbHlvbjMuZnIw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCnHRL8McVU1CwfcgOZzodc
+G9yjFNUlE5+tKEwGlkDNpOW+dIK3nZ4o3LxeOZVCA6sBJ6zGvPKLrbwaQ1ec7wUw
+Zd2/VGlpT6puPc6hPuqa8ghTKgAsYAaLgnnXMTsXgOi2ieu+KpOhBWUChZU8UgjT
+PFa7KjRzQ7xLoHd4+ZdkXIcb4VUMR8nEBNVQ2C18c4CNgGN6aYPpP++kFHJJi85F
+2jmD07ccl0DES2sPfDLpniZDin+eD8ij8UXviy9e8v4ssrXi/qNvP8eHSsDTUkT8
+zkMEs6ovVCGMZf/aie0RVaZ0h8G4n9UF2xk/+ASAxVcAl5Kwfy6g4/sno0BDWul7
+AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEWlkcC51bml2LWx5b24zLmZyhihodHRwczov
+L2lkcC51bml2LWx5b24zLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBQRoWeg
+Qi5urVmZRbLmZzQW2w0DkjANBgkqhkiG9w0BAQUFAAOCAQEAYA43hVTg4DIEtI5l
+1I2MMrZhXAkpihNEC8G2HTtpUAq2GeAKTzUzUyQ133V3JgY8XDkpCM8XhPqI6wAH
+5k9pOwKeePRjDWkycJYsBeCl5x1wspNqNGfbWEMfCALXeP8YI5annKFUBnit2VrX
+eXB9i4dKcDeYCVzKW1hd7meBbw6Iijwnxt7ZESzVzibWVYi/gB3zT2OLHjFhONj4
+TWXosGddVcZLkq+eFRjPBFUZmin0Y1i6IPWtHveMnegwrIimwh4hc3Hq9x9frai9
+vU4n/dUR4kWq12hY6VObixqfgw9dHPnALDINjOdTHmmXaSJAyv5tQkmIRGZyMOmc
+n4c/iw==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.univ-lyon3.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.univ-lyon3.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.univ-lyon3.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Lyon 3 - Jean Moulin</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Lyon 3 - Jean Moulin</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>contact-shibboleth@univ-lyon3.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

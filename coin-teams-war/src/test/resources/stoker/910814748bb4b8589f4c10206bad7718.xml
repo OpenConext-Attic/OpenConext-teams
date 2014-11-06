@@ -1,0 +1,127 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://cafe.fucape.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">fucape.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">FUCAPE - Fundacao Instituto Capixaba de Pesquisa em Contabilidade, Economia e Financas</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">FUCAPE - Fundacao Instituto Capixaba de Pesquisa em Contabilidade, Economia e Financas</mdui:DisplayName>
+          <mdui:Description xml:lang="en">FUCAPE - Fundacao Instituto Capixaba de Pesquisa em Contabilidade, Economia e Financas</mdui:Description>
+          <mdui:Description xml:lang="pt-br">FUCAPE - Fundacao Instituto Capixaba de Pesquisa em Contabilidade, Economia e Financas</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.fucape.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.fucape.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIDkjCCAnoCAQAwDQYJKoZIhvcNAQEFBQAwgY4xDzANBgNVBAoTBkZVQ0FQRTEL
+MAkGA1UECxMCVEkxHTAbBgkqhkiG9w0BCQEWDmFsYW5AZnVjYXBlLmJyMRAwDgYD
+VQQHEwdWaXRvcmlhMRcwFQYDVQQIEw5Fc3Bpcml0byBTYW50bzELMAkGA1UEBhMC
+QlIxFzAVBgNVBAMTDmNhZmUuZnVjYXBlLmJyMB4XDTE0MDcyMTE0MTQzMloXDTE3
+MDcyMDE0MTQzMlowgY4xDzANBgNVBAoTBkZVQ0FQRTELMAkGA1UECxMCVEkxHTAb
+BgkqhkiG9w0BCQEWDmFsYW5AZnVjYXBlLmJyMRAwDgYDVQQHEwdWaXRvcmlhMRcw
+FQYDVQQIEw5Fc3Bpcml0byBTYW50bzELMAkGA1UEBhMCQlIxFzAVBgNVBAMTDmNh
+ZmUuZnVjYXBlLmJyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuelJ
+x+b7r1a3vz6ppasqWtnuIEm4peG1175sZV5n4Oi1Ue2l3RLaFIQCuN3QgMOX9aRw
+bHdyPcmVMx00V6h6+O5d9jEgQMAKmNaaZnk+Np0g9foDhas88QqGzOSiuVqqfM2t
+xKUeCrmtpcWfkA3m45bMqsJn6dXqw2ab1aAE4Q1IomGbEaKihPXeYjiTmUV/1Hi0
+Y1hNRA61k2nitSWQejfoWpwLtK70k+Puk9ATckYzEGxwnAdi9weymfGEvS/EOyf/
+SPJA9guZLqk1hI/+CuiBzJhtZCS4pKEHH+QLMCzUL9jkEoANkZdbRPrPiul9iQJ6
+eFiY+E1qLkm3UjAYDwIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQBDrq/iLpDIlO2N
+88cHM2THmN2Dxn7ZuQRr19FJCIirSSky4GOIsSB/14+BdR4eQoEbyEs5Uvm3ieF9
+61fcpTjzz++aO5InnG7lHizf7UWr9nzF2fU2IkGLwQxVfeaHDistKOK76rnI95mu
+E4OdkYGgyf+LHp/aUhHln+NTuJQpxrXdtXsIcPa3iZQqKRmeJRr1lOL8yyxtI/40
+dHLpEb2GiAkHQNRQKTTCQg+yOAk/nWBTzmu+TBpkzC5TnO3uDVKxdmt5T3OuWjdQ
+qMubODGxkJq4vSSeMKiYsZ5fRXyphXm3D/XUeBWkDNpllO0vCbW9BomAeLeAUJgj
+zD1vw9HJ
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.fucape.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.fucape.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafe.fucape.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafe.fucape.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafe.fucape.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafe.fucape.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">fucape.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIDkjCCAnoCAQAwDQYJKoZIhvcNAQEFBQAwgY4xDzANBgNVBAoTBkZVQ0FQRTEL
+MAkGA1UECxMCVEkxHTAbBgkqhkiG9w0BCQEWDmFsYW5AZnVjYXBlLmJyMRAwDgYD
+VQQHEwdWaXRvcmlhMRcwFQYDVQQIEw5Fc3Bpcml0byBTYW50bzELMAkGA1UEBhMC
+QlIxFzAVBgNVBAMTDmNhZmUuZnVjYXBlLmJyMB4XDTE0MDcyMTE0MTQzMloXDTE3
+MDcyMDE0MTQzMlowgY4xDzANBgNVBAoTBkZVQ0FQRTELMAkGA1UECxMCVEkxHTAb
+BgkqhkiG9w0BCQEWDmFsYW5AZnVjYXBlLmJyMRAwDgYDVQQHEwdWaXRvcmlhMRcw
+FQYDVQQIEw5Fc3Bpcml0byBTYW50bzELMAkGA1UEBhMCQlIxFzAVBgNVBAMTDmNh
+ZmUuZnVjYXBlLmJyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuelJ
+x+b7r1a3vz6ppasqWtnuIEm4peG1175sZV5n4Oi1Ue2l3RLaFIQCuN3QgMOX9aRw
+bHdyPcmVMx00V6h6+O5d9jEgQMAKmNaaZnk+Np0g9foDhas88QqGzOSiuVqqfM2t
+xKUeCrmtpcWfkA3m45bMqsJn6dXqw2ab1aAE4Q1IomGbEaKihPXeYjiTmUV/1Hi0
+Y1hNRA61k2nitSWQejfoWpwLtK70k+Puk9ATckYzEGxwnAdi9weymfGEvS/EOyf/
+SPJA9guZLqk1hI/+CuiBzJhtZCS4pKEHH+QLMCzUL9jkEoANkZdbRPrPiul9iQJ6
+eFiY+E1qLkm3UjAYDwIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQBDrq/iLpDIlO2N
+88cHM2THmN2Dxn7ZuQRr19FJCIirSSky4GOIsSB/14+BdR4eQoEbyEs5Uvm3ieF9
+61fcpTjzz++aO5InnG7lHizf7UWr9nzF2fU2IkGLwQxVfeaHDistKOK76rnI95mu
+E4OdkYGgyf+LHp/aUhHln+NTuJQpxrXdtXsIcPa3iZQqKRmeJRr1lOL8yyxtI/40
+dHLpEb2GiAkHQNRQKTTCQg+yOAk/nWBTzmu+TBpkzC5TnO3uDVKxdmt5T3OuWjdQ
+qMubODGxkJq4vSSeMKiYsZ5fRXyphXm3D/XUeBWkDNpllO0vCbW9BomAeLeAUJgj
+zD1vw9HJ
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.fucape.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.fucape.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">FUCAPE - Fundacao Instituto Capixaba de Pesquisa em Contabilidade, Economia e Financas</OrganizationName>
+      <OrganizationName xml:lang="pt-br">FUCAPE - Fundacao Instituto Capixaba de Pesquisa em Contabilidade, Economia e Financas</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">FUCAPE - Fundacao Instituto Capixaba de Pesquisa em Contabilidade, Economia e Financas</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">FUCAPE - Fundacao Instituto Capixaba de Pesquisa em Contabilidade, Economia e Financas</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.fucape.br/</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.fucape.br/</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Alan Ruan</SurName>
+      <EmailAddress>alan@fucape.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

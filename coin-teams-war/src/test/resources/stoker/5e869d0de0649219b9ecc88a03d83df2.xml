@@ -1,0 +1,77 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://vmfetid.iamm.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-03-19T13:59:43Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">iamm.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      <mdui:DisplayName xml:lang="en">CIHEAM / IAMM</mdui:DisplayName>
+          		      <mdui:Description xml:lang="en">Personnel du CIHEAM / IAMM</mdui:Description>
+          		      <mdui:DisplayName xml:lang="fr">CIHEAM / IAMM</mdui:DisplayName>
+          		      <mdui:Description xml:lang="fr">Personnel du CIHEAM / IAMM</mdui:Description>
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDJzCCAg+gAwIBAgIUa6YcSsah7wzB8e/uovuAIHgDDikwDQYJKoZIhvcNAQEF
+BQAwGjEYMBYGA1UEAxMPdm1mZXRpZC5pYW1tLmZyMB4XDTE0MDMxOTE0MzUxMloX
+DTM0MDMxOTE0MzUxMlowGjEYMBYGA1UEAxMPdm1mZXRpZC5pYW1tLmZyMIIBIjAN
+BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgvu2YJSUPkAxdOhba3LMGpEcisXf
+VdNeH7ghFbg6CPBJUUNaDWftx8OqbB7q9UpYJRhSPxoZlsglDLCxmQPNH8zSC7F5
+Tg0cuRRMoUt7UopzEoDoeklLxfd8jTLXQBXdcQftKpZLuQAdSDuAMEW/n8pPTkCE
+Ujy7NkS7SwJTBz8aW2wiXiRrMoYO4MC0IxW0peQ9yp4ovjPqy8P/KfsPh/QjfevC
+PG+SH3J80NIjcSl6tf7CLJBVa4s/zfT6znpl1LB6qnV0gJ+jh+wSXIEsy+Q/Km/E
+VyiDxnl5NI04RKi7kDgPSpsbzAqa9oZrs9uZKIeer/lScG7oizWZZHDwXQIDAQAB
+o2UwYzBCBgNVHREEOzA5gg92bWZldGlkLmlhbW0uZnKGJmh0dHBzOi8vdm1mZXRp
+ZC5pYW1tLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBSRB4UIB+9SgknpoQOp
+MWDrw6esHjANBgkqhkiG9w0BAQUFAAOCAQEAK/jgKZJrp7uM7+h7wwHdByANU16I
+QVPXf5TNHqduJKKNgdZt84pq6ixn6WRxvFEuLWJdf2LRvRt2jwkaZEOM8gcZhUGq
+68F97X+xBDQt5iqMRmLVDnYsitc6osw5Kf4sxPdwDlt3k56aRl3vHADDsqK54vqI
+aFmAtn0cvucCFRDk7+BxejNbAi0cZWFz9yRaD2ACeJAZuNPt7giuIDjVX1hsD76f
+Oa/zVHg8v6w2WtOYhe/6PW6Aw0vPRStXXissHMStkekSzPRrHxZqu99YyyobYCKi
+I4Uca1MsJ2JD+Ds5G4kRkfKAWM9UDePCbVe9FM9SbU7rY9j+vHlnYjQpHg==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://vmfetid.iamm.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://vmfetid.iamm.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://vmfetid.iamm.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">CIHEAM / IAMM</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">CIHEAM / IAMM</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>assistance@iamm.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

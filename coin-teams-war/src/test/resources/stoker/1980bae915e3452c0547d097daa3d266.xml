@@ -1,0 +1,45 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://tcs-personal-portal.terena.org/simplesamlphp/module.php/saml/sp/metadata.php/default-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.surfconext.nl/" registrationInstant="2013-05-03T16:31:26Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://wiki.surfnetlabs.nl/display/eduGAIN/EduGAIN</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">TERENA Personal Certificate Service</mdui:DisplayName>
+          <mdui:Description xml:lang="en">This service allows you to get or deactive a personal certificate.</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.terena.org/tcs</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEITCCAwmgAwIBAgIJAJAgPhRkNLb/MA0GCSqGSIb3DQEBBQUAMGgxCzAJBgNVBAYTAk5MMQswCQYDVQQIEwJOSDESMBAGA1UEBxMJQW1zdGVyZGFtMQ8wDQYDVQQKEwZURVJFTkExJzAlBgNVBAMTHnRjcy1wZXJzb25hbC1wb3J0YWwudGVyZW5hLm9yZzAeFw0xMzA0MDgwOTM5MTVaFw0zMzA0MDcwOTM5MTVaMGgxCzAJBgNVBAYTAk5MMQswCQYDVQQIEwJOSDESMBAGA1UEBxMJQW1zdGVyZGFtMQ8wDQYDVQQKEwZURVJFTkExJzAlBgNVBAMTHnRjcy1wZXJzb25hbC1wb3J0YWwudGVyZW5hLm9yZzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANBcWpnN9ebHCveyj0WRiPOylNZXR+KG1uRaiTTT0gDjeajlUlZioQGLX0uoxqWy9D/l86LrAq6VEHX4OaBA+Xz0QonTcLz2ri1Vf1GYDjHtInc+UO6pMQHKCdbxMfS97dUXqz++H25xav/cdSPxXvc9a9mIb3DT2yaR9qsUIR2kGxXqdwoZ1fClQLJOPvEGonvlxxNBfLvaJuhvIGtKx0IXvGdnXEl3bzvp2bGPAwUxSEnFcnhjr4qmIs5QEqaqkSOmfKqwv+v2GCXdUOBjkELGVO4475tR4ouIi5rVoWmx3Tg21m/AWa5UbTBdSS6Di6n2QXsk+0j1L/FVji6exhcCAwEAAaOBzTCByjAdBgNVHQ4EFgQUoPN3NNk77LXCa/WThDYvPCp7gPowgZoGA1UdIwSBkjCBj4AUoPN3NNk77LXCa/WThDYvPCp7gPqhbKRqMGgxCzAJBgNVBAYTAk5MMQswCQYDVQQIEwJOSDESMBAGA1UEBxMJQW1zdGVyZGFtMQ8wDQYDVQQKEwZURVJFTkExJzAlBgNVBAMTHnRjcy1wZXJzb25hbC1wb3J0YWwudGVyZW5hLm9yZ4IJAJAgPhRkNLb/MAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBAIrsiiKJmDtH73e8oySp/In6QwCw2y2v0MJ9yHrPOdlTH4dQ3QFaGOaKIcD1McdKN1xWCKE6FudqVr3nuJZVliSL4rM+RE+v4gkTuNFzzz/2ARR2EkCn14K/7FuM1kGoUfIHYloB1NohRvJup3vDRGpuvutWJjOznmfxdM5aUCYYzR1fX3GTVanuaYGNzKhpKnDIjlBuZwUx/YEzEbBlTmdh5I3s5PidRnQdU4EnD2rBoT3nuqgYKLoC0d4eN9LvpI14evq9Z4WrXhEJwU4ItX5OQz+iLB6Y7LX3JBqucdfKHYcPI+yvvQVxbeSuTWIB9vhooOqjt8jxGzrBq8arBmc=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEITCCAwmgAwIBAgIJAJAgPhRkNLb/MA0GCSqGSIb3DQEBBQUAMGgxCzAJBgNVBAYTAk5MMQswCQYDVQQIEwJOSDESMBAGA1UEBxMJQW1zdGVyZGFtMQ8wDQYDVQQKEwZURVJFTkExJzAlBgNVBAMTHnRjcy1wZXJzb25hbC1wb3J0YWwudGVyZW5hLm9yZzAeFw0xMzA0MDgwOTM5MTVaFw0zMzA0MDcwOTM5MTVaMGgxCzAJBgNVBAYTAk5MMQswCQYDVQQIEwJOSDESMBAGA1UEBxMJQW1zdGVyZGFtMQ8wDQYDVQQKEwZURVJFTkExJzAlBgNVBAMTHnRjcy1wZXJzb25hbC1wb3J0YWwudGVyZW5hLm9yZzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANBcWpnN9ebHCveyj0WRiPOylNZXR+KG1uRaiTTT0gDjeajlUlZioQGLX0uoxqWy9D/l86LrAq6VEHX4OaBA+Xz0QonTcLz2ri1Vf1GYDjHtInc+UO6pMQHKCdbxMfS97dUXqz++H25xav/cdSPxXvc9a9mIb3DT2yaR9qsUIR2kGxXqdwoZ1fClQLJOPvEGonvlxxNBfLvaJuhvIGtKx0IXvGdnXEl3bzvp2bGPAwUxSEnFcnhjr4qmIs5QEqaqkSOmfKqwv+v2GCXdUOBjkELGVO4475tR4ouIi5rVoWmx3Tg21m/AWa5UbTBdSS6Di6n2QXsk+0j1L/FVji6exhcCAwEAAaOBzTCByjAdBgNVHQ4EFgQUoPN3NNk77LXCa/WThDYvPCp7gPowgZoGA1UdIwSBkjCBj4AUoPN3NNk77LXCa/WThDYvPCp7gPqhbKRqMGgxCzAJBgNVBAYTAk5MMQswCQYDVQQIEwJOSDESMBAGA1UEBxMJQW1zdGVyZGFtMQ8wDQYDVQQKEwZURVJFTkExJzAlBgNVBAMTHnRjcy1wZXJzb25hbC1wb3J0YWwudGVyZW5hLm9yZ4IJAJAgPhRkNLb/MAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBAIrsiiKJmDtH73e8oySp/In6QwCw2y2v0MJ9yHrPOdlTH4dQ3QFaGOaKIcD1McdKN1xWCKE6FudqVr3nuJZVliSL4rM+RE+v4gkTuNFzzz/2ARR2EkCn14K/7FuM1kGoUfIHYloB1NohRvJup3vDRGpuvutWJjOznmfxdM5aUCYYzR1fX3GTVanuaYGNzKhpKnDIjlBuZwUx/YEzEbBlTmdh5I3s5PidRnQdU4EnD2rBoT3nuqgYKLoC0d4eN9LvpI14evq9Z4WrXhEJwU4ItX5OQz+iLB6Y7LX3JBqucdfKHYcPI+yvvQVxbeSuTWIB9vhooOqjt8jxGzrBq8arBmc=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://tcs-personal-portal.terena.org/simplesamlphp/module.php/saml/sp/saml2-logout.php/default-sp"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://tcs-personal-portal.terena.org/simplesamlphp/module.php/saml/sp/saml2-acs.php/default-sp" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://tcs-personal-portal.terena.org/simplesamlphp/module.php/saml/sp/saml1-acs.php/default-sp" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://tcs-personal-portal.terena.org/simplesamlphp/module.php/saml/sp/saml2-acs.php/default-sp" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://tcs-personal-portal.terena.org/simplesamlphp/module.php/saml/sp/saml1-acs.php/default-sp/artifact" index="3"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">TERENA</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">TERENA</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.terena.org/tcs</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>UvT</md:GivenName>
+      <md:SurName>LIS Unix</md:SurName>
+      <md:EmailAddress>lis-unix@uvt.nl</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

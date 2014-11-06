@@ -1,0 +1,123 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://edev.cesnet.cz/sp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.eduid.cz/" registrationInstant="2012-10-10T20:28:16Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <mdasrt:Attribute xmlns:mdasrt="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <mdasrt:AttributeValue>http://eduid.cz/uri/sp-group/clarin</mdasrt:AttributeValue>
+        </mdasrt:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <DiscoveryResponse xmlns="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://edev.cesnet.cz/Shibboleth.sso/DS" index="1"/>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">Edev SP</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">Edev SP</mdui:DisplayName>
+          <mdui:Description xml:lang="en">CESNET development service provider</mdui:Description>
+          <mdui:Description xml:lang="cs">CESNET development service provider</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://edev.cesnet.cz/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">https://edev.cesnet.cz/</mdui:InformationURL>
+        </mdui:UIInfo>
+        <eduidmd:RepublishRequest xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0">
+          <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
+        </eduidmd:RepublishRequest>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>edev.cesnet.cz</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=edev.cesnet.cz,O=CESNET,L=Prague,ST=Czech Republic,C=CZ</ds:X509SubjectName>
+            <ds:X509Certificate>MIIDPjCCAiYCCQCOJsi4C7DaXDANBgkqhkiG9w0BAQUFADBhMQswCQYDVQQGEwJD
+WjEXMBUGA1UECBMOQ3plY2ggUmVwdWJsaWMxDzANBgNVBAcTBlByYWd1ZTEPMA0G
+A1UEChMGQ0VTTkVUMRcwFQYDVQQDEw5lZGV2LmNlc25ldC5jejAeFw0xMjEwMTAx
+NzU2NDBaFw0yMjEwMDgxNzU2NDBaMGExCzAJBgNVBAYTAkNaMRcwFQYDVQQIEw5D
+emVjaCBSZXB1YmxpYzEPMA0GA1UEBxMGUHJhZ3VlMQ8wDQYDVQQKEwZDRVNORVQx
+FzAVBgNVBAMTDmVkZXYuY2VzbmV0LmN6MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+MIIBCgKCAQEAqRDUJ+PwMSlE0IyXab2jcgfP2hT+fGUIOll5bOLvccECzS2GNAXO
+1JyZG2RR5XJdLc8j+8ppGU/eU9KznI/hJK4OLJmJRSujQwnXGw8xbgUWTqL96BIM
+t1++U4PxblhqU13SR1JwILkKIld1YpzmYZeUZSU8McGn0MWTNy52kuKMeGTB/bTG
+yCnAIYymnRC+F7S1O5p00gZ8Y8fLAv4cuKA4gkss1PkbpbAEDl3vMFWYVrHSfQ40
+ervXpIR8d+JjBEipdIi1S6+0XLu18bHuhiACBb0Yxvndi6Kf0x3LhebvDA26Ql3N
+haZtUB18QHbJ1QHePbDrK3xKkt/mlBgOQQIDAQABMA0GCSqGSIb3DQEBBQUAA4IB
+AQA3rep/ITfO4SeXlbpGUZQS/ez6Yjd9mQah/Wve3gRpp9G4FQRy2iuTCX3pDvne
+Y5WdPUYhSdjbhnbvGmpbO5/QFh/gzWTUlXedmdmN5RJmIRzOHpAhdhQ9cCoKB/xL
+TDrAqxoj+yQuQpjpMdTlhawqjkqee+cn7j8zGbR5HXpVM3cJPAMsRQx19sFWpnGX
+QkpkQ90+gQMK2zAPvIXtZfVTK1F0xlZ6+4NYPuoC3C8xklxfwzNoiktEgtqFPzOB
+Eq3JVPaoY+S7mCigJcJM/YAZFL+/m7SfG70iJt51GF5kfKGNQEK0A7t6+GD9RiKo
+qAMOJmOQterSszZaX0mMz1k7
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>edev.cesnet.cz</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=edev.cesnet.cz,O=CESNET,L=Prague,ST=Czech Republic,C=CZ</ds:X509SubjectName>
+            <ds:X509Certificate>MIIDPjCCAiYCCQCOJsi4C7DaXDANBgkqhkiG9w0BAQUFADBhMQswCQYDVQQGEwJD
+WjEXMBUGA1UECBMOQ3plY2ggUmVwdWJsaWMxDzANBgNVBAcTBlByYWd1ZTEPMA0G
+A1UEChMGQ0VTTkVUMRcwFQYDVQQDEw5lZGV2LmNlc25ldC5jejAeFw0xMjEwMTAx
+NzU2NDBaFw0yMjEwMDgxNzU2NDBaMGExCzAJBgNVBAYTAkNaMRcwFQYDVQQIEw5D
+emVjaCBSZXB1YmxpYzEPMA0GA1UEBxMGUHJhZ3VlMQ8wDQYDVQQKEwZDRVNORVQx
+FzAVBgNVBAMTDmVkZXYuY2VzbmV0LmN6MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+MIIBCgKCAQEAqRDUJ+PwMSlE0IyXab2jcgfP2hT+fGUIOll5bOLvccECzS2GNAXO
+1JyZG2RR5XJdLc8j+8ppGU/eU9KznI/hJK4OLJmJRSujQwnXGw8xbgUWTqL96BIM
+t1++U4PxblhqU13SR1JwILkKIld1YpzmYZeUZSU8McGn0MWTNy52kuKMeGTB/bTG
+yCnAIYymnRC+F7S1O5p00gZ8Y8fLAv4cuKA4gkss1PkbpbAEDl3vMFWYVrHSfQ40
+ervXpIR8d+JjBEipdIi1S6+0XLu18bHuhiACBb0Yxvndi6Kf0x3LhebvDA26Ql3N
+haZtUB18QHbJ1QHePbDrK3xKkt/mlBgOQQIDAQABMA0GCSqGSIb3DQEBBQUAA4IB
+AQA3rep/ITfO4SeXlbpGUZQS/ez6Yjd9mQah/Wve3gRpp9G4FQRy2iuTCX3pDvne
+Y5WdPUYhSdjbhnbvGmpbO5/QFh/gzWTUlXedmdmN5RJmIRzOHpAhdhQ9cCoKB/xL
+TDrAqxoj+yQuQpjpMdTlhawqjkqee+cn7j8zGbR5HXpVM3cJPAMsRQx19sFWpnGX
+QkpkQ90+gQMK2zAPvIXtZfVTK1F0xlZ6+4NYPuoC3C8xklxfwzNoiktEgtqFPzOB
+Eq3JVPaoY+S7mCigJcJM/YAZFL+/m7SfG70iJt51GF5kfKGNQEK0A7t6+GD9RiKo
+qAMOJmOQterSszZaX0mMz1k7
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://edev.cesnet.cz/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://edev.cesnet.cz/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://edev.cesnet.cz/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://edev.cesnet.cz/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://edev.cesnet.cz/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://edev.cesnet.cz/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://edev.cesnet.cz/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://edev.cesnet.cz/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://edev.cesnet.cz/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://edev.cesnet.cz/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://edev.cesnet.cz/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://edev.cesnet.cz/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://edev.cesnet.cz/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://edev.cesnet.cz/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://edev.cesnet.cz/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="en">Edev SP</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">Shows available attributes and assertions</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="email" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+        <md:RequestedAttribute FriendlyName="eduPersonEntitlement" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.7" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+        <md:RequestedAttribute FriendlyName="email" Name="urn:mace:dir:attribute-def:mail" NameFormat="urn:mace:shibboleth:1.0:attributeNamespace:uri"/>
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:mace:dir:attribute-def:eduPersonPrincipalName" NameFormat="urn:mace:shibboleth:1.0:attributeNamespace:uri"/>
+        <md:RequestedAttribute FriendlyName="eduPersonEntitlement" Name="urn:mace:dir:attribute-def:eduPersonEntitlement" NameFormat="urn:mace:shibboleth:1.0:attributeNamespace:uri"/>
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:mace:dir:attribute-def:eduPersonTargetedID" NameFormat="urn:mace:shibboleth:1.0:attributeNamespace:uri"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <Organization xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
+      <OrganizationName xml:lang="en">CESNET</OrganizationName>
+      <OrganizationName xml:lang="cs">CESNET</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">CESNET, a. l. e.</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="cs">CESNET, z. s. p. o.</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.ces.net/</OrganizationURL>
+      <OrganizationURL xml:lang="cs">http://www.cesnet.cz/</OrganizationURL>
+    </Organization>
+    <ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="technical">
+      <GivenName>Ivan</GivenName>
+      <SurName>Novakov</SurName>
+      <EmailAddress>novakoi@fel.cvut.cz</EmailAddress>
+    </ContactPerson>
+  </md:EntityDescriptor>

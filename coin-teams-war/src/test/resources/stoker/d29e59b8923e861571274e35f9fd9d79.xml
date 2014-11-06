@@ -1,0 +1,132 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://idp.ufpr.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">ufpr.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">UFPR - Universidade Federal do Parana</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">UFPR - Universidade Federal do Parana</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UFPR - Universidade Federal do Parana</mdui:Description>
+          <mdui:Description xml:lang="pt-br">UFPR - Universidade Federal do Parana</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ufpr.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ufpr.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIID+jCCAuICAQAwDQYJKoZIhvcNAQEFBQAwgcIxLzAtBgNVBAoUJlVGUFIgLSBV
+bml2ZXJzaWRhZGUgRmVkZXJhbCBkbyBQYXJhbsOhMSswKQYDVQQLFCJDZW50cm8g
+ZGUgQ29tcHV0YcOnw6NvIEVsZXRyw7RuaWNhMRowGAYJKoZIhvcNAQkBFgtjY2VA
+dWZwci5icjERMA8GA1UEBxMIQ3VyaXRpYmExEDAOBgNVBAgUB1BhcmFuw6ExCzAJ
+BgNVBAYTAkJSMRQwEgYDVQQDEwtpZHAudWZwci5icjAeFw0xMjA4MjAyMDIzMzZa
+Fw0xNTA4MjAyMDIzMzZaMIHCMS8wLQYDVQQKFCZVRlBSIC0gVW5pdmVyc2lkYWRl
+IEZlZGVyYWwgZG8gUGFyYW7DoTErMCkGA1UECxQiQ2VudHJvIGRlIENvbXB1dGHD
+p8OjbyBFbGV0csO0bmljYTEaMBgGCSqGSIb3DQEJARYLY2NlQHVmcHIuYnIxETAP
+BgNVBAcTCEN1cml0aWJhMRAwDgYDVQQIFAdQYXJhbsOhMQswCQYDVQQGEwJCUjEU
+MBIGA1UEAxMLaWRwLnVmcHIuYnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+AoIBAQDhSIFAyy4DlsvFhaSd1r3CiUjp//kkxFlfeZmtj5gLGupTk+fQF18j71Go
+K4OwvL82UI/KYE5Me2tlueEJvBExd79by4fBME6SADdHc9Su1w1lctn4s6Mko9ux
+j9WcbrBfncbdj80T6W88EDH+V74oiCEElxBLfBOeXJCuMjc9uSaasbIMWMK+7ExV
+lz7d8ll7umv5AX84tpq8WDkc+7fcP9+p5GMtcTrdPKvL2CvSFmrnz+efKb6cNOT0
+B058D+uHPb0PasA6+xHpO3V3pSbSdcf8IqlvJKvoK8dch4qQ6uZD+Rz8ruxaPpBH
+cJdZk6hk0gc+7axjEWo/89CJauJzAgMBAAEwDQYJKoZIhvcNAQEFBQADggEBAJ70
+kkZit+4D85Xi5Ms8+EYCjCo0GfUUp83ASZyPRml/D0VnOHLuj+dbPdQM0znnb5Sg
+7hIbSs/ERqrzKFJMJikpFXm1RQZNNRdf0d0V4nTrliXjGQcPCqXexdXRE6oBMeAi
+apbG2X8rFstwVVghWlbqkUjtko8MgUiD/RyjbAqVBWxqNjRGB3JOVt1g2SJ1tW7x
+pL1kcSedKTjYji+gJ9NLqumL9LTdtlqPzdBlChK4SfIIK/BE3GtD1S6rHn2wX+MC
++anyEs7LQkZJPiqDeo2VM3XLIHdw5VTf8HnFiLJMiDkuIUOj5g77gFFE5HGKPuur
+k+Eyx9965LHHOvpH3Zo=
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ufpr.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ufpr.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.ufpr.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ufpr.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ufpr.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ufpr.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">ufpr.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIID+jCCAuICAQAwDQYJKoZIhvcNAQEFBQAwgcIxLzAtBgNVBAoUJlVGUFIgLSBV
+bml2ZXJzaWRhZGUgRmVkZXJhbCBkbyBQYXJhbsOhMSswKQYDVQQLFCJDZW50cm8g
+ZGUgQ29tcHV0YcOnw6NvIEVsZXRyw7RuaWNhMRowGAYJKoZIhvcNAQkBFgtjY2VA
+dWZwci5icjERMA8GA1UEBxMIQ3VyaXRpYmExEDAOBgNVBAgUB1BhcmFuw6ExCzAJ
+BgNVBAYTAkJSMRQwEgYDVQQDEwtpZHAudWZwci5icjAeFw0xMjA4MjAyMDIzMzZa
+Fw0xNTA4MjAyMDIzMzZaMIHCMS8wLQYDVQQKFCZVRlBSIC0gVW5pdmVyc2lkYWRl
+IEZlZGVyYWwgZG8gUGFyYW7DoTErMCkGA1UECxQiQ2VudHJvIGRlIENvbXB1dGHD
+p8OjbyBFbGV0csO0bmljYTEaMBgGCSqGSIb3DQEJARYLY2NlQHVmcHIuYnIxETAP
+BgNVBAcTCEN1cml0aWJhMRAwDgYDVQQIFAdQYXJhbsOhMQswCQYDVQQGEwJCUjEU
+MBIGA1UEAxMLaWRwLnVmcHIuYnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+AoIBAQDhSIFAyy4DlsvFhaSd1r3CiUjp//kkxFlfeZmtj5gLGupTk+fQF18j71Go
+K4OwvL82UI/KYE5Me2tlueEJvBExd79by4fBME6SADdHc9Su1w1lctn4s6Mko9ux
+j9WcbrBfncbdj80T6W88EDH+V74oiCEElxBLfBOeXJCuMjc9uSaasbIMWMK+7ExV
+lz7d8ll7umv5AX84tpq8WDkc+7fcP9+p5GMtcTrdPKvL2CvSFmrnz+efKb6cNOT0
+B058D+uHPb0PasA6+xHpO3V3pSbSdcf8IqlvJKvoK8dch4qQ6uZD+Rz8ruxaPpBH
+cJdZk6hk0gc+7axjEWo/89CJauJzAgMBAAEwDQYJKoZIhvcNAQEFBQADggEBAJ70
+kkZit+4D85Xi5Ms8+EYCjCo0GfUUp83ASZyPRml/D0VnOHLuj+dbPdQM0znnb5Sg
+7hIbSs/ERqrzKFJMJikpFXm1RQZNNRdf0d0V4nTrliXjGQcPCqXexdXRE6oBMeAi
+apbG2X8rFstwVVghWlbqkUjtko8MgUiD/RyjbAqVBWxqNjRGB3JOVt1g2SJ1tW7x
+pL1kcSedKTjYji+gJ9NLqumL9LTdtlqPzdBlChK4SfIIK/BE3GtD1S6rHn2wX+MC
++anyEs7LQkZJPiqDeo2VM3XLIHdw5VTf8HnFiLJMiDkuIUOj5g77gFFE5HGKPuur
+k+Eyx9965LHHOvpH3Zo=
+
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ufpr.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ufpr.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">UFPR - Universidade Federal do Parana</OrganizationName>
+      <OrganizationName xml:lang="pt-br">UFPR - Universidade Federal do Parana</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">UFPR - Universidade Federal do Parana</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">UFPR - Universidade Federal do Parana</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.ufpr.br/</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.ufpr.br/</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Antonio Rodrigues Barros</SurName>
+      <EmailAddress>antonio@ufpr.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

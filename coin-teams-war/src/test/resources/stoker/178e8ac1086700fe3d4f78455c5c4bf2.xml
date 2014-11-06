@@ -1,0 +1,77 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.eurecom.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-03-20T18:45:57Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">eurecom.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      <mdui:DisplayName xml:lang="en">EURECOM</mdui:DisplayName>
+          		      <mdui:Description xml:lang="en">Any student, researcher and personal users authenticated by directory server of EURECOM.</mdui:Description>
+          		      <mdui:DisplayName xml:lang="fr">EURECOM</mdui:DisplayName>
+          		      <mdui:Description xml:lang="fr">Tout utilisateur de type étudiant, chercheur et personnel authentifié par l'annuaire d'EURECOM.</mdui:Description>
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDJDCCAgygAwIBAgIVAL0+FcNd+RBrqwXsGlutpKVVG5BzMA0GCSqGSIb3DQEB
+BQUAMBkxFzAVBgNVBAMTDmlkcC5ldXJlY29tLmZyMB4XDTEzMTIxMjA5NTcyN1oX
+DTMzMTIxMjA5NTcyN1owGTEXMBUGA1UEAxMOaWRwLmV1cmVjb20uZnIwggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDGYpCW+8So7j9MDPjvSzK7ThwTHigN
+9XSgt3xydTOSJdZ2R/0JkZ7mSMoNhb21ZPnOlMntPTG7I5iWKh9O02rHj2/01JzU
+6PmD+hNHI2XWrA6yCarO+6/t38seOPAoBJZJ067UTWQ/Wup7v1aWZ3fgu3Meay0s
+6iwlfUZMVXfDH1DO1kvnhirlXxCBVXwhsXIksje2gsECayHpvPQ7ZyD9pIRGo74I
+NEqXPj5Z9F3XtXngMHdMvDJlWHo3oZ1p/WrQa2jHx0rynFYleEGzms9gtsBWQmtP
+G7JNlLntBsDa2WDmCYc4JoyeH29IVgRSCF8DqHTQpRnFUx1uokFfJjcnAgMBAAGj
+YzBhMEAGA1UdEQQ5MDeCDmlkcC5ldXJlY29tLmZyhiVodHRwczovL2lkcC5ldXJl
+Y29tLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBQXXN9yiNpwBniygQ4M8be1
+VW+n0jANBgkqhkiG9w0BAQUFAAOCAQEAb1oFFcqPKv/IGgsUQCHrHNB5dG3lWCMC
+RotaqTqIQORT0ittxS8JAv53j+tEo/C5BbdHqX2lwJb6qlqpzOb9IRHsJfAhKuXc
+uIgTN3Hp9gdSnT0sFqlffmdqL09u56nJYpgGXx78IcxZ7Q6uVXvjj9/r72i6cMbF
+yQVYEVSEnTGb6XI/Lk/bF5t5KZPhnNWM3cVC+4qLwcuJTKcO9/mJyU3y0QczeCaR
+DCkMZEunkZO+fnPbVEaY4/a7rRKebhMty9gcJASrTF9seG5IfME0Nz61+Mbjre9V
+wYMMzOpBYP7tCdxld40eG8UXU7Hzw9smDW1QErZqbMYm3Z7Qss1p0Q==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.eurecom.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.eurecom.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.eurecom.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">EURECOM</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">EURECOM</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>shibboleth@eurecom.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

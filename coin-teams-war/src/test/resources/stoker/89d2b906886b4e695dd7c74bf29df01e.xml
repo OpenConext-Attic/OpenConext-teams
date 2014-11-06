@@ -1,0 +1,108 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="uk000331" entityID="https://idp.ed.ac.uk/shibboleth">
+	
+	<Extensions>
+
+
+
+
+
+		<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://ukfederation.org.uk" registrationInstant="2008-04-10T09:51:00Z">
+			<mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+		</mdrpi:RegistrationInfo>
+	</Extensions>
+	<IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+		<Extensions>
+			<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ed.ac.uk</shibmd:Scope>
+			<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+				<mdui:DisplayName xml:lang="en">University of Edinburgh</mdui:DisplayName>
+				<mdui:Logo height="70" width="315">https://idp.ed.ac.uk/university.gif</mdui:Logo>
+			</mdui:UIInfo>
+			<mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+				<mdui:GeolocationHint>geo:55.9213,-3.1726</mdui:GeolocationHint>
+			</mdui:DiscoHints>
+		</Extensions>
+		<KeyDescriptor>
+			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+				<ds:X509Data>
+					<ds:X509Certificate>
+						MIIDGzCCAgOgAwIBAgIUaNzLeqDgCpvqZ+xdntpj4UryL9AwDQYJKoZIhvcNAQEF
+						BQAwFzEVMBMGA1UEAxMMaWRwLmVkLmFjLnVrMB4XDTEwMDYyMzE0MTIzNFoXDTMw
+						MDYyMzE0MTIzNFowFzEVMBMGA1UEAxMMaWRwLmVkLmFjLnVrMIIBIjANBgkqhkiG
+						9w0BAQEFAAOCAQ8AMIIBCgKCAQEA8RXQWoMfry/rRwfXVCxnRdkS05zIfHerw0/c
+						ObSFOORK8zOShk1QKuv+TevSZFJgD+iu96A1s55q6k0ZtbpW1iKzTAbHLXikt0yT
+						GYg5th2Gp3PqBFdzChse1Sdk8exRou10yOGZaqCyfG61u+BRgdEzefdG6to7PpG4
+						BNWD1njtO6zDl/zzsX9DiV3Kc7Fuo6P7ak+XPHGxztXVNwDRSoKZYiM5K11dpGvG
+						nhyhL2gbIO98AzGMELdkurTf4EYXuELGPY836NNdzhBEZ0Mo+g9EUqvPQ8inFOT4
+						TloSEUtxUzLr530YPOezm55QCDjH7JIS4rc+G4rN1B7b1zTybwIDAQABo18wXTA8
+						BgNVHREENTAzggxpZHAuZWQuYWMudWuGI2h0dHBzOi8vaWRwLmVkLmFjLnVrL2lk
+						cC9zaGliYm9sZXRoMB0GA1UdDgQWBBQmHZOct2bza0v07qT/d1ATgFYrajANBgkq
+						hkiG9w0BAQUFAAOCAQEAEgOOXyutNIWNlWoDj3VKfkZFDpw/2qvrP09EaYGBCwZ+
+						NAmPHWtN+3jlDxfnYBwhTAaCWlZBqfhk4JObVH2Q3xu08zWEHBqo4fr/YGYYWAGp
+						nZ29epYGOJAYbuJcWwwMJ4onFHyygRgmec4xPnz53noB8h6VEMmfP77y0JzZIF86
+						+1icvTyJg4ydkh8iPir4WwZzuP7wj+cPb3uyNTGSusxhghVoREkGIG2YBwgp3cyv
+						zqrzhKEksLsrrxs4mtHKDUDPSS1iArA4OJHFoIqEBMg8UOQFY4FA/FV4BDd6L5Z/
+						u0zH2B9Z0UeGRg5ivQYSOQ9HLX2IeDCQWhcJC33ibQ==
+					</ds:X509Certificate>
+				</ds:X509Data>
+			</ds:KeyInfo>
+		</KeyDescriptor>
+		<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ed.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+		<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ed.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+		<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+		<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ed.ac.uk/idp/profile/Shibboleth/SSO"/>
+		<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ed.ac.uk/idp/profile/SAML2/POST/SSO"/>
+		<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.ed.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+		<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ed.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+	</IDPSSODescriptor>
+	<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+		<Extensions>
+			<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ed.ac.uk</shibmd:Scope>
+		</Extensions>
+		<KeyDescriptor>
+			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+				<ds:X509Data>
+					<ds:X509Certificate>
+						MIIDGzCCAgOgAwIBAgIUaNzLeqDgCpvqZ+xdntpj4UryL9AwDQYJKoZIhvcNAQEF
+						BQAwFzEVMBMGA1UEAxMMaWRwLmVkLmFjLnVrMB4XDTEwMDYyMzE0MTIzNFoXDTMw
+						MDYyMzE0MTIzNFowFzEVMBMGA1UEAxMMaWRwLmVkLmFjLnVrMIIBIjANBgkqhkiG
+						9w0BAQEFAAOCAQ8AMIIBCgKCAQEA8RXQWoMfry/rRwfXVCxnRdkS05zIfHerw0/c
+						ObSFOORK8zOShk1QKuv+TevSZFJgD+iu96A1s55q6k0ZtbpW1iKzTAbHLXikt0yT
+						GYg5th2Gp3PqBFdzChse1Sdk8exRou10yOGZaqCyfG61u+BRgdEzefdG6to7PpG4
+						BNWD1njtO6zDl/zzsX9DiV3Kc7Fuo6P7ak+XPHGxztXVNwDRSoKZYiM5K11dpGvG
+						nhyhL2gbIO98AzGMELdkurTf4EYXuELGPY836NNdzhBEZ0Mo+g9EUqvPQ8inFOT4
+						TloSEUtxUzLr530YPOezm55QCDjH7JIS4rc+G4rN1B7b1zTybwIDAQABo18wXTA8
+						BgNVHREENTAzggxpZHAuZWQuYWMudWuGI2h0dHBzOi8vaWRwLmVkLmFjLnVrL2lk
+						cC9zaGliYm9sZXRoMB0GA1UdDgQWBBQmHZOct2bza0v07qT/d1ATgFYrajANBgkq
+						hkiG9w0BAQUFAAOCAQEAEgOOXyutNIWNlWoDj3VKfkZFDpw/2qvrP09EaYGBCwZ+
+						NAmPHWtN+3jlDxfnYBwhTAaCWlZBqfhk4JObVH2Q3xu08zWEHBqo4fr/YGYYWAGp
+						nZ29epYGOJAYbuJcWwwMJ4onFHyygRgmec4xPnz53noB8h6VEMmfP77y0JzZIF86
+						+1icvTyJg4ydkh8iPir4WwZzuP7wj+cPb3uyNTGSusxhghVoREkGIG2YBwgp3cyv
+						zqrzhKEksLsrrxs4mtHKDUDPSS1iArA4OJHFoIqEBMg8UOQFY4FA/FV4BDd6L5Z/
+						u0zH2B9Z0UeGRg5ivQYSOQ9HLX2IeDCQWhcJC33ibQ==
+					</ds:X509Certificate>
+				</ds:X509Data>
+			</ds:KeyInfo>
+		</KeyDescriptor>
+		<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ed.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+		<AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ed.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+		<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+		<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+	</AttributeAuthorityDescriptor>
+	<Organization>
+		<OrganizationName xml:lang="en">University of Edinburgh</OrganizationName>
+		<OrganizationDisplayName xml:lang="en">University of Edinburgh</OrganizationDisplayName>
+		<OrganizationDisplayName xml:lang="gd">Oilthigh Dhùn Èideann</OrganizationDisplayName>
+		<OrganizationURL xml:lang="en">http://www.ed.ac.uk/</OrganizationURL>
+	</Organization>
+	<ContactPerson contactType="support">
+		<GivenName>IS Helpline</GivenName>
+		<EmailAddress>mailto:IS.Helpline@ed.ac.uk</EmailAddress>
+	</ContactPerson>
+	<ContactPerson contactType="technical">
+		<GivenName>shibboleth@ed.ac.uk</GivenName>
+		<EmailAddress>mailto:shibboleth@ed.ac.uk</EmailAddress>
+	</ContactPerson>
+
+
+</EntityDescriptor>

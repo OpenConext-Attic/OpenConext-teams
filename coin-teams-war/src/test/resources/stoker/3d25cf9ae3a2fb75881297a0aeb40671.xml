@@ -1,0 +1,77 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.u-paris2.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2010-05-04T13:52:38Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">u-paris2.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de Paris 2 - Panthéon Assas</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDKDCCAhCgAwIBAgIVAINFA2whEjq7dIPf8YLpG746hePRMA0GCSqGSIb3DQEB
+BQUAMBoxGDAWBgNVBAMTD2lkcC51LXBhcmlzMi5mcjAeFw0xNDA0MjkwNzQ4MjJa
+Fw0zNDA0MjkwNzQ4MjJaMBoxGDAWBgNVBAMTD2lkcC51LXBhcmlzMi5mcjCCASIw
+DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANXXoMeffbh8zBylAJsvJYWVAvsl
+1i1KpJ4xVDftwXJAAc2rpzSH2vWZ4qXKm677GYWyrD6U5SC7tFrYKhnCIuTKyzyg
+Wa93DyjDngc92+ci6ESR3DbpTkLtu5QqCzp+MNy1X7ggo24YagZHwYSpu+ftIZtr
+bZhK0xou+sEXg7kap+QTCYI1WHs/S84p53FRzKdDENg3JwLY8bVSwHK/Ikdanq0S
+4HpCVS7nIxh/Pxj0dL7X7GqclJS5CQZWTvNgGfeI5pbtuN9EvUyYzIn7DL/ADhRh
+60Q8RAmFx6i7touVzWuLAaIOYKrQhf2BKZnRrRj27mxHfee9vWPryla0UBUCAwEA
+AaNlMGMwQgYDVR0RBDswOYIPaWRwLnUtcGFyaXMyLmZyhiZodHRwczovL2lkcC51
+LXBhcmlzMi5mci9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU0UgDCtUMhwUc/VRK
+AG2CRoL4NpMwDQYJKoZIhvcNAQEFBQADggEBALyLQEriutI0U1ObNVQPGIT7qien
+9mvExaFkO4B0a4lIEpK19Mv2nVLxuJgd3Ov32GACN8kF8M+rldrlNEVNd6l3kW2I
+XhHLjOr4MHhWp9bzAOYZ6Nr28iOwcylDloHAcEUo+8iBwgiCrfcMAeF5EhRbyTIw
+pwo+ghS3u/1WiZwpZV7rQVaEWkW/fwaZBmELmI6C9clq9+qG0/a86tU1Caqjn34g
+xrX/4JKfdKHNuguH4eowRTHgjvkQKyTDcphzAnOr6CE8islttFut36iPvYYJO7t9
+ZOq3IDpQLAcll+GhtVWTmM1041GbGkbqzThB/ADpE/wl5efhlsP7vQEcOkE=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.u-paris2.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.u-paris2.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.u-paris2.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Paris 2 - Panthéon Assas</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Paris 2 - Panthéon Assas</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>ssri@u-paris2.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

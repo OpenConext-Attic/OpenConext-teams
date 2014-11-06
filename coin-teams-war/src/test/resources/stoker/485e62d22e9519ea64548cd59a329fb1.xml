@@ -1,0 +1,105 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://sp-test.swamid.se/shibboleth">
+  <md:Extensions>
+<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.swamid.se/">
+<mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+</mdrpi:RegistrationInfo>
+    <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+      <samla:Attribute xmlns:samla="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+        <samla:AttributeValue>http://www.swamid.se/category/sfs-1993-1153</samla:AttributeValue>
+        <samla:AttributeValue>http://www.swamid.se/category/research-and-education</samla:AttributeValue>
+        <samla:AttributeValue>http://refeds.org/category/research-and-scholarship</samla:AttributeValue>
+        <samla:AttributeValue>http://www.swamid.se/category/nren-service</samla:AttributeValue>
+      </samla:Attribute>
+    </mdattr:EntityAttributes>
+  </md:Extensions>
+  <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+    <md:Extensions>
+      <DiscoveryResponse xmlns="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sp-test.swamid.se/Shibboleth.sso/DS" index="1"/>
+      <DiscoveryResponse xmlns="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sp-test.swamid.se/Shibboleth.sso/DS/ds.swamid.se" index="2"/>
+      <DiscoveryResponse xmlns="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sp-test.swamid.se/Shibboleth.sso/DS/ds.sunet.se" index="3"/>
+      <DiscoveryResponse xmlns="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sp-test.swamid.se/Shibboleth.sso/DS/test-ds.nordu.net" index="4"/>
+      <DiscoveryResponse xmlns="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sp-test.swamid.se/Shibboleth.sso/DS/kalmar2" index="5"/>
+      <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <mdui:DisplayName xml:lang="sv">SWAMID Test SP</mdui:DisplayName>
+        <mdui:DisplayName xml:lang="en">SWAMID Test SP</mdui:DisplayName>
+        <mdui:Description xml:lang="sv">Detta är en applikation som låter dig testa federerad inloggning.</mdui:Description>
+        <mdui:Description xml:lang="en">This is an application for testing federated authentication.</mdui:Description>
+        <mdui:InformationURL xml:lang="sv">http://www.swamid.se</mdui:InformationURL>
+        <mdui:InformationURL xml:lang="en">http://www.swamid.se</mdui:InformationURL>
+      </mdui:UIInfo>
+    </md:Extensions>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyName>sp-test.swamid.se</ds:KeyName>
+        <ds:X509Data>
+          <ds:X509SubjectName>CN=sp-test.swamid.se</ds:X509SubjectName>
+          <ds:X509Certificate>MIIC+jCCAeKgAwIBAgIJAO0UNmz1orzrMA0GCSqGSIb3DQEBBQUAMBwxGjAYBgNV
+BAMTEXNwLXRlc3Quc3dhbWlkLnNlMB4XDTA5MTAyNzE0NTkzOFoXDTE5MTAyNTE0
+NTkzOFowHDEaMBgGA1UEAxMRc3AtdGVzdC5zd2FtaWQuc2UwggEiMA0GCSqGSIb3
+DQEBAQUAA4IBDwAwggEKAoIBAQC9292zBRgCYnJeviTmWQ9gDjqjtQwnvzTpZMVa
+o2gmEb8NQOPwGqDAZ8kHhhjsqXd37VjOcQc5KyfxdKnwS8zzb0GFqTyVXtJ1wjZb
+WPkOgRw1c0u7RuRgzn/vWMDLIRtymm2stX2hu1E2qctQ2zSEhiNrWdMNNArh/IKP
++MNT1a1w5QR3fbv7/Q+7T3VF2vyzFMo44FDId9kApN3/TSnJRaQ0tQQBgnZtrIAk
+vjR6B/R9qowuwK/0QIifM1KrVT9OYHA0GP708IAdEzzuzLU5vyJuAzDhBNirPtFv
+QcAKI8RfYBiwdJ29QkMAWHlNW3oP8KpUJzJ3r3KOcIHMwfSbAgMBAAGjPzA9MBwG
+A1UdEQQVMBOCEXNwLXRlc3Quc3dhbWlkLnNlMB0GA1UdDgQWBBS0j9yIqP5DvTEl
+YHt7Ugh3BTVX/TANBgkqhkiG9w0BAQUFAAOCAQEANL4WmGSMJws0XzNxcodD3TVV
+yvLOLmFy8cNhB7cmz3rqoZebUqN9yWaCmZjCOMQ8Ghw++ITk/Ol0uXuCf7vKvXpW
+7AEPL12mGVfH82PhyxYnY9BZNpfAsGWpM1Nvfz7AOkngD/G8Ws2+Bf4xS4PVHzgm
+yEth2XQtHlSquOj2abA/wjguZvN0PGFUJl+ZxXxZ5mkyFmjQ+wnvF1BUlMD7qBF8
+WUA9TiYEiXgsASTgW/F038f4VNecqrBpJHU4TILmEtioGEFVLipU8huAzbcBCPYb
+0z3axBqiW0bRmgvql97lV3HRRkwGKLV1T8oiau31qQU2zzBt6jC2AQgXWjjvSg==
+</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:KeyDescriptor use="encryption">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyName>sp-test.swamid.se</ds:KeyName>
+        <ds:X509Data>
+          <ds:X509SubjectName>CN=sp-test.swamid.se</ds:X509SubjectName>
+          <ds:X509Certificate>MIIC+jCCAeKgAwIBAgIJAO0UNmz1orzrMA0GCSqGSIb3DQEBBQUAMBwxGjAYBgNV
+BAMTEXNwLXRlc3Quc3dhbWlkLnNlMB4XDTA5MTAyNzE0NTkzOFoXDTE5MTAyNTE0
+NTkzOFowHDEaMBgGA1UEAxMRc3AtdGVzdC5zd2FtaWQuc2UwggEiMA0GCSqGSIb3
+DQEBAQUAA4IBDwAwggEKAoIBAQC9292zBRgCYnJeviTmWQ9gDjqjtQwnvzTpZMVa
+o2gmEb8NQOPwGqDAZ8kHhhjsqXd37VjOcQc5KyfxdKnwS8zzb0GFqTyVXtJ1wjZb
+WPkOgRw1c0u7RuRgzn/vWMDLIRtymm2stX2hu1E2qctQ2zSEhiNrWdMNNArh/IKP
++MNT1a1w5QR3fbv7/Q+7T3VF2vyzFMo44FDId9kApN3/TSnJRaQ0tQQBgnZtrIAk
+vjR6B/R9qowuwK/0QIifM1KrVT9OYHA0GP708IAdEzzuzLU5vyJuAzDhBNirPtFv
+QcAKI8RfYBiwdJ29QkMAWHlNW3oP8KpUJzJ3r3KOcIHMwfSbAgMBAAGjPzA9MBwG
+A1UdEQQVMBOCEXNwLXRlc3Quc3dhbWlkLnNlMB0GA1UdDgQWBBS0j9yIqP5DvTEl
+YHt7Ugh3BTVX/TANBgkqhkiG9w0BAQUFAAOCAQEANL4WmGSMJws0XzNxcodD3TVV
+yvLOLmFy8cNhB7cmz3rqoZebUqN9yWaCmZjCOMQ8Ghw++ITk/Ol0uXuCf7vKvXpW
+7AEPL12mGVfH82PhyxYnY9BZNpfAsGWpM1Nvfz7AOkngD/G8Ws2+Bf4xS4PVHzgm
+yEth2XQtHlSquOj2abA/wjguZvN0PGFUJl+ZxXxZ5mkyFmjQ+wnvF1BUlMD7qBF8
+WUA9TiYEiXgsASTgW/F038f4VNecqrBpJHU4TILmEtioGEFVLipU8huAzbcBCPYb
+0z3axBqiW0bRmgvql97lV3HRRkwGKLV1T8oiau31qQU2zzBt6jC2AQgXWjjvSg==
+</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sp-test.swamid.se/Shibboleth.sso/Artifact/SOAP" index="1"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sp-test.swamid.se/Shibboleth.sso/SLO/SOAP"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sp-test.swamid.se/Shibboleth.sso/SLO/Redirect"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp-test.swamid.se/Shibboleth.sso/SLO/POST"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sp-test.swamid.se/Shibboleth.sso/SLO/Artifact"/>
+    <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sp-test.swamid.se/Shibboleth.sso/NIM/SOAP"/>
+    <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sp-test.swamid.se/Shibboleth.sso/NIM/Redirect"/>
+    <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp-test.swamid.se/Shibboleth.sso/NIM/POST"/>
+    <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sp-test.swamid.se/Shibboleth.sso/NIM/Artifact"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp-test.swamid.se/Shibboleth.sso/SAML2/POST" index="1"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sp-test.swamid.se/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sp-test.swamid.se/Shibboleth.sso/SAML2/Artifact" index="3"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://sp-test.swamid.se/Shibboleth.sso/SAML2/ECP" index="4"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://sp-test.swamid.se/Shibboleth.sso/SAML/POST" index="5"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://sp-test.swamid.se/Shibboleth.sso/SAML/Artifact" index="6"/>
+  </md:SPSSODescriptor>
+<md:Organization>
+    <md:OrganizationName xml:lang="en">SWAMID</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">Swedish Academic Identity Federation (SWAMID)</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.swamid.se</md:OrganizationURL>
+</md:Organization>
+<md:ContactPerson contactType="technical">
+<md:EmailAddress>operations@swamid.se</md:EmailAddress>
+</md:ContactPerson>
+</md:EntityDescriptor>

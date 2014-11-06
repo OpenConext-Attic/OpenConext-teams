@@ -1,0 +1,65 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.nuigalway.ie/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.heanet.ie" registrationInstant="2010-10-01T00:00:00Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">nuigalway.ie</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">National University of Ireland, Galway</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="ga">OÉ Gaillimh</mdui:DisplayName>
+          <mdui:Logo height="68" width="225">https://edugate.heanet.ie/rr3/logos/nuig.png</mdui:Logo>
+          <mdui:InformationURL xml:lang="en">http://nuigalway.ie</mdui:InformationURL>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:GeolocationHint>geo:53.278923955103785,-9.060437679290771</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDKzCCAhOgAwIBAgIUaZj83WML6Ro0NOTyru/oCY9DaWcwDQYJKoZIhvcNAQEF
+BQAwGzEZMBcGA1UEAxMQaWRwLm51aWdhbHdheS5pZTAeFw0xMDA4MzAxNDUyMjJa
+Fw0zMDA4MzAxNDUyMjJaMBsxGTAXBgNVBAMTEGlkcC5udWlnYWx3YXkuaWUwggEi
+MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCVTQr39i7dOPz//U7kaSk61ADv
+8zczZ4deMcSfUXGtBXwm1G913PqpjDkphmI5A5ehg7tOLjc1I/QXQI/MOi5EW5p8
+9mlrjtjuikIEZ1QJFnM0sGP2wNXUmFnfD3SX78lZbd6pqTDh/EyyO21q/6/7nIH3
+8Ds/R51LWZ4SHLXiVUj+xoLh9PaIWb1j2X9AS6t7FoUTfkQDTrNc78HNpTRy/RPN
+RKfzVUWsqmCbgCrVgz2k8ie5j9YDJ0IpFfGbdBOGUqaZuu53gyMzRTJ2KCmKIirH
+hMtk4fkx3lh9qaWMvpep9Ys9fcvv7h9ODKBDycRxoVJhfvKpRct3OmU38DFnAgMB
+AAGjZzBlMEQGA1UdEQQ9MDuCEGlkcC5udWlnYWx3YXkuaWWGJ2h0dHBzOi8vaWRw
+Lm51aWdhbHdheS5pZS9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUoSgXUY0R/R/L
+Weanf9/oteOvIL4wDQYJKoZIhvcNAQEFBQADggEBACenzaISa4sjW40cKZAdYMYp
+Aj/83wlM5r5jNvK4XML3DuQdgvVfgDhU7DLbeQTPvcySE2Mfn87PHT7wdCXZoOu0
+COH3D94Tc3/G3bu1uLg/VV6TGsNDHL7WqoUNnmHniZVOi6khONlufFLj4TbR3a8u
+xS/b1aO8RapnJUXY0Vhem17h/8bHmpw1RurScX0lXL1JA0PPEaF9nTCW5KfIOBVE
+YnwBW7s4pF85szVB4cSNiz6pRVenAw6s6bJ5AVYSXYGmkDRpm5OCzdVNzOzjlmrF
+kun2ue2G3ICbbxLefYZY3Y2Z8ASfN3caaadnEwn9ya6o47MywXTzmzIIbq1mvWc=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.nuigalway.ie/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.nuigalway.ie/idp/profile/SAML2/POST/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">National University of Ireland, Galway</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">National University of Ireland, Galway</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://nuigalway.ie</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Diarmuid Murray</md:SurName>
+      <md:EmailAddress>diarmuid.murray@nuigalway.ie</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:SurName>Diarmuid Murray</md:SurName>
+      <md:EmailAddress>diarmuid.murray@nuigalway.ie</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:SurName>ISS Service Desk</md:SurName>
+      <md:EmailAddress>servicedesk@nuigalway.ie</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

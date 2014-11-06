@@ -1,0 +1,129 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://rnp-cafe.ifs.edu.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">IFS - Instituto Federal Sergipe</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">IFS - Instituto Federal Sergipe</mdui:DisplayName>
+          <mdui:Description xml:lang="en">IFS - Instituto Federal Sergipe</mdui:Description>
+          <mdui:Description xml:lang="pt-br">IFS - Instituto Federal Sergipe</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ifs.edu.br</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ifs.edu.br</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIDyjCCArICAQAwDQYJKoZIhvcNAQEFBQAwgaoxKDAmBgNVBAoTH0lGUyAtIElu
+c3RpdHV0byBGZWRlcmFsIFNlcmdpcGUxDjAMBgNVBAsTBUNPSU1SMR8wHQYJKoZI
+hvcNAQkBFhBjb2ltckBpZnMuZWR1LmJyMRAwDgYDVQQHEwdBcmFjYWp1MRAwDgYD
+VQQIEwdTZXJnaXBlMQswCQYDVQQGEwJCUjEcMBoGA1UEAxMTcm5wLWNhZmUuaWZz
+LmVkdS5icjAeFw0xNDAxMzExMzM5MDFaFw0xNzAxMzAxMzM5MDFaMIGqMSgwJgYD
+VQQKEx9JRlMgLSBJbnN0aXR1dG8gRmVkZXJhbCBTZXJnaXBlMQ4wDAYDVQQLEwVD
+T0lNUjEfMB0GCSqGSIb3DQEJARYQY29pbXJAaWZzLmVkdS5icjEQMA4GA1UEBxMH
+QXJhY2FqdTEQMA4GA1UECBMHU2VyZ2lwZTELMAkGA1UEBhMCQlIxHDAaBgNVBAMT
+E3JucC1jYWZlLmlmcy5lZHUuYnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+AoIBAQDCM5DpvNNnNY/sEgNPlwTqln/1ErY5NIUFJpd8Z8nhF/Ycg2PHgyaRS5QG
+zg/ytuSPgQwNsqQrBDPVYTM2mPN4bqy3JCMsQ/wurwGY33HQihsq7gsys6sIS3E9
+OeGP2PVEFAAOGBK8/7re/MNkk3zWxVrGHz+jWHUj/XVuz5bEOq/LNmUYgdCKA4EF
+8Fmi22aL522xCT3Fox8ReTq817YxTq+5XLsQEAnOzwIIvOAmRjNZD33lcASWzSJp
+2YMsVKeFpHslgJJUT6a5lbgwH1VOX8VQRYSDGayNfBh63AphlRPbRJRcLG6bQmbx
+D/hfNk2K0FKD9IWxVIJ4O+jxTatlAgMBAAEwDQYJKoZIhvcNAQEFBQADggEBAC4G
+grZK2At9gtsq9XUPYVvIHCKFoROkJfU3VwT+9O0uWz5cu2ycPgjefCTp6zfTjiX7
+G6uGvuJcO/lteK9M6mSS1ti0G2g1IuzQo+6IOYVJgEkwgF1BPLrVAnmAca9WKWhI
+6GgCqbRx1MktZRAEdHiH5//UEkjxqcTUgLV4JZYpVOVkGnz5TakajKoLb3bAvrhH
+0OXmdk6/gaF9jp1ypII8Yfm1PBlhBGXj9tK0AT+6DnMyHDqFxdNw0dAKudol3jep
+3niJmc8qhqspMxB7iVGGiIRp3ybPl+GVo6NPWPhZ30dTjKkbttHoy5iuVQo2n/Jr
+DZqccZQCmzfE8nJworc=
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://rnp-cafe.ifs.edu.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://rnp-cafe.ifs.edu.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://rnp-cafe.ifs.edu.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://rnp-cafe.ifs.edu.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://rnp-cafe.ifs.edu.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://rnp-cafe.ifs.edu.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIDyjCCArICAQAwDQYJKoZIhvcNAQEFBQAwgaoxKDAmBgNVBAoTH0lGUyAtIElu
+c3RpdHV0byBGZWRlcmFsIFNlcmdpcGUxDjAMBgNVBAsTBUNPSU1SMR8wHQYJKoZI
+hvcNAQkBFhBjb2ltckBpZnMuZWR1LmJyMRAwDgYDVQQHEwdBcmFjYWp1MRAwDgYD
+VQQIEwdTZXJnaXBlMQswCQYDVQQGEwJCUjEcMBoGA1UEAxMTcm5wLWNhZmUuaWZz
+LmVkdS5icjAeFw0xNDAxMzExMzM5MDFaFw0xNzAxMzAxMzM5MDFaMIGqMSgwJgYD
+VQQKEx9JRlMgLSBJbnN0aXR1dG8gRmVkZXJhbCBTZXJnaXBlMQ4wDAYDVQQLEwVD
+T0lNUjEfMB0GCSqGSIb3DQEJARYQY29pbXJAaWZzLmVkdS5icjEQMA4GA1UEBxMH
+QXJhY2FqdTEQMA4GA1UECBMHU2VyZ2lwZTELMAkGA1UEBhMCQlIxHDAaBgNVBAMT
+E3JucC1jYWZlLmlmcy5lZHUuYnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+AoIBAQDCM5DpvNNnNY/sEgNPlwTqln/1ErY5NIUFJpd8Z8nhF/Ycg2PHgyaRS5QG
+zg/ytuSPgQwNsqQrBDPVYTM2mPN4bqy3JCMsQ/wurwGY33HQihsq7gsys6sIS3E9
+OeGP2PVEFAAOGBK8/7re/MNkk3zWxVrGHz+jWHUj/XVuz5bEOq/LNmUYgdCKA4EF
+8Fmi22aL522xCT3Fox8ReTq817YxTq+5XLsQEAnOzwIIvOAmRjNZD33lcASWzSJp
+2YMsVKeFpHslgJJUT6a5lbgwH1VOX8VQRYSDGayNfBh63AphlRPbRJRcLG6bQmbx
+D/hfNk2K0FKD9IWxVIJ4O+jxTatlAgMBAAEwDQYJKoZIhvcNAQEFBQADggEBAC4G
+grZK2At9gtsq9XUPYVvIHCKFoROkJfU3VwT+9O0uWz5cu2ycPgjefCTp6zfTjiX7
+G6uGvuJcO/lteK9M6mSS1ti0G2g1IuzQo+6IOYVJgEkwgF1BPLrVAnmAca9WKWhI
+6GgCqbRx1MktZRAEdHiH5//UEkjxqcTUgLV4JZYpVOVkGnz5TakajKoLb3bAvrhH
+0OXmdk6/gaF9jp1ypII8Yfm1PBlhBGXj9tK0AT+6DnMyHDqFxdNw0dAKudol3jep
+3niJmc8qhqspMxB7iVGGiIRp3ybPl+GVo6NPWPhZ30dTjKkbttHoy5iuVQo2n/Jr
+DZqccZQCmzfE8nJworc=
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://rnp-cafe.ifs.edu.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://rnp-cafe.ifs.edu.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">IFS - Instituto Federal Sergipe</OrganizationName>
+      <OrganizationName xml:lang="pt-br">IFS - Instituto Federal Sergipe</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">IFS - Instituto Federal Sergipe</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">IFS - Instituto Federal Sergipe</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.ifs.edu.br</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.ifs.edu.br</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Joao Silvio</SurName>
+      <EmailAddress>coimr@ifs.edu.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

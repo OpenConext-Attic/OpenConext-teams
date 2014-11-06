@@ -1,0 +1,117 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.ibp.cas.cz/idp/shibboleth">
+    <Extensions>
+      <eduidmd:RepublishRequest xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0">
+        <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
+      </eduidmd:RepublishRequest>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.eduid.cz/" registrationInstant="2014-07-25T15:25:07Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <mdasrt:Attribute xmlns:mdasrt="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <mdasrt:AttributeValue>http://eduid.cz/uri/idp-group/avcr</mdasrt:AttributeValue>
+        </mdasrt:Attribute>
+      </mdattr:EntityAttributes>
+    </Extensions>
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">ibp.cas.cz</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">Institute of Biophysics AS CR</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">Biofyzikální ústav AV ČR</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity Provider IBP AV CR employees.</mdui:Description>
+          <mdui:Description xml:lang="cs">Identity Provider pro zaměstnance BFÚ AV ČR</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ibp.cz/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">http://www.ibp.cz/</mdui:InformationURL>
+          <mdui:Logo height="44" width="81">https://jiftach.cas.cz/loga/logo-ibp-44.png</mdui:Logo>
+          <mdui:Logo height="65" width="120">https://jiftach.cas.cz/loga/logo-ibp-65.png</mdui:Logo>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDJDCCAgygAwIBAgIVAKW2EZM9liIS9zxSJj2keamQoSWxMA0GCSqGSIb3DQEB
+BQUAMBkxFzAVBgNVBAMTDmlkcC5pYnAuY2FzLmN6MB4XDTE0MDcyNDA5NDU1MFoX
+DTM0MDcyNDA5NDU1MFowGTEXMBUGA1UEAxMOaWRwLmlicC5jYXMuY3owggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDCcjIT8YIRLlcj3VCCeqa2qSwK2Ugb
+ohvyVmx4dldYsP2NpqFM8Hvzmor0Sq+h0CTDAnvsDhpnHTSNC+bWh4nCKahiBZ0b
+GqMMiatHYsq6DawZCRRzI7bKiGmGIxsG5YaqmqBTjvHhsePzkedn5qIp5PEYi+MG
+aL/oQ1UVBsVW0dZGzMpockzxJAbut+kNlC99OsSWoQ/MyDVcPqu36QUaebahQUzF
+hDAB5ZvS+6PylulTmbWHPG5RRtgwNyfGxqpJupbeckt8BN3k5t9ydxNZsI4zyjbn
+ySbdYYhka/8/qOSvGoyg7RAvoqqR2PK417kHc2Ien96u7Q+lMwGKmKOpAgMBAAGj
+YzBhMEAGA1UdEQQ5MDeCDmlkcC5pYnAuY2FzLmN6hiVodHRwczovL2lkcC5pYnAu
+Y2FzLmN6L2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRtafM3sXw4M6AoCL8uynsW
+7CQJQzANBgkqhkiG9w0BAQUFAAOCAQEAlujcijW6c8cVu5QpYIxE2g2AiM9MEf7q
+gBHtO2oSuseSHv6h1ZWNA/9qGg2LPWc1T+QWBQZbT16VyGig5Moxb1J8VPxfv+A0
+eQHoLsBTLVP06npY3NztVm3xogPnpwUcjUagECmar/HKkQ8hMeVatK/o3MR05XRC
+ssOxXuhGNkdEqrBAYJ+ABQSCw0yK9qkA0URqksCGHN4jpmflwa4e+PY/DBlHzn1w
+u9Mna/iP3SHv09aTqAt9DjGGf+3oQRVkybSpdpdgRbXotUyhoGgCazhsWLCSvZke
+zaDcul2ivMCAW6N+57bhddfKSw9fgoTN5yhdbE17rpMTCk3OMSjfNQ==
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ibp.cas.cz:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ibp.cas.cz:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ibp.cas.cz/idp/profile/SAML2/Redirect/SLO"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ibp.cas.cz/idp/profile/SAML2/POST/SLO"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ibp.cas.cz:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ibp.cas.cz/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ibp.cas.cz/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.ibp.cas.cz/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ibp.cas.cz/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">ibp.cas.cz</shibmd:Scope>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDJDCCAgygAwIBAgIVAKW2EZM9liIS9zxSJj2keamQoSWxMA0GCSqGSIb3DQEB
+BQUAMBkxFzAVBgNVBAMTDmlkcC5pYnAuY2FzLmN6MB4XDTE0MDcyNDA5NDU1MFoX
+DTM0MDcyNDA5NDU1MFowGTEXMBUGA1UEAxMOaWRwLmlicC5jYXMuY3owggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDCcjIT8YIRLlcj3VCCeqa2qSwK2Ugb
+ohvyVmx4dldYsP2NpqFM8Hvzmor0Sq+h0CTDAnvsDhpnHTSNC+bWh4nCKahiBZ0b
+GqMMiatHYsq6DawZCRRzI7bKiGmGIxsG5YaqmqBTjvHhsePzkedn5qIp5PEYi+MG
+aL/oQ1UVBsVW0dZGzMpockzxJAbut+kNlC99OsSWoQ/MyDVcPqu36QUaebahQUzF
+hDAB5ZvS+6PylulTmbWHPG5RRtgwNyfGxqpJupbeckt8BN3k5t9ydxNZsI4zyjbn
+ySbdYYhka/8/qOSvGoyg7RAvoqqR2PK417kHc2Ien96u7Q+lMwGKmKOpAgMBAAGj
+YzBhMEAGA1UdEQQ5MDeCDmlkcC5pYnAuY2FzLmN6hiVodHRwczovL2lkcC5pYnAu
+Y2FzLmN6L2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRtafM3sXw4M6AoCL8uynsW
+7CQJQzANBgkqhkiG9w0BAQUFAAOCAQEAlujcijW6c8cVu5QpYIxE2g2AiM9MEf7q
+gBHtO2oSuseSHv6h1ZWNA/9qGg2LPWc1T+QWBQZbT16VyGig5Moxb1J8VPxfv+A0
+eQHoLsBTLVP06npY3NztVm3xogPnpwUcjUagECmar/HKkQ8hMeVatK/o3MR05XRC
+ssOxXuhGNkdEqrBAYJ+ABQSCw0yK9qkA0URqksCGHN4jpmflwa4e+PY/DBlHzn1w
+u9Mna/iP3SHv09aTqAt9DjGGf+3oQRVkybSpdpdgRbXotUyhoGgCazhsWLCSvZke
+zaDcul2ivMCAW6N+57bhddfKSw9fgoTN5yhdbE17rpMTCk3OMSjfNQ==
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ibp.cas.cz:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ibp.cas.cz:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+    </AttributeAuthorityDescriptor>
+    <Organization>
+      <OrganizationName xml:lang="en">Institute of Biophysics AS CR</OrganizationName>
+      <OrganizationName xml:lang="cs">Biofyzikální ústav AV ČR</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">Institute of Biophysics AS CR, v.v.i.</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="cs">Biofyzikální ústav AV ČR, v.v.i.</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.ibp.cz/</OrganizationURL>
+      <OrganizationURL xml:lang="cs">http://www.ibp.cz/</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Petr</GivenName>
+      <SurName>Vaníček</SurName>
+      <EmailAddress>vanicekp@utia.cas.cz</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

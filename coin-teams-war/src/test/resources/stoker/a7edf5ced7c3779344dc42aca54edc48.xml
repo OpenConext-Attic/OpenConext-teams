@@ -1,0 +1,89 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth.u-grenoble3.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-12-04T17:11:09Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">u-grenoble3.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université  Stendhal - Grenoble 3</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDTzCCAjegAwIBAgIUO6lqrfWSVSjaNN+/XubYFEzq/2wwDQYJKoZIhvcNAQEF
+BQAwJDEiMCAGA1UEAxMZc2hpYmJvbGV0aC51LWdyZW5vYmxlMy5mcjAeFw0xMjEw
+MDgxNTIyMjNaFw0zMjEwMDgxNTIyMjNaMCQxIjAgBgNVBAMTGXNoaWJib2xldGgu
+dS1ncmVub2JsZTMuZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCC
+1riCyjqN5GFKjy2yese7U7AiHqI/1YdAemLeLBHr11KT6/RsdqW++jwV2lszQiGw
+BSVr2gAI8RY8j4zP7KzeyD+2Hn/ARvRsiZpQhLKDSPDafInTJz5rW5rfgoNHd2nv
+Ii/k66l24ZuslrTYuaTPxAgJGx0acyDk76r8gl4JUFCSkYV17SmLv5ixd2r+Wphz
+6gCVJ1EUSBoZFLIIfqIfWAPOF+liAxKYZuUSHtKGaLt9FkZgy5ykGcTCO7CIKvof
+82sjo5Sd57mZIubuyUHb+ycFN7pTcy7fURSBNuHOgVBgiUufjjPFlWT0j3eQENte
+fSgMl+lzEG8ZNII4If2TAgMBAAGjeTB3MFYGA1UdEQRPME2CGXNoaWJib2xldGgu
+dS1ncmVub2JsZTMuZnKGMGh0dHBzOi8vc2hpYmJvbGV0aC51LWdyZW5vYmxlMy5m
+ci9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUDQaomDjXR+8EYADTSozsPnhYfAow
+DQYJKoZIhvcNAQEFBQADggEBAEXNNQ9VnGiLhmkTJ8QADVpW7ft6nwvIWfUoxTfn
+92YJAWct5VVIzA39d05Sji5eWo2krLwGvSzsK9bUjQsQ/WDrdxfxsn//h5ynYdSF
+Ahxpo7Kp3p5+IvSRzULb5wprjdeKf9sL2mfCfh28siZPtehQLcnu2rjdwzNGsLr7
+LyfZM9UG3qLF7Q9UlHIOCpDOjYYXlD2zvXOtLTzmAX5H7fOPB5XKVfjbIR/WWXQY
+H7UnPfxPl4S6DAIEqMYzLudE8UTRTFkH71vWltAiy0ToSd6CVZsTk/Cn8mxfF0fv
+7AfOWGusEGvE6fUm9UEo+KJ1uM2hXH6+WCuSYIeYj7YWKS8=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.u-grenoble3.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.u-grenoble3.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.u-grenoble3.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université  Stendhal - Grenoble 3</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université  Stendhal - Grenoble 3</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Yoann MITAINE</SurName>
+				 <EmailAddress>yoann.mitaine@u-grenoble3.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Nicolay DIMITROV</SurName>
+				 <EmailAddress>nicolay.dimitrov@u-grenoble3.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

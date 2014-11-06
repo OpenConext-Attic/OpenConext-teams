@@ -1,0 +1,88 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.univ-ag.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-10-25T15:08:43Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-ag.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université des Antilles et de la Guyane</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDJDCCAgygAwIBAgIVAPFkF2BmO6RVikcivryW27wULvteMA0GCSqGSIb3DQEB
+BQUAMBkxFzAVBgNVBAMTDmlkcC51bml2LWFnLmZyMB4XDTEyMTAyMzE3MzIxMFoX
+DTMyMTAyMzE3MzIxMFowGTEXMBUGA1UEAxMOaWRwLnVuaXYtYWcuZnIwggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCyyPP8wKSxUpAuUcbFtn+p3mDRnybq
++qU1qFwxF8J3v2RW63VhgFX+6eKUsULLv5hgDoqY5tsJbUZ0wVGDX+2w6CeurITl
+5amBB0oFuO6Ml7uiYD56w1WQOAYD8L9Nu7kA0XcOb8O4BXngVk19k1lUKlTVHxrQ
+4dRzMPfYuqLYxk1/g8/6Q4ULcBZvqqAlupcgJPmZMh5XPK4PJZYOVHVJhutLY5m9
+TDuo4Sor+BCOLew0aM38rUDTPGydculwZja1R4K8+BHLATq1SFCi4a6ETIpWhy5x
+SAOvoM+W1KyyXSk99QbfmaZVVUlkBTDlupctvegv2sXR42+copiHxcJtAgMBAAGj
+YzBhMEAGA1UdEQQ5MDeCDmlkcC51bml2LWFnLmZyhiVodHRwczovL2lkcC51bml2
+LWFnLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBTyUENeLeP0xMWsvdAWL29A
+S6V69jANBgkqhkiG9w0BAQUFAAOCAQEAcpTVb3RoQCDVNshZVyM1F0+3Jd4u2gAF
+Ey2DVRfgXcWETmUy2dOO5ZZ+YJtwOi+txpwr1yCbPMrdNCdJxLvVkkFwf5rLVesL
+TIm7h5PeO2fs5rurRWXarWSQCinkV7xE1a3xOMPDooCkmBHSICwY5At5fwwUA74X
+EzGjS76Zk6gvDgTTtG15vQvaq31e1eHB7nCYe7zHuFObyujLpKHJHMrIW4Q8o18y
+NCDZWNuuZJO1dzUQrzyUXufytEqv1w1SGYWedTxxXIm+sQ3HaR4d3TDCmTw27pnr
+TZeKHGCI5BfQ0oQ0Mao+E/hZqbDzdp6KBUrALSf/R3JSDtmdnL+gvQ==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.univ-ag.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.univ-ag.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.univ-ag.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université des Antilles et de la Guyane</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université des Antilles et de la Guyane</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Robert BOLIN</SurName>
+				 <EmailAddress>robert.bolin@martinique.univ-ag.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Patrick PLACIDE</SurName>
+				 <EmailAddress>patrick.placide@martinique.univ-ag.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

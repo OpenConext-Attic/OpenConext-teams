@@ -1,0 +1,79 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://federation-identite.univ-paris13.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2010-10-27T17:00:46Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-paris13.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      <mdui:DisplayName xml:lang="en">University Paris 13</mdui:DisplayName>
+          		      <mdui:Description xml:lang="en">Members of University Paris 13 (Students, Teaching staff, Researchers and Administrative and Technical staff)</mdui:Description>
+          		      <mdui:DisplayName xml:lang="fr">Université Paris 13</mdui:DisplayName>
+          		      <mdui:Description xml:lang="fr">Personnes membres de l'Université Paris 13 (Etudiants, Personnels, Enseignants, Enseignants-Chercheurs, Chercheurs).</mdui:Description>
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDejCCAmKgAwIBAgIVAK7XWBt0cfWGEv/HUzJRJYhKWFD6MA0GCSqGSIb3DQEB
+BQUAMC4xLDAqBgNVBAMTI2ZlZGVyYXRpb24taWRlbnRpdGUudW5pdi1wYXJpczEz
+LmZyMB4XDTEwMTAyMzEyMTExNFoXDTMwMTAyMzEyMTExNFowLjEsMCoGA1UEAxMj
+ZmVkZXJhdGlvbi1pZGVudGl0ZS51bml2LXBhcmlzMTMuZnIwggEiMA0GCSqGSIb3
+DQEBAQUAA4IBDwAwggEKAoIBAQCc/y6YY56o8yN7kpm+WTki591jEzoyfZhI883X
+RMP54gc9B/YlMvhOX0c3yKxsAA9DGZqhC3IpzhNIwEqZdznaDtLyb8qfExgP37zU
+sKJlqU3fmiZ3PLB1H3MKMu850bQpxcY9mQnboBSfwybTkiggCei2uVls8dgDhr6O
+M/JkWo2JzAnBKYP8B1nEG3Ynabbk1ncktx1XlUb5Ar7L33GXSBHZmZjQczgifXbl
+euOjVRlBJodDaQS0dZMKVvEWxPIU2n0Kd7leiWrVe9UJgIOlc9XPCX0EXfNb90fx
+z5anJggWlCClzAI2BNPM1BlTk+Sf0B4j0Df250uvsqM+6dUjAgMBAAGjgY4wgYsw
+agYDVR0RBGMwYYIjZmVkZXJhdGlvbi1pZGVudGl0ZS51bml2LXBhcmlzMTMuZnKG
+Omh0dHBzOi8vZmVkZXJhdGlvbi1pZGVudGl0ZS51bml2LXBhcmlzMTMuZnIvaWRw
+L3NoaWJib2xldGgwHQYDVR0OBBYEFPPj9MEZxWRXVouk6e4gI+J1lfjsMA0GCSqG
+SIb3DQEBBQUAA4IBAQAIvX5H/FQEOM68IPlr/uhjuDKEhngLhPp/oJB2rewP6ryS
+PtgXpCpFVF2LKK5WJGtoXtpAxHg5DFz1UVvcCG2ELivEtZa0L15DxQNQRCkx9ot2
+z4FPpojZ5AfAzJixC8QxXL6Em97K5iJic1cin5oRNaX5TJBki5VVGpy1HGJuw2jT
+rk2djX0eDw4AXkvCk9v20rg2f/JQtCu7Ai1rlRzHzq1bAhaepZmdXOBedBSiPTlX
+HtqWfXo71mMZC74xUh+ctHhBLqZJ8oKWIif43XpoA5ZXUsgSKKQ11d+l8l9UEFDQ
+0pZI2DZg+vSvz1Lncsgyiuy4FDU0VFXEc+gRL3aZ
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://federation-identite.univ-paris13.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://federation-identite.univ-paris13.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://federation-identite.univ-paris13.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université Paris 13</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université Paris 13</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>fed-contact@univ-paris13.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

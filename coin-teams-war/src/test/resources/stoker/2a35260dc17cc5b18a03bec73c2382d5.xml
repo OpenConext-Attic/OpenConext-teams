@@ -1,0 +1,77 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.enib.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2013-01-28T16:44:01Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">enib.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">ENIB - Ecole Nationale d'Ingénieurs de Brest</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDFzCCAf+gAwIBAgIUIH+7zKjLBFasnSwAkq7HW97UJBwwDQYJKoZIhvcNAQEF
+BQAwFjEUMBIGA1UEAxMLaWRwLmVuaWIuZnIwHhcNMTIxMjE0MTYyODAzWhcNMzIx
+MjE0MTYyODAzWjAWMRQwEgYDVQQDEwtpZHAuZW5pYi5mcjCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAIfAnsjxqLmzoMkWf45AjMNfFXQSOVwc55I6P+JQ
+ACcdaXeUxlT/7MU8GnG1VORPU2Mj/UVUHw3tJ7qDEpcJcX+PW0egZwxGt/R0K+v2
+pcpqjtLT2yQLf+wdQUsU5gMY5s1jmzlqgmQhwkl/5wMNlvkX4rNSvPeWHQ9j0cvB
+goXgzD8ewIhzsXi6kiTU9tjI6xjvOIfSj8GHmmizEkqcR+mSliYQxjP6IxmdsC3Z
+nI2Z91h0IqAhOxsjbaRLPijYcfXPUxePLau7OVUHxI7yC4VsOq5FUy2GwkG0DG9S
+xXzlG4mJ+pZKE3wVIc/xbAJ1so5eC8iYTOQv2yIBbn7hGlsCAwEAAaNdMFswOgYD
+VR0RBDMwMYILaWRwLmVuaWIuZnKGImh0dHBzOi8vaWRwLmVuaWIuZnIvaWRwL3No
+aWJib2xldGgwHQYDVR0OBBYEFLjYoxphKa8kgdOgHBCQQLeS5987MA0GCSqGSIb3
+DQEBBQUAA4IBAQCHpO5p/7gsSJWbZkMq0DI+ryw8U4AGSGNGloV0HTkLjX0m1U/2
+V2N+K5TuSdbwkCYeHyGeTvd56L2Y3bGiLBWrjUiaaWr8g0PgMjlTuQ/WKRl2/DCq
+rxGJLLWkiCrieRzHbbYMGeFFaug8I1KdWhUfIxbvBaiFS9AbYWOlEpKKX1HwnXJ0
+3fjSkupZt66x5W3W+PVomTeRnd8RGTlF/rHwlgHRFaGtuRsJhn284vJDiRi1bJSl
+ngTcqpSdbFthXhhfmqsWKknKcozQblzbtaOeQNoYMHhnlnYEimZn4CubKzwUqo3d
+x9rJLKhFd2hFQM0S0IQ8rMA5jvwxHgI4losj
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.enib.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.enib.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.enib.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">ENIB - Ecole Nationale d'Ingénieurs de Brest</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">ENIB - Ecole Nationale d'Ingénieurs de Brest</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>cri@enib.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

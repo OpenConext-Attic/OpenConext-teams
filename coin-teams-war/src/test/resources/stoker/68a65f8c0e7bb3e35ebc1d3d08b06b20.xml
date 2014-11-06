@@ -1,0 +1,51 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://login.bme.hu/idp/shibboleth">
+        <Extensions>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">bme</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href-edugain</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href-idps</ns9:MetadataSet>
+            <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://eduid.hu"/>
+        </Extensions>
+        <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+            <Extensions>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">bme.hu</shibmd:Scope>
+                <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            </Extensions>
+            <KeyDescriptor>
+                <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:X509Data>
+                        <ds:X509Certificate>MIIDHDCCAgSgAwIBAgIVALPowTex/0kkPUAX6SJu1p93b0VwMA0GCSqGSIb3DQEBBQUAMBcxFTATBgNVBAMTDGxvZ2luLmJtZS5odTAeFw0xMTEwMDMwMTE0MzVaFw0zMTEwMDMwMTE0MzVaMBcxFTATBgNVBAMTDGxvZ2luLmJtZS5odTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALFQWz8d0dz50J5zJVgQPv739xAPTQjQV6RwQdE9u+ajgytrDy+VuCrBGluvGspGekOjhlEESc7sZ0l92wzEdcdG0McLeg7PL9V4JE9qwKJO289t403EFbxCqekjeZWp3KDhHpDefLOUywYMQ1mPNfYbVRRFg82VtPL+G3FMTSQBWrnjWYLshVjexbHwbK1rMiy8MHBbjVAF27v6RvGHLhzPhNNW11+lqweogXc3d73fgkIBMicKm5SgW/jQvBtlODy49xeoef1GD6MUgckPRpqIyXdd01rqpdGqeDJOyjamB5VI+LMjjpNr6h2pA0LjNNm0RZJVobbgzfFpdzwI09ECAwEAAaNfMF0wPAYDVR0RBDUwM4IMbG9naW4uYm1lLmh1hiNodHRwczovL2xvZ2luLmJtZS5odS9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUbB8MWrjcjCvj3wlxfUMUsdRjYd4wDQYJKoZIhvcNAQEFBQADggEBAK1vfjY8DTLVqrZm7G5g+PSDRalpmk5Iwg5c/flDtGJG8LoHaX5y9AGNyXNOqgfzWw/UITQnl6J1L5o8n/AHYv6B1BHY0VqGBdIg/JvIzX1sODAdbOlYvLdhYqACjK+S/KNW7H0ASh2sY1OVSc4/nOLfdJYgoZ2YZphvWu3zn7oEAaEBL1G1kaHYRTuJcRrS6QtL2P2jj+McxtRwaC5QgcMyewJW6I/608AV0/0++UUqWpb29HUit4H03Mt/7qc2ekLuPcOk+AEXajE97z8Ia99IrBj/n3N4edS+Oj570z1SMzhtuCKzErQeySAtySu6EbCabd0L2JXIDLr2fjc8B+s=</ds:X509Certificate>
+                    </ds:X509Data>
+                    <ds:KeyName>login.bme.hu</ds:KeyName>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.bme.hu:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="1"/>
+            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.bme.hu/idp/profile/SAML2/Redirect/SLO"/>
+            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.bme.hu/idp/profile/SAML2/POST/SLO"/>
+            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.bme.hu/idp/profile/SAML2/POST/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://login.bme.hu/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.bme.hu/idp/profile/SAML2/Redirect/SSO"/>
+        </IDPSSODescriptor>
+        <Organization>
+            <OrganizationName xml:lang="hu">Budapesti Műszaki és Gazdaságtudományi Egyetem</OrganizationName>
+            <OrganizationName xml:lang="en">Budapest University of Technology and Economics</OrganizationName>
+            <OrganizationDisplayName xml:lang="hu">Budapesti Műszaki és Gazdaságtudományi Egyetem</OrganizationDisplayName>
+            <OrganizationDisplayName xml:lang="en">Budapest University of Technology and Economics</OrganizationDisplayName>
+            <OrganizationURL xml:lang="hu">https://bme.hu/</OrganizationURL>
+            <OrganizationURL xml:lang="en">https://bme.hu/</OrganizationURL>
+        </Organization>
+        <ContactPerson contactType="technical">
+            <SurName>Gyenes Tamás</SurName>
+            <EmailAddress>mailto:tom@impulzus.bme.hu</EmailAddress>
+        </ContactPerson>
+        <ContactPerson contactType="support">
+            <SurName>Gyenes Tamás</SurName>
+            <EmailAddress>mailto:tom@impulzus.bme.hu</EmailAddress>
+        </ContactPerson>
+        <ContactPerson contactType="administrative">
+            <SurName>Gyenes Tamás</SurName>
+            <EmailAddress>mailto:tom@impulzus.bme.hu</EmailAddress>
+        </ContactPerson>
+    </EntityDescriptor>

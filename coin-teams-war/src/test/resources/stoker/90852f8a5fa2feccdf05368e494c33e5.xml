@@ -1,0 +1,84 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://www3.eduid.cz/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.eduid.cz/" registrationInstant="2014-02-03T10:42:36Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://www3.eduid.cz/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://www3.eduid.cz/Shibboleth.sso/Login" index="1"/>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">eduID.cz</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">eduID.cz</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Informational web of the eduID.cz federation. It brings informations to end users and to technical staff at end institutions.</mdui:Description>
+          <mdui:Description xml:lang="cs">Informační web projektu eduID.cz, který přináší informace jak pro koncové uživatele tak pro správce na jednotlivých institucích.</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.eduid.cz/en/index</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">http://www.eduid.cz</mdui:InformationURL>
+          <mdui:Logo height="63" width="150">https://www.eduid.cz/eduid-logo-150.png</mdui:Logo>
+        </mdui:UIInfo>
+        <eduidmd:RepublishRequest xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0">
+          <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
+        </eduidmd:RepublishRequest>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>https://www3.eduid.cz/shibboleth</ds:KeyName>
+          <ds:KeyName>www3.eduid.cz</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=www3.eduid.cz</ds:X509SubjectName>
+            <ds:X509Certificate>MIIDEDCCAfigAwIBAgIJAIxP8cTUiGsTMA0GCSqGSIb3DQEBBQUAMBgxFjAUBgNV
+BAMTDXd3dzMuZWR1aWQuY3owHhcNMTQwMjAxMTc1ODA1WhcNMTcwMTMxMTc1ODA1
+WjAYMRYwFAYDVQQDEw13d3czLmVkdWlkLmN6MIIBIjANBgkqhkiG9w0BAQEFAAOC
+AQ8AMIIBCgKCAQEAyNfO9oxDUu8gABeGHQ6hvtQRYEsp5DnPy40Lugfetbr49eX2
+demuocrQIMUY8i/r1wo+ZRhVtPKYj36/OGUrYh3nNpYsVKO3VIk1CNTWwuQi/wuH
+zH5RUAh0aHGIA4zGYOfUnaczACjxN5aKOuoVlXIJ7eMuVsKGfA8og+VO4A+lhY8B
+pXgk13OuR73wSbbwROHwPQa58rjFir88Al70KycuYTv5F7WcTzBEy+ag6nAGz+fP
+DR9OKWfSepFNqom6PUAUCyXQdjn07sy2EnoE4BODKnX+yueXWaXk8DAwK7uUfk45
+NS7vJEToXCCDBqRJMncNzD9jngIp64SQFIMppwIDAQABo10wWzA6BgNVHREEMzAx
+gg13d3czLmVkdWlkLmN6hiBodHRwczovL3d3dzMuZWR1aWQuY3ovc2hpYmJvbGV0
+aDAdBgNVHQ4EFgQUIzEka3BrLts+IxnQs5Vu9e1E3ucwDQYJKoZIhvcNAQEFBQAD
+ggEBABCZ7nwiWmW6njEBHHabyX6FhaurJ73UlDO3JS7mUKjycFkA0HlabWWEeTON
+jcdtHHOzxPodqNe2dtQKa/+fauvTsnKQkBj/f6ESGQAXySuKVgZUs3aXG7C86i01
+lYMJE03P1TwHX60felfwbR4xKRoypz9pOcmqdjxMOpb0+teajFjOShL/Lm0HQs4H
+Fg9FttPBtPrn9khoZcIebOlktQATVCrazQKU0MK2smgxcqIWBoeanyhHuFbNxA/Q
+5FX1LepWs6GsCmK1qxhXj1JRBisqPEaGuauhp1CgtJJdwj5DJ3Fcw29mujFvdnln
+QioqbJmv4wcuTrPvTGy8h1+Q4iI=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www3.eduid.cz/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www3.eduid.cz/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www3.eduid.cz/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www3.eduid.cz/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www3.eduid.cz/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www3.eduid.cz/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www2.eduid.cz/Shibboleth.sso/SAML2/POST" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.eduid.cz/Shibboleth.sso/SAML2/POST" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://eduid.cz/Shibboleth.sso/SAML2/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www3.eduid.cz/Shibboleth.sso/SAML2/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www3.eduid.cz/Shibboleth.sso/SAML2/POST-SimpleSign" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www3.eduid.cz/Shibboleth.sso/SAML2/Artifact" index="7"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://www3.eduid.cz/Shibboleth.sso/SAML2/ECP" index="8"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www3.eduid.cz/Shibboleth.sso/SAML/POST" index="9"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www3.eduid.cz/Shibboleth.sso/SAML/Artifact" index="10"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">CESNET</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">CESNET</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="cs">CESNET</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.cesnet.cz/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Jan</md:GivenName>
+      <md:SurName>Tomášek</md:SurName>
+      <md:EmailAddress>jan.tomasek@cesnet.cz</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Jan</md:GivenName>
+      <md:SurName>Oppolzer</md:SurName>
+      <md:EmailAddress>jan.oppolzer@cesnet.cz</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

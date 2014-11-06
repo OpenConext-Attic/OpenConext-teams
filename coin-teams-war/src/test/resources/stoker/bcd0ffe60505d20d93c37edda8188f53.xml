@@ -1,0 +1,118 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="urn:mace:cru.fr:federation:univ-rouen.fr">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-05-20T15:48:10Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-rouen.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de Rouen</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDLzCCAhegAwIBAgIUWvf6hiSiI4KjS/n+xqAFPbKt2r0wDQYJKoZIhvcNAQEF
+BQAwHDEaMBgGA1UEAxMRaWRwLnVuaXYtcm91ZW4uZnIwHhcNMTEwNTE3MDk1NTQz
+WhcNMzEwNTE3MDk1NTQzWjAcMRowGAYDVQQDExFpZHAudW5pdi1yb3Vlbi5mcjCC
+ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIxi7qpcaAsjhQquoELWUEsz
+PZGyg/5lT6KAAfryX17brdK0cQytLZXyqCOsCSYDi8T3dJwrEKUfzMqf4Rvxhzve
+fFB6fz22+RkLHezLuywNpICo3qBntqY9ZiIgBV4X2AS6jt5Szbm18qSL5xoxQ+DA
+93WKffpCeE9eELWRnu5RKxXam10JBUEMfLxEY+e8ToOcoAU8n/nC7ytE8ReXwcWh
+/eqyt3Usf+MwG6qAPNvRvG3quKEcF+7fbpU4RmZz+na49OLoLhoHCyWHdmmL4lIw
+U2jRo+7IjD3DJMG3pUjqnKbsLrhyk4McwuN4TCiC2KhKWGFSnzXcjNfcYZsK3MsC
+AwEAAaNpMGcwRgYDVR0RBD8wPYIRaWRwLnVuaXYtcm91ZW4uZnKGKGh0dHBzOi8v
+aWRwLnVuaXYtcm91ZW4uZnIvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFJZ4dOPm
+rji8bFb79aNq2VybCh8RMA0GCSqGSIb3DQEBBQUAA4IBAQADYQEXRdgzmhCNw3RI
+4NCayLgtaaCdwG/sYEzxXss5CQ2t8jRn1yQpXxoGSwtROZM/w/L8gtWjSpUSB8av
+cKdAZBRB5ojESTkd28/tv3jtA1bjt6OeZwjsCr0RRMBN2A12t4BLfSG7VAKGyE+B
+dQ8p2l7xN23XN9sIAxJNcxtK7w85Or6Y8C9iwApqhMihTLWLQPQGSM1pRUKHTInI
+XgsbhADqatOXXzkizis9PK9Tf8jFSl9Hcye3gJrgYnn3F7qxvMGzm1KqmsAG3Xnr
+yxCa3HYJJd9oze0GYQ3AyxViyin1T4daHyQVMRlC4rjCpVd2f0gp6zX37uF8/i4z
+jf6+
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.univ-rouen.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.univ-rouen.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.univ-rouen.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-rouen.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDLzCCAhegAwIBAgIUWvf6hiSiI4KjS/n+xqAFPbKt2r0wDQYJKoZIhvcNAQEF
+BQAwHDEaMBgGA1UEAxMRaWRwLnVuaXYtcm91ZW4uZnIwHhcNMTEwNTE3MDk1NTQz
+WhcNMzEwNTE3MDk1NTQzWjAcMRowGAYDVQQDExFpZHAudW5pdi1yb3Vlbi5mcjCC
+ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIxi7qpcaAsjhQquoELWUEsz
+PZGyg/5lT6KAAfryX17brdK0cQytLZXyqCOsCSYDi8T3dJwrEKUfzMqf4Rvxhzve
+fFB6fz22+RkLHezLuywNpICo3qBntqY9ZiIgBV4X2AS6jt5Szbm18qSL5xoxQ+DA
+93WKffpCeE9eELWRnu5RKxXam10JBUEMfLxEY+e8ToOcoAU8n/nC7ytE8ReXwcWh
+/eqyt3Usf+MwG6qAPNvRvG3quKEcF+7fbpU4RmZz+na49OLoLhoHCyWHdmmL4lIw
+U2jRo+7IjD3DJMG3pUjqnKbsLrhyk4McwuN4TCiC2KhKWGFSnzXcjNfcYZsK3MsC
+AwEAAaNpMGcwRgYDVR0RBD8wPYIRaWRwLnVuaXYtcm91ZW4uZnKGKGh0dHBzOi8v
+aWRwLnVuaXYtcm91ZW4uZnIvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFJZ4dOPm
+rji8bFb79aNq2VybCh8RMA0GCSqGSIb3DQEBBQUAA4IBAQADYQEXRdgzmhCNw3RI
+4NCayLgtaaCdwG/sYEzxXss5CQ2t8jRn1yQpXxoGSwtROZM/w/L8gtWjSpUSB8av
+cKdAZBRB5ojESTkd28/tv3jtA1bjt6OeZwjsCr0RRMBN2A12t4BLfSG7VAKGyE+B
+dQ8p2l7xN23XN9sIAxJNcxtK7w85Or6Y8C9iwApqhMihTLWLQPQGSM1pRUKHTInI
+XgsbhADqatOXXzkizis9PK9Tf8jFSl9Hcye3gJrgYnn3F7qxvMGzm1KqmsAG3Xnr
+yxCa3HYJJd9oze0GYQ3AyxViyin1T4daHyQVMRlC4rjCpVd2f0gp6zX37uF8/i4z
+jf6+
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.univ-rouen.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Rouen</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Rouen</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>systeme@univ-rouen.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

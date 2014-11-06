@@ -1,0 +1,117 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://arauto.fapesp.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">fapesp.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">FAPESP - Fundacao de Amparo a pesquisa do estado de Sao Paulo</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">FAPESP - Fundacao de Amparo a pesquisa do estado de Sao Paulo</mdui:DisplayName>
+          <mdui:Description xml:lang="en">FAPESP - Fundacao de Amparo a pesquisa do estado de Sao Paulo</mdui:Description>
+          <mdui:Description xml:lang="pt-br">FAPESP - Fundacao de Amparo a pesquisa do estado de Sao Paulo</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.fapesp.br.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.fapesp.br.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIICzDCCAbQCAQAwDQYJKoZIhvcNAQEFBQAwLDEMMAoGA1UECxMDQ1BEMQswCQYD
+VQQGEwJCUjEPMA0GA1UEAxMGYXJhdXRvMB4XDTEzMDcyNjE3MDQ1OVoXDTE2MDcy
+NTE3MDQ1OVowLDEMMAoGA1UECxMDQ1BEMQswCQYDVQQGEwJCUjEPMA0GA1UEAxMG
+YXJhdXRvMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAw+QLW8JyafF5
+N38EhTdjZhZVL/KDxzWP1fzt/PFIr/ZoX20/x1CcrppX3dVh5gvjv3REY7+7HsIK
+sSXxQq5xZncoY5E995xJM6TuSS3OCz86Te2XUnG8dr/kXAECdmbtBM0qT7WSRSJU
+ae6EkrpWRiSp23Ggz3k9ouOYq6CFpdwjZlCvmYmS7Mlbu/uXGM3NdTv7xAJUFHP4
+HdFvh73ZWBCpMzKo+U0PWXU1e5Y/s4Q5c72jFolx18MjaSMPWE91YjNYTb+35zV/
+SR1Oft3L05uvBX8TUEcKX/mqTd3C707Gy7j/3tGimMlfvGW3njG/3Ff8jWI1dvQU
+qPoDD0qnxQIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQAAntrrVTQK1XATS5H5bOCU
+5es7/siEh5QPiIQwgCLD9P+oXZVtcjW2I1EkF4mp63HQkcvhQmXrRTivqWVXi1Wl
+xz9Dt73NWumz6fDH8iHBeXYRKCyGXvQ8DBUxBZ3QUK9xFyYAbkj9FvuGr0zHs+UZ
+auKJ0Nxm7eIsSnHOXctSQA4VE4YRBqG75sQ/rC9DzJAooP/oIc9/Wqi3EWckxGPW
+Wmju6DPyLY2Bk/vrufHPWl5rvHeLFDU02UUJ2NlNNyOCHbM+MHoGv7DO6I7tdq+0
+xs9YgM0+0GuxfJp9i3sOGK8kbf0TZoMjFP2Iq6wIKZBT2Q2gBsYXd+8k6BksbGO0
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://arauto.fapesp.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://arauto.fapesp.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://arauto.fapesp.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://arauto.fapesp.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://arauto.fapesp.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://arauto.fapesp.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">fapesp.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIICzDCCAbQCAQAwDQYJKoZIhvcNAQEFBQAwLDEMMAoGA1UECxMDQ1BEMQswCQYD
+VQQGEwJCUjEPMA0GA1UEAxMGYXJhdXRvMB4XDTEzMDcyNjE3MDQ1OVoXDTE2MDcy
+NTE3MDQ1OVowLDEMMAoGA1UECxMDQ1BEMQswCQYDVQQGEwJCUjEPMA0GA1UEAxMG
+YXJhdXRvMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAw+QLW8JyafF5
+N38EhTdjZhZVL/KDxzWP1fzt/PFIr/ZoX20/x1CcrppX3dVh5gvjv3REY7+7HsIK
+sSXxQq5xZncoY5E995xJM6TuSS3OCz86Te2XUnG8dr/kXAECdmbtBM0qT7WSRSJU
+ae6EkrpWRiSp23Ggz3k9ouOYq6CFpdwjZlCvmYmS7Mlbu/uXGM3NdTv7xAJUFHP4
+HdFvh73ZWBCpMzKo+U0PWXU1e5Y/s4Q5c72jFolx18MjaSMPWE91YjNYTb+35zV/
+SR1Oft3L05uvBX8TUEcKX/mqTd3C707Gy7j/3tGimMlfvGW3njG/3Ff8jWI1dvQU
+qPoDD0qnxQIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQAAntrrVTQK1XATS5H5bOCU
+5es7/siEh5QPiIQwgCLD9P+oXZVtcjW2I1EkF4mp63HQkcvhQmXrRTivqWVXi1Wl
+xz9Dt73NWumz6fDH8iHBeXYRKCyGXvQ8DBUxBZ3QUK9xFyYAbkj9FvuGr0zHs+UZ
+auKJ0Nxm7eIsSnHOXctSQA4VE4YRBqG75sQ/rC9DzJAooP/oIc9/Wqi3EWckxGPW
+Wmju6DPyLY2Bk/vrufHPWl5rvHeLFDU02UUJ2NlNNyOCHbM+MHoGv7DO6I7tdq+0
+xs9YgM0+0GuxfJp9i3sOGK8kbf0TZoMjFP2Iq6wIKZBT2Q2gBsYXd+8k6BksbGO0
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://arauto.fapesp.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://arauto.fapesp.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">FAPESP - Fundacao de Amparo a pesquisa do estado de Sao Paulo</OrganizationName>
+      <OrganizationName xml:lang="pt-br">FAPESP - Fundacao de Amparo a pesquisa do estado de Sao Paulo</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">FAPESP - Fundacao de Amparo a pesquisa do estado de Sao Paulo</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">FAPESP - Fundacao de Amparo a pesquisa do estado de Sao Paulo</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.fapesp.br.br/</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.fapesp.br.br/</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Leandro Costa</SurName>
+      <EmailAddress>lcosta@fapesp.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

@@ -1,0 +1,130 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://aai-logon.bfh.ch/idp/shibboleth">
+		<Extensions>
+                <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://rr.aai.switch.ch/" registrationInstant="2014-04-11T07:17:19Z">
+                    <mdrpi:RegistrationPolicy xml:lang="en">https://www.switch.ch/aai/federation/switchaai/metadata-registration-practice-statement-20110711.txt</mdrpi:RegistrationPolicy>
+                </mdrpi:RegistrationInfo>
+                <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+                    <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+                        <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+                    </saml:Attribute>
+                </mdattr:EntityAttributes>
+		</Extensions>
+		<IDPSSODescriptor errorURL="https://it-support.bfh.ch" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+			<Extensions>
+				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">bfh.ch</shibmd:Scope>
+				<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+					<mdui:DisplayName xml:lang="de">BFH - Berner Fachhochschule</mdui:DisplayName>
+					<mdui:DisplayName xml:lang="en">BFH - Bern University of Applied Sciences</mdui:DisplayName>
+					<mdui:DisplayName xml:lang="fr">BFH - Haute école spécialisée bernoise</mdui:DisplayName>
+					<mdui:Description xml:lang="de">Berner Fachhochschule BFH</mdui:Description>
+					<mdui:Description xml:lang="en">BFH - Bern University of Applied Sciences</mdui:Description>
+					<mdui:Description xml:lang="fr">Haute école spécialisée bernoise BFH</mdui:Description>
+					<mdui:Logo height="16" width="16">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gQEDgYKIhOF+gAAANRJREFUOMtj/P//PwMDAwNDVt0kCAMLUFWQPhDiaVcoKyl6AV2OiYEIcPvBU4cJ89fue/z8tQFRBkx0y4djGPj+45fgtv0n69DVsuCyNX/XRAyxizfuBRLtBXQX4AIkuUBGQoS8QIQBL0fzRqIMwGa7haHmAgNN5Q1ku+DE+esJx89dSyA6GpFpGFi8Yc/8t+8/yZMdBgwMDAzHz19LIjoaiQFMpEQjSQbgAvqayuuR+YzE5EYYcLI06A/xtCvCmhI5Odjef//xSxBXdna0NJiILR0AAN4ETpBaPLgrAAAAAElFTkSuQmCC</mdui:Logo>
+					<mdui:Logo height="58" width="80">data:image/png;base64,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</mdui:Logo>
+				</mdui:UIInfo>
+				<mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+					<mdui:IPHint>2001:620:500::/48</mdui:IPHint>
+					<mdui:IPHint>193.5.80.0/21</mdui:IPHint>
+					<mdui:IPHint>147.87.0.0/16</mdui:IPHint>
+					<mdui:IPHint>195.176.3.0/26</mdui:IPHint>
+					<mdui:DomainHint>bfh.ch</mdui:DomainHint>
+					<mdui:GeolocationHint>geo:47.142358,7.244692</mdui:GeolocationHint>
+					<mdui:GeolocationHint>geo:47.057423,7.621388</mdui:GeolocationHint>
+					<mdui:GeolocationHint>geo:46.947922,7.444609</mdui:GeolocationHint>
+					<mdui:GeolocationHint>geo:46.946692,7.391228</mdui:GeolocationHint>
+					<mdui:GeolocationHint>geo:46.991818,7.468039</mdui:GeolocationHint>
+					<mdui:GeolocationHint>geo:47.145776,7.219669</mdui:GeolocationHint>
+				</mdui:DiscoHints>
+			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					<ds:X509Data>
+						<ds:X509Certificate>
+MIIDIDCCAgigAwIBAgIJAJVzWOYGQeKsMA0GCSqGSIb3DQEBBQUAMBsxGTAXBgNV
+BAMTEGFhaS1sb2dvbi5iZmguY2gwHhcNMTIwNjI1MTIwMDI3WhcNMTUwNjI1MTIw
+MDI3WjAbMRkwFwYDVQQDExBhYWktbG9nb24uYmZoLmNoMIIBIjANBgkqhkiG9w0B
+AQEFAAOCAQ8AMIIBCgKCAQEAnwTKlepv4n191/BElXAMg/u+2St3X4T7Jyekhs0I
+hjOnVrhZg/KOmvpPGnaCEZwdN19Lstq4Wqt0PTJk0AkQn/NWLc3+lTJREQJ8G+hU
+5FAdySCDu2bOrgJjD4Bl7hUN0k4W+bkkdgplvcqXERFqt368qpu2c1lRAEwJ7Tn8
+2XxjoP9rOUpTTW+XJh5g5CK2V9BBPteeVf5Gfwe3/xiuQ4LuHsGW8vFLEZPEdIWD
+b9dPuO6WzmqFon+RxAwwUm9MgR+Fgd3vSqYINZFmOJ9kvEONK1hLv7e0a0MX7BhK
+c28dy/3UBhLZmNfiko8gsDR11rvaEw6GcONW2333o6VKcwIDAQABo2cwZTBEBgNV
+HREEPTA7ghBhYWktbG9nb24uYmZoLmNohidodHRwczovL2FhaS1sb2dvbi5iZmgu
+Y2gvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFByxTmSn9QFnFpQCJWhgYfKAc3bk
+MA0GCSqGSIb3DQEBBQUAA4IBAQAOIELg4Y21HCefARPwRAhwB3XTRAdoucBQt4xu
+s8UC39Yuzi6Eh6SJieGAm9ePLTpNFSH3jIqAiQyxH33jWZMSb229ByIGzbHrm8K7
+WLFuqcLltr9vdd6l1RT+hOt5wPRNQhWqDkWuBRDBZz4WHq3QNypCzSHyvLBYoahb
+JYkfFc6kusMIqlwnGzfxO450QRAdnhf38E9N1iz+nGoRNT+5xwVCsP/bdUVAyYNr
+M2r2BWHVZt2GQD4ZsRgLjtsaRoyobIN2CWhOVZqnlk4vbXFXlS++TwtBzJq8HKft
+2EhVU1pz8jnpJ90P3Nyj1HNw55DR9pn7DMQqIdSAOoyDkoXY
+						</ds:X509Certificate>
+					</ds:X509Data>
+				</ds:KeyInfo>
+			</KeyDescriptor>
+			<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-logon.bfh.ch:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+			<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-logon.bfh.ch:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://aai-logon.bfh.ch/idp/profile/Shibboleth/SSO"/>
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai-logon.bfh.ch/idp/profile/SAML2/Redirect/SSO"/>
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://aai-logon.bfh.ch/idp/profile/SAML2/POST/SSO"/>
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://aai-logon.bfh.ch/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+		</IDPSSODescriptor>
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">bfh.ch</shibmd:Scope>
+			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					<ds:X509Data>
+						<ds:X509Certificate>
+MIIDIDCCAgigAwIBAgIJAJVzWOYGQeKsMA0GCSqGSIb3DQEBBQUAMBsxGTAXBgNV
+BAMTEGFhaS1sb2dvbi5iZmguY2gwHhcNMTIwNjI1MTIwMDI3WhcNMTUwNjI1MTIw
+MDI3WjAbMRkwFwYDVQQDExBhYWktbG9nb24uYmZoLmNoMIIBIjANBgkqhkiG9w0B
+AQEFAAOCAQ8AMIIBCgKCAQEAnwTKlepv4n191/BElXAMg/u+2St3X4T7Jyekhs0I
+hjOnVrhZg/KOmvpPGnaCEZwdN19Lstq4Wqt0PTJk0AkQn/NWLc3+lTJREQJ8G+hU
+5FAdySCDu2bOrgJjD4Bl7hUN0k4W+bkkdgplvcqXERFqt368qpu2c1lRAEwJ7Tn8
+2XxjoP9rOUpTTW+XJh5g5CK2V9BBPteeVf5Gfwe3/xiuQ4LuHsGW8vFLEZPEdIWD
+b9dPuO6WzmqFon+RxAwwUm9MgR+Fgd3vSqYINZFmOJ9kvEONK1hLv7e0a0MX7BhK
+c28dy/3UBhLZmNfiko8gsDR11rvaEw6GcONW2333o6VKcwIDAQABo2cwZTBEBgNV
+HREEPTA7ghBhYWktbG9nb24uYmZoLmNohidodHRwczovL2FhaS1sb2dvbi5iZmgu
+Y2gvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFByxTmSn9QFnFpQCJWhgYfKAc3bk
+MA0GCSqGSIb3DQEBBQUAA4IBAQAOIELg4Y21HCefARPwRAhwB3XTRAdoucBQt4xu
+s8UC39Yuzi6Eh6SJieGAm9ePLTpNFSH3jIqAiQyxH33jWZMSb229ByIGzbHrm8K7
+WLFuqcLltr9vdd6l1RT+hOt5wPRNQhWqDkWuBRDBZz4WHq3QNypCzSHyvLBYoahb
+JYkfFc6kusMIqlwnGzfxO450QRAdnhf38E9N1iz+nGoRNT+5xwVCsP/bdUVAyYNr
+M2r2BWHVZt2GQD4ZsRgLjtsaRoyobIN2CWhOVZqnlk4vbXFXlS++TwtBzJq8HKft
+2EhVU1pz8jnpJ90P3Nyj1HNw55DR9pn7DMQqIdSAOoyDkoXY
+						</ds:X509Certificate>
+					</ds:X509Data>
+				</ds:KeyInfo>
+			</KeyDescriptor>
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-logon.bfh.ch:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-logon.bfh.ch:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+		<Organization>
+			<OrganizationName xml:lang="en">bfh.ch</OrganizationName>
+			<OrganizationDisplayName xml:lang="de">BFH - Berner Fachhochschule</OrganizationDisplayName>
+			<OrganizationDisplayName xml:lang="en">BFH - Bern University of Applied Sciences</OrganizationDisplayName>
+			<OrganizationDisplayName xml:lang="fr">BFH - Haute école spécialisée bernoise</OrganizationDisplayName>
+			<OrganizationURL xml:lang="de">http://www.bfh.ch/</OrganizationURL>
+			<OrganizationURL xml:lang="en">http://www.bfh.ch/</OrganizationURL>
+			<OrganizationURL xml:lang="fr">http://www.bfh.ch/</OrganizationURL>
+		</Organization>
+		<ContactPerson contactType="support">
+			<GivenName>BFH-ITS</GivenName>
+			<SurName>Support</SurName>
+			<EmailAddress>mailto:it-support@bfh.ch</EmailAddress>
+			<TelephoneNumber>+41 31 848 48 48</TelephoneNumber>
+		</ContactPerson>
+		<ContactPerson contactType="technical">
+			<GivenName>AAI</GivenName>
+			<SurName>Admins</SurName>
+			<EmailAddress>mailto:aai-admins@bfh.ch</EmailAddress>
+			
+		</ContactPerson>
+	</EntityDescriptor>

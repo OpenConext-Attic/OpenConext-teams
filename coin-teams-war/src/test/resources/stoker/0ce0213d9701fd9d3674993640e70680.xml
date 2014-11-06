@@ -1,0 +1,78 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibbo.ec-nantes.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-07-08T10:59:42Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ec-nantes.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Ecole Centrale de Nantes</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDODCCAiCgAwIBAgIVAJo2ABzrdqEuYQPEMg3AUqxh974mMA0GCSqGSIb3DQEB
+BQUAMB4xHDAaBgNVBAMTE3NoaWJiby5lYy1uYW50ZXMuZnIwHhcNMDkwNjIzMTUy
+MzQ4WhcNMjkwNjIzMTUyMzQ4WjAeMRwwGgYDVQQDExNzaGliYm8uZWMtbmFudGVz
+LmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkKdUKM4/DHJDjU4M
+wYoBAjsKU+LuXIELLk25O2l2qdHDvvXNli+i5dlCo87w+os/v7eUadHxCe+76G6b
+HiUuiMYVGuL1G27QA1AUOG1vAC0mbBIetw3ovME+LkiBwXQqTOlshYq7FaizifwX
+HGvn3qskkAHg29ZKvBsVyFka891bwvUAbiFjho+dwT/v+A4nXJWzv6vvsGw+u16m
+XhMyUpZjxGek9/7LpOjK+j9DNWn0wP9LAiEbLr3n7jguPLBBAC6f70U671Zdnf3R
+mBJkAYRe+YdpYuuVGA5/oIPZGcNb6VBYEH0wxgP+7BpiPoYUqVpiCsKc9FVuFKWG
+eZzi6wIDAQABo20wazBKBgNVHREEQzBBghNzaGliYm8uZWMtbmFudGVzLmZyhipo
+dHRwczovL3NoaWJiby5lYy1uYW50ZXMuZnIvaWRwL3NoaWJib2xldGgwHQYDVR0O
+BBYEFKJXfKXL/okbKTLodXy6vDPmJc8BMA0GCSqGSIb3DQEBBQUAA4IBAQBKmvA3
+m29NOTfsDcF2X2zSok+1L9aDG/EGK28kVuojf2hp3GQMpdjXQ/05CtqYtcNDNBOt
+2rcopaZQsIRdiaU/hcxT/6JUsacFrowdBbpkNxAAuZ9ZJGUwEosSL61TkX9oaaFP
+NCaSmFdeleFd7KVMhtOkDy5+BQC9tJyraO5MqPUm5Q0QwXQN84al67IlnhIg0sNc
+tuTqkhqTxNCAnLzSCtBB/QB36Ao/0hwAHxo6AbFVGQDd2BRhsqQpcApZpb1oDFEh
+bhRZNLT/IXdDvj9i4zhAYNSRRVQ1vmyZOCoyk8wHLcWSRnurt8bbK2V2DxI0TKZh
++LPVwWXes1OQooJD
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibbo.ec-nantes.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibbo.ec-nantes.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibbo.ec-nantes.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Ecole Centrale de Nantes</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Ecole Centrale de Nantes</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>cri-sys@ec-nantes.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

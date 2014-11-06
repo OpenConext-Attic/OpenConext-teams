@@ -1,0 +1,78 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.insa-rennes.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-01-09T09:44:23Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">insa-rennes.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">INSA de Rennes</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDNDCCAhygAwIBAgIVAJHTEvJ6v+nlYzV+wkUtFZ6HzcHCMA0GCSqGSIb3DQEB
+BQUAMB0xGzAZBgNVBAMTEmlkcC5pbnNhLXJlbm5lcy5mcjAeFw0xMTExMTgwOTU4
+MzZaFw0zMTExMTgwOTU4MzZaMB0xGzAZBgNVBAMTEmlkcC5pbnNhLXJlbm5lcy5m
+cjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJYlYtRP3NDZSmNJI7aK
+/m/7Mr2Hxk6D7zPWCkgTB+TjG4ZRmHxBQnpWPiceF3FApyRVwERozwzIqQwneJNv
+5l6OyDnzzRrS66gGMoRl3wtUfMwEYQ2C7Ra+9YVQ9jk5KnYtz23eL+aKEuunzGcP
+Q30cQjCp7Ul24A3SxpaEh833HXF99wUOUY2m0eGWbrtrNlfFKccdFC4aP0BJBKwW
+O3jSaYI9+8Li1X6bkYtxckzJXpnT+mFd+YtdheBHervp5LV/UaXLu0gkba2QpPxh
+K1sSF2c9rxHHtsFmz8MLybRhUav+geOptiwdao4x+RADBYqqadBExIfwincN32oj
+DpsCAwEAAaNrMGkwSAYDVR0RBEEwP4ISaWRwLmluc2EtcmVubmVzLmZyhilodHRw
+czovL2lkcC5pbnNhLXJlbm5lcy5mci9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU
+naVqEfHdJ6MDDzgXACj6bY0JkPQwDQYJKoZIhvcNAQEFBQADggEBAEhzs1y7DS7z
+KOwwwe/r04humZpdbH8a1MSimx1eCEUEKaO1JrQKQFJF7Uirm0AOX6VE0KlWc4rO
+tIJEPylxZcEopP1fbyCh7qk20MQQzlFuDWr14M+UU8jAtLodDafQRG2Vevsyj/hI
+Ru43dYNwSJWuAsKkIgJfrtGFsLzJFGqabyWvaRRxuz04RWMdxdrcMAKsnREo4EZ7
+DS0IzKCW7Qw9cBjhyIPJP1AsVe0qAPzz/+cFYeAhn1IDhFVmDLrWuFMtFEhytPPx
+83jRvkMRYTkV2AdH1UqS1c46r/56fa6YwAGxq90K4mMN1hbdkatVdfF/WUbmW9fU
+R/EORI5dwv0=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.insa-rennes.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.insa-rennes.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.insa-rennes.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">INSA de Rennes</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">INSA de Rennes</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>cri-systeme@insa-rennes.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

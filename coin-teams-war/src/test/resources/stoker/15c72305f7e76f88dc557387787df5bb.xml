@@ -1,0 +1,89 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth.univ-toulouse.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-09-14T11:10:03Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-toulouse.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de Toulouse</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDVzCCAj+gAwIBAgIUbiBTqjVuFrpcZlYOFXAV5Gkjxo8wDQYJKoZIhvcNAQEF
+BQAwJjEkMCIGA1UEAxMbc2hpYmJvbGV0aC51bml2LXRvdWxvdXNlLmZyMB4XDTEy
+MDgwNjE2NTI0N1oXDTMyMDgwNjE2NTI0N1owJjEkMCIGA1UEAxMbc2hpYmJvbGV0
+aC51bml2LXRvdWxvdXNlLmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+AQEAy9KO/R6+ULM1wnOCGj+j9i8QL0T6U+HG5hoKcK1H0MfUcyukRBVXLp6ICeqx
+JUifD3xjbZ+AcDD6TJZcCpXCXejQmadrl9DxQWd3M6mkeRqVR7gtoeOqRocQRcja
+JYBlzh7psgNLX7uET4uXmz38rVBO3NpIYLQuG65wKlZTMTPSxMQogcvWSRbIQ0RE
+xnDLfrumHYiM7KWM5GVzLUHXglDDOMBNjOG1xZuxa5ohFZbkSpIcEChQZrY6ZTkN
+1i6n3tC/8kq53YfTmvv99TB1RmjXPgZMnJFX4Ed36zodJhr+Jynxt6IYVsA93qu/
+N79fk1dZrKa15JEJQKLZarhexQIDAQABo30wezBaBgNVHREEUzBRghtzaGliYm9s
+ZXRoLnVuaXYtdG91bG91c2UuZnKGMmh0dHBzOi8vc2hpYmJvbGV0aC51bml2LXRv
+dWxvdXNlLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBQbAAEzAb1fawuGZY3z
+jqchRx7fNzANBgkqhkiG9w0BAQUFAAOCAQEARouJ8loz83h+XBcCZsj1ZaEe0pxi
+xtvXJu+V9ujSNcSp4VtpiNUgUhDcgb7vk5q/gpafgTgA4bae7lPLB1qbTnxKNl7u
+OKips5hzSQ3IQ9KA5YKG90c07/lhogp1lk0ZOLnamioOF2ZqY4KqinKXEQe2GA9K
+ykLtdZM1agwtBCF0oC1/pxxPnc64MVixLBqcv0jrEi/MYJ2PcJdkKIj8QqNMj16y
+lY+k+YG78HJpawe6Y8VBsKAiFC/7p9UQhk6FjOQnD2TEEsjnevVyUeSeYq8Ynufz
+neQ3fY40PFNPR6xq43ajr4n5p9AGffHU08Hrm9fRk2HrJ4vmcYIEPXAICw==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.univ-toulouse.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.univ-toulouse.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.univ-toulouse.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Toulouse</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Toulouse</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Francis DELBOS</SurName>
+				 <EmailAddress>francis.delbos@univ-toulouse.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Boris VALERA</SurName>
+				 <EmailAddress>boris.valera@univ-toulouse.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

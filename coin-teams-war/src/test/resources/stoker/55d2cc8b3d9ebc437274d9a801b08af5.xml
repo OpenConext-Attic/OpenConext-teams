@@ -1,0 +1,89 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://srv-cr-idp.crdp-aquitaine.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2013-10-21T16:21:50Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">crdp-aquitaine.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">CRDP d'Aquitaine</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDWzCCAkOgAwIBAgIUZNcfs0me3gJRFzAZsv70xd7o1lAwDQYJKoZIhvcNAQEF
+BQAwJzElMCMGA1UEAxMcc3J2LWNyLWlkcC5jcmRwLWFxdWl0YWluZS5mcjAeFw0x
+MzA0MjIxNTMzMzhaFw0zMzA0MjIxNTMzMzhaMCcxJTAjBgNVBAMTHHNydi1jci1p
+ZHAuY3JkcC1hcXVpdGFpbmUuZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+AoIBAQCA/Nt2kvmT5TdK1pTBSZ4HMyy+0ocpSDQJEnYy6/eYFvf9lnTcMscUXFBR
+3bx+elUMQInieeQxjaJ3wGTODu6QuVAUeGLrsE/AM+hkhcQuJ9BS3SCWcIPKVdiY
+bPP5VNYQSVspCDvCraTEcztfSjcQhZ8VqofRERNXw9I/yZTxVqXt0uXmo9BphO6o
+vwmO39HtroJ8kJnIhj0XATxP07e/zPAsWSwqWGorqILFnpIHVVvhh5nGq4XwhJaO
+IVVuwul2ffzsPMc3PUDy41JFpvzAiPS8dI5FXDerOp7wFR9nJqGcQ8vkkrDJVAGQ
+2Ux2yGLh0vVnouqFnLhukXV6PCrRAgMBAAGjfzB9MFwGA1UdEQRVMFOCHHNydi1j
+ci1pZHAuY3JkcC1hcXVpdGFpbmUuZnKGM2h0dHBzOi8vc3J2LWNyLWlkcC5jcmRw
+LWFxdWl0YWluZS5mci9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUp3g4+XVx1rOL
+EduivpCD/pkqw5QwDQYJKoZIhvcNAQEFBQADggEBAENp1qGbki2B1hc76pCYlbJM
+CNIF/xnjp2kKLUpCSxrCNVhp1X1TPh5V3v8J6qCXIKDhVDU98eVCMtUoe7S4bXVs
+w1dahL5jKfTNt4gz2ye/eV9U80ls48DU8iHt+6DAsMKhUclXFGrUBJ3dMZtrb1mB
+EXRs3cGPkhtUhU+0W1SHJb9LDP/vD0m+mpYJkm21IE/5/Su/W6NU7zGvNx3EusHh
+jpsClKrNMer75H+SrHphN7YBCRYeZcpEjA8axJr06Vddb3VFoWv1snspplQyLmkh
+m2r+TDGDuoziugKpxooCU7iZVaXp06XOnBUTI3mHXcCEHkt48EomwsH95lenRtU=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://srv-cr-idp.crdp-aquitaine.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://srv-cr-idp.crdp-aquitaine.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://srv-cr-idp.crdp-aquitaine.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">CRDP d'Aquitaine</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">CRDP d'Aquitaine</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Alain-Aymerick François</SurName>
+				 <EmailAddress>Alain-Aymerick.Francois@crdp-aquitaine.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Jean-Hervé RIVARD</SurName>
+				 <EmailAddress>jean-herve.rivard@crdp-aquitaine.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

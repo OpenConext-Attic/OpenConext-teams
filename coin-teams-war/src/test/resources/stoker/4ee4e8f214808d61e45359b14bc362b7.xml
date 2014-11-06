@@ -1,0 +1,116 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.img.cas.cz/idp/shibboleth">
+    <md:Extensions xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.eduid.cz/" registrationInstant="2014-06-09T12:29:04Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <mdasrt:Attribute xmlns:mdasrt="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <mdasrt:AttributeValue>http://eduid.cz/uri/idp-group/avcr</mdasrt:AttributeValue>
+        </mdasrt:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">img.cas.cz</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">Institute of Molecular Genetics of the ASCR</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">Ústav molekulární genetiky AV ČR</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity provider for IMG ASCR employees.</mdui:Description>
+          <mdui:Description xml:lang="cs">Poskytovatel identity pro zaměstnance ÚMG AV ČR.</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.img.cas.cz/en/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">http://www.img.cas.cz/</mdui:InformationURL>
+          <mdui:Logo height="40" width="104">https://idp.img.cas.cz/images/img_logo_small.png</mdui:Logo>
+        </mdui:UIInfo>
+        <eduidmd:RepublishRequest xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0">
+          <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
+        </eduidmd:RepublishRequest>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDJDCCAgygAwIBAgIVAOD0HnToPYposQvSZOwdUVtqwictMA0GCSqGSIb3DQEB
+BQUAMBkxFzAVBgNVBAMTDmlkcC5pbWcuY2FzLmN6MB4XDTE0MDUyOTA2MjgxOVoX
+DTM0MDUyOTA2MjgxOVowGTEXMBUGA1UEAxMOaWRwLmltZy5jYXMuY3owggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDaG1eJjjOGWyA26l3zWvg7oxWlyxO4
+Xka8cJYUupiV80Swq+oo2PlUqbL8ciHP7g0Vjdw4wTq1/R9i1sA1i1JLj3TRFoy6
+cvCFH4m8aeQKnSjcpUJiQXkGE/rM4Hf1qegyrjKqnbk83azOODv1IbndJMXMdf/9
+7Nl/1+3UDy8LsVsNKkN/8fplSHC2exAOZlPVX/uwlgwXDo5AsM4VvZjhB3fDNeLr
+wcfXmvohMhp3u5KJhQS4oPCpX5ULjo1EPRuRhKsOBCQHX6fH4Ac1E2b8as3HvzJ2
+fgqG1QETTyZZAhlovWHEVRncu8k8jMwbCIq3UgQMP+WK8fGP/sPRbpPnAgMBAAGj
+YzBhMEAGA1UdEQQ5MDeCDmlkcC5pbWcuY2FzLmN6hiVodHRwczovL2lkcC5pbWcu
+Y2FzLmN6L2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRU+/iETTc1Nh9rJ+L2sBT4
+y68xFjANBgkqhkiG9w0BAQUFAAOCAQEAvFtxSjURNIGODMraRKn9En4YjARqtyN1
+3uoXTbgc3GE6O/PgWwu1I1VndTTnIBoOC6bviKSu1sVpe7yhHjkoilR3EuZDuZGl
+0YBnlrmWcwXQOH08zfdiqtApDO761LRtYEaXJnyCTmLFRquMUxQy/Z0NXMCNEOps
+eCR5zkOYQadY9TLPoyrKWidxar0mjW96yK1uWiVKWqt1bU/zWhFxLYPN8bLNB2JU
+RTuMCTO4d4Zdp5uhCbnM4F+Zlipu2ojbhJiHHqJ0SOrsfXWHsdpp8S2nJcPlERgd
+N9KAr6lHQsSuYiw6Lt0HG1Q4TAFYTaPnA40uN+zzOomz27Chnsg/Sw==
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.img.cas.cz:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.img.cas.cz:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.img.cas.cz/idp/profile/SAML2/Redirect/SLO"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.img.cas.cz/idp/profile/SAML2/POST/SLO"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.img.cas.cz:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.img.cas.cz/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.img.cas.cz/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.img.cas.cz/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.img.cas.cz/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">img.cas.cz</shibmd:Scope>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDJDCCAgygAwIBAgIVAOD0HnToPYposQvSZOwdUVtqwictMA0GCSqGSIb3DQEB
+BQUAMBkxFzAVBgNVBAMTDmlkcC5pbWcuY2FzLmN6MB4XDTE0MDUyOTA2MjgxOVoX
+DTM0MDUyOTA2MjgxOVowGTEXMBUGA1UEAxMOaWRwLmltZy5jYXMuY3owggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDaG1eJjjOGWyA26l3zWvg7oxWlyxO4
+Xka8cJYUupiV80Swq+oo2PlUqbL8ciHP7g0Vjdw4wTq1/R9i1sA1i1JLj3TRFoy6
+cvCFH4m8aeQKnSjcpUJiQXkGE/rM4Hf1qegyrjKqnbk83azOODv1IbndJMXMdf/9
+7Nl/1+3UDy8LsVsNKkN/8fplSHC2exAOZlPVX/uwlgwXDo5AsM4VvZjhB3fDNeLr
+wcfXmvohMhp3u5KJhQS4oPCpX5ULjo1EPRuRhKsOBCQHX6fH4Ac1E2b8as3HvzJ2
+fgqG1QETTyZZAhlovWHEVRncu8k8jMwbCIq3UgQMP+WK8fGP/sPRbpPnAgMBAAGj
+YzBhMEAGA1UdEQQ5MDeCDmlkcC5pbWcuY2FzLmN6hiVodHRwczovL2lkcC5pbWcu
+Y2FzLmN6L2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRU+/iETTc1Nh9rJ+L2sBT4
+y68xFjANBgkqhkiG9w0BAQUFAAOCAQEAvFtxSjURNIGODMraRKn9En4YjARqtyN1
+3uoXTbgc3GE6O/PgWwu1I1VndTTnIBoOC6bviKSu1sVpe7yhHjkoilR3EuZDuZGl
+0YBnlrmWcwXQOH08zfdiqtApDO761LRtYEaXJnyCTmLFRquMUxQy/Z0NXMCNEOps
+eCR5zkOYQadY9TLPoyrKWidxar0mjW96yK1uWiVKWqt1bU/zWhFxLYPN8bLNB2JU
+RTuMCTO4d4Zdp5uhCbnM4F+Zlipu2ojbhJiHHqJ0SOrsfXWHsdpp8S2nJcPlERgd
+N9KAr6lHQsSuYiw6Lt0HG1Q4TAFYTaPnA40uN+zzOomz27Chnsg/Sw==
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.img.cas.cz:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.img.cas.cz:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+    </AttributeAuthorityDescriptor>
+    <Organization>
+      <OrganizationName xml:lang="en">IMG</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">Institute of Molecular Genetics of the ASCR, v. v. i.</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="cs">Ústav molekulární genetiky AV ČR, v. v. i.</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.img.cas.cz/en/</OrganizationURL>
+      <OrganizationURL xml:lang="cs">http://www.img.cas.cz/</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Michal</GivenName>
+      <SurName>Zacek</SurName>
+      <EmailAddress>michal.zacek@img.cas.cz</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

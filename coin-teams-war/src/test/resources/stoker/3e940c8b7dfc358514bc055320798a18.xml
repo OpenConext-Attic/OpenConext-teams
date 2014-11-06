@@ -1,0 +1,59 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.ppke.hu/idp/shibboleth">
+        <Extensions>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">ppke</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href-edugain</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href-idps</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">sotelib-vs-ppke</ns9:MetadataSet>
+            <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://eduid.hu"/>
+        </Extensions>
+        <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+            <Extensions>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ppke.hu</shibmd:Scope>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">login.ppke.hu</shibmd:Scope>
+                <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <mdui:IPHint>193.225.109.0/24</mdui:IPHint>
+                    <mdui:GeolocationHint>geo:47.48841,19.0784</mdui:GeolocationHint>
+                </mdui:DiscoHints>
+                <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <mdui:Logo height="86" width="86">https://idp.ppke.hu/logo.png</mdui:Logo>
+                </mdui:UIInfo>
+            </Extensions>
+            <KeyDescriptor>
+                <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:X509Data>
+                        <ds:X509Certificate>MIIDGDCCAgCgAwIBAgIVALqsFrR4I9Bs0KO2BfLx5BkiO3BEMA0GCSqGSIb3DQEBBQUAMBYxFDASBgNVBAMTC2lkcC5wcGtlLmh1MB4XDTA5MDkyNDA4NTEyMloXDTI5MDkyNDA4NTEyMlowFjEUMBIGA1UEAxMLaWRwLnBwa2UuaHUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC2OUIJ85ChB9LqQ+KHBXLtCODAr4phVIYGiTp3qDMHOOtGBNUKoyq9AMyVb8nk+coIA0+v5yHOdWHB2ZLz7T7BE2XqWYP/LjW4o6ImBcPnZO3CMYH+EWaxgqvpoS12DlEd9dCJqGqNmL7NYFM/+gX4FeHOCIIKN86ol8Kqup/OVvF9KpzNVaPiVB5UitWO7FG3ZStIGa7kXM3VZW6DpN1Hfs4eQxNPzl0L9em1SMh1KybUde8w0eDaTJHWDvC8W+jwz+3Qc0HHX2BO0SX7LjrJ0/sjU6fEWEP/Q6tApcb4pKxtcWPBC5cdRawyXx5eixirnHafNmWXZf3vqCbd4u67AgMBAAGjXTBbMDoGA1UdEQQzMDGCC2lkcC5wcGtlLmh1hiJodHRwczovL2lkcC5wcGtlLmh1L2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBQVA2Fh1jDMY7aRgf+BHStRAVdNkjANBgkqhkiG9w0BAQUFAAOCAQEAQkTajo9mUk/O/yyDv19cb3e9du0FH8TSY5YYYUEsW8xQf5tj7JKavI82FK0ixQnBW9E9I2GEtefMzk11g7DGHujhEyPR8OYoCpCH5UpsxHR06+ZH5kf7bVRxj3FahhgFYCjKQJ8gkmuem8wVd8BkEvnFjt4aP61+Afe+mcNjTm3IYN5iBZPMn/4xpHqDvH7tong+nXD58mMBtDv+JlwVfn7uq9C+OoPMaHWKgt+Y3Rp15/pdTmVzZFjzHxc2OKGM6TRP1woQ6CEx3M3qiCXtP57nApLg0XNLtrMM3jUpEECXyrM4vr6mdBVJqDJAHkr0Ej85ZP84waSs/Ojj5U5etQ==</ds:X509Certificate>
+                    </ds:X509Data>
+                    <ds:KeyName>idp.ppke.hu</ds:KeyName>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ppke.hu:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="1"/>
+            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ppke.hu/idp/profile/SAML2/Redirect/SLO"/>
+            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ppke.hu/idp/profile/SAML2/POST/SLO"/>
+            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ppke.hu/idp/profile/SAML2/Redirect/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ppke.hu/idp/profile/SAML2/POST/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.ppke.hu/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+        </IDPSSODescriptor>
+        <Organization>
+            <OrganizationName xml:lang="hu">Pázmány Péter Katolikus Egyetem</OrganizationName>
+            <OrganizationName xml:lang="en">Pazmany Peter Catholic University</OrganizationName>
+            <OrganizationDisplayName xml:lang="hu">PPKE - Pázmány Péter Katolikus Egyetem</OrganizationDisplayName>
+            <OrganizationDisplayName xml:lang="en">PPKE - Pázmány Péter Catholic University</OrganizationDisplayName>
+            <OrganizationURL xml:lang="hu">https://info.ppke.hu</OrganizationURL>
+            <OrganizationURL xml:lang="en">https://info.ppke.hu</OrganizationURL>
+        </Organization>
+        <ContactPerson contactType="technical">
+            <SurName>Csillag Tamás</SurName>
+            <EmailAddress>mailto:cstamas@digitus.itk.ppke.hu</EmailAddress>
+        </ContactPerson>
+        <ContactPerson contactType="support">
+            <SurName>Csillag Tamás</SurName>
+            <EmailAddress>mailto:cstamas@digitus.itk.ppke.hu</EmailAddress>
+        </ContactPerson>
+        <ContactPerson contactType="administrative">
+            <SurName>Csillag Tamás</SurName>
+            <EmailAddress>mailto:cstamas@digitus.itk.ppke.hu</EmailAddress>
+        </ContactPerson>
+    </EntityDescriptor>

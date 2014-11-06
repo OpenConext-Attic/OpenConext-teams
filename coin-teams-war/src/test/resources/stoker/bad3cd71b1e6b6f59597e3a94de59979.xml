@@ -1,0 +1,129 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://cafe.uscs.edu.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">uscs.edu.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">USCS - Universidade Municipal de Sao Caetano do Sul</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">USCS - Universidade Municipal de Sao Caetano do Sul</mdui:DisplayName>
+          <mdui:Description xml:lang="en">USCS - Universidade Municipal de Sao Caetano do Sul</mdui:Description>
+          <mdui:Description xml:lang="pt-br">USCS - Universidade Municipal de Sao Caetano do Sul</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.uscs.edu.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.uscs.edu.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIDzjCCArYCAQAwDQYJKoZIhvcNAQEFBQAwgawxPTA7BgNVBAoUNFVTQ1MgLSBV
+bml2ZXJzaWRhZGUgTXVuaWNpcGFsIGRlIFPDo28gQ2FldGFubyBkbyBTdWwxHDAa
+BgNVBAsTE0RlcGFydGFtZW50byBkZSBUSUMxHDAaBgNVBAcUE1PDo28gQ2FldGFu
+byBkbyBTdWwxEzARBgNVBAgUClPDo28gUGF1bG8xCzAJBgNVBAYTAkJSMQ0wCwYD
+VQQDEwRjYWZlMB4XDTE0MDQyMzEyMjkwOVoXDTE5MDQyMjEyMjkwOVowgawxPTA7
+BgNVBAoUNFVTQ1MgLSBVbml2ZXJzaWRhZGUgTXVuaWNpcGFsIGRlIFPDo28gQ2Fl
+dGFubyBkbyBTdWwxHDAaBgNVBAsTE0RlcGFydGFtZW50byBkZSBUSUMxHDAaBgNV
+BAcUE1PDo28gQ2FldGFubyBkbyBTdWwxEzARBgNVBAgUClPDo28gUGF1bG8xCzAJ
+BgNVBAYTAkJSMQ0wCwYDVQQDEwRjYWZlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+MIIBCgKCAQEAnMgoOOS1q469sjuekkG6hOjIo0N0JLw+RFj20LasNRbdxpGNmlUu
+EO7/tXNMWs78BTtONVF9buyTZMOKUB2+Tw5qiZQ5w2y6B4quFS1zDv+jb361ZRhw
+/YHr17DZqYevPZfoIsMyr8PeXxGvpZvXIRxRWixFYXK6cSzxjZabK/HalaChWsok
+abWJvmtk3RUaNFDUg7m5fdysgCmMu1tXTIUqcCigHKvjIAi9VvUoTqs1sCFT916M
+PcORbfc+FpbNYbM+wW8nIJcwXTI94GhWiR1jJ4P8JfNRusbF6oaCOZe6WHIaysRN
+nuUwed10kYrBjIeh0+gH6WrvGi09VCbvFwIDAQABMA0GCSqGSIb3DQEBBQUAA4IB
+AQBEI/TESsgFK6AN0nrNrdcnqoGCf0P3yS1THvE0Q48I0RRCows+U07LTj+W4sm6
+sN9bM16I1nIwZPWSbBB49L0+JkJHkmUAId8vamN1qHG5hjU13HaIY6g2PSZNYM61
+4nL8Hf18QK/WD5etufceyiqTWImfFPq3/6bUEeZCCIcW9gnY2GjOC9a8hhWu9GV0
+9id1ZjXEhJYRnD4N42qPDTc6I9QtnbDJo5QN7+BEB7dFZ9x/WsZWk5B9Na5r69d5
+DsvS7Z5Hdoz1fHcgr6M82y0DzBOCJYFv37NBx/o8iQ/0AeWPGP75Al9b3qzAzQmS
+QEjzHAKqUpXAKTtGQ1Gp7AIE
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.uscs.edu.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.uscs.edu.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafe.uscs.edu.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafe.uscs.edu.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafe.uscs.edu.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafe.uscs.edu.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">uscs.edu.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIDzjCCArYCAQAwDQYJKoZIhvcNAQEFBQAwgawxPTA7BgNVBAoUNFVTQ1MgLSBV
+bml2ZXJzaWRhZGUgTXVuaWNpcGFsIGRlIFPDo28gQ2FldGFubyBkbyBTdWwxHDAa
+BgNVBAsTE0RlcGFydGFtZW50byBkZSBUSUMxHDAaBgNVBAcUE1PDo28gQ2FldGFu
+byBkbyBTdWwxEzARBgNVBAgUClPDo28gUGF1bG8xCzAJBgNVBAYTAkJSMQ0wCwYD
+VQQDEwRjYWZlMB4XDTE0MDQyMzEyMjkwOVoXDTE5MDQyMjEyMjkwOVowgawxPTA7
+BgNVBAoUNFVTQ1MgLSBVbml2ZXJzaWRhZGUgTXVuaWNpcGFsIGRlIFPDo28gQ2Fl
+dGFubyBkbyBTdWwxHDAaBgNVBAsTE0RlcGFydGFtZW50byBkZSBUSUMxHDAaBgNV
+BAcUE1PDo28gQ2FldGFubyBkbyBTdWwxEzARBgNVBAgUClPDo28gUGF1bG8xCzAJ
+BgNVBAYTAkJSMQ0wCwYDVQQDEwRjYWZlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+MIIBCgKCAQEAnMgoOOS1q469sjuekkG6hOjIo0N0JLw+RFj20LasNRbdxpGNmlUu
+EO7/tXNMWs78BTtONVF9buyTZMOKUB2+Tw5qiZQ5w2y6B4quFS1zDv+jb361ZRhw
+/YHr17DZqYevPZfoIsMyr8PeXxGvpZvXIRxRWixFYXK6cSzxjZabK/HalaChWsok
+abWJvmtk3RUaNFDUg7m5fdysgCmMu1tXTIUqcCigHKvjIAi9VvUoTqs1sCFT916M
+PcORbfc+FpbNYbM+wW8nIJcwXTI94GhWiR1jJ4P8JfNRusbF6oaCOZe6WHIaysRN
+nuUwed10kYrBjIeh0+gH6WrvGi09VCbvFwIDAQABMA0GCSqGSIb3DQEBBQUAA4IB
+AQBEI/TESsgFK6AN0nrNrdcnqoGCf0P3yS1THvE0Q48I0RRCows+U07LTj+W4sm6
+sN9bM16I1nIwZPWSbBB49L0+JkJHkmUAId8vamN1qHG5hjU13HaIY6g2PSZNYM61
+4nL8Hf18QK/WD5etufceyiqTWImfFPq3/6bUEeZCCIcW9gnY2GjOC9a8hhWu9GV0
+9id1ZjXEhJYRnD4N42qPDTc6I9QtnbDJo5QN7+BEB7dFZ9x/WsZWk5B9Na5r69d5
+DsvS7Z5Hdoz1fHcgr6M82y0DzBOCJYFv37NBx/o8iQ/0AeWPGP75Al9b3qzAzQmS
+QEjzHAKqUpXAKTtGQ1Gp7AIE
+					
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.uscs.edu.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.uscs.edu.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">USCS - Universidade Municipal de Sao Caetano do Sul</OrganizationName>
+      <OrganizationName xml:lang="pt-br">USCS - Universidade Municipal de Sao Caetano do Sul</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">USCS - Universidade Municipal de Sao Caetano do Sul</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">USCS - Universidade Municipal de Sao Caetano do Sul</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.uscs.edu.br/</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.uscs.edu.br/</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Eduardo dos Santos</SurName>
+      <EmailAddress>eduardo@uscs.edu.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

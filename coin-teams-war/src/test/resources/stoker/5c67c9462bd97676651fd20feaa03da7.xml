@@ -1,0 +1,122 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://cafe.upf.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">upf.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">UPF - Universidade de Passo Fundo</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">UPF - Universidade de Passo Fundo</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UPF - Universidade de Passo Fundo</mdui:Description>
+          <mdui:Description xml:lang="pt-br">UPF - Universidade de Passo Fundo</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.upf.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.upf.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIDGDCCAgCgAwIBAgIVAKX43u2xOk6GZiZYCBjCZkKXx2/9MA0GCSqGSIb3DQEB
+BQUAMBYxFDASBgNVBAMTC2NhZmUudXBmLmJyMB4XDTEyMDcxODEzMzMwMFoXDTMy
+MDcxODEzMzMwMFowFjEUMBIGA1UEAxMLY2FmZS51cGYuYnIwggEiMA0GCSqGSIb3
+DQEBAQUAA4IBDwAwggEKAoIBAQDQ4M1p+I5ah6Aw+O5/z9Be++lnk9Vs/F1rXbKj
+tP4ZLt+1ubEXIstFvgYbaQegfjGCmbSTLjeAhoKqQa+9oqHztvJCyi8tAAxm+DkR
+YUVjK7jdg+WhLSIXXjUw8kLQ7/0j9WoR5kANYpb0zgLX5txa6ag0yuiy3SZJdem5
+OxWcRMIgM9IT93D0Vtn4KOy33LuT1nJnlfXRe0e/6Uk3io8eX/sU1bFbYGSIoaBC
+wavXQpYI6doyMwp6jQ0ZTHMgPveJ9RgJVI1UjxPNarlfpkD3tbBoMW6jKzysuNza
+fdE/zhufAdpf1dEJLvW6NqFQhV/IntZ9uikpaZb0qYfccb+FAgMBAAGjXTBbMDoG
+A1UdEQQzMDGCC2NhZmUudXBmLmJyhiJodHRwczovL2NhZmUudXBmLmJyL2lkcC9z
+aGliYm9sZXRoMB0GA1UdDgQWBBQzZ13hyDuXco93Ne8aOzsxQ7pkVDANBgkqhkiG
+9w0BAQUFAAOCAQEAxN0o+TiTOnQ9DyT3sLjL7t08L2DXXzZS808wUPm9gxAxaKBy
+RP6v52aY5JQl+5KDp4kcYWcJ2HbmY93pdJr/ySf38ZnfDhE8/VtxTPN8i8flLpo6
+hAXpIVHrpchg/6A6wG94q2hoJHJlkjdMAUaqRluRVqUf3LCh9z0L2JYggLMO8t4i
+dZva6wWLqVLrj290MtPM6VyBwky4PyopG92JhFkovN6fO+N0XBOXO95k7vRhXHMq
+Q7lzc5HBe7iHhhH8bMVnNU4rnC5y/mAtB8RlGKu9xkgHFzxpk+Rf8ZvvI6hdpmCD
+CiIzIL92AYqWu+1Ec6sT4NbrfVhJlpfh0jshog==
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.upf.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.upf.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafe.upf.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafe.upf.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafe.upf.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafe.upf.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">upf.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIDGDCCAgCgAwIBAgIVAKX43u2xOk6GZiZYCBjCZkKXx2/9MA0GCSqGSIb3DQEB
+BQUAMBYxFDASBgNVBAMTC2NhZmUudXBmLmJyMB4XDTEyMDcxODEzMzMwMFoXDTMy
+MDcxODEzMzMwMFowFjEUMBIGA1UEAxMLY2FmZS51cGYuYnIwggEiMA0GCSqGSIb3
+DQEBAQUAA4IBDwAwggEKAoIBAQDQ4M1p+I5ah6Aw+O5/z9Be++lnk9Vs/F1rXbKj
+tP4ZLt+1ubEXIstFvgYbaQegfjGCmbSTLjeAhoKqQa+9oqHztvJCyi8tAAxm+DkR
+YUVjK7jdg+WhLSIXXjUw8kLQ7/0j9WoR5kANYpb0zgLX5txa6ag0yuiy3SZJdem5
+OxWcRMIgM9IT93D0Vtn4KOy33LuT1nJnlfXRe0e/6Uk3io8eX/sU1bFbYGSIoaBC
+wavXQpYI6doyMwp6jQ0ZTHMgPveJ9RgJVI1UjxPNarlfpkD3tbBoMW6jKzysuNza
+fdE/zhufAdpf1dEJLvW6NqFQhV/IntZ9uikpaZb0qYfccb+FAgMBAAGjXTBbMDoG
+A1UdEQQzMDGCC2NhZmUudXBmLmJyhiJodHRwczovL2NhZmUudXBmLmJyL2lkcC9z
+aGliYm9sZXRoMB0GA1UdDgQWBBQzZ13hyDuXco93Ne8aOzsxQ7pkVDANBgkqhkiG
+9w0BAQUFAAOCAQEAxN0o+TiTOnQ9DyT3sLjL7t08L2DXXzZS808wUPm9gxAxaKBy
+RP6v52aY5JQl+5KDp4kcYWcJ2HbmY93pdJr/ySf38ZnfDhE8/VtxTPN8i8flLpo6
+hAXpIVHrpchg/6A6wG94q2hoJHJlkjdMAUaqRluRVqUf3LCh9z0L2JYggLMO8t4i
+dZva6wWLqVLrj290MtPM6VyBwky4PyopG92JhFkovN6fO+N0XBOXO95k7vRhXHMq
+Q7lzc5HBe7iHhhH8bMVnNU4rnC5y/mAtB8RlGKu9xkgHFzxpk+Rf8ZvvI6hdpmCD
+CiIzIL92AYqWu+1Ec6sT4NbrfVhJlpfh0jshog==
+
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.upf.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.upf.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">UPF - Universidade de Passo Fundo</OrganizationName>
+      <OrganizationName xml:lang="pt-br">UPF - Universidade de Passo Fundo</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">UPF - Universidade de Passo Fundo</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">UPF - Universidade de Passo Fundo</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.upf.br/</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.upf.br/</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>GTI/RNP</SurName>
+      <EmailAddress>servnac@rnp.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

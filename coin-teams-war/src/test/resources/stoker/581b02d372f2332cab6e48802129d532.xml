@@ -1,0 +1,123 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://shibboleth.utb.cz/idp/shibboleth">
+    <md:Extensions xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.eduid.cz/" registrationInstant="2013-12-19T16:42:51Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <mdasrt:Attribute xmlns:mdasrt="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <mdasrt:AttributeValue>http://eduid.cz/uri/idp-group/university</mdasrt:AttributeValue>
+        </mdasrt:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">utb.cz</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">Tomas Bata University in Zlín</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">Univerzita Tomáše Bati ve Zlíně</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity Provider for Tomas Bata University in Zlín</mdui:Description>
+          <mdui:Description xml:lang="cs">Identity Provider pro Univerzitu Tomáše Bati ve Zlíně</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.utb.cz/index.php?lang=2</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">http://www.utb.cz/index.php?lang=1</mdui:InformationURL>
+          <mdui:Logo height="20" width="150" xml:lang="cs">https://shibboleth.utb.cz/idp/images/logo_cs_150x20.png</mdui:Logo>
+          <mdui:Logo height="20" width="150" xml:lang="en">https://shibboleth.utb.cz/idp/images/logo_en_150x20.png</mdui:Logo>
+        </mdui:UIInfo>
+        <eduidmd:RepublishRequest xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0">
+          <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
+        </eduidmd:RepublishRequest>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDMDCCAhigAwIBAgIVAPR52o0qmfjhfAJboYmgUpU/SqjDMA0GCSqGSIb3DQEB
+BQUAMBwxGjAYBgNVBAMTEXNoaWJib2xldGgudXRiLmN6MB4XDTExMTEwMzEyMjk0
+N1oXDTMxMTEwMzEyMjk0N1owHDEaMBgGA1UEAxMRc2hpYmJvbGV0aC51dGIuY3ow
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCFRk1W6FPOnadCPc4c7A2l
+KQCxuFDyLR8N0xl5zO3tpTZigrINz67uhtiBuKf9rjGggMpis6UeciCE3/AkPIVX
+k7qfj/UiLmcTjYZIsTDI5mcSTRpaq5vYJdz0X2CisSikn25wg3cUbKUdBNWT8T0b
+LrhAUO4ggx9A9tA0vtwg6a2bIUFoGFcbL/Id2isGMzz2rbUxHv++QJTxPNzXwL4A
+wLooYQs4lAUryfnjtoQxfnvi5HqrKs5e1+fv3IvTCLobBwfkXlQLeW6lSxFcPG9O
+nwByQ850LKah0Or8gQu2qrVFQzYv3GI8qXyMlqy9A/7d07O5Uv7szM1qjyVZh/ZN
+AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEXNoaWJib2xldGgudXRiLmN6hihodHRwczov
+L3NoaWJib2xldGgudXRiLmN6L2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBTmmhOV
+wIQYpPgGpS7cKCtioshLgjANBgkqhkiG9w0BAQUFAAOCAQEAAMCQLFF/BWMlT1BV
+/GfVdWCg7oY7FR7VHJ3fH1FTKZvnrBcYy9TRu/D+TLqnpJCTn+7c3J3g7LgsTYC9
+R/wn2qxF0UpAmn932EDWWUPUshS8hA1M5Zro4yjR9qW7l4i063AE2DMrjcartZPk
+IpiDh7CMu+xJnggrA/8aComkgfBp+kCz2xQO86tw+wKzx37lm1WyPZuqlIzpJlhJ
+IFlWgY0cksTWiNm1xra51au80h26ax/qoIO7VdYFZ1MHWOqOio57l2Nv14znaYPZ
+1Jh1bXQr/aq8Yjx95a7JoiiHOjXNS4PdSsMUUUxHALhpen2ceJrLSfFbSnqS7k3u
+e72PuA==
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.utb.cz/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.utb.cz/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.utb.cz/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.utb.cz/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.utb.cz/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.utb.cz/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">utb.cz</shibmd:Scope>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDMDCCAhigAwIBAgIVAPR52o0qmfjhfAJboYmgUpU/SqjDMA0GCSqGSIb3DQEB
+BQUAMBwxGjAYBgNVBAMTEXNoaWJib2xldGgudXRiLmN6MB4XDTExMTEwMzEyMjk0
+N1oXDTMxMTEwMzEyMjk0N1owHDEaMBgGA1UEAxMRc2hpYmJvbGV0aC51dGIuY3ow
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCFRk1W6FPOnadCPc4c7A2l
+KQCxuFDyLR8N0xl5zO3tpTZigrINz67uhtiBuKf9rjGggMpis6UeciCE3/AkPIVX
+k7qfj/UiLmcTjYZIsTDI5mcSTRpaq5vYJdz0X2CisSikn25wg3cUbKUdBNWT8T0b
+LrhAUO4ggx9A9tA0vtwg6a2bIUFoGFcbL/Id2isGMzz2rbUxHv++QJTxPNzXwL4A
+wLooYQs4lAUryfnjtoQxfnvi5HqrKs5e1+fv3IvTCLobBwfkXlQLeW6lSxFcPG9O
+nwByQ850LKah0Or8gQu2qrVFQzYv3GI8qXyMlqy9A/7d07O5Uv7szM1qjyVZh/ZN
+AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEXNoaWJib2xldGgudXRiLmN6hihodHRwczov
+L3NoaWJib2xldGgudXRiLmN6L2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBTmmhOV
+wIQYpPgGpS7cKCtioshLgjANBgkqhkiG9w0BAQUFAAOCAQEAAMCQLFF/BWMlT1BV
+/GfVdWCg7oY7FR7VHJ3fH1FTKZvnrBcYy9TRu/D+TLqnpJCTn+7c3J3g7LgsTYC9
+R/wn2qxF0UpAmn932EDWWUPUshS8hA1M5Zro4yjR9qW7l4i063AE2DMrjcartZPk
+IpiDh7CMu+xJnggrA/8aComkgfBp+kCz2xQO86tw+wKzx37lm1WyPZuqlIzpJlhJ
+IFlWgY0cksTWiNm1xra51au80h26ax/qoIO7VdYFZ1MHWOqOio57l2Nv14znaYPZ
+1Jh1bXQr/aq8Yjx95a7JoiiHOjXNS4PdSsMUUUxHALhpen2ceJrLSfFbSnqS7k3u
+e72PuA==
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.utb.cz/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.utb.cz/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+    </AttributeAuthorityDescriptor>
+    <Organization>
+      <OrganizationName xml:lang="en">Tomas Bata University in Zlín</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">Tomas Bata University in Zlín</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="cs">Univerzita Tomáše Bati ve Zlíně</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.utb.cz/index.php?lang=2</OrganizationURL>
+      <OrganizationURL xml:lang="cs">http://www.utb.cz/index.php?lang=1</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Ivan</GivenName>
+      <SurName>Masár</SurName>
+      <EmailAddress>imasar@k.utb.cz</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="administrative">
+      <GivenName>Ondřej</GivenName>
+      <SurName>Fabián</SurName>
+      <EmailAddress>fabian@k.utb.cz</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

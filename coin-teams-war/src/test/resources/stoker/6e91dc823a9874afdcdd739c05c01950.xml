@@ -1,0 +1,88 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://sso.u-psud.fr/idp">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2010-02-09T10:08:41Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">u-psud.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de Paris-Sud</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDIDCCAgigAwIBAgIVAIUJk6EXza7L7QSpNoIN24P1I8rlMA0GCSqGSIb3DQEB
+BQUAMBgxFjAUBgNVBAMTDXNzby51LXBzdWQuZnIwHhcNMTAwMjA4MTAwOTA0WhcN
+MzAwMjA4MTAwOTA0WjAYMRYwFAYDVQQDEw1zc28udS1wc3VkLmZyMIIBIjANBgkq
+hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAroxa30hNBV4PaO3ESgOkEjFPCtg1MaOo
+L55D4a/hiuuuv4Lfa25MNaiAmUx26o7x575VkYv6UJb9BQmXGUZPwHH0EQDXw/ZZ
+LGuW8M9K7L1ZYSLfjFVYWBY1jGsUhQjsEkG+G2zpmluUnWh5WUS6Px8wCS+1KbHP
+HXyR5l/WZoNnH/7A1GLMRokGIt5ZTYDLw9hD3JA9oACCP8c3PgNrZRnQc4kw1/Rl
+GKAncAfde8U0kv6BhCcjr7M2LDEBVP+gC3wEIO+UOAuSbRpD7ECSJVAc8GqR20b4
+5FRFPgKptk9dtoxpyyA3wyPp6DHHiywG24B+GF4xEMv1yUczX1weIQIDAQABo2Ew
+XzA+BgNVHREENzA1gg1zc28udS1wc3VkLmZyhiRodHRwczovL3Nzby51LXBzdWQu
+ZnIvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFAhfKZQU4qijehvftE595ElwwPE5
+MA0GCSqGSIb3DQEBBQUAA4IBAQCjeft61T2pXsTQ+7s/q9nCI3jGTtSjRcA2Pjkx
+RmlmfmCoJfR1U0eG0bZKjjydBoezTGr5WRGpGPGq9Ta7q5t3tmSFTowq60ZKJwSh
+CpXXvrIi9lRHMxoTGC2XyxgP9QmzIG/jR/er1zOCbAhTJBiBThdGFCnBwlPmZDIk
+VwYSV7zlyGtzh7cSldKwIkvifFOh9Op376MhuPAmFqUnfEJGzJbyttrolQ2I4oUw
+wKiyOu3VYdTiu+FcCFVdKWOOIqV+v/8cWHlaUTS1+RC+exL6305K8Kkv5xhpyxCR
+QUfLusw8PKdnTW45JL7EEdO48zPq2va8ihPE82nrZVK0wt/q
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.u-psud.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso.u-psud.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://sso.u-psud.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Paris-Sud</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Paris-Sud</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Laubenberger Stéphane</SurName>
+				 <EmailAddress>stephane.laubenberger@u-psud.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Lambert Dominique</SurName>
+				 <EmailAddress>dominique.lambert@u-psud.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

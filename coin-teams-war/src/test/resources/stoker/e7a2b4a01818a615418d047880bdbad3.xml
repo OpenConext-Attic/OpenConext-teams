@@ -1,0 +1,84 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.univ-paris8.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2010-09-24T11:17:48Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-paris8.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de Paris 8 - Vincennes</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIEcTCCA1mgAwIBAgIQU6fzKCJW2smEB7nD2+nWADANBgkqhkiG9w0BAQUFADA2
+MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+U1NMIENBMB4XDTEzMDYyNzAwMDAwMFoXDTE2MDYyNjIzNTk1OVowQDEhMB8GA1UE
+CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRswGQYDVQQDExJpZHAudW5pdi1w
+YXJpczguZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDmo0SkZ0JM
+lY6h/s/GZ06X+OKLv3pvhob3myRVfK+dHO+PomnDiydgHo5lS5ihZCuUIGqjLMrm
+MB1oOrpMHFxYlVCAhqrt/4/EnY6niTSsnm38ngkzsONG5Rx4UPchpSRYm9TOKcuQ
+g/yDdi6iSrwqmMWJpuxOIt2HCfXFBTULCc6n18v2mg5Ah4FTssi81R8qBk5F1RzP
+l32jPA+X6G8gIJ4iGuNF+LgiHeNRcEHAuy9XLd7/4FH9DJdAjTwiA9D3E3tK4fx4
+wZC0sOacx775Um5C+UxMNftuObZcSLAMT1rsHzfJMdWxuxbzaub/AzwyYjl/tKSx
+vPMk3ez04E+5AgMBAAGjggFvMIIBazAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3
+V0fqkOO57TAdBgNVHQ4EFgQUMArZEB/NP0dHX30H+1w0TzyO7uQwDgYDVR0PAQH/
+BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUF
+BwMCMCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQIBMDoGA1UdHwQz
+MDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0Eu
+Y3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2NydC50Y3Mu
+dGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6Ly9v
+Y3NwLnRjcy50ZXJlbmEub3JnMB0GA1UdEQQWMBSCEmlkcC51bml2LXBhcmlzOC5m
+cjANBgkqhkiG9w0BAQUFAAOCAQEAILdNZYfosh/VDwYL/imyGlgxmXvVr5qQZpEq
+8g/4KOwUkpbDi/rym3gffbNE/NsU8cl+REMrIPBcNe37E0ZpIav/+PVjfvxLpEH6
+6pBMFkpQEjJfBy1FuW6qiKSCeLmFVK9GkAFVDETtwR3+papXIcLiQpFiJvnCXRH4
+l/ELbK/eJKOdrq6Zmy628SNr3CqnfmJYzCjWWLCPDGFLqdb+NGrJmv/vW6qjaXR8
+/V8oGmyidoea26kUSWvdh3AKMnMQS4zsJmhmxanamVwRPT39MQMpRBkyZE8vbzNg
+UBmu1bU2YiGLaIjIQDOLGGuoia51PW2bRqBpeOc4GdmkMuUMIw==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.univ-paris8.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.univ-paris8.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.univ-paris8.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Paris 8 - Vincennes</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Paris 8 - Vincennes</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>reseau@univ-paris8.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

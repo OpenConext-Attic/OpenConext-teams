@@ -1,0 +1,112 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="urn:mace:cru.fr:federation:utt.fr">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-08-14T19:52:27Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">utt.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de Technologie de Troyes</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDMDCCAhigAwIBAgIVALZ63CJZA7jvuPJPdCpjCqCwtzUcMA0GCSqGSIb3DQEBBQUAMBwxGjAY
+BgNVBAMTEXNoaWJib2xldGgudXR0LmZyMB4XDTA5MDgxMzE1Mzc0NVoXDTI5MDgxMzE1Mzc0NVow
+HDEaMBgGA1UEAxMRc2hpYmJvbGV0aC51dHQuZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+AoIBAQDRy7HRMvRk5btG8GGPHKQVA6k3fFlikIFGHJx+B7Uo+kNdQInrMcixfhrqY8bnu66ljQKB
+vZ0yMEZfXJTofRfqBePOgtHEwLcgqQm68kRr4q8oLUdS/+XpK4EdPW6UIrFmA1KkcOfC/Jysn4f7
+KoFKDpTFmNnl7TGVu9GM/tl3yKGFEbuH8kNvG3uaJJVC59ZE2s/xoMcslriXytje2WP4F95DEYVn
+ddkYaw86ZHjjxVumcz7nndInsI8j5EVseK8Ch7cSqlmNA44GJ0kdikv4CphntgBIOvoG2ZvvAIW4
+DGFdMhZieqtwQ2FEKRxAujWY/Sxq6Zsd5anLj7DL8s09AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEXNo
+aWJib2xldGgudXR0LmZyhihodHRwczovL3NoaWJib2xldGgudXR0LmZyL2lkcC9zaGliYm9sZXRo
+MB0GA1UdDgQWBBSt5O7Bubm1wxc8OOwz6hgpfVwMtTANBgkqhkiG9w0BAQUFAAOCAQEApDpM7DKM
+7GJs3m+yjN9xIaAVIIUAe+pcIybt8E02fa4+QVaB2RdPvCTgL3cfLZ2ONMEbMqYlWJz0J41P/TaZ
+x4Sxqv/ih2F1pmFks5UUaMbapNzOX3lL1FfBc718kTLAPLt4m9Gm741A/kx83CS0Q2U4mLXp8I5f
+fYMgN8FRoxHJOGsBSGs11nl32pzAiai069ZutsSp2mdyRovyNHS2Oxdumai87AHr1JiC3C8mwvQm
+Sh/3RmGTbPNeXL1AL2zzeKPcSqsEISEVUNbqQFKs37kcfAvy05jGGcfNHtq5GALqx/qhBeXMiVEB
+BcaKxmhZ8LPhUPppbcjFuLXlaNAphQ==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.utt.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.utt.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.utt.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">utt.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDMDCCAhigAwIBAgIVALZ63CJZA7jvuPJPdCpjCqCwtzUcMA0GCSqGSIb3DQEBBQUAMBwxGjAY
+BgNVBAMTEXNoaWJib2xldGgudXR0LmZyMB4XDTA5MDgxMzE1Mzc0NVoXDTI5MDgxMzE1Mzc0NVow
+HDEaMBgGA1UEAxMRc2hpYmJvbGV0aC51dHQuZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+AoIBAQDRy7HRMvRk5btG8GGPHKQVA6k3fFlikIFGHJx+B7Uo+kNdQInrMcixfhrqY8bnu66ljQKB
+vZ0yMEZfXJTofRfqBePOgtHEwLcgqQm68kRr4q8oLUdS/+XpK4EdPW6UIrFmA1KkcOfC/Jysn4f7
+KoFKDpTFmNnl7TGVu9GM/tl3yKGFEbuH8kNvG3uaJJVC59ZE2s/xoMcslriXytje2WP4F95DEYVn
+ddkYaw86ZHjjxVumcz7nndInsI8j5EVseK8Ch7cSqlmNA44GJ0kdikv4CphntgBIOvoG2ZvvAIW4
+DGFdMhZieqtwQ2FEKRxAujWY/Sxq6Zsd5anLj7DL8s09AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEXNo
+aWJib2xldGgudXR0LmZyhihodHRwczovL3NoaWJib2xldGgudXR0LmZyL2lkcC9zaGliYm9sZXRo
+MB0GA1UdDgQWBBSt5O7Bubm1wxc8OOwz6hgpfVwMtTANBgkqhkiG9w0BAQUFAAOCAQEApDpM7DKM
+7GJs3m+yjN9xIaAVIIUAe+pcIybt8E02fa4+QVaB2RdPvCTgL3cfLZ2ONMEbMqYlWJz0J41P/TaZ
+x4Sxqv/ih2F1pmFks5UUaMbapNzOX3lL1FfBc718kTLAPLt4m9Gm741A/kx83CS0Q2U4mLXp8I5f
+fYMgN8FRoxHJOGsBSGs11nl32pzAiai069ZutsSp2mdyRovyNHS2Oxdumai87AHr1JiC3C8mwvQm
+Sh/3RmGTbPNeXL1AL2zzeKPcSqsEISEVUNbqQFKs37kcfAvy05jGGcfNHtq5GALqx/qhBeXMiVEB
+BcaKxmhZ8LPhUPppbcjFuLXlaNAphQ==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.utt.fr:8443/shibboleth-idp/AA"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Technologie de Troyes</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Technologie de Troyes</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>cri@utt.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

@@ -1,0 +1,223 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://aai-idp.unibe.ch/idp/shibboleth">
+		<Extensions>
+                <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://rr.aai.switch.ch/" registrationInstant="2014-04-11T08:10:51Z">
+                    <mdrpi:RegistrationPolicy xml:lang="en">https://www.switch.ch/aai/federation/switchaai/metadata-registration-practice-statement-20110711.txt</mdrpi:RegistrationPolicy>
+                </mdrpi:RegistrationInfo>
+                <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+                    <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+                        <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+                    </saml:Attribute>
+                </mdattr:EntityAttributes>
+		</Extensions>
+		<IDPSSODescriptor errorURL="http://www.id.unibe.ch/content/helpdesk" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+			<Extensions>
+				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">unibe.ch</shibmd:Scope>
+				<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+					<mdui:DisplayName xml:lang="de">Universität Bern</mdui:DisplayName>
+					<mdui:DisplayName xml:lang="en">University of Bern</mdui:DisplayName>
+					<mdui:Description xml:lang="de">Universität Bern</mdui:Description>
+					<mdui:Description xml:lang="en">University of Bern</mdui:Description>
+					<mdui:Logo height="16" width="16">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAACF0RVh0U29mdHdhcmUAR3JhcGhpY0NvbnZlcnRlciAoSW50ZWwpd4f6GQAAAeVJREFUeJyUkr9LQlEUx58u6p8gOLq5CeKkq+gkooMi6CCCILi4ujyMokhLkSIJdDKMUmxoShOHkFwEHdR0CULQ5+Dv3yfPhSsVGTncx7vfe87nnPs9lwEA5r9rvV4zFosFqtXqA9X+nYxrPB6farVayGQy9W63e7k3gOO4C4VCAV6vF8xmM4xGo8BegFKp9OR0Oje/wJpMJqjVavd7ARKJxIfP54N6vX6n0+mg1+tFGGxjMpmcrFarg9lsdrxYLA6/JqG+XC6JlkqlmkajEbCLXC73Sjzw+/3gcrlApVKBUqmEZrOZpMlYTa1WQyAQAArr9/vn8/n8aDuFwWBwjhBm46dEIgF0mjqOe9RDodBq17Xww9psNhKIM6YH5XL5kc/nA4/HAzRvJ2DTDiOTyQggGAxuAdFodEC7Gg6HZzsBrVbrRiAQEECxWHymBw6Hg2h6vR52JRNAOp1++1lpOp2eSKVSAmBZlgBwZHQa3wDoNAYaDIZtpXg8zqGG989ms6+Y7Ha7twZ/A2AiBmMAvoF8Pl+02+1EEwqFZKwejweSyeT7r1eIRCJzkUgEYrEYrFYrhMPhZbvdvpbL5YDeaDQaiMVi3F9jZCqVygO+rEajcUsPOp3OVaFQeEGT/zLxEwAA//8DAH2UumiGm7jIAAAAAElFTkSuQmCC</mdui:Logo>
+					<mdui:Logo height="60" width="80">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAA8CAIAAAB+RarbAAAC0GlDQ1BJQ0NQcm9maWxlAAB4nI2Uz0sUYRjHv7ONGChBYGZ7iKFDSKhMFmVE5a6/2LRtWX+UEsTs7Lu7k7Oz08zsmiIRXjpm0T0qDx76Azx46JSXwsAsAuluUUSCl5LteWfG3RHtxwsz83mfH9/ned/hfYEaWTFNPSQBecOxkn1R6fromFT7ESEcQR3CqFNU24wkEgOgwWOxa2y+h8C/K617+/866tK2mgeE/UDoR5rZKrDvF9kLWWoEELlew4RjOsT3OFue/THnlMfzrn0o2UW8SHxANS0e/5q4Q80paaBGJG7JBmJSAc7rRdXv5yA99cwYHqTvcerpLrN7fBZm0kp3P3Eb8ec06+7hmsTzGa03RtxMz1rG6h32WDihObEhj0Mjhh4f8LnJSMWv+pqi6UST2/p2abBn235LuZwgDhMnxwv9PKaRcjunckPXPBb0qVxX3Od3VjHJ6x6jmDlTd/8X9RZ6hVHoYNBg0NuAhCT6EEUrTFgoIEMejSI0sjI3xiK2Mb5npI5EgCXyr1POuptzG0XK5lkjiMYx01JRkOQP8ld5VX4qz8lfZsPF5qpnxrqpqcsPvpMur7yt63v9njx9lepGyKsjS9Z8ZU12oNNAdxljNlxV4jXY/fhmYJUsUKkVKVdp3K1Ucn02vSOBan/aPYpdml5sqtZaFRdurNQvTe/Yq8KuVbHKqnbOq3HBfCYeFU+KMbFDPAdJvCR2ihfFbpqdFwcqGcOkomHCVbKhUJaBSfKaO/6ZFwvvrLmjoY8ZzNJUiZ//hFXIaDoLHNF/uP9z8HvFo7Ei8MIGDp+u2jaS7h0iNC5Xbc4V4MI3ug/eVm3NdB4OPQEWzqhFq+RLC8IbimZ3HD7pKpiTlpbNOVK7LJ+VInQlMSlmqG0tkqLrkuuyJYvZzCqxdBvszKl2T6WedqXmU7m8Qeev9hGw9bBc/vmsXN56Tj2sAS/138C8/UXN/ALEAAAJI2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNC40LjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiAgIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAKPD94cGFja2V0IGVuZD0idyI/Pqfd9JIAAAAhdEVYdFNvZnR3YXJlAEdyYXBoaWNDb252ZXJ0ZXIgKEludGVsKXeH+hkAAAZRSURBVHic7Jp9TFNXGMaJMYpTg4tBF2OMATGYhYWZCUTEzSj+Y2Q47DLUyWAJKhsi39kQEIHJhLCBjgxxGwgCg/GhCOL4UNSKEw0MHBXHN8jnBAUc0MJz9pZbSiHGLN5LK5UnTXN73nNvnt8957znbW912GsmHf6XiI2NXb169dDQEP9LqUECAPv5+VlYWPC/jnokALBIJHJwcOB/HfVIAGBLS0tbW1tHR0dPT8/u7m7+F5xW8QUeHBw0MDAwMzMLDAyklWxnZwdAEGfTJL7Ara2tS5YsEYvFdJyTk7N48eKOjg4hjE2X+AKXlZURcFNTEx3funVr0aJFjY2NQhibLvEFTktLW7VqlVQqpePg4GBDQ0Oa5EIYmy7xBQ4NDV23bp1EIomOjqb5HB8fL4it6RNf4LCwsDVr1piYmGzZsiUjI0MQT9MqBXBqaqqXl5ePjw8l22PHjnl4eDg7O09Zjbm5uQEBARSlPs3NzVyjTCbrG5O6jb+sFMCnTp0KCgry9/dfuHChzphofnZ2dir70WZD+y0XmjdvnhJ4xmnSlKaygVIuR7Vt2zbVEMHr6+tzISokR0dH1etTME0CzsvL0xkXVciqoaKiImXI1dVVvSaF1CRg2leUVLRiVUOUjZWh5ORk9ZoUUpOAbWxsOCQ9Pb2WlhbV0I4dO7jQ/Pnzq6ur1WtSSE0ADwwMUNnAUZmbm4+MjChDT548WblyJRcyNjZ+xUuLF2sCuKqqitLvc1dpaWnpnDlzuJC9vb3aTQqpCeCkpCTlKk1JSVHtFBkZqQxFRUWp3aSQmgB2c3PjkBYsWFBTU6Paafv27VyIxpm+IXCNtbW1/f39ajUrhBTAVFdYWVlxVFQbq/5AVVFRQbeAC61YseLx48fU2NvbS93u3bunGdc8pADu6ekhGI5KJBIpw5S6du7cqZzP1tbWXLu3tzcNu2pimylSANMc1tXV5agIhmukCtnFxYWm+tKlS7mQr68vtefn5y9btuz+/fsac81DCuCuri5l5WhkZJSYmBgTE0MlZHh4OA3j2rVruRCNakREBG1R6enpmvX90ppIWnFxccuXL+fA5s6du3nz5oKCAi6UkJCgrLFNTU0LCws15FYATaq02traSkpKiouLKQNP6VdXV0ft5eXl9H1QjfaElwA/084szQJru2aBtV2zwNquWWBt1yywtmsWWNulAM7Qdk0FjtZ2TQV+faQAlkqlAwMDmrWiHimAJRJJVFTU8PCwZt2oQQpgsVjs7u4+5YGDVkoBnJmZGRISkp2drVk3apACuKOjo7KycuY+1///en6WhspLtZFNbnnuWVP64FEXqv5m7d0vPldtGgeuaWLXy1HXitJKNLUj+TLa/0FxGevtQ+5N1Lawgtvs2SByrqOxHXFZ+OUiep6yCyXsTDqrqGHDMpy/jNgMDA4hT4wHDeznC4hNR00jrt2FpSPEFZDUy1vOZrNeTT6CGwc+k8X2ByLlCg6dwKUb0DFBwI/45Cv2Vz02fIo/H2KTE9IK8LEvu1IKQxscP4uuHph/Bmtn7PbBjXK8+QGiU+XAFg64WobDJ7FhL6N7R+RvbUViLhoeYZMjvghj/c9eAeD4HGbvh7hMMoQL12DtAsMPYefNquvx3j6MjkLki3f3IKuYhh1v2+GHNDztx0YnvLMb/jGs7xm9w/gj+TBu+pzmMFLysddPPsk3OsJsn7yRjg+EIilPg7RsArixDTZHYH0IhX/g91JEpcDzOxz6Bg2t2HeU4mQUZvvRN8BuV2HrARwOR30rvvwW2dfk75IGOAfDxh2POuEUxB42yacJ3Qjqs+drlNzFLm80tyP0J3axRJO4k5KWVEarVH4wCvmLJBthAFM+Ex0Zy+HUMiRlA/8ySulcSCaTh3r7xj+OnUVXGBnrwP19mutM75reCF7XWpqV1+BgCDwjWVsXTqfhyAn8VoTaZhwIhnsEuNxz8hwoY+Xe1KhhvhoHziiWpxyjXexmBWw9IfKglcyK7sB4F0ztQQcHQ6H3vjyNhSdo1DBfjf/HI+sqrJzke0/2VdqNcPC4fEOm3WW9PWVp9qARbuHyHUvXAqd/1axjnhof4UvX8cYGGNjId8vdvtC3YF7fo/gOHINwNAbh55jrSeTewPq9LPK8Rg3z1WuXtP4DAAD//wMAnPfzPGW0I0UAAAAASUVORK5CYII=</mdui:Logo>
+				</mdui:UIInfo>
+				<mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+					<mdui:IPHint>195.176.0.128/28</mdui:IPHint>
+					<mdui:IPHint>195.176.3.0/26</mdui:IPHint>
+					<mdui:IPHint>195.176.3.128/28</mdui:IPHint>
+					<mdui:IPHint>192.41.149.0/24</mdui:IPHint>
+					<mdui:IPHint>192.41.152.0/21</mdui:IPHint>
+					<mdui:IPHint>192.41.160.0/24</mdui:IPHint>
+					<mdui:IPHint>2001:620:400::/48</mdui:IPHint>
+					<mdui:IPHint>86.118.0.0/15</mdui:IPHint>
+					<mdui:IPHint>86.118.149.0/26</mdui:IPHint>
+					<mdui:IPHint>130.92.0.0/16</mdui:IPHint>
+					<mdui:DomainHint>unibe.ch</mdui:DomainHint>
+					<mdui:GeolocationHint>geo:46.950509,7.438155</mdui:GeolocationHint>
+				</mdui:DiscoHints>
+			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					<ds:X509Data>
+						<ds:X509Certificate>
+MIIFTjCCBDagAwIBAgIUaEj3cUMMoHFpXcehDx5GzSFg6OcwDQYJKoZIhvcNAQEF
+BQAwazELMAkGA1UEBhMCQk0xGTAXBgNVBAoTEFF1b1ZhZGlzIExpbWl0ZWQxHzAd
+BgNVBAsTFnd3dy5xdW92YWRpc2dsb2JhbC5jb20xIDAeBgNVBAMTF1F1b1ZhZGlz
+IEdsb2JhbCBTU0wgSUNBMB4XDTEyMTEwMjA3MjczOFoXDTE0MTEwMjA3MjczOFow
+gb8xEzARBgsrBgEEAYI3PAIBAxMCQ0gxFTATBgsrBgEEAYI3PAIBAhMEQmVybjEa
+MBgGA1UEDxMRR292ZXJubWVudCBFbnRpdHkxEzARBgNVBAUTCjE4MzQtMDMtMTQx
+CzAJBgNVBAYTAkNIMQ0wCwYDVQQIEwRCZXJuMQ0wCwYDVQQHEwRCZXJuMRowGAYD
+VQQKExFVbml2ZXJzaXRhZXQgQmVybjEZMBcGA1UEAxMQYWFpLWlkcC51bmliZS5j
+aDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANjwYYDyz1KQK/RrlHj/
+TIMkmIp1rwlv7KpDa4d8QpHTsBW831PiNI7iYQltZzxC3t8k2sJ8qDX5+uTWXJIA
+C6v60ZxWkWWLf1qkk/cznwvLkEdo1698J4vc6cx91OUX2rq/Q/zjdndXmTGgyfxw
+pAqb2uKBNbG2RoxEdyP1F8Yi3165/8LubrDKXtP9+fdKqQkxv/sZH6NrUWRrJiUd
++0KhG1LOada7F8DRKQOFtUAJ78di3wmZyJfOXye4yenCfYsWbfrUcuCJDSIqrdFQ
+VVj5AUr3hdKEAJafc22LTDDsdSuKpcv+n2/C/oH8Mdsxg7we6r/dJz4x7vM7GHhn
+pK0CAwEAAaOCAZMwggGPMHQGCCsGAQUFBwEBBGgwZjAqBggrBgEFBQcwAYYeaHR0
+cDovL29jc3AucXVvdmFkaXNnbG9iYWwuY29tMDgGCCsGAQUFBzAChixodHRwOi8v
+dHJ1c3QucXVvdmFkaXNnbG9iYWwuY29tL3F2c3NsaWNhLmNydDBRBgNVHSAESjBI
+MEYGDCsGAQQBvlgAAmQBAjA2MDQGCCsGAQUFBwIBFihodHRwOi8vd3d3LnF1b3Zh
+ZGlzZ2xvYmFsLmNvbS9yZXBvc2l0b3J5MBsGA1UdEQQUMBKCEGFhaS1pZHAudW5p
+YmUuY2gwCwYDVR0PBAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcD
+AjAfBgNVHSMEGDAWgBQyTaFP6vCumbbumwcshAgRUIvifjA7BgNVHR8ENDAyMDCg
+LqAshipodHRwOi8vY3JsLnF1b3ZhZGlzZ2xvYmFsLmNvbS9xdnNzbGljYS5jcmww
+HQYDVR0OBBYEFGm9MS6ojsIWTq+Y8EG534cfO6y4MA0GCSqGSIb3DQEBBQUAA4IB
+AQBx06TLIvS40KeCMCgDJ8MdrDlxt//3F9cyWBsXJkJLdtVD6xTBQ6+lwg9RG+ct
+RO9eZpURgeHEkcy7YkNgq0XukoKl1on7P1tJoLa6fOBq/4XU5EiAeQBeohFOohYO
+qr5PxmgEp98c7clKulvmuJBX/MSqKCHQEVx0fqsiZ7/TUdRinlLNQKVxGMrgm+KG
+zN6anM+WgtbqG+Ed4XaekXpO2EMDnle0SM8vcJ+dUgIEa0+t+fEPCAnN0vD6b910
+uzs7quvneAVGiAeqoZLZ5k62+3qldV40gI41gHflX4mIWMD+TPCFG5ue64N0nLzU
+LxDK1XTR2ZqXgnziFQWnbI54
+						</ds:X509Certificate>
+					</ds:X509Data>
+				</ds:KeyInfo>
+			</KeyDescriptor>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					<ds:X509Data>
+						<ds:X509Certificate>
+MIIFLjCCBBagAwIBAgIUSNx7E+uCPG6hqtUGUdmK6AYhNb4wDQYJKoZIhvcNAQEL
+BQAwTTELMAkGA1UEBhMCQk0xGTAXBgNVBAoTEFF1b1ZhZGlzIExpbWl0ZWQxIzAh
+BgNVBAMTGlF1b1ZhZGlzIEdsb2JhbCBTU0wgSUNBIEcyMB4XDTE0MDQxMTA3MzIx
+M1oXDTE2MDQxMTA3MzIxMVowgb8xEzARBgsrBgEEAYI3PAIBAxMCQ0gxFTATBgsr
+BgEEAYI3PAIBAhMEQmVybjEaMBgGA1UEDxMRR292ZXJubWVudCBFbnRpdHkxEzAR
+BgNVBAUTCjE4MzQtMDMtMTQxCzAJBgNVBAYTAkNIMQ0wCwYDVQQIEwRCZXJuMQ0w
+CwYDVQQHEwRCZXJuMRowGAYDVQQKExFVbml2ZXJzaXRhZXQgQmVybjEZMBcGA1UE
+AxMQYWFpLWlkcC51bmliZS5jaDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC
+ggEBAOIKnhNcUtzjdGnBWU5sJGuwQyrGH8PnKmW8SOmKMeArDjc3CNwz20NzSRWL
+fkyG5Ti098dGE5skUwjGoexhqQsECn4CtlosHmQNx6DWvY5lHIzPuZEEkQssYYtN
+jIOfCy6COhce3hi80+pFDHvFYUjWmW+IMeCky60qBZlcM2HiXhh4v/Dlmt/5FgGP
+rQwZUXT5uFCICvcAVpe5NL/bjJQs69yrLu/fEfgdwLeqxYqeol+yZxJZp77mElFB
+wur4fNR1798DsiBPRT4v8Ak73YN4sxwb0ZIvGa8QI/zgrkniRjeAjrP36WmRyoxg
+vZI5ZvkkVTp8uwZuf3/RPn/4mu8CAwEAAaOCAZEwggGNMHMGCCsGAQUFBwEBBGcw
+ZTAqBggrBgEFBQcwAYYeaHR0cDovL29jc3AucXVvdmFkaXNnbG9iYWwuY29tMDcG
+CCsGAQUFBzAChitodHRwOi8vdHJ1c3QucXVvdmFkaXNnbG9iYWwuY29tL3F2c3Ns
+ZzIuY3J0MFEGA1UdIARKMEgwRgYMKwYBBAG+WAACZAECMDYwNAYIKwYBBQUHAgEW
+KGh0dHA6Ly93d3cucXVvdmFkaXNnbG9iYWwuY29tL3JlcG9zaXRvcnkwGwYDVR0R
+BBQwEoIQYWFpLWlkcC51bmliZS5jaDALBgNVHQ8EBAMCBaAwHQYDVR0lBBYwFAYI
+KwYBBQUHAwEGCCsGAQUFBwMCMB8GA1UdIwQYMBaAFJEZYq1bF6cw+/DeOSWxvYy5
+uFEnMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwucXVvdmFkaXNnbG9iYWwu
+Y29tL3F2c3NsZzIuY3JsMB0GA1UdDgQWBBSCX8oNHGUSht4v58mKWfgqQaG+pTAN
+BgkqhkiG9w0BAQsFAAOCAQEAr+tBEvztLUq6sDzB/I4N4reJiWs+HXM3Nt5zPwBG
+4QmH2X/P0EfIKCKFrcAiBDYK0BBTK5LM78uZoF/rC/eRNJdFqcUxO7V2I2EOr0/g
+dBmV88orKTsK3HJ/BOxy4KGdKeDAMYli35w99xjEfRu+XbGrn8jvDWL4Z93/zbmw
+fOl8C+fbd9vbPPGMbPBYCLuj+JLIjNJVMOFZUCV3qOHPf+llHS+epzBl47oTNWsh
+Fo1fKj/jbU9y/7hE+8uhbqzr8uppWJYcLUpX49pe+YGzfaq0gjMlMh8/Pzc4DXQ7
+W2X26PAcxR9Ni6k2VcPdwrF+wSz0jKwCrJzugJ1Z99ABWA==
+						</ds:X509Certificate>
+					</ds:X509Data>
+				</ds:KeyInfo>
+			</KeyDescriptor>
+			<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-idp.unibe.ch:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+			<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-idp.unibe.ch:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://aai-idp.unibe.ch/idp/profile/Shibboleth/SSO"/>
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai-idp.unibe.ch/idp/profile/SAML2/Redirect/SSO"/>
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://aai-idp.unibe.ch/idp/profile/SAML2/POST/SSO"/>
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://aai-idp.unibe.ch/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+		</IDPSSODescriptor>
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">unibe.ch</shibmd:Scope>
+			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					<ds:X509Data>
+						<ds:X509Certificate>
+MIIFTjCCBDagAwIBAgIUaEj3cUMMoHFpXcehDx5GzSFg6OcwDQYJKoZIhvcNAQEF
+BQAwazELMAkGA1UEBhMCQk0xGTAXBgNVBAoTEFF1b1ZhZGlzIExpbWl0ZWQxHzAd
+BgNVBAsTFnd3dy5xdW92YWRpc2dsb2JhbC5jb20xIDAeBgNVBAMTF1F1b1ZhZGlz
+IEdsb2JhbCBTU0wgSUNBMB4XDTEyMTEwMjA3MjczOFoXDTE0MTEwMjA3MjczOFow
+gb8xEzARBgsrBgEEAYI3PAIBAxMCQ0gxFTATBgsrBgEEAYI3PAIBAhMEQmVybjEa
+MBgGA1UEDxMRR292ZXJubWVudCBFbnRpdHkxEzARBgNVBAUTCjE4MzQtMDMtMTQx
+CzAJBgNVBAYTAkNIMQ0wCwYDVQQIEwRCZXJuMQ0wCwYDVQQHEwRCZXJuMRowGAYD
+VQQKExFVbml2ZXJzaXRhZXQgQmVybjEZMBcGA1UEAxMQYWFpLWlkcC51bmliZS5j
+aDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANjwYYDyz1KQK/RrlHj/
+TIMkmIp1rwlv7KpDa4d8QpHTsBW831PiNI7iYQltZzxC3t8k2sJ8qDX5+uTWXJIA
+C6v60ZxWkWWLf1qkk/cznwvLkEdo1698J4vc6cx91OUX2rq/Q/zjdndXmTGgyfxw
+pAqb2uKBNbG2RoxEdyP1F8Yi3165/8LubrDKXtP9+fdKqQkxv/sZH6NrUWRrJiUd
++0KhG1LOada7F8DRKQOFtUAJ78di3wmZyJfOXye4yenCfYsWbfrUcuCJDSIqrdFQ
+VVj5AUr3hdKEAJafc22LTDDsdSuKpcv+n2/C/oH8Mdsxg7we6r/dJz4x7vM7GHhn
+pK0CAwEAAaOCAZMwggGPMHQGCCsGAQUFBwEBBGgwZjAqBggrBgEFBQcwAYYeaHR0
+cDovL29jc3AucXVvdmFkaXNnbG9iYWwuY29tMDgGCCsGAQUFBzAChixodHRwOi8v
+dHJ1c3QucXVvdmFkaXNnbG9iYWwuY29tL3F2c3NsaWNhLmNydDBRBgNVHSAESjBI
+MEYGDCsGAQQBvlgAAmQBAjA2MDQGCCsGAQUFBwIBFihodHRwOi8vd3d3LnF1b3Zh
+ZGlzZ2xvYmFsLmNvbS9yZXBvc2l0b3J5MBsGA1UdEQQUMBKCEGFhaS1pZHAudW5p
+YmUuY2gwCwYDVR0PBAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcD
+AjAfBgNVHSMEGDAWgBQyTaFP6vCumbbumwcshAgRUIvifjA7BgNVHR8ENDAyMDCg
+LqAshipodHRwOi8vY3JsLnF1b3ZhZGlzZ2xvYmFsLmNvbS9xdnNzbGljYS5jcmww
+HQYDVR0OBBYEFGm9MS6ojsIWTq+Y8EG534cfO6y4MA0GCSqGSIb3DQEBBQUAA4IB
+AQBx06TLIvS40KeCMCgDJ8MdrDlxt//3F9cyWBsXJkJLdtVD6xTBQ6+lwg9RG+ct
+RO9eZpURgeHEkcy7YkNgq0XukoKl1on7P1tJoLa6fOBq/4XU5EiAeQBeohFOohYO
+qr5PxmgEp98c7clKulvmuJBX/MSqKCHQEVx0fqsiZ7/TUdRinlLNQKVxGMrgm+KG
+zN6anM+WgtbqG+Ed4XaekXpO2EMDnle0SM8vcJ+dUgIEa0+t+fEPCAnN0vD6b910
+uzs7quvneAVGiAeqoZLZ5k62+3qldV40gI41gHflX4mIWMD+TPCFG5ue64N0nLzU
+LxDK1XTR2ZqXgnziFQWnbI54
+						</ds:X509Certificate>
+					</ds:X509Data>
+				</ds:KeyInfo>
+			</KeyDescriptor>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					<ds:X509Data>
+						<ds:X509Certificate>
+MIIFLjCCBBagAwIBAgIUSNx7E+uCPG6hqtUGUdmK6AYhNb4wDQYJKoZIhvcNAQEL
+BQAwTTELMAkGA1UEBhMCQk0xGTAXBgNVBAoTEFF1b1ZhZGlzIExpbWl0ZWQxIzAh
+BgNVBAMTGlF1b1ZhZGlzIEdsb2JhbCBTU0wgSUNBIEcyMB4XDTE0MDQxMTA3MzIx
+M1oXDTE2MDQxMTA3MzIxMVowgb8xEzARBgsrBgEEAYI3PAIBAxMCQ0gxFTATBgsr
+BgEEAYI3PAIBAhMEQmVybjEaMBgGA1UEDxMRR292ZXJubWVudCBFbnRpdHkxEzAR
+BgNVBAUTCjE4MzQtMDMtMTQxCzAJBgNVBAYTAkNIMQ0wCwYDVQQIEwRCZXJuMQ0w
+CwYDVQQHEwRCZXJuMRowGAYDVQQKExFVbml2ZXJzaXRhZXQgQmVybjEZMBcGA1UE
+AxMQYWFpLWlkcC51bmliZS5jaDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC
+ggEBAOIKnhNcUtzjdGnBWU5sJGuwQyrGH8PnKmW8SOmKMeArDjc3CNwz20NzSRWL
+fkyG5Ti098dGE5skUwjGoexhqQsECn4CtlosHmQNx6DWvY5lHIzPuZEEkQssYYtN
+jIOfCy6COhce3hi80+pFDHvFYUjWmW+IMeCky60qBZlcM2HiXhh4v/Dlmt/5FgGP
+rQwZUXT5uFCICvcAVpe5NL/bjJQs69yrLu/fEfgdwLeqxYqeol+yZxJZp77mElFB
+wur4fNR1798DsiBPRT4v8Ak73YN4sxwb0ZIvGa8QI/zgrkniRjeAjrP36WmRyoxg
+vZI5ZvkkVTp8uwZuf3/RPn/4mu8CAwEAAaOCAZEwggGNMHMGCCsGAQUFBwEBBGcw
+ZTAqBggrBgEFBQcwAYYeaHR0cDovL29jc3AucXVvdmFkaXNnbG9iYWwuY29tMDcG
+CCsGAQUFBzAChitodHRwOi8vdHJ1c3QucXVvdmFkaXNnbG9iYWwuY29tL3F2c3Ns
+ZzIuY3J0MFEGA1UdIARKMEgwRgYMKwYBBAG+WAACZAECMDYwNAYIKwYBBQUHAgEW
+KGh0dHA6Ly93d3cucXVvdmFkaXNnbG9iYWwuY29tL3JlcG9zaXRvcnkwGwYDVR0R
+BBQwEoIQYWFpLWlkcC51bmliZS5jaDALBgNVHQ8EBAMCBaAwHQYDVR0lBBYwFAYI
+KwYBBQUHAwEGCCsGAQUFBwMCMB8GA1UdIwQYMBaAFJEZYq1bF6cw+/DeOSWxvYy5
+uFEnMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwucXVvdmFkaXNnbG9iYWwu
+Y29tL3F2c3NsZzIuY3JsMB0GA1UdDgQWBBSCX8oNHGUSht4v58mKWfgqQaG+pTAN
+BgkqhkiG9w0BAQsFAAOCAQEAr+tBEvztLUq6sDzB/I4N4reJiWs+HXM3Nt5zPwBG
+4QmH2X/P0EfIKCKFrcAiBDYK0BBTK5LM78uZoF/rC/eRNJdFqcUxO7V2I2EOr0/g
+dBmV88orKTsK3HJ/BOxy4KGdKeDAMYli35w99xjEfRu+XbGrn8jvDWL4Z93/zbmw
+fOl8C+fbd9vbPPGMbPBYCLuj+JLIjNJVMOFZUCV3qOHPf+llHS+epzBl47oTNWsh
+Fo1fKj/jbU9y/7hE+8uhbqzr8uppWJYcLUpX49pe+YGzfaq0gjMlMh8/Pzc4DXQ7
+W2X26PAcxR9Ni6k2VcPdwrF+wSz0jKwCrJzugJ1Z99ABWA==
+						</ds:X509Certificate>
+					</ds:X509Data>
+				</ds:KeyInfo>
+			</KeyDescriptor>
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-idp.unibe.ch:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-idp.unibe.ch:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+		<Organization>
+			<OrganizationName xml:lang="en">unibe.ch</OrganizationName>
+			<OrganizationDisplayName xml:lang="de">Universität Bern</OrganizationDisplayName>
+			<OrganizationDisplayName xml:lang="en">University of Bern</OrganizationDisplayName>
+			<OrganizationURL xml:lang="de">http://www.unibe.ch/</OrganizationURL>
+			<OrganizationURL xml:lang="en">http://www.unibe.ch/</OrganizationURL>
+		</Organization>
+		<ContactPerson contactType="support">
+			<GivenName>Campus</GivenName>
+			<SurName>Admins</SurName>
+			<EmailAddress>mailto:admins@campus.unibe.ch</EmailAddress>
+			
+		</ContactPerson>
+		<ContactPerson contactType="technical">
+			<GivenName>Campus</GivenName>
+			<SurName>Admins</SurName>
+			<EmailAddress>mailto:admins@campus.unibe.ch</EmailAddress>
+			
+		</ContactPerson>
+	</EntityDescriptor>

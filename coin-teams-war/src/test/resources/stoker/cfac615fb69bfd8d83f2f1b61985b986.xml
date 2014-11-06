@@ -1,0 +1,47 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.mta.hu/idp/saml2/idp/metadata.php">
+        <Extensions>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href-test</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href-edugain</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href-idps</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">mtatitk</ns9:MetadataSet>
+            <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://eduid.hu"/>
+        </Extensions>
+        <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+            <Extensions>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">titkarsag.mta.hu</shibmd:Scope>
+                <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+            </Extensions>
+            <KeyDescriptor>
+                <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:X509Data>
+                        <ds:X509Certificate>MIIEEjCCAvqgAwIBAgIJAM4B1jSKcSpIMA0GCSqGSIb3DQEBBQUAMGMxCzAJBgNVBAYTAkhVMQowCAYDVQQIEwEgMREwDwYDVQQHEwhCdWRhcGVzdDEMMAoGA1UEChMDTVRBMRIwEAYDVQQLEwlUaXRrYXJzYWcxEzARBgNVBAMTCmlkcC5tdGEuaHUwHhcNMTQwMjE4MDgxODQ4WhcNMzMwNDE5MDgxODQ4WjBjMQswCQYDVQQGEwJIVTEKMAgGA1UECBMBIDERMA8GA1UEBxMIQnVkYXBlc3QxDDAKBgNVBAoTA01UQTESMBAGA1UECxMJVGl0a2Fyc2FnMRMwEQYDVQQDEwppZHAubXRhLmh1MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArXgM7QbY9DMXbKVA2N0pYeN2pOpvCjfchMWdCLwccd4n02NSff/+K2gyvQutMaxsYtCY8JjY2FIeU+IMig2LjuMCMHXIpntGhULa2+T6xcyclt5sp7hp7+NdD/L6dt2GRAEFJto3ostW4PV3eX5D3r0P7NjaC3LrtcDM+iwpp6HqFsUYZXPT0EiH5tJnZDo+EhlfPm3j5fMvQOiSe0hp5hjtoSgn/etcve9WlEH7pqF8AlDk7SkSvTUgbMUtGPmvdNxk6H1ENJRsad2vf7CxxtXfKvKKi1tYEmPQsY4A/9X9FCmprWxJ4bMvGdjST/mEvRwtpKihJ7PiU1qrMU7prwIDAQABo4HIMIHFMB0GA1UdDgQWBBTHn9gU0vszSRWaAnv7wekfRqUqkzCBlQYDVR0jBIGNMIGKgBTHn9gU0vszSRWaAnv7wekfRqUqk6FnpGUwYzELMAkGA1UEBhMCSFUxCjAIBgNVBAgTASAxETAPBgNVBAcTCEJ1ZGFwZXN0MQwwCgYDVQQKEwNNVEExEjAQBgNVBAsTCVRpdGthcnNhZzETMBEGA1UEAxMKaWRwLm10YS5odYIJAM4B1jSKcSpIMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBABU1PdlMVAXcFlAbKRjy6Oo1Y4TkmGihKcfUooTdSU45em1ZpichtPtOM4UocQwC95HXgEk28FJqJasVAlRoGoOmtBY9+D8bitVz/xVPcHgt9U7XY8+Q0O07iCdsKFeUCO7iH9kezfIvHPL9jVm0NJMUFZzME3mFcm2+5Qq8ZmYSGTXnkdEamR9EFL2CgC8QnuMxNK3VHbmU2Wc/QjOW0Mp9DdSIBZNXc5i2ANiyHDVl2iIK6U06r4Dr3zafoaLuQrbP15bZgoSda958GYYKnCV58cj5HdXM7ugT18L4KCG+bZkSQtI6ow4aBSxUMGrlf1qJIRNci9Q8FiBbF09hrLc=</ds:X509Certificate>
+                    </ds:X509Data>
+                    <ds:KeyName>idp.mta.hu</ds:KeyName>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.mta.hu/idp/saml2/idp/SingleLogoutService.php"/>
+            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.mta.hu/idp/saml2/idp/SSOService.php"/>
+        </IDPSSODescriptor>
+        <Organization>
+            <OrganizationName xml:lang="hu">MTA Titkárság</OrganizationName>
+            <OrganizationName xml:lang="en">MTA Titkárság</OrganizationName>
+            <OrganizationDisplayName xml:lang="hu">MTA Akadémiai Adattár (AAT)</OrganizationDisplayName>
+            <OrganizationDisplayName xml:lang="en">MTA Akadémiai Adattár (AAT)</OrganizationDisplayName>
+            <OrganizationURL xml:lang="hu">http://aat.mta.hu/aat</OrganizationURL>
+            <OrganizationURL xml:lang="en">http://aat.mta.hu/aat</OrganizationURL>
+        </Organization>
+        <ContactPerson contactType="technical">
+            <SurName>AAT</SurName>
+            <EmailAddress>mailto:szervezes@titkarsag.mta.hu</EmailAddress>
+        </ContactPerson>
+        <ContactPerson contactType="support">
+            <SurName>AAT</SurName>
+            <EmailAddress>mailto:szervezes@titkarsag.mta.hu</EmailAddress>
+        </ContactPerson>
+        <ContactPerson contactType="administrative">
+            <SurName>AAT</SurName>
+            <EmailAddress>mailto:szervezes@titkarsag.mta.hu</EmailAddress>
+        </ContactPerson>
+    </EntityDescriptor>

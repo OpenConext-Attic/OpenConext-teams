@@ -1,0 +1,117 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://idp.ifto.edu.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">IFTO-Instituto Federal do Educacao do Tocantins</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">IFTO-Instituto Federal do Educacao do Tocantins</mdui:DisplayName>
+          <mdui:Description xml:lang="en">IFTO-Instituto Federal do Educacao do Tocantins</mdui:Description>
+          <mdui:Description xml:lang="pt-br">IFTO-Instituto Federal do Educacao do Tocantins</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ifto.edu.br</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ifto.edu.br</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIICxjCCAa4CAQAwDQYJKoZIhvcNAQEFBQAwKTEMMAoGA1UECxMDQ1BEMQswCQYD
+VQQGEwJCUjEMMAoGA1UEAxMDaWRwMB4XDTE0MDQxMDEyMDkxM1oXDTE5MDQwOTEy
+MDkxM1owKTEMMAoGA1UECxMDQ1BEMQswCQYDVQQGEwJCUjEMMAoGA1UEAxMDaWRw
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyTw62MPvGqETh9JqxpDT
+SEk3yr0pgXrgqsueDBe1fw1+A/xsdd12PL6L+Js5Fmwzr2bi/CwQgS8sus11FfKb
+zNyxeMnK5emZHOVDbw8E2MRk2RwHy1dzt99G/tgRUh2fqQYoKDFiVHvbmKOCtmtY
+GB7teGLk+eXw5dwdrcy0h8pNajTIOoNEoDhYwlIHvreQLGrLP5zEtDRX9QkWqU6o
+Gl4fltzgjFGvh+DNGNVcbZC3dF/kklTLTlK2irSoC4ODYe/8riJkOPHq2/J6LILc
+EPNXpiETPk+eRriDu87GFCyayqKV3dx1OIeTj7p1ZnBu13W0j1YdoPzT8+qc1lb2
+KwIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQBixVogGPehJzerTgHq/OYdxdrB99If
+lVlB8/+hjbDLrSulsX6zKdUdladNg+RuaCl11SrbqoLmCigoCNXcshcg2xgKfRhz
+5Wsuuzr8VZHoPbfEF3rTS0uS+jUTB2BdeXWqek2kjWxpFs54FqFNSQgBoEoLhTvm
+RWwFISF/Zg4HP+PZDzEsK7Q+3Wvif0qhVsrBCGG9n9V0opTDLVtt6fDNX/JxQt6t
+Xsa6qY7j1iHlZ30Ff7sRrhr2jTC47Zgw8cDb3ydsQwoU6rtma0M9eONgIetjuGfn
+t5gva52zrXfpmczFDORrRV/XxIxyGrLbPXyVX99ovMbVvGQPuZDY4cSy
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ifto.edu.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ifto.edu.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.ifto.edu.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ifto.edu.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ifto.edu.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ifto.edu.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIICxjCCAa4CAQAwDQYJKoZIhvcNAQEFBQAwKTEMMAoGA1UECxMDQ1BEMQswCQYD
+VQQGEwJCUjEMMAoGA1UEAxMDaWRwMB4XDTE0MDQxMDEyMDkxM1oXDTE5MDQwOTEy
+MDkxM1owKTEMMAoGA1UECxMDQ1BEMQswCQYDVQQGEwJCUjEMMAoGA1UEAxMDaWRw
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyTw62MPvGqETh9JqxpDT
+SEk3yr0pgXrgqsueDBe1fw1+A/xsdd12PL6L+Js5Fmwzr2bi/CwQgS8sus11FfKb
+zNyxeMnK5emZHOVDbw8E2MRk2RwHy1dzt99G/tgRUh2fqQYoKDFiVHvbmKOCtmtY
+GB7teGLk+eXw5dwdrcy0h8pNajTIOoNEoDhYwlIHvreQLGrLP5zEtDRX9QkWqU6o
+Gl4fltzgjFGvh+DNGNVcbZC3dF/kklTLTlK2irSoC4ODYe/8riJkOPHq2/J6LILc
+EPNXpiETPk+eRriDu87GFCyayqKV3dx1OIeTj7p1ZnBu13W0j1YdoPzT8+qc1lb2
+KwIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQBixVogGPehJzerTgHq/OYdxdrB99If
+lVlB8/+hjbDLrSulsX6zKdUdladNg+RuaCl11SrbqoLmCigoCNXcshcg2xgKfRhz
+5Wsuuzr8VZHoPbfEF3rTS0uS+jUTB2BdeXWqek2kjWxpFs54FqFNSQgBoEoLhTvm
+RWwFISF/Zg4HP+PZDzEsK7Q+3Wvif0qhVsrBCGG9n9V0opTDLVtt6fDNX/JxQt6t
+Xsa6qY7j1iHlZ30Ff7sRrhr2jTC47Zgw8cDb3ydsQwoU6rtma0M9eONgIetjuGfn
+t5gva52zrXfpmczFDORrRV/XxIxyGrLbPXyVX99ovMbVvGQPuZDY4cSy
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ifto.edu.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ifto.edu.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">IFTO-Instituto Federal do Educacao do Tocantins</OrganizationName>
+      <OrganizationName xml:lang="pt-br">IFTO-Instituto Federal do Educacao do Tocantins</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">IFTO-Instituto Federal do Educacao do Tocantins</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">IFTO-Instituto Federal do Educacao do Tocantins</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.ifto.edu.br</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.ifto.edu.br</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Ronaldo Vasconcelos Parente</SurName>
+      <EmailAddress>parente@ifto.edu.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

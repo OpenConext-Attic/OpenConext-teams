@@ -1,0 +1,84 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.dijon.iufm.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2013-01-28T12:03:39Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">dijon.iufm.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">ESPE de Bourgogne - Dpt MEEF</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDMDCCAhigAwIBAgIVAPJxU6vXRtyZ2B8/iZhhakdOe/SBMA0GCSqGSIb3DQEB
+BQUAMBwxGjAYBgNVBAMTEWRpcC5kaWpvbi5pdWZtLmZyMB4XDTEyMTAzMTA5MDYz
+OVoXDTMyMTAzMTA5MDYzOVowHDEaMBgGA1UEAxMRZGlwLmRpam9uLml1Zm0uZnIw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDQ2TDr3Xoz5TBEKdyL3ZSS
+oWgPsLaId+qegB3aYnBcLK9/Oge/K8WThAVVAUSX7A/FyFrZdeQBR9HpUqaOb2p3
+UE0MHs0w3h80vQ3btvM4ag6ZxakEZh066VxgSb6bRAD4G1kmwDUbXl/Hm+pypx7O
+kndJYVDWke+M8Y9Hqvjl9F0ZLH58HPwtCwN3Gg9IGfbiSMtvLLZoHfifSc6O2m0R
+kHDGg4LMqbhNoFo2Z9VTwqV/7dd2qy+4+11C0Sd9v9vzdRCB5MawK40ARyhhwwFE
+WoqxXKmndbh+rnvCDZadM0jT3A9QuUm6/PVVhaXnMXGAlm97EWtP+CL8/AdFCm3f
+AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEWRpcC5kaWpvbi5pdWZtLmZyhihodHRwczov
+L2RpcC5kaWpvbi5pdWZtLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBT1MxRC
+yvoAAjqWbajuVCCe5OQ2OjANBgkqhkiG9w0BAQUFAAOCAQEAiewYRJ5OUQoPEThR
+5JKesIDaeCUz9QoGBsRPUVGudb2FiuKp+iKVLPXZ9CuRidg6ZDk0ejXQjThk/Xaz
+scNJ39+zbOBNqE+v7XhYsCLSG/3DhrfTWz4XosuqKojH9ZwXsBhQqB1Rk/Vebr50
+IUHP0I8OQKilNbv7IYx3eduXIVAicsVOW5DaWYZBQJ2zFa+9we5ZBMeZ/Lq6DkGC
+YpPfDGEAblTPzFEiMw7TlhPvLehjCzmBggW8fG061FZ8J2rBeOzBlTNBRMqekUaf
+V5IHw211pa1xInH+EzE4//vuvfemALnv0wPbbvUbroFeb/qqwNMZP22D9p2r+s9J
+27C2qA==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.dijon.iufm.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.dijon.iufm.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.dijon.iufm.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">ESPE de Bourgogne - Dpt MEEF</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">ESPE de Bourgogne - Dpt MEEF</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Bourdin Jean-Michel</SurName>
+				 <EmailAddress>jean-michel.bourdin@dijon.iufm.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    		
+
+				
+			
+	</EntityDescriptor>

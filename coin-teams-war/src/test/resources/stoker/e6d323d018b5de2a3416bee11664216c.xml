@@ -1,0 +1,84 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.ent.dauphine.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-01-28T11:26:21Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">dauphine.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de Paris 9 - Dauphine</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDODCCAiCgAwIBAgIVAL8Gc+NXLeRBFscDZy7qdwGaAlMdMA0GCSqGSIb3DQEB
+BQUAMB4xHDAaBgNVBAMTE2lkcC5lbnQuZGF1cGhpbmUuZnIwHhcNMTEwMTI0MTgw
+ODU4WhcNMzEwMTI0MTgwODU4WjAeMRwwGgYDVQQDExNpZHAuZW50LmRhdXBoaW5l
+LmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuglXJZxWOmFxzj1u
+NPB0ExGFjXusnDSm+P3D4tWBIrmxVj1z9DK3S9nVUf4jDkSzslwhunSs1GBU0URt
+MDhQEkKCt9O30Fd4lIGjuH1DoFC/l1KF5plmIbEKkDrr3BMo7BtC+5VHYFm65Jgo
+AY+ZrBFFNj/CxYDx+oZ9gywwxuP2CGT59t9tRH0Sol4IzPJbcqDKBHGBsKrOajN9
+UAjkDxGnx5PjiLVy1raywgE3qKSW9sFy4rukFs6B1TLt1xXSmIhPme9Q2PNmNLsf
+H31l0mO491gWP5F6dz6OXqtrubBWuqjtEZNLcHL3eduHeUybgXnkWF84BV0376l9
+uDEdtwIDAQABo20wazBKBgNVHREEQzBBghNpZHAuZW50LmRhdXBoaW5lLmZyhipo
+dHRwczovL2lkcC5lbnQuZGF1cGhpbmUuZnIvaWRwL3NoaWJib2xldGgwHQYDVR0O
+BBYEFPaZs/R1MZFlljBBXfrcl1Z4jCNBMA0GCSqGSIb3DQEBBQUAA4IBAQBW53Ob
+BRvf38GLJi2TfLH/7HSL7cGlR2aNH2Gin7rumq2TNugtDlqxokdn5lZkr/5+s+Zu
+51/n8bawgIyTQdaSHxd0l46o80xKtVfjiWBUm6e1O2sKJmuahbv+Y5sqMW1wr12u
+th+XQOM174MQMWNMrS7EERMUs9tiBY7qXQTbAPKs+rssU3gRz1APUrZ1MSbwZ3he
+uy4IfdhPh/g3Z0/Xy+hcDYyw+jN4FfjemHHZ/y9No3OYrLBGH5YxpY5oRfEh1E2C
+uZUMXJWvgnx3iOoxoAAORWf106TxENjuBE4MbxOK0r7MOSmXjPINJrMTLue5hzZs
++M9PCzhKsLPRd3lD
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ent.dauphine.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ent.dauphine.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ent.dauphine.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Paris 9 - Dauphine</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Paris 9 - Dauphine</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Lionel LENOBLE</SurName>
+				 <EmailAddress>lionel.lenoble@dauphine.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    		
+
+				
+			
+	</EntityDescriptor>

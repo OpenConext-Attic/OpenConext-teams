@@ -1,0 +1,117 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.cs.cas.cz/idp/shibboleth">
+    <Extensions>
+      <eduidmd:RepublishRequest xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0">
+        <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
+      </eduidmd:RepublishRequest>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.eduid.cz/" registrationInstant="2014-06-17T15:52:29Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <mdasrt:Attribute xmlns:mdasrt="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <mdasrt:AttributeValue>http://eduid.cz/uri/idp-group/avcr</mdasrt:AttributeValue>
+        </mdasrt:Attribute>
+      </mdattr:EntityAttributes>
+    </Extensions>
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">cs.cas.cz</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">Institute of Computer Science AS CR</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">Ústav informatiky AV ČR</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity Provider ICS AV CR employees.</mdui:Description>
+          <mdui:Description xml:lang="cs">Identity Provider pro zaměstnance UI AV ČR</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ustavinformatiky.cz/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">http://www.ustavinformatiky.cz/</mdui:InformationURL>
+          <mdui:Logo height="44" width="50">https://jiftach.cas.cz/loga/logo-ui-44.png</mdui:Logo>
+          <mdui:Logo height="400" width="450">https://jiftach.cas.cz/loga/logo-ui-400.png</mdui:Logo>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDIDCCAgigAwIBAgIVAKK9oHWp4NhakdhRINFSNcMlO+RbMA0GCSqGSIb3DQEB
+BQUAMBgxFjAUBgNVBAMTDWlkcC5jcy5jYXMuY3owHhcNMTQwNDIzMDk0MjA0WhcN
+MzQwNDIzMDk0MjA0WjAYMRYwFAYDVQQDEw1pZHAuY3MuY2FzLmN6MIIBIjANBgkq
+hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjjkBmvDKH/5+UN1okmPOjP4WiCHwmGw7
+KQ9Zxk/myiYmAgk9qF/0PTHMdli5C4rbSbffG+G+28B6N+hJL8GoCL5+BSfKxjsq
+0EkXH81pbIl6/V9X888aitvMa8sKYcI5SUaTdv5DfO9KPizzDh4q7ckC3pyYvYT9
+fM30sxWOSoNHgMCPEg6kUt7BViZCGqzuucqJ/OIh01GLcsu56YH7FYWSQZ6gxCjk
+mqAPSwsFveWweKxIzv/Fudact5JA2OPv6E0QtxiZl2IrrbszCTfiihqvd4Kkh2gz
+3KAI7B8HS0obOhYoi6VSNVJ2CpyQOff2M1HmIeyTe0up4bEGnbu81QIDAQABo2Ew
+XzA+BgNVHREENzA1gg1pZHAuY3MuY2FzLmN6hiRodHRwczovL2lkcC5jcy5jYXMu
+Y3ovaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFO+bvv+xOMV6uPQ6HEydpZESVVHW
+MA0GCSqGSIb3DQEBBQUAA4IBAQAIvc78aeMLcz35NBrOwdpFTkyjxddzw8In/WkZ
+f460lIhMMqc4wBe2fdqUx6OOkGDOGFTt4nWhLxp5+RI4v6ZwawGmZBxTBWxJgCrI
+2wOrZ+LAjcah4H+dESHtufvkv5GpcpHaqclECIJBSdBw40JO0GaIRHfNAnpLW8Uu
+QMhmIIxoZBWR/Fw+FJbKlseHsLR67FxmkuIrj9a+R3tL63j6xktGkzh3pvmjzTu9
+V7TvWrHG4VLa2B+cw1DTHx53iXciC7lcUmrv6FmsoEn023Vo9SMPCCpyoYGnKmRl
+DWUUP6NhKsUBrx0ErS47MREL3/a9Ck6rJ1bJssJLAir38Sk4
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.cs.cas.cz:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.cs.cas.cz:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.cs.cas.cz/idp/profile/SAML2/Redirect/SLO"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.cs.cas.cz/idp/profile/SAML2/POST/SLO"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.cs.cas.cz:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.cs.cas.cz/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.cs.cas.cz/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.cs.cas.cz/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.cs.cas.cz/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">cs.cas.cz</shibmd:Scope>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDIDCCAgigAwIBAgIVAKK9oHWp4NhakdhRINFSNcMlO+RbMA0GCSqGSIb3DQEB
+BQUAMBgxFjAUBgNVBAMTDWlkcC5jcy5jYXMuY3owHhcNMTQwNDIzMDk0MjA0WhcN
+MzQwNDIzMDk0MjA0WjAYMRYwFAYDVQQDEw1pZHAuY3MuY2FzLmN6MIIBIjANBgkq
+hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjjkBmvDKH/5+UN1okmPOjP4WiCHwmGw7
+KQ9Zxk/myiYmAgk9qF/0PTHMdli5C4rbSbffG+G+28B6N+hJL8GoCL5+BSfKxjsq
+0EkXH81pbIl6/V9X888aitvMa8sKYcI5SUaTdv5DfO9KPizzDh4q7ckC3pyYvYT9
+fM30sxWOSoNHgMCPEg6kUt7BViZCGqzuucqJ/OIh01GLcsu56YH7FYWSQZ6gxCjk
+mqAPSwsFveWweKxIzv/Fudact5JA2OPv6E0QtxiZl2IrrbszCTfiihqvd4Kkh2gz
+3KAI7B8HS0obOhYoi6VSNVJ2CpyQOff2M1HmIeyTe0up4bEGnbu81QIDAQABo2Ew
+XzA+BgNVHREENzA1gg1pZHAuY3MuY2FzLmN6hiRodHRwczovL2lkcC5jcy5jYXMu
+Y3ovaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFO+bvv+xOMV6uPQ6HEydpZESVVHW
+MA0GCSqGSIb3DQEBBQUAA4IBAQAIvc78aeMLcz35NBrOwdpFTkyjxddzw8In/WkZ
+f460lIhMMqc4wBe2fdqUx6OOkGDOGFTt4nWhLxp5+RI4v6ZwawGmZBxTBWxJgCrI
+2wOrZ+LAjcah4H+dESHtufvkv5GpcpHaqclECIJBSdBw40JO0GaIRHfNAnpLW8Uu
+QMhmIIxoZBWR/Fw+FJbKlseHsLR67FxmkuIrj9a+R3tL63j6xktGkzh3pvmjzTu9
+V7TvWrHG4VLa2B+cw1DTHx53iXciC7lcUmrv6FmsoEn023Vo9SMPCCpyoYGnKmRl
+DWUUP6NhKsUBrx0ErS47MREL3/a9Ck6rJ1bJssJLAir38Sk4
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.cs.cas.cz:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.cs.cas.cz:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+    </AttributeAuthorityDescriptor>
+    <Organization>
+      <OrganizationName xml:lang="en">Institute of Computer Science Academy</OrganizationName>
+      <OrganizationName xml:lang="cs">Ústav informatiky AV ČR</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">Institute of Computer Science Academy of Sciences of the Czech Republic</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="cs">Ústav informatiky AV ČR, v.v.i.</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.ustavinformatiky.cz/</OrganizationURL>
+      <OrganizationURL xml:lang="cs">http://www.ustavinformatiky.cz/</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Petr</GivenName>
+      <SurName>Vaníček</SurName>
+      <EmailAddress>vanicekp@utia.cas.cz</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

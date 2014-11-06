@@ -1,0 +1,231 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://lmuidp.lrz.de/idp/shibboleth">
+    <Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2009-11-11T14:59:40Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://aai.dfn.de/category/vetmed-member</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </Extensions>
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">lmu.de</saml1md:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="de">Universität München (LMU)</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Universität of Munich (LMU)</mdui:DisplayName>
+          <mdui:Description xml:lang="de">Identity-Provider für die LMU</mdui:Description>
+          <mdui:Description xml:lang="en">Identity Provider for LMU</mdui:Description>
+          <mdui:InformationURL xml:lang="de">https://lmuidp.lrz.de</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">https://lmuidp.lrz.de</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>lmuidp.lrz.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=lmuidp.lrz.de,OU=Leibniz-Rechenzentrum,O=Bayerische Akademie der Wissenschaften,L=Garching b. Muenchen,ST=Bayern,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGKTCCBRGgAwIBAgIHGEI+4+lgoTANBgkqhkiG9w0BAQsFADCBnTELMAkGA1UE
+BhMCREUxDzANBgNVBAgTBkJheWVybjERMA8GA1UEBxMITXVlbmNoZW4xHjAcBgNV
+BAoTFUxlaWJuaXotUmVjaGVuemVudHJ1bTEPMA0GA1UECxMGTFJaLUNBMRUwEwYD
+VQQDEwxMUlotQ0EgLSBHMDExIjAgBgkqhkiG9w0BCQEWE3BraUBscnotbXVlbmNo
+ZW4uZGUwHhcNMTQwOTI0MTMwNDE5WhcNMTkwNzA5MjM1OTAwWjCBpjELMAkGA1UE
+BhMCREUxDzANBgNVBAgTBkJheWVybjEdMBsGA1UEBxMUR2FyY2hpbmcgYi4gTXVl
+bmNoZW4xLzAtBgNVBAoTJkJheWVyaXNjaGUgQWthZGVtaWUgZGVyIFdpc3NlbnNj
+aGFmdGVuMR4wHAYDVQQLExVMZWlibml6LVJlY2hlbnplbnRydW0xFjAUBgNVBAMT
+DWxtdWlkcC5scnouZGUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC2
+XRjCEr0k6MbdVul4Fh7LnStVjlCFPs86sKFP+AR+B/F7KO9mZiyN9geN8OLcTt/t
+6EVjJ5wlwmqmBNI1LiZ2pcbXDXBISZ5sqOc0AJu12J9vp8BhXbL8TVLb3jKwe+h+
+gTYIZYQr4ZHAzy61GoHjllR91bd97yhOg6+uDb0WIsSEByMNQSYvQ+Ez1wl43oTD
+acsTha0uEdeGRbhEyTnM0K7Vl53y3mobsYhr41PDQQ5C+G97DhYPrApPkx+8c1+K
+AWSeuKsOaUhPd/+U27SjN85d3XFZsTaO7DE+1JwIx2YQuQZIqEdB/c4Nx6rWkBbP
+goQ525ShGAcUp01pLfxTAgMBAAGjggJhMIICXTBPBgNVHSAESDBGMBEGDysGAQQB
+ga0hgiwBAQQDAjARBg8rBgEEAYGtIYIsAgEEAwEwDwYNKwYBBAGBrSGCLAEBBDAN
+BgsrBgEEAYGtIYIsHjAJBgNVHRMEAjAAMAsGA1UdDwQEAwIF4DAdBgNVHSUEFjAU
+BggrBgEFBQcDAgYIKwYBBQUHAwEwHQYDVR0OBBYEFKaWNKU6lkHit7g+/fkQT0Gy
+N+svMB8GA1UdIwQYMBaAFJZbTHC7b/yc77U/pHr7k/8J6mp2MFAGA1UdEQRJMEeC
+DWxtdWlkcC5scnouZGWCDmxtdWlkcDEubHJ6LmRlgg5sbXVpZHAyLmxyei5kZYEW
+emJ2dy1jZXJ0LWFkbWluQGxyei5kZTB3BgNVHR8EcDBuMDWgM6Axhi9odHRwOi8v
+Y2RwMS5wY2EuZGZuLmRlL2xyei1jYS9wdWIvY3JsL2NhY3JsLmNybDA1oDOgMYYv
+aHR0cDovL2NkcDIucGNhLmRmbi5kZS9scnotY2EvcHViL2NybC9jYWNybC5jcmww
+gccGCCsGAQUFBwEBBIG6MIG3MDMGCCsGAQUFBzABhidodHRwOi8vb2NzcC5wY2Eu
+ZGZuLmRlL09DU1AtU2VydmVyL09DU1AwPwYIKwYBBQUHMAKGM2h0dHA6Ly9jZHAx
+LnBjYS5kZm4uZGUvbHJ6LWNhL3B1Yi9jYWNlcnQvY2FjZXJ0LmNydDA/BggrBgEF
+BQcwAoYzaHR0cDovL2NkcDIucGNhLmRmbi5kZS9scnotY2EvcHViL2NhY2VydC9j
+YWNlcnQuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQA/lqhcmySrV1rFabrkq5Q0w3jt
+p/3uI7EwzzcjJi3OYd3RkxM6kg6e2rrUqvZFcc8SpYm2xpMua5rAFnxn3ua1c6fZ
+oxoQqezn8T4hoIW3R88bglSAC6934dhTYyppphANgZskCdF6CyMsrQnVrEjKQhzV
+0bR8i9IWBuWR9eXmdY3CFmkrSplog2JvWb8Llbdy1qtrufrh0UvQzLorV9+XfFTq
+rLGlIaqqDcztN+TBHUYjaY8pcYCzzexidfnc45uavSGgjb72S5180e9Yb37MtFD3
+X9vAm37rs2RCx2XYtdp7GL9GolmAli2pb5KgYojBQ8Re0VgxMFMi35xVQNRj
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <KeyDescriptor use="encryption">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>lmuidp.lrz.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=lmuidp.lrz.de,OU=Leibniz-Rechenzentrum,O=Bayerische Akademie der Wissenschaften,L=Garching b. Muenchen,ST=Bayern,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGKTCCBRGgAwIBAgIHGEI+4+lgoTANBgkqhkiG9w0BAQsFADCBnTELMAkGA1UE
+BhMCREUxDzANBgNVBAgTBkJheWVybjERMA8GA1UEBxMITXVlbmNoZW4xHjAcBgNV
+BAoTFUxlaWJuaXotUmVjaGVuemVudHJ1bTEPMA0GA1UECxMGTFJaLUNBMRUwEwYD
+VQQDEwxMUlotQ0EgLSBHMDExIjAgBgkqhkiG9w0BCQEWE3BraUBscnotbXVlbmNo
+ZW4uZGUwHhcNMTQwOTI0MTMwNDE5WhcNMTkwNzA5MjM1OTAwWjCBpjELMAkGA1UE
+BhMCREUxDzANBgNVBAgTBkJheWVybjEdMBsGA1UEBxMUR2FyY2hpbmcgYi4gTXVl
+bmNoZW4xLzAtBgNVBAoTJkJheWVyaXNjaGUgQWthZGVtaWUgZGVyIFdpc3NlbnNj
+aGFmdGVuMR4wHAYDVQQLExVMZWlibml6LVJlY2hlbnplbnRydW0xFjAUBgNVBAMT
+DWxtdWlkcC5scnouZGUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC2
+XRjCEr0k6MbdVul4Fh7LnStVjlCFPs86sKFP+AR+B/F7KO9mZiyN9geN8OLcTt/t
+6EVjJ5wlwmqmBNI1LiZ2pcbXDXBISZ5sqOc0AJu12J9vp8BhXbL8TVLb3jKwe+h+
+gTYIZYQr4ZHAzy61GoHjllR91bd97yhOg6+uDb0WIsSEByMNQSYvQ+Ez1wl43oTD
+acsTha0uEdeGRbhEyTnM0K7Vl53y3mobsYhr41PDQQ5C+G97DhYPrApPkx+8c1+K
+AWSeuKsOaUhPd/+U27SjN85d3XFZsTaO7DE+1JwIx2YQuQZIqEdB/c4Nx6rWkBbP
+goQ525ShGAcUp01pLfxTAgMBAAGjggJhMIICXTBPBgNVHSAESDBGMBEGDysGAQQB
+ga0hgiwBAQQDAjARBg8rBgEEAYGtIYIsAgEEAwEwDwYNKwYBBAGBrSGCLAEBBDAN
+BgsrBgEEAYGtIYIsHjAJBgNVHRMEAjAAMAsGA1UdDwQEAwIF4DAdBgNVHSUEFjAU
+BggrBgEFBQcDAgYIKwYBBQUHAwEwHQYDVR0OBBYEFKaWNKU6lkHit7g+/fkQT0Gy
+N+svMB8GA1UdIwQYMBaAFJZbTHC7b/yc77U/pHr7k/8J6mp2MFAGA1UdEQRJMEeC
+DWxtdWlkcC5scnouZGWCDmxtdWlkcDEubHJ6LmRlgg5sbXVpZHAyLmxyei5kZYEW
+emJ2dy1jZXJ0LWFkbWluQGxyei5kZTB3BgNVHR8EcDBuMDWgM6Axhi9odHRwOi8v
+Y2RwMS5wY2EuZGZuLmRlL2xyei1jYS9wdWIvY3JsL2NhY3JsLmNybDA1oDOgMYYv
+aHR0cDovL2NkcDIucGNhLmRmbi5kZS9scnotY2EvcHViL2NybC9jYWNybC5jcmww
+gccGCCsGAQUFBwEBBIG6MIG3MDMGCCsGAQUFBzABhidodHRwOi8vb2NzcC5wY2Eu
+ZGZuLmRlL09DU1AtU2VydmVyL09DU1AwPwYIKwYBBQUHMAKGM2h0dHA6Ly9jZHAx
+LnBjYS5kZm4uZGUvbHJ6LWNhL3B1Yi9jYWNlcnQvY2FjZXJ0LmNydDA/BggrBgEF
+BQcwAoYzaHR0cDovL2NkcDIucGNhLmRmbi5kZS9scnotY2EvcHViL2NhY2VydC9j
+YWNlcnQuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQA/lqhcmySrV1rFabrkq5Q0w3jt
+p/3uI7EwzzcjJi3OYd3RkxM6kg6e2rrUqvZFcc8SpYm2xpMua5rAFnxn3ua1c6fZ
+oxoQqezn8T4hoIW3R88bglSAC6934dhTYyppphANgZskCdF6CyMsrQnVrEjKQhzV
+0bR8i9IWBuWR9eXmdY3CFmkrSplog2JvWb8Llbdy1qtrufrh0UvQzLorV9+XfFTq
+rLGlIaqqDcztN+TBHUYjaY8pcYCzzexidfnc45uavSGgjb72S5180e9Yb37MtFD3
+X9vAm37rs2RCx2XYtdp7GL9GolmAli2pb5KgYojBQ8Re0VgxMFMi35xVQNRj
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://lmuidp.lrz.de:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://lmuidp.lrz.de:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://lmuidp.lrz.de/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://lmuidp.lrz.de/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://lmuidp.lrz.de/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://lmuidp.lrz.de/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">lmu.de</saml1md:Scope>
+      </Extensions>
+      <KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>lmuidp.lrz.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=lmuidp.lrz.de,OU=Leibniz-Rechenzentrum,O=Bayerische Akademie der Wissenschaften,L=Garching b. Muenchen,ST=Bayern,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGKTCCBRGgAwIBAgIHGEI+4+lgoTANBgkqhkiG9w0BAQsFADCBnTELMAkGA1UE
+BhMCREUxDzANBgNVBAgTBkJheWVybjERMA8GA1UEBxMITXVlbmNoZW4xHjAcBgNV
+BAoTFUxlaWJuaXotUmVjaGVuemVudHJ1bTEPMA0GA1UECxMGTFJaLUNBMRUwEwYD
+VQQDEwxMUlotQ0EgLSBHMDExIjAgBgkqhkiG9w0BCQEWE3BraUBscnotbXVlbmNo
+ZW4uZGUwHhcNMTQwOTI0MTMwNDE5WhcNMTkwNzA5MjM1OTAwWjCBpjELMAkGA1UE
+BhMCREUxDzANBgNVBAgTBkJheWVybjEdMBsGA1UEBxMUR2FyY2hpbmcgYi4gTXVl
+bmNoZW4xLzAtBgNVBAoTJkJheWVyaXNjaGUgQWthZGVtaWUgZGVyIFdpc3NlbnNj
+aGFmdGVuMR4wHAYDVQQLExVMZWlibml6LVJlY2hlbnplbnRydW0xFjAUBgNVBAMT
+DWxtdWlkcC5scnouZGUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC2
+XRjCEr0k6MbdVul4Fh7LnStVjlCFPs86sKFP+AR+B/F7KO9mZiyN9geN8OLcTt/t
+6EVjJ5wlwmqmBNI1LiZ2pcbXDXBISZ5sqOc0AJu12J9vp8BhXbL8TVLb3jKwe+h+
+gTYIZYQr4ZHAzy61GoHjllR91bd97yhOg6+uDb0WIsSEByMNQSYvQ+Ez1wl43oTD
+acsTha0uEdeGRbhEyTnM0K7Vl53y3mobsYhr41PDQQ5C+G97DhYPrApPkx+8c1+K
+AWSeuKsOaUhPd/+U27SjN85d3XFZsTaO7DE+1JwIx2YQuQZIqEdB/c4Nx6rWkBbP
+goQ525ShGAcUp01pLfxTAgMBAAGjggJhMIICXTBPBgNVHSAESDBGMBEGDysGAQQB
+ga0hgiwBAQQDAjARBg8rBgEEAYGtIYIsAgEEAwEwDwYNKwYBBAGBrSGCLAEBBDAN
+BgsrBgEEAYGtIYIsHjAJBgNVHRMEAjAAMAsGA1UdDwQEAwIF4DAdBgNVHSUEFjAU
+BggrBgEFBQcDAgYIKwYBBQUHAwEwHQYDVR0OBBYEFKaWNKU6lkHit7g+/fkQT0Gy
+N+svMB8GA1UdIwQYMBaAFJZbTHC7b/yc77U/pHr7k/8J6mp2MFAGA1UdEQRJMEeC
+DWxtdWlkcC5scnouZGWCDmxtdWlkcDEubHJ6LmRlgg5sbXVpZHAyLmxyei5kZYEW
+emJ2dy1jZXJ0LWFkbWluQGxyei5kZTB3BgNVHR8EcDBuMDWgM6Axhi9odHRwOi8v
+Y2RwMS5wY2EuZGZuLmRlL2xyei1jYS9wdWIvY3JsL2NhY3JsLmNybDA1oDOgMYYv
+aHR0cDovL2NkcDIucGNhLmRmbi5kZS9scnotY2EvcHViL2NybC9jYWNybC5jcmww
+gccGCCsGAQUFBwEBBIG6MIG3MDMGCCsGAQUFBzABhidodHRwOi8vb2NzcC5wY2Eu
+ZGZuLmRlL09DU1AtU2VydmVyL09DU1AwPwYIKwYBBQUHMAKGM2h0dHA6Ly9jZHAx
+LnBjYS5kZm4uZGUvbHJ6LWNhL3B1Yi9jYWNlcnQvY2FjZXJ0LmNydDA/BggrBgEF
+BQcwAoYzaHR0cDovL2NkcDIucGNhLmRmbi5kZS9scnotY2EvcHViL2NhY2VydC9j
+YWNlcnQuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQA/lqhcmySrV1rFabrkq5Q0w3jt
+p/3uI7EwzzcjJi3OYd3RkxM6kg6e2rrUqvZFcc8SpYm2xpMua5rAFnxn3ua1c6fZ
+oxoQqezn8T4hoIW3R88bglSAC6934dhTYyppphANgZskCdF6CyMsrQnVrEjKQhzV
+0bR8i9IWBuWR9eXmdY3CFmkrSplog2JvWb8Llbdy1qtrufrh0UvQzLorV9+XfFTq
+rLGlIaqqDcztN+TBHUYjaY8pcYCzzexidfnc45uavSGgjb72S5180e9Yb37MtFD3
+X9vAm37rs2RCx2XYtdp7GL9GolmAli2pb5KgYojBQ8Re0VgxMFMi35xVQNRj
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <KeyDescriptor use="encryption">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>lmuidp.lrz.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=lmuidp.lrz.de,OU=Leibniz-Rechenzentrum,O=Bayerische Akademie der Wissenschaften,L=Garching b. Muenchen,ST=Bayern,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGKTCCBRGgAwIBAgIHGEI+4+lgoTANBgkqhkiG9w0BAQsFADCBnTELMAkGA1UE
+BhMCREUxDzANBgNVBAgTBkJheWVybjERMA8GA1UEBxMITXVlbmNoZW4xHjAcBgNV
+BAoTFUxlaWJuaXotUmVjaGVuemVudHJ1bTEPMA0GA1UECxMGTFJaLUNBMRUwEwYD
+VQQDEwxMUlotQ0EgLSBHMDExIjAgBgkqhkiG9w0BCQEWE3BraUBscnotbXVlbmNo
+ZW4uZGUwHhcNMTQwOTI0MTMwNDE5WhcNMTkwNzA5MjM1OTAwWjCBpjELMAkGA1UE
+BhMCREUxDzANBgNVBAgTBkJheWVybjEdMBsGA1UEBxMUR2FyY2hpbmcgYi4gTXVl
+bmNoZW4xLzAtBgNVBAoTJkJheWVyaXNjaGUgQWthZGVtaWUgZGVyIFdpc3NlbnNj
+aGFmdGVuMR4wHAYDVQQLExVMZWlibml6LVJlY2hlbnplbnRydW0xFjAUBgNVBAMT
+DWxtdWlkcC5scnouZGUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC2
+XRjCEr0k6MbdVul4Fh7LnStVjlCFPs86sKFP+AR+B/F7KO9mZiyN9geN8OLcTt/t
+6EVjJ5wlwmqmBNI1LiZ2pcbXDXBISZ5sqOc0AJu12J9vp8BhXbL8TVLb3jKwe+h+
+gTYIZYQr4ZHAzy61GoHjllR91bd97yhOg6+uDb0WIsSEByMNQSYvQ+Ez1wl43oTD
+acsTha0uEdeGRbhEyTnM0K7Vl53y3mobsYhr41PDQQ5C+G97DhYPrApPkx+8c1+K
+AWSeuKsOaUhPd/+U27SjN85d3XFZsTaO7DE+1JwIx2YQuQZIqEdB/c4Nx6rWkBbP
+goQ525ShGAcUp01pLfxTAgMBAAGjggJhMIICXTBPBgNVHSAESDBGMBEGDysGAQQB
+ga0hgiwBAQQDAjARBg8rBgEEAYGtIYIsAgEEAwEwDwYNKwYBBAGBrSGCLAEBBDAN
+BgsrBgEEAYGtIYIsHjAJBgNVHRMEAjAAMAsGA1UdDwQEAwIF4DAdBgNVHSUEFjAU
+BggrBgEFBQcDAgYIKwYBBQUHAwEwHQYDVR0OBBYEFKaWNKU6lkHit7g+/fkQT0Gy
+N+svMB8GA1UdIwQYMBaAFJZbTHC7b/yc77U/pHr7k/8J6mp2MFAGA1UdEQRJMEeC
+DWxtdWlkcC5scnouZGWCDmxtdWlkcDEubHJ6LmRlgg5sbXVpZHAyLmxyei5kZYEW
+emJ2dy1jZXJ0LWFkbWluQGxyei5kZTB3BgNVHR8EcDBuMDWgM6Axhi9odHRwOi8v
+Y2RwMS5wY2EuZGZuLmRlL2xyei1jYS9wdWIvY3JsL2NhY3JsLmNybDA1oDOgMYYv
+aHR0cDovL2NkcDIucGNhLmRmbi5kZS9scnotY2EvcHViL2NybC9jYWNybC5jcmww
+gccGCCsGAQUFBwEBBIG6MIG3MDMGCCsGAQUFBzABhidodHRwOi8vb2NzcC5wY2Eu
+ZGZuLmRlL09DU1AtU2VydmVyL09DU1AwPwYIKwYBBQUHMAKGM2h0dHA6Ly9jZHAx
+LnBjYS5kZm4uZGUvbHJ6LWNhL3B1Yi9jYWNlcnQvY2FjZXJ0LmNydDA/BggrBgEF
+BQcwAoYzaHR0cDovL2NkcDIucGNhLmRmbi5kZS9scnotY2EvcHViL2NhY2VydC9j
+YWNlcnQuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQA/lqhcmySrV1rFabrkq5Q0w3jt
+p/3uI7EwzzcjJi3OYd3RkxM6kg6e2rrUqvZFcc8SpYm2xpMua5rAFnxn3ua1c6fZ
+oxoQqezn8T4hoIW3R88bglSAC6934dhTYyppphANgZskCdF6CyMsrQnVrEjKQhzV
+0bR8i9IWBuWR9eXmdY3CFmkrSplog2JvWb8Llbdy1qtrufrh0UvQzLorV9+XfFTq
+rLGlIaqqDcztN+TBHUYjaY8pcYCzzexidfnc45uavSGgjb72S5180e9Yb37MtFD3
+X9vAm37rs2RCx2XYtdp7GL9GolmAli2pb5KgYojBQ8Re0VgxMFMi35xVQNRj
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://lmuidp.lrz.de:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://lmuidp.lrz.de:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+    </AttributeAuthorityDescriptor>
+    <Organization>
+      <OrganizationName xml:lang="de">e29</OrganizationName>
+      <OrganizationName xml:lang="en">e29</OrganizationName>
+      <OrganizationDisplayName xml:lang="de">Ludwig-Maximilians-Universität München</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="en">Ludwig-Maximilians-Universität München</OrganizationDisplayName>
+      <OrganizationURL xml:lang="de">https://lmuidp.lrz.de</OrganizationURL>
+      <OrganizationURL xml:lang="en">https://lmuidp.lrz.de</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Ralf</GivenName>
+      <SurName>Ebner</SurName>
+      <EmailAddress>mailto:shibboleth@lrz.de</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="support">
+      <GivenName>LMU-Helpdesk</GivenName>
+      <SurName>LMU-Helpdesk</SurName>
+      <EmailAddress>mailto:helpdesk@campus.lmu.de</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

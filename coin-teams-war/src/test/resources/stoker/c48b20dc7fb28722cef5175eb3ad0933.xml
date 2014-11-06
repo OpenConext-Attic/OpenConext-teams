@@ -1,0 +1,78 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="urn:mace:cru.fr:federation:univ-tln.fr">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-09-28T11:55:09Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-tln.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université du Sud Toulon Var</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDQzCCAiugAwIBAgIURrZcRMW1GJitmEg2t0KC308pj88wDQYJKoZIhvcNAQEF
+BQAwITEfMB0GA1UEAxMWZmVkZXJhdGlvbi51bml2LXRsbi5mcjAeFw0wOTA5MDYx
+OTIyNDFaFw0yOTA5MDYxOTIyNDFaMCExHzAdBgNVBAMTFmZlZGVyYXRpb24udW5p
+di10bG4uZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCv3ysyMoZY
+CtKudxYcuuSgnBe7k0bF/kNt+EeszFZt7XviNAi50wIAvqt0J4yd43v1SJ9rL2XD
+pWeC4Xdxblp0yn5DVqnSbmM9ySSocYEhZK32Jo2qidk3KB981R1GaSE74DNxSC5F
+MxnNq39Jx8tDEGi+9sEXLU4nRqkznuB0NiDIprehTk5nrrH8LyiC4mBVnTWHlaVN
+oycrr9bfVm/4lXePYEBQFec1q509Mdi6v9+8rb/WSVXEhmmjtKAJGm1Sx3mi2GlY
+o0cMIraJqYMyKxy6y4uLzx/EpFxjDD1WG4w9qz47BXJ6yELqZftPfSrYyuhxV0u3
+3kGdY9pn6bpvAgMBAAGjczBxMFAGA1UdEQRJMEeCFmZlZGVyYXRpb24udW5pdi10
+bG4uZnKGLWh0dHBzOi8vZmVkZXJhdGlvbi51bml2LXRsbi5mci9pZHAvc2hpYmJv
+bGV0aDAdBgNVHQ4EFgQUlfrA9u+WyKMcIN3NB1/XDYtdLl8wDQYJKoZIhvcNAQEF
+BQADggEBAATpBMb4mUELL5uZ3FvMdEtGK23nRU8SSTmqt3rypazcMlWevgq60mHm
+CBD4E+bFvvKMAWUx3+jpQzbV2M7I2OMto95G4MVTEnr+vugeQHEDcWIBUo5yjLb6
+4qDZ8YWBmzSE/iV8Pbx+6RsLgPcTfXzbClZO/stfspDJhwCrLuMv36xCQcm88Y5Z
+eHcjM5wZ+FrykOxUsv663wJowcCE0aRkAUnyg1rUfYy4sRJh3EP/MXQpb4/ePTCg
+lAu3e0usivWcDm0/WX2N6oA9cp0sUsegYtoBY7tmPtml4yMRODG7ZSDqUmLlB3PZ
+FIrOgN1sOW6bInYYilkc/7jjHW5T6AQ=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://federation.univ-tln.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://federation.univ-tln.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://federation.univ-tln.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université du Sud Toulon Var</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université du Sud Toulon Var</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>federation@univ-tln.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

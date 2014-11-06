@@ -1,0 +1,117 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.fgu.cas.cz/idp/shibboleth">
+    <Extensions>
+      <eduidmd:RepublishRequest xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0">
+        <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
+      </eduidmd:RepublishRequest>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.eduid.cz/" registrationInstant="2014-05-29T13:36:13Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <mdasrt:Attribute xmlns:mdasrt="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <mdasrt:AttributeValue>http://eduid.cz/uri/idp-group/avcr</mdasrt:AttributeValue>
+        </mdasrt:Attribute>
+      </mdattr:EntityAttributes>
+    </Extensions>
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">fgu.cas.cz</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">Institute of Physiology AS CR</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">Fyziologický ústav AV ČR</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity Provider  IOP AV CR employees.</mdui:Description>
+          <mdui:Description xml:lang="cs">Identity Provider pro zaměstnance FGÚ AV ČR</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.fgu.cas.cz/en</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">http://www.fgu.cas.cz/</mdui:InformationURL>
+          <mdui:Logo height="44" width="282">https://jiftach.cas.cz/loga/logo-fgu-44.png</mdui:Logo>
+          <mdui:Logo height="153" width="980">https://jiftach.cas.cz/loga/logo-fgu-153.png</mdui:Logo>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDIzCCAgugAwIBAgIUW8Fvk+9NuCdYJn9rrxSID4QcQWUwDQYJKoZIhvcNAQEF
+BQAwGTEXMBUGA1UEAxMOaWRwLmZndS5jYXMuY3owHhcNMTQwNTE2MDcwMjEzWhcN
+MzQwNTE2MDcwMjEzWjAZMRcwFQYDVQQDEw5pZHAuZmd1LmNhcy5jejCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBALqySf+1bTV+w3dZgWBv7N697eGABM+v
+ktmLnnyfLT9jlyGPH/kK/cGHdjVvAObBTP+igmarMWKuZM2TF9E0Onlgv9lwLOrF
+N5mltg3+PH/C1pawJWY80yx2OWB4F9a/6X69TUPPV+ZmYX8O6ivEsvlN6dTCnRma
+Ou4U1lUpVlLGvYMuyDlt6ES+GGW73D+v7TW+oz5FHdidCWIJ8L2hYyjkn21O+IEI
+mFMi9gMYh09tWcPzn6t3H8JBUDY6iovnNAfUtdTY/rcH86YCQ42Hv2snpsjUiDTl
+n2G1TgRMq09iX8OGQSxcY4YDUHx5DzzrYSZcIlERS6MXyFnE+knavisCAwEAAaNj
+MGEwQAYDVR0RBDkwN4IOaWRwLmZndS5jYXMuY3qGJWh0dHBzOi8vaWRwLmZndS5j
+YXMuY3ovaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFCRKRKtvKnxOQZHYF1aSsGu9
+Ge2oMA0GCSqGSIb3DQEBBQUAA4IBAQCJ8ZeUl6jKt3ecQjX0gUsBEePJOREHlTtG
+AAb67oxhH9Mm/Z/5Qu5tvBoI7U+lncj/1gAf8FObQlUu4CSc02f5DeS0F80MAg3h
+/OAvZq85zFMJfhlbBQHdOtNqNROLwIu34JvIz+ukc2DG25weY/lgvU6ulUICkgd9
+9U1V77HhjdIIm5JYfTzKC3Iwss2/OT1WaY5esO+stlchg3D8kyKRlm2bG+WlWqAp
+giXM0j45ZDJZNxmZ/U9kvaKVpmXE5DEYEvyMFGRZqyeo1DaHwiYAWPBbRO+tJp3A
+4O2O0wmUOZ0O6IPd8iDs0Q0eWV11U7mb3fGgeWKOIBS4zmQD2By5
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.fgu.cas.cz:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.fgu.cas.cz:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.fgu.cas.cz/idp/profile/SAML2/Redirect/SLO"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.fgu.cas.cz/idp/profile/SAML2/POST/SLO"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.fgu.cas.cz:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.fgu.cas.cz/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.fgu.cas.cz/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.fgu.cas.cz/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.fgu.cas.cz/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">fgu.cas.cz</shibmd:Scope>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDIzCCAgugAwIBAgIUW8Fvk+9NuCdYJn9rrxSID4QcQWUwDQYJKoZIhvcNAQEF
+BQAwGTEXMBUGA1UEAxMOaWRwLmZndS5jYXMuY3owHhcNMTQwNTE2MDcwMjEzWhcN
+MzQwNTE2MDcwMjEzWjAZMRcwFQYDVQQDEw5pZHAuZmd1LmNhcy5jejCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBALqySf+1bTV+w3dZgWBv7N697eGABM+v
+ktmLnnyfLT9jlyGPH/kK/cGHdjVvAObBTP+igmarMWKuZM2TF9E0Onlgv9lwLOrF
+N5mltg3+PH/C1pawJWY80yx2OWB4F9a/6X69TUPPV+ZmYX8O6ivEsvlN6dTCnRma
+Ou4U1lUpVlLGvYMuyDlt6ES+GGW73D+v7TW+oz5FHdidCWIJ8L2hYyjkn21O+IEI
+mFMi9gMYh09tWcPzn6t3H8JBUDY6iovnNAfUtdTY/rcH86YCQ42Hv2snpsjUiDTl
+n2G1TgRMq09iX8OGQSxcY4YDUHx5DzzrYSZcIlERS6MXyFnE+knavisCAwEAAaNj
+MGEwQAYDVR0RBDkwN4IOaWRwLmZndS5jYXMuY3qGJWh0dHBzOi8vaWRwLmZndS5j
+YXMuY3ovaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFCRKRKtvKnxOQZHYF1aSsGu9
+Ge2oMA0GCSqGSIb3DQEBBQUAA4IBAQCJ8ZeUl6jKt3ecQjX0gUsBEePJOREHlTtG
+AAb67oxhH9Mm/Z/5Qu5tvBoI7U+lncj/1gAf8FObQlUu4CSc02f5DeS0F80MAg3h
+/OAvZq85zFMJfhlbBQHdOtNqNROLwIu34JvIz+ukc2DG25weY/lgvU6ulUICkgd9
+9U1V77HhjdIIm5JYfTzKC3Iwss2/OT1WaY5esO+stlchg3D8kyKRlm2bG+WlWqAp
+giXM0j45ZDJZNxmZ/U9kvaKVpmXE5DEYEvyMFGRZqyeo1DaHwiYAWPBbRO+tJp3A
+4O2O0wmUOZ0O6IPd8iDs0Q0eWV11U7mb3fGgeWKOIBS4zmQD2By5
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.fgu.cas.cz:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.fgu.cas.cz:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+    </AttributeAuthorityDescriptor>
+    <Organization>
+      <OrganizationName xml:lang="en">Institute of Physiology</OrganizationName>
+      <OrganizationName xml:lang="cs">Fyziologický ústav AV ČR</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">Institute of Physiology, Public Research Institution</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="cs">Fyziologický ústav AV ČR, v.v.i.</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.fgu.cas.cz/en</OrganizationURL>
+      <OrganizationURL xml:lang="cs">http://www.fgu.cas.cz/</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Petr</GivenName>
+      <SurName>Vaníček</SurName>
+      <EmailAddress>vanicekp@utia.cas.cz</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

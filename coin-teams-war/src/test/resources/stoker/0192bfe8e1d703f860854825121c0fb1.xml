@@ -1,0 +1,127 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://nte.gemtech.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-05-27T18:55:09Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">emn.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Ecole des Mines de Nantes</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDJDCCAgygAwIBAgIVAJZdt1xPd7UWKJgii2kanwcKApotMA0GCSqGSIb3DQEB
+BQUAMBkxFzAVBgNVBAMTDm50ZS5nZW10ZWNoLmZyMB4XDTA5MDUyMDE3MjgyNFoX
+DTI5MDUyMDE3MjgyNFowGTEXMBUGA1UEAxMObnRlLmdlbXRlY2guZnIwggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC4iCTgrLcSAZX5/Lvf3AIy7IUEL0dH
+WFyInLn9KME0MwePaECP/y7/GkdmfseeUUvEXPVgEIviQjgqN46wW0dg4G+CdBhw
+VLr+msYPS5upRMnmGuhtyovd425MhUBMRPn0ugicPwQF2u7wqM27SsimUUPZojZj
+IZ4pB244wrF+iFAcwPhvQo7pzEi5nzSisrWhVD3oxYp2nCwNQGsl6ClGr8gUeu8/
+uIAuwP5gLjBV4WLlObeDw3oudCc8RhBtEHevmcO10TAo67Ny7LT+4hKC+OV79sAQ
+us8coX2KRr2nqdCYdIKuhtYmaoZdi44PcdfGPzqgQvfsJYGhllVED+LrAgMBAAGj
+YzBhMEAGA1UdEQQ5MDeCDm50ZS5nZW10ZWNoLmZyhiVodHRwczovL250ZS5nZW10
+ZWNoLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBSiUapEWm278Sxm5q+fQP2N
+STunvjANBgkqhkiG9w0BAQUFAAOCAQEAe5xGN3CE9neVaPtex7sVpzIkNqtkoHWN
+jtDNpIWy+Uyv8eO9iBsdufVxmkCznTOqDggis3g6AeSHzsy2+LILeuIOq1hXcHXR
+O1WbkwBXfOzgEokck5HY/n4oWyJGnL9zoo6hE5GnG6sOuotxoquUO1jM/nEXfH+Y
+xuxFuAJhtGsxX+IKX7q9UQtmWodSeKZq09RjkIN5nEaJnBz3EKiriRxilPtlCjHS
+WXvTzCxC7xk1+kCao131/bzEtbti5aXRVPrO0Z61nXwQPsxds+6PNaRmx27CLb0P
+IPUU8qHH25+VWAP/+xbiYvjkfnKh31IHhDHHM47hBpibHchhCe680w==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://nte.gemtech.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://nte.gemtech.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://nte.gemtech.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">emn.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDJDCCAgygAwIBAgIVAJZdt1xPd7UWKJgii2kanwcKApotMA0GCSqGSIb3DQEB
+BQUAMBkxFzAVBgNVBAMTDm50ZS5nZW10ZWNoLmZyMB4XDTA5MDUyMDE3MjgyNFoX
+DTI5MDUyMDE3MjgyNFowGTEXMBUGA1UEAxMObnRlLmdlbXRlY2guZnIwggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC4iCTgrLcSAZX5/Lvf3AIy7IUEL0dH
+WFyInLn9KME0MwePaECP/y7/GkdmfseeUUvEXPVgEIviQjgqN46wW0dg4G+CdBhw
+VLr+msYPS5upRMnmGuhtyovd425MhUBMRPn0ugicPwQF2u7wqM27SsimUUPZojZj
+IZ4pB244wrF+iFAcwPhvQo7pzEi5nzSisrWhVD3oxYp2nCwNQGsl6ClGr8gUeu8/
+uIAuwP5gLjBV4WLlObeDw3oudCc8RhBtEHevmcO10TAo67Ny7LT+4hKC+OV79sAQ
+us8coX2KRr2nqdCYdIKuhtYmaoZdi44PcdfGPzqgQvfsJYGhllVED+LrAgMBAAGj
+YzBhMEAGA1UdEQQ5MDeCDm50ZS5nZW10ZWNoLmZyhiVodHRwczovL250ZS5nZW10
+ZWNoLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBSiUapEWm278Sxm5q+fQP2N
+STunvjANBgkqhkiG9w0BAQUFAAOCAQEAe5xGN3CE9neVaPtex7sVpzIkNqtkoHWN
+jtDNpIWy+Uyv8eO9iBsdufVxmkCznTOqDggis3g6AeSHzsy2+LILeuIOq1hXcHXR
+O1WbkwBXfOzgEokck5HY/n4oWyJGnL9zoo6hE5GnG6sOuotxoquUO1jM/nEXfH+Y
+xuxFuAJhtGsxX+IKX7q9UQtmWodSeKZq09RjkIN5nEaJnBz3EKiriRxilPtlCjHS
+WXvTzCxC7xk1+kCao131/bzEtbti5aXRVPrO0Z61nXwQPsxds+6PNaRmx27CLb0P
+IPUU8qHH25+VWAP/+xbiYvjkfnKh31IHhDHHM47hBpibHchhCe680w==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://nte.gemtech.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Ecole des Mines de Nantes</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Ecole des Mines de Nantes</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Christian Janin</SurName>
+				 <EmailAddress>Christian.Janin@emn.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Alain  Bouyahyiaoui</SurName>
+				 <EmailAddress>Alain.Bouyahyiaoui@emn.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

@@ -1,0 +1,78 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp-ensr.ens-rennes.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-02-25T13:55:28Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ens-rennes.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">ENS Rennes</mdui:DisplayName>
+          		      <mdui:Description xml:lang="fr">Ensemble des utilisateurs de l'ENS Rennes</mdui:Description>
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDRDCCAiygAwIBAgIVAMWqxLx7lYiNhlTPapEholL2ajx8MA0GCSqGSIb3DQEB
+BQUAMCExHzAdBgNVBAMTFmlkcC1lbnNyLmVucy1yZW5uZXMuZnIwHhcNMTQwMjI1
+MTgzNDE1WhcNMzQwMjI1MTgzNDE1WjAhMR8wHQYDVQQDExZpZHAtZW5zci5lbnMt
+cmVubmVzLmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmDxunK9B
+VB2RZVJ2YdtrKMLZpQ+7U9dDBnjD2xkwKFyEswtX/U2OK0nALFkJCgK+RSeU2A6e
+kmHZIcYKN4giqcXt0UyAVdXDQP8Ovs6KgL6vdcLofuYthL5mvQeBHG3AtGLffpZp
+7Xg/RpjBtQSC/5R4/O9IMRPYPGD9ZJpQMxl1lBiVw36e+/9zwysyhjpGAIm96h1f
+KkZaYNsMT8Y+aHNmcvYXB/EPKj9iLtFxOYmD19DbIFSVSOrc3N81xtYZSg3w+K9M
+JvBT+jJ8Tr7tXaVoNAUL50qfTR9V8Otftlxlrm+btFQANxOwfmAa6NtLqChTuErG
+ZMZyvh7dvtDFDQIDAQABo3MwcTBQBgNVHREESTBHghZpZHAtZW5zci5lbnMtcmVu
+bmVzLmZyhi1odHRwczovL2lkcC1lbnNyLmVucy1yZW5uZXMuZnIvaWRwL3NoaWJi
+b2xldGgwHQYDVR0OBBYEFMWCwroMGof468uwDOVo9CmJtFCmMA0GCSqGSIb3DQEB
+BQUAA4IBAQBuJkugeq35RQ1eJVCFpQEF1cvz3HI2WNaYJVAzNKVHjQKLTgeEXTAw
+2n0U0wijhjNhLn0KU7RjF/YKq3byxsvmw2V/dkor6Uj/o24QRIS/rnGp0OOAm8md
+KuATxDlbfiUiLZ8P09LWfCj7kBofKAWpdSA3EqK3C1r1ABP3cfgy6bCEAKmImZ/g
+rU56Bc4TlmzKTAcgt6N/Wmwb7jubtPpeoZ3oQuuMjl5SD5kabufWGeLRR3blN2Fc
+067E4nErVpBw181gQpQMwpin/OjW+lbqa+ayBIRJfng4G2t5KcnvpJzfmlJS/Nus
+rfl6FRk/WmuNV0iaMjHeIz48Vet1SQLF
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp-ensr.ens-rennes.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp-ensr.ens-rennes.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp-ensr.ens-rennes.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">ENS Rennes</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">ENS Rennes</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>postmaster@ens-rennes.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

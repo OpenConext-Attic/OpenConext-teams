@@ -1,0 +1,157 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.scc.kit.edu/idp/shibboleth">
+    <Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2010-03-15T10:30:11Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://aai.dfn.de/category/bwidm-member</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </Extensions>
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">kit.edu</saml1md:Scope>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">student.kit.edu</saml1md:Scope>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">partner.kit.edu</saml1md:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="de">Karlsruher Institut für Technologie (KIT)</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Karlsruhe Institute of Technology (KIT)</mdui:DisplayName>
+          <mdui:Description xml:lang="de">Karlsruher Institut für Technologie - Universität des Landes Baden-Württemberg und nationales Forschungszentrum in der Helmholtz-Gemeinschaft</mdui:Description>
+          <mdui:Description xml:lang="en">Karlsruhe Institute of Technology - University of the State of Baden-Wuerttemberg and National Research Center of the Helmholtz Association</mdui:Description>
+          <mdui:Logo height="16" width="16">https://idp.scc.kit.edu/logo/kit-logo-small.png</mdui:Logo>
+          <mdui:Logo height="120" width="260">https://idp.scc.kit.edu/logo/kit-logo.png</mdui:Logo>
+          <mdui:InformationURL xml:lang="de">http://www.scc.kit.edu/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">http://www.scc.kit.edu/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>idp.scc.kit.edu</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=idp.scc.kit.edu,O=Karlsruhe Institute of Technology,L=Karlsruhe,ST=Baden-Wuerttemberg,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIF0zCCBLugAwIBAgIHFEQ62Bgd/zANBgkqhkiG9w0BAQUFADCBvzELMAkGA1UE
+BhMCREUxGzAZBgNVBAgTEkJhZGVuLVd1ZXJ0dGVtYmVyZzESMBAGA1UEBxMJS2Fy
+bHNydWhlMSowKAYDVQQKEyFLYXJsc3J1aGUgSW5zdGl0dXRlIG9mIFRlY2hub2xv
+Z3kxJzAlBgNVBAsTHlN0ZWluYnVjaCBDZW50cmUgZm9yIENvbXB1dGluZzEPMA0G
+A1UEAxMGS0lULUNBMRkwFwYJKoZIhvcNAQkBFgpjYUBraXQuZWR1MB4XDTEyMDgx
+MDA3NTAzM1oXDTE1MDgxMDA3NTAzM1owgYQxCzAJBgNVBAYTAkRFMRswGQYDVQQI
+ExJCYWRlbi1XdWVydHRlbWJlcmcxEjAQBgNVBAcTCUthcmxzcnVoZTEqMCgGA1UE
+ChMhS2FybHNydWhlIEluc3RpdHV0ZSBvZiBUZWNobm9sb2d5MRgwFgYDVQQDEw9p
+ZHAuc2NjLmtpdC5lZHUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDD
+HcGGowpLtsHCqYcecx7WpHHnzd0RLJgUK74CkF5o18ZR6qe6Y/Ok0byxAYtwLLig
+PZqZvSctPGmBB+xIptl59ROz0y/iX1rJ8YojPxUZPw8O78vEuVy+auiwkxHs84mn
+mdAxObiCrePfysL9fOBYsY07Byvn/zxZfWFrFe+Ijl6kbLDpfL7Bl1/h6oL17ywF
+MlDa6PvZvLbq1JlOdrXoq3lPvF40+D15KBI61xooauMtkJhapDi842Dk6EVQuy+M
+fiEe3hwMy6k1N4KEkOmRsuFg3McpoTRrS6cScwaLZxrWPgG32gpvfM5WJsLfSnHq
+MT6UKugmWNSM/w+HEdwrAgMBAAGjggILMIICBzAvBgNVHSAEKDAmMBEGDysGAQQB
+ga0hgiwBAQQCAzARBg8rBgEEAYGtIYIsAgEEAgMwCQYDVR0TBAIwADALBgNVHQ8E
+BAMCBeAwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMB0GA1UdDgQWBBSJ
+mWca+U0inH4Ylhqt3Txayi6rmzAfBgNVHSMEGDAWgBQfdGX0mh169jHp32EbcysN
+bdAzSTAaBgNVHREEEzARgg9pZHAuc2NjLmtpdC5lZHUwdwYDVR0fBHAwbjA1oDOg
+MYYvaHR0cDovL2NkcDEucGNhLmRmbi5kZS9raXQtY2EvcHViL2NybC9jYWNybC5j
+cmwwNaAzoDGGL2h0dHA6Ly9jZHAyLnBjYS5kZm4uZGUva2l0LWNhL3B1Yi9jcmwv
+Y2FjcmwuY3JsMIHHBggrBgEFBQcBAQSBujCBtzAzBggrBgEFBQcwAYYnaHR0cDov
+L29jc3AucGNhLmRmbi5kZS9PQ1NQLVNlcnZlci9PQ1NQMD8GCCsGAQUFBzAChjNo
+dHRwOi8vY2RwMS5wY2EuZGZuLmRlL2tpdC1jYS9wdWIvY2FjZXJ0L2NhY2VydC5j
+cnQwPwYIKwYBBQUHMAKGM2h0dHA6Ly9jZHAyLnBjYS5kZm4uZGUva2l0LWNhL3B1
+Yi9jYWNlcnQvY2FjZXJ0LmNydDANBgkqhkiG9w0BAQUFAAOCAQEAFngSGNNctEwO
+JEE88p/7h80qo7dcB7Xu4xAQMvBj3YzuwuT/h/ufgMheWxYxArwP87NWmquMYyhw
+yFO0dOlk94r991S7BGpwr5ULo4nltQkWOVkuFK/tooHgTfcAMW3Jg9GDjyYXQOQr
+kGlg4rrkKm6hyRlSxeDBrkjZOFgNL/nExWwW1bhM4wziNVppNhesvHgnvZOtf26x
+ixMFJ/A/tuJKo1upH0VuEK8iMbYkZusbevLABorQS02C2c/j5JD5Z0M8peykc4xz
+ArKnesWTUvcbcwMLgZhl8GnJZGr8UWkSpPH/IeTn3PTDjkf4M6+Sw6yopkcM4Ci8
+zea6MPIosg==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.scc.kit.edu:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="2"/>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.scc.kit.edu:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="1"/>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.scc.kit.edu/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.scc.kit.edu/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.scc.kit.edu/idp/profile/SAML2/POST-Simple-Sign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.scc.kit.edu/idp/profile/SAML2/Redirect/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.scc.kit.edu/idp/profile/SAML2/SOAP/ECP"/>
+    </IDPSSODescriptor>
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">kit.edu</saml1md:Scope>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">student.kit.edu</saml1md:Scope>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">partner.kit.edu</saml1md:Scope>
+      </Extensions>
+      <KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>idp.scc.kit.edu</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=idp.scc.kit.edu,O=Karlsruhe Institute of Technology,L=Karlsruhe,ST=Baden-Wuerttemberg,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIF0zCCBLugAwIBAgIHFEQ62Bgd/zANBgkqhkiG9w0BAQUFADCBvzELMAkGA1UE
+BhMCREUxGzAZBgNVBAgTEkJhZGVuLVd1ZXJ0dGVtYmVyZzESMBAGA1UEBxMJS2Fy
+bHNydWhlMSowKAYDVQQKEyFLYXJsc3J1aGUgSW5zdGl0dXRlIG9mIFRlY2hub2xv
+Z3kxJzAlBgNVBAsTHlN0ZWluYnVjaCBDZW50cmUgZm9yIENvbXB1dGluZzEPMA0G
+A1UEAxMGS0lULUNBMRkwFwYJKoZIhvcNAQkBFgpjYUBraXQuZWR1MB4XDTEyMDgx
+MDA3NTAzM1oXDTE1MDgxMDA3NTAzM1owgYQxCzAJBgNVBAYTAkRFMRswGQYDVQQI
+ExJCYWRlbi1XdWVydHRlbWJlcmcxEjAQBgNVBAcTCUthcmxzcnVoZTEqMCgGA1UE
+ChMhS2FybHNydWhlIEluc3RpdHV0ZSBvZiBUZWNobm9sb2d5MRgwFgYDVQQDEw9p
+ZHAuc2NjLmtpdC5lZHUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDD
+HcGGowpLtsHCqYcecx7WpHHnzd0RLJgUK74CkF5o18ZR6qe6Y/Ok0byxAYtwLLig
+PZqZvSctPGmBB+xIptl59ROz0y/iX1rJ8YojPxUZPw8O78vEuVy+auiwkxHs84mn
+mdAxObiCrePfysL9fOBYsY07Byvn/zxZfWFrFe+Ijl6kbLDpfL7Bl1/h6oL17ywF
+MlDa6PvZvLbq1JlOdrXoq3lPvF40+D15KBI61xooauMtkJhapDi842Dk6EVQuy+M
+fiEe3hwMy6k1N4KEkOmRsuFg3McpoTRrS6cScwaLZxrWPgG32gpvfM5WJsLfSnHq
+MT6UKugmWNSM/w+HEdwrAgMBAAGjggILMIICBzAvBgNVHSAEKDAmMBEGDysGAQQB
+ga0hgiwBAQQCAzARBg8rBgEEAYGtIYIsAgEEAgMwCQYDVR0TBAIwADALBgNVHQ8E
+BAMCBeAwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMB0GA1UdDgQWBBSJ
+mWca+U0inH4Ylhqt3Txayi6rmzAfBgNVHSMEGDAWgBQfdGX0mh169jHp32EbcysN
+bdAzSTAaBgNVHREEEzARgg9pZHAuc2NjLmtpdC5lZHUwdwYDVR0fBHAwbjA1oDOg
+MYYvaHR0cDovL2NkcDEucGNhLmRmbi5kZS9raXQtY2EvcHViL2NybC9jYWNybC5j
+cmwwNaAzoDGGL2h0dHA6Ly9jZHAyLnBjYS5kZm4uZGUva2l0LWNhL3B1Yi9jcmwv
+Y2FjcmwuY3JsMIHHBggrBgEFBQcBAQSBujCBtzAzBggrBgEFBQcwAYYnaHR0cDov
+L29jc3AucGNhLmRmbi5kZS9PQ1NQLVNlcnZlci9PQ1NQMD8GCCsGAQUFBzAChjNo
+dHRwOi8vY2RwMS5wY2EuZGZuLmRlL2tpdC1jYS9wdWIvY2FjZXJ0L2NhY2VydC5j
+cnQwPwYIKwYBBQUHMAKGM2h0dHA6Ly9jZHAyLnBjYS5kZm4uZGUva2l0LWNhL3B1
+Yi9jYWNlcnQvY2FjZXJ0LmNydDANBgkqhkiG9w0BAQUFAAOCAQEAFngSGNNctEwO
+JEE88p/7h80qo7dcB7Xu4xAQMvBj3YzuwuT/h/ufgMheWxYxArwP87NWmquMYyhw
+yFO0dOlk94r991S7BGpwr5ULo4nltQkWOVkuFK/tooHgTfcAMW3Jg9GDjyYXQOQr
+kGlg4rrkKm6hyRlSxeDBrkjZOFgNL/nExWwW1bhM4wziNVppNhesvHgnvZOtf26x
+ixMFJ/A/tuJKo1upH0VuEK8iMbYkZusbevLABorQS02C2c/j5JD5Z0M8peykc4xz
+ArKnesWTUvcbcwMLgZhl8GnJZGr8UWkSpPH/IeTn3PTDjkf4M6+Sw6yopkcM4Ci8
+zea6MPIosg==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.scc.kit.edu:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.scc.kit.edu:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+    </AttributeAuthorityDescriptor>
+    <Organization>
+      <OrganizationName xml:lang="de">e148</OrganizationName>
+      <OrganizationName xml:lang="en">e148</OrganizationName>
+      <OrganizationDisplayName xml:lang="de">Karlsruher Institut für Technologie (KIT)</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="en">Karlsruhe Institute of Technology (KIT)</OrganizationDisplayName>
+      <OrganizationURL xml:lang="de">http://www.scc.kit.edu/</OrganizationURL>
+      <OrganizationURL xml:lang="en">http://www.scc.kit.edu/</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Michael</GivenName>
+      <SurName>Simon</SurName>
+      <EmailAddress>mailto:simon@kit.edu</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="administrative">
+      <GivenName>Sebastian</GivenName>
+      <SurName>Labitzke</SurName>
+      <EmailAddress>mailto:labitzke@kit.edu</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="support">
+      <GivenName>SCC</GivenName>
+      <SurName>Servicedesk</SurName>
+      <EmailAddress>mailto:servicedesk@scc.kit.edu</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

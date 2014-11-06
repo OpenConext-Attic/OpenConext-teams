@@ -1,0 +1,88 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.cnous.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-05-11T16:41:00Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">cnous.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">CNOUS</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDHDCCAgSgAwIBAgIVAISouLAcDEdM79Z0SpsLrgjU/8rtMA0GCSqGSIb3DQEB
+BQUAMBcxFTATBgNVBAMTDGlkcC5jbm91cy5mcjAeFw0xMjA1MDMxNTU4NTVaFw0z
+MjA1MDMxNTU4NTVaMBcxFTATBgNVBAMTDGlkcC5jbm91cy5mcjCCASIwDQYJKoZI
+hvcNAQEBBQADggEPADCCAQoCggEBALl+NBrwCB2xYd0y4dbi3QADG3oBYfNLiGJw
+rajvTmKUZaTKrQvgjtesfvM04pSOoMwRjkaG2ae3Pp/5fsuYc83zaOakgWSgc5/j
+zZfJOaxk+RGBofTInmWwgoCqDHGZ4WHLYphzwlLnV8VH6Ca7qa5bR+uEsZeLpICw
+C7d22rk2+llioeyFhwPMQBT9IRydChqGr79B7t1iT7ssTHP9v1ZDgtIB29+gkP4S
+YdzA11oZOJzeaGZXl0h9QsUBBnn6cyUgYE0SEgxBMl6+qlmQAuwrWO24pungPYx3
+C1k0i8xuFF3+98we5US4mQkRitgm0JVvB4pn6TtkgG+RTV+/uz8CAwEAAaNfMF0w
+PAYDVR0RBDUwM4IMaWRwLmNub3VzLmZyhiNodHRwczovL2lkcC5jbm91cy5mci9p
+ZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUPLiOl86NYkKW2Dz3T05kKwEcuCQwDQYJ
+KoZIhvcNAQEFBQADggEBAA9/88dlu6RIXF2MsXqLOFguSQcRXyjUe7qRbneRLhk7
+3m5pH/AKRWpgfWPllLy1ui8ZgJ3upJg8NDF9pipAXGm9XXUlYwgO/bD91o591iw+
+ffKTKQATF1SxMVKBwNtUOdR7HUaHNgz38w5DNd5DE0ZEAatVFsCbJdYG1WKgFPhU
+HB02bxkRdxUUgdWRL7WuldON2M3vefzJYqYd+Pu5+gP8I6HvgiLXvySmGroTnb2f
+RC6L4jwyDgp7R4rULrUz94moM+7O7Y95uDRxszNoDpFdKdcwD2yjYhBUrV6dPHHy
+gMoijoNgZZc/CqICHEnTC2xx4c9HR/114ON1vrxiYR4=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.cnous.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.cnous.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.cnous.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">CNOUS</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">CNOUS</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Christian Muller</SurName>
+				 <EmailAddress>christian.muller@cnous.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>José tripet</SurName>
+				 <EmailAddress>jose.tripet@cnous.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

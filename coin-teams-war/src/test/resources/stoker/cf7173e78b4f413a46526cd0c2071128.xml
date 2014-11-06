@@ -1,0 +1,129 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://rastreador.ifba.edu.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">IFBA - Instituto Federal da Bahia</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">IFBA - Instituto Federal da Bahia</mdui:DisplayName>
+          <mdui:Description xml:lang="en">IFBA - Instituto Federal da Bahia</mdui:Description>
+          <mdui:Description xml:lang="pt-br">IFBA - Instituto Federal da Bahia</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ifba.edu.br</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ifba.edu.br</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIID4jCCAsoCAQAwDQYJKoZIhvcNAQEFBQAwgbYxKjAoBgNVBAoTIUlGQkEgLSBJ
+bnN0aXR1dG8gRmVkZXJhbCBkYSBCYWhpYTENMAsGA1UECxMEREdUSTEoMCYGCSqG
+SIb3DQEJARYZcmVpbmFsZG9jb3N0YUBpZmJhLmVkdS5icjERMA8GA1UEBxMIU2Fs
+dmFkb3IxDjAMBgNVBAgTBUJhaGlhMQswCQYDVQQGEwJCUjEfMB0GA1UEAxMWcmFz
+dHJlYWRvci5pZmJhLmVkdS5icjAeFw0xNDA1MjgxNDExMDVaFw0xNzA1MjcxNDEx
+MDVaMIG2MSowKAYDVQQKEyFJRkJBIC0gSW5zdGl0dXRvIEZlZGVyYWwgZGEgQmFo
+aWExDTALBgNVBAsTBERHVEkxKDAmBgkqhkiG9w0BCQEWGXJlaW5hbGRvY29zdGFA
+aWZiYS5lZHUuYnIxETAPBgNVBAcTCFNhbHZhZG9yMQ4wDAYDVQQIEwVCYWhpYTEL
+MAkGA1UEBhMCQlIxHzAdBgNVBAMTFnJhc3RyZWFkb3IuaWZiYS5lZHUuYnIwggEi
+MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC76YPzCeUvBq3XTaaWh0zo1nn6
+1lSxQFz/f0d9NOSjMe4aIxyMfCQHhWvoCldVgPzeVBHM8pioQsSyP8KZve1N0H5d
+6KWPZzk99oCPPkuGWVocYfEOHgodYqKD5aEU4gu8x+sggzZO0sCFlrqCbI26dhEx
+WmBLPy7bu0iownsyQE4UKeYWMBDI9Zmpq8LAIkzlLcs6RPkCqeC5Fl0JY1rmOYqd
+1/dr2oZapOQApH9En6lxfCBm4lo/BWKYJXnJ48GgpxsmaiUZ5A/2ORM7Ts0cJ8Fa
+FOi3KP1izvNxheJRS5i/H9dzPtrpbAz5cvpj36eLPNvLf038tNgRSTpKBCe5AgMB
+AAEwDQYJKoZIhvcNAQEFBQADggEBALAgWE0GCvUpvnMtQD1Jht1dNdGX+1MlVt2k
+9Vq2Z6qlQbidL2aP2nsg8wvGCnoJbH3ChV8URBf0nSxjo070sjoPd24++a8+FZ66
+fxopAvdKKImq6VnSQIXL2fUFtIld/vGGnbPj/IKdlKCvhNNziDBkhnc+N5bM9qnS
+hjssLnLT/qVvMxplYjAB4fCD+h83bAPR2b9oFjduMP9LQ4c0/EMD/2HNmvomB4mM
+Ftuj6MoBNtSICbkYC4Kq9a/J4z4huIrz69ZxKnayVTztrnRJCUPaoOecIpXL/r/g
+NN2zz1zPr1Dc/+gDsijnBBws0KDp9946d4alZG05drL11LjY9bk=
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://rastreador.ifba.edu.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://rastreador.ifba.edu.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://rastreador.ifba.edu.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://rastreador.ifba.edu.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://rastreador.ifba.edu.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://rastreador.ifba.edu.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIID4jCCAsoCAQAwDQYJKoZIhvcNAQEFBQAwgbYxKjAoBgNVBAoTIUlGQkEgLSBJ
+bnN0aXR1dG8gRmVkZXJhbCBkYSBCYWhpYTENMAsGA1UECxMEREdUSTEoMCYGCSqG
+SIb3DQEJARYZcmVpbmFsZG9jb3N0YUBpZmJhLmVkdS5icjERMA8GA1UEBxMIU2Fs
+dmFkb3IxDjAMBgNVBAgTBUJhaGlhMQswCQYDVQQGEwJCUjEfMB0GA1UEAxMWcmFz
+dHJlYWRvci5pZmJhLmVkdS5icjAeFw0xNDA1MjgxNDExMDVaFw0xNzA1MjcxNDEx
+MDVaMIG2MSowKAYDVQQKEyFJRkJBIC0gSW5zdGl0dXRvIEZlZGVyYWwgZGEgQmFo
+aWExDTALBgNVBAsTBERHVEkxKDAmBgkqhkiG9w0BCQEWGXJlaW5hbGRvY29zdGFA
+aWZiYS5lZHUuYnIxETAPBgNVBAcTCFNhbHZhZG9yMQ4wDAYDVQQIEwVCYWhpYTEL
+MAkGA1UEBhMCQlIxHzAdBgNVBAMTFnJhc3RyZWFkb3IuaWZiYS5lZHUuYnIwggEi
+MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC76YPzCeUvBq3XTaaWh0zo1nn6
+1lSxQFz/f0d9NOSjMe4aIxyMfCQHhWvoCldVgPzeVBHM8pioQsSyP8KZve1N0H5d
+6KWPZzk99oCPPkuGWVocYfEOHgodYqKD5aEU4gu8x+sggzZO0sCFlrqCbI26dhEx
+WmBLPy7bu0iownsyQE4UKeYWMBDI9Zmpq8LAIkzlLcs6RPkCqeC5Fl0JY1rmOYqd
+1/dr2oZapOQApH9En6lxfCBm4lo/BWKYJXnJ48GgpxsmaiUZ5A/2ORM7Ts0cJ8Fa
+FOi3KP1izvNxheJRS5i/H9dzPtrpbAz5cvpj36eLPNvLf038tNgRSTpKBCe5AgMB
+AAEwDQYJKoZIhvcNAQEFBQADggEBALAgWE0GCvUpvnMtQD1Jht1dNdGX+1MlVt2k
+9Vq2Z6qlQbidL2aP2nsg8wvGCnoJbH3ChV8URBf0nSxjo070sjoPd24++a8+FZ66
+fxopAvdKKImq6VnSQIXL2fUFtIld/vGGnbPj/IKdlKCvhNNziDBkhnc+N5bM9qnS
+hjssLnLT/qVvMxplYjAB4fCD+h83bAPR2b9oFjduMP9LQ4c0/EMD/2HNmvomB4mM
+Ftuj6MoBNtSICbkYC4Kq9a/J4z4huIrz69ZxKnayVTztrnRJCUPaoOecIpXL/r/g
+NN2zz1zPr1Dc/+gDsijnBBws0KDp9946d4alZG05drL11LjY9bk=
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://rastreador.ifba.edu.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://rastreador.ifba.edu.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">IFBA - Instituto Federal da Bahia</OrganizationName>
+      <OrganizationName xml:lang="pt-br">IFBA - Instituto Federal da Bahia</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">IFBA - Instituto Federal da Bahia</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">IFBA - Instituto Federal da Bahia</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.ifba.edu.br</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.ifba.edu.br</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Reinaldo Fonseca</SurName>
+      <EmailAddress>reinaldocosta@ifba.edu.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

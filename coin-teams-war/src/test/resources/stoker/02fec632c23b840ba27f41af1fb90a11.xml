@@ -1,0 +1,78 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://ident-shib.ensc-rennes.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-02-05T18:17:51Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ensc-rennes.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      <mdui:DisplayName xml:lang="en">Ecole Nationale Supérieure de Chimie de Rennes</mdui:DisplayName>
+          		      <mdui:Description xml:lang="en">Students and members of Ecole Nationale Supérieure de Chimie de Rennes</mdui:Description>
+          		      <mdui:DisplayName xml:lang="fr">Ecole Nationale Supérieure de Chimie de Rennes</mdui:DisplayName>
+          		      <mdui:Description xml:lang="fr">Étudiants, doctorants et personnels de l'Ecole Nationale Supérieure de Chimie de Rennes</mdui:Description>
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDUDCCAjigAwIBAgIVAJzCGVHITFdUQZHToPMuBqK1RWD4MA0GCSqGSIb3DQEB
+BQUAMCQxIjAgBgNVBAMTGWlkZW50LXNoaWIuZW5zYy1yZW5uZXMuZnIwHhcNMTQw
+MjAzMTYxODExWhcNMzQwMjAzMTYxODExWjAkMSIwIAYDVQQDExlpZGVudC1zaGli
+LmVuc2MtcmVubmVzLmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA
+hIpbRHGHJooNDAMhOEiava+ybI8svFXqhXjfsTxwbfGWvsKD523Ll//RtVnLXAk9
+Z2bYEwHrc/4sfdnMaWpHt2mQ0+eEOvhP0MK34WHfiZgS9RxcHDYZVvzHRhBxBnMO
+AG4WoO1nUrwQqooKN+WmPVqBwYWvMPh44i9grueh7hIau+VXdKtB0CUlZHLksNoa
+HXzRajFTEqfL1AVocovZ9CB+3uBaV12VWpK9IVe0zcsL2fV3/5/bFj4RWIZ3CYzw
+ibKUV0WuuhT7UDOMCVZtgEC71Eio8QYVGHiySF1erOHnypSBN47/n2PqKQrmn10C
+8F4MJ0U/29CG+fbprAAxxwIDAQABo3kwdzBWBgNVHREETzBNghlpZGVudC1zaGli
+LmVuc2MtcmVubmVzLmZyhjBodHRwczovL2lkZW50LXNoaWIuZW5zYy1yZW5uZXMu
+ZnIvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFAOSOecw1ZOscoOQfSu2szw1P0e2
+MA0GCSqGSIb3DQEBBQUAA4IBAQBuFiTaiuedPd3pNbg5I9PIOmDqkbfewLVQiUhW
+Cw/H+wBLeU3Pu1J2I1bGktcXAKrb7NPXhDkqAjFga8DHwhQiwT3VHuO8Oe5JmfeN
+rYT51++eLm4vSoZUuRqBMgceSPoJNZuGzcixdeVnSCEyEohHuOjsEJNTMB4+n3K3
+ycCAtaEV09m6h4P3nzLYrXqAi4GvnLYrdNCPD+2ubiMS2PM10A5riMhYoAXWVIno
+yYXfk+ahSEIh7MdvQtGawI728jaLbr4873IHc1Fo7M1rapKh+QgLeMusOmWXhNSP
+k4wuv1TSugU8yiGa4BGVGS3k4ez0ksS2iWlU4SiAdPE9cT2t
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ident-shib.ensc-rennes.fr/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://ident-shib.ensc-rennes.fr/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://ident-shib.ensc-rennes.fr/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Ecole Nationale Supérieure de Chimie de Rennes</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Ecole Nationale Supérieure de Chimie de Rennes</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>fed-admin@listes.univ-rennes1.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

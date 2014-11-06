@@ -1,0 +1,89 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://login.insa-lyon.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-04-27T12:03:44Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">insa-lyon.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      <mdui:DisplayName xml:lang="en">INSA de Lyon</mdui:DisplayName>
+          		      <mdui:Description xml:lang="en">everyone at INSA de LYON</mdui:Description>
+          		      <mdui:DisplayName xml:lang="fr">INSA de Lyon</mdui:DisplayName>
+          		      <mdui:Description xml:lang="fr">toutes population (etudiants/personnels) de l'INSA de LYON</mdui:Description>
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDMzCCAhugAwIBAgIUSMWboaAOUaXanB/KMcwBhD32kfYwDQYJKoZIhvcNAQEF
+BQAwHTEbMBkGA1UEAxMSbG9naW4uaW5zYS1seW9uLmZyMB4XDTEyMDQyNTExNDMz
+NFoXDTMyMDQyNTExNDMzNFowHTEbMBkGA1UEAxMSbG9naW4uaW5zYS1seW9uLmZy
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlGLzIxkhLAo8tJXMprLD
+mHamE3JsZx6MPSahfc1eDQek6dAC6I1vT6/g29ykVG02oLLhh6yQdsbl64D625jn
+w38xWf7lIMcnTUOSMWhYs9iGchAAnUrbFBuH+Hf2JnDgHauxX+4HHsvPZEesfyIF
+t8K9nVk/F4w7od3s8gUcRwGyp9JL2L12BFLYcFSZQK99n/xkdnLm7zVYRnjXRHvF
+O19qsTLuOigWEYISS7dMcsJUR0sCrj5m372agTuPlsnr0zRivTHLSkn9KXvRB/9V
+pE+nw4U/oQU7VnyrqJM/QUvJeCT0uDC7lOJiKRvn5MG9AbfeItJi5c7meYSX79pR
+DwIDAQABo2swaTBIBgNVHREEQTA/ghJsb2dpbi5pbnNhLWx5b24uZnKGKWh0dHBz
+Oi8vbG9naW4uaW5zYS1seW9uLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRc
+WvjDFJ1TMxlmW51//gXYknsBAjANBgkqhkiG9w0BAQUFAAOCAQEAbtOsiF0RFf30
+qcDbB3gF0jfxXG5QH1xGsMlw9ERAT5PBAWLY6Z+KKswxSq/cx/+oZWIclmfkkAvl
+aV/dRYFKbJgui6NFxXpZOmAabsFVgev5pH+USVi4xXYoi+St5lhS8dGIaCx4gY+j
+fXGsI0PmacCwdzgBQqprkNfuTb9FCKffmdOXwq77P+/RU2rDsnIsprJnuRe9aLyS
+srGPvbAUqLsg9Z5kKNUQ8uTtXDpAVobHIh2p1/HBCm6DsJH3phk4U8khzzFcWrXg
+Hz6zqkIwcnbaal37SlVeiO+ZbBOxuxMRhqvg+jHw/G+35qj+MctKIfQ26mPLssmJ
+pWJ/IW9yrw==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.insa-lyon.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.insa-lyon.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://login.insa-lyon.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">INSA de Lyon</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">INSA de Lyon</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Olivier FRANCO</SurName>
+				 <EmailAddress>olivier.franco@insa-lyon.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Damien BERJOAN</SurName>
+				 <EmailAddress>damien.berjoan@insa-lyon.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

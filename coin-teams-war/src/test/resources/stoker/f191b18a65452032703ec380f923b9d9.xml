@@ -1,0 +1,174 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://login.ntua.gr/idp/shibboleth">
+        <Extensions xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi">
+            <mdrpi:RegistrationInfo registrationAuthority="http://aai.grnet.gr/">
+                <mdrpi:RegistrationPolicy xml:lang="en">http://aai.grnet.gr/static/policy/policy-en-1.1.0.pdf</mdrpi:RegistrationPolicy>
+                <mdrpi:RegistrationPolicy xml:lang="el">http://aai.grnet.gr/static/policy/policy-el-1.1.0.pdf</mdrpi:RegistrationPolicy>
+            </mdrpi:RegistrationInfo>
+        </Extensions>
+        <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+            <Extensions>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ntua.gr</shibmd:Scope>
+                <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+                    <mdui:DisplayName xml:lang="en">National Technical University of Athens</mdui:DisplayName>
+                    <mdui:DisplayName xml:lang="el">Εθνικό Μετσόβιο Πολυτεχνείο</mdui:DisplayName>
+                    <mdui:InformationURL xml:lang="en">https://login.ntua.gr/</mdui:InformationURL>
+                    <mdui:InformationURL xml:lang="el">https://login.ntua.gr/</mdui:InformationURL>
+                </mdui:UIInfo>
+                <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+                    <mdui:DomainHint>ntua.gr</mdui:DomainHint>
+                    <mdui:IPHint>147.102.0.0/16</mdui:IPHint>
+                    <mdui:IPHint>2001:648:2000::/48</mdui:IPHint>
+                </mdui:DiscoHints>
+            </Extensions>
+            <KeyDescriptor>
+                <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIEmzCCA4OgAwIBAgIBTDANBgkqhkiG9w0BAQUFADA4MQswCQYDVQQGEwJHUjEN
+                            MAsGA1UEChMETlRVQTEaMBgGA1UEAxMRTlRVQSBDQSAyMDA2LTIwMTgwHhcNMDcw
+                            MzIzMTE0NjAyWhcNMTcwMzIwMTE0NjAyWjBTMQswCQYDVQQGEwJncjENMAsGA1UE
+                            ChMEbnR1YTEQMA4GA1UECxMHc2VydmVyczEWMBQGA1UEAxMNbG9naW4ubnR1YS5n
+                            cjELMAkGA1UEBRMCNzYwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBALZ9Qnww
+                            BRe5Kc0EYuVdbkMASUIBc624cYA8QCv9e0S769ePElXSndg7caaSRXG8pN4gkc9+
+                            LUhvqefUt3ihIDsOIcdDW1tGOJ5b9UH9zjRpUCjubKOcYSxaxFjs+15RGhMweSwm
+                            DwYcFLpmDvFC7vbh+X8rt5ri4S3YSpT9eZdVAgMBAAGjggIXMIICEzAJBgNVHRME
+                            AjAAMEwGA1UdIARFMEMwDQYLKwYBBAGHSQMCAQEwMgYLKwYBBAGHSQMBAQEwIzAh
+                            BggrBgEFBQcCARYVaHR0cDovL2NhLm50dWEuZ3IvY3BzMBEGCWCGSAGG+EIBAQQE
+                            AwIGQDALBgNVHQ8EBAMCBPAwEwYDVR0lBAwwCgYIKwYBBQUHAwEwIQYJYIZIAYb4
+                            QgENBBQWEldXVy1TZXJ2ZXIgb2YgTlRVQTAdBgNVHQ4EFgQUiEqRWLpVT7bpJ6K4
+                            9EfC0UPUGpkwWwYDVR0jBFQwUoAUfNqsx+A0dIrLwYwYsWoolK95CJWhN6Q1MDMx
+                            CzAJBgNVBAYTAkdSMQ0wCwYDVQQKEwROVFVBMRUwEwYDVQQDEwxOVFVBIFJPT1Qg
+                            Q0GCAQIwLwYDVR0RBCgwJoEPbm9jQG5vYy5udHVhLmdyhwSTZt7dgg1sb2dpbi5u
+                            dHVhLmdyMBUGA1UdEgQOMAyBCmNhQG50dWEuZ3IwMgYJYIZIAYb4QgEEBCUWI2h0
+                            dHA6Ly9jYS5udHVhLmdyL3B1Yi9jcmwvY2FjcmwuY3JsMDIGCWCGSAGG+EIBAwQl
+                            FiNodHRwOi8vY2EubnR1YS5nci9wdWIvY3JsL2NhY3JsLmNybDA0BgNVHR8ELTAr
+                            MCmgJ6AlhiNodHRwOi8vY2EubnR1YS5nci9wdWIvY3JsL2NhY3JsLmNybDANBgkq
+                            hkiG9w0BAQUFAAOCAQEAXHXewa99f7iIlhvgdMWp6NXfT9TG9FCGWhtO2V5GeUii
+                            2TBYddAH6+tYrVlJ4cN6p444Dhvin8eVA/Y0WfeVll4YasViq6zxSH9FLZkszbKr
+                            f7CfFyYqChsjcrn/oGJWsfsqGqMGPfdAQSkkpyGOHVMMARCY+gP0S973yK89frkA
+                            QGG+elGtKx786IeEEbm4YS4Z0VMkD3obJk/QRmiy6lvHadODGcpiGLCZq9G1Es2i
+                            mcNedy126VjwlNcg6XBbl0shvgGkjqzA89TPFY/FwtklJGfNl8SP88p8I41CsM8Q
+                            /PFGb40C/OoiQncMfOelJJXz6O+w4jNGdUoJdTCpdQ==
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <KeyDescriptor>
+                <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDFDCCAfygAwIBAgIJAOE9jL5hLZ+yMA0GCSqGSIb3DQEBBQUAMBgxFjAUBgNV
+                            BAMTDWxvZ2luLm50dWEuZ3IwHhcNMTMxMjExMTMyNzM3WhcNMjMxMjA5MTMyNzM3
+                            WjAYMRYwFAYDVQQDEw1sb2dpbi5udHVhLmdyMIIBIjANBgkqhkiG9w0BAQEFAAOC
+                            AQ8AMIIBCgKCAQEA9PPd/C1Smrn+DH1bYdJ24qqvA7aDt7izs/c9bmsF1/zOumIj
+                            3Tmi9V/zmeNt2yiV/Nva2ZU3M/cTUxZST7XYWz+758EyqmvKVvHgyOmmF8JdV+9r
+                            hFT3R3DEdDnGnep4N7QZySOQ/mOp3IsY2Wxqka3NU672keZq/VhV/B1MPDqhqPGt
+                            TPeW/NJGjo2UrMKkeyJLCHQJeNbKOOSzefc5TJYFJHLXqGs7DWIXwqqab0MPJ3Na
+                            N7Ap0SEIZWpNS7u/lAAS//1HJQ26zW15GcUhxgi2pMk3GHs6uwWF+DYLEbWg17MQ
+                            Er9MFbftJjf9V4GOfUILDvgNlutCPnmM6aB4gQIDAQABo2EwXzA+BgNVHREENzA1
+                            gg1sb2dpbi5udHVhLmdyhiRodHRwczovL2xvZ2luLm50dWEuZ3IvaWRwL3NoaWJi
+                            b2xldGgwHQYDVR0OBBYEFNP8/C26TomQ3yAZFMY2W84V40ihMA0GCSqGSIb3DQEB
+                            BQUAA4IBAQAv4cC1fu39MNQlvoSY/k/kV7cbkmS30FfVlsuwdfZQJO/3r2a/E7kd
+                            l9QR9Us+Eraabx6ccq6BYbtsMaXkDrgKPL6KfXFWNIjbizqmmvgdlB2ptYYKN7d0
+                            Bz2L7y0ZWkKApEBDVMUwmBHsS18xs35xchKyezTAralRy3tHBAop93jBumHiRRYF
+                            RuRSEM4KM01/DkDDwkCXWEWu0TolnSozTFtYddwi1u48s0tq4TSBkYk3C7XoyCol
+                            PCUfUb8+3VLdMNqkSkE22WQx9th9BNNWs3e4QdrRgnh/9gKInZCzmrXU8ymWBhmj
+                            1f80WSd+TnQAp2UMPIXxxOOSGhI5NyQn
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://login.ntua.gr:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.ntua.gr:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+            <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://login.ntua.gr/idp/profile/Shibboleth/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.ntua.gr/idp/profile/SAML2/POST/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://login.ntua.gr/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.ntua.gr/idp/profile/SAML2/Redirect/SSO"/>
+        </IDPSSODescriptor>
+        <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+            <Extensions>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ntua.gr</shibmd:Scope>
+            </Extensions>
+            <KeyDescriptor>
+                <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIEmzCCA4OgAwIBAgIBTDANBgkqhkiG9w0BAQUFADA4MQswCQYDVQQGEwJHUjEN
+                            MAsGA1UEChMETlRVQTEaMBgGA1UEAxMRTlRVQSBDQSAyMDA2LTIwMTgwHhcNMDcw
+                            MzIzMTE0NjAyWhcNMTcwMzIwMTE0NjAyWjBTMQswCQYDVQQGEwJncjENMAsGA1UE
+                            ChMEbnR1YTEQMA4GA1UECxMHc2VydmVyczEWMBQGA1UEAxMNbG9naW4ubnR1YS5n
+                            cjELMAkGA1UEBRMCNzYwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBALZ9Qnww
+                            BRe5Kc0EYuVdbkMASUIBc624cYA8QCv9e0S769ePElXSndg7caaSRXG8pN4gkc9+
+                            LUhvqefUt3ihIDsOIcdDW1tGOJ5b9UH9zjRpUCjubKOcYSxaxFjs+15RGhMweSwm
+                            DwYcFLpmDvFC7vbh+X8rt5ri4S3YSpT9eZdVAgMBAAGjggIXMIICEzAJBgNVHRME
+                            AjAAMEwGA1UdIARFMEMwDQYLKwYBBAGHSQMCAQEwMgYLKwYBBAGHSQMBAQEwIzAh
+                            BggrBgEFBQcCARYVaHR0cDovL2NhLm50dWEuZ3IvY3BzMBEGCWCGSAGG+EIBAQQE
+                            AwIGQDALBgNVHQ8EBAMCBPAwEwYDVR0lBAwwCgYIKwYBBQUHAwEwIQYJYIZIAYb4
+                            QgENBBQWEldXVy1TZXJ2ZXIgb2YgTlRVQTAdBgNVHQ4EFgQUiEqRWLpVT7bpJ6K4
+                            9EfC0UPUGpkwWwYDVR0jBFQwUoAUfNqsx+A0dIrLwYwYsWoolK95CJWhN6Q1MDMx
+                            CzAJBgNVBAYTAkdSMQ0wCwYDVQQKEwROVFVBMRUwEwYDVQQDEwxOVFVBIFJPT1Qg
+                            Q0GCAQIwLwYDVR0RBCgwJoEPbm9jQG5vYy5udHVhLmdyhwSTZt7dgg1sb2dpbi5u
+                            dHVhLmdyMBUGA1UdEgQOMAyBCmNhQG50dWEuZ3IwMgYJYIZIAYb4QgEEBCUWI2h0
+                            dHA6Ly9jYS5udHVhLmdyL3B1Yi9jcmwvY2FjcmwuY3JsMDIGCWCGSAGG+EIBAwQl
+                            FiNodHRwOi8vY2EubnR1YS5nci9wdWIvY3JsL2NhY3JsLmNybDA0BgNVHR8ELTAr
+                            MCmgJ6AlhiNodHRwOi8vY2EubnR1YS5nci9wdWIvY3JsL2NhY3JsLmNybDANBgkq
+                            hkiG9w0BAQUFAAOCAQEAXHXewa99f7iIlhvgdMWp6NXfT9TG9FCGWhtO2V5GeUii
+                            2TBYddAH6+tYrVlJ4cN6p444Dhvin8eVA/Y0WfeVll4YasViq6zxSH9FLZkszbKr
+                            f7CfFyYqChsjcrn/oGJWsfsqGqMGPfdAQSkkpyGOHVMMARCY+gP0S973yK89frkA
+                            QGG+elGtKx786IeEEbm4YS4Z0VMkD3obJk/QRmiy6lvHadODGcpiGLCZq9G1Es2i
+                            mcNedy126VjwlNcg6XBbl0shvgGkjqzA89TPFY/FwtklJGfNl8SP88p8I41CsM8Q
+                            /PFGb40C/OoiQncMfOelJJXz6O+w4jNGdUoJdTCpdQ==
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <KeyDescriptor>
+                <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDFDCCAfygAwIBAgIJAOE9jL5hLZ+yMA0GCSqGSIb3DQEBBQUAMBgxFjAUBgNV
+                            BAMTDWxvZ2luLm50dWEuZ3IwHhcNMTMxMjExMTMyNzM3WhcNMjMxMjA5MTMyNzM3
+                            WjAYMRYwFAYDVQQDEw1sb2dpbi5udHVhLmdyMIIBIjANBgkqhkiG9w0BAQEFAAOC
+                            AQ8AMIIBCgKCAQEA9PPd/C1Smrn+DH1bYdJ24qqvA7aDt7izs/c9bmsF1/zOumIj
+                            3Tmi9V/zmeNt2yiV/Nva2ZU3M/cTUxZST7XYWz+758EyqmvKVvHgyOmmF8JdV+9r
+                            hFT3R3DEdDnGnep4N7QZySOQ/mOp3IsY2Wxqka3NU672keZq/VhV/B1MPDqhqPGt
+                            TPeW/NJGjo2UrMKkeyJLCHQJeNbKOOSzefc5TJYFJHLXqGs7DWIXwqqab0MPJ3Na
+                            N7Ap0SEIZWpNS7u/lAAS//1HJQ26zW15GcUhxgi2pMk3GHs6uwWF+DYLEbWg17MQ
+                            Er9MFbftJjf9V4GOfUILDvgNlutCPnmM6aB4gQIDAQABo2EwXzA+BgNVHREENzA1
+                            gg1sb2dpbi5udHVhLmdyhiRodHRwczovL2xvZ2luLm50dWEuZ3IvaWRwL3NoaWJi
+                            b2xldGgwHQYDVR0OBBYEFNP8/C26TomQ3yAZFMY2W84V40ihMA0GCSqGSIb3DQEB
+                            BQUAA4IBAQAv4cC1fu39MNQlvoSY/k/kV7cbkmS30FfVlsuwdfZQJO/3r2a/E7kd
+                            l9QR9Us+Eraabx6ccq6BYbtsMaXkDrgKPL6KfXFWNIjbizqmmvgdlB2ptYYKN7d0
+                            Bz2L7y0ZWkKApEBDVMUwmBHsS18xs35xchKyezTAralRy3tHBAop93jBumHiRRYF
+                            RuRSEM4KM01/DkDDwkCXWEWu0TolnSozTFtYddwi1u48s0tq4TSBkYk3C7XoyCol
+                            PCUfUb8+3VLdMNqkSkE22WQx9th9BNNWs3e4QdrRgnh/9gKInZCzmrXU8ymWBhmj
+                            1f80WSd+TnQAp2UMPIXxxOOSGhI5NyQn
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://login.ntua.gr:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+            <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.ntua.gr:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+        </AttributeAuthorityDescriptor>
+        <Organization>
+            <OrganizationName xml:lang="en">National Technical University of Athens</OrganizationName>
+            <OrganizationName xml:lang="el">Εθνικό Μετσόβιο Πολυτεχνείο</OrganizationName>
+            <OrganizationDisplayName xml:lang="en">National Technical University of Athens</OrganizationDisplayName>
+            <OrganizationDisplayName xml:lang="el">Εθνικό Μετσόβιο Πολυτεχνείο</OrganizationDisplayName>
+            <OrganizationURL xml:lang="en">http://www.ntua.gr/</OrganizationURL>
+            <OrganizationURL xml:lang="el">http://www.ntua.gr/</OrganizationURL>
+        </Organization>
+        <ContactPerson contactType="technical">
+            <Company>National Technical University of Athens - Network Management Center</Company>
+            <EmailAddress>noc@noc.ntua.gr</EmailAddress>
+        </ContactPerson>
+        <ContactPerson contactType="support">
+            <Company>National Technical University of Athens - Network Management Center</Company>
+            <EmailAddress>help-data@noc.ntua.gr</EmailAddress>
+            <TelephoneNumber>+30-210-772-1861</TelephoneNumber>
+        </ContactPerson>
+    </EntityDescriptor>

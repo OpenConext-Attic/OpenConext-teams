@@ -1,0 +1,83 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="uk002245" entityID="https://verify.studentbeans.com/shibboleth">
+	
+	<Extensions>
+
+
+		<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-09-12T12:07:00Z">
+			<mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+		</mdrpi:RegistrationInfo>
+
+	</Extensions>
+	<SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+		<Extensions>
+			<init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://verify.studentbeans.com/Shibboleth.sso/Login"/>
+			<idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://verify.studentbeans.com/Shibboleth.sso/Login" index="1"/>
+			<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+				<mdui:DisplayName xml:lang="en">Student Beans</mdui:DisplayName>
+			</mdui:UIInfo>
+		</Extensions>
+		<KeyDescriptor>
+			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+				<ds:X509Data>
+					<ds:X509Certificate>
+						MIIEODCCAyCgAwIBAgIJANJg6RwX4lGaMA0GCSqGSIb3DQEBBQUAMIGcMQswCQYD
+						VQQGEwJVSzEPMA0GA1UECAwGTG9uZG9uMQ8wDQYDVQQHDAZMb25kb24xHDAaBgNV
+						BAoME1RoZSBCZWFucyBHcm91cCBMdGQxIDAeBgNVBAMMF3ZlcmlmeS5zdHVkZW50
+						YmVhbnMuY29tMSswKQYJKoZIhvcNAQkBFhxkZXZlbG9wZXJzQHRoZWJlYW5zZ3Jv
+						dXAuY29tMB4XDTE0MDQxMDE1MzcyNloXDTI0MDQwNzE1MzcyNlowgZwxCzAJBgNV
+						BAYTAlVLMQ8wDQYDVQQIDAZMb25kb24xDzANBgNVBAcMBkxvbmRvbjEcMBoGA1UE
+						CgwTVGhlIEJlYW5zIEdyb3VwIEx0ZDEgMB4GA1UEAwwXdmVyaWZ5LnN0dWRlbnRi
+						ZWFucy5jb20xKzApBgkqhkiG9w0BCQEWHGRldmVsb3BlcnNAdGhlYmVhbnNncm91
+						cC5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCqGDfRStUUNFor
+						otpdWs83wj0xQQ4sP0PfIyWV7kjGNSBA4WuyqX/nxz0prwJfOKzdNKcCdM9ZR8vD
+						AzjeDJ5Y2vneAKhmGMjucEPoy5Zb9dC6fFP2M6mmM47oAFGT2rzTZKFWbAKyV0f8
+						zE6K+Ddq//dmkA5IwTWpq63c/ouEtG8IP8kGdthpQLmNvhg1C0Afko/xydvs2LXh
+						y3XZUxKEDSu3NhvIWxE4iv7TTs4vnXvQLmPd3xSWQZEbd+/golvl0hs6tsBCQR8T
+						fUjgUCatbzT177hkhhHNkhlYLaUtf6k/9mO1U1t8aIDA+wlA0Js+irTqxLi4OmgK
+						2XtMjERRAgMBAAGjezB5MAkGA1UdEwQCMAAwLAYJYIZIAYb4QgENBB8WHU9wZW5T
+						U0wgR2VuZXJhdGVkIENlcnRpZmljYXRlMB0GA1UdDgQWBBSq41Sfw3DoEWvPwtTW
+						7Z2Za78S0DAfBgNVHSMEGDAWgBSq41Sfw3DoEWvPwtTW7Z2Za78S0DANBgkqhkiG
+						9w0BAQUFAAOCAQEAfxOkl3ajUkZMYII16kS/SFEQGCQ+KGAvaBFZsVm0fkdGKLhm
+						fCM56Y9yx38PNUG90AACWSxGAjzvRbwV6AwLgOtqO9yGUQMtMgITRa6Gw35DVhWT
+						Iz6w5KFhKX0iCM+NGAQaPGnM0c5Y7zwyI/fBeO9VfAcXUwBPu1eUeoQitzv6/XXz
+						LzmtbQlpgBWPfi30tXx0ZfJALdWkP54Bbubw7nC8KlMZInpTdtot/CYqk6K1yZ5K
+						dbTF8jXsONg/RSWzM2N6J42swNHz1NzcVCbwtvlu8sPzLWftRGLZFLWpj3SJR3mr
+						UKG+a99pFdmiJhaVmr6ppycpR94IcDJb+8Px5A==
+					</ds:X509Certificate>
+				</ds:X509Data>
+			</ds:KeyInfo>
+		</KeyDescriptor>
+		<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://verify.studentbeans.com/Shibboleth.sso/Artifact/SOAP" index="0"/>
+		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://verify.studentbeans.com/Shibboleth.sso/SLO/SOAP"/>
+		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://verify.studentbeans.com/Shibboleth.sso/SLO/Redirect"/>
+		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://verify.studentbeans.com/Shibboleth.sso/SLO/POST"/>
+		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://verify.studentbeans.com/Shibboleth.sso/SLO/Artifact"/>
+		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://verify.studentbeans.com/Shibboleth.sso/SAML2/POST" index="0"/>
+		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://verify.studentbeans.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://verify.studentbeans.com/Shibboleth.sso/SAML2/Artifact" index="2"/>
+		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://verify.studentbeans.com/Shibboleth.sso/SAML2/ECP" index="3"/>
+		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://verify.studentbeans.com/Shibboleth.sso/SAML/POST" index="4"/>
+		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://verify.studentbeans.com/Shibboleth.sso/SAML/Artifact" index="5"/>
+	</SPSSODescriptor>
+	<Organization>
+		<OrganizationName xml:lang="en">The Beans Group Limited</OrganizationName>
+		<OrganizationDisplayName xml:lang="en">Student Beans</OrganizationDisplayName>
+		<OrganizationURL xml:lang="en">http://www.studentbeans.com/</OrganizationURL>
+	</Organization>
+	<ContactPerson contactType="support">
+		<GivenName>Vincent</GivenName>
+		<SurName>Siebert</SurName>
+		<EmailAddress>mailto:vincent@thebeansgroup.com</EmailAddress>
+	</ContactPerson>
+	<ContactPerson contactType="support">
+		<GivenName>Seren</GivenName>
+		<SurName>Altiner</SurName>
+		<EmailAddress>mailto:seren@thebeansgroup.com</EmailAddress>
+	</ContactPerson>
+	<ContactPerson contactType="technical">
+		<GivenName>Vincent</GivenName>
+		<SurName>Siebert</SurName>
+		<EmailAddress>mailto:vincent@thebeansgroup.com</EmailAddress>
+	</ContactPerson>
+
+</EntityDescriptor>

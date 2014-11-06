@@ -1,0 +1,97 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.mci4me.at/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://eduid.at" registrationInstant="2009-08-26T15:09:20Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://eduid.at/policy/mdrps-20140606</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">mci4me.at</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="de">Management Center Innsbruck</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Management Center Innsbruck</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDHzCCAgegAwIBAgIUHNJty3oyEoy9tOTNEmmE7qV74C8wDQYJKoZIhvcNAQEF
+BQAwGDEWMBQGA1UEAxMNaWRwLm1jaTRtZS5hdDAeFw0wOTA5MDcwODIzMDVaFw0y
+OTA5MDcwODIzMDVaMBgxFjAUBgNVBAMTDWlkcC5tY2k0bWUuYXQwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQC3S9fUpbeg9WH5JftrPezNOvW2YkH8/MgG
+HV9RrmZbcoKwLTzwPrZPaumhFJQArvLmrk3dtVCaih1RMAIVFi8HoYac7fDUurwx
+RbVQx7nskAb3iZx1O8JEX8TgoqKt+uUdzUIGBz9rHytawAUnIiArMtINNumyvFhV
+QJqKRi9Hwo/aGs7B7FAwrJZSV9hQSXJq8xhPMTQARJSBACCZwEyPRQ15o/MWOpjd
+0D2PAnAtBVNfY+4B/Imt5JTQ+XYp+Q4WVY1WeuMzjC4ucw/y5aYZTL+xMGzg0HmG
+0/Owi2SF3vmgXAROFTcxfmJqyYsxI75pQDAfH3NEKvE8fmmJ4DAbAgMBAAGjYTBf
+MD4GA1UdEQQ3MDWCDWlkcC5tY2k0bWUuYXSGJGh0dHBzOi8vaWRwLm1jaTRtZS5h
+dC9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUl+LCOAVAc0ZekJaOO94O2tbedggw
+DQYJKoZIhvcNAQEFBQADggEBADkTysuQZsgEXD9k3dqUgQLAl/FWTwbhwzpkWtf6
+FAkJkBOmpV9Bxufiyt0t2jMPAxHQ7ijRof+YVsL4pSPB0EuB6yDGbaaKOP0S0xUp
+llwQbIGwW5EX/wq8S5xpJbyl2qyK2c/3xiBA37q42/7TTDp8CsrzkiZ5wV6Quu4W
+5i3Ncd3DlSCWC+KQiNUERUnol8zG7LnX+TDm+CmJDBGZTe2rP2VBHufwx99NWJqa
+JIEn8kvka7bij40K7rv3FooRr0J932Few8rdknd0bgFh83YuE+0RI2RSFugH/5QD
+FkV0gy5C/RWb/tKzq9CLPMhkyBCIIS9TjHeEWOUmCN08iic=
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.mci4me.at:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.mci4me.at:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.mci4me.at/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.mci4me.at/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.mci4me.at/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.mci4me.at/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">mci4me.at</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDHzCCAgegAwIBAgIUHNJty3oyEoy9tOTNEmmE7qV74C8wDQYJKoZIhvcNAQEF
+BQAwGDEWMBQGA1UEAxMNaWRwLm1jaTRtZS5hdDAeFw0wOTA5MDcwODIzMDVaFw0y
+OTA5MDcwODIzMDVaMBgxFjAUBgNVBAMTDWlkcC5tY2k0bWUuYXQwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQC3S9fUpbeg9WH5JftrPezNOvW2YkH8/MgG
+HV9RrmZbcoKwLTzwPrZPaumhFJQArvLmrk3dtVCaih1RMAIVFi8HoYac7fDUurwx
+RbVQx7nskAb3iZx1O8JEX8TgoqKt+uUdzUIGBz9rHytawAUnIiArMtINNumyvFhV
+QJqKRi9Hwo/aGs7B7FAwrJZSV9hQSXJq8xhPMTQARJSBACCZwEyPRQ15o/MWOpjd
+0D2PAnAtBVNfY+4B/Imt5JTQ+XYp+Q4WVY1WeuMzjC4ucw/y5aYZTL+xMGzg0HmG
+0/Owi2SF3vmgXAROFTcxfmJqyYsxI75pQDAfH3NEKvE8fmmJ4DAbAgMBAAGjYTBf
+MD4GA1UdEQQ3MDWCDWlkcC5tY2k0bWUuYXSGJGh0dHBzOi8vaWRwLm1jaTRtZS5h
+dC9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUl+LCOAVAc0ZekJaOO94O2tbedggw
+DQYJKoZIhvcNAQEFBQADggEBADkTysuQZsgEXD9k3dqUgQLAl/FWTwbhwzpkWtf6
+FAkJkBOmpV9Bxufiyt0t2jMPAxHQ7ijRof+YVsL4pSPB0EuB6yDGbaaKOP0S0xUp
+llwQbIGwW5EX/wq8S5xpJbyl2qyK2c/3xiBA37q42/7TTDp8CsrzkiZ5wV6Quu4W
+5i3Ncd3DlSCWC+KQiNUERUnol8zG7LnX+TDm+CmJDBGZTe2rP2VBHufwx99NWJqa
+JIEn8kvka7bij40K7rv3FooRr0J932Few8rdknd0bgFh83YuE+0RI2RSFugH/5QD
+FkV0gy5C/RWb/tKzq9CLPMhkyBCIIS9TjHeEWOUmCN08iic=
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.mci4me.at:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.mci4me.at:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">Management Center Innsbruck</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">Management Center Innsbruck</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Management Center Innsbruck</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Management Center Innsbruck</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.mci4me.at/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://www.mci4me.at/index.php?lang=en</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Florian</md:GivenName>
+      <md:SurName>Lechner</md:SurName>
+      <md:EmailAddress>mailto:florian.lechner@mci.edu</md:EmailAddress>
+      <md:TelephoneNumber>+43 512 2070 1407</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

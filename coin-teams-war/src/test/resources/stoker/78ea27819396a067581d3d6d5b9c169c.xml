@@ -1,0 +1,117 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.ssc.cas.cz/idp/shibboleth">
+    <Extensions>
+      <eduidmd:RepublishRequest xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0">
+        <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
+      </eduidmd:RepublishRequest>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.eduid.cz/" registrationInstant="2014-03-06T11:08:18Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <mdasrt:Attribute xmlns:mdasrt="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <mdasrt:AttributeValue>http://eduid.cz/uri/idp-group/avcr</mdasrt:AttributeValue>
+        </mdasrt:Attribute>
+      </mdattr:EntityAttributes>
+    </Extensions>
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">ssc.cas.cz</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">Centre of Administration and Operations of AS CR</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">Středisko společných činností AV ČR</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity Provider SSC AV CR employees.</mdui:Description>
+          <mdui:Description xml:lang="cs">Identity Provider pro zaměstnance SSČ AV ČR</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ssc.cas.cz/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">http://www.ssc.cas.cz/</mdui:InformationURL>
+          <mdui:Logo height="40" width="74">https://jiftach.cas.cz/loga/logo-ssc-44.png</mdui:Logo>
+          <mdui:Logo height="638" width="1080">https://jiftach.cas.cz/loga/logo-ssc-638.png</mdui:Logo>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDJDCCAgygAwIBAgIVAM17FMyMTScGvy0JdedneKzQSTuJMA0GCSqGSIb3DQEB
+BQUAMBkxFzAVBgNVBAMTDmlkcC5zc2MuY2FzLmN6MB4XDTE0MDEyMTEzNDgxN1oX
+DTM0MDEyMTEzNDgxN1owGTEXMBUGA1UEAxMOaWRwLnNzYy5jYXMuY3owggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCO9p492zRmGFmhH7Qq7l1Vy3OBRyZc
+tIyaocn/FLBJ9TkGUqYdR29wHCmKnGOwXFF6VIBdfsmVmuFczjQcpAqPQ4zcS+kl
++Y6yDMINQv0eAZvRvIDK4jfF5GVZAXwbUuPLr8Cl0L0ZbzNPT7ewi7sHO+8upqv7
+7bhwyG8ZMYgMSPeM4jWuThv+6x5DRlnMqjq+qBev95MRK0bZRSJ3XKyDa+Nso8Df
+R7rYnFHF+Al4AujMgQzN+hDRjxyD2Wp1xYK9BguctIFyHiS0aXr0CB3PcCnRfdRk
+GTH2SX3pNIJ1olEODLyHfNF9uJt120bfaFgaGau/iRCXwuj7Ap5PLiURAgMBAAGj
+YzBhMEAGA1UdEQQ5MDeCDmlkcC5zc2MuY2FzLmN6hiVodHRwczovL2lkcC5zc2Mu
+Y2FzLmN6L2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRWD+N0hIllSytm0SBw/34M
+IGBstDANBgkqhkiG9w0BAQUFAAOCAQEAXqvCIxGFBSBtfecHgvx3j5kYiG0rutzh
+XhdFJZrPWARnMdL0VLfK064Y+OWsv1sbovS31HWxvCWqfBTmIu2e658IGnCYUBGX
+/e8/NG7u9SeS6ie7U6B1kFQIYrgSKHH4jookel03sIF0n36C3XMG95h7TNgZQ5Vf
+JQwAd/6FCX9a+NzhTJZWMXPCIEjGICjwbddAPsX6aSAUgIyif0EkIDSvcckkeLT0
+Jy+EMpZzHBrcYckNCLqr8PsQxGAM6g7mUC8ebGVX9bjkOGplkUUzlsNQE4djcNvY
+qOgmzrGDcWxrRDaRKM2/jYdmcKg6FmAZE1Vpdy+W7j2tbvLDXjLpOg==
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ssc.cas.cz:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ssc.cas.cz:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ssc.cas.cz/idp/profile/SAML2/Redirect/SLO"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ssc.cas.cz/idp/profile/SAML2/POST/SLO"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ssc.cas.cz:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ssc.cas.cz/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ssc.cas.cz/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.ssc.cas.cz/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ssc.cas.cz/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">ssc.cas.cz</shibmd:Scope>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDJDCCAgygAwIBAgIVAM17FMyMTScGvy0JdedneKzQSTuJMA0GCSqGSIb3DQEB
+BQUAMBkxFzAVBgNVBAMTDmlkcC5zc2MuY2FzLmN6MB4XDTE0MDEyMTEzNDgxN1oX
+DTM0MDEyMTEzNDgxN1owGTEXMBUGA1UEAxMOaWRwLnNzYy5jYXMuY3owggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCO9p492zRmGFmhH7Qq7l1Vy3OBRyZc
+tIyaocn/FLBJ9TkGUqYdR29wHCmKnGOwXFF6VIBdfsmVmuFczjQcpAqPQ4zcS+kl
++Y6yDMINQv0eAZvRvIDK4jfF5GVZAXwbUuPLr8Cl0L0ZbzNPT7ewi7sHO+8upqv7
+7bhwyG8ZMYgMSPeM4jWuThv+6x5DRlnMqjq+qBev95MRK0bZRSJ3XKyDa+Nso8Df
+R7rYnFHF+Al4AujMgQzN+hDRjxyD2Wp1xYK9BguctIFyHiS0aXr0CB3PcCnRfdRk
+GTH2SX3pNIJ1olEODLyHfNF9uJt120bfaFgaGau/iRCXwuj7Ap5PLiURAgMBAAGj
+YzBhMEAGA1UdEQQ5MDeCDmlkcC5zc2MuY2FzLmN6hiVodHRwczovL2lkcC5zc2Mu
+Y2FzLmN6L2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRWD+N0hIllSytm0SBw/34M
+IGBstDANBgkqhkiG9w0BAQUFAAOCAQEAXqvCIxGFBSBtfecHgvx3j5kYiG0rutzh
+XhdFJZrPWARnMdL0VLfK064Y+OWsv1sbovS31HWxvCWqfBTmIu2e658IGnCYUBGX
+/e8/NG7u9SeS6ie7U6B1kFQIYrgSKHH4jookel03sIF0n36C3XMG95h7TNgZQ5Vf
+JQwAd/6FCX9a+NzhTJZWMXPCIEjGICjwbddAPsX6aSAUgIyif0EkIDSvcckkeLT0
+Jy+EMpZzHBrcYckNCLqr8PsQxGAM6g7mUC8ebGVX9bjkOGplkUUzlsNQE4djcNvY
+qOgmzrGDcWxrRDaRKM2/jYdmcKg6FmAZE1Vpdy+W7j2tbvLDXjLpOg==
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ssc.cas.cz:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ssc.cas.cz:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+    </AttributeAuthorityDescriptor>
+    <Organization>
+      <OrganizationName xml:lang="en">Centre of Administration and Operations of ASCR</OrganizationName>
+      <OrganizationName xml:lang="cs">Středisko společných činností AV ČR</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">Centre of Administration and Operations of ASCR, v. v. i.</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="cs">Středisko společných činností AV ČR</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.ssc.cas.cz/</OrganizationURL>
+      <OrganizationURL xml:lang="cs">http://www.ssc.cas.cz/</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Petr</GivenName>
+      <SurName>Vaníček</SurName>
+      <EmailAddress>vanicekp@utia.cas.cz</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

@@ -1,0 +1,55 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.niif.hu/shibboleth">
+        <Extensions>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">niifi</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href-test</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href-edugain</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href-idps</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">hexaa</ns9:MetadataSet>
+            <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://eduid.hu"/>
+        </Extensions>
+        <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+            <Extensions>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">niif.hu</shibmd:Scope>
+                <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <mdui:IPHint>193.6.222.0/24</mdui:IPHint>
+                    <mdui:IPHint>193.6.223.0/24</mdui:IPHint>
+                    <mdui:GeolocationHint>geo:47.518209,19.055394</mdui:GeolocationHint>
+                </mdui:DiscoHints>
+                <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <mdui:Logo height="86" width="150">https://idp.niif.hu/niifi.png</mdui:Logo>
+                </mdui:UIInfo>
+            </Extensions>
+            <KeyDescriptor>
+                <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:X509Data>
+                        <ds:X509Certificate>MIID3zCCAsegAwIBAgIJAPlKCyW+F3hqMA0GCSqGSIb3DQEBBQUAMIGFMQswCQYDVQQGEwJIVTETMBEGA1UECAwKU29tZS1TdGF0ZTERMA8GA1UEBwwIQnVkYXBlc3QxDjAMBgNVBAoMBU5JSUZJMQwwCgYDVQQLDANBQUkxFDASBgNVBAMMC2lkcC5uaWlmLmh1MRowGAYJKoZIhvcNAQkBFgthYWlAbmlpZi5odTAeFw0xNDA0MTAwNzA4NDVaFw0zMzA2MDkwNzA4NDVaMIGFMQswCQYDVQQGEwJIVTETMBEGA1UECAwKU29tZS1TdGF0ZTERMA8GA1UEBwwIQnVkYXBlc3QxDjAMBgNVBAoMBU5JSUZJMQwwCgYDVQQLDANBQUkxFDASBgNVBAMMC2lkcC5uaWlmLmh1MRowGAYJKoZIhvcNAQkBFgthYWlAbmlpZi5odTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALa3pkANdEGmJ/CXbDCeH+UKbqvMmpSga+dUpaJ8X0KpIbb+gZBUgj3IqLZTtlf3A2CEUI9LLcAEbQln8rB5KMAMzsyyX6JUJzGsSkpKuu0Oticw3oXooNd4a9FYsdZON8iiSFrquzSiuov9Q1qslwafOxGhkwJr15HqChRfxcXI61Sid0FEAfSocrgMkdxoCq2YIWug17egIqA6gzKbThOmtAJe5Cw4gAVY2QBDut9e/F6q4kM9ukfEQwwnlC1ghP+5T6kMq7uKAd98yZv6/s95Eqiy7C7T2BiAmCqJy6Ef/I9tRKD3lvpcm32tlhprfpetBHq4OLG14Ieqhj8rZaMCAwEAAaNQME4wHQYDVR0OBBYEFDkbK3v2IgzSeNCN1LrKR75aStlYMB8GA1UdIwQYMBaAFDkbK3v2IgzSeNCN1LrKR75aStlYMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBABPM/c1QSk2ZHHUkgM60+yvrDVtMtKIdxGgpulksHUDRoCiP/1wxjCS0EFS4t/4rYogokaEfCo8Wi9VuoJS8xVlBFKe8XD3LrqKy5lbKZp10rb2e4PiCb7WlAL04kLdtogrNJfYfH13yHwYGuxOJN95SLaXw8hj7fhf6NtocI7zTAIoMeizsQ6KjhKSNiYfokAhYzsrLydmeNnVZmYL06YOS289Z6pFmarOuhDycAuZDBV7AND592hCKqwh3KyTxhlzzxVAQZXb/s9kwVqaNWZ7ChO23REDrHfbpi14tty1WFi42/RHginxT1yPRvX3PwXnwrQP4CvYMSsXEhu3Otgo=</ds:X509Certificate>
+                    </ds:X509Data>
+                    <ds:KeyName>idp.niif.hu</ds:KeyName>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.niif.hu/simplesaml/saml2/idp/SingleLogoutService.php"/>
+            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.niif.hu/simplesaml/saml2/idp/SSOService.php"/>
+        </IDPSSODescriptor>
+        <Organization>
+            <OrganizationName xml:lang="hu">NIIF - Nemzeti Információs Infrastruktúra Fejlesztési Intézet</OrganizationName>
+            <OrganizationName xml:lang="en">NIIF Institute - National Information Infrastructure Development</OrganizationName>
+            <OrganizationDisplayName xml:lang="hu">NIIF Intézet</OrganizationDisplayName>
+            <OrganizationDisplayName xml:lang="en">NIIF Institute</OrganizationDisplayName>
+            <OrganizationURL xml:lang="hu">http://www.niif.hu</OrganizationURL>
+            <OrganizationURL xml:lang="en">http://www.niif.hu</OrganizationURL>
+        </Organization>
+        <ContactPerson contactType="technical">
+            <SurName>NIIF AAI</SurName>
+            <EmailAddress>mailto:aai@niif.hu</EmailAddress>
+        </ContactPerson>
+        <ContactPerson contactType="support">
+            <SurName>NIIF AAI</SurName>
+            <EmailAddress>mailto:aai@niif.hu</EmailAddress>
+        </ContactPerson>
+        <ContactPerson contactType="administrative">
+            <SurName>NIIF AAI</SurName>
+            <EmailAddress>mailto:aai@niif.hu</EmailAddress>
+        </ContactPerson>
+    </EntityDescriptor>

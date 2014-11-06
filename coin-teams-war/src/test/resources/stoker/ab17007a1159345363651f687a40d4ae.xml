@@ -1,0 +1,81 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://federation.u-pem.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-05-19T12:09:19Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">u-pem.fr</shibmd:Scope>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-mlv.fr</shibmd:Scope>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">umlv.fr</shibmd:Scope>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">etud.u-pem.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      <mdui:DisplayName xml:lang="en">Paris-Est Marne-la-Vallée University</mdui:DisplayName>
+          		      <mdui:Description xml:lang="en">Every university member</mdui:Description>
+          		      <mdui:DisplayName xml:lang="fr">Université Paris-Est Marne-la-Vallée</mdui:DisplayName>
+          		      <mdui:Description xml:lang="fr">Tous les membres de l'université</mdui:Description>
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDODCCAiCgAwIBAgIVAM2PTKt1TV1kFUzpXmOV0ZzH5/RrMA0GCSqGSIb3DQEB
+BQUAMB4xHDAaBgNVBAMTE2ZlZGVyYXRpb24udS1wZW0uZnIwHhcNMTQwNTE5MTAw
+NzU0WhcNMzQwNTE5MTAwNzU0WjAeMRwwGgYDVQQDExNmZWRlcmF0aW9uLnUtcGVt
+LmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0t2Ou0usGY1JzkfP
+1fqEphJbvG9dCqmyAy3aWE1udBLfjDtjLLjfHfIafRLkm2OVLwjI/5nbY6krNTXk
+nZNO0L8LJuOLImqfMluR75jWUWAJQsXrbJ+hOmsmt2nDfVGIRvkO8E59+vnsOZW4
+mYn+S1qbOxfy+FCff4zrqP6vij73UffoFYwrxg07q8jQP9Dhie/6nRKQtoXfDRwu
+hN7KJVuwBAT8OB1to1td7ETcFHrV3TBdCiykYQONpIQcbc3BJDHjSndn5TZtwmBr
+KoWVe7+FAdoASTriJPUgPSapdnsJS31nQaKwOPxcfqzobysb3FHRZ3c9e+k9s2lj
+pl1qwQIDAQABo20wazBKBgNVHREEQzBBghNmZWRlcmF0aW9uLnUtcGVtLmZyhipo
+dHRwczovL2ZlZGVyYXRpb24udS1wZW0uZnIvaWRwL3NoaWJib2xldGgwHQYDVR0O
+BBYEFKsWCrm5woMmq5whBpJxFE7z3oSdMA0GCSqGSIb3DQEBBQUAA4IBAQA0yHMD
+eBNRPmppFMlR71VZ+30TVxMBE6asRnn/69Ni/cYRxr+7EEVUgMzzxJfT2gwtkocg
+YkZR6nCR+KJmfk3KwR6CFfKV/eLuVA883x8j7tqY4YHmHn7RInFdibHwF6Ka58P7
+zwdoCWFvLZjFjaAWERxqGGjIZex/3FhxtgKEN4rWtUqlRNwhCMJP2ee4BIY84dTK
+rw154uC2Ng7lchO5gbMyUTxxVWX0K/oqpKW4nvpbsj2kkZI5rFSt5FRC/kVwkWJK
+9UTDRWo5w/HbzA8JVAnU0vwax0/E2nDrYSu1pbGOb0F97H+UBSWBMaBqZHoJLkEi
+wDJ2bH/IB8MKNLHT
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://federation.u-pem.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://federation.u-pem.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://federation.u-pem.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université Paris-Est Marne-la-Vallée</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université Paris-Est Marne-la-Vallée</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>adm-federation@u-pem.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

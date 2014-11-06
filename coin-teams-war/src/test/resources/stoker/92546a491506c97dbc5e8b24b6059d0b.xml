@@ -1,0 +1,84 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://ident.ensta-bretagne.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2013-06-25T13:42:46Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ensta-bretagne.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">ENSTA Bretagne - Ecole Nationale Supérieure des Techniques Avancées</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDPDCCAiSgAwIBAgIVAIEsfLZbOVKR5umlzQTdFNcppbAhMA0GCSqGSIb3DQEB
+BQUAMB8xHTAbBgNVBAMTFGR1bmRlZS5lbnNpZXRhLmVjb2xlMB4XDTEzMDIxNTEy
+MjY1NVoXDTMzMDIxNTEyMjY1NVowHzEdMBsGA1UEAxMUZHVuZGVlLmVuc2lldGEu
+ZWNvbGUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCjkoPRA+/M6G74
+s1PymwU6YHSEJBDhMpYhjm9WmleJqao/BEV1BU1BpSTmbHg0CVo0ZrFZ/kHu5Z9Q
+veqPk3dM4rao4I/a3f1atZh77jQWhxPauiLgRC2EoWWDYDwZi6LfdkeQwDFm8SnN
+Ug+NRspwOWM7lXxo1d4DpU1aeMhosQMyqazzumrBhucT1QbtWrrJth1XN//z/7kW
+xK4hERSTRC4jKG03e4FKEliWG+WTdR0mMgypur+ZuQ2PwASjMV29L2ilm7o9inKK
+OPLbqATNoYgXhNgsMueyRqqfti9sxMo0aRW6wDu5iEBhy9hUo6PMWhBuw7lc+1K9
+SQaQgCU3AgMBAAGjbzBtMEwGA1UdEQRFMEOCFGR1bmRlZS5lbnNpZXRhLmVjb2xl
+hitodHRwczovL2R1bmRlZS5lbnNpZXRhLmVjb2xlL2lkcC9zaGliYm9sZXRoMB0G
+A1UdDgQWBBTOl8EfVH85x42e4K+brZLAl2llFTANBgkqhkiG9w0BAQUFAAOCAQEA
+YZRNdG+23m13Vs/QtqNH9eCRJa2xjWgRhdtgy+O+1V9apu5T2jspd6eI+r8kgv+T
+TcN2NgDOt3WaArJCrOJZ6eFdN7zx19Jcl5BwcRaX/13X4yt/QVqr8lEpmFC/JUFb
+M+YJV34AexxYJ5Trev/8iit0Ihmo0yLPakEvlPil/UOiNPjQMluHliAaBQpGI4xF
+/oMMMCl3sk9TTAPX+16NaqdBBDmUWIglw20NRFR1dHpRjdUIfJGSHhhEcfWbGfik
+gbARW97y4+lEEDGKeDw/vhHIExaTI59muRL9UZY7hr2CRpCzC/DLU6ldzFdDxuvO
+fcIaXtfvCTHeM5bB7Ao7aw==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ident.ensta-bretagne.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://ident.ensta-bretagne.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://ident.ensta-bretagne.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">ENSTA Bretagne - Ecole Nationale Supérieure des Techniques Avancées</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">ENSTA Bretagne - Ecole Nationale Supérieure des Techniques Avancées</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Jean-Paul KIRKBRIDE</SurName>
+				 <EmailAddress>jean-paul.kirkbride@ensta-bretagne.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    		
+
+				
+			
+	</EntityDescriptor>

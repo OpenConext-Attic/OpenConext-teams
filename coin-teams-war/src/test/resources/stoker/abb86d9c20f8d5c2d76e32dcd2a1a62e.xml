@@ -1,0 +1,154 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth-idp.uni-regensburg.de/idp/shibboleth">
+    <Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-06-25T09:17:34Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">uni-regensburg.de</saml1md:Scope>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">ur.de</saml1md:Scope>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">ukr.de</saml1md:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="de">Universität Regensburg</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Universität Regensburg</mdui:DisplayName>
+          <mdui:Description xml:lang="de">IdP der Universität Regensburg</mdui:Description>
+          <mdui:Description xml:lang="en">IdP der Universität Regensburg</mdui:Description>
+          <mdui:Logo height="16" width="16">https://shibboleth-idp.uni-regensburg.de/logo_16x16.gif</mdui:Logo>
+          <mdui:Logo height="76" width="205">https://shibboleth-idp.uni-regensburg.de/loginlogo_205x76.gif</mdui:Logo>
+          <mdui:InformationURL xml:lang="de">http://www.uni-regensburg.de</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">http://www.uni-regensburg.de/index.html.en</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="de">http://www.uni-regensburg.de/datenschutz/index.html</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="en">http://www.uni-regensburg.de/privacy/index.html</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>shibboleth-idp.uni-regensburg.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=shibboleth-idp.uni-regensburg.de,OU=Rechenzentrum,O=Universitaet Regensburg,L=Regensburg,ST=Bayern,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIFvjCCBKagAwIBAgIHE7iKqh6JUDANBgkqhkiG9w0BAQUFADCBnTELMAkGA1UE
+BhMCREUxDzANBgNVBAgTBkJheWVybjETMBEGA1UEBxMKUmVnZW5zYnVyZzEgMB4G
+A1UEChMXVW5pdmVyc2l0YWV0IFJlZ2Vuc2J1cmcxIDAeBgNVBAMTF1VuaSBSZWdl
+bnNidXJnIENBIC0gRzAxMSQwIgYJKoZIhvcNAQkBFhVwa2lAdW5pLXJlZ2Vuc2J1
+cmcuZGUwHhcNMTIwNDI2MDg1MzQ2WhcNMTcwNDI1MDg1MzQ2WjCBmDELMAkGA1UE
+BhMCREUxDzANBgNVBAgTBkJheWVybjETMBEGA1UEBxMKUmVnZW5zYnVyZzEgMB4G
+A1UEChMXVW5pdmVyc2l0YWV0IFJlZ2Vuc2J1cmcxFjAUBgNVBAsTDVJlY2hlbnpl
+bnRydW0xKTAnBgNVBAMTIHNoaWJib2xldGgtaWRwLnVuaS1yZWdlbnNidXJnLmRl
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtb6jhoh17E9k//d3JMwg
+vcKYcaYVfQV5ly3yO9jffYX7wQY8MMPcyZNICWDZb+vrMUdjDaVo6cH7E2x0wACY
+wLza6Y7XVODjm5KMiWOIaZ2UL8n4EM7uaqYqhOCuv5kSZ1wkCGQ1F8ta24vZRaxr
+Y/rFslWZ36ckoVh2UD1H2PASmPQNxtk8515kmjpAJa0pRxh6dmLuyaFnENhb/hMA
+VVvhrA7/BVeunf7k+slyafn3bfomRwlTsC7AmGO1zn2C7+PFT3DKEN565ZJjbM59
+aBhlshOyZx1eZ1il7jc8JtfuoChI1ZumbCuXsCMWQyWZEuzQJreloTZqs7S9bHu9
+nwIDAQABo4ICBDCCAgAwHAYDVR0gBBUwEzARBg8rBgEEAYGtIYIsAQEEAgIwCQYD
+VR0TBAIwADALBgNVHQ8EBAMCBeAwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUF
+BwMBMB0GA1UdDgQWBBQm+KuXQAlIJpFpDmYOW9kmR01qYTAfBgNVHSMEGDAWgBQH
+1915iF9BccwW4dTH852yeLHdSDAsBgNVHREEJTAjgSFlZG11bmQud2ViZXJAcnou
+dW5pLXJlZ2Vuc2J1cmcuZGUwgY8GA1UdHwSBhzCBhDBAoD6gPIY6aHR0cDovL2Nk
+cDEucGNhLmRmbi5kZS91bmktcmVnZW5zYnVyZy1jYS9wdWIvY3JsL2NhY3JsLmNy
+bDBAoD6gPIY6aHR0cDovL2NkcDIucGNhLmRmbi5kZS91bmktcmVnZW5zYnVyZy1j
+YS9wdWIvY3JsL2NhY3JsLmNybDCBqAYIKwYBBQUHAQEEgZswgZgwSgYIKwYBBQUH
+MAKGPmh0dHA6Ly9jZHAxLnBjYS5kZm4uZGUvdW5pLXJlZ2Vuc2J1cmctY2EvcHVi
+L2NhY2VydC9jYWNlcnQuY3J0MEoGCCsGAQUFBzAChj5odHRwOi8vY2RwMi5wY2Eu
+ZGZuLmRlL3VuaS1yZWdlbnNidXJnLWNhL3B1Yi9jYWNlcnQvY2FjZXJ0LmNydDAN
+BgkqhkiG9w0BAQUFAAOCAQEAIGBPkosDWyhVvKtHzWP1W9i9/lg4v7+iRg/f+USs
+eBDEM5dyL80f6JBpYYBq0uguNmo7Z0hbg0UJIuWz4qReSASOXERlaN0MXtgYxXYa
+QCfZ9dSqommep5TDLY+tFX687R0aM3+D6livh8Zlk9tjvIK3peazeib7jWXkZuep
+3ZqgDNF14zSqrcGRg0wY/AEkpLf9k8+Aft3WAqjbf2QghzH1QLOwcBvFyJTKP1lf
+Eo29vwrtTxadJSyiGZd7qdYZPDi9NjCGU9ZAfN/60TZncWEoJmVZaq00as0wwSr3
+yRrHi0bPUSEYjGLZ5Muj2HV6lkYUuuhQxYEy8YCM01kN3A==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth-idp.uni-regensburg.de:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth-idp.uni-regensburg.de:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth-idp.uni-regensburg.de/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth-idp.uni-regensburg.de/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth-idp.uni-regensburg.de/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth-idp.uni-regensburg.de/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">uni-regensburg.de</saml1md:Scope>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">ur.de</saml1md:Scope>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">ukr.de</saml1md:Scope>
+      </Extensions>
+      <KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>shibboleth-idp.uni-regensburg.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=shibboleth-idp.uni-regensburg.de,OU=Rechenzentrum,O=Universitaet Regensburg,L=Regensburg,ST=Bayern,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIFvjCCBKagAwIBAgIHE7iKqh6JUDANBgkqhkiG9w0BAQUFADCBnTELMAkGA1UE
+BhMCREUxDzANBgNVBAgTBkJheWVybjETMBEGA1UEBxMKUmVnZW5zYnVyZzEgMB4G
+A1UEChMXVW5pdmVyc2l0YWV0IFJlZ2Vuc2J1cmcxIDAeBgNVBAMTF1VuaSBSZWdl
+bnNidXJnIENBIC0gRzAxMSQwIgYJKoZIhvcNAQkBFhVwa2lAdW5pLXJlZ2Vuc2J1
+cmcuZGUwHhcNMTIwNDI2MDg1MzQ2WhcNMTcwNDI1MDg1MzQ2WjCBmDELMAkGA1UE
+BhMCREUxDzANBgNVBAgTBkJheWVybjETMBEGA1UEBxMKUmVnZW5zYnVyZzEgMB4G
+A1UEChMXVW5pdmVyc2l0YWV0IFJlZ2Vuc2J1cmcxFjAUBgNVBAsTDVJlY2hlbnpl
+bnRydW0xKTAnBgNVBAMTIHNoaWJib2xldGgtaWRwLnVuaS1yZWdlbnNidXJnLmRl
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtb6jhoh17E9k//d3JMwg
+vcKYcaYVfQV5ly3yO9jffYX7wQY8MMPcyZNICWDZb+vrMUdjDaVo6cH7E2x0wACY
+wLza6Y7XVODjm5KMiWOIaZ2UL8n4EM7uaqYqhOCuv5kSZ1wkCGQ1F8ta24vZRaxr
+Y/rFslWZ36ckoVh2UD1H2PASmPQNxtk8515kmjpAJa0pRxh6dmLuyaFnENhb/hMA
+VVvhrA7/BVeunf7k+slyafn3bfomRwlTsC7AmGO1zn2C7+PFT3DKEN565ZJjbM59
+aBhlshOyZx1eZ1il7jc8JtfuoChI1ZumbCuXsCMWQyWZEuzQJreloTZqs7S9bHu9
+nwIDAQABo4ICBDCCAgAwHAYDVR0gBBUwEzARBg8rBgEEAYGtIYIsAQEEAgIwCQYD
+VR0TBAIwADALBgNVHQ8EBAMCBeAwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUF
+BwMBMB0GA1UdDgQWBBQm+KuXQAlIJpFpDmYOW9kmR01qYTAfBgNVHSMEGDAWgBQH
+1915iF9BccwW4dTH852yeLHdSDAsBgNVHREEJTAjgSFlZG11bmQud2ViZXJAcnou
+dW5pLXJlZ2Vuc2J1cmcuZGUwgY8GA1UdHwSBhzCBhDBAoD6gPIY6aHR0cDovL2Nk
+cDEucGNhLmRmbi5kZS91bmktcmVnZW5zYnVyZy1jYS9wdWIvY3JsL2NhY3JsLmNy
+bDBAoD6gPIY6aHR0cDovL2NkcDIucGNhLmRmbi5kZS91bmktcmVnZW5zYnVyZy1j
+YS9wdWIvY3JsL2NhY3JsLmNybDCBqAYIKwYBBQUHAQEEgZswgZgwSgYIKwYBBQUH
+MAKGPmh0dHA6Ly9jZHAxLnBjYS5kZm4uZGUvdW5pLXJlZ2Vuc2J1cmctY2EvcHVi
+L2NhY2VydC9jYWNlcnQuY3J0MEoGCCsGAQUFBzAChj5odHRwOi8vY2RwMi5wY2Eu
+ZGZuLmRlL3VuaS1yZWdlbnNidXJnLWNhL3B1Yi9jYWNlcnQvY2FjZXJ0LmNydDAN
+BgkqhkiG9w0BAQUFAAOCAQEAIGBPkosDWyhVvKtHzWP1W9i9/lg4v7+iRg/f+USs
+eBDEM5dyL80f6JBpYYBq0uguNmo7Z0hbg0UJIuWz4qReSASOXERlaN0MXtgYxXYa
+QCfZ9dSqommep5TDLY+tFX687R0aM3+D6livh8Zlk9tjvIK3peazeib7jWXkZuep
+3ZqgDNF14zSqrcGRg0wY/AEkpLf9k8+Aft3WAqjbf2QghzH1QLOwcBvFyJTKP1lf
+Eo29vwrtTxadJSyiGZd7qdYZPDi9NjCGU9ZAfN/60TZncWEoJmVZaq00as0wwSr3
+yRrHi0bPUSEYjGLZ5Muj2HV6lkYUuuhQxYEy8YCM01kN3A==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth-idp.uni-regensburg.de:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth-idp.uni-regensburg.de:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+    </AttributeAuthorityDescriptor>
+    <Organization>
+      <OrganizationName xml:lang="de">e311</OrganizationName>
+      <OrganizationName xml:lang="en">e311</OrganizationName>
+      <OrganizationDisplayName xml:lang="de">Universität Regensburg</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="en">University Regensburg</OrganizationDisplayName>
+      <OrganizationURL xml:lang="de">http://www.uni-regensburg.de</OrganizationURL>
+      <OrganizationURL xml:lang="en">http://www.uni-regensburg.de/index.html.en</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="administrative">
+      <GivenName>Martin</GivenName>
+      <SurName>Wimmer</SurName>
+      <EmailAddress>mailto:martin.wimmer@rz.uni-regensburg.de</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="technical">
+      <GivenName>Edmund</GivenName>
+      <SurName>Weber</SurName>
+      <EmailAddress>mailto:edmund.weber@rz.uni-regensburg.de</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="support">
+      <GivenName>Help</GivenName>
+      <SurName>Desk</SurName>
+      <EmailAddress>mailto:support@rz.uni-regensburg.de</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="technical">
+      <GivenName>Gerd</GivenName>
+      <SurName>Böhm</SurName>
+      <EmailAddress>mailto:gerd.boehm@rz.uni-regensburg.de</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

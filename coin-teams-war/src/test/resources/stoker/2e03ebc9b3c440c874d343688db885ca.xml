@@ -1,0 +1,146 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.hs-esslingen.de/idp/shibboleth">
+    <Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2009-12-04T16:29:14Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://aai.dfn.de/category/bwidm-member</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </Extensions>
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">hs-esslingen.de</saml1md:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="de">Hochschule Esslingen</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Esslingen University of Applied Sciences</mdui:DisplayName>
+          <mdui:Description xml:lang="de">Shibboleth IDP der Hochschule Esslingen innerhalb der DFN-AAI</mdui:Description>
+          <mdui:Description xml:lang="en">Shibboleth IDP der Hochschule Esslingen innerhalb der DFN-AAI</mdui:Description>
+          <mdui:Logo height="16" width="16">https://www2.hs-esslingen.de/favicon.ico</mdui:Logo>
+          <mdui:Logo height="89" width="210">https://www2.hs-esslingen.de/rz/images/he_logo_gross_dfn-aai-metadaten.png</mdui:Logo>
+          <mdui:InformationURL xml:lang="de">http://www.hs-esslingen.de/de/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">http://www.hs-esslingen.de/en/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>idp.hs-esslingen.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=idp.hs-esslingen.de,OU=Rechenzentrum,O=Hochschule Esslingen,L=Esslingen,ST=Baden-Wuerttemberg,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIF6zCCBNOgAwIBAgIHF2sVrs652TANBgkqhkiG9w0BAQUFADBaMQswCQYDVQQG
+EwJERTEdMBsGA1UEChMUSG9jaHNjaHVsZSBFc3NsaW5nZW4xFjAUBgNVBAsTDVJl
+Y2hlbnplbnRydW0xFDASBgNVBAMTC0hFIENBIC0gRzAyMB4XDTE0MDQxNDA4MTEx
+MVoXDTE3MDQxMzA4MTExMVowgZMxCzAJBgNVBAYTAkRFMRswGQYDVQQIExJCYWRl
+bi1XdWVydHRlbWJlcmcxEjAQBgNVBAcTCUVzc2xpbmdlbjEdMBsGA1UEChMUSG9j
+aHNjaHVsZSBFc3NsaW5nZW4xFjAUBgNVBAsTDVJlY2hlbnplbnRydW0xHDAaBgNV
+BAMTE2lkcC5ocy1lc3NsaW5nZW4uZGUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
+ggEKAoIBAQCspCw3S2FO3CMSrUY5r2SSxB+3lcvQmqQPc2b59fitJewh+aU+W9ja
+XJfHEn84Hp1iNovLtTE3EpKW4/zxSAhhIjUSTVMtHp69Y2EdcQ3u27vYHdCesX1F
+9/GAl7hEqzuYdJ6Bn4lbOamVH/DbfjpOS1RwpQts4eSrSGHtY09ZDr0/4P0C81SO
+uKgb7YFhMNmbgmHKGGghVxZauqpXmkoRBkT5SPRovqqqw3C7/GR5vg+XX5j1SgYi
+1nNBRldUlHHw7SlnPRuVtNs6WDODtbnkhK0rbshWtPNao6mUeC1YORUTiaox/sLK
+B3tiZMny8ncZHRZVzLfreKAmJuIcI/vtAgMBAAGjggJ6MIICdjA5BgNVHSAEMjAw
+MBEGDysGAQQBga0hgiwBAQQDATARBg8rBgEEAYGtIYIsAgEEAwEwCAYGZ4EMAQIC
+MAkGA1UdEwQCMAAwCwYDVR0PBAQDAgXgMDQGA1UdJQQtMCsGCCsGAQUFBwMCBggr
+BgEFBQcDAQYKKwYBBAGCNwoDAwYJYIZIAYb4QgQBMB0GA1UdDgQWBBRfL4QHSy7M
+Ra5aBHX6NwdXgqe6yjAfBgNVHSMEGDAWgBTjWxe81iwyZTJA3U0XwDfeOk1fXDA5
+BgNVHREEMjAwghNpZHAuaHMtZXNzbGluZ2VuLmRlgRlhYWktYWRtaW5AaHMtZXNz
+bGluZ2VuLmRlMIGPBgNVHR8EgYcwgYQwQKA+oDyGOmh0dHA6Ly9jZHAxLnBjYS5k
+Zm4uZGUvaHMtZXNzbGluZ2VuLWNhL3B1Yi9jcmwvZ19jYWNybC5jcmwwQKA+oDyG
+Omh0dHA6Ly9jZHAyLnBjYS5kZm4uZGUvaHMtZXNzbGluZ2VuLWNhL3B1Yi9jcmwv
+Z19jYWNybC5jcmwwgd0GCCsGAQUFBwEBBIHQMIHNMDMGCCsGAQUFBzABhidodHRw
+Oi8vb2NzcC5wY2EuZGZuLmRlL09DU1AtU2VydmVyL09DU1AwSgYIKwYBBQUHMAKG
+Pmh0dHA6Ly9jZHAxLnBjYS5kZm4uZGUvaHMtZXNzbGluZ2VuLWNhL3B1Yi9jYWNl
+cnQvZ19jYWNlcnQuY3J0MEoGCCsGAQUFBzAChj5odHRwOi8vY2RwMi5wY2EuZGZu
+LmRlL2hzLWVzc2xpbmdlbi1jYS9wdWIvY2FjZXJ0L2dfY2FjZXJ0LmNydDANBgkq
+hkiG9w0BAQUFAAOCAQEAkVT99Xouvdq+/4srTHpg7sICCCYio5kqAp/kZLwCSvq6
+0gn20Kx4NCWPlvFF5+EDFkvtsagvzaumW9KSeSoG9W1B47BQDwb2cWUWoWjlJ/3j
+VZvIJ8oVKW8UWs4o83fUa4jur1HncMTQTKk66FFU7i6TTTY54XLja1GhPnTy+Qf8
+Me/Op4MuO9z7u18gz/+N92UYDDj+oQ/qxqE59U8JvrmD1DfgGj6eD+aKSrNRdyDH
+NWIt36FgWB/n/nt0VSCHEC5PaGAJLzlzMg/IayNHTTAUh1DL/Arr6rP0UXNN93AU
+Z3vEPDMlRrML5nkyZvylGJJgGIr9TUNxX2xHhi+kIg==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.hs-esslingen.de:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.hs-esslingen.de:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.hs-esslingen.de/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.hs-esslingen.de/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.hs-esslingen.de/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.hs-esslingen.de/idp/profile/SAML2/Redirect/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.hs-esslingen.de/idp/profile/SAML2/SOAP/ECP"/>
+    </IDPSSODescriptor>
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">hs-esslingen.de</saml1md:Scope>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>idp.hs-esslingen.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=idp.hs-esslingen.de,OU=Rechenzentrum,O=Hochschule Esslingen,L=Esslingen,ST=Baden-Wuerttemberg,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIF6zCCBNOgAwIBAgIHF2sVrs652TANBgkqhkiG9w0BAQUFADBaMQswCQYDVQQG
+EwJERTEdMBsGA1UEChMUSG9jaHNjaHVsZSBFc3NsaW5nZW4xFjAUBgNVBAsTDVJl
+Y2hlbnplbnRydW0xFDASBgNVBAMTC0hFIENBIC0gRzAyMB4XDTE0MDQxNDA4MTEx
+MVoXDTE3MDQxMzA4MTExMVowgZMxCzAJBgNVBAYTAkRFMRswGQYDVQQIExJCYWRl
+bi1XdWVydHRlbWJlcmcxEjAQBgNVBAcTCUVzc2xpbmdlbjEdMBsGA1UEChMUSG9j
+aHNjaHVsZSBFc3NsaW5nZW4xFjAUBgNVBAsTDVJlY2hlbnplbnRydW0xHDAaBgNV
+BAMTE2lkcC5ocy1lc3NsaW5nZW4uZGUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
+ggEKAoIBAQCspCw3S2FO3CMSrUY5r2SSxB+3lcvQmqQPc2b59fitJewh+aU+W9ja
+XJfHEn84Hp1iNovLtTE3EpKW4/zxSAhhIjUSTVMtHp69Y2EdcQ3u27vYHdCesX1F
+9/GAl7hEqzuYdJ6Bn4lbOamVH/DbfjpOS1RwpQts4eSrSGHtY09ZDr0/4P0C81SO
+uKgb7YFhMNmbgmHKGGghVxZauqpXmkoRBkT5SPRovqqqw3C7/GR5vg+XX5j1SgYi
+1nNBRldUlHHw7SlnPRuVtNs6WDODtbnkhK0rbshWtPNao6mUeC1YORUTiaox/sLK
+B3tiZMny8ncZHRZVzLfreKAmJuIcI/vtAgMBAAGjggJ6MIICdjA5BgNVHSAEMjAw
+MBEGDysGAQQBga0hgiwBAQQDATARBg8rBgEEAYGtIYIsAgEEAwEwCAYGZ4EMAQIC
+MAkGA1UdEwQCMAAwCwYDVR0PBAQDAgXgMDQGA1UdJQQtMCsGCCsGAQUFBwMCBggr
+BgEFBQcDAQYKKwYBBAGCNwoDAwYJYIZIAYb4QgQBMB0GA1UdDgQWBBRfL4QHSy7M
+Ra5aBHX6NwdXgqe6yjAfBgNVHSMEGDAWgBTjWxe81iwyZTJA3U0XwDfeOk1fXDA5
+BgNVHREEMjAwghNpZHAuaHMtZXNzbGluZ2VuLmRlgRlhYWktYWRtaW5AaHMtZXNz
+bGluZ2VuLmRlMIGPBgNVHR8EgYcwgYQwQKA+oDyGOmh0dHA6Ly9jZHAxLnBjYS5k
+Zm4uZGUvaHMtZXNzbGluZ2VuLWNhL3B1Yi9jcmwvZ19jYWNybC5jcmwwQKA+oDyG
+Omh0dHA6Ly9jZHAyLnBjYS5kZm4uZGUvaHMtZXNzbGluZ2VuLWNhL3B1Yi9jcmwv
+Z19jYWNybC5jcmwwgd0GCCsGAQUFBwEBBIHQMIHNMDMGCCsGAQUFBzABhidodHRw
+Oi8vb2NzcC5wY2EuZGZuLmRlL09DU1AtU2VydmVyL09DU1AwSgYIKwYBBQUHMAKG
+Pmh0dHA6Ly9jZHAxLnBjYS5kZm4uZGUvaHMtZXNzbGluZ2VuLWNhL3B1Yi9jYWNl
+cnQvZ19jYWNlcnQuY3J0MEoGCCsGAQUFBzAChj5odHRwOi8vY2RwMi5wY2EuZGZu
+LmRlL2hzLWVzc2xpbmdlbi1jYS9wdWIvY2FjZXJ0L2dfY2FjZXJ0LmNydDANBgkq
+hkiG9w0BAQUFAAOCAQEAkVT99Xouvdq+/4srTHpg7sICCCYio5kqAp/kZLwCSvq6
+0gn20Kx4NCWPlvFF5+EDFkvtsagvzaumW9KSeSoG9W1B47BQDwb2cWUWoWjlJ/3j
+VZvIJ8oVKW8UWs4o83fUa4jur1HncMTQTKk66FFU7i6TTTY54XLja1GhPnTy+Qf8
+Me/Op4MuO9z7u18gz/+N92UYDDj+oQ/qxqE59U8JvrmD1DfgGj6eD+aKSrNRdyDH
+NWIt36FgWB/n/nt0VSCHEC5PaGAJLzlzMg/IayNHTTAUh1DL/Arr6rP0UXNN93AU
+Z3vEPDMlRrML5nkyZvylGJJgGIr9TUNxX2xHhi+kIg==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.hs-esslingen.de:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.hs-esslingen.de:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+    </AttributeAuthorityDescriptor>
+    <Organization>
+      <OrganizationName xml:lang="de">e192</OrganizationName>
+      <OrganizationName xml:lang="en">e192</OrganizationName>
+      <OrganizationDisplayName xml:lang="de">Hochschule Esslingen</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="en">Hochschule Esslingen - University of Applied Sciences</OrganizationDisplayName>
+      <OrganizationURL xml:lang="de">http://www.hs-esslingen.de/</OrganizationURL>
+      <OrganizationURL xml:lang="en">http://www.hs-esslingen.de/en/</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Martin</GivenName>
+      <SurName>Schmid</SurName>
+      <EmailAddress>mailto:admin@hs-esslingen.de</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="support">
+      <GivenName>HE AAI</GivenName>
+      <SurName>Support</SurName>
+      <EmailAddress>mailto:aai-support@hs-esslingen.de</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

@@ -1,0 +1,131 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://shib.ufg.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">ufg.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">UFG - Universidade Federal de Goias</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">UFG - Universidade Federal de Goias</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UFG - Universidade Federal de Goias</mdui:Description>
+          <mdui:Description xml:lang="pt-br">UFG - Universidade Federal de Goias</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ufg.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ufg.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIEEjCCAvoCAQAwDQYJKoZIhvcNAQEFBQAwgc4xLDAqBgNVBAoTI1VGRyAtIFVu
+aXZlcnNpZGFkZSBGZWRlcmFsIGRlIEdvaWFzMTQwMgYDVQQLEytDRVJDT01QIC0g
+Q2VudHJvIGRlIFJlY3Vyc29zIENvbXB1dGFjaW9uYWlzMSMwIQYJKoZIhvcNAQkB
+FhRyZWRlcy5jZXJjb21wQHVmZy5icjEQMA4GA1UEBxMHR29pYW5pYTEOMAwGA1UE
+CBMFR29pYXMxCzAJBgNVBAYTAkJSMRQwEgYDVQQDEwtzaGliLnVmZy5icjAeFw0x
+NDA3MjIxNTU1NTRaFw0xOTA3MjExNTU1NTRaMIHOMSwwKgYDVQQKEyNVRkcgLSBV
+bml2ZXJzaWRhZGUgRmVkZXJhbCBkZSBHb2lhczE0MDIGA1UECxMrQ0VSQ09NUCAt
+IENlbnRybyBkZSBSZWN1cnNvcyBDb21wdXRhY2lvbmFpczEjMCEGCSqGSIb3DQEJ
+ARYUcmVkZXMuY2VyY29tcEB1ZmcuYnIxEDAOBgNVBAcTB0dvaWFuaWExDjAMBgNV
+BAgTBUdvaWFzMQswCQYDVQQGEwJCUjEUMBIGA1UEAxMLc2hpYi51ZmcuYnIwggEi
+MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDjd7v1zv9XiZujENayVRf+lRcF
+HvUq3KtLFWnys3UhsAlQPiXl3rCdCV3qgC3mLFKoQtCIvxW0ubaX7E+7U1FGdLZH
+ZBgkCXdvJ32wMtF/DEhiD/AwT6JMjSWLcE9eGK35NBaB6kC91Pn9oID8OjggQmFA
+ot2NQ7KRlSNJg3nY3RQYCFZghgsLec9+0h/YHaRuKgDKcFnreAQ9UQ4M4Q1jPKit
+Fkn/IJa2okSwXIu6gwV/2Y2I92ar3LgbNfpXCPW/gGqflkPEA+4AXwRb7ZbOdqsD
+g/PLMzi3jS4VHIOVUHx4fg7PZF+CEJpNG65i5pQB2d9VI2he2e3gUtnYxZeBAgMB
+AAEwDQYJKoZIhvcNAQEFBQADggEBAIGSDjTFfq0AONjf4OEJxiG1pZ5um0QwIzUD
+hC+CCdoxsZcUc47cT+VxHi5vrJ1TBJF8mwk1zTp0CKfNxPt+etJMhNwnXhjR7qF/
+A7JtQE9MuoHiWpjIWiwck00x6pAqJCkEcYRrz5UorN6YjBd/3SEkKU0qv1haRVPV
+EqoljRD7IOrbW5m12y+UCojor5ttyl5aYIk3DYXLlqiddtxHwyAyP4VKxOS5373c
+CmAJ4XbSf9+t9lVDXZtJ7GST/AoVT4775ELCkfN/EjEXzqg8uxWgl89feJQyz1u6
+4mvZ4bNMmCEq59Krwicex9EzFraCH4W99LvdMvKBp88MseBihz8=
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib.ufg.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib.ufg.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib.ufg.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib.ufg.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shib.ufg.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib.ufg.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">ufg.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIEEjCCAvoCAQAwDQYJKoZIhvcNAQEFBQAwgc4xLDAqBgNVBAoTI1VGRyAtIFVu
+aXZlcnNpZGFkZSBGZWRlcmFsIGRlIEdvaWFzMTQwMgYDVQQLEytDRVJDT01QIC0g
+Q2VudHJvIGRlIFJlY3Vyc29zIENvbXB1dGFjaW9uYWlzMSMwIQYJKoZIhvcNAQkB
+FhRyZWRlcy5jZXJjb21wQHVmZy5icjEQMA4GA1UEBxMHR29pYW5pYTEOMAwGA1UE
+CBMFR29pYXMxCzAJBgNVBAYTAkJSMRQwEgYDVQQDEwtzaGliLnVmZy5icjAeFw0x
+NDA3MjIxNTU1NTRaFw0xOTA3MjExNTU1NTRaMIHOMSwwKgYDVQQKEyNVRkcgLSBV
+bml2ZXJzaWRhZGUgRmVkZXJhbCBkZSBHb2lhczE0MDIGA1UECxMrQ0VSQ09NUCAt
+IENlbnRybyBkZSBSZWN1cnNvcyBDb21wdXRhY2lvbmFpczEjMCEGCSqGSIb3DQEJ
+ARYUcmVkZXMuY2VyY29tcEB1ZmcuYnIxEDAOBgNVBAcTB0dvaWFuaWExDjAMBgNV
+BAgTBUdvaWFzMQswCQYDVQQGEwJCUjEUMBIGA1UEAxMLc2hpYi51ZmcuYnIwggEi
+MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDjd7v1zv9XiZujENayVRf+lRcF
+HvUq3KtLFWnys3UhsAlQPiXl3rCdCV3qgC3mLFKoQtCIvxW0ubaX7E+7U1FGdLZH
+ZBgkCXdvJ32wMtF/DEhiD/AwT6JMjSWLcE9eGK35NBaB6kC91Pn9oID8OjggQmFA
+ot2NQ7KRlSNJg3nY3RQYCFZghgsLec9+0h/YHaRuKgDKcFnreAQ9UQ4M4Q1jPKit
+Fkn/IJa2okSwXIu6gwV/2Y2I92ar3LgbNfpXCPW/gGqflkPEA+4AXwRb7ZbOdqsD
+g/PLMzi3jS4VHIOVUHx4fg7PZF+CEJpNG65i5pQB2d9VI2he2e3gUtnYxZeBAgMB
+AAEwDQYJKoZIhvcNAQEFBQADggEBAIGSDjTFfq0AONjf4OEJxiG1pZ5um0QwIzUD
+hC+CCdoxsZcUc47cT+VxHi5vrJ1TBJF8mwk1zTp0CKfNxPt+etJMhNwnXhjR7qF/
+A7JtQE9MuoHiWpjIWiwck00x6pAqJCkEcYRrz5UorN6YjBd/3SEkKU0qv1haRVPV
+EqoljRD7IOrbW5m12y+UCojor5ttyl5aYIk3DYXLlqiddtxHwyAyP4VKxOS5373c
+CmAJ4XbSf9+t9lVDXZtJ7GST/AoVT4775ELCkfN/EjEXzqg8uxWgl89feJQyz1u6
+4mvZ4bNMmCEq59Krwicex9EzFraCH4W99LvdMvKBp88MseBihz8=
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib.ufg.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib.ufg.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">UFG - Universidade Federal de Goias</OrganizationName>
+      <OrganizationName xml:lang="pt-br">UFG - Universidade Federal de Goias</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">UFG - Universidade Federal de Goias</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">UFG - Universidade Federal de Goias</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.ufg.br/</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.ufg.br/</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Douglas Borges de Oliveira Filho</SurName>
+      <EmailAddress>douglasfilho@cercomp.ufg.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

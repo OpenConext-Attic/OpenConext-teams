@@ -1,0 +1,91 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.amue.fr/idp/saml2/metadata">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2013-11-26T11:26:33Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">amue.fr</shibmd:Scope>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">cpu.fr</shibmd:Scope>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">iuf.cpu.fr</shibmd:Scope>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">espe.amue.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">AMUE - Agence de Mutualisation des Universités et Etablissements</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDgTCCAmmgAwIBAgIJANYhmQZ/PLaYMA0GCSqGSIb3DQEBBQUAMFcxCzAJBgNV
+BAYTAkZSMRMwEQYDVQQIDApTb21lLVN0YXRlMQ4wDAYDVQQHDAVQYXJpczENMAsG
+A1UECgwEQU1VRTEUMBIGA1UEAwwLaWRwLmFtdWUuZnIwHhcNMTMxMTI1MDk0NzM3
+WhcNMTMxMjI1MDk0NzM3WjBXMQswCQYDVQQGEwJGUjETMBEGA1UECAwKU29tZS1T
+dGF0ZTEOMAwGA1UEBwwFUGFyaXMxDTALBgNVBAoMBEFNVUUxFDASBgNVBAMMC2lk
+cC5hbXVlLmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA241uUmwE
+4O95iIpPgHVBmvQsXgqUx6Jz1tKGQn4T2TQntn//Y2P8qRykhQ2YV+qLbJNrYWC9
+UYMlE+/aP4muMF4ChLV7ij3c6gCkxCAigOoHiQZFwLNPDzjiNs/eAxE/RDB9BUcf
+HL+953Q3lL/EEsWkTggPxaqWatyXbtPRaGl4WypVsztziF9D/Kdo5VVP9dElasBO
+aBXRy5HZLVHmGpCaaiOydcMyLf2CO0hA6pxDl3aYvyh1BLF5vcbMTg4tpu7Ks33c
+0H8Gdv8i8FYXZzHrHTghsfHp42obl0f7E7hUuHxRdwOgq7szbMeXIh5HPWm1Yz2S
+XPBwe5LjhuZw3wIDAQABo1AwTjAdBgNVHQ4EFgQUtFPL4vJjppV2NlZrKkczRW4j
+1l8wHwYDVR0jBBgwFoAUtFPL4vJjppV2NlZrKkczRW4j1l8wDAYDVR0TBAUwAwEB
+/zANBgkqhkiG9w0BAQUFAAOCAQEAtHnVQXFET0Lq3wjCqbbJFe7wMf2L2y+R2soV
+hFmVuJPW6e2We5MFw3uzw0LWgjFX4+cddimjw1tTDbQO1GRWV1XQiSUpd4iFcqSL
+UncJxo6pOMwQMU/pptjSEKvzGMfkCuPbs8P7KA3KveDJj7r0h/SAJL3Lq42u1dWE
+HReuVPebHm8bm731uo491q1LdjCfUAaz14UMGYJL2UfigFa0fp3ONfkoZR2aob1w
+zYcZ/I9oT7x7mBJe4Fb1lUMrI9+0A4XBORW0i374j1hzvMprE3UW777QDK+TorKh
+JwghMs3y4HmiEKEylVhTWipavdzRw41b9jbFKmgB7MqdBiCfhQ==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.amue.fr/idp/saml2/sso"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.amue.fr/idp/saml2/sso"/>
+	        
+	        
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">AMUE - Agence de Mutualisation des Universités et Etablissements</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">AMUE - Agence de Mutualisation des Universités et Etablissements</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Philippe Bader</SurName>
+				 <EmailAddress>philippe.bader@amue.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Didier Denjean</SurName>
+				 <EmailAddress>Didier.denjean@amue.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

@@ -1,0 +1,129 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth.mines-ales.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-06-16T12:03:53Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">mines-ales.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Ecole des Mines d'Ales</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDTDCCAjSgAwIBAgIVAIqjvHm0aoiaxBOCA0hQPBF/i3NHMA0GCSqGSIb3DQEB
+BQUAMCMxITAfBgNVBAMTGHNoaWJib2xldGgubWluZXMtYWxlcy5mcjAeFw0xMDAy
+MDUxNTM3MzNaFw0zMDAyMDUxNTM3MzNaMCMxITAfBgNVBAMTGHNoaWJib2xldGgu
+bWluZXMtYWxlcy5mcjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAItD
+aS5KDMxNFvZLeYTCJMufD5l6n30RVg7kPxP6QDJsXvCyKW8kaAojwgr0BUNhIuWW
+9KYTab705HN9IUTNHQGngYmcLtOvMvX5eGO9tYKXqBA+vjSyCet5HRSd8bimtjwJ
+mHfOheQXeHtHtF4gcM5rKlToUdny4UKc3V5EaglZPOsgA9bIdLX/XGuXORoU7C8d
+jQpyo3Y6knBQsxHfZEZFiIUQTBfenc/Hqt5+ialLA4OqjR/yZATpVXZubVf1f2Vj
+XEo4685sWxRC2IsZ0IIjCtEWvf+9P4jEgiBW/M9FFwhXLkofqbossasVs+INU04m
+UGfb7SH1222oPbeawBECAwEAAaN3MHUwVAYDVR0RBE0wS4IYc2hpYmJvbGV0aC5t
+aW5lcy1hbGVzLmZyhi9odHRwczovL3NoaWJib2xldGgubWluZXMtYWxlcy5mci9p
+ZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUTlAtOzPum6kvlDfiRmAWJAeNWVswDQYJ
+KoZIhvcNAQEFBQADggEBAD4IpGmClwDAJUSTNQeYZoRCk5dliPTxshVu/X1QLfLg
+oonrMZBGnnbJPqATRQDQyGnDjL7v437cDtzOtpCMYIOLiGIFtBdS/dupqNNvKMJg
+wX5vqXzxlSZNkwHveUeipfZvvRDYNEwwGsGaMWFiYYxQlncMl9ebxvvF+dNyYzue
+HTU084KFhXJ+hhq+HTvPIxAm6xS0SJI9lM5E2OaSh+Twy0+ItMFcF5dHl9BpfiZI
+E3TaYCTUy81TNeHR1G8FxfdCea+Dz1w5jT+mX9l3ZsIZ36HXX6avx+go0MlzEa8d
+BArDDouye8IrssgKRMfPT0sQ0b+Nw56O2B4u/+48w4A=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.mines-ales.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.mines-ales.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.mines-ales.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">mines-ales.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDTDCCAjSgAwIBAgIVAIqjvHm0aoiaxBOCA0hQPBF/i3NHMA0GCSqGSIb3DQEB
+BQUAMCMxITAfBgNVBAMTGHNoaWJib2xldGgubWluZXMtYWxlcy5mcjAeFw0xMDAy
+MDUxNTM3MzNaFw0zMDAyMDUxNTM3MzNaMCMxITAfBgNVBAMTGHNoaWJib2xldGgu
+bWluZXMtYWxlcy5mcjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAItD
+aS5KDMxNFvZLeYTCJMufD5l6n30RVg7kPxP6QDJsXvCyKW8kaAojwgr0BUNhIuWW
+9KYTab705HN9IUTNHQGngYmcLtOvMvX5eGO9tYKXqBA+vjSyCet5HRSd8bimtjwJ
+mHfOheQXeHtHtF4gcM5rKlToUdny4UKc3V5EaglZPOsgA9bIdLX/XGuXORoU7C8d
+jQpyo3Y6knBQsxHfZEZFiIUQTBfenc/Hqt5+ialLA4OqjR/yZATpVXZubVf1f2Vj
+XEo4685sWxRC2IsZ0IIjCtEWvf+9P4jEgiBW/M9FFwhXLkofqbossasVs+INU04m
+UGfb7SH1222oPbeawBECAwEAAaN3MHUwVAYDVR0RBE0wS4IYc2hpYmJvbGV0aC5t
+aW5lcy1hbGVzLmZyhi9odHRwczovL3NoaWJib2xldGgubWluZXMtYWxlcy5mci9p
+ZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUTlAtOzPum6kvlDfiRmAWJAeNWVswDQYJ
+KoZIhvcNAQEFBQADggEBAD4IpGmClwDAJUSTNQeYZoRCk5dliPTxshVu/X1QLfLg
+oonrMZBGnnbJPqATRQDQyGnDjL7v437cDtzOtpCMYIOLiGIFtBdS/dupqNNvKMJg
+wX5vqXzxlSZNkwHveUeipfZvvRDYNEwwGsGaMWFiYYxQlncMl9ebxvvF+dNyYzue
+HTU084KFhXJ+hhq+HTvPIxAm6xS0SJI9lM5E2OaSh+Twy0+ItMFcF5dHl9BpfiZI
+E3TaYCTUy81TNeHR1G8FxfdCea+Dz1w5jT+mX9l3ZsIZ36HXX6avx+go0MlzEa8d
+BArDDouye8IrssgKRMfPT0sQ0b+Nw56O2B4u/+48w4A=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.mines-ales.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Ecole des Mines d'Ales</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Ecole des Mines d'Ales</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>cisana</SurName>
+				 <EmailAddress>pascal.cisana@mines-ales.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>pellissier</SurName>
+				 <EmailAddress>laurent.pellissier@mines-ales.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

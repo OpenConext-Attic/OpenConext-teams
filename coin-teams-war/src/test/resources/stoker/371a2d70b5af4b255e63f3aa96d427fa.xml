@@ -1,0 +1,89 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth.ensi-bourges.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-08-23T14:24:45Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ensi-bourges.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Ecole Nationale Supérieure d'Ingénieurs de Bourges</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDVDCCAjygAwIBAgIVAN6gM4+w8Gx9no3WaW+bpt8Vs/EOMA0GCSqGSIb3DQEB
+BQUAMCUxIzAhBgNVBAMTGnNoaWJib2xldGguZW5zaS1ib3VyZ2VzLmZyMB4XDTEy
+MDQyMDEzMzk0N1oXDTMyMDQyMDEzMzk0N1owJTEjMCEGA1UEAxMac2hpYmJvbGV0
+aC5lbnNpLWJvdXJnZXMuZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+AQCcEpHcghvI1KrNU3oU02iIBGA4qV6Etno9hG4LfTZL+J+8LUY9xbnK2ZBpfUsk
+GN/ioX6FEBSIU+cXNvbxZT45Y4gs492nzjmNpTDKNeU3+HRhnQkGM4b0JXY5G1v2
+nQavrSD1ECIM0BpSveHi1ihDn6iWw8CVdutoKJ4EktVbCr/BNZpYc2k3EJtsKKXm
+ewaAkLxr4IKzeDpY7XWnO7jvmzOYeG4JQ/8japsEG8Nczb+x8kiSyiyYyNVGpxbh
+zsgiB22z/DKOdyKS5qRRL4UeFCtWv21It2d6/yFolks7Q4szZL8L2M5QidVQyK7i
+kUjUNXpeG4ym2em847qId4OvAgMBAAGjezB5MFgGA1UdEQRRME+CGnNoaWJib2xl
+dGguZW5zaS1ib3VyZ2VzLmZyhjFodHRwczovL3NoaWJib2xldGguZW5zaS1ib3Vy
+Z2VzLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBSAz0Hnruvk56ktSDWEWNPX
+cun+TTANBgkqhkiG9w0BAQUFAAOCAQEAR0Cv5H8SVMZC9TwCd+HoaKsrFbTWylbp
+aqg3E1ZS0/lN+DhoMWtjsV11e4/FUjKWjKejbXMEfGYPJBsssEx8YS7RH3cP/7zD
+8j7MuadL92A6IjA/PSI88Ee+yozMFyDUyEZwhcAvzsDiJgqoZ/Jqyx1n/Ahq4zFo
+xFPbgi4ddFYuZxVpoGMVPYqWfmqX3PXTKVvkqyLns9Fs/wfXI7NBuxxnFPFZS1Y4
+3TPgmBFpVZdI9KCcB4/vz7mqHhA/iT8H51eU2uHV9SfnDjeLW3nB/XfxiBjP5Loe
+2RYyHguWnRCRk0/thc1XVaS0X/CFun8xq053SrDgxgZNINKS+En2yg==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.ensi-bourges.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.ensi-bourges.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.ensi-bourges.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Ecole Nationale Supérieure d'Ingénieurs de Bourges</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Ecole Nationale Supérieure d'Ingénieurs de Bourges</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Frédéric AURAMBOUT</SurName>
+				 <EmailAddress>frederic.aurambout@ensi-bourges.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Sylvain LESAGE</SurName>
+				 <EmailAddress>sylvain.lesage@ensi-bourges.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

@@ -1,0 +1,130 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://sau09ret.ifbaiano.edu.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">IFBaiano - Instituto Federal Baiano</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">IFBaiano - Instituto Federal Baiano</mdui:DisplayName>
+          <mdui:Description xml:lang="en">IFBaiano - Instituto Federal Baiano</mdui:Description>
+          <mdui:Description xml:lang="pt-br">IFBaiano - Instituto Federal Baiano</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ifbaiano.edu.br</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ifbaiano.edu.br</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIID4jCCAsoCAQAwDQYJKoZIhvcNAQEFBQAwgbYxLDAqBgNVBAoTI0lGQmFpYW5v
+IC0gSW5zdGl0dXRvIEZlZGVyYWwgQmFpYW5vMQ0wCwYDVQQLEwRER1RJMSQwIgYJ
+KoZIhvcNAQkBFhVjb3RlY0BpZmJhaWFuby5lZHUuYnIxETAPBgNVBAcTCFNhbHZh
+ZG9yMQ4wDAYDVQQIEwVCYWhpYTELMAkGA1UEBhMCQlIxITAfBgNVBAMTGHNhdTA5
+cmV0LmlmYmFpYW5vLmVkdS5icjAeFw0xNDA0MTQyMjU4MThaFw0xNzA0MTMyMjU4
+MThaMIG2MSwwKgYDVQQKEyNJRkJhaWFubyAtIEluc3RpdHV0byBGZWRlcmFsIEJh
+aWFubzENMAsGA1UECxMEREdUSTEkMCIGCSqGSIb3DQEJARYVY290ZWNAaWZiYWlh
+bm8uZWR1LmJyMREwDwYDVQQHEwhTYWx2YWRvcjEOMAwGA1UECBMFQmFoaWExCzAJ
+BgNVBAYTAkJSMSEwHwYDVQQDExhzYXUwOXJldC5pZmJhaWFuby5lZHUuYnIwggEi
+MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQD5ijX0kBu2O+XuV9a01EvCeTof
+uSU2K6jzaX5id9jZB0XcsYFo548SFE5qtzIwuWtN5VmdIKdCCycuvY84ON+WbX+D
+reNAq04e+OfS1tf9KSLwfSvIl1+D4IJvx8ul7U8SPEmd3oxLxdwM6XA1Yz1G2ejh
+WxAZtJB4uAX8y+tXwIjMIFldf2oY0sGTnC7c8CtOu/XmDTo1F8rKm+kbqvehueQO
+LodkLDH/ZwFgoEt+eCEDo2lA9B5saYJk7/8i/zW4M/sHgVLew3+mLHlhzeIjpqLj
+yNsYFFnPECAufWsr8c8e0Dc5WmKEQEXXHnIve3Z/JeNqAyMxP0yCYj/IWpzxAgMB
+AAEwDQYJKoZIhvcNAQEFBQADggEBAIkge9KkVX+lKhFX4QRd6CvNcpXOhVy2W2nt
+A3lLpsleXQD7OOSMGQFT3t0+oddMeOffBZDe5wpZx9jONf+rnnt8nYMBkollvrds
+FY0/KoGApJQfHXBPr+RO1K4eWCllKRSyjuEMCqXM2+jLEVdGa2j3cLVI3tJ69jga
+0hrCLIV6907qSEx/YjUHPazugxLpgiJMl83TdxmbU1K9/XwC27A0xsx6DZEXS1Cu
+KvM7Bvwx6NC1trrrHXoIC8WaSeKyhFAIJ9+q5R0er2tgB1Ylp4iWYJWITk6o2ISg
+zkWv3/eC022LBCTsChUgn2q+prZSfMLrYHDJyYbyhsHewnxgzwk=
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sau09ret.ifbaiano.edu.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://sau09ret.ifbaiano.edu.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sau09ret.ifbaiano.edu.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sau09ret.ifbaiano.edu.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://sau09ret.ifbaiano.edu.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sau09ret.ifbaiano.edu.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIID4jCCAsoCAQAwDQYJKoZIhvcNAQEFBQAwgbYxLDAqBgNVBAoTI0lGQmFpYW5v
+IC0gSW5zdGl0dXRvIEZlZGVyYWwgQmFpYW5vMQ0wCwYDVQQLEwRER1RJMSQwIgYJ
+KoZIhvcNAQkBFhVjb3RlY0BpZmJhaWFuby5lZHUuYnIxETAPBgNVBAcTCFNhbHZh
+ZG9yMQ4wDAYDVQQIEwVCYWhpYTELMAkGA1UEBhMCQlIxITAfBgNVBAMTGHNhdTA5
+cmV0LmlmYmFpYW5vLmVkdS5icjAeFw0xNDA0MTQyMjU4MThaFw0xNzA0MTMyMjU4
+MThaMIG2MSwwKgYDVQQKEyNJRkJhaWFubyAtIEluc3RpdHV0byBGZWRlcmFsIEJh
+aWFubzENMAsGA1UECxMEREdUSTEkMCIGCSqGSIb3DQEJARYVY290ZWNAaWZiYWlh
+bm8uZWR1LmJyMREwDwYDVQQHEwhTYWx2YWRvcjEOMAwGA1UECBMFQmFoaWExCzAJ
+BgNVBAYTAkJSMSEwHwYDVQQDExhzYXUwOXJldC5pZmJhaWFuby5lZHUuYnIwggEi
+MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQD5ijX0kBu2O+XuV9a01EvCeTof
+uSU2K6jzaX5id9jZB0XcsYFo548SFE5qtzIwuWtN5VmdIKdCCycuvY84ON+WbX+D
+reNAq04e+OfS1tf9KSLwfSvIl1+D4IJvx8ul7U8SPEmd3oxLxdwM6XA1Yz1G2ejh
+WxAZtJB4uAX8y+tXwIjMIFldf2oY0sGTnC7c8CtOu/XmDTo1F8rKm+kbqvehueQO
+LodkLDH/ZwFgoEt+eCEDo2lA9B5saYJk7/8i/zW4M/sHgVLew3+mLHlhzeIjpqLj
+yNsYFFnPECAufWsr8c8e0Dc5WmKEQEXXHnIve3Z/JeNqAyMxP0yCYj/IWpzxAgMB
+AAEwDQYJKoZIhvcNAQEFBQADggEBAIkge9KkVX+lKhFX4QRd6CvNcpXOhVy2W2nt
+A3lLpsleXQD7OOSMGQFT3t0+oddMeOffBZDe5wpZx9jONf+rnnt8nYMBkollvrds
+FY0/KoGApJQfHXBPr+RO1K4eWCllKRSyjuEMCqXM2+jLEVdGa2j3cLVI3tJ69jga
+0hrCLIV6907qSEx/YjUHPazugxLpgiJMl83TdxmbU1K9/XwC27A0xsx6DZEXS1Cu
+KvM7Bvwx6NC1trrrHXoIC8WaSeKyhFAIJ9+q5R0er2tgB1Ylp4iWYJWITk6o2ISg
+zkWv3/eC022LBCTsChUgn2q+prZSfMLrYHDJyYbyhsHewnxgzwk=
+
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sau09ret.ifbaiano.edu.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://sau09ret.ifbaiano.edu.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">IFBaiano - Instituto Federal Baiano</OrganizationName>
+      <OrganizationName xml:lang="pt-br">IFBaiano - Instituto Federal Baiano</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">IFBaiano - Instituto Federal Baiano</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">IFBaiano - Instituto Federal Baiano</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.ifbaiano.edu.br</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.ifbaiano.edu.br</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Humberto Santiago</SurName>
+      <EmailAddress>cotec@ifbaiano.edu.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

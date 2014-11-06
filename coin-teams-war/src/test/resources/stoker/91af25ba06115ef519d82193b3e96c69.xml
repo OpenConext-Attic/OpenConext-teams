@@ -1,0 +1,79 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://ident.groupe-esa.com/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2013-09-11T10:07:12Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">groupe-esa.com</shibmd:Scope>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">groupe-esa.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Ecole Supérieure d'Agriculture d'Angers</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDPDCCAiSgAwIBAgIVAIrbDRCxNtaYnhNe0Q7DpuLVmgMHMA0GCSqGSIb3DQEB
+BQUAMB8xHTAbBgNVBAMTFGlkZW50Lmdyb3VwZS1lc2EuY29tMB4XDTEzMDkxMDA5
+MTI1M1oXDTMzMDkxMDA5MTI1M1owHzEdMBsGA1UEAxMUaWRlbnQuZ3JvdXBlLWVz
+YS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCvf9ar+jST7FHc
+VUA37MOpTu6ViObVTFdfjSZks2PrsTgKGlq6aUoVHW6+ldF9c7z0gXD37qGmHmP3
+BrWq6W80bjg5rqgYeMpJxQsTXUaGXaEnsjKKiDQbv4rN3mtp9oufLPfPxLP/BC0W
+UCBFizNyP36hnFp6VbCOk2Ljg+1LVIEAEv8hx8kKhvcz93SjZg1P/IXuu8Evr7wk
+JoXb7awSIpfEzHSikaC3lhBg7SRdCUrKzTEG09nMRT8jBaQ6GmoG6A742ocd7FmD
+BJfJlJLmSu9XoY6eNN9Bdt+Cqb58Q9YavgSncLRXuz+9BhNKSwM3cqRO/ENey5Sr
+Bgh1CxQDAgMBAAGjbzBtMEwGA1UdEQRFMEOCFGlkZW50Lmdyb3VwZS1lc2EuY29t
+hitodHRwczovL2lkZW50Lmdyb3VwZS1lc2EuY29tL2lkcC9zaGliYm9sZXRoMB0G
+A1UdDgQWBBTVK5X4uYZ3DYMRinUl83LfoBkQDDANBgkqhkiG9w0BAQUFAAOCAQEA
+PJHMoIiE+3KJVyjhM65mcvjfK/QMr2p3rGCyPOC3Gqe3DC6+ktEBMabL7Mgzhrpg
+44xN+Apygl7D3Vs0d3HbZtxSCr8IZSWXLF852pniTnW3UVFzvgqqxBe2rn5aKkke
+Wmsgnk/M+A+wwiooVjl81aYlOx/kMDa9t+7/AN3V4BC8e2hdii9UdGzZsWrjTngt
+3iJ4ZVI3jadnCbclS68vf9yVy4JtDQ4F1sC9b1tMBx5a9It73GIL6p3RaKP5JjzR
+6+HBk4Fq2MNRK6dEwV9yPazjsuEqwoZHKihAGaINwVnBNdM/9eUfmCAE9MLo83lN
+R1luRGQHNbRzg1OZtwrsHw==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ident.groupe-esa.com/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://ident.groupe-esa.com/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://ident.groupe-esa.com/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Ecole Supérieure d'Agriculture d'Angers</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Ecole Supérieure d'Agriculture d'Angers</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>info@groupe-esa.com</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

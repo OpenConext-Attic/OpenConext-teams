@@ -1,0 +1,90 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth.sciencespo-grenoble.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-02-08T15:18:13Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">sciencespo-grenoble.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Sciences Po Grenoble</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDcTCCAlmgAwIBAgIURqMsHzlG8fMfvT+cOJR2geBiBKYwDQYJKoZIhvcNAQEF
+BQAwLDEqMCgGA1UEAxMhc2hpYmJvbGV0aC5zY2llbmNlc3BvLWdyZW5vYmxlLmZy
+MB4XDTEyMDEyMDA3NTIyN1oXDTMyMDEyMDA3NTIyN1owLDEqMCgGA1UEAxMhc2hp
+YmJvbGV0aC5zY2llbmNlc3BvLWdyZW5vYmxlLmZyMIIBIjANBgkqhkiG9w0BAQEF
+AAOCAQ8AMIIBCgKCAQEAhX/KcdRkiRFlthd8Wm2CC78FJfSCcgKLLfy6HMkq7nk5
+ROvdhRU3ZXjqeP/fuOO5xDdskzLe17jzlyd5isL7SqD4mE48l/i/3sFQdTBeuiy2
+qfqOdW5hoDwlVVNgWkmOQCriiGrn6LPtrtd1boDupPAAtWqYxRcNVLob2WfrbtCU
+915+6Gn606wk0Lh+dLKrT/a7HBD0qIgbftw554oMHDYVYQv8o/oYVWqHfvuzejSv
+z+mAUjyw6gQJnTaTjRBinCuh+vnnMV6Ev+1RsMcL932qASZz1TaL5hEDlDrb/Tqp
++inaEYsHzaPh5nyDrzZj64Zr+fN0ltc+jV2sQpYbmQIDAQABo4GKMIGHMGYGA1Ud
+EQRfMF2CIXNoaWJib2xldGguc2NpZW5jZXNwby1ncmVub2JsZS5mcoY4aHR0cHM6
+Ly9zaGliYm9sZXRoLnNjaWVuY2VzcG8tZ3Jlbm9ibGUuZnIvaWRwL3NoaWJib2xl
+dGgwHQYDVR0OBBYEFEdiRcE0wWEjU0jB5SLpKHdjJg80MA0GCSqGSIb3DQEBBQUA
+A4IBAQA0E4HykvLXNmhVTzSEepHr0aW5oJWCZOh6va5holMs61vKkFAnNlNkZlI9
+r5R2mU1jEmG5C3uxSvcEs4bk5EkkzVcdoVr6lLrTlAuuaiA5LQSqUpAp/CgfdH5z
+RExURiwE7RHT2mZuEkOLfUPVwWEU1WBGNrW6JnO20sglEQazZd4lsFit+LnVi0mQ
+qo5xryJDCS9U9/9fzKL6bSJH6D1gQcqShNQgQa7DxH3PlT5R17zw2zMBJTbmtBV7
+otA0xiEkUOufFx8+5EHk/7Hc9XnR7MolLH6WDVHVXytu2/8pq922i63pGATJ3ssL
+GbEcopedt4Tn5cP+TYMtHXCewhgi
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.sciencespo-grenoble.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.sciencespo-grenoble.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.sciencespo-grenoble.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Sciences Po Grenoble</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Sciences Po Grenoble</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Damien Limoges</SurName>
+				 <EmailAddress>damien.limoges@sciencespo-grenoble.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Frank Boussagol</SurName>
+				 <EmailAddress>frank.boussagol@sciencespo-grenoble.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>
