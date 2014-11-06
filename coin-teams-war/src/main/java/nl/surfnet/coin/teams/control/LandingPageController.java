@@ -55,6 +55,7 @@ public class LandingPageController {
   @RequestMapping(value="/landingpage.shtml", method=RequestMethod.POST)
   public void storeCookie(HttpServletResponse response) {
     Cookie cookie = new Cookie(LoginInterceptor.TEAMS_COOKIE, "skipLanding=true");
+    cookie.setMaxAge(Integer.MAX_VALUE);
     response.addCookie(cookie);
   }
 }
