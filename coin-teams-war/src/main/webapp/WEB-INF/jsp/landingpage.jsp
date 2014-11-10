@@ -22,7 +22,7 @@
 <!-- = Content -->
 <div id="Content">
   <spring:message code="jsp.landingpage.Content" htmlEscape="false" />
-  <c:url context="/Shibboleth.sso" value="/Login" var="loginUrl"><c:param name="target" value="${environment.teamsURL}" /></c:url>
+  <c:url context="/Shibboleth.sso" value="/Login" var="loginUrl"><c:param name="target" value="${environment.teamsURL}/" /></c:url>
   <a class="button" id="loginbutton" href="${loginUrl}"><spring:message code="jsp.landingpage.Login" /></a>
   <br>
   <input type="checkbox" onClick="return requestCookie();"/><spring:message code="jsp.landingpage.skip" />
