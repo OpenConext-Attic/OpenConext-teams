@@ -37,7 +37,7 @@
   <c:if test="${view ne 'gadget'}">
     <link rel="stylesheet" href="<c:url value="/css/app.css?v=20131111" />">
   </c:if>
-  <c:url context="/Shibboleth.sso" value="/Login" var="loginUrl"><c:param name="target" value="${environment.teamsURL}" /></c:url>
+  <c:url context="/Shibboleth.sso" value="/Login" var="loginUrl"><c:param name="target" value="${environment.teamsURL}/" /></c:url>
 </head>
 <body>
   <div class="wrapper">
