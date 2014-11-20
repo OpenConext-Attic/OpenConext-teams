@@ -46,7 +46,10 @@ To run on tomcat platform:
     ```
     <Environment name="spring.profiles.active" value="groupzy,production" type="java.lang.String" override="false"/>
     ```
-
-4. Reboot tomcat
+4. Set the property ```teams.groupzy.stoker.file``` in ```coin-teams.properties``` to the location of the index file produced
+by [Stoker](https://github.com/OpenConext/OpenConext-Stoker)
+5. Set the property ```teams.groupzy.stoker.folder``` in ```coin-teams.properties``` to the folder
+    in which the index file is placed from [Stoker](https://github.com/OpenConext/OpenConext-Stoker)
+6. Reboot tomcat
 
 
