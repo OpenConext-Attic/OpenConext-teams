@@ -28,7 +28,6 @@
   <input id="koekje" type="checkbox" onClick="return requestCookie();"/><label for="koekje"><spring:message code="jsp.landingpage.skip" /></label>
 <!-- / Content -->
 </div>
-<script src="js/jquery-1.4.4.min.js"></script>
 <script>
   /* AJAX call to retrieve a cookie */
 	function requestCookie() {
