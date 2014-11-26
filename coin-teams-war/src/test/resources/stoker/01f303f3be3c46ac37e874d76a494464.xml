@@ -1,24 +1,86 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://eduspot.ens-cachan.fr/authsaml2/metadata">
-			<Extensions>
-				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-04-12T10:48:28Z">
-					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
-				</mdrpi:RegistrationInfo>
-				
-			</Extensions>
-			<SPSSODescriptor protocolSupportEnumeration=" urn:oasis:names:tc:SAML:1.0:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-               <Extensions>
-			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
-          		      
-          		      
-          		      <mdui:DisplayName xml:lang="fr">ENS de Cachan - Portail Eduspot</mdui:DisplayName>
-          		      <mdui:Description xml:lang="fr">Accès aux Wifi pour les participants au projet Eduspot via le portail captif Univnautes.</mdui:Description>
-          		            			    </mdui:UIInfo>
-    			  </Extensions>
-				<KeyDescriptor use="signing">
-                                   <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://eduspot.ens-cachan.fr/authsaml2/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-04-12T10:48:28Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration=" urn:oasis:names:tc:SAML:1.0:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="fr">ENS de Cachan - Portail Eduspot</mdui:DisplayName>
+          <mdui:Description xml:lang="fr">Accès aux Wifi pour les participants au projet Eduspot via le portail captif Univnautes.</mdui:Description>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+					      MIIEpDCCA4ygAwIBAgIQeTFgbQWRlGanItIwtJ/w0jANBgkqhkiG9w0BAQsFADBk
+MQswCQYDVQQGEwJOTDEWMBQGA1UECBMNTm9vcmQtSG9sbGFuZDESMBAGA1UEBxMJ
+QW1zdGVyZGFtMQ8wDQYDVQQKEwZURVJFTkExGDAWBgNVBAMTD1RFUkVOQSBTU0wg
+Q0EgMjAeFw0xNDEwMTcwMDAwMDBaFw0xNzEwMTYyMzU5NTlaMEMxITAfBgNVBAsT
+GERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEeMBwGA1UEAxMVZWR1c3BvdC5lbnMt
+Y2FjaGFuLmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuNjLcYRU
+VIYvwbFG89dp+n0NMsDR6SrHZ/AMit0airV2ReNm1H+Wcuq0UGQKLsrhytQsL3vK
+lgBCbUi2LbIFlPubTIBx8pNoH8AkBcOyfg1kiN2yJ4z+gaqjoy+gp7zChSKhga3D
+LsIkAfBK2hKiw+t1Cod/LCgbeBdGKnB4gDTZScYf8r3rSIyE1mtDI93VJfsMHkKD
+j3WOmhAnoT1KDXFHI1utdUwyM/u2nGgAjgupEbDTAOfx/N56/yUkR88Q22itXKdS
+Er3v66gp0CJluEPUFTmmCCdklnv12rFR16hrgm/fiZWyj6z9BtRQUW6cC35fDtmq
+9CMXI8aYdpMTEwIDAQABo4IBcTCCAW0wHwYDVR0jBBgwFoAUW9CKHJoyW+C13ZZU
+G+GGKLD9tr0wHQYDVR0OBBYEFHeYAb+69vprObDtE1PM63PWKio0MA4GA1UdDwEB
+/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEF
+BQcDAjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAECATA6BgNVHR8E
+MzAxMC+gLaArhilodHRwOi8vY3JsLnVzZXJ0cnVzdC5jb20vVEVSRU5BU1NMQ0Ey
+LmNybDBsBggrBgEFBQcBAQRgMF4wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudXNl
+cnRydXN0LmNvbS9URVJFTkFTU0xDQTIuY3J0MCUGCCsGAQUFBzABhhlodHRwOi8v
+b2NzcC51c2VydHJ1c3QuY29tMCAGA1UdEQQZMBeCFWVkdXNwb3QuZW5zLWNhY2hh
+bi5mcjANBgkqhkiG9w0BAQsFAAOCAQEANOYe63FGB6CrqW/Hl8uRbBrJsYHnzknp
+h6NjKRuvnzeOOOrDVW75T3//6AepZzJ0k1ZzzYIYJ0crBavEEo9L5AvwMPvs7mYw
+RAUTEMhGTm/nYQct1jwbCgNKCDgYuydZUcixtiq3LXz1SglHXGNhg+SLGCGXrHrJ
+JxuaneWu5FgReUB3EDUC0bCrM9nx2cHitLtox3aXU/fhiPXCEkP2HV4DnjLu3fBJ
+S5gBayfEa2U6VDzvwdEk71Pw3PKsdEl7f9N5mp3rpjvr36r5TH5LXhbk0utRGo7u
+yn+WFioypXnVKl7dgWzQsVdGI4NnnsfGgmah+vJMEtRPPnBtjRrV3A==
+					    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+					      MIIEpDCCA4ygAwIBAgIQeTFgbQWRlGanItIwtJ/w0jANBgkqhkiG9w0BAQsFADBk
+MQswCQYDVQQGEwJOTDEWMBQGA1UECBMNTm9vcmQtSG9sbGFuZDESMBAGA1UEBxMJ
+QW1zdGVyZGFtMQ8wDQYDVQQKEwZURVJFTkExGDAWBgNVBAMTD1RFUkVOQSBTU0wg
+Q0EgMjAeFw0xNDEwMTcwMDAwMDBaFw0xNzEwMTYyMzU5NTlaMEMxITAfBgNVBAsT
+GERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEeMBwGA1UEAxMVZWR1c3BvdC5lbnMt
+Y2FjaGFuLmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuNjLcYRU
+VIYvwbFG89dp+n0NMsDR6SrHZ/AMit0airV2ReNm1H+Wcuq0UGQKLsrhytQsL3vK
+lgBCbUi2LbIFlPubTIBx8pNoH8AkBcOyfg1kiN2yJ4z+gaqjoy+gp7zChSKhga3D
+LsIkAfBK2hKiw+t1Cod/LCgbeBdGKnB4gDTZScYf8r3rSIyE1mtDI93VJfsMHkKD
+j3WOmhAnoT1KDXFHI1utdUwyM/u2nGgAjgupEbDTAOfx/N56/yUkR88Q22itXKdS
+Er3v66gp0CJluEPUFTmmCCdklnv12rFR16hrgm/fiZWyj6z9BtRQUW6cC35fDtmq
+9CMXI8aYdpMTEwIDAQABo4IBcTCCAW0wHwYDVR0jBBgwFoAUW9CKHJoyW+C13ZZU
+G+GGKLD9tr0wHQYDVR0OBBYEFHeYAb+69vprObDtE1PM63PWKio0MA4GA1UdDwEB
+/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEF
+BQcDAjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAECATA6BgNVHR8E
+MzAxMC+gLaArhilodHRwOi8vY3JsLnVzZXJ0cnVzdC5jb20vVEVSRU5BU1NMQ0Ey
+LmNybDBsBggrBgEFBQcBAQRgMF4wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudXNl
+cnRydXN0LmNvbS9URVJFTkFTU0xDQTIuY3J0MCUGCCsGAQUFBzABhhlodHRwOi8v
+b2NzcC51c2VydHJ1c3QuY29tMCAGA1UdEQQZMBeCFWVkdXNwb3QuZW5zLWNhY2hh
+bi5mcjANBgkqhkiG9w0BAQsFAAOCAQEANOYe63FGB6CrqW/Hl8uRbBrJsYHnzknp
+h6NjKRuvnzeOOOrDVW75T3//6AepZzJ0k1ZzzYIYJ0crBavEEo9L5AvwMPvs7mYw
+RAUTEMhGTm/nYQct1jwbCgNKCDgYuydZUcixtiq3LXz1SglHXGNhg+SLGCGXrHrJ
+JxuaneWu5FgReUB3EDUC0bCrM9nx2cHitLtox3aXU/fhiPXCEkP2HV4DnjLu3fBJ
+S5gBayfEa2U6VDzvwdEk71Pw3PKsdEl7f9N5mp3rpjvr36r5TH5LXhbk0utRGo7u
+yn+WFioypXnVKl7dgWzQsVdGI4NnnsfGgmah+vJMEtRPPnBtjRrV3A==
+					    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIDTDCCAjQCCQCR6CZCuHxqRDANBgkqhkiG9w0BAQUFADBoMQswCQYDVQQGEwJG
 UjErMCkGA1UEChMiRUNPTEUgTk9STUFMRSBTVVBFUklFVVJFIERFIENBQ0hBTjEM
 MAoGA1UECxMDRFNJMR4wHAYDVQQDExVlZHVzcG90LmVucy1jYWNoYW4uZnIwHhcN
@@ -38,103 +100,27 @@ LmIbOYK8bfdAZTc2XWVsU1bNQyJMY6Qiu2mA1VTc61b5gUI94RmMpfEP0hl7DBgh
 KIz/GZRjl9UB3x6EEgmPi+ihRwPs/tQORLZpaS9pyqdPzrH3NuP/iVO5Dv/D7Ss9
 U3vIxlLV3X9ESLFrZiZgFRyKOqQOri3RHniJ7Yt9v+k=
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-					</ds:KeyInfo>
-				</KeyDescriptor>
-		               
-				<KeyDescriptor use="encryption">
-                                   <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  <ds:X509Data>
-					    <ds:X509Certificate>
-					      MIIDTDCCAjQCCQCR6CZCuHxqRDANBgkqhkiG9w0BAQUFADBoMQswCQYDVQQGEwJG
-UjErMCkGA1UEChMiRUNPTEUgTk9STUFMRSBTVVBFUklFVVJFIERFIENBQ0hBTjEM
-MAoGA1UECxMDRFNJMR4wHAYDVQQDExVlZHVzcG90LmVucy1jYWNoYW4uZnIwHhcN
-MTQwNDE0MTIzNjI4WhcNMTUwNDE0MTIzNjI4WjBoMQswCQYDVQQGEwJGUjErMCkG
-A1UEChMiRUNPTEUgTk9STUFMRSBTVVBFUklFVVJFIERFIENBQ0hBTjEMMAoGA1UE
-CxMDRFNJMR4wHAYDVQQDExVlZHVzcG90LmVucy1jYWNoYW4uZnIwggEiMA0GCSqG
-SIb3DQEBAQUAA4IBDwAwggEKAoIBAQDaN/r/9eegiIWfM7W+cBepylzyQKasGNVV
-pOGqQtClO+RDnHw1e+VjLofvQkCrkXqO0Yk2+3fFluaVEKefRhz87KkfCwqmmMVv
-N7QPL7wdjefp7z0QQQd500er/lWzNEZ16noFKNAKIVQ7L8nwEID2szf2o7lwiHUM
-I0/WYrcHtglX+KFiKCajf8lMQHQlnLvrODzBvZPuY+hcjyPMet8C77jsQs9KcBa/
-WOZ0XHwpfP6qSedCp1feHWNG/6H/ngPhFH+Yfh8dCYvnf8evL+WKL+b2L22s009K
-6pGpup0ZJaS2UbMblHeOCRf9kfT6peLwcOawPi9M7W68vSBtNd4DAgMBAAEwDQYJ
-KoZIhvcNAQEFBQADggEBAAm4J2729rV0T1ZHR7GhruA+x8Kt0SXeXwvng8Zuaijz
-NSNK9Ej3j9Y/NRYKPTPAm2fGCrbbr89lZ+0680b6ZqicZU2c4juHe0u5/5zN1wmV
-h98Us4F37tUL4aT6fvi+FTJUkeHR3ZV/wGkdbzTLWqKqVQ8POO8Q55DZEjIrFiq3
-LmIbOYK8bfdAZTc2XWVsU1bNQyJMY6Qiu2mA1VTc61b5gUI94RmMpfEP0hl7DBgh
-KIz/GZRjl9UB3x6EEgmPi+ihRwPs/tQORLZpaS9pyqdPzrH3NuP/iVO5Dv/D7Ss9
-U3vIxlLV3X9ESLFrZiZgFRyKOqQOri3RHniJ7Yt9v+k=
-					    </ds:X509Certificate>
-					  </ds:X509Data>
-					</ds:KeyInfo>
-				</KeyDescriptor>
-			       
-
-				
-				
-				<KeyDescriptor use="signing">
-				       <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  <ds:X509Data>
-					    <ds:X509Certificate>
-					      MIIDIzCCAgugAwIBAgIJANUBoick1pDpMA0GCSqGSIb3DQEBBQUAMBUxEzARBgNV
-BAoTCkVudHJvdXZlcnQwHhcNMTAxMjE0MTUzMzAyWhcNMTEwMTEzMTUzMzAyWjAV
-MRMwEQYDVQQKEwpFbnRyb3V2ZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
-CgKCAQEAvxFkfPdndlGgQPDZgFGXbrNAc/79PULZBuNdWFHDD9P5hNhZn9Kqm4Cp
-06Pe/A6u+g5wLnYvbZQcFCgfQAEzziJtb3J55OOlB7iMEI/T2AX2WzrUH8QT8NGh
-ABONKU2Gg4XiyeXNhH5R7zdHlUwcWq3ZwNbtbY0TVc+n665EbrfV/59xihSqsoFr
-kmBLH0CoepUXtAzA7WDYn8AzusIuMx3n8844pJwgxhTB7Gjuboptlz9Hri8JRdXi
-VT9OS9Wt69ubcNoM6zuKASmtm48UuGnhj8v6XwvbjKZrL9kA+xf8ziazZfvvw/VG
-Tm+IVFYB7d1x457jY5zjjXJvNysoowIDAQABo3YwdDAdBgNVHQ4EFgQUeF8ePnu0
-fcAK50iBQDgAhHkOu8kwRQYDVR0jBD4wPIAUeF8ePnu0fcAK50iBQDgAhHkOu8mh
-GaQXMBUxEzARBgNVBAoTCkVudHJvdXZlcnSCCQDVAaInJNaQ6TAMBgNVHRMEBTAD
-AQH/MA0GCSqGSIb3DQEBBQUAA4IBAQAy8l3GhUtpPHx0FxzbRHVaaUSgMwYKGPhE
-IdGhqekKUJIx8et4xpEMFBl5XQjBNq/mp5vO3SPb2h2PVSks7xWnG3cvEkqJSOeo
-fEEhkqnM45b2MH1S5uxp4i8UilPG6kmQiXU2rEUBdRk9xnRWos7epVivTSIv1Ncp
-lG6l41SXp6YgIb2ToT+rOKdIGIQuGDlzeR88fDxWEU0vEujZv/v1PE1YOV0xKjTT
-JumlBc6IViKhJeo1wiBBrVRIIkKKevHKQzteK8pWm9CYWculxT26TZ4VWzGbo06j
-o2zbumirrLLqnt1gmBDvDvlOwC/zAAyL4chbz66eQHTiIYZZvYgy
-					    </ds:X509Certificate>
-					  </ds:X509Data>
-					</ds:KeyInfo>
-				</KeyDescriptor>
-				
-				
-				  <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://eduspot.ens-cachan.fr/authsaml2/singleSignOnPost" index="1"/>
-				
-				
-
-		       <AttributeConsumingService index="0">
-			 <ServiceName xml:lang="fr">ENS de Cachan - Portail Eduspot</ServiceName>
-			 
-			 <ServiceDescription xml:lang="fr">Accès aux Wifi pour les participants au projet Eduspot via le portail captif Univnautes.</ServiceDescription>
-			 
-				         
-			 <RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true">
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://eduspot.ens-cachan.fr/authsaml2/singleSignOnPost" index="1"/>
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="fr">ENS de Cachan - Portail Eduspot</md:ServiceName>
+        <md:ServiceDescription xml:lang="fr">Accès aux Wifi pour les participants au projet Eduspot via le portail captif Univnautes.</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true">
 			   
-			 </RequestedAttribute>
-				         
-			 <RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true">
+			 </md:RequestedAttribute>
+        <md:RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true">
 			   
-			 </RequestedAttribute>
-		
-		       </AttributeConsumingService>
-
-			</SPSSODescriptor>
-
-
-		<Organization>
-			<OrganizationName xml:lang="en">Ecole Normale Supérieure de Cachan</OrganizationName>
-			<OrganizationDisplayName xml:lang="en">Ecole Normale Supérieure de Cachan</OrganizationDisplayName>
-			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
-		</Organization>
-		
-
-			
-			    <ContactPerson contactType="technical">
-			     <EmailAddress>eduspot@ens-cachan.fr</EmailAddress>
-		        </ContactPerson>
-		    	
-
-			
-		</EntityDescriptor>
+			 </md:RequestedAttribute>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Ecole Normale Supérieure de Cachan</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Ecole Normale Supérieure de Cachan</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://unknown.site.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>eduspot@ens-cachan.fr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

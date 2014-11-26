@@ -1,0 +1,112 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.sussexdowns.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2011-08-02T14:30:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">sussexdowns.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEwjCCA6qgAwIBAgIQTrh+jfRf1aCGSyqnZqrgqTANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEzMDEyMjAwMDAwMFoXDTE2MDEyMjIzNTk1OVowgY0xCzAJBgNV
+						BAYTAkdCMRQwEgYDVQQIEwtFYXN0IFN1c3NleDEOMAwGA1UEBxMFTGV3ZXMxHTAb
+						BgNVBAoTFFN1c3NleCBEb3ducyBDb2xsZWdlMRkwFwYDVQQLExBOZXR3b3JrIFNl
+						cnZpY2VzMR4wHAYDVQQDExVpZHAuc3Vzc2V4ZG93bnMuYWMudWswggEiMA0GCSqG
+						SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCzasViv6sqpPwhpSx5LMRX+IIZX/Us0+T6
+						Umeqz/zzATJ2oAq/Vc3K6vbkWHOqBRSHu81YTtubITgCVamjjeMRw2upCWP52z45
+						X4NG6uueNOxsHArEsI34nKumCJPpGi7g/yEI2t55MlXRKCjYx0SGXQ+HQVbS5+ck
+						7Xfg14J3ykCrVP20tg03VCWABX8HpFGs2jBXdaTMzJNPQDgUspBoahdaVdSAzPJH
+						rE+r6OzM39siItlYUuw6HROqUCNsPPBx5+weO/zzbaj1sfAxfuM7qq5E3v1uDXcC
+						sm9ci3Ai7sigirORZYWcbD1y1HeUgZFlUt9vW3lUyCrze3FKhkNvAgMBAAGjggFy
+						MIIBbjAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAdBgNVHQ4EFgQU
+						stJtWpehWtVLmajr+G8NZ33QgaowDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQC
+						MAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMCIGA1UdIAQbMBkwDQYL
+						KwYBBAGyMQECAh0wCAYGZ4EMAQICMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9j
+						cmwudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEw
+						XzA1BggrBgEFBQcwAoYpaHR0cDovL2NydC50Y3MudGVyZW5hLm9yZy9URVJFTkFT
+						U0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3Jn
+						MCAGA1UdEQQZMBeCFWlkcC5zdXNzZXhkb3ducy5hYy51azANBgkqhkiG9w0BAQUF
+						AAOCAQEAX6a8z1WqpzNGKYLE3plawtzyMa8cwkvZnNvkAdyl0PSFF4ylEHBjF85n
+						0ZXE6FqIpLUZJxlKKfqj3CeIxFqX1noxKndZzu7QsxcspXU3ubPWVJBoJZ4XO4jr
+						G9Gw+R+kR5e3QfNDrCZKmU247vuvJIqnbF9NT+gm7IHBvFLnx+r3zxUpX4Ca8D8+
+						IkrhWCUQ9kS2brLwJ/nJhY9P00IaeYFQiC2UEYqf71UskUw8i0BNw/33/q1lUYy6
+						VsyB6e6DKfCbunbrHgMyk4/qvOy2JfvGh+41qEJENYKaOqu00MDk0R7yzrMWXEIH
+						3TlWjRfFNTVhbVx6Di+CwcDEcXpQ2g==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.sussexdowns.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.sussexdowns.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.sussexdowns.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.sussexdowns.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.sussexdowns.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.sussexdowns.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">sussexdowns.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEwjCCA6qgAwIBAgIQTrh+jfRf1aCGSyqnZqrgqTANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEzMDEyMjAwMDAwMFoXDTE2MDEyMjIzNTk1OVowgY0xCzAJBgNV
+						BAYTAkdCMRQwEgYDVQQIEwtFYXN0IFN1c3NleDEOMAwGA1UEBxMFTGV3ZXMxHTAb
+						BgNVBAoTFFN1c3NleCBEb3ducyBDb2xsZWdlMRkwFwYDVQQLExBOZXR3b3JrIFNl
+						cnZpY2VzMR4wHAYDVQQDExVpZHAuc3Vzc2V4ZG93bnMuYWMudWswggEiMA0GCSqG
+						SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCzasViv6sqpPwhpSx5LMRX+IIZX/Us0+T6
+						Umeqz/zzATJ2oAq/Vc3K6vbkWHOqBRSHu81YTtubITgCVamjjeMRw2upCWP52z45
+						X4NG6uueNOxsHArEsI34nKumCJPpGi7g/yEI2t55MlXRKCjYx0SGXQ+HQVbS5+ck
+						7Xfg14J3ykCrVP20tg03VCWABX8HpFGs2jBXdaTMzJNPQDgUspBoahdaVdSAzPJH
+						rE+r6OzM39siItlYUuw6HROqUCNsPPBx5+weO/zzbaj1sfAxfuM7qq5E3v1uDXcC
+						sm9ci3Ai7sigirORZYWcbD1y1HeUgZFlUt9vW3lUyCrze3FKhkNvAgMBAAGjggFy
+						MIIBbjAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAdBgNVHQ4EFgQU
+						stJtWpehWtVLmajr+G8NZ33QgaowDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQC
+						MAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMCIGA1UdIAQbMBkwDQYL
+						KwYBBAGyMQECAh0wCAYGZ4EMAQICMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9j
+						cmwudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEw
+						XzA1BggrBgEFBQcwAoYpaHR0cDovL2NydC50Y3MudGVyZW5hLm9yZy9URVJFTkFT
+						U0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3Jn
+						MCAGA1UdEQQZMBeCFWlkcC5zdXNzZXhkb3ducy5hYy51azANBgkqhkiG9w0BAQUF
+						AAOCAQEAX6a8z1WqpzNGKYLE3plawtzyMa8cwkvZnNvkAdyl0PSFF4ylEHBjF85n
+						0ZXE6FqIpLUZJxlKKfqj3CeIxFqX1noxKndZzu7QsxcspXU3ubPWVJBoJZ4XO4jr
+						G9Gw+R+kR5e3QfNDrCZKmU247vuvJIqnbF9NT+gm7IHBvFLnx+r3zxUpX4Ca8D8+
+						IkrhWCUQ9kS2brLwJ/nJhY9P00IaeYFQiC2UEYqf71UskUw8i0BNw/33/q1lUYy6
+						VsyB6e6DKfCbunbrHgMyk4/qvOy2JfvGh+41qEJENYKaOqu00MDk0R7yzrMWXEIH
+						3TlWjRfFNTVhbVx6Di+CwcDEcXpQ2g==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.sussexdowns.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.sussexdowns.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Sussex Downs College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Sussex Downs College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.sussexdowns.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Gavin</md:GivenName>
+      <md:SurName>Counahan</md:SurName>
+      <md:EmailAddress>mailto:gavin.counahan@sussexdowns.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Gavin</md:GivenName>
+      <md:SurName>Counahan</md:SurName>
+      <md:EmailAddress>mailto:gavin.counahan@sussexdowns.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,113 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.vu-wien.ac.at/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://eduid.at" registrationInstant="2008-11-27T16:13:02Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://eduid.at/policy/mdrps-20140606</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://aai.dfn.de/category/vetmed-member</saml:AttributeValue>
+        </saml:Attribute>
+        <saml:Attribute Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">vetmeduni.ac.at</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="de">Veterinärmedizinische Universität Wien</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">University of Veterinary Medicine, Vienna</mdui:DisplayName>
+          <mdui:Logo width="16" height="16">https://www.vetmeduni.ac.at/favicon.ico</mdui:Logo>
+          <mdui:Logo width="231" height="69">https://www.vetmeduni.ac.at/fileadmin/vetmed/img/logo.gif</mdui:Logo>
+          <mdui:InformationURL xml:lang="en">http://www.vetmeduni.ac.at/en/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="de">http://www.vetmeduni.ac.at/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDLzCCAhegAwIBAgIUArxd4kLebWsQSo73wqw//qDah+UwDQYJKoZIhvcNAQEF
+BQAwHDEaMBgGA1UEAxMRaWRwLnZ1LXdpZW4uYWMuYXQwHhcNMDgxMTIxMDkyNzQy
+WhcNMjgxMTIxMDkyNzQyWjAcMRowGAYDVQQDExFpZHAudnUtd2llbi5hYy5hdDCC
+ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJP9YiA5hoGWj3EQVMD/FzTa
+GxKmYW7yrE2IEcytXZs80z7g00WDfkvgXxPW8p8/djs2EW6Qb0Mjt3Q3U0pXSWkb
+xSsYXZyBzRpyFxeJEIMKgqAkYG2Ka9War/XJTzOZ9VjEspxgm4ROD1L8tA/6rS5o
+MwmwgKW/xowmNC+M+jnCxjZ664XqhoqZowxOSMSGJJQ8RFizmoI1Zn7XIcXQXxjF
+hsMyvpid0uYbyh5kKF+f/DyyPisvsSgeDXZgkaooCcuR70y1lOSQe9XIGsg8LRBE
+niumfn3H7CbzDfAyPar1SkuSGOR79io5ZBSSNLw05rYLWLZED0BkMl5vCQOlAeEC
+AwEAAaNpMGcwRgYDVR0RBD8wPYIRaWRwLnZ1LXdpZW4uYWMuYXSGKGh0dHBzOi8v
+aWRwLnZ1LXdpZW4uYWMuYXQvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFO0XxOhl
+z8mFCvsOavIhT5M47VckMA0GCSqGSIb3DQEBBQUAA4IBAQBAbvWWzPpHX9WvPdH/
+kxg72syav82qGs94YvRugz7xQrKe9+qn/0hT8/ln0ROstr3q/1Ah9b5XDQr3cb37
+DQOuMjSu8BW0RrvZbuoHWzS3J4Ay2iAIA54fo/g9sq8xlhkDN/N+ySnhWjcJi1ag
+tnd5Kz76fXuLhdnT1jjV6e3YnvBKD7F2sKUJdm8KErwfa3IR2XpTiiCnu+5VogJZ
+1QE5FJMTgKAzci109QuYqSDgqMbBs38nU95tsSN7M8B43FtEOw4dnrz9im+Sc4yK
+IfN31Zc1iB2M7lKMIc7i9VqM+5TXp4mrJwTyl0u20ITLhxu1SNgyZyeQXMHLD8Bl
+1Tdv</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.vu-wien.ac.at:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.vu-wien.ac.at:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.vu-wien.ac.at/idp/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.vu-wien.ac.at/idp/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.vu-wien.ac.at:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.vu-wien.ac.at/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.vu-wien.ac.at/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.vu-wien.ac.at/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.vu-wien.ac.at/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">vetmeduni.ac.at</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDLzCCAhegAwIBAgIUArxd4kLebWsQSo73wqw//qDah+UwDQYJKoZIhvcNAQEF
+BQAwHDEaMBgGA1UEAxMRaWRwLnZ1LXdpZW4uYWMuYXQwHhcNMDgxMTIxMDkyNzQy
+WhcNMjgxMTIxMDkyNzQyWjAcMRowGAYDVQQDExFpZHAudnUtd2llbi5hYy5hdDCC
+ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJP9YiA5hoGWj3EQVMD/FzTa
+GxKmYW7yrE2IEcytXZs80z7g00WDfkvgXxPW8p8/djs2EW6Qb0Mjt3Q3U0pXSWkb
+xSsYXZyBzRpyFxeJEIMKgqAkYG2Ka9War/XJTzOZ9VjEspxgm4ROD1L8tA/6rS5o
+MwmwgKW/xowmNC+M+jnCxjZ664XqhoqZowxOSMSGJJQ8RFizmoI1Zn7XIcXQXxjF
+hsMyvpid0uYbyh5kKF+f/DyyPisvsSgeDXZgkaooCcuR70y1lOSQe9XIGsg8LRBE
+niumfn3H7CbzDfAyPar1SkuSGOR79io5ZBSSNLw05rYLWLZED0BkMl5vCQOlAeEC
+AwEAAaNpMGcwRgYDVR0RBD8wPYIRaWRwLnZ1LXdpZW4uYWMuYXSGKGh0dHBzOi8v
+aWRwLnZ1LXdpZW4uYWMuYXQvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFO0XxOhl
+z8mFCvsOavIhT5M47VckMA0GCSqGSIb3DQEBBQUAA4IBAQBAbvWWzPpHX9WvPdH/
+kxg72syav82qGs94YvRugz7xQrKe9+qn/0hT8/ln0ROstr3q/1Ah9b5XDQr3cb37
+DQOuMjSu8BW0RrvZbuoHWzS3J4Ay2iAIA54fo/g9sq8xlhkDN/N+ySnhWjcJi1ag
+tnd5Kz76fXuLhdnT1jjV6e3YnvBKD7F2sKUJdm8KErwfa3IR2XpTiiCnu+5VogJZ
+1QE5FJMTgKAzci109QuYqSDgqMbBs38nU95tsSN7M8B43FtEOw4dnrz9im+Sc4yK
+IfN31Zc1iB2M7lKMIc7i9VqM+5TXp4mrJwTyl0u20ITLhxu1SNgyZyeQXMHLD8Bl
+1Tdv</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.vu-wien.ac.at:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.vu-wien.ac.at:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">Veterinärmedizinische Universität Wien</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">University of Veterinary Medicine Vienna</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Veterinärmedizinische Universität Wien</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">University of Veterinary Medicine Vienna</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.vu-wien.ac.at/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.vu-wien.ac.at/en/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Wolfgang</md:GivenName>
+      <md:SurName>Cernohorsky</md:SurName>
+      <md:EmailAddress>mailto:Wolfgang.Cernohorsky@vu-wien.ac.at</md:EmailAddress>
+      <md:TelephoneNumber>+43 1 25077 1602</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

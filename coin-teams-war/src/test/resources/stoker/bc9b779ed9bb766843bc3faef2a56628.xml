@@ -1,0 +1,89 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.sci-ware.org/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://www.sci-ware.org/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDCjCCAfKgAwIBAgIBADANBgkqhkiG9w0BAQUFADAkMSIwIAYDVQQDExkwMTk3
+						LTAyNzItV0IwMS5zdGFybXMubmV0MB4XDTEwMDkyNzEzMTkzN1oXDTIwMDkyNDEz
+						MTkzN1owJDEiMCAGA1UEAxMZMDE5Ny0wMjcyLVdCMDEuc3Rhcm1zLm5ldDCCASIw
+						DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMsXCrJoVQagIU8x9UMNBNkaHIq/
+						+fXEj6j99dwzc47HEh9I0CIiYE97K6HY7QLPPbC0wRnqwjevquOK1AwaVDmL/Zna
+						RqRk2in6VyOSmULfe6B9wtc3CfrsdWE9ojEWatoaTqZE8n8ryRSkCpnfXmxbJ6zi
+						ZUZL4uR0QKWvIkbzY3NVzymHfsbbRL0BjCBhgdraRH5EDer2q8nCFsisKgLlf4VJ
+						WIwQLkgWoAB3BUd6laVdM+1PUy4xDFhQ/u9KHWdduUe4uF+lQ/En5DzVIwB37SVo
+						kd5sWzrEjiM+HoGyswY5/vAA8fYqrtloFpJyUQRcHObKhPbLkifC3pZYHXcCAwEA
+						AaNHMEUwJAYDVR0RBB0wG4IZMDE5Ny0wMjcyLVdCMDEuc3Rhcm1zLm5ldDAdBgNV
+						HQ4EFgQURvVZZUkcLpsoiLDy78kkwNxVaCEwDQYJKoZIhvcNAQEFBQADggEBAJRF
+						eBvjuouhMJirqoUOrt9p+sDL8Rpiz5vd/N7FGrrmoHyLefLMazLvabWw2sTZKDg7
+						LUg6DB0a+NUG4nGrYGzJegVI47EccTNdgfqdWZ5HeQ0UApEWMMXIAZ1ZKk221r72
+						gHe0wOBzlXn/bCPs+KboS65eHJtdvg2p3FqT5xJHbAMVbECeaiY5mjssfC8WfFAy
+						5M1G8G7C5nIK3sQUPyDsmgFLj5Rg7ewUJ9lZIv0VV1EBG8NMg9xYh2iyEU9MxTEI
+						qYwjHXR94gAUEuxfV6Hv85afrVK4E68QvOJNhPjGxFILvQwXGXoW4xvjrMqUxlJz
+						cgIjpM54CFRD2XD/sB8=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDCjCCAfKgAwIBAgIBADANBgkqhkiG9w0BAQUFADAkMSIwIAYDVQQDExkwMTk3
+						LTAyNzItV0IwMS5zdGFybXMubmV0MB4XDTEwMDkyNzEzMTkzN1oXDTIwMDkyNDEz
+						MTkzN1owJDEiMCAGA1UEAxMZMDE5Ny0wMjcyLVdCMDEuc3Rhcm1zLm5ldDCCASIw
+						DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMsXCrJoVQagIU8x9UMNBNkaHIq/
+						+fXEj6j99dwzc47HEh9I0CIiYE97K6HY7QLPPbC0wRnqwjevquOK1AwaVDmL/Zna
+						RqRk2in6VyOSmULfe6B9wtc3CfrsdWE9ojEWatoaTqZE8n8ryRSkCpnfXmxbJ6zi
+						ZUZL4uR0QKWvIkbzY3NVzymHfsbbRL0BjCBhgdraRH5EDer2q8nCFsisKgLlf4VJ
+						WIwQLkgWoAB3BUd6laVdM+1PUy4xDFhQ/u9KHWdduUe4uF+lQ/En5DzVIwB37SVo
+						kd5sWzrEjiM+HoGyswY5/vAA8fYqrtloFpJyUQRcHObKhPbLkifC3pZYHXcCAwEA
+						AaNHMEUwJAYDVR0RBB0wG4IZMDE5Ny0wMjcyLVdCMDEuc3Rhcm1zLm5ldDAdBgNV
+						HQ4EFgQURvVZZUkcLpsoiLDy78kkwNxVaCEwDQYJKoZIhvcNAQEFBQADggEBAJRF
+						eBvjuouhMJirqoUOrt9p+sDL8Rpiz5vd/N7FGrrmoHyLefLMazLvabWw2sTZKDg7
+						LUg6DB0a+NUG4nGrYGzJegVI47EccTNdgfqdWZ5HeQ0UApEWMMXIAZ1ZKk221r72
+						gHe0wOBzlXn/bCPs+KboS65eHJtdvg2p3FqT5xJHbAMVbECeaiY5mjssfC8WfFAy
+						5M1G8G7C5nIK3sQUPyDsmgFLj5Rg7ewUJ9lZIv0VV1EBG8NMg9xYh2iyEU9MxTEI
+						qYwjHXR94gAUEuxfV6Hv85afrVK4E68QvOJNhPjGxFILvQwXGXoW4xvjrMqUxlJz
+						cgIjpM54CFRD2XD/sB8=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.sci-ware.org/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.sci-ware.org/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.sci-ware.org/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.sci-ware.org/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.sci-ware.org/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.sci-ware.org/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.sci-ware.org/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.sci-ware.org/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.sci-ware.org/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.sci-ware.org/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www.sci-ware.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.sci-ware.org/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://www.sci-ware.org/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.sci-ware.org/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.sci-ware.org/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Science Warehouse Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Science Warehouse Limited</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.sci-ware.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Customer Support</md:GivenName>
+      <md:EmailAddress>mailto:customersupport@sci-ware.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Dave</md:GivenName>
+      <md:SurName>Garthwaite</md:SurName>
+      <md:EmailAddress>mailto:dave.garthwaite@sci-ware.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

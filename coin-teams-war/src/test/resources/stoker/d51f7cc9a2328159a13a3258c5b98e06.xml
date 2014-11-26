@@ -1,0 +1,57 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://intranet.sbs.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-03-22T13:50:10Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://intranet.sbs.ox.ac.uk/Shibboleth.sso/Login"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://intranet.sbs.ox.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDBjCCAe6gAwIBAgIJAIouVk51M2UYMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV
+						BAMTFWludHJhbmV0LnNicy5veC5hYy51azAeFw0xMzAzMjAxMTI3MTlaFw0yMzAz
+						MTgxMTI3MTlaMCAxHjAcBgNVBAMTFWludHJhbmV0LnNicy5veC5hYy51azCCASIw
+						DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJSaQFswjc93gqeaMWkdXqZIm/2A
+						6WEVgInFCFHUPWLsPs/iiVhmDIOVNVPlqI85DqshRuocfPkwV7m/22J7b7tC1NnL
+						ArnTdE3Btb+BqDwZaQfcXP/FzG5JaTef2ktLljY1tyue6cIRPsAkSE9lqkl1tTwe
+						nugT9tu5hI2pio7lmN9NBx6Chxr6BDCLoYD+cRPy9lEcCpUenoIGNNg22xieE6Y2
+						Nc+URn/J+sxhbyWwBxDgByrMcFsBPsMdOt5p2topnysc07+CgZdM7uiswYBz5Aj9
+						qUeZF2gC+BtzaR/tOHyN8L57gzWOthH/e6hcS9l2CSE74o98gI0uEvX+GY0CAwEA
+						AaNDMEEwIAYDVR0RBBkwF4IVaW50cmFuZXQuc2JzLm94LmFjLnVrMB0GA1UdDgQW
+						BBS6ncz+YNbGJqBNWLnmu8GRL482ljANBgkqhkiG9w0BAQUFAAOCAQEAK/wwGRID
+						V3WbBMsPSYWm9iH47V35BxxjTA45d6/lfbkFb4s5DD2FwD+wPubcri2s8cz289Kh
+						h9j9yj0Y4msbvYOzioA2xvayntydLgwNjky1EqpnIn6Fv/Atpuq+rt8+CLYZQPHD
+						vsmmQuZ7aORWFNPFIM1Ga51RurF2i83sKH5e6wYIWWx52d64DQfwa4rD9jrfurbW
+						sS3dlTasQa1eAmqc8L/WbrFA7NAV8W0lvldrz/n/iljP9P/C1E4isf14+nQaBUlb
+						PSLOQrLs+FvAmj0LpfNiX0FaipT5pKGuXV1Vmb7SKrEv9ecuOjMhpfcwfOoU2jWA
+						EknFc192G29Now==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://intranet.sbs.ox.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://intranet.sbs.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://intranet.sbs.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://intranet.sbs.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://intranet.sbs.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://intranet.sbs.ox.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://intranet.sbs.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford - Said Business School Intranet</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.sbs.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>NSMS Team</md:GivenName>
+      <md:EmailAddress>mailto:nsms@it.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Aaron</md:GivenName>
+      <md:SurName>Wilson</md:SurName>
+      <md:EmailAddress>mailto:aaron.wilson@it.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

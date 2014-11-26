@@ -1,0 +1,65 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://ku-primo-prod.hosted.exlibrisgroup.com/shib">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2011-07-04T11:22:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://ku-primo-prod.hosted.exlibrisgroup.com/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://ku-primo-prod.hosted.exlibrisgroup.com/Shibboleth.sso/Login" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDNjCCAh6gAwIBAgIJAKw/r3u7k/vAMA0GCSqGSIb3DQEBBQUAMDAxLjAsBgNV
+						BAMTJWRjMDF2ZzAwMzlldS5ob3N0ZWQuZXhsaWJyaXNncm91cC5jb20wHhcNMTEw
+						NjI5MTM1NTE5WhcNMjEwNjI2MTM1NTE5WjAwMS4wLAYDVQQDEyVkYzAxdmcwMDM5
+						ZXUuaG9zdGVkLmV4bGlicmlzZ3JvdXAuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOC
+						AQ8AMIIBCgKCAQEA87/H7BfMefIzd78V/qDhPXBb2XQkICooMjJDekUKaKdykC2r
+						oPp20O/k3XdMvWjJe9bgCURkzcGLoAB8+8YJG5j6ACMfTpcV32q4gIfXk8PlNSBt
+						KjAjJW/EqaN1p8Q0BaMZfcWoNaOhhLWgBkiHIwuCkinsqy0RBy28NBVv9QWnC2PG
+						iJkRAZtXx8RmHDXu9EP/xnQI2a21i4VrbUbG0wvt/h2yYeQ3c1SGQUfdRxFXktTS
+						B5zkt1fKE4K0vJStL/anr6RJpFFiBfLxE9oy1B+HcINrZhwtv37OM9bsfOVL+UFm
+						zZYUjMnpEMzJXY7L8iyCPUElOzO+GafGuwqYNwIDAQABo1MwUTAwBgNVHREEKTAn
+						giVkYzAxdmcwMDM5ZXUuaG9zdGVkLmV4bGlicmlzZ3JvdXAuY29tMB0GA1UdDgQW
+						BBT5akq8gSoJTPqBY/a0JeGDONIu4TANBgkqhkiG9w0BAQUFAAOCAQEAEmFX5dmF
+						aHlpAY9j87joM+fWjqQVEwKiw2qYVaWYZmJwyGd6GTTS6zbiiqtxdUovv2lGEBoa
+						VL7D/Mbrp+uzy6eyJErd8k3JQ754BH2cSgklWKJcO4WRjnlGSGrC5BzlcdweLIwz
+						vjuFU3fkSBXs9nytRd4E/+NTht9U5cJTFFxs9A5OCdY4eXXqU0WleM2hDHgyAB46
+						77eCEE6qd9aFGsoeujg81dSL9J+yCorax8K6BVMi4xPOG5Jp1JXIM1oOJZHoXz0w
+						pauro8vi+P0JtAcliUP2Gs8Vg54ROeafsweovJoRVdgEpdGW1FOPlDk07IM0/4Cl
+						/f5ttpDEx/6kcw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://ku-primo-prod.hosted.exlibrisgroup.com/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://ku-primo-prod.hosted.exlibrisgroup.com/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://ku-primo-prod.hosted.exlibrisgroup.com/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ku-primo-prod.hosted.exlibrisgroup.com/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ku-primo-prod.hosted.exlibrisgroup.com/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ku-primo-prod.hosted.exlibrisgroup.com/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://ku-primo-prod.hosted.exlibrisgroup.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ku-primo-prod.hosted.exlibrisgroup.com/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://ku-primo-prod.hosted.exlibrisgroup.com/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://ku-primo-prod.hosted.exlibrisgroup.com/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://ku-primo-prod.hosted.exlibrisgroup.com/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Ex Libris (UK) Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Ex Libris: ASP Service on behalf of the Kingston University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.exlibrisgroup.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Frank</md:GivenName>
+      <md:SurName>Bieber</md:SurName>
+      <md:EmailAddress>mailto:Frank.Bieber@exlibrisgroup.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Frank</md:GivenName>
+      <md:SurName>Bieber</md:SurName>
+      <md:EmailAddress>mailto:Frank.Bieber@exlibrisgroup.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

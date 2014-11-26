@@ -1,0 +1,112 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shib2idp.rgu.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2009-10-15T14:21:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">rgu.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEuzCCA6OgAwIBAgIRAOjNCL+1Jq0meczdFgdLDN0wDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjA4MDEwMDAwMDBaFw0xNTA4MDEyMzU5NTlaMIGSMQswCQYD
+						VQQGEwJHQjEWMBQGA1UECBMNQWJlcmRlZW5zaGlyZTERMA8GA1UEBxMIQWJlcmRl
+						ZW4xJTAjBgNVBAoTHFRoZSBSb2JlcnQgR29yZG9uIFVuaXZlcnNpdHkxFDASBgNV
+						BAsTC0lUIFNlcnZpY2VzMRswGQYDVQQDExJzaGliMmlkcC5yZ3UuYWMudWswggEi
+						MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQD0TlotgTmGWUSItlyoG33Gk1w2
+						iUKuliqtKawu+UouoghH5vslAKBQZ2wydef+yovFE778CsDChMscNlurlH1gRwMI
+						PJ+kPf0A8f/k9vycdKiJH78dRsCXIqydgldVvuiQZLX8muIEwbUUhH4NS3eguoWT
+						IL18/QcjosjR2TkKewD+6reddWJY/KEJjj5aroMIIsk9NgJzGowR4SneWKsu5LWA
+						xGLkOSIuyq7T2A/ZaC2vKz+iLPsYpb4vX38LUfwEZwxIsFOe3/ByNWF3sK/shUb7
+						/U5Z1rz9MCWHcjkxMNKM7zwaigUSRFDroMQTuJDjWggf4/h47fPUgnZhSWplAgMB
+						AAGjggFlMIIBYTAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAdBgNV
+						HQ4EFgQUeS8VSGO5tj8gfOpUXdqp38VRLFswDgYDVR0PAQH/BAQDAgWgMAwGA1Ud
+						EwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBgGA1UdIAQR
+						MA8wDQYLKwYBBAGyMQECAh0wOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50
+						Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUG
+						CCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENB
+						LmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwHQYD
+						VR0RBBYwFIISc2hpYjJpZHAucmd1LmFjLnVrMA0GCSqGSIb3DQEBBQUAA4IBAQBu
+						7gMyUNw6vJZ7NgziCD9GEGd5H51ZeHRI/Gf6SLp04in04Cy7ILi2+79dNqepG3nx
+						fumYR/jMnj/dMQbfK58lb4tEaji3pfBHaveVK+kHRy/fHXQlXXuJH57DltZVjxDd
+						Kn8zLHWWC4+X5srANwATyv1jWc9+XzZ8Ub7J6DQsz9GAeEJeUDrlQcCegIfDR2C/
+						H/fXmcNh2ltWDkHSyZYNXRPcYycmR/erb0UbwRBZB6Zkyh5fgizY0jAN1L7obwfz
+						Yp7rUeDHUOHQPNa3+J2AVJDg8xrRxn2R85zkOHX2tcEy0bUNW7hkZb4gKpM9N5Ln
+						71pAjOe8DdU65Ivo169+
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib2idp.rgu.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib2idp.rgu.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shiblogin.rgu.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shiblogin.rgu.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shiblogin.rgu.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shiblogin.rgu.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">rgu.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEuzCCA6OgAwIBAgIRAOjNCL+1Jq0meczdFgdLDN0wDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjA4MDEwMDAwMDBaFw0xNTA4MDEyMzU5NTlaMIGSMQswCQYD
+						VQQGEwJHQjEWMBQGA1UECBMNQWJlcmRlZW5zaGlyZTERMA8GA1UEBxMIQWJlcmRl
+						ZW4xJTAjBgNVBAoTHFRoZSBSb2JlcnQgR29yZG9uIFVuaXZlcnNpdHkxFDASBgNV
+						BAsTC0lUIFNlcnZpY2VzMRswGQYDVQQDExJzaGliMmlkcC5yZ3UuYWMudWswggEi
+						MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQD0TlotgTmGWUSItlyoG33Gk1w2
+						iUKuliqtKawu+UouoghH5vslAKBQZ2wydef+yovFE778CsDChMscNlurlH1gRwMI
+						PJ+kPf0A8f/k9vycdKiJH78dRsCXIqydgldVvuiQZLX8muIEwbUUhH4NS3eguoWT
+						IL18/QcjosjR2TkKewD+6reddWJY/KEJjj5aroMIIsk9NgJzGowR4SneWKsu5LWA
+						xGLkOSIuyq7T2A/ZaC2vKz+iLPsYpb4vX38LUfwEZwxIsFOe3/ByNWF3sK/shUb7
+						/U5Z1rz9MCWHcjkxMNKM7zwaigUSRFDroMQTuJDjWggf4/h47fPUgnZhSWplAgMB
+						AAGjggFlMIIBYTAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAdBgNV
+						HQ4EFgQUeS8VSGO5tj8gfOpUXdqp38VRLFswDgYDVR0PAQH/BAQDAgWgMAwGA1Ud
+						EwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBgGA1UdIAQR
+						MA8wDQYLKwYBBAGyMQECAh0wOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50
+						Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUG
+						CCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENB
+						LmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwHQYD
+						VR0RBBYwFIISc2hpYjJpZHAucmd1LmFjLnVrMA0GCSqGSIb3DQEBBQUAA4IBAQBu
+						7gMyUNw6vJZ7NgziCD9GEGd5H51ZeHRI/Gf6SLp04in04Cy7ILi2+79dNqepG3nx
+						fumYR/jMnj/dMQbfK58lb4tEaji3pfBHaveVK+kHRy/fHXQlXXuJH57DltZVjxDd
+						Kn8zLHWWC4+X5srANwATyv1jWc9+XzZ8Ub7J6DQsz9GAeEJeUDrlQcCegIfDR2C/
+						H/fXmcNh2ltWDkHSyZYNXRPcYycmR/erb0UbwRBZB6Zkyh5fgizY0jAN1L7obwfz
+						Yp7rUeDHUOHQPNa3+J2AVJDg8xrRxn2R85zkOHX2tcEy0bUNW7hkZb4gKpM9N5Ln
+						71pAjOe8DdU65Ivo169+
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib2idp.rgu.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib2idp.rgu.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">The Robert Gordon University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Robert Gordon University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.rgu.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Edward</md:GivenName>
+      <md:SurName>Alaszewski</md:SurName>
+      <md:EmailAddress>mailto:e.alaszewski@rgu.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Michael</md:GivenName>
+      <md:SurName>Cunningham</md:SurName>
+      <md:EmailAddress>mailto:m.cunningham@rgu.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

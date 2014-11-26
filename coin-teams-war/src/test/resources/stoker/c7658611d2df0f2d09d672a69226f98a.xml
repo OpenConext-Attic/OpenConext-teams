@@ -1,0 +1,151 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sds.geschkult.fu-berlin.de/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2012-11-06T13:57:23Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sds.geschkult.fu-berlin.de/Shibboleth.sso/DS" index="1"/>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="de">Kunst und Funktion</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Kunst und Funktion</mdui:DisplayName>
+          <mdui:Description xml:lang="de">Die Geschichte der Kunst im Wandel ihrer Funktionen", kurz "Kunst und Funktion" genannt, ist ein Internet-Lernprogramm, das einen Überblick über die Kunstgeschichte in 30 Kapiteln unter der besonderen Fragestellung der Funktion von Kunst bietet.</mdui:Description>
+          <mdui:Description xml:lang="en">Die Geschichte der Kunst im Wandel ihrer Funktionen", kurz "Kunst und Funktion" genannt, ist ein Internet-Lernprogramm, das einen Überblick über die Kunstgeschichte in 30 Kapiteln unter der besonderen Fragestellung der Funktion von Kunst bietet.</mdui:Description>
+          <mdui:InformationURL xml:lang="de">http://www.kunst-und-funktion.de/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">http://www.kunst-und-funktion.de/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:KeyName>sds.geschkult.fu-berlin.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=sds.geschkult.fu-berlin.de,OU=Fachbereich Geschichts- und Kulturwissenschaften,O=Freie Universitaet Berlin,L=Berlin,ST=Berlin,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIFsTCCBJmgAwIBAgIHE7TkxI/mSTANBgkqhkiG9w0BAQUFADCBtTELMAkGA1UE
+BhMCREUxDzANBgNVBAgTBkJlcmxpbjEPMA0GA1UEBxMGQmVybGluMSIwIAYDVQQK
+ExlGcmVpZSBVbml2ZXJzaXRhZXQgQmVybGluMQ4wDAYDVQQLEwVaRURBVDEwMC4G
+A1UEAxMnRnJlaWUgVW5pdmVyc2l0YWV0IEJlcmxpbiAtIEZVLUNBIC0gRzAxMR4w
+HAYJKoZIhvcNAQkBFg9jYUBGVS1CZXJsaW4uREUwHhcNMTIwNDIzMTQyOTA4WhcN
+MTcwNDIyMTQyOTA4WjCBszELMAkGA1UEBhMCREUxDzANBgNVBAgTBkJlcmxpbjEP
+MA0GA1UEBxMGQmVybGluMSIwIAYDVQQKExlGcmVpZSBVbml2ZXJzaXRhZXQgQmVy
+bGluMTkwNwYDVQQLEzBGYWNoYmVyZWljaCBHZXNjaGljaHRzLSB1bmQgS3VsdHVy
+d2lzc2Vuc2NoYWZ0ZW4xIzAhBgNVBAMTGnNkcy5nZXNjaGt1bHQuZnUtYmVybGlu
+LmRlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxQiC2Eb0zNzFtrlQ
+FMqNF4v5tTD2G4MRUDCu6j2q44u6KIq8MmUj0kmEEEwPp+SM2KgBjvWGFbi6JRxo
+KVPgqo7lSMSOxWzvPtdpMet5FNWl1fMCRff35GsWHb9eM7eE6QZDc4zNyyOCWHYk
+f/fwzWk4a5asHg00+92I1WI9+6Qud5IR4jrvoMG7Jbt3vZQLJeCxiwdiNaK+5QxO
+p/H4zXwqrUZsGCovnpgTYXJ70blUzgScyeDc0mceFActrimEfWgSM0jCIsqSALDF
+PSeQLDrLYmFsp/qWN/UeTU2KvO05CQc88f4OcwwTyZ9Bz8M2XElXT9g47eZQDImh
+PFl+PwIDAQABo4IBxDCCAcAwHAYDVR0gBBUwEzARBg8rBgEEAYGtIYIsAQEEAgIw
+CQYDVR0TBAIwADALBgNVHQ8EBAMCBeAwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsG
+AQUFBwMBMB0GA1UdDgQWBBS+8dPy2YsDwhLcALXLrUDmTPk7oTAfBgNVHSMEGDAW
+gBQG4T30b/Qwt3o7V7AxBYl7DVhabDAfBgNVHREEGDAWgRRqLnBvc2VsQGZ1LWJl
+cmxpbi5kZTB1BgNVHR8EbjBsMDSgMqAwhi5odHRwOi8vY2RwMS5wY2EuZGZuLmRl
+L2Z1LWNhL3B1Yi9jcmwvY2FjcmwuY3JsMDSgMqAwhi5odHRwOi8vY2RwMi5wY2Eu
+ZGZuLmRlL2Z1LWNhL3B1Yi9jcmwvY2FjcmwuY3JsMIGQBggrBgEFBQcBAQSBgzCB
+gDA+BggrBgEFBQcwAoYyaHR0cDovL2NkcDEucGNhLmRmbi5kZS9mdS1jYS9wdWIv
+Y2FjZXJ0L2NhY2VydC5jcnQwPgYIKwYBBQUHMAKGMmh0dHA6Ly9jZHAyLnBjYS5k
+Zm4uZGUvZnUtY2EvcHViL2NhY2VydC9jYWNlcnQuY3J0MA0GCSqGSIb3DQEBBQUA
+A4IBAQAfB2BcEnVLU64XzvGRlQsoBDONqU0V47hoYMp+fazwwrFpnd4abnN9afd9
+6WTw+w8iPtouHwDBk2ug+y/O9qKWQ/xcnpHxY/8kTFFfL/l4kqTez1+YlPdcSBOc
+xvUVpkOhTzz/NHnOugGURzx0yr5Ed+qjizYuRXY+b5rCpQuvL+XqeHlCE68sPvpK
+T25BX08SdKK4f0oRnXWWh2QCYQ/4NIWv08ONldVPdtAxk8PBmDuoCG/YIlx9dYiN
+XWJJd+8bBwrHOLmMkpGeRTPkylm/xxzaiar+bcLgovnoDgYHtdwLsFqfz6udseTN
+hxwSl97R2/aZr5SYew488kLknAEp
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:KeyName>sds.geschkult.fu-berlin.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=sds.geschkult.fu-berlin.de,OU=Fachbereich Geschichts- und Kulturwissenschaften,O=Freie Universitaet Berlin,L=Berlin,ST=Berlin,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIFsTCCBJmgAwIBAgIHE7TkxI/mSTANBgkqhkiG9w0BAQUFADCBtTELMAkGA1UE
+BhMCREUxDzANBgNVBAgTBkJlcmxpbjEPMA0GA1UEBxMGQmVybGluMSIwIAYDVQQK
+ExlGcmVpZSBVbml2ZXJzaXRhZXQgQmVybGluMQ4wDAYDVQQLEwVaRURBVDEwMC4G
+A1UEAxMnRnJlaWUgVW5pdmVyc2l0YWV0IEJlcmxpbiAtIEZVLUNBIC0gRzAxMR4w
+HAYJKoZIhvcNAQkBFg9jYUBGVS1CZXJsaW4uREUwHhcNMTIwNDIzMTQyOTA4WhcN
+MTcwNDIyMTQyOTA4WjCBszELMAkGA1UEBhMCREUxDzANBgNVBAgTBkJlcmxpbjEP
+MA0GA1UEBxMGQmVybGluMSIwIAYDVQQKExlGcmVpZSBVbml2ZXJzaXRhZXQgQmVy
+bGluMTkwNwYDVQQLEzBGYWNoYmVyZWljaCBHZXNjaGljaHRzLSB1bmQgS3VsdHVy
+d2lzc2Vuc2NoYWZ0ZW4xIzAhBgNVBAMTGnNkcy5nZXNjaGt1bHQuZnUtYmVybGlu
+LmRlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxQiC2Eb0zNzFtrlQ
+FMqNF4v5tTD2G4MRUDCu6j2q44u6KIq8MmUj0kmEEEwPp+SM2KgBjvWGFbi6JRxo
+KVPgqo7lSMSOxWzvPtdpMet5FNWl1fMCRff35GsWHb9eM7eE6QZDc4zNyyOCWHYk
+f/fwzWk4a5asHg00+92I1WI9+6Qud5IR4jrvoMG7Jbt3vZQLJeCxiwdiNaK+5QxO
+p/H4zXwqrUZsGCovnpgTYXJ70blUzgScyeDc0mceFActrimEfWgSM0jCIsqSALDF
+PSeQLDrLYmFsp/qWN/UeTU2KvO05CQc88f4OcwwTyZ9Bz8M2XElXT9g47eZQDImh
+PFl+PwIDAQABo4IBxDCCAcAwHAYDVR0gBBUwEzARBg8rBgEEAYGtIYIsAQEEAgIw
+CQYDVR0TBAIwADALBgNVHQ8EBAMCBeAwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsG
+AQUFBwMBMB0GA1UdDgQWBBS+8dPy2YsDwhLcALXLrUDmTPk7oTAfBgNVHSMEGDAW
+gBQG4T30b/Qwt3o7V7AxBYl7DVhabDAfBgNVHREEGDAWgRRqLnBvc2VsQGZ1LWJl
+cmxpbi5kZTB1BgNVHR8EbjBsMDSgMqAwhi5odHRwOi8vY2RwMS5wY2EuZGZuLmRl
+L2Z1LWNhL3B1Yi9jcmwvY2FjcmwuY3JsMDSgMqAwhi5odHRwOi8vY2RwMi5wY2Eu
+ZGZuLmRlL2Z1LWNhL3B1Yi9jcmwvY2FjcmwuY3JsMIGQBggrBgEFBQcBAQSBgzCB
+gDA+BggrBgEFBQcwAoYyaHR0cDovL2NkcDEucGNhLmRmbi5kZS9mdS1jYS9wdWIv
+Y2FjZXJ0L2NhY2VydC5jcnQwPgYIKwYBBQUHMAKGMmh0dHA6Ly9jZHAyLnBjYS5k
+Zm4uZGUvZnUtY2EvcHViL2NhY2VydC9jYWNlcnQuY3J0MA0GCSqGSIb3DQEBBQUA
+A4IBAQAfB2BcEnVLU64XzvGRlQsoBDONqU0V47hoYMp+fazwwrFpnd4abnN9afd9
+6WTw+w8iPtouHwDBk2ug+y/O9qKWQ/xcnpHxY/8kTFFfL/l4kqTez1+YlPdcSBOc
+xvUVpkOhTzz/NHnOugGURzx0yr5Ed+qjizYuRXY+b5rCpQuvL+XqeHlCE68sPvpK
+T25BX08SdKK4f0oRnXWWh2QCYQ/4NIWv08ONldVPdtAxk8PBmDuoCG/YIlx9dYiN
+XWJJd+8bBwrHOLmMkpGeRTPkylm/xxzaiar+bcLgovnoDgYHtdwLsFqfz6udseTN
+hxwSl97R2/aZr5SYew488kLknAEp
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sds.geschkult.fu-berlin.de/Shibboleth.sso/SLO/Artifact"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sds.geschkult.fu-berlin.de/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sds.geschkult.fu-berlin.de/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sds.geschkult.fu-berlin.de/Shibboleth.sso/SLO/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sds.geschkult.fu-berlin.de/Shibboleth.sso/NIM/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sds.geschkult.fu-berlin.de/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sds.geschkult.fu-berlin.de/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sds.geschkult.fu-berlin.de/Shibboleth.sso/NIM/SOAP"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://sds.geschkult.fu-berlin.de/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://sds.geschkult.fu-berlin.de/Shibboleth.sso/SAML/POST" index="7"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sds.geschkult.fu-berlin.de/Shibboleth.sso/SAML2/Artifact" index="8"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://sds.geschkult.fu-berlin.de/Shibboleth.sso/SAML2/ECP" index="9"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sds.geschkult.fu-berlin.de/Shibboleth.sso/SAML2/POST" index="10"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sds.geschkult.fu-berlin.de/Shibboleth.sso/SAML2/POST-SimpleSign" index="11"/>
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="de">Kunst und Funktion</md:ServiceName>
+        <md:ServiceName xml:lang="en">Kunst und Funktion</md:ServiceName>
+        <md:ServiceDescription xml:lang="de">Die Geschichte der Kunst im Wandel ihrer Funktionen", kurz "Kunst und Funktion" genannt, ist ein Internet-Lernprogramm, das einen Überblick über die Kunstgeschichte in 30 Kapiteln unter der besonderen Fragestellung der Funktion von Kunst bietet.</md:ServiceDescription>
+        <md:ServiceDescription xml:lang="en">Die Geschichte der Kunst im Wandel ihrer Funktionen", kurz "Kunst und Funktion" genannt, ist ein Internet-Lernprogramm, das einen Überblick über die Kunstgeschichte in 30 Kapiteln unter der besonderen Fragestellung der Funktion von Kunst bietet.</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="o" Name="urn:oid:2.5.4.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e5</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e5</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Freie Universität Berlin</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Freie Universität Berlin</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">https://identity.fu-berlin.de/idp-fub/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://identity.fu-berlin.de/idp-fub/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Johannes</md:GivenName>
+      <md:SurName>Posel</md:SurName>
+      <md:EmailAddress>mailto:support@geschkult.fu-berlin.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Steffen</md:GivenName>
+      <md:SurName>Hofmann</md:SurName>
+      <md:EmailAddress>mailto:fudis@zedat.fu-berlin.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Johannes</md:GivenName>
+      <md:SurName>Posel</md:SurName>
+      <md:EmailAddress>mailto:support@geschkult.fu-berlin.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Johannes</md:GivenName>
+      <md:SurName>Posel</md:SurName>
+      <md:EmailAddress>mailto:support@geschkult.fu-berlin.de</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

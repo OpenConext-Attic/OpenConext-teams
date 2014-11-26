@@ -1,0 +1,55 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://auth.search.serialssolutions.com/auth/Metadata/Shib">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2009-11-24T12:33:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDjDCCAnSgAwIBAgIETQA4czANBgkqhkiG9w0BAQUFADCBhzELMAkGA1UEBhMC
+						VVMxCzAJBgNVBAgTAldBMRAwDgYDVQQHEwdTZWF0dGxlMRowGAYDVQQKExFTZXJp
+						YWxzIFNvbHV0aW9uczEaMBgGA1UECxMRU2VyaWFscyBTb2x1dGlvbnMxITAfBgNV
+						BAMTGHd3dy5zZXJpYWxzc29sdXRpb25zLmNvbTAeFw0xMDEyMDkwMjAxMjNaFw0x
+						NjAxMDcwMjAxMjNaMIGHMQswCQYDVQQGEwJVUzELMAkGA1UECBMCV0ExEDAOBgNV
+						BAcTB1NlYXR0bGUxGjAYBgNVBAoTEVNlcmlhbHMgU29sdXRpb25zMRowGAYDVQQL
+						ExFTZXJpYWxzIFNvbHV0aW9uczEhMB8GA1UEAxMYd3d3LnNlcmlhbHNzb2x1dGlv
+						bnMuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq2cevLb70/ZI
+						7URgp+Rgz9KOHtJRg4W9ucFm91fvfoaww9tBBQ8GXEgq3wO3pmPYE4+bdA04xIW3
+						sQgmB9UQe1sPVOhffUhHm/+MBzddIZ1WYg1lLOl3CQ/2J5Uak+/3hV8Z+ppbV0tx
+						HBtqSrd+aaSrVftWKqoF5+gSmMi2ckuUGTrq9B8etqALhZoU4K2CFYhjrVK2vwaS
+						sjT3+AXlO2m7PmE4xC+2jXjp33uxMbhwfjY7XgpK06h8tQQXCH7GPRbYLjSPWFw3
+						IHQFm46bk4uyzDsJemjLcaGaazmbWwdMZhoWydGHphbO9Jw2so1Ht2ABOcfj3TpU
+						GIKW9dmQ6QIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQB699XlVrbgegSecfHkxdwK
+						J+7N2N5vqvAcOhoBEU1UAqIuuQF3lCpDot8QNfhxRHc3sxUh4OfqUDWcdD1rxavP
+						7LzrCu9hJFli2pzNWOMle/AyAfbVRT3tDSmjqOlyrJs/G50PQV9QJyJxLvXJHg0P
+						RQiV5GjOtMlE9fsVY5FIpoXTOJwP2yDvE5HF2QO4gEhKrNZvmXJ6X60NryxIApD2
+						nQQ5159Bha3+D9szK4wwaGQ04ry+UW0j9C7xbhDCc/Kkd5JCqzvLqFp73F6Ma6nK
+						32buuHZ/UERHs77NrmCGrS7i3oJppxFoakb9bfWEFMrbD7ZUV9DtoTDZFtFkR9jb
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://login.serialssolutions.com/sso/auth/LINK/rcv/saml1" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://login.serialssolutions.com/sso/auth/LINK/rcv/saml1" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://auth.search.serialssolutions.com/auth/rcv" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://auth.search.serialssolutions.com/auth/rcv" index="3"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Proquest Information and Learning Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">ProQuest: Serials Solutions 360 Link/Core</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.serialssolutions.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Customer Care</md:GivenName>
+      <md:EmailAddress>mailto:clients@serialssolutions.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Andrew</md:GivenName>
+      <md:SurName>Nagy</md:SurName>
+      <md:EmailAddress>mailto:Andrew.Nagy@serialssolutions.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

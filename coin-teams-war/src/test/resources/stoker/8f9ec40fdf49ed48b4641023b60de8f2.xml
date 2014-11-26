@@ -1,0 +1,65 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://login.bufvc.ac.uk/saml/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol  urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEpjCCA46gAwIBAgIRAJuqvEQb2nivw9LlulsKgTUwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjExMTUwMDAwMDBaFw0xNTExMTUyMzU5NTlaMH8xCzAJBgNV
+						BAYTAkdCMQ8wDQYDVQQIEwZMb25kb24xDzANBgNVBAcTBkxvbmRvbjEyMDAGA1UE
+						ChQpQnJpdGlzaCBVbml2ZXJzaXRpZXMgRmlsbSAmIFZpZGVvIENvdW5jaWwxGjAY
+						BgNVBAMTEWxvZ2luLmJ1ZnZjLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+						MIIBCgKCAQEA5h2PqOMzg3Y08haJK077LpqFTNbDklYS9e5vqDeUhSa9M+ugGPuT
+						0Y8CLiqX8/eJHHRNd8h0cFFLuEgT8ERasWhVYMCrHRSglwJvm+5IXGrGjhmaLZy1
+						5q+pr7mERLXzdlvBsMTpYrizh9lW3fSMVl8bM3EjqG8NLDQzRfp53gJ1O9pjjr26
+						484VfYdaxgUvuitfq5RH5h8OeeyTBm3S3D0R7ruwn3c7Nyzhq5IlGIx7stVQ4Ydi
+						k1W95HwPQKvnMZUTgtv5LRLeSbZdZpePXYOiQUwkSsj8aVsp4klmJB/hzfWaVFKK
+						J8/1OQKJRFKN9wh2NDQm7TatDmXd1QC0JwIDAQABo4IBZDCCAWAwHwYDVR0jBBgw
+						FoAUDL2TaAzz3qujSWsrN1dH6pDjue0wHQYDVR0OBBYEFGVB6NEoch0GDSTWKrA4
+						f2KZQ+6+MA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQG
+						CCsGAQUFBwMBBggrBgEFBQcDAjAYBgNVHSAEETAPMA0GCysGAQQBsjEBAgIdMDoG
+						A1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5B
+						U1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2Ny
+						dC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0
+						dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMBwGA1UdEQQVMBOCEWxvZ2luLmJ1ZnZj
+						LmFjLnVrMA0GCSqGSIb3DQEBBQUAA4IBAQBCj+si/OAXKczTJ1Zssfnf4ovLzFVU
+						+KqUWRBYYCb2GQRz4BbhyTPbWhBZnBj0Uge8/z9Sfn9GN4IWGXMTuLGrAQPJvDBB
+						WYo7C0/TE7MZL7apTfsQ7SM45VE0qD1doCxyqcYd0L1CDQnwzR+BJ1z7OZoy3jau
+						Hm8Suozr2gMsWn7mu4ZIzXd2sKx7nVnoQPchMSVef9T8ZWrUR2qkBnB14yPdNWoA
+						9PbWT7R0kyF2cAxF6tw8SiYAiYXG4EbKZsV/4B7O9aPBN2pWHFNAySuneWFDdTSB
+						oQfF2ly+fZDgA4A2ONfvSehmCoqARP9BO8oWbigQqF3J7vI3MfNsgIRl
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://login.bufvc.ac.uk/auth/rcv" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://login.bufvc.ac.uk/auth/rcv" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://login.bufvc.ac.uk/oa/auth/rcv/shib/post" index="3" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://login.bufvc.ac.uk/oa/auth/rcv/shib/art" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.bufvc.ac.uk/oa/auth/rcv/saml2/post" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://login.bufvc.ac.uk/oa/auth/rcv/saml2/art" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://test2.bufvc.ac.uk/oa/auth/rcv/shib/post" index="7"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://test2.bufvc.ac.uk/oa/auth/rcv/shib/art" index="8"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://test2.bufvc.ac.uk/oa/auth/rcv/saml2/post" index="9"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://test2.bufvc.ac.uk/oa/auth/rcv/saml2/art" index="10"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">British Universities Film &amp; Video Council</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">British Universities Film &amp; Video Council</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://bufvc.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Lotfallah</md:GivenName>
+      <md:SurName>Bekhradi</md:SurName>
+      <md:EmailAddress>mailto:federation@bufvc.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Lotfallah</md:GivenName>
+      <md:SurName>Bekhradi</md:SurName>
+      <md:EmailAddress>mailto:federation@bufvc.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

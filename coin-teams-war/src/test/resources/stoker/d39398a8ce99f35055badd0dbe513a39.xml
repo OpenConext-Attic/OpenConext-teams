@@ -1,0 +1,50 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.ingentaconnect.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDbjCCAlagAwIBAgIES2K7ITANBgkqhkiG9w0BAQUFADB5MQswCQYDVQQGEwJH
+						QjEUMBIGA1UECBMLT3hmb3Jkc2hpcmUxDzANBgNVBAcTBk94Zm9yZDEiMCAGA1UE
+						ChMZUHVibGlzaGluZyBUZWNobm9sb2d5IHBsYzEfMB0GA1UEAxMWd3d3LmluZ2Vu
+						dGFjb25uZWN0LmNvbTAeFw0xMDAxMjkxMDQwMzNaFw0yMDAxMjcxMDQwMzNaMHkx
+						CzAJBgNVBAYTAkdCMRQwEgYDVQQIEwtPeGZvcmRzaGlyZTEPMA0GA1UEBxMGT3hm
+						b3JkMSIwIAYDVQQKExlQdWJsaXNoaW5nIFRlY2hub2xvZ3kgcGxjMR8wHQYDVQQD
+						ExZ3d3cuaW5nZW50YWNvbm5lY3QuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+						MIIBCgKCAQEArI43vZrkFNp7iDu15WSeQJHypb1dyWNnpHOwGiw5C2E5hlR9EoP8
+						1oIHAeviGP6ux25Jcpw60glnEJ/kXO7lXsq7qCHjfP0zFHtL0GB2g8TicQYOXSmq
+						2AlpWs6kXo4sNpzsVxfFUjE0XFH8fJ/xTmgXYZ0usz+AQ3cThMPqh14s+Y04ti4n
+						CmXFlQJvTaB68fYPn2LeArZV3peW1A9i6yqjJJJWesJwa8LIS6DFJto/MqgRVkPY
+						t09MzppaB5P50kfyZ6c4wHsn+e1eskP5MTbgwTZCtw6gKDrQHiXmsW/64yT0cg6b
+						zv3CWcvCatmKwQdZK8CnEI5eO9lSW7h/mwIDAQABMA0GCSqGSIb3DQEBBQUAA4IB
+						AQCBMD1O5Vl0JjhkzhAGj4bxdVIiORt5XC5WA8t86tGRsM+/AGG7sOOWCDKwj0xo
+						EUkhSbsGksXyoiap/FGXCzEgyXIYPtr/SgwR/hcVd9aqlhCQJ2Fy06cMfPZYmJ+c
+						rv9YuSO0Bs0zqnsYVf+Sw+8fDNPcY5R4afYcUAh+VngzPc2TOV+RxgDC69laBqHU
+						4WhrXwC348vHmWnLbc+F4JG+ELE3Lid9WX/ieFC/wt3xqbpzaVPQPpi+G1PS7Wux
+						wJdSYuAueKsqY3HJLDfnICkFvfLpptvKj28xxmkVb+qlKoGf6XX7toxw0O5WIa71
+						VS6MHJn5tjjxCiYXqnypfalg
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.ingentaconnect.com/session/shib" index="1" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.ingentaconnect.com/session/shib" index="2"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Publishing Technology plc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Publishing Technology: IngentaConnect</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ingentaconnect.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:help@ingentaconnect.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Dave</md:GivenName>
+      <md:SurName>Lord</md:SurName>
+      <md:EmailAddress>mailto:Dave.Lord@publishingtechnology.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

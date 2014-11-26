@@ -1,0 +1,106 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.coulsdon.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">coulsdon.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEcTCCA1mgAwIBAgIQJOqN2v68Irpt7BTwM8+KxjANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTE0MDMyMTAwMDAwMFoXDTE3MDMyMDIzNTk1OVowQDEhMB8GA1UE
+						CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRswGQYDVQQDExJpZHAuY291bHNk
+						b24uYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDKZJnCyrgv
+						aLfVlYa+UZ2acK6Ar+dvMpZwzImpr0pRAO6AnUXQvu0pfDiFmZaPiKxXqruXKHDv
+						8zcbK+zkhTw3MEsWUMrR9z1vrGV/3HJ5N8o0Ruosiu08VVeQWu6gV9XqWvwBHpE2
+						29Ks8xYi2OjxciIsdYkEQVFtQOITWlqxDgawaixpNNjupUpCDhD57jzPRMt3K4bi
+						FnO1D7fY5aGnVAE86KGmeehe+3OvNPzuohTAatcgAwQMTpzrkK7DuGPrz0o4BsfZ
+						Dvixo2bhTsxY5iQ0x5qxvi75jPUXnJfS4zRgONk8v2EL6ICIAt4pqSHSgNDkapbN
+						RdDj3hejrBYfAgMBAAGjggFvMIIBazAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3
+						V0fqkOO57TAdBgNVHQ4EFgQU51eJ++2LXmhsG5ZPFnLIEdNx5s8wDgYDVR0PAQH/
+						BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUF
+						BwMCMCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQIBMDoGA1UdHwQz
+						MDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0Eu
+						Y3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2NydC50Y3Mu
+						dGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6Ly9v
+						Y3NwLnRjcy50ZXJlbmEub3JnMB0GA1UdEQQWMBSCEmlkcC5jb3Vsc2Rvbi5hYy51
+						azANBgkqhkiG9w0BAQUFAAOCAQEAWpY694i09h9vXRu8Bjf24MEtUMndoHt5SkyJ
+						whDc2n1xIynpxJXFobAAIx69dlVx/u1cEyPprqVcI2AY1Ru3lfJL0e+vtMH+5rXz
+						/22F5Rwth2bgeL/Veu7dEZXakzlolQfbRpV2QqKKUDlicIxypHMjbeqtBSLk45eW
+						x84AKfCKhDmSxTVGoIEON34LbjTb1CjmhwEaAK/3yvwjY+czY+62LjxYw4GILlhZ
+						ehBx0xhazJ7MDpZJRO3txDvCmyy3MTxIJIOudwPYUOCwu4Tlk+6CGei1JxmpHFLf
+						LqhXBlXEMKCLqNZrOnwROhwtx7lCv2GG4iVldu9inS5XW3xFuA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.coulsdon.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.coulsdon.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.coulsdon.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.coulsdon.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.coulsdon.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.coulsdon.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">coulsdon.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEcTCCA1mgAwIBAgIQJOqN2v68Irpt7BTwM8+KxjANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTE0MDMyMTAwMDAwMFoXDTE3MDMyMDIzNTk1OVowQDEhMB8GA1UE
+						CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRswGQYDVQQDExJpZHAuY291bHNk
+						b24uYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDKZJnCyrgv
+						aLfVlYa+UZ2acK6Ar+dvMpZwzImpr0pRAO6AnUXQvu0pfDiFmZaPiKxXqruXKHDv
+						8zcbK+zkhTw3MEsWUMrR9z1vrGV/3HJ5N8o0Ruosiu08VVeQWu6gV9XqWvwBHpE2
+						29Ks8xYi2OjxciIsdYkEQVFtQOITWlqxDgawaixpNNjupUpCDhD57jzPRMt3K4bi
+						FnO1D7fY5aGnVAE86KGmeehe+3OvNPzuohTAatcgAwQMTpzrkK7DuGPrz0o4BsfZ
+						Dvixo2bhTsxY5iQ0x5qxvi75jPUXnJfS4zRgONk8v2EL6ICIAt4pqSHSgNDkapbN
+						RdDj3hejrBYfAgMBAAGjggFvMIIBazAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3
+						V0fqkOO57TAdBgNVHQ4EFgQU51eJ++2LXmhsG5ZPFnLIEdNx5s8wDgYDVR0PAQH/
+						BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUF
+						BwMCMCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQIBMDoGA1UdHwQz
+						MDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0Eu
+						Y3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2NydC50Y3Mu
+						dGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6Ly9v
+						Y3NwLnRjcy50ZXJlbmEub3JnMB0GA1UdEQQWMBSCEmlkcC5jb3Vsc2Rvbi5hYy51
+						azANBgkqhkiG9w0BAQUFAAOCAQEAWpY694i09h9vXRu8Bjf24MEtUMndoHt5SkyJ
+						whDc2n1xIynpxJXFobAAIx69dlVx/u1cEyPprqVcI2AY1Ru3lfJL0e+vtMH+5rXz
+						/22F5Rwth2bgeL/Veu7dEZXakzlolQfbRpV2QqKKUDlicIxypHMjbeqtBSLk45eW
+						x84AKfCKhDmSxTVGoIEON34LbjTb1CjmhwEaAK/3yvwjY+czY+62LjxYw4GILlhZ
+						ehBx0xhazJ7MDpZJRO3txDvCmyy3MTxIJIOudwPYUOCwu4Tlk+6CGei1JxmpHFLf
+						LqhXBlXEMKCLqNZrOnwROhwtx7lCv2GG4iVldu9inS5XW3xFuA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.coulsdon.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.coulsdon.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Coulsdon College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Coulsdon Sixth Form College in Croydon</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.coulsdon.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Nick</md:GivenName>
+      <md:SurName>Gullick</md:SurName>
+      <md:EmailAddress>mailto:nick.gullick@coulsdon.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Nick</md:GivenName>
+      <md:SurName>Gullick</md:SurName>
+      <md:EmailAddress>mailto:nick.gullick@coulsdon.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,92 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.sandwell.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">sandwell.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDNDCCAhygAwIBAgIVAPG65DBJJFPh5Jipeuryxop1mT/zMA0GCSqGSIb3DQEB
+						BQUAMB0xGzAZBgNVBAMTEmlkcC5zYW5kd2VsbC5hYy51azAeFw0xMjExMjgxMjQ3
+						MDFaFw0zMjExMjgxMjQ3MDFaMB0xGzAZBgNVBAMTEmlkcC5zYW5kd2VsbC5hYy51
+						azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIAfYb8Pu2uYwPgeHKrf
+						lPAMO1suHci3KBE5i22esUbqgDb7THIbKO8Hbd+z9tdphWZc6PhmEFeOwD0BE/qO
+						hDlRj9NwqggXezX5ecLWIR4/oYku5O8AD2B6DeksDdUX/zbaDeyDa/guxMbMLzJj
+						PNzS0QR2/wId7sZOnMGhAzyUnMokziGb5H3w0qv121bywNxCBncJpY83RwSy5D14
+						0bsDxkWWwaHTFy3bl9Nl28WfcC294UOIMO/5y2BW6oWGfPo9Bkl4+/Co8Agidk2Q
+						MRWVzp6vtYBWVYASGYmNDw4uiyJ+A+sV3YNCTDwqiuqesPR2saqzIrxjYfYcapJg
+						+gcCAwEAAaNrMGkwSAYDVR0RBEEwP4ISaWRwLnNhbmR3ZWxsLmFjLnVrhilodHRw
+						czovL2lkcC5zYW5kd2VsbC5hYy51ay9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU
+						hFHU5vFeYLlzBNR6FTzu937oV18wDQYJKoZIhvcNAQEFBQADggEBADx5fmZ91UY0
+						UljRC24uNiX0nHOmAwVZDDUdO7UUkTboKh2u+AmiLEAh/3hX4S3GnYKW8p0Q0QNS
+						32eDTMKf/7SWfflBVIhEUWo8DN4rZF4iL7Qoc7DiLt9QtQAPLlRGdenASN6WHpab
+						nH6mBdrLtGZ+EKS6H9DE1+9JVib+CUnLYbzfiWfCXrzHQa2/1GPi8H3vLsC0+s/y
+						xt4afWbbFiZgb0Jkj51pYOzvBJXeHuea8BvlfRb+2KalvimeFsCb2Vd+cmoewYMo
+						HXt7U0zNsoKb3p7Jbx5SlDztMdz52mSSYLa4SuFbE1u6ooMYb7lFWfL1rlDv0SiT
+						MA3XVUiG45c=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.sandwell.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.sandwell.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.sandwell.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.sandwell.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.sandwell.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.sandwell.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">sandwell.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDNDCCAhygAwIBAgIVAPG65DBJJFPh5Jipeuryxop1mT/zMA0GCSqGSIb3DQEB
+						BQUAMB0xGzAZBgNVBAMTEmlkcC5zYW5kd2VsbC5hYy51azAeFw0xMjExMjgxMjQ3
+						MDFaFw0zMjExMjgxMjQ3MDFaMB0xGzAZBgNVBAMTEmlkcC5zYW5kd2VsbC5hYy51
+						azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIAfYb8Pu2uYwPgeHKrf
+						lPAMO1suHci3KBE5i22esUbqgDb7THIbKO8Hbd+z9tdphWZc6PhmEFeOwD0BE/qO
+						hDlRj9NwqggXezX5ecLWIR4/oYku5O8AD2B6DeksDdUX/zbaDeyDa/guxMbMLzJj
+						PNzS0QR2/wId7sZOnMGhAzyUnMokziGb5H3w0qv121bywNxCBncJpY83RwSy5D14
+						0bsDxkWWwaHTFy3bl9Nl28WfcC294UOIMO/5y2BW6oWGfPo9Bkl4+/Co8Agidk2Q
+						MRWVzp6vtYBWVYASGYmNDw4uiyJ+A+sV3YNCTDwqiuqesPR2saqzIrxjYfYcapJg
+						+gcCAwEAAaNrMGkwSAYDVR0RBEEwP4ISaWRwLnNhbmR3ZWxsLmFjLnVrhilodHRw
+						czovL2lkcC5zYW5kd2VsbC5hYy51ay9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU
+						hFHU5vFeYLlzBNR6FTzu937oV18wDQYJKoZIhvcNAQEFBQADggEBADx5fmZ91UY0
+						UljRC24uNiX0nHOmAwVZDDUdO7UUkTboKh2u+AmiLEAh/3hX4S3GnYKW8p0Q0QNS
+						32eDTMKf/7SWfflBVIhEUWo8DN4rZF4iL7Qoc7DiLt9QtQAPLlRGdenASN6WHpab
+						nH6mBdrLtGZ+EKS6H9DE1+9JVib+CUnLYbzfiWfCXrzHQa2/1GPi8H3vLsC0+s/y
+						xt4afWbbFiZgb0Jkj51pYOzvBJXeHuea8BvlfRb+2KalvimeFsCb2Vd+cmoewYMo
+						HXt7U0zNsoKb3p7Jbx5SlDztMdz52mSSYLa4SuFbE1u6ooMYb7lFWfL1rlDv0SiT
+						MA3XVUiG45c=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.sandwell.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.sandwell.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Sandwell College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Sandwell College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.sandwell.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Network Operations</md:GivenName>
+      <md:EmailAddress>mailto:operations@sandwell.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Network Operations</md:GivenName>
+      <md:EmailAddress>mailto:operations@sandwell.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

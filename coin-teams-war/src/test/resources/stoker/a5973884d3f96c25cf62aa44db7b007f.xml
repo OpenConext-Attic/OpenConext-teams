@@ -1,0 +1,113 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibdev.shef.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2010-10-14T17:56:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">sheffield.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEcjCCA1qgAwIBAgIRAPsd0lQ3zA9qshZ/AtQzPukwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzA5MzAwMDAwMDBaFw0xNjA5MjkyMzU5NTlaMEAxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEbMBkGA1UEAxMSc2hpYmRldi5z
+						aGVmLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq0TlVbOQ
+						ComVMFNLl1MPD2RkIrJXoaAZlR+ezoCmdec4rv5SadlGQSXFiGsiw9fhjkS/bb1p
+						TfqxwdcBGJQ2FSw5Hig+vlVDiPo/BEA0H0ejnRZ7RwYe4q3gKentjhJ9OyI3qBkX
+						wPMFfX4x+CG0sML/SC26omReQUVLFBJR0tHlIOiKgsbvHPY2ih9FcvWYhckG/VMd
+						0VwAhWzue7c6e/f6HASq1V4ovtlgmbbvaWgah01iPHiCzG/Yo9SbGewHObj5GR7K
+						FC7ayORvM6tzKoR5JmJ8QX9IYuiH0wuoNFDz9kQtMvZJBjEGYq8hsYgJACC5S8Dt
+						vF2JFzmsUM43hwIDAQABo4IBbzCCAWswHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsr
+						N1dH6pDjue0wHQYDVR0OBBYEFB+0r9UYq6Ytp9e3hwqSARAVypaSMA4GA1UdDwEB
+						/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEF
+						BQcDAjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAECATA6BgNVHR8E
+						MzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENB
+						LmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNz
+						LnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8v
+						b2NzcC50Y3MudGVyZW5hLm9yZzAdBgNVHREEFjAUghJzaGliZGV2LnNoZWYuYWMu
+						dWswDQYJKoZIhvcNAQEFBQADggEBADAWzwonR3Un1FKUk5dQyOe5ugNt+jqIQ8MX
+						9CVYHWFpT76cH6jw9xRPooIigi+qUAMfdDhustmzMHJwapt1cKLCuwbsFXTQS4r4
+						b9wWuemt/4hefT+Cv8h+oo4uCxEipD2H20c+I7bS0TcejN9/HeO378rSAAvI40Mo
+						eq4++mTN6M8HJRBOOtfwU0dpQ/ln6PkOSsXGvDcklLsMaMfM+IE+4vq1cF0jPZ2n
+						EB/lCePMbGo0SM+B5SDGNNGksrW1LczHBsCSUBLDxaYEYbldDVeRybFNMc6N7y+x
+						0OgEvEcrtOAwP6Jl4BujPGJZBytgiK6zu/8jG9xGys6DVheK5OA=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibdev.shef.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibdev.shef.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibdev.shef.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibdev.shef.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibdev.shef.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibdev.shef.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">sheffield.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEcjCCA1qgAwIBAgIRAPsd0lQ3zA9qshZ/AtQzPukwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzA5MzAwMDAwMDBaFw0xNjA5MjkyMzU5NTlaMEAxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEbMBkGA1UEAxMSc2hpYmRldi5z
+						aGVmLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq0TlVbOQ
+						ComVMFNLl1MPD2RkIrJXoaAZlR+ezoCmdec4rv5SadlGQSXFiGsiw9fhjkS/bb1p
+						TfqxwdcBGJQ2FSw5Hig+vlVDiPo/BEA0H0ejnRZ7RwYe4q3gKentjhJ9OyI3qBkX
+						wPMFfX4x+CG0sML/SC26omReQUVLFBJR0tHlIOiKgsbvHPY2ih9FcvWYhckG/VMd
+						0VwAhWzue7c6e/f6HASq1V4ovtlgmbbvaWgah01iPHiCzG/Yo9SbGewHObj5GR7K
+						FC7ayORvM6tzKoR5JmJ8QX9IYuiH0wuoNFDz9kQtMvZJBjEGYq8hsYgJACC5S8Dt
+						vF2JFzmsUM43hwIDAQABo4IBbzCCAWswHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsr
+						N1dH6pDjue0wHQYDVR0OBBYEFB+0r9UYq6Ytp9e3hwqSARAVypaSMA4GA1UdDwEB
+						/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEF
+						BQcDAjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAECATA6BgNVHR8E
+						MzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENB
+						LmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNz
+						LnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8v
+						b2NzcC50Y3MudGVyZW5hLm9yZzAdBgNVHREEFjAUghJzaGliZGV2LnNoZWYuYWMu
+						dWswDQYJKoZIhvcNAQEFBQADggEBADAWzwonR3Un1FKUk5dQyOe5ugNt+jqIQ8MX
+						9CVYHWFpT76cH6jw9xRPooIigi+qUAMfdDhustmzMHJwapt1cKLCuwbsFXTQS4r4
+						b9wWuemt/4hefT+Cv8h+oo4uCxEipD2H20c+I7bS0TcejN9/HeO378rSAAvI40Mo
+						eq4++mTN6M8HJRBOOtfwU0dpQ/ln6PkOSsXGvDcklLsMaMfM+IE+4vq1cF0jPZ2n
+						EB/lCePMbGo0SM+B5SDGNNGksrW1LczHBsCSUBLDxaYEYbldDVeRybFNMc6N7y+x
+						0OgEvEcrtOAwP6Jl4BujPGJZBytgiK6zu/8jG9xGys6DVheK5OA=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibdev.shef.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibdev.shef.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Sheffield</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Sheffield TEST IDP (DO NOT USE!)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.shef.ac.uk/cics/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Harnomit</md:GivenName>
+      <md:SurName>Babraa</md:SurName>
+      <md:EmailAddress>mailto:h.babraa@sheffield.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Richard</md:GivenName>
+      <md:SurName>Gilbert</md:SurName>
+      <md:EmailAddress>mailto:R.Gilbert@sheffield.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

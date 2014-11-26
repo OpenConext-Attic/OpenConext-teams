@@ -1,0 +1,66 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.upay.co.uk/shibboleth-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-05-29T15:41:57Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Upay</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Upay online payment processing and cashless account management.</mdui:Description>
+          <mdui:Logo height="55" width="218">https://www.upay.co.uk/images/upay.jpg</mdui:Logo>
+        </mdui:UIInfo>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://www.upay.co.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDCTCCAfGgAwIBAgIJAPuCQS/zC4R2MA0GCSqGSIb3DQEBBQUAMCExHzAdBgNV
+						BAMTFnUwMTU4MjQuY2FzaGxlc3MubG9jYWwwHhcNMTIwNTI4MTQwMDI3WhcNMjIw
+						NTI2MTQwMDI3WjAhMR8wHQYDVQQDExZ1MDE1ODI0LmNhc2hsZXNzLmxvY2FsMIIB
+						IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAylulP1Jro85baAfyhsYZlfMP
+						PZWBKbntkMX59cZHY9GdQxJvxOWaew7PP5vMPbXlntPoLRo07E086jOmYZwsR/YF
+						HnXX/JDnGoUaNPxEjllzsIaSkrC3NTN1yYhUuRWDZ4iXHfK9MXjfsZPi07dLY84E
+						BLTOS7Y/AWs0gDM428GbWAPVZUitiNxeYVM4/AoflNAwdCYbzFtObgiayUNJ5Lny
+						acR3i4yGTrfQnlvk8CwUtYSHFMv3mwoff3Mwqi4s+6gl0KExm/HdokJQQ2JrZsdC
+						Cxr74jbQ63dTY0fa2LT/Iu1Il70zDtEKfjs8p9RCWF0jGHiYXTalW1MXqjltbQID
+						AQABo0QwQjAhBgNVHREEGjAYghZ1MDE1ODI0LmNhc2hsZXNzLmxvY2FsMB0GA1Ud
+						DgQWBBTfgLOw2BB/94hVVe6sGztOy8FtZzANBgkqhkiG9w0BAQUFAAOCAQEAWxDq
+						U9phfn4hdENxWAPa+WkEtl9K5R/fabWcKYseolrkgLimEBHwrlsnvwG1+N3KUvxm
+						OAQ4mwzAMdzR5BT3T2nECeSPuIjYHhYDMHT3NQo0EPugBKRiHHCbGtbq1koVhker
+						u1D7q7vdwrpuafZOaBKxN6J33hOVDdkiCDwMvkgyiBDpe5L8KleiCMpnF2mMobxF
+						R1+JIciWhw8MKc2WfekC/yXPzAHvJen7/xbCk6mn03m65aUhQ/mS5swiULmmnkpk
+						0eEFK2StndDnHHteY0pFIbFv0wX7/PzIN9HHmLMd2vMhX9LOpMX5j8J14VB9HVm+
+						XXxEezyYkBQIe2xJxg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.upay.co.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.upay.co.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.upay.co.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.upay.co.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.upay.co.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.upay.co.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www.upay.co.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.upay.co.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://www.upay.co.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.upay.co.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.upay.co.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Uniware Systems Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Uniware Systems Limited: Upay Cashless Payments</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.uniware.co.uk/cashless-payments</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Dean</md:GivenName>
+      <md:SurName>Cachia</md:SurName>
+      <md:EmailAddress>mailto:dean.cachia@uniware.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Craig</md:GivenName>
+      <md:SurName>Moore</md:SurName>
+      <md:EmailAddress>mailto:Craig.Moore@uniware.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

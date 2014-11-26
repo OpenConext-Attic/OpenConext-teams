@@ -1,0 +1,61 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.careers.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-10-28T11:49:56Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://www.careers.ox.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDKzCCAhOgAwIBAgIJAKLT36LHYvclMA0GCSqGSIb3DQEBBQUAMCUxIzAhBgNV
+						BAMTGmNhcy13ZWJzZXJ2ZXIuY2FzLm94LmFjLnVrMB4XDTE0MTAyMzE1NTAyN1oX
+						DTI0MTAyMDE1NTAyN1owJTEjMCEGA1UEAxMaY2FzLXdlYnNlcnZlci5jYXMub3gu
+						YWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDR6Q04iL3jR3oU
+						sySnZ5F9DDseuV33hBS8/meYFa6vxWg//bvdZSkPfrUvmCKuPOJOJR+c+hIcgE7n
+						j6SX2OikmV9ffX/Hf7rmmShhE7KsuRI+u7DVhuWAhth5SPsJ58HChIcgOVzaG/Y8
+						TBfcFOGwT9PsJfM21yKexx4r7F85ghg/bRxWzrYtt9V8iH/9GkhvTG52/3/H4r0E
+						djx5cjWGWHpAoOI4cpocD2fD+hrhVfddlQbnoIrJXYAr/mnOFsCe9EXWz3yHajiV
+						6BNiZ7YQ8bksb0Fs+04lOJJTA+bl6fU6jHu27lPoTuFjjSbjP5DmODYZcVReZtpV
+						BIxaVyEbAgMBAAGjXjBcMDsGA1UdEQQ0MDKCGmNhcy13ZWJzZXJ2ZXIuY2FzLm94
+						LmFjLnVrhhR3d3cuY2FyZWVycy5veC5hYy51azAdBgNVHQ4EFgQUOp4S1i97HslI
+						CAvETjdX3hklGtMwDQYJKoZIhvcNAQEFBQADggEBAAE3mAzXIYYSJn603hy8TDIx
+						sV9fKNzxTIHZZyTTRNeA2drgoqSJcu4uK1kZNblf2C/O9Y1ndi9hzDQ2hUYiP6lH
+						5ItyjgTs70MTtrTOjaD//oUzk3RH+7dYxLbky+WqBE3atuO6LU5wbUF7ro41G2ga
+						6KayOZG6xXWvvh5/1+tU6/GlM29DX+gxkitTzqsd0YXFzrHFJTUPSVqbeAx36vqY
+						4BDB+eW3lvRBh9PwS12hOhFKU2o0cyHylBLUNVCxVvyTt1QSib4B1zsAp6vYYfr8
+						VliUnZa2BBl0uf4sXtVfg1iRvgVWE584lqdBCYW8k8Y/7R0MsCc8A+73HqrsnV8=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.careers.ox.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.careers.ox.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.careers.ox.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.careers.ox.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.careers.ox.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.careers.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www.careers.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.careers.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://www.careers.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.careers.ox.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.careers.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford - The Careers Service</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.careers.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>IT Support</md:GivenName>
+      <md:EmailAddress>mailto:it-support@careers.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>IT Support</md:GivenName>
+      <md:EmailAddress>mailto:it-support@careers.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

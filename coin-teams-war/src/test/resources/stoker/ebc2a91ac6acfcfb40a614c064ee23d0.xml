@@ -1,0 +1,51 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.bioone.org/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDoTCCAomgAwIBAgIJAJjXSA+eCVerMA0GCSqGSIb3DQEBBQUAMIGPMQswCQYD
+						VQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEUMBIGA1UEBxMLU2FudGEgQ2xh
+						cmExHTAbBgNVBAoTFEF0eXBvbiBTeXN0ZW1zLCBJbmMuMR0wGwYDVQQLExRBdHlw
+						b24gU3lzdGVtcywgSW5jLjEXMBUGA1UEAxMOd3d3LmJpb29uZS5vcmcwHhcNMTAx
+						MDIyMDAyOTE1WhcNMjAxMDE5MDAyOTE1WjCBjzELMAkGA1UEBhMCVVMxEzARBgNV
+						BAgTCkNhbGlmb3JuaWExFDASBgNVBAcTC1NhbnRhIENsYXJhMR0wGwYDVQQKExRB
+						dHlwb24gU3lzdGVtcywgSW5jLjEdMBsGA1UECxMUQXR5cG9uIFN5c3RlbXMsIElu
+						Yy4xFzAVBgNVBAMTDnd3dy5iaW9vbmUub3JnMIIBIjANBgkqhkiG9w0BAQEFAAOC
+						AQ8AMIIBCgKCAQEAq9l9fHkQV6d18ZBMtv1oAsyV2spBF4o5FCta4jLiVrcx6TAh
+						eY+1djxN0smEpiflND9YyncINW/QxTr4VkJaRrURGalwPYUnEDMbUeDCZGdjmuHn
+						ijesTi34lBnjz8FeIIoB/1YlCSVffVxxOLw6AhVDuBixH+n1MK3AvMaV7+6k7iar
+						59570440WqpQMpWVJm+a1EgyS4WF5SjW8PI3VDfrJCC76Qg6YCKXhdO56sFZ8fOe
+						m+6nUdkZRSUEDZ6jG9nF2rFKdxrlTCEpVXrSViiuAGrwcNXxIF07M/cdW4gh2J1n
+						anOVWYhax9gL0PPXptkCjQxiJKK8oKF/qU5YvQIDAQABMA0GCSqGSIb3DQEBBQUA
+						A4IBAQCXFBWSkhl6SXKrjBTJGR2Ed7QdRhhZJFgglA0NZJ0eGHE0tTmF34Htgr+D
+						rjxXukFop7y+zuEg51CCNExeiIn8boC6/Bi1N5wnXKgBxejuF5WTRqua7PehfcUk
+						sAcyQfiT42U4qL/Y5cCVvVjyjOn4vB9QInt6w0t2JB0KhdkTlzHPFGNhIr6JielL
+						OysB8mqF8SvNWTA8FXtsoj/xMzTZmOhbEr6LWeCRsATxTEnfts9XKrnvr6QvLzOp
+						oznstpE1RBJHa+apJ8N1d+K2N9Ki2S2GYGl2g9Z82UGSvirtJTnZY6TANrYKFKnd
+						WjtPYywjxsAyOSn7irW8nyLDn8sA
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.bioone.org/action/samlACS" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.bioone.org/action/samlACS" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.bioone.org/action/samlACS" index="3"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Atypon Systems, Inc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Atypon Systems: BioOne</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.bioone.org/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>SSO-Support</md:GivenName>
+      <md:EmailAddress>mailto:SSO-Support@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>SSO-Tech</md:GivenName>
+      <md:EmailAddress>mailto:SSO-Tech@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

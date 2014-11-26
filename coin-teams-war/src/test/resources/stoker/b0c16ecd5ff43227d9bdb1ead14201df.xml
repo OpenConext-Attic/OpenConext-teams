@@ -1,27 +1,26 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="uk002419" entityID="https://gidp.geant.net">
-	
-	<Extensions>
-
-
-
-
-		<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-05-14T11:50:00Z">
-			<mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
-		</mdrpi:RegistrationInfo>
-
-	</Extensions>
-	<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
-		<Extensions>
-			<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">gidp.geant.net</shibmd:Scope>
-			<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-				<mdui:DisplayName xml:lang="en">GEANT Identity Provider</mdui:DisplayName>
-				<mdui:Logo height="69" width="199">https://www.edugain.org/GIdP.png</mdui:Logo>
-			</mdui:UIInfo>
-		</Extensions>
-		<KeyDescriptor use="signing">
-			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-				<ds:X509Data>
-					<ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://gidp.geant.net">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-05-14T11:50:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">gidp.geant.net</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">GEANT Identity Provider</mdui:DisplayName>
+          <mdui:Logo height="69" width="199">https://www.edugain.org/GIdP.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 						MIIEkzCCA3ugAwIBAgIRAMu+xHPPachtpqZqP5LsTqswDQYJKoZIhvcNAQEFBQAw
 						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
 						IFNTTCBDQTAeFw0xMzEyMTMwMDAwMDBaFw0xNjEyMTIyMzU5NTlaMDwxITAfBgNV
@@ -48,13 +47,13 @@
 						ulsPPNORMXuSAaPbctgKJYdjK3D608c8SiZpm3hV/XBMYgDBb5NBTq3UZBbUsYRm
 						dDPF827oNvkbCcANbb1YmRBmFHWFe+E=
 					</ds:X509Certificate>
-				</ds:X509Data>
-			</ds:KeyInfo>
-		</KeyDescriptor>
-		<KeyDescriptor use="encryption">
-			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-				<ds:X509Data>
-					<ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 						MIIEkzCCA3ugAwIBAgIRAMu+xHPPachtpqZqP5LsTqswDQYJKoZIhvcNAQEFBQAw
 						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
 						IFNTTCBDQTAeFw0xMzEyMTMwMDAwMDBaFw0xNjEyMTIyMzU5NTlaMDwxITAfBgNV
@@ -81,25 +80,24 @@
 						ulsPPNORMXuSAaPbctgKJYdjK3D608c8SiZpm3hV/XBMYgDBb5NBTq3UZBbUsYRm
 						dDPF827oNvkbCcANbb1YmRBmFHWFe+E=
 					</ds:X509Certificate>
-				</ds:X509Data>
-			</ds:KeyInfo>
-		</KeyDescriptor>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://gidp.geant.net/simplesamlphp/saml2/idp/SingleLogoutService.php"/>
-		<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-		<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://gidp.geant.net/simplesamlphp/saml2/idp/SSOService.php"/>
-	</IDPSSODescriptor>
-	<Organization>
-		<OrganizationName xml:lang="en">Delivery of Advanced Network Technology to Europe Limited</OrganizationName>
-		<OrganizationDisplayName xml:lang="en">GEANT Identity Provider</OrganizationDisplayName>
-		<OrganizationURL xml:lang="en">http://www.geant.net/</OrganizationURL>
-	</Organization>
-	<ContactPerson contactType="support">
-		<GivenName>eduGAIN OT</GivenName>
-		<EmailAddress>mailto:edugain-ot@geant.net</EmailAddress>
-	</ContactPerson>
-	<ContactPerson contactType="technical">
-		<GivenName>eduGAIN OT</GivenName>
-		<EmailAddress>mailto:edugain-ot@geant.net</EmailAddress>
-	</ContactPerson>
-
-</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://gidp.geant.net/simplesamlphp/saml2/idp/SingleLogoutService.php"/>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://gidp.geant.net/simplesamlphp/saml2/idp/SSOService.php"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Delivery of Advanced Network Technology to Europe Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">GEANT Identity Provider</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.geant.net/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>eduGAIN OT</md:GivenName>
+      <md:EmailAddress>mailto:edugain-ot@geant.net</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>eduGAIN OT</md:GivenName>
+      <md:EmailAddress>mailto:edugain-ot@geant.net</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

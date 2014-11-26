@@ -1,16 +1,12 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="uk000092" entityID="https://sdauth.sciencedirect.com/">
-	
-	<Extensions>
-
-
-		<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-08-08T16:50:51Z"/>
-
-	</Extensions>
-	<SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
-		<KeyDescriptor>
-			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-				<ds:X509Data>
-					<ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sdauth.sciencedirect.com/">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-08-08T16:50:51Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 						MIIEoDCCA4igAwIBAgIBATANBgkqhkiG9w0BAQQFADCBljELMAkGA1UEBhMCVVMx
 						DTALBgNVBAgTBE9oaW8xEzARBgNVBAcTCk1pYW1pc2J1cmcxFDASBgNVBAoTC0xF
 						WElTLU5FWElTMSEwHwYDVQQDExhzZGF1dGguc2NpZW5jZWRpcmVjdC5jb20xKjAo
@@ -37,30 +33,28 @@
 						/khhD8zTvlmaPoCttZyxx/VABsfosRfkEgf52ge02TXsHTvDuKe3GKJUqzqYnuQw
 						0sdo9tQp3aTFCi0r/pYqPrB21ZIbkQ/xybNtFratD7yuJ3Or
 					</ds:X509Certificate>
-				</ds:X509Data>
-			</ds:KeyInfo>
-		</KeyDescriptor>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://auth.elsevier.com/SHIRE/SAML2/POST" index="0"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://auth.elsevier.com/SHIRE/SAML/POST" index="1"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://sdauth.sciencedirect.com/SHIRE/SAML/POST" index="2"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cdc313-auth.elsevier.com/SHIRE/SAML2/POST" index="3"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://cdc313-auth.elsevier.com/SHIRE/SAML/POST" index="4"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cdc315-auth.elsevier.com/SHIRE/SAML2/POST" index="5"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://cdc315-auth.elsevier.com/SHIRE/SAML/POST" index="6"/>
-	</SPSSODescriptor>
-	<Organization>
-		<OrganizationName xml:lang="en">Elsevier B.V.</OrganizationName>
-		<OrganizationDisplayName xml:lang="en">Elsevier: ScienceDirect</OrganizationDisplayName>
-		<OrganizationURL xml:lang="en">http://www.info.sciverse.com/sciencedirect/</OrganizationURL>
-	</Organization>
-	<ContactPerson contactType="support">
-		<GivenName>Elsevier Shibboleth Support</GivenName>
-		<EmailAddress>mailto:shibbolethsupport@elsevier.com</EmailAddress>
-	</ContactPerson>
-	<ContactPerson contactType="technical">
-		<GivenName>Elsevier Shibboleth Support</GivenName>
-		<EmailAddress>mailto:shibbolethsupport@elsevier.com</EmailAddress>
-	</ContactPerson>
-
-
-</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://auth.elsevier.com/SHIRE/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://auth.elsevier.com/SHIRE/SAML/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://sdauth.sciencedirect.com/SHIRE/SAML/POST" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cdc313-auth.elsevier.com/SHIRE/SAML2/POST" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://cdc313-auth.elsevier.com/SHIRE/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cdc315-auth.elsevier.com/SHIRE/SAML2/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://cdc315-auth.elsevier.com/SHIRE/SAML/POST" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Elsevier B.V.</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Elsevier: ScienceDirect</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.info.sciverse.com/sciencedirect/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Elsevier Shibboleth Support</md:GivenName>
+      <md:EmailAddress>mailto:shibbolethsupport@elsevier.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Elsevier Shibboleth Support</md:GivenName>
+      <md:EmailAddress>mailto:shibbolethsupport@elsevier.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

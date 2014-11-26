@@ -1,0 +1,56 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sp.careknowledge.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEXDCCA0SgAwIBAgIJAIaBUg+B2NUPMA0GCSqGSIb3DQEBBQUAMIGuMQswCQYD
+						VQQGEwJHQjEUMBIGA1UECBMLT3hmb3Jkc2hpcmUxDzANBgNVBAcTBk94Zm9yZDEZ
+						MBcGA1UEChMQT0xNIFBhdmlsaW9uIEx0ZDEWMBQGA1UECxMNQ2FyZUtub3dsZWRn
+						ZTEeMBwGA1UEAxMVd3d3LmNhcmVrbm93bGVkZ2UuY29tMSUwIwYJKoZIhvcNAQkB
+						FhZpbmZvQGNhcmVrbm93bGVkZ2UuY29tMB4XDTA5MTEwMzExMDYwM1oXDTE5MTEw
+						MTExMDYwM1owga4xCzAJBgNVBAYTAkdCMRQwEgYDVQQIEwtPeGZvcmRzaGlyZTEP
+						MA0GA1UEBxMGT3hmb3JkMRkwFwYDVQQKExBPTE0gUGF2aWxpb24gTHRkMRYwFAYD
+						VQQLEw1DYXJlS25vd2xlZGdlMR4wHAYDVQQDExV3d3cuY2FyZWtub3dsZWRnZS5j
+						b20xJTAjBgkqhkiG9w0BCQEWFmluZm9AY2FyZWtub3dsZWRnZS5jb20wggEiMA0G
+						CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDcltH4L5PBPkfoLbrKN6INtUzDUucH
+						en9Uln4yCiHHQG7V+I9fQ3VcwBUxuvkfCKlInOTh8UkHapOfTGXXgADtjBkMfhJ+
+						US/uuoi6mQ1csLq0Nnp7tVebJ3vpY2U8SPIhRMHp/fOGW//wEDVnO38wnjFF3rMp
+						UDbp6SZfJDhwgdIR322zk42aZUB/RQ41VpQiq11kT70V4gvKpHYjOq0tDbOz+i+p
+						YOvtpBhCRLChqsn89ovDnfqP12BvtVCJQegz04AXwssn+VeOK8J/1AQp6KzuCnRo
+						IOD/GjIpA+UCcqUnz4+eYl8i0u5NwVq+0vtatPKX4SWP41qzNegJFa/9AgMBAAGj
+						ezB5MAkGA1UdEwQCMAAwLAYJYIZIAYb4QgENBB8WHU9wZW5TU0wgR2VuZXJhdGVk
+						IENlcnRpZmljYXRlMB0GA1UdDgQWBBSdSyju4c9KMWmI14j0cjp8z3+yijAfBgNV
+						HSMEGDAWgBSdSyju4c9KMWmI14j0cjp8z3+yijANBgkqhkiG9w0BAQUFAAOCAQEA
+						P+DxS8qDpaAO177uo8IKMvkRAx7ZsTaYdVXdEexuDNvq9wBesQ2x0CYfvK/Lsjmc
+						4kPebsg4+QXVrBgz0C/x+1ghCFf/DJ/XZTKhhh/d2Rzh2cYIZ7cc1zTEM6X0LXJr
+						wXvwW77b4h6OWrwJ2Ac0/9fNSx7sAhvkJB8iV0Ft8R0gCIevsCAwtwr9ymflkYke
+						897WDuAEO09j/qAUO/jrH5Pg26OBtxtg9sX066+SbjK5np8BaDuqP48kJpuCix1g
+						RvsXL6hYaWg/uy9ysgrbgq2tuyMRazTbxZK+zevikEMHJiu9q4K1kYadgYDXUATo
+						DOZU336g80XprEbmhq+v7w==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.careknowledge.com/athens/ukfedrcv.aspx" index="1" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.careknowledge.com/athens/ukfedrcv.aspx" index="2"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">OLM Pavilion Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Pavilion Publishing and Media Ltd</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.careknowledge.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Tanya</md:GivenName>
+      <md:SurName>Rackham</md:SurName>
+      <md:EmailAddress>mailto:Tanya.Rackham@olmgroup.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ralf</md:GivenName>
+      <md:SurName>Buckenmaier</md:SurName>
+      <md:EmailAddress>mailto:Ralf.Buckenmaier@olmgroup.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

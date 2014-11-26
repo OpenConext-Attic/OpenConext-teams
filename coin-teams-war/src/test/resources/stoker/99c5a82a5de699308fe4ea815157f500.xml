@@ -1,0 +1,51 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://pubs.amstat.org/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDozCCAougAwIBAgIJAIL6QS5OyVe1MA0GCSqGSIb3DQEBBQUAMIGQMQswCQYD
+						VQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEUMBIGA1UEBxMLU2FudGEgQ2xh
+						cmExHTAbBgNVBAoTFEF0eXBvbiBTeXN0ZW1zLCBJbmMuMR0wGwYDVQQLExRBdHlw
+						b24gU3lzdGVtcywgSW5jLjEYMBYGA1UEAxMPcHVicy5hbXN0YXQub3JnMB4XDTEw
+						MTEyOTIzNTY0OVoXDTIwMTEyNjIzNTY0OVowgZAxCzAJBgNVBAYTAlVTMRMwEQYD
+						VQQIEwpDYWxpZm9ybmlhMRQwEgYDVQQHEwtTYW50YSBDbGFyYTEdMBsGA1UEChMU
+						QXR5cG9uIFN5c3RlbXMsIEluYy4xHTAbBgNVBAsTFEF0eXBvbiBTeXN0ZW1zLCBJ
+						bmMuMRgwFgYDVQQDEw9wdWJzLmFtc3RhdC5vcmcwggEiMA0GCSqGSIb3DQEBAQUA
+						A4IBDwAwggEKAoIBAQDMMabeVNJUDKULVnS/2AzzJ1ChraJlmgKe0uhBaFcdN8N/
+						Qlr8kJTFCy545+5NIO7GcJjK2NSH6fxw2w50Tg6ixjF+88z5mX48HNkdWOy/i29h
+						zEwQoQc9B8EQerzyXWXKxB5BPBbV69/XOPhMKutclFEIwJdE1z1ry3uiLXbH85ei
+						0RntcR8h4lacdS5j9hjpIGya3FUCuvdXq2ub/LWAFsmOm+oKO1PWFxFouBDJwNUL
+						nHgWtbyFiF5oQV+x2AI556D1leNh+qbDCtjBDC8/RYivsaY5Wj6tHryJlOfY3MOS
+						HSJUuhsqzyT2Mpefh4fDymQiqQvYI9tUBM8BOKzfAgMBAAEwDQYJKoZIhvcNAQEF
+						BQADggEBAAgs9qFfV/MRlrrvqXiGs7AlYbmzDbqdvednE96oL9u3+4kkDjAMVHhn
+						MJzVxH4EzHFn7jw6UoC8+mLLOfCUrqFg4aInLNZLM5UmAQ/UQ8G5CmplN5+Z9xxN
+						bf8A2OyGssC3B6pKy1LVSdJPjAP+4JU1DNU5MKPdy41NCvD0EHeysFP7PiK3E4gn
+						nNrcBY+bVdYszYhGpa+yX2R1V1PYCyfw9MBNGCGjOPkgS7iPHp4Gqr2vaBpYdUeh
+						shtK6jJLDGGZn48eRlKtdi7Ff6SfZA3dQ6PsXTiyETDSkkvCc1J1EQ6CCJ7121pK
+						7hEpM9XB8Ed60foFC25ZEBphVHMP/4s=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://pubs.amstat.org/action/samlACS" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://pubs.amstat.org/action/samlACS" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://pubs.amstat.org/action/samlACS" index="3"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Atypon Systems, Inc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Atypon Systems: American Statistical Association</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.amstat.org/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>SSO-Support</md:GivenName>
+      <md:EmailAddress>mailto:SSO-Support@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>SSO-Tech</md:GivenName>
+      <md:EmailAddress>mailto:SSO-Tech@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

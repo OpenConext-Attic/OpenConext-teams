@@ -1,0 +1,107 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.sccb.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-12-06T11:40:46Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">sccb.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIID9jCCAt4CCQCXolHXaIzX9DANBgkqhkiG9w0BAQUFADCBvDELMAkGA1UEBhMC
+						R0IxFjAUBgNVBAgMDVdlc3QgTWlkbGFuZHMxEzARBgNVBAcMCkJpcm1pbmdoYW0x
+						KjAoBgNVBAoMIVNvdXRoIGFuZCBDaXR5IENvbGxlZ2UgQmlybWluZ2hhbTEUMBIG
+						A1UECwwLSVQgU2VydmljZXMxFzAVBgNVBAMMDmlkcC5zY2NiLmFjLnVrMSUwIwYJ
+						KoZIhvcNAQkBFhZkYXZpZC5iaXJrc0BzY2NiLmFjLnVrMB4XDTEzMTIwNTEwMjUx
+						NloXDTIzMTIwMzEwMjUxNlowgbwxCzAJBgNVBAYTAkdCMRYwFAYDVQQIDA1XZXN0
+						IE1pZGxhbmRzMRMwEQYDVQQHDApCaXJtaW5naGFtMSowKAYDVQQKDCFTb3V0aCBh
+						bmQgQ2l0eSBDb2xsZWdlIEJpcm1pbmdoYW0xFDASBgNVBAsMC0lUIFNlcnZpY2Vz
+						MRcwFQYDVQQDDA5pZHAuc2NjYi5hYy51azElMCMGCSqGSIb3DQEJARYWZGF2aWQu
+						Ymlya3NAc2NjYi5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+						ALqU8mPPY95/fMmsQFvqq1uBmB2jn8MFB8g0q2ZCVsAe2TX9wf/8+lz8H41+7ruR
+						Rk1j/oNg6XXRxhUjnOvHyXR2orF7CdiuLK+hqEuBYsMWE+jNWfHGzZegVlcbG2fg
+						GZnIyYJxxxiFkDwX7wxZo8wceljyzKGaEZVFA61eWLhFV9Xz8mjPGOL4zyes+w1N
+						TqGtCeTTeNYe98U5BCFMuf4LkypvZRhCrZJyqlId2vd8p8/iZojrqmR8jlqkQ04t
+						MV7JbmjNsOb0vudRqYHHlDzzi2Z3QczALkd0rSgij++tTKbPHyztyQ6OULNwi2tn
+						s6pFWvSnRpRVnAaMtgsRzMsCAwEAATANBgkqhkiG9w0BAQUFAAOCAQEANqsRmxFL
+						k0WvECnB+qPTmjyptPBaJCCDjvz/ZugIa322VefWwcufaV7YREAUjFvLepU6+RvJ
+						6lSkxIYNzx6B7f8F8EcaaebXGr4iOM4YDIoVfswAk3JsjZ3qYHZJkFMNeYg9QUjG
+						Mt35g8aroA9PHDeqIfE2le+15OWcMArivAMs0LM5sp7+H7LQDI8X/MKyCSlU5z+F
+						6rnLCkQDGHq9COUjrZW9fce+ekwK0eWzIWd4QQG0c+cMbp+toSItnYjuW5mkzjCI
+						bqq0+6Ei2JA3AUJaN1EMIIwSv+VG5HhYpNwKA2vOG0E9zMa1ZCIjSZEEWmAyW7iI
+						sKgqO2e98R+sJg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.sccb.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.sccb.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.sccb.ac.uk/idp/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.sccb.ac.uk/idp/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.sccb.ac.uk:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.sccb.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.sccb.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.sccb.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.sccb.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">sccb.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIID9jCCAt4CCQCXolHXaIzX9DANBgkqhkiG9w0BAQUFADCBvDELMAkGA1UEBhMC
+						R0IxFjAUBgNVBAgMDVdlc3QgTWlkbGFuZHMxEzARBgNVBAcMCkJpcm1pbmdoYW0x
+						KjAoBgNVBAoMIVNvdXRoIGFuZCBDaXR5IENvbGxlZ2UgQmlybWluZ2hhbTEUMBIG
+						A1UECwwLSVQgU2VydmljZXMxFzAVBgNVBAMMDmlkcC5zY2NiLmFjLnVrMSUwIwYJ
+						KoZIhvcNAQkBFhZkYXZpZC5iaXJrc0BzY2NiLmFjLnVrMB4XDTEzMTIwNTEwMjUx
+						NloXDTIzMTIwMzEwMjUxNlowgbwxCzAJBgNVBAYTAkdCMRYwFAYDVQQIDA1XZXN0
+						IE1pZGxhbmRzMRMwEQYDVQQHDApCaXJtaW5naGFtMSowKAYDVQQKDCFTb3V0aCBh
+						bmQgQ2l0eSBDb2xsZWdlIEJpcm1pbmdoYW0xFDASBgNVBAsMC0lUIFNlcnZpY2Vz
+						MRcwFQYDVQQDDA5pZHAuc2NjYi5hYy51azElMCMGCSqGSIb3DQEJARYWZGF2aWQu
+						Ymlya3NAc2NjYi5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+						ALqU8mPPY95/fMmsQFvqq1uBmB2jn8MFB8g0q2ZCVsAe2TX9wf/8+lz8H41+7ruR
+						Rk1j/oNg6XXRxhUjnOvHyXR2orF7CdiuLK+hqEuBYsMWE+jNWfHGzZegVlcbG2fg
+						GZnIyYJxxxiFkDwX7wxZo8wceljyzKGaEZVFA61eWLhFV9Xz8mjPGOL4zyes+w1N
+						TqGtCeTTeNYe98U5BCFMuf4LkypvZRhCrZJyqlId2vd8p8/iZojrqmR8jlqkQ04t
+						MV7JbmjNsOb0vudRqYHHlDzzi2Z3QczALkd0rSgij++tTKbPHyztyQ6OULNwi2tn
+						s6pFWvSnRpRVnAaMtgsRzMsCAwEAATANBgkqhkiG9w0BAQUFAAOCAQEANqsRmxFL
+						k0WvECnB+qPTmjyptPBaJCCDjvz/ZugIa322VefWwcufaV7YREAUjFvLepU6+RvJ
+						6lSkxIYNzx6B7f8F8EcaaebXGr4iOM4YDIoVfswAk3JsjZ3qYHZJkFMNeYg9QUjG
+						Mt35g8aroA9PHDeqIfE2le+15OWcMArivAMs0LM5sp7+H7LQDI8X/MKyCSlU5z+F
+						6rnLCkQDGHq9COUjrZW9fce+ekwK0eWzIWd4QQG0c+cMbp+toSItnYjuW5mkzjCI
+						bqq0+6Ei2JA3AUJaN1EMIIwSv+VG5HhYpNwKA2vOG0E9zMa1ZCIjSZEEWmAyW7iI
+						sKgqO2e98R+sJg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.sccb.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.sccb.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">South &amp; City College Birmingham</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">South and City College Birmingham (New)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.sccb.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Martin</md:GivenName>
+      <md:SurName>Whinnery</md:SurName>
+      <md:EmailAddress>mailto:martin.whinnery@sccb.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>David</md:GivenName>
+      <md:SurName>Birks</md:SurName>
+      <md:EmailAddress>mailto:david.birks@sccb.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

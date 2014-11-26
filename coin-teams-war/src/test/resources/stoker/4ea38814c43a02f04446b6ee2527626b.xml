@@ -1,0 +1,65 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibfederation.scientia.com/shibboleth-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://shibfederation.scientia.com/Shibboleth.sso/Login"/>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Scientia Ltd</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Suppliers of resource management software, including timetabling and room booking, to higher and further education institutions</mdui:Description>
+          <mdui:Logo height="106" width="145">https://shibfederation.scientia.com/SciLogo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC7jCCAdagAwIBAgIJALUmSoZ/nhXKMA0GCSqGSIb3DQEBBQUAMBgxFjAUBgNV
+						BAMTDWNhbS1ocS1kLXNoaWIwHhcNMTIwMTA1MTIzNzI0WhcNMjIwMTAyMTIzNzI0
+						WjAYMRYwFAYDVQQDEw1jYW0taHEtZC1zaGliMIIBIjANBgkqhkiG9w0BAQEFAAOC
+						AQ8AMIIBCgKCAQEAvvEtt6F0MPyMWhtA09h6qNKFwRoVVVK//Ob4WbTMkjjuO1QP
+						jFT958wdcKdwIam0d5pg0cx/UaYUUJ0EdXMh4Q6yZNS93WrRtodCnUupAqh4KiiW
+						uKVpNN5zcM+uUwvK1PIksL+KXmj8xUZkho/iD8hnY53Kdd7p9qAx5KZIo0nH07ja
+						nvQhtJjqlhF7DndPXQqCHs7SgP3DRUVQyxTfFz0soqwgLNSFN98k+P0HUrgWyL2O
+						UWCLMk3l1nUYvo4vFKnrQsrkGudico9LIO6pemDzKoGWuJGvdzPfUqOYTraOZEW7
+						8p34N3qSDFLFK0mmkuDEzEJinbgv5lg44i9RtwIDAQABozswOTAYBgNVHREEETAP
+						gg1jYW0taHEtZC1zaGliMB0GA1UdDgQWBBRr4P0aIY3MN4nd8qZuZGwCoktgWDAN
+						BgkqhkiG9w0BAQUFAAOCAQEAcV9DdlcmZzYNK8X5n2nGmFOefRJLV8FHaw8R0Q5c
+						SUhUljXnPsg9QdVXs9FQDFublEKxzLkfr2rxiwL5oQKAyhEbYMjRLi0giCQ+zELy
+						xqT2IDXConQSIxOnlDEv7a0QCqy7luUpRbW+m8c5l9Q/02y9A7CN0AfU99yLzua6
+						mGdq90mfCHKbGw1fsxmOFwUFTPjYkJ6V9BoKAx46IrmahvllnGIRjUMYkcQcM+qN
+						0IDuIE9DmXK2avh/8h4afo2uRZVKxTLi/e4nrk/hZGdOaREmzxYTh18IZ85+JdDY
+						xpo3Zin7muZ026j4rqBuHFQyAaJoKcKU2m8kaKte2Mym8Q==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibfederation.scientia.com/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibfederation.scientia.com/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibfederation.scientia.com/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibfederation.scientia.com/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibfederation.scientia.com/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibfederation.scientia.com/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibfederation.scientia.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibfederation.scientia.com/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://shibfederation.scientia.com/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shibfederation.scientia.com/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://shibfederation.scientia.com/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Scientia Ltd</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Scientia Service Provider</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.scientia.com/uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Richard</md:GivenName>
+      <md:SurName>Bulman</md:SurName>
+      <md:EmailAddress>mailto:Richard_Bulman@scientia.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mike</md:GivenName>
+      <md:SurName>Strong</md:SurName>
+      <md:EmailAddress>mailto:Michael_Strong@scientia.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

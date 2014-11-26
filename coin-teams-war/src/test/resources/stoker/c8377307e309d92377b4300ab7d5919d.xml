@@ -1,0 +1,87 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.ubu.org.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://www.ubu.org.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC9zCCAd+gAwIBAgIJAN0Uxjm5stWsMA0GCSqGSIb3DQEBBQUAMBsxGTAXBgNV
+						BAMTEHllbGxvdy51a21zbC5uZXQwHhcNMTEwODI1MTEwMDIxWhcNMjEwODIyMTEw
+						MDIxWjAbMRkwFwYDVQQDExB5ZWxsb3cudWttc2wubmV0MIIBIjANBgkqhkiG9w0B
+						AQEFAAOCAQ8AMIIBCgKCAQEAtFMa6Gs4goG8AQMCG6E/ESnBnRXVA6U4twXZwojK
+						6WTD6USmloihRaZ6v27J54vEIkIxkZuGfN6LW0e93gLFCyM+LHu7UdOBLmOANek0
+						hx1eN/x5FIa/+hB2mTkw2OFvNAvb7fYvVkEY/XrRFJHxgkjTgYndptXTfxhRAyhI
+						MrXYHedowBnTSX5J5/tV5eyi/pnNYrqe9IUWqVfREe8nSqLGmjMqU4ge5B+OTLUh
+						aNyQTMstDSVFaZTy5wBNStWpLeJF0faXwdiX1oAJiMD2aM/djw9CeCkBx/UEMIjn
+						Ipu6ZDrsF7afIMdzaZqBtS71lRcgTRAXq9f07LIUI1CatwIDAQABoz4wPDAbBgNV
+						HREEFDASghB5ZWxsb3cudWttc2wubmV0MB0GA1UdDgQWBBSYe9hob4wACE6/WbTT
+						daFXvasZxjANBgkqhkiG9w0BAQUFAAOCAQEAU5RF7k0a0SVdgUivXdgpJI549su7
+						FGECVI177+zyWl9+TMNRIiIyvvfbZ2zoUVcXxLqTcDL7akaQ51u9v9u2QaJHx0Ex
+						wbjfuCVXmIghq/2Cuo1Tt48mEEwD9Jnqdtl37Ajqchd6CpmIh1Gr7k7zMQ6zARrv
+						4lARD/ryWB8WoK7gy0LlV/AQaLukAudxHmtqqnabu546xoETvY0r9b/wug7D4uzs
+						rcyOEnW1CT29ftdLvhclQAr3NM5Vwd/a6r67Ng9yU77qlZmacQ9OV4tllf5Nd0gH
+						eWVjyrg/8qUvf9xyC0AokyN5upRH2FYmdGs2vtnL4cA+Vum/TRGgdvyEFA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC9zCCAd+gAwIBAgIJAN0Uxjm5stWsMA0GCSqGSIb3DQEBBQUAMBsxGTAXBgNV
+						BAMTEHllbGxvdy51a21zbC5uZXQwHhcNMTEwODI1MTEwMDIxWhcNMjEwODIyMTEw
+						MDIxWjAbMRkwFwYDVQQDExB5ZWxsb3cudWttc2wubmV0MIIBIjANBgkqhkiG9w0B
+						AQEFAAOCAQ8AMIIBCgKCAQEAtFMa6Gs4goG8AQMCG6E/ESnBnRXVA6U4twXZwojK
+						6WTD6USmloihRaZ6v27J54vEIkIxkZuGfN6LW0e93gLFCyM+LHu7UdOBLmOANek0
+						hx1eN/x5FIa/+hB2mTkw2OFvNAvb7fYvVkEY/XrRFJHxgkjTgYndptXTfxhRAyhI
+						MrXYHedowBnTSX5J5/tV5eyi/pnNYrqe9IUWqVfREe8nSqLGmjMqU4ge5B+OTLUh
+						aNyQTMstDSVFaZTy5wBNStWpLeJF0faXwdiX1oAJiMD2aM/djw9CeCkBx/UEMIjn
+						Ipu6ZDrsF7afIMdzaZqBtS71lRcgTRAXq9f07LIUI1CatwIDAQABoz4wPDAbBgNV
+						HREEFDASghB5ZWxsb3cudWttc2wubmV0MB0GA1UdDgQWBBSYe9hob4wACE6/WbTT
+						daFXvasZxjANBgkqhkiG9w0BAQUFAAOCAQEAU5RF7k0a0SVdgUivXdgpJI549su7
+						FGECVI177+zyWl9+TMNRIiIyvvfbZ2zoUVcXxLqTcDL7akaQ51u9v9u2QaJHx0Ex
+						wbjfuCVXmIghq/2Cuo1Tt48mEEwD9Jnqdtl37Ajqchd6CpmIh1Gr7k7zMQ6zARrv
+						4lARD/ryWB8WoK7gy0LlV/AQaLukAudxHmtqqnabu546xoETvY0r9b/wug7D4uzs
+						rcyOEnW1CT29ftdLvhclQAr3NM5Vwd/a6r67Ng9yU77qlZmacQ9OV4tllf5Nd0gH
+						eWVjyrg/8qUvf9xyC0AokyN5upRH2FYmdGs2vtnL4cA+Vum/TRGgdvyEFA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.ubu.org.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.ubu.org.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.ubu.org.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.ubu.org.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.ubu.org.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.ubu.org.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.ubu.org.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.ubu.org.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.ubu.org.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.ubu.org.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.ubu.org.uk/Shibboleth.sso/SAML/POST" index="7"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.ubu.org.uk/Shibboleth.sso/SAML2/Artifact" index="8"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://www.ubu.org.uk/Shibboleth.sso/SAML2/ECP" index="9"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.ubu.org.uk/Shibboleth.sso/SAML2/POST" index="10"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www.ubu.org.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="11"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Membership Solutions Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Membership Solutions Limited: University of Bristol Students' Union</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ubu.org.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>MSL support</md:GivenName>
+      <md:EmailAddress>mailto:support@ukmsl.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>James</md:GivenName>
+      <md:SurName>Bonsall</md:SurName>
+      <md:EmailAddress>mailto:james.bonsall@ukmsl.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

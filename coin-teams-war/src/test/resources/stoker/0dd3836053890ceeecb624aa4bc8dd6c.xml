@@ -1,51 +1,72 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.georgikon.hu/idp/saml2/idp/metadata.php">
-        <Extensions>
-            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">georgikon</ns9:MetadataSet>
-            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href</ns9:MetadataSet>
-            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href-test</ns9:MetadataSet>
-            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href-edugain</ns9:MetadataSet>
-            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href-idps</ns9:MetadataSet>
-            <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://eduid.hu"/>
-        </Extensions>
-        <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
-            <Extensions>
-                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">georgikon.hu</shibmd:Scope>
-                <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                    <mdui:IPHint>193.224.81.0/24</mdui:IPHint>
-                    <mdui:GeolocationHint>geo:46.75190,17.2404</mdui:GeolocationHint>
-                </mdui:DiscoHints>
-            </Extensions>
-            <KeyDescriptor>
-                <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-                    <ds:X509Data>
-                        <ds:X509Certificate>MIIDLDCCAhSgAwIBAgIVAPFqC/HfYvfScTLOiI/sKofsx6MWMA0GCSqGSIb3DQEBBQUAMBsxGTAXBgNVBAMTEGlkcC5nZW9yZ2lrb24uaHUwHhcNMDkxMDAyMDgwMTA3WhcNMjkxMDAyMDgwMTA3WjAbMRkwFwYDVQQDExBpZHAuZ2Vvcmdpa29uLmh1MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgR/NrpE25snvbNy6ICQJHqjtGmFkHIXkVeQPso1xTGO/K0uyNSGuUMWObwm5zAhxINLd+8u52noWtXPcngiFQXp8x1+k1PPZKrhlw7Lsmt5/WYFDkPxdZ90PCpQkpRgRQwBvmnwSdlqGmp/ts7ADTzh6ih++pvHI0jgyy3mMyJg/w3psv6VwNF4YuYY8rUQuPhNYVS7EMrebWlPOttqetcuXyTgZrx9O8W4GpsepmIJHBTlqY85W0H4zFXfUk2+t7IeUkDuxE474JPU5IszmVIfm5suEh1rwDnwKP+wRi5htuxdrbs1ceDrRxkbpDinoLcudn5XGq6LvokUI9HwQHQIDAQABo2cwZTBEBgNVHREEPTA7ghBpZHAuZ2Vvcmdpa29uLmh1hidodHRwczovL2lkcC5nZW9yZ2lrb24uaHUvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFEZzriItWOd2JgNAOtHivus73YOBMA0GCSqGSIb3DQEBBQUAA4IBAQBDovq/Xvd+cFB8KbgCF0Prd3WqhQx+8StGsxZLr3vVwxZYJucnpIpvKXJHj/9kQx2MwunTxlq9zvuyPbHIdnAt46x1tbYVRlyBaQXJQYRfaXeKRBNoO1lm1matIaXT8zaeBncF13S4vL0GcjKAR5bbvCVvdjjrTh9AH1p2g70k58PoW5rbGMshlgZs5Ibcp8EH6BXg3uqOJcZe1kQ6gt3io6iWRRKvaNNdcnqfBFpyP1OXwX64+APWbcGYw+RDMvzoDKi6rikDz6f67v3bI4H+X05T9d9Ijs2cKnI3l6aT1EgTD7EKbo7UkoRIe15g8kZ1Gq+ItOJsNOG820hN1UTJ</ds:X509Certificate>
-                    </ds:X509Data>
-                    <ds:KeyName>idp.georgikon.hu</ds:KeyName>
-                </ds:KeyInfo>
-            </KeyDescriptor>
-            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.georgikon.hu/idp/saml2/idp/SingleLogoutService.php"/>
-            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.georgikon.hu/idp/saml2/idp/SSOService.php"/>
-        </IDPSSODescriptor>
-        <Organization>
-            <OrganizationName xml:lang="hu">Pannon Egyetem Georgikon Kar</OrganizationName>
-            <OrganizationName xml:lang="en">University of Pannonia Georgikon Faculty</OrganizationName>
-            <OrganizationDisplayName xml:lang="hu">Georgikon - Pannon Egyetem</OrganizationDisplayName>
-            <OrganizationDisplayName xml:lang="en">Georgikon - University of Pannonia</OrganizationDisplayName>
-            <OrganizationURL xml:lang="hu">http://www.georgikon.hu</OrganizationURL>
-            <OrganizationURL xml:lang="en">http://www.georgikon.hu</OrganizationURL>
-        </Organization>
-        <ContactPerson contactType="technical">
-            <SurName>Héder Miklós</SurName>
-            <EmailAddress>mailto:heder@georgikon.hu</EmailAddress>
-        </ContactPerson>
-        <ContactPerson contactType="support">
-            <SurName>Héder Miklós</SurName>
-            <EmailAddress>mailto:heder@georgikon.hu</EmailAddress>
-        </ContactPerson>
-        <ContactPerson contactType="administrative">
-            <SurName>Héder Miklós</SurName>
-            <EmailAddress>mailto:heder@georgikon.hu</EmailAddress>
-        </ContactPerson>
-    </EntityDescriptor>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.georgikon.hu/idp/saml2/idp/metadata.php">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://eduid.hu" registrationInstant="2009-11-03T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://metadata.eduid.hu/registration_policy_1_0.txt</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">georgikon.hu</shibmd:Scope>
+        <mdui:DiscoHints>
+          <mdui:IPHint>193.224.81.0/24</mdui:IPHint>
+          <mdui:GeolocationHint>geo:46.75190,17.2404</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="hu">Pannon Egyetem Georgikon Kar</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">University of Pannonia Georgikon Faculty</mdui:DisplayName>
+          <mdui:Description xml:lang="hu">Georgikon - Pannon Egyetem</mdui:Description>
+          <mdui:Description xml:lang="en">Georgikon - University of Pannonia</mdui:Description>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDLDCCAhSgAwIBAgIVAPFqC/HfYvfScTLOiI/sKofsx6MWMA0GCSqGSIb3DQEB
+BQUAMBsxGTAXBgNVBAMTEGlkcC5nZW9yZ2lrb24uaHUwHhcNMDkxMDAyMDgwMTA3
+WhcNMjkxMDAyMDgwMTA3WjAbMRkwFwYDVQQDExBpZHAuZ2Vvcmdpa29uLmh1MIIB
+IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgR/NrpE25snvbNy6ICQJHqjt
+GmFkHIXkVeQPso1xTGO/K0uyNSGuUMWObwm5zAhxINLd+8u52noWtXPcngiFQXp8
+x1+k1PPZKrhlw7Lsmt5/WYFDkPxdZ90PCpQkpRgRQwBvmnwSdlqGmp/ts7ADTzh6
+ih++pvHI0jgyy3mMyJg/w3psv6VwNF4YuYY8rUQuPhNYVS7EMrebWlPOttqetcuX
+yTgZrx9O8W4GpsepmIJHBTlqY85W0H4zFXfUk2+t7IeUkDuxE474JPU5IszmVIfm
+5suEh1rwDnwKP+wRi5htuxdrbs1ceDrRxkbpDinoLcudn5XGq6LvokUI9HwQHQID
+AQABo2cwZTBEBgNVHREEPTA7ghBpZHAuZ2Vvcmdpa29uLmh1hidodHRwczovL2lk
+cC5nZW9yZ2lrb24uaHUvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFEZzriItWOd2
+JgNAOtHivus73YOBMA0GCSqGSIb3DQEBBQUAA4IBAQBDovq/Xvd+cFB8KbgCF0Pr
+d3WqhQx+8StGsxZLr3vVwxZYJucnpIpvKXJHj/9kQx2MwunTxlq9zvuyPbHIdnAt
+46x1tbYVRlyBaQXJQYRfaXeKRBNoO1lm1matIaXT8zaeBncF13S4vL0GcjKAR5bb
+vCVvdjjrTh9AH1p2g70k58PoW5rbGMshlgZs5Ibcp8EH6BXg3uqOJcZe1kQ6gt3i
+o6iWRRKvaNNdcnqfBFpyP1OXwX64+APWbcGYw+RDMvzoDKi6rikDz6f67v3bI4H+
+X05T9d9Ijs2cKnI3l6aT1EgTD7EKbo7UkoRIe15g8kZ1Gq+ItOJsNOG820hN1UTJ
+                                            </ds:X509Certificate>
+          </ds:X509Data>
+          <ds:KeyName>idp.georgikon.hu</ds:KeyName>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.georgikon.hu/idp/saml2/idp/SingleLogoutService.php"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.georgikon.hu/idp/saml2/idp/SSOService.php"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="hu">Pannon Egyetem Georgikon Kar</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">University of Pannonia Georgikon Faculty</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="hu">Georgikon - Pannon Egyetem</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Georgikon - University of Pannonia</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="hu">http://www.georgikon.hu</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.georgikon.hu</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Héder Miklós</md:SurName>
+      <md:EmailAddress>mailto:heder@georgikon.hu</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:SurName>Héder Miklós</md:SurName>
+      <md:EmailAddress>mailto:heder@georgikon.hu</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:SurName>Héder Miklós</md:SurName>
+      <md:EmailAddress>mailto:heder@georgikon.hu</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

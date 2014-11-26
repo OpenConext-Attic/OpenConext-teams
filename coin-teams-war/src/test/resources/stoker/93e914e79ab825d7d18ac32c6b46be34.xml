@@ -1,0 +1,102 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.solihull.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2010-11-26T11:41:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">solihull.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIID3jCCAsagAwIBAgIJAM+AyetIYqR6MA0GCSqGSIb3DQEBBQUAMHAxCzAJBgNV
+						BAYTAkdCMRYwFAYDVQQIEw1XZXN0IE1pZGxhbmRzMREwDwYDVQQHEwhTb2xpaHVs
+						bDEZMBcGA1UEChMQU29saWh1bGwgQ29sbGVnZTEbMBkGA1UEAxMSaWRwLnNvbGlo
+						dWxsLmFjLnVrMB4XDTEzMTAxNjA5MTQwMVoXDTIzMTAxNDA5MTQwMVowcDELMAkG
+						A1UEBhMCR0IxFjAUBgNVBAgTDVdlc3QgTWlkbGFuZHMxETAPBgNVBAcTCFNvbGlo
+						dWxsMRkwFwYDVQQKExBTb2xpaHVsbCBDb2xsZWdlMRswGQYDVQQDExJpZHAuc29s
+						aWh1bGwuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC47smk
+						B99t094xtfCf+qH4QtyW2PcThLbj+Kco0Fb/beVYidk/dunhQEO1I59uVfIlXOb6
+						Pcx6HmlV6kSN73xn0sruLBNOpQta1C5dpqaKkgJViezo7O6QbbJUgl1u2HJk9kiw
+						tkOXh5pZKCgQqEI/Q3K9OKbv5RZHxatWouqGKAUeu8wPGnNeh9KkVbFqqc8DA1sl
+						aC4o4x4+3bgy9Jznbcbo7/jbnhLEvQgdZG0B1RdYL/R+B9cxPnz4ZcBPBkK81RG4
+						9niQvrcaN5iUPk1DPxRj7qzaVl6OfWhyoh8coEH0JWgXiuEei0Pkm/Fm2oNp/Yea
+						czrgbLyA3GaRtPsxAgMBAAGjezB5MAkGA1UdEwQCMAAwLAYJYIZIAYb4QgENBB8W
+						HU9wZW5TU0wgR2VuZXJhdGVkIENlcnRpZmljYXRlMB0GA1UdDgQWBBQe665e7YLT
+						F8ETkmhxSKGabAUIIzAfBgNVHSMEGDAWgBQe665e7YLTF8ETkmhxSKGabAUIIzAN
+						BgkqhkiG9w0BAQUFAAOCAQEAFOHMzUyPPADOrALVV5CAnIOpb0W02YMl8ZwLaftH
+						7aUtbL4aYSek3lO55aR6+QcEiBl9wSXHl0uPLaiC8Dmq1KJmlf5LUEj965bUE/Cu
+						s5R6g3El1/SV3J8NUMsMJMq3H/6uDeZBAEXicFSKGwvt9MCv9PohWNB1JRzuGlIA
+						Y5878PvOuNY886Yz6McIIlAlYLtSh8nDPv0ULf/U/P5H3R3vYD8hn9sYFO8h5OrA
+						mvdU+n4JipEfEVM2GgPtgov6Fj5D5+qVj6UzJa6FF8PEXcGrFoSmUO0TSGee0qXm
+						KHpoixwcL60Mgq6hMlXKmT7Vs0IMQzx/FImSMNwaJDmy8Q==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.solihull.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.solihull.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.solihull.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.solihull.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.solihull.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.solihull.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">solihull.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIID3jCCAsagAwIBAgIJAM+AyetIYqR6MA0GCSqGSIb3DQEBBQUAMHAxCzAJBgNV
+						BAYTAkdCMRYwFAYDVQQIEw1XZXN0IE1pZGxhbmRzMREwDwYDVQQHEwhTb2xpaHVs
+						bDEZMBcGA1UEChMQU29saWh1bGwgQ29sbGVnZTEbMBkGA1UEAxMSaWRwLnNvbGlo
+						dWxsLmFjLnVrMB4XDTEzMTAxNjA5MTQwMVoXDTIzMTAxNDA5MTQwMVowcDELMAkG
+						A1UEBhMCR0IxFjAUBgNVBAgTDVdlc3QgTWlkbGFuZHMxETAPBgNVBAcTCFNvbGlo
+						dWxsMRkwFwYDVQQKExBTb2xpaHVsbCBDb2xsZWdlMRswGQYDVQQDExJpZHAuc29s
+						aWh1bGwuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC47smk
+						B99t094xtfCf+qH4QtyW2PcThLbj+Kco0Fb/beVYidk/dunhQEO1I59uVfIlXOb6
+						Pcx6HmlV6kSN73xn0sruLBNOpQta1C5dpqaKkgJViezo7O6QbbJUgl1u2HJk9kiw
+						tkOXh5pZKCgQqEI/Q3K9OKbv5RZHxatWouqGKAUeu8wPGnNeh9KkVbFqqc8DA1sl
+						aC4o4x4+3bgy9Jznbcbo7/jbnhLEvQgdZG0B1RdYL/R+B9cxPnz4ZcBPBkK81RG4
+						9niQvrcaN5iUPk1DPxRj7qzaVl6OfWhyoh8coEH0JWgXiuEei0Pkm/Fm2oNp/Yea
+						czrgbLyA3GaRtPsxAgMBAAGjezB5MAkGA1UdEwQCMAAwLAYJYIZIAYb4QgENBB8W
+						HU9wZW5TU0wgR2VuZXJhdGVkIENlcnRpZmljYXRlMB0GA1UdDgQWBBQe665e7YLT
+						F8ETkmhxSKGabAUIIzAfBgNVHSMEGDAWgBQe665e7YLTF8ETkmhxSKGabAUIIzAN
+						BgkqhkiG9w0BAQUFAAOCAQEAFOHMzUyPPADOrALVV5CAnIOpb0W02YMl8ZwLaftH
+						7aUtbL4aYSek3lO55aR6+QcEiBl9wSXHl0uPLaiC8Dmq1KJmlf5LUEj965bUE/Cu
+						s5R6g3El1/SV3J8NUMsMJMq3H/6uDeZBAEXicFSKGwvt9MCv9PohWNB1JRzuGlIA
+						Y5878PvOuNY886Yz6McIIlAlYLtSh8nDPv0ULf/U/P5H3R3vYD8hn9sYFO8h5OrA
+						mvdU+n4JipEfEVM2GgPtgov6Fj5D5+qVj6UzJa6FF8PEXcGrFoSmUO0TSGee0qXm
+						KHpoixwcL60Mgq6hMlXKmT7Vs0IMQzx/FImSMNwaJDmy8Q==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.solihull.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.solihull.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Solihull College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Solihull College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.solihull.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Ian</md:GivenName>
+      <md:SurName>Stebbens</md:SurName>
+      <md:EmailAddress>mailto:ian.stebbens@solihull.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>David</md:GivenName>
+      <md:SurName>Gartside</md:SurName>
+      <md:EmailAddress>mailto:dave.gartside@solihull.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

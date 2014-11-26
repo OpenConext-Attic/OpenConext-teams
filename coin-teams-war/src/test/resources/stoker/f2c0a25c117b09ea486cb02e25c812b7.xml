@@ -1,0 +1,75 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://testx.rewley.ox.ac.uk/shibboleth-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-04-26T09:39:37Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://testx.rewley.ox.ac.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEmjCCA4KgAwIBAgIJAN3lX0bKmvYOMA0GCSqGSIb3DQEBBQUAMIHNMQswCQYD
+						VQQGEwJVSzEUMBIGA1UECAwLT3hmb3Jkc2hpcmUxDzANBgNVBAcMBk94Zm9yZDEd
+						MBsGA1UECgwUVW5pdmVyc2l0eSBvZiBPeGZvcmQxLDAqBgNVBAsMI0RlcGFydG1l
+						bnQgZm9yIENvbnRpbnVpbmcgRWR1Y2F0aW9uMR4wHAYDVQQDDBV0ZXN0eC5yZXds
+						ZXkub3guYWMudWsxKjAoBgkqhkiG9w0BCQEWG21pa2UudGF5bG9yQGNvbnRlZC5v
+						eC5hYy51azAeFw0xNDA1MTYxMzUwNDZaFw0yNDA1MTMxMzUwNDZaMIHNMQswCQYD
+						VQQGEwJVSzEUMBIGA1UECAwLT3hmb3Jkc2hpcmUxDzANBgNVBAcMBk94Zm9yZDEd
+						MBsGA1UECgwUVW5pdmVyc2l0eSBvZiBPeGZvcmQxLDAqBgNVBAsMI0RlcGFydG1l
+						bnQgZm9yIENvbnRpbnVpbmcgRWR1Y2F0aW9uMR4wHAYDVQQDDBV0ZXN0eC5yZXds
+						ZXkub3guYWMudWsxKjAoBgkqhkiG9w0BCQEWG21pa2UudGF5bG9yQGNvbnRlZC5v
+						eC5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALGlJIa2jDp7
+						2G0veO3PKZIeR5bEjwiIwMJ2eVLavYR8srwBfAJKqWfLSTkHpwqTDiV4TJzW1ZLX
+						DSA45CE21tx/hEb4u0vEARvRpNE1v+0852wV8MTWAIG32D3ciIOhNwH/6FInVbVR
+						iLRyjWoykWTvZoSdu6mQa5fTXq5CzUhMg3FDfT4Z6piyAdJMz9NUF8vr2chS6VLg
+						tWwC20/gerQ4TN81X1NZBZcdHQG1c9rvg7IR28CjfVggUvDkbsqaWYmf5ynO7328
+						l8LJxtzvWRxJu6XyiPE5wr8ISdtjYpXczE+2rzkIEo8ztJI9dx9X3bkq1QvJIWHP
+						uEeykQijZd0CAwEAAaN7MHkwCQYDVR0TBAIwADAsBglghkgBhvhCAQ0EHxYdT3Bl
+						blNTTCBHZW5lcmF0ZWQgQ2VydGlmaWNhdGUwHQYDVR0OBBYEFJIfR/ZYmJByuaE5
+						GldU6Q5Ti+4ZMB8GA1UdIwQYMBaAFJIfR/ZYmJByuaE5GldU6Q5Ti+4ZMA0GCSqG
+						SIb3DQEBBQUAA4IBAQACMlLHR3DfGj7btTxywdzVVxjVZPmwsbuBRUXx+2+BM6eJ
+						oRMnlavU7APk7/1WO39MXA94fsCUZqzS5J6zTH4M+Zz80yav2/6ovZ3hCLi7f95A
+						4EJYyZDhEoUj18ghVsx27DzvGvHT7iot93IyQl+TC5uzfaZewZKmdDjuFXnZyLE6
+						63zwkMgxdQZpNx3bBXnnQijmXKd9D0kDAn3QdzHWWAzLNIiElhkPtWOfyrr96d+E
+						Za3sWCoe1p7/z6S7QFrkaEIPoQUmWADygNzOdGEMR2oUtbX4FUMaKj6lJ0yn7x/D
+						kkjAFsFqiMDHkphikIOe1+UNnWIECZVMWqntNn7b
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://testx.rewley.ox.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://testx.rewley.ox.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://testx.rewley.ox.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://testx.rewley.ox.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://testx.rewley.ox.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://testx.rewley.ox.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://testx.rewley.ox.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://testx.rewley.ox.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://testx.rewley.ox.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://testx.rewley.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://testx.rewley.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://testx.rewley.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://testx.rewley.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://testx.rewley.ox.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://testx.rewley.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Oxford University: Continuing Education main test site</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.conted.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Mike</md:GivenName>
+      <md:SurName>Taylor</md:SurName>
+      <md:EmailAddress>mailto:mike.taylor@conted.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mike</md:GivenName>
+      <md:SurName>Taylor</md:SurName>
+      <md:EmailAddress>mailto:mike.taylor@conted.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

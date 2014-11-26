@@ -1,0 +1,107 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.sbc.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2010-01-28T17:19:00Z">
+		</mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">sbc.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEaDCCA1CgAwIBAgIRALPLpoO1SYULfKewZOIh0wEwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xNDAxMDkwMDAwMDBaFw0xNzAxMDgyMzU5NTlaMDsxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEWMBQGA1UEAxMNaWRwLnNiYy5h
+						Yy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANLx6SesLhA5Bd8r
+						qwseSaN7wPNyPlECzNDdG3/b9Ru79FMveUWfCR/wejLe0JzCFb/lk+7P81VL8+uv
+						/2hU3A+5n+bFZ3iO5suZgAN974630CgdFEcUq+Mp3+9eiVh1Z8B1dKFqzOcr+e6x
+						C1qSwWsBG6RkCGe63nq+LY2Bc1I72RcRBVzO3hzN+MKay6xn9Nr9q13TJQ7nYY5F
+						5gTQgV2dasmB2ANkTW2TleKLn0QTXEWDgboM1KZR/rx+t0rrLcGmvjGz3OIHUHjF
+						SFjKOq2yEsWzKovEkUq6R1hV3sKRyiipixTaVq+ZXVolmf3YMNJjwH7yA6vBZ6hc
+						gXiMQg0CAwEAAaOCAWowggFmMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ
+						47ntMB0GA1UdDgQWBBRQYiuu0mY2s29/tYH/pk/IKKhqDTAOBgNVHQ8BAf8EBAMC
+						BaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIw
+						IgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEwOgYDVR0fBDMwMTAv
+						oC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmww
+						bQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJl
+						bmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3Au
+						dGNzLnRlcmVuYS5vcmcwGAYDVR0RBBEwD4INaWRwLnNiYy5hYy51azANBgkqhkiG
+						9w0BAQUFAAOCAQEACaQXpN6BH+zJzpEo+Ugy/amJDyuYWyKsFTvzQ1jH3uhQJaQ8
+						7XZScE55S1IXoEnRE1EnX2y/dCuJgMsRIvDvyM/gzyLILU+BZwAr/AzFRMoJKfjI
+						eLVlhg2MNSpX9vMTPo5R8tVhVWvI/Ay5f3j5LHfloNOkT8VcqRnxzhyHGwbZzacH
+						hOUKt5OW0reVpMZz7RTP/2Vhy3C/R78BakBPus0+JhK1kkqTuay5VXR2k+1dcqXm
+						X8fvQQdHyVp3LDYYOfjzsVNSsVnPXds+6ZHLmTriqUaceR9klM4j1GVr4QS/PliU
+						E5462laDFcXvG65p/NGd70Sg88TaW3tvwmyEzQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.sbc.ac.uk/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.sbc.ac.uk/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.sbc.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.sbc.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.sbc.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.sbc.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">sbc.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEaDCCA1CgAwIBAgIRALPLpoO1SYULfKewZOIh0wEwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xNDAxMDkwMDAwMDBaFw0xNzAxMDgyMzU5NTlaMDsxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEWMBQGA1UEAxMNaWRwLnNiYy5h
+						Yy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANLx6SesLhA5Bd8r
+						qwseSaN7wPNyPlECzNDdG3/b9Ru79FMveUWfCR/wejLe0JzCFb/lk+7P81VL8+uv
+						/2hU3A+5n+bFZ3iO5suZgAN974630CgdFEcUq+Mp3+9eiVh1Z8B1dKFqzOcr+e6x
+						C1qSwWsBG6RkCGe63nq+LY2Bc1I72RcRBVzO3hzN+MKay6xn9Nr9q13TJQ7nYY5F
+						5gTQgV2dasmB2ANkTW2TleKLn0QTXEWDgboM1KZR/rx+t0rrLcGmvjGz3OIHUHjF
+						SFjKOq2yEsWzKovEkUq6R1hV3sKRyiipixTaVq+ZXVolmf3YMNJjwH7yA6vBZ6hc
+						gXiMQg0CAwEAAaOCAWowggFmMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ
+						47ntMB0GA1UdDgQWBBRQYiuu0mY2s29/tYH/pk/IKKhqDTAOBgNVHQ8BAf8EBAMC
+						BaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIw
+						IgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEwOgYDVR0fBDMwMTAv
+						oC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmww
+						bQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJl
+						bmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3Au
+						dGNzLnRlcmVuYS5vcmcwGAYDVR0RBBEwD4INaWRwLnNiYy5hYy51azANBgkqhkiG
+						9w0BAQUFAAOCAQEACaQXpN6BH+zJzpEo+Ugy/amJDyuYWyKsFTvzQ1jH3uhQJaQ8
+						7XZScE55S1IXoEnRE1EnX2y/dCuJgMsRIvDvyM/gzyLILU+BZwAr/AzFRMoJKfjI
+						eLVlhg2MNSpX9vMTPo5R8tVhVWvI/Ay5f3j5LHfloNOkT8VcqRnxzhyHGwbZzacH
+						hOUKt5OW0reVpMZz7RTP/2Vhy3C/R78BakBPus0+JhK1kkqTuay5VXR2k+1dcqXm
+						X8fvQQdHyVp3LDYYOfjzsVNSsVnPXds+6ZHLmTriqUaceR9klM4j1GVr4QS/PliU
+						E5462laDFcXvG65p/NGd70Sg88TaW3tvwmyEzQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.sbc.ac.uk/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.sbc.ac.uk/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">South &amp; City College Birmingham</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">South and City College Birmingham</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.sbc.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Martin</md:GivenName>
+      <md:SurName>Whinnery</md:SurName>
+      <md:EmailAddress>mailto:Martin.Whinnery@sccb.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Martin</md:GivenName>
+      <md:SurName>Whinnery</md:SurName>
+      <md:EmailAddress>mailto:Martin.Whinnery@sccb.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

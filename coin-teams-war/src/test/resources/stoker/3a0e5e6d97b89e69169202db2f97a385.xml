@@ -1,0 +1,96 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shib1.napier.ac.uk/entity">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2008-05-08T17:11:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">napier.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDMzCCAhugAwIBAgIUTi/qwLJiY52T4kltTmNqkd1B5l4wDQYJKoZIhvcNAQEF
+						BQAwHTEbMBkGA1UEAxMSc2hpYjEubmFwaWVyLmFjLnVrMB4XDTE0MDMyNDE2MjEy
+						NloXDTM0MDMyNDE2MjEyNlowHTEbMBkGA1UEAxMSc2hpYjEubmFwaWVyLmFjLnVr
+						MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiWQo/dClCX3CqsYfxWDB
+						ouKIAl/kkobQLrukfV5cyu9P94PBOQK/hR+S2V7zxtZ/vmE+kWO9SXfnTJv8hBhr
+						0QiF64tK2fllzTRGC5NoWBy2iJ7LsxxI37wmB5n195mfaenb+nOdEF3XYhTer1NR
+						c/PjrcnWmWOImGGS770Gra7jC+i4LDqlVRihJQHfUooStIPghmblu7qsIjUZ+LUU
+						Xc8RK12Va5Wl0CvEJj0jPNUZ9IjuJjlLcz27Ot1XFiLMdo3qBCk4VM9pTB8k6Y4Z
+						J7GaEo4PlMja9u6qerThIFeIGPzfCg9wvExNi5T+qjgO75C4pcduMWCipa4Lbt/F
+						swIDAQABo2swaTBIBgNVHREEQTA/ghJzaGliMS5uYXBpZXIuYWMudWuGKWh0dHBz
+						Oi8vc2hpYjEubmFwaWVyLmFjLnVrL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBSc
+						+TA4/2hb/0/5R4QBKnrA3hTQ0jANBgkqhkiG9w0BAQUFAAOCAQEAhP6pcfyhqfAc
+						SolKIRerz/8MieqSFSBR+MCc3Ow4MeGcf++7wim6IPKpAlBXl8T8BatoqO9yVLLB
+						2AFpRHHlgoYceryrlwcWJOcyX/DwPBvaqEZgg16IwGZ6dwrVm+qHlRWZgOPs3blY
+						0AvEsoucZkWGp4q5rVXTSb8V+PZ++QQuvxPpN6ZweVJWLyqNTiprHzg3ef+lecK2
+						FeboIZjNCsRtYo3FhXguhrf4ORkzU6jmm4iqdqApQbNyPuQ/W+6GQ7EQcU0dyK9M
+						NVZrPTK8LScXAcwOoMDzltNhzLHUa/WJUB95shI9hXSscHrpt8oQfHyAsrUoV07t
+						DeJEdpoirw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib1.napier.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib1.napier.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shib.napier.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib.napier.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib.napier.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib.napier.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">napier.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDMzCCAhugAwIBAgIUTi/qwLJiY52T4kltTmNqkd1B5l4wDQYJKoZIhvcNAQEF
+						BQAwHTEbMBkGA1UEAxMSc2hpYjEubmFwaWVyLmFjLnVrMB4XDTE0MDMyNDE2MjEy
+						NloXDTM0MDMyNDE2MjEyNlowHTEbMBkGA1UEAxMSc2hpYjEubmFwaWVyLmFjLnVr
+						MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiWQo/dClCX3CqsYfxWDB
+						ouKIAl/kkobQLrukfV5cyu9P94PBOQK/hR+S2V7zxtZ/vmE+kWO9SXfnTJv8hBhr
+						0QiF64tK2fllzTRGC5NoWBy2iJ7LsxxI37wmB5n195mfaenb+nOdEF3XYhTer1NR
+						c/PjrcnWmWOImGGS770Gra7jC+i4LDqlVRihJQHfUooStIPghmblu7qsIjUZ+LUU
+						Xc8RK12Va5Wl0CvEJj0jPNUZ9IjuJjlLcz27Ot1XFiLMdo3qBCk4VM9pTB8k6Y4Z
+						J7GaEo4PlMja9u6qerThIFeIGPzfCg9wvExNi5T+qjgO75C4pcduMWCipa4Lbt/F
+						swIDAQABo2swaTBIBgNVHREEQTA/ghJzaGliMS5uYXBpZXIuYWMudWuGKWh0dHBz
+						Oi8vc2hpYjEubmFwaWVyLmFjLnVrL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBSc
+						+TA4/2hb/0/5R4QBKnrA3hTQ0jANBgkqhkiG9w0BAQUFAAOCAQEAhP6pcfyhqfAc
+						SolKIRerz/8MieqSFSBR+MCc3Ow4MeGcf++7wim6IPKpAlBXl8T8BatoqO9yVLLB
+						2AFpRHHlgoYceryrlwcWJOcyX/DwPBvaqEZgg16IwGZ6dwrVm+qHlRWZgOPs3blY
+						0AvEsoucZkWGp4q5rVXTSb8V+PZ++QQuvxPpN6ZweVJWLyqNTiprHzg3ef+lecK2
+						FeboIZjNCsRtYo3FhXguhrf4ORkzU6jmm4iqdqApQbNyPuQ/W+6GQ7EQcU0dyK9M
+						NVZrPTK8LScXAcwOoMDzltNhzLHUa/WJUB95shI9hXSscHrpt8oQfHyAsrUoV07t
+						DeJEdpoirw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib1.napier.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib1.napier.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Edinburgh Napier University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Edinburgh Napier University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.napier.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Simon</md:GivenName>
+      <md:SurName>Foley</md:SurName>
+      <md:EmailAddress>mailto:citsupport@napier.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>James</md:GivenName>
+      <md:SurName>Todd</md:SurName>
+      <md:EmailAddress>mailto:J.Todd@napier.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,88 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://wolf-print.wolf.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://wolf-print.wolf.ox.ac.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDDzCCAfegAwIBAgIJANOq9kmAYRWdMA0GCSqGSIb3DQEBBQUAMCMxITAfBgNV
+						BAMTGHdvbGYtcHJpbnQud29sZi5veC5hYy51azAeFw0xMDEwMjgxMzA0NDRaFw0y
+						MDEwMjUxMzA0NDRaMCMxITAfBgNVBAMTGHdvbGYtcHJpbnQud29sZi5veC5hYy51
+						azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALoxdlwPXfGThJT5GBUs
+						fVVZVXVHc50sRYZDS2Cs7EQJw4omts2DmN+sRMva8Rpg3GMW8HsaEtzgsvfSXZvp
+						S6zFluzdLEOrayxQWemAumYXWbMVGIQjN0olKOQzMPDvdUHesdcLZABdsxXqrEYB
+						PURPLCiMN75i9Rl6C3JJay9z2wzU1QSnsT9g8xvpVG1jO/OKvC+MnENWUhfAK0gw
+						bVqm10vmvfy8FWn+XSbif02kDMvcXVOm1t7gqkmPlXYDE58iVCg2Gwc2MQbfJKfd
+						R7Hj0RziwsmC7MaxARBGnx8yWh3Eu+u73GEU858sCIqU5gAfT4S+O62I2D38baYl
+						MlMCAwEAAaNGMEQwIwYDVR0RBBwwGoIYd29sZi1wcmludC53b2xmLm94LmFjLnVr
+						MB0GA1UdDgQWBBQVWTsmA9E39YYdAz35w5h8M2CxEDANBgkqhkiG9w0BAQUFAAOC
+						AQEAI/suxhJXyu5lgBh23wP97d3Mo/LXZ6QxqgFV0PPpADQxnQiEIFwvOcJ4S0sK
+						xpdh2Ens5sEowOE110ExqRhPRs8SnpV83tumJMKrFM+sT1+UdmKlKP9ZHwuctghy
+						kYfT1FiZcQ4xCP/pL60MDEUHKSQsLOEmINDDeg35oHKUV5/w+DxowvkHCFHExTEK
+						OoBkuRw2/wvTRdy8kDWV1XpaVfUj7ci/5F+onPybMpcEStKoDFvtMoxMeoV/j+Ip
+						d0Pm166IMhjBQxteWIvPAw9F8QWEbDHL2X7rtjDT61obKLKKlr+RI7SwSd+rmmG+
+						Nt9+nCX95b/RaMAOP1/SUQcLTA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDDzCCAfegAwIBAgIJANOq9kmAYRWdMA0GCSqGSIb3DQEBBQUAMCMxITAfBgNV
+						BAMTGHdvbGYtcHJpbnQud29sZi5veC5hYy51azAeFw0xMDEwMjgxMzA0NDRaFw0y
+						MDEwMjUxMzA0NDRaMCMxITAfBgNVBAMTGHdvbGYtcHJpbnQud29sZi5veC5hYy51
+						azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALoxdlwPXfGThJT5GBUs
+						fVVZVXVHc50sRYZDS2Cs7EQJw4omts2DmN+sRMva8Rpg3GMW8HsaEtzgsvfSXZvp
+						S6zFluzdLEOrayxQWemAumYXWbMVGIQjN0olKOQzMPDvdUHesdcLZABdsxXqrEYB
+						PURPLCiMN75i9Rl6C3JJay9z2wzU1QSnsT9g8xvpVG1jO/OKvC+MnENWUhfAK0gw
+						bVqm10vmvfy8FWn+XSbif02kDMvcXVOm1t7gqkmPlXYDE58iVCg2Gwc2MQbfJKfd
+						R7Hj0RziwsmC7MaxARBGnx8yWh3Eu+u73GEU858sCIqU5gAfT4S+O62I2D38baYl
+						MlMCAwEAAaNGMEQwIwYDVR0RBBwwGoIYd29sZi1wcmludC53b2xmLm94LmFjLnVr
+						MB0GA1UdDgQWBBQVWTsmA9E39YYdAz35w5h8M2CxEDANBgkqhkiG9w0BAQUFAAOC
+						AQEAI/suxhJXyu5lgBh23wP97d3Mo/LXZ6QxqgFV0PPpADQxnQiEIFwvOcJ4S0sK
+						xpdh2Ens5sEowOE110ExqRhPRs8SnpV83tumJMKrFM+sT1+UdmKlKP9ZHwuctghy
+						kYfT1FiZcQ4xCP/pL60MDEUHKSQsLOEmINDDeg35oHKUV5/w+DxowvkHCFHExTEK
+						OoBkuRw2/wvTRdy8kDWV1XpaVfUj7ci/5F+onPybMpcEStKoDFvtMoxMeoV/j+Ip
+						d0Pm166IMhjBQxteWIvPAw9F8QWEbDHL2X7rtjDT61obKLKKlr+RI7SwSd+rmmG+
+						Nt9+nCX95b/RaMAOP1/SUQcLTA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://wolf-print.wolf.ox.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://wolf-print.wolf.ox.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://wolf-print.wolf.ox.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wolf-print.wolf.ox.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://wolf-print.wolf.ox.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://wolf-print.wolf.ox.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://wolf-print.wolf.ox.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wolf-print.wolf.ox.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://wolf-print.wolf.ox.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wolf-print.wolf.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://wolf-print.wolf.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://wolf-print.wolf.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://wolf-print.wolf.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://wolf-print.wolf.ox.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://wolf-print.wolf.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford: Wolfson Print Server</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.wolfson.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Wolfson IT Team</md:GivenName>
+      <md:EmailAddress>mailto:it.support@wolfson.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Wolfson IT Team</md:GivenName>
+      <md:EmailAddress>mailto:it.support@wolfson.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

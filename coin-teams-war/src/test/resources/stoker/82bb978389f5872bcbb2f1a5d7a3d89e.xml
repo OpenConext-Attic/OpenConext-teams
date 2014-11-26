@@ -1,0 +1,91 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.mimas.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">mimas.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDJzCCAg+gAwIBAgIUExVE+BsgxiwDLoOHU9bL+UpPdVEwDQYJKoZIhvcNAQEF
+						BQAwGjEYMBYGA1UEAxMPaWRwLm1pbWFzLmFjLnVrMB4XDTEwMTAwNDE3MDczOFoX
+						DTMwMTAwNDE3MDczOFowGjEYMBYGA1UEAxMPaWRwLm1pbWFzLmFjLnVrMIIBIjAN
+						BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4w7U5gd6/ifZvu0vwr4rK9zY08DO
+						uxfZDkOAoXnfL6w31loHJQaM1ezLKs9RxVgHk++2vzFUn5Y70Bj7vOEOtaevjsKU
+						VrnJZGpj7pwRtRZinpVUjlT/a8sQUhjDjnag1RceLYthPG8BTd5whlWGLl0+aQHD
+						QbwdPcRqEml+6TZG8sxTZIukWqtdTCzVMl+EYfdclCqDKUFMXm3Uz15OzUje53Bv
+						WIaX2ThmUyqiDPHPGCfknwtcsKYcc3ztyokCamTH7U5FuxJMkTlzrieXJvHGTRjZ
+						uDHQhN6ulvr7/5Zt1v9OngZxptFc5ICUe8YqLelBgpWfeekXwLgP2AOzVQIDAQAB
+						o2UwYzBCBgNVHREEOzA5gg9pZHAubWltYXMuYWMudWuGJmh0dHBzOi8vaWRwLm1p
+						bWFzLmFjLnVrL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRoLGk6jr37RIvGJJ9m
+						Nu2cx/xIRDANBgkqhkiG9w0BAQUFAAOCAQEAxv3qV8i0hLx/UCzgEerrDs0mrMQi
+						2ZZYQQAAfrZmMSAryZu2yBc87Ibku5dbKps89fA47KYG+Fro/ixdx1DTrkod2Gwz
+						28MMRa3WTp3KxOq7NMCSrsk7OEEwyeYo3Ozw1Evmm4LRh3i0MpMNo9SunlU9Xfjk
+						UO2RBp6YWrNL3uOWrdskey+qbXzhnQNGnLqpsL1MDI/tmrWxsyxcjnEyG4F7FSku
+						fvrpFwCGZkEH+4xIDCEGFTxBWBy7Ex/MJ7ltPBeOwej+omCGkJxJcAbzaBsM+5AM
+						fRhXAFKoBmWmKAGSKfZDAIj7HXfN/kBwjy0PyOt8kPDXrvqGmveft0zUvg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.mimas.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.mimas.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.mimas.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.mimas.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.mimas.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.mimas.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">mimas.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDJzCCAg+gAwIBAgIUExVE+BsgxiwDLoOHU9bL+UpPdVEwDQYJKoZIhvcNAQEF
+						BQAwGjEYMBYGA1UEAxMPaWRwLm1pbWFzLmFjLnVrMB4XDTEwMTAwNDE3MDczOFoX
+						DTMwMTAwNDE3MDczOFowGjEYMBYGA1UEAxMPaWRwLm1pbWFzLmFjLnVrMIIBIjAN
+						BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4w7U5gd6/ifZvu0vwr4rK9zY08DO
+						uxfZDkOAoXnfL6w31loHJQaM1ezLKs9RxVgHk++2vzFUn5Y70Bj7vOEOtaevjsKU
+						VrnJZGpj7pwRtRZinpVUjlT/a8sQUhjDjnag1RceLYthPG8BTd5whlWGLl0+aQHD
+						QbwdPcRqEml+6TZG8sxTZIukWqtdTCzVMl+EYfdclCqDKUFMXm3Uz15OzUje53Bv
+						WIaX2ThmUyqiDPHPGCfknwtcsKYcc3ztyokCamTH7U5FuxJMkTlzrieXJvHGTRjZ
+						uDHQhN6ulvr7/5Zt1v9OngZxptFc5ICUe8YqLelBgpWfeekXwLgP2AOzVQIDAQAB
+						o2UwYzBCBgNVHREEOzA5gg9pZHAubWltYXMuYWMudWuGJmh0dHBzOi8vaWRwLm1p
+						bWFzLmFjLnVrL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRoLGk6jr37RIvGJJ9m
+						Nu2cx/xIRDANBgkqhkiG9w0BAQUFAAOCAQEAxv3qV8i0hLx/UCzgEerrDs0mrMQi
+						2ZZYQQAAfrZmMSAryZu2yBc87Ibku5dbKps89fA47KYG+Fro/ixdx1DTrkod2Gwz
+						28MMRa3WTp3KxOq7NMCSrsk7OEEwyeYo3Ozw1Evmm4LRh3i0MpMNo9SunlU9Xfjk
+						UO2RBp6YWrNL3uOWrdskey+qbXzhnQNGnLqpsL1MDI/tmrWxsyxcjnEyG4F7FSku
+						fvrpFwCGZkEH+4xIDCEGFTxBWBy7Ex/MJ7ltPBeOwej+omCGkJxJcAbzaBsM+5AM
+						fRhXAFKoBmWmKAGSKfZDAIj7HXfN/kBwjy0PyOt8kPDXrvqGmveft0zUvg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.mimas.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.mimas.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">The University of Manchester</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Manchester: Mimas</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://mimas.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Mimas helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:info@mimas.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Nicholas</md:GivenName>
+      <md:SurName>Syrotiuk</md:SurName>
+      <md:EmailAddress>mailto:syrotiuk@manchester.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

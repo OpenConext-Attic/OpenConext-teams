@@ -1,0 +1,106 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth.cranfield.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">cranfield.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEeDCCA2CgAwIBAgIJAMVh01FmcQItMA0GCSqGSIb3DQEBBQUAMIG8MQswCQYD
+						VQQGEwJHQjEVMBMGA1UECBMMQmVkZm9yZHNoaXJlMRIwEAYDVQQHEwlDcmFuZmll
+						bGQxHTAbBgNVBAoTFENyYW5maWVsZCBVbml2ZXJzaXR5MRYwFAYDVQQLEw1JVCBE
+						ZXBhcnRtZW50MSMwIQYDVQQDExpzaGliYm9sZXRoLmNyYW5maWVsZC5hYy51azEm
+						MCQGCSqGSIb3DQEJARYXc3lzdGVtc0BjcmFuZmllbGQuYWMudWswHhcNMTIwODE1
+						MTQzNDAyWhcNMjIwODEzMTQzNDAyWjCBvDELMAkGA1UEBhMCR0IxFTATBgNVBAgT
+						DEJlZGZvcmRzaGlyZTESMBAGA1UEBxMJQ3JhbmZpZWxkMR0wGwYDVQQKExRDcmFu
+						ZmllbGQgVW5pdmVyc2l0eTEWMBQGA1UECxMNSVQgRGVwYXJ0bWVudDEjMCEGA1UE
+						AxMac2hpYmJvbGV0aC5jcmFuZmllbGQuYWMudWsxJjAkBgkqhkiG9w0BCQEWF3N5
+						c3RlbXNAY3JhbmZpZWxkLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+						CgKCAQEArQKTDHzFCgeJlA5Ihl8bKlVKmOvvTb9hzAEVRKaJJV7SEhzGEfVMdy48
+						MAYvF7MxGmSFmDlUQGIEdQIaV+4GKikmArV5HvQijm/REkyChWhv6cqbWrweWg2k
+						IxwvLwYDy6e3tqfyGoGODstlqT6Paacu0y/WGi6XqczrVqr6pFITc0qfGopqOxTO
+						S8VTCbucP5T85NDuG2g58TRYAEwX6UX5Lpzl22HRrQxm9yBxydzF9eidb9N2QLFJ
+						fsl9nAWzAcf1wIfJr2IQwjeNUG+971To0nToQwT8wUm//IhiXqcynbWOCuIgWCnr
+						NpMhzqaVgo7MrJ5hJusDN6aWxaN8wwIDAQABo3sweTAJBgNVHRMEAjAAMCwGCWCG
+						SAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVyYXRlZCBDZXJ0aWZpY2F0ZTAdBgNVHQ4E
+						FgQUJR+QfdHNcDVCRxPsYFyKxIATcAAwHwYDVR0jBBgwFoAUJR+QfdHNcDVCRxPs
+						YFyKxIATcAAwDQYJKoZIhvcNAQEFBQADggEBAIKd+Q/1umHnB0U4yJMmz60kXEn2
+						4V7hWArz9KGhwKLcHKM3lMdMzvFIdXDXVp0XWeorzD0fboFtOpIN8+Lmgo5la3rR
+						P5NozQTzlC6ga8zKBjhjaELLhiTBKJ5KWpe/xF1qY6qSO1Id35gjx9zOnsT5Xdkz
+						jJZspa0idepzJcotgx/YCQvfz6LGQpK7yx4lzKJyLXC0vLGjK3ZHPBVgfVlvFEpm
+						SakTjEGtEtO+tk8yoI8HXHjsWa1M/Fu0e1n8vAu8Af2Aqlelq39loO7SmrCzYPJ1
+						Axewsjzk+IZbXd39dF6YzYNvWn7+yy/My9TwHaGSTywPR+yJ0NcOJ40PyQo=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.cranfield.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.cranfield.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.cranfield.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.cranfield.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.cranfield.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.cranfield.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">cranfield.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEeDCCA2CgAwIBAgIJAMVh01FmcQItMA0GCSqGSIb3DQEBBQUAMIG8MQswCQYD
+						VQQGEwJHQjEVMBMGA1UECBMMQmVkZm9yZHNoaXJlMRIwEAYDVQQHEwlDcmFuZmll
+						bGQxHTAbBgNVBAoTFENyYW5maWVsZCBVbml2ZXJzaXR5MRYwFAYDVQQLEw1JVCBE
+						ZXBhcnRtZW50MSMwIQYDVQQDExpzaGliYm9sZXRoLmNyYW5maWVsZC5hYy51azEm
+						MCQGCSqGSIb3DQEJARYXc3lzdGVtc0BjcmFuZmllbGQuYWMudWswHhcNMTIwODE1
+						MTQzNDAyWhcNMjIwODEzMTQzNDAyWjCBvDELMAkGA1UEBhMCR0IxFTATBgNVBAgT
+						DEJlZGZvcmRzaGlyZTESMBAGA1UEBxMJQ3JhbmZpZWxkMR0wGwYDVQQKExRDcmFu
+						ZmllbGQgVW5pdmVyc2l0eTEWMBQGA1UECxMNSVQgRGVwYXJ0bWVudDEjMCEGA1UE
+						AxMac2hpYmJvbGV0aC5jcmFuZmllbGQuYWMudWsxJjAkBgkqhkiG9w0BCQEWF3N5
+						c3RlbXNAY3JhbmZpZWxkLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+						CgKCAQEArQKTDHzFCgeJlA5Ihl8bKlVKmOvvTb9hzAEVRKaJJV7SEhzGEfVMdy48
+						MAYvF7MxGmSFmDlUQGIEdQIaV+4GKikmArV5HvQijm/REkyChWhv6cqbWrweWg2k
+						IxwvLwYDy6e3tqfyGoGODstlqT6Paacu0y/WGi6XqczrVqr6pFITc0qfGopqOxTO
+						S8VTCbucP5T85NDuG2g58TRYAEwX6UX5Lpzl22HRrQxm9yBxydzF9eidb9N2QLFJ
+						fsl9nAWzAcf1wIfJr2IQwjeNUG+971To0nToQwT8wUm//IhiXqcynbWOCuIgWCnr
+						NpMhzqaVgo7MrJ5hJusDN6aWxaN8wwIDAQABo3sweTAJBgNVHRMEAjAAMCwGCWCG
+						SAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVyYXRlZCBDZXJ0aWZpY2F0ZTAdBgNVHQ4E
+						FgQUJR+QfdHNcDVCRxPsYFyKxIATcAAwHwYDVR0jBBgwFoAUJR+QfdHNcDVCRxPs
+						YFyKxIATcAAwDQYJKoZIhvcNAQEFBQADggEBAIKd+Q/1umHnB0U4yJMmz60kXEn2
+						4V7hWArz9KGhwKLcHKM3lMdMzvFIdXDXVp0XWeorzD0fboFtOpIN8+Lmgo5la3rR
+						P5NozQTzlC6ga8zKBjhjaELLhiTBKJ5KWpe/xF1qY6qSO1Id35gjx9zOnsT5Xdkz
+						jJZspa0idepzJcotgx/YCQvfz6LGQpK7yx4lzKJyLXC0vLGjK3ZHPBVgfVlvFEpm
+						SakTjEGtEtO+tk8yoI8HXHjsWa1M/Fu0e1n8vAu8Af2Aqlelq39loO7SmrCzYPJ1
+						Axewsjzk+IZbXd39dF6YzYNvWn7+yy/My9TwHaGSTywPR+yJ0NcOJ40PyQo=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.cranfield.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.cranfield.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Cranfield University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Cranfield University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.cranfield.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Jonathan</md:GivenName>
+      <md:SurName>Haynes</md:SurName>
+      <md:EmailAddress>mailto:j.haynes@cranfield.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Jonathan</md:GivenName>
+      <md:SurName>Haynes</md:SurName>
+      <md:EmailAddress>mailto:j.haynes@cranfield.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

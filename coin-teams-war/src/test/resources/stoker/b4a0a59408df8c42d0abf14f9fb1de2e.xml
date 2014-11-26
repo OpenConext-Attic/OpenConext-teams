@@ -1,0 +1,90 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shib.fusiondev.co.uk/sp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://shib.fusiondev.co.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDAzCCAeugAwIBAgIJALnrilHsvjTrMA0GCSqGSIb3DQEBBQUAMB8xHTAbBgNV
+						BAMTFGNvc3NhY2suZnVzaW9uLmNvLnVrMB4XDTEwMDExNDA5MjcxOVoXDTIwMDEx
+						MjA5MjcxOVowHzEdMBsGA1UEAxMUY29zc2Fjay5mdXNpb24uY28udWswggEiMA0G
+						CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDO34Wr48RixKc338aT/vcau0mu9mVI
+						9JMcPwzSZArGrdW2XyDg4JWhA1MvtR7orqzlYakx3q4zYTAyOtrr6sgAkVMgc+tB
+						2E6cQs7Dcw+AswRy5wBbAdg4J5JDI1BL3i+AwLNo9HwkhNtnahc3JYKqv34Zn6mG
+						MPT2Zj9h4xsI9RZ960twBaJJUnJ7ahL0ik1G+9S2I9ARXmJ5VLsLkSPdkGDytNY3
+						NcrBqC53f/6EAiAeI9hihCbUUGF9fxrniUq46Cx5W1kdsEQi3wjyJk7jdyOTS/WD
+						yPskDImCWkYn3SMhoLFAoRsgSZbBCm4HYpPwe0bLDLr2uPz4uRyJ7m3BAgMBAAGj
+						QjBAMB8GA1UdEQQYMBaCFGNvc3NhY2suZnVzaW9uLmNvLnVrMB0GA1UdDgQWBBSN
+						TA3Q466kMtTN81a/jHuM2/ZJpjANBgkqhkiG9w0BAQUFAAOCAQEASQQBwA4y/I+e
+						pPahdSftLFulON+M5jHUDx7zOFLrwO6xY73+iTQMI1YfvKj9K+RxYqtWissuMCjR
+						WdhVFnyMM6dgSxLTxmesQyiG9Mw1HuAc9Ly1d8WCNBYBjUCd6cG6vJtut/7hmlBf
+						/hxvpMR0M6au7EJ+qaxh2q52V2W54fnAtvZbw4M4Ysim9+eASAFk2PUWFd3MiYhJ
+						SdXdr7TM89qYLh8+R+OCFLlSX9b3q7OahvXynmQO31bKGxsRysBk4Y7SNdOJwVZa
+						Wg0fp++YHXnfruREM/4wojbM/JR/E4VOml/cwYgr11gbvNvQjU89oV+xztOLac6Y
+						jsUC17MwDA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDAzCCAeugAwIBAgIJALnrilHsvjTrMA0GCSqGSIb3DQEBBQUAMB8xHTAbBgNV
+						BAMTFGNvc3NhY2suZnVzaW9uLmNvLnVrMB4XDTEwMDExNDA5MjcxOVoXDTIwMDEx
+						MjA5MjcxOVowHzEdMBsGA1UEAxMUY29zc2Fjay5mdXNpb24uY28udWswggEiMA0G
+						CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDO34Wr48RixKc338aT/vcau0mu9mVI
+						9JMcPwzSZArGrdW2XyDg4JWhA1MvtR7orqzlYakx3q4zYTAyOtrr6sgAkVMgc+tB
+						2E6cQs7Dcw+AswRy5wBbAdg4J5JDI1BL3i+AwLNo9HwkhNtnahc3JYKqv34Zn6mG
+						MPT2Zj9h4xsI9RZ960twBaJJUnJ7ahL0ik1G+9S2I9ARXmJ5VLsLkSPdkGDytNY3
+						NcrBqC53f/6EAiAeI9hihCbUUGF9fxrniUq46Cx5W1kdsEQi3wjyJk7jdyOTS/WD
+						yPskDImCWkYn3SMhoLFAoRsgSZbBCm4HYpPwe0bLDLr2uPz4uRyJ7m3BAgMBAAGj
+						QjBAMB8GA1UdEQQYMBaCFGNvc3NhY2suZnVzaW9uLmNvLnVrMB0GA1UdDgQWBBSN
+						TA3Q466kMtTN81a/jHuM2/ZJpjANBgkqhkiG9w0BAQUFAAOCAQEASQQBwA4y/I+e
+						pPahdSftLFulON+M5jHUDx7zOFLrwO6xY73+iTQMI1YfvKj9K+RxYqtWissuMCjR
+						WdhVFnyMM6dgSxLTxmesQyiG9Mw1HuAc9Ly1d8WCNBYBjUCd6cG6vJtut/7hmlBf
+						/hxvpMR0M6au7EJ+qaxh2q52V2W54fnAtvZbw4M4Ysim9+eASAFk2PUWFd3MiYhJ
+						SdXdr7TM89qYLh8+R+OCFLlSX9b3q7OahvXynmQO31bKGxsRysBk4Y7SNdOJwVZa
+						Wg0fp++YHXnfruREM/4wojbM/JR/E4VOml/cwYgr11gbvNvQjU89oV+xztOLac6Y
+						jsUC17MwDA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib.fusiondev.co.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib.fusiondev.co.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib.fusiondev.co.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib.fusiondev.co.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shib.fusiondev.co.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib.fusiondev.co.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib.fusiondev.co.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib.fusiondev.co.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shib.fusiondev.co.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib.fusiondev.co.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib.fusiondev.co.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shib.fusiondev.co.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://shib.fusiondev.co.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shib.fusiondev.co.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://shib.fusiondev.co.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Cardiff University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Cardiff University: Procureweb Development Gateway</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.procureweb.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Joseph</md:GivenName>
+      <md:SurName>Wells</md:SurName>
+      <md:EmailAddress>mailto:WellsJ3@cardiff.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Rhys</md:GivenName>
+      <md:SurName>Smith</md:SurName>
+      <md:EmailAddress>mailto:smith@cardiff.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

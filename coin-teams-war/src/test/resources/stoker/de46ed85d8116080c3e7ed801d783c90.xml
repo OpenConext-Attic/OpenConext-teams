@@ -1,0 +1,98 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth.truro-penwith.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-07-24T12:37:39Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">truro-penwith.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDZTCCAk2gAwIBAgIUVIqVGTLdOThvAs45mIha28LOG0cwDQYJKoZIhvcNAQEF
+						BQAwKTEnMCUGA1UEAxMec2hpYmJvbGV0aC50cnVyby1wZW53aXRoLmFjLnVrMB4X
+						DTEzMDcyNTA5MjU1OFoXDTMzMDcyNTA5MjU1OFowKTEnMCUGA1UEAxMec2hpYmJv
+						bGV0aC50cnVyby1wZW53aXRoLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+						MIIBCgKCAQEAjNqa9ASmhvPnSc/Sg2TXmSShKIwWmTXV7eNgqQY/yacb2zrsWJes
+						Fx/hGQ2GADV/+PWyHNT208q0Bb7IsutKLSRCntKKB8FPREaSTRO8QVkEpDAuakpR
+						m9B/Q1z0+HGVlGc6ZifDgChxZYYlOxr8CyGk9r5xNu28KnQsjUodwEPW7Xv5tjaH
+						Ukg9ZI8UpYkxYKt9yQj+KdfV5g0BiUkaKTRIQ+20L5ohFYweuH2DKTOv48td7bMa
+						Y5MRpabacOhJOs+Pt6AKToGcmM+gEhib0fifhdMg2Qf77dZ3miuI+8sjIZFuttyQ
+						SKeWWJgnpka95I0m8hfr/DxzkSPIHzJFbQIDAQABo4GEMIGBMGAGA1UdEQRZMFeC
+						HnNoaWJib2xldGgudHJ1cm8tcGVud2l0aC5hYy51a4Y1aHR0cHM6Ly9zaGliYm9s
+						ZXRoLnRydXJvLXBlbndpdGguYWMudWsvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYE
+						FPe307YqPO7BPihGONrKkqFzgZCDMA0GCSqGSIb3DQEBBQUAA4IBAQCL0w8cTddh
+						iqoUJu/oGOju7URDWO+YwIjJV+tWEf8lC0nGnPehoaYitXDexoNNZ9yqEJ3XhrTF
+						gTNtJfRPnT9RZ0e+dbJu/f68HKLkv798yy14wgv6m20miPvY14OhlTT2mUcUuhz0
+						m29Yd8Kg1MIDcH1Me7SVAvJex0uaDn0J74dNJofWxeCRv4+rlMuDQa2NL2sJ6GL0
+						oZnqLAehosKei0nPPNYFE4aa+L/V6BSDs7hqimBf6oFt4qDqOeGgfAZeuWdqCYDN
+						kUAJtuR24UgajKJGGInWVDBNlXJMCNyAVoSevzXTO6Dp+XDyDdOY/Dt8MMSvKPc4
+						SZjtHVMDghth
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.truro-penwith.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.truro-penwith.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.truro-penwith.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.truro-penwith.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.truro-penwith.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.truro-penwith.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">truro-penwith.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDZTCCAk2gAwIBAgIUVIqVGTLdOThvAs45mIha28LOG0cwDQYJKoZIhvcNAQEF
+						BQAwKTEnMCUGA1UEAxMec2hpYmJvbGV0aC50cnVyby1wZW53aXRoLmFjLnVrMB4X
+						DTEzMDcyNTA5MjU1OFoXDTMzMDcyNTA5MjU1OFowKTEnMCUGA1UEAxMec2hpYmJv
+						bGV0aC50cnVyby1wZW53aXRoLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+						MIIBCgKCAQEAjNqa9ASmhvPnSc/Sg2TXmSShKIwWmTXV7eNgqQY/yacb2zrsWJes
+						Fx/hGQ2GADV/+PWyHNT208q0Bb7IsutKLSRCntKKB8FPREaSTRO8QVkEpDAuakpR
+						m9B/Q1z0+HGVlGc6ZifDgChxZYYlOxr8CyGk9r5xNu28KnQsjUodwEPW7Xv5tjaH
+						Ukg9ZI8UpYkxYKt9yQj+KdfV5g0BiUkaKTRIQ+20L5ohFYweuH2DKTOv48td7bMa
+						Y5MRpabacOhJOs+Pt6AKToGcmM+gEhib0fifhdMg2Qf77dZ3miuI+8sjIZFuttyQ
+						SKeWWJgnpka95I0m8hfr/DxzkSPIHzJFbQIDAQABo4GEMIGBMGAGA1UdEQRZMFeC
+						HnNoaWJib2xldGgudHJ1cm8tcGVud2l0aC5hYy51a4Y1aHR0cHM6Ly9zaGliYm9s
+						ZXRoLnRydXJvLXBlbndpdGguYWMudWsvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYE
+						FPe307YqPO7BPihGONrKkqFzgZCDMA0GCSqGSIb3DQEBBQUAA4IBAQCL0w8cTddh
+						iqoUJu/oGOju7URDWO+YwIjJV+tWEf8lC0nGnPehoaYitXDexoNNZ9yqEJ3XhrTF
+						gTNtJfRPnT9RZ0e+dbJu/f68HKLkv798yy14wgv6m20miPvY14OhlTT2mUcUuhz0
+						m29Yd8Kg1MIDcH1Me7SVAvJex0uaDn0J74dNJofWxeCRv4+rlMuDQa2NL2sJ6GL0
+						oZnqLAehosKei0nPPNYFE4aa+L/V6BSDs7hqimBf6oFt4qDqOeGgfAZeuWdqCYDN
+						kUAJtuR24UgajKJGGInWVDBNlXJMCNyAVoSevzXTO6Dp+XDyDdOY/Dt8MMSvKPc4
+						SZjtHVMDghth
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.truro-penwith.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.truro-penwith.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Truro and Penwith College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Truro and Penwith College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.truro-penwith.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Robert</md:GivenName>
+      <md:SurName>Stephens</md:SurName>
+      <md:EmailAddress>mailto:roberts@truro-penwith.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Robert</md:GivenName>
+      <md:SurName>Stephens</md:SurName>
+      <md:EmailAddress>mailto:roberts@truro-penwith.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

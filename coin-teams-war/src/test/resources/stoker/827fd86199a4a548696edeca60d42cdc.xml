@@ -1,0 +1,63 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://iss-openathensla-runtime.swan.ac.uk/oala/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2011-06-16T13:09:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">swan.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Swansea University</mdui:DisplayName>
+          <mdui:Logo height="25" width="80">https://iss-openathensla-runtime.swan.ac.uk/oala/images/uk-federation-branding.png</mdui:Logo>
+          <mdui:Logo height="16" width="16">https://iss-openathensla-runtime.swan.ac.uk/oala/images/swansea-university-icon.gif</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDxzCCAq+gAwIBAgIJAKaRp6YdpxbFMA0GCSqGSIb3DQEBBQUAMEsxGzAZBgNV
+						BAoTElN3YW5zZWEgVW5pdmVyc2l0eTEsMCoGA1UEAxMjaXNzLW9wZW5hdGhlbnNs
+						YS1ydW50aW1lLnN3YW4uYWMudWswHhcNMTQwMzIxMTAzMzI5WhcNMjQwMzE4MTAz
+						MzI5WjBLMRswGQYDVQQKExJTd2Fuc2VhIFVuaXZlcnNpdHkxLDAqBgNVBAMTI2lz
+						cy1vcGVuYXRoZW5zbGEtcnVudGltZS5zd2FuLmFjLnVrMIIBIjANBgkqhkiG9w0B
+						AQEFAAOCAQ8AMIIBCgKCAQEAxSGK+XQQj0yhGBm/ig/1JYcAKjOblBds1+DH85ub
+						1MasaxAq+Wxo8PkneHtsBZVagc+7mpUjH6LrQBVY2ltWNz8w1Lw3bEIFvkvHrYYb
+						+DzMI6vBpyRlGgwZUTQpSFsHUrkEJmS7Y2lGPRCOZGFduvQwa85BmTciympInFcL
+						467abYfL7YCjjvjrAL0A7T5v91UvfLkqkV0ZwLWCzs/vZH2z7zd24t4FqsX3DLnA
+						EWFaLSmgdP/EEaSL1XHRV7rBEpyNe9aPjYIeL8Y0X0Wm2KHUu/L4er7Rwd6BcVLg
+						74CDPps4QC3cfRALzllx/4UiBFpftJ7OTEU/h8A47kl/awIDAQABo4GtMIGqMB0G
+						A1UdDgQWBBRta2Fv0weameEGf4FV4KhhXCwFXzB7BgNVHSMEdDBygBRta2Fv0wea
+						meEGf4FV4KhhXCwFX6FPpE0wSzEbMBkGA1UEChMSU3dhbnNlYSBVbml2ZXJzaXR5
+						MSwwKgYDVQQDEyNpc3Mtb3BlbmF0aGVuc2xhLXJ1bnRpbWUuc3dhbi5hYy51a4IJ
+						AKaRp6YdpxbFMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBAIr4duye
+						2F9oXAkfotF0kQdAKR9a2xgbsx/qQiKPyuk2QGucPeY1Aw8XfkLcgfw7GzFU8EVf
+						3h8Bwu53/UinLh3xOjZxbzPA+Pj76PfkPV9aZNTpE8AZeHM+BTBj94/cNN3CYzWc
+						w6Yiz84MqktGMLyScDPi0bKaoLRd5hrzbbu2Uu9ohmVhP9MDMKAFOYuVel8xiat9
+						51jvG6uRFNoAE6W4So601BjZMsvOAzUjnTpkdwVBtCRhf8TOlO2JMZN1GaqbzQjC
+						hbOM1aMGtZOY6ba1luEWp7tuBHQGIdBHJaZyLUjiYpSDquuiYm9oZai2NIksjDq9
+						Yjbfp1B8p/YQJQw=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://iss-openathensla-runtime.swan.ac.uk/oala/sso"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://iss-openathensla-runtime.swan.ac.uk/oala/sso"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Swansea University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Swansea University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.swan.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Nina</md:GivenName>
+      <md:SurName>Whitcombe</md:SurName>
+      <md:EmailAddress>mailto:N.Whitcombe@swansea.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Andrew</md:GivenName>
+      <md:SurName>Brown</md:SurName>
+      <md:EmailAddress>mailto:A.T.Brown@swansea.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

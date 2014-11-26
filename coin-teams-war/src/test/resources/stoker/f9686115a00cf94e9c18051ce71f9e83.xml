@@ -1,0 +1,59 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.pi-navigator.com/shibboleth/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIE4jCCA8qgAwIBAgIJAPEDnthEYHnfMA0GCSqGSIb3DQEBBQUAMIGmMQswCQYD
+						VQQGEwJHQjEQMA4GA1UECBMHRW5nbGFuZDEPMA0GA1UEBxMGTG9uZG9uMSAwHgYD
+						VQQKExdQZXJmZWN0IEluZm9ybWF0aW9uIEx0ZDELMAkGA1UECxMCSVQxHTAbBgNV
+						BAMTFHd3dy5waS1uYXZpZ2F0b3IuY29tMSYwJAYJKoZIhvcNAQkBFhdwYXVsbWNs
+						QHBlcmZlY3RpbmZvLmNvbTAeFw0xMDA5MTMxNDQzMjJaFw0yMDA5MTIxNDQzMjJa
+						MIGmMQswCQYDVQQGEwJHQjEQMA4GA1UECBMHRW5nbGFuZDEPMA0GA1UEBxMGTG9u
+						ZG9uMSAwHgYDVQQKExdQZXJmZWN0IEluZm9ybWF0aW9uIEx0ZDELMAkGA1UECxMC
+						SVQxHTAbBgNVBAMTFHd3dy5waS1uYXZpZ2F0b3IuY29tMSYwJAYJKoZIhvcNAQkB
+						FhdwYXVsbWNsQHBlcmZlY3RpbmZvLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEP
+						ADCCAQoCggEBANKeCAsU0e0XEDmN1ohQGYixwausIq03G4+/xH2si8JMMo9XtmXC
+						eGiXNWvw+HNPLN2ChXPtVUUz5Yspu9LXw/vzxk2AcM7ELRVf4g47FnmG/I+lT6H0
+						pw1hFeLcdCP5tIorGDogRkwOKk2q+zDQDbjxnNKM5jyRg2P1qLQBwMDHkUpDZwuH
+						3/Hf3PzB8UXjtJuuWRU3Cg8yDAHfGxR+fvcfvUC4K85lrfG69FAVj6WwDMdDF5Xc
+						KgoKGDyQHtcTUNs52YmKPfWtyqTTvwHhyNxPDhuaskWtC80RUAKsAo7p0uKzzySz
+						TxSZpvSVGMnxY7eJvyNKxkCg8NGOTI95lAECAwEAAaOCAQ8wggELMB0GA1UdDgQW
+						BBQ3nYviL+W5+KE/F5aNGat+PN6AGTCB2wYDVR0jBIHTMIHQgBQ3nYviL+W5+KE/
+						F5aNGat+PN6AGaGBrKSBqTCBpjELMAkGA1UEBhMCR0IxEDAOBgNVBAgTB0VuZ2xh
+						bmQxDzANBgNVBAcTBkxvbmRvbjEgMB4GA1UEChMXUGVyZmVjdCBJbmZvcm1hdGlv
+						biBMdGQxCzAJBgNVBAsTAklUMR0wGwYDVQQDExR3d3cucGktbmF2aWdhdG9yLmNv
+						bTEmMCQGCSqGSIb3DQEJARYXcGF1bG1jbEBwZXJmZWN0aW5mby5jb22CCQDxA57Y
+						RGB53zAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQBh2gbU/cgGYnuW
+						rkOCesoCpB/1wowMYvVb1iQJeSGtfTe96c/M2i3HdgLsj88zhCOANY7D4/V24Nco
+						kPKI8xyW90XtJZ4ZUYC9wgVwYoUOCuxUMS3/mQjJ6+DBXQG595gsn4NDseP/kuXM
+						deuHXBqxMIZ78aEPSX9DPqTEx803nQmiI78Qci9xwnBRKnmP2+PmK4xLUm9ogeCs
+						CXRgygMPP9WmpS8vSiUG04Dycu+c7Zh2EBzH7LHey9reE2T9pWxJW4k8iw5P0r+y
+						U4KKQy2lPVLHTtmiDdo3PVX4jrKA0QN6KMrAHNq1SwLitONOgjY/cxUlkLXMcBxC
+						xToFAE6F
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.pi-navigator.com/shibboleth/AuthReceiver.aspx" index="1" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.pi-navigator.com/shibboleth/AuthReceiver.aspx" index="2"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Perfect Information Ltd</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Perfect Information Ltd: PI Navigator</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.perfectinfo.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Paul</md:GivenName>
+      <md:SurName>McLoughlin</md:SurName>
+      <md:EmailAddress>mailto:paulmcl@perfectinfo.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Paul</md:GivenName>
+      <md:SurName>McLoughlin</md:SurName>
+      <md:EmailAddress>mailto:paulmcl@perfectinfo.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

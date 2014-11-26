@@ -1,33 +1,32 @@
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://sivic.redclara.net/shibboleth">
-<md:Extensions>
-<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cofre.reuna.cl" registrationInstant="2014-02-21T00:00:00Z">
-<mdrpi:RegistrationPolicy xml:lang="es">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sivic.redclara.net/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cofre.reuna.cl" registrationInstant="2014-02-21T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="es">
 http://cofre.reuna.cl/index.php/es/reglas-federacion
 </mdrpi:RegistrationPolicy>
-</mdrpi:RegistrationInfo>
-</md:Extensions>
-  <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
-    <md:Extensions>
-	  <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-		<mdui:DisplayName xml:lang="en">SIVIC - RedCLARA</mdui:DisplayName>
-		<mdui:DisplayName xml:lang="es">SIVIC - RedCLARA</mdui:DisplayName>
-		<mdui:Description xml:lang="en">RedCLARA's SIVIC Service</mdui:Description>
-		<mdui:Description xml:lang="es">SIVIC de RedCLARA</mdui:Description>
-		<mdui:InformationURL xml:lang="en">http://www.redclara.net/index.php?lang=en</mdui:InformationURL>
-		<mdui:InformationURL xml:lang="es">http://www.redclara.net/index.php?lang=es</mdui:InformationURL>
-    </mdui:UIInfo>
-      <DiscoveryResponse xmlns="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sivic.redclara.net/Shibboleth.sso/DS" index="1"/>
-   	  <DiscoveryResponse xmlns="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sivic.redclara.net/Shibboleth.sso/DS" index="2"/>
+      </mdrpi:RegistrationInfo>
     </md:Extensions>
-    <md:KeyDescriptor use="signing">
-      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-        <ds:KeyName>redclara.net</ds:KeyName>
-        <ds:KeyName>sivic.redclara.net</ds:KeyName>
-        <ds:X509Data>
-          <ds:X509SubjectName>emailAddress=postmaster@redclara.net,CN=sivic.redclara.net,C=CL,description=g3XkHflq7oMCiH0l
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">SIVIC - RedCLARA</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="es">SIVIC - RedCLARA</mdui:DisplayName>
+          <mdui:Description xml:lang="en">RedCLARA's SIVIC Service</mdui:Description>
+          <mdui:Description xml:lang="es">SIVIC de RedCLARA</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.redclara.net/index.php?lang=en</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="es">http://www.redclara.net/index.php?lang=es</mdui:InformationURL>
+        </mdui:UIInfo>
+        <DiscoveryResponse xmlns="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sivic.redclara.net/Shibboleth.sso/DS" index="1"/>
+        <DiscoveryResponse xmlns="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sivic.redclara.net/Shibboleth.sso/DS" index="2"/>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:KeyName>redclara.net</ds:KeyName>
+          <ds:KeyName>sivic.redclara.net</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>emailAddress=postmaster@redclara.net,CN=sivic.redclara.net,C=CL,description=g3XkHflq7oMCiH0l
 </ds:X509SubjectName>
-          
-<ds:X509Certificate>MIIGXjCCBUagAwIBAgIDDVYzMA0GCSqGSIb3DQEBBQUAMIGMMQswCQYDVQQGEwJJ
+            <ds:X509Certificate>MIIGXjCCBUagAwIBAgIDDVYzMA0GCSqGSIb3DQEBBQUAMIGMMQswCQYDVQQGEwJJ
 TDEWMBQGA1UEChMNU3RhcnRDb20gTHRkLjErMCkGA1UECxMiU2VjdXJlIERpZ2l0
 YWwgQ2VydGlmaWNhdGUgU2lnbmluZzE4MDYGA1UEAxMvU3RhcnRDb20gQ2xhc3Mg
 MSBQcmltYXJ5IEludGVybWVkaWF0ZSBTZXJ2ZXIgQ0EwHhcNMTMxMjA5MTQxMTUx
@@ -64,18 +63,17 @@ tdSiOm5NfPEpVHjPeufoeM6M1N356akvZKYJIcOSY+TVPzQT4yvcqVbhayixcOs0
 0UE=
 
 </ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </md:KeyDescriptor>
-    <md:KeyDescriptor use="encryption">
-      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-        <ds:KeyName>redclara.net</ds:KeyName>
-        <ds:KeyName>sivic.redclara.net</ds:KeyName>
-        <ds:X509Data>
-          <ds:X509SubjectName>emailAddress=postmaster@redclara.net,CN=sivic.redclara.net,C=CL,description=g3XkHflq7oMCiH0l
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:KeyName>redclara.net</ds:KeyName>
+          <ds:KeyName>sivic.redclara.net</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>emailAddress=postmaster@redclara.net,CN=sivic.redclara.net,C=CL,description=g3XkHflq7oMCiH0l
 </ds:X509SubjectName>
-          
-<ds:X509Certificate>MIIGXjCCBUagAwIBAgIDDVYzMA0GCSqGSIb3DQEBBQUAMIGMMQswCQYDVQQGEwJJ
+            <ds:X509Certificate>MIIGXjCCBUagAwIBAgIDDVYzMA0GCSqGSIb3DQEBBQUAMIGMMQswCQYDVQQGEwJJ
 TDEWMBQGA1UEChMNU3RhcnRDb20gTHRkLjErMCkGA1UECxMiU2VjdXJlIERpZ2l0
 YWwgQ2VydGlmaWNhdGUgU2lnbmluZzE4MDYGA1UEAxMvU3RhcnRDb20gQ2xhc3Mg
 MSBQcmltYXJ5IEludGVybWVkaWF0ZSBTZXJ2ZXIgQ0EwHhcNMTMxMjA5MTQxMTUx
@@ -112,41 +110,41 @@ tdSiOm5NfPEpVHjPeufoeM6M1N356akvZKYJIcOSY+TVPzQT4yvcqVbhayixcOs0
 0UE=
 
 </ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </md:KeyDescriptor>
-    <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sivic.redclara.net/Shibboleth.sso/Artifact/SOAP" index="1"/>    
-	<md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sivic.redclara.net/Shibboleth.sso/SLO/SOAP"/>    
-	<md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sivic.redclara.net/Shibboleth.sso/SLO/Redirect"/>    
-	<md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sivic.redclara.net/Shibboleth.sso/SLO/POST"/>    
-	<md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sivic.redclara.net/Shibboleth.sso/SLO/Artifact"/>    
-	<md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sivic.redclara.net/Shibboleth.sso/NIM/SOAP"/>    
-	<md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sivic.redclara.net/Shibboleth.sso/NIM/Redirect"/>    
-	<md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sivic.redclara.net/Shibboleth.sso/NIM/POST"/>    
-	<md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sivic.redclara.net/Shibboleth.sso/NIM/Artifact"/>    
-	<md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sivic.redclara.net/Shibboleth.sso/SAML2/POST" index="1"/>    
-	<md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sivic.redclara.net/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>    
-	<md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sivic.redclara.net/Shibboleth.sso/SAML2/Artifact" index="3"/>    
-	<md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://sivic.redclara.net/Shibboleth.sso/SAML2/ECP" index="4"/>    
-	<md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://sivic.redclara.net/Shibboleth.sso/SAML/POST" index="5"/>    
-	<md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://sivic.redclara.net/Shibboleth.sso/SAML/Artifact" index="6"/>
-  </md:SPSSODescriptor>
-  <md:Organization>      
-	<md:OrganizationName xml:lang="en">RedCLARA</md:OrganizationName>      
-	<md:OrganizationDisplayName xml:lang="en">RedCLARA</md:OrganizationDisplayName>      
-	<md:OrganizationURL xml:lang="en">http://www.redclara.net/</md:OrganizationURL>   
-  </md:Organization>    
-  <md:ContactPerson contactType="support">      
-	<md:GivenName>Authentication Support</md:GivenName>      
-	<md:EmailAddress>seg@redclara.net</md:EmailAddress>
-  </md:ContactPerson>
-  <md:ContactPerson contactType="technical">      
-	<md:GivenName>Technical Support</md:GivenName>      
-	<md:EmailAddress>seg@redclara.net</md:EmailAddress>   
-  </md:ContactPerson>
-	<md:ContactPerson contactType="administrative">      
-	<md:GivenName>Mark</md:GivenName>      
-	<md:SurName>Urban</md:SurName>      
-	<md:EmailAddress>mark.urban@redclara.net</md:EmailAddress>   
-  </md:ContactPerson>
-</md:EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sivic.redclara.net/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sivic.redclara.net/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sivic.redclara.net/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sivic.redclara.net/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sivic.redclara.net/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sivic.redclara.net/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sivic.redclara.net/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sivic.redclara.net/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sivic.redclara.net/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sivic.redclara.net/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sivic.redclara.net/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sivic.redclara.net/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://sivic.redclara.net/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://sivic.redclara.net/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://sivic.redclara.net/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">RedCLARA</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">RedCLARA</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.redclara.net/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Authentication Support</md:GivenName>
+      <md:EmailAddress>seg@redclara.net</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Technical Support</md:GivenName>
+      <md:EmailAddress>seg@redclara.net</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Mark</md:GivenName>
+      <md:SurName>Urban</md:SurName>
+      <md:EmailAddress>mark.urban@redclara.net</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

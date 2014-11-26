@@ -1,0 +1,98 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://dev2.webauth.soton.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">soton.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDSzCCAjOgAwIBAgIUPOcPr59teRI4vOHciwPs5r9o5TkwDQYJKoZIhvcNAQEF
+						BQAwIzEhMB8GA1UEAxMYZGV2Mi53ZWJhdXRoLnNvdG9uLmFjLnVrMB4XDTEwMDYx
+						NTEwNDIxNVoXDTMwMDYxNTEwNDIxNVowIzEhMB8GA1UEAxMYZGV2Mi53ZWJhdXRo
+						LnNvdG9uLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkbKW
+						FxrO0yijODGXGnZsTss0l1AFNxzbyKg1IgddAyCY6TGHdRoC6ZNfKJbWAw+QWf3B
+						KJwyuu//krjW5E87wZM7Dh8c2FTC36+MJJd3DLGqefQqxrYhVdJ0/StZjHZlpOj/
+						E6MMaJXhoCxQtQmP1aRQC8LSuXFv6bpDag9hjrZhaZhlWgaG0WgyPx8fF6AgZKjy
+						1MSZj54orWP3esFMmD2ezDScE9soIrGm4eSSsdqPhgTilmog6Uz2hUtcsnmlbbgA
+						lF83pRCXJ7OxkQO6mBJDQU9djmJdA0PoJP8FTla/ijZs6IiB9QiRdk7G2QbhPaP0
+						suUfeMqVnE1KqkRY1QIDAQABo3cwdTBUBgNVHREETTBLghhkZXYyLndlYmF1dGgu
+						c290b24uYWMudWuGL2h0dHBzOi8vZGV2Mi53ZWJhdXRoLnNvdG9uLmFjLnVrL2lk
+						cC9zaGliYm9sZXRoMB0GA1UdDgQWBBSgTna3WVRPamY0vInfC+IQ8ePCGDANBgkq
+						hkiG9w0BAQUFAAOCAQEAVWZaM6RBcVL8il/nWq30MvZXQ4JkisIQ9gpiMWMERU0j
+						UyYdJX9tlXZkNpuVuILS356iO73JOPt1LblSpQ6ZiBSaiyJjQqdscj3T/Ek7hSlY
+						oSPy6ZjbNqDClIPmVnHgSXriIJ3Aa07S40HgIBQxkZvIspPnazhMz/+v1E/6f88c
+						Oc+0MNLXz4767rs4wcCFppi3ZPVw3ncs3Bk22T5rBEa5mRBd5QWSqrkWQ6cRCqfD
+						mEn396/yBTAFpAWjc4TXmKy9hS8S9V5dZEWRexGH5GFvXCAkinm0FBH82xGjIPHK
+						d+ZyDCU4c8uPzoTu3FJLWrcOLWzaWH3OE/URxPKVfQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://dev2.webauth.soton.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://dev2.webauth.soton.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://dev2.webauth.soton.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://dev2.webauth.soton.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://dev2.webauth.soton.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://dev2.webauth.soton.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">soton.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDSzCCAjOgAwIBAgIUPOcPr59teRI4vOHciwPs5r9o5TkwDQYJKoZIhvcNAQEF
+						BQAwIzEhMB8GA1UEAxMYZGV2Mi53ZWJhdXRoLnNvdG9uLmFjLnVrMB4XDTEwMDYx
+						NTEwNDIxNVoXDTMwMDYxNTEwNDIxNVowIzEhMB8GA1UEAxMYZGV2Mi53ZWJhdXRo
+						LnNvdG9uLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkbKW
+						FxrO0yijODGXGnZsTss0l1AFNxzbyKg1IgddAyCY6TGHdRoC6ZNfKJbWAw+QWf3B
+						KJwyuu//krjW5E87wZM7Dh8c2FTC36+MJJd3DLGqefQqxrYhVdJ0/StZjHZlpOj/
+						E6MMaJXhoCxQtQmP1aRQC8LSuXFv6bpDag9hjrZhaZhlWgaG0WgyPx8fF6AgZKjy
+						1MSZj54orWP3esFMmD2ezDScE9soIrGm4eSSsdqPhgTilmog6Uz2hUtcsnmlbbgA
+						lF83pRCXJ7OxkQO6mBJDQU9djmJdA0PoJP8FTla/ijZs6IiB9QiRdk7G2QbhPaP0
+						suUfeMqVnE1KqkRY1QIDAQABo3cwdTBUBgNVHREETTBLghhkZXYyLndlYmF1dGgu
+						c290b24uYWMudWuGL2h0dHBzOi8vZGV2Mi53ZWJhdXRoLnNvdG9uLmFjLnVrL2lk
+						cC9zaGliYm9sZXRoMB0GA1UdDgQWBBSgTna3WVRPamY0vInfC+IQ8ePCGDANBgkq
+						hkiG9w0BAQUFAAOCAQEAVWZaM6RBcVL8il/nWq30MvZXQ4JkisIQ9gpiMWMERU0j
+						UyYdJX9tlXZkNpuVuILS356iO73JOPt1LblSpQ6ZiBSaiyJjQqdscj3T/Ek7hSlY
+						oSPy6ZjbNqDClIPmVnHgSXriIJ3Aa07S40HgIBQxkZvIspPnazhMz/+v1E/6f88c
+						Oc+0MNLXz4767rs4wcCFppi3ZPVw3ncs3Bk22T5rBEa5mRBd5QWSqrkWQ6cRCqfD
+						mEn396/yBTAFpAWjc4TXmKy9hS8S9V5dZEWRexGH5GFvXCAkinm0FBH82xGjIPHK
+						d+ZyDCU4c8uPzoTu3FJLWrcOLWzaWH3OE/URxPKVfQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://dev2.webauth.soton.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://dev2.webauth.soton.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Southampton</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Southampton (Dev 2.x)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.soton.ac.uk/isolutions/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Serviceline</md:GivenName>
+      <md:EmailAddress>mailto:Serviceline@soton.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Clayton</md:GivenName>
+      <md:SurName>Peters</md:SurName>
+      <md:EmailAddress>mailto:C.L.Peters@soton.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

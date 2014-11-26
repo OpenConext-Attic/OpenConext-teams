@@ -1,0 +1,76 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://meals.queens.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2011-10-25T15:23:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDBjCCAe6gAwIBAgIJAMAjMajvPz0aMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV
+						BAMTFW1lYWxzLnF1ZWVucy5veC5hYy51azAeFw0xMTEwMjQxNDQwMDNaFw0yMTEw
+						MjExNDQwMDNaMCAxHjAcBgNVBAMTFW1lYWxzLnF1ZWVucy5veC5hYy51azCCASIw
+						DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK0Ujc3SARKgpkUI63cpU+6PJvkB
+						3V8HXAhp3kgMuQwmnYPDoP841SKFgpdMmVhTjyUMBxi8OdoHMEWUQHIBlvZ09Y2Y
+						B3imiyyBTWyiQ1XYi8sMfdcBDIKAz6MAQnCaHvQLsFsIVcx/JmjcXYk+8opasie9
+						aWO/HJtZjuRbD8t5WYIEvr8r0AvP+xyIsgHqoUdPASJmASBh8m7nrQJxJCYGf4HF
+						f40KS6vRnHLqG7NtdeOvrtNsAj5PM2xS5mE8/yTRHShAw3Mfi/d2N+w3GimQ1Uz5
+						rEscoavvonA1PxyI5mJYN5Zbp6SO88Y2VkLTOuJtup8zS8KuxSy5R7zQS9sCAwEA
+						AaNDMEEwIAYDVR0RBBkwF4IVbWVhbHMucXVlZW5zLm94LmFjLnVrMB0GA1UdDgQW
+						BBSwvlfO/FTSVbEK/jfZvVIKJj873zANBgkqhkiG9w0BAQUFAAOCAQEAp92sniTk
+						ZSASz65sXSEy+fJLa74U5i46qmZ/X34fsGLf0M0TeJvaSzIhFHaq5QKIY/g6E5mK
+						B8nWM5/BF63D24Zaan9TPlvDhzxGZjeShl/OTNfzXNglNQmjGaxbevVUslZjx0mN
+						V9YgkAEtf9UAsf3Go2FwHZK5JRy7QFe2SEjlHZ6EjepKE7pykfPSbCDYnKe17dQ+
+						aqKbidJ2A2qvk4Q1fJYXt6BKk3QZkXBDeFBUq57rsWgyBZQktwygfpRWBd3Xtd/g
+						3PB65hPlPbSG/nOvJYuygzVd27oDnjZqYq0chh9ii4ZBM94b8/aB5sUHUaVNGe5E
+						YBkjzBZwhE01Yw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="7"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="8"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="9"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/SAML/POST" index="10"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://meals.queens.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="11"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford: The Queen's College Meals</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.queens.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Queen's College IT Support</md:GivenName>
+      <md:EmailAddress>mailto:it-support@queens.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Queen's College IT Support</md:GivenName>
+      <md:EmailAddress>mailto:it-support@queens.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

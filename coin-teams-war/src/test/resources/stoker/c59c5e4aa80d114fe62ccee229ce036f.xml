@@ -1,0 +1,88 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.ucreative.ac.uk/oala/metadata">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-06-23T10:43:07Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ucreative.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDYjCCAkqgAwIBAgIIJo1biNwPrSgwDQYJKoZIhvcNAQEFBQAwSDEoMCYGA1UE
+						CgwfVW5pdmVyc2l0eSBvZiB0aGUgQ3JlYXRpdmUgQXJ0czEcMBoGA1UEAwwTaWRw
+						LnVjcmVhdGl2ZS5hYy51azAeFw0xNDA2MTgwOTU4MDRaFw0yNDA2MTgwOTU4MDRa
+						MEgxKDAmBgNVBAoMH1VuaXZlcnNpdHkgb2YgdGhlIENyZWF0aXZlIEFydHMxHDAa
+						BgNVBAMME2lkcC51Y3JlYXRpdmUuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IB
+						DwAwggEKAoIBAQDDWJ5V75TP17ft7xWNE1OLty4PKX6Ntd+4HurvVjZ8UU9T3zII
+						YgYbccWNaakLxM8cbrJFJuyTPKryfT/KQQlXaMj1f3dKYEWHZwoMrcNL+RRyoSFJ
+						rOuMFvC7xH7RF/ZoXZM1IQrHuYmlHW8YzQ7Gq/266/lDLCLEAt5zw2icTBeeSXzX
+						PSvywT6WnSPBKACLvJ/n2HbDDj6wi+pPHvkDeBVPVt7jH0KaDNpQtcoVbXBeRv3S
+						wwOfr7lDWB5ydebEDgZjCfB+7P0EOQyGmylT4+TxGKyEOZMNaZ6X4sgSCUOHq//4
+						nrZw23XxPrPgbJ4anXKKjI4CuJQv8oH1eV5VAgMBAAGjUDBOMB0GA1UdDgQWBBQF
+						0udRgqvg95A7Qo+xph4DcxCsnzAfBgNVHSMEGDAWgBQF0udRgqvg95A7Qo+xph4D
+						cxCsnzAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQAPT/cxiwyp9PeO
+						8Y9oo/VlxzvwwElBDfs7Z0t+jLIB9xnybKv/6+SBlaHLJjekuF2Or1M0GODTZM6E
+						BhlKYkPnR458hEVH4Tvfxvxz8szkM10f2qttwW1fJ521SrUDpjkbzAhvQWWDHuKG
+						T6/P5OqeESsgRHQxP15jOBIR9dUrw23fKdRqCQKnFrv5th67uiOTzQohI8j5Tm96
+						zbQVayzUvXTkXa+WFk69R/wu5UJqvsSV/5aMvGFxtS0PHTvJvbbw7ZGllRiaTVP8
+						wzgmWpHQcWolIchFx3IdrXQA5DjbSGerGgvcqpi6aAo1Q8mJNUAAsMT8y2qhYp1z
+						XcWw+FBE
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDYjCCAkqgAwIBAgIIJo1biNwPrSgwDQYJKoZIhvcNAQEFBQAwSDEoMCYGA1UE
+						CgwfVW5pdmVyc2l0eSBvZiB0aGUgQ3JlYXRpdmUgQXJ0czEcMBoGA1UEAwwTaWRw
+						LnVjcmVhdGl2ZS5hYy51azAeFw0xNDA2MTgwOTU4MDRaFw0yNDA2MTgwOTU4MDRa
+						MEgxKDAmBgNVBAoMH1VuaXZlcnNpdHkgb2YgdGhlIENyZWF0aXZlIEFydHMxHDAa
+						BgNVBAMME2lkcC51Y3JlYXRpdmUuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IB
+						DwAwggEKAoIBAQDDWJ5V75TP17ft7xWNE1OLty4PKX6Ntd+4HurvVjZ8UU9T3zII
+						YgYbccWNaakLxM8cbrJFJuyTPKryfT/KQQlXaMj1f3dKYEWHZwoMrcNL+RRyoSFJ
+						rOuMFvC7xH7RF/ZoXZM1IQrHuYmlHW8YzQ7Gq/266/lDLCLEAt5zw2icTBeeSXzX
+						PSvywT6WnSPBKACLvJ/n2HbDDj6wi+pPHvkDeBVPVt7jH0KaDNpQtcoVbXBeRv3S
+						wwOfr7lDWB5ydebEDgZjCfB+7P0EOQyGmylT4+TxGKyEOZMNaZ6X4sgSCUOHq//4
+						nrZw23XxPrPgbJ4anXKKjI4CuJQv8oH1eV5VAgMBAAGjUDBOMB0GA1UdDgQWBBQF
+						0udRgqvg95A7Qo+xph4DcxCsnzAfBgNVHSMEGDAWgBQF0udRgqvg95A7Qo+xph4D
+						cxCsnzAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQAPT/cxiwyp9PeO
+						8Y9oo/VlxzvwwElBDfs7Z0t+jLIB9xnybKv/6+SBlaHLJjekuF2Or1M0GODTZM6E
+						BhlKYkPnR458hEVH4Tvfxvxz8szkM10f2qttwW1fJ521SrUDpjkbzAhvQWWDHuKG
+						T6/P5OqeESsgRHQxP15jOBIR9dUrw23fKdRqCQKnFrv5th67uiOTzQohI8j5Tm96
+						zbQVayzUvXTkXa+WFk69R/wu5UJqvsSV/5aMvGFxtS0PHTvJvbbw7ZGllRiaTVP8
+						wzgmWpHQcWolIchFx3IdrXQA5DjbSGerGgvcqpi6aAo1Q8mJNUAAsMT8y2qhYp1z
+						XcWw+FBE
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ucreative.ac.uk/oala/sso"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ucreative.ac.uk/oala/sso"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University for the Creative Arts</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University for the Creative Arts (Testing)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ucreative.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Jill</md:GivenName>
+      <md:SurName>Gravestock</md:SurName>
+      <md:EmailAddress>mailto:JGravestock@ucreative.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Jill</md:GivenName>
+      <md:SurName>Gravestock</md:SurName>
+      <md:EmailAddress>mailto:JGravestock@ucreative.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

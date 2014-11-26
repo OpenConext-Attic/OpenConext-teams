@@ -1,19 +1,19 @@
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://zididp.uni-graz.at/idp/shibboleth">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://zididp.uni-graz.at/idp/shibboleth">
     <md:Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://eduid.at" registrationInstant="2009-01-29T22:40:01Z">
+      <mdrpi:RegistrationInfo registrationAuthority="http://eduid.at" registrationInstant="2009-01-29T22:40:01Z">
         <mdrpi:RegistrationPolicy xml:lang="en">https://eduid.at/policy/mdrps-20140606</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
     </md:Extensions>
     <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
       <md:Extensions>
-        <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">uni-graz.at</shibmd:Scope>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <shibmd:Scope regexp="false">uni-graz.at</shibmd:Scope>
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="de">Universität Graz</mdui:DisplayName>
           <mdui:DisplayName xml:lang="en">University of Graz</mdui:DisplayName>
         </mdui:UIInfo>
       </md:Extensions>
       <md:KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyInfo>
           <ds:X509Data>
             <ds:X509Certificate>
 MIID8TCCAtmgAwIBAgILAQAAAAABHJ3GXLgwDQYJKoZIhvcNAQEFBQAwXzELMAkG
@@ -42,7 +42,7 @@ iwXgV22Ekaxei+vI9Lfz5w9hD/mLbFGUlA3TAs1c+7bYYCzkrpa1s0FE287zOLAL
         </ds:KeyInfo>
       </md:KeyDescriptor>
       <md:KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyInfo>
           <ds:X509Data>
             <ds:X509Certificate>
 MIID2DCCAsACCQC6ske5V5+nWTANBgkqhkiG9w0BAQUFADCBrTEaMBgGA1UEChMR
@@ -82,10 +82,10 @@ qtWKibftATdhRMkGvf8LQMI34BK8fGQw9VA3Vg==</ds:X509Certificate>
     </md:IDPSSODescriptor>
     <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
       <md:Extensions>
-        <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">uni-graz.at</shibmd:Scope>
+        <shibmd:Scope regexp="false">uni-graz.at</shibmd:Scope>
       </md:Extensions>
       <md:KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyInfo>
           <ds:X509Data>
             <ds:X509Certificate>
 MIID8TCCAtmgAwIBAgILAQAAAAABHJ3GXLgwDQYJKoZIhvcNAQEFBQAwXzELMAkG
@@ -114,7 +114,7 @@ iwXgV22Ekaxei+vI9Lfz5w9hD/mLbFGUlA3TAs1c+7bYYCzkrpa1s0FE287zOLAL
         </ds:KeyInfo>
       </md:KeyDescriptor>
       <md:KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyInfo>
           <ds:X509Data>
             <ds:X509Certificate>
 MIID2DCCAsACCQC6ske5V5+nWTANBgkqhkiG9w0BAQUFADCBrTEaMBgGA1UEChMR
@@ -164,6 +164,6 @@ qtWKibftATdhRMkGvf8LQMI34BK8fGQw9VA3Vg==</ds:X509Certificate>
     <md:ContactPerson contactType="support">
       <md:GivenName>IT-Support</md:GivenName>
       <md:SurName>Helpdesk</md:SurName>
-      <md:EmailAddress>mailto:helpdesk@uni-graz.at</md:EmailAddress>
+      <md:EmailAddress>mailto:servicedesk@uni-graz.at</md:EmailAddress>
     </md:ContactPerson>
   </md:EntityDescriptor>

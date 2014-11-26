@@ -1,60 +1,48 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://idp.uqam.ca/idp/shibboleth">
-
-	<Extensions>
-		<mdrpi:RegistrationInfo registrationAuthority="http://www.canarie.ca" registrationInstant="2013-07-22T00:00:00Z">
-			<mdrpi:RegistrationPolicy xml:lang="en">http://www.canarie.ca/templates/services/docs/CAF_join_en.pdf</mdrpi:RegistrationPolicy> 
-			<mdrpi:RegistrationPolicy xml:lang="fr">http://www.canarie.ca/templates/services/docs/CAF_join_fr.pdf</mdrpi:RegistrationPolicy> 
-		</mdrpi:RegistrationInfo>
-	</Extensions>
-
-	<IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-
-		<Extensions>
-			<shibmd:Scope regexp="false">uqam.ca</shibmd:Scope>
-
-			<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-				<mdui:DisplayName xml:lang="en">UQAM | Université du Québec à Montréal</mdui:DisplayName>
-				<mdui:DisplayName xml:lang="fr">UQAM | Université du Québec à Montréal</mdui:DisplayName>
-				<mdui:DisplayName xml:lang="es">UQAM | Université du Québec à Montréal</mdui:DisplayName>
-				<mdui:DisplayName xml:lang="pt">UQAM | Université du Québec à Montréal</mdui:DisplayName>
-				<mdui:DisplayName xml:lang="it">UQAM | Université du Québec à Montréal</mdui:DisplayName>
-				
-				<mdui:Description xml:lang="en">Students, employees and other UQAM account holders</mdui:Description>
-				<mdui:Description xml:lang="fr">Ãtudiants, employés et autres détenteurs d'identifiants UQAM</mdui:Description>
-				<mdui:Description xml:lang="es">Los estudiantes, los empleados y otros titulares de identificadores UQAM</mdui:Description>
-				<mdui:Description xml:lang="pt">Os alunos, funcionários e outros detentores de identificação UQAM</mdui:Description>
-				<mdui:Description xml:lang="it">Gli studenti, i dipendenti e gli altri titolari di identificatori UQAM</mdui:Description>
-				
-				<mdui:Keywords xml:lang="en">uqam.ca uqam montreal quebec university</mdui:Keywords>
-				<mdui:Keywords xml:lang="fr">uqam.ca uqam montréal québec université</mdui:Keywords>
-				<mdui:Keywords xml:lang="es">uqam.ca uqam montréal québec universidad</mdui:Keywords>
-				<mdui:Keywords xml:lang="pt">uqam.ca uqam montréal québec universidade</mdui:Keywords>
-				<mdui:Keywords xml:lang="it">uqam.ca uqam montréal québec università</mdui:Keywords>
-				
-				<mdui:Logo height="16" width="48">https://idp.uqam.ca/images/logo_uqam-48x16.png</mdui:Logo>
-				<mdui:Logo height="60" width="182">https://idp.uqam.ca/images/logo_uqam-182x60.png</mdui:Logo>
-				<mdui:Logo height="647" width="1960">https://idp.uqam.ca/images/logo_uqam-1960x647.png</mdui:Logo>
-				
-				<mdui:InformationURL xml:lang="en">http://www.uqam.ca/en/about/presentation_en.htm</mdui:InformationURL>
-				<mdui:InformationURL xml:lang="fr">http://www.uqam.ca</mdui:InformationURL>
-				<mdui:InformationURL xml:lang="es">http://www.uqam.ca/es/aproposito/presentacion.htm</mdui:InformationURL>
-				<mdui:InformationURL xml:lang="pt">http://www.uqam.ca/pt/sobrea/apresentacao.htm</mdui:InformationURL>
-				
-				<mdui:PrivacyStatementURL xml:lang="fr">http://www.instances.uqam.ca/ReglementsPolitiquesDocuments/Documents/REGLEMENT_NO_15.pdf</mdui:PrivacyStatementURL>
-			</mdui:UIInfo>
-				
-				<mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-					<mdui:IPHint>132.208.0.0/16</mdui:IPHint>
-					<mdui:DomainHint>uqam.ca</mdui:DomainHint>
-					<mdui:GeolocationHint>geo:45.512843,-73.560893</mdui:GeolocationHint>
-				</mdui:DiscoHints>
-				
-		</Extensions>
-
-		<KeyDescriptor>
-			<ds:KeyInfo>
-				<ds:X509Data>
-					<ds:X509Certificate>
+<md:EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.uqam.ca/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.canarie.ca" registrationInstant="2013-07-22T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.canarie.ca/templates/services/docs/CAF_join_en.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="fr">http://www.canarie.ca/templates/services/docs/CAF_join_fr.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uqam.ca</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">UQAM | Université du Québec à Montréal</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="fr">UQAM | Université du Québec à Montréal</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="es">UQAM | Université du Québec à Montréal</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt">UQAM | Université du Québec à Montréal</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="it">UQAM | Université du Québec à Montréal</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Students, employees and other UQAM account holders</mdui:Description>
+          <mdui:Description xml:lang="fr">Ãtudiants, employés et autres détenteurs d'identifiants UQAM</mdui:Description>
+          <mdui:Description xml:lang="es">Los estudiantes, los empleados y otros titulares de identificadores UQAM</mdui:Description>
+          <mdui:Description xml:lang="pt">Os alunos, funcionários e outros detentores de identificação UQAM</mdui:Description>
+          <mdui:Description xml:lang="it">Gli studenti, i dipendenti e gli altri titolari di identificatori UQAM</mdui:Description>
+          <mdui:Keywords xml:lang="en">uqam.ca uqam montreal quebec university</mdui:Keywords>
+          <mdui:Keywords xml:lang="fr">uqam.ca uqam montréal québec université</mdui:Keywords>
+          <mdui:Keywords xml:lang="es">uqam.ca uqam montréal québec universidad</mdui:Keywords>
+          <mdui:Keywords xml:lang="pt">uqam.ca uqam montréal québec universidade</mdui:Keywords>
+          <mdui:Keywords xml:lang="it">uqam.ca uqam montréal québec università</mdui:Keywords>
+          <mdui:Logo height="16" width="48">https://idp.uqam.ca/images/logo_uqam-48x16.png</mdui:Logo>
+          <mdui:Logo height="60" width="182">https://idp.uqam.ca/images/logo_uqam-182x60.png</mdui:Logo>
+          <mdui:Logo height="647" width="1960">https://idp.uqam.ca/images/logo_uqam-1960x647.png</mdui:Logo>
+          <mdui:InformationURL xml:lang="en">http://www.uqam.ca/en/about/presentation_en.htm</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="fr">http://www.uqam.ca</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="es">http://www.uqam.ca/es/aproposito/presentacion.htm</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt">http://www.uqam.ca/pt/sobrea/apresentacao.htm</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="fr">http://www.instances.uqam.ca/ReglementsPolitiquesDocuments/Documents/REGLEMENT_NO_15.pdf</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:IPHint>132.208.0.0/16</mdui:IPHint>
+          <mdui:DomainHint>uqam.ca</mdui:DomainHint>
+          <mdui:GeolocationHint>geo:45.512843,-73.560893</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIDFzCCAf+gAwIBAgIUWJxXbZuGIlRqAdUeM+MQM60cBjIwDQYJKoZIhvcNAQEF
 BQAwFjEUMBIGA1UEAxMLaWRwLnVxYW0uY2EwHhcNMDkwNjAzMTUxNDI3WhcNMjkw
 NjAzMTUxNDI3WjAWMRQwEgYDVQQDEwtpZHAudXFhbS5jYTCCASIwDQYJKoZIhvcN
@@ -74,45 +62,33 @@ l3HcCJmuresheZwe0OdBG9Qh/VHQeOftbJD/6/HhmHBZMJE33H3x8b5ZurP3oxFO
 fiFLy80FQ90W2jDA5xLADjiDZY7BwQMSmzLn
 
 					</ds:X509Certificate>
-				</ds:X509Data>
-			</ds:KeyInfo>
-		</KeyDescriptor>
-		
-		<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.uqam.ca:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-
-		<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.uqam.ca:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-								   
-		<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-		<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-
-		<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.uqam.ca/idp/profile/Shibboleth/SSO"/>
-		
-		<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.uqam.ca/idp/profile/SAML2/POST/SSO"/>
-
-		<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.uqam.ca/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-		
-		<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.uqam.ca/idp/profile/SAML2/Redirect/SSO"/>
-							 
-	</IDPSSODescriptor>
-
-	<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-
-		<Extensions>
-			<shibmd:Scope regexp="false">uqam.ca</shibmd:Scope>
-			
-			<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-				<mdui:DisplayName xml:lang="en">Université du Québec à Montréal</mdui:DisplayName>
-				<mdui:DisplayName xml:lang="fr">Université du Québec à Montréal</mdui:DisplayName>
-				<mdui:DisplayName xml:lang="es">Université du Québec à Montréal</mdui:DisplayName>
-				<mdui:DisplayName xml:lang="pt">Université du Québec à Montréal</mdui:DisplayName>
-				<mdui:DisplayName xml:lang="it">Université du Québec à Montréal</mdui:DisplayName>
-			</mdui:UIInfo>			
-		</Extensions>
-
-		<KeyDescriptor>
-			<ds:KeyInfo>
-				<ds:X509Data>
-					<ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.uqam.ca:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.uqam.ca:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.uqam.ca/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.uqam.ca/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.uqam.ca/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.uqam.ca/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uqam.ca</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Université du Québec à Montréal</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="fr">Université du Québec à Montréal</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="es">Université du Québec à Montréal</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt">Université du Québec à Montréal</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="it">Université du Québec à Montréal</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIDFzCCAf+gAwIBAgIUWJxXbZuGIlRqAdUeM+MQM60cBjIwDQYJKoZIhvcNAQEF
 BQAwFjEUMBIGA1UEAxMLaWRwLnVxYW0uY2EwHhcNMDkwNjAzMTUxNDI3WhcNMjkw
 NjAzMTUxNDI3WjAWMRQwEgYDVQQDEwtpZHAudXFhbS5jYTCCASIwDQYJKoZIhvcN
@@ -132,37 +108,31 @@ l3HcCJmuresheZwe0OdBG9Qh/VHQeOftbJD/6/HhmHBZMJE33H3x8b5ZurP3oxFO
 fiFLy80FQ90W2jDA5xLADjiDZY7BwQMSmzLn
 
 					</ds:X509Certificate>
-				</ds:X509Data>
-			</ds:KeyInfo>
-		</KeyDescriptor>
-
-		<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.uqam.ca:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-		
-		<AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.uqam.ca:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-		
-		<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-		<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-		
-	</AttributeAuthorityDescriptor>
-	
-	<Organization>
-		<OrganizationName xml:lang="en">Université du Québec à Montréal</OrganizationName>
-		<OrganizationName xml:lang="fr">Université du Québec à Montréal</OrganizationName>
-		<OrganizationName xml:lang="es">Université du Québec à Montréal</OrganizationName>
-		<OrganizationName xml:lang="pt">Université du Québec à Montréal</OrganizationName>
-		<OrganizationName xml:lang="it">Université du Québec à Montréal</OrganizationName>
-		<OrganizationDisplayName xml:lang="en">UQAM | Université du Québec à Montréal</OrganizationDisplayName>
-		<OrganizationDisplayName xml:lang="fr">UQAM | Université du Québec à Montréal</OrganizationDisplayName>
-		<OrganizationDisplayName xml:lang="es">UQAM | Université du Québec à Montréal</OrganizationDisplayName>
-		<OrganizationDisplayName xml:lang="pt">UQAM | Université du Québec à Montréal</OrganizationDisplayName>
-		<OrganizationDisplayName xml:lang="it">UQAM | Université du Québec à Montréal</OrganizationDisplayName>
-		<OrganizationURL xml:lang="en">http://www.uqam.ca/en/about/presentation_en.htm</OrganizationURL>
-		<OrganizationURL xml:lang="fr">http://www.uqam.ca</OrganizationURL>
-		<OrganizationURL xml:lang="es">http://www.uqam.ca/es/aproposito/presentacion.htm</OrganizationURL>
-		<OrganizationURL xml:lang="pt">http://www.uqam.ca/pt/sobrea/apresentacao.htm</OrganizationURL>
-	</Organization>
-	
-	<ContactPerson contactType="technical">
-		<EmailAddress>shibboleth@uqam.ca</EmailAddress>
-	</ContactPerson>	
-</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.uqam.ca:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.uqam.ca:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Université du Québec à Montréal</md:OrganizationName>
+      <md:OrganizationName xml:lang="fr">Université du Québec à Montréal</md:OrganizationName>
+      <md:OrganizationName xml:lang="es">Université du Québec à Montréal</md:OrganizationName>
+      <md:OrganizationName xml:lang="pt">Université du Québec à Montréal</md:OrganizationName>
+      <md:OrganizationName xml:lang="it">Université du Québec à Montréal</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">UQAM | Université du Québec à Montréal</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="fr">UQAM | Université du Québec à Montréal</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="es">UQAM | Université du Québec à Montréal</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pt">UQAM | Université du Québec à Montréal</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="it">UQAM | Université du Québec à Montréal</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.uqam.ca/en/about/presentation_en.htm</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="fr">http://www.uqam.ca</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="es">http://www.uqam.ca/es/aproposito/presentacion.htm</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="pt">http://www.uqam.ca/pt/sobrea/apresentacao.htm</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>shibboleth@uqam.ca</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

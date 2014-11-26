@@ -1,0 +1,62 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.digitalmeasures.com/shibboleth-sp/">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEwTCCA6mgAwIBAgIJAI9+wkih8GQMMA0GCSqGSIb3DQEBBQUAMIGbMQswCQYD
+						VQQGEwJVUzESMBAGA1UECBMJV2lzY29uc2luMRIwEAYDVQQHEwlNaWx3YXVrZWUx
+						GTAXBgNVBAoTEERpZ2l0YWwgTWVhc3VyZXMxIDAeBgNVBAMTF3d3dy5kaWdpdGFs
+						bWVhc3VyZXMuY29tMScwJQYJKoZIhvcNAQkBFhh0ZWNoQGRpZ2l0YWxtZWFzdXJl
+						cy5jb20wHhcNMDkxMjAyMTg1NTAzWhcNMTkxMTMwMTg1NTAzWjCBmzELMAkGA1UE
+						BhMCVVMxEjAQBgNVBAgTCVdpc2NvbnNpbjESMBAGA1UEBxMJTWlsd2F1a2VlMRkw
+						FwYDVQQKExBEaWdpdGFsIE1lYXN1cmVzMSAwHgYDVQQDExd3d3cuZGlnaXRhbG1l
+						YXN1cmVzLmNvbTEnMCUGCSqGSIb3DQEJARYYdGVjaEBkaWdpdGFsbWVhc3VyZXMu
+						Y29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApdU5Pa3MRsljSruF
+						+oUUNr7KAUeRh8kJRdvHQIUQKDrLUrgGDJxVFEd4kAO0jd+cljJ+Ks8blQtZpqz3
+						8HBpwDV1p5Vh+pne0p6lUCiUY9ZhqC7b6nZhuZMJGsROfYcnzS4fYrLV8MmTJ4hU
+						CDfyIXCLIlNAwuOwRLWJ6Kg3C9vOdP72z0BWxGzFUsNMSixWVSl5hcehkPskezLd
+						sHZFC1bfTWrmIuVdvKRp1XWnqC0Ha6HyAXfkKosWg9f71KCMwpTKqXwtj47cXMgA
+						wmShTH8OwQ1C2rXxVPWzNjfE5xFI/7Fo26mftzQGwkJ2laaRbioygZhGgpfEP1Mk
+						Z0a0swIDAQABo4IBBDCCAQAwHQYDVR0OBBYEFHyhAmBoAKyaxI2a6+6vknnzbtI0
+						MIHQBgNVHSMEgcgwgcWAFHyhAmBoAKyaxI2a6+6vknnzbtI0oYGhpIGeMIGbMQsw
+						CQYDVQQGEwJVUzESMBAGA1UECBMJV2lzY29uc2luMRIwEAYDVQQHEwlNaWx3YXVr
+						ZWUxGTAXBgNVBAoTEERpZ2l0YWwgTWVhc3VyZXMxIDAeBgNVBAMTF3d3dy5kaWdp
+						dGFsbWVhc3VyZXMuY29tMScwJQYJKoZIhvcNAQkBFhh0ZWNoQGRpZ2l0YWxtZWFz
+						dXJlcy5jb22CCQCPfsJIofBkDDAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUA
+						A4IBAQAeUkRH04tZvqAcBCxmQyRdIDEvBw8+IG6zzL8Ap4dJLSBc4D9uUZtIq8Xu
+						ZDnrOcQ9O2Udsno523aONEOsiCTazJRhNJKTGkXXeQiJhGnzXmOokkIeGJI9efNJ
+						4GAVI9ZrxEh+ZgKQpLuZpCO+d/RwKqtbOJWL8u4QccYH2stK1dO4M6yUe7b9PnwP
+						F2HUBMtW7B3xfRZyy1qQTpJ3oVp2nPTDtStIioPuqB1y+sl76jR503ABPnz77wyV
+						vh8D4o/W5q32axmmKH3s85TeSyUoQ4RS7/NgsjYQI7lnODeVSgWcUl1+c+NfPNiu
+						1vpIbPTlEVEvmNPl69Zi3A9T7I/p
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.digitalmeasures.com/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.digitalmeasures.com/Shibboleth.sso/SAML/POST" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://digitalmeasures.com/Shibboleth.sso/SAML2/POST" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://digitalmeasures.com/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://beta.digitalmeasures.com/Shibboleth.sso/SAML2/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://beta.digitalmeasures.com/Shibboleth.sso/SAML/POST" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Digital Measures, LLC</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Digital Measures</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.digitalmeasures.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Digital Measures</md:GivenName>
+      <md:EmailAddress>mailto:info@digitalmeasures.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Digital Measures</md:GivenName>
+      <md:EmailAddress>mailto:info@digitalmeasures.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

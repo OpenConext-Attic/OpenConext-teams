@@ -1,0 +1,216 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.unioncloudstaging.org/shibboleth">
+    <md:Extensions>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-07-05T14:40:53Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://www.unioncloudstaging.org/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDVzCCAj+gAwIBAgIJANZRUr3l66IUMA0GCSqGSIb3DQEBBQUAMDsxOTA3BgNV
+						BAMTMGVjMi00Ni0xMzctMy0xNjIuZXUtd2VzdC0xLmNvbXB1dGUuYW1hem9uYXdz
+						LmNvbTAeFw0xMjA1MTQwOTExNThaFw0yMjA1MTIwOTExNThaMDsxOTA3BgNVBAMT
+						MGVjMi00Ni0xMzctMy0xNjIuZXUtd2VzdC0xLmNvbXB1dGUuYW1hem9uYXdzLmNv
+						bTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMOKLRNP923gpEphaq9H
+						lqaeg3wIr6k6CQEZTnVeXHaqBS1T/IeLChh0MGikmqzAGz4gL3Jp7xg+LjAb7fHW
+						s84wG6ZkDFxy2plDsNoVPatzgKQYtiXsGqtlXdW8UzTpIpsvVAlJ+QGqhIibAZWK
+						aIsU6V38NGafvB4UWFlIpbECHgFz41x1cmK7gYFD7wzsA6hojAOWaY8UmQgW+nJn
+						4WxKl+gDe8qUiwdMzrEUK1yOFjsDuqdHnejSrtyc8b7iccE7hzo1Y/kw40FVG7gW
+						oiKrzF49G14BiHwkt448mCiXGDMnFM0TYfs1nkS/FdTpyhHgICu1qHX8pqJnnNbn
+						uNMCAwEAAaNeMFwwOwYDVR0RBDQwMoIwZWMyLTQ2LTEzNy0zLTE2Mi5ldS13ZXN0
+						LTEuY29tcHV0ZS5hbWF6b25hd3MuY29tMB0GA1UdDgQWBBRAI6NKxAK3XKLGUqTb
+						gJhCWI0FuzANBgkqhkiG9w0BAQUFAAOCAQEAf+1jf17uxp5uGeGJUFI/t2bhxnfD
+						TbmnNBzQST5/+VK+qNAc6tCw+0gngBGREBkdVmcebIw8AmfhciDqe3xEl3Pp2oWT
+						HSnbl7bZnoG90FlxEbHm8THMNFjTDTmrlX37ldH5mfiP0EOFpMaCmlkNr9D617tF
+						gZ2xUEelwk+5dg5RpIHsgOnVr6zcUMdYHZPs64O/kySxnuN+PaOIOt9JERw1jHT6
+						LbD66CIPaC/TtydoiCUfS7s9Hr3hSJUnJ0gi+fzXh/5/z/+NjMZXd4G4FPVMonXy
+						XrRfr87YvwJm38sU/z+Gnka487212biN6XS36YGLSohRByTKTNZM+H1x8A==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.unioncloudstaging.org/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.unioncloudstaging.org/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.unioncloudstaging.org/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.unioncloudstaging.org/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.unioncloudstaging.org/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://www.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://umsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="7"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://umsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="8"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://umsu.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="9"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://umsu.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="10"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://umsu.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="11"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://umsu.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="12"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://kusu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="13"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://kusu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="14"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://kusu.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="15"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://kusu.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="16"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://kusu.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="17"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://kusu.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="18"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sunderlandsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="19"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sunderlandsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="20"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sunderlandsu.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="21"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://sunderlandsu.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="22"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://sunderlandsu.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="23"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://sunderlandsu.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="24"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://kclsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="25"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://kclsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="26"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://kclsu.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="27"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://kclsu.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="28"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://kclsu.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="29"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://kclsu.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="30"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ntsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="31"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://ntsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="32"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ntsu.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="33"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://ntsu.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="34"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://ntsu.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="35"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://ntsu.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="36"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://suarts.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="37"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://suarts.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="38"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://suarts.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="39"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://suarts.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="40"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://suarts.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="41"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://suarts.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="42"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://bsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="43"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://bsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="44"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://bsu.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="45"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://bsu.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="46"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://bsu.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="47"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://bsu.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="48"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://esu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="49"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://esu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="50"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://esu.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="51"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://esu.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="52"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://esu.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="53"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://esu.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="54"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://abert.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="55"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://abert.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="56"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://abert.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="57"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://abert.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="58"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://abert.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="59"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://abert.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="60"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://lgos.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="61"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://lgos.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="62"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://lgos.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="63"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://lgos.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="64"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://lgos.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="65"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://lgos.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="66"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ljmu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="67"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://ljmu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="68"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ljmu.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="69"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://ljmu.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="70"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://ljmu.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="71"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://ljmu.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="72"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://hudsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="73"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://hudsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="74"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://hudsu.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="75"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://hudsu.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="76"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://hudsu.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="77"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://hudsu.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="78"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://bedssu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="79"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://bedssu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="80"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://bedssu.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="81"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://bedssu.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="82"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://bedssu.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="83"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://bedssu.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="84"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://durhamsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="85"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://durhamsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="86"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://durhamsu.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="87"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://durhamsu.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="88"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://durhamsu.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="89"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://durhamsu.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="90"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://mdxsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="91"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://mdxsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="92"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://mdxsu.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="93"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://mdxsu.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="94"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://mdxsu.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="95"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://mdxsu.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="96"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://uclan.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="97"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://uclan.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="98"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://uclan.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="99"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://uclan.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="100"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://uclan.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="101"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://uclan.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="102"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ucsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="103"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://ucsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="104"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ucsu.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="105"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://ucsu.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="106"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://ucsu.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="107"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://ucsu.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="108"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ssu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="109"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://ssu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="110"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ssu.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="111"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://ssu.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="112"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://ssu.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="113"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://ssu.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="114"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://loughsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="115"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://loughsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="116"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://loughsu.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="117"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://loughsu.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="118"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://loughsu.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="119"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://loughsu.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="120"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://uea.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="127"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://uea.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="128"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://uea.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="129"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://uea.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="130"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://uea.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="131"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://uea.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="132"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://uwlsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="133"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://uwlsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="134"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://uwlsu.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="135"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://uwlsu.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="136"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://uwlsu.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="137"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://uwlsu.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="138"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://gcusa.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="151"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://gcusa.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="152"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://gcusa.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="153"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://gcusa.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="154"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://gcusa.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="155"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://gcusa.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="156"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://lsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST" index="157"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://lsu.unioncloudstaging.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="158"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://lsu.unioncloudstaging.org/Shibboleth.sso/SAML2/Artifact" index="159"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://lsu.unioncloudstaging.org/Shibboleth.sso/SAML2/ECP" index="160"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://lsu.unioncloudstaging.org/Shibboleth.sso/SAML/POST" index="161"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://lsu.unioncloudstaging.org/Shibboleth.sso/SAML/Artifact" index="162"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">NUS Services Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">NUS Digital Unioncloud Test Service Provider</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.unioncloud.org/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Help Desk</md:GivenName>
+      <md:EmailAddress>mailto:support@zendesk.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Shoba</md:GivenName>
+      <md:SurName>Menon</md:SurName>
+      <md:EmailAddress>mailto:shoba.menon@arrkgroup.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

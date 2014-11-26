@@ -1,0 +1,74 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://census.mimas.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2008-07-01T11:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Census Dissemination Unit</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Online access to aggregate data from the 1971, 1981, 1991 and 2001 UK Census of Population.</mdui:Description>
+          <mdui:Logo height="75" width="200">https://census.mimas.ac.uk/cdu_new.jpg</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEKzCCAxOgAwIBAgIJAMTX7HKZbFDFMA0GCSqGSIb3DQEBBQUAMIGLMQswCQYD
+						VQQGEwJHQjETMBEGA1UECBMKTWFuY2hlc3RlcjETMBEGA1UEBxMKTWFuY2hlc3Rl
+						cjElMCMGA1UEChMcVGhlIFVuaXZlcnNpdHkgb2YgTWFuY2hlc3RlcjEOMAwGA1UE
+						CxMFTWltYXMxGzAZBgNVBAMTEmNlbnN1cy5taW1hcy5hYy51azAeFw0xMzA1MzAx
+						NTI3MzBaFw0yMzA1MjgxNTI3MzBaMIGLMQswCQYDVQQGEwJHQjETMBEGA1UECBMK
+						TWFuY2hlc3RlcjETMBEGA1UEBxMKTWFuY2hlc3RlcjElMCMGA1UEChMcVGhlIFVu
+						aXZlcnNpdHkgb2YgTWFuY2hlc3RlcjEOMAwGA1UECxMFTWltYXMxGzAZBgNVBAMT
+						EmNlbnN1cy5taW1hcy5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC
+						ggEBALfJujuG3l2vwtdzi3/ZIcAKfFwC5RKAHLHLBUejvFA/nkt7OnOonu0x689R
+						IEBd877zeYd0ZH3GAMBVX7zJiQ11jdLYHUEVi8d/8Hx3dZ2nXXFdPzJL2OIJzHc2
+						aQQgdWmRrTge6r10NcVOAAJ5mIIHK7PPifDwVMMN1GuF4OBA3aojaMP0Dj+DO1gr
+						FCZtGi3VE17cxKTZdmuiRsFYGifIBvkSdmopv3+ibW6fukO564pRxHAywRqhZd2E
+						pMGx3G7pbXNIZYB6Xje5DGp/qOB0SOdC6kSJjdeaWsyYfSQOAdyVZm91ZFD8qmES
+						Z5aL66VIprPYDGjYx6tZ+eHsGfsCAwEAAaOBjzCBjDAJBgNVHRMEAjAAMAsGA1Ud
+						DwQEAwIEsDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwHQYDVR0RBBYw
+						FIISY2Vuc3VzLm1pbWFzLmFjLnVrMDQGA1UdEgQtMCuBKW1pbWFzLXNoaWItdGVj
+						aEBsaXN0c2Vydi5tYW5jaGVzdGVyLmFjLnVrMA0GCSqGSIb3DQEBBQUAA4IBAQAl
+						pfv7zAn13s6WPzfCqNEBqsr9h8Vg79uNxsLfql484q/7CSkTcpe7pTVa1TlOqXbK
+						0emzlq6YDyESAw+jtlfFz0Rd1CUU9YrpS3dMXlx+7gbicJKi3H5dOpvMz1mxqni7
+						qERoTHr+xMHTNsnuIe/h7osNo7sJJhMrLhgmywVeSNbEg4Y5pudwDMBegts7Vwa1
+						CMLitQ8xllB/hq7QUaZNDgv4SVuWLaJENE4jmE6/Q3UVz82ocs0IlQT2+8eKcA8N
+						O+QI2PQgwQ5bUHCPKsZz/04ZwAGER/CGgN+2gRPSigWmcU/uFgp63mZ8Q1a3qA6m
+						2j+Cllx9NsHLxRQvuS3t
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://census.mimas.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://census.mimas.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://census.mimas.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://census.mimas.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://census.mimas.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://census.mimas.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://census.mimas.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://census.mimas.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://census.mimas.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://census.mimas.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://census.mimas.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://census.mimas.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://census.mimas.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://census.mimas.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">The University of Manchester</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">MIMAS: Census Datasets including SARs and CIDER</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://cdu.mimas.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>CDU Census Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:census@mimas.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mimas Technical Support</md:GivenName>
+      <md:EmailAddress>mailto:mimas-shib-tech@listserv.manchester.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

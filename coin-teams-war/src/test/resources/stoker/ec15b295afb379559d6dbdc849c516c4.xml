@@ -1,0 +1,52 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://beta.aip.pub2web.ingenta.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-04-24T09:47:04Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDnDCCAoSgAwIBAgIEUPfWLDANBgkqhkiG9w0BAQUFADCBjzELMAkGA1UEBhMC
+						R0IxFDASBgNVBAgTC094Zm9yZHNoaXJlMQ8wDQYDVQQHEwZPeGZvcmQxHjAcBgNV
+						BAoTFVB1Ymxpc2hpbmcgVGVjaG5vbG9neTEZMBcGA1UECxMQU2Nob2xhcmx5IE9u
+						bGluZTEeMBwGA1UEAxMVUHVibGlzaGluZyBUZWNobm9sb2d5MB4XDTEzMDExNzEw
+						NDUwMFoXDTIzMDExNTEwNDUwMFowgY8xCzAJBgNVBAYTAkdCMRQwEgYDVQQIEwtP
+						eGZvcmRzaGlyZTEPMA0GA1UEBxMGT3hmb3JkMR4wHAYDVQQKExVQdWJsaXNoaW5n
+						IFRlY2hub2xvZ3kxGTAXBgNVBAsTEFNjaG9sYXJseSBPbmxpbmUxHjAcBgNVBAMT
+						FVB1Ymxpc2hpbmcgVGVjaG5vbG9neTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+						AQoCggEBAKFQ00fvQS6nyq0xBOu7sOMA2E5CqZj14gpmxLudWNog6GFhdHXCEqNM
+						IF9RdIz9Vaf7Icnvf6B7c9C5SCAOSXcu9pAV04z4RVd/YmGmy9AeEAKbGz+C2kka
+						4du0tBTFLUSv150RZYdrd2lykNQkWPDs+TM6XoE1+qQBTOVyOe6O6u3MuCzDbkc8
+						ibvjJ0Om/miG3EbJ+bdAeoAtnD8b67BpkUymKG4zTL0nXI+kXpg8DupGLpP4ZtFd
+						+tg5/cZMO4AkRjB6vSSP/Gx6M3SyIidSgsrvVAFdNEygKxiQvAucz/6WKg17Thsl
+						t2yq1r6F8BWmzZcfJppUjDpdDoZTaV8CAwEAATANBgkqhkiG9w0BAQUFAAOCAQEA
+						HFy+6Iv+7HwyL/lzfOyv8DFmVbzZpFhhanWmEdxrCxbAhs2Fnj5dkdJBvKaW7GJZ
+						J0MoJB9apg/prOm9Cj2ZJHOzKCqVZUu4D1j/qJHEzPy/I3UyjgbzdWT1yuxyJMuV
+						K2KfVPLyzFKhYJZCwq7GKFFSGken1Sshfyw/RLFqRtwQPH4BFv+0NTcznD2WLifA
+						9CM0pNy/7Jn87ZH5udxUqI5UbwxBxLZvbL6ovROXymBOTVZogRb3H7M8YkH/VJTh
+						APFn3wPwDtfg6l17iC98oDdmqZGdM330Ps1ywc714ne0WcUKGZ51Dxqkh3U9mEQA
+						+7gHltEQPx/ItlMLX48ZbA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://beta.aip.pub2web.ingenta.com/session/shib" index="1" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://beta.aip.pub2web.ingenta.com/session/shib" index="2"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Publishing Technology plc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Publishing Technology</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.publishingtechnology.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Tony</md:GivenName>
+      <md:SurName>Upton</md:SurName>
+      <md:EmailAddress>mailto:tony.upton@publishingtechnology.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Talvinder</md:GivenName>
+      <md:SurName>Matharu</md:SurName>
+      <md:EmailAddress>mailto:openathens@publishingtechnology.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

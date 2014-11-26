@@ -1,0 +1,114 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idptest.dundee.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-05-23T14:52:51Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">dundee.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEdjCCA16gAwIBAgIRALhrcSNiz3jY22Uy2UdbVDQwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzA1MTQwMDAwMDBaFw0xNjA1MTMyMzU5NTlaMEIxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEdMBsGA1UEAxMUaWRwdGVzdC5k
+						dW5kZWUuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCd5C/u
+						oV8EOVQXJjWhRzvtmXVjQrxCZLuSWvCOQhugZMmWW6gQvNI+GhjEs0bqfF5nklzl
+						KLDOAz9MskmL6v+jgkdUaUXoudrXWm7vuOEv7njEmf7Un5OKgUQHK2KGyOX7f+7r
+						lnd1HoBec52R5bj/b3EvI/Cm7nBcS5AC89929xGkuHOgCboCYXeeki0OGH4+K3hH
+						CToqFLiF9pkp5PW9LUVdywGaYgRDuUP0Fl4C4tclgA5PpDSikrDrBB6s0D7KfWYf
+						29fr2rR7jtFmPwtyZhWn3Tv0Uwe1hQMu/XnRmylmqfzgzlpYUqkh1UQcgZ3RIv7R
+						BPYhkHgBi/aA+l7/AgMBAAGjggFxMIIBbTAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJ
+						ays3V0fqkOO57TAdBgNVHQ4EFgQUAf5DUFJR2d0dGXQRxP9CdFzHNXgwDgYDVR0P
+						AQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsG
+						AQUFBwMCMCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQIBMDoGA1Ud
+						HwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NM
+						Q0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2NydC50
+						Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6
+						Ly9vY3NwLnRjcy50ZXJlbmEub3JnMB8GA1UdEQQYMBaCFGlkcHRlc3QuZHVuZGVl
+						LmFjLnVrMA0GCSqGSIb3DQEBBQUAA4IBAQBX2vouq3+oxWufgfglYteEL9rr5oap
+						TAobkNaYqSrg4kToRP6enrfDgQ0nzVGib1pUd1WBZVij3b9/tmy3akQvp12Onx0B
+						RxyTsKpTsz2mZSKyMQohdrNHeexT9LDvUOZg+geaCWeTmnyXbJfPDK+JZ9Fafes6
+						Dz/VhBjgTSfzVrWcZbhINxJ/MFf7KxW8LO57gNd3BH0eky4XnS8y2YE9rAH+vwOi
+						4mRlAi9j6dLf6h8MDqNkxRi/EOMXU5zpoMWniSSUuqpkUnjmYVttGCdo5hSVYlOK
+						OKpIjPVYOu9sGvFLTmnQTOHk3UVSj+5NQpEpCMbSPoElsd4ZZQAneHdB
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idptest.dundee.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idptest.dundee.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idptest.dundee.ac.uk/idp/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idptest.dundee.ac.uk/idp/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idptest.dundee.ac.uk:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idptest.dundee.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idptest.dundee.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idptest.dundee.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idptest.dundee.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">dundee.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEdjCCA16gAwIBAgIRALhrcSNiz3jY22Uy2UdbVDQwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzA1MTQwMDAwMDBaFw0xNjA1MTMyMzU5NTlaMEIxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEdMBsGA1UEAxMUaWRwdGVzdC5k
+						dW5kZWUuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCd5C/u
+						oV8EOVQXJjWhRzvtmXVjQrxCZLuSWvCOQhugZMmWW6gQvNI+GhjEs0bqfF5nklzl
+						KLDOAz9MskmL6v+jgkdUaUXoudrXWm7vuOEv7njEmf7Un5OKgUQHK2KGyOX7f+7r
+						lnd1HoBec52R5bj/b3EvI/Cm7nBcS5AC89929xGkuHOgCboCYXeeki0OGH4+K3hH
+						CToqFLiF9pkp5PW9LUVdywGaYgRDuUP0Fl4C4tclgA5PpDSikrDrBB6s0D7KfWYf
+						29fr2rR7jtFmPwtyZhWn3Tv0Uwe1hQMu/XnRmylmqfzgzlpYUqkh1UQcgZ3RIv7R
+						BPYhkHgBi/aA+l7/AgMBAAGjggFxMIIBbTAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJ
+						ays3V0fqkOO57TAdBgNVHQ4EFgQUAf5DUFJR2d0dGXQRxP9CdFzHNXgwDgYDVR0P
+						AQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsG
+						AQUFBwMCMCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQIBMDoGA1Ud
+						HwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NM
+						Q0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2NydC50
+						Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6
+						Ly9vY3NwLnRjcy50ZXJlbmEub3JnMB8GA1UdEQQYMBaCFGlkcHRlc3QuZHVuZGVl
+						LmFjLnVrMA0GCSqGSIb3DQEBBQUAA4IBAQBX2vouq3+oxWufgfglYteEL9rr5oap
+						TAobkNaYqSrg4kToRP6enrfDgQ0nzVGib1pUd1WBZVij3b9/tmy3akQvp12Onx0B
+						RxyTsKpTsz2mZSKyMQohdrNHeexT9LDvUOZg+geaCWeTmnyXbJfPDK+JZ9Fafes6
+						Dz/VhBjgTSfzVrWcZbhINxJ/MFf7KxW8LO57gNd3BH0eky4XnS8y2YE9rAH+vwOi
+						4mRlAi9j6dLf6h8MDqNkxRi/EOMXU5zpoMWniSSUuqpkUnjmYVttGCdo5hSVYlOK
+						OKpIjPVYOu9sGvFLTmnQTOHk3UVSj+5NQpEpCMbSPoElsd4ZZQAneHdB
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idptest.dundee.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idptest.dundee.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Dundee</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Dundee test 2.4 IDP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.dundee.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Andy</md:GivenName>
+      <md:SurName>Swiffin</md:SurName>
+      <md:EmailAddress>mailto:a.l.swiffin@dundee.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Andy</md:GivenName>
+      <md:SurName>Swiffin</md:SurName>
+      <md:EmailAddress>mailto:a.l.swiffin@dundee.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

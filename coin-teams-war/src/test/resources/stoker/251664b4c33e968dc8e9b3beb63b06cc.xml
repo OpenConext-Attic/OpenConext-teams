@@ -1,0 +1,57 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://strong.renater.fr/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-10-06T11:04:46Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">renater.fr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">RENATER - 2FA</mdui:DisplayName>
+          <mdui:Description xml:lang="en">RENATER 2FA authentication Identity Provider</mdui:Description>
+          <mdui:DisplayName xml:lang="fr">GIP RENATER - Authentification forte</mdui:DisplayName>
+          <mdui:Description xml:lang="fr">Fournisseur d'identités à authentification forte pour le personnel du GIP RENATER</mdui:Description>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+					      MIIDMDCCAhigAwIBAgIVAKDRx8im6zJdLQ5NHz5dmbcaOBjOMA0GCSqGSIb3DQEB
+BQUAMBwxGjAYBgNVBAMMEXN0cm9uZy5yZW5hdGVyLmZyMB4XDTE0MTAwNjA3NDIx
+OFoXDTM0MTAwNjA3NDIxOFowHDEaMBgGA1UEAwwRc3Ryb25nLnJlbmF0ZXIuZnIw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCcmKoiaTCP4jY9v53P+M5I
+vUAbcaFievc311/2CTLBAucCceVTZ9VwVoucZiQ9ZOebD2DtrxLqNJb/RMh5pyXj
+Qzr86Hwv5Yk3+BVpru02HiOzzGbBqWVjwgZ1HFTSfnqwAYP4zZsu7nx8X/SK+ZJV
+SjxiSpe/Y6Rm+t7gWBfZXYSWvKGu01fbywcVqaeGrGz/UQdi0jvhGwNbK7AUCb+J
+/zSw+tkxxAoDdf/8/uk1LScWt2Uim3HqL9a9E9jrrz6b0s2+6ws8asCL1TD3uAXQ
+IPZAmm3F+TZeJv89+VnI1UM7WsdQaCpZBZXLDXuVDnFFZ/j0Ol+rSTdnYVaws+ev
+AgMBAAGjaTBnMB0GA1UdDgQWBBR7MXxBw9coUGjDO8AWpl+AODh4EDBGBgNVHREE
+PzA9ghFzdHJvbmcucmVuYXRlci5mcoYoaHR0cHM6Ly9zdHJvbmcucmVuYXRlci5m
+ci9pZHAvc2hpYmJvbGV0aDANBgkqhkiG9w0BAQUFAAOCAQEAVdeiyyjO1mbphNLM
+pc9tRSsPVeKkxBv7GFN4FaOivBJn5jTLKgCR3AEulI6ySreL9sgrMsN6LggFsFpW
+kjf4iyilbXeH0EQD05teoVCuaZf0JmT+bfbLGLZuHJckOJQW9WqIh8mog8g58chu
+gk019fVk/DFoPIZXyJZDD8FWLuZk9im8KlCBXNbGAwjwz5tfNkWlMAbaVUqdEvr1
+rlzS4uoe3sVAeC3OBKLjHEWy4/NybEmhfjFbIlqrPc579lsn6mJKvrf82Gx6PDry
+OnHGNIjw12pVU5I3hY1A7X/xRZLG0U90KdPekhyE4KXeutJumdwGYj/pC21jsOzy
+gshHXw==
+					    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://strong.renater.fr/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://strong.renater.fr/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://strong.renater.fr/idp/profile/Shibboleth/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">GIP RENATER - Authentification forte</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">GIP RENATER - Authentification forte</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.renater.fr</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>support@renater.fr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

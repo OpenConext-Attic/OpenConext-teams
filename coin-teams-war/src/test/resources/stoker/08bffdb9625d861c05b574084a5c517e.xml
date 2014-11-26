@@ -1,19 +1,14 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="uk000839" entityID="https://shib-sp-dev.cf.ac.uk/shibboleth">
-	
-	<Extensions>
-
-
-
-
-		<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://ukfederation.org.uk" registrationInstant="2008-10-23T14:26:00Z">
-			<mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
-		</mdrpi:RegistrationInfo>
-	</Extensions>
-	<SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
-		<KeyDescriptor use="signing">
-			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-				<ds:X509Data>
-					<ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shib-sp-dev.cf.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2008-10-23T14:26:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 						MIIDETCCAfmgAwIBAgIJAPGWoIhDomdwMA0GCSqGSIb3DQEBBQUAMBYxFDASBgNV
 						BAMTC3NoaWItc3AtZGV2MB4XDTEwMTEwNTA0MTY1MVoXDTMwMTAzMTA0MTY1MVow
 						FjEUMBIGA1UEAxMLc2hpYi1zcC1kZXYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
@@ -32,13 +27,13 @@
 						w4NpiARsEdi/nWgud1MV7GTScg9YtZcaCahDoVeXVSTao4+NxBKXjlalGieMLlzC
 						ZgojzE1jEQkVmYzQirlmP/kiz1k5
 					</ds:X509Certificate>
-				</ds:X509Data>
-			</ds:KeyInfo>
-		</KeyDescriptor>
-		<KeyDescriptor use="encryption">
-			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-				<ds:X509Data>
-					<ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 						MIIDETCCAfmgAwIBAgIJAPGWoIhDomdwMA0GCSqGSIb3DQEBBQUAMBYxFDASBgNV
 						BAMTC3NoaWItc3AtZGV2MB4XDTEwMTEwNTA0MTY1MVoXDTMwMTAzMTA0MTY1MVow
 						FjEUMBIGA1UEAxMLc2hpYi1zcC1kZXYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
@@ -57,40 +52,39 @@
 						w4NpiARsEdi/nWgud1MV7GTScg9YtZcaCahDoVeXVSTao4+NxBKXjlalGieMLlzC
 						ZgojzE1jEQkVmYzQirlmP/kiz1k5
 					</ds:X509Certificate>
-				</ds:X509Data>
-			</ds:KeyInfo>
-		</KeyDescriptor>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/SLO/SOAP"/>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/SLO/Redirect"/>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/SLO/POST"/>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/SLO/Artifact"/>
-		<ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/NIM/SOAP"/>
-		<ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/NIM/Redirect"/>
-		<ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/NIM/POST"/>
-		<ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/NIM/Artifact"/>
-		<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-		<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
-	</SPSSODescriptor>
-	<Organization>
-		<OrganizationName xml:lang="en">Cardiff University</OrganizationName>
-		<OrganizationDisplayName xml:lang="en">Cardiff University Test SP</OrganizationDisplayName>
-		<OrganizationURL xml:lang="en">http://www.cardiff.ac.uk/</OrganizationURL>
-	</Organization>
-	<ContactPerson contactType="support">
-		<GivenName>Rhys</GivenName>
-		<SurName>Smith</SurName>
-		<EmailAddress>mailto:smith@cardiff.ac.uk</EmailAddress>
-	</ContactPerson>
-	<ContactPerson contactType="technical">
-		<GivenName>Rhys</GivenName>
-		<SurName>Smith</SurName>
-		<EmailAddress>mailto:smith@cardiff.ac.uk</EmailAddress>
-	</ContactPerson>
-
-</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://shib-sp-dev.cf.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Cardiff University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Cardiff University Test SP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.cardiff.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Rhys</md:GivenName>
+      <md:SurName>Smith</md:SurName>
+      <md:EmailAddress>mailto:smith@cardiff.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Rhys</md:GivenName>
+      <md:SurName>Smith</md:SurName>
+      <md:EmailAddress>mailto:smith@cardiff.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

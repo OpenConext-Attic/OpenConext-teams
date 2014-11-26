@@ -1,0 +1,104 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth.wolvcoll.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-07-08T11:12:40Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">wolvcoll.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">City of Wolverhampton College</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDTzCCAjegAwIBAgIUQ4d3Glz5yjW7FW9jd2mP9LsAUe8wDQYJKoZIhvcNAQEF
+						BQAwJDEiMCAGA1UEAxMZc2hpYmJvbGV0aC53b2x2Y29sbC5hYy51azAeFw0xNDA2
+						MjQwOTA1MTdaFw0zNDA2MjQwOTA1MTdaMCQxIjAgBgNVBAMTGXNoaWJib2xldGgu
+						d29sdmNvbGwuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCl
+						AWQo9/uMAecnAsdN9csAGTK2489RtQ7rJcRbozcr64BT1/w1iuh+RrWWqACgoNJP
+						aC2cGGm4DAEtguZlxv/EIm2YhKNQaDSgA472GPHRLslb2pRfNVJyFRfKJeVn2H/L
+						/StgbnczUp1gj81bZpdT6LoT0kw6SBh42H4ktTQQcdchiLqapDdLl+mx/x6F+BuH
+						HH6Pa4TwIKyu7FM7sTKek/Q4PLrLuHDFP7rg43lqjL2pQntsF4cNPewN+bcQujKn
+						+aQ/sUzUtLsi0bAuTJeU0rPZgJtg5Y3XnmZTlHyVvyBODtQhXhU2OfYH2FWiEZmj
+						D886Zakepq44z9wE19c5AgMBAAGjeTB3MFYGA1UdEQRPME2CGXNoaWJib2xldGgu
+						d29sdmNvbGwuYWMudWuGMGh0dHBzOi8vc2hpYmJvbGV0aC53b2x2Y29sbC5hYy51
+						ay9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUEPnyUWWLLersRzyV9z/bHlXyz0Ew
+						DQYJKoZIhvcNAQEFBQADggEBAJmDjexTbXsG8J5SYzXt8hda+nyrnlraOl6E6ql8
+						yIazs9Tg2nKgLhlAalyERD712mwL+lSE+qHHFifdSO44YuOgVNJ0e+vWxISrhNpt
+						d59kjd1l8b1ZeQ3P507rDz2Uw+cA5YxkEVdlBrkb9fR26kPXDsXiz1P1DhHh/Qt0
+						48PkIQdrwiSygWvNQGgMaB76XA3hqVyadpokVL/F1MFP2mKRIG4kGlDoV6iemLP6
+						SEtWwENvyTZ9VwAGYNoZaEmAjl1eVGaQANlcpXGuTRTLNHFYE+aCa7vYJuxdeU/N
+						Z+YEKF+K/tNlHmpEZ2x/tIv8PvDWgGsK+1FaCPoBrzZmKLo=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.wolvcoll.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.wolvcoll.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.wolvcoll.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.wolvcoll.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.wolvcoll.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.wolvcoll.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">wolvcoll.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDTzCCAjegAwIBAgIUQ4d3Glz5yjW7FW9jd2mP9LsAUe8wDQYJKoZIhvcNAQEF
+						BQAwJDEiMCAGA1UEAxMZc2hpYmJvbGV0aC53b2x2Y29sbC5hYy51azAeFw0xNDA2
+						MjQwOTA1MTdaFw0zNDA2MjQwOTA1MTdaMCQxIjAgBgNVBAMTGXNoaWJib2xldGgu
+						d29sdmNvbGwuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCl
+						AWQo9/uMAecnAsdN9csAGTK2489RtQ7rJcRbozcr64BT1/w1iuh+RrWWqACgoNJP
+						aC2cGGm4DAEtguZlxv/EIm2YhKNQaDSgA472GPHRLslb2pRfNVJyFRfKJeVn2H/L
+						/StgbnczUp1gj81bZpdT6LoT0kw6SBh42H4ktTQQcdchiLqapDdLl+mx/x6F+BuH
+						HH6Pa4TwIKyu7FM7sTKek/Q4PLrLuHDFP7rg43lqjL2pQntsF4cNPewN+bcQujKn
+						+aQ/sUzUtLsi0bAuTJeU0rPZgJtg5Y3XnmZTlHyVvyBODtQhXhU2OfYH2FWiEZmj
+						D886Zakepq44z9wE19c5AgMBAAGjeTB3MFYGA1UdEQRPME2CGXNoaWJib2xldGgu
+						d29sdmNvbGwuYWMudWuGMGh0dHBzOi8vc2hpYmJvbGV0aC53b2x2Y29sbC5hYy51
+						ay9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUEPnyUWWLLersRzyV9z/bHlXyz0Ew
+						DQYJKoZIhvcNAQEFBQADggEBAJmDjexTbXsG8J5SYzXt8hda+nyrnlraOl6E6ql8
+						yIazs9Tg2nKgLhlAalyERD712mwL+lSE+qHHFifdSO44YuOgVNJ0e+vWxISrhNpt
+						d59kjd1l8b1ZeQ3P507rDz2Uw+cA5YxkEVdlBrkb9fR26kPXDsXiz1P1DhHh/Qt0
+						48PkIQdrwiSygWvNQGgMaB76XA3hqVyadpokVL/F1MFP2mKRIG4kGlDoV6iemLP6
+						SEtWwENvyTZ9VwAGYNoZaEmAjl1eVGaQANlcpXGuTRTLNHFYE+aCa7vYJuxdeU/N
+						Z+YEKF+K/tNlHmpEZ2x/tIv8PvDWgGsK+1FaCPoBrzZmKLo=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.wolvcoll.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.wolvcoll.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">City of Wolverhampton College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">City of Wolverhampton College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.wolvcoll.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Ashley</md:GivenName>
+      <md:SurName>Mills</md:SurName>
+      <md:EmailAddress>mailto:millsash@wolvcoll.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ashley</md:GivenName>
+      <md:SurName>Mills</md:SurName>
+      <md:EmailAddress>mailto:millsash@wolvcoll.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ian</md:GivenName>
+      <md:SurName>Dean</md:SurName>
+      <md:EmailAddress>mailto:deani@wolvcoll.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

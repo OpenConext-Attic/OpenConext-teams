@@ -1,25 +1,46 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.univ-lille3.fr/idp">
-			<Extensions>
-				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2010-01-27T11:52:40Z">
-					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
-				</mdrpi:RegistrationInfo>
-			</Extensions>
-		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-lille3.fr</shibmd:Scope>
-    
-			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
-          		      
-          		      
-          		      <mdui:DisplayName xml:lang="fr">Université Lille 3</mdui:DisplayName>
-          		      
-      			    </mdui:UIInfo>
-			</Extensions>
-				<KeyDescriptor use="signing">
-<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.univ-lille3.fr/idp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://federation.renater.fr/" registrationInstant="2010-01-27T11:52:40Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">univ-lille3.fr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="fr">Université Lille 3</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+					      MIIDMzCCAhugAwIBAgIUaI3sGoGDqxSkkKP8neZP2ayfQGswDQYJKoZIhvcNAQEF
+BQAwHTEbMBkGA1UEAxMSaWRwLnVuaXYtbGlsbGUzLmZyMB4XDTEwMDEyNzA5NDI0
+MloXDTMwMDEyNzA5NDI0MlowHTEbMBkGA1UEAxMSaWRwLnVuaXYtbGlsbGUzLmZy
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhK0OBRmXzCdohEH0oLX6
+BwU47DqR8Ui+LPhE+2AxFY5pXC7rbF94YYoL5WJ2oJdVUjLhsiZZT43YbxvkNfqZ
+u7PK5s5TbvPxpx5khG5ezh0zwu6HmIPL9/TktRTMRZsnUO4BN0wA7YYbjWAwz0FB
+/uA1sbzBquo0+0LP0UXFa2Qr8HLH1qn8B80furUiWAqmPJ/PR4HlqG5p02DD6xl6
+mBsKZ+LCOAlpQg+Mpj8XwTEoSKIJQWECzrWvJ27N537n/4jci1h6Q6d4XPGrxE/R
+S/OYFQb9DSITJQ3XiQxG7FEmoR46eYvabngonp+LtlOsg44eOU4jCZ9xUl6NCe1d
+lQIDAQABo2swaTBIBgNVHREEQTA/ghJpZHAudW5pdi1saWxsZTMuZnKGKWh0dHBz
+Oi8vaWRwLnVuaXYtbGlsbGUzLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBS/
+SXbo4Ptin4k8pT8SxemNo3o5CzANBgkqhkiG9w0BAQUFAAOCAQEAB0/3gtFmXex0
+Slx5kV0oJBz0y1RFN+uRTic8C2uJodV7Jo72scJu7H2ZgTdnt6QqMUyM0plh1njw
+J/+YsNpGt53iZ/8N7uf6gxqr58a76Zxln26V/VjVPsGzcDztp9FpNuoMfTwv0c66
+/dpOhb9GefyQEi+X7aAKBPtYmR8B/fE9cdpTaOg6CZA48RKb58CvT/zDI3cdjq70
+Ga4ev2RgDwKOZdcApBozTd1OteRkamdHqjsGGUMOjpa5nDbKBHnuLsszJgxhIIxM
+Zo56PsDM63rAF3vZF0uNsoql0sThageHMHnHIFoAUSpONzzEsQ991uG/bjioCY3T
+TVs+0tBLJA==
+					    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIFvTCCBKWgAwIBAgIQRAUZO7HUWDyhwIniHCjSrzANBgkqhkiG9w0BAQUFADA2
 MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
 U1NMIENBMB4XDTEyMTIyMTAwMDAwMFoXDTE2MDEyNTIzNTk1OVowgZUxCzAJBgNV
@@ -52,72 +73,49 @@ f/dOy9TWBleXkbNV6EVKmL5yXC/9tBcvz+ROAMoP/SuZKfB1+t/dtflwOUrfa/Rg
 VUkaXSsU3z1l3pbQ0ag0DCBEct0kI6h7npi8y8M+NtE+SDmu5r6+k4T/35sabheC
 mR/dAiU9Lbx17eGNeLgWiVw6qSW4Y6Ty/Hp2QENstkyH
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-					</ds:KeyInfo>
-				</KeyDescriptor>
-
-				
-				
-				<KeyDescriptor use="signing">
-				       <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  <ds:X509Data>
-					    <ds:X509Certificate>
-					      MIIEzTCCA7WgAwIBAgIQYDIh1KY11M3WgvldGfZ7RjANBgkqhkiG9w0BAQUFADA2
-MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
-U1NMIENBMB4XDTEwMDEyNzAwMDAwMFoXDTEzMDEyNjIzNTk1OVowgaUxCzAJBgNV
-BAYTAkZSMRowGAYDVQQHExFWSUxMRU5FVVZFIEQnQVNDUTEwMC4GA1UECgwnVW5p
-dmVyc2l0w6kgQ2hhcmxlcyBkZSBHYXVsbGUgLSBMaWxsZSAzMSswKQYDVQQLEyJD
-ZW50cmUgZGUgUmVzc291cmNlcyBJbmZvcm1hdGlxdWVzMRswGQYDVQQDExJpZHAu
-dW5pdi1saWxsZTMuZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC/
-lljw0dMtyxsufKDjv4+JXtAsPcVkGU29ZeWhP/m8z7QcnZD2AvmXAk/BR7IQqAKY
-cDyUamIiVP1XRm3WGIfHpwWuy8AKEUHE5QgJB/rMXa5fArai9ec+7tMPiueFUwHk
-3g4DGj6x8e91Cv8a1j6csP8/0y+qUNeaRPUNbCbtyqdwKvqpI23zceLaxJD1Uaqp
-23i9WIRY49leYoAPdPqldj3pxj4dKZhOJxqU0K/3y6gG2/LfoSXlsM8a9JXLWaWk
-CBrgLLuOsFE2DRneIOgZJjr8s9pydvOHeCgFk6693eVbodQlUaVIuZfBEW3u0naO
-Wq69LY0S0aD2gCmHaziFAgMBAAGjggFlMIIBYTAfBgNVHSMEGDAWgBQMvZNoDPPe
-q6NJays3V0fqkOO57TAdBgNVHQ4EFgQUeBYv24vRi/V67b1lEfk2+y9rWBwwDgYD
-VR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEG
-CCsGAQUFBwMCMBgGA1UdIAQRMA8wDQYLKwYBBAGyMQECAh0wOgYDVR0fBDMwMTAv
-oC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmww
-bQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJl
-bmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3Au
-dGNzLnRlcmVuYS5vcmcwHQYDVR0RBBYwFIISaWRwLnVuaXYtbGlsbGUzLmZyMA0G
-CSqGSIb3DQEBBQUAA4IBAQBVtPB0DhSyKb6wpRRWt/zyCD4KyfmcifHTpmX/+Uqy
-UisGAqs3F9GaPBBTSfw++n8IeH/tzHXz+8+bz0q0XvB9ibN6oAZ7PpqhvKMOjiv7
-rfqbEoaK6FU4IHrLGI8iwxZXrHgRTUraoldd2eDpDa5ccMgWlYpz8WR3t8/tt2/R
-c2Ou12Nl05z0FtAPTFgflsBKd0PQTEDvpkyR8sHxG1pagcMtRxrT+F8T34h0QEZe
-xO+4QSEL3ssYjePmj6Oj154B1v9ghnsSIcbokzfXI07d51wpy0zGpdDDOJglheMu
-MXsvpupYbpRaf9GGX6Eu5xRuvQN/dFK6o4rzHEbgL3Ri
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.univ-lille3.fr/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.univ-lille3.fr/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.univ-lille3.fr/idp/profile/Shibboleth/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">univ-lille3.fr</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+					      MIIDMzCCAhugAwIBAgIUaI3sGoGDqxSkkKP8neZP2ayfQGswDQYJKoZIhvcNAQEF
+BQAwHTEbMBkGA1UEAxMSaWRwLnVuaXYtbGlsbGUzLmZyMB4XDTEwMDEyNzA5NDI0
+MloXDTMwMDEyNzA5NDI0MlowHTEbMBkGA1UEAxMSaWRwLnVuaXYtbGlsbGUzLmZy
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhK0OBRmXzCdohEH0oLX6
+BwU47DqR8Ui+LPhE+2AxFY5pXC7rbF94YYoL5WJ2oJdVUjLhsiZZT43YbxvkNfqZ
+u7PK5s5TbvPxpx5khG5ezh0zwu6HmIPL9/TktRTMRZsnUO4BN0wA7YYbjWAwz0FB
+/uA1sbzBquo0+0LP0UXFa2Qr8HLH1qn8B80furUiWAqmPJ/PR4HlqG5p02DD6xl6
+mBsKZ+LCOAlpQg+Mpj8XwTEoSKIJQWECzrWvJ27N537n/4jci1h6Q6d4XPGrxE/R
+S/OYFQb9DSITJQ3XiQxG7FEmoR46eYvabngonp+LtlOsg44eOU4jCZ9xUl6NCe1d
+lQIDAQABo2swaTBIBgNVHREEQTA/ghJpZHAudW5pdi1saWxsZTMuZnKGKWh0dHBz
+Oi8vaWRwLnVuaXYtbGlsbGUzLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBS/
+SXbo4Ptin4k8pT8SxemNo3o5CzANBgkqhkiG9w0BAQUFAAOCAQEAB0/3gtFmXex0
+Slx5kV0oJBz0y1RFN+uRTic8C2uJodV7Jo72scJu7H2ZgTdnt6QqMUyM0plh1njw
+J/+YsNpGt53iZ/8N7uf6gxqr58a76Zxln26V/VjVPsGzcDztp9FpNuoMfTwv0c66
+/dpOhb9GefyQEi+X7aAKBPtYmR8B/fE9cdpTaOg6CZA48RKb58CvT/zDI3cdjq70
+Ga4ev2RgDwKOZdcApBozTd1OteRkamdHqjsGGUMOjpa5nDbKBHnuLsszJgxhIIxM
+Zo56PsDM63rAF3vZF0uNsoql0sThageHMHnHIFoAUSpONzzEsQ991uG/bjioCY3T
+TVs+0tBLJA==
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					</ds:KeyInfo>
-				</KeyDescriptor>
-				
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-
-			
-			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.univ-lille3.fr/idp/profile/SAML2/POST/SSO"/>
-	        
-	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.univ-lille3.fr/idp/profile/SAML2/Redirect/SSO"/>
-	        
-	        
-			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.univ-lille3.fr/idp/profile/Shibboleth/SSO"/>
-			
-
-		</IDPSSODescriptor>
-		
-	
-		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-lille3.fr</shibmd:Scope>
-    			</Extensions>
-			<KeyDescriptor use="signing">
-				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIFvTCCBKWgAwIBAgIQRAUZO7HUWDyhwIniHCjSrzANBgkqhkiG9w0BAQUFADA2
 MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
 U1NMIENBMB4XDTEyMTIyMTAwMDAwMFoXDTE2MDEyNTIzNTk1OVowgZUxCzAJBgNV
@@ -150,67 +148,19 @@ f/dOy9TWBleXkbNV6EVKmL5yXC/9tBcvz+ROAMoP/SuZKfB1+t/dtflwOUrfa/Rg
 VUkaXSsU3z1l3pbQ0ag0DCBEct0kI6h7npi8y8M+NtE+SDmu5r6+k4T/35sabheC
 mR/dAiU9Lbx17eGNeLgWiVw6qSW4Y6Ty/Hp2QENstkyH
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-				</ds:KeyInfo>
-			</KeyDescriptor>
-
-				
-				
-				<KeyDescriptor use="signing">
-				       <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  <ds:X509Data>
-					    <ds:X509Certificate>
-					      MIIEzTCCA7WgAwIBAgIQYDIh1KY11M3WgvldGfZ7RjANBgkqhkiG9w0BAQUFADA2
-MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
-U1NMIENBMB4XDTEwMDEyNzAwMDAwMFoXDTEzMDEyNjIzNTk1OVowgaUxCzAJBgNV
-BAYTAkZSMRowGAYDVQQHExFWSUxMRU5FVVZFIEQnQVNDUTEwMC4GA1UECgwnVW5p
-dmVyc2l0w6kgQ2hhcmxlcyBkZSBHYXVsbGUgLSBMaWxsZSAzMSswKQYDVQQLEyJD
-ZW50cmUgZGUgUmVzc291cmNlcyBJbmZvcm1hdGlxdWVzMRswGQYDVQQDExJpZHAu
-dW5pdi1saWxsZTMuZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC/
-lljw0dMtyxsufKDjv4+JXtAsPcVkGU29ZeWhP/m8z7QcnZD2AvmXAk/BR7IQqAKY
-cDyUamIiVP1XRm3WGIfHpwWuy8AKEUHE5QgJB/rMXa5fArai9ec+7tMPiueFUwHk
-3g4DGj6x8e91Cv8a1j6csP8/0y+qUNeaRPUNbCbtyqdwKvqpI23zceLaxJD1Uaqp
-23i9WIRY49leYoAPdPqldj3pxj4dKZhOJxqU0K/3y6gG2/LfoSXlsM8a9JXLWaWk
-CBrgLLuOsFE2DRneIOgZJjr8s9pydvOHeCgFk6693eVbodQlUaVIuZfBEW3u0naO
-Wq69LY0S0aD2gCmHaziFAgMBAAGjggFlMIIBYTAfBgNVHSMEGDAWgBQMvZNoDPPe
-q6NJays3V0fqkOO57TAdBgNVHQ4EFgQUeBYv24vRi/V67b1lEfk2+y9rWBwwDgYD
-VR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEG
-CCsGAQUFBwMCMBgGA1UdIAQRMA8wDQYLKwYBBAGyMQECAh0wOgYDVR0fBDMwMTAv
-oC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmww
-bQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJl
-bmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3Au
-dGNzLnRlcmVuYS5vcmcwHQYDVR0RBBYwFIISaWRwLnVuaXYtbGlsbGUzLmZyMA0G
-CSqGSIb3DQEBBQUAA4IBAQBVtPB0DhSyKb6wpRRWt/zyCD4KyfmcifHTpmX/+Uqy
-UisGAqs3F9GaPBBTSfw++n8IeH/tzHXz+8+bz0q0XvB9ibN6oAZ7PpqhvKMOjiv7
-rfqbEoaK6FU4IHrLGI8iwxZXrHgRTUraoldd2eDpDa5ccMgWlYpz8WR3t8/tt2/R
-c2Ou12Nl05z0FtAPTFgflsBKd0PQTEDvpkyR8sHxG1pagcMtRxrT+F8T34h0QEZe
-xO+4QSEL3ssYjePmj6Oj154B1v9ghnsSIcbokzfXI07d51wpy0zGpdDDOJglheMu
-MXsvpupYbpRaf9GGX6Eu5xRuvQN/dFK6o4rzHEbgL3Ri
-					    </ds:X509Certificate>
-					  </ds:X509Data>
-					</ds:KeyInfo>
-				</KeyDescriptor>
-				
-
-			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.univ-lille3.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-		</AttributeAuthorityDescriptor>
-
-
-		<Organization>
-		
-			<OrganizationName xml:lang="en">Université Lille 3</OrganizationName>
-			<OrganizationDisplayName xml:lang="en">Université Lille 3</OrganizationDisplayName>
-			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
-		
-		</Organization>
-
-			
-			    <ContactPerson contactType="technical">
-			     <EmailAddress>dsi.shibboleth@univ-lille3.fr</EmailAddress>
-		        </ContactPerson>
-		    	
-			
-	</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.univ-lille3.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Université Lille 3</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Université Lille 3</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://unknown.site.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>dsi.shibboleth@univ-lille3.fr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

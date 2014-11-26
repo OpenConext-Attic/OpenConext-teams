@@ -1,0 +1,168 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://smile.informatik.uni-freiburg.de/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-09-18T12:59:06Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="de">SMILE - Smartphones in der Lehre</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">SMILE - Smartphones in der Lehre</mdui:DisplayName>
+          <mdui:Description xml:lang="de">Die SMILE-App für Smartphones, Tablets und Internetbrowser ermöglicht Live-Feedback, Quiz-Fragen und Lernfragen während sehr großen Lehrveranstaltungen. Mit der Q&amp;A-Funktion können Studierende Fragen genau dann stellen, wenn Sie auftreten - ohne den Vortragenden zu stören.</mdui:Description>
+          <mdui:Description xml:lang="en">SMILE serves as a lecture-supporting system which students and lecturers can use with their usual login data given by their home institution. The system offers - among other functions - live feedback for the lecturer and quizzes for checking the learning process of the students.</mdui:Description>
+          <mdui:InformationURL xml:lang="de">https://www.smile.informatik.uni-freiburg.de/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">https://www.smile.informatik.uni-freiburg.de/</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://smile.informatik.uni-freiburg.de/CoC/</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:KeyName>smile.informatik.uni-freiburg.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>emailAddress=ira-web@informatik.uni-freiburg.de,CN=smile.informatik.uni-freiburg.de,OU=Institut fuer Informatik,O=Universitaet Freiburg,L=Freiburg,ST=Baden-Wuerttemberg,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIHxzCCBq+gAwIBAgIHGIKSSfQ6RTANBgkqhkiG9w0BAQsFADCBhjELMAkGA1UE
+BhMCREUxHjAcBgNVBAoTFVVuaXZlcnNpdGFldCBGcmVpYnVyZzEWMBQGA1UECxMN
+UmVjaGVuemVudHJ1bTEYMBYGA1UEAxMPVW5pLUZSIENBIC0gRzAyMSUwIwYJKoZI
+hvcNAQkBFhZwa2lAcnoudW5pLWZyZWlidXJnLmRlMB4XDTE0MTExMjA4MDUxNFoX
+DTE5MDcwOTIzNTkwMFowgd4xCzAJBgNVBAYTAkRFMRswGQYDVQQIExJCYWRlbi1X
+dWVydHRlbWJlcmcxETAPBgNVBAcTCEZyZWlidXJnMR4wHAYDVQQKExVVbml2ZXJz
+aXRhZXQgRnJlaWJ1cmcxITAfBgNVBAsTGEluc3RpdHV0IGZ1ZXIgSW5mb3JtYXRp
+azEpMCcGA1UEAxMgc21pbGUuaW5mb3JtYXRpay51bmktZnJlaWJ1cmcuZGUxMTAv
+BgkqhkiG9w0BCQEWImlyYS13ZWJAaW5mb3JtYXRpay51bmktZnJlaWJ1cmcuZGUw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCYSbgNbyDYBOdqS7dDOA+x
+8IkgR+SYA4qbNrgytwTp3UKHUX6Um+LMhiKcAwjL7DtT/OBE/SmS9WbSlzrclIfB
+6wGiMUpZadWn7kegpFGlpijy7tZK525+FVd24KUVwW5nePHcD2oHCjgxJgbf+dj4
+J5IcLJzpno0GKr81TVwp97zavSsYh41Pwhhy+EWFm4vGK14rbaOl2TeQqGBGLwEJ
+X2s58zgYdLevLD2u74wy6mVGS7PjyK8PEWI7yzttZT4kfQeEseK64qWquYuGIsW4
+XYd4JGG226Jf0BZn1pKY3hIQN+2/ZQpnkXxYCQzlSE+TM60AGTJbj6dchLyeaq9L
+AgMBAAGjggPeMIID2jBPBgNVHSAESDBGMBEGDysGAQQBga0hgiwBAQQDAjARBg8r
+BgEEAYGtIYIsAgEEAwEwDwYNKwYBBAGBrSGCLAEBBDANBgsrBgEEAYGtIYIsHjAJ
+BgNVHRMEAjAAMAsGA1UdDwQEAwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYB
+BQUHAwEwHQYDVR0OBBYEFIJWV6FrgUU9Zfwucawz8nLm1xHPMB8GA1UdIwQYMBaA
+FDNnqdbxk1U2rKEyvcHkljn/THAxMIIBnAYDVR0RBIIBkzCCAY+CJ2NoYW5nZS5z
+bWlsZS5pbmZvcm1hdGlrLnVuaS1mcmVpYnVyZy5kZYIlZGVtby5zbWlsZS5pbmZv
+cm1hdGlrLnVuaS1mcmVpYnVyZy5kZYIkZG9jLnNtaWxlLmluZm9ybWF0aWsudW5p
+LWZyZWlidXJnLmRlgitwbGF5Z3JvdW5kLnNtaWxlLmluZm9ybWF0aWsudW5pLWZy
+ZWlidXJnLmRlgihyZWRtaW5lLnNtaWxlLmluZm9ybWF0aWsudW5pLWZyZWlidXJn
+LmRlgiBzbWlsZS5pbmZvcm1hdGlrLnVuaS1mcmVpYnVyZy5kZYInc3RhYmxlLnNt
+aWxlLmluZm9ybWF0aWsudW5pLWZyZWlidXJnLmRlgiV0ZXN0LnNtaWxlLmluZm9y
+bWF0aWsudW5pLWZyZWlidXJnLmRlgih0ZXN0aW5nLnNtaWxlLmluZm9ybWF0aWsu
+dW5pLWZyZWlidXJnLmRlgiR3d3cuc21pbGUuaW5mb3JtYXRpay51bmktZnJlaWJ1
+cmcuZGUwgY8GA1UdHwSBhzCBhDBAoD6gPIY6aHR0cDovL2NkcDEucGNhLmRmbi5k
+ZS91bmktZnJlaWJ1cmctY2EvcHViL2NybC9nX2NhY3JsLmNybDBAoD6gPIY6aHR0
+cDovL2NkcDIucGNhLmRmbi5kZS91bmktZnJlaWJ1cmctY2EvcHViL2NybC9nX2Nh
+Y3JsLmNybDCB3QYIKwYBBQUHAQEEgdAwgc0wMwYIKwYBBQUHMAGGJ2h0dHA6Ly9v
+Y3NwLnBjYS5kZm4uZGUvT0NTUC1TZXJ2ZXIvT0NTUDBKBggrBgEFBQcwAoY+aHR0
+cDovL2NkcDEucGNhLmRmbi5kZS91bmktZnJlaWJ1cmctY2EvcHViL2NhY2VydC9n
+X2NhY2VydC5jcnQwSgYIKwYBBQUHMAKGPmh0dHA6Ly9jZHAyLnBjYS5kZm4uZGUv
+dW5pLWZyZWlidXJnLWNhL3B1Yi9jYWNlcnQvZ19jYWNlcnQuY3J0MA0GCSqGSIb3
+DQEBCwUAA4IBAQA72D4fmLKd2ZyTnuy/Ma1pkT5/BcBFxEuYCUnrmiEFJIQAs85L
+pvghgeuoJFPXIqzGHdBdhQMNlAGKveE94pDCUzsb5KeYQfx1cxv7WHtrBiSFCNU9
+UoittffeRdPTKVbgYky7fvT1bNVSdjcY6XJeHsWGM9VEz3a8P418BuJD5r6ieta0
+EMjPtDVQCM0J2ubHFyrlaUPExBLlR+4Nw+w2zCII/ToDW3dpEW19Qh9aqrNvaCtp
+A3WX+PsJTXiVTe3aMB8naNylEm4JfyvMSzWP09kuPVF0WQP7+t5pZwXcqNPDuFJF
+SA1QPBvLr4BMM0YEyE5oqagy03A8rmgvpFDJ
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:KeyName>smile.informatik.uni-freiburg.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>emailAddress=ira-web@informatik.uni-freiburg.de,CN=smile.informatik.uni-freiburg.de,OU=Institut fuer Informatik,O=Universitaet Freiburg,L=Freiburg,ST=Baden-Wuerttemberg,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIHxzCCBq+gAwIBAgIHGIKSSfQ6RTANBgkqhkiG9w0BAQsFADCBhjELMAkGA1UE
+BhMCREUxHjAcBgNVBAoTFVVuaXZlcnNpdGFldCBGcmVpYnVyZzEWMBQGA1UECxMN
+UmVjaGVuemVudHJ1bTEYMBYGA1UEAxMPVW5pLUZSIENBIC0gRzAyMSUwIwYJKoZI
+hvcNAQkBFhZwa2lAcnoudW5pLWZyZWlidXJnLmRlMB4XDTE0MTExMjA4MDUxNFoX
+DTE5MDcwOTIzNTkwMFowgd4xCzAJBgNVBAYTAkRFMRswGQYDVQQIExJCYWRlbi1X
+dWVydHRlbWJlcmcxETAPBgNVBAcTCEZyZWlidXJnMR4wHAYDVQQKExVVbml2ZXJz
+aXRhZXQgRnJlaWJ1cmcxITAfBgNVBAsTGEluc3RpdHV0IGZ1ZXIgSW5mb3JtYXRp
+azEpMCcGA1UEAxMgc21pbGUuaW5mb3JtYXRpay51bmktZnJlaWJ1cmcuZGUxMTAv
+BgkqhkiG9w0BCQEWImlyYS13ZWJAaW5mb3JtYXRpay51bmktZnJlaWJ1cmcuZGUw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCYSbgNbyDYBOdqS7dDOA+x
+8IkgR+SYA4qbNrgytwTp3UKHUX6Um+LMhiKcAwjL7DtT/OBE/SmS9WbSlzrclIfB
+6wGiMUpZadWn7kegpFGlpijy7tZK525+FVd24KUVwW5nePHcD2oHCjgxJgbf+dj4
+J5IcLJzpno0GKr81TVwp97zavSsYh41Pwhhy+EWFm4vGK14rbaOl2TeQqGBGLwEJ
+X2s58zgYdLevLD2u74wy6mVGS7PjyK8PEWI7yzttZT4kfQeEseK64qWquYuGIsW4
+XYd4JGG226Jf0BZn1pKY3hIQN+2/ZQpnkXxYCQzlSE+TM60AGTJbj6dchLyeaq9L
+AgMBAAGjggPeMIID2jBPBgNVHSAESDBGMBEGDysGAQQBga0hgiwBAQQDAjARBg8r
+BgEEAYGtIYIsAgEEAwEwDwYNKwYBBAGBrSGCLAEBBDANBgsrBgEEAYGtIYIsHjAJ
+BgNVHRMEAjAAMAsGA1UdDwQEAwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYB
+BQUHAwEwHQYDVR0OBBYEFIJWV6FrgUU9Zfwucawz8nLm1xHPMB8GA1UdIwQYMBaA
+FDNnqdbxk1U2rKEyvcHkljn/THAxMIIBnAYDVR0RBIIBkzCCAY+CJ2NoYW5nZS5z
+bWlsZS5pbmZvcm1hdGlrLnVuaS1mcmVpYnVyZy5kZYIlZGVtby5zbWlsZS5pbmZv
+cm1hdGlrLnVuaS1mcmVpYnVyZy5kZYIkZG9jLnNtaWxlLmluZm9ybWF0aWsudW5p
+LWZyZWlidXJnLmRlgitwbGF5Z3JvdW5kLnNtaWxlLmluZm9ybWF0aWsudW5pLWZy
+ZWlidXJnLmRlgihyZWRtaW5lLnNtaWxlLmluZm9ybWF0aWsudW5pLWZyZWlidXJn
+LmRlgiBzbWlsZS5pbmZvcm1hdGlrLnVuaS1mcmVpYnVyZy5kZYInc3RhYmxlLnNt
+aWxlLmluZm9ybWF0aWsudW5pLWZyZWlidXJnLmRlgiV0ZXN0LnNtaWxlLmluZm9y
+bWF0aWsudW5pLWZyZWlidXJnLmRlgih0ZXN0aW5nLnNtaWxlLmluZm9ybWF0aWsu
+dW5pLWZyZWlidXJnLmRlgiR3d3cuc21pbGUuaW5mb3JtYXRpay51bmktZnJlaWJ1
+cmcuZGUwgY8GA1UdHwSBhzCBhDBAoD6gPIY6aHR0cDovL2NkcDEucGNhLmRmbi5k
+ZS91bmktZnJlaWJ1cmctY2EvcHViL2NybC9nX2NhY3JsLmNybDBAoD6gPIY6aHR0
+cDovL2NkcDIucGNhLmRmbi5kZS91bmktZnJlaWJ1cmctY2EvcHViL2NybC9nX2Nh
+Y3JsLmNybDCB3QYIKwYBBQUHAQEEgdAwgc0wMwYIKwYBBQUHMAGGJ2h0dHA6Ly9v
+Y3NwLnBjYS5kZm4uZGUvT0NTUC1TZXJ2ZXIvT0NTUDBKBggrBgEFBQcwAoY+aHR0
+cDovL2NkcDEucGNhLmRmbi5kZS91bmktZnJlaWJ1cmctY2EvcHViL2NhY2VydC9n
+X2NhY2VydC5jcnQwSgYIKwYBBQUHMAKGPmh0dHA6Ly9jZHAyLnBjYS5kZm4uZGUv
+dW5pLWZyZWlidXJnLWNhL3B1Yi9jYWNlcnQvZ19jYWNlcnQuY3J0MA0GCSqGSIb3
+DQEBCwUAA4IBAQA72D4fmLKd2ZyTnuy/Ma1pkT5/BcBFxEuYCUnrmiEFJIQAs85L
+pvghgeuoJFPXIqzGHdBdhQMNlAGKveE94pDCUzsb5KeYQfx1cxv7WHtrBiSFCNU9
+UoittffeRdPTKVbgYky7fvT1bNVSdjcY6XJeHsWGM9VEz3a8P418BuJD5r6ieta0
+EMjPtDVQCM0J2ubHFyrlaUPExBLlR+4Nw+w2zCII/ToDW3dpEW19Qh9aqrNvaCtp
+A3WX+PsJTXiVTe3aMB8naNylEm4JfyvMSzWP09kuPVF0WQP7+t5pZwXcqNPDuFJF
+SA1QPBvLr4BMM0YEyE5oqagy03A8rmgvpFDJ
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://smile.informatik.uni-freiburg.de/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://smile.informatik.uni-freiburg.de/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://smile.informatik.uni-freiburg.de/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://smile.informatik.uni-freiburg.de/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://smile.informatik.uni-freiburg.de/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://smile.informatik.uni-freiburg.de/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://smile.informatik.uni-freiburg.de/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://smile.informatik.uni-freiburg.de/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="de">SMILE - Smartphones in der Lehre</md:ServiceName>
+        <md:ServiceName xml:lang="en">SMILE - Smartphones in der Lehre</md:ServiceName>
+        <md:ServiceDescription xml:lang="de">Die SMILE-App für Smartphones, Tablets und Internetbrowser ermöglicht Live-Feedback, Quiz-Fragen und Lernfragen während sehr großen Lehrveranstaltungen. Mit der Q&amp;A-Funktion können Studierende Fragen genau dann stellen, wenn Sie auftreten - ohne den Vortragenden zu stören.</md:ServiceDescription>
+        <md:ServiceDescription xml:lang="en">SMILE serves as a lecture-supporting system which students and lecturers can use with their usual login data given by their home institution. The system offers - among other functions - live feedback for the lecturer and quizzes for checking the learning process of the students.</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="persistentId" Name="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e14</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e14</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Albert-Ludwigs-Universität Freiburg</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Albert-Ludwigs-Universität Freiburg</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.uni-freiburg.de/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.uni-freiburg.de/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Sebastian</md:GivenName>
+      <md:SurName>Sester</md:SurName>
+      <md:EmailAddress>mailto:smile@informatik.uni-freiburg.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Sebastian</md:GivenName>
+      <md:SurName>Sester</md:SurName>
+      <md:EmailAddress>mailto:smile@informatik.uni-freiburg.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Linus</md:GivenName>
+      <md:SurName>Feiten</md:SurName>
+      <md:EmailAddress>mailto:feiten@informatik.uni-freiburg.de</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

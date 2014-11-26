@@ -1,0 +1,67 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sp.eblib.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDCzCCAfOgAwIBAgIJALoCnTVhq1IhMA0GCSqGSIb3DQEBBQUAMBcxFTATBgNV
+						BAMTDHNwLmVibGliLmNvbTAeFw0xMjAxMDUwMDIyMzZaFw0yMjAxMDIwMDIyMzZa
+						MBcxFTATBgNVBAMTDHNwLmVibGliLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEP
+						ADCCAQoCggEBAL7h4T/JsESXBRIXlPdeBLB5L9UAYCBdvpvPtqiksWkphoujeqjk
+						mBO2NT98USIRwg6ktP4KYTBlQxItfniFx/lt4xeS8TboN+sTlW6LnY05j9UPL5kN
+						rnIpFmtbhKseIfDEEbO3m8h0+SZKE/RmfS6+l4/yTePoIhvtTKISDajr2GhdhJoa
+						/fjng0lHMikaFzfdd39DfKg/v73v8X9UvtH14ZkSrn4bTRvBCrKHSaMNneAH5N1G
+						PopSv+eVkrTPuQMse/w3JplYk08jujhv5Y24YvP9FCpgbQClxXbDn6OxMmejIpEk
+						Ri3EU2qqEN6N0BSN3N1PeuDOiaViOhbCAoUCAwEAAaNaMFgwNwYDVR0RBDAwLoIM
+						c3AuZWJsaWIuY29thh5odHRwOi8vc3AuZWJsaWIuY29tL3NoaWJib2xldGgwHQYD
+						VR0OBBYEFH/f6xMjqy+Ci9ctWA+7FStjJwNoMA0GCSqGSIb3DQEBBQUAA4IBAQC8
+						y6IkTzJqruNKtOZno4GswDkszRcDYMNx1w+JfMVJZG2YkVkPvWkP9JTCN/tVjKEZ
+						a5H4kq2jMUrBndjdu1W+v5jio8mXY8kDCp7Sly5eUtWrqE2q/1iTmJ4oWCHydRcD
+						Ez+X0sxSnQqxmcFe4ssS8EFzs1WPvinbhz71JZbnkOadPf//1epRxqJlDTq41p0e
+						mllYEt3rXPJBv1vCEbjLcZ8d1CTzPc8iveaNjU5h/rglqvDFwoIL870yMJg0n9bK
+						4elyV6s5HxPWucc0hyO4eUkbyMnP9QKLAemBKJUgU4SzTVSPLfiFdbe1x4zUMsSO
+						3yQ7F/pT44mChEK7mdRw                       
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sp.eblib.com/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sp.eblib.com/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sp.eblib.com/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp.eblib.com/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sp.eblib.com/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sp.eblib.com/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sp.eblib.com/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp.eblib.com/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sp.eblib.com/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp.eblib.com/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sp.eblib.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sp.eblib.com/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://sp.eblib.com/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://sp.eblib.com/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://sp.eblib.com/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Ebooks Corporation Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">EBL - Ebook Library</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.eblib.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Drew</md:GivenName>
+      <md:SurName>Watson</md:SurName>
+      <md:EmailAddress>mailto:drew.watson@eblib.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Vinay</md:GivenName>
+      <md:SurName>Bharadwaj</md:SurName>
+      <md:EmailAddress>mailto:vinay.bharadwaj@ebooks.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ashmir</md:GivenName>
+      <md:SurName>Dhrolia</md:SurName>
+      <md:EmailAddress>mailto:ashmir.dhrolia@eblib.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

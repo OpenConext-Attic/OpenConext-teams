@@ -1,0 +1,110 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.southstaffs.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">southstaffs.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEwDCCA6igAwIBAgIRALJKliPNbteUqAijkUFzQTQwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjEwMDgwMDAwMDBaFw0xNTEwMDgyMzU5NTlaMIGUMQswCQYD
+						VQQGEwJHQjEWMBQGA1UECBMNU3RhZmZvcmRzaGlyZTERMA8GA1UEBxMIVGFtd29y
+						dGgxJDAiBgNVBAoTG1NvdXRoIFN0YWZmb3Jkc2hpcmUgQ29sbGVnZTEUMBIGA1UE
+						CxMLSVQgU2VydmljZXMxHjAcBgNVBAMTFWlkcC5zb3V0aHN0YWZmcy5hYy51azCC
+						ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKJP+IBzBZb3TiiORL3lHNl/
+						6JRlz/xlVvu6ueE4lE7xdyDs4SxwNduQCiET8iWd9RqOVYD08A++Rv4X75X+K6Tn
+						IM7oobGiqkVQ2S7PbpvJJlrt/2DSgucSW3JjSbbquZEZcLbogVfPrSU3BAJ2LPeG
+						kf4OvbEulR/+FefEXkBFjL/AfSqd/5aoQ/3Pq3q+WXbL0LdBMIuls46XfP5wXEBB
+						mP88DdMU8pXXAkmhLCrq9ozjBI+R/CjNi8GY4ToqM5RW8LkeUCKzCwTqtK059q1T
+						Rh+VLZ0K6SV3D+gNNNicUscHlkUE1bMqtq83u7g+GHqBc+Ji3CqTGB87BFZ6Px0C
+						AwEAAaOCAWgwggFkMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0G
+						A1UdDgQWBBSH1TMwXDntlWfyEgPjDvnMkM6p4zAOBgNVHQ8BAf8EBAMCBaAwDAYD
+						VR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwGAYDVR0g
+						BBEwDzANBgsrBgEEAbIxAQICHTA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3Js
+						LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRhMF8w
+						NQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NM
+						Q0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9yZzAg
+						BgNVHREEGTAXghVpZHAuc291dGhzdGFmZnMuYWMudWswDQYJKoZIhvcNAQEFBQAD
+						ggEBAAjrXuZkhZQMctshF4uSoyIrMzGTEdaemSFJV4Gf/vpRcLY55yEH/tE/hHA0
+						gbBB6qV8rBiDH2bLgEroYsN4VhDtqTkD7Wn1aX1HPSoYTyCH/oOVl4xmQu6Bf0i8
+						RjUlIru/8feG7i1VNp8/Icd4GMx+Pcxeavsufsey6QJclcNS+PPhp+xEazwCTfEf
+						QajKK2Jn2Jrj3KuZfxM0+gukA3GdHGuMYEl0KG3pVjUEHcpXSyQgtJD52Zazoytb
+						7Y52LTWOx3dAaWBu+k6bSZxN7hTo69YVYPWQxNJsQKVZhEKrbDD3Awm/0R8QgawB
+						8N28sIuGTGSYwFgY/vA7ccsef3A=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.southstaffs.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.southstaffs.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.southstaffs.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.southstaffs.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.southstaffs.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.southstaffs.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">southstaffs.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEwDCCA6igAwIBAgIRALJKliPNbteUqAijkUFzQTQwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjEwMDgwMDAwMDBaFw0xNTEwMDgyMzU5NTlaMIGUMQswCQYD
+						VQQGEwJHQjEWMBQGA1UECBMNU3RhZmZvcmRzaGlyZTERMA8GA1UEBxMIVGFtd29y
+						dGgxJDAiBgNVBAoTG1NvdXRoIFN0YWZmb3Jkc2hpcmUgQ29sbGVnZTEUMBIGA1UE
+						CxMLSVQgU2VydmljZXMxHjAcBgNVBAMTFWlkcC5zb3V0aHN0YWZmcy5hYy51azCC
+						ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKJP+IBzBZb3TiiORL3lHNl/
+						6JRlz/xlVvu6ueE4lE7xdyDs4SxwNduQCiET8iWd9RqOVYD08A++Rv4X75X+K6Tn
+						IM7oobGiqkVQ2S7PbpvJJlrt/2DSgucSW3JjSbbquZEZcLbogVfPrSU3BAJ2LPeG
+						kf4OvbEulR/+FefEXkBFjL/AfSqd/5aoQ/3Pq3q+WXbL0LdBMIuls46XfP5wXEBB
+						mP88DdMU8pXXAkmhLCrq9ozjBI+R/CjNi8GY4ToqM5RW8LkeUCKzCwTqtK059q1T
+						Rh+VLZ0K6SV3D+gNNNicUscHlkUE1bMqtq83u7g+GHqBc+Ji3CqTGB87BFZ6Px0C
+						AwEAAaOCAWgwggFkMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0G
+						A1UdDgQWBBSH1TMwXDntlWfyEgPjDvnMkM6p4zAOBgNVHQ8BAf8EBAMCBaAwDAYD
+						VR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwGAYDVR0g
+						BBEwDzANBgsrBgEEAbIxAQICHTA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3Js
+						LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRhMF8w
+						NQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NM
+						Q0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9yZzAg
+						BgNVHREEGTAXghVpZHAuc291dGhzdGFmZnMuYWMudWswDQYJKoZIhvcNAQEFBQAD
+						ggEBAAjrXuZkhZQMctshF4uSoyIrMzGTEdaemSFJV4Gf/vpRcLY55yEH/tE/hHA0
+						gbBB6qV8rBiDH2bLgEroYsN4VhDtqTkD7Wn1aX1HPSoYTyCH/oOVl4xmQu6Bf0i8
+						RjUlIru/8feG7i1VNp8/Icd4GMx+Pcxeavsufsey6QJclcNS+PPhp+xEazwCTfEf
+						QajKK2Jn2Jrj3KuZfxM0+gukA3GdHGuMYEl0KG3pVjUEHcpXSyQgtJD52Zazoytb
+						7Y52LTWOx3dAaWBu+k6bSZxN7hTo69YVYPWQxNJsQKVZhEKrbDD3Awm/0R8QgawB
+						8N28sIuGTGSYwFgY/vA7ccsef3A=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.southstaffs.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.southstaffs.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">South Staffordshire College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">South Staffordshire College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.southstaffs.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Gary</md:GivenName>
+      <md:SurName>Booth</md:SurName>
+      <md:EmailAddress>mailto:gary.booth@southstaffs.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Gary</md:GivenName>
+      <md:SurName>Booth</md:SurName>
+      <md:EmailAddress>mailto:gary.booth@southstaffs.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

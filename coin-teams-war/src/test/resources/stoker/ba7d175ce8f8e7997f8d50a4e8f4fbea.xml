@@ -1,0 +1,96 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://franklin-shib01.franklin.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">franklin.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDZTCCAk2gAwIBAgIUcOe08w8KtBXNXbH+PNNNyO51KrswDQYJKoZIhvcNAQEF
+						BQAwKTEnMCUGA1UEAxMeZnJhbmtsaW4tc2hpYjAxLmZyYW5rbGluLmFjLnVrMB4X
+						DTEwMDMwMjEzNDYxN1oXDTMwMDMwMjEzNDYxN1owKTEnMCUGA1UEAxMeZnJhbmts
+						aW4tc2hpYjAxLmZyYW5rbGluLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+						MIIBCgKCAQEA0ffs3wu73Gh7k0HUFbl9H0cdSF9Elc11El7uJGXEthMHau0HYCdt
+						BE645S7EpW0poknu1HaLVqv9aSmEcTRI77bZ4xjGbODR8PiVlxVCfPT+FDDAulY8
+						Os7ORD099SbgMJtkU/JLheEzZpgFqFf8TgLNDazfdRryi3MVgWeEoKwYOO2H9BV0
+						KSETpu9Wn7miyt0salbeX9bjpSEURqNRX0WymJT/dxDTKSh1bVx02+BcqbUDyQQ4
+						jo6xBJARO+c5idPv85E/NFd2WVrA4vWYiXdGQns99n2YQbG2gECw5vxQr/MyWzt1
+						2xhzjsR0pno6QdveIWMmAMw/og69QjRIiQIDAQABo4GEMIGBMGAGA1UdEQRZMFeC
+						HmZyYW5rbGluLXNoaWIwMS5mcmFua2xpbi5hYy51a4Y1aHR0cHM6Ly9mcmFua2xp
+						bi1zaGliMDEuZnJhbmtsaW4uYWMudWsvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYE
+						FPD7x48+M7C+18p79NOvITXP81FxMA0GCSqGSIb3DQEBBQUAA4IBAQAYPiPM9HJm
+						900vq4X29iZz4r8gFEly/D3YN/8KqIAbKTY3CUZBcBse0NEOXwkw5JJrMbFSYcPN
+						MUyp7GCuYXGxfJ79SLwuI/fzZE/DDpXy9DsG9oNFsr2svJl03hOx3myXngbmZGQZ
+						qxMGVl3tJHV4GARfeo9p9hknnPt59sjPX+r9+ppG/V80jcD0CMHynW1/sxpcUOSN
+						yXPJFkmpdhrtXRsebF4g2O93bc+8pJETG16teg4zGHeF7iKsjnQSISvFV4xj5vIu
+						vtssyMJTau2MHvDz6ms4FaiMY5L+vzXXMMQ2pkfqSuOAjEkhd0WEOPY54L/fpBFE
+						1tR0bsDdT1Yt
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://franklin-shib01.franklin.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://franklin-shib01.franklin.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://franklin-shib01.franklin.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://franklin-shib01.franklin.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://franklin-shib01.franklin.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://franklin-shib01.franklin.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">franklin.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDZTCCAk2gAwIBAgIUcOe08w8KtBXNXbH+PNNNyO51KrswDQYJKoZIhvcNAQEF
+						BQAwKTEnMCUGA1UEAxMeZnJhbmtsaW4tc2hpYjAxLmZyYW5rbGluLmFjLnVrMB4X
+						DTEwMDMwMjEzNDYxN1oXDTMwMDMwMjEzNDYxN1owKTEnMCUGA1UEAxMeZnJhbmts
+						aW4tc2hpYjAxLmZyYW5rbGluLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+						MIIBCgKCAQEA0ffs3wu73Gh7k0HUFbl9H0cdSF9Elc11El7uJGXEthMHau0HYCdt
+						BE645S7EpW0poknu1HaLVqv9aSmEcTRI77bZ4xjGbODR8PiVlxVCfPT+FDDAulY8
+						Os7ORD099SbgMJtkU/JLheEzZpgFqFf8TgLNDazfdRryi3MVgWeEoKwYOO2H9BV0
+						KSETpu9Wn7miyt0salbeX9bjpSEURqNRX0WymJT/dxDTKSh1bVx02+BcqbUDyQQ4
+						jo6xBJARO+c5idPv85E/NFd2WVrA4vWYiXdGQns99n2YQbG2gECw5vxQr/MyWzt1
+						2xhzjsR0pno6QdveIWMmAMw/og69QjRIiQIDAQABo4GEMIGBMGAGA1UdEQRZMFeC
+						HmZyYW5rbGluLXNoaWIwMS5mcmFua2xpbi5hYy51a4Y1aHR0cHM6Ly9mcmFua2xp
+						bi1zaGliMDEuZnJhbmtsaW4uYWMudWsvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYE
+						FPD7x48+M7C+18p79NOvITXP81FxMA0GCSqGSIb3DQEBBQUAA4IBAQAYPiPM9HJm
+						900vq4X29iZz4r8gFEly/D3YN/8KqIAbKTY3CUZBcBse0NEOXwkw5JJrMbFSYcPN
+						MUyp7GCuYXGxfJ79SLwuI/fzZE/DDpXy9DsG9oNFsr2svJl03hOx3myXngbmZGQZ
+						qxMGVl3tJHV4GARfeo9p9hknnPt59sjPX+r9+ppG/V80jcD0CMHynW1/sxpcUOSN
+						yXPJFkmpdhrtXRsebF4g2O93bc+8pJETG16teg4zGHeF7iKsjnQSISvFV4xj5vIu
+						vtssyMJTau2MHvDz6ms4FaiMY5L+vzXXMMQ2pkfqSuOAjEkhd0WEOPY54L/fpBFE
+						1tR0bsDdT1Yt
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://franklin-shib01.franklin.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://franklin-shib01.franklin.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Franklin Sixth Form College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Franklin College, Grimsby</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.franklin.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>John</md:GivenName>
+      <md:SurName>Ramsden</md:SurName>
+      <md:EmailAddress>mailto:john.ramsden@franklin.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Steve</md:GivenName>
+      <md:SurName>Bottomley</md:SurName>
+      <md:EmailAddress>mailto:steve.bottomley@franklin.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

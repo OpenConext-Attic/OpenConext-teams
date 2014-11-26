@@ -1,0 +1,99 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.lstonline.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-11-13T09:04:59Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">lstonline.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDODCCAiCgAwIBAgIVAMFlYrF0zZoa942kcmsKFS6POLrtMA0GCSqGSIb3DQEB
+						BQUAMB4xHDAaBgNVBAMME2lkcC5sc3RvbmxpbmUuYWMudWswHhcNMTQwODE4MDk1
+						NjM3WhcNMzQwODE4MDk1NjM3WjAeMRwwGgYDVQQDDBNpZHAubHN0b25saW5lLmFj
+						LnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk7ao0zPOg1uysBKB
+						GF4fCHFBuREEWFmSzvqWzQZfyL2TepKrRHxcVEkDZLPvqQMz5Bhelk6u6XFabTWD
+						ywFho2LCk5xHax03ZT/tdkK8GgmopqgyLMSfrKBm0QLFrFne14x3fPUUriiEUAAI
+						5j1AyIusiwBeOJjSz4qh2wQIshL1XsacTpNQtyYb72Ov88gAIsqogc5G24P1xq5d
+						DfOS4tjLgcdZsVUzuCI4nKjrHcVYY0fRTYx8VilH3vYYOZKs8jQ3m79v7KEYBll5
+						DBH7/PoALisut/Bi6jA2nqnrhGT/E7HqeCg8yvoDu7PXz1/Hzs6xiCCCMxRlfCMx
+						/rW/zQIDAQABo20wazAdBgNVHQ4EFgQUlxTFQwycWjBKkLREWm0D6sqE61UwSgYD
+						VR0RBEMwQYITaWRwLmxzdG9ubGluZS5hYy51a4YqaHR0cHM6Ly9pZHAubHN0b25s
+						aW5lLmFjLnVrL2lkcC9zaGliYm9sZXRoMA0GCSqGSIb3DQEBBQUAA4IBAQBXemp0
+						xzsyQQtxp0BPTGZoPvrV+0mb6q6gWKe6A/zus00SIUSxioMUjS2oiGEsyzWlsP8Q
+						9nmbseTtzz4Bw1cpynOjqCvvJ8/eTdvMCGFEGzknth5ww+dJN/r/9sVDycrTPxyl
+						/z1b8ikFMqNrrkv/Er7r4ldUeoF/skojOBQ5BcHu1D4WRVYpjNlX39nAyjw8pgFc
+						D9r34nfY53dQOgrGUneQtqTLueqQfdonEE/I0IiouehnZ8EjBNMWI2sRHJYsim5a
+						zdHPlAIvSZc7mqH+NprXPLi39BJh6/LVNq/KxBLPh+dXvxOTekhJ/ihW1JGnvBaO
+						J8P9Rw7ynUh4F0pC
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.lstonline.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.lstonline.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.lstonline.ac.uk/idp/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.lstonline.ac.uk/idp/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.lstonline.ac.uk:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.lstonline.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.lstonline.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.lstonline.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.lstonline.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">lstonline.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDODCCAiCgAwIBAgIVAMFlYrF0zZoa942kcmsKFS6POLrtMA0GCSqGSIb3DQEB
+						BQUAMB4xHDAaBgNVBAMME2lkcC5sc3RvbmxpbmUuYWMudWswHhcNMTQwODE4MDk1
+						NjM3WhcNMzQwODE4MDk1NjM3WjAeMRwwGgYDVQQDDBNpZHAubHN0b25saW5lLmFj
+						LnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk7ao0zPOg1uysBKB
+						GF4fCHFBuREEWFmSzvqWzQZfyL2TepKrRHxcVEkDZLPvqQMz5Bhelk6u6XFabTWD
+						ywFho2LCk5xHax03ZT/tdkK8GgmopqgyLMSfrKBm0QLFrFne14x3fPUUriiEUAAI
+						5j1AyIusiwBeOJjSz4qh2wQIshL1XsacTpNQtyYb72Ov88gAIsqogc5G24P1xq5d
+						DfOS4tjLgcdZsVUzuCI4nKjrHcVYY0fRTYx8VilH3vYYOZKs8jQ3m79v7KEYBll5
+						DBH7/PoALisut/Bi6jA2nqnrhGT/E7HqeCg8yvoDu7PXz1/Hzs6xiCCCMxRlfCMx
+						/rW/zQIDAQABo20wazAdBgNVHQ4EFgQUlxTFQwycWjBKkLREWm0D6sqE61UwSgYD
+						VR0RBEMwQYITaWRwLmxzdG9ubGluZS5hYy51a4YqaHR0cHM6Ly9pZHAubHN0b25s
+						aW5lLmFjLnVrL2lkcC9zaGliYm9sZXRoMA0GCSqGSIb3DQEBBQUAA4IBAQBXemp0
+						xzsyQQtxp0BPTGZoPvrV+0mb6q6gWKe6A/zus00SIUSxioMUjS2oiGEsyzWlsP8Q
+						9nmbseTtzz4Bw1cpynOjqCvvJ8/eTdvMCGFEGzknth5ww+dJN/r/9sVDycrTPxyl
+						/z1b8ikFMqNrrkv/Er7r4ldUeoF/skojOBQ5BcHu1D4WRVYpjNlX39nAyjw8pgFc
+						D9r34nfY53dQOgrGUneQtqTLueqQfdonEE/I0IiouehnZ8EjBNMWI2sRHJYsim5a
+						zdHPlAIvSZc7mqH+NprXPLi39BJh6/LVNq/KxBLPh+dXvxOTekhJ/ihW1JGnvBaO
+						J8P9Rw7ynUh4F0pC
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.lstonline.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.lstonline.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">London School of Theology</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">London School of Theology</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.lst.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Mike</md:GivenName>
+      <md:SurName>Taylor</md:SurName>
+      <md:EmailAddress>mailto:mike.taylor@lst.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mike</md:GivenName>
+      <md:SurName>Taylor</md:SurName>
+      <md:EmailAddress>mailto:mike.taylor@lst.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

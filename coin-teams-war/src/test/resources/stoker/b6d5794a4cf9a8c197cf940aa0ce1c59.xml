@@ -1,0 +1,82 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://qa.dawsonera.com/shibboleth">
+    <md:Extensions>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-04-12T13:17:34Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://qa.dawsonera.com/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://qa.dawsonera.com/Shibboleth.sso/Login" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDPDCCAiQCCQC0Ky/bIMuQajANBgkqhkiG9w0BAQUFADBgMQswCQYDVQQGEwJV
+						SzEPMA0GA1UECBMGU3Vzc2V4MREwDwYDVQQHEwhCcmlnaHRvbjESMBAGA1UEChMJ
+						c2VtYW50aWNvMRkwFwYDVQQDExBxYS5kYXdzb25lcmEuY29tMB4XDTEzMDQxMDA5
+						NTMzMVoXDTE1MDQxMDA5NTMzMVowYDELMAkGA1UEBhMCVUsxDzANBgNVBAgTBlN1
+						c3NleDERMA8GA1UEBxMIQnJpZ2h0b24xEjAQBgNVBAoTCXNlbWFudGljbzEZMBcG
+						A1UEAxMQcWEuZGF3c29uZXJhLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+						AQoCggEBAMk2vJiHzuv5fLpisAaVQFFIQVgcxiLnq1IUgsDD2b2dZwbJ+jnc9L0W
+						lRUVg7UczlTX6yFDMHXexbLr2ZK5kzamWSwPyi5VEvxrFTJk6RYHoV+OCLdqBugX
+						b7nb3k3tvtdY4M1tvNiepfxeEGvB/j2+vThdG8ziwxk9o4OoRfW5EcXI7LJiJkIx
+						lVtxQHyZ4ZzFsNx+pgaJcGuf6BXRSJ3AOUezkPGaBOLKyBeMTgwvANubCzQy6GXI
+						SVdOM5qCMMEpsjp9Bob242iJo07deEv9um7bBI4pGlE2y85PNYnIXqhnFKlqN+wP
+						n4/JgFJ4f/uiz3MNULKFd7dT6zvNhRkCAwEAATANBgkqhkiG9w0BAQUFAAOCAQEA
+						t3FU0AH1Cg/vyOcNtqk2UW67h0M8TXzya9QlYBjNPeeD2b2FxWYOWckYyxp73QUE
+						MDm/lzz9Vnt3uUR53DuidNfSwoh1xoDZWxCa04wFq41+dv+K+KTpMtbCx3LEWkm4
+						fE/AIcvD/5i0IR0UYvgyElJC8ZA5gINZQGs7GUHOWl+WSJATVZ04NMkSu81ecgPR
+						uAgAlVn4CIs6BK7w+GYmGIMPh+TOwuBeA9RXPVtYV1/DOi8J488bu1t1BRSzgFAZ
+						0LfHeCvTazIS97MK6v6zLztr5TE2Up0bGuY40AQ7os+Cve3PiPyZvwj/sh0bYWzY
+						aghk88mgQ85rliDI3J2b+A==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://qa.dawsonera.com/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://qa.dawsonera.com/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://qa.dawsonera.com/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://qa.dawsonera.com/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://qa.dawsonera.com/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://qa.dawsonera.com/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://qa.dawsonera.com/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://qa.dawsonera.com/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://qa.dawsonera.com/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://qa.dawsonera.com/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://qa.dawsonera.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://qa.dawsonera.com/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://qa.dawsonera.com/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://qa.dawsonera.com/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://qa.dawsonera.com/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Semantico Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Dawson Shibboleth 2 SP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.dawsonbooks.co.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:daw-shibboleth-support@semantico.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:daw-shibboleth-support@semantico.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

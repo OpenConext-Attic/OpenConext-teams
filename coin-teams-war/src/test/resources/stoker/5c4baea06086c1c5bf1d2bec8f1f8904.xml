@@ -1,10 +1,10 @@
-<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://www.qoam.eu/">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.qoam.eu/">
     <md:Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.surfconext.nl/" registrationInstant="2014-06-02T14:00:00Z">
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.surfconext.nl/" registrationInstant="2014-06-02T14:00:00Z">
         <mdrpi:RegistrationPolicy xml:lang="en">https://wiki.surfnetlabs.nl/display/eduGAIN/EduGAIN</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
-        <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
           <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
         </saml:Attribute>
       </mdattr:EntityAttributes>
@@ -16,7 +16,7 @@
           <mdui:Description xml:lang="en">Quality Open Access Market is primarily for authors who want to publish their article in open access in a high quality journal and for a reasonable price.</mdui:Description>
           <mdui:InformationURL xml:lang="en">https://www.qoam.eu/oamarket/about</mdui:InformationURL>
           <mdui:PrivacyStatementURL xml:lang="en">https://www.qoam.eu/oamarket/about#privacy</mdui:PrivacyStatementURL>
-          <mdui:Logo height="65" width="65">https://static.surfconext.nl/media/sp/OAmarket.png</mdui:Logo>
+          <mdui:Logo width="65" height="65">https://static.surfconext.nl/media/sp/OAmarket.png</mdui:Logo>
         </mdui:UIInfo>
       </md:Extensions>
       <md:KeyDescriptor use="signing">

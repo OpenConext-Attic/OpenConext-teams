@@ -1,40 +1,33 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" ID="IDEM-EDUGAIN00022" entityID="https://wifi.dir.garr.it:12081/shibboleth">
-        <Extensions>
-            <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.idem.garr.it/" registrationInstant="2013-07-30T15:00:00Z">
-                <mdrpi:RegistrationPolicy xml:lang="en">https://www.idem.garr.it/idem-metadata-registration-practice-statement</mdrpi:RegistrationPolicy>
-            </mdrpi:RegistrationInfo>
-            
-            <mdattr:EntityAttributes>
-                <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
-                    <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
-                </saml:Attribute>
-            </mdattr:EntityAttributes>
-            
-        </Extensions>
-        
-        <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
-            <Extensions>
-                <mdui:UIInfo>
-                    <mdui:DisplayName xml:lang="en">WIFI provided by GARR</mdui:DisplayName>
-                    <mdui:DisplayName xml:lang="it">WIFI erogato da GARR</mdui:DisplayName>
-                    <mdui:Description xml:lang="en">Wi-Fi connection to the wireless network in GARR (Rome, IT). This service enables the authentication by IDEM credentials at wireless network in GARR</mdui:Description>
-                    <mdui:Description xml:lang="it">Connessione Wi-Fi alla rete wireless di GARR nella sede di Roma (IT). Questo servizio abilita l'autenticazione mediante credenziali IDEM presso la rete wireless della Direzione GARR</mdui:Description>
-                    <mdui:InformationURL xml:lang="en">http://www.garr.it/wifi/info</mdui:InformationURL>
-                    <mdui:InformationURL xml:lang="it">http://www.garr.it/wifi/info</mdui:InformationURL>
-                    <mdui:PrivacyStatementURL xml:lang="en">http://www.garr.it/wifi/privacy</mdui:PrivacyStatementURL>
-                    <mdui:PrivacyStatementURL xml:lang="it">http://www.garr.it/wifi/privacy</mdui:PrivacyStatementURL>
-                    
-                </mdui:UIInfo>
-                <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/Login"/>
-                <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/WAYF"/>
-            </Extensions>
-            
-            <KeyDescriptor>
-                <ds:KeyInfo>
-                    
-                    <ds:X509Data>
-                        
-                        <ds:X509Certificate>
+<md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://wifi.dir.garr.it:12081/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.idem.garr.it/" registrationInstant="2013-07-30T15:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.idem.garr.it/idem-metadata-registration-practice-statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">WIFI provided by GARR</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="it">WIFI erogato da GARR</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Wi-Fi connection to the wireless network in GARR (Rome, IT). This service enables the authentication by IDEM credentials at wireless network in GARR</mdui:Description>
+          <mdui:Description xml:lang="it">Connessione Wi-Fi alla rete wireless di GARR nella sede di Roma (IT). Questo servizio abilita l'autenticazione mediante credenziali IDEM presso la rete wireless della Direzione GARR</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.garr.it/wifi/info</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="it">http://www.garr.it/wifi/info</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">http://www.garr.it/wifi/privacy</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="it">http://www.garr.it/wifi/privacy</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/Login"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/WAYF"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIEbjCCA1agAwIBAgIRALxMXgZtagsFRXGxHmc7ojQwDQYJKoZIhvcNAQEFBQAw
 NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
 IFNTTCBDQTAeFw0xMzA3MDUwMDAwMDBaFw0xNjA3MDQyMzU5NTlaMD4xITAfBgNV
@@ -60,45 +53,39 @@ T7jgUwih9oD9bZqNGy3q8QsJZlAuj65RmLJUTz4XUcS5RJrePlQSMj3WQklkoKkO
 3/o35Z0PboOdmDyvBkGP7vdkZ3xuBH9F8C3FZ91t5F0hieeFnFOEXyZcPq14vQ5C
 Jp4P35Fmyp0bxWiEwrpCwV8TZ5lpllIJvrB1rVPxSYE80w==
 </ds:X509Certificate>
-                    </ds:X509Data>
-                </ds:KeyInfo>
-            </KeyDescriptor>
-            
-            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/Artifact/SOAP" index="1"/>
-            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/SLO/SOAP"/>
-            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/SLO/Redirect"/>
-            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/SLO/POST"/>
-            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/SLO/Artifact"/>
-            <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/NIM/SOAP"/>
-            <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/NIM/Redirect"/>
-            <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/NIM/POST"/>
-            <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/NIM/Artifact"/>
-            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/SAML2/POST" index="1"/>
-            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
-            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/SAML2/Artifact" index="3"/>
-            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/SAML2/ECP" index="4"/>
-            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/SAML/POST" index="5"/>
-            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/SAML/Artifact" index="6"/>
-            
-            <AttributeConsumingService index="1">
-                <ServiceName xml:lang="en">WIFI connection provided by GARR</ServiceName>
-                <ServiceDescription xml:lang="en">Wifi access for guests in the GARR wireless network (Rome)</ServiceDescription>
-                <RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-            </AttributeConsumingService>
-            
-        </SPSSODescriptor>
-        
-        <Organization>
-            <OrganizationName xml:lang="en">Consortium GARR</OrganizationName>
-            <OrganizationName xml:lang="it">Consortium GARR</OrganizationName>
-            <OrganizationDisplayName xml:lang="en">Wi-Fi provided by Consortium GARR</OrganizationDisplayName>
-            <OrganizationDisplayName xml:lang="it">Wi-Fi erogato da Consortium GARR</OrganizationDisplayName>
-            <OrganizationURL xml:lang="en">http://www.garr.it</OrganizationURL>
-            <OrganizationURL xml:lang="it">http://www.garr.it/b/eng</OrganizationURL>
-        </Organization>
-        
-        <ContactPerson contactType="technical">
-            <EmailAddress>system.support@garr.it</EmailAddress>
-        </ContactPerson>
-        
-    </EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://wifi.dir.garr.it:12081/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="en">WIFI connection provided by GARR</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">Wifi access for guests in the GARR wireless network (Rome)</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Consortium GARR</md:OrganizationName>
+      <md:OrganizationName xml:lang="it">Consortium GARR</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Wi-Fi provided by Consortium GARR</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="it">Wi-Fi erogato da Consortium GARR</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.garr.it</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="it">http://www.garr.it/b/eng</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>mailto:system.support@garr.it</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

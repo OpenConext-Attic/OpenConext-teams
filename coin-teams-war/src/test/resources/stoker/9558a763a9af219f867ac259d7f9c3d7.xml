@@ -1,27 +1,25 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" ID="IDEM-EDUGAIN00002" entityID="https://idp.uniroma3.it/idp/shibboleth">
-        
-        <Extensions>
-            <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.idem.garr.it/" registrationInstant="2009-12-31T15:00:00Z">
-                <mdrpi:RegistrationPolicy xml:lang="en">https://www.idem.garr.it/idem-metadata-registration-practice-statement</mdrpi:RegistrationPolicy>
-            </mdrpi:RegistrationInfo>
-        </Extensions>
-        
-        <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-            <Extensions>
-                <shibmd:Scope regexp="false">uniroma3.it</shibmd:Scope>
-                <mdui:UIInfo>
-                    <mdui:DisplayName xml:lang="en">University Roma TRE IdP</mdui:DisplayName>
-                    <mdui:DisplayName xml:lang="it">Università di Roma Tre IdP</mdui:DisplayName>
-                    <mdui:Description xml:lang="en">Identity Provider for Roma TRE members</mdui:Description>
-                    <mdui:Description xml:lang="it">Identity Provider per gli utenti di Roma Tre</mdui:Description>
-                    <mdui:InformationURL xml:lang="en">http://www.idem.uniroma3.it/EN</mdui:InformationURL>
-                    <mdui:InformationURL xml:lang="it">http://www.idem.uniroma3.it/IT</mdui:InformationURL>
-                </mdui:UIInfo>
-            </Extensions>
-            <KeyDescriptor>
-                <ds:KeyInfo>
-                    <ds:X509Data>
-                        <ds:X509Certificate>
+<md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.uniroma3.it/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.idem.garr.it/" registrationInstant="2009-12-31T15:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.idem.garr.it/idem-metadata-registration-practice-statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uniroma3.it</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University Roma TRE IdP</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="it">Università di Roma Tre IdP</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity Provider for Roma TRE members</mdui:Description>
+          <mdui:Description xml:lang="it">Identity Provider per gli utenti di Roma Tre</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.idem.uniroma3.it/EN</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="it">http://www.idem.uniroma3.it/IT</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIEhDCCA2ygAwIBAgIRAJJ4jZUD61jOwDV9E8upZlQwDQYJKoZIhvcNAQEFBQAw
 NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
 IFNTTCBDQTAeFw0xMzAyMjgwMDAwMDBaFw0xNjAyMjgyMzU5NTlaMD0xITAfBgNV
@@ -48,27 +46,26 @@ WgJ2RWgB09FrRjx/SB7UtFR93WaYSKgNq3CxtKnK5CTxUkd/WidcH6h07anBz66R
 wv+Hdi7+aibTF9pRMYHhYxatMrnPZpIfbX0vxRiaL3NLfopA7UUKpTwDM7Z3DM/B
 cTXFyKPFTrE=
 </ds:X509Certificate>
-                    </ds:X509Data>
-                </ds:KeyInfo>
-            </KeyDescriptor>
-            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.uniroma3.it:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.uniroma3.it:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-            <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.uniroma3.it/idp/profile/Shibboleth/SSO"/>
-            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.uniroma3.it/idp/profile/SAML2/POST/SSO"/>
-            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.uniroma3.it/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.uniroma3.it/idp/profile/SAML2/Redirect/SSO"/>
-        </IDPSSODescriptor>
-        <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-            <Extensions>
-                <shibmd:Scope regexp="false">uniroma3.it</shibmd:Scope>
-                
-            </Extensions>
-            <KeyDescriptor>
-                <ds:KeyInfo>
-                    <ds:X509Data>
-                        <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.uniroma3.it:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.uniroma3.it:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.uniroma3.it/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.uniroma3.it/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.uniroma3.it/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.uniroma3.it/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uniroma3.it</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIEhDCCA2ygAwIBAgIRAJJ4jZUD61jOwDV9E8upZlQwDQYJKoZIhvcNAQEFBQAw
 NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
 IFNTTCBDQTAeFw0xMzAyMjgwMDAwMDBaFw0xNjAyMjgyMzU5NTlaMD0xITAfBgNV
@@ -95,24 +92,24 @@ WgJ2RWgB09FrRjx/SB7UtFR93WaYSKgNq3CxtKnK5CTxUkd/WidcH6h07anBz66R
 wv+Hdi7+aibTF9pRMYHhYxatMrnPZpIfbX0vxRiaL3NLfopA7UUKpTwDM7Z3DM/B
 cTXFyKPFTrE=
 </ds:X509Certificate>
-                    </ds:X509Data>
-                </ds:KeyInfo>
-            </KeyDescriptor>
-            <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.uniroma3.it:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-            <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.uniroma3.it:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-        </AttributeAuthorityDescriptor>
-        <Organization>
-            <OrganizationName xml:lang="en">University of Roma TRE</OrganizationName>
-            <OrganizationName xml:lang="it">Università di Roma TRE</OrganizationName>
-            <OrganizationDisplayName xml:lang="en">University of Roma TRE</OrganizationDisplayName>
-            <OrganizationDisplayName xml:lang="it">Università di Roma TRE</OrganizationDisplayName>
-            <OrganizationURL xml:lang="en">http://www.uniroma3.it/en2/</OrganizationURL>
-            <OrganizationURL xml:lang="it">http://www.uniroma3.it/</OrganizationURL>
-        </Organization>
-        <ContactPerson contactType="technical">
-            <SurName>Technical Support</SurName>
-            <EmailAddress>idem@uniroma3.it</EmailAddress>
-        </ContactPerson>
-    </EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.uniroma3.it:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.uniroma3.it:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Roma TRE</md:OrganizationName>
+      <md:OrganizationName xml:lang="it">Università di Roma TRE</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Roma TRE</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="it">Università di Roma TRE</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.uniroma3.it/en2/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="it">http://www.uniroma3.it/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Technical Support</md:SurName>
+      <md:EmailAddress>mailto:idem@uniroma3.it</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

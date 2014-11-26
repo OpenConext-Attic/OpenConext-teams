@@ -1,20 +1,20 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://umbrella.psi.ch/">
-			<Extensions>
-                <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://rr.aai.switch.ch/" registrationInstant="2014-03-18T09:41:16Z">
-                    <mdrpi:RegistrationPolicy xml:lang="en">https://www.switch.ch/aai/federation/switchaai/metadata-registration-practice-statement-20110711.txt</mdrpi:RegistrationPolicy>
-                </mdrpi:RegistrationInfo>
-			</Extensions>
-			<SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
-			<Extensions>
-				<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-					<mdui:DisplayName xml:lang="en">Umbrella Test Service Provider</mdui:DisplayName>
-					<mdui:Description xml:lang="en">Umbrella Test Service Provider for developing  bridging between eduGain and Umbrella Federation</mdui:Description>
-				</mdui:UIInfo>
-			</Extensions>
-			<KeyDescriptor>
-				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					<ds:X509Data>
-						<ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://umbrella.psi.ch/">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://rr.aai.switch.ch/" registrationInstant="2014-03-18T09:41:16Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.switch.ch/aai/federation/switchaai/metadata-registration-practice-statement-20110711.txt</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Umbrella Test Service Provider</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Umbrella Test Service Provider for developing  bridging between eduGain and Umbrella Federation</mdui:Description>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIDGDCCAgCgAwIBAgIJAPuvSPAzAC6mMA0GCSqGSIb3DQEBBQUAMBoxGDAWBgNV
 BAMTD3VtYnJlbGxhLnBzaS5jaDAeFw0xMzExMjgxMDQ2MjBaFw0xNjExMjcxMDQ2
 MjBaMBoxGDAWBgNVBAMTD3VtYnJlbGxhLnBzaS5jaDCCASIwDQYJKoZIhvcNAQEB
@@ -34,42 +34,42 @@ mB0SSH6Wh64W+Tkwp4HES9XCdEWbuSeJEO+0MEC8kBR13YlXLIsGU95Q5694eeun
 jXaHZDgEhAR+tFkQFgpQhGcJTs1bLugCxSjdrA==
 
 						</ds:X509Certificate>
-					</ds:X509Data>
-				</ds:KeyInfo>
-			</KeyDescriptor>
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-			<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://umbrella.psi.ch/Shibboleth.sso/SAML2/POST" index="1"/>
-			<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://umbrella.psi.ch/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
-			<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://umbrella.psi.ch/Shibboleth.sso/SAML2/Artifact" index="3"/>
-			<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://umbrella.psi.ch/Shibboleth.sso/SAML2/ECP" index="4"/>
-			<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://umbrella.psi.ch/Shibboleth.sso/SAML/POST" index="5"/>
-			<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://umbrella.psi.ch/Shibboleth.sso/SAML/Artifact" index="6"/>
-			<AttributeConsumingService index="1">
-					<ServiceName xml:lang="en">Umbrella Test Service Provider</ServiceName>
-					<ServiceDescription xml:lang="en">Umbrella Test Service Provider for developing  bridging between eduGain and Umbrella Federation</ServiceDescription>
-				<RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-				<RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-				<RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-			</AttributeConsumingService>
-			</SPSSODescriptor>
-		<Organization>
-			<OrganizationName xml:lang="en">psi.ch</OrganizationName>
-			<OrganizationDisplayName xml:lang="de">PSI - Paul Scherrer Institut</OrganizationDisplayName>
-			<OrganizationDisplayName xml:lang="en">PSI - Paul Scherrer Institute</OrganizationDisplayName>
-			<OrganizationURL xml:lang="de">http://www.psi.ch/</OrganizationURL>
-			<OrganizationURL xml:lang="en">http://www.psi.ch/</OrganizationURL>
-		</Organization>
-		<ContactPerson contactType="support">
-			<GivenName>Björn</GivenName>
-			<SurName>Abt</SurName>
-			<EmailAddress>mailto:bjoern.abt@psi.ch</EmailAddress>
-			<TelephoneNumber>+41563103509</TelephoneNumber>
-		</ContactPerson>
-		<ContactPerson contactType="technical">
-			<GivenName>Björn</GivenName>
-			<SurName>Abt</SurName>
-			<EmailAddress>mailto:bjoern.abt@psi.ch</EmailAddress>
-			<TelephoneNumber>+41563103509</TelephoneNumber>
-		</ContactPerson>
-		</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://umbrella.psi.ch/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://umbrella.psi.ch/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://umbrella.psi.ch/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://umbrella.psi.ch/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://umbrella.psi.ch/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://umbrella.psi.ch/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="en">Umbrella Test Service Provider</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">Umbrella Test Service Provider for developing  bridging between eduGain and Umbrella Federation</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">psi.ch</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">PSI - Paul Scherrer Institut</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">PSI - Paul Scherrer Institute</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.psi.ch/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.psi.ch/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Björn</md:GivenName>
+      <md:SurName>Abt</md:SurName>
+      <md:EmailAddress>mailto:bjoern.abt@psi.ch</md:EmailAddress>
+      <md:TelephoneNumber>+41563103509</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Björn</md:GivenName>
+      <md:SurName>Abt</md:SurName>
+      <md:EmailAddress>mailto:bjoern.abt@psi.ch</md:EmailAddress>
+      <md:TelephoneNumber>+41563103509</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

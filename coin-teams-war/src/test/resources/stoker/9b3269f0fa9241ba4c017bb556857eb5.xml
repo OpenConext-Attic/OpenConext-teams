@@ -1,32 +1,32 @@
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shib-idp-1.oru.se/idp/shibboleth">
-<md:Extensions>
-<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.swamid.se/">
-<mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
-</mdrpi:RegistrationInfo>
-</md:Extensions>
-  <IDPSSODescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-    <Extensions>
-      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">oru.se</shibmd:Scope>
-      <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-        <mdui:DisplayName xml:lang="sv">Örebro universitet</mdui:DisplayName>
-        <mdui:DisplayName xml:lang="en">Örebro University</mdui:DisplayName>
-        <mdui:Description xml:lang="sv">Identity Provider för Örebro universitet</mdui:Description>
-        <mdui:Description xml:lang="en">Örebro University Identity Provider</mdui:Description>
-        <mdui:Logo height="65" width="90">https://cas-01.oru.se/cas/Logo_txt_runt_farg.gif</mdui:Logo>
-        <mdui:Keywords xml:lang="sv">ORU ORU.SE Örebro Orebro Orebro+universitet Örebro+University Orebro+university Örebro+universitet</mdui:Keywords>
-        <mdui:Keywords xml:lang="en">ORU ORU.SE Örebro Orebro Orebro+universitet Örebro+University Orebro+university Örebro+universitet</mdui:Keywords>
-      </mdui:UIInfo>
-      <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-        <mdui:DomainHint>oru.se</mdui:DomainHint>
-        <mdui:IPHint>130.243.96.0/19</mdui:IPHint>
-        <mdui:GeolocationHint>geo:59.2547,15.2485</mdui:GeolocationHint>
-        <mdui:GeolocationHint>geo:59.7065,14.5473</mdui:GeolocationHint>
-      </mdui:DiscoHints>
-    </Extensions>
-    <KeyDescriptor>
-      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-        <ds:X509Data>
-          <ds:X509Certificate>MIIDMDCCAhigAwIBAgIVALJU7HH8NWybHvd6JV9KLneiEBQ9MA0GCSqGSIb3DQEB
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shib-idp-1.oru.se/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">oru.se</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="sv">Örebro universitet</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Örebro University</mdui:DisplayName>
+          <mdui:Description xml:lang="sv">Identity Provider för Örebro universitet</mdui:Description>
+          <mdui:Description xml:lang="en">Örebro University Identity Provider</mdui:Description>
+          <mdui:Logo height="65" width="90">https://cas-01.oru.se/cas/Logo_txt_runt_farg.gif</mdui:Logo>
+          <mdui:Keywords xml:lang="sv">ORU ORU.SE Örebro Orebro Orebro+universitet Örebro+University Orebro+university Örebro+universitet</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">ORU ORU.SE Örebro Orebro Orebro+universitet Örebro+University Orebro+university Örebro+universitet</mdui:Keywords>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>oru.se</mdui:DomainHint>
+          <mdui:IPHint>130.243.96.0/19</mdui:IPHint>
+          <mdui:GeolocationHint>geo:59.2547,15.2485</mdui:GeolocationHint>
+          <mdui:GeolocationHint>geo:59.7065,14.5473</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDMDCCAhigAwIBAgIVALJU7HH8NWybHvd6JV9KLneiEBQ9MA0GCSqGSIb3DQEB
 BQUAMBwxGjAYBgNVBAMTEXNoaWItaWRwLTEub3J1LnNlMB4XDTA5MTAyNjEwMjU1
 NVoXDTI5MTAyNjA5MjU1NVowHDEaMBgGA1UEAxMRc2hpYi1pZHAtMS5vcnUuc2Uw
 ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC7J4bgJcpbTuu4SD8pYvDC
@@ -44,26 +44,26 @@ x+FduJkHovXk0Z9zfp5YZzJG2ViPYemurS8OEofkJXQKgmoFmw+LycSTMx2G6rnN
 SqQVF5wbEc9N1wy/sisZQ8yw4Err6mDAChcnrGtfFQ5aR89Xrb2VIkaOTRysytEQ
 JCVUOimhAjCyTt7bIWWH3Y1VYBQ9PfklNyHfusJ3AjqnuqYjoDiDKEz42EqLnq71
 Pz8R3A==</ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </KeyDescriptor>
-    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib-idp-1.oru.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib-idp-1.oru.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-    <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shib-idp-1.oru.se/idp/profile/Shibboleth/SSO"/>
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib-idp-1.oru.se/idp/profile/SAML2/POST/SSO"/>
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib-idp-1.oru.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib-idp-1.oru.se/idp/profile/SAML2/Redirect/SSO"/>
-  </IDPSSODescriptor>
-  <AttributeAuthorityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-    <Extensions>
-      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">oru.se</shibmd:Scope>
-    </Extensions>
-    <KeyDescriptor>
-      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-        <ds:X509Data>
-          <ds:X509Certificate>MIIDMDCCAhigAwIBAgIVALJU7HH8NWybHvd6JV9KLneiEBQ9MA0GCSqGSIb3DQEB
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib-idp-1.oru.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib-idp-1.oru.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shib-idp-1.oru.se/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib-idp-1.oru.se/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib-idp-1.oru.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib-idp-1.oru.se/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">oru.se</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDMDCCAhigAwIBAgIVALJU7HH8NWybHvd6JV9KLneiEBQ9MA0GCSqGSIb3DQEB
 BQUAMBwxGjAYBgNVBAMTEXNoaWItaWRwLTEub3J1LnNlMB4XDTA5MTAyNjEwMjU1
 NVoXDTI5MTAyNjA5MjU1NVowHDEaMBgGA1UEAxMRc2hpYi1pZHAtMS5vcnUuc2Uw
 ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC7J4bgJcpbTuu4SD8pYvDC
@@ -81,40 +81,36 @@ x+FduJkHovXk0Z9zfp5YZzJG2ViPYemurS8OEofkJXQKgmoFmw+LycSTMx2G6rnN
 SqQVF5wbEc9N1wy/sisZQ8yw4Err6mDAChcnrGtfFQ5aR89Xrb2VIkaOTRysytEQ
 JCVUOimhAjCyTt7bIWWH3Y1VYBQ9PfklNyHfusJ3AjqnuqYjoDiDKEz42EqLnq71
 Pz8R3A==</ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </KeyDescriptor>
-    <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib-idp-1.oru.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-    <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib-idp-1.oru.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-  </AttributeAuthorityDescriptor>
-  
-  
-  
-  
-<Organization xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
-    <OrganizationName xml:lang="en">ORU</OrganizationName>
-    <OrganizationDisplayName xml:lang="sv">Örebro Universitet</OrganizationDisplayName>
-    <OrganizationDisplayName xml:lang="en">Örebro University</OrganizationDisplayName>
-    <OrganizationURL xml:lang="en">http://www.oru.se</OrganizationURL>
-  </Organization>
-<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="administrative">
-    <Company>Örebro University</Company>
-    <SurName>IT Avdelningen</SurName>
-    <EmailAddress>itsupport@oru.se</EmailAddress>
-    <TelephoneNumber>+46 19 303166</TelephoneNumber>
-  </ContactPerson>
-<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="technical">
-    <Company>Örebro University</Company>
-    <SurName>Jonny Ehrnberg</SurName>
-    <EmailAddress>jonny.ehrnberg@oru.se</EmailAddress>
-    <TelephoneNumber>+46 19 303851</TelephoneNumber>
-  </ContactPerson>
-<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="support">
-    <Company>Örebro University</Company>
-    <SurName>IT Avdelningen Örebro universitet</SurName>
-    <EmailAddress>itsupport@oru.se</EmailAddress>
-    <TelephoneNumber>+46 19 303166</TelephoneNumber>
-  </ContactPerson>
-</md:EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib-idp-1.oru.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib-idp-1.oru.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">ORU</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sv">Örebro Universitet</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Örebro University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.oru.se</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:Company>Örebro University</md:Company>
+      <md:SurName>IT Avdelningen</md:SurName>
+      <md:EmailAddress>itsupport@oru.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 19 303166</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:Company>Örebro University</md:Company>
+      <md:SurName>Jonny Ehrnberg</md:SurName>
+      <md:EmailAddress>jonny.ehrnberg@oru.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 19 303851</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>Örebro University</md:Company>
+      <md:SurName>IT Avdelningen Örebro universitet</md:SurName>
+      <md:EmailAddress>itsupport@oru.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 19 303166</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

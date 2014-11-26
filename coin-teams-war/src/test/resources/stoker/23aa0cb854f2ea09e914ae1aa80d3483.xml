@@ -1,26 +1,24 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibbo.ephe.fr/idp/shibboleth">
-			<Extensions>
-				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-05-19T13:42:23Z">
-					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
-				</mdrpi:RegistrationInfo>
-			</Extensions>
-		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ephe.sorbonne.fr</shibmd:Scope>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">etu.ephe.fr</shibmd:Scope>
-    
-			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
-          		      <mdui:DisplayName xml:lang="en">EPHE - Ecole Pratique des Hautes Etudes</mdui:DisplayName>
-          		      <mdui:Description xml:lang="en">EPHE - Ecole Pratique des Hautes Etudes</mdui:Description>
-          		      <mdui:DisplayName xml:lang="fr">EPHE - Ecole Pratique des Hautes Etudes</mdui:DisplayName>
-          		      <mdui:Description xml:lang="fr">Administratifs , enseignants chercheurs et étudiants EPHE.</mdui:Description>
-      			    </mdui:UIInfo>
-			</Extensions>
-				<KeyDescriptor use="signing">
-<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibbo.ephe.fr/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-05-19T13:42:23Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ephe.sorbonne.fr</shibmd:Scope>
+        <shibmd:Scope regexp="false">etu.ephe.fr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">EPHE - Ecole Pratique des Hautes Etudes</mdui:DisplayName>
+          <mdui:Description xml:lang="en">EPHE - Ecole Pratique des Hautes Etudes</mdui:Description>
+          <mdui:DisplayName xml:lang="fr">EPHE - Ecole Pratique des Hautes Etudes</mdui:DisplayName>
+          <mdui:Description xml:lang="fr">Administratifs , enseignants chercheurs et étudiants EPHE.</mdui:Description>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIDJDCCAgygAwIBAgIVANOJEmB/RSq08vn3PcA/H7ukbajAMA0GCSqGSIb3DQEB
 BQUAMBkxFzAVBgNVBAMTDnNoaWJiby5lcGhlLmZyMB4XDTE0MDUxOTA4MjI1N1oX
 DTM0MDUxOTA4MjI1N1owGTEXMBUGA1UEAxMOc2hpYmJvLmVwaGUuZnIwggEiMA0G
@@ -39,40 +37,21 @@ bjbOwp1K3V2q3i5Ai2k7FiOSvIuFAXK4KrIW7UQVlYz3K/m6owj1O9B0+IIG+HYG
 3KvObCZRk1aMAA6yTWAsBcVbaHueSvl2K2zW0HhXo8JvWz+LRRQRjTOagvBJoK1q
 hq79XpeV3MhLDgRkfc7tH1jHHeyUZUrOtcPvPmbLRySPxSB7WBtOqA==
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-					</ds:KeyInfo>
-				</KeyDescriptor>
-
-				
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-
-			
-			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibbo.ephe.fr/idp/profile/SAML2/POST/SSO"/>
-	        
-	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibbo.ephe.fr/idp/profile/SAML2/Redirect/SSO"/>
-	        
-	        
-			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibbo.ephe.fr/idp/profile/Shibboleth/SSO"/>
-			
-
-		</IDPSSODescriptor>
-		
-
-
-		<Organization>
-		
-			<OrganizationName xml:lang="en">EPHE - Ecole Pratique des Hautes Etudes</OrganizationName>
-			<OrganizationDisplayName xml:lang="en">EPHE - Ecole Pratique des Hautes Etudes</OrganizationDisplayName>
-			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
-		
-		</Organization>
-
-			
-			    <ContactPerson contactType="technical">
-			     <EmailAddress>interv@ephe.sorbonne.Fr</EmailAddress>
-		        </ContactPerson>
-		    	
-			
-	</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibbo.ephe.fr/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibbo.ephe.fr/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibbo.ephe.fr/idp/profile/Shibboleth/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">EPHE - Ecole Pratique des Hautes Etudes</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">EPHE - Ecole Pratique des Hautes Etudes</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://unknown.site.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>interv@ephe.sorbonne.Fr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

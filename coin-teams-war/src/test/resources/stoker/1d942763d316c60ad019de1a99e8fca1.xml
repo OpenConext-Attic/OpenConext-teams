@@ -1,0 +1,48 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.tandfonline.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDKDCCAhCgAwIBAgIJAMO9zKBOInK0MA0GCSqGSIb3DQEBBQUAMB4xHDAaBgNV
+						BAMTE3d3dy50YW5kZm9ubGluZS5jb20wHhcNMTQwMzE0MDUwNDAyWhcNMTcwMzEz
+						MDUwNDAyWjAeMRwwGgYDVQQDExN3d3cudGFuZGZvbmxpbmUuY29tMIIBIjANBgkq
+						hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA+7mPo1QcQmquZzEQh1lPd0/52x3tUmeS
+						h+BnInF0Ddi412jA/73bOkJw8DUCeFMpyDLq5KIEh5hpWko/hiN2MV440jHOOz4c
+						C6q6FIKo0VbnIG1J8W3llePya/7RgXMApLZIO9JlTbru2qcCibgk9cjnKdLYGRLQ
+						OQYZJs4QyA9nN9n53e7Ov7JVOb7R1y77o8h39JhLNCvDlySfhDTeggal2yNb24xf
+						eL4Ee5cKOWdgyo6g5FkHmXn5jsIeBhdI26PyJa46s2/v+3vRzYg/7SpXPj5jZ5JH
+						9VmweGU01MjqvHQVYd7Bfi0Ndik4otfE5nneOQngI3fR5nWV5oGngwIDAQABo2kw
+						ZzBGBgNVHREEPzA9ghN3d3cudGFuZGZvbmxpbmUuY29thiZodHRwczovL3d3dy50
+						YW5kZm9ubGluZS5jb20vc2hpYmJvbGV0aDAdBgNVHQ4EFgQUTh9Dhbn3dZ+Os2eC
+						RsJIDjh7+mowDQYJKoZIhvcNAQEFBQADggEBABhElasaAVvlbl3ZvZQlhEcQpqQD
+						TvZRxncGrz6moC3pHnUho0L3ZphAnMyHUQlZfg8uZuJBeWTOPYCIYuqQXn+pQ+Si
+						S9n2L8UnoCgNI3df9DDYb7tzpSipYGEXGOw2RUWr1PUD8GQtzP5jkzMPs0eAm/U3
+						pmChGsS7HZbNle9fyBUha2UFebCWFhjUm2iLsN2+kCOkfxEpwLTy26cz1MBqkhDN
+						hNI51amuMNcL46a8+E1IW8L59W656YzJnJ8I2A9nuHdmWQGs5jICuG4dr7+70wCP
+						Lv0VNFSwnTxjA5Rocmae95yzHIE0I4tW7VD+q+yeEStXHCCN1rWHgLWJb/U=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.tandfonline.com/action/samlACS" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.tandfonline.com/action/saml2post" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.tandfonline.com/action/saml2artifact" index="3"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Atypon Systems, Inc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Atypon Systems: Taylor &amp; Francis Online</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.tandfonline.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>SSO-Support</md:GivenName>
+      <md:EmailAddress>mailto:SSO-Support@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>SSO-Tech</md:GivenName>
+      <md:EmailAddress>mailto:SSO-Tech@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

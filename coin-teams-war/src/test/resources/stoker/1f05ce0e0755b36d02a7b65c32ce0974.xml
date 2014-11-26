@@ -1,0 +1,51 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://informahealthcare.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDrzCCApegAwIBAgIJAL1L+CnJYaryMA0GCSqGSIb3DQEBBQUAMIGWMQswCQYD
+						VQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEUMBIGA1UEBxMLU2FudGEgQ2xh
+						cmExHTAbBgNVBAoTFEF0eXBvbiBTeXN0ZW1zLCBJbmMuMR0wGwYDVQQLExRBdHlw
+						b24gU3lzdGVtcywgSW5jLjEeMBwGA1UEAxMVaW5mb3JtYWhlYWx0aGNhcmUuY29t
+						MB4XDTA5MTEwNDE4NDc1N1oXDTE5MTEwMjE4NDc1N1owgZYxCzAJBgNVBAYTAlVT
+						MRMwEQYDVQQIEwpDYWxpZm9ybmlhMRQwEgYDVQQHEwtTYW50YSBDbGFyYTEdMBsG
+						A1UEChMUQXR5cG9uIFN5c3RlbXMsIEluYy4xHTAbBgNVBAsTFEF0eXBvbiBTeXN0
+						ZW1zLCBJbmMuMR4wHAYDVQQDExVpbmZvcm1haGVhbHRoY2FyZS5jb20wggEiMA0G
+						CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDcCSOdjx4WPdtGyJjfck1tUZfO437x
+						1m+lPZ5OSstZ4+RCxLKUPD0O/nDJ3ifJH20WTEM5X+lyDjWu/+UsptpKXY24Pk/K
+						59k+snzu6c1Uhy1Lp2puq15HjRVceTGp3G+NV7HJr1jKxoSp2lsY9vmTvbU1JK+o
+						jYEZyNOuuNraw/UHCm66rrZOeFtKS3zYJry7bmT9I2e78macP7Dk7uAzCDxNLDbF
+						nYV34Im5cItQn3nE4cDNyWc2RpK7KIrhFBn3f7IOvzyOVYKvpu1tGmw5s1NCakT8
+						jM4PaB4tNuaTm5Qh+QplB930UU29XWD5eO8qm162WhtJLqH8hWvqSrApAgMBAAEw
+						DQYJKoZIhvcNAQEFBQADggEBAG3tBSpj5KTbQs8CJsJc5mMlD3IVgf45kPhShXMz
+						nww61zb1FJIv0C0IOKwjfBjCFTJMyfo96cDeEWNSHfEOIhkJcEGkiB04DhyKYptH
+						CquKWP97U55nqXOVDEbtMamu+z+9f7uQmc7VuB0rqZ07xbrSrASqhIbUZFtX9F68
+						Z070zJKi+gMdsiZ6b5LeUZu6xy/3hPCxmZrigqziTBELJ5QMLN/GEk1w2kieul6s
+						0TQo9eEOFz98F25hOf1rUmu63xykgZRZdxtNYfJ7yiSngyqdQniyRN731dZJVzH8
+						1zeV5IEFxJAFO/Pen4K7kRhv6MCgvFrf6ufTpCDojAeGU1E=                        
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://informahealthcare.com/action/samlACS" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://informahealthcare.com/action/samlACS" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://informahealthcare.com/action/samlACS" index="3"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Atypon Systems, Inc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Atypon Systems: Informa Healthcare</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.informahealthcare.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>SSO-Support</md:GivenName>
+      <md:EmailAddress>mailto:SSO-Support@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>SSO-Tech</md:GivenName>
+      <md:EmailAddress>mailto:SSO-Tech@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

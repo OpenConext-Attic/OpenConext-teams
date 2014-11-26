@@ -1,0 +1,102 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://oa-idp22.wlv.ac.uk/oala/metadata">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-05-23T16:25:35Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">wlv.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEvjCCA6agAwIBAgIQTX3wkFC6FsnCVhSZ46A50jANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDIxNTAwMDAwMFoXDTE1MDIxNDIzNTk1OVowgZYxCzAJBgNV
+						BAYTAkdCMRYwFAYDVQQIEw1XZXN0IE1pZGxhbmRzMRYwFAYDVQQHEw1Xb2x2ZXJo
+						YW1wdG9uMSQwIgYDVQQKExtVbml2ZXJzaXR5IG9mIFdvbHZlcmhhbXB0b24xFDAS
+						BgNVBAsTC0lUIFNlcnZpY2VzMRswGQYDVQQDExJvYS1pZHAyMi53bHYuYWMudWsw
+						ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDKNvS+ca9N9VdTqaaMWoIY
+						ccGhuEicwubOq3r76uELbyYqGtmEz+DAKI92llFQKxMt5ux+k8n1fi6f9/m2mdNK
+						iIMGI1wrhMgXAHhJKLNsg93arNrF6UWqK80gQBlnemRdQ0g4qqirGjwoanu3vSLj
+						bhTWeU8fUD3aANRRVcIOMdubNSV/15067GUzj1w5oig1ql6BG1DSjNZgG//cqSJJ
+						TaeIFRRjpyuAjfwQDfLmW0N1ONrCVqjcc6XPzdXXuH0YE3mR2EgHp3rsQKAeeeqD
+						J0J/vr1jrj9CBz9vvcch492V1K0cWe/Tv1UIEphYLmr31MI3GLc8HVYMCzZGmKK/
+						AgMBAAGjggFlMIIBYTAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAd
+						BgNVHQ4EFgQUr4+AliR7nkv/ACdGfkbRmY8c3iQwDgYDVR0PAQH/BAQDAgWgMAwG
+						A1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBgGA1Ud
+						IAQRMA8wDQYLKwYBBAGyMQECAh0wOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2Ny
+						bC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBf
+						MDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNT
+						TENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcw
+						HQYDVR0RBBYwFIISb2EtaWRwMjIud2x2LmFjLnVrMA0GCSqGSIb3DQEBBQUAA4IB
+						AQCufhC69WjCGj6CjwryJwWXP32Q/fQn2T6mKX3Gu0rBX+d9VOibUjG50RjYgm3g
+						Ite0W/RfOnYoxkO9zl8/kGRtbNA00NnVcs3S/UFEkimUERYAMET2WnXREJgLRb6q
+						WgbXV7dxjXBuUQ2zaZerNB3joeI7Njz+taD8SCdBwrAaBNLVWahAsomcdglLVlO4
+						48joLepbOwUz19m3NGrPiMrQG325a/6s8S5nMCjI16C3liPHBg3dc1AfRsYT7cdf
+						Xkh9QaMmKgPXB4DRJupmRLNKpus/SBXOsl3Qk8ea3dFjRrFKaZrAcrfZUPoNIHxr
+						zcXZ5/D2sDn1kzoqflH8zN8g
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEvjCCA6agAwIBAgIQTX3wkFC6FsnCVhSZ46A50jANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDIxNTAwMDAwMFoXDTE1MDIxNDIzNTk1OVowgZYxCzAJBgNV
+						BAYTAkdCMRYwFAYDVQQIEw1XZXN0IE1pZGxhbmRzMRYwFAYDVQQHEw1Xb2x2ZXJo
+						YW1wdG9uMSQwIgYDVQQKExtVbml2ZXJzaXR5IG9mIFdvbHZlcmhhbXB0b24xFDAS
+						BgNVBAsTC0lUIFNlcnZpY2VzMRswGQYDVQQDExJvYS1pZHAyMi53bHYuYWMudWsw
+						ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDKNvS+ca9N9VdTqaaMWoIY
+						ccGhuEicwubOq3r76uELbyYqGtmEz+DAKI92llFQKxMt5ux+k8n1fi6f9/m2mdNK
+						iIMGI1wrhMgXAHhJKLNsg93arNrF6UWqK80gQBlnemRdQ0g4qqirGjwoanu3vSLj
+						bhTWeU8fUD3aANRRVcIOMdubNSV/15067GUzj1w5oig1ql6BG1DSjNZgG//cqSJJ
+						TaeIFRRjpyuAjfwQDfLmW0N1ONrCVqjcc6XPzdXXuH0YE3mR2EgHp3rsQKAeeeqD
+						J0J/vr1jrj9CBz9vvcch492V1K0cWe/Tv1UIEphYLmr31MI3GLc8HVYMCzZGmKK/
+						AgMBAAGjggFlMIIBYTAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAd
+						BgNVHQ4EFgQUr4+AliR7nkv/ACdGfkbRmY8c3iQwDgYDVR0PAQH/BAQDAgWgMAwG
+						A1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBgGA1Ud
+						IAQRMA8wDQYLKwYBBAGyMQECAh0wOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2Ny
+						bC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBf
+						MDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNT
+						TENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcw
+						HQYDVR0RBBYwFIISb2EtaWRwMjIud2x2LmFjLnVrMA0GCSqGSIb3DQEBBQUAA4IB
+						AQCufhC69WjCGj6CjwryJwWXP32Q/fQn2T6mKX3Gu0rBX+d9VOibUjG50RjYgm3g
+						Ite0W/RfOnYoxkO9zl8/kGRtbNA00NnVcs3S/UFEkimUERYAMET2WnXREJgLRb6q
+						WgbXV7dxjXBuUQ2zaZerNB3joeI7Njz+taD8SCdBwrAaBNLVWahAsomcdglLVlO4
+						48joLepbOwUz19m3NGrPiMrQG325a/6s8S5nMCjI16C3liPHBg3dc1AfRsYT7cdf
+						Xkh9QaMmKgPXB4DRJupmRLNKpus/SBXOsl3Qk8ea3dFjRrFKaZrAcrfZUPoNIHxr
+						zcXZ5/D2sDn1kzoqflH8zN8g
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://oa-idp22.wlv.ac.uk/oala/sso"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://oa-idp22.wlv.ac.uk/oala/sso"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Wolverhampton</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Wolverhampton (Test)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.wlv.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>David</md:GivenName>
+      <md:SurName>Henderson</md:SurName>
+      <md:EmailAddress>mailto:d.henderson@wlv.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>David</md:GivenName>
+      <md:SurName>Henderson</md:SurName>
+      <md:EmailAddress>mailto:d.henderson@wlv.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,55 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://online.statref.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIID+TCCAuGgAwIBAgIJAJwEXu6tonahMA0GCSqGSIb3DQEBBQUAMIGSMQswCQYD
+						VQQGEwJVUzEQMA4GA1UECAwHV3lvbWluZzEQMA4GA1UEBwwHSmFja3NvbjEbMBkG
+						A1UECgwSVGV0b24gRGF0YSBTeXN0ZW1zMRswGQYDVQQDDBJvbmxpbmUuc3RhdHJl
+						Zi5jb20xJTAjBgkqhkiG9w0BCQEWFmptYXh3ZWxsQHRldG9uZGF0YS5jb20wHhcN
+						MTAxMjAyMTY1MzE1WhcNMjAxMjAxMTY1MzE1WjCBkjELMAkGA1UEBhMCVVMxEDAO
+						BgNVBAgMB1d5b21pbmcxEDAOBgNVBAcMB0phY2tzb24xGzAZBgNVBAoMElRldG9u
+						IERhdGEgU3lzdGVtczEbMBkGA1UEAwwSb25saW5lLnN0YXRyZWYuY29tMSUwIwYJ
+						KoZIhvcNAQkBFhZqbWF4d2VsbEB0ZXRvbmRhdGEuY29tMIIBIjANBgkqhkiG9w0B
+						AQEFAAOCAQ8AMIIBCgKCAQEAvxUW98iDiWy1rnYLXmrSut26X+wCpXsS+xit1uhr
+						oD83HOiE18fidOCPR2Reusw2PVS2Mv3Z2MouDxrbnxI1f40YTWmxWLJD9D+MeAbI
+						Dvt2uRctN82aVwL1Hy0GFsiS0RXztW0XiSZy6u/bqHVpSjYNw3AcnSadCPrt0ue0
+						eW1x+nvefeXxSgFfFxyjG+F/6br+CDvZk6oXNkDs8xRGiekM9mPo2DF1Qx3zxqPl
+						zW5homj1P2LlaeNvtXSj5EAfob0SPpx+gnNzXMbNzqwCLcY/amQkNjTPQC4nFYpc
+						JWiEOt4GKS8NuztVvrk1z6e0q4/2UUZJuiSUEB4Bk9BtEQIDAQABo1AwTjAdBgNV
+						HQ4EFgQU0mxo874bLxgMm12FGngVP4j3EnYwHwYDVR0jBBgwFoAU0mxo874bLxgM
+						m12FGngVP4j3EnYwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOCAQEAuN4c
+						d4KiRWdzWokz0NV0SRulD0yBRyMpR2LjVr9y7Btg+/IbKJdooR6+kStOvmZHctvI
+						KVZ5Kr9dUuOgQ2Kkyf4nXVPkwzpNj+N1+gNJ4/JlOzZEkshBf++ASMbQ8OEWkrl+
+						iimaLh3BSCDp/giL8/geH+5fFSgtXyCXx7pcP0GKxdOR7vLcZ9EK+qsutOW4006w
+						FaXTVDbgg006UGxD1VGW78cSfM5DGkwQvkG+52xLWNe3VhasnbqeirkuSHfmD6Ma
+						fV8vvSNyvTmWbK+/nHcVDJiqmb81XOuXy/NJDOZQpcK8Rx8vc6eAlgNTbLj6iTAJ
+						ZHzp7ICc2EW3RkJNUQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://online.statref.com/shibAuth.aspx" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://onlinebeta.statref.com/shibAuth.aspx" index="1"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Teton Data Systems</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Stat!Ref</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.statref.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Wade</md:GivenName>
+      <md:SurName>Graninger</md:SurName>
+      <md:EmailAddress>mailto:wgraninger@tetondata.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Wade</md:GivenName>
+      <md:SurName>Graninger</md:SurName>
+      <md:EmailAddress>mailto:wgraninger@tetondata.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

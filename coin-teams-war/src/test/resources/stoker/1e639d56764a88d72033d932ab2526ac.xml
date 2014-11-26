@@ -1,21 +1,21 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.scc.kit.edu/idp/shibboleth">
-    <Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2010-03-15T10:30:11Z">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.scc.kit.edu/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2010-03-15T10:30:11Z">
         <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
         <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
-        <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
           <saml:AttributeValue>http://aai.dfn.de/category/bwidm-member</saml:AttributeValue>
         </saml:Attribute>
       </mdattr:EntityAttributes>
-    </Extensions>
-    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">kit.edu</saml1md:Scope>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">student.kit.edu</saml1md:Scope>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">partner.kit.edu</saml1md:Scope>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">kit.edu</shibmd:Scope>
+        <shibmd:Scope regexp="false">student.kit.edu</shibmd:Scope>
+        <shibmd:Scope regexp="false">partner.kit.edu</shibmd:Scope>
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="de">Karlsruher Institut für Technologie (KIT)</mdui:DisplayName>
           <mdui:DisplayName xml:lang="en">Karlsruhe Institute of Technology (KIT)</mdui:DisplayName>
           <mdui:Description xml:lang="de">Karlsruher Institut für Technologie - Universität des Landes Baden-Württemberg und nationales Forschungszentrum in der Helmholtz-Gemeinschaft</mdui:Description>
@@ -25,9 +25,9 @@
           <mdui:InformationURL xml:lang="de">http://www.scc.kit.edu/</mdui:InformationURL>
           <mdui:InformationURL xml:lang="en">http://www.scc.kit.edu/</mdui:InformationURL>
         </mdui:UIInfo>
-      </Extensions>
-      <KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
           <ds:KeyName>idp.scc.kit.edu</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=idp.scc.kit.edu,O=Karlsruhe Institute of Technology,L=Karlsruhe,ST=Baden-Wuerttemberg,C=DE</ds:X509SubjectName>
@@ -66,26 +66,26 @@ zea6MPIosg==
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.scc.kit.edu:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="2"/>
-      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.scc.kit.edu:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="1"/>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
-      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.scc.kit.edu/idp/profile/Shibboleth/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.scc.kit.edu/idp/profile/SAML2/POST/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.scc.kit.edu/idp/profile/SAML2/POST-Simple-Sign/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.scc.kit.edu/idp/profile/SAML2/Redirect/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.scc.kit.edu/idp/profile/SAML2/SOAP/ECP"/>
-    </IDPSSODescriptor>
-    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">kit.edu</saml1md:Scope>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">student.kit.edu</saml1md:Scope>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">partner.kit.edu</saml1md:Scope>
-      </Extensions>
-      <KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.scc.kit.edu:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="2"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.scc.kit.edu:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="1"/>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.scc.kit.edu/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.scc.kit.edu/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.scc.kit.edu/idp/profile/SAML2/POST-Simple-Sign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.scc.kit.edu/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.scc.kit.edu/idp/profile/SAML2/SOAP/ECP"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">kit.edu</shibmd:Scope>
+        <shibmd:Scope regexp="false">student.kit.edu</shibmd:Scope>
+        <shibmd:Scope regexp="false">partner.kit.edu</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
           <ds:KeyName>idp.scc.kit.edu</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=idp.scc.kit.edu,O=Karlsruhe Institute of Technology,L=Karlsruhe,ST=Baden-Wuerttemberg,C=DE</ds:X509SubjectName>
@@ -124,34 +124,34 @@ zea6MPIosg==
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.scc.kit.edu:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.scc.kit.edu:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
-    </AttributeAuthorityDescriptor>
-    <Organization>
-      <OrganizationName xml:lang="de">e148</OrganizationName>
-      <OrganizationName xml:lang="en">e148</OrganizationName>
-      <OrganizationDisplayName xml:lang="de">Karlsruher Institut für Technologie (KIT)</OrganizationDisplayName>
-      <OrganizationDisplayName xml:lang="en">Karlsruhe Institute of Technology (KIT)</OrganizationDisplayName>
-      <OrganizationURL xml:lang="de">http://www.scc.kit.edu/</OrganizationURL>
-      <OrganizationURL xml:lang="en">http://www.scc.kit.edu/</OrganizationURL>
-    </Organization>
-    <ContactPerson contactType="technical">
-      <GivenName>Michael</GivenName>
-      <SurName>Simon</SurName>
-      <EmailAddress>mailto:simon@kit.edu</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="administrative">
-      <GivenName>Sebastian</GivenName>
-      <SurName>Labitzke</SurName>
-      <EmailAddress>mailto:labitzke@kit.edu</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="support">
-      <GivenName>SCC</GivenName>
-      <SurName>Servicedesk</SurName>
-      <EmailAddress>mailto:servicedesk@scc.kit.edu</EmailAddress>
-    </ContactPerson>
-  </EntityDescriptor>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.scc.kit.edu:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.scc.kit.edu:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e148</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e148</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Karlsruher Institut für Technologie (KIT)</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Karlsruhe Institute of Technology (KIT)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.scc.kit.edu/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.scc.kit.edu/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Michael</md:GivenName>
+      <md:SurName>Simon</md:SurName>
+      <md:EmailAddress>mailto:simon@kit.edu</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Sebastian</md:GivenName>
+      <md:SurName>Labitzke</md:SurName>
+      <md:EmailAddress>mailto:labitzke@kit.edu</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>SCC</md:GivenName>
+      <md:SurName>Servicedesk</md:SurName>
+      <md:EmailAddress>mailto:servicedesk@scc.kit.edu</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

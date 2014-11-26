@@ -1,0 +1,61 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.anglia.ac.uk/openathens">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2010-05-17T17:30:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">anglia.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEbjCCA1agAwIBAgIJAKgOBqreKA7kMA0GCSqGSIb3DQEBBQUAMIG3MQswCQYD
+						VQQGEwJHQjEOMAwGA1UECAwFRXNzZXgxEzARBgNVBAcMCkNoZWxtc2ZvcmQxITAf
+						BgNVBAoMGEFuZ2xpYSBSdXNraW4gVW5pdmVyc2l0eTEbMBkGA1UECwwSVW5pdmVy
+						c2l0eSBMaWJyYXJ5MRkwFwYDVQQDDBBpZHAuYW5nbGlhLmFjLnVrMSgwJgYJKoZI
+						hvcNAQkBFhlhbGV4LmNvbGxpbnNAYW5nbGlhLmFjLnVrMB4XDTEzMDQyMzEyMTcy
+						MFoXDTIzMDQyMTEyMTcyMFowgbcxCzAJBgNVBAYTAkdCMQ4wDAYDVQQIDAVFc3Nl
+						eDETMBEGA1UEBwwKQ2hlbG1zZm9yZDEhMB8GA1UECgwYQW5nbGlhIFJ1c2tpbiBV
+						bml2ZXJzaXR5MRswGQYDVQQLDBJVbml2ZXJzaXR5IExpYnJhcnkxGTAXBgNVBAMM
+						EGlkcC5hbmdsaWEuYWMudWsxKDAmBgkqhkiG9w0BCQEWGWFsZXguY29sbGluc0Bh
+						bmdsaWEuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC9zvXg
+						KC3ZqFlCLXKPIkXy3+RBCGjq6MdFPna0mTN78dDm3BGxDa5ZSGOAbmymkLifZQAO
+						auoab/IP4+cwRLk1mVZs64zGr7HkWjisEJxJ1prP+L7Vhxx5im1SITbMcf3YbfRu
+						e88es/O2pJuAMNl3FG6ZskxKxT1cwKuvd9exelplJfBwYI0lbKZkQLMTvGfMr7B2
+						X0HXeGnb4mVRAI3C/uLQ3Y3zCgHyFoofvLUEugAh8zfInnLsk6CQee4tmdL/Vhj1
+						2FoKZcAywTv0MxR0zvROKkB/9N1ARtnqUQ6+wndtTJmKkvAEZjC33l5VuguzAbgr
+						LmgzQJBSbcb5r8a7AgMBAAGjezB5MAkGA1UdEwQCMAAwLAYJYIZIAYb4QgENBB8W
+						HU9wZW5TU0wgR2VuZXJhdGVkIENlcnRpZmljYXRlMB0GA1UdDgQWBBRC1E3gBT7m
+						KDcJFkGEIMx61RnTrTAfBgNVHSMEGDAWgBRC1E3gBT7mKDcJFkGEIMx61RnTrTAN
+						BgkqhkiG9w0BAQUFAAOCAQEAFnUD7xfFhO6ypILsd3MSTO9piV3Wn+aNbtHHvZTk
+						cwwQzPAX3ZeZfSRbXA8VANOMedxhWnAppPy3qus8kwMtM7YrZe9yYasppou7+uWp
+						dSKq0fC8MLIKyC4JSujcTDKNB7aBNm9OPGE0oCoeYDIyTrWMHX2GFzR5xf/N6o/M
+						aHYdqraRkIveOsr8qqIX0ivXULDDVobITuWReZDqvPKnnbMbuSAt/2gp5+5+RN28
+						IR9hHcyp+OyjkSQAtk4aR3EG4ETL1DRg1lOn4vLx0iZvunV414E+oz4AjRor9NDO
+						jhjABmtX2fYOehXDJQvAW8f+ExSl+RlQHZNyTQX3V3xJXA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.anglia.ac.uk/oala/sso"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.anglia.ac.uk/oala/sso"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Anglia Ruskin University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Anglia Ruskin University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://libweb.anglia.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Alex</md:GivenName>
+      <md:SurName>Collins</md:SurName>
+      <md:EmailAddress>mailto:alex.collins@anglia.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Alex</md:GivenName>
+      <md:SurName>Collins</md:SurName>
+      <md:EmailAddress>mailto:alex.collins@anglia.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

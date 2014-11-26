@@ -1,20 +1,17 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://idp.condorcet.be/idp/shibboleth">
-	<Extensions>
+<md:EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.condorcet.be/idp/shibboleth">
+    <md:Extensions>
       <mdrpi:RegistrationInfo registrationAuthority="http://federation.belnet.be/" registrationInstant="2012-03-27T12:00:00Z">
-          <mdrpi:RegistrationPolicy xml:lang="en">http://federation.belnet.be/files/Belnet-metadata-registration-practice-statement.txt</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="en">http://federation.belnet.be/files/Belnet-metadata-registration-practice-statement.txt</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-   </Extensions>
-			  
-    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-
-        <Extensions>
-            <shibmd:Scope regexp="false">condorcet.be</shibmd:Scope>
-        </Extensions>
-
-        <KeyDescriptor>
-            <ds:KeyInfo>
-                <ds:X509Data>
-                    <ds:X509Certificate>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">condorcet.be</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIEszCCA5ugAwIBAgIQQTL/jgzwBt0Zt4eFr/Kq/TANBgkqhkiG9w0BAQUFADA2
 MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
 U1NMIENBMB4XDTExMTIwODAwMDAwMFoXDTE0MTIwNzIzNTk1OVowgY0xCzAJBgNV
@@ -42,36 +39,26 @@ QvV9sXeiGEScuXD4gS4nFwbGMIdonFeoxaLx/Ddo0qNkNa2bevtZpOaI0D7lUltk
 uAUlD9bJAGCVw43tjyIHEHSU/Np3RPZcyRqJGsxG5i5S6wqyH+YVO7y1GANOL2WV
 NJp/Skt7sw==
                     </ds:X509Certificate>
-                </ds:X509Data>
-            </ds:KeyInfo>
-        </KeyDescriptor>
-        
-        <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.condorcet.be:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-
-        <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.condorcet.be:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-                                   
-        <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-
-        <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.condorcet.be/idp/profile/Shibboleth/SSO"/>
-        
-        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.condorcet.be/idp/profile/SAML2/POST/SSO"/>
-
-        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.condorcet.be/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-        
-        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.condorcet.be/idp/profile/SAML2/Redirect/SSO"/>
-    </IDPSSODescriptor>
-
-    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-
-        <Extensions>
-            <shibmd:Scope regexp="false">condorcet.be</shibmd:Scope>
-        </Extensions>
-
-        <KeyDescriptor>
-            <ds:KeyInfo>
-                <ds:X509Data>
-                    <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.condorcet.be:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.condorcet.be:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.condorcet.be/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.condorcet.be/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.condorcet.be/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.condorcet.be/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">condorcet.be</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIEszCCA5ugAwIBAgIQQTL/jgzwBt0Zt4eFr/Kq/TANBgkqhkiG9w0BAQUFADA2
 MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
 U1NMIENBMB4XDTExMTIwODAwMDAwMFoXDTE0MTIwNzIzNTk1OVowgY0xCzAJBgNV
@@ -99,32 +86,22 @@ QvV9sXeiGEScuXD4gS4nFwbGMIdonFeoxaLx/Ddo0qNkNa2bevtZpOaI0D7lUltk
 uAUlD9bJAGCVw43tjyIHEHSU/Np3RPZcyRqJGsxG5i5S6wqyH+YVO7y1GANOL2WV
 NJp/Skt7sw==
                    </ds:X509Certificate>
-                </ds:X509Data>
-            </ds:KeyInfo>
-        </KeyDescriptor>
-
-        <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.condorcet.be:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-        
-        <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.condorcet.be:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-        
-        <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-        
-    </AttributeAuthorityDescriptor>
-
-<Organization>
-	<OrganizationName xml:lang="en">Haute Ecole Provinciale de Hainaut - Condorcet</OrganizationName>
-
-	<OrganizationDisplayName xml:lang="en">HEPH-Condorcet</OrganizationDisplayName>
-	
-	<OrganizationURL xml:lang="en">http://www.condorcet.be</OrganizationURL>
-	
-</Organization>
-
-<ContactPerson contactType="technical">
-	<GivenName>Technical Support</GivenName>
-	<SurName>Technical Support</SurName>
-	<EmailAddress>webmaster@condorcet.be</EmailAddress>
-</ContactPerson>
-   
-</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.condorcet.be:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.condorcet.be:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Haute Ecole Provinciale de Hainaut - Condorcet</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">HEPH-Condorcet</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.condorcet.be</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Technical Support</md:GivenName>
+      <md:SurName>Technical Support</md:SurName>
+      <md:EmailAddress>webmaster@condorcet.be</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,74 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://c.yz.yamagata-u.ac.jp/shibboleth-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.gakunin.jp" registrationInstant="2010-06-21T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.gakunin.jp/en-Join/</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="ja">https://www.gakunin.jp/join/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://c.yz.yamagata-u.ac.jp/Shibboleth.sso/DS" index="1"/>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Database Amenity Laboratory of Virtual Research Institute, Yamagata University</mdui:DisplayName>
+          <mdui:Description xml:lang="ja">科学技術の学術情報共有のための双方向コミュニケーションサービス</mdui:Description>
+          <mdui:Logo height="31" width="88">https://a.yamagata-u.ac.jp/amenity/jpg/youzan_banner8831.jpg</mdui:Logo>
+          <mdui:InformationURL xml:lang="ja">https://a.yamagata-u.ac.jp/amenity/menu/shibbolethmenu.aspx</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIE4jCCA8qgAwIBAgIIfCMzoF9ue+4wDQYJKoZIhvcNAQEFBQAwfTELMAkGA1UE
+BhMCSlAxETAPBgNVBAcTCEFjYWRlbWUyMSowKAYDVQQKEyFOYXRpb25hbCBJbnN0
+aXR1dGUgb2YgSW5mb3JtYXRpY3MxDTALBgNVBAsTBFVQS0kxIDAeBgNVBAsTF05J
+SSBPcGVuIERvbWFpbiBDQSAtIEcyMB4XDTEzMTAwMzA4NTMwOVoXDTE1MTEwMjA5
+MDMwOVowgZAxCzAJBgNVBAYTAkpQMREwDwYDVQQHEwhBY2FkZW1lMjEcMBoGA1UE
+ChMTWWFtYWdhdGEgVW5pdmVyc2l0eTEwMC4GA1UECxMnTmV0d29ya2luZyBhbmQg
+Q29tcHV0aW5nIFNlcnZpY2UgQ2VudGVyMR4wHAYDVQQDExVjLnl6LnlhbWFnYXRh
+LXUuYWMuanAwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC53hi5ZLsf
+w7TtCOZ/VmjjF+QlbbJw9/m79AKafPq5pgp/1+rdpouGVG9eqwsBk8TMY+0mN7e8
+9jrgeoOI2Lq1G2S9Q+WOyrr3QVrnFLEeMr/nhYKFzTGh18SsvvL1Rn4GxELPHFpm
+xyK5L3VFgDMQxXN+eNyAt9k/jsn/ugyJrMWAIwPZ3gN45KP1FzcAV5wCNNUK1vAw
+f91V+WzzuotlMUexXiVh+BPI6trkr7d1qAGHhQ3pOCE5akkWQ7qea4cfDHZDAXCK
+5+lajN2IsZK6p1mHxKUBw41To9RVJFIfptpBa+NMiK/wRNHVdQNur5EWojW1RgPo
+uv+3iWeOf8fNAgMBAAGjggFQMIIBTDAOBgNVHQ8BAf8EBAMCBaAwEwYDVR0lBAww
+CgYIKwYBBQUHAwEwHQYDVR0OBBYEFDoI009Wwrb56X0V/UCYX4Li65gMMB8GA1Ud
+IwQYMBaAFHsKB/cYyowO1tq8UIBsLEcC0Q37MCAGA1UdEQQZMBeCFWMueXoueWFt
+YWdhdGEtdS5hYy5qcDBmBgNVHSAEXzBdME0GCiqDCIycHgECAgEwPzA9BggrBgEF
+BQcCARYxaHR0cHM6Ly9yZXBvMS5zZWNvbXRydXN0Lm5ldC9zcGNwcC9jcHMvaW5k
+ZXguaHRtbDAMBgoqgwiMmxtkhwUBMEgGA1UdHwRBMD8wPaA7oDmGN2h0dHA6Ly9y
+ZXBvMS5zZWNvbXRydXN0Lm5ldC9zcHBjYS9uaWkvb2RjYTIvZnVsbGNybC5jcmww
+EQYJYIZIAYb4QgEBBAQDAgZAMA0GCSqGSIb3DQEBBQUAA4IBAQBcEuFzX4c1vnJw
+B0Y+uN7gr0EO/yFG2cnzEh6EhwAWTrDdF2uDY58HDKbRR0GGqojATgZvtXkE8jn+
+5REAlF0cu+qa5lXTbxYb2ArMjQHY/qTOBnO6/b/lo43+M3x3OXoc/2mV1zHBrh8c
+/NPWl6girCzKqTUd1JJUvjM/VPic8abmzOxIhWLa444jWgFWkA+EqQkJpe9p8r9M
+0h+lJYRn/zZsWA2AbYF0ppkixzk3hHbUwZuuTEZzkAebZh2ZPXZnS0CFfr3VrZbr
+s33kSvCLr3uJ6cetUI0He33NAju0L76lTrfm8lbstwvfvMaruo7tntGmBGL2WRrM
+ZH4U1IHm</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://c.yz.yamagata-u.ac.jp/Shibboleth.sso/SAML2/POST" index="1" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://c.yz.yamagata-u.ac.jp/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://c.yz.yamagata-u.ac.jp/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://c.yz.yamagata-u.ac.jp/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://c.yz.yamagata-u.ac.jp/Shibboleth.sso/SAML/Artifact" index="5"/>
+      <md:AttributeConsumingService index="1" isDefault="true">
+        <md:ServiceName xml:lang="en">Database Amenity Laboratory of Virtual Research Institute, Yamagata University</md:ServiceName>
+        <md:ServiceDescription xml:lang="ja">科学技術の学術情報共有のための双方向コミュニケーションサービス</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="organizationName" Name="urn:oid:2.5.4.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Yamagata University</md:OrganizationName>
+      <md:OrganizationName xml:lang="ja">山形大学</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Database Amenity Laboratory of Virtual Research Institute, Yamagata University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://a.yamagata-u.ac.jp/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Tomohiro</md:GivenName>
+      <md:SurName>Ito</md:SurName>
+      <md:EmailAddress>mailto:virtual-amenity@yahoogroups.jp</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

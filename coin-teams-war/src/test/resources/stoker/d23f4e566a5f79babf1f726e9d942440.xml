@@ -1,0 +1,78 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibsp.test.openathens.net/shibboleth">
+    <md:Extensions>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-10-19T09:15:34Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://shibsp.test.openathens.net/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDFTCCAf2gAwIBAgIJAIk7Iq11rRt9MA0GCSqGSIb3DQEBBQUAMCUxIzAhBgNV
+						BAMTGnNoaWJzcC50ZXN0Lm9wZW5hdGhlbnMubmV0MB4XDTEyMTAxNzE0NDA0NFoX
+						DTIyMTAxNTE0NDA0NFowJTEjMCEGA1UEAxMac2hpYnNwLnRlc3Qub3BlbmF0aGVu
+						cy5uZXQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDWGWHhxgjISM46
+						9b3A8gkGUa2ylMd+Ubx/41jPo8a9F0edLOfcJRrJz3yXz4fyqkfO7kINyQzN3mv3
+						CsLOu3SfYfS+oPlQV0UjRrwCJooGZgSYRCl1XzSesRUWUw6S42kc39z10KEKfC4o
+						8o3yvsef+OAMB6GpvY3JeiqzN8iSKZFRwr9hAA670YVs3PaGJtKcsGTIidX6PbXl
+						s7P9z6mnysxOLMVaPOFmo0poCLgEAmAg/8nIYd19sHJbT4Zp0rhLG31Re4P9b8IU
+						3YEUsNFlSQ7/9n69rYlthriKBq+Lu8dPfG8oHrBKmqmeDYAdHla5J00lCEJX6pjP
+						+F4a7x7rAgMBAAGjSDBGMCUGA1UdEQQeMByCGnNoaWJzcC50ZXN0Lm9wZW5hdGhl
+						bnMubmV0MB0GA1UdDgQWBBSNL+bmIEoGpOitytkAJWqzqQVexzANBgkqhkiG9w0B
+						AQUFAAOCAQEAh6YPN9WA+ie41e+xTwepOMsupMgdJAvO3Pj2GqTRV7ub8oYHsNPz
+						e4hnUgy3PgWZUprg2Xu0dR80UaCt76RZktkywhE5Ese6gRzCnw5naeq+BohzZYhT
+						3aQqYN/3seBxz7q2ykidNM/FAuK0wzoS4kekkValdz58KNlqM5dFWyahc8nHN+3Q
+						PbHhdrEP/5L39XmhM1jCI3DUOL0FupAeosuYPOSfA7eTha7pPKc4hbdPrBWDumBz
+						49zWCVrzQN0i1CSS9gy9YBiqjnns9/ziNp6qb1VX2BIJ9Po6llnGAYOR6DLLgcYQ
+						3+F3/x57N94upwLaCaoj+04/l3acLW3ylQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibsp.test.openathens.net/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibsp.test.openathens.net/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibsp.test.openathens.net/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibsp.test.openathens.net/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibsp.test.openathens.net/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibsp.test.openathens.net/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibsp.test.openathens.net/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibsp.test.openathens.net/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://shibsp.test.openathens.net/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shibsp.test.openathens.net/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://shibsp.test.openathens.net/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Eduserv</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Eduserv Test Shibboleth SP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.eduserv.org.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Andy</md:GivenName>
+      <md:SurName>Anderson</md:SurName>
+      <md:EmailAddress>mailto:andy.anderson@eduserv.org.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Andy</md:GivenName>
+      <md:SurName>Anderson</md:SurName>
+      <md:EmailAddress>mailto:andy.anderson@eduserv.org.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

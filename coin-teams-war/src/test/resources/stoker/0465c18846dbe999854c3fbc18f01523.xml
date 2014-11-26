@@ -1,0 +1,114 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://test-idp.dante.net/idp/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-12-10T16:24:13Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">DANTE (test)</mdui:DisplayName>
+          <mdui:Description xml:lang="en">DANTE plans, procures, builds and operates large scale, advanced high speed networks for global research and education.</mdui:Description>
+          <mdui:Logo height="16" width="16">https://test-idp.dante.net/idp/images/16x16-DANTE.jpg</mdui:Logo>
+          <mdui:Logo height="60" width="80">https://test-idp.dante.net/idp/images/80x60-DANTE.jpg</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>dante.net</mdui:DomainHint>
+          <mdui:IPHint>193.63.90.0/24</mdui:IPHint>
+          <mdui:IPHint>2001:630:280::/48</mdui:IPHint>
+          <mdui:GeolocationHint>geo:52.191818,0.133772</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+        <shibmd:Scope regexp="false">dante.net</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDNDCCAhygAwIBAgIVAKY6eNYR8734HaAHYHoKauOUXUzyMA0GCSqGSIb3DQEB
+						BQUAMB0xGzAZBgNVBAMTEnRlc3QtaWRwLmRhbnRlLm5ldDAeFw0xMzExMjgxMTI4
+						MzZaFw0zMzExMjgxMTI4MzZaMB0xGzAZBgNVBAMTEnRlc3QtaWRwLmRhbnRlLm5l
+						dDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJXUPRo76JDrVWULWsau
+						OjkcA3ETbv8mwcFns9mNBwWMGO/pVBluZrYnnmN2lq91mTEeJiMtk32bS21g1DLn
+						zyyRut9h48dIHfz36vrLI8VEGRxk85B6rhGZQx1m/vqaGLvQW3HUGcss61MHL2sb
+						z5YsXS4cvRz96nklxIKtFgUKqMLfxfmggoTyzfRXymYP0QYREMp9EGQ2pM19ne5O
+						ZPOJ5TQoz6kmRRVST60Hoo32UnD/rMNQfo8rGCBVHyozaL22nWWPK+l9awAxlD14
+						lpqTlapDu022R0VSHB7bP2oWYt29jD59dO2U57dSqImebCow7j9pGKG2zXl+Iq8M
+						mm0CAwEAAaNrMGkwSAYDVR0RBEEwP4ISdGVzdC1pZHAuZGFudGUubmV0hilodHRw
+						czovL3Rlc3QtaWRwLmRhbnRlLm5ldC9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU
+						1mvjMlVsm3wMm3zVqydXM8i+GqUwDQYJKoZIhvcNAQEFBQADggEBAH+imlutE991
+						EiuXfeoLOQ13klBuoujtbswFGNraqLsUdgYhGpcVylNjA6E+ic2XmLmZZOe4IVyR
+						JEs4Owklxx/AN33T+NazKY7tesO/6yWG1yKlhM+YKtBVKPHaWlHF6Yl2ViXNQoET
+						nd59wmct2jnetatdD+nTcK4uoyYD4qi7T1yyi5BglwBgYXkkSMjNAsu/5Rs1Jm2G
+						gm003RY0Hacpz5iBy3ivF5Sn+9751MB1NXOxMKYLw9uf38YlZpaUbTHkhU0CWNbs
+						yuTd0QvUiAwqymNY7bW1igPR3ZwrolsVTPGzSwYA1uz9ossTEeBiA9hc0p7fUZMQ
+						cD03d90l9es=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://test-idp.dante.net:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://test-idp.dante.net:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://test-idp.dante.net/idp/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://test-idp.dante.net/idp/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://test-idp.dante.net:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://test-idp.dante.net/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://test-idp.dante.net/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://test-idp.dante.net/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://test-idp.dante.net/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">dante.net</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDNDCCAhygAwIBAgIVAKY6eNYR8734HaAHYHoKauOUXUzyMA0GCSqGSIb3DQEB
+						BQUAMB0xGzAZBgNVBAMTEnRlc3QtaWRwLmRhbnRlLm5ldDAeFw0xMzExMjgxMTI4
+						MzZaFw0zMzExMjgxMTI4MzZaMB0xGzAZBgNVBAMTEnRlc3QtaWRwLmRhbnRlLm5l
+						dDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJXUPRo76JDrVWULWsau
+						OjkcA3ETbv8mwcFns9mNBwWMGO/pVBluZrYnnmN2lq91mTEeJiMtk32bS21g1DLn
+						zyyRut9h48dIHfz36vrLI8VEGRxk85B6rhGZQx1m/vqaGLvQW3HUGcss61MHL2sb
+						z5YsXS4cvRz96nklxIKtFgUKqMLfxfmggoTyzfRXymYP0QYREMp9EGQ2pM19ne5O
+						ZPOJ5TQoz6kmRRVST60Hoo32UnD/rMNQfo8rGCBVHyozaL22nWWPK+l9awAxlD14
+						lpqTlapDu022R0VSHB7bP2oWYt29jD59dO2U57dSqImebCow7j9pGKG2zXl+Iq8M
+						mm0CAwEAAaNrMGkwSAYDVR0RBEEwP4ISdGVzdC1pZHAuZGFudGUubmV0hilodHRw
+						czovL3Rlc3QtaWRwLmRhbnRlLm5ldC9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU
+						1mvjMlVsm3wMm3zVqydXM8i+GqUwDQYJKoZIhvcNAQEFBQADggEBAH+imlutE991
+						EiuXfeoLOQ13klBuoujtbswFGNraqLsUdgYhGpcVylNjA6E+ic2XmLmZZOe4IVyR
+						JEs4Owklxx/AN33T+NazKY7tesO/6yWG1yKlhM+YKtBVKPHaWlHF6Yl2ViXNQoET
+						nd59wmct2jnetatdD+nTcK4uoyYD4qi7T1yyi5BglwBgYXkkSMjNAsu/5Rs1Jm2G
+						gm003RY0Hacpz5iBy3ivF5Sn+9751MB1NXOxMKYLw9uf38YlZpaUbTHkhU0CWNbs
+						yuTd0QvUiAwqymNY7bW1igPR3ZwrolsVTPGzSwYA1uz9ossTEeBiA9hc0p7fUZMQ
+						cD03d90l9es=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://test-idp.dante.net:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://test-idp.dante.net:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Delivery of Advanced Network Technology to Europe Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">DANTE (test)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.dante.net/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>DANTE Support</md:GivenName>
+      <md:EmailAddress>mailto:idp-support@dante.net</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>DANTE Support</md:GivenName>
+      <md:EmailAddress>mailto:idp-support@dante.net</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

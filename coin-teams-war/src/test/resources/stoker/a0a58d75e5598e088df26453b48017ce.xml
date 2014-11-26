@@ -1,0 +1,60 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://storc.cf.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://storc.cf.ac.uk/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://storc.cf.ac.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC5TCCAc2gAwIBAgIJAL7obUxr7gJTMA0GCSqGSIb3DQEBBQUAMBUxEzARBgNV
+						BAMTCnN0b3JjLXByb2QwHhcNMTEwODE4MTUwMzM2WhcNMjEwODE1MTUwMzM2WjAV
+						MRMwEQYDVQQDEwpzdG9yYy1wcm9kMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+						CgKCAQEAtdYQ6PR9SZ4eWo0qoKT1MnAMdYQaQaEEO3bT2t7+b6r1SrRZY4f24AiG
+						OsrirUFMcJ4j+klTCQb9H5WlhoJ38wadAy+dbd48p4tYNhRl1VCXWTH3tx/1Nt86
+						Sxj9nSlq0KQ2WTqRWcrvv0bGl6hzL+tBJOkHvHCdOnD/zNaldik1HQYzuynil4mQ
+						kz57jmD55xEBeWbhVGO7jyShUNeUixIhIGr3kTsdlfGdPlzOKDKM34ty1T/QsNvv
+						WIZI8NkFsE0eWcHok4T+qUNcug/i/yGxEdKtaRNgQTju6R2QXocpUGNT8Agm2o84
+						P2wzDN1oh0xIlcNEBPBv1C97fTIQdwIDAQABozgwNjAVBgNVHREEDjAMggpzdG9y
+						Yy1wcm9kMB0GA1UdDgQWBBRTw4C9fvcAGdEPz6adAV5k14ZMUzANBgkqhkiG9w0B
+						AQUFAAOCAQEASaCykYQrCOYN+uOaISMnWHI4UcnnKO7ZYedcL2YAngV+c0uqJyLi
+						QpRQ/BUG145fxCD3KFL1PnCQ5MIIIGHr8wc8lIUjehcabcnOROBmrLIMoiCc3MkX
+						VNSXSeoA6iap7w0SZcRhnuJyNsM2xRQzLeEr4i+DLhz+OggHAAnluAcgGYvVxUZ2
+						7QqqMwY1h1GXFyP0iTLJ73b+nQBIH4l0xOLFwxcdZQPSqN6++H1Hdz0rm4XbDM+S
+						y0sYie4Trr8b/SNop/d8sNYdG7U6vvxHYWIaagQLkMRGdCZ5nwqWt+9oBa6GB2Up
+						H3fpNceGM+nvoibhDHQx6nUzWbxMR1yEPw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://storc.cf.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://storc.cf.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://storc.cf.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://storc.cf.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://storc.cf.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://storc.cf.ac.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://storc.cf.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://storc.cf.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://storc.cf.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://storc.cf.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://storc.cf.ac.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Cardiff University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Cardiff University: Storc Project Online Storage Calculator</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://cardiff.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Storc Support</md:GivenName>
+      <md:EmailAddress>mailto:storc@cf.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Philip</md:GivenName>
+      <md:SurName>Smart</md:SurName>
+      <md:EmailAddress>mailto:smartp@cf.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

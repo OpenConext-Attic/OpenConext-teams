@@ -1,0 +1,82 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://vm-jorum.ds.man.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-06-08T09:08:36Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">The University of Manchester: Jorum Staging Server</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Through Jorum, you can find and share open learning and teaching resources.</mdui:Description>
+          <mdui:Logo height="236" width="236">https://census.mimas.ac.uk/jorum_logo_blue20mm.gif</mdui:Logo>
+        </mdui:UIInfo>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://vm-jorum.ds.man.ac.uk/Shibboleth.sso/Login"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://staging.resourceshare.ac.uk/Shibboleth.sso/Login"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://webstaging.jorum.ac.uk/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://vm-jorum.ds.man.ac.uk/Shibboleth.sso/Login" index="1"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://staging.resourceshare.ac.uk/Shibboleth.sso/Login" index="2"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://webstaging.jorum.ac.uk/Shibboleth.sso/Login" index="3"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDLTCCAhWgAwIBAgIJALvdFCXrleHwMA0GCSqGSIb3DQEBBQUAMB8xHTAbBgNV
+						BAMTFHNoaWJ0ZXN0LmpvcnVtLmFjLnVrMB4XDTEyMTIxMjEyNTEyMFoXDTE3MTIx
+						MTEyNTEyMFowHzEdMBsGA1UEAxMUc2hpYnRlc3Quam9ydW0uYWMudWswggEiMA0G
+						CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC4A9nXwKbBwc2kBco7STxNshEWvwDU
+						Ko9gyYVeny7EBti3FnyexaKdx5kSDOM0JLHO+gQKx/GVl0ZMqelZxnBqKsPN62d5
+						KSj2OsDPzlvYiyBHZybhyUKnjkOXB8/6Ndffu7wea1vTtSZPoNRjtQEDVCX7Qltd
+						mniATHBHsgLgbQX9WxxM27qC8+pw9G/a0Z+X3UZQBpsIJZE4EnY/oOOP3jbYlOSY
+						8hdAEKws3B8zd4R4/4fRkLqapi1h1qbTYRS+zozwdTr/yU7BeL4Av61thl3mMdhL
+						wolSWbwmZUTYmr3oEnajjQr2wCk0X4cuA4OchGIYAN+p5qkwap6Qigv/AgMBAAGj
+						bDBqMEkGA1UdEQRCMECCFHNoaWJ0ZXN0LmpvcnVtLmFjLnVrhihodHRwczovL3Zt
+						LWpvcnVtLmRzLm1hbi5hYy51ay9zaGliYm9sZXRoMB0GA1UdDgQWBBQRO5UtVirW
+						XHM8XRY62cJN2fv9jDANBgkqhkiG9w0BAQUFAAOCAQEAVKfQ1b09D/qMa0bm1dRY
+						vnKo9sJb55b2HsORAnrBGatOA+/3UvJB2RHRpGZxIXxqQAkTxch1K2GsOfnEKvz/
+						tVxZbxWasiVe184HZaYjvudaf7RneW+2MVq+OugsXH+kVXtXPZd189ZO0XmhFTZX
+						jZy2DqL9aG3qvGX7/yX1uLEzltywMo0ba+imB4klXQgD0ZEH8qBaHcPjKaWSSAS/
+						izsVtVnLjEyZ91V2gHyMMKDm6y2eoZTQOisMfhf+ef6rjMIhwBxLNtf0GbsQc2BG
+						IGN531pXBsZhIwlrO13Z5laL4pqG9NDuYWeETHWNpRYRXp8TDLugPCQbkRMGf+wq
+						Jw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://vm-jorum.ds.man.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://staging.resourceshare.ac.uk/Shibboleth.sso/Artifact/SOAP" index="2"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://webstaging.jorum.ac.uk/Shibboleth.sso/Artifact/SOAP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://vm-jorum.ds.man.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://vm-jorum.ds.man.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://vm-jorum.ds.man.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://vm-jorum.ds.man.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://vm-jorum.ds.man.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://vm-jorum.ds.man.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://staging.resourceshare.ac.uk/Shibboleth.sso/SAML2/POST" index="7"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://staging.resourceshare.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="8"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://staging.resourceshare.ac.uk/Shibboleth.sso/SAML2/Artifact" index="9"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://staging.resourceshare.ac.uk/Shibboleth.sso/SAML2/ECP" index="10"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://staging.resourceshare.ac.uk/Shibboleth.sso/SAML/POST" index="11"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://staging.resourceshare.ac.uk/Shibboleth.sso/SAML/Artifact" index="12"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://webstaging.jorum.ac.uk/Shibboleth.sso/SAML2/POST" index="13"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://webstaging.jorum.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="14"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://webstaging.jorum.ac.uk/Shibboleth.sso/SAML2/Artifact" index="15"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://webstaging.jorum.ac.uk/Shibboleth.sso/SAML2/ECP" index="16"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://webstaging.jorum.ac.uk/Shibboleth.sso/SAML/POST" index="17"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://webstaging.jorum.ac.uk/Shibboleth.sso/SAML/Artifact" index="18"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">The University of Manchester</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">The University of Manchester: Jorum Staging Server</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.jorum.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Ben</md:GivenName>
+      <md:SurName>Ryan</md:SurName>
+      <md:EmailAddress>mailto:Benjamin.ryan@manchester.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ben</md:GivenName>
+      <md:SurName>Ryan</md:SurName>
+      <md:EmailAddress>mailto:Benjamin.ryan@manchester.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,98 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sp.moodle-pp.ucl.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://moodle-pp.ucl.ac.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDODCCAiACAQAwDQYJKoZIhvcNAQEEBQAwYjELMAkGA1UEBhMCR0IxDzANBgNV
+						BAcTBkxvbmRvbjEiMCAGA1UEChMZVW5pdmVyc2l0eSBDb2xsZWdlIExvbmRvbjEe
+						MBwGA1UEAxMVbW9vZGxlLXRlc3QudWNsLmFjLnVrMB4XDTExMDExNzEzMzcwOVoX
+						DTIxMDExNDEzMzcwOVowYjELMAkGA1UEBhMCR0IxDzANBgNVBAcTBkxvbmRvbjEi
+						MCAGA1UEChMZVW5pdmVyc2l0eSBDb2xsZWdlIExvbmRvbjEeMBwGA1UEAxMVbW9v
+						ZGxlLXRlc3QudWNsLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+						AQEAuRlOe44W4doKBLw8klfnawIV4h3NTC57l993bCcZ3g5Ir8EiIMd4oSVHOOf3
+						+imylBx+toMJsuR9oOvtG9YXtINqaLE5V4bVIfOfLGo8DPyM0KxGCd9/M5ZHeiPi
+						aaS21/XzQKqEkCNu7Uj7z8Oc8Rr57+ax/l0XvRty09qbnV6uXfDbc+hfhh0o6hch
+						9LTE2LkgsYxC4+Cdpblt8FTohuncr9vcU+SZC2TmODutD3Fgu4+NvSIjcK6ap6jS
+						q28HhxX9Rm9hbkwttx7nwNNvpGx1erqVdsdnP8Ts6ksk4kd7hFDvdsXPC5EKY4C4
+						6qecO/f57Hm5BKxCHmMKe6XvcQIDAQABMA0GCSqGSIb3DQEBBAUAA4IBAQCX1yog
+						3/Pbbi8OmRjjSHNYhVlHqOxqya6qpD7Q/21hj3izchpXFBHPi1GeH03Y/bZXWA8e
+						7NXEizEIN48acC11rJIqVkNAljtcj02JDMBExZcTlDtKyOMQxStR1UK7QMX5gewj
+						9i/BiKbpbNJvzChz2UYIWOkDUBOxHcjIyf6IRy/K+3UFTfgveTurVyw4AUyoZsW1
+						DNc60fmpw3srpROv+cAEHQHLNJDtWErWsEM32UPp6gi1n1F0vSUzFu3ZyjE+Oc6o
+						ED+f2zIFze+KyOhn4if+JGnGy/MN54vpXOaKKmolo0gkU+iuvH9IoNjkywyBAkr4
+						j/K/PsAz/f88ulRv
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDODCCAiACAQAwDQYJKoZIhvcNAQEEBQAwYjELMAkGA1UEBhMCR0IxDzANBgNV
+						BAcTBkxvbmRvbjEiMCAGA1UEChMZVW5pdmVyc2l0eSBDb2xsZWdlIExvbmRvbjEe
+						MBwGA1UEAxMVbW9vZGxlLXRlc3QudWNsLmFjLnVrMB4XDTExMDExNzEzMzcwOVoX
+						DTIxMDExNDEzMzcwOVowYjELMAkGA1UEBhMCR0IxDzANBgNVBAcTBkxvbmRvbjEi
+						MCAGA1UEChMZVW5pdmVyc2l0eSBDb2xsZWdlIExvbmRvbjEeMBwGA1UEAxMVbW9v
+						ZGxlLXRlc3QudWNsLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+						AQEAuRlOe44W4doKBLw8klfnawIV4h3NTC57l993bCcZ3g5Ir8EiIMd4oSVHOOf3
+						+imylBx+toMJsuR9oOvtG9YXtINqaLE5V4bVIfOfLGo8DPyM0KxGCd9/M5ZHeiPi
+						aaS21/XzQKqEkCNu7Uj7z8Oc8Rr57+ax/l0XvRty09qbnV6uXfDbc+hfhh0o6hch
+						9LTE2LkgsYxC4+Cdpblt8FTohuncr9vcU+SZC2TmODutD3Fgu4+NvSIjcK6ap6jS
+						q28HhxX9Rm9hbkwttx7nwNNvpGx1erqVdsdnP8Ts6ksk4kd7hFDvdsXPC5EKY4C4
+						6qecO/f57Hm5BKxCHmMKe6XvcQIDAQABMA0GCSqGSIb3DQEBBAUAA4IBAQCX1yog
+						3/Pbbi8OmRjjSHNYhVlHqOxqya6qpD7Q/21hj3izchpXFBHPi1GeH03Y/bZXWA8e
+						7NXEizEIN48acC11rJIqVkNAljtcj02JDMBExZcTlDtKyOMQxStR1UK7QMX5gewj
+						9i/BiKbpbNJvzChz2UYIWOkDUBOxHcjIyf6IRy/K+3UFTfgveTurVyw4AUyoZsW1
+						DNc60fmpw3srpROv+cAEHQHLNJDtWErWsEM32UPp6gi1n1F0vSUzFu3ZyjE+Oc6o
+						ED+f2zIFze+KyOhn4if+JGnGy/MN54vpXOaKKmolo0gkU+iuvH9IoNjkywyBAkr4
+						j/K/PsAz/f88ulRv
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://moodle-pp.ucl.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://moodle-pp.ucl.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://moodle-pp.ucl.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://moodle-pp.ucl.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://moodle-pp.ucl.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://moodle-pp.ucl.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://moodle-pp.ucl.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://moodle-pp.ucl.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://moodle-pp.ucl.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://moodle-pp.ucl.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://moodle-pp.ucl.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://moodle-pp.ucl.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://moodle-pp.ucl.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://moodle-pp.ucl.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://moodle-pp.ucl.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://moodle-test.ucl.ac.uk/Shibboleth.sso/SAML2/POST" index="7"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://moodle-test.ucl.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="8"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://moodle-test.ucl.ac.uk/Shibboleth.sso/SAML2/Artifact" index="9"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://moodle-test.ucl.ac.uk/Shibboleth.sso/SAML2/ECP" index="10"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://moodle-test.ucl.ac.uk/Shibboleth.sso/SAML/POST" index="11"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://moodle-test.ucl.ac.uk/Shibboleth.sso/SAML/Artifact" index="12"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University College London</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University College London Moodle (Test)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ucl.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Adrian</md:GivenName>
+      <md:SurName>Barker</md:SurName>
+      <md:EmailAddress>mailto:systems@ucl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Adrian</md:GivenName>
+      <md:SurName>Barker</md:SurName>
+      <md:EmailAddress>mailto:systems@ucl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

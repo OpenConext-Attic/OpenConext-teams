@@ -1,27 +1,27 @@
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth.im.jku.at/idp/shibboleth">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth.im.jku.at/idp/shibboleth">
     <md:Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://eduid.at" registrationInstant="2008-08-11T10:50:42Z">
+      <mdrpi:RegistrationInfo registrationAuthority="http://eduid.at" registrationInstant="2008-08-11T10:50:42Z">
         <mdrpi:RegistrationPolicy xml:lang="en">https://eduid.at/policy/mdrps-20140606</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
-        <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
           <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
         </saml:Attribute>
       </mdattr:EntityAttributes>
     </md:Extensions>
     <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
       <md:Extensions>
-        <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">jku.at</shibmd:Scope>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <shibmd:Scope regexp="false">jku.at</shibmd:Scope>
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="de">Johannes Kepler Universität Linz</mdui:DisplayName>
           <mdui:DisplayName xml:lang="en">Johannes Kepler University Linz</mdui:DisplayName>
-          <mdui:Logo height="183" width="385">https://shibboleth.im.jku.at/logos/JKULogokurzWappenlinks.png</mdui:Logo>
-          <mdui:Logo height="92" width="193">https://shibboleth.im.jku.at/logos/JKULogokurzWappenlinks_50.png</mdui:Logo>
-          <mdui:Logo height="16" width="16">https://shibboleth.im.jku.at/logos/favicon.ico</mdui:Logo>
+          <mdui:Logo width="385" height="183">https://shibboleth.im.jku.at/logos/JKULogokurzWappenlinks.png</mdui:Logo>
+          <mdui:Logo width="193" height="92">https://shibboleth.im.jku.at/logos/JKULogokurzWappenlinks_50.png</mdui:Logo>
+          <mdui:Logo width="16" height="16">https://shibboleth.im.jku.at/logos/favicon.ico</mdui:Logo>
         </mdui:UIInfo>
       </md:Extensions>
       <md:KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyInfo>
           <ds:X509Data>
             <ds:X509Certificate>
 MIIDPDCCAiSgAwIBAgIVAON+suZcxVqRRl5fo2FX1rk+r+TxMA0GCSqGSIb3DQEB
@@ -59,10 +59,10 @@ lkm+eYJRFwZraUdycAffqQ==
     </md:IDPSSODescriptor>
     <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
       <md:Extensions>
-        <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">jku.at</shibmd:Scope>
+        <shibmd:Scope regexp="false">jku.at</shibmd:Scope>
       </md:Extensions>
       <md:KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyInfo>
           <ds:X509Data>
             <ds:X509Certificate>
 MIIDPDCCAiSgAwIBAgIVAON+suZcxVqRRl5fo2FX1rk+r+TxMA0GCSqGSIb3DQEB

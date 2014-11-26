@@ -1,0 +1,67 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.rediris.es/sir/uocidp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.rediris.es/" registrationInstant="2012-10-09T13:08:24Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.rediris.es/sir/edugain/SIR_MRPS.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">UOC - Universitat Oberta de Catalunya</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="es">UOC - Universitat Oberta de Catalunya</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UOC Identity Provider</mdui:Description>
+          <mdui:Description xml:lang="es">Proveedor de identidad de UOC</mdui:Description>
+        </mdui:UIInfo>
+        <shibmd:Scope regexp="false">uoc.edu</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEeTCCA2GgAwIBAgIQCP9faAGj247/+QVzgpX08zANBgkqhkiG9w0BAQUFADA2
+MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+U1NMIENBMB4XDTEzMDcwMTAwMDAwMFoXDTE2MDYzMDIzNTk1OVowRDEhMB8GA1UE
+CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMR8wHQYDVQQDExZzYW1saWRwLnNp
+ci5yZWRpcmlzLmVzMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5tO6
+tYAdozpFMDwS7QH1qm7eECkY05lG1sp14vcVOdyN0mAf8oai+M8dCQ5iyMxD/RaG
+oSmhXfHUvJ+0x8Cp/NHYbKr0cXskANcYTI0JFMFypn9Uac62CGxUYZRhHQ/2LxiE
+vzNgKrm2JiXCvOQbWrbg0sZDEsONv2G1Ln3fvOLiSiO1AjWLvOeYFPNgkNy5dxxt
+7ms7mZ0bFth6Cj38BBL0I1RebVnMgAKZWSgICUXDx35nkB+iLtidIykBgz92ZQ5h
+UrVNndP5+lraoMRuIewESSFt+LBYVeUZFTBGlupiUZ/bi7rhtIuhMM8ahaKIstbu
+IgfQBHPqRkkiiKOJawIDAQABo4IBczCCAW8wHwYDVR0jBBgwFoAUDL2TaAzz3quj
+SWsrN1dH6pDjue0wHQYDVR0OBBYEFARoBLDWcsveEZQhaMVIR9mmJkUkMA4GA1Ud
+DwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggr
+BgEFBQcDAjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAECATA6BgNV
+HR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNT
+TENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQu
+dGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRw
+Oi8vb2NzcC50Y3MudGVyZW5hLm9yZzAhBgNVHREEGjAYghZzYW1saWRwLnNpci5y
+ZWRpcmlzLmVzMA0GCSqGSIb3DQEBBQUAA4IBAQB0gmr232YgpUC4HkwAHXaH91Zx
+8ZrwiEc8c4jGLh5VsaO0OqMfUEIXMuqZ+P9JNWVwlc6VLtmsypqTuqb9a06DS88q
+2o5sAUpbXZwhArhQs1bQnu5HJ6S84Ajn+NfMOyaO7NF8Colq/9lf3DihkT0jlD7i
+PHPMw2zauvtR/WPwdPszgfIOV/vkJ0rq9AjOXxSX7V2jpkxISGW/m93iahwXEoVF
+c8VXQhNjEfcm6uawmISjsyp6ta/U3e/8GJka2csDrF/bfipMBDSdWcLMscpYO8cb
+DC0L6vehZJ+lPz3wPH6YJmlstICZUdJIgDV3TUhmji6NNKa4p6by34QdYcDH</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="http://sir.rediris.es/uoc/saml2/idp/SingleLogoutService.php" ResponseLocation="http://sir.rediris.es/uoc/saml2/idp/SingleLogoutService.php"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="http://sir.rediris.es/uoc/shib13/idp/SSOService.php"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="http://sir.rediris.es/uoc/saml2/idp/SSOService.php"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="http://sir.rediris.es/uoc/shib13/idp/aa.php"/>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">UOC</md:OrganizationName>
+      <md:OrganizationName xml:lang="es">UOC</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">UOC - Universitat Oberta de Catalunya</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="es">UOC - Universitat Oberta de Catalunya</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.rediris.es/index.php.en</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="es">http://www.rediris.es/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>SIR helpdesk</md:GivenName>
+      <md:EmailAddress>sir@rediris.es</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

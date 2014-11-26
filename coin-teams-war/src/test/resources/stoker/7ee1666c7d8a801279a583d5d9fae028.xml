@@ -1,50 +1,51 @@
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://weblogin.uu.se/idp/shibboleth">
-  <md:Extensions>
-<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.swamid.se/">
-<mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
-</mdrpi:RegistrationInfo>
-    <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
-      <samla:Attribute xmlns:samla="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
-        <samla:AttributeValue>http://refeds.org/category/research-and-scholarship</samla:AttributeValue>
-      </samla:Attribute>
-    </mdattr:EntityAttributes>
-  </md:Extensions>
-  <IDPSSODescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-    <Extensions>
-      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">user.uu.se</shibmd:Scope>
-      <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-        <mdui:DisplayName xml:lang="sv">Uppsala universitet</mdui:DisplayName>
-        <mdui:DisplayName xml:lang="en">Uppsala University</mdui:DisplayName>
-        <mdui:Description xml:lang="sv">Gemensam webbinloggning för anställda, studenter och övriga verksamma vid Uppsala universitet.</mdui:Description>
-        <mdui:Description xml:lang="en">The Uppsala University Identity Provider is used by employees and students at the university.</mdui:Description>
-        <mdui:InformationURL xml:lang="sv">https://weblogin.uu.se</mdui:InformationURL>
-        <mdui:InformationURL xml:lang="en">https://weblogin.uu.se/english.html</mdui:InformationURL>
-        <mdui:Logo height="50" width="50">https://weblogin.uu.se/idp/UUlogin/img/logga-50.png</mdui:Logo>
-        <mdui:Logo height="50" width="50" xml:lang="sv">https://weblogin.uu.se/idp/UUlogin/img/logga-50.png</mdui:Logo>
-        <mdui:Logo height="50" width="50" xml:lang="en">https://weblogin.uu.se/idp/UUlogin/img/logga-50.png</mdui:Logo>
-        <mdui:PrivacyStatementURL xml:lang="sv">https://weblogin.uu.se/#2</mdui:PrivacyStatementURL>
-        <mdui:PrivacyStatementURL xml:lang="en">https://weblogin.uu.se/english.html#2</mdui:PrivacyStatementURL>
-        <mdui:Keywords xml:lang="sv">uppsala+universitet</mdui:Keywords>
-        <mdui:Keywords xml:lang="en">uppsala+universitet</mdui:Keywords>
-      </mdui:UIInfo>
-      <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-        <mdui:DomainHint>uu.se</mdui:DomainHint>
-        <mdui:IPHint>130.238.0.0/18</mdui:IPHint>
-        <mdui:IPHint>130.238.64.0/19</mdui:IPHint>
-        <mdui:IPHint>130.238.128.0/17</mdui:IPHint>
-        <mdui:IPHint>130.242.96.0/20</mdui:IPHint>
-        <mdui:IPHint>130.243.128.0/17</mdui:IPHint>
-        <mdui:IPHint>212.25.130.0/24</mdui:IPHint>
-        <mdui:IPHint>212.25.144.0/21</mdui:IPHint>
-        <mdui:IPHint>2001:6b0:B::/48</mdui:IPHint>
-        <mdui:IPHint>2001:6b0:C::/48</mdui:IPHint>
-        <mdui:GeolocationHint>geo:59.857583,17.629500</mdui:GeolocationHint>
-      </mdui:DiscoHints>
-    </Extensions>
-    <KeyDescriptor>
-      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-        <ds:X509Data>
-          <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://weblogin.uu.se/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">user.uu.se</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="sv">Uppsala universitet</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Uppsala University</mdui:DisplayName>
+          <mdui:Description xml:lang="sv">Gemensam webbinloggning för anställda, studenter och övriga verksamma vid Uppsala universitet.</mdui:Description>
+          <mdui:Description xml:lang="en">The Uppsala University Identity Provider is used by employees and students at the university.</mdui:Description>
+          <mdui:InformationURL xml:lang="sv">https://weblogin.uu.se</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">https://weblogin.uu.se/english.html</mdui:InformationURL>
+          <mdui:Logo height="50" width="50">https://weblogin.uu.se/idp/UUlogin/img/logga-50.png</mdui:Logo>
+          <mdui:Logo height="50" width="50" xml:lang="sv">https://weblogin.uu.se/idp/UUlogin/img/logga-50.png</mdui:Logo>
+          <mdui:Logo height="50" width="50" xml:lang="en">https://weblogin.uu.se/idp/UUlogin/img/logga-50.png</mdui:Logo>
+          <mdui:PrivacyStatementURL xml:lang="sv">https://weblogin.uu.se/#2</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://weblogin.uu.se/english.html#2</mdui:PrivacyStatementURL>
+          <mdui:Keywords xml:lang="sv">uppsala+universitet</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">uppsala+universitet</mdui:Keywords>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>uu.se</mdui:DomainHint>
+          <mdui:IPHint>130.238.0.0/18</mdui:IPHint>
+          <mdui:IPHint>130.238.64.0/19</mdui:IPHint>
+          <mdui:IPHint>130.238.128.0/17</mdui:IPHint>
+          <mdui:IPHint>130.242.96.0/20</mdui:IPHint>
+          <mdui:IPHint>130.243.128.0/17</mdui:IPHint>
+          <mdui:IPHint>212.25.130.0/24</mdui:IPHint>
+          <mdui:IPHint>212.25.144.0/21</mdui:IPHint>
+          <mdui:IPHint>2001:6b0:B::/48</mdui:IPHint>
+          <mdui:IPHint>2001:6b0:C::/48</mdui:IPHint>
+          <mdui:GeolocationHint>geo:59.857583,17.629500</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIDJDCCAgygAwIBAgIVAIag2ZIg3gkA4LMqyU2fUtoGVTW1MA0GCSqGSIb3DQEB
 BQUAMBkxFzAVBgNVBAMTDndlYmxvZ2luLnV1LnNlMB4XDTEzMTAyMjEyMjIxOVoX
 DTMzMTAyMjEyMjIxOVowGTEXMBUGA1UEAxMOd2VibG9naW4udXUuc2UwggEiMA0G
@@ -64,26 +65,26 @@ XdPKcIAfaBUhhrQbpNV/fA9AGHCp5XXIpmSfCuR+iTQyk18fj/w6szSm1zyccO3Z
 MNWltbzwybdHu9kJ3aOfsHwsCE2XpV2qJ94ENK5YZ/8R0E5q5BrfnQ==
 
                     </ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </KeyDescriptor>
-    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://weblogin.uu.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://weblogin.uu.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-    <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://weblogin.uu.se/idp/profile/Shibboleth/SSO"/>
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://weblogin.uu.se/idp/profile/SAML2/POST/SSO"/>
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://weblogin.uu.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://weblogin.uu.se/idp/profile/SAML2/Redirect/SSO"/>
-  </IDPSSODescriptor>
-  <AttributeAuthorityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-    <Extensions>
-      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">user.uu.se</shibmd:Scope>
-    </Extensions>
-    <KeyDescriptor>
-      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-        <ds:X509Data>
-          <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://weblogin.uu.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://weblogin.uu.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://weblogin.uu.se/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://weblogin.uu.se/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://weblogin.uu.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://weblogin.uu.se/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">user.uu.se</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIDJDCCAgygAwIBAgIVAIag2ZIg3gkA4LMqyU2fUtoGVTW1MA0GCSqGSIb3DQEB
 BQUAMBkxFzAVBgNVBAMTDndlYmxvZ2luLnV1LnNlMB4XDTEzMTAyMjEyMjIxOVoX
 DTMzMTAyMjEyMjIxOVowGTEXMBUGA1UEAxMOd2VibG9naW4udXUuc2UwggEiMA0G
@@ -103,38 +104,34 @@ XdPKcIAfaBUhhrQbpNV/fA9AGHCp5XXIpmSfCuR+iTQyk18fj/w6szSm1zyccO3Z
 MNWltbzwybdHu9kJ3aOfsHwsCE2XpV2qJ94ENK5YZ/8R0E5q5BrfnQ==
 
                     </ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </KeyDescriptor>
-    <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://weblogin.uu.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-    <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://weblogin.uu.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-  </AttributeAuthorityDescriptor>
-  
-  
-  
-  
-<Organization xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
-    <OrganizationName xml:lang="en">UU</OrganizationName>
-    <OrganizationDisplayName xml:lang="sv">Uppsala universitet</OrganizationDisplayName>
-    <OrganizationDisplayName xml:lang="en">Uppsala University</OrganizationDisplayName>
-    <OrganizationURL xml:lang="en">http://www.uu.se</OrganizationURL>
-  </Organization>
-<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="administrative">
-    <Company>Uppsala University</Company>
-    <SurName>SAML2 admins</SurName>
-    <EmailAddress>akka-datordrift@its.uu.se</EmailAddress>
-  </ContactPerson>
-<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="technical">
-    <Company>Uppsala University</Company>
-    <SurName>SAML2 admins</SurName>
-    <EmailAddress>akka-datordrift@its.uu.se</EmailAddress>
-  </ContactPerson>
-<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="support">
-    <Company>Uppsala universitet</Company>
-    <SurName>IT Servicedesk</SurName>
-    <EmailAddress>helpdesk@uu.se</EmailAddress>
-    <TelephoneNumber>+46 18 4714400</TelephoneNumber>
-  </ContactPerson>
-</md:EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://weblogin.uu.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://weblogin.uu.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">UU</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sv">Uppsala universitet</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Uppsala University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.uu.se</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:Company>Uppsala University</md:Company>
+      <md:SurName>SAML2 admins</md:SurName>
+      <md:EmailAddress>akka-datordrift@its.uu.se</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:Company>Uppsala University</md:Company>
+      <md:SurName>SAML2 admins</md:SurName>
+      <md:EmailAddress>akka-datordrift@its.uu.se</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>Uppsala universitet</md:Company>
+      <md:SurName>IT Servicedesk</md:SurName>
+      <md:EmailAddress>helpdesk@uu.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 18 4714400</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

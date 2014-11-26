@@ -1,0 +1,65 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://appraisal.qmul.ac.uk">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-08-18T14:36:12Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="1" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://appraisal.qmul.ac.uk/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://appraisal.qmul.ac.uk/Shibboleth.sso/Login" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDTjCCAjagAwIBAgIJALX9bGZHGFQXMA0GCSqGSIb3DQEBBQUAMC4xLDAqBgNV
+						BAMTI2hvc3QtOTUtMTU0LTI1NC0xMjcucnNjbGllbnRkbnMuY29tMB4XDTE0MDcz
+						MTA5NDIzNVoXDTI0MDcyODA5NDIzNVowLjEsMCoGA1UEAxMjaG9zdC05NS0xNTQt
+						MjU0LTEyNy5yc2NsaWVudGRucy5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
+						ggEKAoIBAQCt/HdEunDhkbUtvNlMhBKoLN3JTSfu7CsglaNYyTM05F9kRUsq/LOf
+						E4Hh1JRx9bb7TLazS6YvD8ZU+sc2WF3xCVPYDp4oY8ANDJYfB53dhtT4lLpqFB/0
+						aTjMj1PNvGqYJOElZhkp0m4nrHjNATuA7eQB3iff6v/0xdJ7AcTSfmTQTOXYyma+
+						vQadTmxs9990Xml3HosGy1IXCbbO2ht4sg7/MxmbJblrha31wGURTWkE+WmVRwV6
+						nMaituJhyk2d1UYEAjzpiAgwlOBVdUVNrdhTiTW5rWKNnPsIaam/XOhAeQeRj2IF
+						9I10RB3OSTshOZuDEw4zseUrBcEtWejpAgMBAAGjbzBtMEwGA1UdEQRFMEOCI2hv
+						c3QtOTUtMTU0LTI1NC0xMjcucnNjbGllbnRkbnMuY29thhxodHRwczovL2FwcHJh
+						aXNhbC5xbXVsLmFjLnVrMB0GA1UdDgQWBBTH7kFVLALHzYDH4QoBrsLhOiiDGjAN
+						BgkqhkiG9w0BAQUFAAOCAQEAnkihlzTiIbxprbKw818zRBsRexB9pqUFYuRBSmAB
+						jTRFLn+VouYicmETvhyVI4BU69mFz3nLsHG5HtmCeDS45ZoZhY/hBY3HqXJ/jOGB
+						RsYQQdkC5vHCrRJrimsZMKOUY7HR8OZWsDbcmAXXoYSk3yMaBHI4BcZAXZa4KRX7
+						69wlCV41DWzh3yKaHEQ0+eLnbVj2/ECVHaz1JzA0l/eRtH4vlSJpQQy/PymODDCc
+						lrIU37xyczOKjgW1LpMwbl2aSND2BxalCKHxXiOIeLudwu9VPws/eN3UxeD1Nc2q
+						d4bJN7QJIBsfqLD3Dr3yXiTkMO9vJbZvRHKJRmR8eaYZCQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://appraisal.qmul.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://appraisal.qmul.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://appraisal.qmul.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://appraisal.qmul.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://appraisal.qmul.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://appraisal.qmul.ac.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://appraisal.qmul.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://appraisal.qmul.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://appraisal.qmul.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://appraisal.qmul.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://appraisal.qmul.ac.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Simitive Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">QMUL Appraisal Simitive</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.simitive.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Joe</md:GivenName>
+      <md:SurName>Vallender</md:SurName>
+      <md:EmailAddress>mailto:joe.vallender@simitive.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Joe</md:GivenName>
+      <md:SurName>Vallender</md:SurName>
+      <md:EmailAddress>mailto:joe.vallender@simitive.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,60 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.bjhcm.co.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIFBDCCA+ygAwIBAgIJAJ0dMnvmlXpZMA0GCSqGSIb3DQEBBQUAMIGjMQswCQYD
+						VQQGEwJHQjEPMA0GA1UECBMGTG9uZG9uMQ8wDQYDVQQHEwZMb25kb24xGzAZBgNV
+						BAoTEk1hIEhlYWx0aGNhcmUgTHRkLjEMMAoGA1UECxMDd2ViMRgwFgYDVQQDEw93
+						d3cuYmpoY20uY28udWsxLTArBgkqhkiG9w0BCQEWHnRvbS5wb2xsYXJkQG1hcmth
+						bGxlbmdyb3VwLmNvbTAeFw0xMDExMTgwOTM4MTJaFw0yMDExMTUwOTM4MTJaMIGj
+						MQswCQYDVQQGEwJHQjEPMA0GA1UECBMGTG9uZG9uMQ8wDQYDVQQHEwZMb25kb24x
+						GzAZBgNVBAoTEk1hIEhlYWx0aGNhcmUgTHRkLjEMMAoGA1UECxMDd2ViMRgwFgYD
+						VQQDEw93d3cuYmpoY20uY28udWsxLTArBgkqhkiG9w0BCQEWHnRvbS5wb2xsYXJk
+						QG1hcmthbGxlbmdyb3VwLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC
+						ggEBAMFJMPZrCB4R0FGaIwXrM56fwY75Rt9sA2oAL5VitN01BhItwr1+VA+Agl6s
+						Icm/nkhQt5P6Rk6JAc//cgft37u2CpC3JLryLR4xL4lmSHofcRsRABs8+/BqDfDz
+						D7pupIMeeUV0wJqV7EECzdGY2n4QDe/oHMRlWQVEYSSOrZNqgpOXD3c51HxJeMs2
+						EUbOMonjxp8NVXZFdgeDNXwys+rsA81PipU+PMhVF5pCtPnwWlwd91G+3Q/VqyiR
+						mWynFz7KcWsBFI9Ms/JHnbLdHknMs1yvbPJF8JdpxktaRyQAFuwy7Iag4/9CFDul
+						3yCL7Ubn6q+8MYdO+nUZsSN01z0CAwEAAaOCATcwggEzMAkGA1UdEwQCMAAwLAYJ
+						YIZIAYb4QgENBB8WHU9wZW5TU0wgR2VuZXJhdGVkIENlcnRpZmljYXRlMB0GA1Ud
+						DgQWBBRdDheBuWTHljSJkR0G+mboL7G+wTCB2AYDVR0jBIHQMIHNgBRdDheBuWTH
+						ljSJkR0G+mboL7G+waGBqaSBpjCBozELMAkGA1UEBhMCR0IxDzANBgNVBAgTBkxv
+						bmRvbjEPMA0GA1UEBxMGTG9uZG9uMRswGQYDVQQKExJNYSBIZWFsdGhjYXJlIEx0
+						ZC4xDDAKBgNVBAsTA3dlYjEYMBYGA1UEAxMPd3d3LmJqaGNtLmNvLnVrMS0wKwYJ
+						KoZIhvcNAQkBFh50b20ucG9sbGFyZEBtYXJrYWxsZW5ncm91cC5jb22CCQCdHTJ7
+						5pV6WTANBgkqhkiG9w0BAQUFAAOCAQEAcAIeF4Vx7UA/+lEoZ5VB+5cfKodmIorI
+						oxbwQcKVvCrC5aziWcPVpzCE3u4lS4Qad2YJFzHSUyHQQ37IrmrfzEhctFJAxvaX
+						QF/XmEj+CW0OkaDxWSYTZfzL3XJk3OA213pbq6ORo3qVNQB5lwajhq0cK12G+Jzm
+						W/lRqlPGzX0MFVafCrgkCrD1qgg+w5T6KGNtMWZUtsjpD+WN64kUoV9pKU8itUf5
+						iaKjGvk2mhyFQ/jC5HMLSc6w//OmpSjsrQmg7R7sDoZsPgPMM6EGUfwIBfWDqqEM
+						FkiDK5odPpv8XOuhavrPqL9CL3sRnGMezE7UyPX/rytg4BeOytPubA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.bjhcm.co.uk/auth/rcv/ukfed" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.bjhcm.co.uk/auth/rcv/ukfed" index="2"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">MA Healthcare Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">MA Healthcare Limited: bjhcm.co.uk</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.bjhcm.co.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Tom</md:GivenName>
+      <md:SurName>Pollard</md:SurName>
+      <md:EmailAddress>mailto:tom.pollard@markallengroup.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ella</md:GivenName>
+      <md:SurName>Horswell</md:SurName>
+      <md:EmailAddress>mailto:ella.horswell@fsite.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

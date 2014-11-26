@@ -1,0 +1,53 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.123library.org/oa/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-11-02T10:40:16Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDcDCCAligAwIBAgICIlEwDQYJKoZIhvcNAQEFBQAwgasxCzAJBgNVBAYTAkdC
+						MREwDwYDVQQIEwhTb21lcnNldDENMAsGA1UEBxMEQmF0aDEQMA4GA1UEChMHRWR1
+						c2VydjETMBEGA1UECxMKT3BlbkF0aGVuczEpMCcGA1UEAxMgT3BlbkF0aGVucyBD
+						ZXJ0aWZpY2F0ZSBBdXRob3JpdHkxKDAmBgkqhkiG9w0BCQEWGWF0aGVuc2hlbHBA
+						ZWR1c2Vydi5vcmcudWswHhcNMTMwMTA4MTEwNzI0WhcNMTUwMTI4MTEwNzI0WjBK
+						MQswCQYDVQQGEwJHQjEPMA0GA1UECBMGTG9uZG9uMRkwFwYDVQQKExAxMjNEb2Mg
+						RWR1Y2F0aW9uMQ8wDQYDVQQDEwYxMjNET0MwggEiMA0GCSqGSIb3DQEBAQUAA4IB
+						DwAwggEKAoIBAQDBN6m1Cor6QeZaa0nASThiAXVxYsxsPZlZcjAdGUCspOmOSLWk
+						3IJVjPkQFb5tq5af9iekKMpu/ob0ppZToMXsEz6uO8aXYS/oM9OOyWHBeymqHOvx
+						E3KplFYrHeQzhBT5Pjx/28Htj0qpvakxifwnBs+MTc8eTqV51vLFy/jq0vLLcGpH
+						w7cptJaIW9vFf0Rw659HbEF19jT4hdQlahoWAmod9VZRE6l+F4uH8ycfftSLF1z/
+						+jueEQlcxKa9V0/HoStAtK2WAJ6XfcjCjMb9N+JsI9YhbEIC0QDFy4AiRxFN7A2G
+						fTOOpaWpJlGsz7ECmV+Ob2st29LiRvbawyefAgMBAAEwDQYJKoZIhvcNAQEFBQAD
+						ggEBAC9VSFf4LgUE/8kx2yZnJNlyCUqFKEVq5g8E0L5Ok5FGoXSLUUGIvBInstBa
+						gpGtik83kS4hUeTzfJvVRfkC5iiAcbsnkPD9sF4GGhP0b3c8MBx3zBDKg2JNN1n0
+						yMhmqPL8JOYEZvPaAfm71HFhBTabtAFKH0pLfrQMXsGe/5ZRhWPwmBFjPj2/sOuZ
+						cHz7m4MikM9MbxWBumk8tZ60I+o5Hx6K2qTc/pDx5T3BdwVJuzz9noq/I3ryEc2V
+						82kRRIfimCGhE19R3iHI0j/0bk/h3iByoyHO6Ja7p6sCahtWbp56kPrw3xOUZZgr
+						R7r9VaCXRd3BiByRXnE73nkKWUs=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.123library.org/oa/auth/rcv/shib/post" index="1" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.123library.org/oa/auth/rcv/shib/art" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.123library.org/oa/auth/rcv/saml2/post" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.123library.org/oa/auth/rcv/saml2/art" index="4"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">123Doc Education Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">123 Library</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.123library.org/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Tim</md:GivenName>
+      <md:SurName>Benjamin</md:SurName>
+      <md:EmailAddress>mailto:timbenjamin@123doc.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Tim</md:GivenName>
+      <md:SurName>Benjamin</md:SurName>
+      <md:EmailAddress>mailto:timbenjamin@123doc.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

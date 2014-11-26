@@ -1,0 +1,68 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.twigonglow.com/shibboleth-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-11-22T15:15:58Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://www.twigonglow.com/Shibboleth.sso/shibtest"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://www.twigonglow.com/Shibboleth.sso/Glow"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://www.twigonglow.com/Shibboleth.sso/RMUnify"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://www.twigonglow.com/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDJzCCAg+gAwIBAgIJAMTlVAXkOmrZMA0GCSqGSIb3DQEBBQUAMB0xGzAZBgNV
+						BAMTEnd3dy50d2lnb25nbG93LmNvbTAeFw0xMjExMTMxMTAxNDVaFw0yMjExMTEx
+						MTAxNDVaMB0xGzAZBgNVBAMTEnd3dy50d2lnb25nbG93LmNvbTCCASIwDQYJKoZI
+						hvcNAQEBBQADggEPADCCAQoCggEBAKZvpD5K0jQvz3y9mkhLylUzqC+bZrGmyuIE
+						9LAdDXh/9LpxgxnY+an/FnIQzrKFLyw+4t8H1QSLWyTLK8MA8b6tJjBxznvUv8Qk
+						IpBAmBXWSkPQSHgbIoTFivb6iIVJq9h7yLi0JM7GpM4SS/ed+JiYiBM1C89/iaks
+						s1kpbN9TYrqN0YBkogTe1NIJMDp13SagmR2WjmnzQKtCH8z3DQDA3MrrP+KIbp5Z
+						Qm6Nlk+XQv51Mg5b/8qMgBoekB6cTI+HEIXJauJyPfCPL0hysnNUzR57BGG04ol4
+						Vx/eIKKvzRSwRowSGIxIcIGzUk9lg1PIt7RXPcTHANqppLGZIusCAwEAAaNqMGgw
+						RwYDVR0RBEAwPoISd3d3LnR3aWdvbmdsb3cuY29thihodHRwczovL3d3dy50d2ln
+						b25nbG93LmNvbS9zaGliYm9sZXRoLXNwMB0GA1UdDgQWBBRHiLe+VeAuCc/Ly0mK
+						I5tvs+uuujANBgkqhkiG9w0BAQUFAAOCAQEAJZHQuo5dFz0F77boWcIjUTH9eHtH
+						HUYbLsotM1Xin8k0vQIwkqQcIByBHLlM/ScVKku4u8a5maAawSr6IZVvBbpYgYsO
+						O0GZpHD45GFBIMQsgd+tTGlHus/t0048J5j3GPqx1NTMGs80DnCXAq9fLKjpil4i
+						/mfAfP6CSrguh2rCvVndSrTLIHJfQ+d6Up8h24LYKzhHVQmdqgsSQAWg1yUacFER
+						ud1Wodm6t+Nrbyh4XA3YbekaxHPRO9bBIjo+sncONDf6JfFL57s4i74LeZVOMeQC
+						yFFf/Cs64qzIILqKQWM0wqZq1vOavCR+OhOTdyjjKejhDKb9CWLzXSuOFw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.twigonglow.com/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.twigonglow.com/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.twigonglow.com/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.twigonglow.com/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.twigonglow.com/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.twigonglow.com/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.twigonglow.com/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.twigonglow.com/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.twigonglow.com/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.twigonglow.com/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www.twigonglow.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.twigonglow.com/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://www.twigonglow.com/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.twigonglow.com/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.twigonglow.com/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Twig World Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Twig World Limited: Glow Science</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.twigonglow.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Patricia</md:GivenName>
+      <md:SurName>Kemp</md:SurName>
+      <md:EmailAddress>mailto:pkemp@twig-world.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Jim</md:GivenName>
+      <md:SurName>Smith</md:SurName>
+      <md:EmailAddress>mailto:jsmith@twig-world.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

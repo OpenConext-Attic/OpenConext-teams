@@ -1,0 +1,61 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.dental-nursing.co.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIFHzCCBAegAwIBAgIJAO3bFAht6jveMA0GCSqGSIb3DQEBBQUAMIGsMQswCQYD
+						VQQGEwJHQjEPMA0GA1UECBMGTG9uZG9uMQ8wDQYDVQQHEwZMb25kb24xGzAZBgNV
+						BAoTEk1hIEhlYWx0aGNhcmUgTHRkLjEMMAoGA1UECxMDd2ViMSEwHwYDVQQDExh3
+						d3cuZGVudGFsLW51cnNpbmcuY28udWsxLTArBgkqhkiG9w0BCQEWHnRvbS5wb2xs
+						YXJkQG1hcmthbGxlbmdyb3VwLmNvbTAeFw0xMDA5MjExMDM3NDVaFw0yMDA5MTgx
+						MDM3NDVaMIGsMQswCQYDVQQGEwJHQjEPMA0GA1UECBMGTG9uZG9uMQ8wDQYDVQQH
+						EwZMb25kb24xGzAZBgNVBAoTEk1hIEhlYWx0aGNhcmUgTHRkLjEMMAoGA1UECxMD
+						d2ViMSEwHwYDVQQDExh3d3cuZGVudGFsLW51cnNpbmcuY28udWsxLTArBgkqhkiG
+						9w0BCQEWHnRvbS5wb2xsYXJkQG1hcmthbGxlbmdyb3VwLmNvbTCCASIwDQYJKoZI
+						hvcNAQEBBQADggEPADCCAQoCggEBANyYOQPecEPtsxn6zw2LIM3aorwo5lExVnFI
+						ZZXvSU6YssKuUOzEc2YLtdkF1nUksuSXC5I13aqj0z4757bd/xcJpS36KpEtr6Qe
+						qAkat7dHuT5sfjqyGGaQ7RRxKcIvMXMeW4V46XDegtEmwL1ilybvAzIx0fv5bm6P
+						z6lSev5EmRpAN+tou33hbVwrDd4Sds+UYoJHq1y0M7T+ovWhN1etHC77QVwX+NCz
+						kR4bCRpmAF4Lz7blaFkn+BuszCz2nyOnw0H+btbnSs3YaRrscSfctnjoAV2skiK2
+						MsIuBN1OmnKhFYkrBhxgOsdhKwLS5+/GZgDMTvBbI+0PCs/KcYsCAwEAAaOCAUAw
+						ggE8MAkGA1UdEwQCMAAwLAYJYIZIAYb4QgENBB8WHU9wZW5TU0wgR2VuZXJhdGVk
+						IENlcnRpZmljYXRlMB0GA1UdDgQWBBSHeKW6zoDujt//wMKWMMY83Wu+TTCB4QYD
+						VR0jBIHZMIHWgBSHeKW6zoDujt//wMKWMMY83Wu+TaGBsqSBrzCBrDELMAkGA1UE
+						BhMCR0IxDzANBgNVBAgTBkxvbmRvbjEPMA0GA1UEBxMGTG9uZG9uMRswGQYDVQQK
+						ExJNYSBIZWFsdGhjYXJlIEx0ZC4xDDAKBgNVBAsTA3dlYjEhMB8GA1UEAxMYd3d3
+						LmRlbnRhbC1udXJzaW5nLmNvLnVrMS0wKwYJKoZIhvcNAQkBFh50b20ucG9sbGFy
+						ZEBtYXJrYWxsZW5ncm91cC5jb22CCQDt2xQIbeo73jANBgkqhkiG9w0BAQUFAAOC
+						AQEAcwNLd3oH5qHpsb6IJj8nQYY2CBzbQ2MurKn1ME4aCAENQ+E1mzPDM3+sdvI9
+						tZhbgbGhMEfZ+Ck55X0D7bNdWR/991i3FLXUt/QcGRzsgo41QGcBWfNDIt4tU1Bj
+						WPx119cGSLnA6MAEpG2w0TPyPQPXmzVOd8XtXXAkbTpwQ6+LLFMyTWnVMGRY2HzP
+						B3nzmP0gQvMUK5zC8hwCRGNvM+qLJPeN1vEppQ43cRy9acpVmkgWerfABujpgNww
+						pg+A+ta/ABwVcOPREbpouH/ccqSN/mHOnjperu+vPGm9xSA+r9owsHziQC9/mZIQ
+						RCLd7MNy18GIZyYDwbGO+7anbA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.dental-nursing.co.uk/auth/rcv/ukfed" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.dental-nursing.co.uk/auth/rcv/ukfed" index="2"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">MA Healthcare Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">MA Healthcare Limited: dental-nursing.co.uk</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.dental-nursing.co.uk/about.shtml</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Tom</md:GivenName>
+      <md:SurName>Pollard</md:SurName>
+      <md:EmailAddress>mailto:tom.pollard@markallengroup.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Tim</md:GivenName>
+      <md:SurName>Hillman</md:SurName>
+      <md:EmailAddress>mailto:tim.hillman@fsite.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

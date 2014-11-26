@@ -1,0 +1,92 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.wortech.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-08-26T15:44:57Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">wortech.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDMzCCAhugAwIBAgIUVyuETbzgv93czUmf4A085Hv5gp0wDQYJKoZIhvcNAQEF
+						BQAwHTEbMBkGA1UEAxMSaWRwMi53b3J0ZWNoLmFjLnVrMB4XDTEyMDMyMzE0NDU1
+						M1oXDTMyMDMyMzE0NDU1M1owHTEbMBkGA1UEAxMSaWRwMi53b3J0ZWNoLmFjLnVr
+						MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAunWkrcL+hnjQ09UdnKBA
+						BAw7lRBB3QYvOggtNnok7DzwWGpHcrXhx4KfzOfEJ3maUJYBdzRsT1dgt8F2vBkv
+						2D7z8ysuV28CB3WTOYescJS67mZ3JuvIIWOOs20wpTwrKQxqA0Jl17by6VBrD0mg
+						+h2Uo+DN18KFfOPchT7r8MrIzvGBZKyy5PSsHDteW2FcVeMKA01HGgtcKOhqAWGS
+						2eAmRH4JpTAHW5GtuBpQucXBGF//+WWVCoJ9tR05IhuPZTYYvPE+wYN6m6530ZVt
+						VjuQWq8bbK1vk4xLyTjkHv1ZB+8cU/h8zZjGyQYxYdEf2FvoujXBDZE0FezZ1y56
+						FQIDAQABo2swaTBIBgNVHREEQTA/ghJpZHAyLndvcnRlY2guYWMudWuGKWh0dHBz
+						Oi8vaWRwMi53b3J0ZWNoLmFjLnVrL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBQr
+						3EpVDeHCnuNCrrLjnA2+sOs8NjANBgkqhkiG9w0BAQUFAAOCAQEACM1zfxfzXQ07
+						xIkBUtBRtzZGelYWvraMP1DHPt56zR0PSmqjIlA6dSZX48YQzSBBDbj3FvKxRp9F
+						C7KrFook4NezTl5qifHGecDQoUF3i12YQJLpwWIfFoTeQWwgWlRkk5elSYuiqkTv
+						JE5UzTJbRQP19dxNcOPFFNOdq2LRPgAYumiUf5jNggjT4EQWOxhcaeA+TE8mcAuo
+						eKDV+Q789bIiGbvRHpVekbME32dIf4PUuGeLSpTmMDPNkGUYK1xaIOe5lcjRNZeS
+						vMgWcHDE/JL/TU1/E8l0OtwcrU4pNPVvcm5ibuX3ADUHT+ZO10elrc8pCMJCFuME
+						cu2/4uSuxQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp2.wortech.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp2.wortech.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp2.wortech.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp2.wortech.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp2.wortech.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp2.wortech.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">wortech.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDMzCCAhugAwIBAgIUVyuETbzgv93czUmf4A085Hv5gp0wDQYJKoZIhvcNAQEF
+						BQAwHTEbMBkGA1UEAxMSaWRwMi53b3J0ZWNoLmFjLnVrMB4XDTEyMDMyMzE0NDU1
+						M1oXDTMyMDMyMzE0NDU1M1owHTEbMBkGA1UEAxMSaWRwMi53b3J0ZWNoLmFjLnVr
+						MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAunWkrcL+hnjQ09UdnKBA
+						BAw7lRBB3QYvOggtNnok7DzwWGpHcrXhx4KfzOfEJ3maUJYBdzRsT1dgt8F2vBkv
+						2D7z8ysuV28CB3WTOYescJS67mZ3JuvIIWOOs20wpTwrKQxqA0Jl17by6VBrD0mg
+						+h2Uo+DN18KFfOPchT7r8MrIzvGBZKyy5PSsHDteW2FcVeMKA01HGgtcKOhqAWGS
+						2eAmRH4JpTAHW5GtuBpQucXBGF//+WWVCoJ9tR05IhuPZTYYvPE+wYN6m6530ZVt
+						VjuQWq8bbK1vk4xLyTjkHv1ZB+8cU/h8zZjGyQYxYdEf2FvoujXBDZE0FezZ1y56
+						FQIDAQABo2swaTBIBgNVHREEQTA/ghJpZHAyLndvcnRlY2guYWMudWuGKWh0dHBz
+						Oi8vaWRwMi53b3J0ZWNoLmFjLnVrL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBQr
+						3EpVDeHCnuNCrrLjnA2+sOs8NjANBgkqhkiG9w0BAQUFAAOCAQEACM1zfxfzXQ07
+						xIkBUtBRtzZGelYWvraMP1DHPt56zR0PSmqjIlA6dSZX48YQzSBBDbj3FvKxRp9F
+						C7KrFook4NezTl5qifHGecDQoUF3i12YQJLpwWIfFoTeQWwgWlRkk5elSYuiqkTv
+						JE5UzTJbRQP19dxNcOPFFNOdq2LRPgAYumiUf5jNggjT4EQWOxhcaeA+TE8mcAuo
+						eKDV+Q789bIiGbvRHpVekbME32dIf4PUuGeLSpTmMDPNkGUYK1xaIOe5lcjRNZeS
+						vMgWcHDE/JL/TU1/E8l0OtwcrU4pNPVvcm5ibuX3ADUHT+ZO10elrc8pCMJCFuME
+						cu2/4uSuxQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp2.wortech.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp2.wortech.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Worcester College of Technology</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Worcester College of Technology</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.wortech.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>IT Services</md:GivenName>
+      <md:EmailAddress>mailto:itservices@wortech.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>IT Services</md:GivenName>
+      <md:EmailAddress>mailto:itservices@wortech.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

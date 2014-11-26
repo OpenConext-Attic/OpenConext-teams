@@ -1,0 +1,112 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shib.hopwood.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2011-08-25T16:02:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hopwood.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEsTCCA5mgAwIBAgIRALnjZG05JaVVoUZ0xE0JifUwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMTA4MTgwMDAwMDBaFw0xNDA4MTcyMzU5NTlaMIGIMQswCQYD
+						VQQGEwJHQjETMBEGA1UECBMKTWFuY2hlc3RlcjESMBAGA1UEBxMJTWlkZGxldG9u
+						MR0wGwYDVQQKExRIb3B3b29kIEhhbGwgQ29sbGVnZTEUMBIGA1UECxMLSVQgU2Vy
+						dmljZXMxGzAZBgNVBAMTEnNoaWIuaG9wd29vZC5hYy51azCCASIwDQYJKoZIhvcN
+						AQEBBQADggEPADCCAQoCggEBAMTEzlsQCuuQ22DtG3+IFJTPxvZ2iZyYdIbOFduU
+						USos7vfb5GQfJkwSrYS6UursJvwrFBVcKi2KCDkS+EJ7ymvWaMKSQY38NbaNwsjw
+						0MzynunhcVGHVEidZB2X2MgwYn6aT2rWcu8GSdScxYg9mlgGy0xN6kxooMB3Gxhy
+						Bi06mYqMZYGFwdZfuJC0VbRfAW2X1cxxIs07aTrx+xx7Lghzf7BWgupVnqtvIkGW
+						efk4oYerYwcCWe6pNHhw5XTbJzjyNLIKz+4yAP36Bbu2TezoGr0ZiQ8ah2Xwq/h6
+						Wzg4Jbvx2u+9BCuBXyELhOKi5Idfg3f4LHaG4pcrhiT0fmUCAwEAAaOCAWUwggFh
+						MB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBTaHgoB
+						4D9pslBrxTsyQgpCmLFk2zAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAd
+						BgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwGAYDVR0gBBEwDzANBgsrBgEE
+						AbIxAQICHTA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEu
+						b3JnL1RFUkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKG
+						KWh0dHA6Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsG
+						AQUFBzABhhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9yZzAdBgNVHREEFjAUghJz
+						aGliLmhvcHdvb2QuYWMudWswDQYJKoZIhvcNAQEFBQADggEBAHRlfjnge7jB++dY
+						xSUX3tdqK0mUO9z3QurwOkMQ/IiJj0vZEag9Y34Pmz4rG0qMGrZAM0oUpH7y2kDA
+						7zib/aBERmNzdzviCw7FOcSBeNL53vRJqmK/4/cz6eLYeFqCZlSQ6m9Cog9VpmhQ
+						RrSHcJlKGTejTq/XoLiwUFgRzlpDcRWJ8oyxyGEWfut2jG15SNTa99RXGvpC3KJW
+						ZE3W6D7eFqgEQqfNN5r+aVuRrBxgIJYC+CrJWOyGifwjtqLbHmdDiH6jiAocIYvG
+						AFrPIiFp7CO63f1PksTxW1WEYIs2h5iRHPJlUY0TCpOti+PO+h4WIKCL3jAvhcMH
+						u1oFYBY=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib.hopwood.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib.hopwood.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shib.hopwood.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib.hopwood.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib.hopwood.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib.hopwood.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hopwood.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEsTCCA5mgAwIBAgIRALnjZG05JaVVoUZ0xE0JifUwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMTA4MTgwMDAwMDBaFw0xNDA4MTcyMzU5NTlaMIGIMQswCQYD
+						VQQGEwJHQjETMBEGA1UECBMKTWFuY2hlc3RlcjESMBAGA1UEBxMJTWlkZGxldG9u
+						MR0wGwYDVQQKExRIb3B3b29kIEhhbGwgQ29sbGVnZTEUMBIGA1UECxMLSVQgU2Vy
+						dmljZXMxGzAZBgNVBAMTEnNoaWIuaG9wd29vZC5hYy51azCCASIwDQYJKoZIhvcN
+						AQEBBQADggEPADCCAQoCggEBAMTEzlsQCuuQ22DtG3+IFJTPxvZ2iZyYdIbOFduU
+						USos7vfb5GQfJkwSrYS6UursJvwrFBVcKi2KCDkS+EJ7ymvWaMKSQY38NbaNwsjw
+						0MzynunhcVGHVEidZB2X2MgwYn6aT2rWcu8GSdScxYg9mlgGy0xN6kxooMB3Gxhy
+						Bi06mYqMZYGFwdZfuJC0VbRfAW2X1cxxIs07aTrx+xx7Lghzf7BWgupVnqtvIkGW
+						efk4oYerYwcCWe6pNHhw5XTbJzjyNLIKz+4yAP36Bbu2TezoGr0ZiQ8ah2Xwq/h6
+						Wzg4Jbvx2u+9BCuBXyELhOKi5Idfg3f4LHaG4pcrhiT0fmUCAwEAAaOCAWUwggFh
+						MB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBTaHgoB
+						4D9pslBrxTsyQgpCmLFk2zAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAd
+						BgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwGAYDVR0gBBEwDzANBgsrBgEE
+						AbIxAQICHTA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEu
+						b3JnL1RFUkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKG
+						KWh0dHA6Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsG
+						AQUFBzABhhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9yZzAdBgNVHREEFjAUghJz
+						aGliLmhvcHdvb2QuYWMudWswDQYJKoZIhvcNAQEFBQADggEBAHRlfjnge7jB++dY
+						xSUX3tdqK0mUO9z3QurwOkMQ/IiJj0vZEag9Y34Pmz4rG0qMGrZAM0oUpH7y2kDA
+						7zib/aBERmNzdzviCw7FOcSBeNL53vRJqmK/4/cz6eLYeFqCZlSQ6m9Cog9VpmhQ
+						RrSHcJlKGTejTq/XoLiwUFgRzlpDcRWJ8oyxyGEWfut2jG15SNTa99RXGvpC3KJW
+						ZE3W6D7eFqgEQqfNN5r+aVuRrBxgIJYC+CrJWOyGifwjtqLbHmdDiH6jiAocIYvG
+						AFrPIiFp7CO63f1PksTxW1WEYIs2h5iRHPJlUY0TCpOti+PO+h4WIKCL3jAvhcMH
+						u1oFYBY=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib.hopwood.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib.hopwood.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Hopwood Hall College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Hopwood Hall College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.hopwood.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Les</md:GivenName>
+      <md:SurName>Douthwaite</md:SurName>
+      <md:EmailAddress>mailto:Les.Douthwaite@hopwood.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Les</md:GivenName>
+      <md:SurName>Douthwaite</md:SurName>
+      <md:EmailAddress>mailto:Les.Douthwaite@hopwood.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

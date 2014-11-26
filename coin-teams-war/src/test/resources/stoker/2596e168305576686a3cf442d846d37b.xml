@@ -1,0 +1,116 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.kmh.se/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">kmh.se</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="sv">Kungliga Musikhögskolan i Stockholm</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Royal College of Music</mdui:DisplayName>
+          <mdui:Description xml:lang="sv">Identity Provider för Kungliga Musikhögskolan</mdui:Description>
+          <mdui:Description xml:lang="en">Identity Provider for Royal College of Music</mdui:Description>
+          <mdui:InformationURL xml:lang="sv">http://www.kmh.se</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">http://www.kmh.se/english</mdui:InformationURL>
+          <mdui:Logo height="141" width="313" xml:lang="sv">https://idp.kmh.se/idp/images/logo.jpg</mdui:Logo>
+          <mdui:Logo height="141" width="313" xml:lang="en">https://idp.kmh.se/idp/images/logo.jpg</mdui:Logo>
+          <mdui:Keywords xml:lang="sv">kmh kungliga+musikhogskolan royal+college+of+music stockholm kungl.+musikhögskolan+i+stockholm</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">kmh kungliga+musikhogskolan royal+college+of+music stockholm kungl.+musikhögskolan+i+stockholm</mdui:Keywords>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>kmh.se</mdui:DomainHint>
+          <mdui:IPHint>193.10.62.0/24</mdui:IPHint>
+          <mdui:GeolocationHint>geo:59.34474,18.08126</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDFDCCAfygAwIBAgIVAOU5HVg2XQ7x9zifEpWAwx5/tzMwMA0GCSqGSIb3DQEB
+BQUAMBUxEzARBgNVBAMTCmlkcC5rbWguc2UwHhcNMTIxMTA2MDkxMTQyWhcNMTUx
+MTA2MDkxMTQyWjAVMRMwEQYDVQQDEwppZHAua21oLnNlMIIBIjANBgkqhkiG9w0B
+AQEFAAOCAQ8AMIIBCgKCAQEAg7J4scEL6Ptwh2NGEUkfSc08ZlC8I1l5uRL0L3EO
+eRjAFqjwsBuEhgGNvZdevH4vMsMU4XrXA+4J0XzeARZx+8B6EQKpiT5od5Jfw5oN
+8PsbL6bSw0ivEipqRfjMRxxhqntS6unsCyrPG8IFr2l4koGyE2aoixWJ2je2gbGg
+ka/6tC5xpsI+rlO24HJd83tXWPJ+oZ2rI6Ac7TXq2KYjxj8M7fcQS6X9pqhgl1oZ
+04I4HMHMFRMnO62Cb1ryS0A7V5P/PS9d0QU/MrxuSootYQ1vYRtQQnWSulBH945g
+tkubfMV/pkr3wsNxh+tEXaGTh3+vbZ45pYKglZ99amHO3QIDAQABo1swWTA4BgNV
+HREEMTAvggppZHAua21oLnNlhiFodHRwczovL2lkcC5rbWguc2UvaWRwL3NoaWJi
+b2xldGgwHQYDVR0OBBYEFN9PHZwomaeOxq04aXJbnPdgxdlpMA0GCSqGSIb3DQEB
+BQUAA4IBAQBxRPXYVh5a6RiXOucpuOW44fWdzqyevWeQKdk6YOgLCe153TDSJRcB
+qbmg5vPht/Pl+YckIGN5XHjXhx7SkaTaYvCAPX4/E4nVKYqUPoM1P+HDJFvqWtPN
+wGCDbVOeyeBWLLapkmVUFxS3zOL4uCqK+HV20g4cZQQdaDV5bX3WzUbLuXT3h+V4
+mAXptRcQXKX+zbvg1G5bp3NtSFZnXnrou+g9I1u9l4odS9F5kcHjnIAlxiBpl4xd
+qdIb2Ub9Cyim+BBcDduP8P0RaSYzYkj+joxU5SqHKvPCmvQOmMf4bBphtbNJeGBj
+Qz1btpwpzorDI58f7uezMy6zg2+3aLxJ</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.kmh.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.kmh.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.kmh.se/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.kmh.se/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.kmh.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.kmh.se/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">kmh.se</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDFDCCAfygAwIBAgIVAOU5HVg2XQ7x9zifEpWAwx5/tzMwMA0GCSqGSIb3DQEB
+BQUAMBUxEzARBgNVBAMTCmlkcC5rbWguc2UwHhcNMTIxMTA2MDkxMTQyWhcNMTUx
+MTA2MDkxMTQyWjAVMRMwEQYDVQQDEwppZHAua21oLnNlMIIBIjANBgkqhkiG9w0B
+AQEFAAOCAQ8AMIIBCgKCAQEAg7J4scEL6Ptwh2NGEUkfSc08ZlC8I1l5uRL0L3EO
+eRjAFqjwsBuEhgGNvZdevH4vMsMU4XrXA+4J0XzeARZx+8B6EQKpiT5od5Jfw5oN
+8PsbL6bSw0ivEipqRfjMRxxhqntS6unsCyrPG8IFr2l4koGyE2aoixWJ2je2gbGg
+ka/6tC5xpsI+rlO24HJd83tXWPJ+oZ2rI6Ac7TXq2KYjxj8M7fcQS6X9pqhgl1oZ
+04I4HMHMFRMnO62Cb1ryS0A7V5P/PS9d0QU/MrxuSootYQ1vYRtQQnWSulBH945g
+tkubfMV/pkr3wsNxh+tEXaGTh3+vbZ45pYKglZ99amHO3QIDAQABo1swWTA4BgNV
+HREEMTAvggppZHAua21oLnNlhiFodHRwczovL2lkcC5rbWguc2UvaWRwL3NoaWJi
+b2xldGgwHQYDVR0OBBYEFN9PHZwomaeOxq04aXJbnPdgxdlpMA0GCSqGSIb3DQEB
+BQUAA4IBAQBxRPXYVh5a6RiXOucpuOW44fWdzqyevWeQKdk6YOgLCe153TDSJRcB
+qbmg5vPht/Pl+YckIGN5XHjXhx7SkaTaYvCAPX4/E4nVKYqUPoM1P+HDJFvqWtPN
+wGCDbVOeyeBWLLapkmVUFxS3zOL4uCqK+HV20g4cZQQdaDV5bX3WzUbLuXT3h+V4
+mAXptRcQXKX+zbvg1G5bp3NtSFZnXnrou+g9I1u9l4odS9F5kcHjnIAlxiBpl4xd
+qdIb2Ub9Cyim+BBcDduP8P0RaSYzYkj+joxU5SqHKvPCmvQOmMf4bBphtbNJeGBj
+Qz1btpwpzorDI58f7uezMy6zg2+3aLxJ</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.kmh.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.kmh.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">KMH</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sv">Kungliga Musikhögskolan</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Kungliga Musikhögskolan</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.kmh.se</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:Company>Royal College of Music</md:Company>
+      <md:SurName>KMH IT-avdelningen</md:SurName>
+      <md:EmailAddress>swamid@kmh.se</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:Company>Royal College of Music</md:Company>
+      <md:SurName>KMH IT-avdelningen</md:SurName>
+      <md:EmailAddress>swamid@kmh.se</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>Royal College of Music</md:Company>
+      <md:SurName>KMH IT HelpDesk</md:SurName>
+      <md:EmailAddress>helpdesk@kmh.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 8 161939</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,111 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shib.slcs.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2010-11-05T16:28:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">slcs.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">National Science Learning Centre</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Science Learning Centres are a national network for professional development in science teaching.</mdui:Description>
+          <mdui:Logo height="72" width="200">https://shib.slcs.ac.uk/images/nslc.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEbDCCA1SgAwIBAgIRAK0yQqUXeWtcLxUv7qHLOWMwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzA0MTYwMDAwMDBaFw0xNjA0MTUyMzU5NTlaMD0xITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEYMBYGA1UEAxMPc2hpYi5zbGNz
+						LmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArwmGmPdTY0lm
+						gJv1BOz0VKGDHxYARn6CjWcAiYwSCRdKPcvuC+9u+WE/Ix99pohRmUBPMvMrV7cQ
+						3tay1PVfzRKaQHuaBfebcdKvTbYit+9qkPF0G2bpEAGExDILj+iX4hz2aDXWALsZ
+						h7KgAnqDmFtEBTQ7zSSaJ0RC/OHxSfnPcKq+5u9q2khSSlZ2qm9TALHBqzHFZ5Fc
+						CqiwDlpaTHUsq+na51qgzMTlFcRUdhuWqswjHwMCXfy+LXrKuB2Tqx2GJGhyxKj0
+						qOEcS2Y0sCcbFxWu2YMWBLALrMbWrlxEYQx+rUhc4vaSUP3bdn9WeGSDDmvivc0G
+						EH0WGNlHHQIDAQABo4IBbDCCAWgwHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH
+						6pDjue0wHQYDVR0OBBYEFF5kyhGCi1vHv58VqH8E0F2lyFtzMA4GA1UdDwEB/wQE
+						AwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcD
+						AjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAECATA6BgNVHR8EMzAx
+						MC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNy
+						bDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRl
+						cmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8vb2Nz
+						cC50Y3MudGVyZW5hLm9yZzAaBgNVHREEEzARgg9zaGliLnNsY3MuYWMudWswDQYJ
+						KoZIhvcNAQEFBQADggEBAJNfGU4saCObDfVoX5gl/czSR7tT7d/SCn/eC1SrGrfq
+						JQGYqWjJUd99BXN5E6ZKWyrYxQmoiciKNDLznkP5JmxKKASZe2J5gTzLX2KiPx43
+						b3Bh0oqr3h/aLs0ZPoODUoMYoNDl1Pa83zR9g7sfWD+xmrKWUTLRLtZkagMl17wh
+						fofDtEw68wcgdZRE5Nal0fh0lB2W0Ot9fuWEHHIsw1ofedKSyQBmRdB+ZXmaBzeb
+						FUt9W2huCi7fG7A5O4VNeh4rrdcQ4EOfg/K4pTSayAphryV7DfnH3L7BpreKFQwX
+						7nwQQNJNDTLtIPdwewp8lXQLC+3IMUUqhQCTVQ9TVrs=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib.slcs.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib.slcs.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shib.slcs.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib.slcs.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib.slcs.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib.slcs.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">slcs.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEbDCCA1SgAwIBAgIRAK0yQqUXeWtcLxUv7qHLOWMwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzA0MTYwMDAwMDBaFw0xNjA0MTUyMzU5NTlaMD0xITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEYMBYGA1UEAxMPc2hpYi5zbGNz
+						LmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArwmGmPdTY0lm
+						gJv1BOz0VKGDHxYARn6CjWcAiYwSCRdKPcvuC+9u+WE/Ix99pohRmUBPMvMrV7cQ
+						3tay1PVfzRKaQHuaBfebcdKvTbYit+9qkPF0G2bpEAGExDILj+iX4hz2aDXWALsZ
+						h7KgAnqDmFtEBTQ7zSSaJ0RC/OHxSfnPcKq+5u9q2khSSlZ2qm9TALHBqzHFZ5Fc
+						CqiwDlpaTHUsq+na51qgzMTlFcRUdhuWqswjHwMCXfy+LXrKuB2Tqx2GJGhyxKj0
+						qOEcS2Y0sCcbFxWu2YMWBLALrMbWrlxEYQx+rUhc4vaSUP3bdn9WeGSDDmvivc0G
+						EH0WGNlHHQIDAQABo4IBbDCCAWgwHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH
+						6pDjue0wHQYDVR0OBBYEFF5kyhGCi1vHv58VqH8E0F2lyFtzMA4GA1UdDwEB/wQE
+						AwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcD
+						AjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAECATA6BgNVHR8EMzAx
+						MC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNy
+						bDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRl
+						cmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8vb2Nz
+						cC50Y3MudGVyZW5hLm9yZzAaBgNVHREEEzARgg9zaGliLnNsY3MuYWMudWswDQYJ
+						KoZIhvcNAQEFBQADggEBAJNfGU4saCObDfVoX5gl/czSR7tT7d/SCn/eC1SrGrfq
+						JQGYqWjJUd99BXN5E6ZKWyrYxQmoiciKNDLznkP5JmxKKASZe2J5gTzLX2KiPx43
+						b3Bh0oqr3h/aLs0ZPoODUoMYoNDl1Pa83zR9g7sfWD+xmrKWUTLRLtZkagMl17wh
+						fofDtEw68wcgdZRE5Nal0fh0lB2W0Ot9fuWEHHIsw1ofedKSyQBmRdB+ZXmaBzeb
+						FUt9W2huCi7fG7A5O4VNeh4rrdcQ4EOfg/K4pTSayAphryV7DfnH3L7BpreKFQwX
+						7nwQQNJNDTLtIPdwewp8lXQLC+3IMUUqhQCTVQ9TVrs=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib.slcs.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib.slcs.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">MyScience.co Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">National Science Learning Centre</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.sciencelearningcentres.org.uk/national/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>SLCS support</md:GivenName>
+      <md:EmailAddress>mailto:support@slcs.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>SLCS support</md:GivenName>
+      <md:EmailAddress>mailto:support@slcs.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

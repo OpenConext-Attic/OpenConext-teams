@@ -1,0 +1,103 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.ne-worcs.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-05-13T12:19:41Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ne-worcs.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDrDCCApQCCQCVGi7e0Pph5TANBgkqhkiG9w0BAQUFADCBlzELMAkGA1UEBhMC
+						R0IxFzAVBgNVBAgMDldvcmNlc3RlcnNoaXJlMREwDwYDVQQHDAhSZWRkaXRjaDEq
+						MCgGA1UECgwhTm9ydGggRWFzdCBXb3JjZXN0ZXJzaGlyZSBDb2xsZWdlMRMwEQYD
+						VQQLDApJVCBTdXBwb3J0MRswGQYDVQQDDBJpZHAubmUtd29yY3MuYWMudWswHhcN
+						MTMwMTI1MTAwMzQzWhcNMzMwMTIwMTAwMzQzWjCBlzELMAkGA1UEBhMCR0IxFzAV
+						BgNVBAgMDldvcmNlc3RlcnNoaXJlMREwDwYDVQQHDAhSZWRkaXRjaDEqMCgGA1UE
+						CgwhTm9ydGggRWFzdCBXb3JjZXN0ZXJzaGlyZSBDb2xsZWdlMRMwEQYDVQQLDApJ
+						VCBTdXBwb3J0MRswGQYDVQQDDBJpZHAubmUtd29yY3MuYWMudWswggEiMA0GCSqG
+						SIb3DQEBAQUAA4IBDwAwggEKAoIBAQDCVcflAUC6XOzv8yhdkX9Zf83iZoUpiKVh
+						Pj0ATct/aPsWsLDQndOzo4sM0FXmrDChA0jvUGlJ5q0R/Sfl/qjNBNBnvvnXsmjj
+						fAzZcMCX7YfKfXgzF0uIdujjGkx1Y6fvD2azVXxf1fAa3IyhM0o+ObfIyErerhNU
+						vxJ4uP1dUrBxIry9qsNwMM51TEOtF6Atvcy1toGdC7dOYHk7+sB+WW8m2QWch2TT
+						4/Q3hNBjXBRQkyY/QIqJLMCGdi6B8bNF2RViiC7yJqqYCnzZQ4YUHMxIJqm3krX5
+						AkEKVXiFZ6TalR3BRyVOyylGQpz8X2Ykzog2E3Lz0erUEjbm7zJfAgMBAAEwDQYJ
+						KoZIhvcNAQEFBQADggEBAI94qHrZZvoCZdgGlQg6vl2A+GwvQuQ2ZIr+CWtq6DzS
+						4IDYqY8GPBBk1zuDx3StGeYfqO7s6jrgup0/gKJD7l4oV8Dq/VUHXdWt11+aMdlb
+						W185fYQw++jcYaEZyr2LzDqOHO7dgbgyrCypjiFtU279lrf+Uz0XDf3FFQm+wg9+
+						HXoRWAAYwZQaMOMADo/70fUHKEe7IH5u81m0Sh1REjX/erBmWoBNXrMBLNa+vhPT
+						uVHlFJixhZuiIvAi/QzgjZruWzKySCZGWSajHqHBdxcojzB4Oao82vsJu4S3Mv/W
+						tT1EKx/axaYI5jW/ThK191F3j5568qM0exHyrfCZbIw=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ne-worcs.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ne-worcs.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ne-worcs.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ne-worcs.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.ne-worcs.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ne-worcs.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ne-worcs.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDrDCCApQCCQCVGi7e0Pph5TANBgkqhkiG9w0BAQUFADCBlzELMAkGA1UEBhMC
+						R0IxFzAVBgNVBAgMDldvcmNlc3RlcnNoaXJlMREwDwYDVQQHDAhSZWRkaXRjaDEq
+						MCgGA1UECgwhTm9ydGggRWFzdCBXb3JjZXN0ZXJzaGlyZSBDb2xsZWdlMRMwEQYD
+						VQQLDApJVCBTdXBwb3J0MRswGQYDVQQDDBJpZHAubmUtd29yY3MuYWMudWswHhcN
+						MTMwMTI1MTAwMzQzWhcNMzMwMTIwMTAwMzQzWjCBlzELMAkGA1UEBhMCR0IxFzAV
+						BgNVBAgMDldvcmNlc3RlcnNoaXJlMREwDwYDVQQHDAhSZWRkaXRjaDEqMCgGA1UE
+						CgwhTm9ydGggRWFzdCBXb3JjZXN0ZXJzaGlyZSBDb2xsZWdlMRMwEQYDVQQLDApJ
+						VCBTdXBwb3J0MRswGQYDVQQDDBJpZHAubmUtd29yY3MuYWMudWswggEiMA0GCSqG
+						SIb3DQEBAQUAA4IBDwAwggEKAoIBAQDCVcflAUC6XOzv8yhdkX9Zf83iZoUpiKVh
+						Pj0ATct/aPsWsLDQndOzo4sM0FXmrDChA0jvUGlJ5q0R/Sfl/qjNBNBnvvnXsmjj
+						fAzZcMCX7YfKfXgzF0uIdujjGkx1Y6fvD2azVXxf1fAa3IyhM0o+ObfIyErerhNU
+						vxJ4uP1dUrBxIry9qsNwMM51TEOtF6Atvcy1toGdC7dOYHk7+sB+WW8m2QWch2TT
+						4/Q3hNBjXBRQkyY/QIqJLMCGdi6B8bNF2RViiC7yJqqYCnzZQ4YUHMxIJqm3krX5
+						AkEKVXiFZ6TalR3BRyVOyylGQpz8X2Ykzog2E3Lz0erUEjbm7zJfAgMBAAEwDQYJ
+						KoZIhvcNAQEFBQADggEBAI94qHrZZvoCZdgGlQg6vl2A+GwvQuQ2ZIr+CWtq6DzS
+						4IDYqY8GPBBk1zuDx3StGeYfqO7s6jrgup0/gKJD7l4oV8Dq/VUHXdWt11+aMdlb
+						W185fYQw++jcYaEZyr2LzDqOHO7dgbgyrCypjiFtU279lrf+Uz0XDf3FFQm+wg9+
+						HXoRWAAYwZQaMOMADo/70fUHKEe7IH5u81m0Sh1REjX/erBmWoBNXrMBLNa+vhPT
+						uVHlFJixhZuiIvAi/QzgjZruWzKySCZGWSajHqHBdxcojzB4Oao82vsJu4S3Mv/W
+						tT1EKx/axaYI5jW/ThK191F3j5568qM0exHyrfCZbIw=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ne-worcs.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ne-worcs.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">North East Worcestershire College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">North East Worcestershire College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ne-worcs.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Eric</md:GivenName>
+      <md:SurName>MacFarlane</md:SurName>
+      <md:EmailAddress>mailto:emacfarlane@ne-worcs.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Eric</md:GivenName>
+      <md:SurName>MacFarlane</md:SurName>
+      <md:EmailAddress>mailto:emacfarlane@ne-worcs.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

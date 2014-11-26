@@ -1,0 +1,106 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://mccall.henley-cov.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">henley-cov.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEfDCCA2SgAwIBAgIRAMs1hpx5cLrrnqC1wRQthWwwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzA5MTIwMDAwMDBaFw0xNjA5MTEyMzU5NTlaMEUxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEgMB4GA1UEAxMXbWNjYWxsLmhl
+						bmxleS1jb3YuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDQ
+						5xUydUjAY8iBFq35sgRsWpuqs1cKDHv5LkIL4N8qaVekHdBej6mWW6CXWc+OGXPm
+						e3M1JpIkEgT85GEckGTiQAEzGk6BviKhHTLbg6r1goWR891xbXkbdaPlY/MUtKpb
+						NGXR1CBMgGEiW22sy9omQRGQlSAMNaM9c4zsVBbWfKHSCSyZ5mxR5Q1AjQVvM2w0
+						PCxLRfWyYxp16QxXWCUYr+XB/S7BHERXETpaoH+sBcspjT70g4taoOzjRmL8IlN5
+						Rk9V4DZxybO+lun4IJ7hYsEm+1Hxd91pzB3MUDUuZ4W3+wiBxcTdGWWl6mbWIV+z
+						nnkpse1/4oHG+yihRBKHAgMBAAGjggF0MIIBcDAfBgNVHSMEGDAWgBQMvZNoDPPe
+						q6NJays3V0fqkOO57TAdBgNVHQ4EFgQUdTMEcyrs2BVOrd+a9jLSinjcU8gwDgYD
+						VR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEG
+						CCsGAQUFBwMCMCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQIBMDoG
+						A1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5B
+						U1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2Ny
+						dC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0
+						dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMCIGA1UdEQQbMBmCF21jY2FsbC5oZW5s
+						ZXktY292LmFjLnVrMA0GCSqGSIb3DQEBBQUAA4IBAQB4+WToqhio4ygMFQRaR7jx
+						GnN7OvUWOSdUUfzmwE54tXHoKqshC3xp1rqhZjdK77Vaoe5VdzuQv8lO0YyBdEfY
+						6DKG7nqsZdomYRoogxOPL8TPrkh+AGVmfZaJhJ/GZauEvJAXHO1zjP/1IMIxia+Y
+						4SkJBKVpsA4cUn7A082gFqfnGhHvl2JuDNszY/E+mDVxx3MXBT6aeq+gNF2Qx3kc
+						6GAWgZoqoIrF6FQX6E032WNWyzV4thdB93S9CK2bvsq+yQwWWCZHqAT3fY7Peyrj
+						fJtg6uLXHqJiAjTaAhXMEIB5Fk9lQIqXLXJg/2RCGMHw654O8j0K65JS1yQ4T4db
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://mccall.henley-cov.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://mccall.henley-cov.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://mccall.henley-cov.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://mccall.henley-cov.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://mccall.henley-cov.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://mccall.henley-cov.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">henley-cov.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEfDCCA2SgAwIBAgIRAMs1hpx5cLrrnqC1wRQthWwwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzA5MTIwMDAwMDBaFw0xNjA5MTEyMzU5NTlaMEUxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEgMB4GA1UEAxMXbWNjYWxsLmhl
+						bmxleS1jb3YuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDQ
+						5xUydUjAY8iBFq35sgRsWpuqs1cKDHv5LkIL4N8qaVekHdBej6mWW6CXWc+OGXPm
+						e3M1JpIkEgT85GEckGTiQAEzGk6BviKhHTLbg6r1goWR891xbXkbdaPlY/MUtKpb
+						NGXR1CBMgGEiW22sy9omQRGQlSAMNaM9c4zsVBbWfKHSCSyZ5mxR5Q1AjQVvM2w0
+						PCxLRfWyYxp16QxXWCUYr+XB/S7BHERXETpaoH+sBcspjT70g4taoOzjRmL8IlN5
+						Rk9V4DZxybO+lun4IJ7hYsEm+1Hxd91pzB3MUDUuZ4W3+wiBxcTdGWWl6mbWIV+z
+						nnkpse1/4oHG+yihRBKHAgMBAAGjggF0MIIBcDAfBgNVHSMEGDAWgBQMvZNoDPPe
+						q6NJays3V0fqkOO57TAdBgNVHQ4EFgQUdTMEcyrs2BVOrd+a9jLSinjcU8gwDgYD
+						VR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEG
+						CCsGAQUFBwMCMCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQIBMDoG
+						A1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5B
+						U1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2Ny
+						dC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0
+						dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMCIGA1UdEQQbMBmCF21jY2FsbC5oZW5s
+						ZXktY292LmFjLnVrMA0GCSqGSIb3DQEBBQUAA4IBAQB4+WToqhio4ygMFQRaR7jx
+						GnN7OvUWOSdUUfzmwE54tXHoKqshC3xp1rqhZjdK77Vaoe5VdzuQv8lO0YyBdEfY
+						6DKG7nqsZdomYRoogxOPL8TPrkh+AGVmfZaJhJ/GZauEvJAXHO1zjP/1IMIxia+Y
+						4SkJBKVpsA4cUn7A082gFqfnGhHvl2JuDNszY/E+mDVxx3MXBT6aeq+gNF2Qx3kc
+						6GAWgZoqoIrF6FQX6E032WNWyzV4thdB93S9CK2bvsq+yQwWWCZHqAT3fY7Peyrj
+						fJtg6uLXHqJiAjTaAhXMEIB5Fk9lQIqXLXJg/2RCGMHw654O8j0K65JS1yQ4T4db
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://mccall.henley-cov.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://mccall.henley-cov.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Henley College Coventry</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Henley College Coventry</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.henley-cov.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Ian</md:GivenName>
+      <md:SurName>McAll</md:SurName>
+      <md:EmailAddress>mailto:imcall@henley-cov.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ian</md:GivenName>
+      <md:SurName>McAll</md:SurName>
+      <md:EmailAddress>mailto:imcall@henley-cov.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

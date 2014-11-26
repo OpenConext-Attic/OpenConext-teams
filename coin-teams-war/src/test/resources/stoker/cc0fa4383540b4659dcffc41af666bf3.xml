@@ -1,0 +1,58 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://login.utenos-kolegija.lt/SAML/IdP">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://fedi.litnet.lt" registrationInstant="2014-10-09T09:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="lt">https://fedi.litnet.lt/lt/tvarka</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="en">https://fedi.litnet.lt/en/policy</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="lt">Utenos kolegija</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Utena University of Applied Sciences</mdui:DisplayName>
+          <mdui:Description xml:lang="lt">Utenos kolegijos vieningas prisijungimas</mdui:Description>
+          <mdui:Description xml:lang="en">Single sign-on for Utena University of Applied Sciences</mdui:Description>
+          <mdui:InformationURL xml:lang="lt">https://login.utenos-kolegija.lt/?lang=lt</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">https://login.utenos-kolegija.lt/?lang=en</mdui:InformationURL>
+          <mdui:Logo width="256" height="256">https://login.utenos-kolegija.lt/static/logo_tr.png</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:IPHint>193.219.181.192/26</mdui:IPHint>
+          <mdui:DomainHint>utenos-kolegija.lt</mdui:DomainHint>
+          <mdui:DomainHint>ukolegija.lt</mdui:DomainHint>
+          <mdui:DomainHint>utenacollege.eu</mdui:DomainHint>
+          <mdui:GeolocationHint>geo:55.5,25.6</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>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</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>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</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.utenos-kolegija.lt/simplesaml/saml2/idp/SingleLogoutService.php"/>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.utenos-kolegija.lt/simplesaml/saml2/idp/SSOService.php"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="lt">Utenos kolegija</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">Utena University of Applied Sciences</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="lt">Utenos kolegija</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Utena University of Applied Sciences</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="lt">http://www.utenos-kolegija.lt/?lang=lt</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.utenos-kolegija.lt/?lang=en</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mantas</md:GivenName>
+      <md:SurName>Mikulėnas</md:SurName>
+      <md:EmailAddress>mantas@utenos-kolegija.lt</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

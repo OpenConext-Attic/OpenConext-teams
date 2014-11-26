@@ -1,0 +1,112 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.southdevon.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">southdevon.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIE5DCCA8ygAwIBAgIRANGrqwrzcv/wwtm5h/u2MFkwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzA1MTYwMDAwMDBaFw0xNjA1MTUyMzU5NTlaMIGvMQswCQYD
+						VQQGEwJHQjEQMA4GA1UEERMHVFE0IDdFSjEOMAwGA1UECBMFRGV2b24xETAPBgNV
+						BAcTCFBBSUdOVE9OMRIwEAYDVQQJEwlMb25nIFJvYWQxHDAaBgNVBAoTE1NvdXRo
+						IERldm9uIENvbGxlZ2UxGjAYBgNVBAsTEUNvbXB1dGVyIFNlcnZpY2VzMR0wGwYD
+						VQQDExRpZHAuc291dGhkZXZvbi5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEP
+						ADCCAQoCggEBAM7bII/xHAr1oS3qU/Y+fjfA5zzvRSgLS1pEveCyck9Z1w30Tt8v
+						C0NTuLUw6KnjrytWVjWdQJJoRCMI3sjpwFqDC+6js4azlee2AABynMdGzOuJ6GqA
+						A8pzDxes/BSio8CxHG/Sp2rglvpDphQLKgzTACTUeooWQ2qhEm9liS5HercXHZnx
+						AIZCGpw9ChqhiXAofAENjdBl3kuqHl1gn80j4uN7jtTXKb7Rz6DwsXlc3tl/rT7c
+						Ar8z0mTllMy09m21rLXae4CaQB/3x7j6HFWeSEcHh6o5iBjWnlmQmQnsXsybIeuz
+						xqdLKwDhOIqz2hW3MiQX8wCqE5YwGaZtEaMCAwEAAaOCAXEwggFtMB8GA1UdIwQY
+						MBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBRxOiCSLnFHA2VGV1OX
+						hbf81QvVgTAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAU
+						BggrBgEFBQcDAQYIKwYBBQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAI
+						BgZngQwBAgIwOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5h
+						Lm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAC
+						hilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggr
+						BgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwHwYDVR0RBBgwFoIU
+						aWRwLnNvdXRoZGV2b24uYWMudWswDQYJKoZIhvcNAQEFBQADggEBAKjRYUyCVxuA
+						VlPnjOLvXIby4ohy2rqZKc7Co2U6TNDkPMlC+7j48hBsDjGQzpW7l3B6Qktq9Iox
+						0i3cS5NQVXL0aeL+4ixSnlX62EeqdAElo7mvUP/VdALPI7FUi0fKXW6JmK+5FH2b
+						+5o3pw18AjHX+TylwE0rIwofwNb+TwAPXyv/Iu4fqYL4ZEfwAfIHh9sqmmZdTQfL
+						AfbAiyFUkePPuF5fo05C70iZR6GIkmt09g2V8MmQZPwWyl+ar+UK0Xg8uqB5uBC0
+						/+1GTST3DkvMiNpzOdE9ryueHBpQ7W5S+JuRbQ7BZUgFxBrbSPmFsCiPCKFmJ3KA
+						9a0UDu0T7vU=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.southdevon.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.southdevon.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.southdevon.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.southdevon.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.southdevon.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.southdevon.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">southdevon.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIE5DCCA8ygAwIBAgIRANGrqwrzcv/wwtm5h/u2MFkwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzA1MTYwMDAwMDBaFw0xNjA1MTUyMzU5NTlaMIGvMQswCQYD
+						VQQGEwJHQjEQMA4GA1UEERMHVFE0IDdFSjEOMAwGA1UECBMFRGV2b24xETAPBgNV
+						BAcTCFBBSUdOVE9OMRIwEAYDVQQJEwlMb25nIFJvYWQxHDAaBgNVBAoTE1NvdXRo
+						IERldm9uIENvbGxlZ2UxGjAYBgNVBAsTEUNvbXB1dGVyIFNlcnZpY2VzMR0wGwYD
+						VQQDExRpZHAuc291dGhkZXZvbi5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEP
+						ADCCAQoCggEBAM7bII/xHAr1oS3qU/Y+fjfA5zzvRSgLS1pEveCyck9Z1w30Tt8v
+						C0NTuLUw6KnjrytWVjWdQJJoRCMI3sjpwFqDC+6js4azlee2AABynMdGzOuJ6GqA
+						A8pzDxes/BSio8CxHG/Sp2rglvpDphQLKgzTACTUeooWQ2qhEm9liS5HercXHZnx
+						AIZCGpw9ChqhiXAofAENjdBl3kuqHl1gn80j4uN7jtTXKb7Rz6DwsXlc3tl/rT7c
+						Ar8z0mTllMy09m21rLXae4CaQB/3x7j6HFWeSEcHh6o5iBjWnlmQmQnsXsybIeuz
+						xqdLKwDhOIqz2hW3MiQX8wCqE5YwGaZtEaMCAwEAAaOCAXEwggFtMB8GA1UdIwQY
+						MBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBRxOiCSLnFHA2VGV1OX
+						hbf81QvVgTAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAU
+						BggrBgEFBQcDAQYIKwYBBQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAI
+						BgZngQwBAgIwOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5h
+						Lm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAC
+						hilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggr
+						BgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwHwYDVR0RBBgwFoIU
+						aWRwLnNvdXRoZGV2b24uYWMudWswDQYJKoZIhvcNAQEFBQADggEBAKjRYUyCVxuA
+						VlPnjOLvXIby4ohy2rqZKc7Co2U6TNDkPMlC+7j48hBsDjGQzpW7l3B6Qktq9Iox
+						0i3cS5NQVXL0aeL+4ixSnlX62EeqdAElo7mvUP/VdALPI7FUi0fKXW6JmK+5FH2b
+						+5o3pw18AjHX+TylwE0rIwofwNb+TwAPXyv/Iu4fqYL4ZEfwAfIHh9sqmmZdTQfL
+						AfbAiyFUkePPuF5fo05C70iZR6GIkmt09g2V8MmQZPwWyl+ar+UK0Xg8uqB5uBC0
+						/+1GTST3DkvMiNpzOdE9ryueHBpQ7W5S+JuRbQ7BZUgFxBrbSPmFsCiPCKFmJ3KA
+						9a0UDu0T7vU=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.southdevon.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.southdevon.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">South Devon College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">South Devon College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.southdevon.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Kelly</md:GivenName>
+      <md:SurName>Cassidy</md:SurName>
+      <md:EmailAddress>mailto:helpdesk@southdevon.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>David</md:GivenName>
+      <md:SurName>Turner</md:SurName>
+      <md:EmailAddress>mailto:dturner@southdevon.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

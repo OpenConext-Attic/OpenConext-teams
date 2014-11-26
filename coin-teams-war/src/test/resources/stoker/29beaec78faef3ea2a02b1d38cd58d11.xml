@@ -1,0 +1,59 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://weblearn.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://weblearn.ox.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDIDCCAgigAwIBAgIJAN09ZW7wF+DGMA0GCSqGSIb3DQEBBQUAMBwxGjAYBgNV
+						BAMTEXdlYmxlYXJuLm94LmFjLnVrMB4XDTEyMDEyMDE2MzY1MFoXDTIyMDExNzE2
+						MzY1MFowHDEaMBgGA1UEAxMRd2VibGVhcm4ub3guYWMudWswggEiMA0GCSqGSIb3
+						DQEBAQUAA4IBDwAwggEKAoIBAQC3LIZO1N6lP1r5+teOxfmGLNdEwXBzSOndeplc
+						Ih2/H6Z3MIerP2weWV/B9jUeDcYT9YGNFHkMRG2FTdHtvS0h/yC/TJOOKy37pqzM
+						NiwA1xmmIny/NPhGgIxnjqjAktvtwcGEflb0yoQKkKllA9lotmni6C8jb6PrCqeZ
+						YZEq/ficN0Y2fET7l6//Zstld7b6y2/v/CkU/Wy1On5AD5nrO9Ucolq91NnrZc4E
+						XqXHQK0SduW+Nb/0zUCX3nl5G0Q0dMbPtc08tTaODSwAt94ycTXwgZkeusVEMVbE
+						cS6ZrWHD+mW4nZdy5vgxNlI5ki9ALHbym0RBlW7VcETr1Hq3AgMBAAGjZTBjMEIG
+						A1UdEQQ7MDmCEXdlYmxlYXJuLm94LmFjLnVrhiRodHRwczovL3dlYmxlYXJuLm94
+						LmFjLnVrL3NoaWJib2xldGgwHQYDVR0OBBYEFB8DKsVAeiS3EpqWuj4eKj1oa8q0
+						MA0GCSqGSIb3DQEBBQUAA4IBAQAb1I5WQNm7Ikoes6JkF4pteKR6ELZM9qOKFwwT
+						VSvZ3Dq0FRUYyB06DF/ZNodhvzBNT90N03gB63hNAOWJaW7CPb2d9ZaUG3kQj5ey
+						xCkdu5qs0qwvxzZ44zQgLiobRzjVX5tTQkAurKuGBexe53yvjrhDDnkyZznFwO/e
+						csdgyJtDrThEVyxzFgROfKepiy80V9+Z0kycDY13v1L+ijBcp1b+plj8poqQx4K5
+						Q+uqGo+bvKXrOuCtSWxgsNMNWPh1bMYZLv3P3k98OFJpPHT7yiJq9I+PxcVuQcXF
+						1z2NTzQyONeHUtg8j9A+hog2VXyv3vODtgIv3XG2cuT4fNTn
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://weblearn.ox.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://weblearn.ox.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://weblearn.ox.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://weblearn.ox.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://weblearn.ox.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://weblearn.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://weblearn.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://weblearn.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://weblearn.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://weblearn.ox.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://weblearn.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford: Weblearn</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.oucs.ox.ac.uk</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Systems Development and Support</md:GivenName>
+      <md:EmailAddress>mailto:sysdev@it.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Systems Development and Support</md:GivenName>
+      <md:EmailAddress>mailto:sysdev@it.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,108 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp1.solent.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2009-05-22T14:40:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0         urn:oasis:names:tc:SAML:1.1:protocol         urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">solent.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEoTCCA4mgAwIBAgIQDGGDSMUu0YiL17Un9MJn6TANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDMwNTAwMDAwMFoXDTE1MDMwNTIzNTk1OVowezELMAkGA1UE
+						BhMCR0IxEjAQBgNVBAgTCUhhbXBzaGlyZTEUMBIGA1UEBxMLU291dGhhbXB0b24x
+						JjAkBgNVBAoTHVNvdXRoYW1wdG9uIFNvbGVudCBVbml2ZXJzaXR5MRowGAYDVQQD
+						ExFpZHAxLnNvbGVudC5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC
+						ggEBALtV/gS7gNG/z6DCnu8svkKkLoARcOW8nt8diRNwCUSKOMjcrxPEZkh58NDd
+						Qz/o4CcSjO4KShdP1tZwA0ob+NkZ+c4AG8QZLDOyVFzwZ//Vjsja1ybrAPPTPRtR
+						v9iDkZ/s3cdfcNO9E3xU4QLFzGkewLIyQf8OVsfEF0Oka1ANRF33Vnn9uTIB+ZCS
+						IGYaNAzgMYC9WWxClXeErHvml06iPF+ncxcam4jviwBDeo3L9Athg2hsR3dXm8Vf
+						2XZte9ltYOb+aiQTiMcGkhjwiwdV9yzBw3AQVDmVg7m2l+AX1Sfc/fBmvmzgSw9p
+						WosgGUY9iv+M45ENmq8KvQaFavUCAwEAAaOCAWQwggFgMB8GA1UdIwQYMBaAFAy9
+						k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBSHVkS2blLmtqfrDzMAuNSi5S4h
+						OzAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEF
+						BQcDAQYIKwYBBQUHAwIwGAYDVR0gBBEwDzANBgsrBgEEAbIxAQICHTA6BgNVHR8E
+						MzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENB
+						LmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNz
+						LnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8v
+						b2NzcC50Y3MudGVyZW5hLm9yZzAcBgNVHREEFTATghFpZHAxLnNvbGVudC5hYy51
+						azANBgkqhkiG9w0BAQUFAAOCAQEAl35gTwLDK7nxbNwQ22JiyPPfNkhIytdPNeEq
+						Wvc4gMyFOLSheiIzmwhzYvSQ2B3wDdUq1Ltg0kaYyttJq/VOWzW5OMRTw0D4A9pt
+						H26Jmq8K7BHdpEB4Yme9181bBP1OEawKW5OaM2y424nlZk9mhXiivBeT4hgU3u2J
+						GBDEyyJpNy/TpAjEm/0wFe5vXGTN5/zpCuaft+KheJso6a5MuX1qMYolX57Miy2o
+						C+/Kh9mXmYoXQpPBlS0a99oh2NAQ3PX3qKZLKU+x0VfkCrjAthNU/GPI+q+vq8c0
+						gpk+lfVabkNTBjVa3oMxsWPX8dSp4EhQvhJBjQh/hEXu/onhgg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp1.solent.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp1.solent.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp1.solent.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp1.solent.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp1.solent.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp1.solent.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol         urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">solent.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEoTCCA4mgAwIBAgIQDGGDSMUu0YiL17Un9MJn6TANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDMwNTAwMDAwMFoXDTE1MDMwNTIzNTk1OVowezELMAkGA1UE
+						BhMCR0IxEjAQBgNVBAgTCUhhbXBzaGlyZTEUMBIGA1UEBxMLU291dGhhbXB0b24x
+						JjAkBgNVBAoTHVNvdXRoYW1wdG9uIFNvbGVudCBVbml2ZXJzaXR5MRowGAYDVQQD
+						ExFpZHAxLnNvbGVudC5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC
+						ggEBALtV/gS7gNG/z6DCnu8svkKkLoARcOW8nt8diRNwCUSKOMjcrxPEZkh58NDd
+						Qz/o4CcSjO4KShdP1tZwA0ob+NkZ+c4AG8QZLDOyVFzwZ//Vjsja1ybrAPPTPRtR
+						v9iDkZ/s3cdfcNO9E3xU4QLFzGkewLIyQf8OVsfEF0Oka1ANRF33Vnn9uTIB+ZCS
+						IGYaNAzgMYC9WWxClXeErHvml06iPF+ncxcam4jviwBDeo3L9Athg2hsR3dXm8Vf
+						2XZte9ltYOb+aiQTiMcGkhjwiwdV9yzBw3AQVDmVg7m2l+AX1Sfc/fBmvmzgSw9p
+						WosgGUY9iv+M45ENmq8KvQaFavUCAwEAAaOCAWQwggFgMB8GA1UdIwQYMBaAFAy9
+						k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBSHVkS2blLmtqfrDzMAuNSi5S4h
+						OzAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEF
+						BQcDAQYIKwYBBQUHAwIwGAYDVR0gBBEwDzANBgsrBgEEAbIxAQICHTA6BgNVHR8E
+						MzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENB
+						LmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNz
+						LnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8v
+						b2NzcC50Y3MudGVyZW5hLm9yZzAcBgNVHREEFTATghFpZHAxLnNvbGVudC5hYy51
+						azANBgkqhkiG9w0BAQUFAAOCAQEAl35gTwLDK7nxbNwQ22JiyPPfNkhIytdPNeEq
+						Wvc4gMyFOLSheiIzmwhzYvSQ2B3wDdUq1Ltg0kaYyttJq/VOWzW5OMRTw0D4A9pt
+						H26Jmq8K7BHdpEB4Yme9181bBP1OEawKW5OaM2y424nlZk9mhXiivBeT4hgU3u2J
+						GBDEyyJpNy/TpAjEm/0wFe5vXGTN5/zpCuaft+KheJso6a5MuX1qMYolX57Miy2o
+						C+/Kh9mXmYoXQpPBlS0a99oh2NAQ3PX3qKZLKU+x0VfkCrjAthNU/GPI+q+vq8c0
+						gpk+lfVabkNTBjVa3oMxsWPX8dSp4EhQvhJBjQh/hEXu/onhgg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp1.solent.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp1.solent.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Southampton Solent University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Southampton Solent University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.solent.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>IT Help Desk</md:GivenName>
+      <md:EmailAddress>mailto:federation.support@solent.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Technical Support</md:GivenName>
+      <md:EmailAddress>mailto:federation.tech@solent.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

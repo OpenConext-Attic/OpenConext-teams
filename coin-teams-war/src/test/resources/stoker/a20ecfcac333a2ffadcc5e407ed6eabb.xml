@@ -1,18 +1,18 @@
-<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://edugate.heanet.ie/shibboleth">
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://edugate.heanet.ie/shibboleth">
     <md:Extensions>
       <mdrpi:RegistrationInfo registrationAuthority="http://www.heanet.ie" registrationInstant="2010-11-01T00:00:00Z"/>
     </md:Extensions>
     <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
       <md:Extensions>
-        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://edugate.heanet.ie/Shibboleth.sso/DS" index="0"/>
         <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://edugate.heanet.ie/Shibboleth.sso/DS"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://edugate.heanet.ie/Shibboleth.sso/DS" index="0"/>
         <mdui:UIInfo>
           <mdui:DisplayName xml:lang="en">Edugate Resource Registry</mdui:DisplayName>
           <mdui:Description xml:lang="en">The Edugate Resource Registry website is a central administration tool for managing the Edugate federation and additional bilateral relationships. This website also serves 
 The website will process your userid, name and email address to authorise access. Further data is used for the Whoami section of the website for troubleshooting purposes only and this additional data is not retained after you logout/leave the site.</mdui:Description>
-          <mdui:Logo height="108" width="306">https://edugate.heanet.ie/rr3/logos/edugate.png</mdui:Logo>
           <mdui:InformationURL xml:lang="en">https://edugate.heanet.ie/rr3</mdui:InformationURL>
           <mdui:PrivacyStatementURL xml:lang="en">https://edugate.heanet.ie/rr3/p/page/privacy</mdui:PrivacyStatementURL>
+          <mdui:Logo height="108" width="306">https://edugate.heanet.ie/rr3/logos/edugate.png</mdui:Logo>
         </mdui:UIInfo>
       </md:Extensions>
       <md:KeyDescriptor>
@@ -54,7 +54,7 @@ UBY=
         </ds:KeyInfo>
       </md:KeyDescriptor>
       <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
-      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://edugate.heanet.ie/Shibboleth.sso/SAML2/POST" index="1" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://edugate.heanet.ie/Shibboleth.sso/SAML2/POST" index="1"/>
       <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://edugate.heanet.ie/Shibboleth.sso/SAML2/Artifact" index="6"/>
       <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://edugate.heanet.ie/Shibboleth.sso/SAML2/ECP" index="8"/>
       <md:AttributeConsumingService index="0">
@@ -88,6 +88,10 @@ The website will process your userid, name and email address to authorise access
         <md:RequestedAttribute FriendlyName="schacHomeOrganizationType" Name="urn:oid:1.3.6.1.4.1.25178.1.2.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
         <md:RequestedAttribute FriendlyName="schacHomeOrganization" Name="urn:oid:1.3.6.1.4.1.25178.1.2.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
         <md:RequestedAttribute FriendlyName="commonName" Name="urn:oid:2.5.4.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="RCSidNumber" Name="urn:oid:1.2.840.113556.1.8000.2092.3.8" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="awsRoles" Name="https://aws.amazon.com/SAML/Attributes/Role" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="awsRoleSessionName" Name="https://aws.amazon.com/SAML/Attributes/RoleSessionName" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="sAMAccountName" Name="urn:oid:1.2.840.113556.1.4.221" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
       </md:AttributeConsumingService>
     </md:SPSSODescriptor>
     <md:Organization>

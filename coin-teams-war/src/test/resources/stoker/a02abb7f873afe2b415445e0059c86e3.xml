@@ -1,0 +1,57 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shib.oclc.org/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEgDCCA2igAwIBAgIJAK0C0pCgLQHkMA0GCSqGSIb3DQEBBQUAMIGGMQswCQYD
+						VQQGEwJVUzELMAkGA1UECBMCT0gxDzANBgNVBAcTBkR1YmxpbjETMBEGA1UEChMK
+						T0NMQywgSW5jLjEgMB4GA1UECxMXR2xvYmFsIFdvcmxkIERvbWluYXRpb24xIjAg
+						BgkqhkiG9w0BCQEWE3NoaWJib2xldGhAb2NsYy5vcmcwHhcNMTIwMzA4MjIyNDM3
+						WhcNMjIwMzA5MjIyNDM3WjCBhjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAk9IMQ8w
+						DQYDVQQHEwZEdWJsaW4xEzARBgNVBAoTCk9DTEMsIEluYy4xIDAeBgNVBAsTF0ds
+						b2JhbCBXb3JsZCBEb21pbmF0aW9uMSIwIAYJKoZIhvcNAQkBFhNzaGliYm9sZXRo
+						QG9jbGMub3JnMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0GMRvPa5
+						AnW0p6El1RovfmD5jNK3ZSWbdSmD3rPaJY14iaG+oUjYqTz/qD7gRsYsCv1s3FIg
+						H8q1/6Q83qZnw0GMGF6Aot2GtsQneLaYNFdiqQEvRLcDcHcb+fwlglXI8/Q14E1i
+						OlEfkqLshRGHRM8H+l+8ypyMFcSgX+9Y2ep8qPp7ZA6bbO0/AiYBWXqOF5Xj0cxj
+						YsX0gwv3gipvhjLUnKjA5dDjWr7MWEYhN0rGY9jAZqgm6/eLLit1LnnebeJPMKOm
+						RtNOkZ7icgq+yBMi7fwsUt/wti5M5tot2cqqS5pSpgfWszAoWSzaiC5TlKCrrdp8
+						GPPWTC1Q2/O27QIDAQABo4HuMIHrMB0GA1UdDgQWBBQJScrHf319rPm2hwo2omNl
+						YBaYLzCBuwYDVR0jBIGzMIGwgBQJScrHf319rPm2hwo2omNlYBaYL6GBjKSBiTCB
+						hjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAk9IMQ8wDQYDVQQHEwZEdWJsaW4xEzAR
+						BgNVBAoTCk9DTEMsIEluYy4xIDAeBgNVBAsTF0dsb2JhbCBXb3JsZCBEb21pbmF0
+						aW9uMSIwIAYJKoZIhvcNAQkBFhNzaGliYm9sZXRoQG9jbGMub3JnggkArQLSkKAt
+						AeQwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOCAQEAZtUntXC2HfkkdS1q
+						MBeKgtNkk9Cb822R0k8IBww/7pxe3367g2CP8CIauPjOTunG1gXG+iab50pVtQvW
+						uezeGx3+9i4VPhDeadseTR1nIXxHb08VcokvVKWOlFMQt61cr+Qzx8Oax9eWkvFh
+						yCzg3zaEeSOXc//ZSVgIHk7bkLXKx6379Y8oFy7E4f3u1zE0YIuHlA/VaRbPdyif
+						Onno/UhKeJYKJm14L5Bi6jy3zHMgSbIRNBA9fIEmPGgEHy+65R9vCQ0Qw+cQQF8I
+						W0/AQEl5+bAMZvoC+cqpQR3pmxwKZPHOI1zb5SY5wmRxAd772nBH31b9br2L7ETI
+						G2k2Hg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shib.oclc.org:2443/Shibboleth.sso/SAML/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shib.oclc.org:2443/Shibboleth.shire" index="2"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">OCLC (UK) Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">OCLC FirstSearch</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.oclc.org/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>UK Service Desk</md:GivenName>
+      <md:EmailAddress>mailto:support-uk@oclc.org</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Richard</md:GivenName>
+      <md:SurName>Scranton</md:SurName>
+      <md:EmailAddress>mailto:scrantor@oclc.org</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

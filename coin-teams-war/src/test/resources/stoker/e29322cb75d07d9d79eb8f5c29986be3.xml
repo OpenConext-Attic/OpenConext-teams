@@ -1,19 +1,19 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://studienportal.vetmed.uni-muenchen.de/shibboleth">
-    <Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2013-04-30T13:50:47Z">
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://studienportal.vetmed.uni-muenchen.de/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2013-04-30T13:50:47Z">
         <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
         <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
-        <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
           <saml:AttributeValue>http://aai.dfn.de/category/vetmed-member</saml:AttributeValue>
         </saml:Attribute>
       </mdattr:EntityAttributes>
-    </Extensions>
-    <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://studienportal.vetmed.uni-muenchen.de/Shibboleth.sso/Login" index="1"/>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://studienportal.vetmed.uni-muenchen.de/Shibboleth.sso/Login" index="1"/>
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="de">Studienportal tierärztliche Fakultät LMU</mdui:DisplayName>
           <mdui:DisplayName xml:lang="en">Studienportal tierärztliche Fakultät LMU</mdui:DisplayName>
           <mdui:Description xml:lang="de">Studienportal tierärztliche Fakultät LMU</mdui:Description>
@@ -21,9 +21,9 @@
           <mdui:InformationURL xml:lang="de">https://studienportal.vetmed.uni-muenchen.de</mdui:InformationURL>
           <mdui:InformationURL xml:lang="en">https://studienportal.vetmed.uni-muenchen.de</mdui:InformationURL>
         </mdui:UIInfo>
-      </Extensions>
-      <KeyDescriptor>
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
           <ds:KeyName>studienportal.vetmed.uni-muenchen.de</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=studienportal.vetmed.uni-muenchen.de,OU=Tieraerztliche Fakultaet,O=Ludwig-Maximilians-Universitaet Muenchen,L=Muenchen,ST=Bayern,C=DE</ds:X509SubjectName>
@@ -61,44 +61,44 @@ NL76LsPu9j46CldHJOaVdg==
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://studienportal.vetmed.uni-muenchen.de/Shibboleth.sso/SLO/SOAP"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://studienportal.vetmed.uni-muenchen.de/Shibboleth.sso/SLO/Redirect"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://studienportal.vetmed.uni-muenchen.de/Shibboleth.sso/SLO/POST"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://studienportal.vetmed.uni-muenchen.de/Shibboleth.sso/SLO/Artifact"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://studienportal.vetmed.uni-muenchen.de/Shibboleth.sso/SAML2/POST" index="1"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://studienportal.vetmed.uni-muenchen.de/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://studienportal.vetmed.uni-muenchen.de/Shibboleth.sso/SAML2/Artifact" index="3"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://studienportal.vetmed.uni-muenchen.de/Shibboleth.sso/SAML2/ECP" index="4"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://studienportal.vetmed.uni-muenchen.de/Shibboleth.sso/SAML/POST" index="5"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://studienportal.vetmed.uni-muenchen.de/Shibboleth.sso/SAML/Artifact" index="6"/>
-      <AttributeConsumingService index="1">
-        <ServiceName xml:lang="de">Studienportal tierärztliche Fakultät LMU</ServiceName>
-        <ServiceName xml:lang="en">Studienportal tierärztliche Fakultät LMU</ServiceName>
-        <ServiceDescription xml:lang="de">Studienportal tierärztliche Fakultät LMU</ServiceDescription>
-        <ServiceDescription xml:lang="en">Studienportal tierärztliche Fakultät LMU</ServiceDescription>
-        <RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-        <RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-        <RequestedAttribute FriendlyName="sn" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-        <RequestedAttribute FriendlyName="dfnEduPersonStudyBranch3" Name="urn:oid:1.3.6.1.4.1.22177.400.1.1.3.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-      </AttributeConsumingService>
-    </SPSSODescriptor>
-    <Organization>
-      <OrganizationName xml:lang="de">e29</OrganizationName>
-      <OrganizationName xml:lang="en">e29</OrganizationName>
-      <OrganizationDisplayName xml:lang="de">Ludwig-Maximilians-Universität München</OrganizationDisplayName>
-      <OrganizationDisplayName xml:lang="en">Ludwig-Maximilians-Universität München</OrganizationDisplayName>
-      <OrganizationURL xml:lang="de">https://lmuidp.lrz.de</OrganizationURL>
-      <OrganizationURL xml:lang="en">https://lmuidp.lrz.de</OrganizationURL>
-    </Organization>
-    <ContactPerson contactType="technical">
-      <GivenName>Cyrill</GivenName>
-      <SurName>Matenaers</SurName>
-      <EmailAddress>mailto:studienportal@it.vetmed.uni-muenchen.de</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="support">
-      <GivenName>Studienportal</GivenName>
-      <SurName>Helpdesk</SurName>
-      <EmailAddress>mailto:studienportal@it.vetmed.uni-muenchen.de</EmailAddress>
-    </ContactPerson>
-  </EntityDescriptor>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://studienportal.vetmed.uni-muenchen.de/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://studienportal.vetmed.uni-muenchen.de/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://studienportal.vetmed.uni-muenchen.de/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://studienportal.vetmed.uni-muenchen.de/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://studienportal.vetmed.uni-muenchen.de/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://studienportal.vetmed.uni-muenchen.de/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://studienportal.vetmed.uni-muenchen.de/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://studienportal.vetmed.uni-muenchen.de/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://studienportal.vetmed.uni-muenchen.de/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://studienportal.vetmed.uni-muenchen.de/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="de">Studienportal tierärztliche Fakultät LMU</md:ServiceName>
+        <md:ServiceName xml:lang="en">Studienportal tierärztliche Fakultät LMU</md:ServiceName>
+        <md:ServiceDescription xml:lang="de">Studienportal tierärztliche Fakultät LMU</md:ServiceDescription>
+        <md:ServiceDescription xml:lang="en">Studienportal tierärztliche Fakultät LMU</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="sn" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="dfnEduPersonStudyBranch3" Name="urn:oid:1.3.6.1.4.1.22177.400.1.1.3.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e29</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e29</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Ludwig-Maximilians-Universität München</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Ludwig-Maximilians-Universität München</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">https://lmuidp.lrz.de</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://lmuidp.lrz.de</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Cyrill</md:GivenName>
+      <md:SurName>Matenaers</md:SurName>
+      <md:EmailAddress>mailto:studienportal@it.vetmed.uni-muenchen.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Studienportal</md:GivenName>
+      <md:SurName>Helpdesk</md:SurName>
+      <md:EmailAddress>mailto:studienportal@it.vetmed.uni-muenchen.de</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,75 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://ukaf.it-innovation.soton.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-04-13T15:30:07Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://ukaf.it-innovation.soton.ac.uk/Shibboleth.sso/Login"/>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">GENESI-DEC bridge to UK Access Management federation</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Enables UK Access Management federation members to access GENESI-DEC repositories</mdui:Description>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDVDCCAjygAwIBAgIJAL06GKgIw781MA0GCSqGSIb3DQEBBQUAMCkxJzAlBgNV
+						BAMTHnVrYWYuaXQtaW5ub3ZhdGlvbi5zb3Rvbi5hYy51azAeFw0xMjAyMjMxNDU5
+						MzVaFw0yMjAyMjAxNDU5MzVaMCkxJzAlBgNVBAMTHnVrYWYuaXQtaW5ub3ZhdGlv
+						bi5zb3Rvbi5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMsh
+						7nb5qjRPVhJKl7d7HtTfVbmWSMq1NPzDzYyTMAOg0+VcmDFvu5ICIp0w2w07QzGv
+						3ryZp2TaT+9DNyYaeVfnSB5rPPAuHLHrXvTwszgfXH6Bq88fkBLEHR7xIMPNqNFG
+						9JHf6VY3Z6HwRhX2wJt34O6IO7q1AuMsgmSR8vLD6ftHX7VzSXkS305cA1zNN1vD
+						xnV8Zp8ZyNE3F5xVCZBVs7XK9futaxSL8GJfX8l0IzBFeezXh9BmN5p0/2KDtwmw
+						YsBinxXAIwBCUVctfuMpnM3p9ZHRTfR4hbkDwpbTXxwEmajDXnyrbdNK/zEuGhOW
+						4+m38wiymTEmMQaPys0CAwEAAaN/MH0wXAYDVR0RBFUwU4IedWthZi5pdC1pbm5v
+						dmF0aW9uLnNvdG9uLmFjLnVrhjFodHRwczovL3VrYWYuaXQtaW5ub3ZhdGlvbi5z
+						b3Rvbi5hYy51ay9zaGliYm9sZXRoMB0GA1UdDgQWBBTAs5xK22h/EZSU8IMQeGKQ
+						mYg4YjANBgkqhkiG9w0BAQUFAAOCAQEAxm8quSodKR3OSqZKQyv48Nw4ztkOgoIq
+						iRT/SNCtGIsIxRLE/wh6VD92ini8KLXyjY+9vnySiIz7EmPU8noS67XRkfMss33Y
+						gB0uKN4jwo7wQw0oWzd7YuPjWBfWVgHElvtITjpJ/NR5MCk2A4w2kKjvCd70e+Ut
+						O8Uiewnm0VArTVusZ1IZtT3P+5Yp4Hiq5+sjtRbxhTQn/cAkl57CemlBrj6jsPT2
+						uH0taQOxowajF5t/STCwIlCRBNptPlAMFB0x6AB2Oq2dNjzLhq8VnpSAZ6+EwSuo
+						3nkLy6HSlY8Nka9tIZollWJv0yu6+6BHzf/KMzryiGaxpKjMtB+Caw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://ukaf.it-innovation.soton.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://ukaf.it-innovation.soton.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://ukaf.it-innovation.soton.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://ukaf.it-innovation.soton.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ukaf.it-innovation.soton.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ukaf.it-innovation.soton.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://ukaf.it-innovation.soton.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://ukaf.it-innovation.soton.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ukaf.it-innovation.soton.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ukaf.it-innovation.soton.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ukaf.it-innovation.soton.ac.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://ukaf.it-innovation.soton.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ukaf.it-innovation.soton.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://ukaf.it-innovation.soton.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://ukaf.it-innovation.soton.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://ukaf.it-innovation.soton.ac.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ukaf.it-innovation.soton.ac.uk/Shibboleth.sso/SAML2/POST" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://ukaf.it-innovation.soton.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="7"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ukaf.it-innovation.soton.ac.uk/Shibboleth.sso/SAML2/Artifact" index="8"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://ukaf.it-innovation.soton.ac.uk/Shibboleth.sso/SAML2/ECP" index="9"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://ukaf.it-innovation.soton.ac.uk/Shibboleth.sso/SAML/POST" index="10"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://ukaf.it-innovation.soton.ac.uk/Shibboleth.sso/SAML/Artifact" index="11"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Southampton</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">GENESI-DEC bridge to UK Access Management federation</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.it-innovation.soton.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Help Desk</md:GivenName>
+      <md:EmailAddress>mailto:support@it-innovation.soton.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Web Master</md:GivenName>
+      <md:EmailAddress>mailto:webmaster@it-innovation.soton.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

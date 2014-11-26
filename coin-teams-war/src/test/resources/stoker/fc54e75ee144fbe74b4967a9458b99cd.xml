@@ -1,19 +1,14 @@
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://edev.cesnet.cz/sp/shibboleth">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://edev.cesnet.cz/sp/shibboleth">
     <md:Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.eduid.cz/" registrationInstant="2012-10-10T20:28:16Z">
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.eduid.cz/" registrationInstant="2012-10-10T20:28:16Z">
         <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
         <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
-        <mdasrt:Attribute xmlns:mdasrt="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
-          <mdasrt:AttributeValue>http://eduid.cz/uri/sp-group/clarin</mdasrt:AttributeValue>
-        </mdasrt:Attribute>
-      </mdattr:EntityAttributes>
     </md:Extensions>
     <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
       <md:Extensions>
         <DiscoveryResponse xmlns="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://edev.cesnet.cz/Shibboleth.sso/DS" index="1"/>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="en">Edev SP</mdui:DisplayName>
           <mdui:DisplayName xml:lang="cs">Edev SP</mdui:DisplayName>
           <mdui:Description xml:lang="en">CESNET development service provider</mdui:Description>
@@ -26,7 +21,7 @@
         </eduidmd:RepublishRequest>
       </md:Extensions>
       <md:KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyInfo>
           <ds:KeyName>edev.cesnet.cz</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=edev.cesnet.cz,O=CESNET,L=Prague,ST=Czech Republic,C=CZ</ds:X509SubjectName>
@@ -53,7 +48,7 @@ qAMOJmOQterSszZaX0mMz1k7
         </ds:KeyInfo>
       </md:KeyDescriptor>
       <md:KeyDescriptor use="encryption">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyInfo>
           <ds:KeyName>edev.cesnet.cz</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=edev.cesnet.cz,O=CESNET,L=Prague,ST=Czech Republic,C=CZ</ds:X509SubjectName>
@@ -107,17 +102,17 @@ qAMOJmOQterSszZaX0mMz1k7
         <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:mace:dir:attribute-def:eduPersonTargetedID" NameFormat="urn:mace:shibboleth:1.0:attributeNamespace:uri"/>
       </md:AttributeConsumingService>
     </md:SPSSODescriptor>
-    <Organization xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
-      <OrganizationName xml:lang="en">CESNET</OrganizationName>
-      <OrganizationName xml:lang="cs">CESNET</OrganizationName>
-      <OrganizationDisplayName xml:lang="en">CESNET, a. l. e.</OrganizationDisplayName>
-      <OrganizationDisplayName xml:lang="cs">CESNET, z. s. p. o.</OrganizationDisplayName>
-      <OrganizationURL xml:lang="en">http://www.ces.net/</OrganizationURL>
-      <OrganizationURL xml:lang="cs">http://www.cesnet.cz/</OrganizationURL>
-    </Organization>
-    <ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="technical">
-      <GivenName>Ivan</GivenName>
-      <SurName>Novakov</SurName>
-      <EmailAddress>novakoi@fel.cvut.cz</EmailAddress>
-    </ContactPerson>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">CESNET</md:OrganizationName>
+      <md:OrganizationName xml:lang="cs">CESNET</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">CESNET, a. l. e.</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="cs">CESNET, z. s. p. o.</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ces.net/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="cs">http://www.cesnet.cz/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ivan</md:GivenName>
+      <md:SurName>Novakov</md:SurName>
+      <md:EmailAddress>novakoi@fel.cvut.cz</md:EmailAddress>
+    </md:ContactPerson>
   </md:EntityDescriptor>

@@ -1,0 +1,110 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idpcove.trafford.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2009-02-23T17:18:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">trafford.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEojCCA4qgAwIBAgIQJtduyNIiCTAD90Mv4ks9bTANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDExMTAwMDAwMFoXDTE1MDExMDIzNTk1OVowdzELMAkGA1UE
+						BhMCR0IxEzARBgNVBAgTCkFsdHJpbmNoYW0xFzAVBgNVBAcTDldlc3QgVGltcGVy
+						bGV5MRkwFwYDVQQKExBUcmFmZm9yZCBDb2xsZWdlMR8wHQYDVQQDExZpZHBjb3Zl
+						LnRyYWZmb3JkLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA
+						wzfjtd9Znk9ErvdOxYxI2hewz17HDSjcV5TYtiJKzVcxJus8ybd9IUTLcWzAQ7nh
+						JlqJO2ySr+/Y/7aNPwZRD77LCLyIj3IEKg4ng0GbCKyU/8syOV3pZH3iDWgkxGcs
+						K+vd1LS31gz83+Oso1ifOn5kx81Hzh8t7SKNdA2UmlmNMc7z7MdmtdqsVbOjFqEt
+						d7Xlfe/RD8x7tMk8npA6PjL0l5XoJuSOBAlErLSfhSlaY/ac/ad0wNaoLOCxQd2P
+						FyN0n9X7WEv1LDG7rOwJF5twOup/EbcLuBK99ucdng3Wk0puRBlVyMg1hL4fkBp0
+						maP72Sr2IPzX+6yZ06K3BQIDAQABo4IBaTCCAWUwHwYDVR0jBBgwFoAUDL2TaAzz
+						3qujSWsrN1dH6pDjue0wHQYDVR0OBBYEFDywN+A1QlNwe5EDYvG5snKJ50DBMA4G
+						A1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMB
+						BggrBgEFBQcDAjAYBgNVHSAEETAPMA0GCysGAQQBsjEBAgIdMDoGA1UdHwQzMDEw
+						L6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3Js
+						MG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2NydC50Y3MudGVy
+						ZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6Ly9vY3Nw
+						LnRjcy50ZXJlbmEub3JnMCEGA1UdEQQaMBiCFmlkcGNvdmUudHJhZmZvcmQuYWMu
+						dWswDQYJKoZIhvcNAQEFBQADggEBAGjeuzvK1mYaKhG+uUgKcbW4EmBc4d25czuB
+						JnpqJUBR2pc1u5VktXQgrb01PwLblkZECQoNuohb6S2kOUQTaok5n3JrhRdW0Y6Z
+						GLYAtNP5xOMaJQErfLhytXwMnBfTH/GY4kCtxIFxJz1BRbuiCtGIHUlv5/cKLlro
+						Un+/umbmGlVTtVyYgbdOOM5Yk0AyCu9bVwILaNB+LqkTluuU+SKB7m/Dhlrd36D3
+						x1+rj5xubcAyUFGtnZ2hAobJXmt3wQoYUwK2tPsJb+P2yJch34Gom6xvp4SM1spj
+						dUWyuLimrzfPhbK4VmeDybg96X84h5w72/ANdUS08AGklJrAKvo=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idpcove.trafford.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idpcove.trafford.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idpcove.trafford.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idpcove.trafford.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idpcove.trafford.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idpcove.trafford.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">trafford.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEojCCA4qgAwIBAgIQJtduyNIiCTAD90Mv4ks9bTANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDExMTAwMDAwMFoXDTE1MDExMDIzNTk1OVowdzELMAkGA1UE
+						BhMCR0IxEzARBgNVBAgTCkFsdHJpbmNoYW0xFzAVBgNVBAcTDldlc3QgVGltcGVy
+						bGV5MRkwFwYDVQQKExBUcmFmZm9yZCBDb2xsZWdlMR8wHQYDVQQDExZpZHBjb3Zl
+						LnRyYWZmb3JkLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA
+						wzfjtd9Znk9ErvdOxYxI2hewz17HDSjcV5TYtiJKzVcxJus8ybd9IUTLcWzAQ7nh
+						JlqJO2ySr+/Y/7aNPwZRD77LCLyIj3IEKg4ng0GbCKyU/8syOV3pZH3iDWgkxGcs
+						K+vd1LS31gz83+Oso1ifOn5kx81Hzh8t7SKNdA2UmlmNMc7z7MdmtdqsVbOjFqEt
+						d7Xlfe/RD8x7tMk8npA6PjL0l5XoJuSOBAlErLSfhSlaY/ac/ad0wNaoLOCxQd2P
+						FyN0n9X7WEv1LDG7rOwJF5twOup/EbcLuBK99ucdng3Wk0puRBlVyMg1hL4fkBp0
+						maP72Sr2IPzX+6yZ06K3BQIDAQABo4IBaTCCAWUwHwYDVR0jBBgwFoAUDL2TaAzz
+						3qujSWsrN1dH6pDjue0wHQYDVR0OBBYEFDywN+A1QlNwe5EDYvG5snKJ50DBMA4G
+						A1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMB
+						BggrBgEFBQcDAjAYBgNVHSAEETAPMA0GCysGAQQBsjEBAgIdMDoGA1UdHwQzMDEw
+						L6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3Js
+						MG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2NydC50Y3MudGVy
+						ZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6Ly9vY3Nw
+						LnRjcy50ZXJlbmEub3JnMCEGA1UdEQQaMBiCFmlkcGNvdmUudHJhZmZvcmQuYWMu
+						dWswDQYJKoZIhvcNAQEFBQADggEBAGjeuzvK1mYaKhG+uUgKcbW4EmBc4d25czuB
+						JnpqJUBR2pc1u5VktXQgrb01PwLblkZECQoNuohb6S2kOUQTaok5n3JrhRdW0Y6Z
+						GLYAtNP5xOMaJQErfLhytXwMnBfTH/GY4kCtxIFxJz1BRbuiCtGIHUlv5/cKLlro
+						Un+/umbmGlVTtVyYgbdOOM5Yk0AyCu9bVwILaNB+LqkTluuU+SKB7m/Dhlrd36D3
+						x1+rj5xubcAyUFGtnZ2hAobJXmt3wQoYUwK2tPsJb+P2yJch34Gom6xvp4SM1spj
+						dUWyuLimrzfPhbK4VmeDybg96X84h5w72/ANdUS08AGklJrAKvo=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idpcove.trafford.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idpcove.trafford.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Trafford College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Trafford College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.trafford.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>David</md:GivenName>
+      <md:SurName>Fitton</md:SurName>
+      <md:EmailAddress>mailto:Dave.Fitton@trafford.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>David</md:GivenName>
+      <md:SurName>Fitton</md:SurName>
+      <md:EmailAddress>mailto:Dave.Fitton@trafford.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

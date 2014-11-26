@@ -1,0 +1,65 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://wiki.cam.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://wiki.cam.ac.uk/Shibboleth.sso/Login"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://wiki.cam.ac.uk/Shibboleth.sso/WAYF"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://wiki.cam.ac.uk/Shibboleth.sso/DS"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://wiki.cam.ac.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC6zCCAdOgAwIBAgIJALxgsrCx+TDKMA0GCSqGSIb3DQEBBQUAMBcxFTATBgNV
+						BAMTDDEzMS4xMTEuOC4yNTAeFw0xMTAxMTgxNjM1MTlaFw0yMTAxMTUxNjM1MTla
+						MBcxFTATBgNVBAMTDDEzMS4xMTEuOC4yNTCCASIwDQYJKoZIhvcNAQEBBQADggEP
+						ADCCAQoCggEBAMFz7ge2OzAPQS7PH3J5XJY479khx+T8V5jAODzlk2TsPWOlhlFI
+						MRnquoCUJtU1boQx84XGkyiroenCR0Y3noMm9lKVtkDXeVfTmrIze9HfScK4gC4Z
+						4UEqqNndhnTZS/4Wv3JivWz/Bb3cTLm9X+OkWeHW1ADEw7fYyfHYNV/fFbIwz7q2
+						ZlQ0GSyw5751ViBB2BB//nHcwXL6scVwBjfWCow/X7eg0gg+slOcCgLtt9k6JPnY
+						/5m7qUU+LTbUqOa2GplZELC9qxVWAK37spUhJNsz1TNBY5W0vOvFzJ0hjkSRTF3u
+						SIELGEwSrKHyjbaBwGlQCg2UNICJLZ/VLX0CAwEAAaM6MDgwFwYDVR0RBBAwDoIM
+						MTMxLjExMS44LjI1MB0GA1UdDgQWBBQ5ZMOSfqLc43MRkEB6YyHRtF0TnzANBgkq
+						hkiG9w0BAQUFAAOCAQEAZYBwM11lTO9Qka9+qqcYcyEfNJs/6EpmbOC4akYfcoJ/
+						dTJsVwQ3g2w9EVka83mg36+cAlJtHr8zfOd1ul+NnV5nJ274UrpQZRReYGP562Dg
+						1bzpKo0qex5EINkOUkg+UybB3qEmDUM4T2TzQg5EDayCDwNF9ffio6QECZ9rjNC7
+						HBQjDcAhLBX6b+yRkBBSKloN6tsAHpmf/wYnB4kTWiBuzEPLyfXA9zu8Cn49j2N8
+						XUTCln8U+YTW51B5oZre5jUhTqFNLVyqi0drdulE9eWPjHYCCXqwKZiMlhjzV6Kw
+						ElyOiDmeccOIUqK4DqrN3+J7EEAhlbc/vBuC2fyPbA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://wiki.cam.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://wiki.cam.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://wiki.cam.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wiki.cam.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://wiki.cam.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://wiki.cam.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://wiki.cam.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wiki.cam.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://wiki.cam.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wiki.cam.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://wiki.cam.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://wiki.cam.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://wiki.cam.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://wiki.cam.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://wiki.cam.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Cambridge</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Cambridge: Managed Wiki Service</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.cam.ac.uk/cs/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Wiki Support</md:GivenName>
+      <md:EmailAddress>mailto:wiki-support@ucs.cam.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Wiki Support</md:GivenName>
+      <md:EmailAddress>mailto:wiki-support@ucs.cam.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

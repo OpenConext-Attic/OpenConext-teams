@@ -1,0 +1,116 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.phlu.ch/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://rr.aai.switch.ch/" registrationInstant="2014-11-23T09:35:39Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.switch.ch/aai/federation/switchaai/metadata-registration-practice-statement-20110711.txt</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor errorURL="http://hotline.hslu.ch" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">phlu.ch</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="de">PHLU - Pädagogische Hochschule Luzern</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">PHLU - University of Teacher Education Lucerne</mdui:DisplayName>
+          <mdui:Description xml:lang="de">Pädagogische Hochschule Luzern</mdui:Description>
+          <mdui:Description xml:lang="en">University of Teacher Education Lucerne</mdui:Description>
+          <mdui:Logo height="16" width="16">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAbUlEQVQ4EZ3USwqAMAwE0NS7eSR3IqjgxbyYk0XFTz+TCYS0i3lklXRu425mM1qqAakDvUpphFIOYhNHlvxn5w14QEFegIL8gChSBCJIFWCRJsAgXaCHUEALoYEaEgJKSBj4IhLwQCZ/y+Wn4AK9hCaamo4ByQAAAABJRU5ErkJggg==</mdui:Logo>
+          <mdui:Logo height="41" width="100">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAApCAYAAADDJIzmAAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEgAACxIB0t1+/AAAAJd0RVh0Q29tbWVudABjSFJNIGNodW5rbGVuIDMyIGlnbm9yZWQ6DUFTQ0lJOiAuLnolLi7CgMKDLi7DucO/Li7CgMOpLi51MC4uw6pgLi46wpguLi5vDUhFWDogMDAwMDdBMjUwMDAwODA4MzAwMDBGOUZGMDAwMDgwRTkwMDAwNzUzMDAwMDBFQTYwMDAwMDNBOTgwMDAwMTc2RkYZnnwAACmTSURBVHictHoJXI559/6xj+yMZbwIYWgsQ2NnbGMf29hmDCI7g+yGEFmyZc0SFUK0antan1JPaaGFFi0oKZSisiSM+39dd8zrfX/v/Gbm/3//Pp/vJz33/Xzv7znXOee6zrmT+g3quWBpPq5atWtqmjVr6j17tvHPe/fvEeNZMyvg97OfVa+sqVuvjiY4WNtmzlwTwb8OvF9P7zNNC/3mTr6+mhrp6Wmya9dO+bprFxk67DsxMuq6sE6d2hrcqzGZM9u4uLhIDh48IEbfGMmw4UOrtm7dyqG6XjVNvQZ1NUuWLO555Mhh+fnnaeNr1tLT1Kipp+lg2N7s+zHf123WvJkrz/XpORt8Xl9TtVpl325GX6/FaqZXQ+9frnNVqlxBM2LEsGXLly+r3LhJI6dP9+C5vmjaWNPl686mO3Zsrzhy5HD5rHrVXvXq11Wv1a5TS2NnZ9tqi7mZNGrc8Phn1av50Y5vB/TfkZh4U/z8fP/y8g0IEE8/rVxz3CevsuIkK/SiXD/5i4Tv/1kiD876lyU4nNIAiz9xIKVmTT2lTt3aChyiWGzfNuKo9VFp2LABrlVWAIgScjW437z5cwnIEH4HgCgARAEgDf4DIM4wTsG9CgA5/W+A1AAgCgBRAIgCQKZ9AMQCgKjPN/zKMHrosKEt+FzuUe2zyko9/B9gKPXq11EqV62kLFu+dM6gwQNaVa1WSbWD13kff+d3+vbtfW3p0l+qNPmisVK7dk31HtoJANV7ae/UqZOtVq1aKQBhKp9FuypWEmXS5B9O305JkfkL5u3lXlwAJP1vAeKvEU1whAReOCSx1vPk+cP0PwWk5IOR77sZdU1v3LhhMQ6mVKgoiqFh+6xFixfU0ddvcYuA0Lk4TPtfli4hIJ0/AeQZAKn7HwA5/AkgO/4NkOoAJPcTQMZ8AMT0IyDt2rX1nDPHpG6//n1vfNm+XVqXLp3jEOmv6bRKlSsqnbt0enzy5HFp0LB+Z56ZgdSw0edl3bsbxffs2T22bTuDRFPTZRvNzDbqwb5nNWvVUEFo36HdXdj0qHadmjh/daXpP75QJk2aWAvZ0a3eB0AIFDJKwf7NcnKyBVmYTTsGDPzW7+8AogkIlEBtiMQcXyg3DhnL87y7fw4IDUTEvF+wcL4cP35MnxFYp57qyPf6rfTbwvBIAvKPZk0Vs80bexi0aV0ZxvX7/w1IC/1m1zZv2SRnzthX2rt3b5Vt27a2bPJFo9d0llQQZf36dfPNzTcLnDqw7odoR3nNwucCEGTNmtVV8V1ZtHhh088bNnhZ7bNKBEyxstrXwGK7hTTXb1bI56MkKQDcEPYYABTlY9Xgufv07e2cnJIsK1YsH8Xf+/Xro/2rgARgeQWFSbTmgiRYz5Hoowvk+aM7fw5IA9Wx1d+3aqVfy3zr5v4sUYw4pPYbw686tPyqo2E0HYTsYdQ80dOr9hAGFvxdQEpKigXOQLR1leEjhv0pIIjwyNGjR8naNWvkyJEjMnTokANVq1VUswPXHsfHx1ccPnwos3XAx3KFc71u2Vr/KjLgapu2BpHfDR3Sc9DgQZX1W7Z4WV2vqlrutm+3GAqQBjZu0vAlKwHuV2abGNeBPV0JLPeqVbuGosfyjd9XrDBtt3mTmQCsp127drmXlJT4p2B4+/jIFR9kiK+PpLhbSdyxhQBk/l8D5ENE/AaDihllBINOHD16ZOCePZasv2lquiN6PtZStWbDOKb8XwFktsmsHS9evBAbm5Pq9SHfDa7e2qD1/wqIoaHhNZQrWbxkkcCJXzRs1ED9HGStQGysPH/eQUDMUr16tW8bfIhqnpE2cF/ea2TUbf7IUSOkhX6LlyxBH0BTyxvvw7Ofjhg5fO3GjRsE10cREN4DAMuzBJn4TXcjP3s7O8F9s7r3MLoTG3v9jwncz0802jAJDQmWUF24XPeylXTnrRIDAP4uIL+TOQ/a4PMGuZu2mBnsstwpyIxsfs7DgldSUUe1vXr3TObBGXV/BZCFixZsy83NFTp96o9TpGfvHnqI4jxmGJ+/evWq7+jguXPmzCcgXHDKDUS4HDhgJcOHDztVAUTL+8EBD3ft3Flh/a/rBOVUQOIDfgekXp1XCCgfELhPnTq1fLsafd0XGfKZfkv9lyR1Ala5akWFAUZy79ylY2JUVKQMHDSAmTaWZ+F1CIGTvfv0iubZq+OZ+632Gp13cBDw51Iozer/AwhfkLdfAEqUTrROJ+Rp8lV5V5wvWYGn5NbFzSoAfxkQOpbOhnEOcMD+aT//NHX096PrMrJQWqq0NmiV9ZHUzzmc7aIoilhYbOtaFSqHn/8VQJYvX7ohIiJcIDHllI2NmMwxqdy8RTM1Q/jsHyZOmLhypamMHz9uA8Gnszp2MowAUAIe+Rx1/jd+zjVq9MiFKCOyH+XPx8dbUP8H6umVBwzsucPng6METgUnHqd0b4nvvyKYTZo2fjV27Bi7Jk0av/oYZGvXrfl+0OCB5KKx9evXUwXNokULpm7Y8Guvj2oNQiHJy9NT3N3dJDxcVxlqU8qXVoLDwtWsCAjwU6Vt1J7JAEQrb18Uyr0gOwCy5W8CgqhhmYKD6sw0ngFD9woAkb79egsAqtKmbWsVEALn6+vb8fjJYwJjjFgC/gqH0HD0FMlw5MmBg749N3782FNarbZSv/59/GksMxPqKQnlZwVW3kcQp0ydvCcoKEgGDRpwjDL0Yya3aq0f2anzV369e/dyRMYNGTNmdEfeT+eCtEtx7Wr3Ht/4Dxky+AKyayoyvRa+W0xSR/l9Z21tXc/om26OzARK5I6dvopDEAqEzVA+gyCMGDHcKjAwQDp37pSilmh8d9KkH2ba2p4WB4czgh5FXbZ29mJz4ojc1PlIbpSLxEPahu/5UQpSw6Ws+MnfB6RiZVFrMhce3AWRJPOhtgYM7C8wSnr36V21UePPSz9yh06n6zVs5AiVSD9GDwEFIPUzM+/K1q3mArIWlDQB8Z4r55uKv3PPx6XReFf9fsxodpgqD7FM8iedxLPAca9MV5g2WrlyRVs6jfd9cs7f16BBg2x79PjG4ON1Rven1xEUYQsXLKjMvoO/M/Og9Bps3Wbe7+M9/M7ChfPbA+guHz9D/+JErjh85NCwj59VrlZBOXbMukVoaIi4urqoy0UTKj4Hl8s9161ScMtfYo4tUR1dkKL7vwMENTQGKwUrGasNskG+GzZUphnPlh9nGIvx/EWVUYT99Vu3SjE07JAcGBxiuHHjr5CMLb/u1LljCpyeglobCUBq3UxMlMMn7eT78ePFGJk2Zuzo9fhOCiI2+cP+yaj/ydD0yZcuOTbw9Loiw0cOO/NF0yZFjZs0VpAdCnilsHOXzl7DRwztQDJHp70e/Ugmyunve3xckN+3Z80ynj9hwrjmbdq0Tvn36yi1tydPnrhl/a/rq/To+U0E7rmNsyRZWu5qzvICSRva7su2KS1b6afOnm28fOKkCe2wZwrvQxabsceJjolmcLpxL9iaM2fO7BXbLbbKerNNsmj5SrFzOC/ZXpaSCuJ+FA9ATvzy/waILiJSwqOiJTwSP2MSJDjiumiDAiU9MVpS48MlJcpf7ty+KTdv4lp4tER42MpvuXH4LFG04TESERkhurAQdKPh4hWglXDNJUm5nSKJd7IlLj6O9VYiwsPxs3yRR6hAAkMjK2Xml4izq5ssN132j25G3frAQT3NzTd9sWqVqfTo219OXXQXbUhoDZ0uTCKiYsrP+mG/CPxMRABY7rWSw9bHJOHmTdgQVf4MXONPylPyDJ2WdidTPatWGyQr12+qsMfqkITrQiUqKkoio6+Ll4+mRmBgYEUS/K2b8WKJ6xvNLcTR8aLs3ndQGGyROLubq0vtc47OYm9/WgJcbOVpboakOVtIotO2/w4gPKBWGyhBIWES5O0ssR7HJCPARnJD7bHOSobbziq3bBZOyAk717m48ImkOG3rmGy/ckbhDZfPYrRXxDMgWDSBwaL1cpQwm9USvWeSXD+1XBLDNRJ1M128AVIQAA4ODlKfpfH1Ex/cH+LpINc8TsnpMw6yYKmpoAuXPn16yYYN62Xs5Gkyakgv0TrsEx2cpg0OlmCeEftQyQQEBIh/sE7Com6IjfUh8XC5KOFwljYoAECHiz8Ilv+PQJDt3rNHzpyzB2AJwlLj6e0jR3asE9vjh+XyFR/srZUQng17B8IHPN/V6AQ5uGeHXHU6KgnhfhAiFhKGYPANDBJvv0AER5TEnl0nWR47hQLn1oUtkvTfAiTBaYeE7p8p4da/iG7XZEm2Wy4ZPgflbtBpybx6DhvatnIYV1+5um1MovK6SEK3j9ee/b6eorMY++3VTcNE53JMMtOT5frBmXJtxziJtJohOosxkuGyXdIiNRIeeEV8YKSbp7e4e3lJWFiY3EuOkxtH50jUjjGS5n1I1q1eJgaGnaVN+w6y8Jel4nj+rETBsNDlXeSW2355lpcpWosJkogGi9EbEKSVQC8nSdDYSrzdKinJ0El2glZiTplKgreNaH1c5YoGwAWHqoERc3qFRNuYSsGDFLlz7YrcOPCjxF7YKn4+VyQrJV7tEWJxT7jXOQmPjgVBayTAbITk+FlJ6aM0CcKz47xOylUdMizQV+6F2EvSqcWS7LRd3r9/K4kXzf97gKQ4mUuE5USJgUMjdk+VJJddchfa+UGUmzy45oSHbfks+sjcBUku2zulelrhwRbNk112zcsKd6qV4X9SXt2Jktc5SRJ9eC42NJHoI1AZe3/GHrZy399a8qMuS3ZShETptJKB0veu6JH89jRLrp9YgnvnStqFNZJgZyrbl/wgkyeMlqsBnqK8uiMZTpvEY3FXued3BFH4TrTrB8o9BMq7Z/el4E6cZHgflHuelpJ4bo2UPEiUlzmJkmC7QtJdtkpm4EnJTLspBTl3pTQzRhJslsh16/mivCmRZ6lXJeqgsSSdXysPAo/Lu8IciTkyWxJOLZOUS9vk5cN0yY+8LAGr+8g9rZ28fflMIiy+hy1HpTA9SvIStZIT5iDx9msl3euQmiEpbnsk1X235AOE6wA+8tBsKbwdAUAKJDPYAeVsu8TZrlRB4CwrW+ek/s77CNKnS+LPrZsXZDZ8l9Zs+Cn/dQMdIg4YW8DhBoUZMXh4sKR6HpC8pGBmTGuPBZ2sEs6bDSjOTobDT6sHYBTkJ4fV1e2eulm7aYRV4K9D7IM2DD0Ve8p0abLrnhb5yaHy6kG8vMq8LsUpV6UQv2PfqhH7Z2wM3vr9jgRH83qZmsOS72cpL1ICRCnLl8J7sTxXba+lRjv91vSPC9s16bb73A4BCQ4bjZ8/vA3nJ8OoCwieHc1DLMYd8l8/+DZX8Laxh285muvnQH6+K7gjb589lKLMm4jaJQP91n7rErZzYlrghu/S/NcPOn391LJ2d/2PS0lOWjWcfWuElfGPqa675G1JgWSHO1XRrOyzxXd1v1tBZsPueC7u6pTmfbhr0b3r8jQjUjJDHaCmFs/E2UJRMe76LO9xDeedmRlyTqKOzP8uZPv4XbDx89KiPMnwOy5x9mvofGNkxJaS3LQK94LsJeqQyVicfad20/DTeIYtftpj7ZOw3VMVN5MvleBtYx6Gbp/w4Mr8jor7PMM3qR5Wo59mJkhurLfk3PBGqZoQcvGHRgoO+TzN61CFVPd98vhWIFIwnfe081z8teK7orcStmtyJoB56za7reI+1/BNup/1qKKsOHkU64OMc0Eqh0ua58EBTj/rK84zWiuxNstM0n2OSpqXFZqpYHkKMHJjPBtrTHum8lzazSMz/Fb31wSaDX0CBzzLS9JWY7AgIAwQIPlus9spcMA9Lt5/BZ9lhV1sWXQ/UYruJ8EZq2e7GBsoPsu7K76r+gbC+FDYoCCLdz+K00hBemR9n2W4trJ3WKLjVnmcEFg5ZNuYcASAEmIx/o5u94+xnou6KPEO63e8LLgvTzPjJNp6wZ5LU/+BPXu8Dd05MRYg54Xu+EEXh5IZbD7yKM6lPIh2+7oU1YBdOgJBEOw3fVf1Vooy46sku1oKbPH3WtyV/soFMDkh28bmhWwbF0tOUDQrej3P1l0CmieQcsu+5AH81nybg9SqCOMkzedwIx/THu+CNg1XPBZ2VlAzByKKUDN9peRhGgDxMSCQsaeWb827Gcx0rBa0adgPnku6Koiu19i3arbOkZkkzx9mSOSBWSfgcAVRrQSuH+yHMiiIfsnwPyFZOAeMO3cZgCVd3jbu8a0gyYm5Aq45KFGH5xigTldhSQ02H+3uPKOVkq6xnlhWUihvX5UA6APTL//UXEHEn+fZEJ0Nr8wzpLOzEeGNuf/jhABmfd2caPdmxQAtL/lqPc2KngB+lCtruO+a/iMIMgJwVUFqhFqSYG+t7HDHJkVZCSDwTe0ZTFctxgcDvErv3pSpgYbAqpMMPtaaDdvrAf/lxmm+evkkSxIvb0Wj+JP4rx8YCBAU7FGFJc5/7bd+8OWbW+c3S3aYI8qjPey3EcHGiJx+z+5pzwqjPifSjRtE0fGRB4zr0hnx59av9FjYSYGRfRFlz0N3THDN0l2UzLALcHA5ILw/1mb5BgIVB6KNPb2cJHXMHVELB/R5FB/woQYHV3Of074syXnHDhxsg9ustgoAaYyMFGYKzlENkVeGcpZCYsyOdIHBzsKo4iK33Q2y02N0Iqsz1H3vxKrlM937sPit7vcEGfDiZX6WpLjuHs+sTnHbPaboXrwwuMgLqR771YwtyUn5AEgvBRHqorOcKgBjGgGJOjx3LgJCaGcSHJ2D5xLQqMMm5s7TWylZVx06056S3HRhqUIJFgSkBG/5fh9KrZKXdLXuo1hflUtTPQ5I4K/fefiu7vs7ICjt/qgir6LAu9nhznI34LRkXT1fDgjS6Wm65jgcaIx6u1h8V/cv8lvbvxCHr4woQLoNykAZuvfuTalEWM1w80A2JLvtrsJa+jwv43dArp9cak6D6VgeMuHs+rmMljDLyfNI4nQwDvO90/SWChzYCHs3dJ7ZWok5tugXqDnWVQFf6AMwBZl69nn+PXkUR6NOV0j3O1HxQZR7hbvYP3zvdIMP9zgVZd2URzgjwUAplDDLKRGeS7opjNr4s+vMrsz7Som3X/MlFSOchNJ4qHKG5njFzJCzwgwBx6mAIHpdkkC+j2K964FvCj6UrAMILiMGAu+lDZqVvVx8V/ZRUK7rPwWnPM+DakL2I0iZwfy50wvPR5XYeuvC5umJjuYmyS6WM/zWDkhBoJR9BAT+dfVa1v0dJLMJgJ913Wb5PJypm+j2/FjmsbDLW5QuOwBjDwdlofYrEQdmzMkKv0RnNGEUJ7vunvP8UQZScFs/F+O2CohqRDauF91PYOn6JyCQeTBaVRcJ5379hZ+jbi+C84TOC983zQPGF7EcAEik8qAH+P0Wy5DOcrLg2V+TW+LPrj3DcghnNtBZTsoN2ji0EPU6Kfa0aVNkXnU3k/ZKrO2Ky2/fvAQgAcwGYdlFzdfBHiUJzRoEym6vpd8o6T7WzUpyb0Ou2v0EPvoNz0uLsV54ogT8l58SVksFZO1AF/CNyonYq7vX0m43rgAUciHK1/m8m9oaKIVyeVrzQM2qPgrUVlOKG+6bhLJEnqBKQvCZExCXmQYKy7jXsm/UMk9+C9w4NO+TDLH3XNRVYTahrCuXp7VAgC09BS084wVTFCXgNRz3HA+PxYOnxkKWPUC5irNfu9jFuI2CzJkVdWh272jrhVO4ARx7OhuyuDAjmnX5AyDLzNlUEhCmKqThPPIRSGtOVuh5AJJUCQT6GyLvNoixV9SROb3BBYEUBChbn7OGIyi+dEEAJDj8aveqIJt8UxfXT7nMaJ3AZ+h2T+kYCYnuPqeDAnAc6VRmcSqMVDNk95RwOoEZh7PugGOVuNMrDSgWMvyPD3ac3MSVgCPjnzADAYgeAcHvLnR4ivseoZxn+cIZBiNjA8kZuH6Oagn3OvmA/wpSwz9/9TQHQeWlAoEsh5IyEYiL3QAdAbVmDADpAFs6oOJ8iSCIhG3vPgHEC8CVQQB8if0Nz4ysbQQl9g+mmIINSkCqNRFxrM/qq8Z0zVG1LuNA/nQQkWSqUqEwnfGA+3B+FaqZxwn+BoxKfG9zLhRZJggKBEu5uc8VEQbC6vEyP5OlbCD3IqAkOPARVZEaPbGnls1I9znCDKzPZwHwIJYY6nU4QdxN2g9G0CgxJ5d0gnITOhrlKZ6EzlKD6FJ7BJDnQ5D4y1JI3lT3/QsuTWnK8tE754YnCVm05qNQkvtlg6PyWW4ASA0CAge5cA+KCgAhIVvH4CwWUH1x9FE8QWBGg1e3kk9TvQ+1zom+wowHELNU3kQ5FwTfPoqZovs3ISKOi+eir0EFswWiwQv89k8O2TDUD4lQirPIrfMbVUDJUSqHAJBn9xDRVAR0JEnvMYy7F3K2ocf8Tr8Fbx3jgvo4FA8fE7F/+rCgTSNOEhT0Gt8VpEXAEUFt+DsMWUtVwo411mbpQDoQUfIY5ahSMQg0fM+0y8yYmOMLx+L/o1GiRsFZY6HgEIHDdSTanBgvSsLk8oz7pRFKqhqtiNBxlIngmf50BLI5jqW08M71Thxd0NnIguGMZjjFheAgY7oyG3D2y5nIUGS/oKYLSkc+vv+MJfgjIOxT0ATD5nONQc61sYeE7vwBXfUFlqMUBgA5EH1Ob3IgzmOTBrLmfXF2awhIrfB9P/EZuwGCknvD86u3r0tELZ0AKvDXwQGfqiz43B/BWArfqUpOUd5L2fMnQvZXSJB3A2z1MjQnEMXWYHwbKJILRH8/VQoc3w0RTIksGSBsyNeGlJcwJIpNI6SpAQ/phciAQovV7fvpPusn0vEd1NTA7EhnKol6lKlwfGSy807h4ensR7Eawf2RFyc2IaCtHkM1IZNGMJNwrvdoMq0hj20QocXsF2Bc3yTn7VR+g1lqGa0oE2fQr5znM6/MNSyFqjLMLe8xWNNdnKbpI7P7XwvaOGwfMsGbWYlATHyJkghSr8UMRSMYQefi2nwGkmZlbwc0zIeQzZk8N+w3p5RO9dzP4NAReJSgaNhzEHuHo3qkBW8eyVJ0hNceRLl8TQcnIPpxjyCYkj0WdETmJFZhUMA3wQwolMkkKLybVJVYgZBqyw6CGy4CiCrsQ5Ict/EzKKS16DrnHkB0eeQiIqHDIe2mc3QimVcd4Myf7KOOzHPiixgYVSPysIkrUvsaoi8ZDwrSbh69E5HQIk/tzK9Sq3dE/Q8ESY9ghGBvdQrA2c7dgFODEY3+EVbTB1L9vC19QUEwEcGSANJXcNCX+BkMzvgZEfcZeYrdPLJiAupwKByDkjP4t+DNo9wREN1SvQ4Km0eWG4iJihAEllRO+Mm+5wGcvx/7f1meIbpqKDneyNQNLH3IwFaQrlfQHBZxXwTDvaij85ZkhthLVvA5yYXqexDpWgulywp7FmE/Btkd8MdqqkvYNxNNpw/A+4KiJCPgpDrrun5yyXbYfAVZXIE24ly/ICA14NB0Nr/B5qPSsILVKHoJckNUIZ23CcvBqyeZaPjShQfmH3YVoTulmiCyUSQwG0hYlCo2YyU5t6XwbjSupwlJrjg3RRBhqLWzVTnIbr44O0XtVxgxlKPsOZAVal/AdH1T9ESVj4WQkSVQLq/QEfO7OZHu4JAVtUDQlZJddqrBkHjZHE3iYXUmRKkbZ2sqyc47aiS77qrKgArb8YMkIoMK0iJhWxTOu0CVo+neh7hX7TTwVPC2sQi8rfIyL0sKMqLUM7958QzSFp396ZVshIWNLMi6dhaaNpI8RUI2znsfQoY+yk8MVj9DWa3JUkvHl2EP1SfwhdpzJV9V7X79LF9ePrmvPodl7+XDO7AxR22qqeo+XWi0XNWOOw1RxYhlE8bumCWL9Y1amx0qaynJnmkduOE79QDlgGWooBbCARwr8F5Eolr3ryPTSHa5N7yktCAXvBSo9iePwTF38X3yFY1j94xario2EjnHNVRqqW77SKLqRJj8xr04hSaolNwJ59apvVM85CrB4ndIshzikYAphyP2/4yon03QVOLnfaEAjWKB8zg+kwFFEZCfFKoORvk8qsKIAzNVnzBzyKuMbO7L5hmdvnp+gs19OCJhqS/KjFeDF6SuruIHSQiy22q2PknVqa92i7MScV9C+e8I7E8XmyeUj3nqA7IBTjYAYXdMZRCLaCG5E22mIyQo66eAKAUKCddNBU2WmgWUlQXp0er36RBITwEPqMbH265SD01Zm4iDvysrVaOTnTCfEbZrojo5ffOiUHV2zLHF+N5E7NFdwBGq8+LsVuKsa+QNVBXHM9dtfoFEHoC+pQOU02gVRKrChHPrVQDQREpWuBNk7D4121iGeV51wgBnsy/i+JvBRydRBECVqYCw42Y1UEfiB8rH4iRm+okAsYmmP6hKORbh1JbgkWPRyatqiUHOtoAN5asnuQLx8dcASXAw47BMOGh7EOMpDwBMLjaLVaN7tap6mHp0KKUZO1I0ZeK/dgB4ZKqqbhitzLTHyCge+Doc6rPUCL1Ce9XweKiQeIeNaidOQ98UFwhHGXQAGk6V3NO9Dsv7t2+E4waICCibSeIByYhOu3x0DScxGjlBzUsMVd8/EBD0SKqUZT9SlJOM85ip04YcZCVtocMfI+uYrajvQk57Aqcw27iYRRz3JF3aoWYC34tE7C1/T0F7+Toh+ug8tddgtkJM4Mx70DzuUQFh70E+VMfn8GOE1UwVVH7GP3bgnq9QHdhEPkkN+3NAYqwX7UevcQxRVJVkDdmnRjmQP4KHWXB2z5L0AFmjs5xCiaq79GOzx5B2qSAjM6R3FZX0EYWFSMt0jXV9ZNFB9A2ZvA8E6RFjvUCfkRuybdxplA0zlgfWeH6GZqsxhMAFlJQZpc8eqSUMWfsFJOJJODvXeXqrHEhJV3TgHQjIu9KXwi4fpWk19H4S+ow8qL1riY5bRuQgoLD/ashUW2TCZ/+0x4X3H4STd6rveSJd6bi9iPp9fB6nBGiA8dy1TVFqL0JEjEXzyiavDaLeGWs8o5+9CbM/4fwm9A6bKqJcmqM8Q40N84Mv/GB3MH1CVcWyjc8FTa367oSzNQbCnwICllcoJ9N9jutx/JDsbCkZvjYsSWyWXkABqV9EJqy5/GMzDiJfI0pcwCV3KXVDd04MZn0FqUq63/HaUCbq53DAjTj71W5ofF6FWU76mdGGngYSdUI+SZslhuMG3NeOoxhEsMerp7koBUfqQkJmcwaF0qW9fmKJL4LgPZrA5eiL1GEeMirg4sTGCrjsDhpaFzjhsdvstnbMOMjIlA/jktrl9uxECTnFZpCKqYyZTpv81g5g76Hw3QRnVeFW01nCOrEnubKg4246Eqs/pwhYVp6Lu/D8QqBYEqEq2S+Vsa/C3vdx5gdYT2C/DTkWvlMXS3vghiFqppJf/xQQRB878CI0UdVJZFQ+6d5HOMIo0ZoNT1XJy+ewHmc6aAjv50S5VWN0P0CawwDbixMbsX8YTUWDiDrE/gTp+yPJ+3lepkqyIOJqt86bVYQO/43dNRXVU9RUkjJKYGt3OB972JLYkYWrCGjSpe3TSiAY2Pkj6qs9SY2oxZ4HwE7kM9BYHufLH6oXljRwU63cmPL3NpoVvZVUjwM1f7cH9R6yuRB9xV2OuTlvQ6ecA8c94syNPEMeQAa1Z/OGzNtApYjVgz0J1maf5d0FEpuTi9/LE3jyDVqBZPKSmjnkL2QxRzAUE1y0HwGpTpfJJ38OiMU4NnhP84AgZWnZiwL1S4ieYhhwhySL7BjBeVbChc1LcqI91fLFXgLk11IdBNqvOUypB2OK/dcNesg5FiORUcHeJRmSGgeuxBc34funR78teyGlxfnqs1I9rSq6zGytwBh7AhK2e+oGNqqowVM5PcjUnlXrNstU8YNEllJnToihdGrngt/IAXRQIgQCf0cEh7Hz53yL9ryhPQggBNgTgHD/vwkIyvZ79E43KN358qqsOE/NfJI6FRmX+jz0MB9VZDkgSX8MSNiuyW88FnYuQx+yLF1zZDaywQROWui1tNsbRHNsioslldUSjjLg5MEcgZDA6YAUt331GY0gQUe+bXM34XsEEz9q78I7MeoIhcqEagafV0L6PkUaP0IfYZLivmcu9jOGDN3IjICKOl7GP73U2jX3Wmr0zhmfgdj5yrgzHcgegZyA+p4Mp73mO4YklCP2CUmQtMkuu1T1BK7REHiUUNN0zdFZ6D9gz4EFiObXwVvG3PxvAgJ7HgPofLQAi8BDi8GnS6D0WjJrKX0/XawgBIMgFIFr/xCQcKuZxRxBqGOHeYYf1lfqwA+qIpAvrdDaz+N1GDyUUU1VleqpTnQbMBojD8w8m4LGzU0FZI5faVGu2lByfBFxYAZUyzT2MJVAcsncnxlwZf5XHHMofF/CiAeh7ucbNgoIgNQHPJDI8QmvQXqeRHNZ4cE1V86E+E78BcFhJJI3+HKH5StTe45KyPGf9nz1++Jnul1TtH8ICDgBoPwpIDrIXILBBfJO5t4sofTX5anNlFSvA1PIkf/u6H9ZsPHpndj/eI19wnsc4CW4whAIfoHU+gckcCufFT1LQbpJyc67qBiWcP4DJwwqQ6khr/CVK6KyvmYlMmT/dMdEyF+XWW1Qaub58J7n+Zlqs8mu+MNfVHD0Xgpw0xEZTaHTm4PkGmeG2H/rNF2fL5tOMeULkNYcgTMSUSoHgIjDzo//XIEDdvIPJsBrKQCklEBw5F4uVU3VppDORsYHcZqMLO5YkPbBnnjfljjnc+2mkWkqICingb9+9xDqLodvSgkISil7jXaQ85xGb/yfgPTgPIpT23IpDEDwWSm+kwpf6CHIarjNalsvK+x8VeX9O+F0+w8XAKPSZCP971miTntRdp7y5U5xTvkLF76uhAopgnpJZ4eOfmQip7noIYzZZHE8TW5BuWjNwR34YTdrNg+IqLlLGclRTCx6EDZtJDlkTiVOa3X7fo7hy38ejDU1znZFHQ7Z0PfYvXn5TP1bMGp43e4p6utWdvm+q/s/hcFv2GjBEZcZ7ThjVWYIpwdhu6ZIIjrwbJArhEUo35GzlBXnJJXbA2lLDgnaOCyrHBBb8f91CH4f+oScyD9v0oF8oRzbEAD3uYbmAEU0pj0/AmKmArLMCFnSVW0Gr59cAhXW9S2kbwI5hMNSZLPaU8EmtYf5o8Ueh0NH2l+q/mVMvMoxn6isvkVpXoer3/W3ES5Vlawb9BzRmEaHpHrur09SR3QnoKarEYl+Q+JOrzhNKRxzcskwjhRgkCfvg3IarI4rUMaQZVVQGpqDZyry5RR4KYFg8OHMHMjm1lfmdVQgke1Y5lI9rBoBkOrRxxdS63M8UTFw/aAycEB+BoCOPDzHhNNUPNOc56BhEftnMkO+YAaBY0I0K/soaZ6HatIW/uEAz4pMe4qMuMdSR/kJx4XwrR7KrwFlMDko2nrhCn6G7JwO8Ojwj4CsLAfkG7XhZcNHQMB1b8GNN/kqW73+oRkGJwIcgz9e01uJ04xWanNNLuaIhXMtgiKcVvIPEVCH9TjfT0EpuBd0VkjiGtNerykdOWuKObHE+vJPLfBZj1zU2jOopzEO4xookKkhnD9RBSGbOjJq1Ddym0d6UhbjkKVQceZ8t0BHBm4c9rSs+BH4xYc9kARbjG1//odG7EO8OS0AYJZ8n4Du2w1gXsRez0nw6HV+YrcLGVwTzsrks8E/OmTeadTvLHTT7iyT4IBUt1ntYM+p2uX27EOmnWPXr3gv7/GexM+MgQgZwj9WINdEHTI5AyDVYILoyOAfYnBSgGd8Sw7Deo+VDifedZ7R6hECdULE/mnCHoTZDbvSL01tdgfff4z7jjNT/vdlIC7GBuI4qYmcGVGLmch3+RAuN4Vvq1ZAx1ui96jM8QUyRT6MkbeiY16NSFNJiIoJqboUZHgbEfgMDs9Gxliw8XpX9kpKn+Sof6kHxI2CNgz1o+6HcQUgch9kSwe1G7ZddQiKyJQDN44w1D9M8DrUAA2gNcrTxA+qrDs64itweh77o2DzUdfwnXGlhQ/VQebbVy/IYQ2RhTYoOY/BDUVQgTGpHvuG88+MUF7nx9qu3At7qpbbc0h9xwN7tkA+r+X/aSMjExk6DvtEQJgU4ax5sMku3f9Ek0LUdja7uK4fe3qFNdYFLG9kpLrAX99ykJjouGUdAuEUssUbKhHXVvhgreX45S8t2/LFMseySb/8HwAAAP//AwBp5/TWdzfcVAAAAABJRU5ErkJggg==</mdui:Logo>
+          <mdui:InformationURL xml:lang="en">http://www.phlu.ch/ph-lucerne/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="de">http://www.phlu.ch</mdui:InformationURL>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>phlu.ch</mdui:DomainHint>
+          <mdui:GeolocationHint>geo:47.051064,8.302218</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDDDCCAfSgAwIBAgIJAMz6yMoxs++OMA0GCSqGSIb3DQEBBQUAMBYxFDASBgNV
+BAMTC2lkcC5waGx1LmNoMB4XDTE0MDQxMTA4MjMwMloXDTE3MDQxMDA4MjMwMlow
+FjEUMBIGA1UEAxMLaWRwLnBobHUuY2gwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
+ggEKAoIBAQDN8Hd2rr6FkYwObqy/Hech8EU5TAiPdel9S4aV4G8cTFpF6dCQyKs8
+tvQPMIz5rsQrtN7Hkf+Oeyy12hZsPDDBk7Y+UCGt4kFhqE1H9ZAlMRi1Ja1Gywdf
+cmZNLVgKgR+njH0AT3gFTjGae1X3Eg1wpbfg5ooJ3Ch8PHxCJsDNP4WgcX4AU+Ss
+1T/ZEzUqfmmqDpq10UPluFDgXujGlRwWqiC8oQGc2Z3PgpJnt8lxWMOhdPGgxEFv
+4TJxUAMyYve3lpkBGk8IN/LWkcsWa8cuks5LzQXralxRofbDFMm6IWdpnaxJ6iZm
+XxlgoU9Qaw+Vd7R0AZ9WsAy2rjkBuWNjAgMBAAGjXTBbMDoGA1UdEQQzMDGCC2lk
+cC5waGx1LmNohiJodHRwczovL2lkcC5waGx1LmNoL2lkcC9zaGliYm9sZXRoMB0G
+A1UdDgQWBBSkYIdFzSjghnTX5XR6eSSUqOdeTTANBgkqhkiG9w0BAQUFAAOCAQEA
+B1dxA2mQJ6A4Pm5YJdWETk0TCbXKD10r1ymx8Hzj4Bn0NV56Mh6WwVRqdU0CQB+h
+O/hDRztPNkO3HAlMSUlRbYtoRJsAdR0GqQAjXmi6uBuTvi4I/XSwc/MZ+o92HY2c
+coea/JiP9MbEBiuLjlzrNEamEdKLUkr7K6zSXjQJefN+7Gn4JwUf7ppMqtrSW+PI
+Ijzb+o+OlesBN5vYLw/gdf7F2UBQGwTPw3sjkwb13E3w/9fEVIj6gVhj+LAHsXu2
+mZkGrkn8dxV7P3DW8tZZeobO1hevdx/r6POebiXSAWvC9sztV9c7XRv/+KDUrM0z
+UJeTOp8z5dn7ZqOHT7wP8w==
+						</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.phlu.ch/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.phlu.ch/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.phlu.ch/idp/profile/SAML2/POST/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">phlu.ch</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDDDCCAfSgAwIBAgIJAMz6yMoxs++OMA0GCSqGSIb3DQEBBQUAMBYxFDASBgNV
+BAMTC2lkcC5waGx1LmNoMB4XDTE0MDQxMTA4MjMwMloXDTE3MDQxMDA4MjMwMlow
+FjEUMBIGA1UEAxMLaWRwLnBobHUuY2gwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
+ggEKAoIBAQDN8Hd2rr6FkYwObqy/Hech8EU5TAiPdel9S4aV4G8cTFpF6dCQyKs8
+tvQPMIz5rsQrtN7Hkf+Oeyy12hZsPDDBk7Y+UCGt4kFhqE1H9ZAlMRi1Ja1Gywdf
+cmZNLVgKgR+njH0AT3gFTjGae1X3Eg1wpbfg5ooJ3Ch8PHxCJsDNP4WgcX4AU+Ss
+1T/ZEzUqfmmqDpq10UPluFDgXujGlRwWqiC8oQGc2Z3PgpJnt8lxWMOhdPGgxEFv
+4TJxUAMyYve3lpkBGk8IN/LWkcsWa8cuks5LzQXralxRofbDFMm6IWdpnaxJ6iZm
+XxlgoU9Qaw+Vd7R0AZ9WsAy2rjkBuWNjAgMBAAGjXTBbMDoGA1UdEQQzMDGCC2lk
+cC5waGx1LmNohiJodHRwczovL2lkcC5waGx1LmNoL2lkcC9zaGliYm9sZXRoMB0G
+A1UdDgQWBBSkYIdFzSjghnTX5XR6eSSUqOdeTTANBgkqhkiG9w0BAQUFAAOCAQEA
+B1dxA2mQJ6A4Pm5YJdWETk0TCbXKD10r1ymx8Hzj4Bn0NV56Mh6WwVRqdU0CQB+h
+O/hDRztPNkO3HAlMSUlRbYtoRJsAdR0GqQAjXmi6uBuTvi4I/XSwc/MZ+o92HY2c
+coea/JiP9MbEBiuLjlzrNEamEdKLUkr7K6zSXjQJefN+7Gn4JwUf7ppMqtrSW+PI
+Ijzb+o+OlesBN5vYLw/gdf7F2UBQGwTPw3sjkwb13E3w/9fEVIj6gVhj+LAHsXu2
+mZkGrkn8dxV7P3DW8tZZeobO1hevdx/r6POebiXSAWvC9sztV9c7XRv/+KDUrM0z
+UJeTOp8z5dn7ZqOHT7wP8w==
+						</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.phlu.ch:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.phlu.ch:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">phlu.ch</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">PHLU - Pädagogische Hochschule Luzern</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">PHLU - University of Teacher Education Lucerne</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.phlu.ch/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.phlu.ch/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Hochschule Luzern - IT Services</md:GivenName>
+      <md:SurName>(Hotline)</md:SurName>
+      <md:EmailAddress>mailto:informatikhotline@hslu.ch</md:EmailAddress>
+      <md:TelephoneNumber>+41 41 228 21 21</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Hochschule Luzern - IT Services</md:GivenName>
+      <md:SurName>(AAI Technician)</md:SurName>
+      <md:EmailAddress>mailto:aai@hslu.ch</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,65 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://manchester.hosted.exlibrisgroup.com/shib">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-02-13T16:40:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://manchester.hosted.exlibrisgroup.com/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://manchester.hosted.exlibrisgroup.com/Shibboleth.sso/Login" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDNjCCAh6gAwIBAgIJAK8CsrsSbK5sMA0GCSqGSIb3DQEBBQUAMDAxLjAsBgNV
+						BAMTJWRjMDN2ZzAwOTBldS5ob3N0ZWQuZXhsaWJyaXNncm91cC5jb20wHhcNMTIw
+						MjEzMTA1MzQ1WhcNMjIwMjEwMTA1MzQ1WjAwMS4wLAYDVQQDEyVkYzAzdmcwMDkw
+						ZXUuaG9zdGVkLmV4bGlicmlzZ3JvdXAuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOC
+						AQ8AMIIBCgKCAQEA12jbSN8VkdsEWt0yfZqBmn1mdygZkmR+6hq9XyTsa056p5uw
+						EUAf8TnQvmW8YEpo/7UI6DDFHmjpcA+I+YCJlohggE3YbOD1Nruh0AV32Vn4yKav
+						/uynYn63gPtK2MH94ym25jeYFGNokUMgrcINN88pUVvsy6RRU9ivY92ICm7MVYai
+						o9DDxhiwn8NAiXc9Xf2UzR+TfdogdLjgxMrnsPrfKYvxSxQQYXtzEAfEZmTKkLHX
+						Es5t72ORdbNao2IXP4q2BTuCTCRaE+hG0qKETNbBXWrsU8ZKGxhj4xGhoGxT+zfS
+						5CUV2eAb8gO4uRU/gXp9VuQmkNRYArPzvi3TawIDAQABo1MwUTAwBgNVHREEKTAn
+						giVkYzAzdmcwMDkwZXUuaG9zdGVkLmV4bGlicmlzZ3JvdXAuY29tMB0GA1UdDgQW
+						BBTZK/ibFNDgNZa+0jQhVWAQsyAKnjANBgkqhkiG9w0BAQUFAAOCAQEANZk9UZAk
+						FX29HuGKyceSK0lVDOa4wP1R4hAJzfJNVeUZTApk2FcHd683+rxRIcooX1ee0fP1
+						91euAMtX5tgtqwzL67SlXFsZp8/1aDVPyaWVolvD898RV+rbH8ilg3zD/w6pR4s5
+						fTjTGjXShK6O+TffdTEBW5YWCzmIOTheapTG8qsNPFtnQ+MAc5hYi/XupU7Snd1v
+						BOanlPPFv1cAtPlgqWKXk25yaLA9oKtIbiefw6ZPtVdE4KxmZnCCW6pMjWeLygTo
+						EZOItlM8FtzbKUEzvn8ssrBbU2Bwjg08MtD+1fnn2xr64Oh7C3jsoQ/5vcgG72tk
+						V6HGD2HGtZeYtg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://manchester.hosted.exlibrisgroup.com/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://manchester.hosted.exlibrisgroup.com/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://manchester.hosted.exlibrisgroup.com/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://manchester.hosted.exlibrisgroup.com/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://manchester.hosted.exlibrisgroup.com/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://manchester.hosted.exlibrisgroup.com/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://manchester.hosted.exlibrisgroup.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://manchester.hosted.exlibrisgroup.com/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://manchester.hosted.exlibrisgroup.com/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://manchester.hosted.exlibrisgroup.com/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://manchester.hosted.exlibrisgroup.com/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Ex Libris (UK) Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">ExLibris Metalib ASP Service</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.exlibrisgroup.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Frank</md:GivenName>
+      <md:SurName>Bieber</md:SurName>
+      <md:EmailAddress>mailto:Frank.Bieber@exlibrisgroup.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Frank</md:GivenName>
+      <md:SurName>Bieber</md:SurName>
+      <md:EmailAddress>mailto:Frank.Bieber@exlibrisgroup.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

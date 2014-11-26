@@ -1,0 +1,62 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://cans.dev4.clientproof.co.uk/shibboleth-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://cans.dev4.clientproof.co.uk/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://cans.dev4.clientproof.co.uk/Shibboleth.sso/Login" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDGDCCAgCgAwIBAgIJAPv9EOsZc3NxMA0GCSqGSIb3DQEBBQUAMCYxJDAiBgNV
+						BAMTG2NhbnMuZGV2NC5jbGllbnRwcm9vZi5jby51azAeFw0xMTA1MjMwOTA0Mjla
+						Fw0yMTA1MjAwOTA0MjlaMCYxJDAiBgNVBAMTG2NhbnMuZGV2NC5jbGllbnRwcm9v
+						Zi5jby51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKSTqgatsKob
+						/N/yLNTpzDXPpdroAu7JESKu8EtYFCoE/xsQ3IfGxmdNu7lGmSLUwEWnBKJADfZ/
+						m7PgbJTmveOR60iU4Xj4jIFJuJsJ2DdAmktb38PyPm3UdqdQ+xXioZFNPurr73KT
+						7KFAZT190TlHtIA3QKf5EZP4sKWHWJaSoN4B59UDNc88glWmhgi2GKfoSnTB7pjT
+						Tc+yhjjJOR4fm7k4KF0sYq+IdL+rNnh+95eVl8hjYn1pmQJq9++7V6VtRZnSMmiY
+						6QVnDHl+uCr2uaBqu42t99ERAILWoQLvkkMYoM8rO/0cKd/pyhkZX4v9r+L9Pi9D
+						Hf3I5W3q5pcCAwEAAaNJMEcwJgYDVR0RBB8wHYIbY2Fucy5kZXY0LmNsaWVudHBy
+						b29mLmNvLnVrMB0GA1UdDgQWBBSRKxbvQylc1QvWonlrXSaOFsTEAjANBgkqhkiG
+						9w0BAQUFAAOCAQEARyhRzBUAOCbEGSiSpMDw3w+d8NKmGZnVZ9t91TczDMqy7fBk
+						W9Ez8rkdotdDV2zwLg4zFp2wxQ+q8Llz92gGXQz1RuZpmoyHLsjVG+s9JXvnbHmk
+						LIsaCrjY1yrukdFOiY1X0RYlsZ4KZ8oAJfrbI7UaaQ1KDZxox/Ttmc1oCOWHFiUu
+						TEgD1oSP9UH1TBUPURnilOhZWEkfmRXgRzm+l7MMilWUnHkh5AP7K6wn9Gb+6b/L
+						EuINlP2aR+pgdphLjTLnyHw5ni6O+B+hw2IRX2fyWeK4BsFUmJGZ3WPl/l3R+uzE
+						fJd0URqxirZ4982sPAaiW118lw3XxgmkDmtHOw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cans.dev4.clientproof.co.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cans.dev4.clientproof.co.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cans.dev4.clientproof.co.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cans.dev4.clientproof.co.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://cans.dev4.clientproof.co.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cans.dev4.clientproof.co.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cans.dev4.clientproof.co.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://cans.dev4.clientproof.co.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://cans.dev4.clientproof.co.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://cans.dev4.clientproof.co.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://cans.dev4.clientproof.co.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Citizens Advice Notes Service Trust</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Citizens Advice Notes Service Trust: CANS Legal Information</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.cans.org.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Emil</md:GivenName>
+      <md:SurName>Muthu</md:SurName>
+      <md:EmailAddress>mailto:emil@webstarsltd.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Emil</md:GivenName>
+      <md:SurName>Muthu</md:SurName>
+      <md:EmailAddress>mailto:emil@webstarsltd.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

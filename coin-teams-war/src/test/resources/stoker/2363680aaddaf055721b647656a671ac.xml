@@ -1,0 +1,77 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://metalib.library.qmul.ac.uk/shibboleth-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIFMDCCBBigAwIBAgIQCR4X+YYxugtmUqrjt8DPOjANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEzMDcxNzAwMDAwMFoXDTE2MDcxNjIzNTk1OVowgdsxCzAJBgNV
+						BAYTAkdCMQ8wDQYDVQQREwZFMSA0TlMxFzAVBgNVBAgTDkNlbnRyYWwgTG9uZG9u
+						MQ8wDQYDVQQHEwZMT05ET04xGjAYBgNVBAkTETMyNyBNaWxlIEVuZCBSb2FkMT8w
+						PQYDVQQKEzZRdWVlbiBNYXJ5IGFuZCBXZXN0ZmllbGQgQ29sbGVnZSwgVW5pdmVy
+						c2l0eSBvZiBMb25kb24xEDAOBgNVBAsTB0xpYnJhcnkxIjAgBgNVBAMTGWRyYXBl
+						ci5saWJyYXJ5LnFtdWwuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+						AoIBAQDFgBdbGL/GSo5oQqq88P2aZQsDZKGXcROQf+x9ooJAy7nZhbYjyohCyMPJ
+						Nfc541+v5+UqZgSU/GoN1s9RCPdvNkObiyEIzhBCTrTRE11H1MGJoUF0acx2jpWZ
+						0g8px6vi4mX2P/9hwVt6y9L++U6KdAoqDpG8vy1CNmyWV+b+39nn2hmGn8T/GDdJ
+						5Tg2bnA35B+H0n4M+0Ezcm/+fvexplwI31A90R7fWQryYyORlYC/mZRvDLgd7pDs
+						J8RXFNW3RAum7FHQxVsmMEYiKfobt1jLd+L7jsG+94W43dfv3s2x0Woin3douEBZ
+						tciHGAHATDTHzZcpkibQxNtROQLbAgMBAAGjggGSMIIBjjAfBgNVHSMEGDAWgBQM
+						vZNoDPPeq6NJays3V0fqkOO57TAdBgNVHQ4EFgQU517jMU/gexoHTBO9dLm4x2eW
+						SmAwDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYB
+						BQUHAwEGCCsGAQUFBwMCMCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EM
+						AQICMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcv
+						VEVSRU5BU1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0
+						cDovL2NydC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUH
+						MAGGGmh0dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMEAGA1UdEQQ5MDeCGWRyYXBl
+						ci5saWJyYXJ5LnFtdWwuYWMudWuCGm1ldGFsaWIubGlicmFyeS5xbXVsLmFjLnVr
+						MA0GCSqGSIb3DQEBBQUAA4IBAQCK31/RCDY1vk7ZlYo2TsEMApl7BtMDHSSjBC8X
+						ynY3HufFVHn5MfOOWgd4lP8J2xkhWTrlNdN6HGWLHnyi1X83SWxeiFc8v24tIWDY
+						/l0lyk0vbTCl3WJqAlczmNCLHIIGLM6epn1zWgprydw6zh9tjKyTNTQGvpdxZm54
+						EyakhTXxRyQ8ZvhI7o0O5gdLR7G1O7TAi01VhlqYN2qZl2a1MKKMIh/in7W26lGw
+						qD1u5MIJDZI2AWzuWcbWVnG1eCS7OjS6L3VLGe42HdA/PcDTlP1Sa3fhtW0dicnN
+						lkd9ORqKnAn0Eu92u/K4wIU0zyHK7lXeeOVZsm/ErYmcGtTS
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://metalib.library.qmul.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://metalib.library.qmul.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://metalib.library.qmul.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://metalib.library.qmul.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://metalib.library.qmul.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://metalib.library.qmul.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://metalib.library.qmul.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://metalib.library.qmul.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://metalib.library.qmul.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://metalib.library.qmul.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://metalib.library.qmul.ac.uk/Shibboleth.sso/SAML/POST" index="7"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://metalib.library.qmul.ac.uk/Shibboleth.sso/SAML2/Artifact" index="8"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://metalib.library.qmul.ac.uk/Shibboleth.sso/SAML2/ECP" index="9"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://metalib.library.qmul.ac.uk/Shibboleth.sso/SAML2/POST" index="10"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://metalib.library.qmul.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="11"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Queen Mary and Westfield College, University of London</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Queen Mary and Westfield College, University of London: QMUL Metalib Service</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.qmul.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Library Systems Team</md:GivenName>
+      <md:EmailAddress>mailto:lib-systems-team@qmul.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Jeremy</md:GivenName>
+      <md:SurName>Acland</md:SurName>
+      <md:EmailAddress>mailto:j.acland@qmul.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Kieran</md:GivenName>
+      <md:SurName>Whitbread</md:SurName>
+      <md:EmailAddress>mailto:k.j.whitbread@qmul.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

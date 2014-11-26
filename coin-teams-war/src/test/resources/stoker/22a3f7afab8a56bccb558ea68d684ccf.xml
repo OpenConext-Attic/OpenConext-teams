@@ -1,22 +1,22 @@
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://egiswamid.egi.kth.se/shibboleth">
-<md:Extensions>
-<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.swamid.se/">
-<mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
-</mdrpi:RegistrationInfo>
-</md:Extensions>
-  <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://egiswamid.egi.kth.se/shibboleth">
     <md:Extensions>
-      <init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/Login"/>
-      <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/Login" index="1"/>
-      <init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/DS/ds.swamid.se"/>
-      <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/DS/ds.swamid.se" index="2"/>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
     </md:Extensions>
-    <md:KeyDescriptor>
-      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-        <ds:KeyName>egiswamid.egi.kth.se</ds:KeyName>
-        <ds:X509Data>
-          <ds:X509SubjectName>CN=egiswamid.egi.kth.se</ds:X509SubjectName>
-          <ds:X509Certificate>MIIDAzCCAeugAwIBAgIJAOKn91RkenjIMA0GCSqGSIb3DQEBBQUAMB8xHTAbBgNV
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/Login" index="1"/>
+        <init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/DS/ds.swamid.se"/>
+        <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/DS/ds.swamid.se" index="2"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:KeyName>egiswamid.egi.kth.se</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=egiswamid.egi.kth.se</ds:X509SubjectName>
+            <ds:X509Certificate>MIIDAzCCAeugAwIBAgIJAOKn91RkenjIMA0GCSqGSIb3DQEBBQUAMB8xHTAbBgNV
 BAMTFGVnaXN3YW1pZC5lZ2kua3RoLnNlMB4XDTEzMDMwNTExNDU0NFoXDTIzMDMw
 MzExNDU0NFowHzEdMBsGA1UEAxMUZWdpc3dhbWlkLmVnaS5rdGguc2UwggEiMA0G
 CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDa3DK9UMbKQsvIuJuWLUT3nKRpKUfv
@@ -34,22 +34,22 @@ PTw0p2GJzoMLwXYaiWVvGMDnJI9hSxIs+cJCtUUb19wCt3p2cILcFRfkHZR7aO1/
 /es1MnuKqzg9hCb7lpizP/bzSTUxfcVYd7rYACatWWZmXTB2INi4BbF8sFrdUYL9
 VESdo2ebFA==
 </ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </md:KeyDescriptor>
-    <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/Artifact/SOAP" index="0"/>
-    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/SLO/SOAP"/>
-    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/SLO/Redirect"/>
-    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/SLO/POST"/>
-    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/SLO/Artifact"/>
-    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/SAML2/POST" index="0"/>
-    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
-    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/SAML2/Artifact" index="2"/>
-    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/SAML2/ECP" index="3"/>
-    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/SAML/POST" index="4"/>
-    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/SAML/Artifact" index="5"/>
-  </md:SPSSODescriptor>
-<md:ContactPerson contactType="technical">
-<md:EmailAddress>operations@swamid.se</md:EmailAddress>
-</md:ContactPerson>
-</md:EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://egiswamid.egi.kth.se/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>operations@swamid.se</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

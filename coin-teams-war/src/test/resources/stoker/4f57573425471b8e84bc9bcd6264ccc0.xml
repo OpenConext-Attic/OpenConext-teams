@@ -1,0 +1,61 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://timetable2.earth.ox.ac.uk/shibboleth-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://timetable2.earth.ox.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDEjCCAfqgAwIBAgIJAIt5f6RWOLqKMA0GCSqGSIb3DQEBBQUAMCQxIjAgBgNV
+						BAMTGXRpbWV0YWJsZTIuZWFydGgub3guYWMudWswHhcNMTIwMjA3MTYwODQ3WhcN
+						MjIwMjA0MTYwODQ3WjAkMSIwIAYDVQQDExl0aW1ldGFibGUyLmVhcnRoLm94LmFj
+						LnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtVDJbATimnosBA7H
+						2bLDXbABcMxjl2JwjC11jxEtzzJZxMRf+Hy0L8onaK9XuLyGt0nqE1X0phVKiPXB
+						9yaZ27WCZYGa41PUYIbF6OLCzuCN73KGRy13tcIyiTjot4Bct3ixjaUze478MIHY
+						7cem/cIlIlw0qXmKHvhMcjr6hamLZX5r+WMp3+1N/7RQ5NrKZJ0qkKapKtnCQ0l/
+						dlhtsSISuxKpWQ6XJR5JTsrkdHUsfSbL7i+KTKfoS9XOpJZS2+S0yaeKaD/lT07M
+						yaaCzZCQhs1Rv1FYJOow62S2DeQpQGMNxCVca4BWxVbH7ACXnApVeVkuFfonQkz5
+						SOGJ1QIDAQABo0cwRTAkBgNVHREEHTAbghl0aW1ldGFibGUyLmVhcnRoLm94LmFj
+						LnVrMB0GA1UdDgQWBBT/Ae0zEanWYNZV9FQg/TGuXx8rLjANBgkqhkiG9w0BAQUF
+						AAOCAQEAPmCO0Vc7Z6wGpKj77kUjoV8rJHz02as0f1JJxM/wV4dsyNY3KDYuUiQt
+						fwWCC5GZtGxxtrTpu5OJYXm1YnfF/Zqdw+IQEuJR7ygSZqZkpuN62jr4GghM3fTW
+						UG6oj/WaicSHb8xnXdNcPdAZw5u2oOaGDFicC67OYdnQpJZq5ELysDrHIDi0fhNL
+						mf72wR0yuR5fwKs2rC4b9PQmeJm2uE+Zq4tCHEfjG8rv6/Pw95uZSbFcA7OUVyCZ
+						EC5oy39+ZN5oMHwTu3h+Hg28mpBpIHj4EejKL1GatXCiEYcOiLGSKK0X+fmzBbGk
+						/1fpdjYY8WLnlR3GF1QjWUraVSirjg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://timetable2.earth.ox.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://timetable2.earth.ox.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://timetable2.earth.ox.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://timetable2.earth.ox.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://timetable2.earth.ox.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://timetable2.earth.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://timetable2.earth.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://timetable2.earth.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://timetable2.earth.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://timetable2.earth.ox.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://timetable2.earth.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford: Timetable Service (test)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Will</md:GivenName>
+      <md:SurName>Hanrott</md:SurName>
+      <md:EmailAddress>mailto:will.hanrott@earth.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Will</md:GivenName>
+      <md:SurName>Hanrott</md:SurName>
+      <md:EmailAddress>mailto:will.hanrott@earth.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

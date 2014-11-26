@@ -1,0 +1,115 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth.uhr.se/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uhr.se</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="sv">Universitets- och högskolerådet</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">The Swedish Council for Higher Education</mdui:DisplayName>
+          <mdui:Description xml:lang="sv">Identity Provider för Universitets- och högskolerådet (UHR)</mdui:Description>
+          <mdui:Description xml:lang="en">Identity Provider for the Swedish Council for Higher Education (UHR)</mdui:Description>
+          <mdui:Logo height="80" width="131">https://shibboleth.uhr.se/idp/images/uhr_logo.png</mdui:Logo>
+          <mdui:Keywords xml:lang="sv">UHR Universitetes+och+Högskolerådet VHS IPK The+Swedish+Council+for+Higher+Education</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">UHR Universitetes+och+Högskolerådet VHS IPK The+Swedish+Council+for+Higher+Education</mdui:Keywords>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>uhr.se</mdui:DomainHint>
+          <mdui:IPHint>193.11.100.0/24</mdui:IPHint>
+          <mdui:GeolocationHint>geo:59.33760,18.05835</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+
+MIICZjCCAc+gAwIBAgIJAPC0l1XObymOMA0GCSqGSIb3DQEBBQUAMEwxCzAJBgNV
+BAYTAlNFMRMwEQYDVQQIDApTb21lLVN0YXRlMQwwCgYDVQQKDANVSFIxGjAYBgNV
+BAMMEXNoaWJib2xldGgudWhyLnNlMB4XDTEzMDYxMzA4NDcxMVoXDTE2MDYxMjA4
+NDcxMVowTDELMAkGA1UEBhMCU0UxEzARBgNVBAgMClNvbWUtU3RhdGUxDDAKBgNV
+BAoMA1VIUjEaMBgGA1UEAwwRc2hpYmJvbGV0aC51aHIuc2UwgZ8wDQYJKoZIhvcN
+AQEBBQADgY0AMIGJAoGBAKzNLfSUeKCinwoHoPaYDc0MohU7CoaaIK8If5fIXlS0
+zv6vBu/kcvOqaIJ62QHyq0iQ9MeP6Tfzfnq4lc96NRzIJQEBmb9hrKWaGfZVEpWX
+I9zGg68FuODU5AhB+GhZNy4PmjlmnTDJFR1N+EJQiNAjg/xYwqvQ2TA16NwR2AsB
+AgMBAAGjUDBOMB0GA1UdDgQWBBTrKQPp1ulcWvun0MygkxGXORoRyTAfBgNVHSME
+GDAWgBTrKQPp1ulcWvun0MygkxGXORoRyTAMBgNVHRMEBTADAQH/MA0GCSqGSIb3
+DQEBBQUAA4GBAC1y0y1G1HK7av+aCLvxhTnAJr1KLkpGzvh1UJ0G2G/CF1TDRMpq
+rt/Ln4vzVuFRP5vg+tL8a4YTmg6nG4spKDmDPNyNs52LWX5GikxWEEaobOo/366B
+g3K9tR/NfPn3yNgy/kBRABuYJVjrtsbq/1PJ6Kg807taKYrz+vyERbn0
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.uhr.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.uhr.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.uhr.se/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.uhr.se/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.uhr.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.uhr.se/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uhr.se</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+
+MIICZjCCAc+gAwIBAgIJAPC0l1XObymOMA0GCSqGSIb3DQEBBQUAMEwxCzAJBgNV
+BAYTAlNFMRMwEQYDVQQIDApTb21lLVN0YXRlMQwwCgYDVQQKDANVSFIxGjAYBgNV
+BAMMEXNoaWJib2xldGgudWhyLnNlMB4XDTEzMDYxMzA4NDcxMVoXDTE2MDYxMjA4
+NDcxMVowTDELMAkGA1UEBhMCU0UxEzARBgNVBAgMClNvbWUtU3RhdGUxDDAKBgNV
+BAoMA1VIUjEaMBgGA1UEAwwRc2hpYmJvbGV0aC51aHIuc2UwgZ8wDQYJKoZIhvcN
+AQEBBQADgY0AMIGJAoGBAKzNLfSUeKCinwoHoPaYDc0MohU7CoaaIK8If5fIXlS0
+zv6vBu/kcvOqaIJ62QHyq0iQ9MeP6Tfzfnq4lc96NRzIJQEBmb9hrKWaGfZVEpWX
+I9zGg68FuODU5AhB+GhZNy4PmjlmnTDJFR1N+EJQiNAjg/xYwqvQ2TA16NwR2AsB
+AgMBAAGjUDBOMB0GA1UdDgQWBBTrKQPp1ulcWvun0MygkxGXORoRyTAfBgNVHSME
+GDAWgBTrKQPp1ulcWvun0MygkxGXORoRyTAMBgNVHRMEBTADAQH/MA0GCSqGSIb3
+DQEBBQUAA4GBAC1y0y1G1HK7av+aCLvxhTnAJr1KLkpGzvh1UJ0G2G/CF1TDRMpq
+rt/Ln4vzVuFRP5vg+tL8a4YTmg6nG4spKDmDPNyNs52LWX5GikxWEEaobOo/366B
+g3K9tR/NfPn3yNgy/kBRABuYJVjrtsbq/1PJ6Kg807taKYrz+vyERbn0
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.uhr.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.uhr.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Universitets- och hogskoleradet</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sv">Universitets- och högskolerådet</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">The Swedish Council for Higher Education</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.uhr.se</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:Company>The Swedish Council for Higher Education</md:Company>
+      <md:SurName>Anders Brouzell</md:SurName>
+      <md:EmailAddress>anders.brouzell@uhr.se</md:EmailAddress>
+      <md:TelephoneNumber>070-839 62 36</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:Company>The Swedish Council for Higher Education</md:Company>
+      <md:SurName>Anders Brouzell</md:SurName>
+      <md:EmailAddress>anders.brouzell@uhr.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 70839 62 36</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>The Swedish Council for Higher Education</md:Company>
+      <md:SurName>Anders Brouzell</md:SurName>
+      <md:EmailAddress>anders.brouzell@uhr.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 70839 62 36</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

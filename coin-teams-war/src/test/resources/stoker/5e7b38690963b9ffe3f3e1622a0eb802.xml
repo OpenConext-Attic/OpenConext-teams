@@ -1,0 +1,87 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://mnementh.csi.cam.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://mnementh.csi.cam.ac.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC3zCCAcegAwIBAgIJAOVxp6HWm9xkMA0GCSqGSIb3DQEBBQUAMBMxETAPBgNV
+						BAMTCG1uZW1lbnRoMB4XDTA5MDIxODE3MjYzOFoXDTE5MDIxNjE3MjYzOFowEzER
+						MA8GA1UEAxMIbW5lbWVudGgwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+						AQCWDFJMwCnDDlN4+JVj+jxbThz13wSWChP78LNPleUdjm1zbsQJOfcJ542EkyqM
+						7/O3TqgXES/VlkTccIfr/e86lO8AxFYeXsowEju+3AnyAXav3fL03diiRR+mWTlr
+						A0GjD6uQHlIZGce0IACh/GUc+nMxYjSZlnc/IKDF0lGrOhQdsdjasxc9daJ0HQOY
+						BXcJkFQO1m4uztNXPu/3JLYSzpLgKVY9W/24fyd9zpsPrG4xHl3D08jUovDvnENc
+						+q0gyt5TwRt28hifF9kdV+zdyTYQvKi4uOimqzt9wjSbv9xhvNa5VElt7GbiAZRE
+						OGUAj4gEbQbBhU4TLJN84h9jAgMBAAGjNjA0MBMGA1UdEQQMMAqCCG1uZW1lbnRo
+						MB0GA1UdDgQWBBQjLNqsyE3DpyRHamNjGNFPfpd5qTANBgkqhkiG9w0BAQUFAAOC
+						AQEAGkihtfVr4oVSzPreJwViJnqosAxrnTg2rEwvTnp02Es6Vaam5M995JQkWS8x
+						vQAwCywoccsRuk02LOZ7bhP7IExPYSmzSJ3bIbXYxTJ5+36ELmxS0dETZq69c0QT
+						Xja0CXAviE3TjK3VLvemSaJWJlssPB3dGIHhJ1oulB7mG1F1gj6MY8FHtjgsjJ2k
+						jKWUyCTonkcj/j22UdaMzsBb0vOtRoDBlhtEyppm06VQFQpizV2XyH/de8R1mrNK
+						m2tWL3l+kX0MHJVAQ7i6iSXhiXCX1/ATGEPniV71u9gRMd/FQBJo9D5jTOHUpNzA
+						dvLRXByBJtURFonOb55G90gyqg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC3zCCAcegAwIBAgIJAOVxp6HWm9xkMA0GCSqGSIb3DQEBBQUAMBMxETAPBgNV
+						BAMTCG1uZW1lbnRoMB4XDTA5MDIxODE3MjYzOFoXDTE5MDIxNjE3MjYzOFowEzER
+						MA8GA1UEAxMIbW5lbWVudGgwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+						AQCWDFJMwCnDDlN4+JVj+jxbThz13wSWChP78LNPleUdjm1zbsQJOfcJ542EkyqM
+						7/O3TqgXES/VlkTccIfr/e86lO8AxFYeXsowEju+3AnyAXav3fL03diiRR+mWTlr
+						A0GjD6uQHlIZGce0IACh/GUc+nMxYjSZlnc/IKDF0lGrOhQdsdjasxc9daJ0HQOY
+						BXcJkFQO1m4uztNXPu/3JLYSzpLgKVY9W/24fyd9zpsPrG4xHl3D08jUovDvnENc
+						+q0gyt5TwRt28hifF9kdV+zdyTYQvKi4uOimqzt9wjSbv9xhvNa5VElt7GbiAZRE
+						OGUAj4gEbQbBhU4TLJN84h9jAgMBAAGjNjA0MBMGA1UdEQQMMAqCCG1uZW1lbnRo
+						MB0GA1UdDgQWBBQjLNqsyE3DpyRHamNjGNFPfpd5qTANBgkqhkiG9w0BAQUFAAOC
+						AQEAGkihtfVr4oVSzPreJwViJnqosAxrnTg2rEwvTnp02Es6Vaam5M995JQkWS8x
+						vQAwCywoccsRuk02LOZ7bhP7IExPYSmzSJ3bIbXYxTJ5+36ELmxS0dETZq69c0QT
+						Xja0CXAviE3TjK3VLvemSaJWJlssPB3dGIHhJ1oulB7mG1F1gj6MY8FHtjgsjJ2k
+						jKWUyCTonkcj/j22UdaMzsBb0vOtRoDBlhtEyppm06VQFQpizV2XyH/de8R1mrNK
+						m2tWL3l+kX0MHJVAQ7i6iSXhiXCX1/ATGEPniV71u9gRMd/FQBJo9D5jTOHUpNzA
+						dvLRXByBJtURFonOb55G90gyqg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://mnementh.csi.cam.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://mnementh.csi.cam.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://mnementh.csi.cam.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://mnementh.csi.cam.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://mnementh.csi.cam.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://mnementh.csi.cam.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://mnementh.csi.cam.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://mnementh.csi.cam.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://mnementh.csi.cam.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://mnementh.csi.cam.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://mnementh.csi.cam.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://mnementh.csi.cam.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://mnementh.csi.cam.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://mnementh.csi.cam.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Cambridge</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Test SP on mnementh.csi</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.cam.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Jon</md:GivenName>
+      <md:SurName>Warbrick</md:SurName>
+      <md:EmailAddress>mailto:jw35@cam.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Jon</md:GivenName>
+      <md:SurName>Warbrick</md:SurName>
+      <md:EmailAddress>mailto:jw35@cam.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

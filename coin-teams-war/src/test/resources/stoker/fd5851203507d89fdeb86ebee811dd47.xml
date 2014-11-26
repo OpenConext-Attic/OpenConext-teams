@@ -1,0 +1,101 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.tresham.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-05-22T08:15:19Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">tresham.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDojCCAooCCQC38OS+e7lEUzANBgkqhkiG9w0BAQUFADCBkjELMAkGA1UEBhMC
+						R0IxGTAXBgNVBAgMEE5vcnRoYW1wdG9uc2hpcmUxEjAQBgNVBAcMCUtldHRlcmlu
+						ZzE4MDYGA1UECgwvVHJlc2hhbSBDb2xsZWdlIG9mIEZ1cnRoZXIgYW5kIEhpZ2hl
+						ciBFZHVjYXRpb24xGjAYBgNVBAMMEWlkcC50cmVzaGFtLmFjLnVrMB4XDTEzMDUx
+						NzA3NDIxOVoXDTMzMDUxMjA3NDIxOVowgZIxCzAJBgNVBAYTAkdCMRkwFwYDVQQI
+						DBBOb3J0aGFtcHRvbnNoaXJlMRIwEAYDVQQHDAlLZXR0ZXJpbmcxODA2BgNVBAoM
+						L1RyZXNoYW0gQ29sbGVnZSBvZiBGdXJ0aGVyIGFuZCBIaWdoZXIgRWR1Y2F0aW9u
+						MRowGAYDVQQDDBFpZHAudHJlc2hhbS5hYy51azCCASIwDQYJKoZIhvcNAQEBBQAD
+						ggEPADCCAQoCggEBAMDNPjJPLfGBvb57Jln2kd2w6QLzt//vhZudjZZrKhQirlVD
+						8GAgVU7XYrZeHQLzLXQF1j2fZnLrzkRPFL15Ru9qkFeftSabMn1TeegKibLbUrFk
+						pMcUfFCs4j6ybNFt6ZCfIk426xTRFXVuLKSegPoQYj+dsTvlPIGt8SsRC/ydqP9C
+						IzwGwE6CjZPIiAa7Q9MyNs8G5tqZ9C7YPWy8ArG+SZ9Xt1iyXV4lerwmf2D147oR
+						Y03saO6fNSCknSBjAA6UP3xAE5HimHKwjvl5MXF1H0puVG5P3b+xfCT2yCMhbsRj
+						YJK4HSzYdCnRR91cxB8EISYRcbtVo2lKrsLw+LcCAwEAATANBgkqhkiG9w0BAQUF
+						AAOCAQEALJNw1SaVhAsHqu2ENnh9KNWDuaUA/b9k2M9nNSx4LWa9Lpkw1+qdjZQ+
+						tfVRIb2E2AJp9+7RuWKN9Xa6l0VenbumDeOpwhp8LooiZR+Qt9pIg28Be9bYics7
+						4qnQDA2b0HiLEMcM+xW0HCp5j0q9+RZPF7rtqdu/Yw6qtIkmWe/L6OqRUfVfTy70
+						ekbD3d5N/xvhGGKETyV3Yp0Ayw8aGjG1a4WCUn+r/IY3JuKjOq+QOMb5lkl0I4ol
+						6T7XDYHlahNcl1lrv1oMxKfQDO8ISaLr/BREEmKQBKOpZpxfrJ0ISW5f60ndYkRr
+						Zta8/DXmlXmxEaTCt9czo3528Y0HQQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.tresham.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.tresham.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.tresham.ac.uk/idp/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.tresham.ac.uk/idp/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.tresham.ac.uk:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.tresham.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.tresham.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.tresham.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.tresham.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">tresham.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDojCCAooCCQC38OS+e7lEUzANBgkqhkiG9w0BAQUFADCBkjELMAkGA1UEBhMC
+						R0IxGTAXBgNVBAgMEE5vcnRoYW1wdG9uc2hpcmUxEjAQBgNVBAcMCUtldHRlcmlu
+						ZzE4MDYGA1UECgwvVHJlc2hhbSBDb2xsZWdlIG9mIEZ1cnRoZXIgYW5kIEhpZ2hl
+						ciBFZHVjYXRpb24xGjAYBgNVBAMMEWlkcC50cmVzaGFtLmFjLnVrMB4XDTEzMDUx
+						NzA3NDIxOVoXDTMzMDUxMjA3NDIxOVowgZIxCzAJBgNVBAYTAkdCMRkwFwYDVQQI
+						DBBOb3J0aGFtcHRvbnNoaXJlMRIwEAYDVQQHDAlLZXR0ZXJpbmcxODA2BgNVBAoM
+						L1RyZXNoYW0gQ29sbGVnZSBvZiBGdXJ0aGVyIGFuZCBIaWdoZXIgRWR1Y2F0aW9u
+						MRowGAYDVQQDDBFpZHAudHJlc2hhbS5hYy51azCCASIwDQYJKoZIhvcNAQEBBQAD
+						ggEPADCCAQoCggEBAMDNPjJPLfGBvb57Jln2kd2w6QLzt//vhZudjZZrKhQirlVD
+						8GAgVU7XYrZeHQLzLXQF1j2fZnLrzkRPFL15Ru9qkFeftSabMn1TeegKibLbUrFk
+						pMcUfFCs4j6ybNFt6ZCfIk426xTRFXVuLKSegPoQYj+dsTvlPIGt8SsRC/ydqP9C
+						IzwGwE6CjZPIiAa7Q9MyNs8G5tqZ9C7YPWy8ArG+SZ9Xt1iyXV4lerwmf2D147oR
+						Y03saO6fNSCknSBjAA6UP3xAE5HimHKwjvl5MXF1H0puVG5P3b+xfCT2yCMhbsRj
+						YJK4HSzYdCnRR91cxB8EISYRcbtVo2lKrsLw+LcCAwEAATANBgkqhkiG9w0BAQUF
+						AAOCAQEALJNw1SaVhAsHqu2ENnh9KNWDuaUA/b9k2M9nNSx4LWa9Lpkw1+qdjZQ+
+						tfVRIb2E2AJp9+7RuWKN9Xa6l0VenbumDeOpwhp8LooiZR+Qt9pIg28Be9bYics7
+						4qnQDA2b0HiLEMcM+xW0HCp5j0q9+RZPF7rtqdu/Yw6qtIkmWe/L6OqRUfVfTy70
+						ekbD3d5N/xvhGGKETyV3Yp0Ayw8aGjG1a4WCUn+r/IY3JuKjOq+QOMb5lkl0I4ol
+						6T7XDYHlahNcl1lrv1oMxKfQDO8ISaLr/BREEmKQBKOpZpxfrJ0ISW5f60ndYkRr
+						Zta8/DXmlXmxEaTCt9czo3528Y0HQQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.tresham.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.tresham.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Tresham College of Further and Higher Education</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Tresham College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.tresham.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Stuart</md:GivenName>
+      <md:SurName>Mewes</md:SurName>
+      <md:EmailAddress>mailto:smewes@tresham.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Karen</md:GivenName>
+      <md:SurName>Etty</md:SurName>
+      <md:EmailAddress>mailto:ketty@tresham.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

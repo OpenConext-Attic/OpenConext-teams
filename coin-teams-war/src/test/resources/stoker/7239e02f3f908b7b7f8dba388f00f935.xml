@@ -1,32 +1,32 @@
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp2-1.slu.se/idp/shibboleth">
-<md:Extensions>
-<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.swamid.se/">
-<mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
-</mdrpi:RegistrationInfo>
-</md:Extensions>
-  <IDPSSODescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-    <Extensions>
-      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">slu.se</shibmd:Scope>
-      <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-        <mdui:DisplayName xml:lang="sv">Sveriges Lantbruksuniversitet</mdui:DisplayName>
-        <mdui:DisplayName xml:lang="en">Swedish University of Agricultural Science</mdui:DisplayName>
-        <mdui:Description xml:lang="sv">Identity Provider för Sveriges Lantbruksuniversitet.</mdui:Description>
-        <mdui:Description xml:lang="en">Identity Provider for Swedish University of Agricultural Science</mdui:Description>
-        <mdui:InformationURL xml:lang="sv">http://www.slu.se/</mdui:InformationURL>
-        <mdui:InformationURL xml:lang="en">http://www.slu.se/en/</mdui:InformationURL>
-        <mdui:Logo height="100" width="100">https://idp2-1.slu.se/info/images/slu_logotyp_web_100.png</mdui:Logo>
-        <mdui:Logo height="16" width="16">https://idp2-1.slu.se/info/images/slu_logotyp_web_16.png</mdui:Logo>
-        <mdui:Keywords xml:lang="sv">slu sveriges+lantbruksuniversitet swedish+university+of+agricultural+sciences</mdui:Keywords>
-        <mdui:Keywords xml:lang="en">slu sveriges+lantbruksuniversitet swedish+university+of+agricultural+sciences</mdui:Keywords>
-      </mdui:UIInfo>
-      <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-        <mdui:DomainHint>slu.se</mdui:DomainHint>
-      </mdui:DiscoHints>
-    </Extensions>
-    <KeyDescriptor>
-      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-        <ds:X509Data>
-          <ds:X509Certificate>MIIDAzCCAeugAwIBAgIUIDSi2H8dePffTFkVUjtBaLv6ctUwDQYJKoZIhvcNAQEF
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp2-1.slu.se/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">slu.se</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="sv">Sveriges Lantbruksuniversitet</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Swedish University of Agricultural Science</mdui:DisplayName>
+          <mdui:Description xml:lang="sv">Identity Provider för Sveriges Lantbruksuniversitet.</mdui:Description>
+          <mdui:Description xml:lang="en">Identity Provider for Swedish University of Agricultural Science</mdui:Description>
+          <mdui:InformationURL xml:lang="sv">http://www.slu.se/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">http://www.slu.se/en/</mdui:InformationURL>
+          <mdui:Logo height="100" width="100">https://idp2-1.slu.se/info/images/slu_logotyp_web_100.png</mdui:Logo>
+          <mdui:Logo height="16" width="16">https://idp2-1.slu.se/info/images/slu_logotyp_web_16.png</mdui:Logo>
+          <mdui:Keywords xml:lang="sv">slu sveriges+lantbruksuniversitet swedish+university+of+agricultural+sciences</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">slu sveriges+lantbruksuniversitet swedish+university+of+agricultural+sciences</mdui:Keywords>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>slu.se</mdui:DomainHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDAzCCAeugAwIBAgIUIDSi2H8dePffTFkVUjtBaLv6ctUwDQYJKoZIhvcNAQEF
 BQAwETEPMA0GA1UEAxMGaWRwMi0xMB4XDTEzMDMxNDA3NTU0OVoXDTMzMDMxNDA3
 NTU0OVowETEPMA0GA1UEAxMGaWRwMi0xMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
 MIIBCgKCAQEA1L9PRiIOUnTbMQoU0LwTtlSeQLwvXbu87PfFMTTpQgdUBrMCPDWL
@@ -43,26 +43,26 @@ EI/cBEjV7AeP1NQXVkxyj9zwY0dYzax/h6Wg+t7qvs8ORxOJdEhr1zdsxY1f+7Aa
 GH/yHRavwkRh3ICgDSty9dO7c8k5MXjnX/W+zZR1/IngJMmUKZXIoLmqwdaHPb+S
 lb1DOdXnNxi+WNQXbBjzonEZa0hFPT/ml32QpjCzh11edlGltCnQVzyLJGw/W5KT
 o04ltBnMhQ==</ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </KeyDescriptor>
-    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp2-1.slu.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp2-1.slu.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-    <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp2-1.slu.se/idp/profile/Shibboleth/SSO"/>
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp2-1.slu.se/idp/profile/SAML2/POST/SSO"/>
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp2-1.slu.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp2-1.slu.se/idp/profile/SAML2/Redirect/SSO"/>
-  </IDPSSODescriptor>
-  <AttributeAuthorityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-    <Extensions>
-      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">slu.se</shibmd:Scope>
-    </Extensions>
-    <KeyDescriptor>
-      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-        <ds:X509Data>
-          <ds:X509Certificate>MIIDAzCCAeugAwIBAgIUIDSi2H8dePffTFkVUjtBaLv6ctUwDQYJKoZIhvcNAQEF
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp2-1.slu.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp2-1.slu.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp2-1.slu.se/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp2-1.slu.se/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp2-1.slu.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp2-1.slu.se/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">slu.se</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDAzCCAeugAwIBAgIUIDSi2H8dePffTFkVUjtBaLv6ctUwDQYJKoZIhvcNAQEF
 BQAwETEPMA0GA1UEAxMGaWRwMi0xMB4XDTEzMDMxNDA3NTU0OVoXDTMzMDMxNDA3
 NTU0OVowETEPMA0GA1UEAxMGaWRwMi0xMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
 MIIBCgKCAQEA1L9PRiIOUnTbMQoU0LwTtlSeQLwvXbu87PfFMTTpQgdUBrMCPDWL
@@ -79,40 +79,36 @@ EI/cBEjV7AeP1NQXVkxyj9zwY0dYzax/h6Wg+t7qvs8ORxOJdEhr1zdsxY1f+7Aa
 GH/yHRavwkRh3ICgDSty9dO7c8k5MXjnX/W+zZR1/IngJMmUKZXIoLmqwdaHPb+S
 lb1DOdXnNxi+WNQXbBjzonEZa0hFPT/ml32QpjCzh11edlGltCnQVzyLJGw/W5KT
 o04ltBnMhQ==</ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </KeyDescriptor>
-    <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp2-1.slu.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-    <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp2-1.slu.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-  </AttributeAuthorityDescriptor>
-  
-  
-  
-  
-<Organization xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
-    <OrganizationName xml:lang="en">Swedish University of Agricultural Science</OrganizationName>
-    <OrganizationDisplayName xml:lang="sv">Sveriges Lantbruksuniversitet</OrganizationDisplayName>
-    <OrganizationDisplayName xml:lang="en">Swedish University of Agricultural Science</OrganizationDisplayName>
-    <OrganizationURL xml:lang="en">http://www.slu.se/en/</OrganizationURL>
-  </Organization>
-<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="administrative">
-    <Company>Swedish University of Agricultural Science</Company>
-    <SurName>Bengt Norman</SurName>
-    <EmailAddress>saml-admins@slu.se</EmailAddress>
-    <TelephoneNumber>+46 90 786 81 22</TelephoneNumber>
-  </ContactPerson>
-<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="technical">
-    <Company>Swedish University of Agricultural Science</Company>
-    <SurName>Ivan Clegg</SurName>
-    <EmailAddress>saml-admins@slu.se</EmailAddress>
-    <TelephoneNumber>+46 70 2413737</TelephoneNumber>
-  </ContactPerson>
-<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="support">
-    <Company>Swedish University of Agricultural Science</Company>
-    <SurName>IT-stöd</SurName>
-    <EmailAddress>mailto:IT-stod@slu.se</EmailAddress>
-    <TelephoneNumber>+46 18 67 66 00</TelephoneNumber>
-  </ContactPerson>
-</md:EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp2-1.slu.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp2-1.slu.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Swedish University of Agricultural Science</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sv">Sveriges Lantbruksuniversitet</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Swedish University of Agricultural Science</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.slu.se/en/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:Company>Swedish University of Agricultural Science</md:Company>
+      <md:SurName>Bengt Norman</md:SurName>
+      <md:EmailAddress>saml-admins@slu.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 90 786 81 22</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:Company>Swedish University of Agricultural Science</md:Company>
+      <md:SurName>Ivan Clegg</md:SurName>
+      <md:EmailAddress>saml-admins@slu.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 70 2413737</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>Swedish University of Agricultural Science</md:Company>
+      <md:SurName>IT-stöd</md:SurName>
+      <md:EmailAddress>mailto:IT-stod@slu.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 18 67 66 00</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

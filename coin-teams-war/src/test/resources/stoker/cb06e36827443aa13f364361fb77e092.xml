@@ -1,0 +1,90 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://tizer.tannerritchie.com/shibboleth-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://tizer.tannerritchie.com/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDDDCCAfSgAwIBAgIJAKLtIvzYGYicMA0GCSqGSIb3DQEBBQUAMCIxIDAeBgNV
+						BAMTF3RpemVyLnRhbm5lcnJpdGNoaWUuY29tMB4XDTExMDQxMjAxNTE0NFoXDTIx
+						MDQwOTAxNTE0NFowIjEgMB4GA1UEAxMXdGl6ZXIudGFubmVycml0Y2hpZS5jb20w
+						ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwZt2gZ3usIttQrcz6S8cm
+						Vi2AyLRenvNvosCLneG9YHQkEqSnl2NcK+mjoWVWRY3jGsVeACcXiEaoZQRWnA4W
+						Wiwartapy24fXmQ1S/Ylx9GdYg66TBfQjowFxPZQzUWNZwUUS+RA5e8/vO/L/Fku
+						RgERiodsZs6eUvVs6QvrLTZaL9/7Weeu88UJzf/JTqr7MGBh5PMvMDhUtVyOjr39
+						N8nDSrcwuZ6vjmsI0IBg83/L55nSooZ9kluKmNXwrHoMXJfq1HpCNfXsFwZ300If
+						we7abb0qMhY3pKtMAMEVP8/JnYJb7/JjshVIW+3eP5v9tfVff2SRWGeY6ubEIukp
+						AgMBAAGjRTBDMCIGA1UdEQQbMBmCF3RpemVyLnRhbm5lcnJpdGNoaWUuY29tMB0G
+						A1UdDgQWBBR8tXGfj2pDsu577hA2TvuzNcxuITANBgkqhkiG9w0BAQUFAAOCAQEA
+						CZuzssjiOLp4XdSKY6bxgVt0wNafHaSacqBzGqbtUlWRcawkI9/vyQxM395YZf8m
+						c0z0NF8rD2cPIo0X50xsUYSDIuOF+13cizzaUIpYBVDk0ishSY+Zbe/f1lrbdh4c
+						mHsyelAmxj8ogDk3smN1HEVoWWBHRL5HyrME9zt+N9r2vgWjCOpS2Ri3XBa30P+G
+						jzRm99Qu2qaIPfEbBFqWZ7eWAubXkTCeyKRDPviZmIINtQMR5sNjLqLmLc7Z/bnu
+						nb7BTu3WfPobQ8n+FOcXOHGJK2s3K1GFNI4E8l/xrbaIVz4EYuTEHKHgJ/zHRIY+
+						QV/iMVkSBcubDxt0fZMvAQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDDDCCAfSgAwIBAgIJAKLtIvzYGYicMA0GCSqGSIb3DQEBBQUAMCIxIDAeBgNV
+						BAMTF3RpemVyLnRhbm5lcnJpdGNoaWUuY29tMB4XDTExMDQxMjAxNTE0NFoXDTIx
+						MDQwOTAxNTE0NFowIjEgMB4GA1UEAxMXdGl6ZXIudGFubmVycml0Y2hpZS5jb20w
+						ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwZt2gZ3usIttQrcz6S8cm
+						Vi2AyLRenvNvosCLneG9YHQkEqSnl2NcK+mjoWVWRY3jGsVeACcXiEaoZQRWnA4W
+						Wiwartapy24fXmQ1S/Ylx9GdYg66TBfQjowFxPZQzUWNZwUUS+RA5e8/vO/L/Fku
+						RgERiodsZs6eUvVs6QvrLTZaL9/7Weeu88UJzf/JTqr7MGBh5PMvMDhUtVyOjr39
+						N8nDSrcwuZ6vjmsI0IBg83/L55nSooZ9kluKmNXwrHoMXJfq1HpCNfXsFwZ300If
+						we7abb0qMhY3pKtMAMEVP8/JnYJb7/JjshVIW+3eP5v9tfVff2SRWGeY6ubEIukp
+						AgMBAAGjRTBDMCIGA1UdEQQbMBmCF3RpemVyLnRhbm5lcnJpdGNoaWUuY29tMB0G
+						A1UdDgQWBBR8tXGfj2pDsu577hA2TvuzNcxuITANBgkqhkiG9w0BAQUFAAOCAQEA
+						CZuzssjiOLp4XdSKY6bxgVt0wNafHaSacqBzGqbtUlWRcawkI9/vyQxM395YZf8m
+						c0z0NF8rD2cPIo0X50xsUYSDIuOF+13cizzaUIpYBVDk0ishSY+Zbe/f1lrbdh4c
+						mHsyelAmxj8ogDk3smN1HEVoWWBHRL5HyrME9zt+N9r2vgWjCOpS2Ri3XBa30P+G
+						jzRm99Qu2qaIPfEbBFqWZ7eWAubXkTCeyKRDPviZmIINtQMR5sNjLqLmLc7Z/bnu
+						nb7BTu3WfPobQ8n+FOcXOHGJK2s3K1GFNI4E8l/xrbaIVz4EYuTEHKHgJ/zHRIY+
+						QV/iMVkSBcubDxt0fZMvAQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://tizer.tannerritchie.com/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://tizer.tannerritchie.com/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://tizer.tannerritchie.com/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://tizer.tannerritchie.com/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://tizer.tannerritchie.com/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://tizer.tannerritchie.com/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://tizer.tannerritchie.com/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://tizer.tannerritchie.com/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://tizer.tannerritchie.com/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://tizer.tannerritchie.com/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://tizer.tannerritchie.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://tizer.tannerritchie.com/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://tizer.tannerritchie.com/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://tizer.tannerritchie.com/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://tizer.tannerritchie.com/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">TannerRitchie Publishing</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">TannerRitchie Publishing: Medieval and Early Modern Sources Online</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.tannerritchie.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Roland</md:GivenName>
+      <md:SurName>Tanner</md:SurName>
+      <md:EmailAddress>mailto:roland@tannerritchie.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Roland</md:GivenName>
+      <md:SurName>Tanner</md:SurName>
+      <md:EmailAddress>mailto:roland@tannerritchie.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

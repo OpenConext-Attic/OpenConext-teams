@@ -1,24 +1,22 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://portail.u-picardie.fr">
-			<Extensions>
-				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-09-02T16:43:49Z">
-					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
-				</mdrpi:RegistrationInfo>
-				
-			</Extensions>
-			<SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-               <Extensions>
-			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
-          		      <mdui:DisplayName xml:lang="en">Captive Portal UPJV</mdui:DisplayName>
-          		      <mdui:Description xml:lang="en">Eduspot</mdui:Description>
-          		      <mdui:DisplayName xml:lang="fr">Portail Captif UPJV</mdui:DisplayName>
-          		      <mdui:Description xml:lang="fr">Eduspot</mdui:Description>
-          		            			    </mdui:UIInfo>
-    			  </Extensions>
-				<KeyDescriptor use="signing">
-                                   <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" entityID="https://portail.u-picardie.fr">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-09-02T16:43:49Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Captive Portal UPJV</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Eduspot</mdui:Description>
+          <mdui:DisplayName xml:lang="fr">Portail Captif UPJV</mdui:DisplayName>
+          <mdui:Description xml:lang="fr">Eduspot</mdui:Description>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIEeDCCA2CgAwIBAgIRAI8ATZBA7Bnw3Q1sS4vt94owDQYJKoZIhvcNAQEFBQAw
 NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
 IFNTTCBDQTAeFw0xNDA5MDIwMDAwMDBaFw0xNzA5MDEyMzU5NTlaMEMxITAfBgNV
@@ -44,15 +42,13 @@ Fw5YllIUfrdyDXq8Y11DJ/vvZ8fezanidQX1QOtf3YqB6E6XB0iDebyaw92FMe2K
 CWc9pJ6KeATZnLv6m4m3+cfGRD9Oczou7iHD6nt2Cc2NMlfKJXBy8l1FlLMJgzAF
 Jeo/JF+pa6rXH5QzpgLaL56jnm2C62ghYn4OMZlD1hzzTRGsoq2qWguZnyk=
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-					</ds:KeyInfo>
-				</KeyDescriptor>
-		               
-				<KeyDescriptor use="encryption">
-                                   <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIEeDCCA2CgAwIBAgIRAI8ATZBA7Bnw3Q1sS4vt94owDQYJKoZIhvcNAQEFBQAw
 NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
 IFNTTCBDQTAeFw0xNDA5MDIwMDAwMDBaFw0xNzA5MDEyMzU5NTlaMEMxITAfBgNV
@@ -78,56 +74,28 @@ Fw5YllIUfrdyDXq8Y11DJ/vvZ8fezanidQX1QOtf3YqB6E6XB0iDebyaw92FMe2K
 CWc9pJ6KeATZnLv6m4m3+cfGRD9Oczou7iHD6nt2Cc2NMlfKJXBy8l1FlLMJgzAF
 Jeo/JF+pa6rXH5QzpgLaL56jnm2C62ghYn4OMZlD1hzzTRGsoq2qWguZnyk=
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					</ds:KeyInfo>
-				</KeyDescriptor>
-			       
-
-				
-				
-				  <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://portail.u-picardie.fr/Shibboleth.sso/SAML/POST" index="5"/>
-				
-				  <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://portail.u-picardie.fr/Shibboleth.sso/SAML2/POST" index="1"/>
-				
-				
-
-		       <AttributeConsumingService index="0">
-			 <ServiceName xml:lang="fr">Portail Captif UPJV</ServiceName>
-			 <ServiceName xml:lang="en">Captive Portal UPJV</ServiceName>
-			 <ServiceDescription xml:lang="fr">Eduspot</ServiceDescription>
-			 <ServiceDescription xml:lang="en">Eduspot</ServiceDescription>
-				         
-			 <RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true">
-			   
-			     
-			       <saml:AttributeValue xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">eppn</saml:AttributeValue>
-			     
-			   
-			 </RequestedAttribute>
-		
-		       </AttributeConsumingService>
-
-			</SPSSODescriptor>
-
-
-		<Organization>
-			<OrganizationName xml:lang="en">Université de Picardie Jules Verne</OrganizationName>
-			<OrganizationDisplayName xml:lang="en">Université de Picardie Jules Verne</OrganizationDisplayName>
-			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
-		</Organization>
-		
-
-			
-		    	
-			    <ContactPerson contactType="technical">
-				 <SurName>Christophe Dupreuil</SurName>
-				 <EmailAddress>christophe.dupreuil@u-picardie.fr</EmailAddress>
-		        </ContactPerson>
-			    	
-
-		    		
-
-				
-
-			
-		</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://portail.u-picardie.fr/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://portail.u-picardie.fr/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="fr">Portail Captif UPJV</md:ServiceName>
+        <md:ServiceName xml:lang="en">Captive Portal UPJV</md:ServiceName>
+        <md:ServiceDescription xml:lang="fr">Eduspot</md:ServiceDescription>
+        <md:ServiceDescription xml:lang="en">Eduspot</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true">
+          <saml:AttributeValue>eppn</saml:AttributeValue>
+        </md:RequestedAttribute>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Université de Picardie Jules Verne</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Université de Picardie Jules Verne</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://unknown.site.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Christophe Dupreuil</md:SurName>
+      <md:EmailAddress>christophe.dupreuil@u-picardie.fr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

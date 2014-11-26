@@ -1,0 +1,65 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://secure.ibisworld.co.uk/shibboleth-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-02-23T09:34:41Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">IBISWorld UK</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Welcome to IBISWorld, the UK's richest source of business and industry information.</mdui:Description>
+          <mdui:Logo height="48" width="158">https://secure.ibisworld.co.uk/img/logosmall.jpg</mdui:Logo>
+        </mdui:UIInfo>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://secure.ibisworld.co.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC/TCCAeWgAwIBAgIJAP4Fp5haHFgMMA0GCSqGSIb3DQEBBQUAMB0xGzAZBgNV
+						BAMTEnNwLmliaXN3b3JsZC5jby51azAeFw0xMTA5MDYwMDQ0MTVaFw0yMTA5MDMw
+						MDQ0MTVaMB0xGzAZBgNVBAMTEnNwLmliaXN3b3JsZC5jby51azCCASIwDQYJKoZI
+						hvcNAQEBBQADggEPADCCAQoCggEBAMQHhKOh5tWySehDDucIlkK15NotzimeWOnr
+						1QklBthu1UJa07hTqrBw57aMHuJ0+WI1KSz30/xfwk3mv8sB3HvSCgt9HhwFeVnJ
+						7jMmZF/MNqI/RXFtCQdVmGyBNhhU/C2n6zDVYQE4f9115r4iIcxpR6ddbL3s9B1I
+						5UDDhTTOkFXrnfdyaPWfhANdmLbjO386S5o0IdeS5+WilyEHO7Gk7tKwi4Qn9Jim
+						tnDz0UFuMgRS9yiuNepiXhReEO2QwYRw+tDfmDql3bc+lRzlaqFTX4AbJh6OdMrO
+						zcPPjsHMnlCwDyg81UYSkNsfyUjswp5UYfZhb9KAMKyXNVLcs40CAwEAAaNAMD4w
+						HQYDVR0RBBYwFIISc3AuaWJpc3dvcmxkLmNvLnVrMB0GA1UdDgQWBBS3kV42C8Eb
+						2/LQ1U4eh6whZrS6TDANBgkqhkiG9w0BAQUFAAOCAQEAuhXSnv+l5lcCYuhfhZ2N
+						QqAgP+4kETNy9DSiOJ65IrRP8udPrC89IXfL5ypHO8fdhNOCxI8krdIH64Jm7lth
+						vDck0+gkDGLAeXVxEDczwP8O3nNWdC+fNWTgIAkyXLDS3jhJq/cwHvW1jJRdyJlQ
+						ltUXRoyxRkveiAx/M1pMtUkJGGAwAvcwutr8poLb/SwMgqnSSyDga+zXpwYqrZ8V
+						taIO6RtXMxMf+yv3uebcJiUMAUZExF8G4h6rIPSAt2Xi3oDAavBfo1ZRS0esJUL+
+						QRuvgFY9tYDxs2vrZOwMut/o9z69OWvnQoV87PqJAH1KjIQSClzrY9gj9k0aPiva
+						3w==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://secure.ibisworld.co.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://secure.ibisworld.co.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://secure.ibisworld.co.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://secure.ibisworld.co.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://secure.ibisworld.co.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://secure.ibisworld.co.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://secure.ibisworld.co.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://secure.ibisworld.co.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://secure.ibisworld.co.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://secure.ibisworld.co.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://secure.ibisworld.co.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">IBISWorld</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">IBISWorld UK</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ibisworld.co.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>IBISWorld IT Team</md:GivenName>
+      <md:EmailAddress>mailto:itsupport@ibisworld.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Robert</md:GivenName>
+      <md:SurName>Sells</md:SurName>
+      <md:EmailAddress>mailto:Roberts@ibisworld.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

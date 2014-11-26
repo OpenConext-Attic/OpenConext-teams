@@ -1,0 +1,110 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://access.lcb.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">lcb.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEszCCA5ugAwIBAgIRAIm9F5IqfEtgz+aqJQ6z8OEwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjExMjEwMDAwMDBaFw0xNTExMjEyMzU5NTlaMIGCMQswCQYD
+						VQQGEwJHQjEXMBUGA1UECBMOV2VzdCBZb3Jrc2hpcmUxDjAMBgNVBAcTBUxlZWRz
+						MSIwIAYDVQQKExlMZWVkcyBDb2xsZWdlIG9mIEJ1aWxkaW5nMQswCQYDVQQLEwJJ
+						VDEZMBcGA1UEAxMQYWNjZXNzLmxjYi5hYy51azCCASIwDQYJKoZIhvcNAQEBBQAD
+						ggEPADCCAQoCggEBALQyZT/SwHUAS2OE3jpY3SF6hbNSykchdwFNI23nvArXybmq
+						l8/ZKXZOl7fG4kVxA/EviUGfi7uE17snR72FtsWpII0FYjV3XVWnnoj9hE7kdBh+
+						UEpeCAsXx2PYrL5h8GjFJuHiAPYGX3hjEuQHvGIojtoEL1z02jH1WX4I98u0B5Vm
+						yV2flqKGn+68eMPMVtgO7nnp889IJmQGVOXoRuotZi987UV3dzBK71oo6SAS5YR0
+						1PwnRD2FepU0DyLHIWAIhLe1hbqU8nN48RU9Lm6uoU/RPHCQ7hd6QtakSV9oIfaW
+						Zr7ps4YCZ0O0J3elLyIU/bvws2TUsJrRW6MpEHcCAwEAAaOCAW0wggFpMB8GA1Ud
+						IwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBSMhrVWHwGDq1Ml
+						xTe2LoaUWkLjYDAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUE
+						FjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQIC
+						HTAIBgZngQwBAgIwOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVy
+						ZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUF
+						BzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAm
+						BggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwGwYDVR0RBBQw
+						EoIQYWNjZXNzLmxjYi5hYy51azANBgkqhkiG9w0BAQUFAAOCAQEAMs1x9M3D/j7o
+						PrmPdL5U2q0bDp7XqyrKUzqW2rN5c3qBElVS5aqV2nFoUSxI/SdBgom324APX4Iw
+						Y6RoFBJyAfUMZ6Dce7Jeyu1BzhxjGE/RjO0B8JnKPlNc8Q+FMlUHTpGFaUXvM7TK
+						QOe5Giavbh76bGQaAmhAFMGxXfEYnAWhwCI8YagY3N00OLQYag5QwrJa8e2t7szQ
+						NjNkLbJzs9g/pkmLRH/oDJqRvjPPcdk8ZffGqq9Y+yFsO9dyuVElCi+reb9XNEn8
+						4OwKftsJyCgu106HmCFWH/dRi0cZIJfAOKTbIivcEMKbERxqgwRYqy08StD/KPVn
+						CTyuNFCgDg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://access.lcb.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://access.lcb.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://access.lcb.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://access.lcb.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://access.lcb.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://access.lcb.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">lcb.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEszCCA5ugAwIBAgIRAIm9F5IqfEtgz+aqJQ6z8OEwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjExMjEwMDAwMDBaFw0xNTExMjEyMzU5NTlaMIGCMQswCQYD
+						VQQGEwJHQjEXMBUGA1UECBMOV2VzdCBZb3Jrc2hpcmUxDjAMBgNVBAcTBUxlZWRz
+						MSIwIAYDVQQKExlMZWVkcyBDb2xsZWdlIG9mIEJ1aWxkaW5nMQswCQYDVQQLEwJJ
+						VDEZMBcGA1UEAxMQYWNjZXNzLmxjYi5hYy51azCCASIwDQYJKoZIhvcNAQEBBQAD
+						ggEPADCCAQoCggEBALQyZT/SwHUAS2OE3jpY3SF6hbNSykchdwFNI23nvArXybmq
+						l8/ZKXZOl7fG4kVxA/EviUGfi7uE17snR72FtsWpII0FYjV3XVWnnoj9hE7kdBh+
+						UEpeCAsXx2PYrL5h8GjFJuHiAPYGX3hjEuQHvGIojtoEL1z02jH1WX4I98u0B5Vm
+						yV2flqKGn+68eMPMVtgO7nnp889IJmQGVOXoRuotZi987UV3dzBK71oo6SAS5YR0
+						1PwnRD2FepU0DyLHIWAIhLe1hbqU8nN48RU9Lm6uoU/RPHCQ7hd6QtakSV9oIfaW
+						Zr7ps4YCZ0O0J3elLyIU/bvws2TUsJrRW6MpEHcCAwEAAaOCAW0wggFpMB8GA1Ud
+						IwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBSMhrVWHwGDq1Ml
+						xTe2LoaUWkLjYDAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUE
+						FjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQIC
+						HTAIBgZngQwBAgIwOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVy
+						ZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUF
+						BzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAm
+						BggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwGwYDVR0RBBQw
+						EoIQYWNjZXNzLmxjYi5hYy51azANBgkqhkiG9w0BAQUFAAOCAQEAMs1x9M3D/j7o
+						PrmPdL5U2q0bDp7XqyrKUzqW2rN5c3qBElVS5aqV2nFoUSxI/SdBgom324APX4Iw
+						Y6RoFBJyAfUMZ6Dce7Jeyu1BzhxjGE/RjO0B8JnKPlNc8Q+FMlUHTpGFaUXvM7TK
+						QOe5Giavbh76bGQaAmhAFMGxXfEYnAWhwCI8YagY3N00OLQYag5QwrJa8e2t7szQ
+						NjNkLbJzs9g/pkmLRH/oDJqRvjPPcdk8ZffGqq9Y+yFsO9dyuVElCi+reb9XNEn8
+						4OwKftsJyCgu106HmCFWH/dRi0cZIJfAOKTbIivcEMKbERxqgwRYqy08StD/KPVn
+						CTyuNFCgDg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://access.lcb.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://access.lcb.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Leeds College of Building</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Leeds College of Building</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.lcb.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Anne-Mary</md:GivenName>
+      <md:SurName>Inglehearn</md:SurName>
+      <md:EmailAddress>mailto:AInglehearn@lcb.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Grimley</md:SurName>
+      <md:EmailAddress>mailto:cgrimley@lcb.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

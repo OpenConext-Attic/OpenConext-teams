@@ -1,0 +1,244 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.unimedizin-mainz.de/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-10-09T21:46:04Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">unimedizin-mainz.de</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="de">Universitätsmedizin der JoGu Mainz</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">University Medical Center of the JoGu Mainz</mdui:DisplayName>
+          <mdui:Description xml:lang="de">Universitätsmedizin der Johannes Gutenberg-Universität Mainz</mdui:Description>
+          <mdui:Description xml:lang="en">University Medical Center of the Johannes Gutenberg University Mainz</mdui:Description>
+          <mdui:InformationURL xml:lang="de">http://www.unimedizin-mainz.de</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">http://www.unimedizin-mainz.de</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:KeyName>idp.unimedizin-mainz.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=idp.unimedizin-mainz.de,O=Universitaetsmedizin der Johannes Gutenberg-Universitaet Mainz,L=Mainz,ST=Rheinland-Pfalz,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGnTCCBYWgAwIBAgIHGFIEk0Z6CDANBgkqhkiG9w0BAQsFADCB2DELMAkGA1UE
+BhMCREUxGDAWBgNVBAgTD1JoZWlubGFuZC1QZmFsejEOMAwGA1UEBxMFTWFpbnox
+RzBFBgNVBAoTPlVuaXZlcnNpdGFldHNtZWRpemluIGRlciBKb2hhbm5lcyBHdXRl
+bmJlcmctVW5pdmVyc2l0YWV0IE1haW56MS8wLQYDVQQDEyZVTklWRVJTSVRBRVRT
+bWVkaXppbi4gTWFpbnogLSBDQSAtIEcwMTElMCMGCSqGSIb3DQEJARYWY2FAdW5p
+bWVkaXppbi1tYWluei5kZTAeFw0xNDEwMDYxMjExNDdaFw0xOTA3MDYwMDAwMDBa
+MIGiMQswCQYDVQQGEwJERTEYMBYGA1UECBMPUmhlaW5sYW5kLVBmYWx6MQ4wDAYD
+VQQHEwVNYWluejFHMEUGA1UEChM+VW5pdmVyc2l0YWV0c21lZGl6aW4gZGVyIEpv
+aGFubmVzIEd1dGVuYmVyZy1Vbml2ZXJzaXRhZXQgTWFpbnoxIDAeBgNVBAMTF2lk
+cC51bmltZWRpemluLW1haW56LmRlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+CgKCAQEApf3XPkCctjw5x/tK0fVGr5/M0ZeJ8iPjES2XNyxMMBT0CirU96+r20YW
+aS1rpnWRNwWrr+iWiwK7mYQ5glT5RkwtBB3zdEHYRC/MZHRIrDVlVtEqGVEdN5Fn
+ZEixsxDatWdWBwCcTMO2rp7Uf6zsCxCJn63JwCtZVLyDdcEg4m+2Q32nwQZY29V4
+0t3mVfUZ/r55V9W8V2zhRpRrGarqmCGAv48XXwgVHLhN/Rb0/grsBRJZqEU9CvA0
+ujJwFuk9Lh8S1H3jNbqAv2M2Yf88rQDbGgy8yhOve7aWmHjIxaGm0IOVHSGLHm5g
+9eH/Dd68StfdnxsrubW7Qjl/vTgT7wIDAQABo4ICnjCCApowCQYDVR0TBAIwADAL
+BgNVHQ8EBAMCBeAwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMB0GA1Ud
+DgQWBBS27g1OcWdymQjf/ek1vvVRKOtGjDAfBgNVHSMEGDAWgBSkOU4ibcYqBiBu
+2uhoUVylgQ52PTBWBgNVHREETzBNghdpZHAudW5pbWVkaXppbi1tYWluei5kZYIY
+aWRwMS51bmltZWRpemluLW1haW56LmRlghhpZHAyLnVuaW1lZGl6aW4tbWFpbnou
+ZGUwgZMGA1UdHwSBizCBiDBCoECgPoY8aHR0cDovL2NkcDEucGNhLmRmbi5kZS91
+bmltZWRpemluLW1haW56LWNhL3B1Yi9jcmwvY2FjcmwuY3JsMEKgQKA+hjxodHRw
+Oi8vY2RwMi5wY2EuZGZuLmRlL3VuaW1lZGl6aW4tbWFpbnotY2EvcHViL2NybC9j
+YWNybC5jcmwwgeEGCCsGAQUFBwEBBIHUMIHRMDMGCCsGAQUFBzABhidodHRwOi8v
+b2NzcC5wY2EuZGZuLmRlL09DU1AtU2VydmVyL09DU1AwTAYIKwYBBQUHMAKGQGh0
+dHA6Ly9jZHAxLnBjYS5kZm4uZGUvdW5pbWVkaXppbi1tYWluei1jYS9wdWIvY2Fj
+ZXJ0L2NhY2VydC5jcnQwTAYIKwYBBQUHMAKGQGh0dHA6Ly9jZHAyLnBjYS5kZm4u
+ZGUvdW5pbWVkaXppbi1tYWluei1jYS9wdWIvY2FjZXJ0L2NhY2VydC5jcnQwTwYD
+VR0gBEgwRjAPBg0rBgEEAYGtIYIsAQEEMA0GCysGAQQBga0hgiweMBEGDysGAQQB
+ga0hgiwBAQQDAjARBg8rBgEEAYGtIYIsAgEEAwEwDQYJKoZIhvcNAQELBQADggEB
+AEzbmDhzM5OGsMX1WJbj2tTAvVjlyEm3ioEE58dDV2I5QTi2TovCSxolslWnu6m6
+K0W2XZONTXSlbpr63Mk37KpThaMmt50tGhaQzmhDlcJINxpP4kKsDcYFHaem2wKW
+jHbL3pV2VIrYJwOhbVDFlhxJTRJ3wSrKCn52XT1U2/seD/iFBmfZtjDjnKT81r2F
+A/97xPYyf/ERwisDrvq0NqAlDGUQwqb670CNOLwuxm8UgjRct73RNgea9ez3Gs97
+8dmHUIz1D+e8aGj31RallWAk/ZdYp0rKYM0dd7MGbh6toEevStAbb2MTKHqIv45S
+AO8Ifi/pFzKtodcKmmfls3M=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:KeyName>idp.unimedizin-mainz.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=idp.unimedizin-mainz.de,O=Universitaetsmedizin der Johannes Gutenberg-Universitaet Mainz,L=Mainz,ST=Rheinland-Pfalz,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGnTCCBYWgAwIBAgIHGFIEk0Z6CDANBgkqhkiG9w0BAQsFADCB2DELMAkGA1UE
+BhMCREUxGDAWBgNVBAgTD1JoZWlubGFuZC1QZmFsejEOMAwGA1UEBxMFTWFpbnox
+RzBFBgNVBAoTPlVuaXZlcnNpdGFldHNtZWRpemluIGRlciBKb2hhbm5lcyBHdXRl
+bmJlcmctVW5pdmVyc2l0YWV0IE1haW56MS8wLQYDVQQDEyZVTklWRVJTSVRBRVRT
+bWVkaXppbi4gTWFpbnogLSBDQSAtIEcwMTElMCMGCSqGSIb3DQEJARYWY2FAdW5p
+bWVkaXppbi1tYWluei5kZTAeFw0xNDEwMDYxMjExNDdaFw0xOTA3MDYwMDAwMDBa
+MIGiMQswCQYDVQQGEwJERTEYMBYGA1UECBMPUmhlaW5sYW5kLVBmYWx6MQ4wDAYD
+VQQHEwVNYWluejFHMEUGA1UEChM+VW5pdmVyc2l0YWV0c21lZGl6aW4gZGVyIEpv
+aGFubmVzIEd1dGVuYmVyZy1Vbml2ZXJzaXRhZXQgTWFpbnoxIDAeBgNVBAMTF2lk
+cC51bmltZWRpemluLW1haW56LmRlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+CgKCAQEApf3XPkCctjw5x/tK0fVGr5/M0ZeJ8iPjES2XNyxMMBT0CirU96+r20YW
+aS1rpnWRNwWrr+iWiwK7mYQ5glT5RkwtBB3zdEHYRC/MZHRIrDVlVtEqGVEdN5Fn
+ZEixsxDatWdWBwCcTMO2rp7Uf6zsCxCJn63JwCtZVLyDdcEg4m+2Q32nwQZY29V4
+0t3mVfUZ/r55V9W8V2zhRpRrGarqmCGAv48XXwgVHLhN/Rb0/grsBRJZqEU9CvA0
+ujJwFuk9Lh8S1H3jNbqAv2M2Yf88rQDbGgy8yhOve7aWmHjIxaGm0IOVHSGLHm5g
+9eH/Dd68StfdnxsrubW7Qjl/vTgT7wIDAQABo4ICnjCCApowCQYDVR0TBAIwADAL
+BgNVHQ8EBAMCBeAwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMB0GA1Ud
+DgQWBBS27g1OcWdymQjf/ek1vvVRKOtGjDAfBgNVHSMEGDAWgBSkOU4ibcYqBiBu
+2uhoUVylgQ52PTBWBgNVHREETzBNghdpZHAudW5pbWVkaXppbi1tYWluei5kZYIY
+aWRwMS51bmltZWRpemluLW1haW56LmRlghhpZHAyLnVuaW1lZGl6aW4tbWFpbnou
+ZGUwgZMGA1UdHwSBizCBiDBCoECgPoY8aHR0cDovL2NkcDEucGNhLmRmbi5kZS91
+bmltZWRpemluLW1haW56LWNhL3B1Yi9jcmwvY2FjcmwuY3JsMEKgQKA+hjxodHRw
+Oi8vY2RwMi5wY2EuZGZuLmRlL3VuaW1lZGl6aW4tbWFpbnotY2EvcHViL2NybC9j
+YWNybC5jcmwwgeEGCCsGAQUFBwEBBIHUMIHRMDMGCCsGAQUFBzABhidodHRwOi8v
+b2NzcC5wY2EuZGZuLmRlL09DU1AtU2VydmVyL09DU1AwTAYIKwYBBQUHMAKGQGh0
+dHA6Ly9jZHAxLnBjYS5kZm4uZGUvdW5pbWVkaXppbi1tYWluei1jYS9wdWIvY2Fj
+ZXJ0L2NhY2VydC5jcnQwTAYIKwYBBQUHMAKGQGh0dHA6Ly9jZHAyLnBjYS5kZm4u
+ZGUvdW5pbWVkaXppbi1tYWluei1jYS9wdWIvY2FjZXJ0L2NhY2VydC5jcnQwTwYD
+VR0gBEgwRjAPBg0rBgEEAYGtIYIsAQEEMA0GCysGAQQBga0hgiweMBEGDysGAQQB
+ga0hgiwBAQQDAjARBg8rBgEEAYGtIYIsAgEEAwEwDQYJKoZIhvcNAQELBQADggEB
+AEzbmDhzM5OGsMX1WJbj2tTAvVjlyEm3ioEE58dDV2I5QTi2TovCSxolslWnu6m6
+K0W2XZONTXSlbpr63Mk37KpThaMmt50tGhaQzmhDlcJINxpP4kKsDcYFHaem2wKW
+jHbL3pV2VIrYJwOhbVDFlhxJTRJ3wSrKCn52XT1U2/seD/iFBmfZtjDjnKT81r2F
+A/97xPYyf/ERwisDrvq0NqAlDGUQwqb670CNOLwuxm8UgjRct73RNgea9ez3Gs97
+8dmHUIz1D+e8aGj31RallWAk/ZdYp0rKYM0dd7MGbh6toEevStAbb2MTKHqIv45S
+AO8Ifi/pFzKtodcKmmfls3M=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.unimedizin-mainz.de:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.unimedizin-mainz.de:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.unimedizin-mainz.de/idp/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.unimedizin-mainz.de/idp/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.unimedizin-mainz.de:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.unimedizin-mainz.de/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.unimedizin-mainz.de/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.unimedizin-mainz.de/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.unimedizin-mainz.de/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">unimedizin-mainz.de</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:KeyName>idp.unimedizin-mainz.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=idp.unimedizin-mainz.de,O=Universitaetsmedizin der Johannes Gutenberg-Universitaet Mainz,L=Mainz,ST=Rheinland-Pfalz,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGnTCCBYWgAwIBAgIHGFIEk0Z6CDANBgkqhkiG9w0BAQsFADCB2DELMAkGA1UE
+BhMCREUxGDAWBgNVBAgTD1JoZWlubGFuZC1QZmFsejEOMAwGA1UEBxMFTWFpbnox
+RzBFBgNVBAoTPlVuaXZlcnNpdGFldHNtZWRpemluIGRlciBKb2hhbm5lcyBHdXRl
+bmJlcmctVW5pdmVyc2l0YWV0IE1haW56MS8wLQYDVQQDEyZVTklWRVJTSVRBRVRT
+bWVkaXppbi4gTWFpbnogLSBDQSAtIEcwMTElMCMGCSqGSIb3DQEJARYWY2FAdW5p
+bWVkaXppbi1tYWluei5kZTAeFw0xNDEwMDYxMjExNDdaFw0xOTA3MDYwMDAwMDBa
+MIGiMQswCQYDVQQGEwJERTEYMBYGA1UECBMPUmhlaW5sYW5kLVBmYWx6MQ4wDAYD
+VQQHEwVNYWluejFHMEUGA1UEChM+VW5pdmVyc2l0YWV0c21lZGl6aW4gZGVyIEpv
+aGFubmVzIEd1dGVuYmVyZy1Vbml2ZXJzaXRhZXQgTWFpbnoxIDAeBgNVBAMTF2lk
+cC51bmltZWRpemluLW1haW56LmRlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+CgKCAQEApf3XPkCctjw5x/tK0fVGr5/M0ZeJ8iPjES2XNyxMMBT0CirU96+r20YW
+aS1rpnWRNwWrr+iWiwK7mYQ5glT5RkwtBB3zdEHYRC/MZHRIrDVlVtEqGVEdN5Fn
+ZEixsxDatWdWBwCcTMO2rp7Uf6zsCxCJn63JwCtZVLyDdcEg4m+2Q32nwQZY29V4
+0t3mVfUZ/r55V9W8V2zhRpRrGarqmCGAv48XXwgVHLhN/Rb0/grsBRJZqEU9CvA0
+ujJwFuk9Lh8S1H3jNbqAv2M2Yf88rQDbGgy8yhOve7aWmHjIxaGm0IOVHSGLHm5g
+9eH/Dd68StfdnxsrubW7Qjl/vTgT7wIDAQABo4ICnjCCApowCQYDVR0TBAIwADAL
+BgNVHQ8EBAMCBeAwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMB0GA1Ud
+DgQWBBS27g1OcWdymQjf/ek1vvVRKOtGjDAfBgNVHSMEGDAWgBSkOU4ibcYqBiBu
+2uhoUVylgQ52PTBWBgNVHREETzBNghdpZHAudW5pbWVkaXppbi1tYWluei5kZYIY
+aWRwMS51bmltZWRpemluLW1haW56LmRlghhpZHAyLnVuaW1lZGl6aW4tbWFpbnou
+ZGUwgZMGA1UdHwSBizCBiDBCoECgPoY8aHR0cDovL2NkcDEucGNhLmRmbi5kZS91
+bmltZWRpemluLW1haW56LWNhL3B1Yi9jcmwvY2FjcmwuY3JsMEKgQKA+hjxodHRw
+Oi8vY2RwMi5wY2EuZGZuLmRlL3VuaW1lZGl6aW4tbWFpbnotY2EvcHViL2NybC9j
+YWNybC5jcmwwgeEGCCsGAQUFBwEBBIHUMIHRMDMGCCsGAQUFBzABhidodHRwOi8v
+b2NzcC5wY2EuZGZuLmRlL09DU1AtU2VydmVyL09DU1AwTAYIKwYBBQUHMAKGQGh0
+dHA6Ly9jZHAxLnBjYS5kZm4uZGUvdW5pbWVkaXppbi1tYWluei1jYS9wdWIvY2Fj
+ZXJ0L2NhY2VydC5jcnQwTAYIKwYBBQUHMAKGQGh0dHA6Ly9jZHAyLnBjYS5kZm4u
+ZGUvdW5pbWVkaXppbi1tYWluei1jYS9wdWIvY2FjZXJ0L2NhY2VydC5jcnQwTwYD
+VR0gBEgwRjAPBg0rBgEEAYGtIYIsAQEEMA0GCysGAQQBga0hgiweMBEGDysGAQQB
+ga0hgiwBAQQDAjARBg8rBgEEAYGtIYIsAgEEAwEwDQYJKoZIhvcNAQELBQADggEB
+AEzbmDhzM5OGsMX1WJbj2tTAvVjlyEm3ioEE58dDV2I5QTi2TovCSxolslWnu6m6
+K0W2XZONTXSlbpr63Mk37KpThaMmt50tGhaQzmhDlcJINxpP4kKsDcYFHaem2wKW
+jHbL3pV2VIrYJwOhbVDFlhxJTRJ3wSrKCn52XT1U2/seD/iFBmfZtjDjnKT81r2F
+A/97xPYyf/ERwisDrvq0NqAlDGUQwqb670CNOLwuxm8UgjRct73RNgea9ez3Gs97
+8dmHUIz1D+e8aGj31RallWAk/ZdYp0rKYM0dd7MGbh6toEevStAbb2MTKHqIv45S
+AO8Ifi/pFzKtodcKmmfls3M=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:KeyName>idp.unimedizin-mainz.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=idp.unimedizin-mainz.de,O=Universitaetsmedizin der Johannes Gutenberg-Universitaet Mainz,L=Mainz,ST=Rheinland-Pfalz,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGnTCCBYWgAwIBAgIHGFIEk0Z6CDANBgkqhkiG9w0BAQsFADCB2DELMAkGA1UE
+BhMCREUxGDAWBgNVBAgTD1JoZWlubGFuZC1QZmFsejEOMAwGA1UEBxMFTWFpbnox
+RzBFBgNVBAoTPlVuaXZlcnNpdGFldHNtZWRpemluIGRlciBKb2hhbm5lcyBHdXRl
+bmJlcmctVW5pdmVyc2l0YWV0IE1haW56MS8wLQYDVQQDEyZVTklWRVJTSVRBRVRT
+bWVkaXppbi4gTWFpbnogLSBDQSAtIEcwMTElMCMGCSqGSIb3DQEJARYWY2FAdW5p
+bWVkaXppbi1tYWluei5kZTAeFw0xNDEwMDYxMjExNDdaFw0xOTA3MDYwMDAwMDBa
+MIGiMQswCQYDVQQGEwJERTEYMBYGA1UECBMPUmhlaW5sYW5kLVBmYWx6MQ4wDAYD
+VQQHEwVNYWluejFHMEUGA1UEChM+VW5pdmVyc2l0YWV0c21lZGl6aW4gZGVyIEpv
+aGFubmVzIEd1dGVuYmVyZy1Vbml2ZXJzaXRhZXQgTWFpbnoxIDAeBgNVBAMTF2lk
+cC51bmltZWRpemluLW1haW56LmRlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+CgKCAQEApf3XPkCctjw5x/tK0fVGr5/M0ZeJ8iPjES2XNyxMMBT0CirU96+r20YW
+aS1rpnWRNwWrr+iWiwK7mYQ5glT5RkwtBB3zdEHYRC/MZHRIrDVlVtEqGVEdN5Fn
+ZEixsxDatWdWBwCcTMO2rp7Uf6zsCxCJn63JwCtZVLyDdcEg4m+2Q32nwQZY29V4
+0t3mVfUZ/r55V9W8V2zhRpRrGarqmCGAv48XXwgVHLhN/Rb0/grsBRJZqEU9CvA0
+ujJwFuk9Lh8S1H3jNbqAv2M2Yf88rQDbGgy8yhOve7aWmHjIxaGm0IOVHSGLHm5g
+9eH/Dd68StfdnxsrubW7Qjl/vTgT7wIDAQABo4ICnjCCApowCQYDVR0TBAIwADAL
+BgNVHQ8EBAMCBeAwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMB0GA1Ud
+DgQWBBS27g1OcWdymQjf/ek1vvVRKOtGjDAfBgNVHSMEGDAWgBSkOU4ibcYqBiBu
+2uhoUVylgQ52PTBWBgNVHREETzBNghdpZHAudW5pbWVkaXppbi1tYWluei5kZYIY
+aWRwMS51bmltZWRpemluLW1haW56LmRlghhpZHAyLnVuaW1lZGl6aW4tbWFpbnou
+ZGUwgZMGA1UdHwSBizCBiDBCoECgPoY8aHR0cDovL2NkcDEucGNhLmRmbi5kZS91
+bmltZWRpemluLW1haW56LWNhL3B1Yi9jcmwvY2FjcmwuY3JsMEKgQKA+hjxodHRw
+Oi8vY2RwMi5wY2EuZGZuLmRlL3VuaW1lZGl6aW4tbWFpbnotY2EvcHViL2NybC9j
+YWNybC5jcmwwgeEGCCsGAQUFBwEBBIHUMIHRMDMGCCsGAQUFBzABhidodHRwOi8v
+b2NzcC5wY2EuZGZuLmRlL09DU1AtU2VydmVyL09DU1AwTAYIKwYBBQUHMAKGQGh0
+dHA6Ly9jZHAxLnBjYS5kZm4uZGUvdW5pbWVkaXppbi1tYWluei1jYS9wdWIvY2Fj
+ZXJ0L2NhY2VydC5jcnQwTAYIKwYBBQUHMAKGQGh0dHA6Ly9jZHAyLnBjYS5kZm4u
+ZGUvdW5pbWVkaXppbi1tYWluei1jYS9wdWIvY2FjZXJ0L2NhY2VydC5jcnQwTwYD
+VR0gBEgwRjAPBg0rBgEEAYGtIYIsAQEEMA0GCysGAQQBga0hgiweMBEGDysGAQQB
+ga0hgiwBAQQDAjARBg8rBgEEAYGtIYIsAgEEAwEwDQYJKoZIhvcNAQELBQADggEB
+AEzbmDhzM5OGsMX1WJbj2tTAvVjlyEm3ioEE58dDV2I5QTi2TovCSxolslWnu6m6
+K0W2XZONTXSlbpr63Mk37KpThaMmt50tGhaQzmhDlcJINxpP4kKsDcYFHaem2wKW
+jHbL3pV2VIrYJwOhbVDFlhxJTRJ3wSrKCn52XT1U2/seD/iFBmfZtjDjnKT81r2F
+A/97xPYyf/ERwisDrvq0NqAlDGUQwqb670CNOLwuxm8UgjRct73RNgea9ez3Gs97
+8dmHUIz1D+e8aGj31RallWAk/ZdYp0rKYM0dd7MGbh6toEevStAbb2MTKHqIv45S
+AO8Ifi/pFzKtodcKmmfls3M=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.unimedizin-mainz.de:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.unimedizin-mainz.de:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e417</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e417</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Universitätsmedizin der Johannes Gutenberg-Universität Mainz</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">University Medical Center of the Johannes Gutenberg University Mainz Germany</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.unimedizin-mainz.de</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.unimedizin-mainz.de</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Ataollah</md:GivenName>
+      <md:SurName>Khoddam-Zadeh</md:SurName>
+      <md:EmailAddress>mailto:ataollah.khoddam-zadeh@unimedizin-mainz.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ataollah</md:GivenName>
+      <md:SurName>Khoddam-Zadeh</md:SurName>
+      <md:EmailAddress>mailto:ataollah.khoddam-zadeh@unimedizin-mainz.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Ataollah</md:GivenName>
+      <md:SurName>Khoddam-Zadeh</md:SurName>
+      <md:EmailAddress>mailto:ataollah.khoddam-zadeh@unimedizin-mainz.de</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

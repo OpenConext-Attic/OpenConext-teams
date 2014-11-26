@@ -1,17 +1,15 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://cafe.ifnmg.edu.br/idp/shibboleth">
-    <Extensions>
-
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
-                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+<md:EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://cafe.ifnmg.edu.br/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="pt-br">
                                 http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
                               </mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-    </Extensions>
-
-    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
         <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="en">IFNMG - Instituto Federal Do Norte De Minas Gerais</mdui:DisplayName>
           <mdui:DisplayName xml:lang="pt-br">IFNMG - Instituto Federal Do Norte De Minas Gerais</mdui:DisplayName>
           <mdui:Description xml:lang="en">IFNMG - Instituto Federal Do Norte De Minas Gerais</mdui:Description>
@@ -19,8 +17,8 @@
           <mdui:InformationURL xml:lang="en">http://www.ifnmg.edu.br/</mdui:InformationURL>
           <mdui:InformationURL xml:lang="pt-br">http://www.ifnmg.edu.br/</mdui:InformationURL>
         </mdui:UIInfo>
-      </Extensions>
-      <KeyDescriptor>
+      </md:Extensions>
+      <md:KeyDescriptor>
         <ds:KeyInfo>
           <ds:X509Data>
             <ds:X509Certificate>
@@ -52,29 +50,21 @@ zG6SmyYA5YmlEzJQS1UXZtuchEwQlVajzGdGZAeQm2bPcbCgSrAx6EnU4ZLKIQ==
             </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-
-      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.ifnmg.edu.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-
-      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.ifnmg.edu.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-
-      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafe.ifnmg.edu.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafe.ifnmg.edu.br/idp/profile/SAML2/POST/SSO"/>
-      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafe.ifnmg.edu.br/idp/profile/Shibboleth/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafe.ifnmg.edu.br/idp/profile/SAML2/Redirect/SSO"/>
-    </IDPSSODescriptor>
-
-    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-
-      <Extensions>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.ifnmg.edu.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.ifnmg.edu.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafe.ifnmg.edu.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafe.ifnmg.edu.br/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafe.ifnmg.edu.br/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafe.ifnmg.edu.br/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
         <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
-      </Extensions>
-
-      <KeyDescriptor>
+      </md:Extensions>
+      <md:KeyDescriptor>
         <ds:KeyInfo>
           <ds:X509Data>
             <ds:X509Certificate>
@@ -108,30 +98,22 @@ zG6SmyYA5YmlEzJQS1UXZtuchEwQlVajzGdGZAeQm2bPcbCgSrAx6EnU4ZLKIQ==
             </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-
-      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.ifnmg.edu.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-
-      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.ifnmg.edu.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-
-      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-
-    </AttributeAuthorityDescriptor>
-
-    <Organization>
-      <OrganizationName xml:lang="en">IFNMG - Instituto Federal Do Norte De Minas Gerais</OrganizationName>
-      <OrganizationName xml:lang="pt-br">IFNMG - Instituto Federal Do Norte De Minas Gerais</OrganizationName>
-      <OrganizationDisplayName xml:lang="en">IFNMG - Instituto Federal Do Norte De Minas Gerais</OrganizationDisplayName>
-      <OrganizationDisplayName xml:lang="pt-br">IFNMG - Instituto Federal Do Norte De Minas Gerais</OrganizationDisplayName>
-      <OrganizationURL xml:lang="en">http://www.ifnmg.edu.br/</OrganizationURL>
-      <OrganizationURL xml:lang="pt-br">http://www.ifnmg.edu.br/</OrganizationURL>
-    </Organization>
-
-    <ContactPerson contactType="technical">
-      <SurName>Christopher Mota</SurName>
-      <EmailAddress>christopher.mota@ifnmg.edu.br</EmailAddress>
-    </ContactPerson>
-
-  </EntityDescriptor>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.ifnmg.edu.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.ifnmg.edu.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">IFNMG - Instituto Federal Do Norte De Minas Gerais</md:OrganizationName>
+      <md:OrganizationName xml:lang="pt-br">IFNMG - Instituto Federal Do Norte De Minas Gerais</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">IFNMG - Instituto Federal Do Norte De Minas Gerais</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pt-br">IFNMG - Instituto Federal Do Norte De Minas Gerais</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ifnmg.edu.br/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="pt-br">http://www.ifnmg.edu.br/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Christopher Mota</md:SurName>
+      <md:EmailAddress>christopher.mota@ifnmg.edu.br</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

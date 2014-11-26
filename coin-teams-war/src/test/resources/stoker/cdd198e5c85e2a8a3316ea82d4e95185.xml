@@ -1,0 +1,94 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibb.hull-college.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hull-college.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDSzCCAjOgAwIBAgIUaojREYh1XaT0V1FbUQE451xU0T0wDQYJKoZIhvcNAQEF
+						BQAwIzEhMB8GA1UEAxMYc2hpYmIuaHVsbC1jb2xsZWdlLmFjLnVrMB4XDTEyMDcx
+						OTEzMTM1MFoXDTMyMDcxOTEzMTM1MFowIzEhMB8GA1UEAxMYc2hpYmIuaHVsbC1j
+						b2xsZWdlLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgitW
+						1WtEbKdSdLiySMQehTDMJzDlxehSdnF2OLuqZ0uTM96o2B2IGg1tjtasFrPMIqbp
+						rjBFb3RfnLHRpB1W0jvCdHcVcDVDJIPJmxnujwo8MzwV106lVq2bdaqLe0MFnCoa
+						qXrUw3KtSwHu4+DkT0kuMTY1w91kujDEnhW5XSYM3S8bnw7TBk58sMVT4B6V4o5I
+						UfTstLtrvvV2uAi5s7NKZ6wG3CtnAR7ES28+mUtVz6G0igmf/V6MAm1bIT93+MUs
+						0kNBVxbpoyKwrdhjDXM6UsnnC+uoIwvNSSPdpc5nszWl2EYPRkSrAsBEGNyGDqiS
+						fVRdso7W1gYDdkaCvQIDAQABo3cwdTBUBgNVHREETTBLghhzaGliYi5odWxsLWNv
+						bGxlZ2UuYWMudWuGL2h0dHBzOi8vc2hpYmIuaHVsbC1jb2xsZWdlLmFjLnVrL2lk
+						cC9zaGliYm9sZXRoMB0GA1UdDgQWBBRBbufVWySSGAnFZn47ZezwsIEqKTANBgkq
+						hkiG9w0BAQUFAAOCAQEAULRr5dWJdGzVQyhZwMvUGtfL4XgS6jTMW99FPP5+3BoF
+						N1CPJbKXN8+b0bSSdNA9OLiY/ycevimB9pNjXaAJx+Edj04Y9LzecvgfV01wBU1A
+						ouidR8OSzpyqetIWiOhbAA9m0h8FZIWIHhbGwng4gwJVfDF8ixQWCSZTFCngmuqZ
+						ZLAhXvkTwRYoP60aCOACmjVvh8aF32WD6VDxt7NXaWpTS3BmJMx2qyGefphE4NnN
+						7o+IRgxv0/VW0v/iF5qQdz/1X8tcpEFwYCYvZdd5oN7n2AXtreVdQpzjNvgwMPm4
+						7vcAoZwF/ISCxozoxB7yb8jG71OF0Xtjmc8O0nClQA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibb.hull-college.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibb.hull-college.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibb.hull-college.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibb.hull-college.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibb.hull-college.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibb.hull-college.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hull-college.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDSzCCAjOgAwIBAgIUaojREYh1XaT0V1FbUQE451xU0T0wDQYJKoZIhvcNAQEF
+						BQAwIzEhMB8GA1UEAxMYc2hpYmIuaHVsbC1jb2xsZWdlLmFjLnVrMB4XDTEyMDcx
+						OTEzMTM1MFoXDTMyMDcxOTEzMTM1MFowIzEhMB8GA1UEAxMYc2hpYmIuaHVsbC1j
+						b2xsZWdlLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgitW
+						1WtEbKdSdLiySMQehTDMJzDlxehSdnF2OLuqZ0uTM96o2B2IGg1tjtasFrPMIqbp
+						rjBFb3RfnLHRpB1W0jvCdHcVcDVDJIPJmxnujwo8MzwV106lVq2bdaqLe0MFnCoa
+						qXrUw3KtSwHu4+DkT0kuMTY1w91kujDEnhW5XSYM3S8bnw7TBk58sMVT4B6V4o5I
+						UfTstLtrvvV2uAi5s7NKZ6wG3CtnAR7ES28+mUtVz6G0igmf/V6MAm1bIT93+MUs
+						0kNBVxbpoyKwrdhjDXM6UsnnC+uoIwvNSSPdpc5nszWl2EYPRkSrAsBEGNyGDqiS
+						fVRdso7W1gYDdkaCvQIDAQABo3cwdTBUBgNVHREETTBLghhzaGliYi5odWxsLWNv
+						bGxlZ2UuYWMudWuGL2h0dHBzOi8vc2hpYmIuaHVsbC1jb2xsZWdlLmFjLnVrL2lk
+						cC9zaGliYm9sZXRoMB0GA1UdDgQWBBRBbufVWySSGAnFZn47ZezwsIEqKTANBgkq
+						hkiG9w0BAQUFAAOCAQEAULRr5dWJdGzVQyhZwMvUGtfL4XgS6jTMW99FPP5+3BoF
+						N1CPJbKXN8+b0bSSdNA9OLiY/ycevimB9pNjXaAJx+Edj04Y9LzecvgfV01wBU1A
+						ouidR8OSzpyqetIWiOhbAA9m0h8FZIWIHhbGwng4gwJVfDF8ixQWCSZTFCngmuqZ
+						ZLAhXvkTwRYoP60aCOACmjVvh8aF32WD6VDxt7NXaWpTS3BmJMx2qyGefphE4NnN
+						7o+IRgxv0/VW0v/iF5qQdz/1X8tcpEFwYCYvZdd5oN7n2AXtreVdQpzjNvgwMPm4
+						7vcAoZwF/ISCxozoxB7yb8jG71OF0Xtjmc8O0nClQA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibb.hull-college.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibb.hull-college.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Hull College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Hull College Group (Shibboleth)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.hull-college.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Skerrow</md:SurName>
+      <md:EmailAddress>mailto:cskerrow@hull-college.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>David</md:GivenName>
+      <md:SurName>Perry</md:SurName>
+      <md:EmailAddress>mailto:dperry@hull-college.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

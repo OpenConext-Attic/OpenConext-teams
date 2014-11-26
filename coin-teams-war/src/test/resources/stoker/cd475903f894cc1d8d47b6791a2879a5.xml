@@ -1,0 +1,64 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://onurbantribe.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-06-13T12:53:34Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Urban Tribe</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Urban Tribe officially verifies your student identity online enabling you to unlock online discounts, deals in your city and tickets for clubs.</mdui:Description>
+          <mdui:Logo height="100" width="350">https://onurbantribe.com/static/images/shibboleth-sp/logo.jpg</mdui:Logo>
+          <mdui:Logo height="100" width="350">https://onurbantribe.com/static/images/shibboleth-sp/logo-transparent.png</mdui:Logo>
+        </mdui:UIInfo>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://onurbantribe.com/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://onurbantribe.com/Shibboleth.sso/Login" index="1"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://onurbantribe.com/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC0zCCAbugAwIBAgIJAJMTWAj8iFJsMA0GCSqGSIb3DQEBBQUAMA8xDTALBgNV
+						BAMTBHN2NTYwHhcNMTIwNjExMjA0NTQyWhcNMjIwNjA5MjA0NTQyWjAPMQ0wCwYD
+						VQQDEwRzdjU2MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0GLBi1CD
+						FHq3HmJgAWG0/YEmU+KwVuSo2CbyoBy8L5hxzkOkuvnBQCh48sIPDJ4iFstOF9Cm
+						nXlv7/V3O0Z5LCnAQpZfiMPL1A09QUFqe+LNAHjGluXmPMztYgPrt5rF95j1lkGU
+						KYOmIoy1F7HK2RdBnOS2/6KAmUs1954ACi8h0YEFBrMq2XG40UrMp6FMwfonb/57
+						9Bugk4pzeht7QxxOuZc/+nK1H1a+b25PJ2yVxwJ/ddVRPSmEbyLTr5v2yhJgtinr
+						veI3nor4gZaKZFaV/YpanhCrOFjWk15iD661Ovy1psOYo52RAi+x+SWsgxWix2Ft
+						S0l8SVNx9n/bLQIDAQABozIwMDAPBgNVHREECDAGggRzdjU2MB0GA1UdDgQWBBS7
+						Fz3DaNXlImw2RhvMkRZNeQW8IzANBgkqhkiG9w0BAQUFAAOCAQEAXoOTtO7bh2QH
+						CkAHtfRrF18lFcyUFQS4EEq+HHIBVYG0+W4NQ6TNeLqSGyBBRZTDfspRKQxEiEgk
+						8OoxTCPsMsYgBaHwLCoGmIpTYlH/I3DRm4kmhcEdCW8coLxCrhPuNd0IywZzO/o/
+						Z84Ls08JJEL0EufednzIztSLzMOsfUIDGKBXb9G6tsGcJkWYOx8LDI4T8c6NfNuK
+						WHwGUCdFlPpjpHE9D30V2nD9AuJIVynYXOpenY9dBST3j2Tn/vg+xvKKioQsZJg+
+						8akeor6orfFsXUIHWOFjGoCjDH9laFChiptGPA8oP0hffeCl6PI2PJGFyKWI/47f
+						nBvhT8cuYQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://onurbantribe.com/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://onurbantribe.com/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://onurbantribe.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://onurbantribe.com/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://onurbantribe.com/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://onurbantribe.com/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://onurbantribe.com/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Take Note Student Advertising Ltd</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Urban Tribe</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://onurbantribe.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Nicolas</md:GivenName>
+      <md:SurName>Carey</md:SurName>
+      <md:EmailAddress>mailto:nicolas@takenoteadvertising.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ian</md:GivenName>
+      <md:SurName>Guerit</md:SurName>
+      <md:EmailAddress>mailto:ian@helastel.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

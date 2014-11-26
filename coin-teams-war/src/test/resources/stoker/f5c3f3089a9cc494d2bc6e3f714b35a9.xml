@@ -1,0 +1,66 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://academic.mintel.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIECDCCAvCgAwIBAgIJAO7HNDxW/p6sMA0GCSqGSIb3DQEBBQUAMIGEMQswCQYD
+						VQQGEwJHQjEQMA4GA1UECBMHRW5nbGFuZDEPMA0GA1UEBxMGTG9uZG9uMScwJQYD
+						VQQKEx5NaW50ZWwgSW50ZXJuYXRpb25hbCBHcm91cCBMdGQxCzAJBgNVBAsTAklU
+						MRwwGgYDVQQDExNhY2FkZW1pYy5taW50ZWwuY29tMB4XDTExMDMyMTEyMDQyNVoX
+						DTIxMDMxODEyMDQyNVowgYQxCzAJBgNVBAYTAkdCMRAwDgYDVQQIEwdFbmdsYW5k
+						MQ8wDQYDVQQHEwZMb25kb24xJzAlBgNVBAoTHk1pbnRlbCBJbnRlcm5hdGlvbmFs
+						IEdyb3VwIEx0ZDELMAkGA1UECxMCSVQxHDAaBgNVBAMTE2FjYWRlbWljLm1pbnRl
+						bC5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDBnMZaWUjR2Dn7
+						dACN6ecDbGRAm/Z2rHa9OhQMXQhkt5685OlvTBqy0NkHLo+IDK7CqELM3B41+EAb
+						6Lr3BLce/LFTxcBQsnHnnD5tINW64gJpD2H6QhSHJ2aqVLeY8wPl6fXtlVytluBV
+						k1T6yjiP/YfUBg7tUSOrsG9nLQCKbZa6+Swubuu0RD42y8v+eUBGZNYJe+MqidxJ
+						rx2/oBwLrbS/a6FgRckPXOU/PZIx/Xeb7I7TIiypTG+JclszphYYWyjowELVkdc/
+						2RYIjR0sPeGVE9XOvPd65Vu5iA3q7QX0TXfr/sfvSH6cHe6eMwHAGutUrzO6FtDs
+						d9E61PsXAgMBAAGjezB5MAkGA1UdEwQCMAAwLAYJYIZIAYb4QgENBB8WHU9wZW5T
+						U0wgR2VuZXJhdGVkIENlcnRpZmljYXRlMB0GA1UdDgQWBBSbbZMSZPF3EcrK/8Tf
+						Jqdvf+/RODAfBgNVHSMEGDAWgBSbbZMSZPF3EcrK/8TfJqdvf+/RODANBgkqhkiG
+						9w0BAQUFAAOCAQEAmV3hGvndRDttCzoB+u6FoKevaifS9x4cwcOZAuCQuLWM09E5
+						ryFxZMSkTKxnfRM9b183qq+rGWQyGJx6mv5GOBOOjlVWgxYfV2acxSRU8D0ZXZR+
+						R4wVx7CL3lg8INzzZ8xdGdToI8L8EH5Q2ogfiVhc6ubQ/rRvxDVlQga3AwN8zFhl
+						QHH2W6QQAh9NPHRac3MtTeISpyO9q8vmIYhG2/4iy8Y46zM9KgIoeZkG9tY4Of7L
+						RNNnH2p2d6Z13fL+4GtUD9vLGi+3LYpuexnMyK721t3z4gbMrNHq7PqmJayvMw4T
+						y1i5AwcB1d7VsdGmUDdaaAr5beJzjSS21W7tuw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://academic.mintel.com/resolve_ukfed" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://testacademic.mintel.com/resolve_ukfed" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://academic.mintel.com/resolve_ukfed" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://testacademic.mintel.com/resolve_ukfed" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shibboleth.mintel.com/Shibboleth.sso/SAML/POST" index="4" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://shibboleth.mintel.com/Shibboleth.sso/SAML/Artifact" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://test-shibboleth.mintel.com/Shibboleth.sso/SAML/POST" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://test-shibboleth.mintel.com/Shibboleth.sso/SAML/Artifact" index="7"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.mintel.com/Shibboleth.sso/SAML2/POST" index="8"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibboleth.mintel.com/Shibboleth.sso/SAML2/Artifact" index="9"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://test-shibboleth.mintel.com/Shibboleth.sso/SAML2/POST" index="10"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://test-shibboleth.mintel.com/Shibboleth.sso/SAML2/Artifact" index="11"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Mintel International Group Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Mintel Oxygen Academic</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://academic.mintel.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Abdul</md:GivenName>
+      <md:SurName>Malik</md:SurName>
+      <md:EmailAddress>mailto:amalik@mintel.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ameet</md:GivenName>
+      <md:SurName>Shah</md:SurName>
+      <md:EmailAddress>mailto:ashah@mintel.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

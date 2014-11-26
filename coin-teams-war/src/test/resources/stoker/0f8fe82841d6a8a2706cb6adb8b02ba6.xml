@@ -1,0 +1,85 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://bm.stars.manchester.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://bm.stars.manchester.ac.uk/Shibboleth.sso/STARSDS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC3zCCAcegAwIBAgIJAJuqRlY/1A1jMA0GCSqGSIb3DQEBBQUAMBMxETAPBgNV
+						BAMTCHZpbGxhbnVzMB4XDTA5MDUyMjA5MjYyN1oXDTE5MDUyMDA5MjYyN1owEzER
+						MA8GA1UEAxMIdmlsbGFudXMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+						AQDMytraxBwzCmyK3cnajuHo5sb2Hhs0aTIAEaUTpcP2qo/yQlT/S5Wjsm5tPtue
+						pA8z0h56Y4on/k9gGGXnjej+23pfX/dPFCLEyE3MODunTkml1ObptRdMJT6CWRwg
+						m9tdWr8r355vAbS/nEn0s0z3dwHBSuf7/q4GZoBkdbUG5TkOJidlWwe5y2OXSspU
+						lehsON69DPXTxujsn9QNYzmdGxui+nrhHsj8hjPEQc9QcFDq7kXuDkM3Lry84h2p
+						kWGXRebVqEGvs6b7CUxvS5xiOChpx6fTi0/LZQQRCzrtVOuYeb9o6wVejmzW6qun
+						KH7dJCc14fgN2Icd7XYqIXYNAgMBAAGjNjA0MBMGA1UdEQQMMAqCCHZpbGxhbnVz
+						MB0GA1UdDgQWBBTwGMy2sDPsfBZdE/1WuaxJDqVNuzANBgkqhkiG9w0BAQUFAAOC
+						AQEAlvJzqsg5+ZiZ0XChtGL3j1n8PbGeah5AfEfXRvS6RrHu7/3w4WOy+XBpGteu
+						8rqE/HkgqcpnXGS61TEU2HmdnNxqMTpGZoI7zbOkkcsNpvvG+dU5OdlEoTgJHuRI
+						12EgBWjTXMweohxDkLANWaqfB9yVDT1MspMkxKmYalZK95N9M/d6gJfXWwU4GSd0
+						4jfwMr9FzpOLAbxAHIohMA2djNfA2gNuve8PqIfBz6iaUAN0SGhGWMWWEL2B+uYZ
+						2vtfZ+CtpWQteMiXFGEfEL/3U5OtjBxt7JaQxaJJ6iRTk5jdl+EI4NxHzmITf3+O
+						EId1IbbmDWSHoeSw5za0bFOJcg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC3zCCAcegAwIBAgIJAJuqRlY/1A1jMA0GCSqGSIb3DQEBBQUAMBMxETAPBgNV
+						BAMTCHZpbGxhbnVzMB4XDTA5MDUyMjA5MjYyN1oXDTE5MDUyMDA5MjYyN1owEzER
+						MA8GA1UEAxMIdmlsbGFudXMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+						AQDMytraxBwzCmyK3cnajuHo5sb2Hhs0aTIAEaUTpcP2qo/yQlT/S5Wjsm5tPtue
+						pA8z0h56Y4on/k9gGGXnjej+23pfX/dPFCLEyE3MODunTkml1ObptRdMJT6CWRwg
+						m9tdWr8r355vAbS/nEn0s0z3dwHBSuf7/q4GZoBkdbUG5TkOJidlWwe5y2OXSspU
+						lehsON69DPXTxujsn9QNYzmdGxui+nrhHsj8hjPEQc9QcFDq7kXuDkM3Lry84h2p
+						kWGXRebVqEGvs6b7CUxvS5xiOChpx6fTi0/LZQQRCzrtVOuYeb9o6wVejmzW6qun
+						KH7dJCc14fgN2Icd7XYqIXYNAgMBAAGjNjA0MBMGA1UdEQQMMAqCCHZpbGxhbnVz
+						MB0GA1UdDgQWBBTwGMy2sDPsfBZdE/1WuaxJDqVNuzANBgkqhkiG9w0BAQUFAAOC
+						AQEAlvJzqsg5+ZiZ0XChtGL3j1n8PbGeah5AfEfXRvS6RrHu7/3w4WOy+XBpGteu
+						8rqE/HkgqcpnXGS61TEU2HmdnNxqMTpGZoI7zbOkkcsNpvvG+dU5OdlEoTgJHuRI
+						12EgBWjTXMweohxDkLANWaqfB9yVDT1MspMkxKmYalZK95N9M/d6gJfXWwU4GSd0
+						4jfwMr9FzpOLAbxAHIohMA2djNfA2gNuve8PqIfBz6iaUAN0SGhGWMWWEL2B+uYZ
+						2vtfZ+CtpWQteMiXFGEfEL/3U5OtjBxt7JaQxaJJ6iRTk5jdl+EI4NxHzmITf3+O
+						EId1IbbmDWSHoeSw5za0bFOJcg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://bm.stars.manchester.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://bm.stars.manchester.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://bm.stars.manchester.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://bm.stars.manchester.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://bm.stars.manchester.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://bm.stars.manchester.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://bm.stars.manchester.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://bm.stars.manchester.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://bm.stars.manchester.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://bm.stars.manchester.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://bm.stars.manchester.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://bm.stars.manchester.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://bm.stars.manchester.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://bm.stars.manchester.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">The University of Manchester</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Manchester: Building Maintenance Organization</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.manchester.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Stars Authentication Support</md:GivenName>
+      <md:EmailAddress>mailto:pssauth.support@manchester.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Stars Authentication Support</md:GivenName>
+      <md:EmailAddress>mailto:pssauth.support@manchester.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

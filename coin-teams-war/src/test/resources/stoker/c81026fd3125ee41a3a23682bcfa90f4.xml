@@ -1,0 +1,108 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://dlib-jiscidp.edina.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">jisc.ac.uk</shibmd:Scope>
+        <shibmd:Scope regexp="false">collections.jisc.ac.uk</shibmd:Scope>
+        <shibmd:Scope regexp="false">jiscadvance.ac.uk</shibmd:Scope>
+        <shibmd:Scope regexp="false">edina.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">JISC Executive New</mdui:DisplayName>
+          <mdui:Description xml:lang="en">JISC IdP (maintained by EDINA)</mdui:Description>
+          <mdui:Logo height="39" width="52">https://dlib-jiscidp.edina.ac.uk/img/jisc.gif</mdui:Logo>
+          <mdui:Logo height="16" width="16">https://dlib-jiscidp.edina.ac.uk/img/jiscicon.gif</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDSzCCAjOgAwIBAgIUZooYXtDuohUPtXHr8p6BHj6IAsEwDQYJKoZIhvcNAQEF
+						BQAwIzEhMB8GA1UEAxMYZGxpYi1qaXNjaWRwLmVkaW5hLmFjLnVrMB4XDTEwMDIy
+						NjEwMDM1OVoXDTMwMDIyNjEwMDM1OVowIzEhMB8GA1UEAxMYZGxpYi1qaXNjaWRw
+						LmVkaW5hLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA479P
+						sZNAGnDd+wlw7o+isg+M++16qHhHNzFPKQBhdA+ojQ0nUjQZZT5SgAVt6WeVE4P3
+						uwG/fWt3cdQ0xYz4pLneqyzve9uuLd0q4J/oqSGKsb9rfIw+Uw7I6K40WySukfpJ
+						7IPREX6z+ymubn7FQOsK9zQ8y6P3Gl67bnnS4CIkot2BKdsX882OoEsDcZGnmXaN
+						12L70pN5vQN3PJzNvc8/sz6u9DgDL8OlXY2fn6ASJ2y2etuHCLkAUSsB14pntgyA
+						WOL0fr7SETJq5y2bCz8SLyoEXqBNe32be2S1prWB5Ioq3gxA9vF1e2WRq/j6AL0U
+						q0s8dAFizK4WjN6nVQIDAQABo3cwdTBUBgNVHREETTBLghhkbGliLWppc2NpZHAu
+						ZWRpbmEuYWMudWuGL2h0dHBzOi8vZGxpYi1qaXNjaWRwLmVkaW5hLmFjLnVrL2lk
+						cC9zaGliYm9sZXRoMB0GA1UdDgQWBBRFE/N5nUQ7MQ/bdOJ1S5cFrY39wTANBgkq
+						hkiG9w0BAQUFAAOCAQEAIzqOynQb9fyfwh4A+r94vl+OvVxg1FPtcZtTYx+6S3L1
+						lLZV6V3urshRREuwOwVvF7a6vEk/G8cw8UCLUIuvbSa/kSFZokRhfkSaoBeeO8s3
+						75RIq10OY7S/GFtLI9yMb9Okm7O/CxVi4+0HWWk/59FDkKbnSgdqJ7vDZTMcErWo
+						YQuoeO3mFnbXMgpryJF95isXdiKSJMor9MhrnPkRaJ1KY8iX1PpYNCuvJKM/TrRM
+						lES1uOmAEuYzRJ7ih5DMjY9bdIiPHr/P6ACfsfx5GmjO1NMeLgtIHWG0lKwg9KkP
+						/qwJiPguX3f69bdizxAelZA/3dsl2Tmp9LLuliVkeg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://dlib-jiscidp.edina.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://dlib-jiscidp.edina.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://dlib-jiscidp.edina.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://dlib-jiscidp.edina.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://dlib-jiscidp.edina.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://dlib-jiscidp.edina.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">jisc.ac.uk</shibmd:Scope>
+        <shibmd:Scope regexp="false">collections.jisc.ac.uk</shibmd:Scope>
+        <shibmd:Scope regexp="false">jiscadvance.ac.uk</shibmd:Scope>
+        <shibmd:Scope regexp="false">edina.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDSzCCAjOgAwIBAgIUZooYXtDuohUPtXHr8p6BHj6IAsEwDQYJKoZIhvcNAQEF
+						BQAwIzEhMB8GA1UEAxMYZGxpYi1qaXNjaWRwLmVkaW5hLmFjLnVrMB4XDTEwMDIy
+						NjEwMDM1OVoXDTMwMDIyNjEwMDM1OVowIzEhMB8GA1UEAxMYZGxpYi1qaXNjaWRw
+						LmVkaW5hLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA479P
+						sZNAGnDd+wlw7o+isg+M++16qHhHNzFPKQBhdA+ojQ0nUjQZZT5SgAVt6WeVE4P3
+						uwG/fWt3cdQ0xYz4pLneqyzve9uuLd0q4J/oqSGKsb9rfIw+Uw7I6K40WySukfpJ
+						7IPREX6z+ymubn7FQOsK9zQ8y6P3Gl67bnnS4CIkot2BKdsX882OoEsDcZGnmXaN
+						12L70pN5vQN3PJzNvc8/sz6u9DgDL8OlXY2fn6ASJ2y2etuHCLkAUSsB14pntgyA
+						WOL0fr7SETJq5y2bCz8SLyoEXqBNe32be2S1prWB5Ioq3gxA9vF1e2WRq/j6AL0U
+						q0s8dAFizK4WjN6nVQIDAQABo3cwdTBUBgNVHREETTBLghhkbGliLWppc2NpZHAu
+						ZWRpbmEuYWMudWuGL2h0dHBzOi8vZGxpYi1qaXNjaWRwLmVkaW5hLmFjLnVrL2lk
+						cC9zaGliYm9sZXRoMB0GA1UdDgQWBBRFE/N5nUQ7MQ/bdOJ1S5cFrY39wTANBgkq
+						hkiG9w0BAQUFAAOCAQEAIzqOynQb9fyfwh4A+r94vl+OvVxg1FPtcZtTYx+6S3L1
+						lLZV6V3urshRREuwOwVvF7a6vEk/G8cw8UCLUIuvbSa/kSFZokRhfkSaoBeeO8s3
+						75RIq10OY7S/GFtLI9yMb9Okm7O/CxVi4+0HWWk/59FDkKbnSgdqJ7vDZTMcErWo
+						YQuoeO3mFnbXMgpryJF95isXdiKSJMor9MhrnPkRaJ1KY8iX1PpYNCuvJKM/TrRM
+						lES1uOmAEuYzRJ7ih5DMjY9bdIiPHr/P6ACfsfx5GmjO1NMeLgtIHWG0lKwg9KkP
+						/qwJiPguX3f69bdizxAelZA/3dsl2Tmp9LLuliVkeg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://dlib-jiscidp.edina.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://dlib-jiscidp.edina.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Edinburgh</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">JISC Executive New</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://edina.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>EDINA Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:edina@ed.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>EDINA Infrastructure</md:GivenName>
+      <md:EmailAddress>mailto:edina.infrastructure@ed.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>UK federation infrastructure</md:GivenName>
+      <md:EmailAddress>mailto:ukfed.infrastructure@ed.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

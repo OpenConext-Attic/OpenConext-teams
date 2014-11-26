@@ -1,0 +1,76 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://test.repository.abertay.ac.uk/shibboleth-sp">
+    <md:Extensions>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-11-12T14:54:50Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://test.repository.abertay.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC8TCCAdmgAwIBAgIJAJjxlcGvVj5jMA0GCSqGSIb3DQEBBQUAMBkxFzAVBgNV
+						BAMTDmxhYy1yZXBvLXRlc3Q5MB4XDTEyMTAwOTA5MDA0OVoXDTIyMTAwNzA5MDA0
+						OVowGTEXMBUGA1UEAxMObGFjLXJlcG8tdGVzdDkwggEiMA0GCSqGSIb3DQEBAQUA
+						A4IBDwAwggEKAoIBAQDEpec8FWkD8JLlztjoDS3g7ijRCL8ikfvRkQ9G+Wt8K7/p
+						W2yuVI8KxzSyBoEJcGfz3qgMJfpgjjgOY5ujzJ45BMdZ8/gDcnnBC+RSgfNkC4rf
+						pFbtb5l9nDEDDCDCoRzpfnHO/G0vpJkaROPb/koYSh+ZSg1UlQ7ALDukqrQgieLU
+						gk1Wa/Ys4xudqiTGKmBy2RZeAfgJqGqeHciSfpMicJeYrSqpVevUFhpm8wdWMY9V
+						htXrDRu/LORdFRqcvNURebTrctSNGlALzvzzcL/KlLlDHUnf1CeBRVtf3XLsfAFI
+						8tTBejncXVYAmC+wyr7AR9VS2gyO+V29af0+1Q0lAgMBAAGjPDA6MBkGA1UdEQQS
+						MBCCDmxhYy1yZXBvLXRlc3Q5MB0GA1UdDgQWBBR1lj5GO1NfZoBe1gN7B6QWIqLJ
+						CTANBgkqhkiG9w0BAQUFAAOCAQEAKZxrZgAfIRaJMAYrc7q2BUcSPFsh6RPf15zt
+						d7psMrQlMeGacaNK9c0zfaVfVSO3VPw6sCxbWBW4JFtlYLccJN6aHOwZYgcIg0dm
+						Pd/ICzFokhV3IWblX6ZheUzgYbLOVNtrt90VUaFPH2JWcgK5HocMZbcvGKyXIAyH
+						VnLZjYpHz06QUBs4bVo144xJjBQL/ow+PhKUr+QGvhcX6c4lzq9xNrwsA3sqbdww
+						qlS9ap7Hl3ajmRv/REjbGOZhZuThU5O65cQSp2PSKnSKV88iFVSLWU2l6TlqKrjt
+						eWJEDVhvk1nZNZXZyVnoEuC0WzGA315+yKjno4H6Ys1Q7B/SiQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://test.repository.abertay.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://test.repository.abertay.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://test.repository.abertay.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://test.repository.abertay.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://test.repository.abertay.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://test.repository.abertay.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://test.repository.abertay.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://test.repository.abertay.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://test.repository.abertay.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://test.repository.abertay.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://test.repository.abertay.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Abertay Dundee</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Digital Research Repository (Test)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.abertay.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>IS Service Desk</md:GivenName>
+      <md:EmailAddress>mailto:isservicedesk@abertay.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Colin</md:GivenName>
+      <md:SurName>Watt</md:SurName>
+      <md:EmailAddress>mailto:colin.watt@ed.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

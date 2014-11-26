@@ -1,0 +1,60 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sp.silverchair.com/ama/staging/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-04-30T10:37:01Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://amarc.silverchair.com/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC/TCCAeWgAwIBAgIJANoZlIfgssLlMA0GCSqGSIb3DQEBBQUAMB0xGzAZBgNV
+						BAMTEnNjbWlpc3ZtMDEuc2NtLmludDAeFw0xMjA0MTYxODIwMzVaFw0yMjA0MTQx
+						ODIwMzVaMB0xGzAZBgNVBAMTEnNjbWlpc3ZtMDEuc2NtLmludDCCASIwDQYJKoZI
+						hvcNAQEBBQADggEPADCCAQoCggEBAM3U7/tX7dHhjPedQT/6pNwQqKry2QwXt1b0
+						ZRHwDZJMB1QkyqW8BG53XbHBNLs5aDsqgcCZsqEak/k4freJsLrqPobG32873cyx
+						X9hJTUcQqESViPQbg8pndzYJej1nksJCpAxtE7iB7AwsT5LBj6sbL9rQvy84PGEf
+						oBT0ilcup3u9mLJ9hGVH2Bc0V4tvo+v2D3grJ8+6NnWyY5wGj57XVyQ4fe/I2sKI
+						zkJo/uZstJsPMXAK6/lGnR2H05WIyT6XD5QllnaiGDHDtLIfrNVRdNSm3hCQpI1k
+						WFqOdGHd8SWHk958A+lrMRCyL5KCxoN3IYZkYCRBid2X37hlBvUCAwEAAaNAMD4w
+						HQYDVR0RBBYwFIISc2NtaWlzdm0wMS5zY20uaW50MB0GA1UdDgQWBBQzcrr94k3o
+						3EA5BPJ4j8VkJmJEsTANBgkqhkiG9w0BAQUFAAOCAQEAhOnuDDO6WUhQyOsIXFqz
+						s1582zeYLMYlVs7Bo9hsmNzw0IRmjfxSsXlQG95DTNoqUVW3xLCw33YzqHJ4ZtGy
+						xNlaw7I4jQ9gc/TMSG2o+HtbcuWinlOnTnfWAbTNXIeKwxtlZhlx7JnPzVywXPWq
+						BuLJIbDCN2UlMMp/RmJ2665UQGIFDB5sNCXOmRk04U1ivYv+Eeau6V0WmcpUoWFr
+						wsi2nppBd2FL2kV3efMcD2LtpSIRP4WO8j8iAo8HaszDGrZlSIwEwcMAkDlZIf8p
+						AdXPoY+neLxlZRAvWPzwQx5+yTOvRDGArbDTK+OnqSivC6/OGSrEeHy5BXziuTgm
+						8g==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://amarc.silverchair.com/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://amarc.silverchair.com/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://amarc.silverchair.com/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://amarc.silverchair.com/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://amarc.silverchair.com/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://amarc.silverchair.com/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://amarc.silverchair.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://amarc.silverchair.com/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://amarc.silverchair.com/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://amarc.silverchair.com/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://amarc.silverchair.com/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Silverchair Science + Communications, LLC</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Silverchair Staging: The American Medical Association</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://amarc.silverchair.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Shibboleth Admin</md:GivenName>
+      <md:EmailAddress>mailto:ShibbolethAdmin@silverchair.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Josh</md:GivenName>
+      <md:SurName>Laseter</md:SurName>
+      <md:EmailAddress>mailto:jlaseter@silverchair.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

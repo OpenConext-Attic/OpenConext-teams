@@ -1,0 +1,131 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://passport01.leeds.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2009-02-24T17:29:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University of Leeds</mdui:DisplayName>
+          <mdui:Logo height="16" width="16">https://www.leeds.ac.uk/leeds/logo/UOLL16px.gif</mdui:Logo>
+          <mdui:Logo height="60" width="60">https://www.leeds.ac.uk/leeds/logo/UOLL60px.gif</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:IPHint>129.11.0.0/16</mdui:IPHint>
+          <mdui:IPHint>194.80.232.0/22</mdui:IPHint>
+          <mdui:IPHint>194.82.12.0/22</mdui:IPHint>
+          <mdui:DomainHint>leeds.ac.uk</mdui:DomainHint>
+          <mdui:GeolocationHint>geo:53.845917,-1.586838</mdui:GeolocationHint>
+          <mdui:GeolocationHint>geo:53.818458,-1.565294</mdui:GeolocationHint>
+          <mdui:GeolocationHint>geo:53.803158,-1.556153</mdui:GeolocationHint>
+          <mdui:GeolocationHint>geo:53.803280,-1.558857</mdui:GeolocationHint>
+          <mdui:GeolocationHint>geo:53.807892,-1.561518</mdui:GeolocationHint>
+          <mdui:GeolocationHint>geo:53.810021,-1.557140</mdui:GeolocationHint>
+          <mdui:GeolocationHint>geo:53.809185,-1.554394</mdui:GeolocationHint>
+          <mdui:GeolocationHint>geo:53.805434,-1.550274</mdui:GeolocationHint>
+          <mdui:GeolocationHint>geo:53.803939,-1.553707</mdui:GeolocationHint>
+          <mdui:GeolocationHint>geo:53.806803,-1.555767</mdui:GeolocationHint>
+          <mdui:GeolocationHint>geo:53.807948,-1.520169</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+        <shibmd:Scope regexp="false">leeds.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEhzCCA2+gAwIBAgIQZugaNgYGJKacmZHftg6FwDANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDUwODAwMDAwMFoXDTE1MDUwODIzNTk1OVowXDELMAkGA1UE
+						BhMCR0IxDjAMBgNVBAcTBUxlZWRzMRwwGgYDVQQKExNVbml2ZXJzaXR5IG9mIExl
+						ZWRzMR8wHQYDVQQDExZwYXNzcG9ydDAxLmxlZWRzLmFjLnVrMIIBIjANBgkqhkiG
+						9w0BAQEFAAOCAQ8AMIIBCgKCAQEApJ8CSCtWcwfYjAoGYAct3rbbZEjkhBBVBdKP
+						WiPUgXluspslc+Ex28zKzpuRHfokDxLJBs5PkcZ+dsc0AbwsIx66BOWPc9vUnJ/P
+						1g66NJQIuKm/uBMp9GSFLlSvawpxwv8H+mT3mWzekZE9jtVDf1bTeZm7CoF422WS
+						WDZAkPkZe+Y2I93/YUwX5NR3jFjCeWk77WmMNAmYbmCWLQd4zR2FhK/6WmB6CFcr
+						u/mJZUuxUXTOrnxr2RG+5XZRJN31TkUcgLTm042wYPeD537V87R7TQPEtd6TzYjR
+						gpIngiEAE6/YwDeiVWwmslm44KnG5iYeshcKd3jvdFqh0gqXLQIDAQABo4IBaTCC
+						AWUwHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH6pDjue0wHQYDVR0OBBYEFACO
+						7Rt4p/HuV6f9LndFJ0kdN9gpMA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAA
+						MB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAYBgNVHSAEETAPMA0GCysG
+						AQQBsjEBAgIdMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVu
+						YS5vcmcvVEVSRU5BU1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcw
+						AoYpaHR0cDovL2NydC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYI
+						KwYBBQUHMAGGGmh0dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMCEGA1UdEQQaMBiC
+						FnBhc3Nwb3J0MDEubGVlZHMuYWMudWswDQYJKoZIhvcNAQEFBQADggEBACQsm5vI
+						4o44Cc/MaLBJ/SPFLoq0BOvVfiGla2OZqkThKevMx9zhJ7F0jPuUf3xeid4dDTVS
+						LZpgbS2plArMls7lrgiB9p6hthZhcpMTsDBFqxmCR4XpWO2FFw4V+JfjEH49cLnf
+						J+7thzg2igVBLyjROj08CwVEIePVL4Sy7dQJzeXzUhkuYv4UNCCljlZZPqoGR1AG
+						RJKHqx110JN4FqLHDbBskqFHroYIWqeqhlI/4/tb1u0AK5NUyXXGjVQ8qHq6gddw
+						hVngRa/lqhP2VGXCqr+WQusp6h/AIwM29L5TPaQMeMqhgLPhDibY/1u3efDbylza
+						RtGpd9sEbI6dDKE=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://passport01.leeds.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://passport01.leeds.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://passport01.leeds.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://passport01.leeds.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://passport01.leeds.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://passport01.leeds.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">leeds.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEhzCCA2+gAwIBAgIQZugaNgYGJKacmZHftg6FwDANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDUwODAwMDAwMFoXDTE1MDUwODIzNTk1OVowXDELMAkGA1UE
+						BhMCR0IxDjAMBgNVBAcTBUxlZWRzMRwwGgYDVQQKExNVbml2ZXJzaXR5IG9mIExl
+						ZWRzMR8wHQYDVQQDExZwYXNzcG9ydDAxLmxlZWRzLmFjLnVrMIIBIjANBgkqhkiG
+						9w0BAQEFAAOCAQ8AMIIBCgKCAQEApJ8CSCtWcwfYjAoGYAct3rbbZEjkhBBVBdKP
+						WiPUgXluspslc+Ex28zKzpuRHfokDxLJBs5PkcZ+dsc0AbwsIx66BOWPc9vUnJ/P
+						1g66NJQIuKm/uBMp9GSFLlSvawpxwv8H+mT3mWzekZE9jtVDf1bTeZm7CoF422WS
+						WDZAkPkZe+Y2I93/YUwX5NR3jFjCeWk77WmMNAmYbmCWLQd4zR2FhK/6WmB6CFcr
+						u/mJZUuxUXTOrnxr2RG+5XZRJN31TkUcgLTm042wYPeD537V87R7TQPEtd6TzYjR
+						gpIngiEAE6/YwDeiVWwmslm44KnG5iYeshcKd3jvdFqh0gqXLQIDAQABo4IBaTCC
+						AWUwHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH6pDjue0wHQYDVR0OBBYEFACO
+						7Rt4p/HuV6f9LndFJ0kdN9gpMA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAA
+						MB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAYBgNVHSAEETAPMA0GCysG
+						AQQBsjEBAgIdMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVu
+						YS5vcmcvVEVSRU5BU1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcw
+						AoYpaHR0cDovL2NydC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYI
+						KwYBBQUHMAGGGmh0dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMCEGA1UdEQQaMBiC
+						FnBhc3Nwb3J0MDEubGVlZHMuYWMudWswDQYJKoZIhvcNAQEFBQADggEBACQsm5vI
+						4o44Cc/MaLBJ/SPFLoq0BOvVfiGla2OZqkThKevMx9zhJ7F0jPuUf3xeid4dDTVS
+						LZpgbS2plArMls7lrgiB9p6hthZhcpMTsDBFqxmCR4XpWO2FFw4V+JfjEH49cLnf
+						J+7thzg2igVBLyjROj08CwVEIePVL4Sy7dQJzeXzUhkuYv4UNCCljlZZPqoGR1AG
+						RJKHqx110JN4FqLHDbBskqFHroYIWqeqhlI/4/tb1u0AK5NUyXXGjVQ8qHq6gddw
+						hVngRa/lqhP2VGXCqr+WQusp6h/AIwM29L5TPaQMeMqhgLPhDibY/1u3efDbylza
+						RtGpd9sEbI6dDKE=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://passport01.leeds.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://passport01.leeds.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Leeds</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Leeds</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://iss.leeds.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>ISS Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:helpdesk@leeds.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ray</md:GivenName>
+      <md:SurName>Powell</md:SurName>
+      <md:EmailAddress>mailto:R.G.Powell@leeds.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

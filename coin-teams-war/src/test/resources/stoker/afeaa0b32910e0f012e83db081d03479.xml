@@ -1,19 +1,19 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://sp.catalog.clarin.eu">
-    <Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2011-08-29T11:20:42Z">
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sp.catalog.clarin.eu">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2011-08-29T11:20:42Z">
         <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
         <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
-        <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
           <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
         </saml:Attribute>
       </mdattr:EntityAttributes>
-    </Extensions>
-    <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://catalog.clarin.eu/Shibboleth.sso/DS" index="1"/>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://catalog.clarin.eu/Shibboleth.sso/DS" index="1"/>
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="de">Clarin Catalog Service Provider</mdui:DisplayName>
           <mdui:DisplayName xml:lang="en">Clarin Catalog Service Provider</mdui:DisplayName>
           <mdui:Description xml:lang="de">Clarin Catalog Service Provider, verstrekt toegang tot de Data Category Registry (ISOcat), Component Registry, Virtual Language Observatory (VLO) en meer</mdui:Description>
@@ -22,9 +22,9 @@
           <mdui:InformationURL xml:lang="en">http://www.clarin.eu</mdui:InformationURL>
           <mdui:PrivacyStatementURL xml:lang="en">https://catalog.clarin.eu/privacy_statement.html</mdui:PrivacyStatementURL>
         </mdui:UIInfo>
-      </Extensions>
-      <KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
           <ds:KeyName>catalog.clarin.eu</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>emailAddress=latadmin@mpi.nl,CN=catalog.clarin.eu,OU=catalog sp,O=MPI-PL,L=Nijmegen,ST=GLD,C=NL</ds:X509SubjectName>
@@ -51,9 +51,9 @@ gDLbA/e0dbDclBvxUIm9cemA
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <KeyDescriptor use="encryption">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
           <ds:KeyName>catalog.clarin.eu</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>emailAddress=latadmin@mpi.nl,CN=catalog.clarin.eu,OU=catalog sp,O=MPI-PL,L=Nijmegen,ST=GLD,C=NL</ds:X509SubjectName>
@@ -80,52 +80,52 @@ gDLbA/e0dbDclBvxUIm9cemA
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://catalog.clarin.eu/Shibboleth.sso/SLO/SOAP"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://catalog.clarin.eu/Shibboleth.sso/SLO/Redirect"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://catalog.clarin.eu/Shibboleth.sso/SLO/POST"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://catalog.clarin.eu/Shibboleth.sso/SLO/Artifact"/>
-      <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://catalog.clarin.eu/Shibboleth.sso/NIM/SOAP"/>
-      <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://catalog.clarin.eu/Shibboleth.sso/NIM/Redirect"/>
-      <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://catalog.clarin.eu/Shibboleth.sso/NIM/POST"/>
-      <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://catalog.clarin.eu/Shibboleth.sso/NIM/Artifact"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://catalog.clarin.eu/Shibboleth.sso/SAML2/POST" index="1"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://catalog.clarin.eu/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://catalog.clarin.eu/Shibboleth.sso/SAML2/Artifact" index="3"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://catalog.clarin.eu/Shibboleth.sso/SAML2/ECP" index="4"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://catalog.clarin.eu/Shibboleth.sso/SAML/POST" index="5"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://catalog.clarin.eu/Shibboleth.sso/SAML/Artifact" index="6"/>
-      <AttributeConsumingService index="1">
-        <ServiceName xml:lang="de">Clarin Catalog Service Provider</ServiceName>
-        <ServiceName xml:lang="en">Clarin Catalog Service Provider</ServiceName>
-        <ServiceDescription xml:lang="de">Clarin Catalog Service Provider, verstrekt toegang tot de Data Category Registry (ISOcat), Component Registry, Virtual Language Observatory (VLO) en meer</ServiceDescription>
-        <ServiceDescription xml:lang="en">Clarin Catalog Service Provider, providing services like the Data Category Registry (ISOcat), Component Registry, Virtual Language Observatory (VLO) and more</ServiceDescription>
-        <RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-        <RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-        <RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-      </AttributeConsumingService>
-    </SPSSODescriptor>
-    <Organization>
-      <OrganizationName xml:lang="de">e235</OrganizationName>
-      <OrganizationName xml:lang="en">e235</OrganizationName>
-      <OrganizationDisplayName xml:lang="de">Max-Planck-Institut für Psycholinguistik</OrganizationDisplayName>
-      <OrganizationDisplayName xml:lang="en">Max Planck Institute for Psycholinguistics</OrganizationDisplayName>
-      <OrganizationURL xml:lang="de">http://www.mpi.nl</OrganizationURL>
-      <OrganizationURL xml:lang="en">http://www.mpi.nl</OrganizationURL>
-    </Organization>
-    <ContactPerson contactType="administrative">
-      <GivenName>Daan</GivenName>
-      <SurName>Broeder</SurName>
-      <EmailAddress>mailto:Daan.Broeder@mpi.nl</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="technical">
-      <GivenName>Tobias</GivenName>
-      <SurName>van Valkenhoef</SurName>
-      <EmailAddress>mailto:tobias.vanvalkenhoef@mpi.nl</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="support">
-      <GivenName>Dieter</GivenName>
-      <SurName>Van Uytvanck</SurName>
-      <EmailAddress>mailto:dieter.vanuytvanck@mpi.nl</EmailAddress>
-    </ContactPerson>
-  </EntityDescriptor>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://catalog.clarin.eu/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://catalog.clarin.eu/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://catalog.clarin.eu/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://catalog.clarin.eu/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://catalog.clarin.eu/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://catalog.clarin.eu/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://catalog.clarin.eu/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://catalog.clarin.eu/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://catalog.clarin.eu/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://catalog.clarin.eu/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://catalog.clarin.eu/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://catalog.clarin.eu/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://catalog.clarin.eu/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://catalog.clarin.eu/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="de">Clarin Catalog Service Provider</md:ServiceName>
+        <md:ServiceName xml:lang="en">Clarin Catalog Service Provider</md:ServiceName>
+        <md:ServiceDescription xml:lang="de">Clarin Catalog Service Provider, verstrekt toegang tot de Data Category Registry (ISOcat), Component Registry, Virtual Language Observatory (VLO) en meer</md:ServiceDescription>
+        <md:ServiceDescription xml:lang="en">Clarin Catalog Service Provider, providing services like the Data Category Registry (ISOcat), Component Registry, Virtual Language Observatory (VLO) and more</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e235</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e235</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Max-Planck-Institut für Psycholinguistik</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Max Planck Institute for Psycholinguistics</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.mpi.nl</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.mpi.nl</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Daan</md:GivenName>
+      <md:SurName>Broeder</md:SurName>
+      <md:EmailAddress>mailto:Daan.Broeder@mpi.nl</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Tobias</md:GivenName>
+      <md:SurName>van Valkenhoef</md:SurName>
+      <md:EmailAddress>mailto:tobias.vanvalkenhoef@mpi.nl</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Dieter</md:GivenName>
+      <md:SurName>Van Uytvanck</md:SurName>
+      <md:EmailAddress>mailto:dieter.vanuytvanck@mpi.nl</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

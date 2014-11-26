@@ -1,0 +1,100 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth.lsbu.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-04-23T10:42:32Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">lsbu.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">London South Bank University</mdui:DisplayName>
+          <mdui:Logo height="16" width="16">https://www.lsbu.ac.uk/clsdresources/libimages/ShibbolethLSBULogo16x16.png</mdui:Logo>
+          <mdui:Logo height="60" width="80">https://www.lsbu.ac.uk/clsdresources/libimages/ShibbolethLSBULogo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDQzCCAiugAwIBAgIUPksCn3BruNlalmPU1+Y/4zBDRkEwDQYJKoZIhvcNAQEF
+						BQAwITEfMB0GA1UEAxMWc2hpYmJvbGV0aDIubHNidS5hYy51azAeFw0xMjAyMTMx
+						MzI5NDJaFw0zMjAyMTMxMzI5NDJaMCExHzAdBgNVBAMTFnNoaWJib2xldGgyLmxz
+						YnUuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQChnhct+F+F
+						8yqhCpZrGgSzMVxqLQazMISxrLM+KX5+PIM5myd5MYoZ0O9JDeJF9Ww65dV7lbaw
+						DlnSf1GRlQW1YD//GaeTQQYHtbx9orC7TKZF73L2nTH4NcfD/lm1jyPpNyeB8I20
+						QxgIGDMmoZXqNgggmAcA8tibSiUPWP1NmiZP4fGmReqWbA1Rq9DfxwjBt4YjFvxe
+						7tUnQVcEL2h5g4/RSFCwmC2O8Wsh9x4RGz4iVFpyOXZ0P96WiRShG/FnyfKXaMWe
+						e/zBAq0g51BcbPCVf2vELMAuH3oDKdIcyiDps7ixz+hIl9tW4g7fFeVr34eg0wj3
+						OZZ2T+cyJr5pAgMBAAGjczBxMFAGA1UdEQRJMEeCFnNoaWJib2xldGgyLmxzYnUu
+						YWMudWuGLWh0dHBzOi8vc2hpYmJvbGV0aDIubHNidS5hYy51ay9pZHAvc2hpYmJv
+						bGV0aDAdBgNVHQ4EFgQU0DRW++Gu2kI3IgXnorvTnzWmXMQwDQYJKoZIhvcNAQEF
+						BQADggEBAEFHkhujfcQMepjTo57cZzYSIxSYO5qvvOweEwWXKY226L1SqwOAFg0I
+						hqoVVuOPC2NupUK/JM9UwgR1L+rNc25Kosb0QgiLXt4kq5+fpFKu291BBRHdaHQj
+						80KlkkS3H2AWyGMEFAPCBB9RpXFBOVG/Y4ed315j5KmB/DT3jYf9xBXr3RX5/6C+
+						3a/VC9/mfyzUZA1tKSf+GAeS1aoNnnNVncVd4oVud+i6+rggnVbYLCT6JPtTNr38
+						c913IcBFtazSONYlpG9+EtOOCn1vFzjZu3PelE4Z6aYu/AVWvhZlV6EzhXwdCyQt
+						k9BFBpOxm483cpLiiSFTLULEw7NvYzs=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth2.lsbu.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth2.lsbu.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth2.lsbu.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth2.lsbu.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth2.lsbu.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth2.lsbu.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">lsbu.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDQzCCAiugAwIBAgIUPksCn3BruNlalmPU1+Y/4zBDRkEwDQYJKoZIhvcNAQEF
+						BQAwITEfMB0GA1UEAxMWc2hpYmJvbGV0aDIubHNidS5hYy51azAeFw0xMjAyMTMx
+						MzI5NDJaFw0zMjAyMTMxMzI5NDJaMCExHzAdBgNVBAMTFnNoaWJib2xldGgyLmxz
+						YnUuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQChnhct+F+F
+						8yqhCpZrGgSzMVxqLQazMISxrLM+KX5+PIM5myd5MYoZ0O9JDeJF9Ww65dV7lbaw
+						DlnSf1GRlQW1YD//GaeTQQYHtbx9orC7TKZF73L2nTH4NcfD/lm1jyPpNyeB8I20
+						QxgIGDMmoZXqNgggmAcA8tibSiUPWP1NmiZP4fGmReqWbA1Rq9DfxwjBt4YjFvxe
+						7tUnQVcEL2h5g4/RSFCwmC2O8Wsh9x4RGz4iVFpyOXZ0P96WiRShG/FnyfKXaMWe
+						e/zBAq0g51BcbPCVf2vELMAuH3oDKdIcyiDps7ixz+hIl9tW4g7fFeVr34eg0wj3
+						OZZ2T+cyJr5pAgMBAAGjczBxMFAGA1UdEQRJMEeCFnNoaWJib2xldGgyLmxzYnUu
+						YWMudWuGLWh0dHBzOi8vc2hpYmJvbGV0aDIubHNidS5hYy51ay9pZHAvc2hpYmJv
+						bGV0aDAdBgNVHQ4EFgQU0DRW++Gu2kI3IgXnorvTnzWmXMQwDQYJKoZIhvcNAQEF
+						BQADggEBAEFHkhujfcQMepjTo57cZzYSIxSYO5qvvOweEwWXKY226L1SqwOAFg0I
+						hqoVVuOPC2NupUK/JM9UwgR1L+rNc25Kosb0QgiLXt4kq5+fpFKu291BBRHdaHQj
+						80KlkkS3H2AWyGMEFAPCBB9RpXFBOVG/Y4ed315j5KmB/DT3jYf9xBXr3RX5/6C+
+						3a/VC9/mfyzUZA1tKSf+GAeS1aoNnnNVncVd4oVud+i6+rggnVbYLCT6JPtTNr38
+						c913IcBFtazSONYlpG9+EtOOCn1vFzjZu3PelE4Z6aYu/AVWvhZlV6EzhXwdCyQt
+						k9BFBpOxm483cpLiiSFTLULEw7NvYzs=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth2.lsbu.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth2.lsbu.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">London South Bank University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">London South Bank University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.lsbu.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>ICT Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:helpdesk@lsbu.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Tom</md:GivenName>
+      <md:SurName>Swigg</md:SurName>
+      <md:EmailAddress>mailto:swiggtc@lsbu.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

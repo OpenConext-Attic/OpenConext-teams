@@ -1,0 +1,103 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp-test.brighton.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">brighton.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University of Brighton (Test)</mdui:DisplayName>
+          <mdui:Logo height="30" width="32">https://idp-test.brighton.ac.uk/idp/images/logo-brighton.ac.uk.png</mdui:Logo>
+          <mdui:Logo height="16" width="16">https://idp-test.brighton.ac.uk/idp/images/favicon-brighton.ac.uk.ico</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDQjCCAiqgAwIBAgITX3a30d9XiqM9vVXseM3W2/n/pTANBgkqhkiG9w0BAQUF
+						ADAiMSAwHgYDVQQDExdpZHAtdGVzdC5icmlnaHRvbi5hYy51azAeFw0xMjAxMDQx
+						NjI4MDJaFw0zMjAxMDQxNjI4MDJaMCIxIDAeBgNVBAMTF2lkcC10ZXN0LmJyaWdo
+						dG9uLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtXsLP8lj
+						TZBZq7GWtNTG8NKBOiJXmCUooceYKX8EyBa+XFgh5M9LrlmA0Tj4RisfUloypn6S
+						lYrBPa7CGk69QUvi9DMv2dNPnvM6KR86u9NRmmT0s8s+/KERqAMbiLMzqbHbfNIY
+						Y564ereP2g24Hfx9/nvOHcQvYIhtjel3T2ML1Zxbzluo9r37KGI4wb3Ci3KHXsNo
+						4FNpHSZXEDU9DpOsl5t5xbNymZEqMk4s7Gc7ZF0soK8I2jw4t/sCzx8gdBK1sDf5
+						psoZTwc8mpzxE/PeGvMv4h1/J20zX/3vqi7WWumFjV/kAsf4KzYmW1UIIYnmdRds
+						qD8YHc/XcePrkwIDAQABo3EwbzBOBgNVHREERzBFghdpZHAtdGVzdC5icmlnaHRv
+						bi5hYy51a4YqaHR0cHM6Ly9pZHAtdGVzdC5icmlnaHRvbi5hYy51ay9zaGliYm9s
+						ZXRoMB0GA1UdDgQWBBRqz9oLJ6hnTdKJOE6IPOMwqMqt8zANBgkqhkiG9w0BAQUF
+						AAOCAQEANMlzps/viJeW3tg2wYNqkesMZqlTALqLKIUtprj1KDDpeMk8gHPB7ToP
+						NlDa/raTGb5+zgQDQpBmnd/RfN4XpRQaNjXCFEG+3TUxLhhCik0uutmHC4cH7609
+						B8ZdsKsygm3s1Vwejw8itwnSER2nw7xsliE4WiG93fd6VW0DtYDGGLBnX506d/3U
+						vM+/JtaiL84GEjgw7jRMXaMEJofZIEUIjbYZgGdUvlqrvJBAzN71MB5Ry0Nr1qDq
+						TyUmU5tpQkbm7llvISEh/TfpYWyDpJohYPAT2BmH06biaAP0n+oXvHCpRwz4KSwI
+						ZGopIeez+JgQien0+2hmrAoCEBscww==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp-test.brighton.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp-test.brighton.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp-test.brighton.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp-test.brighton.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp-test.brighton.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp-test.brighton.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">brighton.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDQjCCAiqgAwIBAgITX3a30d9XiqM9vVXseM3W2/n/pTANBgkqhkiG9w0BAQUF
+						ADAiMSAwHgYDVQQDExdpZHAtdGVzdC5icmlnaHRvbi5hYy51azAeFw0xMjAxMDQx
+						NjI4MDJaFw0zMjAxMDQxNjI4MDJaMCIxIDAeBgNVBAMTF2lkcC10ZXN0LmJyaWdo
+						dG9uLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtXsLP8lj
+						TZBZq7GWtNTG8NKBOiJXmCUooceYKX8EyBa+XFgh5M9LrlmA0Tj4RisfUloypn6S
+						lYrBPa7CGk69QUvi9DMv2dNPnvM6KR86u9NRmmT0s8s+/KERqAMbiLMzqbHbfNIY
+						Y564ereP2g24Hfx9/nvOHcQvYIhtjel3T2ML1Zxbzluo9r37KGI4wb3Ci3KHXsNo
+						4FNpHSZXEDU9DpOsl5t5xbNymZEqMk4s7Gc7ZF0soK8I2jw4t/sCzx8gdBK1sDf5
+						psoZTwc8mpzxE/PeGvMv4h1/J20zX/3vqi7WWumFjV/kAsf4KzYmW1UIIYnmdRds
+						qD8YHc/XcePrkwIDAQABo3EwbzBOBgNVHREERzBFghdpZHAtdGVzdC5icmlnaHRv
+						bi5hYy51a4YqaHR0cHM6Ly9pZHAtdGVzdC5icmlnaHRvbi5hYy51ay9zaGliYm9s
+						ZXRoMB0GA1UdDgQWBBRqz9oLJ6hnTdKJOE6IPOMwqMqt8zANBgkqhkiG9w0BAQUF
+						AAOCAQEANMlzps/viJeW3tg2wYNqkesMZqlTALqLKIUtprj1KDDpeMk8gHPB7ToP
+						NlDa/raTGb5+zgQDQpBmnd/RfN4XpRQaNjXCFEG+3TUxLhhCik0uutmHC4cH7609
+						B8ZdsKsygm3s1Vwejw8itwnSER2nw7xsliE4WiG93fd6VW0DtYDGGLBnX506d/3U
+						vM+/JtaiL84GEjgw7jRMXaMEJofZIEUIjbYZgGdUvlqrvJBAzN71MB5Ry0Nr1qDq
+						TyUmU5tpQkbm7llvISEh/TfpYWyDpJohYPAT2BmH06biaAP0n+oXvHCpRwz4KSwI
+						ZGopIeez+JgQien0+2hmrAoCEBscww==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp-test.brighton.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp-test.brighton.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Brighton</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Brighton (Test)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.brighton.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Service Desk</md:GivenName>
+      <md:EmailAddress>mailto:servicedesk@brighton.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Steve</md:GivenName>
+      <md:SurName>Holden</md:SurName>
+      <md:EmailAddress>mailto:ukfederation-tech@brighton.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

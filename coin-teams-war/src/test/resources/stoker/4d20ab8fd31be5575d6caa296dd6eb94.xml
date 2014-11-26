@@ -1,0 +1,147 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://saml.sys.kth.se/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">kth.se</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="sv">Kungliga Tekniska högskolan (KTH)</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">KTH Royal Institute of Technology</mdui:DisplayName>
+          <mdui:Description xml:lang="sv">Identity Provider för KTH</mdui:Description>
+          <mdui:Description xml:lang="en">Identity Provider for KTH</mdui:Description>
+          <mdui:InformationURL xml:lang="sv">https://www.kth.se/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">https://www.kth.se/en</mdui:InformationURL>
+          <mdui:Logo height="166" width="166">https://saml.sys.kth.se/idp/images/logo.png</mdui:Logo>
+          <mdui:Keywords xml:lang="sv">stockholm</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">stockholm</mdui:Keywords>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>kth.se</mdui:DomainHint>
+          <mdui:IPHint>130.237.0.0/18</mdui:IPHint>
+          <mdui:IPHint>130.237.64.0/20</mdui:IPHint>
+          <mdui:IPHint>130.237.80.0/22</mdui:IPHint>
+          <mdui:IPHint>130.237.84.0/24</mdui:IPHint>
+          <mdui:IPHint>130.237.202.0/23</mdui:IPHint>
+          <mdui:IPHint>130.237.206.0/24</mdui:IPHint>
+          <mdui:IPHint>130.237.209.0/24</mdui:IPHint>
+          <mdui:IPHint>130.237.210.0/23</mdui:IPHint>
+          <mdui:IPHint>130.237.212.0/22</mdui:IPHint>
+          <mdui:IPHint>130.237.216.0/24</mdui:IPHint>
+          <mdui:IPHint>130.237.218.0/23</mdui:IPHint>
+          <mdui:IPHint>130.237.220.0/22</mdui:IPHint>
+          <mdui:IPHint>130.237.224.0/22</mdui:IPHint>
+          <mdui:IPHint>130.237.228.0/22</mdui:IPHint>
+          <mdui:IPHint>130.237.232.0/21</mdui:IPHint>
+          <mdui:IPHint>130.237.249.0/24</mdui:IPHint>
+          <mdui:IPHint>130.237.250.0/23</mdui:IPHint>
+          <mdui:IPHint>130.237.255.0/24</mdui:IPHint>
+          <mdui:IPHint>130.229.128.0/18</mdui:IPHint>
+          <mdui:IPHint>193.10.37.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.38.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.39.0/24</mdui:IPHint>
+          <mdui:IPHint>2001:6b0:1::/48</mdui:IPHint>
+          <mdui:GeolocationHint>geo:59.346123,18.072305</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDMDCCAhigAwIBAgIVAOHnWp4SJR1ucFuzdVgffOjOdhbCMA0GCSqGSIb3DQEB
+BQUAMBwxGjAYBgNVBAMTEXNhbWwtMi5zeXMua3RoLnNlMB4XDTE0MDMyNDEyNDE1
+OFoXDTM0MDMyNDEyNDE1OFowHDEaMBgGA1UEAxMRc2FtbC0yLnN5cy5rdGguc2Uw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCBH0+OjrfAPCqpnnbg/DWA
+xeYXkv8kKpi2qR5cF6O4mA38n7bYwogiu8dfX96D+PoJeXIT7JTlDLCCdzEsGwUK
+vPqpTpVD2RcOSfZY/yU6CK2dv5LdRqoB1iCZDg1hkvBpDpchSIJjw4CQrQxrTpJO
+XY2FE9E2UnaskX3UJ0mnpBicRQ6aARbPJtwbvMTPynDlI+TZVxnpQ71mn6+VVIgE
+mUBzZZy2S8DR7ihY8IioceEXnn8Pj072fbrYAbZcZPIfKiDJwx0A77rp2mAMKPRS
+tP3Z6xAaOEzwZQmXCS+evNMfyHEIPoj1sug5xDBqQx7RDFYVo6oxXEJ9f+z1evKz
+AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEXNhbWwtMi5zeXMua3RoLnNlhihodHRwczov
+L3NhbWwtMi5zeXMua3RoLnNlL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRplyH7
+GQb3f40/3+jtNHO+xRON1jANBgkqhkiG9w0BAQUFAAOCAQEAIIHu+ayuE6ydI1pE
+F9Vx6Z3MGI8exqT5j8Zw/6IrURTGWbkRMcW/7loquuv6A62R7ZZzd6/ghZuh43vI
+j7VGLrmH/frz5+HvU1PRbpV0u8dkjfOvzAlXxE4qB2nXd+rWzVX5ZugoPtl+iMeV
+D005TFeUFavEdpQb0xk3eg5y06P66fiY++ewjyfJNgBrhEChMPPOd3MhTj3Sj2sa
+B7aUMBV4hT03YJmQt+jHO5Pim7pP2AQ/+AmGTixyRs1b4bryD+N/y+FOy7LEd8aO
+X+V6LngODeVrf80YJynJQRppJlSS8ecu8xbM/9GY1o37vXfDLUJVJ21ENC6DxwWe
+x7JUFw==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://saml-2.sys.kth.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://saml-2.sys.kth.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://saml-2.sys.kth.se/idp/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://saml-2.sys.kth.se/idp/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://saml-2.sys.kth.se:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://saml-2.sys.kth.se/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://saml-2.sys.kth.se/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://saml-2.sys.kth.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://saml-2.sys.kth.se/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">kth.se</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDMDCCAhigAwIBAgIVAOHnWp4SJR1ucFuzdVgffOjOdhbCMA0GCSqGSIb3DQEB
+BQUAMBwxGjAYBgNVBAMTEXNhbWwtMi5zeXMua3RoLnNlMB4XDTE0MDMyNDEyNDE1
+OFoXDTM0MDMyNDEyNDE1OFowHDEaMBgGA1UEAxMRc2FtbC0yLnN5cy5rdGguc2Uw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCBH0+OjrfAPCqpnnbg/DWA
+xeYXkv8kKpi2qR5cF6O4mA38n7bYwogiu8dfX96D+PoJeXIT7JTlDLCCdzEsGwUK
+vPqpTpVD2RcOSfZY/yU6CK2dv5LdRqoB1iCZDg1hkvBpDpchSIJjw4CQrQxrTpJO
+XY2FE9E2UnaskX3UJ0mnpBicRQ6aARbPJtwbvMTPynDlI+TZVxnpQ71mn6+VVIgE
+mUBzZZy2S8DR7ihY8IioceEXnn8Pj072fbrYAbZcZPIfKiDJwx0A77rp2mAMKPRS
+tP3Z6xAaOEzwZQmXCS+evNMfyHEIPoj1sug5xDBqQx7RDFYVo6oxXEJ9f+z1evKz
+AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEXNhbWwtMi5zeXMua3RoLnNlhihodHRwczov
+L3NhbWwtMi5zeXMua3RoLnNlL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRplyH7
+GQb3f40/3+jtNHO+xRON1jANBgkqhkiG9w0BAQUFAAOCAQEAIIHu+ayuE6ydI1pE
+F9Vx6Z3MGI8exqT5j8Zw/6IrURTGWbkRMcW/7loquuv6A62R7ZZzd6/ghZuh43vI
+j7VGLrmH/frz5+HvU1PRbpV0u8dkjfOvzAlXxE4qB2nXd+rWzVX5ZugoPtl+iMeV
+D005TFeUFavEdpQb0xk3eg5y06P66fiY++ewjyfJNgBrhEChMPPOd3MhTj3Sj2sa
+B7aUMBV4hT03YJmQt+jHO5Pim7pP2AQ/+AmGTixyRs1b4bryD+N/y+FOy7LEd8aO
+X+V6LngODeVrf80YJynJQRppJlSS8ecu8xbM/9GY1o37vXfDLUJVJ21ENC6DxwWe
+x7JUFw==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://saml-2.sys.kth.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://saml-2.sys.kth.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">KTH</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sv">Kungliga Tekniska Högskolan (test)</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">KTH Royal Institute of Technology (test)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.kth.se</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:Company>KTH Royal Institute of Technology</md:Company>
+      <md:SurName>UF/ITA Infra (Alexander Boström, Hans Berggren, Jonas Andersson)</md:SurName>
+      <md:EmailAddress>ita-infra-saml-contact@kth.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 8 790 6000</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:Company>KTH Royal Institute of Technology</md:Company>
+      <md:SurName>UF/ITA Infra (Alexander Boström, Hans Berggren, Jonas Andersson)</md:SurName>
+      <md:EmailAddress>ita-infra-saml-contact@kth.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 8 790 6000</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>KTH Royal Institute of Technology</md:Company>
+      <md:SurName>KTH IT-Support</md:SurName>
+      <md:EmailAddress>it-support@kth.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 8 790 6600</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,58 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.emeraldinsight.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-07-14T14:43:12Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Emerald Insight</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Emerald is a global publisher linking research and practice to the benefit of society.</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.emeraldinsight.com</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDNDCCAhygAwIBAgIJAOZnCXnWu9vRMA0GCSqGSIb3DQEBBQUAMCExHzAdBgNV
+						BAMTFnd3dy5lbWVyYWxkaW5zaWdodC5jb20wHhcNMTMwNjI3MjEyNjI2WhcNMTYw
+						NjI2MjEyNjI2WjAhMR8wHQYDVQQDExZ3d3cuZW1lcmFsZGluc2lnaHQuY29tMIIB
+						IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq4IsI4kV+i/3gsIg9iZa+8DZ
+						NgVbnzpIeD+QnzXt4HeUb/3ga4kn6Vc6WwnMFkFlvpoVucD7nkENzvjc5LpVsuJ7
+						LKCyCUJspB9BQRX0N23tV0nzT/w35p1VbgFRXB2o4teW3ymXzTLYmKfiMy0dYO5Y
+						KFFudXk2vdqHLrspDvbPLpuGhkLwstmaHhIbMmFe5jQuXyNaPl7iGBE8KXKqFtZ4
+						acINV0R7xnQBMvshileah1UznEmd7JEGdNDMFf1o2fAvGa9xcfwD5yXTEzaT178K
+						fsGGhpEO0aW/cFvFupOXDJJTB6aeeS43qeFsKJkJXPWkUr8TFKsQs06NTksAUQID
+						AQABo28wbTBMBgNVHREERTBDghZ3d3cuZW1lcmFsZGluc2lnaHQuY29thilodHRw
+						czovL3d3dy5lbWVyYWxkaW5zaWdodC5jb20vc2hpYmJvbGV0aDAdBgNVHQ4EFgQU
+						j3L5syzTbNpvdAwMEX/ALDDmM6IwDQYJKoZIhvcNAQEFBQADggEBAGkoaPoDQeZ+
+						F7B81Bvt2pjRjtDhWqUeQRy1YphyVXiNRM+/1RAKPq+Ltr5Cpt/ytP06uPZ2YM9B
+						0LMo/iAqrgP7LsCo2wxQojOhUhCfzX4ICjZB1WRhTt4qjOFuQM6lYka9JxgZUDxu
+						01V8YRawDs9iFJuslzYrnRGMI9lJLgwUlBLKMQ3pM1TzwY0bTDvun4HofPID193f
+						f50smOG9qh99rReZ9tTM9odW942gZijzbxJBqKuSU10r556kff6RrjVmTjTAEhGY
+						Maa83O3lH1JgvsqB77ONG7svDudp1Zfc5GEJV5F2rwfGSUoIURH3z69Ewdd1lo3d
+						Bt7qcpd9uOc=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.emeraldinsight.com/action/samlACS" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.emeraldinsight.com/action/saml2post" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.emeraldinsight.com/action/saml2artifact" index="3"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Atypon Systems, Inc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Emerald Insight</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.emeraldgrouppublishing.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>SSO-Support</md:GivenName>
+      <md:EmailAddress>mailto:SSO-Support@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>SSO-Tech</md:GivenName>
+      <md:EmailAddress>mailto:SSO-Tech@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

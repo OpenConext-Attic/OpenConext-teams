@@ -1,0 +1,100 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.tut.fi/shibboleth2">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.csc.fi/haka">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.csc.fi/english/institutions/haka/instructions/join/eduGAINRegistrationStatement/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">tut.fi</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEYTCCA0mgAwIBAgIQTO185Oil7C75C/tFRdicDDANBgkqhkiG9w0BAQUFADA2
+MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+U1NMIENBMB4XDTE0MDQxMDAwMDAwMFoXDTE3MDQwOTIzNTk1OVowODEhMB8GA1UE
+CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRMwEQYDVQQDEwppZHAudHV0LmZp
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApz4MIT6HA16a4IVjVYld
+TdYEickxDC6fItsAwAwd3JlQSYJTKTApegd7+YyMtTBQzHARGWAAA0UFoEnfCrt6
+1/dKp52O93pH3E2flgD2SPsNgYCndqT80F2ddB9GnoP1nIroctTsyT6fG/9ETyln
+mDnuD3dk2RElEqq0sfP1anar039Dikl3s3ejyx71t3AP55rdDejgVbtSCI4psv2R
+jUsxYkc//ib6EAKS0aDGU/BjHKuyWXHPCzQ7gDx/fEXnEwLEhlhs13GMLUaAVo4q
+c1qsVX18ZYroUj8QokcZKgoPEEa8lB6EJDmTNtMAyW5MBtjGifyu267k+pXtz92V
+iQIDAQABo4IBZzCCAWMwHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH6pDjue0w
+HQYDVR0OBBYEFMBs3AXDyvNaBP4G37RtoMViq+UXMA4GA1UdDwEB/wQEAwIFoDAM
+BgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAiBgNV
+HSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAECATA6BgNVHR8EMzAxMC+gLaAr
+hilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNybDBtBggr
+BgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRlcmVuYS5v
+cmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8vb2NzcC50Y3Mu
+dGVyZW5hLm9yZzAVBgNVHREEDjAMggppZHAudHV0LmZpMA0GCSqGSIb3DQEBBQUA
+A4IBAQBDxV7R20F2QLA7iG4KqYmfTogCZH40kRnOR2bOZr6WtYSflhhNv3otGgZA
+R9NIo5nDX+5spMJzlWV9nvJyYczwMPOn89V032XqSs8OFkvsdKClL7PYzSAu4lAG
+Cj4/xx7pvgz9SHv2SayMjSGZIoitGEU68qBPP1oZpRdmvXmQVHxuDTw778VdIzM4
+7cSZOVQdyVEocSioH757tQktT5bbY4MuYdtPjDX+ICBS/OsXEGzUeTOnQHw2UU6e
+DVju6E0NmdQxPsN3Q0wLMgnLm4CcKxHsIsNWU+xyos9Sk1FnupZbxCFyBipOX7RY
+ov0reXszINweUWTYJchavcG3Dfyx</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.tut.fi/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.tut.fi/idp/profile/SAML2/POST/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">tut.fi</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEYTCCA0mgAwIBAgIQTO185Oil7C75C/tFRdicDDANBgkqhkiG9w0BAQUFADA2
+MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+U1NMIENBMB4XDTE0MDQxMDAwMDAwMFoXDTE3MDQwOTIzNTk1OVowODEhMB8GA1UE
+CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRMwEQYDVQQDEwppZHAudHV0LmZp
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApz4MIT6HA16a4IVjVYld
+TdYEickxDC6fItsAwAwd3JlQSYJTKTApegd7+YyMtTBQzHARGWAAA0UFoEnfCrt6
+1/dKp52O93pH3E2flgD2SPsNgYCndqT80F2ddB9GnoP1nIroctTsyT6fG/9ETyln
+mDnuD3dk2RElEqq0sfP1anar039Dikl3s3ejyx71t3AP55rdDejgVbtSCI4psv2R
+jUsxYkc//ib6EAKS0aDGU/BjHKuyWXHPCzQ7gDx/fEXnEwLEhlhs13GMLUaAVo4q
+c1qsVX18ZYroUj8QokcZKgoPEEa8lB6EJDmTNtMAyW5MBtjGifyu267k+pXtz92V
+iQIDAQABo4IBZzCCAWMwHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH6pDjue0w
+HQYDVR0OBBYEFMBs3AXDyvNaBP4G37RtoMViq+UXMA4GA1UdDwEB/wQEAwIFoDAM
+BgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAiBgNV
+HSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAECATA6BgNVHR8EMzAxMC+gLaAr
+hilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNybDBtBggr
+BgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRlcmVuYS5v
+cmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8vb2NzcC50Y3Mu
+dGVyZW5hLm9yZzAVBgNVHREEDjAMggppZHAudHV0LmZpMA0GCSqGSIb3DQEBBQUA
+A4IBAQBDxV7R20F2QLA7iG4KqYmfTogCZH40kRnOR2bOZr6WtYSflhhNv3otGgZA
+R9NIo5nDX+5spMJzlWV9nvJyYczwMPOn89V032XqSs8OFkvsdKClL7PYzSAu4lAG
+Cj4/xx7pvgz9SHv2SayMjSGZIoitGEU68qBPP1oZpRdmvXmQVHxuDTw778VdIzM4
+7cSZOVQdyVEocSioH757tQktT5bbY4MuYdtPjDX+ICBS/OsXEGzUeTOnQHw2UU6e
+DVju6E0NmdQxPsN3Q0wLMgnLm4CcKxHsIsNWU+xyos9Sk1FnupZbxCFyBipOX7RY
+ov0reXszINweUWTYJchavcG3Dfyx</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.tut.fi:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="fi">Tampereen teknillinen yliopisto</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">Tampere University of Technology</md:OrganizationName>
+      <md:OrganizationName xml:lang="sv">Tammerfors tekniska universitet</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="fi">Tampereen teknillinen yliopisto</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Tampere University of Technology</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="sv">Tammerfors tekniska universitet</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="fi">http://www.tut.fi</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.tut.fi</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="sv">http://www.tut.fi</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Jussi</md:GivenName>
+      <md:SurName>Tirkkonen</md:SurName>
+      <md:EmailAddress>mailto:idp-support@tut.fi</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

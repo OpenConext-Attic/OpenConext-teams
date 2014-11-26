@@ -1,0 +1,58 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://openathens.xperthr.co.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIID0zCCArugAwIBAgIJAKdy83q7VjjVMA0GCSqGSIb3DQEBBQUAME8xKjAoBgNV
+						BAoTIVJlZWQgQnVzaW5lc3MgSW5mb3JtYXRpb24gTGltaXRlZDEhMB8GA1UEAxMY
+						b3BlbmF0aGVucy54cGVydGhyLmNvLnVrMB4XDTEzMDIyMDA5MDM0MVoXDTIzMDIx
+						ODA5MDM0MVowTzEqMCgGA1UEChMhUmVlZCBCdXNpbmVzcyBJbmZvcm1hdGlvbiBM
+						aW1pdGVkMSEwHwYDVQQDExhvcGVuYXRoZW5zLnhwZXJ0aHIuY28udWswggEiMA0G
+						CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC2162/mC0Gz3ROipcljMbf1GgybliO
+						KbFF3u/YkRjUsDtZEu0qmAjAG8SiyrdfVeFo0j3UJXaU7cxk4dlTObGCT8CyvcvH
+						Hx2mmv/neiSSxNtgO3MTR98HMM10BukTmElxzqCKZkv4HlP6HnNBcUPHLsjZI5O5
+						wuUQ3w+CVtpzDt5OrHMFuNa0zfMX4u+BGH45vOCdV/k6ATDwSM1owTPY/OFweXff
+						VqRfTWGEyuttfsdasLY4vHQEdvDzN6lr7IFjGWyTPE58kusOhP/L1SUIYb+0Ex//
+						GAbEDH9u1FCuMRghKbAiIALd1JwlqY8CNw7ge2MdUc3k6KlVo+UkIqj/AgMBAAGj
+						gbEwga4wHQYDVR0OBBYEFITidDHmP8InJnv6gxnO7KJJRR5eMH8GA1UdIwR4MHaA
+						FITidDHmP8InJnv6gxnO7KJJRR5eoVOkUTBPMSowKAYDVQQKEyFSZWVkIEJ1c2lu
+						ZXNzIEluZm9ybWF0aW9uIExpbWl0ZWQxITAfBgNVBAMTGG9wZW5hdGhlbnMueHBl
+						cnRoci5jby51a4IJAKdy83q7VjjVMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEF
+						BQADggEBAIjjC5ksqfCLMGDnJ7eTTmcbulNT5obU/LywU8xt6A5quQk1GiQVzwtn
+						8oWIk5sQrnLAYKTbdJRKwb7LxzmachZjK7K7ynk417BgxLUFyZ23bp/KpvFSLbEf
+						UBlXqICTyVNICvIBdU3X5Q2mQM0vYS97458YZvKc0FvIrPCdtPLqNKl/tHVz8v0z
+						aGbG/lyqPs/EGFeGDglSIn6OznOg39M+CERTjbi6MWYdQjIfpHNpyfkaOHWDd3qJ
+						G00MtLi3tY1/2X6iice+w3Jc5sQ7pDpiK6XkjmDlHeVhzu9iP1cdF/r3tD06iFoj
+						jHeoqxMNf447T2ASpYbVkR+zuL9RA8I=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://openathens.xperthr.co.uk/openathens/shibauthassert.aspx" index="1" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://openathens.xperthr.co.uk/openathens/shibauthassert.aspx" index="2"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Reed Business Information Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Reed Business Information Limited: XpertHR - Online HR Intelligence Test</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.xperthr.co.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Mark</md:GivenName>
+      <md:SurName>Gale</md:SurName>
+      <md:EmailAddress>mailto:mark.gale@rbi.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mark</md:GivenName>
+      <md:SurName>Gale</md:SurName>
+      <md:EmailAddress>mailto:mark.gale@rbi.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Andrew</md:GivenName>
+      <md:SurName>Farr</md:SurName>
+      <md:EmailAddress>mailto:Andrew.Farr@rbi.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

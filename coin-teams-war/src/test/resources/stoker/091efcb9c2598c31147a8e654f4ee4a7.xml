@@ -1,0 +1,89 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://solo-qa.bodleian.ox.ac.uk/shib">
+    <md:Extensions>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-10-18T13:27:07Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://solo-qa.bodleian.ox.ac.uk/Shibboleth.sso/Login"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://solo-qa.bodleian.ox.ac.uk/Shibboleth.sso/Login"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://solo-qa.bodleian.ox.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEXDCCA0SgAwIBAgIJANKEvVlt+w2GMA0GCSqGSIb3DQEBBQUAMIGuMQswCQYD
+						VQQGEwJHQjEPMA0GA1UEBwwGT3hmb3JkMR0wGwYDVQQKDBRVbml2ZXJzaXR5IG9m
+						IE94Zm9yZDEbMBkGA1UECwwSQm9kbGVpYW4gTGlicmFyaWVzMSIwIAYDVQQDDBlz
+						b2xvLXFhLmJvZGxlaWFuLm94LmFjLnVrMS4wLAYJKoZIhvcNAQkBFh9zaW1vbi5t
+						Y2xlaXNoQGJvZGxlaWFuLm94LmFjLnVrMB4XDTEzMTAwMjExMDIzMFoXDTIzMDkz
+						MDExMDIzMFowga4xCzAJBgNVBAYTAkdCMQ8wDQYDVQQHDAZPeGZvcmQxHTAbBgNV
+						BAoMFFVuaXZlcnNpdHkgb2YgT3hmb3JkMRswGQYDVQQLDBJCb2RsZWlhbiBMaWJy
+						YXJpZXMxIjAgBgNVBAMMGXNvbG8tcWEuYm9kbGVpYW4ub3guYWMudWsxLjAsBgkq
+						hkiG9w0BCQEWH3NpbW9uLm1jbGVpc2hAYm9kbGVpYW4ub3guYWMudWswggEiMA0G
+						CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCsSr8kv9nT1/q/4nj1PQTMFz6TNvE+
+						vNDC6OEKdrfRGNSF3Bynhn7wsp5J/BzcOlS6eFB3hGl3XnbzBPsXB/nlPQgqz3AX
+						psJC5B8w/4N4WDj2EtSdLIrcOe8ENHP/Rp4hITjgI++YbnMUCVeeMYoKHLWR1QmX
+						HO+1EmTGeECZKQV4BHlvnLDcJ2WpSyAJJRybRkYb8YaTzL1L92wzk+EZreppkLt4
+						Qz8PhuRUKYKX0a1y6j+2aKBI2cAi3ciftK9oDva3u7CzjAvZ2H6Twmv0IsUNncIe
+						iQqmamoCb2HQlEXrVw9edMd4nPvzrWAx9plzSOJoQMAKnW2we1t1HAJhAgMBAAGj
+						ezB5MAkGA1UdEwQCMAAwLAYJYIZIAYb4QgENBB8WHU9wZW5TU0wgR2VuZXJhdGVk
+						IENlcnRpZmljYXRlMB0GA1UdDgQWBBSaMBPRVamznkbIVr8XEepipygz7TAfBgNV
+						HSMEGDAWgBSaMBPRVamznkbIVr8XEepipygz7TANBgkqhkiG9w0BAQUFAAOCAQEA
+						OO37gVWuVmsOtukeie3dwFMMG+lWihswACJNQBQ75DuN0L92PL+Vr85qoK0QqCFV
+						/IZJvAbAa7hA4GnLbCqb9e/wTv6Y7XLXzWW5tEwTQBgiuqnh2mv8rEUtBaLKCFKq
+						XYFkA5QpJPuWnApMHBw9Ilgaygy/MYn1kay5OJ4A0iTMnnKlPHel7T3zxyXeRX1C
+						+zygRQi8ayDN0ENItW0sO0/nGTbPmYEbMZ1g/duin1x1ql33MAoCdPxSclPNvUN4
+						7ECVkveDwi2J8q8OQ0pjkn12zYAm5DGVaFS6pcBq+bEKUEWI4nIgfmUiHy6LLPK6
+						0XHX1lZYfOrciG30TyZ4nA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://solo-qa.bodleian.ox.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://solo-qa.bodleian.ox.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://solo-qa.bodleian.ox.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://solo-qa.bodleian.ox.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://solo-qa.bodleian.ox.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://solo-qa.bodleian.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://solo-qa.bodleian.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://solo-qa.bodleian.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://solo-qa.bodleian.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://solo-qa.bodleian.ox.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://solo-qa.bodleian.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford Bodleian Libraries QA/test SOLO service</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.bodleian.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Simon</md:GivenName>
+      <md:SurName>McLeish</md:SurName>
+      <md:EmailAddress>mailto:simon.mcleish@bodleian.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Simon</md:GivenName>
+      <md:SurName>McLeish</md:SurName>
+      <md:EmailAddress>mailto:simon.mcleish@bodleian.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

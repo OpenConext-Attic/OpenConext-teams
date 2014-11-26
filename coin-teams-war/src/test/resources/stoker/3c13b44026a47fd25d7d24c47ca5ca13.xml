@@ -1,0 +1,96 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibidp.tameside.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2010-09-17T16:46:36Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">tameside.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDQzCCAiugAwIBAgIUFPl+UkOqD1xU344a+Z5gAA9KFhIwDQYJKoZIhvcNAQEF
+						BQAwITEfMB0GA1UEAxMWc2hpYmlkcC50YW1lc2lkZS5hYy51azAeFw0xMzEwMDMw
+						ODA2MDBaFw0zMzEwMDMwODA2MDBaMCExHzAdBgNVBAMTFnNoaWJpZHAudGFtZXNp
+						ZGUuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCtwxXIV0H0
+						N3Tn9kfx0vEjWwtR0RDsCQ5NIe4yemy1Ko/QcHoT55G0znKHbDyfufcP2C9hoqzd
+						cxWhDY21aYKNUUPCiwyA3y8IjfEfDXc/zN564SI1rXt0e8IyfzTegr7nEZ4pIzb3
+						ZsOvvZw/guS3SFRT8I/Y4+mQHAeBxYEFHhQEyTAzEa1CkMbQ5g0DBZaZLoem+WR+
+						Qe5522Hqix5Vx2Dy7ttKe+5mItJAbSGI17p9r6StS7VKBpGfODeoHMIoGcMH5kWs
+						79URYp9/KsJvK5xUQIxXYST21lM62fnaOjsNccCMT+6FT0bx/C4khty+ObYdDxWX
+						ZfbKM6X7b1uTAgMBAAGjczBxMFAGA1UdEQRJMEeCFnNoaWJpZHAudGFtZXNpZGUu
+						YWMudWuGLWh0dHBzOi8vc2hpYmlkcC50YW1lc2lkZS5hYy51ay9pZHAvc2hpYmJv
+						bGV0aDAdBgNVHQ4EFgQUXwU/7iPk5goOeUXikZ1DAsV1Z1UwDQYJKoZIhvcNAQEF
+						BQADggEBABuP25r95KICsuJ/DnQFVPFxzrHFt76smE3HPMGaxxZUmyijN/llqzVx
+						YqCeoMNc5mt0RKgd0FUl/ksik2tKc2J7LhFEaPSjPAGmT6ELbhTwU+/Fgnusy4tX
+						FE0VKaEDasnf6Ohel5aDDVPkFO1zTAGTm7PtXspdEe0v4JiDTqsDCe3fnu2gEdPL
+						w7TLUC8hL0gwos9S/WdgKCvIve41DEj6Y6n03Z2dCtlMMQbvt7OPDNpQRKssj2QV
+						e0DJl3bx82dv2VE65r/Ugzfu95M9GnIVTX6GZ/S6ey2/mYNi8/7XNkdk5Y5OLnP7
+						2e4BhZ7ipNcvA3dRv8lUFszj/juA6xM=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibidp.tameside.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibidp.tameside.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibidp.tameside.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibidp.tameside.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibidp.tameside.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibidp.tameside.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">tameside.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDQzCCAiugAwIBAgIUFPl+UkOqD1xU344a+Z5gAA9KFhIwDQYJKoZIhvcNAQEF
+						BQAwITEfMB0GA1UEAxMWc2hpYmlkcC50YW1lc2lkZS5hYy51azAeFw0xMzEwMDMw
+						ODA2MDBaFw0zMzEwMDMwODA2MDBaMCExHzAdBgNVBAMTFnNoaWJpZHAudGFtZXNp
+						ZGUuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCtwxXIV0H0
+						N3Tn9kfx0vEjWwtR0RDsCQ5NIe4yemy1Ko/QcHoT55G0znKHbDyfufcP2C9hoqzd
+						cxWhDY21aYKNUUPCiwyA3y8IjfEfDXc/zN564SI1rXt0e8IyfzTegr7nEZ4pIzb3
+						ZsOvvZw/guS3SFRT8I/Y4+mQHAeBxYEFHhQEyTAzEa1CkMbQ5g0DBZaZLoem+WR+
+						Qe5522Hqix5Vx2Dy7ttKe+5mItJAbSGI17p9r6StS7VKBpGfODeoHMIoGcMH5kWs
+						79URYp9/KsJvK5xUQIxXYST21lM62fnaOjsNccCMT+6FT0bx/C4khty+ObYdDxWX
+						ZfbKM6X7b1uTAgMBAAGjczBxMFAGA1UdEQRJMEeCFnNoaWJpZHAudGFtZXNpZGUu
+						YWMudWuGLWh0dHBzOi8vc2hpYmlkcC50YW1lc2lkZS5hYy51ay9pZHAvc2hpYmJv
+						bGV0aDAdBgNVHQ4EFgQUXwU/7iPk5goOeUXikZ1DAsV1Z1UwDQYJKoZIhvcNAQEF
+						BQADggEBABuP25r95KICsuJ/DnQFVPFxzrHFt76smE3HPMGaxxZUmyijN/llqzVx
+						YqCeoMNc5mt0RKgd0FUl/ksik2tKc2J7LhFEaPSjPAGmT6ELbhTwU+/Fgnusy4tX
+						FE0VKaEDasnf6Ohel5aDDVPkFO1zTAGTm7PtXspdEe0v4JiDTqsDCe3fnu2gEdPL
+						w7TLUC8hL0gwos9S/WdgKCvIve41DEj6Y6n03Z2dCtlMMQbvt7OPDNpQRKssj2QV
+						e0DJl3bx82dv2VE65r/Ugzfu95M9GnIVTX6GZ/S6ey2/mYNi8/7XNkdk5Y5OLnP7
+						2e4BhZ7ipNcvA3dRv8lUFszj/juA6xM=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibidp.tameside.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibidp.tameside.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Tameside College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Tameside College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.tameside.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Albert</md:GivenName>
+      <md:SurName>Peach</md:SurName>
+      <md:EmailAddress>mailto:apeach@tameside.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Albert</md:GivenName>
+      <md:SurName>Peach</md:SurName>
+      <md:EmailAddress>mailto:apeach@tameside.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

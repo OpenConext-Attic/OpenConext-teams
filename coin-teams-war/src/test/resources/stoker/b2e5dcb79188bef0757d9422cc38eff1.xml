@@ -1,0 +1,49 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://solutions.sciquest.com">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2010-12-13T16:38:32Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC8zCCAlygAwIBAgIIXNlF3j4QphEwDQYJKoZIhvcNAQEEBQAwXjELMAkGA1UEBhMCVVMxETAP
+						BgNVBAoTCFNjaVF1ZXN0MRMwEQYDVQQLEwpQcm9kdWN0aW9uMScwJQYDVQQDEx5TY2lRdWVzdCBD
+						ZXJ0aWZpY2F0ZSBBdXRob3JpdHkwHhcNMTMwOTA5MjAzMjE1WhcNMzMwMzMxMjAzMjE1WjBgMRUw
+						EwYDVQQDEwxzY2lxdWVzdC5jb20xFDASBgNVBAsTC0RldmVsb3BtZW50MRcwFQYDVQQKEw5TY2lR
+						dWVzdCwgSW5jLjELMAkGA1UECBMCTkMxCzAJBgNVBAYTAlVTMIIBIjANBgkqhkiG9w0BAQEFAAOC
+						AQ8AMIIBCgKCAQEAggpL7bnjeQ/BI6voeasB/4RUMIL7d9rJN4ZAn+fUSbXquYhzHG5uifOOuEFn
+						KFq1XaXcGPRBy1Gvrt/JQb9ZL/0c/Z/IqtR0vsEthX+EStwtQUr1XJDC1l+eg9Z6x+CFXx2zsgHm
+						sIUcNeZ7nlDK6P+CI33P8wR1SkZZCce+4I0qc+C1Q3sN7LsNr2kdB2xAjHdRQtfBsD/3R/B9hChP
+						Svk9SiesQuiL5DnRC+GpLqmBeA6CQQ9n9LOg/E3NiSdLgUdQOyHt82eptEydm3vbZ/xRmfnNHEsZ
+						bAukNB2Iar+kg5dK9Qcw6QtqJhapi7nB1/cSRFj6uprpWw4bzBzEwwIDAQABozQwMjAOBgNVHQ8B
+						Af8EBAMCBaAwIAYDVR0lAQH/BBYwFAYIKwYBBQUHAwQGCCsGAQUFBwMCMA0GCSqGSIb3DQEBBAUA
+						A4GBAHVXeQpZA5kEj/qufyv2U7NbVYKpscsAQ+G+9zMSF7Tclks6Nas1QybYXzpx7z84KfcsppK5
+						kDCehLIDIkMAjvohSIQutcNv6MY/snhHfrB+0cbabtIItYC8aAVhS5FLXmFMTxjZFUUPMVqMWo8L
+						tth7vyK/SYLX2V4sn3LELAUA
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://solutions.sciquest.com/apps/Router/ExternalAuth/SAML/Login/Edinburgh" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://solutions.sciquest.com/apps/Router/ExternalAuth/SAML/Login/Warwick" index="1"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">SciQuest Inc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">SciQuest, Inc.</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.sciquest.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Mark</md:GivenName>
+      <md:SurName>Monroe</md:SurName>
+      <md:EmailAddress>mailto:MMonroe@SciQuest.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mark</md:GivenName>
+      <md:SurName>Monroe</md:SurName>
+      <md:EmailAddress>mailto:MMonroe@SciQuest.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

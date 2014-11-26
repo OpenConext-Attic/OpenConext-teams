@@ -1,18 +1,18 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://www.meertens.knaw.nl/Shibboleth.sso/Metadata">
-    <Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2013-12-04T15:23:40Z">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.meertens.knaw.nl/Shibboleth.sso/Metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2013-12-04T15:23:40Z">
         <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
         <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
-        <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
           <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
         </saml:Attribute>
       </mdattr:EntityAttributes>
-    </Extensions>
-    <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="de">Meertens Institute Archive</mdui:DisplayName>
           <mdui:DisplayName xml:lang="en">Meertens Institute</mdui:DisplayName>
           <mdui:Description xml:lang="de">This Service Provider regulates access to the Meertens Institute Archive and selected services for humanities research activities in the domain of Dutch language variation and culture</mdui:Description>
@@ -21,9 +21,9 @@
           <mdui:InformationURL xml:lang="en">http://www.meertens.knaw.nl/cms/en</mdui:InformationURL>
           <mdui:PrivacyStatementURL xml:lang="en">http://www.meertens.knaw.nl/cms/en/collections/data-protection</mdui:PrivacyStatementURL>
         </mdui:UIInfo>
-      </Extensions>
-      <KeyDescriptor>
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
           <ds:KeyName>www.meertens.knaw.nl</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>emailAddress=servicedesk@knaw.nl,CN=www.meertens.knaw.nl,OU=I&amp;A,O=KNAW,L=Amsterdam,ST=NH,C=NL</ds:X509SubjectName>
@@ -62,57 +62,57 @@ SF7hTs3mZvR2FPh5VJ0vBUC7QOXB5RBcP6vy4H25WiovevzKOg==
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SLO/SOAP"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SLO/Redirect"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SLO/POST"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SLO/Artifact"/>
-      <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.meertens.knaw.nl/Shibboleth.sso/NIM/SOAP"/>
-      <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.meertens.knaw.nl/Shibboleth.sso/NIM/Redirect"/>
-      <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.meertens.knaw.nl/Shibboleth.sso/NIM/POST"/>
-      <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.meertens.knaw.nl/Shibboleth.sso/NIM/Artifact"/>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
-      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SAML2/POST" index="1"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SAML2/Artifact" index="3"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SAML2/ECP" index="4"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SAML2/POST" index="5"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SAML2/POST-SimpleSign" index="6"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SAML2/Artifact" index="7"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SAML2/ECP" index="8"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SAML/POST" index="9"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SAML/Artifact" index="10"/>
-      <AttributeConsumingService index="1">
-        <ServiceName xml:lang="de">Meertens Institute Archive</ServiceName>
-        <ServiceName xml:lang="en">Meertens Institute</ServiceName>
-        <ServiceDescription xml:lang="de">This Service Provider regulates access to the Meertens Institute Archive and selected services for humanities research activities in the domain of Dutch language variation and culture</ServiceDescription>
-        <ServiceDescription xml:lang="en">This Service Provider regulates access to the Meertens Institute Archive and selected services for humanities research activities in the domain of Dutch language variation and culture</ServiceDescription>
-        <RequestedAttribute FriendlyName="schacHomeOrganization" Name="urn:oid:1.3.6.1.4.1.25178.1.2.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-        <RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-      </AttributeConsumingService>
-    </SPSSODescriptor>
-    <Organization>
-      <OrganizationName xml:lang="de">e404</OrganizationName>
-      <OrganizationName xml:lang="en">e404</OrganizationName>
-      <OrganizationDisplayName xml:lang="de">Meertens Institute</OrganizationDisplayName>
-      <OrganizationDisplayName xml:lang="en">Meertens Institute</OrganizationDisplayName>
-      <OrganizationURL xml:lang="de">http://www.meertens.knaw.nl</OrganizationURL>
-      <OrganizationURL xml:lang="en">http://www.meertens.knaw.nl</OrganizationURL>
-    </Organization>
-    <ContactPerson contactType="support">
-      <GivenName>KNAW</GivenName>
-      <SurName>Support</SurName>
-      <EmailAddress>mailto:servicedesk@knaw.nl</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="technical">
-      <GivenName>Marc</GivenName>
-      <SurName>Kemps-Snijders</SurName>
-      <EmailAddress>mailto:marc.kemps.snijders@meertens.knaw.nl</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="administrative">
-      <GivenName>Marc</GivenName>
-      <SurName>Kemps-Snijders</SurName>
-      <EmailAddress>mailto:marc.kemps.snijders@meertens.knaw.nl</EmailAddress>
-    </ContactPerson>
-  </EntityDescriptor>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.meertens.knaw.nl/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.meertens.knaw.nl/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.meertens.knaw.nl/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.meertens.knaw.nl/Shibboleth.sso/NIM/Artifact"/>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SAML2/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SAML2/POST-SimpleSign" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SAML2/Artifact" index="7"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SAML2/ECP" index="8"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SAML/POST" index="9"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.meertens.knaw.nl/Shibboleth.sso/SAML/Artifact" index="10"/>
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="de">Meertens Institute Archive</md:ServiceName>
+        <md:ServiceName xml:lang="en">Meertens Institute</md:ServiceName>
+        <md:ServiceDescription xml:lang="de">This Service Provider regulates access to the Meertens Institute Archive and selected services for humanities research activities in the domain of Dutch language variation and culture</md:ServiceDescription>
+        <md:ServiceDescription xml:lang="en">This Service Provider regulates access to the Meertens Institute Archive and selected services for humanities research activities in the domain of Dutch language variation and culture</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="schacHomeOrganization" Name="urn:oid:1.3.6.1.4.1.25178.1.2.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e404</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e404</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Meertens Institute</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Meertens Institute</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.meertens.knaw.nl</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.meertens.knaw.nl</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>KNAW</md:GivenName>
+      <md:SurName>Support</md:SurName>
+      <md:EmailAddress>mailto:servicedesk@knaw.nl</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Marc</md:GivenName>
+      <md:SurName>Kemps-Snijders</md:SurName>
+      <md:EmailAddress>mailto:marc.kemps.snijders@meertens.knaw.nl</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Marc</md:GivenName>
+      <md:SurName>Kemps-Snijders</md:SurName>
+      <md:EmailAddress>mailto:marc.kemps.snijders@meertens.knaw.nl</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

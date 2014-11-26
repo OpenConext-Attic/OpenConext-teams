@@ -1,0 +1,51 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://scitationnew.aip.org/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-08-01T14:14:07Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDnDCCAoSgAwIBAgIEUdvRkTANBgkqhkiG9w0BAQUFADCBjzELMAkGA1UEBhMC
+						R0IxFDASBgNVBAgTC094Zm9yZHNoaXJlMQ8wDQYDVQQHEwZPeGZvcmQxHjAcBgNV
+						BAoTFVB1Ymxpc2hpbmcgVGVjaG5vbG9neTEZMBcGA1UECxMQU2Nob2xhcmx5IE9u
+						bGluZTEeMBwGA1UEAxMVUHVibGlzaGluZyBUZWNobm9sb2d5MB4XDTEzMDcwOTA5
+						MDIwOVoXDTE2MDcwODA5MDIwOVowgY8xCzAJBgNVBAYTAkdCMRQwEgYDVQQIEwtP
+						eGZvcmRzaGlyZTEPMA0GA1UEBxMGT3hmb3JkMR4wHAYDVQQKExVQdWJsaXNoaW5n
+						IFRlY2hub2xvZ3kxGTAXBgNVBAsTEFNjaG9sYXJseSBPbmxpbmUxHjAcBgNVBAMT
+						FVB1Ymxpc2hpbmcgVGVjaG5vbG9neTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+						AQoCggEBAIqfzThQ2R8sCWiSeU7PeibXuB31/Ey51i4rdZwIcTeNRRcDxH5PYjLD
+						NjSwarBEIgTyFxmByOrkAZzaExBpdGtNrDo7b6fyI7966gCDEYO4Sh1ZKZxWQsbu
+						zQwQjovDrlqUnGa3z/h2UfilQY8wtc/2wF1/rZbqRnqMjVCwJsaFyo2OlwUh2xWu
+						gPL2usYYVkBr0qdYfjs3zxy7U+dWN1oYu3Ing9GUx7ueT/9nWUQX+4TzSCjzGb3Z
+						xRrjkEwUrRu6KXuaMVqrZbAzQboEh4HVXp7VKJijCG0gisXdcEMqBblsCtthRYkw
+						7V59Q/K8owmELbi0vaii1t0c0GQg3GMCAwEAATANBgkqhkiG9w0BAQUFAAOCAQEA
+						hiHnQS4R1ji95KCr9u+67dPdC9qTwFpo8/znSwFAC6aGbMX68swzifkIqDbgSAOY
+						NPGZCyRV4wz2gpBnVXOm9wVJvdGylmrk8dfakKwzljTKEm2+Xqq6CHD3QSQpjRrG
+						X7eKZgK+HyDDiVmFAenAzSkAHazV0I0wWOFnZp5lgrU66YggtaZMHk19Nf4ZXJuD
+						dYsGoaLN6fCVEuPStNGZ32wu4CH6sUWhi2OhlJl+rF/Z7zBFpydwMFSfd+DFUUlg
+						GOvb1z0peq8ppMqO8yvvnURF4k8T2Lzt8COgRkumpQztylohokSI0GrtCbsntZn8
+						Q0pEiZ1n5ClvAkHcGhpYog==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://scitationnew.aip.org/session/shib" index="1" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://scitationnew.aip.org/session/shib" index="2"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Publishing Technology plc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Scitation</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://scitation.aip.org/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Service</md:GivenName>
+      <md:EmailAddress>mailto:service@asmusa.org</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Talvinder</md:GivenName>
+      <md:SurName>Matharu</md:SurName>
+      <md:EmailAddress>mailto:openathens@publishingtechnology.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

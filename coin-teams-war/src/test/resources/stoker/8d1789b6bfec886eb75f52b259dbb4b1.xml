@@ -1,0 +1,82 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.aucb.ac.uk/oala/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">aucb.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDuzCCAqOgAwIBAgIJANuNY6K0MaZtMA0GCSqGSIb3DQEBBQUAMEcxLDAqBgNV
+						BAoTI0FydHMgVW5pdmVyc2l0eSBDb2xsZWdlIEJvdXJuZW1vdXRoMRcwFQYDVQQD
+						Ew5pZHAuYXVjYi5hYy51azAeFw0xMjAyMDExMjA3MDNaFw0yMjAxMjkxMjA3MDNa
+						MEcxLDAqBgNVBAoTI0FydHMgVW5pdmVyc2l0eSBDb2xsZWdlIEJvdXJuZW1vdXRo
+						MRcwFQYDVQQDEw5pZHAuYXVjYi5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEP
+						ADCCAQoCggEBAKv6k0vcQFpzY8P7/Y4ZenX5dKi1MetOcDf7q8zNLd/gy6BzOpK9
+						DZ+BqUN83VaCly9/9PotjQsqS4XylcV7OVx4AFv6D1fTkQrknMb0bLAabvz3iepd
+						1f3RA8o9ANjzWsxPEtiBsYxlKp/tmpn6JkpVKIUvUwpQs9FTQ1R4ir917jJznAx9
+						lTFE+2a1LSPjOcHazpJ49Odi8fjWku8IJMd5evHaC14iBUPhAa2ZA1q8g3uiGhVe
+						BuAKepZlGVDgNsK3IdDMpTHMonGHucJTOtSFfLZt37iOiY7fXCN8apJ7NqnTOK00
+						k3/toioGQpRXeyd8tu8OhhE2X0eHE8L2rycCAwEAAaOBqTCBpjAdBgNVHQ4EFgQU
+						Wqc09IEu3dXIWoIQguIFZTta1rcwdwYDVR0jBHAwboAUWqc09IEu3dXIWoIQguIF
+						ZTta1rehS6RJMEcxLDAqBgNVBAoTI0FydHMgVW5pdmVyc2l0eSBDb2xsZWdlIEJv
+						dXJuZW1vdXRoMRcwFQYDVQQDEw5pZHAuYXVjYi5hYy51a4IJANuNY6K0MaZtMAwG
+						A1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBAAfBYhKmhFOJO0bTWFKSf/JR
+						YobSCSBcEkNAja2jddT3qj8Zi+1o6X0Q/DlqqabuswfIlxjWmAVdzcBJv8fCkKJW
+						K+ZIAtmPBAsQjIaabNA8OW+GAMEI2w5d7EuX0570tA3EiGSCenDWPpDhBYxWPBEp
+						IKP/onJdqAdt522GG+Ifuq/2roGoxQL14a3PFuUQ+Kf1nDZEx+KUEjHj1fHc40hK
+						8Jh9HnCYgj0igC6d+99cmtF+755ROx0NDD8vgQ/duVKsA+7ywJT1meW++iuNCGJi
+						a7E72NL3q9GgdVYNoDnMVrx9riAXs+GXchtuk5+mSlwdkAj7uB4YiKHyRcAnJxA=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDuzCCAqOgAwIBAgIJANuNY6K0MaZtMA0GCSqGSIb3DQEBBQUAMEcxLDAqBgNV
+						BAoTI0FydHMgVW5pdmVyc2l0eSBDb2xsZWdlIEJvdXJuZW1vdXRoMRcwFQYDVQQD
+						Ew5pZHAuYXVjYi5hYy51azAeFw0xMjAyMDExMjA3MDNaFw0yMjAxMjkxMjA3MDNa
+						MEcxLDAqBgNVBAoTI0FydHMgVW5pdmVyc2l0eSBDb2xsZWdlIEJvdXJuZW1vdXRo
+						MRcwFQYDVQQDEw5pZHAuYXVjYi5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEP
+						ADCCAQoCggEBAKv6k0vcQFpzY8P7/Y4ZenX5dKi1MetOcDf7q8zNLd/gy6BzOpK9
+						DZ+BqUN83VaCly9/9PotjQsqS4XylcV7OVx4AFv6D1fTkQrknMb0bLAabvz3iepd
+						1f3RA8o9ANjzWsxPEtiBsYxlKp/tmpn6JkpVKIUvUwpQs9FTQ1R4ir917jJznAx9
+						lTFE+2a1LSPjOcHazpJ49Odi8fjWku8IJMd5evHaC14iBUPhAa2ZA1q8g3uiGhVe
+						BuAKepZlGVDgNsK3IdDMpTHMonGHucJTOtSFfLZt37iOiY7fXCN8apJ7NqnTOK00
+						k3/toioGQpRXeyd8tu8OhhE2X0eHE8L2rycCAwEAAaOBqTCBpjAdBgNVHQ4EFgQU
+						Wqc09IEu3dXIWoIQguIFZTta1rcwdwYDVR0jBHAwboAUWqc09IEu3dXIWoIQguIF
+						ZTta1rehS6RJMEcxLDAqBgNVBAoTI0FydHMgVW5pdmVyc2l0eSBDb2xsZWdlIEJv
+						dXJuZW1vdXRoMRcwFQYDVQQDEw5pZHAuYXVjYi5hYy51a4IJANuNY6K0MaZtMAwG
+						A1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBAAfBYhKmhFOJO0bTWFKSf/JR
+						YobSCSBcEkNAja2jddT3qj8Zi+1o6X0Q/DlqqabuswfIlxjWmAVdzcBJv8fCkKJW
+						K+ZIAtmPBAsQjIaabNA8OW+GAMEI2w5d7EuX0570tA3EiGSCenDWPpDhBYxWPBEp
+						IKP/onJdqAdt522GG+Ifuq/2roGoxQL14a3PFuUQ+Kf1nDZEx+KUEjHj1fHc40hK
+						8Jh9HnCYgj0igC6d+99cmtF+755ROx0NDD8vgQ/duVKsA+7ywJT1meW++iuNCGJi
+						a7E72NL3q9GgdVYNoDnMVrx9riAXs+GXchtuk5+mSlwdkAj7uB4YiKHyRcAnJxA=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.aucb.ac.uk/oala/sso"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.aucb.ac.uk/oala/sso"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Arts University Bournemouth</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Arts University Bournemouth</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://aub.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Andrew</md:GivenName>
+      <md:SurName>Calvert</md:SurName>
+      <md:EmailAddress>mailto:acalvert@aub.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>IT Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:helpdesk@aub.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,60 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://upkdev.bsp.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://upkdev.bsp.ox.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDBjCCAe6gAwIBAgIJAM3SwyRR3bgIMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV
+						BAMTFWJzcHdpbjI2LmJzcC5veC5hYy51azAeFw0xMTEyMDUxNjAwNDJaFw0yMTEy
+						MDIxNjAwNDJaMCAxHjAcBgNVBAMTFWJzcHdpbjI2LmJzcC5veC5hYy51azCCASIw
+						DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjqdqsgyd/uQ08OxSRl4gAwYPFm
+						pgRRhOmjO2Om4ZWmRNawAngO6J3BFrSRQcIFXU18WS7gdKdgN1E5dLlujDjKsN/e
+						kPC5UJiPpMELAdiwrFMcQQGnPE53jI8Xj/HOTG3n66xRmrr3cuRRAE708i5NxShQ
+						uL2HDO0jZB8Er/Ie3Sp2Nzjzpcx5yHgb1yVd/UxOkKoR/QIafT7PUko2AcELvA44
+						shUthRUiSybsA9X8b6Ri3b+ewLRPUoDD1Th4zcG8D9KNL+ED8RsP9hwtZHrDXHwi
+						nnzYotblpAZOspxym6G+RUvSvx7s5mrXF8oAhQmluAAtEj/I3su8VgIw5g8CAwEA
+						AaNDMEEwIAYDVR0RBBkwF4IVYnNwd2luMjYuYnNwLm94LmFjLnVrMB0GA1UdDgQW
+						BBSTMLysVwykBrWtSKkiTJUDM/CzmjANBgkqhkiG9w0BAQUFAAOCAQEAhlmJteoW
+						GZ4iVYnltbjOne5bqHZSrv5q5bdPtjo1PsPxEqHE1+hUlbTbEot6T1ponxu8vpyi
+						vqDzSWq68O2uIq2Qa2qA1srl66tFYlJnrRIuPhH0qW9xk+eI23+SRzoiKl9PaVjJ
+						y1R1pKQG/WHaYFY7/UsLjDJjmqbk1qxWhl+4VaeOPCn35u/cA3qX2Amdk3RSRb+c
+						9GfwhbvtzlMBI3qA9frsr31AYBlKYxWh/rKVxAWzrle8GNYr2V2OJ17y5MdvTfVx
+						jAyhlvp7Bap+Lkn6LWNJ/LBpg90XSMC0mFuT88LXgA9LllTUR8EQeZpSDI3iC5HY
+						O0S/azG5O+MD0A==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://upkdev.bsp.ox.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://upkdev.bsp.ox.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://upkdev.bsp.ox.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://upkdev.bsp.ox.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://upkdev.bsp.ox.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://upkdev.bsp.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://upkdev.bsp.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://upkdev.bsp.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://upkdev.bsp.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://upkdev.bsp.ox.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://upkdev.bsp.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford: UPKDEV Oracle Training Environment</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.admin.ox.ac.uk/bsp/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Operations Team</md:GivenName>
+      <md:EmailAddress>mailto:ops@admin.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Stephan</md:GivenName>
+      <md:SurName>Eckweiler</md:SurName>
+      <md:EmailAddress>mailto:stephan.eckweiler@it.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

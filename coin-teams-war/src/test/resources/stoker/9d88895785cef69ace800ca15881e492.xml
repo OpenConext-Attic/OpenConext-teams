@@ -1,0 +1,96 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.ucs.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-05-12T14:33:22Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ucs.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University Campus Suffolk</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDHzCCAgegAwIBAgIUHNOHSlpAfJGT9rl3zRDmwa3SDhMwDQYJKoZIhvcNAQEF
+						BQAwGDEWMBQGA1UEAxMNaWRwLnVjcy5hYy51azAeFw0xNDA0MTYxNDI4MDNaFw0z
+						NDA0MTYxNDI4MDNaMBgxFjAUBgNVBAMTDWlkcC51Y3MuYWMudWswggEiMA0GCSqG
+						SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCCxdBx+Yitont8++RjBk3LRjqNAvHMPUdy
+						J6hSQFmQ5EPN3YQDzJ/2m9tGH+TO8uKCiiOd0zMzA4zzkOtGTyNNqjk0+ENR4PJa
+						0XOOk7PXJTuXbo5frqZ7a3wi1oVtm+SuOi7cg35ya0+w70xQ6iVE449cdGi6zi7p
+						O5/BXVQGDPusH13EswEC2JeTX7dGDCvM9wYbJvIbVvrCX4R4YB+fJg5h7/JyveXc
+						VtZbmGaQ0Xuu6fAXn0G2Y9/72NGpvOcM3LUPyHy1iBUzaClV9TRoBCJIvdojPQ8k
+						4O+/dz3Qq2NkpSSOUsTOldzeZuRXhzrJVCmDJH0RxawJ1czDLtgxAgMBAAGjYTBf
+						MD4GA1UdEQQ3MDWCDWlkcC51Y3MuYWMudWuGJGh0dHBzOi8vaWRwLnVjcy5hYy51
+						ay9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUOU13V/q7ER53eftMiDzdpx/ur6Mw
+						DQYJKoZIhvcNAQEFBQADggEBAGrR1rz3rBUkNLDk0a7KMP+AKRP+ei+YOy1DkTt1
+						nF0/QrIVulgk5/82uw5rtp07xPJLveTM71/cjC/NXhV0lDPtGe+7jDwBjsaSKf8d
+						k8sRow8dIcViLwcyvS8yaC5PLdc6aTALKNYrhzKuLq9zbKXpxB6ZW3x/S16/cH+U
+						jGFtEu7tGSF9K8Y8pNu7cCuDylk3iz8v7spPeAembJyNAX8x6Stwseq4L5HJuHsm
+						xZgo69TfUXl/v3znLYArSkQl1hRgMalzCx0xXy3BCpTQB8/TvYFy+HHCk3sLSLzE
+						oazcpzNwlhXSgUNXMBFi+ghU9o77fKnWXJN8L3mv8lbbf6g=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ucs.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ucs.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ucs.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ucs.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.ucs.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ucs.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ucs.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDHzCCAgegAwIBAgIUHNOHSlpAfJGT9rl3zRDmwa3SDhMwDQYJKoZIhvcNAQEF
+						BQAwGDEWMBQGA1UEAxMNaWRwLnVjcy5hYy51azAeFw0xNDA0MTYxNDI4MDNaFw0z
+						NDA0MTYxNDI4MDNaMBgxFjAUBgNVBAMTDWlkcC51Y3MuYWMudWswggEiMA0GCSqG
+						SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCCxdBx+Yitont8++RjBk3LRjqNAvHMPUdy
+						J6hSQFmQ5EPN3YQDzJ/2m9tGH+TO8uKCiiOd0zMzA4zzkOtGTyNNqjk0+ENR4PJa
+						0XOOk7PXJTuXbo5frqZ7a3wi1oVtm+SuOi7cg35ya0+w70xQ6iVE449cdGi6zi7p
+						O5/BXVQGDPusH13EswEC2JeTX7dGDCvM9wYbJvIbVvrCX4R4YB+fJg5h7/JyveXc
+						VtZbmGaQ0Xuu6fAXn0G2Y9/72NGpvOcM3LUPyHy1iBUzaClV9TRoBCJIvdojPQ8k
+						4O+/dz3Qq2NkpSSOUsTOldzeZuRXhzrJVCmDJH0RxawJ1czDLtgxAgMBAAGjYTBf
+						MD4GA1UdEQQ3MDWCDWlkcC51Y3MuYWMudWuGJGh0dHBzOi8vaWRwLnVjcy5hYy51
+						ay9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUOU13V/q7ER53eftMiDzdpx/ur6Mw
+						DQYJKoZIhvcNAQEFBQADggEBAGrR1rz3rBUkNLDk0a7KMP+AKRP+ei+YOy1DkTt1
+						nF0/QrIVulgk5/82uw5rtp07xPJLveTM71/cjC/NXhV0lDPtGe+7jDwBjsaSKf8d
+						k8sRow8dIcViLwcyvS8yaC5PLdc6aTALKNYrhzKuLq9zbKXpxB6ZW3x/S16/cH+U
+						jGFtEu7tGSF9K8Y8pNu7cCuDylk3iz8v7spPeAembJyNAX8x6Stwseq4L5HJuHsm
+						xZgo69TfUXl/v3znLYArSkQl1hRgMalzCx0xXy3BCpTQB8/TvYFy+HHCk3sLSLzE
+						oazcpzNwlhXSgUNXMBFi+ghU9o77fKnWXJN8L3mv8lbbf6g=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ucs.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ucs.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University Campus Suffolk</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University Campus Suffolk</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ucs.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>IT Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:ithelpdesk@ucs.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Will</md:GivenName>
+      <md:SurName>Liebow</md:SurName>
+      <md:EmailAddress>mailto:w.liebow@ucs.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

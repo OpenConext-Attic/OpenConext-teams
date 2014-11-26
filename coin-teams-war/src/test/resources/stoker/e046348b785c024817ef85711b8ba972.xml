@@ -1,0 +1,64 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://enroller.nesc.gla.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://enroller.nesc.gla.ac.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDDDCCAfSgAwIBAgIJAOo3G2vF7X0FMA0GCSqGSIb3DQEBBQUAMCIxIDAeBgNV
+						BAMTF2Vucm9sbGVyLm5lc2MuZ2xhLmFjLnVrMB4XDTA5MDkxNzE0MTgwNFoXDTE5
+						MDkxNTE0MTgwNFowIjEgMB4GA1UEAxMXZW5yb2xsZXIubmVzYy5nbGEuYWMudWsw
+						ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC1sYYn11DWBxLmEvcWLkDA
+						ZiDpFxuCO1TGxzuTw/1q86VR0Gaupv77C2eCQuD3sjAwxk4Nl7bV1t8vfK8XAGeC
+						34xoAQjHJhOp8+H6g2i4FTGugI4tH4z0+TdXyzHWbFxL/cr2f17opzlldQSzCqRB
+						Bdi+H4qY7a4t/UZqXwLm2TxN8lFBODlaONLE/FyYtWQRSNBdvz3/XKl3eSQyOITv
+						FpD3X57AjR7q8KB6J4qtFIa5bwCIemfRjL0kPi+Imreh8vBYoPRCw5Pjte1XTlAc
+						VF1f4FDpOcWC6yfgACTMDjAb1+9QBVuSLlcrC81l3ynKrDz2/IW+8FVz4ZFvB4aB
+						AgMBAAGjRTBDMCIGA1UdEQQbMBmCF2Vucm9sbGVyLm5lc2MuZ2xhLmFjLnVrMB0G
+						A1UdDgQWBBQIgPGsNFh+L38QqY45owJxEVFz5DANBgkqhkiG9w0BAQUFAAOCAQEA
+						Scp2FbOCuWz7i8wXXfhZO2A6L7oZnpHs19fhc1QsBixoMo8nK1rzWdHH7L9uX6NQ
+						LHX2gPTRhxeWu+tna8T4k0QanV8YyciQ+QuCdk4V/9pfaQgiqbCQ/NaX9czUusfY
+						PNC7Fmgw7A9F0OX4chyMylBWPKVwrVqi8xWxKuxKzUOV66HgesgZaw67tj2eOYLv
+						lXzRdcVw7afVvGGj5KbuxJKJFK95wToSMn6V4gdwEt8Q2PhKhKTf5+8OXmOJUXsz
+						nG8OLGCO2cYCCXYsaYyEAgSeC8R/xoE7fxVqav1OcaWepi8c+Wtj5EHL1EI6rEjO
+						jgViuQCUreNnTkGNNV//Wg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://enroller.nesc.gla.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://enroller.nesc.gla.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://enroller.nesc.gla.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://enroller.nesc.gla.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://enroller.nesc.gla.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://enroller.nesc.gla.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://enroller.nesc.gla.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://enroller.nesc.gla.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://enroller.nesc.gla.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://enroller.nesc.gla.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://enroller.nesc.gla.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://enroller.nesc.gla.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://enroller.nesc.gla.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://enroller.nesc.gla.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Glasgow</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">NeSC (Glasgow): ENROLLER Portal</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.enroller.org.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>John</md:GivenName>
+      <md:SurName>Watt</md:SurName>
+      <md:EmailAddress>mailto:John.Watt@glasgow.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>John</md:GivenName>
+      <md:SurName>Watt</md:SurName>
+      <md:EmailAddress>mailto:John.Watt@glasgow.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

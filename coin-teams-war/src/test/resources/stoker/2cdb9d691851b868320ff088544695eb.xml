@@ -1,0 +1,61 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://ballhmauth.balliol.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-07-16T15:58:25Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://ballhmauth.balliol.ox.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDGDCCAgCgAwIBAgIJAOGLhfhvZmWrMA0GCSqGSIb3DQEBBQUAMCYxJDAiBgNV
+						BAMTG2JhbGxobWF1dGguYmFsbGlvbC5veC5hYy51azAeFw0xMjA3MTIwOTIzMTVa
+						Fw0yMjA3MTAwOTIzMTVaMCYxJDAiBgNVBAMTG2JhbGxobWF1dGguYmFsbGlvbC5v
+						eC5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJVc+Rvpuetz
+						KGBDcLb5IE7kVWS9ocVnky49w1dPWfAzoCD6M8uUZXo5p3Uhz9qkjewinGfJzGGR
+						DuOFQY7vHqdkStjTD6KiJpGqc7KMEVS3ALqVKcDooWXxoXPFVLw/KSerK+vJ2f0S
+						dmQSzHZbybHrQiu/uSiEgiAS9LFNpTf1NqYzJKpgQHOk43Fy1qxcFmY9etlzyQNF
+						CIrmrrGKqPGhE4I5wdXa+iSuodHBok7f66EcgX425Icyy9jpAG+I4vK/ZW2QaFd+
+						ls2WoeyHqeHd+6bDzx9PM0IZg/yoBB+yNazI0UXXvmphPSpPUCxza+BBY4M2JOOc
+						9ckQg6JE+tcCAwEAAaNJMEcwJgYDVR0RBB8wHYIbYmFsbGhtYXV0aC5iYWxsaW9s
+						Lm94LmFjLnVrMB0GA1UdDgQWBBRdqcX7hnNNa8HySZBpyM0WVZQPAzANBgkqhkiG
+						9w0BAQUFAAOCAQEAGs2pK0uRW742oR1oqbMsSclc+iFboWXUQgWGFv8MiuZllbwa
+						THJNCCpmBw2OYjfXaztvbJ8csEGsbYmaNO/hLqeIrEdhS4WyBqK4LpNKFiasX+a1
+						ChokEfss17afSc22gsbV+DL3NgCIpI+LwTjGHSHciZ6mfinYoMyyRDYGUJ+Ty75e
+						dU3NwYxplRumD3fneIrLsQ4NqV979yvJSWlShKdb0O+4t1qRSMVPZb74plelI/f0
+						c28WqAH/V6JwRtXQEm30eRjZhRD4SXJtDLyPkLuKXQ/FTXRdI1HSqVMMi2ll4VqN
+						+VBl8jTl7qVzQIzFCFIdwLOaSSCvNrDsB7b9Cg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://ballhmauth.balliol.ox.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://ballhmauth.balliol.ox.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://ballhmauth.balliol.ox.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ballhmauth.balliol.ox.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ballhmauth.balliol.ox.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ballhmauth.balliol.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://ballhmauth.balliol.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ballhmauth.balliol.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://ballhmauth.balliol.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://ballhmauth.balliol.ox.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://ballhmauth.balliol.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Balliol College - HM and JWT Network Registrations</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.balliol.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Stewart</md:GivenName>
+      <md:SurName>Tolhurst</md:SurName>
+      <md:EmailAddress>mailto:stewart.tolhurst@balliol.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Stewart</md:GivenName>
+      <md:SurName>Tolhurst</md:SurName>
+      <md:EmailAddress>mailto:stewart.tolhurst@balliol.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

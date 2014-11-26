@@ -1,0 +1,114 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shib2idp.ntu.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ntu.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Nottingham Trent University</mdui:DisplayName>
+          <mdui:Logo height="33" width="38">https://shib2idp.ntu.ac.uk/cas/themes/ntu/ntushib-v2.PNG</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEzzCCA7egAwIBAgIQZVN9rG0l85bNmeRDGBbHLzANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMTEyMDAwMDAwMFoXDTE1MTEyMDIzNTk1OVowgZ0xCzAJBgNV
+						BAYTAkdCMRgwFgYDVQQIEw9Ob3R0aW5naGFtc2hpcmUxEzARBgNVBAcTCk5vdHRp
+						bmdoYW0xJDAiBgNVBAoTG05vdHRpbmdoYW0gVHJlbnQgVW5pdmVyc2l0eTEcMBoG
+						A1UECxMTSW5mb3JtYXRpb24gU3lzdGVtczEbMBkGA1UEAxMSc2hpYjJpZHAubnR1
+						LmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtn3OZnkj82U1
+						qep4KBD8tMy2A84GtKZj14us/mCzU4JBMQWoBUhihZfhLNErE4EQllz5wUAEDfYY
+						wnclcngY2X6nzgqTJuGmrQLZfukFRPzBfdrQnJGTg/3/dIvCGJ+KfqIt5fGEAwYV
+						pMJaDg6LjBcZSgjmppOocEKVQJydZWEZtKp5+PLDIfQ4btrxw1mCOo/ngEGB8owP
+						eFXstxIweC+9XNhJp4c8L2iZEsfyrNSE+0KFb7DI2sdEbFyaDixLSFlX5CY7fhUS
+						tPUzMOnhXnl2UR9hdgH8x60zu0iUAIXLx0cs81W+VtX2xgsg42oB/dw/6rfFWT37
+						EmXuJi+cQQIDAQABo4IBbzCCAWswHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH
+						6pDjue0wHQYDVR0OBBYEFHTmFwoiMP9Pj5rstxvnY+0oWgtJMA4GA1UdDwEB/wQE
+						AwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcD
+						AjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAECAjA6BgNVHR8EMzAx
+						MC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNy
+						bDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRl
+						cmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8vb2Nz
+						cC50Y3MudGVyZW5hLm9yZzAdBgNVHREEFjAUghJzaGliMmlkcC5udHUuYWMudWsw
+						DQYJKoZIhvcNAQEFBQADggEBAIZ6BAgo8Zi5yspwW//AFgxFQiwEYVh3Yp+yK5w2
+						VEy67No5WpuheooXvw4cq04Q+ikk7RHqIQIIBYTt+Fq4XI7Gb00KVPtPsigN2CqH
+						YETn2eAdF/GFgG93dlvHgD4R9XbJRKHXute7IB+rDxmLgmlYqpvEvi6smNGDPva1
+						d5ov1zOG7hoA1/J6Lfk5HcE21t0djYAVVvy3542TVcUMQ2sqdu0Z/Col04ZiJHn6
+						JxibzI8iw53EN5HTasIQDh7O3YcSotjGNBo5+26kj2O3mTTJ19R8XnQCFBh2NRkX
+						3I2wr94vUQfHVJYPxSRAdsD5lXL80++ASxNlvqIWpKedTnA=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib2idp.ntu.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib2idp.ntu.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shib2idp.ntu.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib2idp.ntu.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib2idp.ntu.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib2idp.ntu.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ntu.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEzzCCA7egAwIBAgIQZVN9rG0l85bNmeRDGBbHLzANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMTEyMDAwMDAwMFoXDTE1MTEyMDIzNTk1OVowgZ0xCzAJBgNV
+						BAYTAkdCMRgwFgYDVQQIEw9Ob3R0aW5naGFtc2hpcmUxEzARBgNVBAcTCk5vdHRp
+						bmdoYW0xJDAiBgNVBAoTG05vdHRpbmdoYW0gVHJlbnQgVW5pdmVyc2l0eTEcMBoG
+						A1UECxMTSW5mb3JtYXRpb24gU3lzdGVtczEbMBkGA1UEAxMSc2hpYjJpZHAubnR1
+						LmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtn3OZnkj82U1
+						qep4KBD8tMy2A84GtKZj14us/mCzU4JBMQWoBUhihZfhLNErE4EQllz5wUAEDfYY
+						wnclcngY2X6nzgqTJuGmrQLZfukFRPzBfdrQnJGTg/3/dIvCGJ+KfqIt5fGEAwYV
+						pMJaDg6LjBcZSgjmppOocEKVQJydZWEZtKp5+PLDIfQ4btrxw1mCOo/ngEGB8owP
+						eFXstxIweC+9XNhJp4c8L2iZEsfyrNSE+0KFb7DI2sdEbFyaDixLSFlX5CY7fhUS
+						tPUzMOnhXnl2UR9hdgH8x60zu0iUAIXLx0cs81W+VtX2xgsg42oB/dw/6rfFWT37
+						EmXuJi+cQQIDAQABo4IBbzCCAWswHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH
+						6pDjue0wHQYDVR0OBBYEFHTmFwoiMP9Pj5rstxvnY+0oWgtJMA4GA1UdDwEB/wQE
+						AwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcD
+						AjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAECAjA6BgNVHR8EMzAx
+						MC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNy
+						bDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRl
+						cmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8vb2Nz
+						cC50Y3MudGVyZW5hLm9yZzAdBgNVHREEFjAUghJzaGliMmlkcC5udHUuYWMudWsw
+						DQYJKoZIhvcNAQEFBQADggEBAIZ6BAgo8Zi5yspwW//AFgxFQiwEYVh3Yp+yK5w2
+						VEy67No5WpuheooXvw4cq04Q+ikk7RHqIQIIBYTt+Fq4XI7Gb00KVPtPsigN2CqH
+						YETn2eAdF/GFgG93dlvHgD4R9XbJRKHXute7IB+rDxmLgmlYqpvEvi6smNGDPva1
+						d5ov1zOG7hoA1/J6Lfk5HcE21t0djYAVVvy3542TVcUMQ2sqdu0Z/Col04ZiJHn6
+						JxibzI8iw53EN5HTasIQDh7O3YcSotjGNBo5+26kj2O3mTTJ19R8XnQCFBh2NRkX
+						3I2wr94vUQfHVJYPxSRAdsD5lXL80++ASxNlvqIWpKedTnA=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib2idp.ntu.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib2idp.ntu.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Nottingham Trent University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Nottingham Trent University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ntu.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Richard</md:GivenName>
+      <md:SurName>Cross</md:SurName>
+      <md:EmailAddress>mailto:richard.cross@ntu.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Lee</md:GivenName>
+      <md:SurName>Hallam</md:SurName>
+      <md:EmailAddress>mailto:ITSShibbolethTechnical@ntu.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

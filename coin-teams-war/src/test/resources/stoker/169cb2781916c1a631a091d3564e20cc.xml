@@ -1,25 +1,20 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="urn:mace:cru.fr:federation:montpellier.iufm.fr">
-			<Extensions>
-				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-10-08T18:22:46Z">
-					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
-				</mdrpi:RegistrationInfo>
-			</Extensions>
-		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">montpellier.iufm.fr</shibmd:Scope>
-    
-			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
-          		      
-          		      
-          		      <mdui:DisplayName xml:lang="fr">IUFM de Montpellier</mdui:DisplayName>
-          		      
-      			    </mdui:UIInfo>
-			</Extensions>
-				<KeyDescriptor use="signing">
-<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="urn:mace:cru.fr:federation:montpellier.iufm.fr">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-10-08T18:22:46Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">montpellier.iufm.fr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="fr">IUFM de Montpellier</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIDZjCCAk6gAwIBAgIVALjF/HJMRzFhyx4QUhGQtfnc/go0MA0GCSqGSIb3DQEB
 BQUAMCkxJzAlBgNVBAMTHmZlZGVyYXRpb24ubW9udHBlbGxpZXIuaXVmbS5mcjAe
 Fw0wOTExMTcxNDM1NTdaFw0yOTExMTcxNDM1NTdaMCkxJzAlBgNVBAMTHmZlZGVy
@@ -40,17 +35,13 @@ k4efOHibLlXTz1Di9jVrchyw0Ix95i2tRAhkw9MLw37NX7hw73quN3/V1Tg8vNoW
 UwfIvWcdU+rI3r0sj0XzUxvuWt2E34dY7iRDZMqs9x1IBcLg00oRH3Hc2jvF6Ytw
 R4xWKyqWIGnn4g==
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-					</ds:KeyInfo>
-				</KeyDescriptor>
-
-				
-				
-				<KeyDescriptor use="signing">
-				       <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIEdTCCA12gAwIBAgICDKYwDQYJKoZIhvcNAQEEBQAwUDELMAkGA1UEBhMCRlIx
 DDAKBgNVBAoTA0NSVTETMBEGA1UEAxMKYWMtc2VydmV1cjEeMBwGCSqGSIb3DQEJ
 ARYPY2EtYWRtaW5AY3J1LmZyMB4XDTA3MDIwOTEzNDEwMFoXDTEwMDIwOTEzNDEw
@@ -76,34 +67,23 @@ O0uozxNSHj13VqGw7UHcFCX1AykmoYCrSDVL2U8NovZsb9lZfu+dI9JtvLDAF0Sq
 7XBGhp2qum5kAy76u2NwWcunMJM7fmExJF+SjGUXtKQ6wxnXQ1zcAJ7atuyPPfEA
 ST1d3qLq8ftDvKa7Edva60Iw8nCcEd5b4I7ZSlYhFpX7KlK/HNZu6Mk=
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					</ds:KeyInfo>
-				</KeyDescriptor>
-				
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-
-			
-			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://federation.montpellier.iufm.fr/idp/profile/SAML2/POST/SSO"/>
-	        
-	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://federation.montpellier.iufm.fr/idp/profile/SAML2/Redirect/SSO"/>
-	        
-	        
-			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://federation.montpellier.iufm.fr/idp/profile/Shibboleth/SSO"/>
-			
-
-		</IDPSSODescriptor>
-		
-	
-		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">montpellier.iufm.fr</shibmd:Scope>
-    			</Extensions>
-			<KeyDescriptor use="signing">
-				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://federation.montpellier.iufm.fr/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://federation.montpellier.iufm.fr/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://federation.montpellier.iufm.fr/idp/profile/Shibboleth/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">montpellier.iufm.fr</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIDZjCCAk6gAwIBAgIVALjF/HJMRzFhyx4QUhGQtfnc/go0MA0GCSqGSIb3DQEB
 BQUAMCkxJzAlBgNVBAMTHmZlZGVyYXRpb24ubW9udHBlbGxpZXIuaXVmbS5mcjAe
 Fw0wOTExMTcxNDM1NTdaFw0yOTExMTcxNDM1NTdaMCkxJzAlBgNVBAMTHmZlZGVy
@@ -124,17 +104,13 @@ k4efOHibLlXTz1Di9jVrchyw0Ix95i2tRAhkw9MLw37NX7hw73quN3/V1Tg8vNoW
 UwfIvWcdU+rI3r0sj0XzUxvuWt2E34dY7iRDZMqs9x1IBcLg00oRH3Hc2jvF6Ytw
 R4xWKyqWIGnn4g==
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-				</ds:KeyInfo>
-			</KeyDescriptor>
-
-				
-				
-				<KeyDescriptor use="signing">
-				       <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIEdTCCA12gAwIBAgICDKYwDQYJKoZIhvcNAQEEBQAwUDELMAkGA1UEBhMCRlIx
 DDAKBgNVBAoTA0NSVTETMBEGA1UEAxMKYWMtc2VydmV1cjEeMBwGCSqGSIb3DQEJ
 ARYPY2EtYWRtaW5AY3J1LmZyMB4XDTA3MDIwOTEzNDEwMFoXDTEwMDIwOTEzNDEw
@@ -160,29 +136,19 @@ O0uozxNSHj13VqGw7UHcFCX1AykmoYCrSDVL2U8NovZsb9lZfu+dI9JtvLDAF0Sq
 7XBGhp2qum5kAy76u2NwWcunMJM7fmExJF+SjGUXtKQ6wxnXQ1zcAJ7atuyPPfEA
 ST1d3qLq8ftDvKa7Edva60Iw8nCcEd5b4I7ZSlYhFpX7KlK/HNZu6Mk=
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					</ds:KeyInfo>
-				</KeyDescriptor>
-				
-
-			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://federation.montpellier.iufm.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-		</AttributeAuthorityDescriptor>
-
-
-		<Organization>
-		
-			<OrganizationName xml:lang="en">IUFM de Montpellier</OrganizationName>
-			<OrganizationDisplayName xml:lang="en">IUFM de Montpellier</OrganizationDisplayName>
-			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
-		
-		</Organization>
-
-			
-			    <ContactPerson contactType="technical">
-			     <EmailAddress>fed-admin@montpellier.iufm.fr</EmailAddress>
-		        </ContactPerson>
-		    	
-			
-	</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://federation.montpellier.iufm.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">IUFM de Montpellier</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">IUFM de Montpellier</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://unknown.site.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>fed-admin@montpellier.iufm.fr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

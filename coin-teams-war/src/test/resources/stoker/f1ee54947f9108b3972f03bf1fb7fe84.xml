@@ -1,0 +1,95 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shib.gcu.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-04-03T11:52:43Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">gcu.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDIzCCAgugAwIBAgIUGOsthEUhMn8ZqSRhbf29aeFD9OswDQYJKoZIhvcNAQEF
+						BQAwGTEXMBUGA1UEAxMOc2hpYi5nY3UuYWMudWswHhcNMTQwNDAxMTUxOTAwWhcN
+						MzQwNDAxMTUxOTAwWjAZMRcwFQYDVQQDEw5zaGliLmdjdS5hYy51azCCASIwDQYJ
+						KoZIhvcNAQEBBQADggEPADCCAQoCggEBAIchBd2lzuQ45cxGQVaDT0WpztTW9Bi1
+						+oXgxor2jun7trjtQe93sHmkCfjsAvZad9+gSVxFV3gHFHfpDix+XRZu1l3/f1mW
+						bDhQtsFi3ooMRb+z8eN6XsSzRXjOm+Zq/TtvG5ASVvJIqKM5zAZmbAjhlF3GyaWa
+						+MFTc9Jk84Gfo9v7apFKx1LAUxnQaCYNSMSombtAyVUNSc74YqN56F/0V+jUnvMT
+						NkkQ4YiiFYzcO7M6xut1avUzZn00aEjlnCFHB8beWH4UV+DXGKxb/k31IjOpox4K
+						esz9S1J0UhZsqmLZdjxExfVzgZLvplKpSKfEpxyheSeSg525XURwl2kCAwEAAaNj
+						MGEwQAYDVR0RBDkwN4IOc2hpYi5nY3UuYWMudWuGJWh0dHBzOi8vc2hpYi5nY3Uu
+						YWMudWsvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFC2/w2ppSqmygKbmZGMoPqKT
+						cbhrMA0GCSqGSIb3DQEBBQUAA4IBAQBCV7RJxCsiFIMkBwB9FwOCP3jGjOcUXde7
+						fwMwb99pAuwEZPe2LwwHxZZSowsKkt3y7KEhqzG4mMxBvvf++mlmErnpvVW9xptc
+						nRHfNCw44o/MXjTc5oK85iUDL0XW6NpaNlUFO68oYh+o5syUgLeSjtFVvrZn7Skd
+						NyG6F7QvM6YMx7RFp0ij1h9/yGfUb2iVFTWOePRzTTJ+/u8zOay+fLHiFmL3u6Al
+						OK8MOQIZBD6o4lZJNsg2YCUHuHMDE3hrYDZQjraE7R6GcyC9lkaHNonm1lQKf+oP
+						/0/rNHQNKC7TUfL8iAQ4ZPlfaXK3Joo2G+NL8Pg6ldPP1hBDvnvt
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib.gcu.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib.gcu.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib.gcu.ac.uk/idp/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib.gcu.ac.uk/idp/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib.gcu.ac.uk:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shib.gcu.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib.gcu.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib.gcu.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib.gcu.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">gcu.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDIzCCAgugAwIBAgIUGOsthEUhMn8ZqSRhbf29aeFD9OswDQYJKoZIhvcNAQEF
+						BQAwGTEXMBUGA1UEAxMOc2hpYi5nY3UuYWMudWswHhcNMTQwNDAxMTUxOTAwWhcN
+						MzQwNDAxMTUxOTAwWjAZMRcwFQYDVQQDEw5zaGliLmdjdS5hYy51azCCASIwDQYJ
+						KoZIhvcNAQEBBQADggEPADCCAQoCggEBAIchBd2lzuQ45cxGQVaDT0WpztTW9Bi1
+						+oXgxor2jun7trjtQe93sHmkCfjsAvZad9+gSVxFV3gHFHfpDix+XRZu1l3/f1mW
+						bDhQtsFi3ooMRb+z8eN6XsSzRXjOm+Zq/TtvG5ASVvJIqKM5zAZmbAjhlF3GyaWa
+						+MFTc9Jk84Gfo9v7apFKx1LAUxnQaCYNSMSombtAyVUNSc74YqN56F/0V+jUnvMT
+						NkkQ4YiiFYzcO7M6xut1avUzZn00aEjlnCFHB8beWH4UV+DXGKxb/k31IjOpox4K
+						esz9S1J0UhZsqmLZdjxExfVzgZLvplKpSKfEpxyheSeSg525XURwl2kCAwEAAaNj
+						MGEwQAYDVR0RBDkwN4IOc2hpYi5nY3UuYWMudWuGJWh0dHBzOi8vc2hpYi5nY3Uu
+						YWMudWsvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFC2/w2ppSqmygKbmZGMoPqKT
+						cbhrMA0GCSqGSIb3DQEBBQUAA4IBAQBCV7RJxCsiFIMkBwB9FwOCP3jGjOcUXde7
+						fwMwb99pAuwEZPe2LwwHxZZSowsKkt3y7KEhqzG4mMxBvvf++mlmErnpvVW9xptc
+						nRHfNCw44o/MXjTc5oK85iUDL0XW6NpaNlUFO68oYh+o5syUgLeSjtFVvrZn7Skd
+						NyG6F7QvM6YMx7RFp0ij1h9/yGfUb2iVFTWOePRzTTJ+/u8zOay+fLHiFmL3u6Al
+						OK8MOQIZBD6o4lZJNsg2YCUHuHMDE3hrYDZQjraE7R6GcyC9lkaHNonm1lQKf+oP
+						/0/rNHQNKC7TUfL8iAQ4ZPlfaXK3Joo2G+NL8Pg6ldPP1hBDvnvt
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib.gcu.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib.gcu.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Glasgow Caledonian University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Glasgow Caledonian University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.gcu.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Shibboleth Support</md:GivenName>
+      <md:EmailAddress>mailto:ddil@gcu.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Shibboleth Support</md:GivenName>
+      <md:EmailAddress>mailto:ddil@gcu.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

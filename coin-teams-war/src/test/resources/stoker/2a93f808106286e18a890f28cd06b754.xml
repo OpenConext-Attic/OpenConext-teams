@@ -1,25 +1,20 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.ipb.fr/idp/shibboleth">
-			<Extensions>
-				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-08-29T14:12:44Z">
-					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
-				</mdrpi:RegistrationInfo>
-			</Extensions>
-		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ipb.fr</shibmd:Scope>
-    
-			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
-          		      
-          		      
-          		      <mdui:DisplayName xml:lang="fr">IPB - Institut Polytechnique de Bordeaux</mdui:DisplayName>
-          		      
-      			    </mdui:UIInfo>
-			</Extensions>
-				<KeyDescriptor use="signing">
-<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.ipb.fr/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-08-29T14:12:44Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ipb.fr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="fr">IPB - Bordeaux INP</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIEYjCCA0qgAwIBAgIRALgbEIwRuh3U84klcQg/9UAwDQYJKoZIhvcNAQEFBQAw
 NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
 IFNTTCBDQTAeFw0xNDA1MjgwMDAwMDBaFw0xNzA1MjcyMzU5NTlaMDgxITAfBgNV
@@ -45,80 +40,22 @@ wORHtv4Q51ZnfSkDLOjKG98VQKN2RTtPvrnj4TnIvp8KSFbfH7ETyJq8l5nA2lHs
 ZKgUrRmjDmCf5UuCYHwMtOgFzULqTmmHdveUn/tYTyooHhj9tGz0NOXuzji6RUPt
 6XlibuDkkJwzRII2QYI3FB+8/h7Vqg==
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-					</ds:KeyInfo>
-				</KeyDescriptor>
-
-				
-				
-				<KeyDescriptor use="signing">
-				       <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  <ds:X509Data>
-					    <ds:X509Certificate>
-					      MIIEdTCCA12gAwIBAgIRAIpn08DQCZ8Z5FRb3BW4G/wwDQYJKoZIhvcNAQEFBQAw
-NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
-IFNTTCBDQTAeFw0xMTA4MjYwMDAwMDBaFw0xNDA4MjUyMzU5NTlaMFUxCzAJBgNV
-BAYTAkZSMTEwLwYDVQQKEyhJbnN0aXR1dCBQb2x5dGVjaG5pcXVlIGRlIEJvcmRl
-YXV4IC0gSVBCMRMwEQYDVQQDEwppZHAuaXBiLmZyMIIBIjANBgkqhkiG9w0BAQEF
-AAOCAQ8AMIIBCgKCAQEAzb2JDHzjEb9mrAwEGOED/4hcuL8svDhTo1sEU89YXBe8
-Ln2gX5dr1JupouNVKRTahuUnuMLKDWCkyS5vvbtNNFRB1oj+w0tdVRJ4dcHz/fnY
-zpnCws3qLaUkqDF/0Ntqh32oIIuU7yAA/in/ufjR8Uh8Xw4AlsRnfP5LPF+xeFvE
-r/KjQtw9wVumiBM7Cf3vyVOaAHG1KL+CRNDpLztWvuFGc1mSlwZJwnNucGO6jhnU
-o+Ydcw+Ps6ol9dmVE5X4tklQKnR/Pexh6HHOZ3IJAQc93yKREp1TNnFb99K5oq1c
-dnuWkBr9XdOZs+oIVCIO1VWQ3Xfvm+khsv24UPUwXQIDAQABo4IBXTCCAVkwHwYD
-VR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH6pDjue0wHQYDVR0OBBYEFB1W8R7J3vdP
-g7Z4EjYd4xAaTdMOMA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1Ud
-JQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAYBgNVHSAEETAPMA0GCysGAQQBsjEB
-AgIdMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcv
-VEVSRU5BU1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0
-cDovL2NydC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUH
-MAGGGmh0dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMBUGA1UdEQQOMAyCCmlkcC5p
-cGIuZnIwDQYJKoZIhvcNAQEFBQADggEBAEJdT/dKTB9JDuFN65aiC3oY2duBBTAO
-9UiIct0spKuI4TKyj6twPNGhOkNY1bYcPU2PkwJP/Xntrm/QxPCKvc69jy4rfN8R
-QH1wZsVLawG5egH9sLGxTsKfcgXWNb+xvgiOoyHwFyIHB1LT/mxzC/Dvld5JgqUX
-Pvilz2LTSQ4vRtyhqMtuhqKC5BsipmhGLNOhp3edFEWlO98wORyecDoSMhenqsiG
-3dyX4+CCw3h3etpdODyHOSbCNbgt+IP0ZspVgL3L52tBaEl7HjRnvoCUVTF/mrEJ
-bfJgi/LG3ysMC75I61wcN23IPLsxjUi9CLt79VKLVtmIP1WjKVcajM8=
-					    </ds:X509Certificate>
-					  </ds:X509Data>
-					</ds:KeyInfo>
-				</KeyDescriptor>
-				
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-
-			
-			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ipb.fr/idp/profile/SAML2/POST/SSO"/>
-	        
-	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ipb.fr/idp/profile/SAML2/Redirect/SSO"/>
-	        
-	        
-			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ipb.fr/idp/profile/Shibboleth/SSO"/>
-			
-
-		</IDPSSODescriptor>
-		
-
-
-		<Organization>
-		
-			<OrganizationName xml:lang="en">IPB - Institut Polytechnique de Bordeaux</OrganizationName>
-			<OrganizationDisplayName xml:lang="en">IPB - Institut Polytechnique de Bordeaux</OrganizationDisplayName>
-			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
-		
-		</Organization>
-
-			
-		    	
-			    <ContactPerson contactType="technical">
-				 <SurName>Moniez</SurName>
-				 <EmailAddress>philippe.moniez@ipb.fr</EmailAddress>
-		        </ContactPerson>
-			    	
-
-		    		
-
-				
-			
-	</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ipb.fr/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ipb.fr/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ipb.fr/idp/profile/Shibboleth/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">IPB - Bordeaux INP</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">IPB - Bordeaux INP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://unknown.site.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Moniez</md:SurName>
+      <md:EmailAddress>philippe.moniez@ipb.fr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

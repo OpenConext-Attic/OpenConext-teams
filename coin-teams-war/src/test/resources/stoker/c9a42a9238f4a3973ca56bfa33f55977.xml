@@ -1,0 +1,108 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.leedscitycollege.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">leedscitycollege.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEgjCCA2qgAwIBAgIRALCBQlGXGrcD9c9LdG6adR0wDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzAzMTQwMDAwMDBaFw0xNjAzMTMyMzU5NTlaMEgxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEjMCEGA1UEAxMaaWRwLmxlZWRz
+						Y2l0eWNvbGxlZ2UuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+						AQDAcpLEpdhaHKIAQ0gV+frjeHDaRPrZhXmb1u96oKsRwYqpyr6413IEYdRtkpYw
+						P65xLjyLn538zGAk1N9Z5gW7zjRQ+hFeI4jfyk19FIb+PNVhcCj+gwHQ5UbY+1Iw
+						rrRn8ODaIV0oA6c/XTYcdecJy1XRVKsOT2y/zAV+IsMXWD5fUWcJ6wqNYr7tU6fh
+						ltnrkY+jnsku7ACawXfJjKxcXnKe6mTGEKwYbKnOAGtngMu6lWJJ3pHGRsvnPyDK
+						a73kgwpTnwNFr1tZtconuHgEN2BQYjInvJYChNKBpGXEj5iSHSUgZgxmNxy/IuID
+						/p7S5/xZfNAH9rQV8zxq5QgjAgMBAAGjggF3MIIBczAfBgNVHSMEGDAWgBQMvZNo
+						DPPeq6NJays3V0fqkOO57TAdBgNVHQ4EFgQUU3P+wtUYFchRKsv6Q4LmIgFLpEcw
+						DgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUH
+						AwEGCCsGAQUFBwMCMCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQIB
+						MDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVS
+						RU5BU1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDov
+						L2NydC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGG
+						Gmh0dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMCUGA1UdEQQeMByCGmlkcC5sZWVk
+						c2NpdHljb2xsZWdlLmFjLnVrMA0GCSqGSIb3DQEBBQUAA4IBAQAZrvDhT0tAcl8+
+						WuPuV3YV9rSyzLakdOMu4LrTSXeXMbqjasyoX6ROcOYX9l2/Tgtc7kerFF5XTzkr
+						nrZoB3JsckEkljtxhrQhFLlZhHO55M8gli21jtczeZxoUCWwuoh8pKmOgXHoOi4f
+						eM4JIVwgyn0ZqelN4SlJwyb1Iw59qSSzLvwHnawHq0wGXwk3bWTaxQL0RdZoOGPN
+						noPr1FoKBvyZ9WDwZcjQ0gB2jfEzg6xEyQXYomxtEVPX06VItORVhuO4yGI7uHqO
+						rq6Bbi0IALgCSKEdElu6sVbcszLHW99ZrXp8YFbfOA0qCWaBhCYGqaauw90fKW1Z
+						wY23or2j
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.leedscitycollege.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.leedscitycollege.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.leedscitycollege.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.leedscitycollege.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.leedscitycollege.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.leedscitycollege.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">leedscitycollege.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEgjCCA2qgAwIBAgIRALCBQlGXGrcD9c9LdG6adR0wDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzAzMTQwMDAwMDBaFw0xNjAzMTMyMzU5NTlaMEgxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEjMCEGA1UEAxMaaWRwLmxlZWRz
+						Y2l0eWNvbGxlZ2UuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+						AQDAcpLEpdhaHKIAQ0gV+frjeHDaRPrZhXmb1u96oKsRwYqpyr6413IEYdRtkpYw
+						P65xLjyLn538zGAk1N9Z5gW7zjRQ+hFeI4jfyk19FIb+PNVhcCj+gwHQ5UbY+1Iw
+						rrRn8ODaIV0oA6c/XTYcdecJy1XRVKsOT2y/zAV+IsMXWD5fUWcJ6wqNYr7tU6fh
+						ltnrkY+jnsku7ACawXfJjKxcXnKe6mTGEKwYbKnOAGtngMu6lWJJ3pHGRsvnPyDK
+						a73kgwpTnwNFr1tZtconuHgEN2BQYjInvJYChNKBpGXEj5iSHSUgZgxmNxy/IuID
+						/p7S5/xZfNAH9rQV8zxq5QgjAgMBAAGjggF3MIIBczAfBgNVHSMEGDAWgBQMvZNo
+						DPPeq6NJays3V0fqkOO57TAdBgNVHQ4EFgQUU3P+wtUYFchRKsv6Q4LmIgFLpEcw
+						DgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUH
+						AwEGCCsGAQUFBwMCMCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQIB
+						MDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVS
+						RU5BU1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDov
+						L2NydC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGG
+						Gmh0dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMCUGA1UdEQQeMByCGmlkcC5sZWVk
+						c2NpdHljb2xsZWdlLmFjLnVrMA0GCSqGSIb3DQEBBQUAA4IBAQAZrvDhT0tAcl8+
+						WuPuV3YV9rSyzLakdOMu4LrTSXeXMbqjasyoX6ROcOYX9l2/Tgtc7kerFF5XTzkr
+						nrZoB3JsckEkljtxhrQhFLlZhHO55M8gli21jtczeZxoUCWwuoh8pKmOgXHoOi4f
+						eM4JIVwgyn0ZqelN4SlJwyb1Iw59qSSzLvwHnawHq0wGXwk3bWTaxQL0RdZoOGPN
+						noPr1FoKBvyZ9WDwZcjQ0gB2jfEzg6xEyQXYomxtEVPX06VItORVhuO4yGI7uHqO
+						rq6Bbi0IALgCSKEdElu6sVbcszLHW99ZrXp8YFbfOA0qCWaBhCYGqaauw90fKW1Z
+						wY23or2j
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.leedscitycollege.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.leedscitycollege.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Leeds City College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Leeds City College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.leedscitycollege.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Robert</md:GivenName>
+      <md:SurName>Elliott</md:SurName>
+      <md:EmailAddress>mailto:robert.elliott@leedscitycollege.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Robert</md:GivenName>
+      <md:SurName>Elliott</md:SurName>
+      <md:EmailAddress>mailto:robert.elliott@leedscitycollege.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

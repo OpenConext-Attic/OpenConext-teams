@@ -1,0 +1,100 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://newcastle.kit-catalogue.com/shibboleth">
+    <md:Extensions>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-10-18T16:26:27Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://newcastle.kit-catalogue.com/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIG4TCCBcmgAwIBAgIQHCGC1CK9V9XFPYeyU9ZeCTANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEzMTAwMjAwMDAwMFoXDTE2MTAwMTIzNTk1OVowPzEhMB8GA1UE
+						CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRowGAYDVQQDExFueXNzYS5sYm9y
+						by5hYy51azCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAOt+A9QV+8R4
+						NWqBkrIjTu9/xINfhF9fChi/eqVEwrBqXwmGc0/Sf+lzygHrj72BClpWtdIUFtTW
+						LWWVUfXqBn2mLfuygJO9kbFnJjFlDEShVIpJbIFsCUg43QBnb2UCI7vHzk9f7njW
+						/bMjMLDkfSxVNSH33cJ3CEp9/hKuUjgNj+ApX8AYn0YlVaiak15gTEH4gRFxfGNi
+						r6B8uuGX58fV7UUC/uOou6x8UAeoUk9Y1y4jwMvyZ7SRUqWvm0/RAnEgtbh3XcUO
+						TLWo3EJsMSmofvOwYvxO0Tew/avFAJPglXKaSKod0J7a0tMAhCuhmuzWoO1jvI8+
+						eW39w0p0MXvJGQiVxkYPyLi6eB9z9ljpOUx6X5hRHtyiro1ai1Xd11S8a2r+m3IB
+						WZByEraWqfdPc2l6eTAwQw+5uK1XRXzF4ek5FNE8qQQa8XhR0kV6Dz2saK2qG7P3
+						enTZZWpC6TKLypqqaep2ZvSd2uutFMBVTMwXBcRhWM8Ro0I1fhKGr6iMRLEgCwPW
+						eDC7AEfSOA8DuyCeHSZwgH4+jUfVxab5C+PeIhqKc6YTqhmQSp+6Hw9Zpn7risQq
+						eX4XrFAsoPvPcxscK9lARy74qxo5JOoE4OT6or/POCH7DTTxdBt61HaYZzlpFoo5
+						Dqk3ME/XtA2cSUf01Dqeeq0JpqxW0WHbAgMBAAGjggLgMIIC3DAfBgNVHSMEGDAW
+						gBQMvZNoDPPeq6NJays3V0fqkOO57TAdBgNVHQ4EFgQU7KQCFDuM+zl6I69tYQ+Q
+						BIIzneQwDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYI
+						KwYBBQUHAwEGCCsGAQUFBwMCMCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYG
+						Z4EMAQIBMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5v
+						cmcvVEVSRU5BU1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYp
+						aHR0cDovL2NydC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYB
+						BQUHMAGGGmh0dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMIIBjAYDVR0RBIIBgzCC
+						AX+CEW55c3NhLmxib3JvLmFjLnVrghVhdHRlbmRhbnQubGJvcm8uYWMudWuCGGNv
+						LXR1dG9yLWRldi5sYm9yby5hYy51a4IUY28tdHV0b3IubGJvcm8uYWMudWuCFWRt
+						dS5raXQtY2F0YWxvZ3VlLmNvbYIVZXF1aXBtZW50Lmxib3JvLmFjLnVrghprYy1k
+						ZXZlbG9wbWVudC5sYm9yby5hYy51a4ISa2MtZG11Lmxib3JvLmFjLnVrghhrYy1u
+						ZXdjYXN0bGUubGJvcm8uYWMudWuCGmtjLW5vcnRodW1icmlhLmxib3JvLmFjLnVr
+						ghlrYy1wb3J0c21vdXRoLmxib3JvLmFjLnVrghtuZXdjYXN0bGUua2l0LWNhdGFs
+						b2d1ZS5jb22CFG5ld3dlYnBhLmxib3JvLmFjLnVrghdwcm9qZWN0bGlzdC5sYm9y
+						by5hYy51a4IRd2VicGEubGJvcm8uYWMudWuCFXd3dy5raXQtY2F0YWxvZ3VlLmNv
+						bTANBgkqhkiG9w0BAQUFAAOCAQEAphJCGIqShIxjiFA5nUWXF7HkHLajaEc0HBrJ
+						4MrJ6TtH2GJCBZsr6+p0j47saos465BXpC8UR5VmSwlCJ7E70DUyn2lhKCaJyFO9
+						S/nK5mQjfutwJvtonCIPWKUnDYibrXslgortvBhB8YAJrlrEzSvWDTf9FfeMzTNs
+						ZpQgLiW8vcEZ1hQrb+UrelMV2Z9tjAaFbCFbDFAm6FeEsaMHiG/s65TLHgy9HLdd
+						omplw+7n6grAbJxkfMhJUGL1ehSy1a2t3sR5vV6SF60Kamr6qKq0tjEdIJ6A3URM
+						lXYQBVAJVzJxMOn+iIg4UvQj9d5mJrhijCShO3MoY1gSyzA9Lg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://newcastle.kit-catalogue.com/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://newcastle.kit-catalogue.com/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://newcastle.kit-catalogue.com/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://newcastle.kit-catalogue.com/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://newcastle.kit-catalogue.com/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://newcastle.kit-catalogue.com/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://newcastle.kit-catalogue.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://newcastle.kit-catalogue.com/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://newcastle.kit-catalogue.com/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://newcastle.kit-catalogue.com/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://newcastle.kit-catalogue.com/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Loughborough University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Kit-Catalogue hosted service for Newcastle University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.kit-catalogue.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Kit-Catalogue</md:GivenName>
+      <md:SurName>Team</md:SurName>
+      <md:EmailAddress>mailto:kit-catalogue@lboro.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Kit-Catalogue</md:GivenName>
+      <md:SurName>Team</md:SurName>
+      <md:EmailAddress>mailto:kit-catalogue@lboro.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

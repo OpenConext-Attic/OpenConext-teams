@@ -1,0 +1,104 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://lamlash.edina.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-01-04T15:19:50Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">lamlash.edina.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Lamlash test IdP</mdui:DisplayName>
+          <mdui:Logo height="60" width="79">https://lamlash.edina.ac.uk/idp/images/pussycat-idp1.jpg</mdui:Logo>
+          <mdui:Logo height="16" width="16">https://lamlash.edina.ac.uk/idp/images/pussycat-idp2.jpg</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDODCCAiCgAwIBAgIVAKvJ0PaKlvVefbTn1IBkeTbOYlJ+MA0GCSqGSIb3DQEB
+						BQUAMB4xHDAaBgNVBAMTE2xhbWxhc2guZWRpbmEuYWMudWswHhcNMTQwNDIxMTA1
+						MjUyWhcNMzQwNDIxMTA1MjUyWjAeMRwwGgYDVQQDExNsYW1sYXNoLmVkaW5hLmFj
+						LnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmbX35g2GJCus1uPx
+						/L6rbG7I7H1dItoif7TIgRBoSADOXfTYS2aPGTs8SBmBzbinLIKTz1caA1wftCjO
+						o3seUptoMqdH9yrCdik96FzvxtaPjH5EY/dy7PuuHeTbTtYSpekM7OBrgadsDTzn
+						paW3wt+C/Sea3vvn6N4QSud/iv4/m53K338ALMONvRoyZvlx1F7APuC9Rw35ieES
+						3kIVrFBmfgMZkBqvHkeJEmS+zanEppqKFN/Oj5qVn8aiy9ZpjLjXQ37m15/QQDbq
+						isflNTYdHrdMlMeR4HWHXVhDb3ww66V7dIDKPwG7XzKeJiz2bKhejOECcEqpRZlU
+						dIY+gQIDAQABo20wazBKBgNVHREEQzBBghNsYW1sYXNoLmVkaW5hLmFjLnVrhipo
+						dHRwczovL2xhbWxhc2guZWRpbmEuYWMudWsvaWRwL3NoaWJib2xldGgwHQYDVR0O
+						BBYEFMeJ4HF17TJSXkZeWX/+yMLzCXNZMA0GCSqGSIb3DQEBBQUAA4IBAQAJIFrN
+						16nAtc4JrwqWXt0U0JVWc/68lGLcByu00uX4LNLzisvuhczutiIMaN1tD32YC4To
+						S4YkaJnCTnMhJCZCjcya5od8vKwa4RswGrzIzUwRvPTqIHYJQOdmsuzvYDDI65U8
+						tekHNhquu7nIzAAAjgtQFV07fcFVJ7JMI2FN4Xjp8qS43o/VsGC0LogiTVeRl57h
+						/Y7F/55wgk3R+DJx8utj3xG4fk+RzJLeWxjjrs885E/BZ/vn2FLIur2+rSa8rxB+
+						TKag3zAplAMLFW0+6HQrvFEg9GcDg6zesygdffRhG9He8X4oM6vwx490+BHHss9q
+						SfPXTTAZLsyW8T2q
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://lamlash.edina.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://lamlash.edina.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://lamlash.edina.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://lamlash.edina.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://lamlash.edina.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://lamlash.edina.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">lamlash.edina.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDODCCAiCgAwIBAgIVAKvJ0PaKlvVefbTn1IBkeTbOYlJ+MA0GCSqGSIb3DQEB
+						BQUAMB4xHDAaBgNVBAMTE2xhbWxhc2guZWRpbmEuYWMudWswHhcNMTQwNDIxMTA1
+						MjUyWhcNMzQwNDIxMTA1MjUyWjAeMRwwGgYDVQQDExNsYW1sYXNoLmVkaW5hLmFj
+						LnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmbX35g2GJCus1uPx
+						/L6rbG7I7H1dItoif7TIgRBoSADOXfTYS2aPGTs8SBmBzbinLIKTz1caA1wftCjO
+						o3seUptoMqdH9yrCdik96FzvxtaPjH5EY/dy7PuuHeTbTtYSpekM7OBrgadsDTzn
+						paW3wt+C/Sea3vvn6N4QSud/iv4/m53K338ALMONvRoyZvlx1F7APuC9Rw35ieES
+						3kIVrFBmfgMZkBqvHkeJEmS+zanEppqKFN/Oj5qVn8aiy9ZpjLjXQ37m15/QQDbq
+						isflNTYdHrdMlMeR4HWHXVhDb3ww66V7dIDKPwG7XzKeJiz2bKhejOECcEqpRZlU
+						dIY+gQIDAQABo20wazBKBgNVHREEQzBBghNsYW1sYXNoLmVkaW5hLmFjLnVrhipo
+						dHRwczovL2xhbWxhc2guZWRpbmEuYWMudWsvaWRwL3NoaWJib2xldGgwHQYDVR0O
+						BBYEFMeJ4HF17TJSXkZeWX/+yMLzCXNZMA0GCSqGSIb3DQEBBQUAA4IBAQAJIFrN
+						16nAtc4JrwqWXt0U0JVWc/68lGLcByu00uX4LNLzisvuhczutiIMaN1tD32YC4To
+						S4YkaJnCTnMhJCZCjcya5od8vKwa4RswGrzIzUwRvPTqIHYJQOdmsuzvYDDI65U8
+						tekHNhquu7nIzAAAjgtQFV07fcFVJ7JMI2FN4Xjp8qS43o/VsGC0LogiTVeRl57h
+						/Y7F/55wgk3R+DJx8utj3xG4fk+RzJLeWxjjrs885E/BZ/vn2FLIur2+rSa8rxB+
+						TKag3zAplAMLFW0+6HQrvFEg9GcDg6zesygdffRhG9He8X4oM6vwx490+BHHss9q
+						SfPXTTAZLsyW8T2q
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://lamlash.edina.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://lamlash.edina.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Edinburgh</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Lamlash test IdP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ukfederation.org.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Sara</md:GivenName>
+      <md:SurName>Hopkins</md:SurName>
+      <md:EmailAddress>mailto:sara.hopkins@ed.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Sara</md:GivenName>
+      <md:SurName>Hopkins</md:SurName>
+      <md:EmailAddress>mailto:sara.hopkins@ed.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

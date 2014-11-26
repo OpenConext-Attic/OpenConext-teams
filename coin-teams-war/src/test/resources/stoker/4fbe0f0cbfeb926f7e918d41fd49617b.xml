@@ -1,0 +1,110 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp3.bucks.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-05-09T11:14:51Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">bucks.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEbTCCA1WgAwIBAgIQD37jMrv/ilUrfisl2656RjANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEzMDQwNDAwMDAwMFoXDTE2MDQwMzIzNTk1OVowPjEhMB8GA1UE
+						CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRkwFwYDVQQDExBpZHAzLmJ1Y2tz
+						LmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7mQCL3VNnsub
+						KOIwNicoFGR7eXPwqyXu/GI3B+88ZlWfKqyrgbjgHvI1TQGuOA30eZa+BQ8oE6ba
+						eugWOQfAXGVKFWV84Zn+BUheq0lJOr6iLqk34rSg2WXAB70AqiF8t8rTkGFwcaXd
+						/E+Ur1o4yicFAVkiC5Knnuxi9RUR/YUjN4X3/JmKrbZL6UGCQdgtAcZHNhRVr+4U
+						Awbkt7auBk1+47NNuS+z5+QNxw+FOeeWaWWfogNuYT4oVdvmVe2xqvKwZsT0lJfa
+						cD9CDd5zMUBrj95OeNGqAs3UtBZyJ8+WeCCnISmSLvfIx33j0wOf/gRkDGo4My8c
+						XFSXDITeCQIDAQABo4IBbTCCAWkwHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH
+						6pDjue0wHQYDVR0OBBYEFEaX2Ffnub92Gu5nd0efBgpPl26LMA4GA1UdDwEB/wQE
+						AwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcD
+						AjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAECATA6BgNVHR8EMzAx
+						MC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNy
+						bDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRl
+						cmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8vb2Nz
+						cC50Y3MudGVyZW5hLm9yZzAbBgNVHREEFDASghBpZHAzLmJ1Y2tzLmFjLnVrMA0G
+						CSqGSIb3DQEBBQUAA4IBAQBwutInsCS1qellB/wBmWl4+p+AQCHlDTy3Y7Gjf0cq
+						YBxX+WIMK9SImrghfyup5oeNW48ZyoYCFPrvVi5TnD0ePLEmq2OlwS5QPze5Mcj1
+						nc6ZN1AZ/NoGjruL5VPXnqqpBtZhdiqJTVhz4e3Cu7aMNdvrmp1N9OmErTjzUgPM
+						cguZEpCIsvjpOFM3DFJipy2cgw+pm8D5UWFJSnh9tabIl3JlSzqKs4/8fg/Bt+rm
+						j/vHB25TABxWABlqgiECCNu769HoO1GyA2D5ndq1TpitlxwRKomochfdj/dzBnUb
+						h5Z+5jD6KctmouJkUll6AJeuyu7XmvyP37oXnKxI0SPh
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp3.bucks.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp3.bucks.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp3.bucks.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp3.bucks.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp3.bucks.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp3.bucks.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">bucks.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEbTCCA1WgAwIBAgIQD37jMrv/ilUrfisl2656RjANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEzMDQwNDAwMDAwMFoXDTE2MDQwMzIzNTk1OVowPjEhMB8GA1UE
+						CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRkwFwYDVQQDExBpZHAzLmJ1Y2tz
+						LmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7mQCL3VNnsub
+						KOIwNicoFGR7eXPwqyXu/GI3B+88ZlWfKqyrgbjgHvI1TQGuOA30eZa+BQ8oE6ba
+						eugWOQfAXGVKFWV84Zn+BUheq0lJOr6iLqk34rSg2WXAB70AqiF8t8rTkGFwcaXd
+						/E+Ur1o4yicFAVkiC5Knnuxi9RUR/YUjN4X3/JmKrbZL6UGCQdgtAcZHNhRVr+4U
+						Awbkt7auBk1+47NNuS+z5+QNxw+FOeeWaWWfogNuYT4oVdvmVe2xqvKwZsT0lJfa
+						cD9CDd5zMUBrj95OeNGqAs3UtBZyJ8+WeCCnISmSLvfIx33j0wOf/gRkDGo4My8c
+						XFSXDITeCQIDAQABo4IBbTCCAWkwHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH
+						6pDjue0wHQYDVR0OBBYEFEaX2Ffnub92Gu5nd0efBgpPl26LMA4GA1UdDwEB/wQE
+						AwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcD
+						AjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAECATA6BgNVHR8EMzAx
+						MC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNy
+						bDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRl
+						cmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8vb2Nz
+						cC50Y3MudGVyZW5hLm9yZzAbBgNVHREEFDASghBpZHAzLmJ1Y2tzLmFjLnVrMA0G
+						CSqGSIb3DQEBBQUAA4IBAQBwutInsCS1qellB/wBmWl4+p+AQCHlDTy3Y7Gjf0cq
+						YBxX+WIMK9SImrghfyup5oeNW48ZyoYCFPrvVi5TnD0ePLEmq2OlwS5QPze5Mcj1
+						nc6ZN1AZ/NoGjruL5VPXnqqpBtZhdiqJTVhz4e3Cu7aMNdvrmp1N9OmErTjzUgPM
+						cguZEpCIsvjpOFM3DFJipy2cgw+pm8D5UWFJSnh9tabIl3JlSzqKs4/8fg/Bt+rm
+						j/vHB25TABxWABlqgiECCNu769HoO1GyA2D5ndq1TpitlxwRKomochfdj/dzBnUb
+						h5Z+5jD6KctmouJkUll6AJeuyu7XmvyP37oXnKxI0SPh
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp3.bucks.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp3.bucks.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Buckinghamshire New University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Buckinghamshire New University (Test Only)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.bucks.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>ITHelpdesk</md:GivenName>
+      <md:EmailAddress>mailto:it@bucks.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Michael</md:GivenName>
+      <md:SurName>Thompson</md:SurName>
+      <md:EmailAddress>mailto:Michael.Thompson@bucks.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

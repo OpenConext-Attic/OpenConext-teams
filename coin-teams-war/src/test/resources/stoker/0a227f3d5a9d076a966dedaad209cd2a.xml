@@ -1,14 +1,14 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shib-idp.cms.hu-berlin.de/idp/shibboleth">
-    <Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2011-10-21T09:44:34Z">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shib-idp.cms.hu-berlin.de/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2011-10-21T09:44:34Z">
         <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
         <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-    </Extensions>
-    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">hu-berlin.de</saml1md:Scope>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hu-berlin.de</shibmd:Scope>
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="de">Humboldt-Universität zu Berlin</mdui:DisplayName>
           <mdui:DisplayName xml:lang="en">Humboldt-Universität zu Berlin</mdui:DisplayName>
           <mdui:Description xml:lang="de">IdP der Humboldt-Universität zu Berlin</mdui:Description>
@@ -16,9 +16,9 @@
           <mdui:InformationURL xml:lang="de">http://www.hu-berlin.de/</mdui:InformationURL>
           <mdui:InformationURL xml:lang="en">http://www.hu-berlin.de/</mdui:InformationURL>
         </mdui:UIInfo>
-      </Extensions>
-      <KeyDescriptor>
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
           <ds:KeyName>shibboleth.uvf.hu-berlin.de</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=shibboleth.uvf.hu-berlin.de,OU=ZE Computer- und Medienservice,O=Humboldt-Universitaet zu Berlin,L=Berlin,ST=Berlin,C=DE</ds:X509SubjectName>
@@ -59,25 +59,25 @@ lp8Ny4TYeDIkRYSv+DuzIcJCFhAY//i8BXS8
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib-idp.cms.hu-berlin.de:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib-idp.cms.hu-berlin.de:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib-idp.cms.hu-berlin.de/idp/profile/SAML2/Redirect/SLO" ResponseLocation="https://shib-idp.cms.hu-berlin.de/idp/profile/SAML2/Redirect/SLO"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib-idp.cms.hu-berlin.de/idp/profile/SAML2/POST/SLO" ResponseLocation="https://shib-idp.cms.hu-berlin.de/idp/profile/SAML2/POST/SLO"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib-idp.cms.hu-berlin.de:8443/idp/profile/SAML2/SOAP/SLO"/>
-      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shib-idp.cms.hu-berlin.de/idp/profile/Shibboleth/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib-idp.cms.hu-berlin.de/idp/profile/SAML2/POST/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib-idp.cms.hu-berlin.de/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib-idp.cms.hu-berlin.de/idp/profile/SAML2/Redirect/SSO"/>
-    </IDPSSODescriptor>
-    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">hu-berlin.de</saml1md:Scope>
-      </Extensions>
-      <KeyDescriptor>
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib-idp.cms.hu-berlin.de:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib-idp.cms.hu-berlin.de:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib-idp.cms.hu-berlin.de/idp/profile/SAML2/Redirect/SLO" ResponseLocation="https://shib-idp.cms.hu-berlin.de/idp/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib-idp.cms.hu-berlin.de/idp/profile/SAML2/POST/SLO" ResponseLocation="https://shib-idp.cms.hu-berlin.de/idp/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib-idp.cms.hu-berlin.de:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shib-idp.cms.hu-berlin.de/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib-idp.cms.hu-berlin.de/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib-idp.cms.hu-berlin.de/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib-idp.cms.hu-berlin.de/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hu-berlin.de</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
           <ds:KeyName>shibboleth.uvf.hu-berlin.de</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=shibboleth.uvf.hu-berlin.de,OU=ZE Computer- und Medienservice,O=Humboldt-Universitaet zu Berlin,L=Berlin,ST=Berlin,C=DE</ds:X509SubjectName>
@@ -118,33 +118,33 @@ lp8Ny4TYeDIkRYSv+DuzIcJCFhAY//i8BXS8
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib-idp.cms.hu-berlin.de:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib-idp.cms.hu-berlin.de:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-    </AttributeAuthorityDescriptor>
-    <Organization>
-      <OrganizationName xml:lang="de">e233</OrganizationName>
-      <OrganizationName xml:lang="en">e233</OrganizationName>
-      <OrganizationDisplayName xml:lang="de">Humboldt-Universität zu Berlin</OrganizationDisplayName>
-      <OrganizationDisplayName xml:lang="en">Humboldt-University Berlin</OrganizationDisplayName>
-      <OrganizationURL xml:lang="de">http://www.hu-berlin.de/</OrganizationURL>
-      <OrganizationURL xml:lang="en">http://www.hu-berlin.de/</OrganizationURL>
-    </Organization>
-    <ContactPerson contactType="administrative">
-      <GivenName>Petra</GivenName>
-      <SurName>Berg</SurName>
-      <EmailAddress>mailto:shibadmin@hu-berlin.de</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="technical">
-      <GivenName>Petra</GivenName>
-      <SurName>Berg</SurName>
-      <EmailAddress>mailto:shibadmin@hu-berlin.de</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="support">
-      <GivenName>Petra</GivenName>
-      <SurName>Berg</SurName>
-      <EmailAddress>mailto:shibadmin@hu-berlin.de</EmailAddress>
-    </ContactPerson>
-  </EntityDescriptor>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib-idp.cms.hu-berlin.de:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib-idp.cms.hu-berlin.de:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e233</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e233</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Humboldt-Universität zu Berlin</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Humboldt-University Berlin</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.hu-berlin.de/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.hu-berlin.de/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Petra</md:GivenName>
+      <md:SurName>Berg</md:SurName>
+      <md:EmailAddress>mailto:shibadmin@hu-berlin.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Petra</md:GivenName>
+      <md:SurName>Berg</md:SurName>
+      <md:EmailAddress>mailto:shibadmin@hu-berlin.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Petra</md:GivenName>
+      <md:SurName>Berg</md:SurName>
+      <md:EmailAddress>mailto:shibadmin@hu-berlin.de</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

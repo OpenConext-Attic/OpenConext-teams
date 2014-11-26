@@ -1,0 +1,124 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shib.raven.cam.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">cam.ac.uk</shibmd:Scope>
+        <shibmd:Scope regexp="false">eresources.lib.cam.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University of Cambridge</mdui:DisplayName>
+          <mdui:Logo height="60" width="80">https://shib.raven.cam.ac.uk/idp-logo-80x60.png</mdui:Logo>
+          <mdui:Logo height="16" width="16">https://shib.raven.cam.ac.uk/idp-logo-16x16.png</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:IPHint>128.232.0.0/16</mdui:IPHint>
+          <mdui:IPHint>129.169.0.0/16</mdui:IPHint>
+          <mdui:IPHint>131.111.0.0/16</mdui:IPHint>
+          <mdui:IPHint>192.18.195.0/24</mdui:IPHint>
+          <mdui:IPHint>193.60.80.0/20</mdui:IPHint>
+          <mdui:IPHint>193.63.252.0/23</mdui:IPHint>
+          <mdui:IPHint>2001:630:200::/48</mdui:IPHint>
+          <mdui:DomainHint>cam.ac.uk</mdui:DomainHint>
+          <mdui:GeolocationHint>geo:52.208056,0.1225</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEmDCCA4CgAwIBAgIQfLHlbRUtdCp5KSC69ObH+DANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMTIwNDAwMDAwMFoXDTE1MTIwNDIzNTk1OVowbzELMAkGA1UE
+						BhMCR0IxIDAeBgNVBAoTF1VuaXZlcnNpdHkgb2YgQ2FtYnJpZGdlMR8wHQYDVQQL
+						ExZVQ1MgU2hpYmJvbGV0aCBTZXJ2aWNlMR0wGwYDVQQDExRzaGliLnJhdmVuLmNh
+						bS5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMQTbdQmYTcE
+						Hwkw+7E9FXLcALHRwKoTpgA4PiZKcNu0CsVSD5VADQGN3u5myrlhjWIy7/filK5M
+						BoUl5zsFFAgtNcPvCaSCNo9VuvIgLyhrM36JVX5n4/L6rHEP1KpUimho67lpN/eL
+						92+3nXWIexwgDrYDiQyCl/RdHmzJCHakIMNnubnp8LdUvU4MDr2IviH7mecoUL/W
+						LsKO+kEvFJMTsr2XUWZezCHIcTtEx2k2G63GtBrEnPq/UiG/vqzOX0NMsUM4d+j6
+						mxogNZ6Ev3YZEWW98sCzzaBc7qsFjr3Derm4TuWDipkz59TdLlYPeC1TAsTFpTvg
+						42fGhZjK/esCAwEAAaOCAWcwggFjMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdX
+						R+qQ47ntMB0GA1UdDgQWBBSW6ydPZrdKjKgjpVpJ6K3T8BZrLzAOBgNVHQ8BAf8E
+						BAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUH
+						AwIwGAYDVR0gBBEwDzANBgsrBgEEAbIxAQICHTA6BgNVHR8EMzAxMC+gLaArhilo
+						dHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNybDBtBggrBgEF
+						BQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRlcmVuYS5vcmcv
+						VEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8vb2NzcC50Y3MudGVy
+						ZW5hLm9yZzAfBgNVHREEGDAWghRzaGliLnJhdmVuLmNhbS5hYy51azANBgkqhkiG
+						9w0BAQUFAAOCAQEAh5t+ortlUIp2CkhSF3KTeUm3O8vhM0EX0Kl6bid2qI69nxom
+						vGYMqBMPKcc9foCbEgILSKa9kUwt3lcyF4HFK7X/BzU0c7YyR/Di734fxyvWqsgj
+						H8WJJmZnS7md614HFlfoCMjeeC6iTuAT5LcsreBdl+VBerpL51/SCb0IKtd3J0dK
+						4+EFLNpQgQKhMYR2zGYIeNX+3uH5ESHhFYL7bgG3RsBTzn2CZALHGm6+dVgnjw49
+						fHaY+8yYGVTfXPZqJ08SfZxCidmlWejicoxE1uHFGuL6HSEDMm/uF3L0H4mUPoxO
+						iDQ+4/pKRbtOiTokxLohAPABDm+GgCrcuwZjqg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib.raven.cam.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib.raven.cam.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shib.raven.cam.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib.raven.cam.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib.raven.cam.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib.raven.cam.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">cam.ac.uk</shibmd:Scope>
+        <shibmd:Scope regexp="false">eresources.lib.cam.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEmDCCA4CgAwIBAgIQfLHlbRUtdCp5KSC69ObH+DANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMTIwNDAwMDAwMFoXDTE1MTIwNDIzNTk1OVowbzELMAkGA1UE
+						BhMCR0IxIDAeBgNVBAoTF1VuaXZlcnNpdHkgb2YgQ2FtYnJpZGdlMR8wHQYDVQQL
+						ExZVQ1MgU2hpYmJvbGV0aCBTZXJ2aWNlMR0wGwYDVQQDExRzaGliLnJhdmVuLmNh
+						bS5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMQTbdQmYTcE
+						Hwkw+7E9FXLcALHRwKoTpgA4PiZKcNu0CsVSD5VADQGN3u5myrlhjWIy7/filK5M
+						BoUl5zsFFAgtNcPvCaSCNo9VuvIgLyhrM36JVX5n4/L6rHEP1KpUimho67lpN/eL
+						92+3nXWIexwgDrYDiQyCl/RdHmzJCHakIMNnubnp8LdUvU4MDr2IviH7mecoUL/W
+						LsKO+kEvFJMTsr2XUWZezCHIcTtEx2k2G63GtBrEnPq/UiG/vqzOX0NMsUM4d+j6
+						mxogNZ6Ev3YZEWW98sCzzaBc7qsFjr3Derm4TuWDipkz59TdLlYPeC1TAsTFpTvg
+						42fGhZjK/esCAwEAAaOCAWcwggFjMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdX
+						R+qQ47ntMB0GA1UdDgQWBBSW6ydPZrdKjKgjpVpJ6K3T8BZrLzAOBgNVHQ8BAf8E
+						BAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUH
+						AwIwGAYDVR0gBBEwDzANBgsrBgEEAbIxAQICHTA6BgNVHR8EMzAxMC+gLaArhilo
+						dHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNybDBtBggrBgEF
+						BQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRlcmVuYS5vcmcv
+						VEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8vb2NzcC50Y3MudGVy
+						ZW5hLm9yZzAfBgNVHREEGDAWghRzaGliLnJhdmVuLmNhbS5hYy51azANBgkqhkiG
+						9w0BAQUFAAOCAQEAh5t+ortlUIp2CkhSF3KTeUm3O8vhM0EX0Kl6bid2qI69nxom
+						vGYMqBMPKcc9foCbEgILSKa9kUwt3lcyF4HFK7X/BzU0c7YyR/Di734fxyvWqsgj
+						H8WJJmZnS7md614HFlfoCMjeeC6iTuAT5LcsreBdl+VBerpL51/SCb0IKtd3J0dK
+						4+EFLNpQgQKhMYR2zGYIeNX+3uH5ESHhFYL7bgG3RsBTzn2CZALHGm6+dVgnjw49
+						fHaY+8yYGVTfXPZqJ08SfZxCidmlWejicoxE1uHFGuL6HSEDMm/uF3L0H4mUPoxO
+						iDQ+4/pKRbtOiTokxLohAPABDm+GgCrcuwZjqg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib.raven.cam.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib.raven.cam.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Cambridge</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Cambridge</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.cam.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Computing Service Help Desk</md:GivenName>
+      <md:EmailAddress>mailto:help-desk@ucs.cam.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Raven Support</md:GivenName>
+      <md:EmailAddress>mailto:raven-support@ucs.cam.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

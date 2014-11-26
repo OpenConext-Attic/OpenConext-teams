@@ -1,13 +1,13 @@
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.surfnet.nl">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.surfnet.nl">
     <md:Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.surfconext.nl/" registrationInstant="2011-06-08T00:00:00Z">
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.surfconext.nl/" registrationInstant="2011-06-08T00:00:00Z">
         <mdrpi:RegistrationPolicy xml:lang="en">https://wiki.surfnetlabs.nl/display/eduGAIN/EduGAIN</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
     </md:Extensions>
     <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
       <md:Extensions>
-        <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">surfnet.nl</shibmd:Scope>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <shibmd:Scope regexp="false">surfnet.nl</shibmd:Scope>
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="nl">SURFnet bv</mdui:DisplayName>
           <mdui:DisplayName xml:lang="en">SURFnet bv</mdui:DisplayName>
           <mdui:Description xml:lang="nl">SURFnet bv</mdui:Description>
@@ -17,7 +17,7 @@
           <mdui:Keywords xml:lang="en">SURFnet bv SURF konijn surf surfnet powered by</mdui:Keywords>
         </mdui:UIInfo>
       </md:Extensions>
-      <md:KeyDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" use="signing">
+      <md:KeyDescriptor use="signing">
         <ds:KeyInfo>
           <ds:X509Data>
             <ds:X509Certificate>MIID3zCCAsegAwIBAgIJAMVC9xn1ZfsuMA0GCSqGSIb3DQEBCwUAMIGFMQswCQYD
@@ -45,8 +45,8 @@ MrsTf1urM8MnfcxG/82oHIwfMh/sXPCZpo+DTLkhQxctJ3M=
           </ds:X509Data>
         </ds:KeyInfo>
       </md:KeyDescriptor>
-      <md:NameIDFormat xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
-      <md:NameIDFormat xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
       <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://engine.surfconext.nl/authentication/idp/single-sign-on/ba573f07093978e3852ddef0d2465b84"/>
     </md:IDPSSODescriptor>
     <md:Organization>

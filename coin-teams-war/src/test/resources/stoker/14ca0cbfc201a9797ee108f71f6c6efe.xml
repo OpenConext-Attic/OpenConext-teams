@@ -1,0 +1,93 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://livesrv.ex.vr.se/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">vr.se</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+
+MIIDLDCCAhSgAwIBAgIVAKrFALRGt/sXrJc+5j0adTu2M0/4MA0GCSqGSIb3DQEB
+BQUAMBsxGTAXBgNVBAMTEGxpdmVzcnYuZXgudnIuc2UwHhcNMTExMDExMDkwNjI1
+WhcNMzExMDExMDkwNjI1WjAbMRkwFwYDVQQDExBsaXZlc3J2LmV4LnZyLnNlMIIB
+IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnXd832CJ92pEWl9agbHgE+yc
+zLwonOox29ZXk9x68vd5+n+36bO1gkb4dg+8xgHR3WqXOUwVajMWtUkhH7YN1dq2
+h8JzOQ20oTTfJQi13uzL+uyfu3Z+X1mAnxfAz8wr1IjRLBfjgCiyii87/TcpEZBl
+lT8p6W3E8hiB8Qdbd7FJf52q6y4nRikMlYK0JMAg9v9SvQPZoSd0Fift5Mt92Tes
+73vmimu0FK/2AkvDw7ANTV1YfuyFYUgZ6koRe1gO3JUFIKYXMgovUh2Gy9VjxW0h
+/YeOxgGUb8sC33VHDUd03oB90XcSdih+KaSxkw6gWUyuQZ9GvnzfYPpj2nblCQID
+AQABo2cwZTBEBgNVHREEPTA7ghBsaXZlc3J2LmV4LnZyLnNlhidodHRwczovL2xp
+dmVzcnYuZXgudnIuc2UvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFKHqhiJr9a82
+J7vvd4BcjZn84W0qMA0GCSqGSIb3DQEBBQUAA4IBAQBpzAB/oEEbx4Hnbd9H+B/U
+ZkIrKc9RNnz76jr0EHVGma3iy7EeueJLdgEBgmwvYrzl5dyWSLrdw/sXBsuer7wM
+FeegMJozSv56MrpSoAODBsCeyrmldFGqRzBu5KjF9/MVRpwBqXEZnDEPe4gDKP+b
+JdxMfnBNi8mPEIZK/cAPcdnNYatIvWFzrvcGfLwUlJvEPt3FVPxibY8rMqS0v4vl
+E829C4X5CIQjd4L9PA+L4s+/jp4zrJsyouvLGs2IQqTQYQYPajUoql2GT7w+NUju
+7yrPHZ1JX3HLDgrZHMW5EZ5df29H0UA1YU9mTvpo3CCy3fzJINtdT5JRBXtEqudj
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://livesrv.ex.vr.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://livesrv.ex.vr.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://livesrv.ex.vr.se/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://livesrv.ex.vr.se/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://livesrv.ex.vr.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://livesrv.ex.vr.se/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">vr.se</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+
+MIIDLDCCAhSgAwIBAgIVAKrFALRGt/sXrJc+5j0adTu2M0/4MA0GCSqGSIb3DQEB
+BQUAMBsxGTAXBgNVBAMTEGxpdmVzcnYuZXgudnIuc2UwHhcNMTExMDExMDkwNjI1
+WhcNMzExMDExMDkwNjI1WjAbMRkwFwYDVQQDExBsaXZlc3J2LmV4LnZyLnNlMIIB
+IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnXd832CJ92pEWl9agbHgE+yc
+zLwonOox29ZXk9x68vd5+n+36bO1gkb4dg+8xgHR3WqXOUwVajMWtUkhH7YN1dq2
+h8JzOQ20oTTfJQi13uzL+uyfu3Z+X1mAnxfAz8wr1IjRLBfjgCiyii87/TcpEZBl
+lT8p6W3E8hiB8Qdbd7FJf52q6y4nRikMlYK0JMAg9v9SvQPZoSd0Fift5Mt92Tes
+73vmimu0FK/2AkvDw7ANTV1YfuyFYUgZ6koRe1gO3JUFIKYXMgovUh2Gy9VjxW0h
+/YeOxgGUb8sC33VHDUd03oB90XcSdih+KaSxkw6gWUyuQZ9GvnzfYPpj2nblCQID
+AQABo2cwZTBEBgNVHREEPTA7ghBsaXZlc3J2LmV4LnZyLnNlhidodHRwczovL2xp
+dmVzcnYuZXgudnIuc2UvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFKHqhiJr9a82
+J7vvd4BcjZn84W0qMA0GCSqGSIb3DQEBBQUAA4IBAQBpzAB/oEEbx4Hnbd9H+B/U
+ZkIrKc9RNnz76jr0EHVGma3iy7EeueJLdgEBgmwvYrzl5dyWSLrdw/sXBsuer7wM
+FeegMJozSv56MrpSoAODBsCeyrmldFGqRzBu5KjF9/MVRpwBqXEZnDEPe4gDKP+b
+JdxMfnBNi8mPEIZK/cAPcdnNYatIvWFzrvcGfLwUlJvEPt3FVPxibY8rMqS0v4vl
+E829C4X5CIQjd4L9PA+L4s+/jp4zrJsyouvLGs2IQqTQYQYPajUoql2GT7w+NUju
+7yrPHZ1JX3HLDgrZHMW5EZ5df29H0UA1YU9mTvpo3CCy3fzJINtdT5JRBXtEqudj
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://livesrv.ex.vr.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://livesrv.ex.vr.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">VR</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sv">Vetenskapsrådet</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Vetenskapsrådet</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.vr.se</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:Company>Swedish Reasearch Council</md:Company>
+      <md:EmailAddress>kontors-it@vr.se</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

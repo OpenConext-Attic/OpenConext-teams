@@ -1,0 +1,79 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sso.onesource.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sso.onesource.com/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC8jCCAdqgAwIBAgIBADANBgkqhkiG9w0BAQUFADAcMRowGAYDVQQDExFzc28u
+						b25lc291cmNlLmNvbTAeFw0xMDEwMjcxOTMyMjFaFw0yMDEwMjQxOTMyMjFaMBwx
+						GjAYBgNVBAMTEXNzby5vbmVzb3VyY2UuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOC
+						AQ8AMIIBCgKCAQEA0rAmWglWbPqA8WsNSqXmDoP5VXm04RUhsnf51me/R0+Oa+Lg
+						jKkGhenXjoEss2F+R4AFClOyBYlWCXcOor01+Ybm6wVjlhqiGsYQj+cT4/nH101C
+						mLCydJvqLVTreAAXIeeqrnHNOIL9dKKT9f4rXMd652NmSFRA7Hl6cQV70f2Bd/6r
+						5geLQ+flrJIpvhdXO40GtXOpf5VfX/BtQ3+3j4AZmEABEMCpo1mzO8Cp/d8adsnt
+						iJTvp51OggSLWpJPt3foT0afuug1xCl6zP0uySXDaSaAuE/s+nCG0xiZLEs0HTib
+						r3t9XXDIo2+gN4IULSn3XJIkXiR1L3BVu5M9UQIDAQABoz8wPTAcBgNVHREEFTAT
+						ghFzc28ub25lc291cmNlLmNvbTAdBgNVHQ4EFgQUBf9CwdAc1mBKZS6BJMndqkOQ
+						ccEwDQYJKoZIhvcNAQEFBQADggEBAHt0L5MxCaW+HF4r16kVr3GTAzjl/oQArntL
+						gK5rSvzn5vBGOYwRqoOqOyT0KIg5x95mssw8DIonSOZKkBERkFcKdjW77vfaKWMM
+						XbQyZQF9Udsf49yCac4/SEEDHqWVVB7uMngkx5FzU4dSwz+K7M9mlc1qpT0sYZc/
+						sMZlncHSACTa9ClqnABgSRK5VxYAaqLflKFLDwR2pBVBZzX4GQ6iMkRLpfKYakHY
+						90CPLNchMKTaFTDS0LQkkQ+PqzE2OTlf8ov8ppzVLVN5ZLemuX9i9GNzLOoeW6dr
+						XQgb23tk8eDNQABBWA7armXrmBXD1G1EQv6J+PqHowTqu2mI2qo=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC8jCCAdqgAwIBAgIBADANBgkqhkiG9w0BAQUFADAcMRowGAYDVQQDExFzc28u
+						b25lc291cmNlLmNvbTAeFw0xMDEwMjcxOTMyMjFaFw0yMDEwMjQxOTMyMjFaMBwx
+						GjAYBgNVBAMTEXNzby5vbmVzb3VyY2UuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOC
+						AQ8AMIIBCgKCAQEA0rAmWglWbPqA8WsNSqXmDoP5VXm04RUhsnf51me/R0+Oa+Lg
+						jKkGhenXjoEss2F+R4AFClOyBYlWCXcOor01+Ybm6wVjlhqiGsYQj+cT4/nH101C
+						mLCydJvqLVTreAAXIeeqrnHNOIL9dKKT9f4rXMd652NmSFRA7Hl6cQV70f2Bd/6r
+						5geLQ+flrJIpvhdXO40GtXOpf5VfX/BtQ3+3j4AZmEABEMCpo1mzO8Cp/d8adsnt
+						iJTvp51OggSLWpJPt3foT0afuug1xCl6zP0uySXDaSaAuE/s+nCG0xiZLEs0HTib
+						r3t9XXDIo2+gN4IULSn3XJIkXiR1L3BVu5M9UQIDAQABoz8wPTAcBgNVHREEFTAT
+						ghFzc28ub25lc291cmNlLmNvbTAdBgNVHQ4EFgQUBf9CwdAc1mBKZS6BJMndqkOQ
+						ccEwDQYJKoZIhvcNAQEFBQADggEBAHt0L5MxCaW+HF4r16kVr3GTAzjl/oQArntL
+						gK5rSvzn5vBGOYwRqoOqOyT0KIg5x95mssw8DIonSOZKkBERkFcKdjW77vfaKWMM
+						XbQyZQF9Udsf49yCac4/SEEDHqWVVB7uMngkx5FzU4dSwz+K7M9mlc1qpT0sYZc/
+						sMZlncHSACTa9ClqnABgSRK5VxYAaqLflKFLDwR2pBVBZzX4GQ6iMkRLpfKYakHY
+						90CPLNchMKTaFTDS0LQkkQ+PqzE2OTlf8ov8ppzVLVN5ZLemuX9i9GNzLOoeW6dr
+						XQgb23tk8eDNQABBWA7armXrmBXD1G1EQv6J+PqHowTqu2mI2qo=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sso.onesource.com/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso.onesource.com/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.onesource.com/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sso.onesource.com/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.onesource.com/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://sso.onesource.com/Shibboleth.sso/SAML/POST" index="2"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">9Star Research, Inc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">9Star: Global Business Intelligence</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.onesource.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Simon</md:GivenName>
+      <md:SurName>Lee</md:SurName>
+      <md:EmailAddress>mailto:simon@9starresearch.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Andrew</md:GivenName>
+      <md:SurName>Wells</md:SurName>
+      <md:EmailAddress>mailto:andrew_wells@onesource.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

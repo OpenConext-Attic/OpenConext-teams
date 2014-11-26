@@ -1,0 +1,84 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://test.openathens.net/oala/metadata">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-02-21T14:53:36Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">test.openathens.net</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDQjCCAiqgAwIBAgIIZvpg5YE3/HUwDQYJKoZIhvcNAQEFBQAwODEQMA4GA1UE
+						CgwHRWR1c2VydjEkMCIGA1UEAwwbcnVudGltZS50ZXN0Lm9wZW5hdGhlbnMubmV0
+						MB4XDTEyMTAxNTE0NDkwNloXDTIyMTAxNTE0NDkwNlowODEQMA4GA1UECgwHRWR1
+						c2VydjEkMCIGA1UEAwwbcnVudGltZS50ZXN0Lm9wZW5hdGhlbnMubmV0MIIBIjAN
+						BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjmxojj/t4L6T+Ckuu+G30Ces7IbT
+						5YnxmR9BePF3I3f5hEBMQp/ERea6AVZPlawdgilHV64giVRnE22zIQQtnjkJX84Z
+						7L9J4ODUbF+0YVwDzqgEdxjHfa96850YMf8MPoe4oJKJ7J4yCzfbwiVXGGWtqKQ4
+						idh+lBQK8MGwB7yOy8QwlnxeEoSMkX01I6spOiv7r+KrACopZkYc6WGCAg30/hv8
+						7SPQcxPNAbQDZVjpF2tnHwsY5nz9fLtZCBEmsF0zlEZ+RuxnfOLzk0pXDEwhkA5k
+						QPS6cYKH6IQeNZBX4bzUpxhrZ53Y4ZhDOgXiT7nSxsEOZlxv1Stu5c6FXQIDAQAB
+						o1AwTjAdBgNVHQ4EFgQUhiBEqrb5Qs7q+Rit3aIR+NJuI0swHwYDVR0jBBgwFoAU
+						hiBEqrb5Qs7q+Rit3aIR+NJuI0swDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUF
+						AAOCAQEAEWtFo02LGecwaaFhx5rLS8q5+Cn06DDYFDuW6L2xpMV2EUBbyFY9sq+/
+						nssFZg1j9s4sm2NHNLkgns+bmAxhW1YSRKPy/D58dUBuGMKdftS1uVvMEeLh+y/5
+						g8e23YE2Rfy6PdQ+YytUyG1VhhEo5hU6LZWqAUR0OdsGAs/qWXhth+dgLkpumSqy
+						4zWQHLrUlweaQx3pDw73Xc8PeCPtMU+AbXL2vvRXQSizD4NtZJ/g/hYemC3ZISM+
+						Mjky/csk+C1ZALs8RSY2uzX8B3YfZSjDN1bUOd4O22o7EFyq7JNSP/xajHEBhCev
+						HclfHywYgqaVXnbHLCBK3GbvPxnZxQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDQjCCAiqgAwIBAgIIZvpg5YE3/HUwDQYJKoZIhvcNAQEFBQAwODEQMA4GA1UE
+						CgwHRWR1c2VydjEkMCIGA1UEAwwbcnVudGltZS50ZXN0Lm9wZW5hdGhlbnMubmV0
+						MB4XDTEyMTAxNTE0NDkwNloXDTIyMTAxNTE0NDkwNlowODEQMA4GA1UECgwHRWR1
+						c2VydjEkMCIGA1UEAwwbcnVudGltZS50ZXN0Lm9wZW5hdGhlbnMubmV0MIIBIjAN
+						BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjmxojj/t4L6T+Ckuu+G30Ces7IbT
+						5YnxmR9BePF3I3f5hEBMQp/ERea6AVZPlawdgilHV64giVRnE22zIQQtnjkJX84Z
+						7L9J4ODUbF+0YVwDzqgEdxjHfa96850YMf8MPoe4oJKJ7J4yCzfbwiVXGGWtqKQ4
+						idh+lBQK8MGwB7yOy8QwlnxeEoSMkX01I6spOiv7r+KrACopZkYc6WGCAg30/hv8
+						7SPQcxPNAbQDZVjpF2tnHwsY5nz9fLtZCBEmsF0zlEZ+RuxnfOLzk0pXDEwhkA5k
+						QPS6cYKH6IQeNZBX4bzUpxhrZ53Y4ZhDOgXiT7nSxsEOZlxv1Stu5c6FXQIDAQAB
+						o1AwTjAdBgNVHQ4EFgQUhiBEqrb5Qs7q+Rit3aIR+NJuI0swHwYDVR0jBBgwFoAU
+						hiBEqrb5Qs7q+Rit3aIR+NJuI0swDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUF
+						AAOCAQEAEWtFo02LGecwaaFhx5rLS8q5+Cn06DDYFDuW6L2xpMV2EUBbyFY9sq+/
+						nssFZg1j9s4sm2NHNLkgns+bmAxhW1YSRKPy/D58dUBuGMKdftS1uVvMEeLh+y/5
+						g8e23YE2Rfy6PdQ+YytUyG1VhhEo5hU6LZWqAUR0OdsGAs/qWXhth+dgLkpumSqy
+						4zWQHLrUlweaQx3pDw73Xc8PeCPtMU+AbXL2vvRXQSizD4NtZJ/g/hYemC3ZISM+
+						Mjky/csk+C1ZALs8RSY2uzX8B3YfZSjDN1bUOd4O22o7EFyq7JNSP/xajHEBhCev
+						HclfHywYgqaVXnbHLCBK3GbvPxnZxQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://runtime.test.openathens.net/oala/sso"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://runtime.test.openathens.net/oala/sso"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Eduserv</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Eduserv</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.eduserv.org.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Andy</md:GivenName>
+      <md:SurName>Anderson</md:SurName>
+      <md:EmailAddress>mailto:andy.anderson@eduserv.org.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Andy</md:GivenName>
+      <md:SurName>Anderson</md:SurName>
+      <md:EmailAddress>mailto:andy.anderson@eduserv.org.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

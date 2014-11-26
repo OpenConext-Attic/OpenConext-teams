@@ -1,0 +1,111 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp1.smuc.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2009-05-04T12:31:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0         urn:oasis:names:tc:SAML:1.1:protocol         urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">smuc.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEszCCA5ugAwIBAgIQOQbZ/hVy3cngzU8TZi5nbjANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDQyNzAwMDAwMFoXDTE1MDQyNzIzNTk1OVowgY4xCzAJBgNV
+						BAYTAkdCMQ8wDQYDVQQIEwZMb25kb24xEzARBgNVBAcTClR3aWNrZW5oYW0xMTAv
+						BgNVBAoTKFN0IE1hcnkncyBVbml2ZXJzaXR5IENvbGxlZ2UsIFR3aWNrZW5oYW0x
+						DDAKBgNVBAsTA0lTQTEYMBYGA1UEAxMPaWRwMS5zbXVjLmFjLnVrMIIBIjANBgkq
+						hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmSHDm6l+m6vsX3qM8y4ygIG6YeAqRVe+
+						nYtG02luF0HXYoU8V+4tiXGV3XKjbJkNijF98PEsKdZuCQGqXkI46ZQp3DDbvPCw
+						+NnCRxqaAQiZPZijPL7kMqonmZmE/eLusvjI7Z11erN/X6GNum6hKwL+A2dFSUoI
+						/ZperSbM+eUyvhWGdLH7gPnjpS4eolKyqzngHnbO/mACwnVvtoCQt8gXNzbU+oHE
+						66+r5xFBqwQCRHIOo/Z5tDac92lmxN2iFJcPYmMmi+j2oHb6+VQ3iyzfMvxGc/pS
+						vyBiGREwE+9b3ErQW8jRLJRPyrkcO6h0ntZgz6yq3bUzBIPzKSUj2wIDAQABo4IB
+						YjCCAV4wHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH6pDjue0wHQYDVR0OBBYE
+						FPSb9suL+QcK2oV9qNg5b8wEuqx6MA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8E
+						AjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAYBgNVHSAEETAPMA0G
+						CysGAQQBsjEBAgIdMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRl
+						cmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEF
+						BQcwAoYpaHR0cDovL2NydC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQw
+						JgYIKwYBBQUHMAGGGmh0dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMBoGA1UdEQQT
+						MBGCD2lkcDEuc211Yy5hYy51azANBgkqhkiG9w0BAQUFAAOCAQEApVqOuRKi/EFJ
+						+msTvEzchsiFykp7K/VF5epkpl1ZnZx27/QYPtZmOACZBqcSkJ+n+XCMOle366vZ
+						2PygsEaqYpXGSuiXa/z2ITMCM0kZQDhYRxx1hESLzveYnLnDWvtIZs96PrktXUjJ
+						OwHGgoSNJBmkR5BG2HVQM7JBHF4bqrPxLvcJ63PKzHR9sDTVMlJwZ2/+pFhhfmnm
+						FI3TD9LxcjxmD8Xyfe+cUj0XznGKWWfQVPdpyrDYVPy6DLBL92xVXWYrG7/yiRlE
+						1jImVbZ61MANXa3joFrPpaM8Cpv+PKe/69ykr+Kz04q0crw9VVegu6/EP17/pZ4T
+						q+tjLFzgNQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp1.smuc.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp1.smuc.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp1.smuc.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp1.smuc.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp1.smuc.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp1.smuc.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol         urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">smuc.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEszCCA5ugAwIBAgIQOQbZ/hVy3cngzU8TZi5nbjANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDQyNzAwMDAwMFoXDTE1MDQyNzIzNTk1OVowgY4xCzAJBgNV
+						BAYTAkdCMQ8wDQYDVQQIEwZMb25kb24xEzARBgNVBAcTClR3aWNrZW5oYW0xMTAv
+						BgNVBAoTKFN0IE1hcnkncyBVbml2ZXJzaXR5IENvbGxlZ2UsIFR3aWNrZW5oYW0x
+						DDAKBgNVBAsTA0lTQTEYMBYGA1UEAxMPaWRwMS5zbXVjLmFjLnVrMIIBIjANBgkq
+						hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmSHDm6l+m6vsX3qM8y4ygIG6YeAqRVe+
+						nYtG02luF0HXYoU8V+4tiXGV3XKjbJkNijF98PEsKdZuCQGqXkI46ZQp3DDbvPCw
+						+NnCRxqaAQiZPZijPL7kMqonmZmE/eLusvjI7Z11erN/X6GNum6hKwL+A2dFSUoI
+						/ZperSbM+eUyvhWGdLH7gPnjpS4eolKyqzngHnbO/mACwnVvtoCQt8gXNzbU+oHE
+						66+r5xFBqwQCRHIOo/Z5tDac92lmxN2iFJcPYmMmi+j2oHb6+VQ3iyzfMvxGc/pS
+						vyBiGREwE+9b3ErQW8jRLJRPyrkcO6h0ntZgz6yq3bUzBIPzKSUj2wIDAQABo4IB
+						YjCCAV4wHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH6pDjue0wHQYDVR0OBBYE
+						FPSb9suL+QcK2oV9qNg5b8wEuqx6MA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8E
+						AjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAYBgNVHSAEETAPMA0G
+						CysGAQQBsjEBAgIdMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRl
+						cmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEF
+						BQcwAoYpaHR0cDovL2NydC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQw
+						JgYIKwYBBQUHMAGGGmh0dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMBoGA1UdEQQT
+						MBGCD2lkcDEuc211Yy5hYy51azANBgkqhkiG9w0BAQUFAAOCAQEApVqOuRKi/EFJ
+						+msTvEzchsiFykp7K/VF5epkpl1ZnZx27/QYPtZmOACZBqcSkJ+n+XCMOle366vZ
+						2PygsEaqYpXGSuiXa/z2ITMCM0kZQDhYRxx1hESLzveYnLnDWvtIZs96PrktXUjJ
+						OwHGgoSNJBmkR5BG2HVQM7JBHF4bqrPxLvcJ63PKzHR9sDTVMlJwZ2/+pFhhfmnm
+						FI3TD9LxcjxmD8Xyfe+cUj0XznGKWWfQVPdpyrDYVPy6DLBL92xVXWYrG7/yiRlE
+						1jImVbZ61MANXa3joFrPpaM8Cpv+PKe/69ykr+Kz04q0crw9VVegu6/EP17/pZ4T
+						q+tjLFzgNQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp1.smuc.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp1.smuc.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">St Mary's University, Twickenham</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">St Mary's University Twickenham</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.smuc.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>IT HelpDesk</md:GivenName>
+      <md:EmailAddress>mailto:helpdesk@smuc.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Johnson</md:SurName>
+      <md:EmailAddress>mailto:chris.johnson@smuc.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

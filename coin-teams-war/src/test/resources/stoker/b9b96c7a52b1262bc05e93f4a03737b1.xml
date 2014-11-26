@@ -1,27 +1,27 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="PI0025JP" entityID="https://idp.gakunin.nii.ac.jp/idp/shibboleth">
-  <Extensions>
-     <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.gakunin.jp" registrationInstant="2011-04-13T00:00:00Z">
-        <mdrpi:RegistrationPolicy xml:lang="en">http://www.gakunin.jp/en-Join/</mdrpi:RegistrationPolicy>
-        <mdrpi:RegistrationPolicy xml:lang="jp">http://www.gakunin.jp/join/</mdrpi:RegistrationPolicy>
-     </mdrpi:RegistrationInfo>
-  </Extensions>
-  <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
-    <Extensions>
-      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">gakunin.nii.ac.jp</shibmd:Scope>
-      <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-        <mdui:DisplayName xml:lang="ja">学認IdP</mdui:DisplayName>
-        <mdui:DisplayName xml:lang="en">GakuNin IdP</mdui:DisplayName>
-        <mdui:Logo height="64" width="64">https://idp.gakunin.nii.ac.jp/images/gakunin64.png</mdui:Logo>
-        <mdui:Keywords xml:lang="en">category:location:others category:organizationType:others</mdui:Keywords>
-      </mdui:UIInfo>
-      <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-        <mdui:GeolocationHint>geo:35.692558,139.757999</mdui:GeolocationHint>
-      </mdui:DiscoHints>
-    </Extensions>
-    <KeyDescriptor>
-      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-        <ds:X509Data>
-          <ds:X509Certificate>MIIE/DCCA+SgAwIBAgIIHpbHvyrEXQEwDQYJKoZIhvcNAQEFBQAwfTELMAkGA1UE
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.gakunin.nii.ac.jp/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.gakunin.jp" registrationInstant="2011-04-13T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.gakunin.jp/en-Join/</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="ja">https://www.gakunin.jp/join/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">gakunin.nii.ac.jp</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="ja">学認IdP</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">GakuNin IdP</mdui:DisplayName>
+          <mdui:Logo height="64" width="64">https://idp.gakunin.nii.ac.jp/images/gakunin64.png</mdui:Logo>
+          <mdui:Keywords xml:lang="en">category:location:others category:organizationType:others</mdui:Keywords>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:GeolocationHint>geo:35.692558,139.757999</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIE/DCCA+SgAwIBAgIIHpbHvyrEXQEwDQYJKoZIhvcNAQEFBQAwfTELMAkGA1UE
 BhMCSlAxETAPBgNVBAcTCEFjYWRlbWUyMSowKAYDVQQKEyFOYXRpb25hbCBJbnN0
 aXR1dGUgb2YgSW5mb3JtYXRpY3MxDTALBgNVBAsTBFVQS0kxIDAeBgNVBAsTF05J
 SSBPcGVuIERvbWFpbiBDQSAtIEcyMB4XDTEzMDEyODAzMDgxMloXDTE1MDIyNzAz
@@ -48,23 +48,23 @@ a7iEGe0BVviVF8Bz/Z0el49vGS5nliW59KXIUW7io9xEA9B95CURBl8ETgBWFyrY
 l9SsjlYOiPx1KtUf21UlZPjdbF4aJpXb8omLo/3Mk/qnWzx1qcCKUiGlVDRGPBn8
 UVT6kyMwBnKi5CVVK5v+ZgOlCXO7J0aldTBcH/s28hiUas9yReFyoNmLG2ozboeu
 ZkIzMSzb7JBh32BmlOPf+Ntq0wkxlFhnZM4tNF2J/Nk=</ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </KeyDescriptor>
-    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-    <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.gakunin.nii.ac.jp/idp/profile/Shibboleth/SSO"/>
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.gakunin.nii.ac.jp/idp/profile/SAML2/POST/SSO"/>
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.gakunin.nii.ac.jp/idp/profile/SAML2/Redirect/SSO"/>
-  </IDPSSODescriptor>
-  <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-    <Extensions>
-      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">gakunin.nii.ac.jp</shibmd:Scope>
-    </Extensions>
-    <KeyDescriptor>
-      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-        <ds:X509Data>
-          <ds:X509Certificate>MIIE/DCCA+SgAwIBAgIIHpbHvyrEXQEwDQYJKoZIhvcNAQEFBQAwfTELMAkGA1UE
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.gakunin.nii.ac.jp/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.gakunin.nii.ac.jp/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.gakunin.nii.ac.jp/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">gakunin.nii.ac.jp</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIE/DCCA+SgAwIBAgIIHpbHvyrEXQEwDQYJKoZIhvcNAQEFBQAwfTELMAkGA1UE
 BhMCSlAxETAPBgNVBAcTCEFjYWRlbWUyMSowKAYDVQQKEyFOYXRpb25hbCBJbnN0
 aXR1dGUgb2YgSW5mb3JtYXRpY3MxDTALBgNVBAsTBFVQS0kxIDAeBgNVBAsTF05J
 SSBPcGVuIERvbWFpbiBDQSAtIEcyMB4XDTEzMDEyODAzMDgxMloXDTE1MDIyNzAz
@@ -91,24 +91,24 @@ a7iEGe0BVviVF8Bz/Z0el49vGS5nliW59KXIUW7io9xEA9B95CURBl8ETgBWFyrY
 l9SsjlYOiPx1KtUf21UlZPjdbF4aJpXb8omLo/3Mk/qnWzx1qcCKUiGlVDRGPBn8
 UVT6kyMwBnKi5CVVK5v+ZgOlCXO7J0aldTBcH/s28hiUas9yReFyoNmLG2ozboeu
 ZkIzMSzb7JBh32BmlOPf+Ntq0wkxlFhnZM4tNF2J/Nk=</ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </KeyDescriptor>
-    <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.gakunin.nii.ac.jp:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-    <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.gakunin.nii.ac.jp:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-  </AttributeAuthorityDescriptor>
-  <Organization>
-    <OrganizationName xml:lang="en">National Institute of Informatics</OrganizationName>
-    <OrganizationName xml:lang="ja">国立情報学研究所</OrganizationName>
-    <OrganizationDisplayName xml:lang="en">GakuNin IdP</OrganizationDisplayName>
-    <OrganizationDisplayName xml:lang="ja">学認IdP</OrganizationDisplayName>
-    <OrganizationURL xml:lang="en">https://www.gakunin.jp/</OrganizationURL>
-  </Organization>
-  <ContactPerson contactType="technical">
-    <GivenName>Hideaki</GivenName>
-    <SurName>NODA</SurName>
-    <EmailAddress>mailto:gakunin-help@nii.ac.jp</EmailAddress>
-  </ContactPerson>
-</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.gakunin.nii.ac.jp:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.gakunin.nii.ac.jp:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">National Institute of Informatics</md:OrganizationName>
+      <md:OrganizationName xml:lang="ja">国立情報学研究所</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">GakuNin IdP</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="ja">学認IdP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.gakunin.jp/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Hideaki</md:GivenName>
+      <md:SurName>NODA</md:SurName>
+      <md:EmailAddress>mailto:gakunin-help@nii.ac.jp</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

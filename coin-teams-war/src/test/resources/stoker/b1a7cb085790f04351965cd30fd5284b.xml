@@ -1,0 +1,60 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sant-ssp.sant.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-05-08T17:02:08Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://sant-ssp.sant.ox.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDCTCCAfGgAwIBAgIJAMhwD42RejeVMA0GCSqGSIb3DQEBBQUAMCExHzAdBgNV
+						BAMTFnNhbnQtc3NwLnNhbnQub3guYWMudWswHhcNMTMwNTA2MTM0MzQ5WhcNMjMw
+						NTA0MTM0MzQ5WjAhMR8wHQYDVQQDExZzYW50LXNzcC5zYW50Lm94LmFjLnVrMIIB
+						IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyTP5u2MTtwDgk9nE/YOMLyBq
+						kdM0PgaJ7CsZmtf3kynVVet2TCudVGbDPzz0ucLUGvEf5gFtJSmKNtBHS2dpECN3
+						v/tQyeCiaDxVvlpgAMquKStWxPP6/jRS0jk+QtIEzNlMqD9QQ1Y6GZB1hTK9uAXM
+						CtwYZkiwQlDFtygxQO6IMmYidVNmSGGX8WPmwKypijBwpPtLoEA5r2vj6yDZ6d/S
+						0+4w4oaXHIYJ/7i6K/L15gXeN0UG8Cf8eOrU2VKGfdWtJF1TbLlBEiMdfLMDfe5W
+						Q4xRldVXO7rvdHMSkIUw2+qehAzFYRdGOBH5OMZak699Oqcx3qLfRQP7LMgPtwID
+						AQABo0QwQjAhBgNVHREEGjAYghZzYW50LXNzcC5zYW50Lm94LmFjLnVrMB0GA1Ud
+						DgQWBBRmXuxwJcoRmVF9892XQF5+JbXQ/jANBgkqhkiG9w0BAQUFAAOCAQEAbcG6
+						cPqRKjU4ErmifQX4WGhI7VI1cef4Un1kKDSHVj7/ons5ZSUqbHFwnM9m2NRsrRGI
+						WchHAYkVnChDsRPIGrNURK1AqOE2xEo/1C2TeKWZF1wWs+xpPguU5IJO+/esIdwn
+						JtrLlTDk3mlB3bfF2ztvoAHN3UBy+WEfIw/eXdKFEyGQzR2OAAZuKIEOJ3WY3UGR
+						bq0VNxsBVKEJFDN4/AdTPVFyhsDEHYyrQ+z/oiZqsif3QjM7vB8AUXcqUDMNKnpt
+						S/rurkWwA1QuSeIejchaeEijndoSyqUMeTq7IPVoiZ/yUj9fFoh7dNt0uj9E0paJ
+						5gefI6a4f/mL0eFXGQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sant-ssp.sant.ox.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sant-ssp.sant.ox.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sant-ssp.sant.ox.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sant-ssp.sant.ox.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sant-ssp.sant.ox.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sant-ssp.sant.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sant-ssp.sant.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sant-ssp.sant.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://sant-ssp.sant.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://sant-ssp.sant.ox.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://sant-ssp.sant.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">St Antony's College Shibboleth SP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.sant.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>St Antony's College IT Support</md:GivenName>
+      <md:EmailAddress>mailto:it-support@sant.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Christopher</md:GivenName>
+      <md:SurName>Hoskin</md:SurName>
+      <md:EmailAddress>mailto:it-manager@sant.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

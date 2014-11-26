@@ -1,0 +1,158 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://dlib-brewdog.ucs.ed.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-01-31T14:00:45Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">brewdog.edina.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:Logo height="28" width="28">https://dlib-brewdog.ucs.ed.ac.uk/idp/images/brewdog.28x28.png</mdui:Logo>
+          <mdui:Logo height="128" width="128">https://dlib-brewdog.ucs.ed.ac.uk/idp/images/brewdog.128x128.png</mdui:Logo>
+          <mdui:DisplayName xml:lang="en">dlib-brewdog test IdP</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDUDCCAjigAwIBAgIVANeccAPs62oIBt2itOeJ9C/Li19lMA0GCSqGSIb3DQEB
+						BQUAMCQxIjAgBgNVBAMTGWRsaWItYnJld2RvZy51Y3MuZWQuYWMudWswHhcNMTQw
+						NTA3MTMzNTU3WhcNMzQwNTA3MTMzNTU3WjAkMSIwIAYDVQQDExlkbGliLWJyZXdk
+						b2cudWNzLmVkLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA
+						mt/seiPGY8dcigWLBiTzvUrOWpZ2L0s7QjqoquCxdUZUUas1D26W4ckKwfWepNgS
+						CzrqVPiWiE57kOtnru7hgmbyr/H3wK61jk+AbBt6HJ1nu8C3UrFTTIp4n4qVxOyl
+						FfNv2Mac7G993nHcWJe+ZyTfKn60Lg467DrlXtF9YzZxVmlb9P5JRm82dINeRnEV
+						xUa4vH6/z8xTx8PQTEU+ysuIaeZrywILH1tlupF2FJXn1U7a3sJmQDvndQy2G7zJ
+						MhaQbRGt1YslAxswo9L3Oa6ppJQE6xEtVAYA1k0OhkFjJsILdsHz6hE18AzU6Q3y
+						BZi5KwEq1dsA0+xFqHsVDQIDAQABo3kwdzBWBgNVHREETzBNghlkbGliLWJyZXdk
+						b2cudWNzLmVkLmFjLnVrhjBodHRwczovL2RsaWItYnJld2RvZy51Y3MuZWQuYWMu
+						dWsvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFBaPv5VZ+7f+IBtMjmjk1+5H3+5W
+						MA0GCSqGSIb3DQEBBQUAA4IBAQBECB+XMAUZwggIzv9rTb9JwRHL2cmOUAdAI4gD
+						uc0SPtNM3laQgk+j/oBgQh4usRhNzz46mp5R1T9KXqu8x9o56TljLuVoYPrBIdBg
+						Qh5/IrZmzLxW35Ukts2zAn7oj9OkEA3UGgiIOsJfW2jSJdNzcOQVXvBt5JKuWbFN
+						KqMISWTNoxDtowm4PB2RRHZ0qpvNQTazyCRdceQ1H10AO6m6LtHkQDWDEUWqYEwe
+						w4R47AnijgrdFW6VTGWagKAB8PLKQ91Ndpn8R5Xa/kR6eU/BgY7j/YoENy7mVLPk
+						YMXogWtrrMGCZRtuWctYDVPv85v7wT5R+k249KrW4f26VTDS
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDTzCCAjegAwIBAgIUKxS9ua7hRg+odcxJ71xyeIiNul0wDQYJKoZIhvcNAQEF
+						BQAwJDEiMCAGA1UEAxMZZGxpYi1icmV3ZG9nLnVjcy5lZC5hYy51azAeFw0xMzAx
+						MDkxNzA0NDlaFw0zMzAxMDkxNzA0NDlaMCQxIjAgBgNVBAMTGWRsaWItYnJld2Rv
+						Zy51Y3MuZWQuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCC
+						vGpWIX/rn23mtBC6J5nPDalkxpZKqEQVkz0Md3PvPMFQLwDqOHzG0ZxDrEgMLFIu
+						iZtUV+v7K8Go5Os1hZH5fnrVAUcMJz/jjoOcY9ebpdISUMuQnzqAxgQZMxtvM7bg
+						hxu6XM06ptgMsOeEKClE+nK4N8D2Q4bqll4LmgAhAdMfYZOOIlYXkmoUq0/bH1Ct
+						86RW9P263Xg2f3uJAGGhwZzJZdLJoEGmjPLGiS86+Xgta5ROKZ7XlUzWKdZD9ksl
+						Ql6Ldp2hhaNgBLRiLCd2775kbdvFQBuPsqQWbgtud5a3s0fG7Dsj4liZvJMhbT0E
+						k7JXfkixQwsVTcD2/615AgMBAAGjeTB3MFYGA1UdEQRPME2CGWRsaWItYnJld2Rv
+						Zy51Y3MuZWQuYWMudWuGMGh0dHBzOi8vZGxpYi1icmV3ZG9nLnVjcy5lZC5hYy51
+						ay9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUqnMv8kEdg9ODir6vmtnr+dCjULAw
+						DQYJKoZIhvcNAQEFBQADggEBABKGMuqUezdTzA44oDwMSS2EfXi5HlwrPt2EAxwa
+						XKYNAPCx1RMI4fJQ9NLpQxmM/32LEXK48p0MwMKPmPG9D9s5ie3ZE/flG1XRxkf1
+						cu97X/2y+6nfehK1RJTTZGH14clN94gjURQy847jT3sHVDN3izX04tMQqc80QhiP
+						MZfC8k4TtMiyljB23c+IQyISJUwdEZAeXsbsoS6/jKx9ZMLt6LOuTqOd17ro0gaL
+						JdExIybhdV1Mz1GvULt04yG1S7ChL0ZNRkeQS3ZvgLx9z3/ead37KJdzvfLNMF8G
+						vgZqgfwajoa65P684/Zk/RdxJdDMPFCzCD7EvDjs9kEUr6s=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://dlib-brewdog.ucs.ed.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://dlib-brewdog.ucs.ed.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://dlib-brewdog.ucs.ed.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://dlib-brewdog.ucs.ed.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://dlib-brewdog.ucs.ed.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://dlib-brewdog.ucs.ed.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">brewdog.edina.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDUDCCAjigAwIBAgIVANeccAPs62oIBt2itOeJ9C/Li19lMA0GCSqGSIb3DQEB
+						BQUAMCQxIjAgBgNVBAMTGWRsaWItYnJld2RvZy51Y3MuZWQuYWMudWswHhcNMTQw
+						NTA3MTMzNTU3WhcNMzQwNTA3MTMzNTU3WjAkMSIwIAYDVQQDExlkbGliLWJyZXdk
+						b2cudWNzLmVkLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA
+						mt/seiPGY8dcigWLBiTzvUrOWpZ2L0s7QjqoquCxdUZUUas1D26W4ckKwfWepNgS
+						CzrqVPiWiE57kOtnru7hgmbyr/H3wK61jk+AbBt6HJ1nu8C3UrFTTIp4n4qVxOyl
+						FfNv2Mac7G993nHcWJe+ZyTfKn60Lg467DrlXtF9YzZxVmlb9P5JRm82dINeRnEV
+						xUa4vH6/z8xTx8PQTEU+ysuIaeZrywILH1tlupF2FJXn1U7a3sJmQDvndQy2G7zJ
+						MhaQbRGt1YslAxswo9L3Oa6ppJQE6xEtVAYA1k0OhkFjJsILdsHz6hE18AzU6Q3y
+						BZi5KwEq1dsA0+xFqHsVDQIDAQABo3kwdzBWBgNVHREETzBNghlkbGliLWJyZXdk
+						b2cudWNzLmVkLmFjLnVrhjBodHRwczovL2RsaWItYnJld2RvZy51Y3MuZWQuYWMu
+						dWsvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFBaPv5VZ+7f+IBtMjmjk1+5H3+5W
+						MA0GCSqGSIb3DQEBBQUAA4IBAQBECB+XMAUZwggIzv9rTb9JwRHL2cmOUAdAI4gD
+						uc0SPtNM3laQgk+j/oBgQh4usRhNzz46mp5R1T9KXqu8x9o56TljLuVoYPrBIdBg
+						Qh5/IrZmzLxW35Ukts2zAn7oj9OkEA3UGgiIOsJfW2jSJdNzcOQVXvBt5JKuWbFN
+						KqMISWTNoxDtowm4PB2RRHZ0qpvNQTazyCRdceQ1H10AO6m6LtHkQDWDEUWqYEwe
+						w4R47AnijgrdFW6VTGWagKAB8PLKQ91Ndpn8R5Xa/kR6eU/BgY7j/YoENy7mVLPk
+						YMXogWtrrMGCZRtuWctYDVPv85v7wT5R+k249KrW4f26VTDS
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDTzCCAjegAwIBAgIUKxS9ua7hRg+odcxJ71xyeIiNul0wDQYJKoZIhvcNAQEF
+						BQAwJDEiMCAGA1UEAxMZZGxpYi1icmV3ZG9nLnVjcy5lZC5hYy51azAeFw0xMzAx
+						MDkxNzA0NDlaFw0zMzAxMDkxNzA0NDlaMCQxIjAgBgNVBAMTGWRsaWItYnJld2Rv
+						Zy51Y3MuZWQuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCC
+						vGpWIX/rn23mtBC6J5nPDalkxpZKqEQVkz0Md3PvPMFQLwDqOHzG0ZxDrEgMLFIu
+						iZtUV+v7K8Go5Os1hZH5fnrVAUcMJz/jjoOcY9ebpdISUMuQnzqAxgQZMxtvM7bg
+						hxu6XM06ptgMsOeEKClE+nK4N8D2Q4bqll4LmgAhAdMfYZOOIlYXkmoUq0/bH1Ct
+						86RW9P263Xg2f3uJAGGhwZzJZdLJoEGmjPLGiS86+Xgta5ROKZ7XlUzWKdZD9ksl
+						Ql6Ldp2hhaNgBLRiLCd2775kbdvFQBuPsqQWbgtud5a3s0fG7Dsj4liZvJMhbT0E
+						k7JXfkixQwsVTcD2/615AgMBAAGjeTB3MFYGA1UdEQRPME2CGWRsaWItYnJld2Rv
+						Zy51Y3MuZWQuYWMudWuGMGh0dHBzOi8vZGxpYi1icmV3ZG9nLnVjcy5lZC5hYy51
+						ay9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUqnMv8kEdg9ODir6vmtnr+dCjULAw
+						DQYJKoZIhvcNAQEFBQADggEBABKGMuqUezdTzA44oDwMSS2EfXi5HlwrPt2EAxwa
+						XKYNAPCx1RMI4fJQ9NLpQxmM/32LEXK48p0MwMKPmPG9D9s5ie3ZE/flG1XRxkf1
+						cu97X/2y+6nfehK1RJTTZGH14clN94gjURQy847jT3sHVDN3izX04tMQqc80QhiP
+						MZfC8k4TtMiyljB23c+IQyISJUwdEZAeXsbsoS6/jKx9ZMLt6LOuTqOd17ro0gaL
+						JdExIybhdV1Mz1GvULt04yG1S7ChL0ZNRkeQS3ZvgLx9z3/ead37KJdzvfLNMF8G
+						vgZqgfwajoa65P684/Zk/RdxJdDMPFCzCD7EvDjs9kEUr6s=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://dlib-brewdog.ucs.ed.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://dlib-brewdog.ucs.ed.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Edinburgh</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">dlib-brewdog test IdP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ed.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Alex</md:GivenName>
+      <md:SurName>Stuart</md:SurName>
+      <md:EmailAddress>mailto:alex.stuart@ed.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Alex</md:GivenName>
+      <md:SurName>Stuart</md:SurName>
+      <md:EmailAddress>mailto:alex.stuart@ed.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

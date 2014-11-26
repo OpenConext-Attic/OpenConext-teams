@@ -1,0 +1,106 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibb.stockport.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2011-05-20T11:53:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">stockport.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDPzCCAiegAwIBAgIUM+WxIbWXv2I74/FnfG6jjwU+Ri0wDQYJKoZIhvcNAQEF
+						BQAwIDEeMBwGA1UEAxMVc2hpYmIuc3RvY2twb3J0LmFjLnVrMB4XDTExMDUwNjE0
+						MDAyM1oXDTMxMDUwNjE0MDAyM1owIDEeMBwGA1UEAxMVc2hpYmIuc3RvY2twb3J0
+						LmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAifpJBo9UYsko
+						kMULJTlBmVICnEZWWnlX3XFNf3aUtkOYW5EgGgwro1jR0irV252k/WIThep4ozjI
+						C31suuhrKVUtPggMVaP7LxXcEvO7FP2fc++yqvpUYs8h4kJylmy5J4UX6MlSqM7W
+						LcyH3SOPeQkh/XEGdsNcxphhaXHMhyCEsB5xESYyp0tMFh7bjX9+YjBMxnoWu7iz
+						Zk/+bxP2lgaQA1DayxgvhSEsvdSJkxCerjPnPrGv6f0pVN2exDCOpwsFPPQWsCIC
+						0BQnqbxqf/ONpBUCi2fJHFEqNHIh+YBfLBqSOpPqIkhAlXnAlYVfP3/oJ/zaIHoG
+						TKp2AP62pQIDAQABo3EwbzBOBgNVHREERzBFghVzaGliYi5zdG9ja3BvcnQuYWMu
+						dWuGLGh0dHBzOi8vc2hpYmIuc3RvY2twb3J0LmFjLnVrL2lkcC9zaGliYm9sZXRo
+						MB0GA1UdDgQWBBTNA3WQ8zvZbogwr3KVdrj2DAZLlTANBgkqhkiG9w0BAQUFAAOC
+						AQEATxljwm7uXHGMCNLIFyJlpTx/TLCW7m4kP+FMhDa67Odpv3rNyu33fgtxP5lN
+						14RioV5jXaPruxMjdVw8L2v3Q4mBAOOB1qfJyIAmn+QpGvouXvh/rIOywlz9S9Ng
+						a0vc5R47wfL6Zyb548WnO6QqVgSgg8ZbsBZalcvrDLHLX+xFlltXo3x+rrfWLgf6
+						hfWNaS4qX4wFjS02bb6BaYt8dExP/MjJ93F/NnsaatHc6ez2OQSQAaHDWWBUXB/P
+						DY9eQDYcEDia9hZgAs3FnwK2Cmwk6aqOIW3WlUMmVPCat764FOLrOMiAVtq4kFJq
+						ba0bpVtpnDdaJXtivnztmKRWPw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibb.stockport.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibb.stockport.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibb.stockport.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibb.stockport.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibb.stockport.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibb.stockport.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">stockport.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDPzCCAiegAwIBAgIUM+WxIbWXv2I74/FnfG6jjwU+Ri0wDQYJKoZIhvcNAQEF
+						BQAwIDEeMBwGA1UEAxMVc2hpYmIuc3RvY2twb3J0LmFjLnVrMB4XDTExMDUwNjE0
+						MDAyM1oXDTMxMDUwNjE0MDAyM1owIDEeMBwGA1UEAxMVc2hpYmIuc3RvY2twb3J0
+						LmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAifpJBo9UYsko
+						kMULJTlBmVICnEZWWnlX3XFNf3aUtkOYW5EgGgwro1jR0irV252k/WIThep4ozjI
+						C31suuhrKVUtPggMVaP7LxXcEvO7FP2fc++yqvpUYs8h4kJylmy5J4UX6MlSqM7W
+						LcyH3SOPeQkh/XEGdsNcxphhaXHMhyCEsB5xESYyp0tMFh7bjX9+YjBMxnoWu7iz
+						Zk/+bxP2lgaQA1DayxgvhSEsvdSJkxCerjPnPrGv6f0pVN2exDCOpwsFPPQWsCIC
+						0BQnqbxqf/ONpBUCi2fJHFEqNHIh+YBfLBqSOpPqIkhAlXnAlYVfP3/oJ/zaIHoG
+						TKp2AP62pQIDAQABo3EwbzBOBgNVHREERzBFghVzaGliYi5zdG9ja3BvcnQuYWMu
+						dWuGLGh0dHBzOi8vc2hpYmIuc3RvY2twb3J0LmFjLnVrL2lkcC9zaGliYm9sZXRo
+						MB0GA1UdDgQWBBTNA3WQ8zvZbogwr3KVdrj2DAZLlTANBgkqhkiG9w0BAQUFAAOC
+						AQEATxljwm7uXHGMCNLIFyJlpTx/TLCW7m4kP+FMhDa67Odpv3rNyu33fgtxP5lN
+						14RioV5jXaPruxMjdVw8L2v3Q4mBAOOB1qfJyIAmn+QpGvouXvh/rIOywlz9S9Ng
+						a0vc5R47wfL6Zyb548WnO6QqVgSgg8ZbsBZalcvrDLHLX+xFlltXo3x+rrfWLgf6
+						hfWNaS4qX4wFjS02bb6BaYt8dExP/MjJ93F/NnsaatHc6ez2OQSQAaHDWWBUXB/P
+						DY9eQDYcEDia9hZgAs3FnwK2Cmwk6aqOIW3WlUMmVPCat764FOLrOMiAVtq4kFJq
+						ba0bpVtpnDdaJXtivnztmKRWPw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibb.stockport.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibb.stockport.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Stockport College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Stockport College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.stockport.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Nichole</md:GivenName>
+      <md:SurName>Bahrt</md:SurName>
+      <md:EmailAddress>mailto:nichole.bahrt@stockport.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mike</md:GivenName>
+      <md:SurName>Smith</md:SurName>
+      <md:EmailAddress>mailto:michael.smith@stockport.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Patrick</md:GivenName>
+      <md:SurName>Doherty</md:SurName>
+      <md:EmailAddress>mailto:Patrick.Doherty@Stockport.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Robert</md:GivenName>
+      <md:SurName>Comer</md:SurName>
+      <md:EmailAddress>mailto:Robert.Comer@Stockport.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

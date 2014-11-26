@@ -1,0 +1,50 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.itslearning.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDQDCCAiigAwIBAgIJAOCa2W5sQVpdMA0GCSqGSIb3DQEBBQUAMCExHzAdBgNV
+						BAMTFmVsb2dpbi5pdHNsZWFybmluZy5jb20wHhcNMTEwMTI1MDk0MTIyWhcNMjEw
+						MTIyMDk0MTIyWjAhMR8wHQYDVQQDExZlbG9naW4uaXRzbGVhcm5pbmcuY29tMIIB
+						IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3/pjEfFtjLzqjahh8G57a4bE
+						xgDVLPMsVrYkxMwmjR0fvMjGD/WIldj/XKBga7EzMfSSqAtGcluHwcQotZn3VKzI
+						+pp5SDGnjaZLb5Dlx4Pqn8QXtv9fFdTU8bkk4nWJLAabrBV1PDNlc9TvLYo4BEKh
+						uK6WvNIZqshS4NX241PcyIW+/tbs3gY4ZpqCIgF21cX+UHX+JWxHrgKzWRXlpYRX
+						8/La7yxJxNsgeQfsNO9et8nAGcMFpATGGK9N4IcSzdlZM0vPLTcP5NrYhVrc4p/v
+						Sh2wVgCAX0RM4xXTKZSPiv2bbXqz1m+61cdY+097umpFqKP/4LcgRrOWyn8DoQID
+						AQABo3sweTAJBgNVHRMEAjAAMCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVy
+						YXRlZCBDZXJ0aWZpY2F0ZTAdBgNVHQ4EFgQUK1LiEqSXXlTIZiRAUXIdhrxt50Yw
+						HwYDVR0jBBgwFoAUK1LiEqSXXlTIZiRAUXIdhrxt50YwDQYJKoZIhvcNAQEFBQAD
+						ggEBAF2W34ZCfjR4aZcTcNwLwAJBJZWNoJTpkzl6DiTLSTpmXjcDSVQQCUontqjp
+						WDatCmrM/5JamvZaNfyJ1tHrkNwvKEsvTzalLFs00E9GcOQq8I/Xfj6uBGAYICB5
+						eSKnhIHMJDlSc6ilYxDlB8KJM4UFXQ+SIsJLcX9AbsdHI0X/s68c42/teSQgN2Yc
+						wtiCUhjKgaY1iI6B/CaS0akF+hK4wi3+vV9Iis3zjOPZgmf6K+n/5HGKmplQF2H4
+						ffAJBB8DdkCd3njov1flLlnfQHDh0o0/yPSJkkdknqxhFs7yvEV+c92gwZCFjwka
+						J4ZzgrTMRBGb/0XGn/eHvuvUdYY=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.itslearning.com/elogin/logout.aspx"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.itslearning.com/elogin/default.aspx" index="0" isDefault="true"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">it's learning UK Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">it's learning UK Limited</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.itslearning.co.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Aunkher</md:GivenName>
+      <md:SurName>Sidhu</md:SurName>
+      <md:EmailAddress>mailto:aunkher.sidhu@itslearning.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Sukesh</md:GivenName>
+      <md:SurName>Nischal</md:SurName>
+      <md:EmailAddress>mailto:sukesh.nischal@itslearning.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

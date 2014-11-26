@@ -1,27 +1,27 @@
-<md:EntityDescriptor xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp2.redclara.net/idp/shibboleth">
-<md:Extensions>
-<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cofre.reuna.cl" registrationInstant="2014-02-21T00:00:00Z">
-<mdrpi:RegistrationPolicy xml:lang="es">
+<md:EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp2.redclara.net/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cofre.reuna.cl" registrationInstant="2014-02-21T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="es">
 http://cofre.reuna.cl/index.php/es/reglas-federacion
 </mdrpi:RegistrationPolicy>
-</mdrpi:RegistrationInfo>
-</md:Extensions>
-<md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-<md:Extensions>
-<shibmd:Scope regexp="false">redclara.net</shibmd:Scope>
-<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-<mdui:DisplayName xml:lang="en">RedCLARA</mdui:DisplayName>
-<mdui:DisplayName xml:lang="es">RedCLARA</mdui:DisplayName>
-<mdui:Description xml:lang="en">RedCLARA - Latin American Cooperation of Advanced Networks</mdui:Description>
-<mdui:Description xml:lang="es">RedCLARA - Cooperación Latino Americana de Redes Avanzadas</mdui:Description>
-<mdui:InformationURL xml:lang="en">http://www.redclara.net/index.php?lang=en</mdui:InformationURL>
-<mdui:InformationURL xml:lang="es">http://www.redclara.net/index.php?lang=es</mdui:InformationURL>
-</mdui:UIInfo>
-</md:Extensions>
-<md:KeyDescriptor>
-<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-<ds:X509Data>
-<ds:X509Certificate>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">redclara.net</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">RedCLARA</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="es">RedCLARA</mdui:DisplayName>
+          <mdui:Description xml:lang="en">RedCLARA - Latin American Cooperation of Advanced Networks</mdui:Description>
+          <mdui:Description xml:lang="es">RedCLARA - Cooperación Latino Americana de Redes Avanzadas</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.redclara.net/index.php?lang=en</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="es">http://www.redclara.net/index.php?lang=es</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIGXDCCBUSgAwIBAgIDEE36MA0GCSqGSIb3DQEBBQUAMIGMMQswCQYDVQQGEwJJ
 TDEWMBQGA1UEChMNU3RhcnRDb20gTHRkLjErMCkGA1UECxMiU2VjdXJlIERpZ2l0
 YWwgQ2VydGlmaWNhdGUgU2lnbmluZzE4MDYGA1UEAxMvU3RhcnRDb20gQ2xhc3Mg
@@ -57,28 +57,28 @@ quKoDM/9IGe6yhLlKfH2tBxwGcFo8guaKNZd9HztOONj7dkNvGwX9uzMVAXarCw/
 RWQrN7vxHeMorebLpkx6Z8+tw3Svi9Z2oP1vPbnUJpFragDqNoZw6K9Crf/JTqD9
 HtCRp1bLRxJ4Ysu5HdV+kAcTelR3MyDYe/gAGAb5Wu7hmNn3NAwwrFn0TygkPzvl
 </ds:X509Certificate>
-</ds:X509Data>
-</ds:KeyInfo>
-</md:KeyDescriptor>
-<md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp2.redclara.net:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-<md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp2.redclara.net:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-<md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
-<md:NameIDFormat>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp2.redclara.net:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp2.redclara.net:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>
 urn:oasis:names:tc:SAML:2.0:nameid-format:transient
 </md:NameIDFormat>
-<md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp2.redclara.net/idp/profile/Shibboleth/SSO"/>
-<md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp2.redclara.net/idp/profile/SAML2/POST/SSO"/>
-<md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp2.redclara.net/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-<md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp2.redclara.net/idp/profile/SAML2/Redirect/SSO"/>
-</md:IDPSSODescriptor>
-<md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-<md:Extensions>
-<shibmd:Scope regexp="false">redclara.net</shibmd:Scope>
-</md:Extensions>
-<md:KeyDescriptor>
-<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-<ds:X509Data>
-<ds:X509Certificate>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp2.redclara.net/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp2.redclara.net/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp2.redclara.net/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp2.redclara.net/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">redclara.net</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIGXDCCBUSgAwIBAgIDEE36MA0GCSqGSIb3DQEBBQUAMIGMMQswCQYDVQQGEwJJ
 TDEWMBQGA1UEChMNU3RhcnRDb20gTHRkLjErMCkGA1UECxMiU2VjdXJlIERpZ2l0
 YWwgQ2VydGlmaWNhdGUgU2lnbmluZzE4MDYGA1UEAxMvU3RhcnRDb20gQ2xhc3Mg
@@ -114,25 +114,25 @@ quKoDM/9IGe6yhLlKfH2tBxwGcFo8guaKNZd9HztOONj7dkNvGwX9uzMVAXarCw/
 RWQrN7vxHeMorebLpkx6Z8+tw3Svi9Z2oP1vPbnUJpFragDqNoZw6K9Crf/JTqD9
 HtCRp1bLRxJ4Ysu5HdV+kAcTelR3MyDYe/gAGAb5Wu7hmNn3NAwwrFn0TygkPzvl
 </ds:X509Certificate>
-</ds:X509Data>
-</ds:KeyInfo>
-</md:KeyDescriptor>
-<md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp2.redclara.net:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-<md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp2.redclara.net:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-<md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
-<md:NameIDFormat>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp2.redclara.net:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp2.redclara.net:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>
 urn:oasis:names:tc:SAML:2.0:nameid-format:transient
 </md:NameIDFormat>
-</md:AttributeAuthorityDescriptor>
-<md:Organization>
-<md:OrganizationName xml:lang="en">RedCLARA</md:OrganizationName>
-<md:OrganizationDisplayName xml:lang="en">
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">RedCLARA</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">
 RedCLARA - Cooperacion Latino Americana de Redes Avanzadas
 </md:OrganizationDisplayName>
-<md:OrganizationURL xml:lang="en">http://www.redclara.net</md:OrganizationURL>
-</md:Organization>
-<md:ContactPerson contactType="technical">
-<md:SurName>Carlos Gonzalez</md:SurName>
-<md:EmailAddress>carlos.gonzalez@redclara.net</md:EmailAddress>
-</md:ContactPerson>
-</md:EntityDescriptor>
+      <md:OrganizationURL xml:lang="en">http://www.redclara.net</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Carlos Gonzalez</md:SurName>
+      <md:EmailAddress>carlos.gonzalez@redclara.net</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

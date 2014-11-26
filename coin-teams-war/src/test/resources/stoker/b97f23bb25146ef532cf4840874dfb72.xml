@@ -1,0 +1,79 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.pbyp.co.uk/sp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-06-13T09:49:22Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://pbyp.co.uk/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://pbyp.co.uk/Shibboleth.sso/Login" index="1"/>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Personalisation by Pieces (PbyP)</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Personalisation by Pieces (PbyP) is an approach
+					to teaching and learning developed by Cambridge Education in 2006. It is a
+					framework to support personalised learning based on core skills and competencies.</mdui:Description>
+          <mdui:Logo height="100" width="252">https://services.camb-ed.com/images/ce-logo.gif</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDFTCCAf2gAwIBAgIJAJX1RdJ8skE0MA0GCSqGSIb3DQEBBQUAMCUxIzAhBgNV
+						BAMTGm50ZGQzMDEzLXZtMDEuY2FtYmJlLmxvY2FsMB4XDTEyMDYxMzA1NDM0NloX
+						DTIyMDYxMTA1NDM0NlowJTEjMCEGA1UEAxMabnRkZDMwMTMtdm0wMS5jYW1iYmUu
+						bG9jYWwwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDeQA65YfW/dJ4n
+						CcZdPN2415+xiP5HNH/iRXhfBTEr+QN5QP3z1ylRidTHWNz5S2e1HfTsbdPLJygj
+						W7NxXLu6YFi79TopSUVCOpBEqOcXldR5YPtTRJtNProb5vUIP1iix1d9KoBPufsZ
+						Y5kk9156EwA47C/HMFdV8y71yKbhojbSlKTvxdkaYkrB0YFbo125SMeJP/JnVW32
+						WJ4+qVGQzzTGAV8/KTNOGovGj1uz8fJVAIBoIpJQAAuWq8Aoo8F135iHU4uiQROE
+						3jGs/iW0f2cdENQn5l0bCjnZmvnx5o/oIdvU0YjHaAMsjs8OUfg64o/kOQ4vq4y4
+						iOUiQrTHAgMBAAGjSDBGMCUGA1UdEQQeMByCGm50ZGQzMDEzLXZtMDEuY2FtYmJl
+						LmxvY2FsMB0GA1UdDgQWBBR7Na1DFuvXRKD/IWAWCFpXlM6NCTANBgkqhkiG9w0B
+						AQUFAAOCAQEABwfDIGzHs+Np3N2BQUhvDMVz6aP4RS3Nqv9DsnyxBv3RkQJ6q+oB
+						eESW5oQCgGRK0jlUSjFuc5liZA7KM6NcT32HuJOcFpTcKIffA3uKVNK5FScbr89O
+						8LpN3xxBeVbVlhHmj2LQ1hmB4DLikk/19F3J9amTthw6BIztTo3P5aT988eC8QOo
+						i41vNMju3zx6tkO49RXCDLDcGd4hxIXrE/zeJzGSUdgOSZ3yahNzQyjwE3y1zFId
+						C88bOQzKf/M2cgegVSbjJBhqTOIWYJsb62Jd3CTHaj7nkvZfv82B3UTxO9o2bvKD
+						u2nA/TyhOJ/2oTDY+YdGCx3lJ8qykSVXow==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://pbyp.co.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://pbyp.co.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://pbyp.co.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://pbyp.co.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://pbyp.co.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://pbyp.co.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://pbyp.co.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://pbyp.co.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://pbyp.co.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://pbyp.co.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://pbyp.co.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Cambridge Education Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Cambridge Education Limited Personalisation by Pieces</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.camb-ed.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Simon</md:GivenName>
+      <md:SurName>Bell</md:SurName>
+      <md:EmailAddress>mailto:simon.bell@camb-ed.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Zishan</md:GivenName>
+      <md:SurName>Sheikh</md:SurName>
+      <md:EmailAddress>mailto:Zishan.sheikh@camb-ed.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Simon</md:GivenName>
+      <md:SurName>Bell</md:SurName>
+      <md:EmailAddress>mailto:simon.bell@camb-ed.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Zishan</md:GivenName>
+      <md:SurName>Sheikh</md:SurName>
+      <md:EmailAddress>mailto:Zishan.sheikh@camb-ed.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,14 +1,14 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://zividp.uni-muenster.de/idp/shibboleth">
-    <Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2012-08-09T14:28:54Z">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://zividp.uni-muenster.de/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2012-08-09T14:28:54Z">
         <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
         <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-    </Extensions>
-    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">uni-muenster.de</saml1md:Scope>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uni-muenster.de</shibmd:Scope>
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="de">Universität Münster</mdui:DisplayName>
           <mdui:DisplayName xml:lang="en">Universität Münster</mdui:DisplayName>
           <mdui:Description xml:lang="de">Identity Provider der Westfälischen Wilhelms-Universität Münster.</mdui:Description>
@@ -18,185 +18,209 @@
           <mdui:InformationURL xml:lang="de">http://www.uni-muenster.de/</mdui:InformationURL>
           <mdui:InformationURL xml:lang="en">http://www.uni-muenster.de/en/</mdui:InformationURL>
         </mdui:UIInfo>
-      </Extensions>
-      <KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
           <ds:KeyName>zividp.uni-muenster.de</ds:KeyName>
           <ds:X509Data>
-            <ds:X509SubjectName>CN=zividp.uni-muenster.de,O=Universitaet Muenster,C=DE</ds:X509SubjectName>
-            <ds:X509Certificate>MIIFDDCCA/SgAwIBAgIEEFumyzANBgkqhkiG9w0BAQUFADCBjDELMAkGA1UEBhMC
-REUxHjAcBgNVBAoTFVVuaXZlcnNpdGFldCBNdWVuc3RlcjE6MDgGA1UEAxMxWmVy
-dGlmaXppZXJ1bmdzc3RlbGxlIFVuaXZlcnNpdGFldCBNdWVuc3RlciAtIEcwMjEh
-MB8GCSqGSIb3DQEJARYSY2FAdW5pLW11ZW5zdGVyLmRlMB4XDTEwMDcxMzA4NTIx
-MVoXDTE1MDcxMjA4NTIxMVowTjELMAkGA1UEBhMCREUxHjAcBgNVBAoTFVVuaXZl
-cnNpdGFldCBNdWVuc3RlcjEfMB0GA1UEAxMWeml2aWRwLnVuaS1tdWVuc3Rlci5k
-ZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALDzZll7Nu40htfyaAJa
-5ktjkB3o1kTqinoHRq4/a2ZQYAuZxLmpZ5MHdIX/KpPMS/quBUVku94r5B6lsOBk
-fbKEGQUPui0MScn64DREAloo/ybJu7pEz30YXDbw2wALVut3aDU8RsCo1y9fkp33
-D7VMlVF6XChS6WopaUywSNZp/EZiw7ex7FrStAvOZOJf2hP6yd2hFIaQ22paykTa
-brpz6FCzbcZ0F7iZZylbYTnYhGhHhra3S3HJedJujJePbC4yBC9hV06UkqBjBCjl
-/JPf9XnoZHdjrJujg8otyN37Wvgmg//PMquCWaFNTy9gklHCBjWoO9lwAzyuMpOK
-h6sCAwEAAaOCAbEwggGtMAkGA1UdEwQCMAAwCwYDVR0PBAQDAgXgMB0GA1UdJQQW
-MBQGCCsGAQUFBwMCBggrBgEFBQcDATAdBgNVHQ4EFgQUlXHNYvE87U69i2vA+cTc
-3mDDLfAwHwYDVR0jBBgwFoAUvp5RosmSfLtgi+awaGR3WlIZoQAwHgYDVR0RBBcw
-FYETc3lzQHVuaS1tdWVuc3Rlci5kZTB7BgNVHR8EdDByMDegNaAzhjFodHRwOi8v
-Y2RwMS5wY2EuZGZuLmRlL3d3dS1jYS9wdWIvY3JsL2dfY2FjcmwuY3JsMDegNaAz
-hjFodHRwOi8vY2RwMi5wY2EuZGZuLmRlL3d3dS1jYS9wdWIvY3JsL2dfY2Fjcmwu
-Y3JsMIGWBggrBgEFBQcBAQSBiTCBhjBBBggrBgEFBQcwAoY1aHR0cDovL2NkcDEu
-cGNhLmRmbi5kZS93d3UtY2EvcHViL2NhY2VydC9nX2NhY2VydC5jcnQwQQYIKwYB
-BQUHMAKGNWh0dHA6Ly9jZHAyLnBjYS5kZm4uZGUvd3d1LWNhL3B1Yi9jYWNlcnQv
-Z19jYWNlcnQuY3J0MA0GCSqGSIb3DQEBBQUAA4IBAQBTLaMcfprssiEbRXF65Wi1
-fFpwL9645sbNu13A8wK4qiQCljJrAKlKgE6QvncZrQj4P2wifvMkcGKiiWFDe8cu
-2jUq8jgZAlqWagh89vcUVmEIWa5dXV0gtJozvBwDjqjtoV7Rh89xs8EYFmuH68Di
-DCEOhD0hWE36zsA+HM/ngP74sXut3btWF5Z+8lzGwrP2kxyVaD1/Fhx7M8G4x/6X
-v6T3BQ8NOoLOYrZvdF2ecW362ADe7QsnitMobEFT2YxQHjBRD9+JlZ2izRQyNGwZ
-pKHWXA8DsJnXLqGvaG86WEIUkJD4NhYvi4LYvJ2NJW8T/OTCNvW3KBshzxonnB3P
+            <ds:X509SubjectName>emailAddress=wwwadmin@uni-muenster.de,CN=zividp.uni-muenster.de,OU=Zentrum fuer Informationsverarbeitung,O=Universitaet Muenster,L=Muenster,ST=Nordrhein-Westfalen,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGIzCCBQugAwIBAgIHGFeCtRUcrzANBgkqhkiG9w0BAQsFADCBjDELMAkGA1UE
+BhMCREUxHjAcBgNVBAoTFVVuaXZlcnNpdGFldCBNdWVuc3RlcjE6MDgGA1UEAxMx
+WmVydGlmaXppZXJ1bmdzc3RlbGxlIFVuaXZlcnNpdGFldCBNdWVuc3RlciAtIEcw
+MjEhMB8GCSqGSIb3DQEJARYSY2FAdW5pLW11ZW5zdGVyLmRlMB4XDTE0MTAxMDE2
+MTExN1oXDTE5MDcwOTIzNTkwMFowgdgxCzAJBgNVBAYTAkRFMRwwGgYDVQQIExNO
+b3JkcmhlaW4tV2VzdGZhbGVuMREwDwYDVQQHEwhNdWVuc3RlcjEeMBwGA1UEChMV
+VW5pdmVyc2l0YWV0IE11ZW5zdGVyMS4wLAYDVQQLEyVaZW50cnVtIGZ1ZXIgSW5m
+b3JtYXRpb25zdmVyYXJiZWl0dW5nMR8wHQYDVQQDExZ6aXZpZHAudW5pLW11ZW5z
+dGVyLmRlMScwJQYJKoZIhvcNAQkBFhh3d3dhZG1pbkB1bmktbXVlbnN0ZXIuZGUw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDs1fLiqaQJyAodfjyh3/G5
+YN6BhkHxnfeqmvoq9IgdJdn4X/kYPo2Mm/qE1qKebW73YJcgJJ6UoIfORVdZIpdu
+q/0ijQQVwkplC07RGzhhlhgIOGmybMpHt4e5LTnmI1aBLI+ZFsLkc2nEY9lEhRBH
+rSsMfQS/2qNJ5Hd71X/ITjwIByDpjsorHBfa8qQfJWsa+C/M3NjP7maITpDVPZ2k
+u1wwoenTZRMn3Tzzte9nP+GcHxG+hMx5qCNKQPblBnuUinYvAPirMsMQZGM/ZthN
+ujIAkzq7wzLP5z+H9icc4Ap9vEoEWdBhvZY5aZU7HwFm6MnNOBYkRl/SMjNGOwvf
+AgMBAAGjggI6MIICNjBPBgNVHSAESDBGMBEGDysGAQQBga0hgiwBAQQDAjARBg8r
+BgEEAYGtIYIsAgEEAwEwDwYNKwYBBAGBrSGCLAEBBDANBgsrBgEEAYGtIYIsHjAJ
+BgNVHRMEAjAAMAsGA1UdDwQEAwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYB
+BQUHAwEwHQYDVR0OBBYEFNq4Ch52JoFfVrqS4GJd45Hr9MMgMB8GA1UdIwQYMBaA
+FL6eUaLJkny7YIvmsGhkd1pSGaEAMCEGA1UdEQQaMBiCFnppdmlkcC51bmktbXVl
+bnN0ZXIuZGUwewYDVR0fBHQwcjA3oDWgM4YxaHR0cDovL2NkcDEucGNhLmRmbi5k
+ZS93d3UtY2EvcHViL2NybC9nX2NhY3JsLmNybDA3oDWgM4YxaHR0cDovL2NkcDIu
+cGNhLmRmbi5kZS93d3UtY2EvcHViL2NybC9nX2NhY3JsLmNybDCBywYIKwYBBQUH
+AQEEgb4wgbswMwYIKwYBBQUHMAGGJ2h0dHA6Ly9vY3NwLnBjYS5kZm4uZGUvT0NT
+UC1TZXJ2ZXIvT0NTUDBBBggrBgEFBQcwAoY1aHR0cDovL2NkcDEucGNhLmRmbi5k
+ZS93d3UtY2EvcHViL2NhY2VydC9nX2NhY2VydC5jcnQwQQYIKwYBBQUHMAKGNWh0
+dHA6Ly9jZHAyLnBjYS5kZm4uZGUvd3d1LWNhL3B1Yi9jYWNlcnQvZ19jYWNlcnQu
+Y3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBVWV/BKM9kUH2geEkG7sa9DYJwvkJgZvmZ
+uSs96xhhHGvJ/8q5ZDMc1C5bFYjdOW9oGz6wtMTaj/Re7KbhMDi4M7WMjQX4hYx+
+5WFoCdhgRIBkXS6Nfi+UHEWVo/BLUZzZiwg2bG5Z0RPIcaxJUq387s+Qf76SHm3f
+GMFVt+1XRhsLaruEPfIH6xKwQ2/gf5XJVMsSP/zD5C71oEcimWpSOwYEE974ju+Z
+3f83SMO1Uj4iOtd3WJqQCbCL9u5xIyjXmxWobmTvub/dLs50YvZgBln7nwn227gr
+UuIMesitYxmNwjNX1FjrXtjuGk3ECJ7oJd2ixdXgr6KwPZwVG5VX
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <KeyDescriptor use="encryption">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
           <ds:KeyName>zividp.uni-muenster.de</ds:KeyName>
           <ds:X509Data>
-            <ds:X509SubjectName>CN=zividp.uni-muenster.de,O=Universitaet Muenster,C=DE</ds:X509SubjectName>
-            <ds:X509Certificate>MIIFDDCCA/SgAwIBAgIEEFumyzANBgkqhkiG9w0BAQUFADCBjDELMAkGA1UEBhMC
-REUxHjAcBgNVBAoTFVVuaXZlcnNpdGFldCBNdWVuc3RlcjE6MDgGA1UEAxMxWmVy
-dGlmaXppZXJ1bmdzc3RlbGxlIFVuaXZlcnNpdGFldCBNdWVuc3RlciAtIEcwMjEh
-MB8GCSqGSIb3DQEJARYSY2FAdW5pLW11ZW5zdGVyLmRlMB4XDTEwMDcxMzA4NTIx
-MVoXDTE1MDcxMjA4NTIxMVowTjELMAkGA1UEBhMCREUxHjAcBgNVBAoTFVVuaXZl
-cnNpdGFldCBNdWVuc3RlcjEfMB0GA1UEAxMWeml2aWRwLnVuaS1tdWVuc3Rlci5k
-ZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALDzZll7Nu40htfyaAJa
-5ktjkB3o1kTqinoHRq4/a2ZQYAuZxLmpZ5MHdIX/KpPMS/quBUVku94r5B6lsOBk
-fbKEGQUPui0MScn64DREAloo/ybJu7pEz30YXDbw2wALVut3aDU8RsCo1y9fkp33
-D7VMlVF6XChS6WopaUywSNZp/EZiw7ex7FrStAvOZOJf2hP6yd2hFIaQ22paykTa
-brpz6FCzbcZ0F7iZZylbYTnYhGhHhra3S3HJedJujJePbC4yBC9hV06UkqBjBCjl
-/JPf9XnoZHdjrJujg8otyN37Wvgmg//PMquCWaFNTy9gklHCBjWoO9lwAzyuMpOK
-h6sCAwEAAaOCAbEwggGtMAkGA1UdEwQCMAAwCwYDVR0PBAQDAgXgMB0GA1UdJQQW
-MBQGCCsGAQUFBwMCBggrBgEFBQcDATAdBgNVHQ4EFgQUlXHNYvE87U69i2vA+cTc
-3mDDLfAwHwYDVR0jBBgwFoAUvp5RosmSfLtgi+awaGR3WlIZoQAwHgYDVR0RBBcw
-FYETc3lzQHVuaS1tdWVuc3Rlci5kZTB7BgNVHR8EdDByMDegNaAzhjFodHRwOi8v
-Y2RwMS5wY2EuZGZuLmRlL3d3dS1jYS9wdWIvY3JsL2dfY2FjcmwuY3JsMDegNaAz
-hjFodHRwOi8vY2RwMi5wY2EuZGZuLmRlL3d3dS1jYS9wdWIvY3JsL2dfY2Fjcmwu
-Y3JsMIGWBggrBgEFBQcBAQSBiTCBhjBBBggrBgEFBQcwAoY1aHR0cDovL2NkcDEu
-cGNhLmRmbi5kZS93d3UtY2EvcHViL2NhY2VydC9nX2NhY2VydC5jcnQwQQYIKwYB
-BQUHMAKGNWh0dHA6Ly9jZHAyLnBjYS5kZm4uZGUvd3d1LWNhL3B1Yi9jYWNlcnQv
-Z19jYWNlcnQuY3J0MA0GCSqGSIb3DQEBBQUAA4IBAQBTLaMcfprssiEbRXF65Wi1
-fFpwL9645sbNu13A8wK4qiQCljJrAKlKgE6QvncZrQj4P2wifvMkcGKiiWFDe8cu
-2jUq8jgZAlqWagh89vcUVmEIWa5dXV0gtJozvBwDjqjtoV7Rh89xs8EYFmuH68Di
-DCEOhD0hWE36zsA+HM/ngP74sXut3btWF5Z+8lzGwrP2kxyVaD1/Fhx7M8G4x/6X
-v6T3BQ8NOoLOYrZvdF2ecW362ADe7QsnitMobEFT2YxQHjBRD9+JlZ2izRQyNGwZ
-pKHWXA8DsJnXLqGvaG86WEIUkJD4NhYvi4LYvJ2NJW8T/OTCNvW3KBshzxonnB3P
+            <ds:X509SubjectName>emailAddress=wwwadmin@uni-muenster.de,CN=zividp.uni-muenster.de,OU=Zentrum fuer Informationsverarbeitung,O=Universitaet Muenster,L=Muenster,ST=Nordrhein-Westfalen,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGIzCCBQugAwIBAgIHGFeCtRUcrzANBgkqhkiG9w0BAQsFADCBjDELMAkGA1UE
+BhMCREUxHjAcBgNVBAoTFVVuaXZlcnNpdGFldCBNdWVuc3RlcjE6MDgGA1UEAxMx
+WmVydGlmaXppZXJ1bmdzc3RlbGxlIFVuaXZlcnNpdGFldCBNdWVuc3RlciAtIEcw
+MjEhMB8GCSqGSIb3DQEJARYSY2FAdW5pLW11ZW5zdGVyLmRlMB4XDTE0MTAxMDE2
+MTExN1oXDTE5MDcwOTIzNTkwMFowgdgxCzAJBgNVBAYTAkRFMRwwGgYDVQQIExNO
+b3JkcmhlaW4tV2VzdGZhbGVuMREwDwYDVQQHEwhNdWVuc3RlcjEeMBwGA1UEChMV
+VW5pdmVyc2l0YWV0IE11ZW5zdGVyMS4wLAYDVQQLEyVaZW50cnVtIGZ1ZXIgSW5m
+b3JtYXRpb25zdmVyYXJiZWl0dW5nMR8wHQYDVQQDExZ6aXZpZHAudW5pLW11ZW5z
+dGVyLmRlMScwJQYJKoZIhvcNAQkBFhh3d3dhZG1pbkB1bmktbXVlbnN0ZXIuZGUw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDs1fLiqaQJyAodfjyh3/G5
+YN6BhkHxnfeqmvoq9IgdJdn4X/kYPo2Mm/qE1qKebW73YJcgJJ6UoIfORVdZIpdu
+q/0ijQQVwkplC07RGzhhlhgIOGmybMpHt4e5LTnmI1aBLI+ZFsLkc2nEY9lEhRBH
+rSsMfQS/2qNJ5Hd71X/ITjwIByDpjsorHBfa8qQfJWsa+C/M3NjP7maITpDVPZ2k
+u1wwoenTZRMn3Tzzte9nP+GcHxG+hMx5qCNKQPblBnuUinYvAPirMsMQZGM/ZthN
+ujIAkzq7wzLP5z+H9icc4Ap9vEoEWdBhvZY5aZU7HwFm6MnNOBYkRl/SMjNGOwvf
+AgMBAAGjggI6MIICNjBPBgNVHSAESDBGMBEGDysGAQQBga0hgiwBAQQDAjARBg8r
+BgEEAYGtIYIsAgEEAwEwDwYNKwYBBAGBrSGCLAEBBDANBgsrBgEEAYGtIYIsHjAJ
+BgNVHRMEAjAAMAsGA1UdDwQEAwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYB
+BQUHAwEwHQYDVR0OBBYEFNq4Ch52JoFfVrqS4GJd45Hr9MMgMB8GA1UdIwQYMBaA
+FL6eUaLJkny7YIvmsGhkd1pSGaEAMCEGA1UdEQQaMBiCFnppdmlkcC51bmktbXVl
+bnN0ZXIuZGUwewYDVR0fBHQwcjA3oDWgM4YxaHR0cDovL2NkcDEucGNhLmRmbi5k
+ZS93d3UtY2EvcHViL2NybC9nX2NhY3JsLmNybDA3oDWgM4YxaHR0cDovL2NkcDIu
+cGNhLmRmbi5kZS93d3UtY2EvcHViL2NybC9nX2NhY3JsLmNybDCBywYIKwYBBQUH
+AQEEgb4wgbswMwYIKwYBBQUHMAGGJ2h0dHA6Ly9vY3NwLnBjYS5kZm4uZGUvT0NT
+UC1TZXJ2ZXIvT0NTUDBBBggrBgEFBQcwAoY1aHR0cDovL2NkcDEucGNhLmRmbi5k
+ZS93d3UtY2EvcHViL2NhY2VydC9nX2NhY2VydC5jcnQwQQYIKwYBBQUHMAKGNWh0
+dHA6Ly9jZHAyLnBjYS5kZm4uZGUvd3d1LWNhL3B1Yi9jYWNlcnQvZ19jYWNlcnQu
+Y3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBVWV/BKM9kUH2geEkG7sa9DYJwvkJgZvmZ
+uSs96xhhHGvJ/8q5ZDMc1C5bFYjdOW9oGz6wtMTaj/Re7KbhMDi4M7WMjQX4hYx+
+5WFoCdhgRIBkXS6Nfi+UHEWVo/BLUZzZiwg2bG5Z0RPIcaxJUq387s+Qf76SHm3f
+GMFVt+1XRhsLaruEPfIH6xKwQ2/gf5XJVMsSP/zD5C71oEcimWpSOwYEE974ju+Z
+3f83SMO1Uj4iOtd3WJqQCbCL9u5xIyjXmxWobmTvub/dLs50YvZgBln7nwn227gr
+UuIMesitYxmNwjNX1FjrXtjuGk3ECJ7oJd2ixdXgr6KwPZwVG5VX
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://zividp.uni-muenster.de:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://zividp.uni-muenster.de:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://zividp.uni-muenster.de/idp/profile/Shibboleth/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://zividp.uni-muenster.de/idp/profile/SAML2/POST/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://zividp.uni-muenster.de/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://zividp.uni-muenster.de/idp/profile/SAML2/Redirect/SSO"/>
-    </IDPSSODescriptor>
-    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">uni-muenster.de</saml1md:Scope>
-      </Extensions>
-      <KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://zividp.uni-muenster.de:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://zividp.uni-muenster.de:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://zividp.uni-muenster.de/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://zividp.uni-muenster.de/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://zividp.uni-muenster.de/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://zividp.uni-muenster.de/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uni-muenster.de</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
           <ds:KeyName>zividp.uni-muenster.de</ds:KeyName>
           <ds:X509Data>
-            <ds:X509SubjectName>CN=zividp.uni-muenster.de,O=Universitaet Muenster,C=DE</ds:X509SubjectName>
-            <ds:X509Certificate>MIIFDDCCA/SgAwIBAgIEEFumyzANBgkqhkiG9w0BAQUFADCBjDELMAkGA1UEBhMC
-REUxHjAcBgNVBAoTFVVuaXZlcnNpdGFldCBNdWVuc3RlcjE6MDgGA1UEAxMxWmVy
-dGlmaXppZXJ1bmdzc3RlbGxlIFVuaXZlcnNpdGFldCBNdWVuc3RlciAtIEcwMjEh
-MB8GCSqGSIb3DQEJARYSY2FAdW5pLW11ZW5zdGVyLmRlMB4XDTEwMDcxMzA4NTIx
-MVoXDTE1MDcxMjA4NTIxMVowTjELMAkGA1UEBhMCREUxHjAcBgNVBAoTFVVuaXZl
-cnNpdGFldCBNdWVuc3RlcjEfMB0GA1UEAxMWeml2aWRwLnVuaS1tdWVuc3Rlci5k
-ZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALDzZll7Nu40htfyaAJa
-5ktjkB3o1kTqinoHRq4/a2ZQYAuZxLmpZ5MHdIX/KpPMS/quBUVku94r5B6lsOBk
-fbKEGQUPui0MScn64DREAloo/ybJu7pEz30YXDbw2wALVut3aDU8RsCo1y9fkp33
-D7VMlVF6XChS6WopaUywSNZp/EZiw7ex7FrStAvOZOJf2hP6yd2hFIaQ22paykTa
-brpz6FCzbcZ0F7iZZylbYTnYhGhHhra3S3HJedJujJePbC4yBC9hV06UkqBjBCjl
-/JPf9XnoZHdjrJujg8otyN37Wvgmg//PMquCWaFNTy9gklHCBjWoO9lwAzyuMpOK
-h6sCAwEAAaOCAbEwggGtMAkGA1UdEwQCMAAwCwYDVR0PBAQDAgXgMB0GA1UdJQQW
-MBQGCCsGAQUFBwMCBggrBgEFBQcDATAdBgNVHQ4EFgQUlXHNYvE87U69i2vA+cTc
-3mDDLfAwHwYDVR0jBBgwFoAUvp5RosmSfLtgi+awaGR3WlIZoQAwHgYDVR0RBBcw
-FYETc3lzQHVuaS1tdWVuc3Rlci5kZTB7BgNVHR8EdDByMDegNaAzhjFodHRwOi8v
-Y2RwMS5wY2EuZGZuLmRlL3d3dS1jYS9wdWIvY3JsL2dfY2FjcmwuY3JsMDegNaAz
-hjFodHRwOi8vY2RwMi5wY2EuZGZuLmRlL3d3dS1jYS9wdWIvY3JsL2dfY2Fjcmwu
-Y3JsMIGWBggrBgEFBQcBAQSBiTCBhjBBBggrBgEFBQcwAoY1aHR0cDovL2NkcDEu
-cGNhLmRmbi5kZS93d3UtY2EvcHViL2NhY2VydC9nX2NhY2VydC5jcnQwQQYIKwYB
-BQUHMAKGNWh0dHA6Ly9jZHAyLnBjYS5kZm4uZGUvd3d1LWNhL3B1Yi9jYWNlcnQv
-Z19jYWNlcnQuY3J0MA0GCSqGSIb3DQEBBQUAA4IBAQBTLaMcfprssiEbRXF65Wi1
-fFpwL9645sbNu13A8wK4qiQCljJrAKlKgE6QvncZrQj4P2wifvMkcGKiiWFDe8cu
-2jUq8jgZAlqWagh89vcUVmEIWa5dXV0gtJozvBwDjqjtoV7Rh89xs8EYFmuH68Di
-DCEOhD0hWE36zsA+HM/ngP74sXut3btWF5Z+8lzGwrP2kxyVaD1/Fhx7M8G4x/6X
-v6T3BQ8NOoLOYrZvdF2ecW362ADe7QsnitMobEFT2YxQHjBRD9+JlZ2izRQyNGwZ
-pKHWXA8DsJnXLqGvaG86WEIUkJD4NhYvi4LYvJ2NJW8T/OTCNvW3KBshzxonnB3P
+            <ds:X509SubjectName>emailAddress=wwwadmin@uni-muenster.de,CN=zividp.uni-muenster.de,OU=Zentrum fuer Informationsverarbeitung,O=Universitaet Muenster,L=Muenster,ST=Nordrhein-Westfalen,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGIzCCBQugAwIBAgIHGFeCtRUcrzANBgkqhkiG9w0BAQsFADCBjDELMAkGA1UE
+BhMCREUxHjAcBgNVBAoTFVVuaXZlcnNpdGFldCBNdWVuc3RlcjE6MDgGA1UEAxMx
+WmVydGlmaXppZXJ1bmdzc3RlbGxlIFVuaXZlcnNpdGFldCBNdWVuc3RlciAtIEcw
+MjEhMB8GCSqGSIb3DQEJARYSY2FAdW5pLW11ZW5zdGVyLmRlMB4XDTE0MTAxMDE2
+MTExN1oXDTE5MDcwOTIzNTkwMFowgdgxCzAJBgNVBAYTAkRFMRwwGgYDVQQIExNO
+b3JkcmhlaW4tV2VzdGZhbGVuMREwDwYDVQQHEwhNdWVuc3RlcjEeMBwGA1UEChMV
+VW5pdmVyc2l0YWV0IE11ZW5zdGVyMS4wLAYDVQQLEyVaZW50cnVtIGZ1ZXIgSW5m
+b3JtYXRpb25zdmVyYXJiZWl0dW5nMR8wHQYDVQQDExZ6aXZpZHAudW5pLW11ZW5z
+dGVyLmRlMScwJQYJKoZIhvcNAQkBFhh3d3dhZG1pbkB1bmktbXVlbnN0ZXIuZGUw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDs1fLiqaQJyAodfjyh3/G5
+YN6BhkHxnfeqmvoq9IgdJdn4X/kYPo2Mm/qE1qKebW73YJcgJJ6UoIfORVdZIpdu
+q/0ijQQVwkplC07RGzhhlhgIOGmybMpHt4e5LTnmI1aBLI+ZFsLkc2nEY9lEhRBH
+rSsMfQS/2qNJ5Hd71X/ITjwIByDpjsorHBfa8qQfJWsa+C/M3NjP7maITpDVPZ2k
+u1wwoenTZRMn3Tzzte9nP+GcHxG+hMx5qCNKQPblBnuUinYvAPirMsMQZGM/ZthN
+ujIAkzq7wzLP5z+H9icc4Ap9vEoEWdBhvZY5aZU7HwFm6MnNOBYkRl/SMjNGOwvf
+AgMBAAGjggI6MIICNjBPBgNVHSAESDBGMBEGDysGAQQBga0hgiwBAQQDAjARBg8r
+BgEEAYGtIYIsAgEEAwEwDwYNKwYBBAGBrSGCLAEBBDANBgsrBgEEAYGtIYIsHjAJ
+BgNVHRMEAjAAMAsGA1UdDwQEAwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYB
+BQUHAwEwHQYDVR0OBBYEFNq4Ch52JoFfVrqS4GJd45Hr9MMgMB8GA1UdIwQYMBaA
+FL6eUaLJkny7YIvmsGhkd1pSGaEAMCEGA1UdEQQaMBiCFnppdmlkcC51bmktbXVl
+bnN0ZXIuZGUwewYDVR0fBHQwcjA3oDWgM4YxaHR0cDovL2NkcDEucGNhLmRmbi5k
+ZS93d3UtY2EvcHViL2NybC9nX2NhY3JsLmNybDA3oDWgM4YxaHR0cDovL2NkcDIu
+cGNhLmRmbi5kZS93d3UtY2EvcHViL2NybC9nX2NhY3JsLmNybDCBywYIKwYBBQUH
+AQEEgb4wgbswMwYIKwYBBQUHMAGGJ2h0dHA6Ly9vY3NwLnBjYS5kZm4uZGUvT0NT
+UC1TZXJ2ZXIvT0NTUDBBBggrBgEFBQcwAoY1aHR0cDovL2NkcDEucGNhLmRmbi5k
+ZS93d3UtY2EvcHViL2NhY2VydC9nX2NhY2VydC5jcnQwQQYIKwYBBQUHMAKGNWh0
+dHA6Ly9jZHAyLnBjYS5kZm4uZGUvd3d1LWNhL3B1Yi9jYWNlcnQvZ19jYWNlcnQu
+Y3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBVWV/BKM9kUH2geEkG7sa9DYJwvkJgZvmZ
+uSs96xhhHGvJ/8q5ZDMc1C5bFYjdOW9oGz6wtMTaj/Re7KbhMDi4M7WMjQX4hYx+
+5WFoCdhgRIBkXS6Nfi+UHEWVo/BLUZzZiwg2bG5Z0RPIcaxJUq387s+Qf76SHm3f
+GMFVt+1XRhsLaruEPfIH6xKwQ2/gf5XJVMsSP/zD5C71oEcimWpSOwYEE974ju+Z
+3f83SMO1Uj4iOtd3WJqQCbCL9u5xIyjXmxWobmTvub/dLs50YvZgBln7nwn227gr
+UuIMesitYxmNwjNX1FjrXtjuGk3ECJ7oJd2ixdXgr6KwPZwVG5VX
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <KeyDescriptor use="encryption">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
           <ds:KeyName>zividp.uni-muenster.de</ds:KeyName>
           <ds:X509Data>
-            <ds:X509SubjectName>CN=zividp.uni-muenster.de,O=Universitaet Muenster,C=DE</ds:X509SubjectName>
-            <ds:X509Certificate>MIIFDDCCA/SgAwIBAgIEEFumyzANBgkqhkiG9w0BAQUFADCBjDELMAkGA1UEBhMC
-REUxHjAcBgNVBAoTFVVuaXZlcnNpdGFldCBNdWVuc3RlcjE6MDgGA1UEAxMxWmVy
-dGlmaXppZXJ1bmdzc3RlbGxlIFVuaXZlcnNpdGFldCBNdWVuc3RlciAtIEcwMjEh
-MB8GCSqGSIb3DQEJARYSY2FAdW5pLW11ZW5zdGVyLmRlMB4XDTEwMDcxMzA4NTIx
-MVoXDTE1MDcxMjA4NTIxMVowTjELMAkGA1UEBhMCREUxHjAcBgNVBAoTFVVuaXZl
-cnNpdGFldCBNdWVuc3RlcjEfMB0GA1UEAxMWeml2aWRwLnVuaS1tdWVuc3Rlci5k
-ZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALDzZll7Nu40htfyaAJa
-5ktjkB3o1kTqinoHRq4/a2ZQYAuZxLmpZ5MHdIX/KpPMS/quBUVku94r5B6lsOBk
-fbKEGQUPui0MScn64DREAloo/ybJu7pEz30YXDbw2wALVut3aDU8RsCo1y9fkp33
-D7VMlVF6XChS6WopaUywSNZp/EZiw7ex7FrStAvOZOJf2hP6yd2hFIaQ22paykTa
-brpz6FCzbcZ0F7iZZylbYTnYhGhHhra3S3HJedJujJePbC4yBC9hV06UkqBjBCjl
-/JPf9XnoZHdjrJujg8otyN37Wvgmg//PMquCWaFNTy9gklHCBjWoO9lwAzyuMpOK
-h6sCAwEAAaOCAbEwggGtMAkGA1UdEwQCMAAwCwYDVR0PBAQDAgXgMB0GA1UdJQQW
-MBQGCCsGAQUFBwMCBggrBgEFBQcDATAdBgNVHQ4EFgQUlXHNYvE87U69i2vA+cTc
-3mDDLfAwHwYDVR0jBBgwFoAUvp5RosmSfLtgi+awaGR3WlIZoQAwHgYDVR0RBBcw
-FYETc3lzQHVuaS1tdWVuc3Rlci5kZTB7BgNVHR8EdDByMDegNaAzhjFodHRwOi8v
-Y2RwMS5wY2EuZGZuLmRlL3d3dS1jYS9wdWIvY3JsL2dfY2FjcmwuY3JsMDegNaAz
-hjFodHRwOi8vY2RwMi5wY2EuZGZuLmRlL3d3dS1jYS9wdWIvY3JsL2dfY2Fjcmwu
-Y3JsMIGWBggrBgEFBQcBAQSBiTCBhjBBBggrBgEFBQcwAoY1aHR0cDovL2NkcDEu
-cGNhLmRmbi5kZS93d3UtY2EvcHViL2NhY2VydC9nX2NhY2VydC5jcnQwQQYIKwYB
-BQUHMAKGNWh0dHA6Ly9jZHAyLnBjYS5kZm4uZGUvd3d1LWNhL3B1Yi9jYWNlcnQv
-Z19jYWNlcnQuY3J0MA0GCSqGSIb3DQEBBQUAA4IBAQBTLaMcfprssiEbRXF65Wi1
-fFpwL9645sbNu13A8wK4qiQCljJrAKlKgE6QvncZrQj4P2wifvMkcGKiiWFDe8cu
-2jUq8jgZAlqWagh89vcUVmEIWa5dXV0gtJozvBwDjqjtoV7Rh89xs8EYFmuH68Di
-DCEOhD0hWE36zsA+HM/ngP74sXut3btWF5Z+8lzGwrP2kxyVaD1/Fhx7M8G4x/6X
-v6T3BQ8NOoLOYrZvdF2ecW362ADe7QsnitMobEFT2YxQHjBRD9+JlZ2izRQyNGwZ
-pKHWXA8DsJnXLqGvaG86WEIUkJD4NhYvi4LYvJ2NJW8T/OTCNvW3KBshzxonnB3P
+            <ds:X509SubjectName>emailAddress=wwwadmin@uni-muenster.de,CN=zividp.uni-muenster.de,OU=Zentrum fuer Informationsverarbeitung,O=Universitaet Muenster,L=Muenster,ST=Nordrhein-Westfalen,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGIzCCBQugAwIBAgIHGFeCtRUcrzANBgkqhkiG9w0BAQsFADCBjDELMAkGA1UE
+BhMCREUxHjAcBgNVBAoTFVVuaXZlcnNpdGFldCBNdWVuc3RlcjE6MDgGA1UEAxMx
+WmVydGlmaXppZXJ1bmdzc3RlbGxlIFVuaXZlcnNpdGFldCBNdWVuc3RlciAtIEcw
+MjEhMB8GCSqGSIb3DQEJARYSY2FAdW5pLW11ZW5zdGVyLmRlMB4XDTE0MTAxMDE2
+MTExN1oXDTE5MDcwOTIzNTkwMFowgdgxCzAJBgNVBAYTAkRFMRwwGgYDVQQIExNO
+b3JkcmhlaW4tV2VzdGZhbGVuMREwDwYDVQQHEwhNdWVuc3RlcjEeMBwGA1UEChMV
+VW5pdmVyc2l0YWV0IE11ZW5zdGVyMS4wLAYDVQQLEyVaZW50cnVtIGZ1ZXIgSW5m
+b3JtYXRpb25zdmVyYXJiZWl0dW5nMR8wHQYDVQQDExZ6aXZpZHAudW5pLW11ZW5z
+dGVyLmRlMScwJQYJKoZIhvcNAQkBFhh3d3dhZG1pbkB1bmktbXVlbnN0ZXIuZGUw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDs1fLiqaQJyAodfjyh3/G5
+YN6BhkHxnfeqmvoq9IgdJdn4X/kYPo2Mm/qE1qKebW73YJcgJJ6UoIfORVdZIpdu
+q/0ijQQVwkplC07RGzhhlhgIOGmybMpHt4e5LTnmI1aBLI+ZFsLkc2nEY9lEhRBH
+rSsMfQS/2qNJ5Hd71X/ITjwIByDpjsorHBfa8qQfJWsa+C/M3NjP7maITpDVPZ2k
+u1wwoenTZRMn3Tzzte9nP+GcHxG+hMx5qCNKQPblBnuUinYvAPirMsMQZGM/ZthN
+ujIAkzq7wzLP5z+H9icc4Ap9vEoEWdBhvZY5aZU7HwFm6MnNOBYkRl/SMjNGOwvf
+AgMBAAGjggI6MIICNjBPBgNVHSAESDBGMBEGDysGAQQBga0hgiwBAQQDAjARBg8r
+BgEEAYGtIYIsAgEEAwEwDwYNKwYBBAGBrSGCLAEBBDANBgsrBgEEAYGtIYIsHjAJ
+BgNVHRMEAjAAMAsGA1UdDwQEAwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYB
+BQUHAwEwHQYDVR0OBBYEFNq4Ch52JoFfVrqS4GJd45Hr9MMgMB8GA1UdIwQYMBaA
+FL6eUaLJkny7YIvmsGhkd1pSGaEAMCEGA1UdEQQaMBiCFnppdmlkcC51bmktbXVl
+bnN0ZXIuZGUwewYDVR0fBHQwcjA3oDWgM4YxaHR0cDovL2NkcDEucGNhLmRmbi5k
+ZS93d3UtY2EvcHViL2NybC9nX2NhY3JsLmNybDA3oDWgM4YxaHR0cDovL2NkcDIu
+cGNhLmRmbi5kZS93d3UtY2EvcHViL2NybC9nX2NhY3JsLmNybDCBywYIKwYBBQUH
+AQEEgb4wgbswMwYIKwYBBQUHMAGGJ2h0dHA6Ly9vY3NwLnBjYS5kZm4uZGUvT0NT
+UC1TZXJ2ZXIvT0NTUDBBBggrBgEFBQcwAoY1aHR0cDovL2NkcDEucGNhLmRmbi5k
+ZS93d3UtY2EvcHViL2NhY2VydC9nX2NhY2VydC5jcnQwQQYIKwYBBQUHMAKGNWh0
+dHA6Ly9jZHAyLnBjYS5kZm4uZGUvd3d1LWNhL3B1Yi9jYWNlcnQvZ19jYWNlcnQu
+Y3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBVWV/BKM9kUH2geEkG7sa9DYJwvkJgZvmZ
+uSs96xhhHGvJ/8q5ZDMc1C5bFYjdOW9oGz6wtMTaj/Re7KbhMDi4M7WMjQX4hYx+
+5WFoCdhgRIBkXS6Nfi+UHEWVo/BLUZzZiwg2bG5Z0RPIcaxJUq387s+Qf76SHm3f
+GMFVt+1XRhsLaruEPfIH6xKwQ2/gf5XJVMsSP/zD5C71oEcimWpSOwYEE974ju+Z
+3f83SMO1Uj4iOtd3WJqQCbCL9u5xIyjXmxWobmTvub/dLs50YvZgBln7nwn227gr
+UuIMesitYxmNwjNX1FjrXtjuGk3ECJ7oJd2ixdXgr6KwPZwVG5VX
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://zividp.uni-muenster.de:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://zividp.uni-muenster.de:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-    </AttributeAuthorityDescriptor>
-    <Organization>
-      <OrganizationName xml:lang="de">e247</OrganizationName>
-      <OrganizationName xml:lang="en">e247</OrganizationName>
-      <OrganizationDisplayName xml:lang="de">Westfälische Wilhelms-Universität Münster</OrganizationDisplayName>
-      <OrganizationDisplayName xml:lang="en">Westfälische Wilhelms-Universität Münster</OrganizationDisplayName>
-      <OrganizationURL xml:lang="de">http://www.uni-muenster.de/</OrganizationURL>
-      <OrganizationURL xml:lang="en">http://www.uni-muenster.de/en/</OrganizationURL>
-    </Organization>
-    <ContactPerson contactType="technical">
-      <GivenName>Christian</GivenName>
-      <SurName>Schild</SurName>
-      <EmailAddress>mailto:schild@uni-muenster.de</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="support">
-      <GivenName>Christian</GivenName>
-      <SurName>Schild</SurName>
-      <EmailAddress>mailto:schild@uni-muenster.de</EmailAddress>
-    </ContactPerson>
-  </EntityDescriptor>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://zividp.uni-muenster.de:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://zividp.uni-muenster.de:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e247</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e247</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Westfälische Wilhelms-Universität Münster</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Westfälische Wilhelms-Universität Münster</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.uni-muenster.de/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.uni-muenster.de/en/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Christian</md:GivenName>
+      <md:SurName>Schild</md:SurName>
+      <md:EmailAddress>mailto:schild@uni-muenster.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Christian</md:GivenName>
+      <md:SurName>Schild</md:SurName>
+      <md:EmailAddress>mailto:schild@uni-muenster.de</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

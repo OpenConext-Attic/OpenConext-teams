@@ -1,0 +1,96 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sso.bsfc.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2010-06-04T14:25:14Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">bsfc.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDNDCCAhygAwIBAgIVAJQNNxLqLyuVe5PctJiOH67/djG+MA0GCSqGSIb3DQEB
+						BQUAMB0xGzAZBgNVBAMTEnNoaWJpZHAuYnNmYy5hYy51azAeFw0xNDA0MTgxMzEx
+						MDNaFw0zNDA0MTgxMzExMDNaMB0xGzAZBgNVBAMTEnNoaWJpZHAuYnNmYy5hYy51
+						azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIsaf63mJRi9DTIIEOZX
+						oTUhdrTefTq6ZgKMyPtehzYJpItEgN/CV/1l6iUZe2U5R8D5RtGXMhzqaFz/ZadW
+						tw+RB3W0s60YchtuSqDDC3QTK+TWZLDIHDlldik9zwts3819cU/sBdqwOzKu6WTb
+						vwzvRrCwiAt4wnOqXcF3EjncKWfNEySUsmRZlEQPvvbx9U3sPh3tyWWGN3rB8fBu
+						KXE6LKNuwopaBDjOAqm0auIpVxgqedDSwhT80UpV0ncAL8/A6D2WYdUZ5kwXE4SU
+						818MMM7U4d54TVdqFjHow4GMuzIsQ4AqE2bFlBB2ABLUVmVMXOrxv0wFvZ3ULcwU
+						/20CAwEAAaNrMGkwSAYDVR0RBEEwP4ISc2hpYmlkcC5ic2ZjLmFjLnVrhilodHRw
+						czovL3NoaWJpZHAuYnNmYy5hYy51ay9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU
+						jLVWkxPeVPF+7dS8T+2Dc3vbEDMwDQYJKoZIhvcNAQEFBQADggEBAEcAtYMdqfwd
+						uhf/ERsHz2fss7ROO6JFndGq19NXLlERMDf9qG6UHz1RKtzs/kNSS9Pr2JcERKBB
+						4hJOTPQ1q8cU5//2RIGsWrO+7Wt/WS1kQlAu0Ez9ly9nC8KqeAkxnhaCSTx3csnr
+						uSDKZSBupejCt+bDvXF1A1tMigvDhKbP35ELwx64900xSSfK+To51AdhAkzec4z0
+						lfSqU/r6WiiM1a5KTAfVjU4JPrFYU0VjRWds6BpNBZIx8JRYHHFhR7hxmOweJcKH
+						gCQVhaBRE1QFYK4NBInDyUqmQqreNJNWJHv2Ek89P0pS3cU9QueuoLVNYABQGMIy
+						XbBdS/uPgFA=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibidp.bsfc.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibidp.bsfc.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibidp.bsfc.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibidp.bsfc.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibidp.bsfc.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibidp.bsfc.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">bsfc.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDNDCCAhygAwIBAgIVAJQNNxLqLyuVe5PctJiOH67/djG+MA0GCSqGSIb3DQEB
+						BQUAMB0xGzAZBgNVBAMTEnNoaWJpZHAuYnNmYy5hYy51azAeFw0xNDA0MTgxMzEx
+						MDNaFw0zNDA0MTgxMzExMDNaMB0xGzAZBgNVBAMTEnNoaWJpZHAuYnNmYy5hYy51
+						azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIsaf63mJRi9DTIIEOZX
+						oTUhdrTefTq6ZgKMyPtehzYJpItEgN/CV/1l6iUZe2U5R8D5RtGXMhzqaFz/ZadW
+						tw+RB3W0s60YchtuSqDDC3QTK+TWZLDIHDlldik9zwts3819cU/sBdqwOzKu6WTb
+						vwzvRrCwiAt4wnOqXcF3EjncKWfNEySUsmRZlEQPvvbx9U3sPh3tyWWGN3rB8fBu
+						KXE6LKNuwopaBDjOAqm0auIpVxgqedDSwhT80UpV0ncAL8/A6D2WYdUZ5kwXE4SU
+						818MMM7U4d54TVdqFjHow4GMuzIsQ4AqE2bFlBB2ABLUVmVMXOrxv0wFvZ3ULcwU
+						/20CAwEAAaNrMGkwSAYDVR0RBEEwP4ISc2hpYmlkcC5ic2ZjLmFjLnVrhilodHRw
+						czovL3NoaWJpZHAuYnNmYy5hYy51ay9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU
+						jLVWkxPeVPF+7dS8T+2Dc3vbEDMwDQYJKoZIhvcNAQEFBQADggEBAEcAtYMdqfwd
+						uhf/ERsHz2fss7ROO6JFndGq19NXLlERMDf9qG6UHz1RKtzs/kNSS9Pr2JcERKBB
+						4hJOTPQ1q8cU5//2RIGsWrO+7Wt/WS1kQlAu0Ez9ly9nC8KqeAkxnhaCSTx3csnr
+						uSDKZSBupejCt+bDvXF1A1tMigvDhKbP35ELwx64900xSSfK+To51AdhAkzec4z0
+						lfSqU/r6WiiM1a5KTAfVjU4JPrFYU0VjRWds6BpNBZIx8JRYHHFhR7hxmOweJcKH
+						gCQVhaBRE1QFYK4NBInDyUqmQqreNJNWJHv2Ek89P0pS3cU9QueuoLVNYABQGMIy
+						XbBdS/uPgFA=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibidp.bsfc.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibidp.bsfc.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Birkenhead Sixth Form College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Birkenhead Sixth Form College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.bsfc.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>John Paul</md:GivenName>
+      <md:SurName>Szkudlapski</md:SurName>
+      <md:EmailAddress>mailto:johns@bsfc.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>John Paul</md:GivenName>
+      <md:SurName>Szkudlapski</md:SurName>
+      <md:EmailAddress>mailto:johns@bsfc.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

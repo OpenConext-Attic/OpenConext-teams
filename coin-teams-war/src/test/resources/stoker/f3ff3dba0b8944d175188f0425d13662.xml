@@ -1,0 +1,59 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibsp.ntu.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2007-12-06T11:10:29Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEbjCCA1agAwIBAgIRAINZdo3dP0KuwGTsFOp3rQowDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzA1MjkwMDAwMDBaFw0xNjA1MjgyMzU5NTlaMD4xITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEZMBcGA1UEAxMQc2hpYnNwLm50
+						dS5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALjSrervk/wV
+						ZiwDfbtcXMeFAaopjAy0e7cUKNvdKp7fPAqxmZWwD2Z3lWGjHBIX65SZvN1Tf8yc
+						FyW1f2LC4Pr8p6qSvtcqunw4MAM3TtGGjZCE2RDkMu21q7hxoadtWKgH89w4RgvK
+						1wUX0D06p/5OOXwbfQq4hH4hfjpdvZvk/AI4aw/Z7nVA4EtCqmE/g6nxOzpha96K
+						gzRpqcQQf7iCu+tKRathdsQ73rASZvSyofOz6IQvIjr/SWEvekDppGhxgOf8ZAmo
+						spLbk/mzNmXfJ3nQ4ohzN/dQy/3wq4bFw0Mczo3ro1KA5+UgCYg3VgmuyesMFDOa
+						kQmZUMYJqqsCAwEAAaOCAW0wggFpMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdX
+						R+qQ47ntMB0GA1UdDgQWBBQo0vzESwtkG5NMv5hxlHw90yR7mTAOBgNVHQ8BAf8E
+						BAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUH
+						AwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEwOgYDVR0fBDMw
+						MTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5j
+						cmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50
+						ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29j
+						c3AudGNzLnRlcmVuYS5vcmcwGwYDVR0RBBQwEoIQc2hpYnNwLm50dS5hYy51azAN
+						BgkqhkiG9w0BAQUFAAOCAQEAHbvvM7+e8Fy6zF7MXQBg0GkVyKXJVntproMyMFCl
+						V7rAkBskj1wqGekoWBCsbJjgufPVRTVvML0bb0YozvG87+ylkRnExP0hN5rxPp21
+						e045BvLwMOr2YoV5VO5LqezEZ2QfFDz4rg6zT1HoJiyt8bM+7KmlgWWX5bh8EY4/
+						N1aiE8XkC6/W0yuCvs0f/80m0QsWmyB+y034++yVFdcf4wlGfpYNa35uahVUjUgu
+						4VOhc9u8Jfzi1Zu3/q+zzoh0Uo71lKpSMkheTRTVM5jWEDbcUezX0ZSaZftRi/2o
+						RWaU8UjYRvmYN66UJFwccUT3ShNrqD2TR/qFSgGFq/7FpA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shibsp.ntu.ac.uk/Shibboleth.sso/SAML/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://shibsp.ntu.ac.uk/Shibboleth.sso/SAML/Artifact" index="1"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Nottingham Trent University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">NTU Confluence service</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ntu.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Richard</md:GivenName>
+      <md:SurName>Cross</md:SurName>
+      <md:EmailAddress>mailto:richard.cross@ntu.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Lee</md:GivenName>
+      <md:SurName>Hallam</md:SurName>
+      <md:EmailAddress>mailto:ITSShibbolethTechnical@ntu.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

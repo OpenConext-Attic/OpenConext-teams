@@ -1,0 +1,62 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibbox.lpplus.net/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-06-13T11:11:20Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://shibbox.lpplus.net/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://shibbox.lpplus.net/Shibboleth.sso/Login" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDEjCCAfqgAwIBAgIJAOvJq9SpMgxUMA0GCSqGSIb3DQEBBQUAMCQxIjAgBgNV
+						BAMTGWxwZTFiMTEtZHBtLTAxLmxwcGx1cy5uZXQwHhcNMTIwNTIyMjE1NTA5WhcN
+						MjIwNTIwMjE1NTA5WjAkMSIwIAYDVQQDExlscGUxYjExLWRwbS0wMS5scHBsdXMu
+						bmV0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApgqes0bD5qoOp080
+						u+KhiD5DAzL0d64pXnU+zGbtrpGzVMATxZq+r0XXU5bChOvExcMK9ARSnekRlbiX
+						+chby5Wg9ggUEGpAJjp55n/WegNnyC0o+kLUf1A3G8QDLXBQLHrSOMzJNkCI3PGF
+						qK1VK99D/DFZ7T2mIpy0yUSSf8VSBqrdQS80KIPxvM3eo0w6ylTWiltrIYkEuSA1
+						qt5wiP8ImWQxF6zWIZPnQKMY56x6sDSO+a6PRHLk1//oqeMVJNPZNINNlJ1iBL96
+						85t29u06/bsNTXtQhRvCK3Z49tBcuwCNM30U811m6J516LWpDEbPPX7mW4Bs17Ov
+						/gbLcwIDAQABo0cwRTAkBgNVHREEHTAbghlscGUxYjExLWRwbS0wMS5scHBsdXMu
+						bmV0MB0GA1UdDgQWBBSiYyNxFCuAgnZlmNignwMcxakVmDANBgkqhkiG9w0BAQUF
+						AAOCAQEAFl5MTs2DTDRUzHeCsZfnQgJsvm0WH+Q1fOCnfLugiu3obEHoT42E4lrP
+						hVf7+ltN5YyVY8XPtORd08qBD6OtSrar+TA4gi8chwNq7uPfGYhsEa+AmHMI+FPo
+						OcaCMIbwGwsUNj0F/V3L3pM6YX1J10SCtgYlBl3Am7LWh6bjJZBiGtxMQSTLgzYI
+						nOtLHaaW7Bcm7ojKAaLROEXozphSgIcQ4ybkuJe9+NCbxtTJQii1bUVwgwVANYsT
+						pLiQ94tdCQCJyIy7nbYBCd0VPxd77phGWiJ9ORU3N1GZRfJ62CynVRY7x1Gw5zGv
+						TjoeIGCjXxAPbXggX+6qY0QO5Scj2w==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibbox.lpplus.net/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibbox.lpplus.net/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibbox.lpplus.net/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibbox.lpplus.net/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibbox.lpplus.net/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibbox.lpplus.net/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibbox.lpplus.net/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibbox.lpplus.net/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://shibbox.lpplus.net/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shibbox.lpplus.net/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://shibbox.lpplus.net/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">LP+ Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">LP+ Limited: Shibboleth single signon</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.lpplus.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Sandip</md:GivenName>
+      <md:SurName>Mehta</md:SurName>
+      <md:EmailAddress>mailto:Sandip.mehta@lpplus.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Sandip</md:GivenName>
+      <md:SurName>Mehta</md:SurName>
+      <md:EmailAddress>mailto:Sandip.mehta@lpplus.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,108 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth.strode-college.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">strode-college.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEjDCCA3SgAwIBAgIRAM41B8R40Vbx+iUIaGkgqqcwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzA0MjMwMDAwMDBaFw0xNjA0MjIyMzU5NTlaME0xITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEoMCYGA1UEAxMfc2hpYmJvbGV0
+						aC5zdHJvZGUtY29sbGVnZS5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+						AQoCggEBANirzHi6TLkZ9a/jBiJnW2SDq3C12XDTz48ohkxhJdNVaDP6s7mkHI/C
+						QIAivdA1t+uVpXq+6jq6usl7kiZ5vJ6PdPSETEI/hzzd+yr7pb9nJ/4gCNSwwdUg
+						bmZPATbzR6lqnpEZYdoiTOO7r/fDHfyaeKEyZq1fxlH51LLxhH0zsox+KZATFd/I
+						5Pv0OqZYZa+QEWSReFHEFaISSjiI1XBq7kNUDqbgaTWhcSju4CK/XNal0wVC604S
+						3ABvSh8kPwppxNcqRFiRXADhAcLF4+mSx3XRCE0SlGbNjmJqu3pPAFNErX3wHZCF
+						I4jvlMkfAPaCu5a580L95zDEOuQ+/mMCAwEAAaOCAXwwggF4MB8GA1UdIwQYMBaA
+						FAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBS0f5oAazGa9uNdSNquviGF
+						58J0ZTAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggr
+						BgEFBQcDAQYIKwYBBQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZn
+						gQwBAgEwOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9y
+						Zy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilo
+						dHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEF
+						BQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwKgYDVR0RBCMwIYIfc2hp
+						YmJvbGV0aC5zdHJvZGUtY29sbGVnZS5hYy51azANBgkqhkiG9w0BAQUFAAOCAQEA
+						mD7iITFcafQy6S75VcRHWZoBZ8AaxGPfzw2h584swzmfpDhfuTrAPb0gQqnI3wB1
+						ojHA7nHWi5SBjZbfRrtYkXkLP7JBqd/ODCJwjs9OOR2Bs2FYgSKfIaDo0x7bxlXL
+						jMVLJMOlw5CyOen7L56pSrFSDUCcFI11qQqTZrJKOnuB8+M+OJ7NXdPTxeovx8DE
+						i1o/5lZY4ExXtpBi8C824VQW/kaw/OLw7AoixIO8NtHJQZXczCluq3DmSfjmzXxL
+						zk34zZV8zfCKL8nip9c7FyOs4T435ohfn/pgjdeymebl6lxosT05f0q1YHmUC76K
+						0HEvec1HFeaydGx2GgAgcA==                        
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.strode-college.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.strode-college.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.strode-college.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.strode-college.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.strode-college.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.strode-college.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">strode-college.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEjDCCA3SgAwIBAgIRAM41B8R40Vbx+iUIaGkgqqcwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzA0MjMwMDAwMDBaFw0xNjA0MjIyMzU5NTlaME0xITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEoMCYGA1UEAxMfc2hpYmJvbGV0
+						aC5zdHJvZGUtY29sbGVnZS5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+						AQoCggEBANirzHi6TLkZ9a/jBiJnW2SDq3C12XDTz48ohkxhJdNVaDP6s7mkHI/C
+						QIAivdA1t+uVpXq+6jq6usl7kiZ5vJ6PdPSETEI/hzzd+yr7pb9nJ/4gCNSwwdUg
+						bmZPATbzR6lqnpEZYdoiTOO7r/fDHfyaeKEyZq1fxlH51LLxhH0zsox+KZATFd/I
+						5Pv0OqZYZa+QEWSReFHEFaISSjiI1XBq7kNUDqbgaTWhcSju4CK/XNal0wVC604S
+						3ABvSh8kPwppxNcqRFiRXADhAcLF4+mSx3XRCE0SlGbNjmJqu3pPAFNErX3wHZCF
+						I4jvlMkfAPaCu5a580L95zDEOuQ+/mMCAwEAAaOCAXwwggF4MB8GA1UdIwQYMBaA
+						FAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBS0f5oAazGa9uNdSNquviGF
+						58J0ZTAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggr
+						BgEFBQcDAQYIKwYBBQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZn
+						gQwBAgEwOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9y
+						Zy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilo
+						dHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEF
+						BQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwKgYDVR0RBCMwIYIfc2hp
+						YmJvbGV0aC5zdHJvZGUtY29sbGVnZS5hYy51azANBgkqhkiG9w0BAQUFAAOCAQEA
+						mD7iITFcafQy6S75VcRHWZoBZ8AaxGPfzw2h584swzmfpDhfuTrAPb0gQqnI3wB1
+						ojHA7nHWi5SBjZbfRrtYkXkLP7JBqd/ODCJwjs9OOR2Bs2FYgSKfIaDo0x7bxlXL
+						jMVLJMOlw5CyOen7L56pSrFSDUCcFI11qQqTZrJKOnuB8+M+OJ7NXdPTxeovx8DE
+						i1o/5lZY4ExXtpBi8C824VQW/kaw/OLw7AoixIO8NtHJQZXczCluq3DmSfjmzXxL
+						zk34zZV8zfCKL8nip9c7FyOs4T435ohfn/pgjdeymebl6lxosT05f0q1YHmUC76K
+						0HEvec1HFeaydGx2GgAgcA==                        
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.strode-college.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.strode-college.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Strode College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Strode College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.strode-college.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Matt</md:GivenName>
+      <md:SurName>Seymour</md:SurName>
+      <md:EmailAddress>mailto:mseymour@strode-college.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Matt</md:GivenName>
+      <md:SurName>Seymour</md:SurName>
+      <md:EmailAddress>mailto:mseymour@strode-college.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

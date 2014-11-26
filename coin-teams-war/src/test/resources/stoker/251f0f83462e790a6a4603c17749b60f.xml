@@ -1,0 +1,48 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.nejm.org/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDDDCCAfSgAwIBAgIJAIBpEkq6FhlUMA0GCSqGSIb3DQEBBQUAMBcxFTATBgNV
+						BAMTDHd3dy5uZWptLm9yZzAeFw0xMzA3MTAyMTA3MDJaFw0yMzA3MDgyMTA3MDJa
+						MBcxFTATBgNVBAMTDHd3dy5uZWptLm9yZzCCASIwDQYJKoZIhvcNAQEBBQADggEP
+						ADCCAQoCggEBANK1qbc1ivsRyR7Lch3ED1VC9eB76M93xlw4cNo/dvOZIxKDXj08
+						iKA0m6Ku3/iyiXHvCpVlwTgI4Ip/Xt6lFFWBpY4+jd+ava+E9+ANCWOQJf9G62qo
+						bvaz8PQRxXKEck+rWLDnWja5GgXHzTiPZpdNeiN3HxbDXbqzZyiOBESwEeMXuMuB
+						COs+iDVh4BhrhL0hD9976og0YyFlpZNnN0wkHJuhCVdWgwscK4sheTM/Hl4FCxb6
+						HogoNWsnURLZCIvd9QfHJ+K33LN3zUbjJFBcN4LjhE9mt13gwliiXDwNl0RdYxvB
+						epOKacojBJlV2kJdhe3G9olGYgX1GDTEA3UCAwEAAaNbMFkwOAYDVR0RBDEwL4IM
+						d3d3Lm5lam0ub3Jnhh9odHRwczovL3d3dy5uZWptLm9yZy9zaGliYm9sZXRoMB0G
+						A1UdDgQWBBTWPgvv+5CtphKIteQIzAPkFdbZ8jANBgkqhkiG9w0BAQUFAAOCAQEA
+						A5NpngLVi9/1vHPrbLVhXwkrVlBfGvirUNgLlfp29pO2EXHhPcpyMZXRM9hkttGu
+						lEJetzEXKVMaNyhoqnvnQ1JqCt4rFp/PV+MQO1ZPxJ4nPcXU3kdAJG3VuSu7jRRZ
+						iyS7KYql93SEwfOyIuPB/lPnOQ3uHV94bRGgfYnTq8S1NAdEXp/rMWM4yWPF+8nq
+						kBkgu74s1BfumuoQbNNatX/yAxy8kSiPLOWQpotcA1JR6qQ02PlphNp33+T6asTn
+						3y2fAMI1ef+C1XDMkJBYSS/o9AiY5VF+TSmsgpN4Etlr2BCk2aOvfEsi0cQMuThu
+						ZN3XBFLXsiMX/MLD9bpLrA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.nejm.org/action/samlACS" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.nejm.org/action/samlACS" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.nejm.org/action/samlACS" index="3"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Atypon Systems, Inc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Atypon Systems: New England Journal of Medicine</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.nejm.org/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>SSO-Support</md:GivenName>
+      <md:EmailAddress>mailto:SSO-Support@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>SSO-Tech</md:GivenName>
+      <md:EmailAddress>mailto:SSO-Tech@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

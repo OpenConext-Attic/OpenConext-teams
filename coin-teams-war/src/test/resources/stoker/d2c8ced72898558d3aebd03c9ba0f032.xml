@@ -1,0 +1,59 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://duck-dev.bournemouth.ac.uk/oala/metadata">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">bournemouth.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDXzCCAkegAwIBAgIJAO6CYqChSs/9MA0GCSqGSIb3DQEBBQUAMEYxHzAdBgNV
+						BAoMFkJvdXJuZW1vdXRoIFVuaXZlcnNpdHkxIzAhBgNVBAMMGmR1Y2stZGV2LmJv
+						dXJuZW1vdXRoLmFjLnVrMB4XDTE0MDEyNzEzMzczOFoXDTI0MDEyNTEzMzczOFow
+						RjEfMB0GA1UECgwWQm91cm5lbW91dGggVW5pdmVyc2l0eTEjMCEGA1UEAwwaZHVj
+						ay1kZXYuYm91cm5lbW91dGguYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
+						ggEKAoIBAQC8D4pXasrHRGOOesMTZ+4+sX9RMHMZ/OU9NXTxXFPIdNEB8HImGayd
+						VNXCUmhGIRySMBNhvHdMEui5OFq0hHd/Rxe6FO8itPxsxLvbW0K6pb5r7yI8s/mc
+						Rws8qC17OvhX0vgbWXAdp2/zPTCAYSoIA960f41KOc1jVO3gKXELkGV0rc8Fte2h
+						TuTHSVo1u0kg8IXoSTsyDVIBbkWmL8XJp39VZ8Im++N6l+vajxF8TH2oqz70xi60
+						khQy8JTBg2F5PPcCRIWauo9TXJiHFUHWaMZcl8RucOXNOcDts1yTZaFLD4kzTCE9
+						WqgFEOqpjD/IM4pPFAum0Z2oB08WaLDpAgMBAAGjUDBOMB0GA1UdDgQWBBSSJsuN
+						R63OgPcAndwv6yQOhWNjwDAfBgNVHSMEGDAWgBSSJsuNR63OgPcAndwv6yQOhWNj
+						wDAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQCfNUSVwmAjZdsH3md3
+						v9cfud8n5gNFKjnB54zZXZsa8inlIQ0pSfqqkxrffCeVlhWiZf9EIL30FDP1M5mX
+						88oj4mNj0hkVtujIFmd4cpf/Kij+96dOVhfXyezsvHFy/exyD94NUdTdrs53uZN/
+						LoeWfZyusHKVAQsa8Rm127ydCiCv+AQkAnYGPHD/DlGKJQ3V6QbZsNe0aEWDTiLE
+						3ZDX+jV9I0pM2AZemD6qlS2x7vxds8V9QI9yA7sFO1Ee/atoLO4R0e2Tqa3zzlqj
+						jzoKTt9nOBpUxTZMlQBNjpQZl6XHSk/dM3ECz+trlYpRcp8wMy9l6bku6zxxS4b1
+						uq1+
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://duck-dev.bournemouth.ac.uk/oala/sso"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://duck-dev.bournemouth.ac.uk/oala/sso"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Bournemouth University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Bournemouth University_DEV</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.bournemouth.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Martin</md:GivenName>
+      <md:SurName>Foy</md:SurName>
+      <md:EmailAddress>mailto:mfoy@bournemouth.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Claire</md:GivenName>
+      <md:SurName>Wilkinson</md:SurName>
+      <md:EmailAddress>mailto:wilkinsonc@bournemouth.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

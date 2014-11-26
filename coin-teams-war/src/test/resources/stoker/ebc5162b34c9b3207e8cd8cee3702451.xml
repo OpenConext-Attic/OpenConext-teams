@@ -1,44 +1,44 @@
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://kiidp.ki.se/idp/shibboleth">
-<md:Extensions>
-<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.swamid.se/">
-<mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
-</mdrpi:RegistrationInfo>
-</md:Extensions>
-  <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://kiidp.ki.se/idp/shibboleth">
     <md:Extensions>
-      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ki.se</shibmd:Scope>
-      <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-        <mdui:DisplayName xml:lang="sv">Karolinska Institutet</mdui:DisplayName>
-        <mdui:DisplayName xml:lang="en">Karolinska Institutet</mdui:DisplayName>
-        <mdui:Description xml:lang="sv">Identity Provider för Karolinska Institutet.</mdui:Description>
-        <mdui:Description xml:lang="en">Identity Provider for Karolinska Institutet.</mdui:Description>
-        <mdui:Logo height="146" width="292">https://kiidp.ki.se/images/ki_logo_292x146.png</mdui:Logo>
-        <mdui:Keywords xml:lang="sv">ki karolinska+institutet</mdui:Keywords>
-        <mdui:Keywords xml:lang="en">ki karolinska+institutet</mdui:Keywords>
-      </mdui:UIInfo>
-      <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-        <mdui:DomainHint>ki.se</mdui:DomainHint>
-        <mdui:IPHint>130.229.0.0/18</mdui:IPHint>
-        <mdui:IPHint>130.237.96.0/19</mdui:IPHint>
-        <mdui:IPHint>130.237.128.0/20</mdui:IPHint>
-        <mdui:IPHint>130.237.204.0/24</mdui:IPHint>
-        <mdui:IPHint>130.237.207.0/24</mdui:IPHint>
-        <mdui:IPHint>193.10.16.0/21</mdui:IPHint>
-        <mdui:IPHint>193.10.140.0/22</mdui:IPHint>
-        <mdui:IPHint>194.14.96.0/24</mdui:IPHint>
-        <mdui:IPHint>2001:06B0:0022::/48</mdui:IPHint>
-        <mdui:IPHint>136.155.0.0/16</mdui:IPHint>
-        <mdui:IPHint>159.38.0.0/16</mdui:IPHint>
-        <mdui:IPHint>193.10.63.0/24</mdui:IPHint>
-        <mdui:IPHint>193.10.76.0/24</mdui:IPHint>
-        <mdui:GeolocationHint>geo:59.3475753,18.0279382</mdui:GeolocationHint>
-        <mdui:GeolocationHint>geo:59.219589,17.940939</mdui:GeolocationHint>
-      </mdui:DiscoHints>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
     </md:Extensions>
-    <md:KeyDescriptor>
-      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-        <ds:X509Data>
-          <ds:X509Certificate>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ki.se</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="sv">Karolinska Institutet</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Karolinska Institutet</mdui:DisplayName>
+          <mdui:Description xml:lang="sv">Identity Provider för Karolinska Institutet.</mdui:Description>
+          <mdui:Description xml:lang="en">Identity Provider for Karolinska Institutet.</mdui:Description>
+          <mdui:Logo height="146" width="292">https://kiidp.ki.se/images/ki_logo_292x146.png</mdui:Logo>
+          <mdui:Keywords xml:lang="sv">ki karolinska+institutet</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">ki karolinska+institutet</mdui:Keywords>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>ki.se</mdui:DomainHint>
+          <mdui:IPHint>130.229.0.0/18</mdui:IPHint>
+          <mdui:IPHint>130.237.96.0/19</mdui:IPHint>
+          <mdui:IPHint>130.237.128.0/20</mdui:IPHint>
+          <mdui:IPHint>130.237.204.0/24</mdui:IPHint>
+          <mdui:IPHint>130.237.207.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.16.0/21</mdui:IPHint>
+          <mdui:IPHint>193.10.140.0/22</mdui:IPHint>
+          <mdui:IPHint>194.14.96.0/24</mdui:IPHint>
+          <mdui:IPHint>2001:06B0:0022::/48</mdui:IPHint>
+          <mdui:IPHint>136.155.0.0/16</mdui:IPHint>
+          <mdui:IPHint>159.38.0.0/16</mdui:IPHint>
+          <mdui:IPHint>193.10.63.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.76.0/24</mdui:IPHint>
+          <mdui:GeolocationHint>geo:59.3475753,18.0279382</mdui:GeolocationHint>
+          <mdui:GeolocationHint>geo:59.219589,17.940939</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIDGDCCAgCgAwIBAgIVAM0PmHWir6jrdlS8z2iCpGvo0CqaMA0GCSqGSIb3DQEB
 BQUAMBYxFDASBgNVBAMTC2tpaWRwLmtpLnNlMB4XDTEwMTEwOTA4MTgwNloXDTMw
 MTEwOTA4MTgwNlowFjEUMBIGA1UEAxMLa2lpZHAua2kuc2UwggEiMA0GCSqGSIb3
@@ -58,26 +58,26 @@ y4PHmY+q902WpZA1xeckJAdpSjS5rLc3fWOEHBNbmhBkOhDr/tarFUyjxi4mKEhm
 uKycjtOvYOwcvABc1u3WpxJ+CdtbbcHrnYCWXg==
 
                     </ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </md:KeyDescriptor>
-    <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://kiidp.ki.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-    <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://kiidp.ki.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-    <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
-    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
-    <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://kiidp.ki.se/idp/profile/Shibboleth/SSO"/>
-    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://kiidp.ki.se/idp/profile/SAML2/POST/SSO"/>
-    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://kiidp.ki.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://kiidp.ki.se/idp/profile/SAML2/Redirect/SSO"/>
-  </md:IDPSSODescriptor>
-  <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-    <md:Extensions>
-      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ki.se</shibmd:Scope>
-    </md:Extensions>
-    <md:KeyDescriptor>
-      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-        <ds:X509Data>
-          <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://kiidp.ki.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://kiidp.ki.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://kiidp.ki.se/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://kiidp.ki.se/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://kiidp.ki.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://kiidp.ki.se/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ki.se</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIDGDCCAgCgAwIBAgIVAM0PmHWir6jrdlS8z2iCpGvo0CqaMA0GCSqGSIb3DQEB
 BQUAMBYxFDASBgNVBAMTC2tpaWRwLmtpLnNlMB4XDTEwMTEwOTA4MTgwNloXDTMw
 MTEwOTA4MTgwNlowFjEUMBIGA1UEAxMLa2lpZHAua2kuc2UwggEiMA0GCSqGSIb3
@@ -97,40 +97,36 @@ y4PHmY+q902WpZA1xeckJAdpSjS5rLc3fWOEHBNbmhBkOhDr/tarFUyjxi4mKEhm
 uKycjtOvYOwcvABc1u3WpxJ+CdtbbcHrnYCWXg==
 
                     </ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </md:KeyDescriptor>
-    <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://kiidp.ki.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-    <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://kiidp.ki.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-    <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
-    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
-  </md:AttributeAuthorityDescriptor>
-  
-  
-  
-  
-<md:Organization>
-    <md:OrganizationName xml:lang="en">KI</md:OrganizationName>
-    <md:OrganizationDisplayName xml:lang="sv">Karolinska Institutet</md:OrganizationDisplayName>
-    <md:OrganizationDisplayName xml:lang="en">Karolinska Institutet</md:OrganizationDisplayName>
-    <md:OrganizationURL xml:lang="en">http://www.ki.se</md:OrganizationURL>
-  </md:Organization>
-<md:ContactPerson contactType="administrative">
-    <md:Company>Karolinska Institutet</md:Company>
-    <md:SurName>Malin Westerberg</md:SurName>
-    <md:EmailAddress>malin.westerberg@ki.se</md:EmailAddress>
-    <md:TelephoneNumber>+46 8 524 86693</md:TelephoneNumber>
-  </md:ContactPerson>
-<md:ContactPerson contactType="technical">
-    <md:Company>Karolinska Institutet</md:Company>
-    <md:SurName>Eric Johansson</md:SurName>
-    <md:EmailAddress>eric.johansson@ki.se</md:EmailAddress>
-    <md:TelephoneNumber>+46 8 524 86382</md:TelephoneNumber>
-  </md:ContactPerson>
-<md:ContactPerson contactType="support">
-    <md:Company>Karolinska Institutet</md:Company>
-    <md:SurName>IT-support</md:SurName>
-    <md:EmailAddress>it-support@ki.se</md:EmailAddress>
-    <md:TelephoneNumber>+46 8 524 82222</md:TelephoneNumber>
-  </md:ContactPerson>
-</md:EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://kiidp.ki.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://kiidp.ki.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">KI</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sv">Karolinska Institutet</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Karolinska Institutet</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ki.se</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:Company>Karolinska Institutet</md:Company>
+      <md:SurName>Malin Westerberg</md:SurName>
+      <md:EmailAddress>malin.westerberg@ki.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 8 524 86693</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:Company>Karolinska Institutet</md:Company>
+      <md:SurName>Eric Johansson</md:SurName>
+      <md:EmailAddress>eric.johansson@ki.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 8 524 86382</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>Karolinska Institutet</md:Company>
+      <md:SurName>IT-support</md:SurName>
+      <md:EmailAddress>it-support@ki.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 8 524 82222</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

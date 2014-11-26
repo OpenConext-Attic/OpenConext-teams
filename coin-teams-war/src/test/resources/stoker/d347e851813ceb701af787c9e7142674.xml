@@ -1,0 +1,52 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://secure.palgraveconnect.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-10-03T09:56:41Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDRjCCAi6gAwIBAgIEUgn/jjANBgkqhkiG9w0BAQUFADBlMQswCQYDVQQGEwJV
+						SzEPMA0GA1UEBxMGTG9uZG9uMRIwEAYDVQQKEwlNYWNtaWxsYW4xDDAKBgNVBAsT
+						A05QRzEjMCEGA1UEAxMac2VjdXJlLnBhbGdyYXZlY29ubmVjdC5jb20wHhcNMTMw
+						ODEzMDk0MjM4WhcNMjMwODExMDk0MjM4WjBlMQswCQYDVQQGEwJVSzEPMA0GA1UE
+						BxMGTG9uZG9uMRIwEAYDVQQKEwlNYWNtaWxsYW4xDDAKBgNVBAsTA05QRzEjMCEG
+						A1UEAxMac2VjdXJlLnBhbGdyYXZlY29ubmVjdC5jb20wggEiMA0GCSqGSIb3DQEB
+						AQUAA4IBDwAwggEKAoIBAQDVuyehBoUW75bHqXMOByfTlLs2QoQlyQjZdoQ6CE3N
+						iAsKnBQ9SzcxeLUItBFzZ5rrZtSgfbOrF8qGX7JDvr61o3We5tz33Z4zClmolRUU
+						PWItfDhUybNf217Yg0nASYdovP3feM8Li2tg+jSguD+EwUIpfNcQ+DQShpPaOj+d
+						nvl7Kut68r6JcLPaWWD/FMxFzyEr/EGmfWzyFb4wfZEaRBEEvMpwJxl+kk8hoCXx
+						vIjr4KLxlWjzplPbhdQFAvyiYvrzGEhCbNedFDXX9qE66KvY0bB4+JQ5dLEsVlIc
+						zxNZY/pCQo7k6HJ1W+lDpr8EddoJ0gt+dzwWx7Ea+5HfAgMBAAEwDQYJKoZIhvcN
+						AQEFBQADggEBAK/wqCVa2CziSKHgisbadotO21AeWCn8p1ny0df1iytnuxqK+UX8
+						lfr96g99CWWU74FHr0bT80sEi0HGsRXzQ2SwoHCEUNHFrSgvLWWDEVM/MOrJy/fB
+						2turD2G56p77lp1prGNUGmVQzuQaGTktcT/20+mOw0cCoHXzGPeqGb2M1EqgC5Ua
+						eGEGQvbkiflwYCRd8BLV8NL1Y5b+W+Qb+6K8GbLWiA2HLKnJBgXAtjrDau1B431H
+						TEGsxRspwZ7E6JlhHEbi4meh4zlPLll7d7el31no1O9mD+n+E8hGQCpwz/fpDWlh
+						JMnPorN3jbXoB/LWy9wZpDt7llDnSqOcr6s=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://secure.palgraveconnect.com/shibboleth/oa/auth/rcv/shib/post" index="1" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://secure.palgraveconnect.com/shibboleth/oa/auth/rcv/shib/art" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://secure.palgraveconnect.com/shibboleth/oa/auth/rcv/saml2/post" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://secure.palgraveconnect.com/shibboleth/oa/auth/rcv/saml2/art" index="4"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Macmillan Publishers Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Macmillan Publishers Limited: Palgrave Connect</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.palgraveconnect.com/pc/info/about.html</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Mohammad</md:GivenName>
+      <md:SurName>Nawab</md:SurName>
+      <md:EmailAddress>mailto:m.nawab@nature.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mohammad</md:GivenName>
+      <md:SurName>Nawab</md:SurName>
+      <md:EmailAddress>mailto:m.nawab@nature.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

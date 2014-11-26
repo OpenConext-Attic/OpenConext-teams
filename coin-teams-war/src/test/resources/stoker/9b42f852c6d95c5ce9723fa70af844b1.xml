@@ -1,0 +1,110 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.weymouth.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2008-07-09T11:53:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">weymouth.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEnzCCA4egAwIBAgIRAKgEpGJyvtxK8KS8qY6a+HkwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjA1MTYwMDAwMDBaFw0xNTA1MTYyMzU5NTlaMHcxCzAJBgNV
+						BAYTAkdCMREwDwYDVQQIEwhXZXltb3V0aDEPMA0GA1UEBxMGRG9yc2V0MRkwFwYD
+						VQQKExBXZXltb3V0aCBDb2xsZWdlMQwwCgYDVQQLEwNJQ1MxGzAZBgNVBAMTEmlk
+						cC53ZXltb3V0aC5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+						ANg0Urh0aGmUsOiAuVpCOIPC/LJOnZafR5Y83vPxSqxtwkQFfa9oSmgdVhbC25SD
+						Xxy1c+hel2ISZaF4Cl+DvEF5DMi2LpuF3j6rVppq2GKvzEi5kzSBl/ZgGle+144I
+						Db/YJoWmsFBuUaleaKsx2Cb5fh9+8HBqwqsSklGCJvvB/DpX0JV+DcsC2Nmugr55
+						TlUTbeuEz0i3xuTxDjaDYr/oqqy9S/6LY9Q4p8pPGQ5XaTmPG0tsEbAS85t5h3ku
+						qkjnFwhXy+C0opeYEXPpXT6EeX5Lb6W2PBUVDHoQGsbngDBZZgOM4tgsS0BO1fSb
+						O4OnmyvVBfUFb2viQCi1PHMCAwEAAaOCAWUwggFhMB8GA1UdIwQYMBaAFAy9k2gM
+						896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBSIfxgtmwnBVXmiEoE1rD9rS9dGwDAO
+						BgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcD
+						AQYIKwYBBQUHAwIwGAYDVR0gBBEwDzANBgsrBgEEAbIxAQICHTA6BgNVHR8EMzAx
+						MC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNy
+						bDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRl
+						cmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8vb2Nz
+						cC50Y3MudGVyZW5hLm9yZzAdBgNVHREEFjAUghJpZHAud2V5bW91dGguYWMudWsw
+						DQYJKoZIhvcNAQEFBQADggEBAF9xUKxVPiQoqpiyhQn14qE0mHBx2HX73A9qsn8x
+						mb2Kacfcer51fSp77LM1vyiM9L4cB/wSQm8MPBPik2D9s9dOJUCJUbGNVyXRnIxC
+						nOm3AJHMEoIPNCG7Yf9wR/tj9k9XOFhIjJXC72i9/Ft7xkZJdsCW+VTDgtsh11z6
+						88l8Qp+pUyqjKQHFmq/nhIGPF4EzutnP/pAoxaJkmTlDqsAeXXNid9fJL8XpsCzn
+						DR0yU34qjRrwqm9g3AZKw1yrZ5yCe3zmh1fEfg0wHFXRg4vfUbOhZrpABVWg5nZs
+						Qwa/HoPxDuzPzuLRmGqzWwbwXWt61FnMB6/cCtxF6BxI7Bc=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.weymouth.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.weymouth.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.weymouth.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.weymouth.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.weymouth.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.weymouth.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">weymouth.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEnzCCA4egAwIBAgIRAKgEpGJyvtxK8KS8qY6a+HkwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjA1MTYwMDAwMDBaFw0xNTA1MTYyMzU5NTlaMHcxCzAJBgNV
+						BAYTAkdCMREwDwYDVQQIEwhXZXltb3V0aDEPMA0GA1UEBxMGRG9yc2V0MRkwFwYD
+						VQQKExBXZXltb3V0aCBDb2xsZWdlMQwwCgYDVQQLEwNJQ1MxGzAZBgNVBAMTEmlk
+						cC53ZXltb3V0aC5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+						ANg0Urh0aGmUsOiAuVpCOIPC/LJOnZafR5Y83vPxSqxtwkQFfa9oSmgdVhbC25SD
+						Xxy1c+hel2ISZaF4Cl+DvEF5DMi2LpuF3j6rVppq2GKvzEi5kzSBl/ZgGle+144I
+						Db/YJoWmsFBuUaleaKsx2Cb5fh9+8HBqwqsSklGCJvvB/DpX0JV+DcsC2Nmugr55
+						TlUTbeuEz0i3xuTxDjaDYr/oqqy9S/6LY9Q4p8pPGQ5XaTmPG0tsEbAS85t5h3ku
+						qkjnFwhXy+C0opeYEXPpXT6EeX5Lb6W2PBUVDHoQGsbngDBZZgOM4tgsS0BO1fSb
+						O4OnmyvVBfUFb2viQCi1PHMCAwEAAaOCAWUwggFhMB8GA1UdIwQYMBaAFAy9k2gM
+						896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBSIfxgtmwnBVXmiEoE1rD9rS9dGwDAO
+						BgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcD
+						AQYIKwYBBQUHAwIwGAYDVR0gBBEwDzANBgsrBgEEAbIxAQICHTA6BgNVHR8EMzAx
+						MC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNy
+						bDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRl
+						cmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8vb2Nz
+						cC50Y3MudGVyZW5hLm9yZzAdBgNVHREEFjAUghJpZHAud2V5bW91dGguYWMudWsw
+						DQYJKoZIhvcNAQEFBQADggEBAF9xUKxVPiQoqpiyhQn14qE0mHBx2HX73A9qsn8x
+						mb2Kacfcer51fSp77LM1vyiM9L4cB/wSQm8MPBPik2D9s9dOJUCJUbGNVyXRnIxC
+						nOm3AJHMEoIPNCG7Yf9wR/tj9k9XOFhIjJXC72i9/Ft7xkZJdsCW+VTDgtsh11z6
+						88l8Qp+pUyqjKQHFmq/nhIGPF4EzutnP/pAoxaJkmTlDqsAeXXNid9fJL8XpsCzn
+						DR0yU34qjRrwqm9g3AZKw1yrZ5yCe3zmh1fEfg0wHFXRg4vfUbOhZrpABVWg5nZs
+						Qwa/HoPxDuzPzuLRmGqzWwbwXWt61FnMB6/cCtxF6BxI7Bc=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.weymouth.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.weymouth.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Weymouth College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Weymouth College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.weymouth.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Phil</md:GivenName>
+      <md:SurName>Templeton</md:SurName>
+      <md:EmailAddress>mailto:Phil_Templeton@weymouth.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Phil</md:GivenName>
+      <md:SurName>Templeton</md:SurName>
+      <md:EmailAddress>mailto:Phil_Templeton@weymouth.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

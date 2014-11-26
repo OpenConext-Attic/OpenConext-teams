@@ -1,0 +1,59 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sawfish.conted.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://sawfish.conted.ox.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDDDCCAfSgAwIBAgIJAKibhIeIrX0OMA0GCSqGSIb3DQEBBQUAMCIxIDAeBgNV
+						BAMTF3Nhd2Zpc2guY29udGVkLm94LmFjLnVrMB4XDTExMTAxMTE1MTgwOVoXDTIx
+						MTAwODE1MTgwOVowIjEgMB4GA1UEAxMXc2F3ZmlzaC5jb250ZWQub3guYWMudWsw
+						ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDBqzfHO6TPn1IpvOvkGXB6
+						hdiMh61norAph+ZTqYFeXKdFI3ifdf1i52vBa4ODsCFJlgxow1+DkOO7/3Ipp4h6
+						k2xP7Vrll7cNkC80jh+/fENc4OVXBoPyNGREpLtsIHaV82cUImjEiCtjOtmA/EeO
+						QDceq/cRPfKnalntdynhPGfBKV5B07+sMYaYyfwRp2hu2OdZzFWdJqCAJ6kFxw+E
+						hFr7P4TfrMm+4ESvfjN31IpT6ak0AJk3CckpXmRgM6i5lQv4H+DXYQgOWrvIISdU
+						L6FRTKlIQ++57A9FV/UJVWRz3FGW8NIb/7NdK+u9N1z/4YTK9PTwDAwY8iQi3gX1
+						AgMBAAGjRTBDMCIGA1UdEQQbMBmCF3Nhd2Zpc2guY29udGVkLm94LmFjLnVrMB0G
+						A1UdDgQWBBRDY6WGUq5Zg1sxv81m23/toHTbSjANBgkqhkiG9w0BAQUFAAOCAQEA
+						XP6+tO+WyXfIXIW9xXVt+uQvjMDm58zMG4lGE+PC89lk0itPmciDMgMSko0Al3Ev
+						NMpnTh0JSmZipjOACprBt9s5ykhWBybE0Blid2TN+42tGzW2RUW7PhJbsqhF16v4
+						o4WkcJWOyhVDhzDckPu40VZ5lQSIVVrZHEegQXVPRy+lupq7lz5cnmVTrwBHk9yG
+						zIiW5643Vuv02Ma83i9eWPfruX5z4LZzLPYz4Jv/CfoIinqbj9EPmTYVl5oRm4HC
+						QdQJumsqcKAGRRjW1vvKET66KjehtL8C9hqVxyAKc5b95A2qq4WtX01eejeJLYO+
+						mkBQ7rIcTw8YYbUpVUyQVw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sawfish.conted.ox.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sawfish.conted.ox.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sawfish.conted.ox.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sawfish.conted.ox.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sawfish.conted.ox.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sawfish.conted.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sawfish.conted.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sawfish.conted.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://sawfish.conted.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://sawfish.conted.ox.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://sawfish.conted.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford: Conted development site</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.conted.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>IT support</md:GivenName>
+      <md:EmailAddress>mailto:it-support@conted.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>IT support</md:GivenName>
+      <md:EmailAddress>mailto:it-support@conted.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

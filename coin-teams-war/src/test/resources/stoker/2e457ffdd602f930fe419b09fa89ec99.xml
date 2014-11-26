@@ -1,0 +1,88 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://unixwiki.ncl.ac.uk/shibboleth/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://unixwiki.ncl.ac.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC3zCCAcegAwIBAgIJAO+eX7F92rrmMA0GCSqGSIb3DQEBBQUAMBMxETAPBgNV
+						BAMTCHVuaXh3aWtpMB4XDTEwMDQyOTEyNDkyOFoXDTIwMDQyNjEyNDkyOFowEzER
+						MA8GA1UEAxMIdW5peHdpa2kwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+						AQC+j3q3earXCRp/wvqrPjPb6Y/NkijjmdPl+kVg26PNVduYxCQh9Lnq0T66qiMu
+						IhCIrxjARpDnzIzoEK5Sz4Uolk5pCFoSYsCaw2yiQlJUICOX8dEPFvge6EghPDYj
+						7Jw3vrDB0Sl+azEfeuecJIKepG8je/0OlRyNebF8T/gKVwXOTB3Kuw9V5qvBc6xK
+						fnEjz1L8XQpd9oNXEaxfAnbCf34tQjnoNrkKTQuQ6Xj1TzZckGzLZ/ggdiJDr3AS
+						ijDr2DBeWJNDoyspGM/e1nbmD6OdZRFJDZuSIj3v0bZUGf+oaxaxtZhav9qEObHF
+						9YLH7mAjI22NB9nTkgb6aNhhAgMBAAGjNjA0MBMGA1UdEQQMMAqCCHVuaXh3aWtp
+						MB0GA1UdDgQWBBT6B3ta9/yLVNLIAy/6/v4fbS2ptjANBgkqhkiG9w0BAQUFAAOC
+						AQEAm2hsfZfOdpFffRObF9b8VJ7jDDGWGlAoYbwJpZgT/zzje2cM2L1w3ksSfUJE
+						qKwiZBD5+W5hx/eVHrf8jPcGgDAWxX28NzD9rBnJcsOfZJyiZste2wRmFY/DnGti
+						RgnRzNk+SAI593wJtVsAVuSc0UWS/bLG00A8S5CFzPb4q1+QNKhvI77MTgVZyrDO
+						Zl1GM6wFN2gjhlv7n97K7tzrnSABVuc3PBKkqxNFneM6euOBne3ZhGJLlobygXh/
+						em/xqYVIOazlfsdzpHHEgrqs3WE2dgmQZ72K5MacodR1NjeGcrgR8pbcMNagMWN5
+						3GMMKIPtzAuoDj+uhYePsNWhhQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC3zCCAcegAwIBAgIJAO+eX7F92rrmMA0GCSqGSIb3DQEBBQUAMBMxETAPBgNV
+						BAMTCHVuaXh3aWtpMB4XDTEwMDQyOTEyNDkyOFoXDTIwMDQyNjEyNDkyOFowEzER
+						MA8GA1UEAxMIdW5peHdpa2kwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+						AQC+j3q3earXCRp/wvqrPjPb6Y/NkijjmdPl+kVg26PNVduYxCQh9Lnq0T66qiMu
+						IhCIrxjARpDnzIzoEK5Sz4Uolk5pCFoSYsCaw2yiQlJUICOX8dEPFvge6EghPDYj
+						7Jw3vrDB0Sl+azEfeuecJIKepG8je/0OlRyNebF8T/gKVwXOTB3Kuw9V5qvBc6xK
+						fnEjz1L8XQpd9oNXEaxfAnbCf34tQjnoNrkKTQuQ6Xj1TzZckGzLZ/ggdiJDr3AS
+						ijDr2DBeWJNDoyspGM/e1nbmD6OdZRFJDZuSIj3v0bZUGf+oaxaxtZhav9qEObHF
+						9YLH7mAjI22NB9nTkgb6aNhhAgMBAAGjNjA0MBMGA1UdEQQMMAqCCHVuaXh3aWtp
+						MB0GA1UdDgQWBBT6B3ta9/yLVNLIAy/6/v4fbS2ptjANBgkqhkiG9w0BAQUFAAOC
+						AQEAm2hsfZfOdpFffRObF9b8VJ7jDDGWGlAoYbwJpZgT/zzje2cM2L1w3ksSfUJE
+						qKwiZBD5+W5hx/eVHrf8jPcGgDAWxX28NzD9rBnJcsOfZJyiZste2wRmFY/DnGti
+						RgnRzNk+SAI593wJtVsAVuSc0UWS/bLG00A8S5CFzPb4q1+QNKhvI77MTgVZyrDO
+						Zl1GM6wFN2gjhlv7n97K7tzrnSABVuc3PBKkqxNFneM6euOBne3ZhGJLlobygXh/
+						em/xqYVIOazlfsdzpHHEgrqs3WE2dgmQZ72K5MacodR1NjeGcrgR8pbcMNagMWN5
+						3GMMKIPtzAuoDj+uhYePsNWhhQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://unixwiki.ncl.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://unixwiki.ncl.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://unixwiki.ncl.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://unixwiki.ncl.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://unixwiki.ncl.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://unixwiki.ncl.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://unixwiki.ncl.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://unixwiki.ncl.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://unixwiki.ncl.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://unixwiki.ncl.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://unixwiki.ncl.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://unixwiki.ncl.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://unixwiki.ncl.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://unixwiki.ncl.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://unixwiki.ncl.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Newcastle upon Tyne</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Newcastle University: Unix Team's Wiki Server</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ncl.ac.uk/iss/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Franks</md:SurName>
+      <md:EmailAddress>mailto:chris.franks@ncl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Franks</md:SurName>
+      <md:EmailAddress>mailto:chris.franks@ncl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

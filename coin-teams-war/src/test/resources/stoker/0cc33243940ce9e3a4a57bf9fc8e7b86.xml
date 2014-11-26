@@ -1,0 +1,118 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth.oldham.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2009-07-31T13:45:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">oldham.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEfDCCA2SgAwIBAgIRAMcHtIGAOBG7Xl/x6OlCvx8wDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzExMjAwMDAwMDBaFw0xNjExMTkyMzU5NTlaMEUxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEgMB4GA1UEAxMXc2hpYmJvbGV0
+						aC5vbGRoYW0uYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDp
+						ck8rlkYXQ99QaIZpn1ik2kBd7wvCnJ6QifQFXckEGEMSZzGG0/mWchho5XXOb+Sm
+						6jOAIEI+m/pSzss1iz3tPAKJIujtV0D7NwiEwFaUOrOQ+oeRAQtdNS8GBbKPGMgH
+						lsX6zIydvH/59ZeYT11FsKErwVb4n1apu2BbGuwK9M40vJ8eRwxS3y7kK64NdE9/
+						XBsxC6+iswe9UBTMYi3h5Pny4ihsJtZrMgC+ctyZFv4N3GVTXA1gK7QaGaUjhg+M
+						Z3CSDfpc6UzQ++hxvve8LO6w3nJ0M/uyyq9kZ5ZvxVcx8Dv+mFSWXdf9QC5A0amJ
+						WXbZTlWDz3tHCvCC2FwxAgMBAAGjggF0MIIBcDAfBgNVHSMEGDAWgBQMvZNoDPPe
+						q6NJays3V0fqkOO57TAdBgNVHQ4EFgQUxy1jShUzSc9Rh9vCP8y/c9yzUk0wDgYD
+						VR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEG
+						CCsGAQUFBwMCMCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQIBMDoG
+						A1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5B
+						U1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2Ny
+						dC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0
+						dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMCIGA1UdEQQbMBmCF3NoaWJib2xldGgu
+						b2xkaGFtLmFjLnVrMA0GCSqGSIb3DQEBBQUAA4IBAQB0Fwd2Jh3G5xkA8gbEi1HV
+						2lvMgUxoo/8e4ZwmQpPT7zS/No3XGcpxw07+6Zx8X6FKm5MnqcLsehvJ5Vvpty6T
+						jur/5oD0I4L+Vuj/fQxSuG7AlGMC/0geHY65BAuxVOrKhKEU3bBdSIg8aWZwjzLS
+						CSyVju5jBTncT/ebRNdOVn9WQ6it8wQBHnLRw/s6liYD81K8OJL+WUUPetyDokGJ
+						uRqaKvbYt5qYseXcbOrwBvyERQ3j+j+g4tLRWo/k1QJxilBbXtqo22L4e8AjOMN7
+						SvdjM8XejBUGw++3ZzPbg/v0meOi2EidA5m5mHbAvLV248hMsLUCJxA9qYJ5DebU
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.oldham.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.oldham.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.oldham.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.oldham.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.oldham.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.oldham.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">oldham.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEfDCCA2SgAwIBAgIRAMcHtIGAOBG7Xl/x6OlCvx8wDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzExMjAwMDAwMDBaFw0xNjExMTkyMzU5NTlaMEUxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEgMB4GA1UEAxMXc2hpYmJvbGV0
+						aC5vbGRoYW0uYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDp
+						ck8rlkYXQ99QaIZpn1ik2kBd7wvCnJ6QifQFXckEGEMSZzGG0/mWchho5XXOb+Sm
+						6jOAIEI+m/pSzss1iz3tPAKJIujtV0D7NwiEwFaUOrOQ+oeRAQtdNS8GBbKPGMgH
+						lsX6zIydvH/59ZeYT11FsKErwVb4n1apu2BbGuwK9M40vJ8eRwxS3y7kK64NdE9/
+						XBsxC6+iswe9UBTMYi3h5Pny4ihsJtZrMgC+ctyZFv4N3GVTXA1gK7QaGaUjhg+M
+						Z3CSDfpc6UzQ++hxvve8LO6w3nJ0M/uyyq9kZ5ZvxVcx8Dv+mFSWXdf9QC5A0amJ
+						WXbZTlWDz3tHCvCC2FwxAgMBAAGjggF0MIIBcDAfBgNVHSMEGDAWgBQMvZNoDPPe
+						q6NJays3V0fqkOO57TAdBgNVHQ4EFgQUxy1jShUzSc9Rh9vCP8y/c9yzUk0wDgYD
+						VR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEG
+						CCsGAQUFBwMCMCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQIBMDoG
+						A1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5B
+						U1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2Ny
+						dC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0
+						dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMCIGA1UdEQQbMBmCF3NoaWJib2xldGgu
+						b2xkaGFtLmFjLnVrMA0GCSqGSIb3DQEBBQUAA4IBAQB0Fwd2Jh3G5xkA8gbEi1HV
+						2lvMgUxoo/8e4ZwmQpPT7zS/No3XGcpxw07+6Zx8X6FKm5MnqcLsehvJ5Vvpty6T
+						jur/5oD0I4L+Vuj/fQxSuG7AlGMC/0geHY65BAuxVOrKhKEU3bBdSIg8aWZwjzLS
+						CSyVju5jBTncT/ebRNdOVn9WQ6it8wQBHnLRw/s6liYD81K8OJL+WUUPetyDokGJ
+						uRqaKvbYt5qYseXcbOrwBvyERQ3j+j+g4tLRWo/k1QJxilBbXtqo22L4e8AjOMN7
+						SvdjM8XejBUGw++3ZzPbg/v0meOi2EidA5m5mHbAvLV248hMsLUCJxA9qYJ5DebU
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.oldham.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.oldham.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">The Oldham College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Oldham College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.oldham.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Stuart</md:GivenName>
+      <md:SurName>Catterall</md:SurName>
+      <md:EmailAddress>mailto:stuart.catterall@oldham.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Robert</md:GivenName>
+      <md:SurName>Hough</md:SurName>
+      <md:EmailAddress>mailto:robert.hough@oldham.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Stuart</md:GivenName>
+      <md:SurName>Catterall</md:SurName>
+      <md:EmailAddress>mailto:stuart.catterall@oldham.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Robert</md:GivenName>
+      <md:SurName>Hough</md:SurName>
+      <md:EmailAddress>mailto:robert.hough@oldham.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

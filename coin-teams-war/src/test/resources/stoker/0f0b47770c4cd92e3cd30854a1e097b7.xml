@@ -1,0 +1,105 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.cityofbristol.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">cityofbristol.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEZjCCA06gAwIBAgIJAI1toHyODheqMA0GCSqGSIb3DQEBBQUAMIGzMQswCQYD
+						VQQGEwJHQjEQMA4GA1UECBMHQnJpc3RvbDEQMA4GA1UEBxMHQnJpc3RvbDEgMB4G
+						A1UEChMXQ2l0eSBvZiBCcmlzdG9sIENvbGxlZ2UxDDAKBgNVBAsTA0lDVDEgMB4G
+						A1UEAxMXaWRwLmNpdHlvZmJyaXN0b2wuYWMudWsxLjAsBgkqhkiG9w0BCQEWH2l0
+						LmhlbHBkZXNrQGNpdHlvZmJyaXN0b2wuYWMudWswHhcNMTMwOTA5MTQyMTA2WhcN
+						MjMwOTA3MTQyMTA2WjCBszELMAkGA1UEBhMCR0IxEDAOBgNVBAgTB0JyaXN0b2wx
+						EDAOBgNVBAcTB0JyaXN0b2wxIDAeBgNVBAoTF0NpdHkgb2YgQnJpc3RvbCBDb2xs
+						ZWdlMQwwCgYDVQQLEwNJQ1QxIDAeBgNVBAMTF2lkcC5jaXR5b2ZicmlzdG9sLmFj
+						LnVrMS4wLAYJKoZIhvcNAQkBFh9pdC5oZWxwZGVza0BjaXR5b2ZicmlzdG9sLmFj
+						LnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxEl6P5t+xyRzY0Wa
+						bd/a2MC83Kxrc97VfUi3fMh2+FPQ/Dgu7o7KwTL+HhC7cQNJUHyTRUMV43TrIRPs
+						LjHtCzVi0XYQSBE88p77aVX7K/OEcrxkKdQ/pIAafw9pXeSc1FAu48npCypP6w3b
+						4cFRd0SzbYHGThMBDVoSqraK6c2lB1g2z4f0q4IP6RmM3/5UCqO2vw4wKNLfvfVV
+						tC9fu+UHv1hMvBjb0JLpRNQk/RWQSIXJmAycpzAzbnUJnEtief8xktMbcsWRrJL4
+						T0xeFFlfH6vf3MMaJ2IvRuIqr5yf/RqACda27qKxuxND3TXb2ZFBYv9p8ECxWmda
+						0GnIdQIDAQABo3sweTAJBgNVHRMEAjAAMCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NM
+						IEdlbmVyYXRlZCBDZXJ0aWZpY2F0ZTAdBgNVHQ4EFgQUzvFe/y/teU8C+1OsLgTj
+						kDxpTrgwHwYDVR0jBBgwFoAUzvFe/y/teU8C+1OsLgTjkDxpTrgwDQYJKoZIhvcN
+						AQEFBQADggEBAK0jlGscDnh+m84UTJ364uJ5tzDQaaVQ+OhjQBGQV9m2uRj4t2EU
+						/Exc05LVgRK14pBWwlJ6EaJm7y5PUOQRD7PiCTq3nIEObvbg7X+8/Cj3KHrquSBE
+						Ww9GQ/d4MSbRMJISEkaCy4onoTlg4ulzzkSChpqJeRyk+acUCVYcfZxW2aHcAdFm
+						pPyEOMOQGHUDtD+9c1fb2ICmcVs6vHM05QXaXzAP5wS66+Z2L3wI0RPHJji8RMzT
+						RcBdINvWCrZHyLLxIqCpE9U95kY1JYsxLuVpkwTlf25VZIhAO0aTu0RI9Waq+DIm
+						Fn2vK00uJvNRLNZs0Cjgz4ZWOQzJHWQt0Tk=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.cityofbristol.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.cityofbristol.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.cityofbristol.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.cityofbristol.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.cityofbristol.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.cityofbristol.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">cityofbristol.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEZjCCA06gAwIBAgIJAI1toHyODheqMA0GCSqGSIb3DQEBBQUAMIGzMQswCQYD
+						VQQGEwJHQjEQMA4GA1UECBMHQnJpc3RvbDEQMA4GA1UEBxMHQnJpc3RvbDEgMB4G
+						A1UEChMXQ2l0eSBvZiBCcmlzdG9sIENvbGxlZ2UxDDAKBgNVBAsTA0lDVDEgMB4G
+						A1UEAxMXaWRwLmNpdHlvZmJyaXN0b2wuYWMudWsxLjAsBgkqhkiG9w0BCQEWH2l0
+						LmhlbHBkZXNrQGNpdHlvZmJyaXN0b2wuYWMudWswHhcNMTMwOTA5MTQyMTA2WhcN
+						MjMwOTA3MTQyMTA2WjCBszELMAkGA1UEBhMCR0IxEDAOBgNVBAgTB0JyaXN0b2wx
+						EDAOBgNVBAcTB0JyaXN0b2wxIDAeBgNVBAoTF0NpdHkgb2YgQnJpc3RvbCBDb2xs
+						ZWdlMQwwCgYDVQQLEwNJQ1QxIDAeBgNVBAMTF2lkcC5jaXR5b2ZicmlzdG9sLmFj
+						LnVrMS4wLAYJKoZIhvcNAQkBFh9pdC5oZWxwZGVza0BjaXR5b2ZicmlzdG9sLmFj
+						LnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxEl6P5t+xyRzY0Wa
+						bd/a2MC83Kxrc97VfUi3fMh2+FPQ/Dgu7o7KwTL+HhC7cQNJUHyTRUMV43TrIRPs
+						LjHtCzVi0XYQSBE88p77aVX7K/OEcrxkKdQ/pIAafw9pXeSc1FAu48npCypP6w3b
+						4cFRd0SzbYHGThMBDVoSqraK6c2lB1g2z4f0q4IP6RmM3/5UCqO2vw4wKNLfvfVV
+						tC9fu+UHv1hMvBjb0JLpRNQk/RWQSIXJmAycpzAzbnUJnEtief8xktMbcsWRrJL4
+						T0xeFFlfH6vf3MMaJ2IvRuIqr5yf/RqACda27qKxuxND3TXb2ZFBYv9p8ECxWmda
+						0GnIdQIDAQABo3sweTAJBgNVHRMEAjAAMCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NM
+						IEdlbmVyYXRlZCBDZXJ0aWZpY2F0ZTAdBgNVHQ4EFgQUzvFe/y/teU8C+1OsLgTj
+						kDxpTrgwHwYDVR0jBBgwFoAUzvFe/y/teU8C+1OsLgTjkDxpTrgwDQYJKoZIhvcN
+						AQEFBQADggEBAK0jlGscDnh+m84UTJ364uJ5tzDQaaVQ+OhjQBGQV9m2uRj4t2EU
+						/Exc05LVgRK14pBWwlJ6EaJm7y5PUOQRD7PiCTq3nIEObvbg7X+8/Cj3KHrquSBE
+						Ww9GQ/d4MSbRMJISEkaCy4onoTlg4ulzzkSChpqJeRyk+acUCVYcfZxW2aHcAdFm
+						pPyEOMOQGHUDtD+9c1fb2ICmcVs6vHM05QXaXzAP5wS66+Z2L3wI0RPHJji8RMzT
+						RcBdINvWCrZHyLLxIqCpE9U95kY1JYsxLuVpkwTlf25VZIhAO0aTu0RI9Waq+DIm
+						Fn2vK00uJvNRLNZs0Cjgz4ZWOQzJHWQt0Tk=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.cityofbristol.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.cityofbristol.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">City of Bristol College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">City of Bristol College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.cityofbristol.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>IT Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:it.helpdesk@cityofbristol.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Dale</md:GivenName>
+      <md:SurName>Simpkins</md:SurName>
+      <md:EmailAddress>mailto:dale.simpkins@cityofbristol.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

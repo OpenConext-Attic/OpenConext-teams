@@ -1,0 +1,99 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.primarylogon.co.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">primarylogon.co.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDQzCCAiugAwIBAgIUQ20GO37EJbue7ZaBBSMki0eG82cwDQYJKoZIhvcNAQEF
+						BQAwITEfMB0GA1UEAxMWaWRwLnByaW1hcnlsb2dvbi5jby51azAeFw0wOTEwMjIx
+						NTU4NDVaFw0yOTEwMjIxNTU4NDVaMCExHzAdBgNVBAMTFmlkcC5wcmltYXJ5bG9n
+						b24uY28udWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCHJq+LMWRR
+						EN3RrE7Azt7yhROagAU9o+LqtbnbsAOOisiNWbbrLcsO4BzgSFZ3Zvge9YbBb1VC
+						axUOAr5ZzqId4vl/OAO6rIWZ+bGbB9RRTnTI5Rd8C0s5tePvBiiDZZh1AIH9PrIe
+						E61txemyE9tVB/PiAhB9ozll1PN9e1tZdaMd6f/51ulAU0HTq0RS2DUwhkuD10un
+						accS7y+ew8WrnTSlU2x5wkEJUS/ZLGkKB9q03ahqQuzJL0R0yaxRUv9inr6Wj09D
+						wJOJWlDDmclQ4lgKZ2gHSPWUWvKhXggUJrGKnSJqAxRxbn/lxowBl1ErMRoG8LNi
+						cmMl2GmYZgZNAgMBAAGjczBxMFAGA1UdEQRJMEeCFmlkcC5wcmltYXJ5bG9nb24u
+						Y28udWuGLWh0dHBzOi8vaWRwLnByaW1hcnlsb2dvbi5jby51ay9pZHAvc2hpYmJv
+						bGV0aDAdBgNVHQ4EFgQUMkwl5JK1XdA5VVLrjQ3e2mYUX8wwDQYJKoZIhvcNAQEF
+						BQADggEBADiFXuTUWkokd4aKWZcZfBAJboPnFiQu/LlfSuVaAjESDRgKMlOMfXdt
+						OKLHm0bYtODsDjibIfGZJo7kmJaeJdax2lMrU2jFD6TXZpKmUpYfBi/oiDfEfiBt
+						OLkHmpVbD0g9i/dSb2xiMTCsLiyZe18D9dKskIKlcO4p3X8TrpWRYQ7CqO5izyr6
+						yFjqUtWwlxtWbYmA5PJHZpJAOgG98vb7nrptPbb32axj72eB5dL4F7frICwxernU
+						/0T6Ly1eo1rVrkAdRm2QIJyQZYe7jvPoEsIsq639OXrXDqED+7oKUf6GZYbjIu2Y
+						zRa5RaATgOB2sVdg2eOTs4eqQd1dU6s=                        
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.primarylogon.co.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.primarylogon.co.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.primarylogon.co.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.primarylogon.co.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.primarylogon.co.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.primarylogon.co.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">primarylogon.co.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDQzCCAiugAwIBAgIUQ20GO37EJbue7ZaBBSMki0eG82cwDQYJKoZIhvcNAQEF
+						BQAwITEfMB0GA1UEAxMWaWRwLnByaW1hcnlsb2dvbi5jby51azAeFw0wOTEwMjIx
+						NTU4NDVaFw0yOTEwMjIxNTU4NDVaMCExHzAdBgNVBAMTFmlkcC5wcmltYXJ5bG9n
+						b24uY28udWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCHJq+LMWRR
+						EN3RrE7Azt7yhROagAU9o+LqtbnbsAOOisiNWbbrLcsO4BzgSFZ3Zvge9YbBb1VC
+						axUOAr5ZzqId4vl/OAO6rIWZ+bGbB9RRTnTI5Rd8C0s5tePvBiiDZZh1AIH9PrIe
+						E61txemyE9tVB/PiAhB9ozll1PN9e1tZdaMd6f/51ulAU0HTq0RS2DUwhkuD10un
+						accS7y+ew8WrnTSlU2x5wkEJUS/ZLGkKB9q03ahqQuzJL0R0yaxRUv9inr6Wj09D
+						wJOJWlDDmclQ4lgKZ2gHSPWUWvKhXggUJrGKnSJqAxRxbn/lxowBl1ErMRoG8LNi
+						cmMl2GmYZgZNAgMBAAGjczBxMFAGA1UdEQRJMEeCFmlkcC5wcmltYXJ5bG9nb24u
+						Y28udWuGLWh0dHBzOi8vaWRwLnByaW1hcnlsb2dvbi5jby51ay9pZHAvc2hpYmJv
+						bGV0aDAdBgNVHQ4EFgQUMkwl5JK1XdA5VVLrjQ3e2mYUX8wwDQYJKoZIhvcNAQEF
+						BQADggEBADiFXuTUWkokd4aKWZcZfBAJboPnFiQu/LlfSuVaAjESDRgKMlOMfXdt
+						OKLHm0bYtODsDjibIfGZJo7kmJaeJdax2lMrU2jFD6TXZpKmUpYfBi/oiDfEfiBt
+						OLkHmpVbD0g9i/dSb2xiMTCsLiyZe18D9dKskIKlcO4p3X8TrpWRYQ7CqO5izyr6
+						yFjqUtWwlxtWbYmA5PJHZpJAOgG98vb7nrptPbb32axj72eB5dL4F7frICwxernU
+						/0T6Ly1eo1rVrkAdRm2QIJyQZYe7jvPoEsIsq639OXrXDqED+7oKUf6GZYbjIu2Y
+						zRa5RaATgOB2sVdg2eOTs4eqQd1dU6s=                        
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.primarylogon.co.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.primarylogon.co.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Primary Technology Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Primary Technology: Primary Logon</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://primaryt.co.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>John</md:GivenName>
+      <md:SurName>McLear</md:SurName>
+      <md:EmailAddress>mailto:John@McLear.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>John</md:GivenName>
+      <md:SurName>McLear</md:SurName>
+      <md:EmailAddress>mailto:John@McLear.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

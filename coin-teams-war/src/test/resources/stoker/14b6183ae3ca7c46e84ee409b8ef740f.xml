@@ -1,25 +1,21 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="uk001165" entityID="https://quod.lib.umich.edu/shibboleth-sp/acls">
-	
-	<Extensions>
-
-
-		<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://ukfederation.org.uk" registrationInstant="2009-11-18T16:12:43Z">
-			<mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
-		</mdrpi:RegistrationInfo>
-
-	</Extensions>
-	<SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
-		<Extensions>
-			<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-				<mdui:DisplayName xml:lang="en">ACLS Humanities E-Book</mdui:DisplayName>
-				<mdui:Description xml:lang="en">ACLS Humanities E-Book is a digital collection of over 3,300 full-text, cross-searchable books in the humanities.</mdui:Description>
-				<mdui:Logo height="74" width="872">https://quod.lib.umich.edu/a/acls/graphics/aclsheader_new.gif</mdui:Logo>
-			</mdui:UIInfo>
-		</Extensions>
-		<KeyDescriptor use="signing">
-			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-				<ds:X509Data>
-					<ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://quod.lib.umich.edu/shibboleth-sp/acls">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2009-11-18T16:12:43Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">ACLS Humanities E-Book</mdui:DisplayName>
+          <mdui:Description xml:lang="en">ACLS Humanities E-Book is a digital collection of over 3,300 full-text, cross-searchable books in the humanities.</mdui:Description>
+          <mdui:Logo height="74" width="872">https://quod.lib.umich.edu/a/acls/graphics/aclsheader_new.gif</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 						MIIEijCCA3KgAwIBAgIJAIT48jHMZ0+hMA0GCSqGSIb3DQEBBQUAMIHFMQswCQYD
 						VQQGEwJVUzERMA8GA1UECBMITWljaGlnYW4xEjAQBgNVBAcTCUFubiBBcmJvcjEf
 						MB0GA1UEChMWVW5pdmVyc2l0eSBvZiBNaWNoaWdhbjEnMCUGA1UECxMeTGlicmFy
@@ -46,13 +42,13 @@
 						6+M7kXd3PupQ48lKtXY2BvZqmHJ2XVAcLanoJobr4fBEGBT29i2sE/Uqs9N1DTz5
 						PLcvWTRfLv+JNqoT2yM=
 					</ds:X509Certificate>
-				</ds:X509Data>
-			</ds:KeyInfo>
-		</KeyDescriptor>
-		<KeyDescriptor use="encryption">
-			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-				<ds:X509Data>
-					<ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 						MIIEijCCA3KgAwIBAgIJAIT48jHMZ0+hMA0GCSqGSIb3DQEBBQUAMIHFMQswCQYD
 						VQQGEwJVUzERMA8GA1UECBMITWljaGlnYW4xEjAQBgNVBAcTCUFubiBBcmJvcjEf
 						MB0GA1UEChMWVW5pdmVyc2l0eSBvZiBNaWNoaWdhbjEnMCUGA1UECxMeTGlicmFy
@@ -79,31 +75,30 @@
 						6+M7kXd3PupQ48lKtXY2BvZqmHJ2XVAcLanoJobr4fBEGBT29i2sE/Uqs9N1DTz5
 						PLcvWTRfLv+JNqoT2yM=
 					</ds:X509Certificate>
-				</ds:X509Data>
-			</ds:KeyInfo>
-		</KeyDescriptor>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://quod.lib.umich.edu/Shibboleth.sso/SAML2/POST" index="1"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://quod.lib.umich.edu/Shibboleth.sso/SAML2/Artifact" index="3"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://quod.lib.umich.edu/Shibboleth.sso/SAML/POST" index="5"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://quod.lib.umich.edu/Shibboleth.sso/SAML/Artifact" index="6"/>
-		<AttributeConsumingService index="1">
-			<ServiceName xml:lang="en">University of Michigan: ACLS Humanities E-Book</ServiceName>
-			<RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:mace:dir:attribute-def:eduPersonScopedAffiliation" NameFormat="urn:mace:shibboleth:1.0:attributeNamespace:uri"/>
-			<RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
-		</AttributeConsumingService>
-	</SPSSODescriptor>
-	<Organization>
-		<OrganizationName xml:lang="en">University of Michigan</OrganizationName>
-		<OrganizationDisplayName xml:lang="en">University of Michigan: ACLS Humanities E-Book</OrganizationDisplayName>
-		<OrganizationURL xml:lang="en">http://humanitiesebook.org/</OrganizationURL>
-	</Organization>
-	<ContactPerson contactType="support">
-		<GivenName>University of Michigan Library IT</GivenName>
-		<EmailAddress>mailto:lit-cs-sysadmin@umich.edu</EmailAddress>
-	</ContactPerson>
-	<ContactPerson contactType="technical">
-		<GivenName>University of Michigan Library IT</GivenName>
-		<EmailAddress>mailto:lit-cs-sysadmin@umich.edu</EmailAddress>
-	</ContactPerson>
-
-</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://quod.lib.umich.edu/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://quod.lib.umich.edu/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://quod.lib.umich.edu/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://quod.lib.umich.edu/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="en">University of Michigan: ACLS Humanities E-Book</md:ServiceName>
+        <md:RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:mace:dir:attribute-def:eduPersonScopedAffiliation" NameFormat="urn:mace:shibboleth:1.0:attributeNamespace:uri"/>
+        <md:RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Michigan</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Michigan: ACLS Humanities E-Book</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://humanitiesebook.org/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>University of Michigan Library IT</md:GivenName>
+      <md:EmailAddress>mailto:lit-cs-sysadmin@umich.edu</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>University of Michigan Library IT</md:GivenName>
+      <md:EmailAddress>mailto:lit-cs-sysadmin@umich.edu</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

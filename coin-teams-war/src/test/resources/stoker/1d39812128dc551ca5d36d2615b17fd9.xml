@@ -1,0 +1,111 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sp2.kcc.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">kcc.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEZzCCA0+gAwIBAgIQSm2nqIqiox26I11iklHlFzANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEzMDQxNTAwMDAwMFoXDTE2MDQxNDIzNTk1OVowOzEhMB8GA1UE
+						CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRYwFAYDVQQDEw1zcDIua2NjLmFj
+						LnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkTipNhRClDjUbpHw
+						ZAdd9ZrG0E9GnQF5oL2CgZJceS2V7zv34sMVnCzkxwqlpVR5z0HxSutQK+Rxy9XY
+						7/6HXsZA6OdzVc492YYTUHpJt1CSK9xbUYdbGe5c6fnJHEiIVjwZPukWbUH0Yz7n
+						VxLzq2GXvvwzwTQOjM+Y7eb5A1C6JURbo2EGgYO0LjA2QBwJV2EbTGYW7qE5iTo2
+						ajiEGbDBqWBrgmCYyz2zNCaMeD6DQTswELji1HKMk19mwIJpH0JQzmrn5O2aTCU/
+						3Oe0b8fB/HWak5Vg51kJLA2qxYQQmaH7KzjGkqYXV6irw631wKsee07E7ic4gioA
+						ox1CuwIDAQABo4IBajCCAWYwHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH6pDj
+						ue0wHQYDVR0OBBYEFM+h8xC5KMRvvlwFtYPzQvRPekYbMA4GA1UdDwEB/wQEAwIF
+						oDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAi
+						BgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAECATA6BgNVHR8EMzAxMC+g
+						LaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNybDBt
+						BggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRlcmVu
+						YS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8vb2NzcC50
+						Y3MudGVyZW5hLm9yZzAYBgNVHREEETAPgg1zcDIua2NjLmFjLnVrMA0GCSqGSIb3
+						DQEBBQUAA4IBAQB/KYLbwlBTr9Y5wz+L9aTbVCAbpGaEut5pUcX1FFnn8ZWyomvJ
+						Px4W55mC3W+XKjC6eH/tto15qaeRuJBstE+IqpFpJrgFRgjyAbdL6ytY03nA/ZnN
+						700/ZxxrYrAkRxNll3hsxupLg4mgPvi7VFFS15ogEKdlAdwzpxjFF5SzJ1s5NMbl
+						WNXBd/U8BYJREwDCEu9uV1OQU0IHx/7OVLgI6yH0Y4wElPPFvOXA4bPzZDr/lVLA
+						RZF/i3C90xcqJ/54WaYuFnU8EZDbYExPuqv6OvL53F215iCRecxWEfjYaz7D3amu
+						zWWeRb5g3nssaRQeVqEG3zg0tUq0GYtUj82l
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://sp2.kcc.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sp2.kcc.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://sp2.kcc.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp2.kcc.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sp2.kcc.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sp2.kcc.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">kcc.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEZzCCA0+gAwIBAgIQSm2nqIqiox26I11iklHlFzANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEzMDQxNTAwMDAwMFoXDTE2MDQxNDIzNTk1OVowOzEhMB8GA1UE
+						CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRYwFAYDVQQDEw1zcDIua2NjLmFj
+						LnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkTipNhRClDjUbpHw
+						ZAdd9ZrG0E9GnQF5oL2CgZJceS2V7zv34sMVnCzkxwqlpVR5z0HxSutQK+Rxy9XY
+						7/6HXsZA6OdzVc492YYTUHpJt1CSK9xbUYdbGe5c6fnJHEiIVjwZPukWbUH0Yz7n
+						VxLzq2GXvvwzwTQOjM+Y7eb5A1C6JURbo2EGgYO0LjA2QBwJV2EbTGYW7qE5iTo2
+						ajiEGbDBqWBrgmCYyz2zNCaMeD6DQTswELji1HKMk19mwIJpH0JQzmrn5O2aTCU/
+						3Oe0b8fB/HWak5Vg51kJLA2qxYQQmaH7KzjGkqYXV6irw631wKsee07E7ic4gioA
+						ox1CuwIDAQABo4IBajCCAWYwHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH6pDj
+						ue0wHQYDVR0OBBYEFM+h8xC5KMRvvlwFtYPzQvRPekYbMA4GA1UdDwEB/wQEAwIF
+						oDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAi
+						BgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAECATA6BgNVHR8EMzAxMC+g
+						LaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNybDBt
+						BggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRlcmVu
+						YS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8vb2NzcC50
+						Y3MudGVyZW5hLm9yZzAYBgNVHREEETAPgg1zcDIua2NjLmFjLnVrMA0GCSqGSIb3
+						DQEBBQUAA4IBAQB/KYLbwlBTr9Y5wz+L9aTbVCAbpGaEut5pUcX1FFnn8ZWyomvJ
+						Px4W55mC3W+XKjC6eH/tto15qaeRuJBstE+IqpFpJrgFRgjyAbdL6ytY03nA/ZnN
+						700/ZxxrYrAkRxNll3hsxupLg4mgPvi7VFFS15ogEKdlAdwzpxjFF5SzJ1s5NMbl
+						WNXBd/U8BYJREwDCEu9uV1OQU0IHx/7OVLgI6yH0Y4wElPPFvOXA4bPzZDr/lVLA
+						RZF/i3C90xcqJ/54WaYuFnU8EZDbYExPuqv6OvL53F215iCRecxWEfjYaz7D3amu
+						zWWeRb5g3nssaRQeVqEG3zg0tUq0GYtUj82l
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://sp2.kcc.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sp2.kcc.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Kensington and Chelsea College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Kensington and Chelsea College (TEST IdP Shib 2)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.kcc.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Leslie-Ann</md:GivenName>
+      <md:SurName>Campbell</md:SurName>
+      <md:EmailAddress>mailto:l.campbell@kcc.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Richard</md:GivenName>
+      <md:SurName>Williams</md:SurName>
+      <md:EmailAddress>mailto:r.williams@kcc.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

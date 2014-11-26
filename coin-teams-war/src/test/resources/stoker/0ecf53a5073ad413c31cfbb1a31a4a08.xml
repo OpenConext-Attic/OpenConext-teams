@@ -1,0 +1,55 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.morganclaypool.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEbjCCA1agAwIBAgIJANEyiht0lGz3MA0GCSqGSIb3DQEBBQUAMIG3MQswCQYD
+						VQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEUMBIGA1UEBxMLU2FudGEgQ2xh
+						cmExHTAbBgNVBAoTFEF0eXBvbiBTeXN0ZW1zLCBJbmMuMR0wGwYDVQQLExRBdHlw
+						b24gU3lzdGVtcywgSW5jLjEfMB0GA1UEAxMWd3d3Lm1vcmdhbmNsYXlwb29sLmNv
+						bTEeMBwGCSqGSIb3DQEJARYPdmFrZUBhdHlwb24uY29tMB4XDTA5MDcyMzE4MjQz
+						M1oXDTE5MDcyMTE4MjQzM1owgbcxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxp
+						Zm9ybmlhMRQwEgYDVQQHEwtTYW50YSBDbGFyYTEdMBsGA1UEChMUQXR5cG9uIFN5
+						c3RlbXMsIEluYy4xHTAbBgNVBAsTFEF0eXBvbiBTeXN0ZW1zLCBJbmMuMR8wHQYD
+						VQQDExZ3d3cubW9yZ2FuY2xheXBvb2wuY29tMR4wHAYJKoZIhvcNAQkBFg92YWtl
+						QGF0eXBvbi5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC1jZrb
+						EIm3NwRJ8SkkHkvjKSWe4vuqyfO1D1MAVZzy5FzSLOeup4qEyCDkwtzrN3vSYNa1
+						4qovhIs+Eeap6FXH3XkhzZluSn4rKM/IoetfcP74l99cIzn4xMZfknhk9NNnb2vE
+						L/dJSu/8LyGFxr2b8c5cdYzgFiN77peyf4kOYCMJhC5xYXogrtFlmzkhbk6CRK36
+						QELJmbcegneoglceycLwmunJvhbkIagouT/AFxm7m9FFR2AbGQ2m52DdCSJdY6Q/
+						+cRnIO3p3Jar0D+huhNPlTyH5XNw41kPH4WvQiYAq7j40cFEwYHU4hOrBkKrdLUz
+						hPjVz1iquFai4gY1AgMBAAGjezB5MAkGA1UdEwQCMAAwLAYJYIZIAYb4QgENBB8W
+						HU9wZW5TU0wgR2VuZXJhdGVkIENlcnRpZmljYXRlMB0GA1UdDgQWBBSntSFOeKeT
+						NvcbAlIaG09llX2rAzAfBgNVHSMEGDAWgBSntSFOeKeTNvcbAlIaG09llX2rAzAN
+						BgkqhkiG9w0BAQUFAAOCAQEAQguA1fll3LnjT1NokQTeSc1gmZIlbD318j6SKojU
+						zDYXinKZtzK9T0t1e1BFlOnbPGN1Fu1VkGLuOp5Z5/AJqMJJ9hfSOTjtz99AUk20
+						Ojgsw76oZ5nwqvk2lxKregha/GIkT7nJp8ycuQVI1ahnh142BDrfuB5DFAcHvi1q
+						v3NXHQuorkykb0mBuduNW+Uvk2T7wiNzruCOpBJGZzJZw3/FNXGCb3MmtaJgf7Br
+						+B02aD7lQHX2jczKW50vxU46gvji7sBWUlCeYT+JeBQpBKT6SOPtHBLcSNIwhDzG
+						U5jsgJ4S54QwA12aggwYfLERyqoQLPepkxvA2QygkK7JeQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.morganclaypool.com/action/samlACS" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.morganclaypool.com/action/samlACS" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.morganclaypool.com/action/samlACS" index="3"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Atypon Systems, Inc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Morgan &amp; Claypool Publishers</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.morganclaypool.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>SSO-Support</md:GivenName>
+      <md:EmailAddress>mailto:SSO-Support@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>SSO-Tech</md:GivenName>
+      <md:EmailAddress>mailto:SSO-Tech@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

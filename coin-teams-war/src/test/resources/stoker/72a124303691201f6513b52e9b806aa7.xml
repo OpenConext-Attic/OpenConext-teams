@@ -1,0 +1,123 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.irf.se/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">irf.se</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="sv">Institutet för rymdfysik</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Swedish Institute of Space Physics</mdui:DisplayName>
+          <mdui:Description xml:lang="sv">Identity Provider för Institutet för rymdfysik</mdui:Description>
+          <mdui:Description xml:lang="en">Identity Provider for the Swedish Institute of Space Physics</mdui:Description>
+          <mdui:InformationURL xml:lang="sv">http://www.irf.se</mdui:InformationURL>
+          <mdui:Logo height="145" width="144">https://www.irf.se/image/IRF_logo.png</mdui:Logo>
+          <mdui:Logo height="145" width="144" xml:lang="sv">https://www.irf.se/image/IRF_logo.png</mdui:Logo>
+          <mdui:Logo height="145" width="144" xml:lang="en">https://www.irf.se/image/IRF_logo.png</mdui:Logo>
+          <mdui:PrivacyStatementURL xml:lang="sv">http://documents.irf.se/get_document.php?group=Computer&amp;docid=302</mdui:PrivacyStatementURL>
+          <mdui:Keywords xml:lang="sv">irf kiruna rymdcampus rymdfysik</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">irf kiruna rymdcampus rymdfysik</mdui:Keywords>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>irf.se</mdui:DomainHint>
+          <mdui:IPHint>192.71.13.0/24,</mdui:IPHint>
+          <mdui:IPHint>193.10.33.0/24,</mdui:IPHint>
+          <mdui:IPHint>192.71.152.0/24</mdui:IPHint>
+          <mdui:GeolocationHint>geo:67.84,20.41</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDCDCCAfCgAwIBAgIJAOTXvdZcGqcaMA0GCSqGSIb3DQEBBQUAMBUxEzARBgNV
+BAMTCnd3dy5pcmYuc2UwHhcNMTQwNDExMTIyMzI4WhcNMTcwNDEwMTIyMzI4WjAV
+MRMwEQYDVQQDEwp3d3cuaXJmLnNlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+CgKCAQEA5j6+1LkPONXRnBX/hijB9EDb8+jg1NpNDEq4kPpxIo+2zPgR8GVqWwND
+NXZZNZWvgb52cCm4ofyOK8p2eOIi5CXJoEhCU1k3LVfaAms+1j02/JpQkKatr8RC
+ONxIvbs45H440KbuK+nmhQI1hRcZ8bB8FadX9EInEWjrxGZNyMlsMnfRLS/BGmc3
+htF8BSNd01XiCy5R6X5OufIlyKHoo/fAcDv1zJlLb4r07PlzbCtfKFIrE7w/KBB8
+fKLkMKI1KRO7FgLET3xf5GH7ZY2N8Y4+fwBf70rHzsh1Grsjk/ZJUOu+2jcxMW1R
+L5/pp229zplUBywYgz2HTxceQNZF4QIDAQABo1swWTA4BgNVHREEMTAvggp3d3cu
+aXJmLnNlhiFodHRwczovL3d3dy5pcmYuc2UvaWRwL3NoaWJib2xldGgwHQYDVR0O
+BBYEFNIFWvl057NJOMck/J+lUMXn5jKfMA0GCSqGSIb3DQEBBQUAA4IBAQDdA72P
+RuVvpMliAJYK/qTSy9HJH1rptUQcON5SRGY8H9nlJ268FSxf06Hp+2qqqglE/nmA
+fb7Viy/3o2WbnQVLznXoG3mjrRHWMXXniqLryFPcC9/yH4Mz2HBmeDzZyftUgUk2
+PEewRy7hbFCLpItGerJQlaFcyoLG8qR4d+v1ruOSSK/p1Bobk5AhxfSh05TmAKko
+bezn0NFgAFP5ezEjK9uZ2N+vmQbbirVqYslNn/9kK6G+pXQQsBegliIcqNKj7iST
+WKAfSLfPK6//KWPOPnZrpaAuyIMxrM/2/adK6Ko0mjM8D6sIUhT3zcfbq4M/m8vv
+XCYbfP8E3cs4MB+K
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.irf.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.irf.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.irf.se/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.irf.se/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.irf.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.irf.se/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">irf.se</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDCDCCAfCgAwIBAgIJAOTXvdZcGqcaMA0GCSqGSIb3DQEBBQUAMBUxEzARBgNV
+BAMTCnd3dy5pcmYuc2UwHhcNMTQwNDExMTIyMzI4WhcNMTcwNDEwMTIyMzI4WjAV
+MRMwEQYDVQQDEwp3d3cuaXJmLnNlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+CgKCAQEA5j6+1LkPONXRnBX/hijB9EDb8+jg1NpNDEq4kPpxIo+2zPgR8GVqWwND
+NXZZNZWvgb52cCm4ofyOK8p2eOIi5CXJoEhCU1k3LVfaAms+1j02/JpQkKatr8RC
+ONxIvbs45H440KbuK+nmhQI1hRcZ8bB8FadX9EInEWjrxGZNyMlsMnfRLS/BGmc3
+htF8BSNd01XiCy5R6X5OufIlyKHoo/fAcDv1zJlLb4r07PlzbCtfKFIrE7w/KBB8
+fKLkMKI1KRO7FgLET3xf5GH7ZY2N8Y4+fwBf70rHzsh1Grsjk/ZJUOu+2jcxMW1R
+L5/pp229zplUBywYgz2HTxceQNZF4QIDAQABo1swWTA4BgNVHREEMTAvggp3d3cu
+aXJmLnNlhiFodHRwczovL3d3dy5pcmYuc2UvaWRwL3NoaWJib2xldGgwHQYDVR0O
+BBYEFNIFWvl057NJOMck/J+lUMXn5jKfMA0GCSqGSIb3DQEBBQUAA4IBAQDdA72P
+RuVvpMliAJYK/qTSy9HJH1rptUQcON5SRGY8H9nlJ268FSxf06Hp+2qqqglE/nmA
+fb7Viy/3o2WbnQVLznXoG3mjrRHWMXXniqLryFPcC9/yH4Mz2HBmeDzZyftUgUk2
+PEewRy7hbFCLpItGerJQlaFcyoLG8qR4d+v1ruOSSK/p1Bobk5AhxfSh05TmAKko
+bezn0NFgAFP5ezEjK9uZ2N+vmQbbirVqYslNn/9kK6G+pXQQsBegliIcqNKj7iST
+WKAfSLfPK6//KWPOPnZrpaAuyIMxrM/2/adK6Ko0mjM8D6sIUhT3zcfbq4M/m8vv
+XCYbfP8E3cs4MB+K
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.irf.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.irf.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">IRF</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sv">Institutet för Rymdfysik</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Institutet för Rymdfysik</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.irf.se</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:Company>Swedish Institute of Space Physics</md:Company>
+      <md:SurName>Mats Luspa</md:SurName>
+      <md:EmailAddress>datagruppen@irf,se</md:EmailAddress>
+      <md:TelephoneNumber>+4698079000</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:Company>Swedish Institute of Space Physics</md:Company>
+      <md:SurName>Mats Luspa</md:SurName>
+      <md:EmailAddress>matsl@irf.se</md:EmailAddress>
+      <md:TelephoneNumber>+4698079022</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>Swedish Institute of Space Physics</md:Company>
+      <md:SurName>Mats Luspa</md:SurName>
+      <md:EmailAddress>matsl@irf.se</md:EmailAddress>
+      <md:TelephoneNumber>+4698079022</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

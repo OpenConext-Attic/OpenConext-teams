@@ -1,0 +1,110 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.uwic.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uwic.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Cardiff Metropolitan University</mdui:DisplayName>
+          <mdui:Logo height="60" width="80">https://idplogos.uwic.ac.uk/uwic-logo.png</mdui:Logo>
+          <mdui:Logo height="16" width="16">https://idplogos.uwic.ac.uk/icon1.gif</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIETjCCAzagAwIBAgIJAOKMQIaI+YwZMA0GCSqGSIb3DQEBBQUAMIGnMQswCQYD
+						VQQGEwJHQjEYMBYGA1UECBMPU291dGggR2xhbW9yZ2FuMRAwDgYDVQQHEwdDYXJk
+						aWZmMSgwJgYDVQQKEx9DYXJkaWZmIE1ldHJvcG9saXRhbiBVbml2ZXJzaXR5MSkw
+						JwYDVQQLEyBMaWJyYXJ5IGFuZCBJbmZvcm1hdGlvbiBTZXJ2aWNlczEXMBUGA1UE
+						AxMOaWRwLnV3aWMuYWMudWswHhcNMTMwMzEzMTEzMjMxWhcNMjMwMzExMTEzMjMx
+						WjCBpzELMAkGA1UEBhMCR0IxGDAWBgNVBAgTD1NvdXRoIEdsYW1vcmdhbjEQMA4G
+						A1UEBxMHQ2FyZGlmZjEoMCYGA1UEChMfQ2FyZGlmZiBNZXRyb3BvbGl0YW4gVW5p
+						dmVyc2l0eTEpMCcGA1UECxMgTGlicmFyeSBhbmQgSW5mb3JtYXRpb24gU2Vydmlj
+						ZXMxFzAVBgNVBAMTDmlkcC51d2ljLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOC
+						AQ8AMIIBCgKCAQEA0lIdNY81HsvrJSjLbnbyFJFGZ++JKTC4Xowt0lsxRTRcjo7u
+						Jm06LkkZdVMpbU/ILkfup83H+P+uBXLQCLE7QyYrE5r6HC4B4cVRi8NdCbA/IzAn
+						djlvtu9jQ8y/zvLZ7ipsRT4yluN8taxdQ6YfPjJ7xFFcIpecjWaEjJTpACxUg0wp
+						b73CykEmgrJ9KEYmp5CndF1WxlEBBoH+ZakmQaG7EtD+0jMOc0oMn1z001aTcLe0
+						ArWKnv+ig/b3r24EVA8qecW6lEDwM5HDiWl4DrwCCeOeg0UvSZPuySkRerI6QAYP
+						6E7DXmoc9obOfu6/iA5Q5Wdbk4Mjne9uaPf1pwIDAQABo3sweTAJBgNVHRMEAjAA
+						MCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVyYXRlZCBDZXJ0aWZpY2F0ZTAd
+						BgNVHQ4EFgQUBc6fEv98zv3jMeehNHHh5UhAriQwHwYDVR0jBBgwFoAUBc6fEv98
+						zv3jMeehNHHh5UhAriQwDQYJKoZIhvcNAQEFBQADggEBAAmdsLMlPUMY6QFglDkG
+						1wzwf6Be9vuY90/CR4JK2CfnXVOVxEEuAGS2plhvCe/+yq4IGOpLUo2Jf9ev4H5p
+						zT0hbTjM5WJVOWr9i0WSRdc3hLAF0ObrSPG7bk6toXDdyRa+KqVefW14cuuqbphd
+						YgsYLEshlegwM91bwEl9MVFeRU/ofGbEznPAyKuEeLdevIr4pPMwsUZ8PEwj2VhG
+						+8CsO5d/kwKQy/A31pr4fEO/gCXQ45kHnxajkh2+kA8e1n0iJ90vrS/PCM5UgmtT
+						zvZdBEn8RzielQU2UWjysX1qqiXpbkUnY1ji/piMZMRYCQFLcV7G0yPV6/7GF+EU
+						FWI=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.uwic.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.uwic.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.uwic.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.uwic.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.uwic.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.uwic.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uwic.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIETjCCAzagAwIBAgIJAOKMQIaI+YwZMA0GCSqGSIb3DQEBBQUAMIGnMQswCQYD
+						VQQGEwJHQjEYMBYGA1UECBMPU291dGggR2xhbW9yZ2FuMRAwDgYDVQQHEwdDYXJk
+						aWZmMSgwJgYDVQQKEx9DYXJkaWZmIE1ldHJvcG9saXRhbiBVbml2ZXJzaXR5MSkw
+						JwYDVQQLEyBMaWJyYXJ5IGFuZCBJbmZvcm1hdGlvbiBTZXJ2aWNlczEXMBUGA1UE
+						AxMOaWRwLnV3aWMuYWMudWswHhcNMTMwMzEzMTEzMjMxWhcNMjMwMzExMTEzMjMx
+						WjCBpzELMAkGA1UEBhMCR0IxGDAWBgNVBAgTD1NvdXRoIEdsYW1vcmdhbjEQMA4G
+						A1UEBxMHQ2FyZGlmZjEoMCYGA1UEChMfQ2FyZGlmZiBNZXRyb3BvbGl0YW4gVW5p
+						dmVyc2l0eTEpMCcGA1UECxMgTGlicmFyeSBhbmQgSW5mb3JtYXRpb24gU2Vydmlj
+						ZXMxFzAVBgNVBAMTDmlkcC51d2ljLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOC
+						AQ8AMIIBCgKCAQEA0lIdNY81HsvrJSjLbnbyFJFGZ++JKTC4Xowt0lsxRTRcjo7u
+						Jm06LkkZdVMpbU/ILkfup83H+P+uBXLQCLE7QyYrE5r6HC4B4cVRi8NdCbA/IzAn
+						djlvtu9jQ8y/zvLZ7ipsRT4yluN8taxdQ6YfPjJ7xFFcIpecjWaEjJTpACxUg0wp
+						b73CykEmgrJ9KEYmp5CndF1WxlEBBoH+ZakmQaG7EtD+0jMOc0oMn1z001aTcLe0
+						ArWKnv+ig/b3r24EVA8qecW6lEDwM5HDiWl4DrwCCeOeg0UvSZPuySkRerI6QAYP
+						6E7DXmoc9obOfu6/iA5Q5Wdbk4Mjne9uaPf1pwIDAQABo3sweTAJBgNVHRMEAjAA
+						MCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVyYXRlZCBDZXJ0aWZpY2F0ZTAd
+						BgNVHQ4EFgQUBc6fEv98zv3jMeehNHHh5UhAriQwHwYDVR0jBBgwFoAUBc6fEv98
+						zv3jMeehNHHh5UhAriQwDQYJKoZIhvcNAQEFBQADggEBAAmdsLMlPUMY6QFglDkG
+						1wzwf6Be9vuY90/CR4JK2CfnXVOVxEEuAGS2plhvCe/+yq4IGOpLUo2Jf9ev4H5p
+						zT0hbTjM5WJVOWr9i0WSRdc3hLAF0ObrSPG7bk6toXDdyRa+KqVefW14cuuqbphd
+						YgsYLEshlegwM91bwEl9MVFeRU/ofGbEznPAyKuEeLdevIr4pPMwsUZ8PEwj2VhG
+						+8CsO5d/kwKQy/A31pr4fEO/gCXQ45kHnxajkh2+kA8e1n0iJ90vrS/PCM5UgmtT
+						zvZdBEn8RzielQU2UWjysX1qqiXpbkUnY1ji/piMZMRYCQFLcV7G0yPV6/7GF+EU
+						FWI=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.uwic.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.uwic.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Cardiff Metropolitan University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Cardiff Metropolitan University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.uwic.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>IT Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:ithelpdesk@cardiffmet.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Andi</md:GivenName>
+      <md:SurName>Morris</md:SurName>
+      <md:EmailAddress>mailto:amorris@cardiffmet.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

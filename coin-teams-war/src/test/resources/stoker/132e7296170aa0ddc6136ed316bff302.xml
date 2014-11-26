@@ -1,0 +1,112 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth.bca.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-03-07T14:59:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">bca.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEwjCCA6qgAwIBAgIQa/ZNOQv9U0erNLlLEvjrYTANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDIxNDAwMDAwMFoXDTE1MDIxMzIzNTk1OVowgZgxCzAJBgNV
+						BAYTAkdCMRIwEAYDVQQIEwlCZXJrc2hpcmUxEzARBgNVBAcTCk1haWRlbmhlYWQx
+						KTAnBgNVBAoTIEJlcmtzaGlyZSBDb2xsZWdlIG9mIEFncmljdWx0dXJlMRYwFAYD
+						VQQLEw1JVCBEZXBhcnRtZW50MR0wGwYDVQQDExRzaGliYm9sZXRoLmJjYS5hYy51
+						azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAI1DVM8wBKlWCaeKle+5
+						rA6qnJ38fg5GiX3lW+5+k5rgmVxeE26sHBmaajsj63KBFtn8Ev0R+8KpyVWCfF5t
+						hA6g7rxDPORLO30Pb9il45Bd4YdRJoDz8mZWTDuO3jQoJZvyFOupMS2iIdkPqm4D
+						+KwbI54kurngx5Ff31zjqwG7ZiSjDTkohOOf9QE3UlFc57TMDv3F9cCprnmGKOcv
+						eqgr+smplAbrBM1UpVXspBAgURDVew3rIa7/ekHq0Ch0vWxpR3Ofpf5NwwNmlkq3
+						EhsHTyPZQZGBxjhelE/JYOhGqeEg4hTybKEkVG11GJ0qFxQlMKfji1S5Az/5pv+s
+						bckCAwEAAaOCAWcwggFjMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47nt
+						MB0GA1UdDgQWBBQxRsgqbxkw10wij1GDXycnH4ykwDAOBgNVHQ8BAf8EBAMCBaAw
+						DAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwGAYD
+						VR0gBBEwDzANBgsrBgEEAbIxAQICHTA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8v
+						Y3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRh
+						MF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5B
+						U1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9y
+						ZzAfBgNVHREEGDAWghRzaGliYm9sZXRoLmJjYS5hYy51azANBgkqhkiG9w0BAQUF
+						AAOCAQEARF4c449oziKSjO+QAPIVlQdNzlpRbQLd2KveYVheQ7lk8nvZL6dig9BT
+						Bk0ifqwVymwlgHwHKtMxtmimQ1HEGcODjt3Ehmc4b57uujhiu2NImZaYssTxuxEg
+						5BM4lccvBioYFvc3YQk0pobNsayJHNkcc5cYliwMaiq0rhinSeuxWzdSywq/dNon
+						FhrOkPWHt9tk7R7KXpGTPA50n8cOlEthiGT+//HnNZaCrx5iDggCZslppm7u1dyF
+						yRIZ4QI3LwEbNyfOfhVTmsga6bVdeWD+P2AdEJ7i+VM/7el4JNwCbR4qjmunQOnI
+						iIu4TlJfXw4B6m5nQsF8+MLdkpxmoQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.bca.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.bca.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.bca.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.bca.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.bca.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.bca.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">bca.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEwjCCA6qgAwIBAgIQa/ZNOQv9U0erNLlLEvjrYTANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDIxNDAwMDAwMFoXDTE1MDIxMzIzNTk1OVowgZgxCzAJBgNV
+						BAYTAkdCMRIwEAYDVQQIEwlCZXJrc2hpcmUxEzARBgNVBAcTCk1haWRlbmhlYWQx
+						KTAnBgNVBAoTIEJlcmtzaGlyZSBDb2xsZWdlIG9mIEFncmljdWx0dXJlMRYwFAYD
+						VQQLEw1JVCBEZXBhcnRtZW50MR0wGwYDVQQDExRzaGliYm9sZXRoLmJjYS5hYy51
+						azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAI1DVM8wBKlWCaeKle+5
+						rA6qnJ38fg5GiX3lW+5+k5rgmVxeE26sHBmaajsj63KBFtn8Ev0R+8KpyVWCfF5t
+						hA6g7rxDPORLO30Pb9il45Bd4YdRJoDz8mZWTDuO3jQoJZvyFOupMS2iIdkPqm4D
+						+KwbI54kurngx5Ff31zjqwG7ZiSjDTkohOOf9QE3UlFc57TMDv3F9cCprnmGKOcv
+						eqgr+smplAbrBM1UpVXspBAgURDVew3rIa7/ekHq0Ch0vWxpR3Ofpf5NwwNmlkq3
+						EhsHTyPZQZGBxjhelE/JYOhGqeEg4hTybKEkVG11GJ0qFxQlMKfji1S5Az/5pv+s
+						bckCAwEAAaOCAWcwggFjMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47nt
+						MB0GA1UdDgQWBBQxRsgqbxkw10wij1GDXycnH4ykwDAOBgNVHQ8BAf8EBAMCBaAw
+						DAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwGAYD
+						VR0gBBEwDzANBgsrBgEEAbIxAQICHTA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8v
+						Y3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRh
+						MF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5B
+						U1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9y
+						ZzAfBgNVHREEGDAWghRzaGliYm9sZXRoLmJjYS5hYy51azANBgkqhkiG9w0BAQUF
+						AAOCAQEARF4c449oziKSjO+QAPIVlQdNzlpRbQLd2KveYVheQ7lk8nvZL6dig9BT
+						Bk0ifqwVymwlgHwHKtMxtmimQ1HEGcODjt3Ehmc4b57uujhiu2NImZaYssTxuxEg
+						5BM4lccvBioYFvc3YQk0pobNsayJHNkcc5cYliwMaiq0rhinSeuxWzdSywq/dNon
+						FhrOkPWHt9tk7R7KXpGTPA50n8cOlEthiGT+//HnNZaCrx5iDggCZslppm7u1dyF
+						yRIZ4QI3LwEbNyfOfhVTmsga6bVdeWD+P2AdEJ7i+VM/7el4JNwCbR4qjmunQOnI
+						iIu4TlJfXw4B6m5nQsF8+MLdkpxmoQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.bca.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.bca.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Berkshire College of Agriculture</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Berkshire College of Agriculture</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.bca.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Ricketts</md:SurName>
+      <md:EmailAddress>mailto:cricketts@bca.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Neil</md:GivenName>
+      <md:SurName>Prior</md:SurName>
+      <md:EmailAddress>mailto:NCPrior@bca.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

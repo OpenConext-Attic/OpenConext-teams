@@ -1,25 +1,55 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://federation.unimes.fr/idp/shibboleth">
-			<Extensions>
-				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-09-07T13:55:45Z">
-					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
-				</mdrpi:RegistrationInfo>
-			</Extensions>
-		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">unimes.fr</shibmd:Scope>
-    
-			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
-          		      <mdui:DisplayName xml:lang="en">Université de Nimes</mdui:DisplayName>
-          		      <mdui:Description xml:lang="en">All members of the UNIMES community: staff, students, library readers, alumni, staff from other institutions working locally, guests, etc.</mdui:Description>
-          		      <mdui:DisplayName xml:lang="fr">Université de Nimes</mdui:DisplayName>
-          		      <mdui:Description xml:lang="fr">Tous les membres de la communauté UNIMES : personnels, étudiants, lecteurs des bibliothèques, anciens étudiants, personnels d'autres établissement saillant dans l'université, invités, prestataires, anciens personnels gardant une activité.</mdui:Description>
-      			    </mdui:UIInfo>
-			</Extensions>
-				<KeyDescriptor use="signing">
-<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://federation.unimes.fr/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-09-07T13:55:45Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">unimes.fr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Université de Nimes</mdui:DisplayName>
+          <mdui:Description xml:lang="en">All members of the UNIMES community: staff, students, library readers, alumni, staff from other institutions working locally, guests, etc.</mdui:Description>
+          <mdui:DisplayName xml:lang="fr">Université de Nimes</mdui:DisplayName>
+          <mdui:Description xml:lang="fr">Tous les membres de la communauté UNIMES : personnels, étudiants, lecteurs des bibliothèques, anciens étudiants, personnels d'autres établissement saillant dans l'université, invités, prestataires, anciens personnels gardant une activité.</mdui:Description>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+					      MIIEdTCCA12gAwIBAgIQA+x4/gpIpc75aHTaD2HjdjANBgkqhkiG9w0BAQUFADA2
+MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+U1NMIENBMB4XDTEyMTAyMzAwMDAwMFoXDTE1MTIwOTIzNTk1OVowTDELMAkGA1UE
+BhMCRlIxHjAcBgNVBAoMFVVuaXZlcnNpdMOpIGRlIE7Drm1lczEdMBsGA1UEAxMU
+ZmVkZXJhdGlvbi51bmltZXMuZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+AoIBAQDfE7PieWyEg8LeR53J/lE/B59bPXfHLEO+uLd3OBC8jTGkIRWvaqPgM1Gk
+lCzK/efmA1s11KncwGOTvJJJPeWFAOisznFMbNfhI1tPSYDIxlULXQBEnTCy9eUm
+JV2zo3MvCVFw1vJPXgyA7m4KsMu39meUuhK6emBfv0vz1Kh8eABMDR/c945d0TXP
+XCizQ9I3SyU/zVJ18XcaniaZ777mjNaNmT3ZJhqj85cSRQNBH1nAT4/GeLUMuyv1
+5ymGq0ytEhp8QKcWfwRvU5InOQlG17R8z7BxXtJbuvuaG7kk7UO8TJ4bHNU+14T9
+EqCKaalydIILjRBNfwe8fZ6b+ohvAgMBAAGjggFnMIIBYzAfBgNVHSMEGDAWgBQM
+vZNoDPPeq6NJays3V0fqkOO57TAdBgNVHQ4EFgQU720AGcrCuWMx7XX5CLNo5qGm
+JyswDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYB
+BQUHAwEGCCsGAQUFBwMCMBgGA1UdIAQRMA8wDQYLKwYBBAGyMQECAh0wOgYDVR0f
+BDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xD
+QS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRj
+cy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDov
+L29jc3AudGNzLnRlcmVuYS5vcmcwHwYDVR0RBBgwFoIUZmVkZXJhdGlvbi51bmlt
+ZXMuZnIwDQYJKoZIhvcNAQEFBQADggEBAJJRjU+uJplLJdi4qKubLFQv61lnWLMg
+w3IbQ2icm7u9dEUNIY2nXj8a2nBn6svWzNyPlvipHhEbj/KWkQPwmEIQWSBXz8aK
+cRG0kNEqEvrpkLVFakNWzm/T6pEh6VhRiu85LMQeMHo2zrFGOo92b/OY9NGq+nyX
+8kDchVM7wj/JlMU57UuZ7hCRsE/T+GgghBgCoU1u9Way8ker6s6DvPv38jgOT7/P
+cMz63qOCn2FWBpvJL1ykjw+vu4cL8NXdo51ZgYG+03hcb3lBFv5f3Y2y7Pitgy+K
+R2jCO9a/ZWDePkmPnf1zmgyJ+twxhYqPwTbGDoNozxNNLsXQLOPNSaU=
+					    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIEpDCCA4ygAwIBAgIQL1M6BUXb9ey/N5UwsW6q8zANBgkqhkiG9w0BAQUFADA2
 MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
 U1NMIENBMB4XDTA5MTExOTAwMDAwMFoXDTEyMTExODIzNTk1OVowezELMAkGA1UE
@@ -46,36 +76,55 @@ dnUIrUnxSsaMhx/zACINKnb09Ob2AGDz5KgFvq8V0IRcl09d/qWLE61m/wvIZfaF
 VTP5+9UA1RfGxEIOG3zA4D309fxapoVnb84yM9eRNgtw6hZrzDyZfNWQ1VkSVrFO
 xqaW8/4VYHjxNTVZ2KxsKKVL1ykc/9Gk5YAITiyKeWFjYhP17R9+Cw==
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-					</ds:KeyInfo>
-				</KeyDescriptor>
-
-				
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-
-			
-			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://federation.unimes.fr/idp/profile/SAML2/POST/SSO"/>
-	        
-	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://federation.unimes.fr/idp/profile/SAML2/Redirect/SSO"/>
-	        
-	        
-			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://federation.unimes.fr/idp/profile/Shibboleth/SSO"/>
-			
-
-		</IDPSSODescriptor>
-		
-	
-		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">unimes.fr</shibmd:Scope>
-    			</Extensions>
-			<KeyDescriptor use="signing">
-				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://federation.unimes.fr/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://federation.unimes.fr/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://federation.unimes.fr/idp/profile/Shibboleth/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">unimes.fr</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+					      MIIEdTCCA12gAwIBAgIQA+x4/gpIpc75aHTaD2HjdjANBgkqhkiG9w0BAQUFADA2
+MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+U1NMIENBMB4XDTEyMTAyMzAwMDAwMFoXDTE1MTIwOTIzNTk1OVowTDELMAkGA1UE
+BhMCRlIxHjAcBgNVBAoMFVVuaXZlcnNpdMOpIGRlIE7Drm1lczEdMBsGA1UEAxMU
+ZmVkZXJhdGlvbi51bmltZXMuZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+AoIBAQDfE7PieWyEg8LeR53J/lE/B59bPXfHLEO+uLd3OBC8jTGkIRWvaqPgM1Gk
+lCzK/efmA1s11KncwGOTvJJJPeWFAOisznFMbNfhI1tPSYDIxlULXQBEnTCy9eUm
+JV2zo3MvCVFw1vJPXgyA7m4KsMu39meUuhK6emBfv0vz1Kh8eABMDR/c945d0TXP
+XCizQ9I3SyU/zVJ18XcaniaZ777mjNaNmT3ZJhqj85cSRQNBH1nAT4/GeLUMuyv1
+5ymGq0ytEhp8QKcWfwRvU5InOQlG17R8z7BxXtJbuvuaG7kk7UO8TJ4bHNU+14T9
+EqCKaalydIILjRBNfwe8fZ6b+ohvAgMBAAGjggFnMIIBYzAfBgNVHSMEGDAWgBQM
+vZNoDPPeq6NJays3V0fqkOO57TAdBgNVHQ4EFgQU720AGcrCuWMx7XX5CLNo5qGm
+JyswDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYB
+BQUHAwEGCCsGAQUFBwMCMBgGA1UdIAQRMA8wDQYLKwYBBAGyMQECAh0wOgYDVR0f
+BDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xD
+QS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRj
+cy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDov
+L29jc3AudGNzLnRlcmVuYS5vcmcwHwYDVR0RBBgwFoIUZmVkZXJhdGlvbi51bmlt
+ZXMuZnIwDQYJKoZIhvcNAQEFBQADggEBAJJRjU+uJplLJdi4qKubLFQv61lnWLMg
+w3IbQ2icm7u9dEUNIY2nXj8a2nBn6svWzNyPlvipHhEbj/KWkQPwmEIQWSBXz8aK
+cRG0kNEqEvrpkLVFakNWzm/T6pEh6VhRiu85LMQeMHo2zrFGOo92b/OY9NGq+nyX
+8kDchVM7wj/JlMU57UuZ7hCRsE/T+GgghBgCoU1u9Way8ker6s6DvPv38jgOT7/P
+cMz63qOCn2FWBpvJL1ykjw+vu4cL8NXdo51ZgYG+03hcb3lBFv5f3Y2y7Pitgy+K
+R2jCO9a/ZWDePkmPnf1zmgyJ+twxhYqPwTbGDoNozxNNLsXQLOPNSaU=
+					    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIEpDCCA4ygAwIBAgIQL1M6BUXb9ey/N5UwsW6q8zANBgkqhkiG9w0BAQUFADA2
 MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
 U1NMIENBMB4XDTA5MTExOTAwMDAwMFoXDTEyMTExODIzNTk1OVowezELMAkGA1UE
@@ -102,31 +151,19 @@ dnUIrUnxSsaMhx/zACINKnb09Ob2AGDz5KgFvq8V0IRcl09d/qWLE61m/wvIZfaF
 VTP5+9UA1RfGxEIOG3zA4D309fxapoVnb84yM9eRNgtw6hZrzDyZfNWQ1VkSVrFO
 xqaW8/4VYHjxNTVZ2KxsKKVL1ykc/9Gk5YAITiyKeWFjYhP17R9+Cw==
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-				</ds:KeyInfo>
-			</KeyDescriptor>
-
-				
-
-			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://federation.unimes.fr/idp/AA"/>
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-		</AttributeAuthorityDescriptor>
-
-
-		<Organization>
-		
-			<OrganizationName xml:lang="en">Université de Nimes</OrganizationName>
-			<OrganizationDisplayName xml:lang="en">Université de Nimes</OrganizationDisplayName>
-			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
-		
-		</Organization>
-
-			
-			    <ContactPerson contactType="technical">
-			     <EmailAddress>reseaux@unimes.fr</EmailAddress>
-		        </ContactPerson>
-		    	
-			
-	</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://federation.unimes.fr/idp/AA"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Université de Nimes</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Université de Nimes</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://unknown.site.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>reseaux@unimes.fr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

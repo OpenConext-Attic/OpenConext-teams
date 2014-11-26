@@ -1,31 +1,30 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" ID="IDEM-EDUGAIN00032" entityID="https://shibidp.unipr.it/idp/shibboleth">
-        <Extensions>
-            <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.idem.garr.it/" registrationInstant="2009-12-31T15:00:00Z">
-                <mdrpi:RegistrationPolicy xml:lang="en">https://www.idem.garr.it/idem-metadata-registration-practice-statement</mdrpi:RegistrationPolicy>
-            </mdrpi:RegistrationInfo>
-        </Extensions>
-        <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-            <Extensions>
-                <shibmd:Scope regexp="false">unipr.it</shibmd:Scope>
-                <mdui:UIInfo>
-                    <mdui:DisplayName xml:lang="it">Università degli Studi di Parma</mdui:DisplayName>
-                    <mdui:DisplayName xml:lang="en">University of Parma</mdui:DisplayName>
-                    <mdui:Description xml:lang="it">Identity Provider per gli utenti dell'Università degli Studi di Parma</mdui:Description>
-                    <mdui:Description xml:lang="en">Identity Provider for users of University of di Parma</mdui:Description>
-                    <mdui:PrivacyStatementURL xml:lang="it">http://www.unipr.it/ateneo/albo-online/privacy</mdui:PrivacyStatementURL>
-                    <mdui:PrivacyStatementURL xml:lang="en">http://en.unipr.it/privacy</mdui:PrivacyStatementURL>
-                    <mdui:InformationURL xml:lang="it">http://www.unipr.it/idem</mdui:InformationURL>
-                    <mdui:InformationURL xml:lang="en">http://en.unipr.it/idem</mdui:InformationURL>
-                </mdui:UIInfo>
-                <mdui:DiscoHints>
-                    <mdui:GeolocationHint>geo:44.76630697035048,10.314061939716339</mdui:GeolocationHint>
-                </mdui:DiscoHints>
-                
-            </Extensions>
-            <KeyDescriptor>
-                <ds:KeyInfo>
-                    <ds:X509Data>
-                        <ds:X509Certificate>
+<md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibidp.unipr.it/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.idem.garr.it/" registrationInstant="2009-12-31T15:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.idem.garr.it/idem-metadata-registration-practice-statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">unipr.it</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="it">Università degli Studi di Parma</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">University of Parma</mdui:DisplayName>
+          <mdui:Description xml:lang="it">Identity Provider per gli utenti dell'Università degli Studi di Parma</mdui:Description>
+          <mdui:Description xml:lang="en">Identity Provider for users of University of di Parma</mdui:Description>
+          <mdui:PrivacyStatementURL xml:lang="it">http://www.unipr.it/ateneo/albo-online/privacy</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="en">http://en.unipr.it/privacy</mdui:PrivacyStatementURL>
+          <mdui:InformationURL xml:lang="it">http://www.unipr.it/idem</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">http://en.unipr.it/idem</mdui:InformationURL>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:GeolocationHint>geo:44.76630697035048,10.314061939716339</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIDLDCCAhSgAwIBAgIVANMt6NQyQVgOzMWv6tQmeV5iMyCNMA0GCSqGSIb3DQEB
 BQUAMBsxGTAXBgNVBAMTEHNoaWJpZHAudW5pcHIuaXQwHhcNMDkwOTAyMDgwMjMz
 WhcNMjkwOTAyMDgwMjMzWjAbMRkwFwYDVQQDExBzaGliaWRwLnVuaXByLml0MIIB
@@ -44,26 +43,26 @@ aU+b3F6vQHeLEdJvX1V6c/z7gV3YdNEA3Z9dCQavw47LLDB5QlCKtWuKklpBrQao
 ddU75GdAb8W4csgACMgqBSU30w/yJ79q8O9ajffJta01wOXXJhvtlGtNnV42ACg4
 Pqwh2EyQjPtYYja8SrAmwgp4k705jtn+QNLUs1VD6hw9LmoRFpxn1zb21fL3rZAs
 </ds:X509Certificate>
-                    </ds:X509Data>
-                </ds:KeyInfo>
-            </KeyDescriptor>
-            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibidp.unipr.it:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibidp.unipr.it:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-            <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibidp.unipr.it/idp/profile/Shibboleth/SSO"/>
-            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibidp.unipr.it/idp/profile/SAML2/POST/SSO"/>
-            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibidp.unipr.it/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibidp.unipr.it/idp/profile/SAML2/Redirect/SSO"/>
-        </IDPSSODescriptor>
-        <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-            <Extensions>
-                <shibmd:Scope regexp="false">unipr.it</shibmd:Scope>
-            </Extensions>
-            <KeyDescriptor>
-                <ds:KeyInfo>
-                    <ds:X509Data>
-                        <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibidp.unipr.it:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibidp.unipr.it:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibidp.unipr.it/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibidp.unipr.it/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibidp.unipr.it/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibidp.unipr.it/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">unipr.it</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIDLDCCAhSgAwIBAgIVANMt6NQyQVgOzMWv6tQmeV5iMyCNMA0GCSqGSIb3DQEB
 BQUAMBsxGTAXBgNVBAMTEHNoaWJpZHAudW5pcHIuaXQwHhcNMDkwOTAyMDgwMjMz
 WhcNMjkwOTAyMDgwMjMzWjAbMRkwFwYDVQQDExBzaGliaWRwLnVuaXByLml0MIIB
@@ -82,25 +81,25 @@ aU+b3F6vQHeLEdJvX1V6c/z7gV3YdNEA3Z9dCQavw47LLDB5QlCKtWuKklpBrQao
 ddU75GdAb8W4csgACMgqBSU30w/yJ79q8O9ajffJta01wOXXJhvtlGtNnV42ACg4
 Pqwh2EyQjPtYYja8SrAmwgp4k705jtn+QNLUs1VD6hw9LmoRFpxn1zb21fL3rZAs
 </ds:X509Certificate>
-                    </ds:X509Data>
-                </ds:KeyInfo>
-            </KeyDescriptor>
-            <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibidp.unipr.it:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-            <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibidp.unipr.it:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-        </AttributeAuthorityDescriptor>
-        <Organization>
-            <OrganizationName xml:lang="it">Università degli Studi di Parma</OrganizationName>
-            <OrganizationName xml:lang="en">University of Parma</OrganizationName>
-            <OrganizationDisplayName xml:lang="it">Università di Parma</OrganizationDisplayName>
-            <OrganizationDisplayName xml:lang="en">University of Parma</OrganizationDisplayName>
-            <OrganizationURL xml:lang="it">http://www.unipr.it/</OrganizationURL>
-            <OrganizationURL xml:lang="en">http://en.unipr.it/</OrganizationURL>
-        </Organization>
-        <ContactPerson contactType="technical">
-            <GivenName>Marco</GivenName>
-            <SurName>Panella</SurName>
-            <EmailAddress>idem@unipr.it</EmailAddress>
-        </ContactPerson>
-    </EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibidp.unipr.it:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibidp.unipr.it:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="it">Università degli Studi di Parma</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">University of Parma</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="it">Università di Parma</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">University of Parma</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="it">http://www.unipr.it/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://en.unipr.it/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Marco</md:GivenName>
+      <md:SurName>Panella</md:SurName>
+      <md:EmailAddress>mailto:idem@unipr.it</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

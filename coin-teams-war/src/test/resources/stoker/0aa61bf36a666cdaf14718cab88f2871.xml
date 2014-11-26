@@ -1,0 +1,125 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://aai-login.ph-gr.ch/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://rr.aai.switch.ch/" registrationInstant="2014-10-06T10:56:07Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.switch.ch/aai/federation/switchaai/metadata-registration-practice-statement-20110711.txt</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor errorURL="http://my.ph-gr.ch/" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ph-gr.ch</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="de">PHGR - Pädagogische Hochschule Graubünden</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">PHGR - University of Teacher Education Graubünden</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="it">PHGR - Alta Scuola Pedagogica dei Grigioni</mdui:DisplayName>
+          <mdui:Description xml:lang="de">Pädagogische Hochschule Graubünden</mdui:Description>
+          <mdui:Description xml:lang="en">University of Teacher Education Graubünden</mdui:Description>
+          <mdui:Description xml:lang="it">Alta Scuola Pedagogica dei Grigioni</mdui:Description>
+          <mdui:Keywords xml:lang="en">Chur</mdui:Keywords>
+          <mdui:Keywords xml:lang="de">Chur</mdui:Keywords>
+          <mdui:Keywords xml:lang="it">Coira</mdui:Keywords>
+          <mdui:Logo height="16" width="16">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAACF0RVh0U29mdHdhcmUAR3JhcGhpY0NvbnZlcnRlciAoSW50ZWwpd4f6GQAAAitJREFUeJyUUztv01AUPsBWhIRER1bEQEURSAgEA/+BAQkWBCNLFyQEEmIqDDACC0VCCFiogEpdWWjVgiGkjZ30JrFvTxOT+DqO7dw8becG22lDWipIBz/O6zvnfPe70Ov1YNTHLD9BRQKmZc7hlm+kQrH5datvqby8j5n6/f8DCCGG7P5/1XiMme/AvHZe2hVAiH9MItqgymdxPXMeh/1/JVqlh4jkEoqwYNjfakop+Ssw23xFI9v3y2FD7w+A11kH13pHsz/HOUkeRF27jrY5E3YL+gQWHiD5cYT7HoJrz9K8cgYL+WvYH73bAMd6Q3V6FeVvwFz7Pa2UH+HKAnC78pqKePwTWMxfQZs9xZrzkWxkL6O8DGxzdx+63ToYG7eRJMZY5AsCHaKEX3QKvXZWSofkaelT2OBfUlFcUy4gZk6ywQrdwIK1xFGuazdikurOPFlZBF6zZmnVeBZPY5Wm41innZNWl4Dz6jQOAGr2B6qEJDX5YtxBlU9jbvUYil4HVOU4qqkJ7IlOnMv0u5iWxlgQ4BaJAqL9MonD3OsQMIr3cC0kMyK2wRdScTf3E2m3spJtvsBccjzk4jkOjtH3DSDJQ6ilJ7BUuIXl4h30fT2OOZUZLGo342TuzBEa6sCp9I8yEltfYebLkP39rFn/TCJCdypwu73dF7+QXERVngzF0xr5Yg0AmvWllCIdYEZxCvdaHANEZEUSVZVJdO05sleA3wAAAP//AwBuF/0Z3Mc5jQAAAABJRU5ErkJggg==</mdui:Logo>
+          <mdui:Logo height="43" width="80">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAArCAYAAADv9A+vAAAAAXNSR0IArs4c6QAACSNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+Cjx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDUuMS4yIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIvPgogICA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgCjw/eHBhY2tldCBlbmQ9InciPz4s45Y3AAAQ7UlEQVR4nOxaDYwc1X0fbEiqNFUbtZEinJbQFgi0sQHJSoPxR2piKDYfjbChATkWjatKAYOCSCLaFFSTtpYiEMExrnFVt8GJprKooThZHzJtalyvudu9vdvvj7nbvdu927vb2Y+3t7e7M/Pm3/d/897s7N6ez0dbaglOepq9mTdv5v3e7//7f7xRAEC51Gbb9iX37dtsNgZQxbYMNpbFGuXnzVZBrcz9VJ/UHiGZ2A0kHlJIdFCB8OC10Ji/EFjJc//H77jCtuTD+73ISl+uX3+LnaOs2bwxMMFWpgovkpH3FIgOKRDHFrwCEuw4ntpBqLXA+yD4K3nmBwEkPuMDB5BSi4HoAEcZGyn73WqkfIXc35DE8KcgGVQgMXwlRBigevFVYtumYoH1EYAu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</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:IPHint>193.5.58.160/27</mdui:IPHint>
+          <mdui:DomainHint>ph-gr.ch</mdui:DomainHint>
+          <mdui:GeolocationHint>geo:46.866984,9.536721</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDKDCCAhCgAwIBAgIJANPBvqI6uH7rMA0GCSqGSIb3DQEBBQUAMB0xGzAZBgNV
+BAMTEmFhaS1sb2dpbi5waC1nci5jaDAeFw0xMjA4MDMxMDU4NDZaFw0xNTA4MDMx
+MDU4NDZaMB0xGzAZBgNVBAMTEmFhaS1sb2dpbi5waC1nci5jaDCCASIwDQYJKoZI
+hvcNAQEBBQADggEPADCCAQoCggEBAM6DeV57x0ntO6ngsTUgFxL7gPqK1yc4JW6Q
+Bof970j9y11C9oIIOZMWadurnqdHsvGcX+GbmEvNVI0V4u3Wibg3JU1oXRtYLzDC
+IhVErP4qn3mvq0wQ5IC8br3xQu/PZp16iiZ9YK+ipn7HIow+tAQ2bxONAxtDbrFW
+o4+f5XE7RckoUplEkGFX9B3X2iy1V7rzJt8UsjY6vZVmkLhdSu+O1zBTnTU4DTkB
+1CPnshzK5qWg5Et7CkgPzhFORXPD9tp9QpRSukVee2rHlhIy9umVTzh1M+IcZrW8
+rB0cZfvs7RpOnHtkSpEVoMANC9az9IBU8GzqGy8OmffI+vL71q8CAwEAAaNrMGkw
+SAYDVR0RBEEwP4ISYWFpLWxvZ2luLnBoLWdyLmNohilodHRwczovL2FhaS1sb2dp
+bi5waC1nci5jaC9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUS3jMf00nQqVvJRH7
+r+2JO7i7iuowDQYJKoZIhvcNAQEFBQADggEBACipXitm/nMRmZswt0tAl0fE81DF
+1U8Xxgh7OVK6QjVIebjckobeeV9D4JT3bF+YfZLVxl/9XIRbpBV2aYDf4TXAtN1R
+VZ/km3VDZbHImJQls8VGoJzMXXGcywQwbZg5vXcdXB1FtYWQTkor5lg0mqRAIJES
+BqBm0XGj5gO0xpZnds5cvH94w/xzfI+BDmusQvjTaYPblemangtJ+MD0yXSaHo2z
+PdZQszzV/n+v286sSXaiO/Bd6QbtIRZUZiUR/2MfwjZ+exR0nymEiSNdiKch1ZpN
+3gDJq0hd3/Em8RDzJtiui0YIJVFZdxA3+9QhvGhX0OvziPHKbsxh1mNnI1k=
+						</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-login.ph-gr.ch/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-login.ph-gr.ch/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://aai-login.ph-gr.ch/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai-login.ph-gr.ch/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://aai-login.ph-gr.ch/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://aai-login.ph-gr.ch/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ph-gr.ch</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDKDCCAhCgAwIBAgIJANPBvqI6uH7rMA0GCSqGSIb3DQEBBQUAMB0xGzAZBgNV
+BAMTEmFhaS1sb2dpbi5waC1nci5jaDAeFw0xMjA4MDMxMDU4NDZaFw0xNTA4MDMx
+MDU4NDZaMB0xGzAZBgNVBAMTEmFhaS1sb2dpbi5waC1nci5jaDCCASIwDQYJKoZI
+hvcNAQEBBQADggEPADCCAQoCggEBAM6DeV57x0ntO6ngsTUgFxL7gPqK1yc4JW6Q
+Bof970j9y11C9oIIOZMWadurnqdHsvGcX+GbmEvNVI0V4u3Wibg3JU1oXRtYLzDC
+IhVErP4qn3mvq0wQ5IC8br3xQu/PZp16iiZ9YK+ipn7HIow+tAQ2bxONAxtDbrFW
+o4+f5XE7RckoUplEkGFX9B3X2iy1V7rzJt8UsjY6vZVmkLhdSu+O1zBTnTU4DTkB
+1CPnshzK5qWg5Et7CkgPzhFORXPD9tp9QpRSukVee2rHlhIy9umVTzh1M+IcZrW8
+rB0cZfvs7RpOnHtkSpEVoMANC9az9IBU8GzqGy8OmffI+vL71q8CAwEAAaNrMGkw
+SAYDVR0RBEEwP4ISYWFpLWxvZ2luLnBoLWdyLmNohilodHRwczovL2FhaS1sb2dp
+bi5waC1nci5jaC9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUS3jMf00nQqVvJRH7
+r+2JO7i7iuowDQYJKoZIhvcNAQEFBQADggEBACipXitm/nMRmZswt0tAl0fE81DF
+1U8Xxgh7OVK6QjVIebjckobeeV9D4JT3bF+YfZLVxl/9XIRbpBV2aYDf4TXAtN1R
+VZ/km3VDZbHImJQls8VGoJzMXXGcywQwbZg5vXcdXB1FtYWQTkor5lg0mqRAIJES
+BqBm0XGj5gO0xpZnds5cvH94w/xzfI+BDmusQvjTaYPblemangtJ+MD0yXSaHo2z
+PdZQszzV/n+v286sSXaiO/Bd6QbtIRZUZiUR/2MfwjZ+exR0nymEiSNdiKch1ZpN
+3gDJq0hd3/Em8RDzJtiui0YIJVFZdxA3+9QhvGhX0OvziPHKbsxh1mNnI1k=
+						</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai-login.ph-gr.ch/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai-login.ph-gr.ch/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">ph-gr.ch</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">PHGR - Pädagogische Hochschule Graubünden</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">PHGR - University of Teacher Education Graubünden</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="it">PHGR - Alta Scuola Pedagogica dei Grigioni</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.ph-gr.ch/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.ph-gr.ch/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="it">http://www.ph-gr.ch/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>AAI</md:GivenName>
+      <md:SurName>PHGR</md:SurName>
+      <md:EmailAddress>mailto:aai@ph-gr.ch</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>SWITCHaai</md:GivenName>
+      <md:SurName>Team</md:SurName>
+      <md:EmailAddress>mailto:aai@switch.ch</md:EmailAddress>
+      <md:TelephoneNumber>+41 44 268 15 05</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

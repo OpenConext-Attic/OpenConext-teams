@@ -1,0 +1,49 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.liebertonline.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDMDCCAhigAwIBAgIJAIA3TR3Mqzn9MA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV
+						BAMTFW9ubGluZS5saWViZXJ0cHViLmNvbTAeFw0xMjA0MDYyMDAwMDRaFw0xNTA0
+						MDYyMDAwMDRaMCAxHjAcBgNVBAMTFW9ubGluZS5saWViZXJ0cHViLmNvbTCCASIw
+						DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK6DZ2kiyRCZQ3nAG0A2383d4R8L
+						GhfewFJ6sns+taH7SQTgJj4XxpCSPHQXTrToMyfMwcZ7uttKhPHrWipx8vG4ghAv
+						3WNd+QFqO/kbeBb/7qVYh24Nd4qwzaHKceUcDHBdMX3KOsz0ZJ2SnGsv41Hn4y/n
+						Y++Xoi4iJsSFXK4KhGTVqReOL6IQ+nkUP75O+ifq2jxhwGGU7xHiXyU/N0CNkuIo
+						8cF8TKwuOZudBAYL1ELxtQJXar8d1RJ6MFpDcgoJmRKL6zFUqWsSJnumWmSPLWLL
+						FjYKVHjxZIiFIFmUkP316SdYRCMNPLUXFntaDYqAoPN4+SVmdqJmF9ajfmcCAwEA
+						AaNtMGswSgYDVR0RBEMwQYIVb25saW5lLmxpZWJlcnRwdWIuY29thihodHRwczov
+						L29ubGluZS5saWViZXJ0cHViLmNvbS9zaGliYm9sZXRoMB0GA1UdDgQWBBT40fD0
+						nCRtAzbqhf/X354aeW5mczANBgkqhkiG9w0BAQUFAAOCAQEAfFvZ6nc9J6f8KBNh
+						twzlIZtiTyC6YC+Y6ly0m9OukvtcAONLsT/1mykPv3v6Q80noWHJhYHeHw5huDfz
+						JYB0btKX8lbk87Y8p9zPdy5h8OB4TK2i4TMGtcXDeXE9PHenzxjf6fXNrLsKesWt
+						7qxdjVVlTK+mNy+UtH0lQR1pQwHSPArK+R0J/qgLdZCzIJt3UUf8Wx92MD8armHK
+						U4rlNhgdYjRn8TWzfm1zxlmdTtNHDRUR4hGH8ruzueInfmkeC8KsmTLBoafZ/5HW
+						jA7zGk30WjvkkDeMJ6D4lwBs4tW6dNY9RoXgBBpJKeAfmNBgGTNg39ajyJGS4Drr
+						yEPyLg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://online.liebertpub.com/action/samlACS" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://online.liebertpub.com/action/samlACS" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://online.liebertpub.com/action/samlACS" index="3"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Atypon Systems, Inc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Atypon Systems: Mary Ann Liebert, Inc</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.liebertpub.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>SSO-Support</md:GivenName>
+      <md:EmailAddress>mailto:SSO-Support@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>SSO-Tech</md:GivenName>
+      <md:EmailAddress>mailto:SSO-Tech@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,110 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://scatfam.shrewsbury.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-01-30T12:52:22Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">shrewsbury.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEzDCCA7SgAwIBAgIQD+da6y76fB0jjOTGMjnLqTANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEzMDEyMjAwMDAwMFoXDTE2MDEyMjIzNTk1OVowgZgxCzAJBgNV
+						BAYTAkdCMRMwEQYDVQQIEwpTaHJvcHNoaXJlMRMwEQYDVQQHEwpTaHJld3NidXJ5
+						MTIwMAYDVQQKEylTaHJld3NidXJ5IENvbGxlZ2Ugb2YgQXJ0cyBhbmQgVGVjaG5v
+						bG9neTEMMAoGA1UECxMDVElTMR0wGwYDVQQDExRpZHAuc2hyZXdzYnVyeS5hYy51
+						azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKisy8sa7jFFL0nZC+L2
+						23cRWxMUAab3ZyiiDzrFgldPvWrpL6PoEubFAnVl0gq4wAPfXIvPupuSx8vCRHkd
+						TyEGhFbSZV3m9Xj3XxqSFPbJI44YnBixesLPycrk9llxBcsL+hEH17nJ0KPjtjAh
+						2cSw5/MBFvjFFLlMdDMxlAitf9LmRR0FVnASr6SeL2hS2Eq00nrkWKh9bgs4N4b3
+						HO/MFzh43gt8Wx2WdnrRiM/R4DsNsLmjw6/n0pLTsczpnPNCxzn4ylOGQt+YaaxD
+						ospa5nEwoWdg0f86VGytOPj/18o7dVPDlzz+3EQIFX4w4Lm2ZyinW9nKYlp/RoIX
+						1R0CAwEAAaOCAXEwggFtMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47nt
+						MB0GA1UdDgQWBBSezYEALpOmAolu4WZN/gHXOmYdPjAOBgNVHQ8BAf8EBAMCBaAw
+						DAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwIgYD
+						VR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgIwOgYDVR0fBDMwMTAvoC2g
+						K4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYI
+						KwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEu
+						b3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNz
+						LnRlcmVuYS5vcmcwHwYDVR0RBBgwFoIUaWRwLnNocmV3c2J1cnkuYWMudWswDQYJ
+						KoZIhvcNAQEFBQADggEBACahrFuSCyAb3Nf1CM4ojODgm3kKRhMrzlmMi+3WsSg6
+						SzoHSQO+AEde6shDXt86/6J0Od2SbSBik879mhfsHL6sJDXwBMDCVJkZtKKmVvWG
+						74gBe6i+DT3FlD0HVMiyIGC3FcyIRQKRkdYuE0fPBsNSOLDoIGF56Mxvbz6AEkRn
+						lMHJ8zQ3wp6zkF8ftwjtEqQORb+MezhsTkAG+482GdAGx1MbMiaLqxHxUcq0HXxZ
+						hPMrscDk2MJAklZ3xDaD7/f5gLOHz7ROukBwtboELdtbixVYFg/+gWJbA7r6j0Tg
+						mloGlWVhsD7tw1Q2KJR2v8bTsRLlDw+z58R01VtOCmI=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.shrewsbury.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.shrewsbury.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.shrewsbury.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.shrewsbury.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.shrewsbury.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.shrewsbury.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">shrewsbury.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEzDCCA7SgAwIBAgIQD+da6y76fB0jjOTGMjnLqTANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEzMDEyMjAwMDAwMFoXDTE2MDEyMjIzNTk1OVowgZgxCzAJBgNV
+						BAYTAkdCMRMwEQYDVQQIEwpTaHJvcHNoaXJlMRMwEQYDVQQHEwpTaHJld3NidXJ5
+						MTIwMAYDVQQKEylTaHJld3NidXJ5IENvbGxlZ2Ugb2YgQXJ0cyBhbmQgVGVjaG5v
+						bG9neTEMMAoGA1UECxMDVElTMR0wGwYDVQQDExRpZHAuc2hyZXdzYnVyeS5hYy51
+						azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKisy8sa7jFFL0nZC+L2
+						23cRWxMUAab3ZyiiDzrFgldPvWrpL6PoEubFAnVl0gq4wAPfXIvPupuSx8vCRHkd
+						TyEGhFbSZV3m9Xj3XxqSFPbJI44YnBixesLPycrk9llxBcsL+hEH17nJ0KPjtjAh
+						2cSw5/MBFvjFFLlMdDMxlAitf9LmRR0FVnASr6SeL2hS2Eq00nrkWKh9bgs4N4b3
+						HO/MFzh43gt8Wx2WdnrRiM/R4DsNsLmjw6/n0pLTsczpnPNCxzn4ylOGQt+YaaxD
+						ospa5nEwoWdg0f86VGytOPj/18o7dVPDlzz+3EQIFX4w4Lm2ZyinW9nKYlp/RoIX
+						1R0CAwEAAaOCAXEwggFtMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47nt
+						MB0GA1UdDgQWBBSezYEALpOmAolu4WZN/gHXOmYdPjAOBgNVHQ8BAf8EBAMCBaAw
+						DAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwIgYD
+						VR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgIwOgYDVR0fBDMwMTAvoC2g
+						K4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYI
+						KwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEu
+						b3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNz
+						LnRlcmVuYS5vcmcwHwYDVR0RBBgwFoIUaWRwLnNocmV3c2J1cnkuYWMudWswDQYJ
+						KoZIhvcNAQEFBQADggEBACahrFuSCyAb3Nf1CM4ojODgm3kKRhMrzlmMi+3WsSg6
+						SzoHSQO+AEde6shDXt86/6J0Od2SbSBik879mhfsHL6sJDXwBMDCVJkZtKKmVvWG
+						74gBe6i+DT3FlD0HVMiyIGC3FcyIRQKRkdYuE0fPBsNSOLDoIGF56Mxvbz6AEkRn
+						lMHJ8zQ3wp6zkF8ftwjtEqQORb+MezhsTkAG+482GdAGx1MbMiaLqxHxUcq0HXxZ
+						hPMrscDk2MJAklZ3xDaD7/f5gLOHz7ROukBwtboELdtbixVYFg/+gWJbA7r6j0Tg
+						mloGlWVhsD7tw1Q2KJR2v8bTsRLlDw+z58R01VtOCmI=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.shrewsbury.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.shrewsbury.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Shrewsbury College of Arts and Technology</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Shrewsbury College of Arts and Technology</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.shrewsbury.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Richard</md:GivenName>
+      <md:SurName>Booth</md:SurName>
+      <md:EmailAddress>mailto:richard.booth@shrewsbury.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Robin</md:GivenName>
+      <md:SurName>Breakwell</md:SurName>
+      <md:EmailAddress>mailto:robinb@shrewsbury.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

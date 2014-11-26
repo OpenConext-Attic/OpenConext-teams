@@ -1,0 +1,99 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://simplesamlphp-dev.cf.ac.uk/idp/simplesamlphp">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">cardiff.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEnjCCA4agAwIBAgIJAM8N1T2uybrgMA0GCSqGSIb3DQEBBQUAMIGQMQswCQYD
+						VQQGEwJHQjEOMAwGA1UECBMFV2FsZXMxEDAOBgNVBAcTB0NhcmRpZmYxGzAZBgNV
+						BAoTEkNhcmRpZmYgVW5pdmVyc2l0eTEdMBsGA1UECxMUSW5mb3JtYXRpb24gU2Vy
+						dmljZXMxIzAhBgNVBAMTGnNpbXBsZXNhbWxwaHAtZGV2LmNmLmFjLnVrMB4XDTEw
+						MDkzMDEyMTQ1MloXDTIwMDkyNzEyMTQ1MlowgZAxCzAJBgNVBAYTAkdCMQ4wDAYD
+						VQQIEwVXYWxlczEQMA4GA1UEBxMHQ2FyZGlmZjEbMBkGA1UEChMSQ2FyZGlmZiBV
+						bml2ZXJzaXR5MR0wGwYDVQQLExRJbmZvcm1hdGlvbiBTZXJ2aWNlczEjMCEGA1UE
+						AxMac2ltcGxlc2FtbHBocC1kZXYuY2YuYWMudWswggEiMA0GCSqGSIb3DQEBAQUA
+						A4IBDwAwggEKAoIBAQC7FqickAesyb1d3o+3hGK42XWfcJTlzJmr1A6s2t8qUYxL
+						Th4VjR9QkKK8hO6d8i3nGx0klu/w820tT6nkB7zVrzUt/t7axKW/KsBIjIzXpwqG
+						Tc4xt+RiGZ5ChtPw7nl2ZdTX5caA2i8xKwNk2NWkOzpnlHoDGhGu5nBs1mVGc3NT
+						kvsDIVh6XrSYvLbKnrjrT1uo6uKHkysO84qTjRHseIV3PaJzBaTi2B64N8iA/jyH
+						6/dA/8vJOaTxiB3O4XQhN62U0nZNSfXMTum3sLZF6wD5gi1eePfyR5CnvQ/jbCi5
+						IUsr5tiSMqvURYWIEXYJX5Miwo1TKKpbIhMzadv1AgMBAAGjgfgwgfUwHQYDVR0O
+						BBYEFGXSweXQPGsE6axzqT9hUNWUICJIMIHFBgNVHSMEgb0wgbqAFGXSweXQPGsE
+						6axzqT9hUNWUICJIoYGWpIGTMIGQMQswCQYDVQQGEwJHQjEOMAwGA1UECBMFV2Fs
+						ZXMxEDAOBgNVBAcTB0NhcmRpZmYxGzAZBgNVBAoTEkNhcmRpZmYgVW5pdmVyc2l0
+						eTEdMBsGA1UECxMUSW5mb3JtYXRpb24gU2VydmljZXMxIzAhBgNVBAMTGnNpbXBs
+						ZXNhbWxwaHAtZGV2LmNmLmFjLnVrggkAzw3VPa7JuuAwDAYDVR0TBAUwAwEB/zAN
+						BgkqhkiG9w0BAQUFAAOCAQEAZUNyWIdLz0755cOkgT9EBY3Ruh2j/qbpbH/AEMjj
+						uPxk957HnYuuYCL2gj5aKiUtsA5Mmw5czlPt/CNZE1jOwwF/fA1F6VuG++tSsPdM
+						I9ZhPmiyffja5a03KbOQ1xaYaUZ89zMPtj1t8Tj9yIXKAohGeREmjxk5dSe5wGaf
+						wZSMYLUjTvi5cwQAiltDkcncTcvOp8befMv9PPQH/QzrSP0gRkQv2m4OngxI961X
+						M+FzpAGw1iu5mPjDNoTATmI8hxYMYVZXPEKnNW6/R3IBCzYFRhstvYlB/MBJ5fbu
+						keNhYHmJh+FyuRZvl5Hw13qk/uCV84N2XLReaA1EkItzmQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEnjCCA4agAwIBAgIJAM8N1T2uybrgMA0GCSqGSIb3DQEBBQUAMIGQMQswCQYD
+						VQQGEwJHQjEOMAwGA1UECBMFV2FsZXMxEDAOBgNVBAcTB0NhcmRpZmYxGzAZBgNV
+						BAoTEkNhcmRpZmYgVW5pdmVyc2l0eTEdMBsGA1UECxMUSW5mb3JtYXRpb24gU2Vy
+						dmljZXMxIzAhBgNVBAMTGnNpbXBsZXNhbWxwaHAtZGV2LmNmLmFjLnVrMB4XDTEw
+						MDkzMDEyMTQ1MloXDTIwMDkyNzEyMTQ1MlowgZAxCzAJBgNVBAYTAkdCMQ4wDAYD
+						VQQIEwVXYWxlczEQMA4GA1UEBxMHQ2FyZGlmZjEbMBkGA1UEChMSQ2FyZGlmZiBV
+						bml2ZXJzaXR5MR0wGwYDVQQLExRJbmZvcm1hdGlvbiBTZXJ2aWNlczEjMCEGA1UE
+						AxMac2ltcGxlc2FtbHBocC1kZXYuY2YuYWMudWswggEiMA0GCSqGSIb3DQEBAQUA
+						A4IBDwAwggEKAoIBAQC7FqickAesyb1d3o+3hGK42XWfcJTlzJmr1A6s2t8qUYxL
+						Th4VjR9QkKK8hO6d8i3nGx0klu/w820tT6nkB7zVrzUt/t7axKW/KsBIjIzXpwqG
+						Tc4xt+RiGZ5ChtPw7nl2ZdTX5caA2i8xKwNk2NWkOzpnlHoDGhGu5nBs1mVGc3NT
+						kvsDIVh6XrSYvLbKnrjrT1uo6uKHkysO84qTjRHseIV3PaJzBaTi2B64N8iA/jyH
+						6/dA/8vJOaTxiB3O4XQhN62U0nZNSfXMTum3sLZF6wD5gi1eePfyR5CnvQ/jbCi5
+						IUsr5tiSMqvURYWIEXYJX5Miwo1TKKpbIhMzadv1AgMBAAGjgfgwgfUwHQYDVR0O
+						BBYEFGXSweXQPGsE6axzqT9hUNWUICJIMIHFBgNVHSMEgb0wgbqAFGXSweXQPGsE
+						6axzqT9hUNWUICJIoYGWpIGTMIGQMQswCQYDVQQGEwJHQjEOMAwGA1UECBMFV2Fs
+						ZXMxEDAOBgNVBAcTB0NhcmRpZmYxGzAZBgNVBAoTEkNhcmRpZmYgVW5pdmVyc2l0
+						eTEdMBsGA1UECxMUSW5mb3JtYXRpb24gU2VydmljZXMxIzAhBgNVBAMTGnNpbXBs
+						ZXNhbWxwaHAtZGV2LmNmLmFjLnVrggkAzw3VPa7JuuAwDAYDVR0TBAUwAwEB/zAN
+						BgkqhkiG9w0BAQUFAAOCAQEAZUNyWIdLz0755cOkgT9EBY3Ruh2j/qbpbH/AEMjj
+						uPxk957HnYuuYCL2gj5aKiUtsA5Mmw5czlPt/CNZE1jOwwF/fA1F6VuG++tSsPdM
+						I9ZhPmiyffja5a03KbOQ1xaYaUZ89zMPtj1t8Tj9yIXKAohGeREmjxk5dSe5wGaf
+						wZSMYLUjTvi5cwQAiltDkcncTcvOp8befMv9PPQH/QzrSP0gRkQv2m4OngxI961X
+						M+FzpAGw1iu5mPjDNoTATmI8hxYMYVZXPEKnNW6/R3IBCzYFRhstvYlB/MBJ5fbu
+						keNhYHmJh+FyuRZvl5Hw13qk/uCV84N2XLReaA1EkItzmQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://simplesamlphp-dev.cf.ac.uk/simplesaml/saml2/idp/SingleLogoutService.php"/>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://simplesamlphp-dev.cf.ac.uk/simplesaml/saml2/idp/SSOService.php"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Cardiff University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Cardiff University (Test - Dev SSP)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://iam.cardiff.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Rhys</md:GivenName>
+      <md:SurName>Smith</md:SurName>
+      <md:EmailAddress>mailto:smith@cardiff.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Rhys</md:GivenName>
+      <md:SurName>Smith</md:SurName>
+      <md:EmailAddress>mailto:smith@cardiff.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,92 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.opensciencedatacloud.org/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-11-26T12:55:32Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Open Science Data Cloud Console</mdui:DisplayName>
+          <mdui:Description xml:lang="en">The OSDC provides cloud computing and storage services for the scientific research community.</mdui:Description>
+          <mdui:Logo height="35" width="205">https://www.opensciencedatacloud.org/misc/logo_sm.png</mdui:Logo>
+        </mdui:UIInfo>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://www.opensciencedatacloud.org/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://www.opensciencedatacloud.org/Shibboleth.sso/Login" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIFzjCCA7YCCQCicdy6qcU4XDANBgkqhkiG9w0BAQUFADCBoTELMAkGA1UEBhMC
+						VVMxCzAJBgNVBAgMAklMMRAwDgYDVQQHDAdDaGljYWdvMSAwHgYDVQQKDBdPcGVu
+						IFNjaWVuY2UgRGF0YSBDbG91ZDEqMCgGA1UECwwhTGFib3JhdG9yeSBmb3IgQWR2
+						YW5jZWQgQ29tcHV0aW5nMSUwIwYDVQQDDBxjYS5vcGVuc2NpZW5jZWRhdGFjbG91
+						ZC5vcmcgMB4XDTE0MDQxMDE5MTkzNFoXDTE3MDEwNDE5MTkzNFowga8xCzAJBgNV
+						BAYTAlVTMQswCQYDVQQIDAJJTDEQMA4GA1UEBwwHQ2hpY2FnbzEdMBsGA1UECgwU
+						T3BlblNjaWVuY2VEYXRhQ2xvdWQxDDAKBgNVBAsMA0xBQzElMCMGA1UEAwwcd3d3
+						Lm9wZW5zY2llbmNlZGF0YWNsb3VkLm9yZzEtMCsGCSqGSIb3DQEJARYeYWRtaW5A
+						b3BlbnNjaWVuY2VkYXRhY2xvdWQub3JnMIICIjANBgkqhkiG9w0BAQEFAAOCAg8A
+						MIICCgKCAgEAodVxMyIqjyYoqmT2ZknJSL8/DejA1HRYGZQGIwCh10mrE+s6Vf5x
+						3ydeoR7sjEnMHjxa3UFXeD8K/LRSKGZkIJJhXUiwNCBAWgg4T27WtiCvdLYYyrN4
+						hGmwvi9V2/ddhcRP92B8MNrK0RhpLhWWpZ7t5uakp0EZi5YUqvIBLdB9Fefg1zGw
+						FgcQvhQPMXxeCF6cU+VcKA+DWpQ8hO3TQHxdjtJAiZhb7WfufHMJp7Xtx3tYS+so
+						UFk0zSau/NBabk0bWmJ1D6ugjLC7HvjrNN2d6vU8I5Fob3fkNa1O3HruTavm1FpV
+						ktrQgdz8xK+HrkZmR+G3bxHXpo/jqoiuzb7Xq1z7Xiv/EXcMK78ym0+lLPYeCAXL
+						CKDpnZebgGkljd4tSyh1yRhCaQ4oa4S9T8hL0MVb3J+9Ofk8KfC0QJ0JXoNUZ+3m
+						ZbnI04ZopEWEB9XYFPOBSX9XSVWdOE1ABeeMuc8X/pIeXlVlNll02v10Yp8iA+Y8
+						YHaOe8aabFUJ40VaI32hDEBz9foCdwL7Xz60udKFRp1fVRiyCmFAOBkimwOAC8CL
+						0yCE8ruURYCLkC3jQkQDORK1syRB1zh84jQPpon17R5CJ5l0YsvV5L6RSK/Q61m5
+						omTO0pLrXkJj+w9+tppSEOHKKjRTpYO/KHqK9rW/Ew3OLSDGq49uIX0CAwEAATAN
+						BgkqhkiG9w0BAQUFAAOCAgEAtw/aDtRhxKp826bD1q3vGO3wQOcXCDzZu2ijHQAE
+						LYmLVGWinizo2sJEGTs0INwJ01M0Y/OQrnkNf9RQs+ouwRFU3VL5YHL9wVselo62
+						wLKlqI9k2QEFREbUWSGPg/6ktp+fQz/XY4FdPx+wJ0zWPOardNMs77jXWwlnkVfM
+						LQS3CTuYxlPITTF0eceARwptCscnYo8g7+wVXPa2f1pnqGh1DPjUchVCaHtW5Pz0
+						ZOyQUYYQu+WQ7/7MIlEqCherfDcXLJrF/Wv80Fe/Zo3dSNOc2FIQiKrrwsA4bQrI
+						BWVtMBT9IHIHaD7rsyps9IPJIQhUHILuGgRvWog/NBOFMuL9owCQmYIQG6vlSrLM
+						oH3AyJDUMwR5/RDfFjvqmFuyuoLsMjr7Fz+1XDuVToZ5uL+S/qK+zXBDF4w1Knt6
+						4Ytqy45dZIYVIJ8nP5GD3WljcPOu5bAHQIXH+zysDG1lKW1F0KnPOI1lh30uTdT9
+						NJJfXoMBlmLtdf/2ald3J32/SlaNax9POIZ5yQanYeKkOYxkiMUegYBdBLOIA+NP
+						LZFDCh2ujwE/5X6w7SExIhPDYLcYa6AzAY2OfFxuIhmGvA6upfaKXNtxZnMCaKMA
+						3KLFMdyPSUD5vEEOjLDTxHnldmawa+nG4PcJFLyC57kZz4znZwZXGB3NryX7v5JE
+						orI=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.opensciencedatacloud.org/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.opensciencedatacloud.org/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.opensciencedatacloud.org/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.opensciencedatacloud.org/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.opensciencedatacloud.org/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.opensciencedatacloud.org/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.opensciencedatacloud.org/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.opensciencedatacloud.org/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.opensciencedatacloud.org/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.opensciencedatacloud.org/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www.opensciencedatacloud.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.opensciencedatacloud.org/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://www.opensciencedatacloud.org/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.opensciencedatacloud.org/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.opensciencedatacloud.org/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="it">Open Science Data Cloud Console</md:ServiceName>
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:mace:dir:attribute-def:eduPersonPrincipalName" NameFormat="urn:mace:shibboleth:1.0:attributeNamespace:uri"/>
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Center for Computational Science Research, Inc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Open Science Data Cloud Console</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.opensciencedatacloud.org/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Support</md:GivenName>
+      <md:EmailAddress>mailto:support@opensciencedatacloud.org</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ray</md:GivenName>
+      <md:SurName>Powell</md:SurName>
+      <md:EmailAddress>mailto:rpowell1@uchicago.edu</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

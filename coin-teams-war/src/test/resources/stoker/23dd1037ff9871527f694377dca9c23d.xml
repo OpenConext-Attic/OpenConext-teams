@@ -1,0 +1,49 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://rattler.ncl.ac.uk/shibboleth/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDDzCCAfegAwIBAgIJAOUZCDYizdJCMA0GCSqGSIb3DQEBBQUAMCMxITAfBgNV
+						BAMTGHJhdHRsZXIuY2FtcHVzLm5jbC5hYy51azAeFw0xMjAzMjIwOTQzMTNaFw0y
+						MjAzMjAwOTQzMTNaMCMxITAfBgNVBAMTGHJhdHRsZXIuY2FtcHVzLm5jbC5hYy51
+						azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKk7sLkPCZ+ZH0rnHG50
+						ZqxB3OzlVzDy5CI3NEdhzT5b8CbwpyNMLby7CSudzT+0HgU3PcBIa9CYwiIdQPhr
+						6R14z4aMOWpqFRDvuCqr3vUyLD1gQsaIMli4IeIG4C0j+kXCk4HlLcA7daUCuY1H
+						t204b3OJyfdS35aMrwyuFsHpn5UX4lq09MCOrz2HFL0U+nZbH+pGYcHUAb8otTdq
+						RX+e47TyHLCZlELmF7dZJFh5HLknta7GFwkgTbWF2ZoUWAHKvUqCL2qiuOzw7udr
+						f5tiw/3073hy26Fj+E2Xcv5iDFqGCkNoVjcGxLErOsrRnSggxWMaoPiKDHh8SyV+
+						pOkCAwEAAaNGMEQwIwYDVR0RBBwwGoIYcmF0dGxlci5jYW1wdXMubmNsLmFjLnVr
+						MB0GA1UdDgQWBBT5VrE6UF/2Wf80XCLXjs4VpPoCaDANBgkqhkiG9w0BAQUFAAOC
+						AQEAlpC/KwQa2mV1/dLhF3zAsZsE85uTlUNHNzcu/5z02Ajns18d7yQc9TJ4bkjr
+						4IHuQ0XElrN3jlfrnHhqSknguFmcZ+WGat1yofqFYeOyrNRZUkGuw+9+IvOAYY3o
+						vrMWEzk7OIfHWagQ+2aPGqaDI2YslWsoBnmBQu0KxCtKblrEuQPUMSAFQKG+YO3p
+						/TqeUsDxCrUOOAd0aKoA3zSLuRXXsemPAn8qlBS++MPV+4bRvHrdfYZXasMCgfuI
+						EldvhX8jmxI1IqAqmLNrCFhiQApDiEkfwIzK9scVC48uaL1gDiaCjADwHqiwXewe
+						xpHusJCgb5q1qOeOjxAIl30B4g==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://rattler.ncl.ac.uk/Shibboleth.sso/SAML/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://rattler.ncl.ac.uk/Shibboleth.sso/SAML/Artifact" index="1"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Newcastle upon Tyne</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Newcastle University: Newcastle Library Server</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ncl.ac.uk/iss/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>IT service desk</md:GivenName>
+      <md:EmailAddress>mailto:it.servicedesk@ncl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Franks</md:SurName>
+      <md:EmailAddress>mailto:chris.franks@ncl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

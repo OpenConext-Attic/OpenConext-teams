@@ -1,34 +1,29 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="uk002329" entityID="https://idp.dante.net/idp/shibboleth">
-	
-	<Extensions>
-
-
-
-		<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-01-03T09:32:28Z">
-			<mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
-		</mdrpi:RegistrationInfo>
-
-	</Extensions>
-	<IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-		<Extensions>
-			<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">dante.net</shibmd:Scope>
-			<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-				<mdui:DisplayName xml:lang="en">DANTE</mdui:DisplayName>
-				<mdui:Description xml:lang="en">DANTE plans, procures, builds and operates large scale, advanced high speed networks for global research and education.</mdui:Description>
-				<mdui:Logo height="16" width="16">https://idp.dante.net/idp/images/16x16-DANTE.jpg</mdui:Logo>
-				<mdui:Logo height="60" width="80">https://idp.dante.net/idp/images/80x60-DANTE.jpg</mdui:Logo>
-			</mdui:UIInfo>
-			<mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-				<mdui:DomainHint>dante.net</mdui:DomainHint>
-				<mdui:IPHint>193.63.90.0/24</mdui:IPHint>
-				<mdui:IPHint>2001:630:280::/48</mdui:IPHint>
-				<mdui:GeolocationHint>geo:52.191818,0.133772</mdui:GeolocationHint>
-			</mdui:DiscoHints>
-		</Extensions>
-		<KeyDescriptor>
-			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-				<ds:X509Data>
-					<ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.dante.net/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-01-03T09:32:28Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">dante.net</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">DANTE</mdui:DisplayName>
+          <mdui:Description xml:lang="en">DANTE plans, procures, builds and operates large scale, advanced high speed networks for global research and education.</mdui:Description>
+          <mdui:Logo height="16" width="16">https://idp.dante.net/idp/images/16x16-DANTE.jpg</mdui:Logo>
+          <mdui:Logo height="60" width="80">https://idp.dante.net/idp/images/80x60-DANTE.jpg</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>dante.net</mdui:DomainHint>
+          <mdui:IPHint>193.63.90.0/24</mdui:IPHint>
+          <mdui:IPHint>2001:630:280::/48</mdui:IPHint>
+          <mdui:GeolocationHint>geo:52.191818,0.133772</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 						MIIDqjCCApICCQCOEbOuEI0OxzANBgkqhkiG9w0BAQUFADCBljELMAkGA1UEBhMC
 						R0IxFzAVBgNVBAgMDkNhbWJyaWRnZXNoaXJlMRIwEAYDVQQHDAlDYW1icmlkZ2Ux
 						QjBABgNVBAoMOURlbGl2ZXJ5IG9mIEFkdmFuY2VkIE5ldHdvcmsgVGVjaG5vbG9n
@@ -50,29 +45,29 @@
 						GmwKzvlHvpu3bwazqP56S2ea/AzbBt7s3fsCWTEdWTsCR44JQwvdalxFCvNlEOf6
 						Enuvw8UbosJkAsJVoee8FgQi1WZ/WcIkP0O1hCKz
 					</ds:X509Certificate>
-				</ds:X509Data>
-			</ds:KeyInfo>
-		</KeyDescriptor>
-		<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.dante.net:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-		<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.dante.net:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.dante.net/idp/profile/SAML2/Redirect/SLO"/>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.dante.net/idp/profile/SAML2/POST/SLO"/>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.dante.net:8443/idp/profile/SAML2/SOAP/SLO"/>
-		<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-		<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-		<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.dante.net/idp/profile/Shibboleth/SSO"/>
-		<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.dante.net/idp/profile/SAML2/POST/SSO"/>
-		<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.dante.net/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-		<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.dante.net/idp/profile/SAML2/Redirect/SSO"/>
-	</IDPSSODescriptor>
-	<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-		<Extensions>
-			<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">dante.net</shibmd:Scope>
-		</Extensions>
-		<KeyDescriptor>
-			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-				<ds:X509Data>
-					<ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.dante.net:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.dante.net:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.dante.net/idp/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.dante.net/idp/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.dante.net:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.dante.net/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.dante.net/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.dante.net/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.dante.net/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">dante.net</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 						MIIDqjCCApICCQCOEbOuEI0OxzANBgkqhkiG9w0BAQUFADCBljELMAkGA1UEBhMC
 						R0IxFzAVBgNVBAgMDkNhbWJyaWRnZXNoaXJlMRIwEAYDVQQHDAlDYW1icmlkZ2Ux
 						QjBABgNVBAoMOURlbGl2ZXJ5IG9mIEFkdmFuY2VkIE5ldHdvcmsgVGVjaG5vbG9n
@@ -94,26 +89,25 @@
 						GmwKzvlHvpu3bwazqP56S2ea/AzbBt7s3fsCWTEdWTsCR44JQwvdalxFCvNlEOf6
 						Enuvw8UbosJkAsJVoee8FgQi1WZ/WcIkP0O1hCKz
 					</ds:X509Certificate>
-				</ds:X509Data>
-			</ds:KeyInfo>
-		</KeyDescriptor>
-		<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.dante.net:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-		<AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.dante.net:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-		<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-		<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-	</AttributeAuthorityDescriptor>
-	<Organization>
-		<OrganizationName xml:lang="en">Delivery of Advanced Network Technology to Europe Limited</OrganizationName>
-		<OrganizationDisplayName xml:lang="en">DANTE</OrganizationDisplayName>
-		<OrganizationURL xml:lang="en">http://www.dante.net/</OrganizationURL>
-	</Organization>
-	<ContactPerson contactType="support">
-		<GivenName>DANTE Support</GivenName>
-		<EmailAddress>mailto:idp-support@dante.net</EmailAddress>
-	</ContactPerson>
-	<ContactPerson contactType="technical">
-		<GivenName>DANTE Support</GivenName>
-		<EmailAddress>mailto:idp-support@dante.net</EmailAddress>
-	</ContactPerson>
-
-</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.dante.net:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.dante.net:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Delivery of Advanced Network Technology to Europe Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">DANTE</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.dante.net/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>DANTE Support</md:GivenName>
+      <md:EmailAddress>mailto:idp-support@dante.net</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>DANTE Support</md:GivenName>
+      <md:EmailAddress>mailto:idp-support@dante.net</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

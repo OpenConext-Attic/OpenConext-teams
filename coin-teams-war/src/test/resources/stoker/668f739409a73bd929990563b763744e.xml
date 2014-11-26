@@ -1,0 +1,86 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.netskills.ac.uk/federation/entity/metadata">
+    <md:Extensions>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-12-04T12:04:06Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">JISC Netskills</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Access to Netskills' online services, including Training Materials</mdui:Description>
+          <mdui:Logo height="350" width="117">https://www.netskills.ac.uk/site/img/logos/netskills_logo_ukfederation_sp.png</mdui:Logo>
+        </mdui:UIInfo>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://www.netskills.ac.uk/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://www.netskills.ac.uk/Shibboleth.sso/Login" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEETCCAvmgAwIBAgIJAM6qyiQwbaCDMA0GCSqGSIb3DQEBBQUAMIGeMQswCQYD
+						VQQGEwJ1azEQMA4GA1UECAwHRW5nbGFuZDEcMBoGA1UEBwwTTmV3Y2FzdGxlLXVw
+						b24tVHluZTEXMBUGA1UECgwOSmlzYyBOZXRza2lsbHMxHDAaBgNVBAMME3d3dy5u
+						ZXRza2lsbHMuYWMudWsxKDAmBgkqhkiG9w0BCQEWGWVucXVpcmllc0BuZXRza2ls
+						bHMuYWMudWswHhcNMTQwNzEwMTMyMjQ2WhcNMjkwNzExMTMyMjQ2WjCBnjELMAkG
+						A1UEBhMCdWsxEDAOBgNVBAgMB0VuZ2xhbmQxHDAaBgNVBAcME05ld2Nhc3RsZS11
+						cG9uLVR5bmUxFzAVBgNVBAoMDkppc2MgTmV0c2tpbGxzMRwwGgYDVQQDDBN3d3cu
+						bmV0c2tpbGxzLmFjLnVrMSgwJgYJKoZIhvcNAQkBFhllbnF1aXJpZXNAbmV0c2tp
+						bGxzLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyZaqJhi1
+						ugJIwnxDn5IVzLcUU1gAHOFhNPpgIRACOj70q8QdqmppTXrLPUGLqKvFJ/mXsLEr
+						Atov4TlRTSQad38Pzs03eTF5p6gZRTgQ+K6ci/pZfwzRlpSxWWbkL+N6FwkhDaQh
+						J5VUNSpwe2ed2QxP2MJacnIwhVGBmxY5j/8h42nuvIArIwD4U+GPoKQeNP6/N4r/
+						4XbLObEMImxmpwFmz46YfgU2KFVaHXnVJfjbpHJcqXRlCTdGXxYOaP7BESR9bB6V
+						1grmHxlT2FWi2kuMC5nqVnzrefeBVTHbhdVJJT85+T/Fek/lCaVpxTsTsX+v6PrB
+						vQRgSPPGGJ0mVwIDAQABo1AwTjAdBgNVHQ4EFgQUeFym3f+6vLTensL0plcxoQwO
+						m9QwHwYDVR0jBBgwFoAUeFym3f+6vLTensL0plcxoQwOm9QwDAYDVR0TBAUwAwEB
+						/zANBgkqhkiG9w0BAQUFAAOCAQEAKcbhSaIKdbMCSMMEN5aJkYd5SoAbG+J0YOMa
+						zpqRaCKcNHUweQOBUgSP81erpoJy0bQDwlH4Y+A8++rwfhxMWjMudekg0juFVBpE
+						2Rrb1qdT1PXMtqPJX63x7priJzgU2DSzKX3hBcofH2JN8RZgv2U6PwaOd4gN9oEx
+						+eEnfVZrzKsCHDTyXsoEWFfudlbfEkIfVvrFNQwv15XOP8scUup3PD5vS2Wtf6G3
+						KmZhGEF6yC7y8XZhJVHOqxSQ9CbUsSdeLj7Xu+xhYt5f2eVDdfdC0bUdXXI13Kkw
+						30lR//cSj5KMfcymqjFtNZXyn8OLT6OD9vskw9CsvHg6sHhw5A==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.netskills.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.netskills.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www.netskills.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.netskills.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://www.netskills.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.netskills.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.netskills.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Newcastle upon Tyne</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Newcastle University: Netskills</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.netskills.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Netskills</md:GivenName>
+      <md:EmailAddress>mailto:enquiries@netskills.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Carl</md:GivenName>
+      <md:SurName>Vincent</md:SurName>
+      <md:EmailAddress>mailto:carl.vincent@netskills.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,106 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.abcolstudents.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">abcol.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEazCCA1OgAwIBAgIQWFCsR4118wFHf6QomFJIKzANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEzMDcwMjAwMDAwMFoXDTE2MDcwMTIzNTk1OVowPTEhMB8GA1UE
+						CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRgwFgYDVQQDEw9pZHAuYWJjb2wu
+						YWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCjzjy7IGELdcJY
+						q1+i2nNp8OsBRrVmdLhjRqZlJZ3f1cDOe8yDar0n42y60QPG3jgtsH6FI3B4Lzm6
+						tDNX/v29iFoiyfMQYdYCF7DwAyQFCycwHwEbTcXEdf8Y6IX3jUDqSeP3hgR1+YaQ
+						EeOIJjjSpPzSuL2Ul0zxjmrHJnmBZUEKJz3Ehdtk+cW3LcflKtUhVF72VoaG1z2r
+						J/cNZm2zPe+BIFoy8/M0vgIB4JVHIJQYeSI4Vadd3McgHTM50jbXIRSvcYqfXy9r
+						KNdepJeE6ilKk4xzrN9aBpzBniSJAv1Y6UAoAMMTIaKy2lWi1+RmU4fkX9FK/36p
+						2dSDOx/zAgMBAAGjggFsMIIBaDAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fq
+						kOO57TAdBgNVHQ4EFgQUI0fnT1n1QGoAHbsRLic/ix/ZO90wDgYDVR0PAQH/BAQD
+						AgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMC
+						MCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQIBMDoGA1UdHwQzMDEw
+						L6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3Js
+						MG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2NydC50Y3MudGVy
+						ZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6Ly9vY3Nw
+						LnRjcy50ZXJlbmEub3JnMBoGA1UdEQQTMBGCD2lkcC5hYmNvbC5hYy51azANBgkq
+						hkiG9w0BAQUFAAOCAQEASrIrG4gq7T0pClccyhnLQPKv8VN78Cs34XPtTOVMRPJ9
+						NMKboL9GLcAJtqBJxfhfehN5IKrSHkjiW9R7b54YbISWT8EXeo3kVq/HpG81oBs/
+						VFJJRgeUUgDx3FaaZvUpArHhcE85b1TQ0THzFfDlla6D5NW9B1rzZnNTA4eosyLT
+						zdwMoCo1HOMHTZjuH7I+gHT9yIAVR6Ta8WuqiuMp6EPNOPa/Hn6o+XnW+QemAn1b
+						TLOnwbPjz3Oj+2iU+qJxX8H1l8Zm0eqdX9jwUEXvY+MQTN7t/l75dboWxoJEgFc2
+						AEc9TSZC/52ZK8pdi8uPrmoni5mnqRFdF8VH/seegw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.abcol.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.abcol.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.abcol.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.abcol.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.abcol.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.abcol.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">abcol.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEazCCA1OgAwIBAgIQWFCsR4118wFHf6QomFJIKzANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEzMDcwMjAwMDAwMFoXDTE2MDcwMTIzNTk1OVowPTEhMB8GA1UE
+						CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRgwFgYDVQQDEw9pZHAuYWJjb2wu
+						YWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCjzjy7IGELdcJY
+						q1+i2nNp8OsBRrVmdLhjRqZlJZ3f1cDOe8yDar0n42y60QPG3jgtsH6FI3B4Lzm6
+						tDNX/v29iFoiyfMQYdYCF7DwAyQFCycwHwEbTcXEdf8Y6IX3jUDqSeP3hgR1+YaQ
+						EeOIJjjSpPzSuL2Ul0zxjmrHJnmBZUEKJz3Ehdtk+cW3LcflKtUhVF72VoaG1z2r
+						J/cNZm2zPe+BIFoy8/M0vgIB4JVHIJQYeSI4Vadd3McgHTM50jbXIRSvcYqfXy9r
+						KNdepJeE6ilKk4xzrN9aBpzBniSJAv1Y6UAoAMMTIaKy2lWi1+RmU4fkX9FK/36p
+						2dSDOx/zAgMBAAGjggFsMIIBaDAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fq
+						kOO57TAdBgNVHQ4EFgQUI0fnT1n1QGoAHbsRLic/ix/ZO90wDgYDVR0PAQH/BAQD
+						AgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMC
+						MCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQIBMDoGA1UdHwQzMDEw
+						L6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3Js
+						MG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2NydC50Y3MudGVy
+						ZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6Ly9vY3Nw
+						LnRjcy50ZXJlbmEub3JnMBoGA1UdEQQTMBGCD2lkcC5hYmNvbC5hYy51azANBgkq
+						hkiG9w0BAQUFAAOCAQEASrIrG4gq7T0pClccyhnLQPKv8VN78Cs34XPtTOVMRPJ9
+						NMKboL9GLcAJtqBJxfhfehN5IKrSHkjiW9R7b54YbISWT8EXeo3kVq/HpG81oBs/
+						VFJJRgeUUgDx3FaaZvUpArHhcE85b1TQ0THzFfDlla6D5NW9B1rzZnNTA4eosyLT
+						zdwMoCo1HOMHTZjuH7I+gHT9yIAVR6Ta8WuqiuMp6EPNOPa/Hn6o+XnW+QemAn1b
+						TLOnwbPjz3Oj+2iU+qJxX8H1l8Zm0eqdX9jwUEXvY+MQTN7t/l75dboWxoJEgFc2
+						AEc9TSZC/52ZK8pdi8uPrmoni5mnqRFdF8VH/seegw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.abcol.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.abcol.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">North East Scotland College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">North East Scotland College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.abcol.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Martin</md:GivenName>
+      <md:SurName>Sherrit</md:SurName>
+      <md:EmailAddress>mailto:m.sherrit@nescol.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Martin</md:GivenName>
+      <md:SurName>Sherrit</md:SurName>
+      <md:EmailAddress>mailto:m.sherrit@nescol.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

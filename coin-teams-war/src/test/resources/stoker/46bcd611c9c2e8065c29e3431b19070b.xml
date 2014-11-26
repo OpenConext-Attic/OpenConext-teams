@@ -1,0 +1,94 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="http://shibboleth.ebscohost.com">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://shibboleth.ebscohost.com/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://shibboleth.ebscohost.com/Shibboleth.sso/Login" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIFizCCBHOgAwIBAgIQAUMqMY4GGE7RyypkxwmWTzANBgkqhkiG9w0BAQsFADCB
+						vDELMAkGA1UEBhMCVVMxFzAVBgNVBAoTDlZlcmlTaWduLCBJbmMuMR8wHQYDVQQL
+						ExZWZXJpU2lnbiBUcnVzdCBOZXR3b3JrMTswOQYDVQQLEzJUZXJtcyBvZiB1c2Ug
+						YXQgaHR0cHM6Ly93d3cudmVyaXNpZ24uY29tL3JwYSAoYykxMDE2MDQGA1UEAxMt
+						VmVyaVNpZ24gQ2xhc3MgMyBJbnRlcm5hdGlvbmFsIFNlcnZlciBDQSAtIEczMB4X
+						DTEzMDMyNzAwMDAwMFoXDTE2MDMyNjIzNTk1OVowgaoxCzAJBgNVBAYTAlVTMRYw
+						FAYDVQQIEw1NYXNzYWNodXNldHRzMRAwDgYDVQQHFAdJcHN3aWNoMRkwFwYDVQQK
+						FBBFQlNDTyBQdWJsaXNoaW5nMTMwMQYDVQQLFCpUZXJtcyBvZiB1c2UgYXQgd3d3
+						LnZlcmlzaWduLmNvbS9ycGEgKGMpMDUxITAfBgNVBAMUGHNoaWJib2xldGguZWJz
+						Y29ob3N0LmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKUKHWUi
+						hEa2qeQcooFqXBl/+AwmtcvIMdNroFBD2a8Z0r0HFYYxfsisIWxnJkfwkzYpuz/X
+						jOy5kBHRDoFmdpPcEf65fLfdrhsUJ/oHnZ5mf3XNVZA3mrabZzWUI7WPTpR2SMB/
+						1mgFthIZ/+4KSqAScC8OKbb7pkg6McxDw+c20RplQIwlayVezCn1DD3ynNYlXz26
+						kqNMLhWwT4AGkEHD8H4w5QDbhYaAW7bo36syiOnU+FhGHzTCbjYCM+ZeolY56rjj
+						UctR2S9HZQyXqeHQ/ksMW7PKgsuhsfuUqYmI+rvxoVe1jkquhCGYODQVnWJyiiFS
+						qat+jjZyPeVHiRkCAwEAAaOCAZcwggGTMCMGA1UdEQQcMBqCGHNoaWJib2xldGgu
+						ZWJzY29ob3N0LmNvbTAJBgNVHRMEAjAAMA4GA1UdDwEB/wQEAwIFoDBDBgNVHSAE
+						PDA6MDgGCmCGSAGG+EUBBzYwKjAoBggrBgEFBQcCARYcaHR0cHM6Ly93d3cudmVy
+						aXNpZ24uY29tL2NwczBBBgNVHR8EOjA4MDagNKAyhjBodHRwOi8vU1ZSSW50bC1H
+						My1jcmwudmVyaXNpZ24uY29tL1NWUkludGxHMy5jcmwwNAYDVR0lBC0wKwYIKwYB
+						BQUHAwEGCCsGAQUFBwMCBglghkgBhvhCBAEGCisGAQQBgjcKAwMwHwYDVR0jBBgw
+						FoAU15t82CKgFffdrV/OKZtYw7xGALUwcgYIKwYBBQUHAQEEZjBkMCQGCCsGAQUF
+						BzABhhhodHRwOi8vb2NzcC52ZXJpc2lnbi5jb20wPAYIKwYBBQUHMAKGMGh0dHA6
+						Ly9TVlJJbnRsLUczLWFpYS52ZXJpc2lnbi5jb20vU1ZSSW50bEczLmNlcjANBgkq
+						hkiG9w0BAQsFAAOCAQEAZDAVJq/8qorA7GxHW+6rcjxUsjjlrPFIsE+xWWlrLepn
+						GmSTrw9udap0Iq0kO+42bCd0aMvhRlTOZKW5+ra89vKoaH16hrpnYZMIxpwzre7X
+						zxhkNnw1Mx1dE8Cmol47V8dPBTr8/U8HiJmH4YFCoQX+zMsdC40AcyhPIxgyo1ra
+						Gki40IQJ/zFXkLpUO87nAYQy6WVJNFbtPB0ZWEhmaPWsmF51Dybw0HK0/2KkXLP9
+						aefnD8KF5bcPuu2spKwU4CfbZdSPo0n6AiDTxucbJt/OMS5Uh50ZRiE8Oc8v1tt+
+						8z47khf6dA5tT/OCeVEwt2z0O8VgNTQ4gcF2jbuK/A==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDDzCCAfegAwIBAgIJAMyOzC7Vc+89MA0GCSqGSIb3DQEBBQUAMCMxITAfBgNV
+						BAMTGHNoaWJib2xldGguZWJzY29ob3N0LmNvbTAeFw0xNDA0MjQxMzE4MTFaFw0y
+						NDA0MjExMzE4MTFaMCMxITAfBgNVBAMTGHNoaWJib2xldGguZWJzY29ob3N0LmNv
+						bTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKtMod/aT8Q+Jc1qRTOh
+						ijxgxCZRkg+BRBkokvsaeVfq4LSMRxaqh2CMK7WOmFOkM4vQinV3LIKmu9oQ5ObW
+						SOXTeNpfIko03lQTIf20smhS83dPCsROz3np5KtrTwTmMkIHdSOasczD9yVJkrvZ
+						ClKrYHnvzY76iWzlI3NP6GIdlCEk9hIYG2Otxiyg1ct7cXHhqOPZwA3lKTFZDoH5
+						DeqU70gNZ/L39QmPTb/WOj06/+96pyzWTO0Ij7hw/Z2Bg3o+X96dmQ9h5QxFfkcR
+						3nsGOvoeQfT0o4cWLehX8NYTGoBil8N1E7XVbxbJoB7G6dCGnKUk7z13VjC8Zqkm
+						EI0CAwEAAaNGMEQwIwYDVR0RBBwwGoIYc2hpYmJvbGV0aC5lYnNjb2hvc3QuY29t
+						MB0GA1UdDgQWBBQMMZ62QB2/b4UMhukiOjiYXAJw7TANBgkqhkiG9w0BAQUFAAOC
+						AQEANelL29dtzQAUTGXzBDFuE5gR7paWe5KmCSoRmyHLP1gu6dqW6GO1NSHuXcZi
+						Ls2Owljlh0YDUaIEItrE/vD/ZSezpHzjkzyH+OHwmkyAImJDwcapY0XoQ4soBMa5
+						Oge0TZw8Cu4zEDbxgr4ksddHQNpPoqZGsFB4yctpm68wEO65F235UHzKNULOD2Ho
+						xq2Z8ufFFZpmY2EJDQy/ILLbkUvgglfy4P1gTNCHfbDFSV+DSXJ3xxgKDoOnn9ha
+						mFeekTOCi/QauZiSNwywKFssG1xmQ/0F0hVkHSu4TnycZ+ebE6tng3fux7JIrWiX
+						GU/FKl6h+yb9xow2u6V8+fkKEQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.ebscohost.com/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shibboleth.ebscohost.com/Shibboleth.sso/SAML/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://shibboleth.ebscohost.com/Shibboleth.sso/SAML/Artifact" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.ebscohost.com/Shibboleth.sso/SAML2/POST" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.ebscohost.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibboleth.ebscohost.com/Shibboleth.sso/SAML2/Artifact" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://shibboleth.ebscohost.com/Shibboleth.sso/SAML2/ECP" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">EBSCO Publishing, Inc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">EBSCO Publishing, Inc</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ebsco.com/home/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>EBSCO Customer Satisfaction</md:GivenName>
+      <md:EmailAddress>mailto:shib-tech@ebscohost.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>EBSCO Shibboleth Tech</md:GivenName>
+      <md:EmailAddress>mailto:shib-tech@ebscohost.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
