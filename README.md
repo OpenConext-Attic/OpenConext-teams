@@ -50,6 +50,21 @@ To run on tomcat platform:
 by [Stoker](https://github.com/OpenConext/OpenConext-Stoker)
 5. Set the property ```teams.groupzy.stoker.folder``` in ```coin-teams.properties``` to the folder
     in which the index file is placed from [Stoker](https://github.com/OpenConext/OpenConext-Stoker)
+6. Ensure database for for group acl exists (this is the same database as described in the readme of API).
+    Otherwise create the database. Migrations will run at startup.
+
+        mysql -uroot
+        CREATE DATABASE group_provider_acl_db DEFAULT CHARACTER SET utf8
+        create user 'selfregistration'@'localhost' identified by '[PASSWORD]'
+        grant all on group_provider_acl_db.* to 'selfregistration'@'localhost';
+
+6. Ensure the following properties coin-teams.properties are set with the correct values:
+
+        teams.groupzy.jdbc.driver=com.mysql.jdbc.Driver
+        teams.groupzy.jdbc.url=jdbc:mysql://localhost/group_provider_acl_db
+        teams.groupzy.jdbc.user=selfregistration
+        teams.groupzy.jdbc.password={DB_PASSWORD}
+
 6. Reboot tomcat
 
 
