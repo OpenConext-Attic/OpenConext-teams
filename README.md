@@ -49,7 +49,8 @@ To run on tomcat platform:
 4. Set the property ```teams.groupzy.stoker.file``` in ```coin-teams.properties``` to the location of the index file produced
 by [Stoker](https://github.com/OpenConext/OpenConext-Stoker)
 5. Set the property ```teams.groupzy.stoker.folder``` in ```coin-teams.properties``` to the folder
-    in which the index file is placed from [Stoker](https://github.com/OpenConext/OpenConext-Stoker)
+    in which the index file is placed from [Stoker](https://github.com/OpenConext/OpenConext-Stoker). Make sure this
+    end with a '/'.
 6. Ensure database for for group acl exists (this is the same database as described in the readme of API).
     Otherwise create the database. Migrations will run at startup.
 
