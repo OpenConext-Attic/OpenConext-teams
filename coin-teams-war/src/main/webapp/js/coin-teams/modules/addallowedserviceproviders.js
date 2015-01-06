@@ -60,6 +60,15 @@ COIN.MODULES.AddAllowedServiceProviders = function(sandbox) {
         $(this).parents("li").remove();
       });
 
+      $(document).on("click", 'input[name=cancel-add-sp]', function(e) {
+        e.preventDefault();
+        var team = $('input[name=team]').val();
+        var view = $('input[name=view]').val();
+        window.location.href = '../../detailteam.shtml?team=' + encodeURIComponent(team) + '&view=' + encodeURIComponent(view);
+
+      });
+
+
     },
 
     destroy: function() {

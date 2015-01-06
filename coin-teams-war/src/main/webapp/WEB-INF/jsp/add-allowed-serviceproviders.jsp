@@ -36,6 +36,7 @@
       <div class="team-container" id="selected-service-providers-container">
         <form action="<c:url value='/teams/${teamId}/service-providers.shtml'/>" method="post">
           <input type="hidden" name="view" value="<c:out value="${view}"/>">
+          <input type="hidden" name="team" value="<c:out value="${teamId}"/>">
           <ul id="selected-service-providers">
             <teams:serviceProvider cssClass="hidden-service-provider"/>
 
@@ -44,6 +45,7 @@
             </c:forEach>
           </ul>
           <input class="button" type="submit" value="<spring:message code='jsp.addallowedserviceproviders.add'/>">
+          <input class="button" type="submit" name="cancel-add-sp" value="<spring:message code='jsp.general.Cancel' />" />
         </form>
 
       </div>
