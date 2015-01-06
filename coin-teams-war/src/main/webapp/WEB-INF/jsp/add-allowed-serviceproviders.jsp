@@ -20,9 +20,14 @@
   --%>
 <c:set var="pageTitle"><spring:message code='jsp.addallowedserviceproviders.Title'/></c:set>
 <teams:genericpage pageTitle="${pageTitle}">
-  <div class="section" id="TeamContainer">
+  <div class="section add-allowed-sps" id="TeamContainer">
     <div id="Header">
-      <h1>${pageTitle}</h1>
+      <div class="team-container">
+        <h1>${pageTitle}</h1>
+      </div>
+      <div class="team-container">
+        <h1><spring:message code='jsp.addallowedserviceproviders.teamswithaccess'/></h1>
+      </div>
     </div>
     <div id="Content" class="teams-content">
       <div class="team-container" id="search-service-providers-container" data-url="<c:url value='/service-providers.json'/>">
