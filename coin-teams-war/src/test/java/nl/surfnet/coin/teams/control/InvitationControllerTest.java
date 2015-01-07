@@ -160,7 +160,7 @@ public class InvitationControllerTest extends AbstractControllerTest {
     assertEquals(redirectUrl, view.getUrl());
   }
 
-  @Test(expected=RuntimeException.class)
+  @Test(expected = RuntimeException.class)
   public void testCannotDeleteWhenNoAdminPrivileges() throws Exception {
 
     when(controllerUtil.hasUserAdministrativePrivileges(getPersonFromSession(), invitation.getTeamId())).thenReturn(false);
@@ -176,7 +176,6 @@ public class InvitationControllerTest extends AbstractControllerTest {
     @SuppressWarnings("unchecked") List<Invitation> myInvitations = (List<Invitation>) getModelMap().get("invitations");
     assertEquals(1, myInvitations.size());
   }
-
 
 
   private Person getPersonFromSession() {
