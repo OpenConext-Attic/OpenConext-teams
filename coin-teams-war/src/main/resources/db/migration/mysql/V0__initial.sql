@@ -19,10 +19,9 @@
 -- Table structure for table `external_groups`
 --
 
-DROP TABLE IF EXISTS `external_groups`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `external_groups` (
+CREATE TABLE IF NOT EXISTS `external_groups` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `description` longtext,
   `group_provider` varchar(255) DEFAULT NULL,
@@ -36,10 +35,9 @@ CREATE TABLE `external_groups` (
 -- Table structure for table `invitation_message`
 --
 
-DROP TABLE IF EXISTS `invitation_message`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `invitation_message` (
+CREATE TABLE IF NOT EXISTS `invitation_message` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `inviter` varchar(255) DEFAULT NULL,
   `message` longtext,
@@ -53,10 +51,9 @@ CREATE TABLE `invitation_message` (
 -- Table structure for table `invitations`
 --
 
-DROP TABLE IF EXISTS `invitations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `invitations` (
+CREATE TABLE IF NOT EXISTS `invitations` (
   `mailaddress` varchar(255) NOT NULL,
   `group_id` varchar(255) NOT NULL,
   `timestamp` bigint(20) NOT NULL,
@@ -74,10 +71,9 @@ CREATE TABLE `invitations` (
 -- Table structure for table `member_attributes`
 --
 
-DROP TABLE IF EXISTS `member_attributes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `member_attributes` (
+CREATE TABLE IF NOT EXISTS `member_attributes` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `attribute_name` varchar(255) NOT NULL,
   `attribute_value` varchar(255) DEFAULT NULL,
@@ -91,10 +87,9 @@ CREATE TABLE `member_attributes` (
 -- Table structure for table `requests`
 --
 
-DROP TABLE IF EXISTS `requests`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `requests` (
+CREATE TABLE IF NOT EXISTS `requests` (
   `uuid` varchar(255) NOT NULL,
   `group_id` varchar(255) NOT NULL,
   `timestamp` bigint(20) NOT NULL,
@@ -109,10 +104,9 @@ CREATE TABLE `requests` (
 -- Table structure for table `subject`
 --
 
-DROP TABLE IF EXISTS `subject`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `subject` (
+CREATE TABLE IF NOT EXISTS `subject` (
   `subjectId` varchar(255) NOT NULL,
   `subjectTypeId` varchar(32) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
@@ -124,10 +118,9 @@ CREATE TABLE `subject` (
 -- Table structure for table `subjectattribute`
 --
 
-DROP TABLE IF EXISTS `subjectattribute`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `subjectattribute` (
+CREATE TABLE IF NOT EXISTS `subjectattribute` (
   `subjectId` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `value` varchar(255) NOT NULL,
@@ -143,10 +136,9 @@ CREATE TABLE `subjectattribute` (
 -- Table structure for table `team_external_groups`
 --
 
-DROP TABLE IF EXISTS `team_external_groups`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `team_external_groups` (
+CREATE TABLE IF NOT EXISTS `team_external_groups` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `grouper_team_id` varchar(255) DEFAULT NULL,
   `external_groups_id` bigint(20) DEFAULT NULL,
