@@ -108,7 +108,7 @@
   <script type="text/javascript" src="<c:url value="/js/lib/jquery.validate.min.js"/>"></script>
   <script type="text/javascript" src="<c:url value="/js/lib/jquery-ui.1.11.1.min.js"/>"></script>
   <script type="text/javascript" src="<c:url value="/js/lib/typeahead.0.10.5.js"/>"></script>
-  <script type="text/javascript" src="<c:url value="/js/coin-teams.js?v=20131111"/>"></script>
+  <script type="text/javascript" src="<c:url value="/js/coin-teams.js?v=20150223"/>"></script>
   <%--
     We need the view parameter in the search result, which is now Ajax, we use this JavaScipt variable for it
    --%>
