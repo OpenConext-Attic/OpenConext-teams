@@ -124,6 +124,12 @@
             <version>1.9.2</version>
           </dependency>
         </dependencies>
+        <configuration>
+          <tagNameFormat>v@{project.version}</tagNameFormat>
+          <autoVersionSubmodules>true</autoVersionSubmodules>
+          <pushChanges>false</pushChanges> <!--Release Plugin don't push to remote-->
+          <localCheckout>true</localCheckout> <!--Release Plugin clone from local repo-->
+        </configuration>
       </plugin>
     </plugins>
   </build>
