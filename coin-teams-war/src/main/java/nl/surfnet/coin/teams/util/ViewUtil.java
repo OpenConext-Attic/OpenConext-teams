@@ -50,6 +50,10 @@ public final class ViewUtil {
   public static String getView(HttpServletRequest request) {
     String view = request.getParameter(VIEW);
 
+    return getView(view);
+  }
+
+  public static String getView(String view) {
     if (!"gadget".equals(view)) {
       view = "app";
     }

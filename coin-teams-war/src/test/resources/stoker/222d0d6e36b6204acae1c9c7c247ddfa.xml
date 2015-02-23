@@ -1,0 +1,77 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.ensai.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-11-18T16:49:18Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ensai.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">ENSAI - Ecole Nationale Statistique Analyse de l'Information</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDGzCCAgOgAwIBAgIUBcH+nan7a+sFhj5CUOXlWAboLgAwDQYJKoZIhvcNAQEF
+BQAwFzEVMBMGA1UEAxMMaWRwLmVuc2FpLmZyMB4XDTExMTExNjEwMDc0M1oXDTMx
+MTExNjEwMDc0M1owFzEVMBMGA1UEAxMMaWRwLmVuc2FpLmZyMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjFY36uWwrcZiSD/8ZApHmMQ+SEkM+LD2bzJc
+6ydkDt2kbwWD7yj91jKyIcgiPa+npM8yPSUObi5teu1dY9v/xXb3tBfMbrHauNqD
+EDIcYlUBOmmv0hwDeMAPlguEGBf/Ebw8QQf6ndC//6jZh4Lsk/DUmLpko4rGMEd7
+vh7knLGbVRO+1ApqBUzL5qsdpI/xL/aevT02hlDDtjBvSmg7QRe/33T/8UPB63w1
+yef4g8Pe+u2y0SaP1LbHok4yuRDZtAF/lFjx4e8F561gTtvPYAsOWFnMyVo4FIvH
+TvE+wO8y8SSz9LqkU1Yohwez+FCXWoQuE9eYrJR3p53Q7gpcLwIDAQABo18wXTA8
+BgNVHREENTAzggxpZHAuZW5zYWkuZnKGI2h0dHBzOi8vaWRwLmVuc2FpLmZyL2lk
+cC9zaGliYm9sZXRoMB0GA1UdDgQWBBRK4qgy029V/NzztuGy/V9sjOs1+DANBgkq
+hkiG9w0BAQUFAAOCAQEADpOdVAvfnmUypEQYqmevrRFL+06paiEiMUUbS/+pRlvq
+JoaWPqvM2BASwe4WlL3sNgLBwRjybMMgTcGOAFlfLGmYG1JvDjJ5EXPV5CUnKMxs
+B4eJf9U+c24UGeDezM+BE4A3EarzD7k3X7KBO28w4LtNocZgxQ1bIwAnbjJxPL9K
+4+qYNbni8ry6QGE5U7x7VwmAC1IgPbxnSF3Xzao8COx/20E9jvhpdkpLBlgXAWxg
+Ku0oBaOhZYXD5qoSkqQiWBn5DWsGQq5W/1USeHBmmtRHJ7zPGZ0JP9PQ5lzliwMJ
+xBqVx8zWoO5ejvsjqLMYbxXbqd/IdBVG97DCLWYSxA==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ensai.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ensai.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ensai.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">ENSAI - Ecole Nationale Statistique Analyse de l'Information</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">ENSAI - Ecole Nationale Statistique Analyse de l'Information</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>dsi@ensai.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

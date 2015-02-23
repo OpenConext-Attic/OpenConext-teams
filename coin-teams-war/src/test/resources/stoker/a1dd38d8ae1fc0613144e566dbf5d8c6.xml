@@ -1,0 +1,67 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.dit.ie/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.heanet.ie" registrationInstant="2010-10-07T00:00:00Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">dit.ie</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Dublin Institute of Technology</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="ga">Institiúid Teicneolaíochta Bhaile Atha Cliath</mdui:DisplayName>
+          <mdui:Logo height="124" width="124">https://edugate.heanet.ie/rr3/logos/dit.png</mdui:Logo>
+          <mdui:InformationURL xml:lang="en">http://www.dit.ie</mdui:InformationURL>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:GeolocationHint>geo:53.3386922370051,-6.266900897026062</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDFDCCAfygAwIBAgIVAJ7TJcMtAwNtz/8vec1TyPtNeUveMA0GCSqGSIb3DQEB
+BQUAMBUxEzARBgNVBAMTCmlkcC5kaXQuaWUwHhcNMTAwNjIyMTExNTAwWhcNMzAw
+NjIyMTExNTAwWjAVMRMwEQYDVQQDEwppZHAuZGl0LmllMIIBIjANBgkqhkiG9w0B
+AQEFAAOCAQ8AMIIBCgKCAQEAs8xgb2mE8WJaUYR0fVcH8dEAS7f7bGWpyzrT+SPa
+v5egAD27fcuhUP+QFILf6plDW6YqXBcbymxHE1yPExVYO84v8lfpULEMbii1wRg+
+z/ywHqZ1Bio+aq8OrcCdjrlR84n3fpR/6aaVr21JbwVPR6+sCuc4+q3opXzaGGFa
+LvTT3hcl5C/cGiJQra81rlv9Q1dWwZh6xvmR5wrqzxkKiyJ8mr1KjuePyJV3BOJJ
+zeaki3SYdkB+xM8gO6P19lXkvsVYnkUWVR79E61mFReUWPzr9Bjub0A/aE2Pwzuq
+ZWPedEsVR4NfTZANVhewKCNFDadRDbRFDDRW9W2Lc2v3rwIDAQABo1swWTA4BgNV
+HREEMTAvggppZHAuZGl0LmllhiFodHRwczovL2lkcC5kaXQuaWUvaWRwL3NoaWJi
+b2xldGgwHQYDVR0OBBYEFF6EGb7A7x+2xLW/hEJHpulkdzkYMA0GCSqGSIb3DQEB
+BQUAA4IBAQA2kPu6oYpbBoldko99FX4ePbXa9ty11/I+EamddnzkAsLWsNd2JLQW
+R9wo+2vSkUzaxck11FMBS5hbqNsKdUjqTtscGP2MfmIiQJG+dgN7ThHKVvaxyTpc
+3JPQIvaew08s7L8ShjCuhkjmYmlOa4olGV1Z0aG7SjSI9b5w3MfDwN2lecAAUKVW
+N2vAFMBh3uxWVlSDbivRfNXflXOMYtDqAG1BPHff1UMArvYiSxxiVwM5tNBxmgZy
+N8bWLtABtkfUyrU6ay6E7h6qReHu30iU46r8xDyZkHjLa6iakvGjobWlTBTAF24P
+mANH8mJhMI+endx1YgUmOJJXylP/VAbC
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.dit.ie/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.dit.ie/idp/profile/SAML2/POST/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Dublin Institute of Technology</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Dublin Institute of Technology</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.dit.ie</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Liam</md:GivenName>
+      <md:SurName>Duffy</md:SurName>
+      <md:EmailAddress>liam.duffy@dit.ie</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:SurName>NOC</md:SurName>
+      <md:EmailAddress>noc@dit.ie</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Tracey</md:GivenName>
+      <md:SurName>Roche</md:SurName>
+      <md:EmailAddress>tracey.roche@dit.ie</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

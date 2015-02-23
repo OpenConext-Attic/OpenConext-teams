@@ -1,0 +1,130 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://idp.condorcet.be/idp/shibboleth">
+	<Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://federation.belnet.be/" registrationInstant="2012-03-27T12:00:00Z">
+          <mdrpi:RegistrationPolicy xml:lang="en">http://federation.belnet.be/files/Belnet-metadata-registration-practice-statement.txt</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+   </Extensions>
+			  
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <Extensions>
+            <shibmd:Scope regexp="false">condorcet.be</shibmd:Scope>
+        </Extensions>
+
+        <KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIEszCCA5ugAwIBAgIQQTL/jgzwBt0Zt4eFr/Kq/TANBgkqhkiG9w0BAQUFADA2
+MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+U1NMIENBMB4XDTExMTIwODAwMDAwMFoXDTE0MTIwNzIzNTk1OVowgY0xCzAJBgNV
+BAYTAkJFMRIwEAYDVQQHEwlDaGFybGVyb2kxOzA5BgNVBAoMMkhhdXRlIEVjb2xl
+IFByb3ZpbmNpYWxlIOKAkyBVbml2ZXJzaXTDqSBkdSBUcmF2YWlsMRIwEAYDVQQL
+EwlDb25kb3JjZXQxGTAXBgNVBAMTEGlkcC5jb25kb3JjZXQuYmUwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQC8IZudPSFwYHUN9qJl0ee4qt2gbtCX5C3b
+Y8CB3OGDUTXXAcfw3Dqr0sYUWWHnMp3KSKCq6d5BGgkvslB+6hgxfOuO0sp+Dble
+KExmCXbL/V4PP8I9KPFRZw4hL5HPUwaXjQF1b3bALi/gNwgOa/bN9TDcx0yR9XQQ
+gp4UvNw1Y8lvL+/FP9nxSviUrZQYS497g5wLdWiuhYaCFhl0Sen6KibTJRiJ4e0/
+ed8cIMEwNEhnuHEPDthWkkbpGR7cjEbxRUNoIa2JCR2JggjeGmkbqSAu8JVC+THu
+QVF3nB0iW4duyPnkgyPghPbKcoTZb36zS9ZF0QBXGkY9CF23MByvAgMBAAGjggFj
+MIIBXzAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAdBgNVHQ4EFgQU
+UTeSbrbq7beqOidXG1uSokjeL6kwDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQC
+MAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBgGA1UdIAQRMA8wDQYL
+KwYBBAGyMQECAh0wOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVy
+ZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUF
+BzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAm
+BggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwGwYDVR0RBBQw
+EoIQaWRwLmNvbmRvcmNldC5iZTANBgkqhkiG9w0BAQUFAAOCAQEAMb4GDYuU2fQS
+Ft4HCYoWy6kP5JFiXOjijAl03pgZRipb0GFYDxAKbkHhppBeQKa6Pw6X93psE2L3
+1rm3VjUouX+wL0P9C5rV+cxLNfz6HjySn2vr1S7hip6Yckx8rqJ5wVxFKwWthktG
+0SbR7tWOEjoqiHnDXB0upSmcycbzuo0l3DymN0GimL/BtkeCjTfbDnCenL7JjhkC
+QvV9sXeiGEScuXD4gS4nFwbGMIdonFeoxaLx/Ddo0qNkNa2bevtZpOaI0D7lUltk
+uAUlD9bJAGCVw43tjyIHEHSU/Np3RPZcyRqJGsxG5i5S6wqyH+YVO7y1GANOL2WV
+NJp/Skt7sw==
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </KeyDescriptor>
+        
+        <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.condorcet.be:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+        <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.condorcet.be:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+                                   
+        <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+        <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.condorcet.be/idp/profile/Shibboleth/SSO"/>
+        
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.condorcet.be/idp/profile/SAML2/POST/SSO"/>
+
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.condorcet.be/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+        
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.condorcet.be/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <Extensions>
+            <shibmd:Scope regexp="false">condorcet.be</shibmd:Scope>
+        </Extensions>
+
+        <KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIEszCCA5ugAwIBAgIQQTL/jgzwBt0Zt4eFr/Kq/TANBgkqhkiG9w0BAQUFADA2
+MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+U1NMIENBMB4XDTExMTIwODAwMDAwMFoXDTE0MTIwNzIzNTk1OVowgY0xCzAJBgNV
+BAYTAkJFMRIwEAYDVQQHEwlDaGFybGVyb2kxOzA5BgNVBAoMMkhhdXRlIEVjb2xl
+IFByb3ZpbmNpYWxlIOKAkyBVbml2ZXJzaXTDqSBkdSBUcmF2YWlsMRIwEAYDVQQL
+EwlDb25kb3JjZXQxGTAXBgNVBAMTEGlkcC5jb25kb3JjZXQuYmUwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQC8IZudPSFwYHUN9qJl0ee4qt2gbtCX5C3b
+Y8CB3OGDUTXXAcfw3Dqr0sYUWWHnMp3KSKCq6d5BGgkvslB+6hgxfOuO0sp+Dble
+KExmCXbL/V4PP8I9KPFRZw4hL5HPUwaXjQF1b3bALi/gNwgOa/bN9TDcx0yR9XQQ
+gp4UvNw1Y8lvL+/FP9nxSviUrZQYS497g5wLdWiuhYaCFhl0Sen6KibTJRiJ4e0/
+ed8cIMEwNEhnuHEPDthWkkbpGR7cjEbxRUNoIa2JCR2JggjeGmkbqSAu8JVC+THu
+QVF3nB0iW4duyPnkgyPghPbKcoTZb36zS9ZF0QBXGkY9CF23MByvAgMBAAGjggFj
+MIIBXzAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAdBgNVHQ4EFgQU
+UTeSbrbq7beqOidXG1uSokjeL6kwDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQC
+MAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBgGA1UdIAQRMA8wDQYL
+KwYBBAGyMQECAh0wOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVy
+ZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUF
+BzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAm
+BggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwGwYDVR0RBBQw
+EoIQaWRwLmNvbmRvcmNldC5iZTANBgkqhkiG9w0BAQUFAAOCAQEAMb4GDYuU2fQS
+Ft4HCYoWy6kP5JFiXOjijAl03pgZRipb0GFYDxAKbkHhppBeQKa6Pw6X93psE2L3
+1rm3VjUouX+wL0P9C5rV+cxLNfz6HjySn2vr1S7hip6Yckx8rqJ5wVxFKwWthktG
+0SbR7tWOEjoqiHnDXB0upSmcycbzuo0l3DymN0GimL/BtkeCjTfbDnCenL7JjhkC
+QvV9sXeiGEScuXD4gS4nFwbGMIdonFeoxaLx/Ddo0qNkNa2bevtZpOaI0D7lUltk
+uAUlD9bJAGCVw43tjyIHEHSU/Np3RPZcyRqJGsxG5i5S6wqyH+YVO7y1GANOL2WV
+NJp/Skt7sw==
+                   </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </KeyDescriptor>
+
+        <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.condorcet.be:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+        
+        <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.condorcet.be:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+        
+        <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+        
+    </AttributeAuthorityDescriptor>
+
+<Organization>
+	<OrganizationName xml:lang="en">Haute Ecole Provinciale de Hainaut - Condorcet</OrganizationName>
+
+	<OrganizationDisplayName xml:lang="en">HEPH-Condorcet</OrganizationDisplayName>
+	
+	<OrganizationURL xml:lang="en">http://www.condorcet.be</OrganizationURL>
+	
+</Organization>
+
+<ContactPerson contactType="technical">
+	<GivenName>Technical Support</GivenName>
+	<SurName>Technical Support</SurName>
+	<EmailAddress>webmaster@condorcet.be</EmailAddress>
+</ContactPerson>
+   
+</EntityDescriptor>

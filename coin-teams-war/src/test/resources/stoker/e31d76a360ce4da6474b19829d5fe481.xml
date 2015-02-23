@@ -1,0 +1,89 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibb-prod.eseo.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-06-11T17:24:23Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">eseo.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Groupe ESEO</mdui:DisplayName>
+          		      <mdui:Description xml:lang="fr">École d'ingénieurs</mdui:Description>
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDODCCAiCgAwIBAgIVAPKv3AMhxdHV3jWXxqMbNKHYz0KVMA0GCSqGSIb3DQEB
+BQUAMB4xHDAaBgNVBAMTE3NoaWJib3VsZXRoLmVzZW8uZnIwHhcNMTQwNTEzMTI0
+NDQ4WhcNMzQwNTEzMTI0NDQ4WjAeMRwwGgYDVQQDExNzaGliYm91bGV0aC5lc2Vv
+LmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmCTC2H03ZXvDs4Io
+a1d+L6ggwRUqGwP45mlW5l6Nuti5JBqjDLBvP1tPqAeh1V6boPufnkd2ZquVCZDP
+1WFjLKyL015a81gLeWvJMId1yWq4+7s4s1HBFgaftNM6z6Hl/sTt1UL/dFM3DrNH
+Z1fUHe+TWGv8e60KA4DqhjdphtM+Q0dsZNVDGGp5d0zLOPhrikoZE8pqXvbOD7r/
+W9I8jWEX4RIBJkvpeBI5zpGZVRbq5LKNVaccEJW3dx9v1MyI7JQbT90hmUdBYIOl
+b+vQ5fgJCj9RlgK+tEMJsB67w2SvD7YsG3w/DqogoZBeQUgolwPKteAyKGZIh0Y2
+5pyMSQIDAQABo20wazBKBgNVHREEQzBBghNzaGliYm91bGV0aC5lc2VvLmZyhipo
+dHRwczovL3NoaWJib3VsZXRoLmVzZW8uZnIvaWRwL3NoaWJib2xldGgwHQYDVR0O
+BBYEFMR3J/ymlt+tWJbLpfaFrrhqC2qZMA0GCSqGSIb3DQEBBQUAA4IBAQAzJ0MU
+jZjJiOzYrQkeSkDw0kl2drKEOW1/54ANucqNSko1MQ2QXbOiL2bcgOXC8jDgOyEX
++G0QO8YdGio1CCirUVPTWSIsxpRM9nI2FbhpGk+DXe2wgPTYnJPN94kdVJrWEE/Y
+BtBvR1BzklAZ6sLrXQMWerGNHAQIyQ8+SInFpqtbB9yJuWuc9oVaoGYIm3TI2N8S
+/Uo1+w4j8jXAl7tXaUnoZ1oKW36H+0sRVhZ2Ys4eH3Vk6nvf5qHPdgUCNjh6txmf
+om24YGvt8hL3ZCb5y2+jFCIZyCf853CuTiEjLyT7c1KZzUPzvDVqf0gL5n3twqxj
+cE2NlFME1N0tqRVC
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibb-prod.eseo.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibb-prod.eseo.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibb-prod.eseo.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Groupe ESEO</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Groupe ESEO</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Duclos Philippe</SurName>
+				 <EmailAddress>philippe.duclos@eseo.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Tessier Fabien</SurName>
+				 <EmailAddress>fabien.tessier@eseo.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

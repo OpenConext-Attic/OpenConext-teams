@@ -1,0 +1,117 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.it.su.se/idp/shibboleth">
+<md:Extensions>
+<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.swamid.se/">
+<mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+</mdrpi:RegistrationInfo>
+</md:Extensions>
+  <IDPSSODescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+    <Extensions>
+      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">su.se</shibmd:Scope>
+      <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <mdui:DisplayName xml:lang="sv">Stockholms universitet</mdui:DisplayName>
+        <mdui:DisplayName xml:lang="en">Stockholm University</mdui:DisplayName>
+        <mdui:Description xml:lang="sv">Identity Provider för medarbetare och studenter vid Stockholms universitet.</mdui:Description>
+        <mdui:Description xml:lang="en">The Stockholm university Identity Provider is used by employees and students at the university.</mdui:Description>
+        <mdui:InformationURL xml:lang="sv">http://www.su.se</mdui:InformationURL>
+        <mdui:InformationURL xml:lang="en">http://www.su.se/english/</mdui:InformationURL>
+        <mdui:Logo height="110" width="127" xml:lang="sv">https://idp.it.su.se/idp/img/su-logo-sv_OLD.gif</mdui:Logo>
+        <mdui:Logo height="110" width="127" xml:lang="en">https://idp.it.su.se/idp/img/su-logo-en_OLD.gif</mdui:Logo>
+        <mdui:PrivacyStatementURL xml:lang="sv">http://www.su.se/regelboken/bok-3/teknik</mdui:PrivacyStatementURL>
+        <mdui:PrivacyStatementURL xml:lang="en">http://www.su.se/rules/book-3/3-3-technics</mdui:PrivacyStatementURL>
+      </mdui:UIInfo>
+      <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <mdui:DomainHint>su.se</mdui:DomainHint>
+        <mdui:GeolocationHint>geo:59.3625,18.0586</mdui:GeolocationHint>
+      </mdui:DiscoHints>
+    </Extensions>
+    <KeyDescriptor>
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>MIIC6zCCAdOgAwIBAgIJAMGFkfoHjxyVMA0GCSqGSIb3DQEBBQUAMBcxFTATBgNV
+BAMTDGlkcC5pdC5zdS5zZTAeFw0xMDExMDkwODIyMDFaFw0yMDExMDYwODIyMDFa
+MBcxFTATBgNVBAMTDGlkcC5pdC5zdS5zZTCCASIwDQYJKoZIhvcNAQEBBQADggEP
+ADCCAQoCggEBALy4tcsCvWZi8mo07/AwkbbokGh9VLf9Nae6t8AXX+ul9AOfW6nT
+OJS4UsSafJ/fLhNJTjtMr1lXyl2Ah2zhhrhCsFpe0T7iYaX+rKlcZ8/V/BkgVbKm
+5obDh/CGW32dPGS6quDSTw2876X5sOl72IE4h038Z6t9XJCdQwDK9YNPgb5Zu+XH
+PHLJZD/kx+VwAPfx34YoKCpB2C/3U2Nj+KsojMtRcNTLeb+PJ5t0B9vEsGOcOlko
+7VT9EjEuSkyxRPEmssaekotHDlkKB9R3d/LS/OvWdHd4UjgQGJO8YIebTjIYQDk+
+HPs9HhL4mJBUqTYK7aKE/gelBwEKgm9myzkCAwEAAaM6MDgwFwYDVR0RBBAwDoIM
+aWRwLml0LnN1LnNlMB0GA1UdDgQWBBQ3SkZT5Th4yF7H6i2+x0beJnXTEzANBgkq
+hkiG9w0BAQUFAAOCAQEAiatjbM0+PvK1enL0CCoVHoPSBwT45eq5e4YGVabqX2Vt
+kuuZpg3O/POnPI4VUENEPZqrsRQJwjvfVlptgU/0C1IdBdKZbQPdci2kTcNHPtj9
++AjFPs8D/rRAHufDCO/yUV7v6rDaLwVDlGA+Tof/2OISRubHA+qzWtsmkCij8epu
+zu+8YH3ao8Z9KwXE7lsiugc3fBzFPRLVt3i1Ub9CyHbSNt8zIeoQjdFXnRSFt1aF
+nqSwQqyaQMsQOyHiGNfFl0bcvK3if21MSob/uUwXHgE9wn6wD7fHHp8Ek8Pa7F1Y
+VK8ZglMA+M28yzdAONQ4W2FWoTbAfcBnW8NQSFzZdQ==</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.it.su.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.it.su.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+    <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.it.su.se/idp/profile/Shibboleth/SSO"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.it.su.se/idp/profile/SAML2/POST/SSO"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.it.su.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.it.su.se/idp/profile/SAML2/Redirect/SSO"/>
+  </IDPSSODescriptor>
+  <AttributeAuthorityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+    <Extensions>
+      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">su.se</shibmd:Scope>
+    </Extensions>
+    <KeyDescriptor>
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>MIIC6zCCAdOgAwIBAgIJAMGFkfoHjxyVMA0GCSqGSIb3DQEBBQUAMBcxFTATBgNV
+BAMTDGlkcC5pdC5zdS5zZTAeFw0xMDExMDkwODIyMDFaFw0yMDExMDYwODIyMDFa
+MBcxFTATBgNVBAMTDGlkcC5pdC5zdS5zZTCCASIwDQYJKoZIhvcNAQEBBQADggEP
+ADCCAQoCggEBALy4tcsCvWZi8mo07/AwkbbokGh9VLf9Nae6t8AXX+ul9AOfW6nT
+OJS4UsSafJ/fLhNJTjtMr1lXyl2Ah2zhhrhCsFpe0T7iYaX+rKlcZ8/V/BkgVbKm
+5obDh/CGW32dPGS6quDSTw2876X5sOl72IE4h038Z6t9XJCdQwDK9YNPgb5Zu+XH
+PHLJZD/kx+VwAPfx34YoKCpB2C/3U2Nj+KsojMtRcNTLeb+PJ5t0B9vEsGOcOlko
+7VT9EjEuSkyxRPEmssaekotHDlkKB9R3d/LS/OvWdHd4UjgQGJO8YIebTjIYQDk+
+HPs9HhL4mJBUqTYK7aKE/gelBwEKgm9myzkCAwEAAaM6MDgwFwYDVR0RBBAwDoIM
+aWRwLml0LnN1LnNlMB0GA1UdDgQWBBQ3SkZT5Th4yF7H6i2+x0beJnXTEzANBgkq
+hkiG9w0BAQUFAAOCAQEAiatjbM0+PvK1enL0CCoVHoPSBwT45eq5e4YGVabqX2Vt
+kuuZpg3O/POnPI4VUENEPZqrsRQJwjvfVlptgU/0C1IdBdKZbQPdci2kTcNHPtj9
++AjFPs8D/rRAHufDCO/yUV7v6rDaLwVDlGA+Tof/2OISRubHA+qzWtsmkCij8epu
+zu+8YH3ao8Z9KwXE7lsiugc3fBzFPRLVt3i1Ub9CyHbSNt8zIeoQjdFXnRSFt1aF
+nqSwQqyaQMsQOyHiGNfFl0bcvK3if21MSob/uUwXHgE9wn6wD7fHHp8Ek8Pa7F1Y
+VK8ZglMA+M28yzdAONQ4W2FWoTbAfcBnW8NQSFzZdQ==</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.it.su.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+    <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.it.su.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+  </AttributeAuthorityDescriptor>
+  
+  
+  
+  
+<Organization xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
+    <OrganizationName xml:lang="en">SU</OrganizationName>
+    <OrganizationDisplayName xml:lang="sv">Stockholms Universitet</OrganizationDisplayName>
+    <OrganizationDisplayName xml:lang="en">Stockholm University</OrganizationDisplayName>
+    <OrganizationURL xml:lang="en">http://www.su.se</OrganizationURL>
+  </Organization>
+<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="administrative">
+    <Company>Stockholm University</Company>
+    <SurName>Helpdesk</SurName>
+    <EmailAddress>helpdesk@su.se</EmailAddress>
+    <TelephoneNumber>+46 8 16 1999</TelephoneNumber>
+  </ContactPerson>
+<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="technical">
+    <Company>Stockholm University</Company>
+    <SurName>Helpdesk</SurName>
+    <EmailAddress>helpdesk@su.se</EmailAddress>
+    <TelephoneNumber>+46 8 16 1999</TelephoneNumber>
+  </ContactPerson>
+<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="support">
+    <Company>Stockholm University</Company>
+    <SurName>Helpdesk</SurName>
+    <EmailAddress>helpdesk@su.se</EmailAddress>
+    <TelephoneNumber>+46 8 16 1999</TelephoneNumber>
+  </ContactPerson>
+</md:EntityDescriptor>

@@ -243,4 +243,11 @@ public class Invitation extends DomainObject {
     this.intendedRole = intendedRole;
   }
 
+  public void accept() {
+    setAccepted(true);
+  }
+
+  public void decline() {
+    setDeclined(true);
+  }
 }

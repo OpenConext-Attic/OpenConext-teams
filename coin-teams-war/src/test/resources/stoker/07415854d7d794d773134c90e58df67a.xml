@@ -1,0 +1,78 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.universite-lyon.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-03-11T10:47:26Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">universite-lyon.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de Lyon</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDRDCCAiygAwIBAgIVAP2sGfoeCE9dQRA0FpVdm+UCBHNFMA0GCSqGSIb3DQEB
+BQUAMCExHzAdBgNVBAMTFmlkcC51bml2ZXJzaXRlLWx5b24uZnIwHhcNMTEwMzEw
+MTEyMzIxWhcNMzEwMzEwMTEyMzIxWjAhMR8wHQYDVQQDExZpZHAudW5pdmVyc2l0
+ZS1seW9uLmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu36fHWJ2
+j8l174LhbbLmqLR9Mc6O0RmAZGkpt+Wga7mGICSY+bk9TPK64vHBBfUdsx0HkVi3
+1EPVf2AK/lJqcd12YJIKy0yisQrxRGYCynF1nhyuVgrgl1kKo6LGjgxb9IRJU2BG
+xL168MWGzov867Ttdmty53ZmdfjTRGAoK7MmDrBInpWOtR6HcI7tKAGQlThsgbo6
+kfXobR6ntp0t90RNPaTUgm+oNlXXsEcMWsLbdeR+d6IxWx9xAPx4D7S+JmA+vAGI
+P/d/DNUXnvZA9o9ysqhMF4TmD9rNgBL9658h4hwS3OAOlbM9YViQPKmVsc9qBp5w
+y9y+qk73cTB+ZwIDAQABo3MwcTBQBgNVHREESTBHghZpZHAudW5pdmVyc2l0ZS1s
+eW9uLmZyhi1odHRwczovL2lkcC51bml2ZXJzaXRlLWx5b24uZnIvaWRwL3NoaWJi
+b2xldGgwHQYDVR0OBBYEFEanTWpekMShUedKb9mgslNYb/gGMA0GCSqGSIb3DQEB
+BQUAA4IBAQAU0hITe/utTwqDfRm70ZkGC1gVwPj7cVvQOrWT41dS158IsYuPZlQr
+p2398RDEob6XcfbuHVERXfL2WZTvg7CD7Ui1g4tM1AffUFauu0AjYW91LP88epsm
+opoZD5iGwCE8Xwyx36MfgQ2VsuxP64LM8r0H8kTBHbGsuvCjbvKNB6XmXoBHM9S1
+h7F5udv5XokwRaF5dzzn5bSOQqxtaUCGfhFpJx0VcmmyBQ6tOhLC9PVC48hyq7v6
+RFr+XMux5XOoza21wQf9RWV70eN43LuUxR1ZNdjdHgvwqXFmIauGAaCib8j3/ARv
+UZpOUBiMjLpIx7nFKyNwPg5DVhxj2BDR
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.universite-lyon.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.universite-lyon.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.universite-lyon.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Lyon</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Lyon</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>sysadmin@universite-lyon.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

@@ -1,0 +1,49 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.elte.hu/auth/saml2/idp/metadata.php">
+        <Extensions>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">elte</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href-edugain</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href-idps</ns9:MetadataSet>
+            <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://eduid.hu"/>
+        </Extensions>
+        <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+            <Extensions>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">elte.hu</shibmd:Scope>
+                <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <mdui:GeolocationHint>geo:47.49005,19.05955</mdui:GeolocationHint>
+                </mdui:DiscoHints>
+            </Extensions>
+            <KeyDescriptor>
+                <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:X509Data>
+                        <ds:X509Certificate>MIIFYzCCBEugAwIBAgIQLIaNDr+iCPZ0Iz6P3Q9VqTANBgkqhkiG9w0BAQUFADA2MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEgU1NMIENBMB4XDTE0MDQxMDAwMDAwMFoXDTE3MDQwOTIzNTk1OVowOTEhMB8GA1UECxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRQwEgYDVQQDEwtpZHAuZWx0ZS5odTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBANI/ii7DympWU2khMzlPc5m0zeArm9zB6yLik398aLncEEXj9uAXqmZlzD3PlmEehRV554zhjuzPxGS1poQHM/em9ctBQXH3sdcNmTi3aRUldO0nr3uH/g38SF2lfZdw+A8wlLYHu3e3nxHKrwIFxRR7pNdB1DitfWZ7VArrxt2djsaIOXsECEtos3AyEospySVC/pGwimJv/z3AgykdeBVpHB6X9ftn4ptuM+0/ZQgaN7ktP+sR2mcOdgu+ip28rxLS4hd2NNMmfsb1jy14YMKKD8ryWb0fI0yyaKKz3AC9DBdKB4o8i/jpBQTsjq0MppL6LT6iDEBb1IO7OagN0eAPTt+lMPmW2EPUg3HLZVPYKRHqsaUdE3+gMTTOd8HEc39oRDLaFjsD0H7hoLY9DL3Q/CcwYOyCNYbLdzXFn1Cj04T2Oxj94Xw0zAp2Pw0WE9iIzpi/izca7DW8WiEEFIPLCDVIqi80GY4AZWFEbTV+I3wDCTfF5lNY67XhH7pWhU5dWJaD5XPYahQd1kvejA1+hviqhMQkZvkRTmCMZHpv9amjmFg1CEgk7XGSO5/Rj7fNjSTZ5Ysuh2wjjDWdIn5sIe1UCVJEqEVCZj1iBU3WXvpDv6Kn6Vr2Zz2jgm4S9CjGOIpueB4MjInVoJFOHOsKB63tpuDNSJGj7E/XKCWlAgMBAAGjggFoMIIBZDAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAdBgNVHQ4EFgQUb9JqTdA6YG8FiGd1gBUvIHMdjA8wDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQIBMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2NydC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMBYGA1UdEQQPMA2CC2lkcC5lbHRlLmh1MA0GCSqGSIb3DQEBBQUAA4IBAQBOvYggdrH+sTjvU6TRdCOUAFs5YOK//s0xCbiC/E1rfb04dSPDSUdjLwOv6bP06N64EugFZakJIweWUPREy5lNP1F3d9JClPMmCJNYlbNJ7R750lWHudqTvJ1AU3emNED+Vgp2iBtdyYZHrHMHi+z296f4HxF3V95hhCswMCMaw3+NC4WTr7Y84ygGprMRQDWhQTwx06glpjl8h59UdtS9EjSB6KBjkgrG/+S37MMUrppeyFis715FtYLoBjz/oLvqNch2KYKThfoW1BrTQZpCq+sot1908yBhyUSJRsLqWra9NGM1E1Y+4NLbGwAHhPtuRMGIYDWks3zoyVFm6PvO</ds:X509Certificate>
+                    </ds:X509Data>
+                    <ds:KeyName>idp.elte.hu</ds:KeyName>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.elte.hu/auth/saml2/idp/ArtifactResolutionService.php" index="1"/>
+            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.elte.hu/auth/saml2/idp/SingleLogoutService.php"/>
+            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.elte.hu/auth/saml2/idp/SSOService.php"/>
+        </IDPSSODescriptor>
+        <Organization>
+            <OrganizationName xml:lang="hu">Eötvös Loránd Tudományegyetem</OrganizationName>
+            <OrganizationName xml:lang="en">Eötvös Loránd University Budapest</OrganizationName>
+            <OrganizationDisplayName xml:lang="hu">Eötvös Loránd Tudományegyetem</OrganizationDisplayName>
+            <OrganizationDisplayName xml:lang="en">Eötvös Loránd University Budapest</OrganizationDisplayName>
+            <OrganizationURL xml:lang="hu">http://iig.elte.hu</OrganizationURL>
+            <OrganizationURL xml:lang="en">http://iig.elte.hu</OrganizationURL>
+        </Organization>
+        <ContactPerson contactType="technical">
+            <SurName>ELTE IIG Informatikai Szolgáltatási Osztály</SurName>
+            <EmailAddress>mailto:system@caesar.elte.hu</EmailAddress>
+        </ContactPerson>
+        <ContactPerson contactType="administrative">
+            <SurName>ELTE IIG Informatikai Szolgáltatási Osztály</SurName>
+            <EmailAddress>mailto:system@caesar.elte.hu</EmailAddress>
+        </ContactPerson>
+        <ContactPerson contactType="support">
+            <SurName>ELTE IIG Ügyféltámogatási Osztály</SurName>
+            <EmailAddress>mailto:operator@caesar.elte.hu</EmailAddress>
+        </ContactPerson>
+    </EntityDescriptor>

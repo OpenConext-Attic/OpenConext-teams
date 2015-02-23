@@ -1,0 +1,77 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.u-cergy.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-11-27T10:43:24Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">u-cergy.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de Cergy Pontoise</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDJDCCAgygAwIBAgIVAL5VX/FyJxE+QaVPYflgTRs+IqDyMA0GCSqGSIb3DQEB
+BQUAMBkxFzAVBgNVBAMTDmlkcC51LWNlcmd5LmZyMB4XDTA5MTEyMDE1MTIyNVoX
+DTI5MTEyMDE1MTIyNVowGTEXMBUGA1UEAxMOaWRwLnUtY2VyZ3kuZnIwggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC7KhqnXYp0okpZLWhOZfE0/a6hGLOB
+08hVe7wynrKu5rBBXl290/67ral6I2o2Vb2moNpJ+/4Jfoq/dS6pJqGsAQAIIiuJ
+B7Cg1OI0xFSBCNlOw7Pl8790IeX+hDxwlmFCiedz8yU4QaqDypmr8minfUIrcLjE
+Q18eRsHCkRI9yHm6CzZ9qyX9I3pHvkYYwjrOcZ3MR4aWzG+c5IT73Th8SL0Wy6xF
+8BKsR5QFb2Lu4lbcIr3PQCmUTetj/4BbOucZG3s1T9T16I5jqLhfraAxkl6rlV5o
+dRN32vJqMIHWTHBt01SK1h0ox1vfClR86QGFsJDerIy3TRd9AvNwBLkFAgMBAAGj
+YzBhMEAGA1UdEQQ5MDeCDmlkcC51LWNlcmd5LmZyhiVodHRwczovL2lkcC51LWNl
+cmd5LmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBSRFHgF1B3bXQf6voF95osf
+xbAbhDANBgkqhkiG9w0BAQUFAAOCAQEAtiS/TRfjM8+Ush2VSL/y73Qk6FSExEjQ
+ZEFb5YmXCwpnAmrzKTlTVDhaDyYPB5vMQf0PWN8MB1fOy9J7fnN1ENr0oUVwpgkZ
+88THCKybJbsY2NHhxSGVRIkxuIAKh1ofvR3A/9vwteGkzCZYTVloqUR85CBD2qWq
+zE7fqzssOVC0HYf0fuvZyEV1ix45zxhCVtuSjL/39ttUDNcAe0hbc4J+XdtseBXE
++aj1Ghr+XBI3dG4FUhea8Ic6pTg3BPgSdEZVq2xumojU8lKa+1LzF4IY6YKATkz8
+o7TC7JeLaEP9IIl444TjCDusYcOd5ESjG4zw6KiQaO9Jpp2jOL/jMg==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.u-cergy.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.u-cergy.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.u-cergy.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Cergy Pontoise</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Cergy Pontoise</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>disi-infra-systeme@ml.u-cergy.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

@@ -1,0 +1,129 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://cafe.uesc.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">uesc.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">UESC - Universidade Estadual de Santa Cruz</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">UESC - Universidade Estadual de Santa Cruz</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UESC - Universidade Estadual de Santa Cruz</mdui:Description>
+          <mdui:Description xml:lang="pt-br">UESC - Universidade Estadual de Santa Cruz</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.uesc.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.uesc.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIDvjCCAqYCAQAwDQYJKoZIhvcNAQEFBQAwgaQxMzAxBgNVBAoTKlVFU0MgLSBV
+TklWRVJTSURBREUgRVNUQURVQUwgREUgU0FOVEEgQ1JVWjEMMAoGA1UECxMDQ09J
+MRowGAYJKoZIhvcNAQkBFgtDT0lAVUVTQy5CUjEPMA0GA1UEBxMGSUxIRVVTMQ4w
+DAYDVQQIEwVCQUhJQTELMAkGA1UEBhMCQlIxFTATBgNVBAMTDGNhZmUudWVzYy5i
+cjAeFw0xNDA0MTAxMjAyMzRaFw0xOTA0MDkxMjAyMzRaMIGkMTMwMQYDVQQKEypV
+RVNDIC0gVU5JVkVSU0lEQURFIEVTVEFEVUFMIERFIFNBTlRBIENSVVoxDDAKBgNV
+BAsTA0NPSTEaMBgGCSqGSIb3DQEJARYLQ09JQFVFU0MuQlIxDzANBgNVBAcTBklM
+SEVVUzEOMAwGA1UECBMFQkFISUExCzAJBgNVBAYTAkJSMRUwEwYDVQQDEwxjYWZl
+LnVlc2MuYnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC72oVZgtPa
+vTAXBK6xUApNT4lZl9nN7GnX9MELpR6d9Nd9Hdh2HiK82IFucx1Ma6o48gp2IMoM
+CeMvP9gE+nNh8dTsV949z/EkesXTLqfSx8ZyZkAbULVeBkfjvZ8B4Tc8kFG0FVka
+3niIPQZNV+ojIWUkpCvFE8F5f1Fg/AuGPT7ClVTd/wmJnaCzVeBOv1igIcPIcyUB
+FcJ8pLOhFCP+YOrhen+XEO0B7kMVAfkwFzic7odExmiknQ311Sdt/QaPMF2EWZ7r
+QcBRayAbIx13GYbKiVNZDHv2jSbfrqjbrACLxP17IHtKTjAHTq9zUbtTiaGcwwL8
+F6hxMk3iZrsfAgMBAAEwDQYJKoZIhvcNAQEFBQADggEBACAUW1b9UNotRq7BlSiy
+C4ATLQ4qidg/8vCZu1AqreLXU71C3SHnOFl+C+JhorczJyo4lLVJmoIZRvjmedZT
+RNpeSsT4NBPxFpfhjk+e5RbrQJFa2qw4AansX/ErUhvRDaI9yy5gE1YdiOeK58Pc
+Yr8RJQdsCybLWTCSlVWJbRzvv05uUlJNnNSuxvYBeY727sDomtaj6WsPy99HPEY+
+r5nqp5LUU4AWUhpm8faNRFZia439GTSibCoICMRy4WBe1HvAi2ljKA4uRXKgJQsq
+Vv4jw5WtdCEE2lDlRADuHz5lbijCzXEikhEBFAcDWGmdFTtXMvcAUqaCTVUkQDUE
+9N8=
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.uesc.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.uesc.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafe.uesc.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafe.uesc.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafe.uesc.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafe.uesc.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">uesc.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIDvjCCAqYCAQAwDQYJKoZIhvcNAQEFBQAwgaQxMzAxBgNVBAoTKlVFU0MgLSBV
+TklWRVJTSURBREUgRVNUQURVQUwgREUgU0FOVEEgQ1JVWjEMMAoGA1UECxMDQ09J
+MRowGAYJKoZIhvcNAQkBFgtDT0lAVUVTQy5CUjEPMA0GA1UEBxMGSUxIRVVTMQ4w
+DAYDVQQIEwVCQUhJQTELMAkGA1UEBhMCQlIxFTATBgNVBAMTDGNhZmUudWVzYy5i
+cjAeFw0xNDA0MTAxMjAyMzRaFw0xOTA0MDkxMjAyMzRaMIGkMTMwMQYDVQQKEypV
+RVNDIC0gVU5JVkVSU0lEQURFIEVTVEFEVUFMIERFIFNBTlRBIENSVVoxDDAKBgNV
+BAsTA0NPSTEaMBgGCSqGSIb3DQEJARYLQ09JQFVFU0MuQlIxDzANBgNVBAcTBklM
+SEVVUzEOMAwGA1UECBMFQkFISUExCzAJBgNVBAYTAkJSMRUwEwYDVQQDEwxjYWZl
+LnVlc2MuYnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC72oVZgtPa
+vTAXBK6xUApNT4lZl9nN7GnX9MELpR6d9Nd9Hdh2HiK82IFucx1Ma6o48gp2IMoM
+CeMvP9gE+nNh8dTsV949z/EkesXTLqfSx8ZyZkAbULVeBkfjvZ8B4Tc8kFG0FVka
+3niIPQZNV+ojIWUkpCvFE8F5f1Fg/AuGPT7ClVTd/wmJnaCzVeBOv1igIcPIcyUB
+FcJ8pLOhFCP+YOrhen+XEO0B7kMVAfkwFzic7odExmiknQ311Sdt/QaPMF2EWZ7r
+QcBRayAbIx13GYbKiVNZDHv2jSbfrqjbrACLxP17IHtKTjAHTq9zUbtTiaGcwwL8
+F6hxMk3iZrsfAgMBAAEwDQYJKoZIhvcNAQEFBQADggEBACAUW1b9UNotRq7BlSiy
+C4ATLQ4qidg/8vCZu1AqreLXU71C3SHnOFl+C+JhorczJyo4lLVJmoIZRvjmedZT
+RNpeSsT4NBPxFpfhjk+e5RbrQJFa2qw4AansX/ErUhvRDaI9yy5gE1YdiOeK58Pc
+Yr8RJQdsCybLWTCSlVWJbRzvv05uUlJNnNSuxvYBeY727sDomtaj6WsPy99HPEY+
+r5nqp5LUU4AWUhpm8faNRFZia439GTSibCoICMRy4WBe1HvAi2ljKA4uRXKgJQsq
+Vv4jw5WtdCEE2lDlRADuHz5lbijCzXEikhEBFAcDWGmdFTtXMvcAUqaCTVUkQDUE
+9N8=
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.uesc.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.uesc.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">UESC - Universidade Estadual de Santa Cruz</OrganizationName>
+      <OrganizationName xml:lang="pt-br">UESC - Universidade Estadual de Santa Cruz</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">UESC - Universidade Estadual de Santa Cruz</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">UESC - Universidade Estadual de Santa Cruz</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.uesc.br/</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.uesc.br/</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>UDO/COI</SurName>
+      <EmailAddress>coi@uesc.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

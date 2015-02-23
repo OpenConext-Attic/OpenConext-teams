@@ -1,0 +1,116 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.ecam.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-04-30T18:14:43Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ecam.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      <mdui:DisplayName xml:lang="en">ECAM Lyon</mdui:DisplayName>
+          		      <mdui:Description xml:lang="en">Utilisateurs ECAM</mdui:Description>
+          		      <mdui:DisplayName xml:lang="fr">ECAM Lyon</mdui:DisplayName>
+          		      <mdui:Description xml:lang="fr">Utilisateurs ECAM</mdui:Description>
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDFzCCAf+gAwIBAgIUXFGDVnYfC4TCE7Lq/bUOsxSKIrswDQYJKoZIhvcNAQEF
+BQAwFjEUMBIGA1UEAxMLaWRwLmVjYW0uZnIwHhcNMTQwNDI4MTMxMTQ4WhcNMzQw
+NDI4MTMxMTQ4WjAWMRQwEgYDVQQDEwtpZHAuZWNhbS5mcjCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAIIMTqPcyJZJxgn7lOirdEZMejGbdNX/90ZcBGYa
+6Ks1nT8smP+xyctNKS2vP7kZ59N+Ml7LB0Mne/teKkH1Qx/IEftRsTeuW70kFU6B
+RUEyHMnAyz5rZAozonbbaxKcLf383RvztwifOfcx04haXs3Du9KFGsIz2D8bYUuQ
+7yoBQy/00lTOhn+C92NSZP2iTWwNVfPAh3cEXj1VZQ47y0fkGUd/dBQIT4p4mii/
+4w3PLI4wnU44JlWcsDJllGZjBa/MQY4dRBeKibxDz8oMHxZj4nqc/ZIQ1MIIKd9v
+T24bBwL+RSa6/kGnk5M0hGwHliXGnsiM4/+4TnFJL0wWAfkCAwEAAaNdMFswOgYD
+VR0RBDMwMYILaWRwLmVjYW0uZnKGImh0dHBzOi8vaWRwLmVjYW0uZnIvaWRwL3No
+aWJib2xldGgwHQYDVR0OBBYEFOtnyyDaZuvbEOS/oJjhfM9qSbeBMA0GCSqGSIb3
+DQEBBQUAA4IBAQAeDlQG75QPvtH7RH4XgFjbtuK0Vx+C+RG+JjelVwtcUz6+P2jx
+/t16CRXS6GYSuKlL8X9hWzfxdMxcSSpdynEeh1s99w/9f19tJEPEsJNQ0AdLB80Q
+bXG9s8yhrIeO8Z7fHM6/23ay0uqXSw/DtAMFQ1dBKpKJ129nhuhELdDyw3IU3lwX
+j64hF1f32hVfNw1lfF3WwUPD7+ePFAsDZ5X0Z6rTlK0pRm/MKfzU+ASmYyJMbbwc
+7o8Ug2yRh/zIA5hfS5mxYt/1anKXSXxB6DIozsy5rWBZdGKTTFiqVZmFPQjOAOQn
+wuRoN+B/HWXuO2OFERHORHrZqV90QV5Sciud
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ecam.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ecam.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ecam.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ecam.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDFzCCAf+gAwIBAgIUXFGDVnYfC4TCE7Lq/bUOsxSKIrswDQYJKoZIhvcNAQEF
+BQAwFjEUMBIGA1UEAxMLaWRwLmVjYW0uZnIwHhcNMTQwNDI4MTMxMTQ4WhcNMzQw
+NDI4MTMxMTQ4WjAWMRQwEgYDVQQDEwtpZHAuZWNhbS5mcjCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAIIMTqPcyJZJxgn7lOirdEZMejGbdNX/90ZcBGYa
+6Ks1nT8smP+xyctNKS2vP7kZ59N+Ml7LB0Mne/teKkH1Qx/IEftRsTeuW70kFU6B
+RUEyHMnAyz5rZAozonbbaxKcLf383RvztwifOfcx04haXs3Du9KFGsIz2D8bYUuQ
+7yoBQy/00lTOhn+C92NSZP2iTWwNVfPAh3cEXj1VZQ47y0fkGUd/dBQIT4p4mii/
+4w3PLI4wnU44JlWcsDJllGZjBa/MQY4dRBeKibxDz8oMHxZj4nqc/ZIQ1MIIKd9v
+T24bBwL+RSa6/kGnk5M0hGwHliXGnsiM4/+4TnFJL0wWAfkCAwEAAaNdMFswOgYD
+VR0RBDMwMYILaWRwLmVjYW0uZnKGImh0dHBzOi8vaWRwLmVjYW0uZnIvaWRwL3No
+aWJib2xldGgwHQYDVR0OBBYEFOtnyyDaZuvbEOS/oJjhfM9qSbeBMA0GCSqGSIb3
+DQEBBQUAA4IBAQAeDlQG75QPvtH7RH4XgFjbtuK0Vx+C+RG+JjelVwtcUz6+P2jx
+/t16CRXS6GYSuKlL8X9hWzfxdMxcSSpdynEeh1s99w/9f19tJEPEsJNQ0AdLB80Q
+bXG9s8yhrIeO8Z7fHM6/23ay0uqXSw/DtAMFQ1dBKpKJ129nhuhELdDyw3IU3lwX
+j64hF1f32hVfNw1lfF3WwUPD7+ePFAsDZ5X0Z6rTlK0pRm/MKfzU+ASmYyJMbbwc
+7o8Ug2yRh/zIA5hfS5mxYt/1anKXSXxB6DIozsy5rWBZdGKTTFiqVZmFPQjOAOQn
+wuRoN+B/HWXuO2OFERHORHrZqV90QV5Sciud
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ecam.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">ECAM Lyon</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">ECAM Lyon</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>sysadmin@ecam.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

@@ -1,0 +1,88 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibbo.emse.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-02-24T19:45:08Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">emse.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Ecole des Mines de Saint-Etienne</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDIzCCAgugAwIBAgIUWG4OdOHMXs/jWUMbrVKK/qGFpQgwDQYJKoZIhvcNAQEF
+BQAwGTEXMBUGA1UEAxMOc2hpYmJvLmVtc2UuZnIwHhcNMTEwMTI1MTUxOTAzWhcN
+MzEwMTI1MTUxOTAzWjAZMRcwFQYDVQQDEw5zaGliYm8uZW1zZS5mcjCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBAIcRRG3bC6uPGH2dcbNjJvqCvFfy3P3p
+joVSK2SVXe1rqJ/mV0PBzyAi0grECmHoCoM8p5wg6IxdOTVrtnXEf4Wfg70bMGQY
+B/3BA5mXlO5gn9sJD/xx89b+vEJdIjAo8XHLjeLXlM5Om9f69jIxgr8RvmDHFl3E
+DzeCiNLURAB10ZgwwMjukIyPoFg7Hp77NH85/hni4yG1/7e82i1eKir4IGujDk3y
+UCc3TIPxLFYEBccoupZ6NfYn7LHgeJOHZktkNjSISyU7ZWlk7xBKrYijTbZmfWBm
+QxKaaAm/vhj7JgxVUdlgickTgyUZ4wptyHENPK6CLstOEU7eZVksgE0CAwEAAaNj
+MGEwQAYDVR0RBDkwN4IOc2hpYmJvLmVtc2UuZnKGJWh0dHBzOi8vc2hpYmJvLmVt
+c2UuZnIvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFIeWYn8hGuMdpEWP1VMxfDVP
+VoIhMA0GCSqGSIb3DQEBBQUAA4IBAQBhsFzDv5g8+KI9HPYtus470fLWG6QeoPJS
+okvD3oKa25+3hfen1fUgNEg4mLmcKG1+y/Ej9u6UiJrjZeo/iHIu3VSh9KClDAal
+BRbo30th1KQ122Nhkz1Hzt0MuVprMJbVzNo3jRfTw6iFtadaVPyC1koEvn5FucTD
+bpyOZ6qLHkuuEPoYgtyn0h/mFudb/XGDD8exhidz7CkuO6IWfT/HB9RC4nf7IAHW
+060v4YqkJ/y5F87gyOTwsLlNA1vWuJ4L90/fgzhJ15sp3l38Dr8XPnaegFYRVyAM
+mG4EGyP6qUE1uSrPxMk9GFtp+QkIXdDDGi5u9iIkLzHPYUMB4IfI
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibbo.emse.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibbo.emse.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibbo.emse.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Ecole des Mines de Saint-Etienne</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Ecole des Mines de Saint-Etienne</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Dominique BERTHET</SurName>
+				 <EmailAddress>dberthet@emse.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Elisabeth THONNERIEUX</SurName>
+				 <EmailAddress>thonnerieux@emse.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

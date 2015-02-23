@@ -1,0 +1,127 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.enssib.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-02-09T10:26:01Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">enssib.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">ENSSIB</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDIDCCAgigAwIBAgIVAJvmABrY/zRrXJu3cOVw4zlfFh6qMA0GCSqGSIb3DQEB
+BQUAMBgxFjAUBgNVBAMTDWlkcC5lbnNzaWIuZnIwHhcNMTIwMTMxMTYxOTAzWhcN
+MzIwMTMxMTYxOTAzWjAYMRYwFAYDVQQDEw1pZHAuZW5zc2liLmZyMIIBIjANBgkq
+hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA03FT48G8rTsowAqD+4Z9CQk8myTkYZje
++JH0a83a1iYEj4sBBftOlGJMOfbHS4bwidJO6Q1q0c7aQRD5xmNuqQYDudLlFhfg
+bZzaUTKX9CEbyazfvjf0aEUwxkH+ez1ULt5Z8NuECLAmHEUE5R4a3o2jYhpZSMcj
+heizmo+jXZc9rJXjGwe80u65xy+wI0ehV5POFCuML3lLxraBTTcm4sXm8JfpQZoE
+9HkM1gDyn+4+R9/W+Soc1382xwY5ZfgU49rQH9h21jB89LFDlno5H+gAewwLNVah
++I3SnEm+qhnhOLn4WN5ZiTQXKM3j4OkGffEJH9mHcLA1LyUsJVhYUQIDAQABo2Ew
+XzA+BgNVHREENzA1gg1pZHAuZW5zc2liLmZyhiRodHRwczovL2lkcC5lbnNzaWIu
+ZnIvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFLwMl3n3xOC7r6xGK55bcvAYcnF/
+MA0GCSqGSIb3DQEBBQUAA4IBAQBKk2ZMuISXcOrJOZbRxuxbbKTJn113O4otW7AA
+ldWxlFtUyJrzEoVCu1nEtzS+pVP6hg/7t3lB3iQ17tiLHle7LHfEihkyDwsNVFpk
+W4dlYmetZT4l6CM3DESk2ak0KWUjHbniPHp+NPtK7sAwtfBwoCsJwU9vYF0ysB1S
+VqN43TT+z6fLLkYYkaYCEFJiZ5vhA8dpOfwpqxy0DyThzABg4egUKQbK5GZBixdD
+4YhyZ0Jc32mvyEqTVh4GTyyWn2PK7b+GY9Fd6FCBN1EDNXv4P+m11hiqhABd3Djp
+rAdVc6ukYTipKpuEb2afsqV7HRnwpfVkVt1QieIu1hurHlbR
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.enssib.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.enssib.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.enssib.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">enssib.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDIDCCAgigAwIBAgIVAJvmABrY/zRrXJu3cOVw4zlfFh6qMA0GCSqGSIb3DQEB
+BQUAMBgxFjAUBgNVBAMTDWlkcC5lbnNzaWIuZnIwHhcNMTIwMTMxMTYxOTAzWhcN
+MzIwMTMxMTYxOTAzWjAYMRYwFAYDVQQDEw1pZHAuZW5zc2liLmZyMIIBIjANBgkq
+hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA03FT48G8rTsowAqD+4Z9CQk8myTkYZje
++JH0a83a1iYEj4sBBftOlGJMOfbHS4bwidJO6Q1q0c7aQRD5xmNuqQYDudLlFhfg
+bZzaUTKX9CEbyazfvjf0aEUwxkH+ez1ULt5Z8NuECLAmHEUE5R4a3o2jYhpZSMcj
+heizmo+jXZc9rJXjGwe80u65xy+wI0ehV5POFCuML3lLxraBTTcm4sXm8JfpQZoE
+9HkM1gDyn+4+R9/W+Soc1382xwY5ZfgU49rQH9h21jB89LFDlno5H+gAewwLNVah
++I3SnEm+qhnhOLn4WN5ZiTQXKM3j4OkGffEJH9mHcLA1LyUsJVhYUQIDAQABo2Ew
+XzA+BgNVHREENzA1gg1pZHAuZW5zc2liLmZyhiRodHRwczovL2lkcC5lbnNzaWIu
+ZnIvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFLwMl3n3xOC7r6xGK55bcvAYcnF/
+MA0GCSqGSIb3DQEBBQUAA4IBAQBKk2ZMuISXcOrJOZbRxuxbbKTJn113O4otW7AA
+ldWxlFtUyJrzEoVCu1nEtzS+pVP6hg/7t3lB3iQ17tiLHle7LHfEihkyDwsNVFpk
+W4dlYmetZT4l6CM3DESk2ak0KWUjHbniPHp+NPtK7sAwtfBwoCsJwU9vYF0ysB1S
+VqN43TT+z6fLLkYYkaYCEFJiZ5vhA8dpOfwpqxy0DyThzABg4egUKQbK5GZBixdD
+4YhyZ0Jc32mvyEqTVh4GTyyWn2PK7b+GY9Fd6FCBN1EDNXv4P+m11hiqhABd3Djp
+rAdVc6ukYTipKpuEb2afsqV7HRnwpfVkVt1QieIu1hurHlbR
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.enssib.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">ENSSIB</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">ENSSIB</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://www.enssib.fr</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Sébastien BOUTELIER</SurName>
+				 <EmailAddress>sebastien.boutelier@enssib.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Isabelle RECH-LE-RECIS</SurName>
+				 <EmailAddress>isabelle.rech-le-recis@enssib.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

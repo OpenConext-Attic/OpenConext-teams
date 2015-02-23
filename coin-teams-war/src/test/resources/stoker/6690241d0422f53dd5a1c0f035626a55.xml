@@ -1,0 +1,143 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://aai.rz.uni-leipzig.de/idp/shibboleth">
+    <Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2011-08-12T09:14:54Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">uni-leipzig.de</saml1md:Scope>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">dzb.de</saml1md:Scope>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">ub.uni-leipzig.de</saml1md:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="de">Universität Leipzig</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">University of Leipzig</mdui:DisplayName>
+          <mdui:Description xml:lang="de">IdP der Uni Leipzig</mdui:Description>
+          <mdui:Description xml:lang="en">IdP University of Leipzig</mdui:Description>
+          <mdui:Logo height="37" width="233">https://www.zv.uni-leipzig.de/fileadmin/www.uni-leipzig.de/images/logo.jpg</mdui:Logo>
+          <mdui:InformationURL xml:lang="de">https://www.uni-leipzig.de/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">https://www.uni-leipzig.de/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>aai.rz.uni-leipzig.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=aai.rz.uni-leipzig.de,OU=URZ,O=Universitaet Leipzig,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIF5DCCBMygAwIBAgIEEi6wvTANBgkqhkiG9w0BAQUFADB/MQswCQYDVQQGEwJE
+RTEdMBsGA1UEChMUVW5pdmVyc2l0YWV0IExlaXB6aWcxDDAKBgNVBAsTA1VSWjEg
+MB4GA1UEAxMXVU5JVkVSU0lUQUVUIExFSVBaSUcgQ0ExITAfBgkqhkiG9w0BCQEW
+EnBraUB1bmktbGVpcHppZy5kZTAeFw0xMTA3MDIxNTAzMTBaFw0xNjA2MzAxNTAz
+MTBaMFoxCzAJBgNVBAYTAkRFMR0wGwYDVQQKExRVbml2ZXJzaXRhZXQgTGVpcHpp
+ZzEMMAoGA1UECxMDVVJaMR4wHAYDVQQDExVhYWkucnoudW5pLWxlaXB6aWcuZGUw
+ggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQCh3JxzMGQsIZpSBajOsdg1
+PNiVwmvk8u0+BOBiKisnKfwq754g77HeLQN2F322UMxFX/Gd5SQBYJKvrvtFjcCD
+zK3yWmzcuC/6bjka1MVt0NRT3nzgtrRXz63/WQ5wWUZGZuSVeasyEObtI7w35VyN
+ccLHn1NXR3yLOAzaR/5JXFzi/mTZu4u/AvmSJFxaOfChhXEAVy+F7Umrbx1JnVF8
+PSFrvtzXhDkq82sgAYUhuAcdiDLxY+xYKzgEo/NCId3YQcaHm8Ej0jmJIYS7b51Y
+iXMNeluHgSMHjFJhcXmJfQIsUtqz9zGPRLSPhDoJY3ZZ77TM7cpvmWbqI7idmTJa
+myTwPY5q9N4UiGywrchC3fUyjXDdaPLuqSqAaw+WfRxnVIrtpTUiRdNKWrbkbvwL
+4XUMxJ3ZnM7AqHRIIJNLBdjqOFvTgM25lkEjuLsbwWvCp8PAiCzOzXLD393X4gtG
+iVnVVppyCxkSo5BpGeM6oCbgxyEnVVleyGRpmGt+AbsuyyqAU0o/XbFXnV8j+uo2
+FfI7UGVpwI7coC0IHZYhzL3gUZX/plAgXLQD0yvg38II4g/RAUR9IR+bq/YKurEa
+hLp8YYn7t7UBVkDAOLZJ5Bb55yV6IVClnRH1MSG9zxAzJha963b4Ldgl2iTBJxXo
+9hrcueYnTSFzy+aXTZxIPQIDAQABo4IBizCCAYcwCQYDVR0TBAIwADALBgNVHQ8E
+BAMCBPAwEwYDVR0lBAwwCgYIKwYBBQUHAwEwHQYDVR0OBBYEFPM3g5EU6fDFKqWM
+A3R4EgtwDebPMB8GA1UdIwQYMBaAFDaM3R6c0bqQgPinird0ak3JN9oOMH0GA1Ud
+HwR2MHQwOKA2oDSGMmh0dHA6Ly9jZHAxLnBjYS5kZm4uZGUvdW5pbGVpLWNhL3B1
+Yi9jcmwvY2FjcmwuY3JsMDigNqA0hjJodHRwOi8vY2RwMi5wY2EuZGZuLmRlL3Vu
+aWxlaS1jYS9wdWIvY3JsL2NhY3JsLmNybDCBmAYIKwYBBQUHAQEEgYswgYgwQgYI
+KwYBBQUHMAKGNmh0dHA6Ly9jZHAxLnBjYS5kZm4uZGUvdW5pbGVpLWNhL3B1Yi9j
+YWNlcnQvY2FjZXJ0LmNydDBCBggrBgEFBQcwAoY2aHR0cDovL2NkcDIucGNhLmRm
+bi5kZS91bmlsZWktY2EvcHViL2NhY2VydC9jYWNlcnQuY3J0MA0GCSqGSIb3DQEB
+BQUAA4IBAQAvUWGrn9rasTZ53tV7AIwNqlQt+flcJFiPq0/AGEZF9Shk1AHh+7MS
+htDa6ydnZH8wVSUbke+18ie0gTBZFZTGs242OBaS7Qw4cJIo9+wLugtPsYd1whsR
+kuXwvt8/kDEgDLFuw8zF4HtoRmB+cdSAlM3can5H8/DDGnny0Y5LupIEJsN9f6mI
+qK13ds7GZa2qOvOgPp+FxCDBxWBnZyX1SEhjy80q+vZE0LJOxJtW88oKMWEJL+nY
+dR5QRlXFOhmaxQ8kzm0Q/kFV/LAW/wALLNsH6Apvcb6w04QbN3Uw3kjywWkF2Q3b
+dJK6wmgTVaqH2u5BMKaDvRQ5oqgkgvhU
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai.rz.uni-leipzig.de:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai.rz.uni-leipzig.de:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://aai.rz.uni-leipzig.de/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://aai.rz.uni-leipzig.de/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://aai.rz.uni-leipzig.de/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai.rz.uni-leipzig.de/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">uni-leipzig.de</saml1md:Scope>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">dzb.de</saml1md:Scope>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">ub.uni-leipzig.de</saml1md:Scope>
+      </Extensions>
+      <KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>aai.rz.uni-leipzig.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=aai.rz.uni-leipzig.de,OU=URZ,O=Universitaet Leipzig,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIF5DCCBMygAwIBAgIEEi6wvTANBgkqhkiG9w0BAQUFADB/MQswCQYDVQQGEwJE
+RTEdMBsGA1UEChMUVW5pdmVyc2l0YWV0IExlaXB6aWcxDDAKBgNVBAsTA1VSWjEg
+MB4GA1UEAxMXVU5JVkVSU0lUQUVUIExFSVBaSUcgQ0ExITAfBgkqhkiG9w0BCQEW
+EnBraUB1bmktbGVpcHppZy5kZTAeFw0xMTA3MDIxNTAzMTBaFw0xNjA2MzAxNTAz
+MTBaMFoxCzAJBgNVBAYTAkRFMR0wGwYDVQQKExRVbml2ZXJzaXRhZXQgTGVpcHpp
+ZzEMMAoGA1UECxMDVVJaMR4wHAYDVQQDExVhYWkucnoudW5pLWxlaXB6aWcuZGUw
+ggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQCh3JxzMGQsIZpSBajOsdg1
+PNiVwmvk8u0+BOBiKisnKfwq754g77HeLQN2F322UMxFX/Gd5SQBYJKvrvtFjcCD
+zK3yWmzcuC/6bjka1MVt0NRT3nzgtrRXz63/WQ5wWUZGZuSVeasyEObtI7w35VyN
+ccLHn1NXR3yLOAzaR/5JXFzi/mTZu4u/AvmSJFxaOfChhXEAVy+F7Umrbx1JnVF8
+PSFrvtzXhDkq82sgAYUhuAcdiDLxY+xYKzgEo/NCId3YQcaHm8Ej0jmJIYS7b51Y
+iXMNeluHgSMHjFJhcXmJfQIsUtqz9zGPRLSPhDoJY3ZZ77TM7cpvmWbqI7idmTJa
+myTwPY5q9N4UiGywrchC3fUyjXDdaPLuqSqAaw+WfRxnVIrtpTUiRdNKWrbkbvwL
+4XUMxJ3ZnM7AqHRIIJNLBdjqOFvTgM25lkEjuLsbwWvCp8PAiCzOzXLD393X4gtG
+iVnVVppyCxkSo5BpGeM6oCbgxyEnVVleyGRpmGt+AbsuyyqAU0o/XbFXnV8j+uo2
+FfI7UGVpwI7coC0IHZYhzL3gUZX/plAgXLQD0yvg38II4g/RAUR9IR+bq/YKurEa
+hLp8YYn7t7UBVkDAOLZJ5Bb55yV6IVClnRH1MSG9zxAzJha963b4Ldgl2iTBJxXo
+9hrcueYnTSFzy+aXTZxIPQIDAQABo4IBizCCAYcwCQYDVR0TBAIwADALBgNVHQ8E
+BAMCBPAwEwYDVR0lBAwwCgYIKwYBBQUHAwEwHQYDVR0OBBYEFPM3g5EU6fDFKqWM
+A3R4EgtwDebPMB8GA1UdIwQYMBaAFDaM3R6c0bqQgPinird0ak3JN9oOMH0GA1Ud
+HwR2MHQwOKA2oDSGMmh0dHA6Ly9jZHAxLnBjYS5kZm4uZGUvdW5pbGVpLWNhL3B1
+Yi9jcmwvY2FjcmwuY3JsMDigNqA0hjJodHRwOi8vY2RwMi5wY2EuZGZuLmRlL3Vu
+aWxlaS1jYS9wdWIvY3JsL2NhY3JsLmNybDCBmAYIKwYBBQUHAQEEgYswgYgwQgYI
+KwYBBQUHMAKGNmh0dHA6Ly9jZHAxLnBjYS5kZm4uZGUvdW5pbGVpLWNhL3B1Yi9j
+YWNlcnQvY2FjZXJ0LmNydDBCBggrBgEFBQcwAoY2aHR0cDovL2NkcDIucGNhLmRm
+bi5kZS91bmlsZWktY2EvcHViL2NhY2VydC9jYWNlcnQuY3J0MA0GCSqGSIb3DQEB
+BQUAA4IBAQAvUWGrn9rasTZ53tV7AIwNqlQt+flcJFiPq0/AGEZF9Shk1AHh+7MS
+htDa6ydnZH8wVSUbke+18ie0gTBZFZTGs242OBaS7Qw4cJIo9+wLugtPsYd1whsR
+kuXwvt8/kDEgDLFuw8zF4HtoRmB+cdSAlM3can5H8/DDGnny0Y5LupIEJsN9f6mI
+qK13ds7GZa2qOvOgPp+FxCDBxWBnZyX1SEhjy80q+vZE0LJOxJtW88oKMWEJL+nY
+dR5QRlXFOhmaxQ8kzm0Q/kFV/LAW/wALLNsH6Apvcb6w04QbN3Uw3kjywWkF2Q3b
+dJK6wmgTVaqH2u5BMKaDvRQ5oqgkgvhU
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://aai.rz.uni-leipzig.de:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://aai.rz.uni-leipzig.de:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+    </AttributeAuthorityDescriptor>
+    <Organization>
+      <OrganizationName xml:lang="de">e256</OrganizationName>
+      <OrganizationName xml:lang="en">e256</OrganizationName>
+      <OrganizationDisplayName xml:lang="de">Universität Leipzig</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="en">University of Leipzig</OrganizationDisplayName>
+      <OrganizationURL xml:lang="de">https://www.uni-leipzig.de</OrganizationURL>
+      <OrganizationURL xml:lang="en">https://www.uni-leipzig.de</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Uwe</GivenName>
+      <SurName>Toenjes</SurName>
+      <EmailAddress>mailto:toenjes@rz.uni-leipzig.de</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="support">
+      <GivenName>Uwe</GivenName>
+      <SurName>Toenjes</SurName>
+      <EmailAddress>mailto:toenjes@rz.uni-leipzig.de</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

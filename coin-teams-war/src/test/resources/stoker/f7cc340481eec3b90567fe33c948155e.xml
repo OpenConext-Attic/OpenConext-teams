@@ -1,0 +1,59 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://www.vutbr.cz/SSO/saml2/idp">
+    <md:Extensions xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.eduid.cz/" registrationInstant="2010-09-22T12:05:52Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <mdasrt:Attribute xmlns:mdasrt="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <mdasrt:AttributeValue>http://eduid.cz/uri/idp-group/university</mdasrt:AttributeValue>
+        </mdasrt:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <IDPSSODescriptor xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">vutbr.cz</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">Brno University of Technology</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">Vysoké učení technické v Brně</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity Provider for employees and students of the Brno University of Technology</mdui:Description>
+          <mdui:Description xml:lang="cs">Identity Provider pro zaměstnance a studenty Vysokého učení technického v Brně</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.vutbr.cz/en/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">http://www.vutbr.cz/</mdui:InformationURL>
+          <mdui:Logo height="84" width="180">https://www2.eduid.cz/idp-loga/vut.png</mdui:Logo>
+        </mdui:UIInfo>
+        <eduidmd:RepublishRequest xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0">
+          <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
+        </eduidmd:RepublishRequest>
+      </Extensions>
+      <KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDyDCCArCgAwIBAgIBAjANBgkqhkiG9w0BAQUFADBpMQswCQYDVQQGEwJDWjEXMBUGA1UECAwOQ3plY2ggUmVwdWJsaWMxDTALBgNVBAcMBEJybm8xDDAKBgNVBAoMA0JVVDENMAsGA1UECwwEQ1ZJUzEVMBMGA1UEAwwMQ1ZJUyBVTklYIENBMB4XDTEyMDgyOTExNTEwNFoXDTIyMDgyNzExNTEwNFowaTELMAkGA1UEBhMCQ1oxFzAVBgNVBAgMDkN6ZWNoIFJlcHVibGljMQ0wCwYDVQQHDARCcm5vMQwwCgYDVQQKDANCVVQxDTALBgNVBAsMBENWSVMxFTATBgNVBAMMDHd3dy52dXRici5jejCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALXWlW/8fKDvTZuYpa3NjOxoreomNt7rb4BBLnyflF4pnrqkO7JkJfzxGPDN1ntMhSG0ubKv8bAq60MLfxwR0ia8KfWU17cVShpQ+/qZBtq3ha+78lsrmRb4K0bFvbnXKBxDTLJ0A9a6644O9DxpWNufnRJWukS45w6+nuwgCz6t3YrfF5FJFyf3z+RxfjZeqPMsxwzVarDmLJ3yMksSZKi9GQYxy3IWs12omM3E5ESIvJp9sYf4chwZJHhnLzGI/wxV2p/TD8HVB72sfAN4hourY4Yyy2Y93r8M6oQ8FpxfVlOnhkE9Y+oHl/eyQcM8rQM2uHKX8YZ8osvypqvoTnUCAwEAAaN7MHkwCQYDVR0TBAIwADAsBglghkgBhvhCAQ0EHxYdT3BlblNTTCBHZW5lcmF0ZWQgQ2VydGlmaWNhdGUwHQYDVR0OBBYEFCZONDpcM7CZ5UWgMgbSKafxnIkJMB8GA1UdIwQYMBaAFAawVMF2h+OuCnZ4RBYk6iGjuvJzMA0GCSqGSIb3DQEBBQUAA4IBAQDf8AxfrehzO9Wx9JFHrhacaz+ON0YpuamXK5Q7sprba7J5tAP3xbBsKpLh9vR1M0UqSYf4rL90ge/fQawJK7Erq3r+O9P192jPfWJeU733K+AyOo9e7ZE4XRDub44L4YrG4+1igQXTAs5GyZFgAtN4c+1bEoAsOU+kChyZ931OsfmnXNnCtP3Zrp2bvAtR28uDJ3y8z7qNgK0SBTuFjBORIXq8eycTkxAjnSrLUiTMEZO+kJIUQkjr0jIAFh9lkD3qFhJ+ariWJwPt156p41twmu4xNCj94EDl9JKzFdnk2TUl5P+5y8aXwJ7WDJUqXswWrTZtdS2E1qIHxcTLnDES</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <KeyDescriptor use="encryption">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDyDCCArCgAwIBAgIBAjANBgkqhkiG9w0BAQUFADBpMQswCQYDVQQGEwJDWjEXMBUGA1UECAwOQ3plY2ggUmVwdWJsaWMxDTALBgNVBAcMBEJybm8xDDAKBgNVBAoMA0JVVDENMAsGA1UECwwEQ1ZJUzEVMBMGA1UEAwwMQ1ZJUyBVTklYIENBMB4XDTEyMDgyOTExNTEwNFoXDTIyMDgyNzExNTEwNFowaTELMAkGA1UEBhMCQ1oxFzAVBgNVBAgMDkN6ZWNoIFJlcHVibGljMQ0wCwYDVQQHDARCcm5vMQwwCgYDVQQKDANCVVQxDTALBgNVBAsMBENWSVMxFTATBgNVBAMMDHd3dy52dXRici5jejCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALXWlW/8fKDvTZuYpa3NjOxoreomNt7rb4BBLnyflF4pnrqkO7JkJfzxGPDN1ntMhSG0ubKv8bAq60MLfxwR0ia8KfWU17cVShpQ+/qZBtq3ha+78lsrmRb4K0bFvbnXKBxDTLJ0A9a6644O9DxpWNufnRJWukS45w6+nuwgCz6t3YrfF5FJFyf3z+RxfjZeqPMsxwzVarDmLJ3yMksSZKi9GQYxy3IWs12omM3E5ESIvJp9sYf4chwZJHhnLzGI/wxV2p/TD8HVB72sfAN4hourY4Yyy2Y93r8M6oQ8FpxfVlOnhkE9Y+oHl/eyQcM8rQM2uHKX8YZ8osvypqvoTnUCAwEAAaN7MHkwCQYDVR0TBAIwADAsBglghkgBhvhCAQ0EHxYdT3BlblNTTCBHZW5lcmF0ZWQgQ2VydGlmaWNhdGUwHQYDVR0OBBYEFCZONDpcM7CZ5UWgMgbSKafxnIkJMB8GA1UdIwQYMBaAFAawVMF2h+OuCnZ4RBYk6iGjuvJzMA0GCSqGSIb3DQEBBQUAA4IBAQDf8AxfrehzO9Wx9JFHrhacaz+ON0YpuamXK5Q7sprba7J5tAP3xbBsKpLh9vR1M0UqSYf4rL90ge/fQawJK7Erq3r+O9P192jPfWJeU733K+AyOo9e7ZE4XRDub44L4YrG4+1igQXTAs5GyZFgAtN4c+1bEoAsOU+kChyZ931OsfmnXNnCtP3Zrp2bvAtR28uDJ3y8z7qNgK0SBTuFjBORIXq8eycTkxAjnSrLUiTMEZO+kJIUQkjr0jIAFh9lkD3qFhJ+ariWJwPt156p41twmu4xNCj94EDl9JKzFdnk2TUl5P+5y8aXwJ7WDJUqXswWrTZtdS2E1qIHxcTLnDES</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.vutbr.cz/SSO/saml2/idp/BUTSingleLogoutService.php" ResponseLocation="https://www.vutbr.cz/SSO/saml2/idp/SingleLogoutService.php"/>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.vutbr.cz/SSO/saml2/idp/SSOService.php"/>
+    </IDPSSODescriptor>
+    <Organization>
+      <OrganizationName xml:lang="en">Brno University of Technology</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">Brno University of Technology</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="cs">Vysoké učení technické v Brně</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.vutbr.cz/en</OrganizationURL>
+      <OrganizationURL xml:lang="cs">http://www.vutbr.cz/</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Webmasters</GivenName>
+      <SurName>VUT Portal</SurName>
+      <EmailAddress>portal@vutbr.cz</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

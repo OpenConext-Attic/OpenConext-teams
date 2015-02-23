@@ -1,0 +1,116 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.hesam.eu/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2013-04-22T13:40:54Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">hesam.eu</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">PRES HESAM - Hautes Etudes-Sorbonne-Arts et Métiers</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDGzCCAgOgAwIBAgIUcOyBUfV1JWYkzdfbAaltfBkAukQwDQYJKoZIhvcNAQEF
+BQAwFzEVMBMGA1UEAxMMaWRwLmhlc2FtLmV1MB4XDTEzMDQwNTE2MDMzNloXDTMz
+MDQwNTE2MDMzNlowFzEVMBMGA1UEAxMMaWRwLmhlc2FtLmV1MIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhQP48nRAAh9b78ybhUcTpuXHSXmC2m1hHwqF
+B2jJjgVlHTZTjLa2s95aIgeAt4lwJhlJ7RxZDxj+udG9840FkRAwbvuiufgRmR05
+q+VX2+eejxe1fyP+5XsNA7dUcvCp3wMurRK3f0Z/x3sMEIlh/Nh0pB9fVqwi6TtD
+gyRayTuCFu6wnH1oGhhu6Edrihn4OTJBvUR0vqrg98SY3S1FsYB9OhV03U7vbwfV
+J9sVPu8vbYkbofXuDPpaKdIMYzFWMNIZnnkZvSBY1C6fa/f4pCmwcVBpOjlEW2fA
+1Zj9cxnu8MIhYY6CVV3d0IVrmvXeK9IprM7ixfME59XVnsy4jQIDAQABo18wXTA8
+BgNVHREENTAzggxpZHAuaGVzYW0uZXWGI2h0dHBzOi8vaWRwLmhlc2FtLmV1L2lk
+cC9zaGliYm9sZXRoMB0GA1UdDgQWBBRLm+HxjRffot5ojMgT+q8252oBfDANBgkq
+hkiG9w0BAQUFAAOCAQEAg9CezjS15qvJOTpkIEzGHkk2LfKKqbExgWshU8yYPHlo
+Wefs+Gdj4NEtJy28RYM59KgPG+KvC6xog3l0ZL1CVIx8Xch1rZDSeNUvgUAvbrPu
+UWNzsjEbT22QkvcbyW1vi3/ZgSJg909nvH2GBqASWokEIT7VC30Un+mrEsffqFuZ
+fJe5PTSZ3SGmR0yPPTVQpLqbYLVdWBhE46JP84qFZlsZomBnoVRlCSURARHgJIcF
+q4+smXBAWAFRltJUEQ7hjQKaNCKApYnAdWReOTEhkMkVZZNqbkFYSSeQ1cxlabLV
+3usSDArcclPgsgS25qfJ4XUmUJadJhyAZIJ9zluU0Q==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.hesam.eu/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.hesam.eu/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.hesam.eu/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">hesam.eu</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDGzCCAgOgAwIBAgIUcOyBUfV1JWYkzdfbAaltfBkAukQwDQYJKoZIhvcNAQEF
+BQAwFzEVMBMGA1UEAxMMaWRwLmhlc2FtLmV1MB4XDTEzMDQwNTE2MDMzNloXDTMz
+MDQwNTE2MDMzNlowFzEVMBMGA1UEAxMMaWRwLmhlc2FtLmV1MIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhQP48nRAAh9b78ybhUcTpuXHSXmC2m1hHwqF
+B2jJjgVlHTZTjLa2s95aIgeAt4lwJhlJ7RxZDxj+udG9840FkRAwbvuiufgRmR05
+q+VX2+eejxe1fyP+5XsNA7dUcvCp3wMurRK3f0Z/x3sMEIlh/Nh0pB9fVqwi6TtD
+gyRayTuCFu6wnH1oGhhu6Edrihn4OTJBvUR0vqrg98SY3S1FsYB9OhV03U7vbwfV
+J9sVPu8vbYkbofXuDPpaKdIMYzFWMNIZnnkZvSBY1C6fa/f4pCmwcVBpOjlEW2fA
+1Zj9cxnu8MIhYY6CVV3d0IVrmvXeK9IprM7ixfME59XVnsy4jQIDAQABo18wXTA8
+BgNVHREENTAzggxpZHAuaGVzYW0uZXWGI2h0dHBzOi8vaWRwLmhlc2FtLmV1L2lk
+cC9zaGliYm9sZXRoMB0GA1UdDgQWBBRLm+HxjRffot5ojMgT+q8252oBfDANBgkq
+hkiG9w0BAQUFAAOCAQEAg9CezjS15qvJOTpkIEzGHkk2LfKKqbExgWshU8yYPHlo
+Wefs+Gdj4NEtJy28RYM59KgPG+KvC6xog3l0ZL1CVIx8Xch1rZDSeNUvgUAvbrPu
+UWNzsjEbT22QkvcbyW1vi3/ZgSJg909nvH2GBqASWokEIT7VC30Un+mrEsffqFuZ
+fJe5PTSZ3SGmR0yPPTVQpLqbYLVdWBhE46JP84qFZlsZomBnoVRlCSURARHgJIcF
+q4+smXBAWAFRltJUEQ7hjQKaNCKApYnAdWReOTEhkMkVZZNqbkFYSSeQ1cxlabLV
+3usSDArcclPgsgS25qfJ4XUmUJadJhyAZIJ9zluU0Q==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.hesam.eu/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">PRES HESAM - Hautes Etudes-Sorbonne-Arts et Métiers</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">PRES HESAM - Hautes Etudes-Sorbonne-Arts et Métiers</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>fed-admin@univ-paris1.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

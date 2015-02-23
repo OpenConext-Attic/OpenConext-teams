@@ -1,0 +1,112 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.crous-nantes.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-01-28T09:50:19Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">crous-nantes.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      <mdui:DisplayName xml:lang="en">CROUS of Nantes</mdui:DisplayName>
+          		      <mdui:Description xml:lang="en">Employees from CROUS of Nantes</mdui:Description>
+          		      <mdui:DisplayName xml:lang="fr">CROUS de Nantes</mdui:DisplayName>
+          		      <mdui:Description xml:lang="fr">Administratifs CROUS Nantes</mdui:Description>
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDODCCAiCgAwIBAgIVAMI83efvzywvxHitZXX4VZlwTMCTMA0GCSqGSIb3DQEB
+BQUAMB4xHDAaBgNVBAMTE2lkcC5jcm91cy1uYW50ZXMuZnIwHhcNMTQwNDEwMTI1
+NzAyWhcNMzQwNDEwMTI1NzAyWjAeMRwwGgYDVQQDExNpZHAuY3JvdXMtbmFudGVz
+LmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqNwp1Kemrmrbq+EJ
+AjqE4/C9R90pS4T5FShT/qCBlZUysiApI0/F1rcYqDfccHINp0Z6wsKAVcM10eOv
+1JokHOc1CKiPRMDTy1GLCjELj7JyLacZeEkg4Tja/6ILXcnWMOe/WrddVCvuOjxN
+nekRqxkrTMsOI44zV2Z5grnGReyhAYmV38VphFBYFn5IFZAbJNcip82rJsJAr6rS
+yN+NtX1u70UyJ9jlZlH0pu796AQX8CnsG7DBrRzSO2bttQySFrvqf1MkQJknDIuC
+rWcCGBNmCgSs5GusevCbRMvJxhLhE2F/19pyKawjM6/2QaG5LhYprQRXWLnBnJY3
+vXzmOQIDAQABo20wazBKBgNVHREEQzBBghNpZHAuY3JvdXMtbmFudGVzLmZyhipo
+dHRwczovL2lkcC5jcm91cy1uYW50ZXMuZnIvaWRwL3NoaWJib2xldGgwHQYDVR0O
+BBYEFA0ym8iOuZOL8OiKnoyrOXIteMCPMA0GCSqGSIb3DQEBBQUAA4IBAQBOElqO
+epb/E6K9bXwf7GFHqGWr4W7qEpqjJWvwbYLD8CUFKQaiEIQnWDywPpOTaVqwY548
++4vNNu/xab3U8INNmnRf26TD2CuknF2GUqDy5FBPkwwrTHoQbsNp7c1nCABpH3gF
+pM9wqeKv332VzQPVFERNYY2ZtngdmvALe7EGyMntjtYm6J1NFQGAl0w5dx7KRU59
+/NV3jddW4fqkuqKKCNEzWx+mOcunNLWoJMnZwixbLczf1qw5bA3uEdL4qEepqyUe
+b4Va7oIyoH9QLAUtV8dUZNqUOwYBWmRcNKnI4tYCuL3HuIaQulLE9SUGPCotx3mQ
+WtPzHc/Z3g9j7+76
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+				
+				<KeyDescriptor use="signing">
+				       <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIEdDCCA1ygAwIBAgIRALmCI9KfSplaBaEw3OkzCqswDQYJKoZIhvcNAQEFBQAw
+NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+IFNTTCBDQTAeFw0xMzEyMDQwMDAwMDBaFw0xNjEyMDMyMzU5NTlaMEExITAfBgNV
+BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEcMBoGA1UEAxMTaWRwLmNyb3Vz
+LW5hbnRlcy5mcjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN7dNk66
+6Q8SjuXbyYGRJDmUcZzfrQbZo2tm93Q6UW0OwyidY+HQ2kwjnfFtAO8k9nYJbUR7
+sbffjlJ6cE7UqvzCCLhdQ+ljv0qMQIUFCdQyq7Qc1JtJ5wDppK7gFFxHi0JkZKzc
+eI5a8MGJ9QmBa9dqeD6bR116TkiF8zBpuUvTz64E9OIb0RuO/auFn0T0fpOh3WlS
+Gl2viccrsMKLBYqYNVESBlKbO2KvfcgYJJF5FcwBL+UWoCms5wo/R4jr4CfyOZ7D
+1S4Em8Id62+3iIVybn17BF0iO1zhuExh8NHGT4HpfZbqfwZh+3i7X1CflXRoZ/bi
+b3xYhYGmkkphqg0CAwEAAaOCAXAwggFsMB8GA1UdIwQYMBaAFAy9k2gM896ro0lr
+KzdXR+qQ47ntMB0GA1UdDgQWBBQ48HcJP0W24khejtyhRVxcWxIkgTAOBgNVHQ8B
+Af8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYB
+BQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEwOgYDVR0f
+BDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xD
+QS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRj
+cy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDov
+L29jc3AudGNzLnRlcmVuYS5vcmcwHgYDVR0RBBcwFYITaWRwLmNyb3VzLW5hbnRl
+cy5mcjANBgkqhkiG9w0BAQUFAAOCAQEABJnxgwEeQraM3Xe7rLl95ex0B+QUrBVY
+GCjumdLmvDf8i26sr8V1S/Y7pnFvwOwJutrf4P23tYEcFlMRjxkSZqGhfkzws+A4
+oGEtdmL2SZwX4kkhczWk2VboqCaywOPKhLrZBlsezqwpNODU5MSEs7DHZB4RV1kx
+Y4Lshyv0lVcFjSQyQnYTAPJ9nfZDAAV82/IUlbGEZwO+KcX7DsY7LIfxlMwesRLV
+d3kCluVSx+IUBZZixpFu9/bCBlpuEzHrmXsU/by0WO0w49ICNX3lUCLUkWvMuSlN
+ri7ETEJpUukv03GWujd49DIGtCfo6+64k5DS9OpUUvAbsMfYlvudjQ==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					</ds:KeyInfo>
+				</KeyDescriptor>
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.crous-nantes.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.crous-nantes.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.crous-nantes.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">CROUS de Nantes</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">CROUS de Nantes</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>dsi.exploitation@crous-nantes.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

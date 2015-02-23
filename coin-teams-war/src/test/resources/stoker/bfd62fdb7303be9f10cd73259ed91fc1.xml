@@ -1,0 +1,61 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://vvc.niif.hu/shibboleth">
+        <Extensions>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">niifi</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href-edugain</ns9:MetadataSet>
+            <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://eduid.hu"/>
+        </Extensions>
+        <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+            <Extensions>
+                <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <mdui:Logo height="86" width="150">https://metadata.eduid.hu/logos/niifi.png</mdui:Logo>
+                    <mdui:InformationURL xml:lang="hu">http://vvc.niif.hu/</mdui:InformationURL>
+                    <mdui:PrivacyStatementURL xml:lang="hu">http://vvc.niif.hu/</mdui:PrivacyStatementURL>
+                </mdui:UIInfo>
+            </Extensions>
+            <KeyDescriptor>
+                <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:KeyName>vvc.niif.hu</ds:KeyName>
+                    <ds:X509Data>
+                        <ds:X509Certificate>MIIDpjCCAo6gAwIBAgIJAMjwevTdUaFoMA0GCSqGSIb3DQEBBQUAMEAxCzAJBgNVBAYTAkhVMQ0wCwYDVQQKEwROSUlGMQwwCgYDVQQLEwNBQUkxFDASBgNVBAMTC3Z2Yy5uaWlmLmh1MB4XDTEwMDIwMzExMTA0NVoXDTM3MDYyMTExMTA0NVowQDELMAkGA1UEBhMCSFUxDTALBgNVBAoTBE5JSUYxDDAKBgNVBAsTA0FBSTEUMBIGA1UEAxMLdnZjLm5paWYuaHUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCoona+rrWD+FiNj++BK8vn/dQyMCteRKU4wa8ZTNycUjoP26eEOkBw6oqrnw1qyw3oKKUVfCEiIIlfXg9nJ5qMo7NTYKe/IlanYC+uGMTmT8DjgTH9fpA/8CoNjssuyAOhh0oEGdWoPcCd89K+II8uF7Fjz1EhP3WRhWfDTO+mfytMj4qwzV2oLUOfePt7LYMXNNoPkWAPa5bar/z0Nl244NjChWvSsM73r23yh1LTCmSH9Lhpotx/k+wvQybhraDhOE57NddmEL/5ylhX91Trsi32ukNO2XG4Ndbm5voonxeVRfB6j1rMa51SwEvTZkmDSThx7rvvzZ/f6x/9WdjDAgMBAAGjgaIwgZ8wHQYDVR0OBBYEFLwrQAopwhLyqnRtc3BcA1NQJZaBMHAGA1UdIwRpMGeAFLwrQAopwhLyqnRtc3BcA1NQJZaBoUSkQjBAMQswCQYDVQQGEwJIVTENMAsGA1UEChMETklJRjEMMAoGA1UECxMDQUFJMRQwEgYDVQQDEwt2dmMubmlpZi5odYIJAMjwevTdUaFoMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBAHx0XxnnnmJztT/UEOrQ0nvR3NTGYJijfG68/bovwtrXJB+9plWTYyWyIeysddciTSgmaaVnGFw9jj8HtpuAvf3N5mKr6bELP8z7lhGa/WxKgjjv/ETTflNOCf8tkhxFJeSJC/Y03MOq+Xqb+6ZzriJIVNYhKDOxR+6inftRQSJ2NWmbgwurPYE/CpvqtDTrXeRnweZ1qAjWzKBswU5Un5mnPxcBPOoBuXtf3hhZU8/u4oXEBBQrsX0BsAFmY6VsJKO/UNB+AtAajgMZbngFXKBUCKDhSwmFUNjLda2MtF6WmuCUuMgQsdV6d/pp47VnVpkLLCVTNunYA/WvlS+G5kU=</ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://vvc.niif.hu/Shibboleth.sso/SLO/Redirect"/>
+            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://vvc.niif.hu/Shibboleth.sso/SLO/SOAP"/>
+            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://vvc.niif.hu/Shibboleth.sso/SAML2/POST" index="1" isDefault="true"/>
+            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://vvc.niif.hu/Shibboleth.sso/SAML2/Artifact" index="3"/>
+            <AttributeConsumingService index="1" isDefault="true">
+                <ServiceName xml:lang="hu">NIIF kollaborációs portál</ServiceName>
+                <ServiceName xml:lang="en">NIIF Voice Video Collaboration Service</ServiceName>
+                <ServiceDescription xml:lang="hu">Elsősorban kutató-fejlesztő csoportok együttműködését hatékonyan támogató infokommunikációs szolgáltatások gyűjteménye (voip, web-, és videó konferencia).rn </ServiceDescription>
+                <ServiceDescription xml:lang="en">Community and support portal of NIIF collaboration services, which provides tools and information to access NIIF collaboration services like VoIP and Videoconferencing (MCU booking, videoconference recording, streaming, etc.)</ServiceDescription>
+                <RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+                <RequestedAttribute FriendlyName="mobile" Name="urn:oid:0.9.2342.19200300.100.1.41" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+                <RequestedAttribute FriendlyName="eppn" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+                <RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+                <RequestedAttribute FriendlyName="affiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+            </AttributeConsumingService>
+        </SPSSODescriptor>
+        <Organization>
+            <OrganizationName xml:lang="hu">NIIF - Nemzeti Információs Infrastruktúra Fejlesztési Intézet</OrganizationName>
+            <OrganizationName xml:lang="en">NIIF Institute - National Information Infrastructure Development</OrganizationName>
+            <OrganizationDisplayName xml:lang="hu">NIIF - Nemzeti Információs Infrastruktúra Fejlesztési Intézet</OrganizationDisplayName>
+            <OrganizationDisplayName xml:lang="en">NIIF Institute - National Information Infrastructure Development</OrganizationDisplayName>
+            <OrganizationURL xml:lang="hu">http://www.niif.hu</OrganizationURL>
+            <OrganizationURL xml:lang="en">http://www.niif.hu</OrganizationURL>
+        </Organization>
+        <ContactPerson contactType="technical">
+            <SurName>NIIF AAI</SurName>
+            <EmailAddress>mailto:aai@niif.hu</EmailAddress>
+        </ContactPerson>
+        <ContactPerson contactType="support">
+            <SurName>Video Admin</SurName>
+            <EmailAddress>mailto:video-admin@niif.hu</EmailAddress>
+        </ContactPerson>
+        <ContactPerson contactType="administrative">
+            <SurName>Video Admin</SurName>
+            <EmailAddress>mailto:video-admin@niif.hu</EmailAddress>
+        </ContactPerson>
+    </EntityDescriptor>

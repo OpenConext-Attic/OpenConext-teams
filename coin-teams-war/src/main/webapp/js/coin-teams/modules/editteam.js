@@ -15,32 +15,32 @@
  */
 
 COIN.MODULES.Editteam = function(sandbox) {
-	// Public interface
-	var module = {
-		init: function() {
-			
-			// Validate the form
-			$('#EditTeamForm').validate();
-			
-			// Clicked [ Cancel ]
-			$('input[name=cancelEditTeam]').live('click', function(e) {
-				e.preventDefault();
-				var teamId = $('input[name=team]').val();
-        var view = $('input[name=view]').val();
-				sandbox.redirectBrowserTo('detailteam.shtml?team=' + escape(teamId) + '&view=' + view);
-			});
-		},
-		
-		destroy: function() {
-			
-		}
-	};
-	
-	// Private library (through closure)
-	var library = {
-			
-	};
+  // Public interface
+  var module = {
+    init: function() {
 
-	// Return the public interface
-	return module;
+      // Validate the form
+      $('#EditTeamForm').validate();
+
+      // Clicked [ Cancel ]
+      $(document).on("click", 'input[name=cancelEditTeam]', function(e) {
+        e.preventDefault();
+        var teamId = $('input[name=team]').val();
+        var view = $('input[name=view]').val();
+        sandbox.redirectBrowserTo('detailteam.shtml?team=' + escape(teamId) + '&view=' + view);
+      });
+    },
+
+    destroy: function() {
+
+    }
+  };
+
+  // Private library (through closure)
+  var library = {
+
+  };
+
+  // Return the public interface
+  return module;
 };

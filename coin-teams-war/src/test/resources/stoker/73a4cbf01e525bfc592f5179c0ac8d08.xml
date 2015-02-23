@@ -1,0 +1,122 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.cyceron.fr:8443/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-04-08T12:08:38Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">cyceron.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      <mdui:DisplayName xml:lang="en">Cyceron</mdui:DisplayName>
+          		      <mdui:Description xml:lang="en">Cyceron</mdui:Description>
+          		      <mdui:DisplayName xml:lang="fr">Cyceron</mdui:DisplayName>
+          		      <mdui:Description xml:lang="fr">Cyceron</mdui:Description>
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDIzCCAgugAwIBAgIUZJvKK5L/LCvXeY1r8fw0trUoarwwDQYJKoZIhvcNAQEF
+BQAwGTEXMBUGA1UEAxMOaWRwLmN5Y2Vyb24uZnIwHhcNMTQwMjE0MTExMTE1WhcN
+MzQwMjE0MTExMTE1WjAZMRcwFQYDVQQDEw5pZHAuY3ljZXJvbi5mcjCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBALH37gLW5fRWQoGy5KEMNWpao0t2jb3i
+QLtnRqPBL1q8BYL7rjCAfHCi2xxaaBi/Wt+y+YSsqqBXlSx9fCIc9gtVTTmBfVh0
+NaFKBwOpEHRCg0cLePApucYodvIJLpZP9SMdEco5piCOV20Wll1P08h4ZqbV2Mfv
+P6ttEzwKwEfBveuHo20xHQ/F1BNnmMrXaBLR7cVM8M/i/xiFYlpx8sylMnmQx8T7
+ue+aCqiC2C/Kqt6BMUw8V3BjFb2Kia6+XK0xPZnTXZeue9xSYM/7iZnR4ifC9YCu
+2hueKZQt8P9Vxs6er7uUWIzX8ACqchv5Q/OXxiAKj1C1Nob4bt/7pVcCAwEAAaNj
+MGEwQAYDVR0RBDkwN4IOaWRwLmN5Y2Vyb24uZnKGJWh0dHBzOi8vaWRwLmN5Y2Vy
+b24uZnIvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFKxj+M3a/I4mPX0PFe9L6bjc
+JJ/dMA0GCSqGSIb3DQEBBQUAA4IBAQCJyjOIUeLEjgP0QcF0NImz05xlcNMvIZvF
+i/dPtD02FQ70VLz4IbCWCdkThqXJHALUEkiamXTBTFMl8rCuU3VqHVN3ZkLvAIyv
+cpsCYAlcrrK3jKG0jVNaWcBhEdGDxBT7/n7yHLAbWfgTeKJbEi54Sgbw3bVRFcKh
+w7ZW3ahqeRklkTca9Vn4KPEPcZEdUkatXwtLD1ZsAxAjqBDZY3yxip+KP+GYq4S4
+6ZfbLL4duNYFqUmzZnjnwPKH7gwlQf9J5Dc5tPSXT0F9xN1xzbZExr73GSIlM63I
+stLKk6cKIPPqdpryfUa5CBWcfuxb3foFGuu53LZYPjORDsZhYA2O
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.cyceron.fr:8443/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.cyceron.fr:8443/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.cyceron.fr:8443/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">cyceron.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDIzCCAgugAwIBAgIUZJvKK5L/LCvXeY1r8fw0trUoarwwDQYJKoZIhvcNAQEF
+BQAwGTEXMBUGA1UEAxMOaWRwLmN5Y2Vyb24uZnIwHhcNMTQwMjE0MTExMTE1WhcN
+MzQwMjE0MTExMTE1WjAZMRcwFQYDVQQDEw5pZHAuY3ljZXJvbi5mcjCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBALH37gLW5fRWQoGy5KEMNWpao0t2jb3i
+QLtnRqPBL1q8BYL7rjCAfHCi2xxaaBi/Wt+y+YSsqqBXlSx9fCIc9gtVTTmBfVh0
+NaFKBwOpEHRCg0cLePApucYodvIJLpZP9SMdEco5piCOV20Wll1P08h4ZqbV2Mfv
+P6ttEzwKwEfBveuHo20xHQ/F1BNnmMrXaBLR7cVM8M/i/xiFYlpx8sylMnmQx8T7
+ue+aCqiC2C/Kqt6BMUw8V3BjFb2Kia6+XK0xPZnTXZeue9xSYM/7iZnR4ifC9YCu
+2hueKZQt8P9Vxs6er7uUWIzX8ACqchv5Q/OXxiAKj1C1Nob4bt/7pVcCAwEAAaNj
+MGEwQAYDVR0RBDkwN4IOaWRwLmN5Y2Vyb24uZnKGJWh0dHBzOi8vaWRwLmN5Y2Vy
+b24uZnIvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFKxj+M3a/I4mPX0PFe9L6bjc
+JJ/dMA0GCSqGSIb3DQEBBQUAA4IBAQCJyjOIUeLEjgP0QcF0NImz05xlcNMvIZvF
+i/dPtD02FQ70VLz4IbCWCdkThqXJHALUEkiamXTBTFMl8rCuU3VqHVN3ZkLvAIyv
+cpsCYAlcrrK3jKG0jVNaWcBhEdGDxBT7/n7yHLAbWfgTeKJbEi54Sgbw3bVRFcKh
+w7ZW3ahqeRklkTca9Vn4KPEPcZEdUkatXwtLD1ZsAxAjqBDZY3yxip+KP+GYq4S4
+6ZfbLL4duNYFqUmzZnjnwPKH7gwlQf9J5Dc5tPSXT0F9xN1xzbZExr73GSIlM63I
+stLKk6cKIPPqdpryfUa5CBWcfuxb3foFGuu53LZYPjORDsZhYA2O
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.cyceron.fr:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Cyceron</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Cyceron</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Antoine Nourry</SurName>
+				 <EmailAddress>nourry@cyceron.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    		
+
+				
+			
+	</EntityDescriptor>

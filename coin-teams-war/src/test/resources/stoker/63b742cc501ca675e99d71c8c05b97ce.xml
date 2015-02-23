@@ -1,0 +1,129 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://apu.uepb.edu.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">uepb.edu.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">UEPB - Universidade Estadual da Paraiba</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">UEPB - Universidade Estadual da Paraiba</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UEPB - Universidade Estadual da Paraiba</mdui:Description>
+          <mdui:Description xml:lang="pt-br">UEPB - Universidade Estadual da Paraiba</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.uepb.edu.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.uepb.edu.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIID2DCCAsACAQAwDQYJKoZIhvcNAQEFBQAwgbExKTAnBgNVBAoTIFVuaXZlcnNp
+ZGFkZSBFc3RhZHVhbCBkYSBQYXJhaWJhMQ0wCwYDVQQLEwRDVElDMSMwIQYJKoZI
+hvcNAQkBFhRnZXJlbmNpYUB1ZXBiLmVkdS5icjEXMBUGA1UEBxMOQ2FtcGluYSBH
+cmFuZGUxEDAOBgNVBAgTB1BhcmFpYmExCzAJBgNVBAYTAkJSMRgwFgYDVQQDEw9h
+cHUudWVwYi5lZHUuYnIwHhcNMTQwNjA0MTQxMzExWhcNMTkwNjAzMTQxMzExWjCB
+sTEpMCcGA1UEChMgVW5pdmVyc2lkYWRlIEVzdGFkdWFsIGRhIFBhcmFpYmExDTAL
+BgNVBAsTBENUSUMxIzAhBgkqhkiG9w0BCQEWFGdlcmVuY2lhQHVlcGIuZWR1LmJy
+MRcwFQYDVQQHEw5DYW1waW5hIEdyYW5kZTEQMA4GA1UECBMHUGFyYWliYTELMAkG
+A1UEBhMCQlIxGDAWBgNVBAMTD2FwdS51ZXBiLmVkdS5icjCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAL+PmDkRtaCnS6AZ0SNppN29pZ7E1NxuvDYw5JES
+hXKLFqnBjOqwMOvS5SYWxKOtzDhPWKuT96DXjt6SY5A+fFKCYQUaNIUxTyyuad/e
+5kdf8tMM5FRX3gtaMk9D595xvOyT2Xp7byLU1WolCTWXIBlVuapd7znWcVvoUSfr
+zxK7Kd7wfFu4RT38/zN5FEvPxPbNRYZtcs33rtkCl3fT3XatkTNGEZ/whRNYyN53
+4zr4RZeysJSrAilSdOcM9y+6oYCOFpqn5ygFlQXbj8zEzR9SDMcL5OYbMMmC8bd7
+FOpec0VKbWrOAV//+D9T/ncSBuXfn/zwKk2qneNdESzp8/cCAwEAATANBgkqhkiG
+9w0BAQUFAAOCAQEAuHfrqsDisexElOjxDcmMfvnHTUobLmdLiJL/KoW54icv/dZ2
+w35Ta036Qj5nWBscP++FLfZTbA2RRAIZH5FQJIikDJpDdlUM9wYcAPtP1irb0/h+
+v0pyfB2AONle6H8bQf7wh6yQ0UkyP1knHePbDOchyrWgyK/CA7YoieH20kQlrGQY
+yQ9KnlrE+xw2aYX6bnR2SidjvjrkdFEIWD54AD3VhhKetR+/WSe2C7O/KEJG2suU
+el0jb0m9uKw7IBcWNsHTD0UdQcmG5LmUFUTC6tG8Tv9Dw1LzAYWuR8NZAHsncJ/w
+ULuCd9hGR3D+ZDjlZKLLf3cU3c3+xTC9cp7NmA==
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://apu.uepb.edu.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://apu.uepb.edu.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://apu.uepb.edu.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://apu.uepb.edu.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://apu.uepb.edu.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://apu.uepb.edu.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIID2DCCAsACAQAwDQYJKoZIhvcNAQEFBQAwgbExKTAnBgNVBAoTIFVuaXZlcnNp
+ZGFkZSBFc3RhZHVhbCBkYSBQYXJhaWJhMQ0wCwYDVQQLEwRDVElDMSMwIQYJKoZI
+hvcNAQkBFhRnZXJlbmNpYUB1ZXBiLmVkdS5icjEXMBUGA1UEBxMOQ2FtcGluYSBH
+cmFuZGUxEDAOBgNVBAgTB1BhcmFpYmExCzAJBgNVBAYTAkJSMRgwFgYDVQQDEw9h
+cHUudWVwYi5lZHUuYnIwHhcNMTQwNjA0MTQxMzExWhcNMTkwNjAzMTQxMzExWjCB
+sTEpMCcGA1UEChMgVW5pdmVyc2lkYWRlIEVzdGFkdWFsIGRhIFBhcmFpYmExDTAL
+BgNVBAsTBENUSUMxIzAhBgkqhkiG9w0BCQEWFGdlcmVuY2lhQHVlcGIuZWR1LmJy
+MRcwFQYDVQQHEw5DYW1waW5hIEdyYW5kZTEQMA4GA1UECBMHUGFyYWliYTELMAkG
+A1UEBhMCQlIxGDAWBgNVBAMTD2FwdS51ZXBiLmVkdS5icjCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAL+PmDkRtaCnS6AZ0SNppN29pZ7E1NxuvDYw5JES
+hXKLFqnBjOqwMOvS5SYWxKOtzDhPWKuT96DXjt6SY5A+fFKCYQUaNIUxTyyuad/e
+5kdf8tMM5FRX3gtaMk9D595xvOyT2Xp7byLU1WolCTWXIBlVuapd7znWcVvoUSfr
+zxK7Kd7wfFu4RT38/zN5FEvPxPbNRYZtcs33rtkCl3fT3XatkTNGEZ/whRNYyN53
+4zr4RZeysJSrAilSdOcM9y+6oYCOFpqn5ygFlQXbj8zEzR9SDMcL5OYbMMmC8bd7
+FOpec0VKbWrOAV//+D9T/ncSBuXfn/zwKk2qneNdESzp8/cCAwEAATANBgkqhkiG
+9w0BAQUFAAOCAQEAuHfrqsDisexElOjxDcmMfvnHTUobLmdLiJL/KoW54icv/dZ2
+w35Ta036Qj5nWBscP++FLfZTbA2RRAIZH5FQJIikDJpDdlUM9wYcAPtP1irb0/h+
+v0pyfB2AONle6H8bQf7wh6yQ0UkyP1knHePbDOchyrWgyK/CA7YoieH20kQlrGQY
+yQ9KnlrE+xw2aYX6bnR2SidjvjrkdFEIWD54AD3VhhKetR+/WSe2C7O/KEJG2suU
+el0jb0m9uKw7IBcWNsHTD0UdQcmG5LmUFUTC6tG8Tv9Dw1LzAYWuR8NZAHsncJ/w
+ULuCd9hGR3D+ZDjlZKLLf3cU3c3+xTC9cp7NmA==
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://apu.uepb.edu.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://apu.uepb.edu.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">UEPB - Universidade Estadual da Paraiba</OrganizationName>
+      <OrganizationName xml:lang="pt-br">UEPB - Universidade Estadual da Paraiba</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">UEPB - Universidade Estadual da Paraiba</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">UEPB - Universidade Estadual da Paraiba</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.uepb.edu.br/</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.uepb.edu.br/</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Gerencia de Redes</SurName>
+      <EmailAddress>gerencia@uepb.edu.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

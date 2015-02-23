@@ -1,0 +1,88 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.inalco.fr/idp">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2010-11-10T14:15:50Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">inalco.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">INALCO - Institut National des Langues et Civilisations Orientales</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDJzCCAg+gAwIBAgIUXBzPfYV+3ru5apFeK1Xo5W/wdlowDQYJKoZIhvcNAQEF
+BQAwGjEYMBYGA1UEAxMPbWxkYXAuaW5hbGNvLmZyMB4XDTEwMDkyODE0NTYxOFoX
+DTMwMDkyODE0NTYxOFowGjEYMBYGA1UEAxMPbWxkYXAuaW5hbGNvLmZyMIIBIjAN
+BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjXFdyCRby1D4CFQW7ynaRKzJCyzz
+nRsnF2qPnGuMExCzuWUM5gBqVAjdI+AZXutcXcxkJq71TC22erYIlAob5A8nWTT5
+rR/dUtVRwawP/4jv9CqKiRC86zeNRFuUgYd0+Wkrn/RADV0wyfeSaT0KHoqwOu4d
+iRlks9CMns7/eFLmGsYQcEMHlw9nGTYpx94IClua3/prJjkc45iCYuoWXnGCLq2j
+MoJDcw3I5u3tSUfzCbp81lWn06oYBIVuzzcZuLRsd0smB41pabVYcS+bbG0yWA4b
+xIn4ZPQ1vja6YpIix6YZmpcCD6hs02xYfm6sWq/BnNS1vtMD1RjmSJhx4QIDAQAB
+o2UwYzBCBgNVHREEOzA5gg9tbGRhcC5pbmFsY28uZnKGJmh0dHBzOi8vbWxkYXAu
+aW5hbGNvLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBSVnWnWMca1OUkx11t9
+LRaeLMgTWzANBgkqhkiG9w0BAQUFAAOCAQEAfmv+9vLBGqsioIPqwy7pTT54CsbR
+jdvs5Ud7EhkLYDa+EelzwrgmE4z92mmmTFKUixlj070ncHZJjwjdfbDGwcQ/aKT2
+cd597hjiVBd85/biLQ3yTBkzJx2UiXm/Wj2qfyHoJDH9UfcLZOorR8R0b1ObSbHY
+2EsElJHCh/SrRniERFdJdQ1fzTukaSPa6zu/lLO40gYHu13qenRjMgMn9W85g7V8
+e6Kt16MbjbkcX6m9uYJo9HiN5hJ+pP0fV4q8kj2YxAK/av/v0Qp5iXJfBH9QecSK
+BdKgqhQ4XdLkP9D+5i10GGHVDJL3NYCpNbAqNmHeTJGjc+aSG6XpBZPcVw==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.inalco.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.inalco.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.inalco.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">INALCO - Institut National des Langues et Civilisations Orientales</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">INALCO - Institut National des Langues et Civilisations Orientales</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Le Pendeven</SurName>
+				 <EmailAddress>laurent.le_pendeven@inria.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Casasnovas</SurName>
+				 <EmailAddress>fabrice.casasnovas@inalco.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

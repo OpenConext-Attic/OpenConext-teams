@@ -1,0 +1,165 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://meta.cesnet.cz/sp/shibboleth">
+    <md:Extensions>
+      <eduidmd:RepublishRequest xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0">
+        <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
+      </eduidmd:RepublishRequest>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.eduid.cz/" registrationInstant="2010-09-15T11:47:38Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          
+          <mdui:DisplayName xml:lang="en">Perun</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">Perun</mdui:DisplayName>
+          
+          <mdui:Description xml:lang="en">Perun is a system for managing user accounts, user groups and access to computational resources and services in cloud, grid and other e-infrastructures. This Perun instance manages e-infrastructure of CESNET, which is an association of Czech public universities and the Czech Academy of Sciences.</mdui:Description>
+          <mdui:Description xml:lang="cs">Perun je systém pro správu uživatelských účtů, skupin uživatelů a práv přístupu k výpočetním prostředkům a službám v cloudových, gridových a dalších e-infrastrukturách. Tato instance Peruna spravuje e-infrastrukturu organizace CESNET, která je sdružením českých veřejných vysokých škol a ústavů Akademie věd.</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://perun.cesnet.cz/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">http://perun.cesnet.cz/</mdui:InformationURL>
+          <mdui:Logo height="145" width="327">https://meta.cesnet.cz/cesnet_logo_327x145.png</mdui:Logo>
+        </mdui:UIInfo>
+        <DiscoveryResponse xmlns="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://www.metacentrum.cz/Shibboleth.sso/WAYF" index="1"/>
+        <DiscoveryResponse xmlns="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://www.metacentrum.cz/Shibboleth.sso/WAYF/eduid" index="2"/>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>_meta_2015-12-07</ds:KeyName>
+          <ds:KeyName>einfra.cesnet.cz</ds:KeyName>
+          <ds:KeyName>meta.cesnet.cz</ds:KeyName>
+          <ds:KeyName>metacentrum.cz</ds:KeyName>
+          <ds:KeyName>metavo.cesnet.cz</ds:KeyName>
+          <ds:KeyName>metavo.metacentrum.cz</ds:KeyName>
+          <ds:KeyName>perun.metacentrum.cz</ds:KeyName>
+          <ds:KeyName>vo.metacentrum.cz</ds:KeyName>
+          <ds:KeyName>wiki.metacentrum.cz</ds:KeyName>
+          <ds:KeyName>www.metacentrum.cz</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=www.metacentrum.cz,O=CESNET,C=CZ</ds:X509SubjectName>
+            <ds:X509Certificate>MIIE/jCCA+agAwIBAgIQZJhKx6tjiIFmfpZnwmbegjANBgkqhkiG9w0BAQUFADA2
+MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+U1NMIENBMB4XDTEyMTIwNzAwMDAwMFoXDTE1MTIwNzIzNTk1OVowOzELMAkGA1UE
+BhMCQ1oxDzANBgNVBAoTBkNFU05FVDEbMBkGA1UEAxMSd3d3Lm1ldGFjZW50cnVt
+LmN6MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAz+Ob1/WykMJvEau5
+B4VkUv6mmjO+yjh7YFYPQKBUhdZS9AISjX8NRPH7y0SXasCOCdi3phwlzKnWoUQq
+UuRh/inUe/DVGu44F1oai33gxKQuRCLgbxD5Uxm7M0QDm5q6XjIqkSYJU7pZtFgR
+JvosB0AdYylrPY2paWk0+BGWhWjFHB8zZywmiEMmCawjD8cLcCRTwhTzBTHDSFKQ
+5JnqHJSKazWj/l55ECVsnx2ezUT9DqaXCBjM6R4r7l5vRA2328mHpwgfOqEONboF
+s1BOPwf6pbqAEeLSDSwLBwsUguohYan5adisAPIcN9A5aGdsLWxy1bi5TH5vET+c
+js6xcwIDAQABo4ICATCCAf0wHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH6pDj
+ue0wHQYDVR0OBBYEFDQ/IQ/LVEu8GUWMKwhdu7L1XoWyMA4GA1UdDwEB/wQEAwIF
+oDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAY
+BgNVHSAEETAPMA0GCysGAQQBsjEBAgIdMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6
+Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3JsMG0GCCsGAQUFBwEB
+BGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2NydC50Y3MudGVyZW5hLm9yZy9URVJF
+TkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6Ly9vY3NwLnRjcy50ZXJlbmEu
+b3JnMIG4BgNVHREEgbAwga2CEnd3dy5tZXRhY2VudHJ1bS5jeoIQZWluZnJhLmNl
+c25ldC5jeoIObWV0YS5jZXNuZXQuY3qCDm1ldGFjZW50cnVtLmN6ghBtZXRhdm8u
+Y2VzbmV0LmN6ghVtZXRhdm8ubWV0YWNlbnRydW0uY3qCFHBlcnVuLm1ldGFjZW50
+cnVtLmN6ghF2by5tZXRhY2VudHJ1bS5jeoITd2lraS5tZXRhY2VudHJ1bS5jejAN
+BgkqhkiG9w0BAQUFAAOCAQEAHJ2gaM4WNXYhUWFb+KdRdw8kCSZsZF3AekhGd2XG
+mK6aUsbLfJcLMg0tuROkJnxMtZoeLLfPvHiCBtUPD7jvCJcNDCNlICkaEG3Grmd6
+swb1hC+ELuGTAC5om1b/1bIbbYQvCx1mk19kBugPSI47Yyb0G4RqBQLWNvAjH1gI
+WLSQJQxpF1h5oVM5OW/V0h+R3/RC7xnirr4Y5M476wwC24FdrtMeZ6F7nGsIGJdI
++SgNReiXBL/pow3YapcrTCoWJuUvq2mmpn3FQEA6ofbv6wMemIwB92cVuoo4/fU6
+XOx3BPUl5ZWVnWHxgCphyglT2/eB4+nvzj1cDTHkLHMsOQ==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>_meta_2015-12-07</ds:KeyName>
+          <ds:KeyName>einfra.cesnet.cz</ds:KeyName>
+          <ds:KeyName>meta.cesnet.cz</ds:KeyName>
+          <ds:KeyName>metacentrum.cz</ds:KeyName>
+          <ds:KeyName>metavo.cesnet.cz</ds:KeyName>
+          <ds:KeyName>metavo.metacentrum.cz</ds:KeyName>
+          <ds:KeyName>perun.metacentrum.cz</ds:KeyName>
+          <ds:KeyName>vo.metacentrum.cz</ds:KeyName>
+          <ds:KeyName>wiki.metacentrum.cz</ds:KeyName>
+          <ds:KeyName>www.metacentrum.cz</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=www.metacentrum.cz,O=CESNET,C=CZ</ds:X509SubjectName>
+            <ds:X509Certificate>MIIE/jCCA+agAwIBAgIQZJhKx6tjiIFmfpZnwmbegjANBgkqhkiG9w0BAQUFADA2
+MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+U1NMIENBMB4XDTEyMTIwNzAwMDAwMFoXDTE1MTIwNzIzNTk1OVowOzELMAkGA1UE
+BhMCQ1oxDzANBgNVBAoTBkNFU05FVDEbMBkGA1UEAxMSd3d3Lm1ldGFjZW50cnVt
+LmN6MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAz+Ob1/WykMJvEau5
+B4VkUv6mmjO+yjh7YFYPQKBUhdZS9AISjX8NRPH7y0SXasCOCdi3phwlzKnWoUQq
+UuRh/inUe/DVGu44F1oai33gxKQuRCLgbxD5Uxm7M0QDm5q6XjIqkSYJU7pZtFgR
+JvosB0AdYylrPY2paWk0+BGWhWjFHB8zZywmiEMmCawjD8cLcCRTwhTzBTHDSFKQ
+5JnqHJSKazWj/l55ECVsnx2ezUT9DqaXCBjM6R4r7l5vRA2328mHpwgfOqEONboF
+s1BOPwf6pbqAEeLSDSwLBwsUguohYan5adisAPIcN9A5aGdsLWxy1bi5TH5vET+c
+js6xcwIDAQABo4ICATCCAf0wHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH6pDj
+ue0wHQYDVR0OBBYEFDQ/IQ/LVEu8GUWMKwhdu7L1XoWyMA4GA1UdDwEB/wQEAwIF
+oDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAY
+BgNVHSAEETAPMA0GCysGAQQBsjEBAgIdMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6
+Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3JsMG0GCCsGAQUFBwEB
+BGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2NydC50Y3MudGVyZW5hLm9yZy9URVJF
+TkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6Ly9vY3NwLnRjcy50ZXJlbmEu
+b3JnMIG4BgNVHREEgbAwga2CEnd3dy5tZXRhY2VudHJ1bS5jeoIQZWluZnJhLmNl
+c25ldC5jeoIObWV0YS5jZXNuZXQuY3qCDm1ldGFjZW50cnVtLmN6ghBtZXRhdm8u
+Y2VzbmV0LmN6ghVtZXRhdm8ubWV0YWNlbnRydW0uY3qCFHBlcnVuLm1ldGFjZW50
+cnVtLmN6ghF2by5tZXRhY2VudHJ1bS5jeoITd2lraS5tZXRhY2VudHJ1bS5jejAN
+BgkqhkiG9w0BAQUFAAOCAQEAHJ2gaM4WNXYhUWFb+KdRdw8kCSZsZF3AekhGd2XG
+mK6aUsbLfJcLMg0tuROkJnxMtZoeLLfPvHiCBtUPD7jvCJcNDCNlICkaEG3Grmd6
+swb1hC+ELuGTAC5om1b/1bIbbYQvCx1mk19kBugPSI47Yyb0G4RqBQLWNvAjH1gI
+WLSQJQxpF1h5oVM5OW/V0h+R3/RC7xnirr4Y5M476wwC24FdrtMeZ6F7nGsIGJdI
++SgNReiXBL/pow3YapcrTCoWJuUvq2mmpn3FQEA6ofbv6wMemIwB92cVuoo4/fU6
+XOx3BPUl5ZWVnWHxgCphyglT2/eB4+nvzj1cDTHkLHMsOQ==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.metacentrum.cz/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.metacentrum.cz/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.metacentrum.cz/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.metacentrum.cz/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.metacentrum.cz/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.metacentrum.cz/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.metacentrum.cz/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.metacentrum.cz/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.metacentrum.cz/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://metacentrum.cz/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://metavo.metacentrum.cz/Shibboleth.sso/SAML2/POST" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://meta.cesnet.cz/Shibboleth.sso/SAML2/POST" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://einfra.cesnet.cz/Shibboleth.sso/SAML2/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://perun.cesnet.cz/Shibboleth.sso/SAML2/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://perun.metacentrum.cz/Shibboleth.sso/SAML2/POST" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://wiki.metacentrum.cz/Shibboleth.sso/SAML2/POST" index="7"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://alcor.ics.muni.cz/Shibboleth.sso/SAML2/POST" index="8"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.metacentrum.cz/Shibboleth.sso/SAML2/POST" index="9"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www.metacentrum.cz/Shibboleth.sso/SAML2/POST-SimpleSign" index="10"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.metacentrum.cz/Shibboleth.sso/SAML2/Artifact" index="11"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://www.metacentrum.cz/Shibboleth.sso/SAML2/ECP" index="12"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.metacentrum.cz/Shibboleth.sso/SAML/POST" index="13"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.metacentrum.cz/Shibboleth.sso/SAML/Artifact" index="14"/>
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="en">Perun</md:ServiceName>
+        <md:ServiceName xml:lang="cs">Perun</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">Perun is a system for managing user accounts, user groups and access to the computational resources and services in cloud, grid and other e-infrastructures.</md:ServiceDescription>
+        <md:ServiceDescription xml:lang="cs">Perun je systém pro správu uživatelských účtů, skupin uživatelů a práv přístupu k výpočetním prostředkům a službám v cloudových, gridových a dalších e-infrastrukturách. </md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="cn" Name="urn:oid:2.5.4.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="o" Name="urn:oid:2.5.4.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">CESNET</md:OrganizationName>
+      <md:OrganizationName xml:lang="cs">CESNET</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">CESNET</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="cs">CESNET</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://perun.cesnet.cz/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="cs">http://perun.cesnet.cz/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Martin</md:GivenName>
+      <md:SurName>Kuba</md:SurName>
+      <md:EmailAddress>makub@cesnet.cz</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

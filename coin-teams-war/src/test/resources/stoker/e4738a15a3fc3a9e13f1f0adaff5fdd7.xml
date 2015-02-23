@@ -1,0 +1,131 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://idpcafe.usp.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">usp.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">USP - UNIVERSIDADE DE SAO PAULO</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">USP - UNIVERSIDADE DE SAO PAULO</mdui:DisplayName>
+          <mdui:Description xml:lang="en">USP - UNIVERSIDADE DE SAO PAULO</mdui:Description>
+          <mdui:Description xml:lang="pt-br">USP - UNIVERSIDADE DE SAO PAULO</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.usp.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.usp.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIID+jCCAuICAQAwDQYJKoZIhvcNAQEFBQAwgcIxIjAgBgNVBAoTGVVOSVZFUlNJ
+REFERSBERSBTQU8gUEFVTE8xMTAvBgNVBAsTKERFUEFSVEFNRU5UTyBERSBURUNO
+T0xPR0lBIERBIElORk9STUFDQU8xGzAZBgkqhkiG9w0BCQEWDG51dmVtQHVzcC5i
+cjESMBAGA1UEBxMJU0FPIFBBVUxPMRIwEAYDVQQIEwlTQU8gUEFVTE8xCzAJBgNV
+BAYTAkJSMRcwFQYDVQQDEw5pZHBjYWZlLnVzcC5icjAeFw0xMzEyMTExNDUxMDNa
+Fw0xODEyMTAxNDUxMDNaMIHCMSIwIAYDVQQKExlVTklWRVJTSURBREUgREUgU0FP
+IFBBVUxPMTEwLwYDVQQLEyhERVBBUlRBTUVOVE8gREUgVEVDTk9MT0dJQSBEQSBJ
+TkZPUk1BQ0FPMRswGQYJKoZIhvcNAQkBFgxudXZlbUB1c3AuYnIxEjAQBgNVBAcT
+CVNBTyBQQVVMTzESMBAGA1UECBMJU0FPIFBBVUxPMQswCQYDVQQGEwJCUjEXMBUG
+A1UEAxMOaWRwY2FmZS51c3AuYnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+AoIBAQCjjPbk1OaWxi3zboP0gRIDrAwmYvH7oe7np5DZ1DkOUEUZRPuSPrzMgT0u
+7lSi0Af9RyjYw/1rH1/d5y3U1qBVL7lxi/p2twaKS7BnHLieBIVpdCBqoImVSKGK
+wzhJZolh+Jt623BszlyFhO5DNFN1GY19e+geRwlg7XzRvihcVKJsphgjjMPWB33g
+NqgvkIzIAYjG8KqSfgEo6fYmhWlHHdIyrQZohSkMjZ28xGx5zylruEIgKWvmUMNE
+kQoAlB/Gp5rlccYnzyij8WjbDy7ymoh5znxVguWXPYq4c5DJuydgOC77VynruR4R
+Jdk/BFu0xcLg3FEwYSQq37dNKubXAgMBAAEwDQYJKoZIhvcNAQEFBQADggEBAIs0
+WO6KyOJ/xAW2UXTn8jOVKfDJGVjEz3AzR4ymQUoMp+TvshZyfUsecKla7DLDKxAe
+ec/+UH8IKDWF5FmGVpi38zmiCaz6QPrf4BZjCdVges1CkFpLwdZKE0lrLe26AU9y
+kimqlu5bTwUKxLkPayX1hrQdERVLDLgGpNxvuqRF414A7GufoLDuiaap9oFbyUnr
+4XXRj+T9rbE4/qPgleEnS9uR5ecNZIyZBcQh007Piygh8itK3XyfxTHGxGsD/Wim
+QRPX6jagdA+2Yl+IJOdCFckQMS+uuuHKNl390fHbQvvP+jvgDfKm2mB/GjgzqgR8
+7UdfUKFbnsb/9jdfwzk=
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idpcafe.usp.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idpcafe.usp.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idpcafe.usp.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idpcafe.usp.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idpcafe.usp.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idpcafe.usp.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">usp.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIID+jCCAuICAQAwDQYJKoZIhvcNAQEFBQAwgcIxIjAgBgNVBAoTGVVOSVZFUlNJ
+REFERSBERSBTQU8gUEFVTE8xMTAvBgNVBAsTKERFUEFSVEFNRU5UTyBERSBURUNO
+T0xPR0lBIERBIElORk9STUFDQU8xGzAZBgkqhkiG9w0BCQEWDG51dmVtQHVzcC5i
+cjESMBAGA1UEBxMJU0FPIFBBVUxPMRIwEAYDVQQIEwlTQU8gUEFVTE8xCzAJBgNV
+BAYTAkJSMRcwFQYDVQQDEw5pZHBjYWZlLnVzcC5icjAeFw0xMzEyMTExNDUxMDNa
+Fw0xODEyMTAxNDUxMDNaMIHCMSIwIAYDVQQKExlVTklWRVJTSURBREUgREUgU0FP
+IFBBVUxPMTEwLwYDVQQLEyhERVBBUlRBTUVOVE8gREUgVEVDTk9MT0dJQSBEQSBJ
+TkZPUk1BQ0FPMRswGQYJKoZIhvcNAQkBFgxudXZlbUB1c3AuYnIxEjAQBgNVBAcT
+CVNBTyBQQVVMTzESMBAGA1UECBMJU0FPIFBBVUxPMQswCQYDVQQGEwJCUjEXMBUG
+A1UEAxMOaWRwY2FmZS51c3AuYnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+AoIBAQCjjPbk1OaWxi3zboP0gRIDrAwmYvH7oe7np5DZ1DkOUEUZRPuSPrzMgT0u
+7lSi0Af9RyjYw/1rH1/d5y3U1qBVL7lxi/p2twaKS7BnHLieBIVpdCBqoImVSKGK
+wzhJZolh+Jt623BszlyFhO5DNFN1GY19e+geRwlg7XzRvihcVKJsphgjjMPWB33g
+NqgvkIzIAYjG8KqSfgEo6fYmhWlHHdIyrQZohSkMjZ28xGx5zylruEIgKWvmUMNE
+kQoAlB/Gp5rlccYnzyij8WjbDy7ymoh5znxVguWXPYq4c5DJuydgOC77VynruR4R
+Jdk/BFu0xcLg3FEwYSQq37dNKubXAgMBAAEwDQYJKoZIhvcNAQEFBQADggEBAIs0
+WO6KyOJ/xAW2UXTn8jOVKfDJGVjEz3AzR4ymQUoMp+TvshZyfUsecKla7DLDKxAe
+ec/+UH8IKDWF5FmGVpi38zmiCaz6QPrf4BZjCdVges1CkFpLwdZKE0lrLe26AU9y
+kimqlu5bTwUKxLkPayX1hrQdERVLDLgGpNxvuqRF414A7GufoLDuiaap9oFbyUnr
+4XXRj+T9rbE4/qPgleEnS9uR5ecNZIyZBcQh007Piygh8itK3XyfxTHGxGsD/Wim
+QRPX6jagdA+2Yl+IJOdCFckQMS+uuuHKNl390fHbQvvP+jvgDfKm2mB/GjgzqgR8
+7UdfUKFbnsb/9jdfwzk=
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idpcafe.usp.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idpcafe.usp.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">USP - UNIVERSIDADE DE SAO PAULO</OrganizationName>
+      <OrganizationName xml:lang="pt-br">USP - UNIVERSIDADE DE SAO PAULO</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">USP - UNIVERSIDADE DE SAO PAULO</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">USP - UNIVERSIDADE DE SAO PAULO</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.usp.br/</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.usp.br/</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>DTI - Departamento de Tecnologia da Informacao</SurName>
+      <EmailAddress>consulta@usp.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

@@ -1,0 +1,95 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="uk001931" entityID="https://instantanatomy.co.uk/shib">
+	
+	<Extensions>
+
+
+		<DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+		<DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384"/>
+		<DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+		<DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224"/>
+		<DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+		<SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+		<SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"/>
+		<SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+		<SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/>
+		<SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+		<SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+		<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-09-17T08:48:25Z">
+			<mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+		</mdrpi:RegistrationInfo>
+
+	</Extensions>
+	<SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+		<Extensions>
+			<init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://instantanatomy.co.uk/Shibboleth.sso/Login"/>
+			<idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://instantanatomy.co.uk/Shibboleth.sso/Login" index="1"/>
+			<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+				<mdui:Logo height="62" width="450">https://www.instantanatomy.co.uk/images/title.jpg</mdui:Logo>
+				<mdui:DisplayName xml:lang="en">Instant Anatomy</mdui:DisplayName>
+			</mdui:UIInfo>
+		</Extensions>
+		<KeyDescriptor>
+			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+				<ds:X509Data>
+					<ds:X509Certificate>
+						MIIDGDCCAgCgAwIBAgIJAOU2/77+QBVIMA0GCSqGSIb3DQEBBQUAMCYxJDAiBgNV
+						BAMTG2Rhcndpbi5pbnN0YW50YW5hdG9teS5jby51azAeFw0xMjA4MTcwMTQ5MzFa
+						Fw0yMjA4MTUwMTQ5MzFaMCYxJDAiBgNVBAMTG2Rhcndpbi5pbnN0YW50YW5hdG9t
+						eS5jby51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL5l4CVTvTSr
+						wY4T+jbnjlcqK7uLjuUnblB1tp+UClVHk31XDiJGDC/G8uUmL275wVRKcvC5Uj5m
+						1+SK5wNJ+4DkDLFhpho7adK/UZLW6EMvpgUg5nSq5qeJErkDdmexwUgWMX9v4YYr
+						CDxN9qQ3Mf869ORLNUwwwMN+sPT6p8ppiYpdjR1lLkmFRNWPiWztxA2gbHWueC6H
+						NBDxEH3NitETaKo2KV0R2S/7yLa9f0yffK5M8n26WFoTE/OPKhiN/lyT+8ZRQe3E
+						O6MEPQudNhQuR0/7vvd1giIvQr9ARy4tpROL3VQ1VFLeVaoHQgPi8XDkRrUGoGnf
+						coCiPWctp30CAwEAAaNJMEcwJgYDVR0RBB8wHYIbZGFyd2luLmluc3RhbnRhbmF0
+						b215LmNvLnVrMB0GA1UdDgQWBBRCrm+NptHsROj8vWQkA1ifzUbsPzANBgkqhkiG
+						9w0BAQUFAAOCAQEAkKx3nfhfX4Am9Isc0yEXdtJznme1IxfFXHauCupdnZnZU2yd
+						sOqqZaeiEf1E3KU+PcL9m8/syQ9O8RfiTdkrXPwRsrGll6Rpg0s6QHYLpiWRkeu+
+						MXgBUGS7F+HdMah4vBYlB1xK2q5wlzKhFiXWqWuHqpHOlYVgRvVyJhqzwT9QVhgF
+						zvqMQdvEtFw0qF7qwDlxkzDp8qWfa7bNnehynDwVxB6jAdgXbSbu5sqBlTB0naJE
+						1L8iCT+oVfbn8m7vBIwAey/qzie5Av0Q2XHH0cAwff2AQUrlyTcPbkpfna8jnaaK
+						5mOU0vif+aQQFPvwVH2BegxgQF+M+0NVs02wMQ==
+					</ds:X509Certificate>
+				</ds:X509Data>
+			</ds:KeyInfo>
+			<EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+			<EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc"/>
+			<EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+			<EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc"/>
+			<EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep"/>
+			<EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+		</KeyDescriptor>
+		<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://instantanatomy.co.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://instantanatomy.co.uk/Shibboleth.sso/SLO/SOAP"/>
+		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://instantanatomy.co.uk/Shibboleth.sso/SLO/Redirect"/>
+		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://instantanatomy.co.uk/Shibboleth.sso/SLO/POST"/>
+		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://instantanatomy.co.uk/Shibboleth.sso/SLO/Artifact"/>
+		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://instantanatomy.co.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://instantanatomy.co.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://instantanatomy.co.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://instantanatomy.co.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://instantanatomy.co.uk/Shibboleth.sso/SAML/POST" index="5"/>
+		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://instantanatomy.co.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+		<AttributeConsumingService index="1">
+			<ServiceName xml:lang="en">Instant Anatomy</ServiceName>
+			<RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:mace:dir:attribute-def:eduPersonScopedAffiliation" NameFormat="urn:mace:shibboleth:1.0:attributeNamespace:uri"/>
+			<RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+		</AttributeConsumingService>
+	</SPSSODescriptor>
+	<Organization>
+		<OrganizationName xml:lang="en">Andrew Whitaker trading as Instant Anatomy</OrganizationName>
+		<OrganizationDisplayName xml:lang="en">Instant Anatomy</OrganizationDisplayName>
+		<OrganizationURL xml:lang="en">https://instantanatomy.co.uk/</OrganizationURL>
+	</Organization>
+	<ContactPerson contactType="support">
+		<GivenName>Andrew</GivenName>
+		<SurName>Whitaker</SurName>
+		<EmailAddress>mailto:info@instantanatomy.co.uk</EmailAddress>
+	</ContactPerson>
+	<ContactPerson contactType="technical">
+		<GivenName>Andrew</GivenName>
+		<SurName>Whitaker</SurName>
+		<EmailAddress>mailto:info@instantanatomy.co.uk</EmailAddress>
+	</ContactPerson>
+
+</EntityDescriptor>

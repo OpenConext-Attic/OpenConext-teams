@@ -1,0 +1,78 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth.crous-poitiers.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2010-09-22T15:55:18Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">crous-poitiers.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">CROUS Poitiers - Etudiants</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDWzCCAkOgAwIBAgIUMWKZ8/6tKA7kwdsn4f4/cqyDED0wDQYJKoZIhvcNAQEF
+BQAwJzElMCMGA1UEAxMcc2hpYmJvbGV0aC5jcm91cy1wb2l0aWVycy5mcjAeFw0x
+MDA2MTAxMzMyNTNaFw0zMDA2MTAxMzMyNTNaMCcxJTAjBgNVBAMTHHNoaWJib2xl
+dGguY3JvdXMtcG9pdGllcnMuZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+AoIBAQCax6s86p49Xf1m/noYZtAqbN3LTSLj2rpuCe9jcMM9Gpf4X6p0btKZtWVq
+PMyJ+1oytarshKxBGV7m1U3MkZu88/Bn1OykynsaPPFYCraOWIawJRFJL2t45/By
+K7LVjmahS2JJj5qfVNuFNL4MsrfNieEZjZHdE/B9FZR4ME5sxwH44WvHEOnmumO7
+l6GY8pHrWp8e0HDXf8Y1gn3dj4u0tNs5GBDVygqXgPKsSRi8IHAHKxbNuWx+PDWZ
+m25S2ouiGO27vkIYYPWvFjyxNqe0KFVD6yVYVoWdHFM7rskYJqE+iinmLpgE+tZX
+Q2oMnhEZlFeUiSzKq21Pi07JAwfHAgMBAAGjfzB9MFwGA1UdEQRVMFOCHHNoaWJi
+b2xldGguY3JvdXMtcG9pdGllcnMuZnKGM2h0dHBzOi8vc2hpYmJvbGV0aC5jcm91
+cy1wb2l0aWVycy5mci9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUhXma4CxtS0tm
+sfkbl1uusiIUhq8wDQYJKoZIhvcNAQEFBQADggEBAGzVwbgJ/j2DYjRc8NR7NnDG
+1FAueaBwSVOPe/zawt1M/nNhyHeIAXzsMaLLTptJmXSI1NYH8Zf0ZePlTj34W+iM
+MMYtACZXOqn9MROynG9sUKwh3qTe+yrskUoemApa/WndPY3mlEmoee5v7mJnD70Q
+asxkqS76pkUhyQAUBIZs2XwAdKamI/Fo3kfiOI/3GAFjQObwwnsg9fQLGq/jO8gK
+n44H8PXS4Vf4LLnN8kOUlNvmDD0us5c73Gli/rg/cKTptN1l+TbZ97qBqjTofxPa
+uPReZV8LGAFTW7W5OYm6HcXR3TA/vVBHjBqTmNFZ7/8t8dmgZ5uNGJNLsSgBhg8=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.crous-poitiers.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.crous-poitiers.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.crous-poitiers.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">CROUS Poitiers - Etudiants</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">CROUS Poitiers - Etudiants</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>crous.informatique@crous-poitiers.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

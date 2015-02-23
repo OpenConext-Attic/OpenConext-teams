@@ -1,0 +1,118 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="urn:mace:cru.fr:federation:univ-reunion.fr">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-04-10T15:52:09Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-reunion.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de la Réunion</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDODCCAiCgAwIBAgIVAL8dyCz520Rx/kdyqcI4TXpOUd79MA0GCSqGSIb3DQEB
+BQUAMB4xHDAaBgNVBAMTE2lkcC51bml2LXJldW5pb24uZnIwHhcNMDkwMzE2MTQz
+OTQ5WhcNMjkwMzE2MTQzOTQ5WjAeMRwwGgYDVQQDExNpZHAudW5pdi1yZXVuaW9u
+LmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqWm8P30Q7FaWJ7EX
+QBT412i9UZUVcab0hEu7aVY5y7Oz8SH4Pmnku33as+c1mMb/VC502aU/znQY3neO
+1uI/b/4w1FCPLbB3ZVz9klXGuj6/HSxWqYwCLbQQBlwpGACXsrTBfu8b3tK+MSYD
+K77TXECDQA2U4PFIKnpuBZB6cgJpBORthkKb3tg+oBeWj14CgMz5+2w1ouuRsQ6K
+GiZXf2z1RiqyODnsDst2ml4RrmQzbDFURJ0gdL6qsaUB+SGJqaabo7iYZZKgK/EA
+9+jzXCzG97jAyTyse00LliLMOc5/fAY5GLhkpVV5/9rt0W9mXbbRV4TGA6iaJGKZ
+9Y6CtQIDAQABo20wazBKBgNVHREEQzBBghNpZHAudW5pdi1yZXVuaW9uLmZyhipo
+dHRwczovL2lkcC51bml2LXJldW5pb24uZnIvaWRwL3NoaWJib2xldGgwHQYDVR0O
+BBYEFBbec4spkaLKldRGAyIDjSfMSJzNMA0GCSqGSIb3DQEBBQUAA4IBAQBSjuGF
+qqn1aEmcSAArdDkgvmAZbCnvUeZuHUEdXufrZ6JMYGS742f3A6onSAK0WZmyg0Tf
+bS7YQhEdR3NwlFNhkoCCY0IewEp1pRuKxE+u8VD1372JLCOtIRWTgxvc/VPDdw0C
+UjQmucMfyAn+/mNiR4XRPqOYm1BXvM4RDwTTmYKvaWhUAjnFgr4LTckjS4z6nMfx
+hYC3u9/xmqRAR2bDXeRB4poDfLVXfGKureDZPWw72aPvzjJ4XGf/aaHI3AmL5zmR
+gBZQE0UE++9BzuSgkbANei54g+uo5zgXNgeJT15B9waWhUpo8AMbzOKpXgmCAp51
+FChXMMiPA+POOLIC
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.univ-reunion.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.univ-reunion.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.univ-reunion.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-reunion.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDODCCAiCgAwIBAgIVAL8dyCz520Rx/kdyqcI4TXpOUd79MA0GCSqGSIb3DQEB
+BQUAMB4xHDAaBgNVBAMTE2lkcC51bml2LXJldW5pb24uZnIwHhcNMDkwMzE2MTQz
+OTQ5WhcNMjkwMzE2MTQzOTQ5WjAeMRwwGgYDVQQDExNpZHAudW5pdi1yZXVuaW9u
+LmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqWm8P30Q7FaWJ7EX
+QBT412i9UZUVcab0hEu7aVY5y7Oz8SH4Pmnku33as+c1mMb/VC502aU/znQY3neO
+1uI/b/4w1FCPLbB3ZVz9klXGuj6/HSxWqYwCLbQQBlwpGACXsrTBfu8b3tK+MSYD
+K77TXECDQA2U4PFIKnpuBZB6cgJpBORthkKb3tg+oBeWj14CgMz5+2w1ouuRsQ6K
+GiZXf2z1RiqyODnsDst2ml4RrmQzbDFURJ0gdL6qsaUB+SGJqaabo7iYZZKgK/EA
+9+jzXCzG97jAyTyse00LliLMOc5/fAY5GLhkpVV5/9rt0W9mXbbRV4TGA6iaJGKZ
+9Y6CtQIDAQABo20wazBKBgNVHREEQzBBghNpZHAudW5pdi1yZXVuaW9uLmZyhipo
+dHRwczovL2lkcC51bml2LXJldW5pb24uZnIvaWRwL3NoaWJib2xldGgwHQYDVR0O
+BBYEFBbec4spkaLKldRGAyIDjSfMSJzNMA0GCSqGSIb3DQEBBQUAA4IBAQBSjuGF
+qqn1aEmcSAArdDkgvmAZbCnvUeZuHUEdXufrZ6JMYGS742f3A6onSAK0WZmyg0Tf
+bS7YQhEdR3NwlFNhkoCCY0IewEp1pRuKxE+u8VD1372JLCOtIRWTgxvc/VPDdw0C
+UjQmucMfyAn+/mNiR4XRPqOYm1BXvM4RDwTTmYKvaWhUAjnFgr4LTckjS4z6nMfx
+hYC3u9/xmqRAR2bDXeRB4poDfLVXfGKureDZPWw72aPvzjJ4XGf/aaHI3AmL5zmR
+gBZQE0UE++9BzuSgkbANei54g+uo5zgXNgeJT15B9waWhUpo8AMbzOKpXgmCAp51
+FChXMMiPA+POOLIC
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.univ-reunion.fr/idp/AA"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de la Réunion</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de la Réunion</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>fed-idp@univ-reunion.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

@@ -1,0 +1,155 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://e5.onthehub.com">
+  <md:Extensions>
+<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.swamid.se/">
+<mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+</mdrpi:RegistrationInfo>
+    <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+      <samla:Attribute xmlns:samla="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+        <samla:AttributeValue>http://www.swamid.se/category/eu-adequate-protection</samla:AttributeValue>
+        <samla:AttributeValue>http://www.swamid.se/category/research-and-education</samla:AttributeValue>
+        <samla:AttributeValue>http://refeds.org/category/research-and-scholarship</samla:AttributeValue>
+      </samla:Attribute>
+    </mdattr:EntityAttributes>
+  </md:Extensions>
+  <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyName>e5.onthehub.com</ds:KeyName>
+        <ds:KeyName>https://e5.onthehub.com</ds:KeyName>
+        <ds:X509Data>
+          <ds:X509SubjectName>CN=e5.onthehub.com</ds:X509SubjectName>
+          <ds:X509Certificate>MIIDDTCCAfWgAwIBAgIJAKbfgH7m+qqbMA0GCSqGSIb3DQEBBQUAMBoxGDAWBgNV
+BAMTD2U1Lm9udGhlaHViLmNvbTAeFw0xMzAyMTQxNjU2MjJaFw0yMzAyMTIxNjU2
+MjJaMBoxGDAWBgNVBAMTD2U1Lm9udGhlaHViLmNvbTCCASIwDQYJKoZIhvcNAQEB
+BQADggEPADCCAQoCggEBAMPdcbl3hSq/42be9Xa5j7utNC0Ul1yS4JGLq4nEOP00
+VKMpzHAPTVZyc4h/vffPvVo0sEJ8s6qpcb9dnPZpKj4S2Jg5tWBtmJaZw6TsyOn0
+CHLox9NCwxS8Zz6DIRfuVY2ra+X8a5FR45voE80yeuB6AXH6hfOt81a6EYYAcCe2
+C8PocbRBBabRttUC8mMlcwBd22zO3k9guOJtpfMnCrBrl777h4g9zecLkVcdKwMB
+kmiGRxxYsCNeJUV5rVp6dwbVxPCnktRfavF43Fs8F7W11XKUoa4oS+BONM7IXtz5
+BirkXphcFit7KOFpeXENIXs2AKBwfcp5AvYZy6M6BX8CAwEAAaNWMFQwMwYDVR0R
+BCwwKoIPZTUub250aGVodWIuY29thhdodHRwczovL2U1Lm9udGhlaHViLmNvbTAd
+BgNVHQ4EFgQU5L1EIH24QVlXj4VDtjBocWPsrXEwDQYJKoZIhvcNAQEFBQADggEB
+AGAqH+9sP0Msq8iAj4AZv/TUHziUzCqwNQtfjKSHRkuT1mM5y7M78CVfdPpMYdCc
+kcnYDc3O2S8lliPcTKSrnEE24gPonVxoALCgdLf+oWaA+1BP1T66HDuXkM7NOuH5
+wySxOT3jXmNxymoGsVrT4f2k5Zt9+JCiLIiEJDXzqpJ+6H9k39YBtnUR+EooQr9m
+27vpFCFJWdvxCaRAJzB6ALkdtepu6GAn2ZR+jlJKB2ZheIFcEpuxphtbqFNc37S0
+/RHXXZ7eJ4LIqg7QHc+bvhjPRwx74BajIntgwn5YbOyYWvBU2rEYS41bdNo/6p4S
+tsXRh8I9G2b+om6fhCjEUmM=
+</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:KeyDescriptor use="signing">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyName>e5.onthehub.com</ds:KeyName>
+        <ds:KeyName>https://e5.onthehub.com</ds:KeyName>
+        <ds:X509Data>
+          <ds:X509SubjectName>CN=e5.onthehub.com</ds:X509SubjectName>
+          <ds:X509Certificate>MIIDDTCCAfWgAwIBAgIJAKiojggOXwYSMA0GCSqGSIb3DQEBBQUAMBoxGDAWBgNV
+BAMTD2U1Lm9udGhlaHViLmNvbTAeFw0xMDAzMTkxODA0MjlaFw0xMzAzMTgxODA0
+MjlaMBoxGDAWBgNVBAMTD2U1Lm9udGhlaHViLmNvbTCCASIwDQYJKoZIhvcNAQEB
+BQADggEPADCCAQoCggEBALQ7NHoOjHN6VTNmMUBqlDXcbEbgjPcrjlMrW5s3JNWh
+61NT+AD+8+K0m4288Rc4yTuyaYcCc6K+erCPkivkktudh4rVProuClfpXTgEl+IF
+YkfHbeZHEc2tMLMrQ6zWpcUBiSPdKjhEgVWGe6q/lW2KWRsmbx2lCufhtSfAwyCb
+j/+Nt8tlF8+Tmi5SEZ1HbUhSRMdIKHU8epMkeRd7fPXgO/lqzKF1TIi3eO+L63KW
+4zC0O39Uh6ftULWvCvpyxVAhiQGId092CV8CxuqQPY4lXPDtTKcS0pZLtvlAAD3X
+UhdVOszNxL43oEVQyv/Vr5abab4C1ghZQ26KGaWpqDkCAwEAAaNWMFQwMwYDVR0R
+BCwwKoIPZTUub250aGVodWIuY29thhdodHRwczovL2U1Lm9udGhlaHViLmNvbTAd
+BgNVHQ4EFgQUiAUx8mQA/+5rLbZsyk/QgfTIKRgwDQYJKoZIhvcNAQEFBQADggEB
+AFl0fsWKeym+vqb8O7lPxICZpAMcr9hXn0/XA7FzTluuno4/+uRTljBn3rsPFoe5
+gxl+CtDFQnZ/ZKd6PAv6ulbj1w86JXiQ2dVjzPTSHnIzy408NLHiUKj5p7KmtvP6
+VUBknIxbt6krRtkAHWqpA4ykvAW5TyPSk7DFwFI+/lNlcegmMwlk9bVhIB9s6HdI
+K1+Mvw3ek0GCAlo2ucgpEIFXrRwMLLnucXLdWVug9w+ScsmKp19DlnpS2UMmRMfq
+eWPEpGoM/tepFG/JensNMEA41WKCXmmbruIGlh3TWFRE8s0JG3b8jy8aB3mgzq9T
+l8qQhkUldJphTqx2PEHORBM=
+</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:KeyDescriptor use="encryption">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyName>e5.onthehub.com</ds:KeyName>
+        <ds:KeyName>https://e5.onthehub.com</ds:KeyName>
+        <ds:X509Data>
+          <ds:X509SubjectName>CN=e5.onthehub.com</ds:X509SubjectName>
+          <ds:X509Certificate>MIIDDTCCAfWgAwIBAgIJAKbfgH7m+qqbMA0GCSqGSIb3DQEBBQUAMBoxGDAWBgNV
+BAMTD2U1Lm9udGhlaHViLmNvbTAeFw0xMzAyMTQxNjU2MjJaFw0yMzAyMTIxNjU2
+MjJaMBoxGDAWBgNVBAMTD2U1Lm9udGhlaHViLmNvbTCCASIwDQYJKoZIhvcNAQEB
+BQADggEPADCCAQoCggEBAMPdcbl3hSq/42be9Xa5j7utNC0Ul1yS4JGLq4nEOP00
+VKMpzHAPTVZyc4h/vffPvVo0sEJ8s6qpcb9dnPZpKj4S2Jg5tWBtmJaZw6TsyOn0
+CHLox9NCwxS8Zz6DIRfuVY2ra+X8a5FR45voE80yeuB6AXH6hfOt81a6EYYAcCe2
+C8PocbRBBabRttUC8mMlcwBd22zO3k9guOJtpfMnCrBrl777h4g9zecLkVcdKwMB
+kmiGRxxYsCNeJUV5rVp6dwbVxPCnktRfavF43Fs8F7W11XKUoa4oS+BONM7IXtz5
+BirkXphcFit7KOFpeXENIXs2AKBwfcp5AvYZy6M6BX8CAwEAAaNWMFQwMwYDVR0R
+BCwwKoIPZTUub250aGVodWIuY29thhdodHRwczovL2U1Lm9udGhlaHViLmNvbTAd
+BgNVHQ4EFgQU5L1EIH24QVlXj4VDtjBocWPsrXEwDQYJKoZIhvcNAQEFBQADggEB
+AGAqH+9sP0Msq8iAj4AZv/TUHziUzCqwNQtfjKSHRkuT1mM5y7M78CVfdPpMYdCc
+kcnYDc3O2S8lliPcTKSrnEE24gPonVxoALCgdLf+oWaA+1BP1T66HDuXkM7NOuH5
+wySxOT3jXmNxymoGsVrT4f2k5Zt9+JCiLIiEJDXzqpJ+6H9k39YBtnUR+EooQr9m
+27vpFCFJWdvxCaRAJzB6ALkdtepu6GAn2ZR+jlJKB2ZheIFcEpuxphtbqFNc37S0
+/RHXXZ7eJ4LIqg7QHc+bvhjPRwx74BajIntgwn5YbOyYWvBU2rEYS41bdNo/6p4S
+tsXRh8I9G2b+om6fhCjEUmM=
+</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:KeyDescriptor use="encryption">
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyName>e5.onthehub.com</ds:KeyName>
+        <ds:KeyName>https://e5.onthehub.com</ds:KeyName>
+        <ds:X509Data>
+          <ds:X509SubjectName>CN=e5.onthehub.com</ds:X509SubjectName>
+          <ds:X509Certificate>MIIDDTCCAfWgAwIBAgIJAKiojggOXwYSMA0GCSqGSIb3DQEBBQUAMBoxGDAWBgNV
+BAMTD2U1Lm9udGhlaHViLmNvbTAeFw0xMDAzMTkxODA0MjlaFw0xMzAzMTgxODA0
+MjlaMBoxGDAWBgNVBAMTD2U1Lm9udGhlaHViLmNvbTCCASIwDQYJKoZIhvcNAQEB
+BQADggEPADCCAQoCggEBALQ7NHoOjHN6VTNmMUBqlDXcbEbgjPcrjlMrW5s3JNWh
+61NT+AD+8+K0m4288Rc4yTuyaYcCc6K+erCPkivkktudh4rVProuClfpXTgEl+IF
+YkfHbeZHEc2tMLMrQ6zWpcUBiSPdKjhEgVWGe6q/lW2KWRsmbx2lCufhtSfAwyCb
+j/+Nt8tlF8+Tmi5SEZ1HbUhSRMdIKHU8epMkeRd7fPXgO/lqzKF1TIi3eO+L63KW
+4zC0O39Uh6ftULWvCvpyxVAhiQGId092CV8CxuqQPY4lXPDtTKcS0pZLtvlAAD3X
+UhdVOszNxL43oEVQyv/Vr5abab4C1ghZQ26KGaWpqDkCAwEAAaNWMFQwMwYDVR0R
+BCwwKoIPZTUub250aGVodWIuY29thhdodHRwczovL2U1Lm9udGhlaHViLmNvbTAd
+BgNVHQ4EFgQUiAUx8mQA/+5rLbZsyk/QgfTIKRgwDQYJKoZIhvcNAQEFBQADggEB
+AFl0fsWKeym+vqb8O7lPxICZpAMcr9hXn0/XA7FzTluuno4/+uRTljBn3rsPFoe5
+gxl+CtDFQnZ/ZKd6PAv6ulbj1w86JXiQ2dVjzPTSHnIzy408NLHiUKj5p7KmtvP6
+VUBknIxbt6krRtkAHWqpA4ykvAW5TyPSk7DFwFI+/lNlcegmMwlk9bVhIB9s6HdI
+K1+Mvw3ek0GCAlo2ucgpEIFXrRwMLLnucXLdWVug9w+ScsmKp19DlnpS2UMmRMfq
+eWPEpGoM/tepFG/JensNMEA41WKCXmmbruIGlh3TWFRE8s0JG3b8jy8aB3mgzq9T
+l8qQhkUldJphTqx2PEHORBM=
+</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </md:KeyDescriptor>
+    <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://e5.onthehub.com/WebStore/Security/Shibboleth/SWAMID/Shibboleth.sso/Artifact/SOAP" index="1"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://e5.onthehub.com/WebStore/Security/Shibboleth/SWAMID/Shibboleth.sso/SLO/Artifact"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://e5.onthehub.com/WebStore/Security/Shibboleth/SWAMID/Shibboleth.sso/SLO/POST"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://e5.onthehub.com/WebStore/Security/Shibboleth/SWAMID/Shibboleth.sso/SLO/Redirect"/>
+    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://e5.onthehub.com/WebStore/Security/Shibboleth/SWAMID/Shibboleth.sso/SLO/SOAP"/>
+    <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://e5.onthehub.com/WebStore/Security/Shibboleth/SWAMID/Shibboleth.sso/NIM/Artifact"/>
+    <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://e5.onthehub.com/WebStore/Security/Shibboleth/SWAMID/Shibboleth.sso/NIM/POST"/>
+    <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://e5.onthehub.com/WebStore/Security/Shibboleth/SWAMID/Shibboleth.sso/NIM/Redirect"/>
+    <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://e5.onthehub.com/WebStore/Security/Shibboleth/SWAMID/Shibboleth.sso/NIM/SOAP"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://e5.onthehub.com/WebStore/Security/Shibboleth/SWAMID/Shibboleth.sso/SAML/Artifact" index="6"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://e5.onthehub.com/WebStore/Security/Shibboleth/SWAMID/Shibboleth.sso/SAML/POST" index="7"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://e5.onthehub.com/WebStore/Security/Shibboleth/SWAMID/Shibboleth.sso/SAML2/Artifact" index="8"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://e5.onthehub.com/WebStore/Security/Shibboleth/SWAMID/Shibboleth.sso/SAML2/ECP" index="9"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://e5.onthehub.com/WebStore/Security/Shibboleth/SWAMID/Shibboleth.sso/SAML2/POST" index="10"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://e5.onthehub.com/WebStore/Security/Shibboleth/SWAMID/Shibboleth.sso/SAML2/POST-SimpleSign" index="11"/>
+  </md:SPSSODescriptor>
+  
+  
+  
+<md:Organization>
+    <md:OrganizationName xml:lang="en">e-academy,Inc</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">e-academy</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.e-academy.com</md:OrganizationURL>
+  </md:Organization>
+<md:ContactPerson contactType="technical">
+    <md:GivenName>Shibboleth Technical Team</md:GivenName>
+    <md:EmailAddress>Shibboleth@e-academy.com</md:EmailAddress>
+  </md:ContactPerson>
+<md:ContactPerson contactType="administrative">
+    <md:GivenName>Shibboleth Administration Team</md:GivenName>
+    <md:EmailAddress>Shibboleth@e-academy.com</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor>

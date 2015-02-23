@@ -1,0 +1,71 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://papi.kfki.hu/idp/shibboleth">
+        <Extensions>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">kfki</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href-edugain</ns9:MetadataSet>
+            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href-idps</ns9:MetadataSet>
+            <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://eduid.hu"/>
+        </Extensions>
+        <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+            <Extensions>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">kfki.hu</shibmd:Scope>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">mail.kfki.hu</shibmd:Scope>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">sunserv.kfki.hu</shibmd:Scope>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">rmki.kfki.hu</shibmd:Scope>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">aeki.kfki.hu</shibmd:Scope>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">iki.kfki.hu</shibmd:Scope>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">mfa.kfki.hu</shibmd:Scope>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">szfki.hu</shibmd:Scope>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">wigner.mta.hu</shibmd:Scope>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">energia.mta.hu</shibmd:Scope>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ttk.mta.hu</shibmd:Scope>
+                <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <mdui:IPHint>148.6.0.0/16</mdui:IPHint>
+                    <mdui:IPHint>2001:738:5001::/48</mdui:IPHint>
+                    <mdui:GeolocationHint>geo:47.48945,18.9497</mdui:GeolocationHint>
+                </mdui:DiscoHints>
+            </Extensions>
+            <KeyDescriptor>
+                <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:X509Data>
+                        <ds:X509Certificate>MIIDGzCCAgOgAwIBAgIUdn3t4i5i7MiVMJB07lC7yL4IAoowDQYJKoZIhvcNAQEFBQAwFzEVMBMGA1UEAxMMcGFwaS5rZmtpLmh1MB4XDTA5MDgxMDE2MDEyMloXDTI5MDgxMDE2MDEyMlowFzEVMBMGA1UEAxMMcGFwaS5rZmtpLmh1MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApGGAG9GWNsCJZ6JayutI95u4FmGvsfza6uSKUX3XuZp1uUViY6eH4h4gCNgCzufvJ4GNSdxYhohFEgzB0MM23MrDl9DzS4NX+g7eYFCmmD1zPcui4YzIYJWmCSXAqXDqaLox4aVxtQrOr4sBcy/0jzlXXC3IHSS2GKuCj8tlXf9TLoZTZgZaNcyphelUa/y2DsmNSMIcfZXmYbZCqD/VErNBwfPD5mAr+M+1C5JxRY+6XIPs7jh2eibWZsiafsgDYV2Px2M5NoPfwaJDyBLVA57t34p2G9xCeCak+5cPgu3sZ+sdGC1OZ5uLr+32l9KUu+mR/Q/j2m06dlK4wF8rzwIDAQABo18wXTA8BgNVHREENTAzggxwYXBpLmtma2kuaHWGI2h0dHBzOi8vcGFwaS5rZmtpLmh1L2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBS0zg53E13omfWDQUJAKMLs2TKjgDANBgkqhkiG9w0BAQUFAAOCAQEASowJqpasNKCiw9UvgdaYs98wdI5xKFNIngJdJUKqlYIR1EgibCKFSap6dQkjkuVyMoUfd13WNcruCKHm+TYR+A77/xQB8mr07LAKhcMCYXVR3JuHLewzEbKrXhifaP9Qj5isuiLTFPpsYHtOra9HkEhpRRxM9UO0F1tBXZwV9XtTfbSk/vqQUID4MufOnlLGcfoL551wEa8lQWTcj8+alUaizeIp66M3tFIB317xM7gMtAPdkp5FOyEO25ko6DuIXXFA4vIbGhJSPNmb9GjmKF4i2LlEZpFzW8FCrHS12cVtmDBUE8rw993QIE38s8Bi64wgMQPCG9dgeIUvHKn/zw==</ds:X509Certificate>
+                    </ds:X509Data>
+                    <ds:KeyName>papi.kfki.hu</ds:KeyName>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <KeyDescriptor>
+                <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:X509Data>
+                        <ds:X509Certificate>MIIEcDCCA1igAwIBAgIQdJ8kRHCkiTNnB2gsFl8HnDANBgkqhkiG9w0BAQUFADA2MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEgU1NMIENBMB4XDTEyMTAwNTAwMDAwMFoXDTE1MTAwNTIzNTk1OVowTzELMAkGA1UEBhMCSFUxKTAnBgNVBAoTIE1UQSBXaWduZXIgRml6aWthaSBLdXRhdG9rb3pwb250MRUwEwYDVQQDEwxwYXBpLmtma2kuaHUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC2GCoP21qShohHWYORncFPElyjE3mBXCbNIDM+a0GkG0IbiD7b042iseaCxqlTioQtux2wV92DmvGolJvVYHQB4X3bR407ZSCM0KWZpcU+1IsZnQ+t2ZbgC+Hdu4S3lgr8ShWx4b8fsMLZRJDZpMv26jVDMRw3AgC6hYjHlxhEK5dq4Zf+QB39cecsI7AbMeME7VxSV9DrfunDr2gWeGH/VZZ1WxQ7pzaaPg4H/Dwy9PSGL3wcyB4JtmmoxC9V0MtD443Q+eNqTQDOVCgDMRQjPCBLP17EsEtNCAOKoixFR/BnpQIOf7d+nZnBkTZQ4qcQyda2gREyC+YPH9HVZulLAgMBAAGjggFfMIIBWzAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAdBgNVHQ4EFgQU+K5mh3yYNEZJ1h03qgYcnzPDUXYwDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBgGA1UdIAQRMA8wDQYLKwYBBAGyMQECAh0wOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwFwYDVR0RBBAwDoIMcGFwaS5rZmtpLmh1MA0GCSqGSIb3DQEBBQUAA4IBAQC3UcffXrc9R6QaYjPRX1mPnFaBd//JZufTUCNjmeVU5cxV0BXy1pbyJGwrDnIEGtjazkvcF3mwaCLD2B3mGaiXKlO3S7bVfNjCaGQZVmKPlzHMWRubUihPPcDN4MEgXEd5qnRnGw+dMdFX01DK+RPuiQIbvLKrSV3lpwoAm0rIYuognbxmdIinzkU6+lrpQZt77eCvnzTMBDkg1TIFUYFoBJ42viPN7R+380D9DSmV3nh/ewZj71mT6313QdODR2sY8XQsac4OSC/wMQdSQzeQZAAWY+LeLiXUko9EYlwRUdoU5XY/oFrHpRah3uswFK8aKlyxNx0mkPp9lGI/bfOL</ds:X509Certificate>
+                    </ds:X509Data>
+                    <ds:KeyName>papi.kfki.hu</ds:KeyName>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://papi.kfki.hu:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="1"/>
+            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://papi.kfki.hu/idp/profile/SAML2/POST/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://papi.kfki.hu/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://papi.kfki.hu/idp/profile/SAML2/Redirect/SSO"/>
+        </IDPSSODescriptor>
+        <Organization>
+            <OrganizationName xml:lang="hu">MTA Wigner Fizikai Kutatóközpont</OrganizationName>
+            <OrganizationName xml:lang="en">WIGNER Research Centre for Physics</OrganizationName>
+            <OrganizationDisplayName xml:lang="hu">MTA Wigner Fizikai Kutatóközpont</OrganizationDisplayName>
+            <OrganizationDisplayName xml:lang="en">WIGNER Research Centre for Physics</OrganizationDisplayName>
+            <OrganizationURL xml:lang="hu">http://wigner.mta.hu</OrganizationURL>
+            <OrganizationURL xml:lang="en">http://wigner.mta.hu</OrganizationURL>
+        </Organization>
+        <ContactPerson contactType="technical">
+            <SurName>KFKI AAI</SurName>
+            <EmailAddress>mailto:aai@kfki.hu</EmailAddress>
+        </ContactPerson>
+        <ContactPerson contactType="support">
+            <SurName>KFKI AAI</SurName>
+            <EmailAddress>mailto:aai@kfki.hu</EmailAddress>
+        </ContactPerson>
+        <ContactPerson contactType="administrative">
+            <SurName>KFKI AAI</SurName>
+            <EmailAddress>mailto:aai@kfki.hu</EmailAddress>
+        </ContactPerson>
+    </EntityDescriptor>

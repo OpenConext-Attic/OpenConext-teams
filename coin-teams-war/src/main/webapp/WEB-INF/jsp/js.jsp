@@ -28,3 +28,4 @@
 <%@include file="/js/coin-teams/modules/addmember.js" %>
 <%@include file="/js/coin-teams/modules/acceptinvitation.js" %>
 <%@include file="/js/coin-teams/modules/detailteam.js" %>
+<%@include file="/js/coin-teams/modules/addallowedserviceproviders.js" %>

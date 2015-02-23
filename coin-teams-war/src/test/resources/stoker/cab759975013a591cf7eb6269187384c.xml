@@ -1,0 +1,77 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.ehess.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-07-12T16:19:22Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ehess.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">EHESS</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDHDCCAgSgAwIBAgIVALeCOqpROd3E1etW0cL7TxFT+Z3rMA0GCSqGSIb3DQEB
+BQUAMBcxFTATBgNVBAMTDGlkcC5laGVzcy5mcjAeFw0xMTA3MjUxMDMxNThaFw0z
+MTA3MjUxMDMxNThaMBcxFTATBgNVBAMTDGlkcC5laGVzcy5mcjCCASIwDQYJKoZI
+hvcNAQEBBQADggEPADCCAQoCggEBALomrxhDCkuM+MNokRhVvEkg095vk1wsvflA
+wYfTuhsVSW13bZVHcOHTjILhWiHOVz8RZVXy6vOmEEWXl2KWn9Tvovh/Sey2rRe/
+/svsSpIUKgnU2tC3rC41XJ5V/mIJUoSPhcQCKCx5t4CV4xG5eNa4rYJxsJDDUviA
+Pd+jKkiVMUEvDJ4Qt4o/scjjuUGUrKJ1/EmMqZfG2HO7Xqkg5j8z6n1U6KpOXUb0
+kMhL9SKCiWZX9iYt810mkOlx7TNJlAENOqlGybAnMjEY85rJ/LbEnpgTyWEmNEPc
+1BCN84l4VVEJc7F2WxDjtFMG7YQwjWdUIJbVz/dHHvJQgxIoSrUCAwEAAaNfMF0w
+PAYDVR0RBDUwM4IMaWRwLmVoZXNzLmZyhiNodHRwczovL2lkcC5laGVzcy5mci9p
+ZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUL5PgjhSfsllLhl0wF9vbNDc9PpgwDQYJ
+KoZIhvcNAQEFBQADggEBAKARW3uivnFto2JRaKGtnqcaDO5dS3RKj7uf/eIaU/Uq
+Fm3PADZE5gVTUcwlILrDmci0202/Boo03srZ0RCvSZ6HxjZM5gsPGZ0D2SiMf8b3
+UVSLt38rXXyd6Xm0kXvBP2ZsFlRkzanI0G8pa3wOslVGEZccBKY4dmRToIm7cQeB
+OQdqKV2rfZSK5DN7cE5VeUlRfPOqcsYagK5PT0+JiKdBuJTnBFUub+SPLIW+pygx
+ftIG5eTG0zs+8JFROXmVnoVTk6dKHOcL4Ze1HNgC/RQGLQCyY5HY7IjlllWsTteF
+uq8R4YH10wMLWAk+39fV4VIZwj+rc6KKXaPjcpXt+RE=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ehess.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ehess.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ehess.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">EHESS</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">EHESS</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>admin@ehess.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

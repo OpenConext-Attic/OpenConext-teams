@@ -1,0 +1,118 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.univ-bpclermont.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-04-16T09:16:56Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-bpclermont.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de Clermont-Ferrand 2 - Blaise Pascal</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDQzCCAiugAwIBAgIUf8Tye3TWDTMkKybmr2WCtI8Rg7gwDQYJKoZIhvcNAQEF
+BQAwITEfMB0GA1UEAxMWaWRwLnVuaXYtYnBjbGVybW9udC5mcjAeFw0wODExMjUx
+MzE4MDlaFw0yODExMjUxMzE4MDlaMCExHzAdBgNVBAMTFmlkcC51bml2LWJwY2xl
+cm1vbnQuZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCgq4L+M8Cr
+xnSB7fZmGR8wgCnDx6DxFJqAwk45muj/RFAijOjAM9i2iUmjBhpAQjatnybBaGk4
+xjLD/TbzQzpXZMzqLpRYgmvqLQ7RG6PabpLDWz+s/oneLFWtvCzFmyRQXe72Kum5
+FCeG5Jz9uDniAwdv2u5dG82mr+nO7wP+95GwlcYzs9bVfJZ3L0vBZ0wu4bqAIHAQ
++PMX0FVX/2bmqBWjP1XaJjqIk0UnQJ7//Ccg3y888MRyIcg2d8P4OiG4VvhUl7bL
+QygrvTr0yqrw2XFHdhMAwV7P39Y84+/rAFPg94iiSesPOzZmgv4YvGcsvLjIWwa8
+Pi5gOMtJQXqFAgMBAAGjczBxMFAGA1UdEQRJMEeCFmlkcC51bml2LWJwY2xlcm1v
+bnQuZnKGLWh0dHBzOi8vaWRwLnVuaXYtYnBjbGVybW9udC5mci9pZHAvc2hpYmJv
+bGV0aDAdBgNVHQ4EFgQU9VjTe9bu+B0flgm74MpOhm2yVJYwDQYJKoZIhvcNAQEF
+BQADggEBADRoaAXNoIfymTDg2CETOFI/fhK8Sok1vAQo7PJjjeq2Pue965wgWT4Q
+sJxY9lQdPKlZRonso2ABtY0vNvlB2oQK5Trz8QckUp8MEXQhSDK2EyTc8/jXLae9
+4jU4qjGrD4f6h177SSimK2tmesTRJ57EUZd/Mpoy/cpWMKfp9tx6Pe6w5MYVOSpk
+iqa6wc50EWUt8/EqtC3V45+jo/6mJx1ZPQI2uPP9BK1p+UdljUKZqmQa0ZZJ4IxW
+UP/k2YNC7B4piqvd0HLqVEDHQmmeiwSPLlFsGozwdYZ+FUuXzJoMguhu3KMw8qV4
+P69e+LdcHzrBqln1xmrkY/MMjTqnJ3E=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.univ-bpclermont.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.univ-bpclermont.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.univ-bpclermont.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-bpclermont.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDQzCCAiugAwIBAgIUf8Tye3TWDTMkKybmr2WCtI8Rg7gwDQYJKoZIhvcNAQEF
+BQAwITEfMB0GA1UEAxMWaWRwLnVuaXYtYnBjbGVybW9udC5mcjAeFw0wODExMjUx
+MzE4MDlaFw0yODExMjUxMzE4MDlaMCExHzAdBgNVBAMTFmlkcC51bml2LWJwY2xl
+cm1vbnQuZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCgq4L+M8Cr
+xnSB7fZmGR8wgCnDx6DxFJqAwk45muj/RFAijOjAM9i2iUmjBhpAQjatnybBaGk4
+xjLD/TbzQzpXZMzqLpRYgmvqLQ7RG6PabpLDWz+s/oneLFWtvCzFmyRQXe72Kum5
+FCeG5Jz9uDniAwdv2u5dG82mr+nO7wP+95GwlcYzs9bVfJZ3L0vBZ0wu4bqAIHAQ
++PMX0FVX/2bmqBWjP1XaJjqIk0UnQJ7//Ccg3y888MRyIcg2d8P4OiG4VvhUl7bL
+QygrvTr0yqrw2XFHdhMAwV7P39Y84+/rAFPg94iiSesPOzZmgv4YvGcsvLjIWwa8
+Pi5gOMtJQXqFAgMBAAGjczBxMFAGA1UdEQRJMEeCFmlkcC51bml2LWJwY2xlcm1v
+bnQuZnKGLWh0dHBzOi8vaWRwLnVuaXYtYnBjbGVybW9udC5mci9pZHAvc2hpYmJv
+bGV0aDAdBgNVHQ4EFgQU9VjTe9bu+B0flgm74MpOhm2yVJYwDQYJKoZIhvcNAQEF
+BQADggEBADRoaAXNoIfymTDg2CETOFI/fhK8Sok1vAQo7PJjjeq2Pue965wgWT4Q
+sJxY9lQdPKlZRonso2ABtY0vNvlB2oQK5Trz8QckUp8MEXQhSDK2EyTc8/jXLae9
+4jU4qjGrD4f6h177SSimK2tmesTRJ57EUZd/Mpoy/cpWMKfp9tx6Pe6w5MYVOSpk
+iqa6wc50EWUt8/EqtC3V45+jo/6mJx1ZPQI2uPP9BK1p+UdljUKZqmQa0ZZJ4IxW
+UP/k2YNC7B4piqvd0HLqVEDHQmmeiwSPLlFsGozwdYZ+FUuXzJoMguhu3KMw8qV4
+P69e+LdcHzrBqln1xmrkY/MMjTqnJ3E=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.univ-bpclermont.fr/idp/AA"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Clermont-Ferrand 2 - Blaise Pascal</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Clermont-Ferrand 2 - Blaise Pascal</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>Fed-Admin@univ-bpclermont.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

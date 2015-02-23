@@ -1,0 +1,129 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://idp.ufsm.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">ufsm.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">UFSM - Universidade Federal de Santa Maria</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">UFSM - Universidade Federal de Santa Maria</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UFSM - Universidade Federal de Santa Maria</mdui:Description>
+          <mdui:Description xml:lang="pt-br">UFSM - Universidade Federal de Santa Maria</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ufsm.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ufsm.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIID0DCCArgCAQAwDQYJKoZIhvcNAQEFBQAwga0xLDAqBgNVBAoTI1VuaXZlcnNp
+ZGFkZSBGZWRlcmFsIGRlIFNhbnRhIE1hcmlhMQwwCgYDVQQLEwNDUEQxGjAYBgkq
+hkiG9w0BCQEWC2NwZEB1ZnNtLmJyMRQwEgYDVQQHEwtTYW50YSBNYXJpYTEaMBgG
+A1UECBMRUmlvIEdyYW5kZSBkbyBTdWwxCzAJBgNVBAYTAkJSMRQwEgYDVQQDEwtp
+ZHAudWZzbS5icjAeFw0xMjEwMDUxNDA1MzVaFw0xNTEwMDUxNDA1MzVaMIGtMSww
+KgYDVQQKEyNVbml2ZXJzaWRhZGUgRmVkZXJhbCBkZSBTYW50YSBNYXJpYTEMMAoG
+A1UECxMDQ1BEMRowGAYJKoZIhvcNAQkBFgtjcGRAdWZzbS5icjEUMBIGA1UEBxML
+U2FudGEgTWFyaWExGjAYBgNVBAgTEVJpbyBHcmFuZGUgZG8gU3VsMQswCQYDVQQG
+EwJCUjEUMBIGA1UEAxMLaWRwLnVmc20uYnIwggEiMA0GCSqGSIb3DQEBAQUAA4IB
+DwAwggEKAoIBAQDWBJ1zOYMt8oRHINxfgHCz/YAWxSb2vSxeOu50Jdr+EzKQYMj4
+5eeXhCNYGlWtqPI+rMZj4i3p8P+xbaK+RzXJavEF0gyv3qcamJWBd5GseyO/Q5gd
+u4DpJ5lpA5P1zm2Q646p1swNAlENjS756Ux5MfWFPfRYc3u04Y9W8EDfKMPMYSs2
+H+bFi0Ucn4DaEkUiDc2noJuJMM08m3Nl5GTUEwZSRJAlV9OT2tUbXAfeqdXyteS4
+VaFzc4vt0KqUwATvxhIygOqX+9I7nitBg3wfXbHsmYBo14AUsPxJvVFUV2bLUd4l
+d/xr71cxlkFHk4mzRe5C2kDLYcvYaIqv/jyjAgMBAAEwDQYJKoZIhvcNAQEFBQAD
+ggEBAKiirihev0E7qiHKcDQjWPxP1RTalsGly1pAWYUp1ikY7R2n+VzsSTVu6xh4
+ITgI1YIsHOdQ9eepAQCiEcuPim7CnzcKb1Ru6vgiXxgO9hJg0iNmcycPFQR8t5rk
+2fFUgF2GjL+lpOEnCgKn7WPEsAAHnLHsJjCbNcbX7B12awaVu6Q2nuiBcX2EC/PD
+Vvgi6N7sh/ViG8whuT4y7vN0Zdnc8FdbRFVkgl6FInPQa27MNQL7ZukyxmU+A9AF
++jDBH/uGNUgpWLHqS/d+TMq0SPcrLoedtMjcadIQIpMgyIk14QvJGo/YB9sgtvHM
+dwJYMximHcBNMJ0UieklpL0lmx0=
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ufsm.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ufsm.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.ufsm.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ufsm.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ufsm.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ufsm.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">ufsm.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIID0DCCArgCAQAwDQYJKoZIhvcNAQEFBQAwga0xLDAqBgNVBAoTI1VuaXZlcnNp
+ZGFkZSBGZWRlcmFsIGRlIFNhbnRhIE1hcmlhMQwwCgYDVQQLEwNDUEQxGjAYBgkq
+hkiG9w0BCQEWC2NwZEB1ZnNtLmJyMRQwEgYDVQQHEwtTYW50YSBNYXJpYTEaMBgG
+A1UECBMRUmlvIEdyYW5kZSBkbyBTdWwxCzAJBgNVBAYTAkJSMRQwEgYDVQQDEwtp
+ZHAudWZzbS5icjAeFw0xMjEwMDUxNDA1MzVaFw0xNTEwMDUxNDA1MzVaMIGtMSww
+KgYDVQQKEyNVbml2ZXJzaWRhZGUgRmVkZXJhbCBkZSBTYW50YSBNYXJpYTEMMAoG
+A1UECxMDQ1BEMRowGAYJKoZIhvcNAQkBFgtjcGRAdWZzbS5icjEUMBIGA1UEBxML
+U2FudGEgTWFyaWExGjAYBgNVBAgTEVJpbyBHcmFuZGUgZG8gU3VsMQswCQYDVQQG
+EwJCUjEUMBIGA1UEAxMLaWRwLnVmc20uYnIwggEiMA0GCSqGSIb3DQEBAQUAA4IB
+DwAwggEKAoIBAQDWBJ1zOYMt8oRHINxfgHCz/YAWxSb2vSxeOu50Jdr+EzKQYMj4
+5eeXhCNYGlWtqPI+rMZj4i3p8P+xbaK+RzXJavEF0gyv3qcamJWBd5GseyO/Q5gd
+u4DpJ5lpA5P1zm2Q646p1swNAlENjS756Ux5MfWFPfRYc3u04Y9W8EDfKMPMYSs2
+H+bFi0Ucn4DaEkUiDc2noJuJMM08m3Nl5GTUEwZSRJAlV9OT2tUbXAfeqdXyteS4
+VaFzc4vt0KqUwATvxhIygOqX+9I7nitBg3wfXbHsmYBo14AUsPxJvVFUV2bLUd4l
+d/xr71cxlkFHk4mzRe5C2kDLYcvYaIqv/jyjAgMBAAEwDQYJKoZIhvcNAQEFBQAD
+ggEBAKiirihev0E7qiHKcDQjWPxP1RTalsGly1pAWYUp1ikY7R2n+VzsSTVu6xh4
+ITgI1YIsHOdQ9eepAQCiEcuPim7CnzcKb1Ru6vgiXxgO9hJg0iNmcycPFQR8t5rk
+2fFUgF2GjL+lpOEnCgKn7WPEsAAHnLHsJjCbNcbX7B12awaVu6Q2nuiBcX2EC/PD
+Vvgi6N7sh/ViG8whuT4y7vN0Zdnc8FdbRFVkgl6FInPQa27MNQL7ZukyxmU+A9AF
++jDBH/uGNUgpWLHqS/d+TMq0SPcrLoedtMjcadIQIpMgyIk14QvJGo/YB9sgtvHM
+dwJYMximHcBNMJ0UieklpL0lmx0=
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ufsm.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ufsm.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">UFSM - Universidade Federal de Santa Maria</OrganizationName>
+      <OrganizationName xml:lang="pt-br">UFSM - Universidade Federal de Santa Maria</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">UFSM - Universidade Federal de Santa Maria</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">UFSM - Universidade Federal de Santa Maria</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.ufsm.br/</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.ufsm.br/</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Fabiano B. Franco</SurName>
+      <EmailAddress>fabiano@cpd.ufsm.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

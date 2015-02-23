@@ -1,0 +1,136 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp2.kau.se/idp/shibboleth">
+<md:Extensions>
+<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.swamid.se/">
+<mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+</mdrpi:RegistrationInfo>
+</md:Extensions>
+  <IDPSSODescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+    <Extensions>
+      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">kau.se</shibmd:Scope>
+      <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <mdui:DisplayName xml:lang="sv">Karlstads universitet</mdui:DisplayName>
+        <mdui:DisplayName xml:lang="en">Karlstad University</mdui:DisplayName>
+        <mdui:Description xml:lang="sv">Identity Provider för Karlstads universitet</mdui:Description>
+        <mdui:Description xml:lang="en">Identity Provider for Karlstad University</mdui:Description>
+        <mdui:InformationURL xml:lang="sv">http://www.kau.se</mdui:InformationURL>
+        <mdui:InformationURL xml:lang="en">http://www.kau.se/en</mdui:InformationURL>
+        <mdui:Logo height="112" width="112">https://www.kau.se/sites/all/themes/kau/logo.png</mdui:Logo>
+        <mdui:Logo height="112" width="112" xml:lang="sv">https://www.kau.se/sites/all/themes/kau/logo.png</mdui:Logo>
+        <mdui:Logo height="112" width="112" xml:lang="en">https://www.kau.se/sites/all/themes/kau/logo.png</mdui:Logo>
+        <mdui:PrivacyStatementURL xml:lang="sv">http://www.kau.se/om-webbplatsen/juridisk-information</mdui:PrivacyStatementURL>
+        <mdui:PrivacyStatementURL xml:lang="en">http://www.kau.se/en/about-this-website</mdui:PrivacyStatementURL>
+        <mdui:Keywords xml:lang="sv">kau karlstads+universitet karlstad+universitet karlstad+university</mdui:Keywords>
+        <mdui:Keywords xml:lang="en">kau karlstads+universitet karlstad+universitet karlstad+university</mdui:Keywords>
+      </mdui:UIInfo>
+      <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <mdui:DomainHint>kau.se</mdui:DomainHint>
+        <mdui:IPHint>130.243.16.0/20</mdui:IPHint>
+        <mdui:IPHint>193.10.162.0/24</mdui:IPHint>
+        <mdui:IPHint>193.10.220.0/22</mdui:IPHint>
+        <mdui:IPHint>193.10.224.0/21</mdui:IPHint>
+        <mdui:IPHint>193.10.238.0/24</mdui:IPHint>
+        <mdui:IPHint>193.11.148.0/22</mdui:IPHint>
+        <mdui:IPHint>193.11.152.0/21</mdui:IPHint>
+        <mdui:IPHint>2001:6b0:34::0/48</mdui:IPHint>
+        <mdui:GeolocationHint>geo:59.4059,13.5816</mdui:GeolocationHint>
+      </mdui:DiscoHints>
+    </Extensions>
+    <KeyDescriptor>
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>
+MIIDFzCCAf+gAwIBAgIUUONxidNrozH1GiZ1VI/uwwgWM8cwDQYJKoZIhvcNAQEF
+BQAwFjEUMBIGA1UEAxMLaWRwMi5rYXUuc2UwHhcNMTAxMDEzMTM1MjM0WhcNMzAx
+MDEzMTM1MjM0WjAWMRQwEgYDVQQDEwtpZHAyLmthdS5zZTCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAILFxLkJloiLact4UjsWKH98lOkzm6VE2t9GQtUe
+DRYCY5prnaDRmsumqmMYLMZXT6DCT99oNLeeBeBfB+8JwqraYhDanGiRAENTrlbs
+jUTx4p5BYTBuo0rGpVZ8MBi++f8ainvxPI4LGVc02upuG7lhWnjaui2qpKQf9hFB
+mqnjgL2ohS/Jhzo7q5XiEtsTtoD4ssUMabbzK9Zc5x6/txxJVAaicOHhqgXhFkkD
+AfC86PbWim6S8BpX0f8ERcYYKAm58ES/tpgZeImVmIIyHAIHPukjUKXNzuDKh9qa
+3LXp5moCeQKI385mw1BnkwTTqdwZ0Y5QHdYIMfB59VuUPm0CAwEAAaNdMFswOgYD
+VR0RBDMwMYILaWRwMi5rYXUuc2WGImh0dHBzOi8vaWRwMi5rYXUuc2UvaWRwL3No
+aWJib2xldGgwHQYDVR0OBBYEFLywmXKV+OaPFHmRtKgA7vepw1CtMA0GCSqGSIb3
+DQEBBQUAA4IBAQBRG+Zr9oXM/S7WHGRlTuwcXLEqy1jETAre9e2JUJLCYeEQdUor
+W5fETZtgs1DwGvfuquLRFxvIGtnIgELy1Q9eDGszursIl+cY6kv72pl+wP+QvI0U
+GWysjsYepf78eRQ4sNKn/m+2p7ZBfLFixNdTn1nvIGSaPX+8SnOrYfrqLYXZVZuF
+HntH8R43Oh0amq0BYWSJOhhmT4nxpvwwQCETd+RTqyB0SDtXnjYKv7j505JEBltt
+GLzVTSRgddMNMJEIMmpc6L9XAwW1IObqe3HcLewUmWZgtGKnq1Dd1XPtTRjvQPg9
+7FShqSitkM9DR4N7PbfMlbcB71JnezGMtokE
+
+                    </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp2.kau.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp2.kau.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+    <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp2.kau.se/idp/profile/Shibboleth/SSO"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp2.kau.se/idp/profile/SAML2/POST/SSO"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp2.kau.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp2.kau.se/idp/profile/SAML2/Redirect/SSO"/>
+  </IDPSSODescriptor>
+  <AttributeAuthorityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+    <Extensions>
+      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">kau.se</shibmd:Scope>
+    </Extensions>
+    <KeyDescriptor>
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>
+MIIDFzCCAf+gAwIBAgIUUONxidNrozH1GiZ1VI/uwwgWM8cwDQYJKoZIhvcNAQEF
+BQAwFjEUMBIGA1UEAxMLaWRwMi5rYXUuc2UwHhcNMTAxMDEzMTM1MjM0WhcNMzAx
+MDEzMTM1MjM0WjAWMRQwEgYDVQQDEwtpZHAyLmthdS5zZTCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAILFxLkJloiLact4UjsWKH98lOkzm6VE2t9GQtUe
+DRYCY5prnaDRmsumqmMYLMZXT6DCT99oNLeeBeBfB+8JwqraYhDanGiRAENTrlbs
+jUTx4p5BYTBuo0rGpVZ8MBi++f8ainvxPI4LGVc02upuG7lhWnjaui2qpKQf9hFB
+mqnjgL2ohS/Jhzo7q5XiEtsTtoD4ssUMabbzK9Zc5x6/txxJVAaicOHhqgXhFkkD
+AfC86PbWim6S8BpX0f8ERcYYKAm58ES/tpgZeImVmIIyHAIHPukjUKXNzuDKh9qa
+3LXp5moCeQKI385mw1BnkwTTqdwZ0Y5QHdYIMfB59VuUPm0CAwEAAaNdMFswOgYD
+VR0RBDMwMYILaWRwMi5rYXUuc2WGImh0dHBzOi8vaWRwMi5rYXUuc2UvaWRwL3No
+aWJib2xldGgwHQYDVR0OBBYEFLywmXKV+OaPFHmRtKgA7vepw1CtMA0GCSqGSIb3
+DQEBBQUAA4IBAQBRG+Zr9oXM/S7WHGRlTuwcXLEqy1jETAre9e2JUJLCYeEQdUor
+W5fETZtgs1DwGvfuquLRFxvIGtnIgELy1Q9eDGszursIl+cY6kv72pl+wP+QvI0U
+GWysjsYepf78eRQ4sNKn/m+2p7ZBfLFixNdTn1nvIGSaPX+8SnOrYfrqLYXZVZuF
+HntH8R43Oh0amq0BYWSJOhhmT4nxpvwwQCETd+RTqyB0SDtXnjYKv7j505JEBltt
+GLzVTSRgddMNMJEIMmpc6L9XAwW1IObqe3HcLewUmWZgtGKnq1Dd1XPtTRjvQPg9
+7FShqSitkM9DR4N7PbfMlbcB71JnezGMtokE
+
+                    </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp2.kau.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+    <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp2.kau.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+  </AttributeAuthorityDescriptor>
+  
+  
+  
+  
+<Organization xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
+    <OrganizationName xml:lang="en">KAU</OrganizationName>
+    <OrganizationDisplayName xml:lang="sv">Karlstads Universitet</OrganizationDisplayName>
+    <OrganizationDisplayName xml:lang="en">Karlstad University</OrganizationDisplayName>
+    <OrganizationURL xml:lang="en">http://www.kau.se</OrganizationURL>
+  </Organization>
+<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="administrative">
+    <Company>Karlstad University</Company>
+    <SurName>IT-avdelningen</SurName>
+    <EmailAddress>webbteknik@kau.se</EmailAddress>
+    <TelephoneNumber>+46 54 700 2200</TelephoneNumber>
+  </ContactPerson>
+<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="technical">
+    <Company>Karlstad University</Company>
+    <SurName>Paul Scott</SurName>
+    <EmailAddress>paul.scott@kau.se</EmailAddress>
+    <TelephoneNumber>+46 54 700 2307</TelephoneNumber>
+  </ContactPerson>
+<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="support">
+    <Company>Karlstad University</Company>
+    <SurName>IT-avdelningen Karlstads universitet</SurName>
+    <EmailAddress>datasupport@kau.se</EmailAddress>
+    <TelephoneNumber>+46 54 700 2200</TelephoneNumber>
+  </ContactPerson>
+</md:EntityDescriptor>

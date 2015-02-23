@@ -1,0 +1,119 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://cafe.ifsp.edu.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">IFSP - Instituto Federal de Sao Paulo</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">IFSP - Instituto Federal de Sao Paulo</mdui:DisplayName>
+          <mdui:Description xml:lang="en">IFSP - Instituto Federal de Sao Paulo</mdui:Description>
+          <mdui:Description xml:lang="pt-br">IFSP - Instituto Federal de Sao Paulo</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ifsp.edu.br</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ifsp.edu.br</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIICyDCCAbACAQAwDQYJKoZIhvcNAQEFBQAwKjEMMAoGA1UECxMDQ1BEMQswCQYD
+VQQGEwJCUjENMAsGA1UEAxMEY2FmZTAeFw0xNDA4MTUxODU4NDNaFw0xOTA4MTQx
+ODU4NDNaMCoxDDAKBgNVBAsTA0NQRDELMAkGA1UEBhMCQlIxDTALBgNVBAMTBGNh
+ZmUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDoCA9jrziW3ypnZTNf
+ul1zcAvMpA2Wi0snGxd81AffY2WeOUzn9JreTYiGfaagoi1nz6bCcq+YQUbbYOW1
+pdut7EQf+oY56pT/VNsfgvJUQ5d8QEl8tB4kvlQmffD0XGqWNF3td/QwdHD6Ffgv
+IDjywdiKIoWdoVv6LhuqgfhDTKvTamE25KxD217xnSlttA1hxFoCXqGF+F2oEDoG
+KEXx4guEptgqaIhr/jPtgGVjNROmYTsbs3p0a9hm+TYAh/CkljKCx3YAm7GKLG8G
+vFbyxNMBplRGQ2q57TUGHcE3/2KxzkL/IcTalFYwQeb6rBL8V0vhqodYF4zz0gTW
+YfUlAgMBAAEwDQYJKoZIhvcNAQEFBQADggEBAIZXXTx3ywiElOXzDM7KjW4zILSz
+MyBqXN484rGXtrihqYPsRJusIS0SV8lf1wBc0ijhAckF31ktkiC5k/OKL2yJK1Ta
+pOi833wAhZSMfiDFQhSLZY0BC3K4nVTixprPgk51s3yx+N3d/FxmpSdyr+Ujs58P
+mcDAYwVa+FOEyaGFxby9oZT5wccbgIfnbGiKhMrAAnpsTKYRoT64yYqwZXLhA0h2
+arTHpzzgz+iz/2pgcGh039pwEbfs2+e2U9Ij2NRcvgYyp/paJBqYIXWeRx4zW2vO
+TEF9OsunACQdf0GwmnVXynHUtCJQN9QOAgoLLBvt7oF1mDNt0u6ZPKOzDII=
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.ifsp.edu.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.ifsp.edu.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafe.ifsp.edu.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafe.ifsp.edu.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafe.ifsp.edu.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafe.ifsp.edu.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+
+MIICyDCCAbACAQAwDQYJKoZIhvcNAQEFBQAwKjEMMAoGA1UECxMDQ1BEMQswCQYD
+VQQGEwJCUjENMAsGA1UEAxMEY2FmZTAeFw0xNDA4MTUxODU4NDNaFw0xOTA4MTQx
+ODU4NDNaMCoxDDAKBgNVBAsTA0NQRDELMAkGA1UEBhMCQlIxDTALBgNVBAMTBGNh
+ZmUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDoCA9jrziW3ypnZTNf
+ul1zcAvMpA2Wi0snGxd81AffY2WeOUzn9JreTYiGfaagoi1nz6bCcq+YQUbbYOW1
+pdut7EQf+oY56pT/VNsfgvJUQ5d8QEl8tB4kvlQmffD0XGqWNF3td/QwdHD6Ffgv
+IDjywdiKIoWdoVv6LhuqgfhDTKvTamE25KxD217xnSlttA1hxFoCXqGF+F2oEDoG
+KEXx4guEptgqaIhr/jPtgGVjNROmYTsbs3p0a9hm+TYAh/CkljKCx3YAm7GKLG8G
+vFbyxNMBplRGQ2q57TUGHcE3/2KxzkL/IcTalFYwQeb6rBL8V0vhqodYF4zz0gTW
+YfUlAgMBAAEwDQYJKoZIhvcNAQEFBQADggEBAIZXXTx3ywiElOXzDM7KjW4zILSz
+MyBqXN484rGXtrihqYPsRJusIS0SV8lf1wBc0ijhAckF31ktkiC5k/OKL2yJK1Ta
+pOi833wAhZSMfiDFQhSLZY0BC3K4nVTixprPgk51s3yx+N3d/FxmpSdyr+Ujs58P
+mcDAYwVa+FOEyaGFxby9oZT5wccbgIfnbGiKhMrAAnpsTKYRoT64yYqwZXLhA0h2
+arTHpzzgz+iz/2pgcGh039pwEbfs2+e2U9Ij2NRcvgYyp/paJBqYIXWeRx4zW2vO
+TEF9OsunACQdf0GwmnVXynHUtCJQN9QOAgoLLBvt7oF1mDNt0u6ZPKOzDII=
+
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.ifsp.edu.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.ifsp.edu.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">IFSP - Instituto Federal de Sao Paulo</OrganizationName>
+      <OrganizationName xml:lang="pt-br">IFSP - Instituto Federal de Sao Paulo</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">IFSP - Instituto Federal de Sao Paulo</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">IFSP - Instituto Federal de Sao Paulo</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.ifsp.edu.br</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.ifsp.edu.br</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Paulo Orlando Ricarte Kawachi</SurName>
+      <EmailAddress>infra@ifsp.edu.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

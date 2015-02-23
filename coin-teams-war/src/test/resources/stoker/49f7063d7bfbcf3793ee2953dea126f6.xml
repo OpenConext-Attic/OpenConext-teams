@@ -1,0 +1,135 @@
+<md:EntityDescriptor xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://login.feld.cvut.cz/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.eduid.cz/" registrationInstant="2010-09-15T12:33:26Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <mdasrt:Attribute xmlns:mdasrt="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <mdasrt:AttributeValue>http://eduid.cz/uri/idp-group/university</mdasrt:AttributeValue>
+        </mdasrt:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">fel.cvut.cz</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:Description xml:lang="en">Identity Provider for CTU FEE in Prague</mdui:Description>
+          <mdui:Description xml:lang="cs">Identity Provider pro ČVUT FEL v Praze</mdui:Description>
+          <mdui:DisplayName xml:lang="en">Czech Technical University in Prague, Faculty of Electrical Engineering</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">České vysoké učení technické v Praze, Fakulta elektrotechnická</mdui:DisplayName>
+          <mdui:InformationURL xml:lang="en">http://www.fel.cvut.cz/en/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">http://www.fel.cvut.cz/cz/</mdui:InformationURL>
+          <mdui:Logo height="40" width="53">https://login.fel.cvut.cz/img/logo_cvut_40pix.png</mdui:Logo>
+        </mdui:UIInfo>
+        <eduidmd:RepublishRequest xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0">
+          <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
+        </eduidmd:RepublishRequest>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEgzCCA2ugAwIBAgIQANoVlz6PcuJYsEUfHOK6tjANBgkqhkiG9w0BAQUFADA2
+MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+U1NMIENBMB4XDTE0MDQxNjAwMDAwMFoXDTE3MDQxNTIzNTk1OVowPzEhMB8GA1UE
+CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRowGAYDVQQDExFsb2dpbi5mZWwu
+Y3Z1dC5jejCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMnY8VAP8P7X
+ecu4o79lrMkoZuocDhGM9f5zFHIKPU9f4fNhuPkStgyMmEnqpoMvI6obtmLNXyGE
+/BfUrfn8xb27lURWgixhGl8/h9FFGb+xV7/fq4q8j3IJ1jaA+CF292ZL8ua8d1uG
+wqi++ra/Rp6Od/IecwC7z69cBRidqRnBOWEKfgzWtQu7O409Rv4xTjrvLx+8GDKB
+tvJdDykSWDTWkIHY/UuJsFIZKuVHT4ursigm4kFQu9URqLyhKKNIY5JvdDqBHcCn
+7XKPrqugTJZKpwEmmFV2PciClXnLIIdPCaNzsSKvh2nLxFes1m0q4gY6WN8PCYrp
+HUpBqISdJssCAwEAAaOCAYIwggF+MB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdX
+R+qQ47ntMB0GA1UdDgQWBBSx5rIOvDo/4kkNb0wMf/gQTgj5BjAOBgNVHQ8BAf8E
+BAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUH
+AwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEwOgYDVR0fBDMw
+MTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5j
+cmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50
+ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29j
+c3AudGNzLnRlcmVuYS5vcmcwMAYDVR0RBCkwJ4IRbG9naW4uZmVsLmN2dXQuY3qC
+EmxvZ2luLmZlbGQuY3Z1dC5jejANBgkqhkiG9w0BAQUFAAOCAQEAiA8p8TJej3G9
+P7D51SRAL3uVNwfa0441UL41kRPZ46iz+N6aUudHEDCFWtYtn16htmR/KuUEje6p
+4GgmxFw6TXZhni+TdEjP9NIdXR6XpEZoIqfCY4qB5dBJPJYvEhlOv10jJftckG3u
+r7AIipmKOCM2ufytJ5g2J1YlX37szN/p0QIAbEoip8xAS/wtZVqBsNIBfy15Kd2j
+qXbm8qnB2nj+ucVKO30Gnya5Ada0cnp/DP2YjBv9MfFPjj5+kDoK3gAX5IJi9yjr
+UjhYjMJA2yybAxhTAYld1Ku+NHoYOQoZmiwobVToYcT63SF4OQv/u+1hNQh+/lM2
+yrp1Je1EyA==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://login.fel.cvut.cz:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.fel.cvut.cz:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://login.fel.cvut.cz/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.fel.cvut.cz/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://login.fel.cvut.cz/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.fel.cvut.cz/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">fel.cvut.cz</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEgzCCA2ugAwIBAgIQANoVlz6PcuJYsEUfHOK6tjANBgkqhkiG9w0BAQUFADA2
+MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+U1NMIENBMB4XDTE0MDQxNjAwMDAwMFoXDTE3MDQxNTIzNTk1OVowPzEhMB8GA1UE
+CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRowGAYDVQQDExFsb2dpbi5mZWwu
+Y3Z1dC5jejCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMnY8VAP8P7X
+ecu4o79lrMkoZuocDhGM9f5zFHIKPU9f4fNhuPkStgyMmEnqpoMvI6obtmLNXyGE
+/BfUrfn8xb27lURWgixhGl8/h9FFGb+xV7/fq4q8j3IJ1jaA+CF292ZL8ua8d1uG
+wqi++ra/Rp6Od/IecwC7z69cBRidqRnBOWEKfgzWtQu7O409Rv4xTjrvLx+8GDKB
+tvJdDykSWDTWkIHY/UuJsFIZKuVHT4ursigm4kFQu9URqLyhKKNIY5JvdDqBHcCn
+7XKPrqugTJZKpwEmmFV2PciClXnLIIdPCaNzsSKvh2nLxFes1m0q4gY6WN8PCYrp
+HUpBqISdJssCAwEAAaOCAYIwggF+MB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdX
+R+qQ47ntMB0GA1UdDgQWBBSx5rIOvDo/4kkNb0wMf/gQTgj5BjAOBgNVHQ8BAf8E
+BAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUH
+AwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEwOgYDVR0fBDMw
+MTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5j
+cmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50
+ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29j
+c3AudGNzLnRlcmVuYS5vcmcwMAYDVR0RBCkwJ4IRbG9naW4uZmVsLmN2dXQuY3qC
+EmxvZ2luLmZlbGQuY3Z1dC5jejANBgkqhkiG9w0BAQUFAAOCAQEAiA8p8TJej3G9
+P7D51SRAL3uVNwfa0441UL41kRPZ46iz+N6aUudHEDCFWtYtn16htmR/KuUEje6p
+4GgmxFw6TXZhni+TdEjP9NIdXR6XpEZoIqfCY4qB5dBJPJYvEhlOv10jJftckG3u
+r7AIipmKOCM2ufytJ5g2J1YlX37szN/p0QIAbEoip8xAS/wtZVqBsNIBfy15Kd2j
+qXbm8qnB2nj+ucVKO30Gnya5Ada0cnp/DP2YjBv9MfFPjj5+kDoK3gAX5IJi9yjr
+UjhYjMJA2yybAxhTAYld1Ku+NHoYOQoZmiwobVToYcT63SF4OQv/u+1hNQh+/lM2
+yrp1Je1EyA==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://login.fel.cvut.cz:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.fel.cvut.cz:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="cs">ČVUT FEL</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">CTU FEE</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="cs">České vysoké učení technické v Praze, Fakulta elektrotechnická</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Czech Technical University in Prague, Faculty of Electrical Engineering</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="cs">http://www.fel.cvut.cz/cz/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.fel.cvut.cz/en/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ivan</md:GivenName>
+      <md:SurName>Novakov</md:SurName>
+      <md:EmailAddress>novakoi@fel.cvut.cz</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Jíří</md:GivenName>
+      <md:SurName>Cejp</md:SurName>
+      <md:EmailAddress>cejp@fel.cvut.cz</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

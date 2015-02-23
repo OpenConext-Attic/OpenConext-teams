@@ -1,0 +1,133 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://shibbo.tul.cz/idp/shibboleth">
+    <md:Extensions xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.eduid.cz/" registrationInstant="2010-09-20T11:45:42Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <mdasrt:Attribute xmlns:mdasrt="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <mdasrt:AttributeValue>http://eduid.cz/uri/idp-group/university</mdasrt:AttributeValue>
+        </mdasrt:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">tul.cz</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">Technical University of Liberec</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">Technická univerzita v Liberci</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity Provider for Technical University of Liberec.</mdui:Description>
+          <mdui:Description xml:lang="cs">Identity Provider pro Technickou univerzitu v Liberci.</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.tul.cz/en</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">http://www.tul.cz/</mdui:InformationURL>
+          <mdui:Logo height="40" width="40">https://liane.tul.cz/img/znak-tul.png</mdui:Logo>
+        </mdui:UIInfo>
+        <eduidmd:RepublishRequest xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0">
+          <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
+        </eduidmd:RepublishRequest>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+                        MIIEcjCCA1qgAwIBAgIRAPfZ5zaSWEpw8Vc1xSSxyNgwDQYJKoZIhvcNAQEFBQAw
+                        NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+                        IFNTTCBDQTAeFw0xMjExMTMwMDAwMDBaFw0xNTExMTMyMzU5NTlaME8xCzAJBgNV
+                        BAYTAkNaMSgwJgYDVQQKEx9UZWNobmljYWwgVW5pdmVyc2l0eSBvZiBMaWJlcmVj
+                        MRYwFAYDVQQDEw1zaGliYm8udHVsLmN6MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+                        MIIBCgKCAQEArstKIJXSamcd4N0fzyZ0ViFYVCJBZZU3QKmQ25NZq6Cfrw8kH75E
+                        SioySW1H4kSzTKLze7qTOLmVYpZyq68emuK+d2vf2wm9TPLYbjC+LVJKrPiRtRHF
+                        7cCi2k5ONwENq7jnIvpq0Z+V30sC0/WfXESnjsB51/PklOa04YMwpUQDqQHsWl/8
+                        pG9fQ5G9OtzWUiYYHPbyNe3zZa1O9uUKpATKNuwtx49+b/VdNKW2voHieVG0beyE
+                        b59FR/Io4gVRevLxo2B/tkBaa8SmuTfCwyqSkkv59sywUObnN3KYmVUb8Fpmbx4X
+                        c1BJHi2wC6IqbTxWKS+e4FkqW3Snc0xNNwIDAQABo4IBYDCCAVwwHwYDVR0jBBgw
+                        FoAUDL2TaAzz3qujSWsrN1dH6pDjue0wHQYDVR0OBBYEFNxZp6dM+6sOb4hhs74b
+                        sMtnL5OTMA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQG
+                        CCsGAQUFBwMBBggrBgEFBQcDAjAYBgNVHSAEETAPMA0GCysGAQQBsjEBAgIdMDoG
+                        A1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5B
+                        U1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2Ny
+                        dC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0
+                        dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMBgGA1UdEQQRMA+CDXNoaWJiby50dWwu
+                        Y3owDQYJKoZIhvcNAQEFBQADggEBAKfiwyXiInmGSgBMFTEGwFsaE0opLkvDEiSp
+                        +C4namIgpNTRIb7rsp1R+C8NgQaykoQTNdMgUJO94lF8VESOdfoYjkEYZi9KWs1U
+                        9+wtdJxx0FY2NKhx2mgvF/FgTbNdUEEqW+5byWxTLXycTYe5ZIgbHgRcOupU9NKs
+                        dfl8zJKwqtOjOIm2fKE3Z8xULMvw8D6rV7dWuVFios3P4sBfkt0S5uK15mlX5lDI
+                        vZBzEWQ1L9C1GELPPMS56JYfObgJxGzcNZu+s6lXOINBoROYT/5p2mhI5xWeZWJZ
+                        zOSaicB9fW0hVsTwGJDw4hwESk9eLj3tlpyvWSYXvbf1Y06t8rw=
+                   </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibbo.tul.cz:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibbo.tul.cz:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibbo.tul.cz/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibbo.tul.cz/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibbo.tul.cz/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibbo.tul.cz/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">tul.cz</shibmd:Scope>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+			MIIEcjCCA1qgAwIBAgIRAPfZ5zaSWEpw8Vc1xSSxyNgwDQYJKoZIhvcNAQEFBQAw
+			NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+			IFNTTCBDQTAeFw0xMjExMTMwMDAwMDBaFw0xNTExMTMyMzU5NTlaME8xCzAJBgNV
+			BAYTAkNaMSgwJgYDVQQKEx9UZWNobmljYWwgVW5pdmVyc2l0eSBvZiBMaWJlcmVj
+			MRYwFAYDVQQDEw1zaGliYm8udHVsLmN6MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+			MIIBCgKCAQEArstKIJXSamcd4N0fzyZ0ViFYVCJBZZU3QKmQ25NZq6Cfrw8kH75E
+			SioySW1H4kSzTKLze7qTOLmVYpZyq68emuK+d2vf2wm9TPLYbjC+LVJKrPiRtRHF
+			7cCi2k5ONwENq7jnIvpq0Z+V30sC0/WfXESnjsB51/PklOa04YMwpUQDqQHsWl/8
+			pG9fQ5G9OtzWUiYYHPbyNe3zZa1O9uUKpATKNuwtx49+b/VdNKW2voHieVG0beyE
+			b59FR/Io4gVRevLxo2B/tkBaa8SmuTfCwyqSkkv59sywUObnN3KYmVUb8Fpmbx4X
+			c1BJHi2wC6IqbTxWKS+e4FkqW3Snc0xNNwIDAQABo4IBYDCCAVwwHwYDVR0jBBgw
+			FoAUDL2TaAzz3qujSWsrN1dH6pDjue0wHQYDVR0OBBYEFNxZp6dM+6sOb4hhs74b
+			sMtnL5OTMA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQG
+			CCsGAQUFBwMBBggrBgEFBQcDAjAYBgNVHSAEETAPMA0GCysGAQQBsjEBAgIdMDoG
+			A1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5B
+			U1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2Ny
+			dC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0
+			dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMBgGA1UdEQQRMA+CDXNoaWJiby50dWwu
+			Y3owDQYJKoZIhvcNAQEFBQADggEBAKfiwyXiInmGSgBMFTEGwFsaE0opLkvDEiSp
+			+C4namIgpNTRIb7rsp1R+C8NgQaykoQTNdMgUJO94lF8VESOdfoYjkEYZi9KWs1U
+			9+wtdJxx0FY2NKhx2mgvF/FgTbNdUEEqW+5byWxTLXycTYe5ZIgbHgRcOupU9NKs
+			dfl8zJKwqtOjOIm2fKE3Z8xULMvw8D6rV7dWuVFios3P4sBfkt0S5uK15mlX5lDI
+			vZBzEWQ1L9C1GELPPMS56JYfObgJxGzcNZu+s6lXOINBoROYT/5p2mhI5xWeZWJZ
+			zOSaicB9fW0hVsTwGJDw4hwESk9eLj3tlpyvWSYXvbf1Y06t8rw=
+		   </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibbo.tul.cz:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibbo.tul.cz:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+    </AttributeAuthorityDescriptor>
+    <Organization>
+      <OrganizationName xml:lang="en">Technical University of Liberec</OrganizationName>
+      <OrganizationName xml:lang="cs">Technická univerzita v Liberci</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">Technical University of Liberec</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="cs">Technická univerzita v Liberci</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.tul.cz/en</OrganizationURL>
+      <OrganizationURL xml:lang="cs">http://www.tul.cz/</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Petr</GivenName>
+      <SurName>Adamec</SurName>
+      <EmailAddress>Petr.Adamec@tul.cz</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="technical">
+      <GivenName>David</GivenName>
+      <SurName>Kmoch</SurName>
+      <EmailAddress>David.Kmoch@tul.cz</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

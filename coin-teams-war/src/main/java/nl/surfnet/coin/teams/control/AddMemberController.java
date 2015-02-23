@@ -329,7 +329,7 @@ public class AddMemberController {
     for (InternetAddress email : emails) {
       String emailAddress = email.getAddress();
 
-      Invitation invitation = teamInviteService.findInvitation(emailAddress, team);
+      Invitation invitation = teamInviteService.findOpenInvitation(emailAddress, team);
       boolean newInvitation = (invitation == null);
 
       if (newInvitation) {

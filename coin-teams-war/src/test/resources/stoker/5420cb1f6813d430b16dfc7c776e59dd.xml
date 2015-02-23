@@ -1,0 +1,98 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://rems.elixir-finland.org/shibboleth">
+    <Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.csc.fi/haka">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.csc.fi/english/institutions/haka/instructions/join/eduGAINRegistrationStatement/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </Extensions>
+    <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">REMS ELIXIR</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="fi">REMS ELIXIR</mdui:DisplayName>
+          <mdui:Description xml:lang="en">An ELIXIR service for applying for and managing access rights to datasets in the biomedical sciences.</mdui:Description>
+          <mdui:Description xml:lang="fi">ELIXIRin aineistojen käyttövaltuuksien hallintajärjestelmä.</mdui:Description>
+          <mdui:PrivacyStatementURL xml:lang="fi">https://rems.elixir-finland.org/privacy-policy</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://rems.elixir-finland.org/privacy-policy</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIFfDCCBGSgAwIBAgIRAOOPBaozx9H6wmXnbZDrqlYwDQYJKoZIhvcNAQEFBQAw
+NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+IFNTTCBDQTAeFw0xNDA0MDkwMDAwMDBaFw0xNzA0MDgyMzU5NTlaMEUxITAfBgNV
+BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEgMB4GA1UEAxMXcmVtcy5lbGl4
+aXItZmlubGFuZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQDE
+PmEMb9faLtRJlg+4uDV6K9hy3F0rBS/qhD5Gx9+4r3XLUGif6nX+zwErh+nQCqNS
+tujxdFOGALGsM5j6EvUJUyAvgQkoPq/z4GiRymexQeJkg3mQlRJ8rC0eRNfmdMo6
+KwE14GC0Y3aEJnxYbnArBcR2xb5qYM4nXE/2k3Tm6gRHasj2fK2CxbROilD42Dmd
+fj+zPx1kl0qOAZCKfhGNf36nt5VT9Hf39Y0xEBIDKKclAhMm8F9kfy6iDW9wi7yb
+6cNqSgZhe3kJ0SSWidFJVkHbdlxEII5bqlDflEiabxpt1bZk3BCfB66IH+gPOsES
+2wQTIzxeBDn0b++Misf5joU1wP26vhWNV6ZTQWtAqKKg9fXTWyqGGNNGpAZDaO+K
+ObS/EucGN7eDHmvLVpaRIN7RZHHbcMR3Irb9GPb7ICApjcrDiugl3tyTlZiznkpW
+5oL5+yZgc7wBGIGLV7r4ZcGFljJ0hq6+TviclrE/0DQVbHe51iM7nAkRlEdVF9Uc
+sliaHiswU1dhul14qXTNGi4dPUIkFW47Hy050O4ZqK9Bx7/WDhqm//oWt7mmNeW9
+Q7or0YK6btf+8IzuuC7GcGzHI8vhB1aV74wiRoHeegDwVpID+k3iWsZpLHYviCz6
+Vm6D2XZGznbw31YBJJhEVT/zz0nTv+DFY84ezBmmBwIDAQABo4IBdDCCAXAwHwYD
+VR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH6pDjue0wHQYDVR0OBBYEFNKSOwZ7HEKk
+M5/M4lFidibAuVwcMA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1Ud
+JQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAiBgNVHSAEGzAZMA0GCysGAQQBsjEB
+AgIdMAgGBmeBDAECATA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50
+ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYB
+BQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0
+MCYGCCsGAQUFBzABhhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9yZzAiBgNVHREE
+GzAZghdyZW1zLmVsaXhpci1maW5sYW5kLm9yZzANBgkqhkiG9w0BAQUFAAOCAQEA
+SGEF/c7aUAjf57SVtsoZqNkrR8YwBEEu99mKvQlvT6qLdIjNdq4bOYsCIHS+MAmv
+nhJyuiMY+Q4FK+jUsX+Emltk7aii37PAMlHSCpgo7OGDK0c6gdg7FYBuWj20HA6n
+FBgU9FD4sHqSKPEDOitsVTb1Vb1PYLYNaLpJnK70WS/vNCK/mZsy4qWeoxSBIUry
+rlnCOtELPe7YWkB3fAbmzI3FVfHrtb73vAJ6hfbOfuzVwfuEAU4U3+V175fktpw5
+RKcIVJFGa06KaJwT75b637GEuqs/YUdjCJU3uDk/eUnxO8ZZvA7gvxNQXAQBQ0oG
+vzJQyIviY90sJo1Cisoynw==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://rems.elixir-finland.org/Shibboleth.sso/SLO/POST"/>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://rems.elixir-finland.org/Shibboleth.sso/SAML2/POST" index="1" isDefault="true"/>
+      <AttributeConsumingService index="1" isDefault="true">
+        <ServiceName xml:lang="fi">REMS ELIXIR</ServiceName>
+        <ServiceName xml:lang="en">REMS ELIXIR</ServiceName>
+        <ServiceDescription xml:lang="fi">ELIXIRin aineistojen kayttovaltuuksien hallintajarjestelma.</ServiceDescription>
+        <ServiceDescription xml:lang="en">An ELIXIR service for applying for and managing access rights to datasets in the biomedical sciences.</ServiceDescription>
+        <RequestedAttribute FriendlyName="cn" Name="urn:oid:2.5.4.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="eduPersonAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="schacHomeOrganization" Name="urn:oid:1.3.6.1.4.1.25178.1.2.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="schacHomeOrganizationType" Name="urn:oid:1.3.6.1.4.1.25178.1.2.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="sn" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+      </AttributeConsumingService>
+    </SPSSODescriptor>
+    <Organization>
+      <OrganizationName xml:lang="fi">CSC - Tieteen tietotekniikan keskus Oy</OrganizationName>
+      <OrganizationName xml:lang="en">CSC - IT Center for Science Ltd.</OrganizationName>
+      <OrganizationName xml:lang="sv">CSC - Tieteen tietotekniikan keskus Oy</OrganizationName>
+      <OrganizationDisplayName xml:lang="fi">CSC - Tieteen tietotekniikan keskus Oy</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="en">CSC - IT Center for Science Ltd.</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="sv">CSC - Tieteen tietotekniikan keskus Oy</OrganizationDisplayName>
+      <OrganizationURL xml:lang="fi">http://www.csc.fi</OrganizationURL>
+      <OrganizationURL xml:lang="en">http://www.csc.fi</OrganizationURL>
+      <OrganizationURL xml:lang="sv">http://www.csc.fi</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="administrative">
+      <GivenName>Timo</GivenName>
+      <SurName>Mustonen</SurName>
+      <EmailAddress>mailto:rems@csc.fi</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="technical">
+      <GivenName>Timo</GivenName>
+      <SurName>Mustonen</SurName>
+      <EmailAddress>mailto:rems@csc.fi</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

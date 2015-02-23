@@ -1,0 +1,132 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://shibboleth.ad.cybera.ca/idp/shibboleth">
+
+    <Extensions>
+<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.canarie.ca" registrationInstant="2014-06-11T00:00:00Z">
+<mdrpi:RegistrationPolicy xml:lang="en">http://www.canarie.ca/templates/services/docs/CAF_join_en.pdf
+</mdrpi:RegistrationPolicy>
+</mdrpi:RegistrationInfo>
+</Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <Extensions>
+            <shibmd:Scope regexp="false">cybera.ca</shibmd:Scope>
+
+            <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+<mdui:DisplayName xml:lang="en">Cybera</mdui:DisplayName>
+<mdui:DisplayName xml:lang="fr">Cybera</mdui:DisplayName>
+<mdui:Description xml:lang="en">Cybera is a not-for-profit, technical agency that is helping Alberta advance its IT frontiers.</mdui:Description>
+<mdui:Description xml:lang="fr">Cybera is a not-for-profit, technical agency that is helping Alberta advance its IT frontiers.</mdui:Description>
+<mdui:InformationURL xml:lang="en">http://www.cybera.ca/about/cybera/</mdui:InformationURL>
+<mdui:InformationURL xml:lang="fr">http://www.cybera.ca/about/cybera/</mdui:InformationURL>
+</mdui:UIInfo>
+
+        </Extensions>
+
+        <KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDSDCCAjCgAwIBAgIVAMmg9Pn2Pq9LL6hnJsqirBsx1/hBMA0GCSqGSIb3DQEB
+BQUAMCIxIDAeBgNVBAMTF3NoaWJib2xldGguYWQuY3liZXJhLmNhMB4XDTE0MDYw
+NTIzMjM0N1oXDTM0MDYwNTIzMjM0N1owIjEgMB4GA1UEAxMXc2hpYmJvbGV0aC5h
+ZC5jeWJlcmEuY2EwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCG+m9g
+JN1yrI2i29T5fSilW2A3o/2+kV1cQzaDj2pNU7CiXfohyKvw3p6rTWriLh0nGSJp
+9DWtA4DhWOQsrtpPUNez8ZgFDzRQc7OUqZJIdh0EexhlGEipyGsAd4piEDqIbl5R
+EKMyqc7ok+22Lv8KbWi68ksMOYxvxggTbj37MJzoD7siYo72jztDAl8LWUu0On9u
+znQcoGN+yp3b0ZNFrZ+xciiNVN1IISqoHvVZVCzPH8jXrsZKon9Ga75B7DXouQbS
+RJwMEYMBKmBdCa8iL2fn+oaD9GHDZ6TlmRJFsun4ydIpmJYmUy5WzlNHQ95f+hG7
+h1HEt1rKkb33lJu/AgMBAAGjdTBzMFIGA1UdEQRLMEmCF3NoaWJib2xldGguYWQu
+Y3liZXJhLmNhhi5odHRwczovL3NoaWJib2xldGguYWQuY3liZXJhLmNhL2lkcC9z
+aGliYm9sZXRoMB0GA1UdDgQWBBRF16/3CUxWL/2Gig8kuGMyT5Y1RTANBgkqhkiG
+9w0BAQUFAAOCAQEAeYprnDekEmkdGOz7RcEmUGrWjEC+KKSQrXaPNSx1+Wuasc7K
+ARqreWX3dEg+qUFi+M6pPD6/g6GmCyTioxeu9qeq7/vwT06RGA/2XbnLrgJ+Z95v
+vSbaqBB2xbthzV5vSRymh/jT0rYcidffG4i/3VFhM5pTgy1glAM/aorb2M1FWqLw
+jd3mIdybjOjUXTDDMgc5TuyyS3tgaOcbVSTPFZfCzjryjRH3yflUVIW1uhDM189R
+X8Wtsg9NJNF8tSx0c2LV3VpwCPRtGEary4ibf95iSdCX74+UhTK1O638s+vDjUo8
+z/rBMXsATszRELGSAA7w5QsrC4c3V99cTwkYhQ==
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </KeyDescriptor>
+        
+        <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.ad.cybera.ca:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+        <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.ad.cybera.ca:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+        
+        <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.ad.cybera.ca/idp/profile/SAML2/Redirect/SLO"/>
+        
+        <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.ad.cybera.ca/idp/profile/SAML2/POST/SLO"/>
+        
+        <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.ad.cybera.ca:8443/idp/profile/SAML2/SOAP/SLO"/>
+                                   
+        <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+        <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.ad.cybera.ca/idp/profile/Shibboleth/SSO"/>
+        
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.ad.cybera.ca/idp/profile/SAML2/POST/SSO"/>
+
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.ad.cybera.ca/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+        
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.ad.cybera.ca/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <Extensions>
+            <shibmd:Scope regexp="false">cybera.ca</shibmd:Scope>
+        </Extensions>
+
+        <KeyDescriptor>
+            <ds:KeyInfo>
+                <ds:X509Data>
+                    <ds:X509Certificate>
+MIIDSDCCAjCgAwIBAgIVAMmg9Pn2Pq9LL6hnJsqirBsx1/hBMA0GCSqGSIb3DQEB
+BQUAMCIxIDAeBgNVBAMTF3NoaWJib2xldGguYWQuY3liZXJhLmNhMB4XDTE0MDYw
+NTIzMjM0N1oXDTM0MDYwNTIzMjM0N1owIjEgMB4GA1UEAxMXc2hpYmJvbGV0aC5h
+ZC5jeWJlcmEuY2EwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCG+m9g
+JN1yrI2i29T5fSilW2A3o/2+kV1cQzaDj2pNU7CiXfohyKvw3p6rTWriLh0nGSJp
+9DWtA4DhWOQsrtpPUNez8ZgFDzRQc7OUqZJIdh0EexhlGEipyGsAd4piEDqIbl5R
+EKMyqc7ok+22Lv8KbWi68ksMOYxvxggTbj37MJzoD7siYo72jztDAl8LWUu0On9u
+znQcoGN+yp3b0ZNFrZ+xciiNVN1IISqoHvVZVCzPH8jXrsZKon9Ga75B7DXouQbS
+RJwMEYMBKmBdCa8iL2fn+oaD9GHDZ6TlmRJFsun4ydIpmJYmUy5WzlNHQ95f+hG7
+h1HEt1rKkb33lJu/AgMBAAGjdTBzMFIGA1UdEQRLMEmCF3NoaWJib2xldGguYWQu
+Y3liZXJhLmNhhi5odHRwczovL3NoaWJib2xldGguYWQuY3liZXJhLmNhL2lkcC9z
+aGliYm9sZXRoMB0GA1UdDgQWBBRF16/3CUxWL/2Gig8kuGMyT5Y1RTANBgkqhkiG
+9w0BAQUFAAOCAQEAeYprnDekEmkdGOz7RcEmUGrWjEC+KKSQrXaPNSx1+Wuasc7K
+ARqreWX3dEg+qUFi+M6pPD6/g6GmCyTioxeu9qeq7/vwT06RGA/2XbnLrgJ+Z95v
+vSbaqBB2xbthzV5vSRymh/jT0rYcidffG4i/3VFhM5pTgy1glAM/aorb2M1FWqLw
+jd3mIdybjOjUXTDDMgc5TuyyS3tgaOcbVSTPFZfCzjryjRH3yflUVIW1uhDM189R
+X8Wtsg9NJNF8tSx0c2LV3VpwCPRtGEary4ibf95iSdCX74+UhTK1O638s+vDjUo8
+z/rBMXsATszRELGSAA7w5QsrC4c3V99cTwkYhQ==
+
+                    </ds:X509Certificate>
+                </ds:X509Data>
+            </ds:KeyInfo>
+        </KeyDescriptor>
+
+        <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.ad.cybera.ca:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+        
+        <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.ad.cybera.ca:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+        
+        <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+        
+    </AttributeAuthorityDescriptor>
+   
+<Organization>
+  <OrganizationName xml:lang="en">Cybera</OrganizationName>
+  <OrganizationName xml:lang="fr">Cybera </OrganizationName>
+  <OrganizationDisplayName xml:lang="en">Cybera</OrganizationDisplayName>
+  <OrganizationDisplayName xml:lang="fr">Cybera</OrganizationDisplayName>
+  <OrganizationURL xml:lang="en">http://www.cybera.ca/about/cybera/</OrganizationURL>
+  <OrganizationURL xml:lang="fr">http://www.cybera.ca/about/cybera/</OrganizationURL>
+  </Organization>
+  <ContactPerson contactType="technical">
+  <SurName>System Admin</SurName>
+  <EmailAddress>sysadmin@cybera.ca</EmailAddress>
+  </ContactPerson> 
+
+</EntityDescriptor>

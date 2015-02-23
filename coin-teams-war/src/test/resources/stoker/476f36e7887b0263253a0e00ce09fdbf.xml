@@ -1,0 +1,120 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.it.gu.se/idp/shibboleth">
+<md:Extensions>
+<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.swamid.se/">
+<mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+</mdrpi:RegistrationInfo>
+</md:Extensions>
+  <IDPSSODescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+    <Extensions>
+      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">gu.se</shibmd:Scope>
+      <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <mdui:DisplayName xml:lang="sv">Göteborgs Universitet</mdui:DisplayName>
+        <mdui:DisplayName xml:lang="en">University of Gothenburg</mdui:DisplayName>
+        <mdui:Description xml:lang="sv">Identity Provider för anställda och studenter vid Göteborgs universitet.</mdui:Description>
+        <mdui:Description xml:lang="en">The University of Gothenburg Identity Provider is used by employees and students at the university.</mdui:Description>
+        <mdui:Logo height="50" width="344" xml:lang="sv">https://www.gu.se/digitalAssets/1374/1374690_lo_gu_left.png</mdui:Logo>
+        <mdui:Logo height="50" width="376" xml:lang="en">https://www.gu.se/digitalAssets/1374/1374690_lo_gu_left.png</mdui:Logo>
+      </mdui:UIInfo>
+      <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <mdui:DomainHint>gu.se</mdui:DomainHint>
+        <mdui:GeolocationHint>geo:57.6986,11.9712</mdui:GeolocationHint>
+      </mdui:DiscoHints>
+    </Extensions>
+    <KeyDescriptor>
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>
+MIIDGzCCAgOgAwIBAgIUGLU4YqWFYHboh+F+iLNYkBw8XNAwDQYJKoZIhvcNAQEF
+BQAwFzEVMBMGA1UEAxMMaWRwLml0Lmd1LnNlMB4XDTA5MDgyNDExMzA1OFoXDTI5
+MDgyNDExMzA1OFowFzEVMBMGA1UEAxMMaWRwLml0Lmd1LnNlMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEApOVkzaHuTCe+7lf79UnQ5iQ/8OLbJpwOxPTF
+wEPIHbMMU/aCVnxoZnwNApblqvpP2uOsQvh8d0uDv2iVC5BMN0ff9M+9rN7D/gAo
+L+w8CmWiHRudKyZLu8Gu89SGxyQ59AVCbJzGaEE9h/CmMYHCj/ONJ8mtjG9uw6u+
+Vj+L8PHXsPHQsLvcl3/D7duIYH/xHRbPzXS0imux+r/OcSCR3aCPCx3uuAfVPxGS
+9Y/ifynV586V3szIM7O15SeXKenFMKjQhzA23ZPcHhDSxWnVGUDWFDRDNAXfD7BF
+KRBCaUlWZvczqsV3eGtW8XgOmuW/7yJT5REfrrSLOKprAK8yoQIDAQABo18wXTA8
+BgNVHREENTAzggxpZHAuaXQuZ3Uuc2WGI2h0dHBzOi8vaWRwLml0Lmd1LnNlL2lk
+cC9zaGliYm9sZXRoMB0GA1UdDgQWBBSpKDUl7ZRxhQ1/HRmVbFd+NbwxmzANBgkq
+hkiG9w0BAQUFAAOCAQEAXfaYlHQj4KRaJmMbWFV0XyNUlHNio8010vLv3t6WztlZ
+jZFL/hTQIFhmYEA04Davdk+1/1JvcRePSpg2VCxT/QwHyOR3eimmQ6FKXWls/zO/
+V01sJrlLdf/53pzXYsVSOf50UK+GtrSB3hhzrFmeaBALOysGqk2h2/UdYISXxa/e
+MyQ/aOI5u+0Wlq2RdIXF8MrtnwBTRhNXLcXYzz4fPsdjd4TmmJLQLXLmFLE/IA+/
+CP9nuvekzvPla7AXlXPwPvbUunwZIZkN3aHzMY/08FKIYRLb9VmqInKXw8tIBSqG
+MoX9SCDPBh2j39QZupTaPkylXDshurod7B2XtXdHPg==
+
+                    </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.it.gu.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.it.gu.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+    <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.it.gu.se/idp/profile/Shibboleth/SSO"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.it.gu.se/idp/profile/SAML2/POST/SSO"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.it.gu.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.it.gu.se/idp/profile/SAML2/Redirect/SSO"/>
+  </IDPSSODescriptor>
+  <AttributeAuthorityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+    <Extensions>
+      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">gu.se</shibmd:Scope>
+    </Extensions>
+    <KeyDescriptor>
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>
+MIIDGzCCAgOgAwIBAgIUGLU4YqWFYHboh+F+iLNYkBw8XNAwDQYJKoZIhvcNAQEF
+BQAwFzEVMBMGA1UEAxMMaWRwLml0Lmd1LnNlMB4XDTA5MDgyNDExMzA1OFoXDTI5
+MDgyNDExMzA1OFowFzEVMBMGA1UEAxMMaWRwLml0Lmd1LnNlMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEApOVkzaHuTCe+7lf79UnQ5iQ/8OLbJpwOxPTF
+wEPIHbMMU/aCVnxoZnwNApblqvpP2uOsQvh8d0uDv2iVC5BMN0ff9M+9rN7D/gAo
+L+w8CmWiHRudKyZLu8Gu89SGxyQ59AVCbJzGaEE9h/CmMYHCj/ONJ8mtjG9uw6u+
+Vj+L8PHXsPHQsLvcl3/D7duIYH/xHRbPzXS0imux+r/OcSCR3aCPCx3uuAfVPxGS
+9Y/ifynV586V3szIM7O15SeXKenFMKjQhzA23ZPcHhDSxWnVGUDWFDRDNAXfD7BF
+KRBCaUlWZvczqsV3eGtW8XgOmuW/7yJT5REfrrSLOKprAK8yoQIDAQABo18wXTA8
+BgNVHREENTAzggxpZHAuaXQuZ3Uuc2WGI2h0dHBzOi8vaWRwLml0Lmd1LnNlL2lk
+cC9zaGliYm9sZXRoMB0GA1UdDgQWBBSpKDUl7ZRxhQ1/HRmVbFd+NbwxmzANBgkq
+hkiG9w0BAQUFAAOCAQEAXfaYlHQj4KRaJmMbWFV0XyNUlHNio8010vLv3t6WztlZ
+jZFL/hTQIFhmYEA04Davdk+1/1JvcRePSpg2VCxT/QwHyOR3eimmQ6FKXWls/zO/
+V01sJrlLdf/53pzXYsVSOf50UK+GtrSB3hhzrFmeaBALOysGqk2h2/UdYISXxa/e
+MyQ/aOI5u+0Wlq2RdIXF8MrtnwBTRhNXLcXYzz4fPsdjd4TmmJLQLXLmFLE/IA+/
+CP9nuvekzvPla7AXlXPwPvbUunwZIZkN3aHzMY/08FKIYRLb9VmqInKXw8tIBSqG
+MoX9SCDPBh2j39QZupTaPkylXDshurod7B2XtXdHPg==
+
+                    </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.it.gu.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+    <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.it.gu.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+  </AttributeAuthorityDescriptor>
+  
+  
+  
+  
+<Organization xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
+    <OrganizationName xml:lang="en">GU</OrganizationName>
+    <OrganizationDisplayName xml:lang="sv">Göteborgs Universitet</OrganizationDisplayName>
+    <OrganizationDisplayName xml:lang="en">University of Gothenburg</OrganizationDisplayName>
+    <OrganizationURL xml:lang="en">http://www.gu.se</OrganizationURL>
+  </Organization>
+<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="administrative">
+    <Company>University of Gothenburg</Company>
+    <SurName>Lena Ström</SurName>
+    <EmailAddress>lena.strom@gu.se</EmailAddress>
+  </ContactPerson>
+<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="technical">
+    <Company>University of Gothenburg</Company>
+    <SurName>Pablo Millet</SurName>
+    <EmailAddress>pablo.millet@gu.se</EmailAddress>
+    <TelephoneNumber>+46707104070</TelephoneNumber>
+  </ContactPerson>
+<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="support">
+    <Company>University of Gothenburg</Company>
+    <SurName>GU-Support</SurName>
+    <EmailAddress>support@gu.se</EmailAddress>
+    <TelephoneNumber>+46317862020</TelephoneNumber>
+  </ContactPerson>
+</md:EntityDescriptor>

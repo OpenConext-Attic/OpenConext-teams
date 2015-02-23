@@ -1,0 +1,84 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.ensait.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-11-06T17:33:56Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ensait.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">ENSAIT - Roubaix</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDOzCCAiOgAwIBAgIUQaof2K6agQCF8gpgtk0a0RLQaWQwDQYJKoZIhvcNAQEF
+BQAwHzEdMBsGA1UEAxMUc2hpYmJvbGV0aC5lbnNhaXQuZnIwHhcNMTIwNTMwMjEz
+NDI0WhcNMzIwNTMwMjEzNDI0WjAfMR0wGwYDVQQDExRzaGliYm9sZXRoLmVuc2Fp
+dC5mcjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJbZ3w1hWqsxOWvC
+91NvUAw9j3ZoKxO/oOsMMEvUjqj4ByYVb9eBN62rCT14cjaadGwdKPjQlPZ9HDVs
+QIpjnQxazohlPsKYDzROQSuQEWzSWysl0fUtMTk2tTXn9fshyw2UFaheR/3gzHrw
+B4opDzZLPnaXvW2XfptE8QEt51+YWouoc7ZTGj6O35jWlijguScZmU54aN2KTLAe
+JLPVb/Sj6I70vpCEbTaIu7JKsl/ItbdG2AzCMP84a6Sy30Tb5ZYcJH9angf3KTkT
+QLi/03swqNUBoIk+ETYdrpjfXCv/pnzuyKEy+LDta70lJs7mfu/kngPaq98ntVmo
+XU4wE+0CAwEAAaNvMG0wTAYDVR0RBEUwQ4IUc2hpYmJvbGV0aC5lbnNhaXQuZnKG
+K2h0dHBzOi8vc2hpYmJvbGV0aC5lbnNhaXQuZnIvaWRwL3NoaWJib2xldGgwHQYD
+VR0OBBYEFKYKdm8Oq9xVUEY0k/00dVCpDDdlMA0GCSqGSIb3DQEBBQUAA4IBAQBD
+vKvLHs7gAJOPgG3fy1lfsAtqH6lvv5oEVMFl4Ko0mTvpAq+MBCd4pGVaH8JRMfK4
+OL+CPSRU/HNZ2DaglwXpRsO8eOawWAXRlBDvC62NufoXSEOTEOWrHL/n4KlF7yB9
+1BsDcBcKr3t8WCw1qPOBteOryF16tNw875qjgZrn5AmfobaC/Nw722oIN+I8f3vO
+gpUgOIXaS2fcmAZ4s9BYnfGgBGlP6PXF1FKeJtmO8JOl4CLZbP5y70qoJjb2xdcV
+C43cpFxAJzzjvIOU2iZuq8VgOYfGJhy2JGN1/OcVTzGu0dk31yUz/l1OLvvoIHeh
+LL0sXjeiiyK6lcUES5UR
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ensait.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ensait.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ensait.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">ENSAIT - Roubaix</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">ENSAIT - Roubaix</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Vincent Dubreu</SurName>
+				 <EmailAddress>vincent.dubreu@ensait.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    		
+
+				
+			
+	</EntityDescriptor>

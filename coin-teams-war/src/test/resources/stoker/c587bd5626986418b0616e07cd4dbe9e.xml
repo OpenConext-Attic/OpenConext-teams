@@ -1,0 +1,116 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" ID="IDEM-EDUGAIN00037" entityID="https://idp.iit.it/idp/shibboleth">
+        <Extensions>
+            
+            <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.idem.garr.it/" registrationInstant="2014-07-24T14:00:00Z">
+                <mdrpi:RegistrationPolicy xml:lang="en">https://www.idem.garr.it/idem-metadata-registration-practice-statement</mdrpi:RegistrationPolicy>
+            </mdrpi:RegistrationInfo>
+        </Extensions>
+        
+        <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+            <Extensions>
+                <shibmd:Scope regexp="false">iit.it</shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="en">IIT - Istituto Italiano di Tecnologia</mdui:DisplayName>
+                    <mdui:DisplayName xml:lang="it">IIT - Istituto Italiano di Tecnologia</mdui:DisplayName>
+                    <mdui:Description xml:lang="en">Identity Provider for staff and students of IIT - Istituto Italiano di Tecnologia</mdui:Description>
+                    <mdui:Description xml:lang="it">Identity Provider per personale e studenti del IIT - Istituto Italiano di Tecnologia</mdui:Description>
+                    <mdui:InformationURL xml:lang="en">https://idp.iit.it/</mdui:InformationURL>
+                    <mdui:InformationURL xml:lang="it">https://idp.iit.it/</mdui:InformationURL>
+                    <mdui:PrivacyStatementURL xml:lang="en">https://idp.iit.it/</mdui:PrivacyStatementURL>
+                    <mdui:PrivacyStatementURL xml:lang="it">https://idp.iit.it/</mdui:PrivacyStatementURL>
+                    <mdui:Logo height="16" width="16" xml:lang="en">https://idp.iit.it/public/logo16.png</mdui:Logo>
+                    <mdui:Logo height="16" width="16" xml:lang="it">https://idp.iit.it/public/logo16.png</mdui:Logo>
+                    <mdui:Logo height="60" width="80" xml:lang="en">https://idp.iit.it/public/logo80.png</mdui:Logo>
+                    <mdui:Logo height="60" width="80" xml:lang="it">https://idp.iit.it/public/logo80.png</mdui:Logo>
+                </mdui:UIInfo>
+                <mdui:DiscoHints>
+                    <mdui:DomainHint>iit.it</mdui:DomainHint>
+                    <mdui:IPHint>90.147.14.0/24</mdui:IPHint>
+                    <mdui:IPHint>90.147.15.0/24</mdui:IPHint>
+                    <mdui:IPHint>90.147.38.0/24</mdui:IPHint>
+                </mdui:DiscoHints>
+            </Extensions>
+            <KeyDescriptor>
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+MIIDEzCCAfugAwIBAgIUHIWbRP4lLaQqLeAOPCDTBpfKvFAwDQYJKoZIhvcNAQEF
+BQAwFTETMBEGA1UEAxMKaWRwLmlpdC5pdDAeFw0xMzA1MzExNjAxMTRaFw0zMzA1
+MzExNjAxMTRaMBUxEzARBgNVBAMTCmlkcC5paXQuaXQwggEiMA0GCSqGSIb3DQEB
+AQUAA4IBDwAwggEKAoIBAQCXtz7N8Q8s8RgmfsMD0oKFSU3Tka0uiSLLb32v1GGU
+BUa/0PJ2JHtGflLSUqat5eY57tgapbmuZ4wcL69dNEysmulLcaXBEJW6N+gZgOEp
+jefydM9yur6LyQFGPJEo8xtjhLgje835g69lRejx5I6uR/xB/ZpsFFezZB0bEiLT
+o++j3feGk41B/9sHtHF1hsXZB1XxACtoF7PSSCXHVzlWaL3Dqqy/7/LHSYRbRM7V
+M7nEbT3rnGIYy7w4127q8EYyO70ehC2x06kNAt7cpEPyT6I86Q9g39KCztAmpAXt
+ar3oBkWq3OTR2til0WqsnAI28PlULIcthqVAn53bp/pLAgMBAAGjWzBZMDgGA1Ud
+EQQxMC+CCmlkcC5paXQuaXSGIWh0dHBzOi8vaWRwLmlpdC5pdC9pZHAvc2hpYmJv
+bGV0aDAdBgNVHQ4EFgQUlm9TS1DW0CQjQP3dOgSB1L9zICkwDQYJKoZIhvcNAQEF
+BQADggEBAAhirHsW76gKfQPyNc1tAUQOu+wt9wlb+lkkthT7sRcBfInpB7JAEABY
+EEL+vARREM0JGlIVjDolnQcfX08+XVkIgmIzte5/8hDKtN8FalpD5FhvdKfOxh+6
+LIzpG+nsuhX+Zg7xlfy1acqfqjT3LutHTDc1+GKnQo/pUoZbTvjzZLtEd1pXibZy
+w1LSYU47K4epzK2OpxXyX85KoNdnjfK4qPH2DOt9RAtcryqL1o0C9vAYspib/Efr
+pMQa1UDXAYBHZUmb72ol+6UtRnrFLWJJOIa/XXL21p1NQ3A17rssS751OfcFmkLP
+roltF87PG3SU/pYmKkSZM7KUtqQHk3U=
+</ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.iit.it:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.iit.it:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.iit.it/idp/profile/SAML2/Redirect/SLO"/>
+            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.iit.it/idp/profile/SAML2/POST/SLO"/>
+            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.iit.it:8443/idp/profile/SAML2/SOAP/SLO"/>
+            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.iit.it/idp/profile/Shibboleth/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.iit.it/idp/profile/SAML2/POST/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.iit.it/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.iit.it/idp/profile/SAML2/Redirect/SSO"/>
+        </IDPSSODescriptor>
+        <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+            <Extensions>
+                <shibmd:Scope regexp="false">iit.it</shibmd:Scope>
+            </Extensions>
+            <KeyDescriptor>
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+MIIDEzCCAfugAwIBAgIUHIWbRP4lLaQqLeAOPCDTBpfKvFAwDQYJKoZIhvcNAQEF
+BQAwFTETMBEGA1UEAxMKaWRwLmlpdC5pdDAeFw0xMzA1MzExNjAxMTRaFw0zMzA1
+MzExNjAxMTRaMBUxEzARBgNVBAMTCmlkcC5paXQuaXQwggEiMA0GCSqGSIb3DQEB
+AQUAA4IBDwAwggEKAoIBAQCXtz7N8Q8s8RgmfsMD0oKFSU3Tka0uiSLLb32v1GGU
+BUa/0PJ2JHtGflLSUqat5eY57tgapbmuZ4wcL69dNEysmulLcaXBEJW6N+gZgOEp
+jefydM9yur6LyQFGPJEo8xtjhLgje835g69lRejx5I6uR/xB/ZpsFFezZB0bEiLT
+o++j3feGk41B/9sHtHF1hsXZB1XxACtoF7PSSCXHVzlWaL3Dqqy/7/LHSYRbRM7V
+M7nEbT3rnGIYy7w4127q8EYyO70ehC2x06kNAt7cpEPyT6I86Q9g39KCztAmpAXt
+ar3oBkWq3OTR2til0WqsnAI28PlULIcthqVAn53bp/pLAgMBAAGjWzBZMDgGA1Ud
+EQQxMC+CCmlkcC5paXQuaXSGIWh0dHBzOi8vaWRwLmlpdC5pdC9pZHAvc2hpYmJv
+bGV0aDAdBgNVHQ4EFgQUlm9TS1DW0CQjQP3dOgSB1L9zICkwDQYJKoZIhvcNAQEF
+BQADggEBAAhirHsW76gKfQPyNc1tAUQOu+wt9wlb+lkkthT7sRcBfInpB7JAEABY
+EEL+vARREM0JGlIVjDolnQcfX08+XVkIgmIzte5/8hDKtN8FalpD5FhvdKfOxh+6
+LIzpG+nsuhX+Zg7xlfy1acqfqjT3LutHTDc1+GKnQo/pUoZbTvjzZLtEd1pXibZy
+w1LSYU47K4epzK2OpxXyX85KoNdnjfK4qPH2DOt9RAtcryqL1o0C9vAYspib/Efr
+pMQa1UDXAYBHZUmb72ol+6UtRnrFLWJJOIa/XXL21p1NQ3A17rssS751OfcFmkLP
+roltF87PG3SU/pYmKkSZM7KUtqQHk3U=
+</ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.iit.it:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+            <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.iit.it:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+        </AttributeAuthorityDescriptor>
+        <Organization>
+            <OrganizationName xml:lang="en">IIT - Istituto Italiano di Tecnologia</OrganizationName>
+            <OrganizationName xml:lang="it">IIT - Istituto Italiano di Tecnologia</OrganizationName>
+            <OrganizationDisplayName xml:lang="en">IIT - Istituto Italiano di Tecnologia</OrganizationDisplayName>
+            <OrganizationDisplayName xml:lang="it">IIT - Istituto Italiano di Tecnologia</OrganizationDisplayName>
+            <OrganizationURL xml:lang="it">http://www.iit.it/</OrganizationURL>
+            <OrganizationURL xml:lang="en">http://www.iit.it/en/home.html</OrganizationURL>
+        </Organization>
+        <ContactPerson contactType="technical">
+            <GivenName>IIT-Service Desk ICT</GivenName>
+<EmailAddress>ict_servicedesk@iit.it</EmailAddress>
+        </ContactPerson>
+    </EntityDescriptor>

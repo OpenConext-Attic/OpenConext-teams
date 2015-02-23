@@ -1,0 +1,122 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.cereq.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2013-10-29T11:42:20Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">cereq.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">CEREQ - Centre d'études et de recherches sur les qualifications</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDHDCCAgSgAwIBAgIVAOjMbhrsfOCDjExPYxhACw4jRvB6MA0GCSqGSIb3DQEB
+BQUAMBcxFTATBgNVBAMTDGlkcC5jZXJlcS5mcjAeFw0xMzA5MjcwOTA0MDJaFw0x
+NjA5MjcwOTA0MDJaMBcxFTATBgNVBAMTDGlkcC5jZXJlcS5mcjCCASIwDQYJKoZI
+hvcNAQEBBQADggEPADCCAQoCggEBAJgjISx2Xe/SFbLNuYAxijARJxrqmqAxSr+h
+l4id6zNomZYbjFZdQYVNhx2L7opOH3/9ADiMO1a8Ve+yG8Gof2fYXl3bMd/XL7Hb
+SS0eBc5a3H0b1U8gGEp9kfDSXYijDYV9HHmstvju8j99RHZejnXrmiUioG6P4qU0
+raMTTBASqFBfDruGS1UiPYPAq/C7cqgnyNI4sm7jSvbzonrGSbs1XlHM0bdhFL+O
+eoZ9yS8fTIMD2vVsZii541/K3V9CMhOAoBG8SA2YAejVWOZwJdMvmpK4X3/GLwoG
+UIF+HUeQYbvc3XZqh8IzWHF81RIjxpU1KGp39T3TUdDK/L9tMasCAwEAAaNfMF0w
+PAYDVR0RBDUwM4IMaWRwLmNlcmVxLmZyhiNodHRwczovL2lkcC5jZXJlcS5mci9p
+ZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU8nfoSUP0/WYyq31ReN3zCpK32XAwDQYJ
+KoZIhvcNAQEFBQADggEBAIx3XQUabG1j7RIk67rwMEIXqeYNGt1eakcqwwaq4UKG
+4hSJbUUoR+MET7C6PrvKq2lafC4Za14xO9CjFFnuroCReSJ9pfRV6hR+1qnpwhhB
+GhTgaMJY1QPLfvI12pJjFf5deMIZ2Uet70h+haXLyiimkezT3lzsvT3DGVkD8BnK
+OBtxuHB99XtrB8VrDGqpw5x7VuiiApy5MeMlduhrXskS4+V2q5TOs4jbcrEc78iy
+Vhfsf5Rcol2AkYmeLthOcledgXQtj0r0mOxA1FDH3NBuCBKavpg20gnMlZ8gfAG1
+wsA88wxSrNn+0crrQBnCCoFM6QgGRbFes23UYMEEbw0=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.cereq.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.cereq.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.cereq.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">cereq.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDHDCCAgSgAwIBAgIVAOjMbhrsfOCDjExPYxhACw4jRvB6MA0GCSqGSIb3DQEB
+BQUAMBcxFTATBgNVBAMTDGlkcC5jZXJlcS5mcjAeFw0xMzA5MjcwOTA0MDJaFw0x
+NjA5MjcwOTA0MDJaMBcxFTATBgNVBAMTDGlkcC5jZXJlcS5mcjCCASIwDQYJKoZI
+hvcNAQEBBQADggEPADCCAQoCggEBAJgjISx2Xe/SFbLNuYAxijARJxrqmqAxSr+h
+l4id6zNomZYbjFZdQYVNhx2L7opOH3/9ADiMO1a8Ve+yG8Gof2fYXl3bMd/XL7Hb
+SS0eBc5a3H0b1U8gGEp9kfDSXYijDYV9HHmstvju8j99RHZejnXrmiUioG6P4qU0
+raMTTBASqFBfDruGS1UiPYPAq/C7cqgnyNI4sm7jSvbzonrGSbs1XlHM0bdhFL+O
+eoZ9yS8fTIMD2vVsZii541/K3V9CMhOAoBG8SA2YAejVWOZwJdMvmpK4X3/GLwoG
+UIF+HUeQYbvc3XZqh8IzWHF81RIjxpU1KGp39T3TUdDK/L9tMasCAwEAAaNfMF0w
+PAYDVR0RBDUwM4IMaWRwLmNlcmVxLmZyhiNodHRwczovL2lkcC5jZXJlcS5mci9p
+ZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU8nfoSUP0/WYyq31ReN3zCpK32XAwDQYJ
+KoZIhvcNAQEFBQADggEBAIx3XQUabG1j7RIk67rwMEIXqeYNGt1eakcqwwaq4UKG
+4hSJbUUoR+MET7C6PrvKq2lafC4Za14xO9CjFFnuroCReSJ9pfRV6hR+1qnpwhhB
+GhTgaMJY1QPLfvI12pJjFf5deMIZ2Uet70h+haXLyiimkezT3lzsvT3DGVkD8BnK
+OBtxuHB99XtrB8VrDGqpw5x7VuiiApy5MeMlduhrXskS4+V2q5TOs4jbcrEc78iy
+Vhfsf5Rcol2AkYmeLthOcledgXQtj0r0mOxA1FDH3NBuCBKavpg20gnMlZ8gfAG1
+wsA88wxSrNn+0crrQBnCCoFM6QgGRbFes23UYMEEbw0=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.cereq.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">CEREQ - Centre d'études et de recherches sur les qualifications</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">CEREQ - Centre d'études et de recherches sur les qualifications</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Jean Pele</SurName>
+				 <EmailAddress>pele@cereq.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    		
+
+				
+			
+	</EntityDescriptor>

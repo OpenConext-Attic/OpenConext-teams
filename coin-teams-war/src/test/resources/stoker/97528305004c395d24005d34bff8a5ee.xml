@@ -1,0 +1,131 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://cafe01.unicamp.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">unicamp.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">UNICAMP - UNIVERSIDADE ESTADUAL DE CAMPINAS</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">UNICAMP - UNIVERSIDADE ESTADUAL DE CAMPINAS</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UNICAMP - UNIVERSIDADE ESTADUAL DE CAMPINAS</mdui:Description>
+          <mdui:Description xml:lang="pt-br">UNICAMP - UNIVERSIDADE ESTADUAL DE CAMPINAS</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.unicamp.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.unicamp.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIID9DCCAtwCAQAwDQYJKoZIhvcNAQEFBQAwgb8xNDAyBgNVBAoTK1VOSUNBTVAg
+LSBVbml2ZXJzaWRhZGUgRXN0YWR1YWwgZGUgQ2FtcGluYXMxDjAMBgNVBAsTBUND
+VUVDMScwJQYJKoZIhvcNAQkBFhhzdXBvcnRlQGNjdWVjLnVuaWNhbXAuYnIxETAP
+BgNVBAcTCENhbXBpbmFzMRIwEAYDVQQIEwlTYW8gUGF1bG8xCzAJBgNVBAYTAkJS
+MRowGAYDVQQDExFjYWZlMDEudW5pY2FtcC5icjAeFw0xNDA0MjIxNDIwNDJaFw0x
+OTA0MjExNDIwNDJaMIG/MTQwMgYDVQQKEytVTklDQU1QIC0gVW5pdmVyc2lkYWRl
+IEVzdGFkdWFsIGRlIENhbXBpbmFzMQ4wDAYDVQQLEwVDQ1VFQzEnMCUGCSqGSIb3
+DQEJARYYc3Vwb3J0ZUBjY3VlYy51bmljYW1wLmJyMREwDwYDVQQHEwhDYW1waW5h
+czESMBAGA1UECBMJU2FvIFBhdWxvMQswCQYDVQQGEwJCUjEaMBgGA1UEAxMRY2Fm
+ZTAxLnVuaWNhbXAuYnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCM
+iF3EtUDFn5jggzd0bF2+qrBLzCd51ZQEA8drersbboKF1nO6nhlX1ctexqn5AWXh
+OjY9U66/2bQ0+B0e69pG9Kb0ZZeFXdMVqOry2xy9WAixZhG1Xb5JtkvA3GHhuMZy
+wqjLZ26IlVIzTrRFQZAu+ok6v6tkM04JH/6QWRczmsGSfmjkFlYLoQ/ze5tAz1lH
+4iudmVYLoxXnsY4dTQYptS3T38J3Pgv/5ujOgur/WPH+wEQVel6uW9x/zO+yvy4E
+zH+dsS1B4BlF2I5jQLuheL8Wxx8V2GChe9KjzcgQJV1ttLCvChXmJC42Q7vh5x2S
+wbl2/tZVhKhQjchiWZtJAgMBAAEwDQYJKoZIhvcNAQEFBQADggEBAGvAZ6zGUDpF
+Uye+8JwpFrVID+b/hGg/dw1xJ2FBeqmB7/i0hs56pT+A28W6MmNARBYChfnyuVo3
+AYIQWiSQKY02JyrVyfMCNdXWjV4VEobiR/hkRVgYuzzCWb0VIB0hIKyCxZMaWqpz
+MWWaZI9IbZ56UOjaTPHEstHi5q3bsVGSx7DRY5U2itCiIzduHYpkWtUqyenCiOy0
+AUE5FIGX0MTZ2r8rF+PcfZtM3FzDUkOyokBASjD/JL8kiEeQzMKJDo5FmAvOkvKx
+cwWHnFzf8pZJSYNAlGeL3BlK59YjqH9bRHzhp+Wc4gJpzFSUuA1waEuHkUeqcYCg
+FB2LP25VwJA=
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe01.unicamp.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe01.unicamp.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafe01.unicamp.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafe01.unicamp.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafe01.unicamp.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafe01.unicamp.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">unicamp.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIID9DCCAtwCAQAwDQYJKoZIhvcNAQEFBQAwgb8xNDAyBgNVBAoTK1VOSUNBTVAg
+LSBVbml2ZXJzaWRhZGUgRXN0YWR1YWwgZGUgQ2FtcGluYXMxDjAMBgNVBAsTBUND
+VUVDMScwJQYJKoZIhvcNAQkBFhhzdXBvcnRlQGNjdWVjLnVuaWNhbXAuYnIxETAP
+BgNVBAcTCENhbXBpbmFzMRIwEAYDVQQIEwlTYW8gUGF1bG8xCzAJBgNVBAYTAkJS
+MRowGAYDVQQDExFjYWZlMDEudW5pY2FtcC5icjAeFw0xNDA0MjIxNDIwNDJaFw0x
+OTA0MjExNDIwNDJaMIG/MTQwMgYDVQQKEytVTklDQU1QIC0gVW5pdmVyc2lkYWRl
+IEVzdGFkdWFsIGRlIENhbXBpbmFzMQ4wDAYDVQQLEwVDQ1VFQzEnMCUGCSqGSIb3
+DQEJARYYc3Vwb3J0ZUBjY3VlYy51bmljYW1wLmJyMREwDwYDVQQHEwhDYW1waW5h
+czESMBAGA1UECBMJU2FvIFBhdWxvMQswCQYDVQQGEwJCUjEaMBgGA1UEAxMRY2Fm
+ZTAxLnVuaWNhbXAuYnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCM
+iF3EtUDFn5jggzd0bF2+qrBLzCd51ZQEA8drersbboKF1nO6nhlX1ctexqn5AWXh
+OjY9U66/2bQ0+B0e69pG9Kb0ZZeFXdMVqOry2xy9WAixZhG1Xb5JtkvA3GHhuMZy
+wqjLZ26IlVIzTrRFQZAu+ok6v6tkM04JH/6QWRczmsGSfmjkFlYLoQ/ze5tAz1lH
+4iudmVYLoxXnsY4dTQYptS3T38J3Pgv/5ujOgur/WPH+wEQVel6uW9x/zO+yvy4E
+zH+dsS1B4BlF2I5jQLuheL8Wxx8V2GChe9KjzcgQJV1ttLCvChXmJC42Q7vh5x2S
+wbl2/tZVhKhQjchiWZtJAgMBAAEwDQYJKoZIhvcNAQEFBQADggEBAGvAZ6zGUDpF
+Uye+8JwpFrVID+b/hGg/dw1xJ2FBeqmB7/i0hs56pT+A28W6MmNARBYChfnyuVo3
+AYIQWiSQKY02JyrVyfMCNdXWjV4VEobiR/hkRVgYuzzCWb0VIB0hIKyCxZMaWqpz
+MWWaZI9IbZ56UOjaTPHEstHi5q3bsVGSx7DRY5U2itCiIzduHYpkWtUqyenCiOy0
+AUE5FIGX0MTZ2r8rF+PcfZtM3FzDUkOyokBASjD/JL8kiEeQzMKJDo5FmAvOkvKx
+cwWHnFzf8pZJSYNAlGeL3BlK59YjqH9bRHzhp+Wc4gJpzFSUuA1waEuHkUeqcYCg
+FB2LP25VwJA=
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe01.unicamp.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe01.unicamp.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">UNICAMP - UNIVERSIDADE ESTADUAL DE CAMPINAS</OrganizationName>
+      <OrganizationName xml:lang="pt-br">UNICAMP - UNIVERSIDADE ESTADUAL DE CAMPINAS</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">UNICAMP - UNIVERSIDADE ESTADUAL DE CAMPINAS</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">UNICAMP - UNIVERSIDADE ESTADUAL DE CAMPINAS</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.unicamp.br/</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.unicamp.br/</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Sandra Regina de Souza</SurName>
+      <EmailAddress>sandra@ccuec.unicamp.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

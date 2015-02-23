@@ -1,0 +1,88 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.enitab.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2010-09-15T13:59:18Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">enitab.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">ENITA de Bordeaux</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDHzCCAgegAwIBAgIUE3+YG/RODtnMAftUk+3SD6KCU4cwDQYJKoZIhvcNAQEF
+BQAwGDEWMBQGA1UEAxMNaWRwLmVuaXRhYi5mcjAeFw0xMDA3MDYxNDQzMjZaFw0z
+MDA3MDYxNDQzMjZaMBgxFjAUBgNVBAMTDWlkcC5lbml0YWIuZnIwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCmAH5cAW+LbvKpIc1p6okFSKDpURUGUZrz
+58lRZ+/3G6Ec1sP25XXIoQYFH6M+9/SY6dxEKG3KdcdCp5bU7P2x32zuiIFSbefk
+whaKouyaDgqyl04ow0Dt1MsbxQ3f6RKZN1dTJe1B1VBG5xPdvCRX/E3qlslvpl/q
+1zoI73C4buazgandQQbqhlvPJgQHNjD5wPevxhNRdysnywxO3Zo4lmM3vDNv6/R4
+iHUDhyOz0MaJoSyeLLAOAXlOQRqaNJoMC1EDgSD2M8763XvCjTyvs4Wz5/jp3CxP
+fwtDJ0gq9jPFrBj8v8Ls62Ps32p1LS9mEy9Q8wvc06ePY6XQSy+nAgMBAAGjYTBf
+MD4GA1UdEQQ3MDWCDWlkcC5lbml0YWIuZnKGJGh0dHBzOi8vaWRwLmVuaXRhYi5m
+ci9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQULabgfYRKdPMaeTNuFAvY4XAW8p4w
+DQYJKoZIhvcNAQEFBQADggEBAJUlgO7TmUkBy+szO2JL3nc4ZdfPrGzBqkcfSQPq
+JlY3pZjMX9AJOuRUTXfwuc6A5sTZMu56lHoncJZr/crOHXj7NCMiV99V0M9DNk3s
+8iZ7Kdnziura1Btg3158+rNpgbgbtjOxq5tQbxDw41W4M+VOT76ttdJjq3QIiAvQ
+OCuuoL5lcVnAieikeHHCSwqgj6RRMf+EWSMO+eW8YqTlpdMvavscMOAjr3Lqhrlw
+wBA6a+2VH2OCL4wwK43tVucNVmqIEl7ShfcO5MmdRDwvjA03MPIzYO8a415s/2g3
+iq+XHGvfQ2g2DFN4oXfSkv/A0TVmwWxiqyd8SJ77zNILG4o=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.enitab.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.enitab.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.enitab.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">ENITA de Bordeaux</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">ENITA de Bordeaux</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>MEUNIER Richard</SurName>
+				 <EmailAddress>r-meunier@enitab.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>PRIOUX Pascal</SurName>
+				 <EmailAddress>ppx@enitab.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

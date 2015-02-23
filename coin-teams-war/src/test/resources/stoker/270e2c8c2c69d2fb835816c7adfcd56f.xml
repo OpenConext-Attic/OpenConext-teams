@@ -1,0 +1,77 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.renater.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2010-10-15T16:51:48Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">renater.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">GIP RENATER</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDJDCCAgygAwIBAgIVAOKBqJWqJFq6T2dHTEfrhVJRssecMA0GCSqGSIb3DQEB
+BQUAMBkxFzAVBgNVBAMTDmlkcC5yZW5hdGVyLmZyMB4XDTEzMDMwMTEwMjUwNVoX
+DTMzMDMwMTEwMjUwNVowGTEXMBUGA1UEAxMOaWRwLnJlbmF0ZXIuZnIwggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCo6i0pn7lTyN4PkneU7/zJAG4k0P/W
+vBzSmAnTQuNtq9z4GsZztrXofycWCF/ekQcWPOK17NNx1zcE28Fhun3/lNWjE+X+
+tDqoB14T5M2lOGdlk5JIuE6N240cuaZGQmvIvCgvup9ESEEDjdyx6V7KR1s5rz3n
+diaTygk2FU51vknOqoMvHWOZjp2tbYo7KVHrauxKxbXbVewmKcN8LKeRL+qZs5wQ
+5Yrd1/juM99r37kF+1QVVGa3/OQicHal1qJG+UNlH3FuUHu3TCmLxWP4WW1WtKCi
+BP+RIm/WHaWD7bPPDH/XTYLFfJqJ0ZbXLA92jlo1dZ7qhiehl7ubk2KRAgMBAAGj
+YzBhMEAGA1UdEQQ5MDeCDmlkcC5yZW5hdGVyLmZyhiVodHRwczovL2lkcC5yZW5h
+dGVyLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBQYy83Ve884R0jR3BqE159U
+zbFhDzANBgkqhkiG9w0BAQUFAAOCAQEAOxYs5vfum4LbmsePdGng6mKi8PFcpGKh
+dcFvxOxggLD1YX+R4C1MooN69a3Nf+YY1GzYZO8rUKd+3YL/BhJb0ouE31CzxwLP
+uXCctT3re8BW6GKy3JGju9H3sJ8AJUog3rHCegIJrA7PYarIAQUokEgCzaE5M/sT
+xY7nHrrdSo+QUQSyIYb/Ue7003/wr+8yRc42lx/hbHAcj9vIkrVvFpPCAg86rS0N
+Ber/c4EoBOTHkNkGxaFSWKA8trRJUecsobHum/jjuwwJBahR8Jvf+p0a0ADCrsqN
+JA+a0emlAOfEnZeRkpSunkghdezhsTvs0DB3QVZyrFRKmxA5IiORVg==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.renater.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.renater.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.renater.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">GIP RENATER</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">GIP RENATER</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://www.renater.fr</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>support@support.renater.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

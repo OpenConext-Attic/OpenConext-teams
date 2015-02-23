@@ -1,0 +1,131 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://pan.unifei.edu.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">UNIFEI - Universidade Federal de Itajuba</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">UNIFEI - Universidade Federal de Itajuba</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UNIFEI - Universidade Federal de Itajuba</mdui:Description>
+          <mdui:Description xml:lang="pt-br">UNIFEI - Universidade Federal de Itajuba</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.unifei.edu.br</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.unifei.edu.br</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIID7jCCAtYCAQAwDQYJKoZIhvcNAQEFBQAwgbwxMjAwBgNVBAoUKVVOSUZFSSAt
+IFVuaXZlcnNpZGFkZSBGZWRlcmFsIGRlIEl0YWp1YsOhMQwwCgYDVQQLEwNEU0kx
+JTAjBgkqhkiG9w0BCQEWFmV2ZXJhbGRvQHVuaWZlaS5lZHUuYnIxETAPBgNVBAcU
+CEl0YWp1YsOhMRUwEwYDVQQIEwxNaW5hcyBHZXJhaXMxCzAJBgNVBAYTAkJSMRow
+GAYDVQQDExFwYW4udW5pZmVpLmVkdS5icjAeFw0xNDAzMjAxNTAwNTZaFw0xNzAz
+MTkxNTAwNTZaMIG8MTIwMAYDVQQKFClVTklGRUkgLSBVbml2ZXJzaWRhZGUgRmVk
+ZXJhbCBkZSBJdGFqdWLDoTEMMAoGA1UECxMDRFNJMSUwIwYJKoZIhvcNAQkBFhZl
+dmVyYWxkb0B1bmlmZWkuZWR1LmJyMREwDwYDVQQHFAhJdGFqdWLDoTEVMBMGA1UE
+CBMMTWluYXMgR2VyYWlzMQswCQYDVQQGEwJCUjEaMBgGA1UEAxMRcGFuLnVuaWZl
+aS5lZHUuYnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDbdgD4GsIt
+wRNaixhH3B1xh1YKIvluyb0838BJ82fRmbeO70SrJ40XujcMOkgy7CYqbwWiM76h
+KmiSRTFfDUxe7dg1jwMtTpKufLMsar8r36dj0LgK71qquZ+BNDIhI9yuxz+W14hY
+RcMMYVdTYVDU4pN9+EKKGxpX1nDocURYuemWF4IYXYc3iADwAa1EvSthK89W3Szs
+x0NZ1BkMI3lVIk4CabN/begJSgDeQEIDf1aV40ilkQjP+QDGK7dKlrYnnZ/cuNgF
+NpDBNck6cfXRRaZmvbvRjVv1BNZcT8cfjV46KBaPZlkNEhiYNnrVvjJOxirSXN4+
+9tE2n0vZi/G9AgMBAAEwDQYJKoZIhvcNAQEFBQADggEBACGBolIa3MdeTH3RdKSh
+WooDdU6J3538B3APS3Bdoh+k+bH9dlSyc/1jguB1SPUxifDRzaCPM5WJwQuN9OR6
+JZG3mx8jlOrkb7FvGplKU0brF8Xvy57QSlO63RgJaTO8HbnAiwqxerA0ht6VcoQk
+wqIA++KzAcS/+YjjK4lHbZmjnh0Npgk0VriZlw7DzWBrW3h+1+2zL1t5VvsZN3Hz
+Masp/mA4c6ecLM9mTnUq8LK/r7CUpOgENKvwE8gtlwsOifwW2uKtBDjWfLjZOzYN
+ZpXplUMF4O1dNAwWyicalWXeMpUTTMmr7YzbT0r4bdwN3AUoudJiGhpXMSeo2ar7
+xy0=
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://pan.unifei.edu.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://pan.unifei.edu.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://pan.unifei.edu.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://pan.unifei.edu.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://pan.unifei.edu.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://pan.unifei.edu.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIID7jCCAtYCAQAwDQYJKoZIhvcNAQEFBQAwgbwxMjAwBgNVBAoUKVVOSUZFSSAt
+IFVuaXZlcnNpZGFkZSBGZWRlcmFsIGRlIEl0YWp1YsOhMQwwCgYDVQQLEwNEU0kx
+JTAjBgkqhkiG9w0BCQEWFmV2ZXJhbGRvQHVuaWZlaS5lZHUuYnIxETAPBgNVBAcU
+CEl0YWp1YsOhMRUwEwYDVQQIEwxNaW5hcyBHZXJhaXMxCzAJBgNVBAYTAkJSMRow
+GAYDVQQDExFwYW4udW5pZmVpLmVkdS5icjAeFw0xNDAzMjAxNTAwNTZaFw0xNzAz
+MTkxNTAwNTZaMIG8MTIwMAYDVQQKFClVTklGRUkgLSBVbml2ZXJzaWRhZGUgRmVk
+ZXJhbCBkZSBJdGFqdWLDoTEMMAoGA1UECxMDRFNJMSUwIwYJKoZIhvcNAQkBFhZl
+dmVyYWxkb0B1bmlmZWkuZWR1LmJyMREwDwYDVQQHFAhJdGFqdWLDoTEVMBMGA1UE
+CBMMTWluYXMgR2VyYWlzMQswCQYDVQQGEwJCUjEaMBgGA1UEAxMRcGFuLnVuaWZl
+aS5lZHUuYnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDbdgD4GsIt
+wRNaixhH3B1xh1YKIvluyb0838BJ82fRmbeO70SrJ40XujcMOkgy7CYqbwWiM76h
+KmiSRTFfDUxe7dg1jwMtTpKufLMsar8r36dj0LgK71qquZ+BNDIhI9yuxz+W14hY
+RcMMYVdTYVDU4pN9+EKKGxpX1nDocURYuemWF4IYXYc3iADwAa1EvSthK89W3Szs
+x0NZ1BkMI3lVIk4CabN/begJSgDeQEIDf1aV40ilkQjP+QDGK7dKlrYnnZ/cuNgF
+NpDBNck6cfXRRaZmvbvRjVv1BNZcT8cfjV46KBaPZlkNEhiYNnrVvjJOxirSXN4+
+9tE2n0vZi/G9AgMBAAEwDQYJKoZIhvcNAQEFBQADggEBACGBolIa3MdeTH3RdKSh
+WooDdU6J3538B3APS3Bdoh+k+bH9dlSyc/1jguB1SPUxifDRzaCPM5WJwQuN9OR6
+JZG3mx8jlOrkb7FvGplKU0brF8Xvy57QSlO63RgJaTO8HbnAiwqxerA0ht6VcoQk
+wqIA++KzAcS/+YjjK4lHbZmjnh0Npgk0VriZlw7DzWBrW3h+1+2zL1t5VvsZN3Hz
+Masp/mA4c6ecLM9mTnUq8LK/r7CUpOgENKvwE8gtlwsOifwW2uKtBDjWfLjZOzYN
+ZpXplUMF4O1dNAwWyicalWXeMpUTTMmr7YzbT0r4bdwN3AUoudJiGhpXMSeo2ar7
+xy0=
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://pan.unifei.edu.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://pan.unifei.edu.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">UNIFEI - Universidade Federal de Itajuba</OrganizationName>
+      <OrganizationName xml:lang="pt-br">UNIFEI - Universidade Federal de Itajuba</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">UNIFEI - Universidade Federal de Itajuba</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">UNIFEI - Universidade Federal de Itajuba</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.unifei.edu.br</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.unifei.edu.br</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Everaldo Campos</SurName>
+      <EmailAddress>everaldo@unifei.edu.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

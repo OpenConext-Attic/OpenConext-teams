@@ -1,0 +1,117 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://whoami.cesnet.cz/idp/shibboleth">
+    <Extensions>
+      <eduidmd:RepublishRequest xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0">
+        <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
+      </eduidmd:RepublishRequest>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.eduid.cz/" registrationInstant="2010-09-15T11:47:38Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <mdasrt:Attribute xmlns:mdasrt="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <mdasrt:AttributeValue>http://eduid.cz/uri/idp-group/cesnet</mdasrt:AttributeValue>
+        </mdasrt:Attribute>
+      </mdattr:EntityAttributes>
+    </Extensions>
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">cesnet.cz</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">CESNET</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">CESNET</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity Provider for CESNET employees.</mdui:Description>
+          <mdui:Description xml:lang="cs">Identity Provider pro zaměstnance CESNETu.</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ces.net/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">http://www.cesnet.cz/</mdui:InformationURL>
+          <mdui:Logo height="88" width="200">https://pki.cesnet.cz/_media/cs/cesnet-logo-200.gif</mdui:Logo>
+          <mdui:Logo height="177" width="400">https://pki.cesnet.cz/_media/cs/cesnet-logo-400.gif</mdui:Logo>
+          <mdui:Logo height="353" width="800">https://pki.cesnet.cz/_media/cs/cesnet-logo-800.gif</mdui:Logo>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIC7jCCAdYCCQCRzSvIiTLzPDANBgkqhkiG9w0BAQUFADA5MQswCQYDVQQGEwJD
+WjEPMA0GA1UEChMGQ0VTTkVUMRkwFwYDVQQDExB3aG9hbWkuY2VzbmV0LmN6MB4X
+DTExMDYyODE3MTUxNloXDTIxMDYyNTE3MTUxNlowOTELMAkGA1UEBhMCQ1oxDzAN
+BgNVBAoTBkNFU05FVDEZMBcGA1UEAxMQd2hvYW1pLmNlc25ldC5jejCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBALVaOoSPi3RrWjAIk9qneCw48UDTRqsZ
+saD3YGWGpUzigUqAIFgNewH4gFyZskhgeUB185iBCgsb5+oiNwdGKvm0dSRS8qlo
+vjzbeBP7sSVbgmOeeRy6W9AD8cA7HMrrHXxLn7LFGk2czY+dtEWkA0CFVYOR/JGX
+2a8g0YfHqRypU7DKqoo5feB7eUclzwhiZ9jsjqbE//M3LUk/QPIbxfimB8XFY7tV
+ijdFXkmSyz84FDZhCQ4eypu5Pn6+ov4BF/MXZGjFSsBbUKWL4UDAyL+y7LlzvsZq
+sJ4crixV7D3+ChkCaimW2+ETRZF/3F7c52SiqIgjCnvUV90ttGqQWrsCAwEAATAN
+BgkqhkiG9w0BAQUFAAOCAQEAjxVz8kXKKtoM449sxOGg1+pp/rio4vUpZ//nSfwf
+HnbZdesPoLoE58o+U5E3+e5hcN9jRbOEYyFt1oR9uTmYyo19G6CARvN3HNbUL5dW
+ID4yEvYy54tvokxqWNisk5NtXgOmOD+U2NX0FwAkoCDYOKboASeZ5PTQ5uvIo2Cm
+ljL8VHxgCZ+N4/UYnz3xAiJBKXCFLNgTMVIM2HKNYioKUqxubVDapR9E94vLzuvs
+9NVKKQfcm4DAMfylJKBLMGFNdqNwiFmczxxkOr3Me+vn+Tb7XRzT1tSmQkwilpmY
+i/DVjni4yQ3gisrqPcpvzGZCN/doncbNZ5ZRUerR17Waeg==
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://whoami.cesnet.cz:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://whoami.cesnet.cz:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://whoami.cesnet.cz/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://whoami.cesnet.cz/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://whoami.cesnet.cz/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://whoami.cesnet.cz/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">cesnet.cz</shibmd:Scope>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIC7jCCAdYCCQCRzSvIiTLzPDANBgkqhkiG9w0BAQUFADA5MQswCQYDVQQGEwJD
+WjEPMA0GA1UEChMGQ0VTTkVUMRkwFwYDVQQDExB3aG9hbWkuY2VzbmV0LmN6MB4X
+DTExMDYyODE3MTUxNloXDTIxMDYyNTE3MTUxNlowOTELMAkGA1UEBhMCQ1oxDzAN
+BgNVBAoTBkNFU05FVDEZMBcGA1UEAxMQd2hvYW1pLmNlc25ldC5jejCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBALVaOoSPi3RrWjAIk9qneCw48UDTRqsZ
+saD3YGWGpUzigUqAIFgNewH4gFyZskhgeUB185iBCgsb5+oiNwdGKvm0dSRS8qlo
+vjzbeBP7sSVbgmOeeRy6W9AD8cA7HMrrHXxLn7LFGk2czY+dtEWkA0CFVYOR/JGX
+2a8g0YfHqRypU7DKqoo5feB7eUclzwhiZ9jsjqbE//M3LUk/QPIbxfimB8XFY7tV
+ijdFXkmSyz84FDZhCQ4eypu5Pn6+ov4BF/MXZGjFSsBbUKWL4UDAyL+y7LlzvsZq
+sJ4crixV7D3+ChkCaimW2+ETRZF/3F7c52SiqIgjCnvUV90ttGqQWrsCAwEAATAN
+BgkqhkiG9w0BAQUFAAOCAQEAjxVz8kXKKtoM449sxOGg1+pp/rio4vUpZ//nSfwf
+HnbZdesPoLoE58o+U5E3+e5hcN9jRbOEYyFt1oR9uTmYyo19G6CARvN3HNbUL5dW
+ID4yEvYy54tvokxqWNisk5NtXgOmOD+U2NX0FwAkoCDYOKboASeZ5PTQ5uvIo2Cm
+ljL8VHxgCZ+N4/UYnz3xAiJBKXCFLNgTMVIM2HKNYioKUqxubVDapR9E94vLzuvs
+9NVKKQfcm4DAMfylJKBLMGFNdqNwiFmczxxkOr3Me+vn+Tb7XRzT1tSmQkwilpmY
+i/DVjni4yQ3gisrqPcpvzGZCN/doncbNZ5ZRUerR17Waeg==
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://whoami.cesnet.cz:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://whoami.cesnet.cz:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+    </AttributeAuthorityDescriptor>
+    <Organization>
+      <OrganizationName xml:lang="en">CESNET</OrganizationName>
+      <OrganizationName xml:lang="cs">CESNET</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">CESNET, a. l. e.</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="cs">CESNET, z. s. p. o.</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.ces.net/</OrganizationURL>
+      <OrganizationURL xml:lang="cs">http://www.cesnet.cz/</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Ivan</GivenName>
+      <SurName>Novakov</SurName>
+      <EmailAddress>novakoi@fel.cvut.cz</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="technical">
+      <GivenName>Jan</GivenName>
+      <SurName>Tomášek</SurName>
+      <EmailAddress>jan.tomasek@cesnet.cz</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

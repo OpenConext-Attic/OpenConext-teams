@@ -1,0 +1,88 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://www.uco.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2010-07-09T14:39:03Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">uco.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université Catholique de l'Ouest - Angers</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDFDCCAfygAwIBAgIVAPhF6Z+pMtMAffPTgC8LNS+CPPoMMA0GCSqGSIb3DQEB
+BQUAMBUxEzARBgNVBAMTCnd3dy51Y28uZnIwHhcNMTEwNzIwMTQyMzUwWhcNMzEw
+NzIwMTQyMzUwWjAVMRMwEQYDVQQDEwp3d3cudWNvLmZyMIIBIjANBgkqhkiG9w0B
+AQEFAAOCAQ8AMIIBCgKCAQEA0mhB2HdGNn2tfVrT9ciREesIHvTSoXnI6AQpqD9K
+LlB7bIjUX9EyfVXlg2fvcJYyfGeuQL1mbK0bXuM0AUX4aO3kf5vrtVLO0npQSuE4
+reAThATYtCsor30uTOb8YcCANJ0OcnN8jm+GgZmroUIakyl2RRPMtuc+RBx8lnh4
+N+Tac1OssR1Zdx8peAtV0MvXoC6hy5/Rp1i1/QiKX4QHQh85GMPG5wANRpag4U+9
+FPhRikDdwMH+gYyTY2zcAYxdyRJNK1dKtYVSSlW+JoX0JgL8vOcC+H5lHsDpHjK1
+y0k39zeVSURgOxu7U04ZPNclt4qYo6MHi7Gc+LLtyoO7zwIDAQABo1swWTA4BgNV
+HREEMTAvggp3d3cudWNvLmZyhiFodHRwczovL3d3dy51Y28uZnIvaWRwL3NoaWJi
+b2xldGgwHQYDVR0OBBYEFD9XAALJ3NCu1Z7q/lcamqo6vefAMA0GCSqGSIb3DQEB
+BQUAA4IBAQCKoc/CFYtJwGptZuJYo9da4NQ2jk2FvqX5o0AyT7cmimU8tj1B41m9
+DkVjwq2HPeTbcDUoECZJFoisIaQOuoxXxSvA8yYTtgBYUQEvqMOwLG+9cCjkT7V9
+hw9qQmD0JVSknJslFuLoqn88bodKPJE1u7Sgfk/huMEZItLBG/6EMKCINuN+nLt3
+Mk7/mIJoHFhYEh81ZVlwKHPGmZ/ST8Y0GXeH95nO3BuuFp6cWgE7Eu4u9XiF5Ice
+N4chOWs7G4bomBuESzkGeydsJjWl7WmhuoKqfTV5V6W+hsBnkXGG4cpfB9R3Du+v
+0m1zBj8dwon9dDvWHf2On3KrRYbYl2Ff
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.uco.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.uco.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://www.uco.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université Catholique de l'Ouest - Angers</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université Catholique de l'Ouest - Angers</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Lucas Joachim</SurName>
+				 <EmailAddress>joachim.lucas@uco.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Zoundi Patrick</SurName>
+				 <EmailAddress>patrick.zoundi@uco.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

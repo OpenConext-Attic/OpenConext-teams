@@ -1,0 +1,89 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://janus.bordeaux.archi.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-03-03T11:39:30Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">bordeaux.archi.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">ENSAPBX - Ecole Nationale Supérieure d'Architecture et de Paysage de Bordeaux</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDSDCCAjCgAwIBAgIVANQRFAgpYoToGKMWg8l5CtEP+fE3MA0GCSqGSIb3DQEB
+BQUAMCIxIDAeBgNVBAMTF2phbnVzLmJvcmRlYXV4LmFyY2hpLmZyMB4XDTE0MDEw
+NjE0MzYyN1oXDTM0MDEwNjE0MzYyN1owIjEgMB4GA1UEAxMXamFudXMuYm9yZGVh
+dXguYXJjaGkuZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC8pUD1
+rfIX1k/y24cQnDYj/j06C8eRpjJ7h809cAuMA++rFeeM8CPjzDBxOgcM/sxLk4Hm
+kxetKPSwWaz2Q0eXRpjy1+gX53dz5mYyb7D3kSz3/kLTfrY5IrPjXUgOGZWwYlcG
+Mt05Mh7AMNPns+xuNrrVhKMy9hA/1HO5cgDfamc+ovDqnvRBQIjqRhvxM4CEnJGH
+cyxaGrF++0Hh/DYWrlH0dCeLxLNGUyv6SfDKCm5GBkK3pmPoKu9HYeJb0AZcIA37
+ugRWnx+kHmgLaHWGkKEqTf52sp1mJYplVc+ykdztLYXoghlRRVKJxotZa6aFmcDV
+ukmhCWQLQ8l4xewZAgMBAAGjdTBzMFIGA1UdEQRLMEmCF2phbnVzLmJvcmRlYXV4
+LmFyY2hpLmZyhi5odHRwczovL2phbnVzLmJvcmRlYXV4LmFyY2hpLmZyL2lkcC9z
+aGliYm9sZXRoMB0GA1UdDgQWBBT/gbDUy3XKG6rYVG7mfleHRs97XTANBgkqhkiG
+9w0BAQUFAAOCAQEAar3F3OsrV1trAQ/ObeP8/KPTgUrGa3HV0yNwbNCP/F8CNzZI
+pKY0hE8eGHjdFpfxrC9MPe3YR7CmZtlAT0rkkDZFVRFtjaLK15oOnmrbvuCMkPI7
+yATc1qnTMbH0EgMl55zJvyXy6+HpCn8xASpeGqqf/ZGu0Y4p4oytrD/UZKjHGj59
+fiHuBltSrUbuScoYIDjv/VIiG5XrPe791/OUKEONUzwulye26Lz5qOZcwIUgmCV1
+Yt1QoZ6/V4O7uCiPDiad1bluCsGR6Y0o5BJTcPNSSluKuzc/DwJOY9obsR7rYY0m
+QrKLREVlmoE0vK7znYaAPUaXVpJwmNe9GPqvsw==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://janus.bordeaux.archi.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://janus.bordeaux.archi.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://janus.bordeaux.archi.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">ENSAPBX - Ecole Nationale Supérieure d'Architecture et de Paysage de Bordeaux</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">ENSAPBX - Ecole Nationale Supérieure d'Architecture et de Paysage de Bordeaux</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Dépinay</SurName>
+				 <EmailAddress>guillaume.depinay@bordeaux.archi.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Dumas</SurName>
+				 <EmailAddress>jean-louis.dumas@bordeaux.archi.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

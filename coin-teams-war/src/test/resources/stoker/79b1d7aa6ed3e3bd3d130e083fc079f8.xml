@@ -1,0 +1,131 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://araripe.uece.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">uece.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">UECE - Universidade Estadiual do Ceara</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">UECE - Universidade Estadiual do Ceara</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UECE - Universidade Estadiual do Ceara</mdui:Description>
+          <mdui:Description xml:lang="pt-br">UECE - Universidade Estadiual do Ceara</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.uece.br</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.uece.br</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIID/DCCAuQCAQAwDQYJKoZIhvcNAQEFBQAwgcMxLzAtBgNVBAoTJlVFQ0UgLSBV
+bml2ZXJzaWRhZGUgRXN0YWRpdWFsIGRvIENlYXJhMSQwIgYDVQQLExtEZXBhcnRh
+bWVudG8gZGUgSW5mb3JtYXRpY2ExHzAdBgkqhkiG9w0BCQEWEGRpLmluZnJhQHVl
+Y2UuYnIxEjAQBgNVBAcTCUZvcnRhbGV6YTEOMAwGA1UECBMFQ2VhcmExCzAJBgNV
+BAYTAkJSMRgwFgYDVQQDEw9hcmFyaXBlLnVlY2UuYnIwHhcNMTQwMzIxMTkwNzUy
+WhcNMTcwMzIwMTkwNzUyWjCBwzEvMC0GA1UEChMmVUVDRSAtIFVuaXZlcnNpZGFk
+ZSBFc3RhZGl1YWwgZG8gQ2VhcmExJDAiBgNVBAsTG0RlcGFydGFtZW50byBkZSBJ
+bmZvcm1hdGljYTEfMB0GCSqGSIb3DQEJARYQZGkuaW5mcmFAdWVjZS5icjESMBAG
+A1UEBxMJRm9ydGFsZXphMQ4wDAYDVQQIEwVDZWFyYTELMAkGA1UEBhMCQlIxGDAW
+BgNVBAMTD2FyYXJpcGUudWVjZS5icjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+AQoCggEBALXknOC9F11nnTnNa8NuRD4cL/FDS9bzesfl/t/XaDMK32F/JgRxumWz
+SK6r0ejmmufDaIglY5kz2wgBry0jPZjkNoVhmDVpSdeEI3s3qDeWb/Jy6QVIYn71
+o25S3p/QTo9DVCjJIYoYD4OmNqU7yJa8sXN5FuvcuTgNXphdbXqMeskw9pGYb1zz
+b+h2jEaWo7wlljOYcwa8F2hJrd9W/ff6vit1cWrXv76afFVK1DjGkuS5H23vEz+Y
+3dRWHaflkxHo7iQ71mLmHGs6lyxf60PmJFyan5J8U1n9xcHlNIWbQsDdpPyxv0To
+PDI8+PywOWhoYYt+zA4Lv9V6CjRqpxMCAwEAATANBgkqhkiG9w0BAQUFAAOCAQEA
+ndu7rtfvY/dTDYWGTdYoTLACJCEsovnY8lzt+kyNIucdgJh//2egd8rKIL8BWUzK
+Ahpc0fitAklIDaVNzvJIrqMXLTFbT0deAJeeWN9e3Lke2bEqJPDO4xh1paedwk8b
+K8n//pcvw6uxKq5GEny5MEhVPaBJthThbH023ict7onBkUClgU7pAYh66JDscvXa
+jRIAsv0FeZt9c0urK4eU4vpnE7Bk0pNSD7pKqQ/ZXngjZSp6CXWlF2J9PGA2g53r
+JuB1tq80AmWAwgGdW4AxW7LLaxwFK6dl0lMIsWYyMleXuh2KhOGxLKrYa/EDs4Yi
+Z1AZ/tU3s4++vwyfNIfQkg==
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://araripe.uece.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://araripe.uece.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://araripe.uece.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://araripe.uece.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://araripe.uece.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://araripe.uece.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">uece.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIID/DCCAuQCAQAwDQYJKoZIhvcNAQEFBQAwgcMxLzAtBgNVBAoTJlVFQ0UgLSBV
+bml2ZXJzaWRhZGUgRXN0YWRpdWFsIGRvIENlYXJhMSQwIgYDVQQLExtEZXBhcnRh
+bWVudG8gZGUgSW5mb3JtYXRpY2ExHzAdBgkqhkiG9w0BCQEWEGRpLmluZnJhQHVl
+Y2UuYnIxEjAQBgNVBAcTCUZvcnRhbGV6YTEOMAwGA1UECBMFQ2VhcmExCzAJBgNV
+BAYTAkJSMRgwFgYDVQQDEw9hcmFyaXBlLnVlY2UuYnIwHhcNMTQwMzIxMTkwNzUy
+WhcNMTcwMzIwMTkwNzUyWjCBwzEvMC0GA1UEChMmVUVDRSAtIFVuaXZlcnNpZGFk
+ZSBFc3RhZGl1YWwgZG8gQ2VhcmExJDAiBgNVBAsTG0RlcGFydGFtZW50byBkZSBJ
+bmZvcm1hdGljYTEfMB0GCSqGSIb3DQEJARYQZGkuaW5mcmFAdWVjZS5icjESMBAG
+A1UEBxMJRm9ydGFsZXphMQ4wDAYDVQQIEwVDZWFyYTELMAkGA1UEBhMCQlIxGDAW
+BgNVBAMTD2FyYXJpcGUudWVjZS5icjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+AQoCggEBALXknOC9F11nnTnNa8NuRD4cL/FDS9bzesfl/t/XaDMK32F/JgRxumWz
+SK6r0ejmmufDaIglY5kz2wgBry0jPZjkNoVhmDVpSdeEI3s3qDeWb/Jy6QVIYn71
+o25S3p/QTo9DVCjJIYoYD4OmNqU7yJa8sXN5FuvcuTgNXphdbXqMeskw9pGYb1zz
+b+h2jEaWo7wlljOYcwa8F2hJrd9W/ff6vit1cWrXv76afFVK1DjGkuS5H23vEz+Y
+3dRWHaflkxHo7iQ71mLmHGs6lyxf60PmJFyan5J8U1n9xcHlNIWbQsDdpPyxv0To
+PDI8+PywOWhoYYt+zA4Lv9V6CjRqpxMCAwEAATANBgkqhkiG9w0BAQUFAAOCAQEA
+ndu7rtfvY/dTDYWGTdYoTLACJCEsovnY8lzt+kyNIucdgJh//2egd8rKIL8BWUzK
+Ahpc0fitAklIDaVNzvJIrqMXLTFbT0deAJeeWN9e3Lke2bEqJPDO4xh1paedwk8b
+K8n//pcvw6uxKq5GEny5MEhVPaBJthThbH023ict7onBkUClgU7pAYh66JDscvXa
+jRIAsv0FeZt9c0urK4eU4vpnE7Bk0pNSD7pKqQ/ZXngjZSp6CXWlF2J9PGA2g53r
+JuB1tq80AmWAwgGdW4AxW7LLaxwFK6dl0lMIsWYyMleXuh2KhOGxLKrYa/EDs4Yi
+Z1AZ/tU3s4++vwyfNIfQkg==
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://araripe.uece.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://araripe.uece.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">UECE - Universidade Estadiual do Ceara</OrganizationName>
+      <OrganizationName xml:lang="pt-br">UECE - Universidade Estadiual do Ceara</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">UECE - Universidade Estadiual do Ceara</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">UECE - Universidade Estadiual do Ceara</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.uece.br</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.uece.br</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>DI Infra</SurName>
+      <EmailAddress>di.infra@uece.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

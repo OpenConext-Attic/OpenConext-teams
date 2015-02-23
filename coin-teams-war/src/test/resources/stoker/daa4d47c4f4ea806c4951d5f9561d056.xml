@@ -1,0 +1,120 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://federation.esiee.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2013-07-26T14:48:28Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">esiee.fr</shibmd:Scope>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">edu.esiee.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">ESIEE Paris</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDODCCAiCgAwIBAgIVAKuyv3oaAeA68eduLXR1T/BYmgCRMA0GCSqGSIb3DQEB
+BQUAMB4xHDAaBgNVBAMTE2ZlZGVyYXRpb24uZXNpZWUuZnIwHhcNMTMwNzIyMTYx
+MjQzWhcNMTYwNzIyMTYxMjQzWjAeMRwwGgYDVQQDExNmZWRlcmF0aW9uLmVzaWVl
+LmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAg4im4BqmjCQRPDiM
+lU5aRUcI/IgpMyroXGhOVzLwP1GwvBH8DN1WFlJKNWa1C+RuiY63YTaA6OhIeGBh
+geUzFjXOm8apQ0Ll/TuArQYgt3mRX+TECa37tYz0dtVwfX+tJtQRkT58S05NlNU0
+iUEH/1/2JXSRsEfind9jDTrk4LB9FG89Z6Rhgky2BsoaIu+9bjJVj5f4QoNZ/lkV
+YQDrUhCENq7EctTHoVwLFbJixOSPrdJKtEP2dBFHVuiJpm/EaqSBNYMd79f0ULkR
+2oBN6QDFjkzMZK4TpdgJpurEHCeDmu01cXAz09TNqYz4qWLACWUJ0gedae3u43/8
+kd8mWQIDAQABo20wazBKBgNVHREEQzBBghNmZWRlcmF0aW9uLmVzaWVlLmZyhipo
+dHRwczovL2ZlZGVyYXRpb24uZXNpZWUuZnIvaWRwL3NoaWJib2xldGgwHQYDVR0O
+BBYEFCMSL4g1n6Tu2M2FueYzdebfSG2WMA0GCSqGSIb3DQEBBQUAA4IBAQABYo8u
+VOc3nALTBlfjDgoNV1S3/YcqXsoXnQa+LSTqO7cVtpspFWrBKgbv7uJlRG3Xn0li
+GKDq6wfaD3p9d1sPYo8dsSEfkL5qMphAQs35rFtRiuJnMQZIjVZsMOGuicxwsaiT
+9rGdRhKuRwQj9Rk4A2+NI45ZuZSexGVYFWKWFE3habZ5DEGxHpIMTTCKCOPxxpv7
+VUoaiUNEbmH6WsJ3BuERc66xcCT/kB3oV8QfB+Viu/61/17QI6zfMJcEvG4wwFbi
+cXPVzn3z8dnQlFcgDl+GdXleDdRkMRz9GGCepLb3tW8MGx11hkQ2+P0XiM3rqI83
+lLvxcvJ5CJp7Xtli
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://federation.esiee.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://federation.esiee.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://federation.esiee.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">esiee.fr</shibmd:Scope>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">edu.esiee.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDODCCAiCgAwIBAgIVAKuyv3oaAeA68eduLXR1T/BYmgCRMA0GCSqGSIb3DQEB
+BQUAMB4xHDAaBgNVBAMTE2ZlZGVyYXRpb24uZXNpZWUuZnIwHhcNMTMwNzIyMTYx
+MjQzWhcNMTYwNzIyMTYxMjQzWjAeMRwwGgYDVQQDExNmZWRlcmF0aW9uLmVzaWVl
+LmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAg4im4BqmjCQRPDiM
+lU5aRUcI/IgpMyroXGhOVzLwP1GwvBH8DN1WFlJKNWa1C+RuiY63YTaA6OhIeGBh
+geUzFjXOm8apQ0Ll/TuArQYgt3mRX+TECa37tYz0dtVwfX+tJtQRkT58S05NlNU0
+iUEH/1/2JXSRsEfind9jDTrk4LB9FG89Z6Rhgky2BsoaIu+9bjJVj5f4QoNZ/lkV
+YQDrUhCENq7EctTHoVwLFbJixOSPrdJKtEP2dBFHVuiJpm/EaqSBNYMd79f0ULkR
+2oBN6QDFjkzMZK4TpdgJpurEHCeDmu01cXAz09TNqYz4qWLACWUJ0gedae3u43/8
+kd8mWQIDAQABo20wazBKBgNVHREEQzBBghNmZWRlcmF0aW9uLmVzaWVlLmZyhipo
+dHRwczovL2ZlZGVyYXRpb24uZXNpZWUuZnIvaWRwL3NoaWJib2xldGgwHQYDVR0O
+BBYEFCMSL4g1n6Tu2M2FueYzdebfSG2WMA0GCSqGSIb3DQEBBQUAA4IBAQABYo8u
+VOc3nALTBlfjDgoNV1S3/YcqXsoXnQa+LSTqO7cVtpspFWrBKgbv7uJlRG3Xn0li
+GKDq6wfaD3p9d1sPYo8dsSEfkL5qMphAQs35rFtRiuJnMQZIjVZsMOGuicxwsaiT
+9rGdRhKuRwQj9Rk4A2+NI45ZuZSexGVYFWKWFE3habZ5DEGxHpIMTTCKCOPxxpv7
+VUoaiUNEbmH6WsJ3BuERc66xcCT/kB3oV8QfB+Viu/61/17QI6zfMJcEvG4wwFbi
+cXPVzn3z8dnQlFcgDl+GdXleDdRkMRz9GGCepLb3tW8MGx11hkQ2+P0XiM3rqI83
+lLvxcvJ5CJp7Xtli
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://federation.esiee.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">ESIEE Paris</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">ESIEE Paris</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>system@esiee.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

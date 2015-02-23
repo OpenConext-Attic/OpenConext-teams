@@ -1,0 +1,127 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://cafe.ifg.edu.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">ifg.edu.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">IFG - Instituto Federal de Goias</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">IFG - Instituto Federal de Goias</mdui:DisplayName>
+          <mdui:Description xml:lang="en">IFG - Instituto Federal de Goias</mdui:Description>
+          <mdui:Description xml:lang="pt-br">IFG - Instituto Federal de Goias</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ifg.edu.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ifg.edu.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIDrDCCApQCAQAwDQYJKoZIhvcNAQEFBQAwgZsxIzAhBgNVBAoTGkluc3RpdHV0
+byBGZWRlcmFsIGRlIEdvaWFzMQwwCgYDVQQLEwNDUEQxHTAbBgkqhkiG9w0BCQEW
+DmR0aUBpZmcuZWR1LmJyMRAwDgYDVQQHEwdHb2lhbmlhMQ4wDAYDVQQIEwVHb2lh
+czELMAkGA1UEBhMCQlIxGDAWBgNVBAMTD2NhZmUuaWZnLmVkdS5icjAeFw0xNDA0
+MjIxMTM4MThaFw0xOTA0MjExMTM4MThaMIGbMSMwIQYDVQQKExpJbnN0aXR1dG8g
+RmVkZXJhbCBkZSBHb2lhczEMMAoGA1UECxMDQ1BEMR0wGwYJKoZIhvcNAQkBFg5k
+dGlAaWZnLmVkdS5icjEQMA4GA1UEBxMHR29pYW5pYTEOMAwGA1UECBMFR29pYXMx
+CzAJBgNVBAYTAkJSMRgwFgYDVQQDEw9jYWZlLmlmZy5lZHUuYnIwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQDRTiGyg+AdoDTPTJWvRBL6Sx3OCpG0jjT5
+HUyXwsYB/VkDFC/IXLVwSQGCJ8+kzGaIAknzdL0QG1ZfY00neU6HmngzYE9t0NWC
+/UAySjQFlMZPyHmkZyCEIpiOKs1XR7WJgmxz/ga3LiLeNUY16J8ywVG61Gpl31TJ
+3kW3T/qupvrvg55tdc28PwKeAV3AgYY7a3xI2lgpr7ZsthXcsG2MO7xZ7tv/AcKd
+VUukgU90h3NfQz2cX96dqL5RfrdhCDH9Q8vF+ULVMKwoYUbIyY2oCDtNqM3UZyA0
+QjBAyHeKc/AAZKDnwHZb/UNAmURaRHC7Hm9bHjmwxRywNvrF3pZFAgMBAAEwDQYJ
+KoZIhvcNAQEFBQADggEBAAsfixGI4x76q6PWV9pcCHEgtZwIHrbPXsVArUNw1tg1
+1ep86wzlRXWO3D4kHTwtbdJZHM/+DwOvRHow1Y75IS3ndB5SIFJJS4lYeQ0q9t/+
+GMoYs56Ao+iYSH+PjZ67buLhY6GEMV2GGfhblEeyOUZpjNS8hZxYrot5cIt4QqJm
+Fr6OhJD9LojPSNej7PHW49bbS6OZXE4KBsrq0s+uSjZ71LWsm7T3cJA09kF5rOTg
+E7qGH9SEZjeQ2U4XmVmCygCYiG1oFvG3lzh9cl7V9F3W0cW2nwSX6cYI93NJYUxY
+YvkC3d/bl14ZFppaITiyaqXSbOEud5hfZr+tbxOeGOQ=
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.ifg.edu.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.ifg.edu.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafe.ifg.edu.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafe.ifg.edu.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafe.ifg.edu.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafe.ifg.edu.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIDrDCCApQCAQAwDQYJKoZIhvcNAQEFBQAwgZsxIzAhBgNVBAoTGkluc3RpdHV0
+byBGZWRlcmFsIGRlIEdvaWFzMQwwCgYDVQQLEwNDUEQxHTAbBgkqhkiG9w0BCQEW
+DmR0aUBpZmcuZWR1LmJyMRAwDgYDVQQHEwdHb2lhbmlhMQ4wDAYDVQQIEwVHb2lh
+czELMAkGA1UEBhMCQlIxGDAWBgNVBAMTD2NhZmUuaWZnLmVkdS5icjAeFw0xNDA0
+MjIxMTM4MThaFw0xOTA0MjExMTM4MThaMIGbMSMwIQYDVQQKExpJbnN0aXR1dG8g
+RmVkZXJhbCBkZSBHb2lhczEMMAoGA1UECxMDQ1BEMR0wGwYJKoZIhvcNAQkBFg5k
+dGlAaWZnLmVkdS5icjEQMA4GA1UEBxMHR29pYW5pYTEOMAwGA1UECBMFR29pYXMx
+CzAJBgNVBAYTAkJSMRgwFgYDVQQDEw9jYWZlLmlmZy5lZHUuYnIwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQDRTiGyg+AdoDTPTJWvRBL6Sx3OCpG0jjT5
+HUyXwsYB/VkDFC/IXLVwSQGCJ8+kzGaIAknzdL0QG1ZfY00neU6HmngzYE9t0NWC
+/UAySjQFlMZPyHmkZyCEIpiOKs1XR7WJgmxz/ga3LiLeNUY16J8ywVG61Gpl31TJ
+3kW3T/qupvrvg55tdc28PwKeAV3AgYY7a3xI2lgpr7ZsthXcsG2MO7xZ7tv/AcKd
+VUukgU90h3NfQz2cX96dqL5RfrdhCDH9Q8vF+ULVMKwoYUbIyY2oCDtNqM3UZyA0
+QjBAyHeKc/AAZKDnwHZb/UNAmURaRHC7Hm9bHjmwxRywNvrF3pZFAgMBAAEwDQYJ
+KoZIhvcNAQEFBQADggEBAAsfixGI4x76q6PWV9pcCHEgtZwIHrbPXsVArUNw1tg1
+1ep86wzlRXWO3D4kHTwtbdJZHM/+DwOvRHow1Y75IS3ndB5SIFJJS4lYeQ0q9t/+
+GMoYs56Ao+iYSH+PjZ67buLhY6GEMV2GGfhblEeyOUZpjNS8hZxYrot5cIt4QqJm
+Fr6OhJD9LojPSNej7PHW49bbS6OZXE4KBsrq0s+uSjZ71LWsm7T3cJA09kF5rOTg
+E7qGH9SEZjeQ2U4XmVmCygCYiG1oFvG3lzh9cl7V9F3W0cW2nwSX6cYI93NJYUxY
+YvkC3d/bl14ZFppaITiyaqXSbOEud5hfZr+tbxOeGOQ=
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.ifg.edu.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.ifg.edu.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">IFG - Instituto Federal de Goias</OrganizationName>
+      <OrganizationName xml:lang="pt-br">IFG - Instituto Federal de Goias</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">IFG - Instituto Federal de Goias</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">IFG - Instituto Federal de Goias</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.ifg.edu.br/</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.ifg.edu.br/</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Diretoria de Tecnologia da Informacao</SurName>
+      <EmailAddress>dti@ifg.edu.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

@@ -1,0 +1,62 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://edugate.itb.ie/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.heanet.ie" registrationInstant="2011-03-08T00:00:00Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">itb.ie</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Institute of Technology Blanchardstown</mdui:DisplayName>
+          <mdui:Logo height="65" width="235">https://edugate.heanet.ie/rr3/logos/itb.png</mdui:Logo>
+          <mdui:InformationURL xml:lang="en">http://www.itb.ie</mdui:InformationURL>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:GeolocationHint>geo:53.40572644015631,-6.378046274185181</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDIzCCAgugAwIBAgIUWE0VPYPdB8l/5af8W6PkkZDYFm4wDQYJKoZIhvcNAQEF
+BQAwGTEXMBUGA1UEAxMOZWR1Z2F0ZS5pdGIuaWUwHhcNMTEwNjAxMTQ1NjA1WhcN
+MzEwNjAxMTQ1NjA1WjAZMRcwFQYDVQQDEw5lZHVnYXRlLml0Yi5pZTCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBAJg3AH4MXYhZXU7pdFdV6lhsNB0/Qjqg
+eYSiWfLoZydHcJXTJw7Tfk2/8iX/NkLiyX+zouYTuw99HJtb+oZ4WzW3vwD0pupy
+eM4eteWkGycQBoW7aE+KAH8Qrsj3xiGSv0A6Yod6wHn7KyCAmxUb7wPOCf/yuj5z
+SvxZwdQWUXRqlirDhJgLsOSedru92hVRXbo8uMvnkdkWbwggBd5UMNGPZsPRBPKN
+P+nw5Ccvw2GWCZkpel4nqoIFu+8GbJVHYOrUliVLgNcv+lL22SlmI4ahqZDHTToC
+AzfRGuYUOtkpHlBp/H3ZQLEQ/61o5HWYB7RAtQNRCMU0u145/2uJ2TcCAwEAAaNj
+MGEwQAYDVR0RBDkwN4IOZWR1Z2F0ZS5pdGIuaWWGJWh0dHBzOi8vZWR1Z2F0ZS5p
+dGIuaWUvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFARmPTDY2ovy8VOaLRwUc5al
+PqZNMA0GCSqGSIb3DQEBBQUAA4IBAQAZIThM8v0IQ++IyxuLKCPziFcDdl3Cptbv
+0LHvMWnVhskz5hxqaFBIyCCXtBwsVOMMGX5gNWtUm+7l+toa3AWC6bvjzDTCU64Z
+LW30XFU05arBASH+s1VNeOVnKHunsK1PN6qDH1VrXKkREyfDNWhQDHm1TE8JlBxY
+gbKMqJzGMLYTLc7xwiEn2qRh4Yh9TaoYwBHlPVTKR0Zd+p4N1xh3Bu5hr/V3MeHD
+6H4JYebKv15gO1dpxnngMQsnFs9lUqkcoMvPsJXj81AAO2WQUK4RC8SH+CL+pzqZ
+hj8bmirIgUuG9EBuz/X57eigHOWaytDx61rjjuvtKOWT2LgfwXqY
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://edugate.itb.ie/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://edugate.itb.ie/idp/profile/SAML2/POST/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Institute of Technology Blanchardstown</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Institute of Technology Blanchardstown</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.itb.ie</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Dave</md:GivenName>
+      <md:SurName>Curran</md:SurName>
+      <md:EmailAddress>dave.curran@itb.ie</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Eamonn</md:GivenName>
+      <md:SurName>O'Brien</md:SurName>
+      <md:EmailAddress>Eamonn.OBrien@itb.ie</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

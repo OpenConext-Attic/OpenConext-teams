@@ -1,0 +1,116 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.uha.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-03-20T17:01:00Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">uha.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de Haute Alsace</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDFDCCAfygAwIBAgIVAMQwDj/V7c3f7N91SfzvRR6357FcMA0GCSqGSIb3DQEB
+BQUAMBUxEzARBgNVBAMTCmlkcC51aGEuZnIwHhcNMDkwNDA5MTQwOTAxWhcNMjkw
+NDA5MTQwOTAxWjAVMRMwEQYDVQQDEwppZHAudWhhLmZyMIIBIjANBgkqhkiG9w0B
+AQEFAAOCAQ8AMIIBCgKCAQEAjwqTRagPEGunfC32fyNnNVRYuJPDM65kHC6DnjRv
+KcGMMKBP9zN1AIXqDSbjw27e/kQ+FXrWECy0EZfk4FT/wYe5nNnZO3ZJmHWxPKLY
+sa8DrGHG3a6xMUErtEEH6ZMTJMnEWBKcT/M7IBBpZfsyzBYmESmhM91Fo0yI6ihY
+pjvv19K7qsl+JXSC0J9Ng6L67I0tKbQ9f/Vke+hN/jxCnVL9uvlEo732XUFsQ97K
+PHxjSfRUDKuO2zRksnAmybHhK+MOf7VhrYiDm+rY1fN9GOyuha89lQUxqr2RakNN
+mtLaEHw7kKGGJJMdhQJXq9uQErDJMppQnbVM4xT41w9VAQIDAQABo1swWTA4BgNV
+HREEMTAvggppZHAudWhhLmZyhiFodHRwczovL2lkcC51aGEuZnIvaWRwL3NoaWJi
+b2xldGgwHQYDVR0OBBYEFBpULgO2pp5BBWWveaICAaeGdhWLMA0GCSqGSIb3DQEB
+BQUAA4IBAQBs5JFe8dPlHV3+GU7RIl/r8LZo6W0zeOHmWiLvAwbuH64qA6ZgWGm5
+M4tKtWi4htYdgl4MjVpwgv3FMi8/hXTfQbVOjqGZiqKCTDjPtHYJOfZvAxL/ufg5
+bSJJlH3DOgLPpMacR1/SynTnplrNptvAYjUseje/cg5me6Myn/8UK7SrJIfOBC6w
+ls4erY4fZXkYtkB7krSAshiSgkfQ6Uyb3u/tl8SI2y8pBTztgiOtYbipIA0HXXsP
+DtsmCguULyq87Qn+zC65jlHJ+8/uA2lVWkZS+i0eeithnR0KjhojwCJ/0PsdAOt9
+f8gbJ9tz+22mD0+GLYu280WZfj2us+fo
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.uha.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.uha.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.uha.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">uha.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDFDCCAfygAwIBAgIVAMQwDj/V7c3f7N91SfzvRR6357FcMA0GCSqGSIb3DQEB
+BQUAMBUxEzARBgNVBAMTCmlkcC51aGEuZnIwHhcNMDkwNDA5MTQwOTAxWhcNMjkw
+NDA5MTQwOTAxWjAVMRMwEQYDVQQDEwppZHAudWhhLmZyMIIBIjANBgkqhkiG9w0B
+AQEFAAOCAQ8AMIIBCgKCAQEAjwqTRagPEGunfC32fyNnNVRYuJPDM65kHC6DnjRv
+KcGMMKBP9zN1AIXqDSbjw27e/kQ+FXrWECy0EZfk4FT/wYe5nNnZO3ZJmHWxPKLY
+sa8DrGHG3a6xMUErtEEH6ZMTJMnEWBKcT/M7IBBpZfsyzBYmESmhM91Fo0yI6ihY
+pjvv19K7qsl+JXSC0J9Ng6L67I0tKbQ9f/Vke+hN/jxCnVL9uvlEo732XUFsQ97K
+PHxjSfRUDKuO2zRksnAmybHhK+MOf7VhrYiDm+rY1fN9GOyuha89lQUxqr2RakNN
+mtLaEHw7kKGGJJMdhQJXq9uQErDJMppQnbVM4xT41w9VAQIDAQABo1swWTA4BgNV
+HREEMTAvggppZHAudWhhLmZyhiFodHRwczovL2lkcC51aGEuZnIvaWRwL3NoaWJi
+b2xldGgwHQYDVR0OBBYEFBpULgO2pp5BBWWveaICAaeGdhWLMA0GCSqGSIb3DQEB
+BQUAA4IBAQBs5JFe8dPlHV3+GU7RIl/r8LZo6W0zeOHmWiLvAwbuH64qA6ZgWGm5
+M4tKtWi4htYdgl4MjVpwgv3FMi8/hXTfQbVOjqGZiqKCTDjPtHYJOfZvAxL/ufg5
+bSJJlH3DOgLPpMacR1/SynTnplrNptvAYjUseje/cg5me6Myn/8UK7SrJIfOBC6w
+ls4erY4fZXkYtkB7krSAshiSgkfQ6Uyb3u/tl8SI2y8pBTztgiOtYbipIA0HXXsP
+DtsmCguULyq87Qn+zC65jlHJ+8/uA2lVWkZS+i0eeithnR0KjhojwCJ/0PsdAOt9
+f8gbJ9tz+22mD0+GLYu280WZfj2us+fo
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.uha.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Haute Alsace</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Haute Alsace</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>contact.di@uha.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

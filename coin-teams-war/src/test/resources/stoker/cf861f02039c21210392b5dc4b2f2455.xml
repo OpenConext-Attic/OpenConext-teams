@@ -1,0 +1,121 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="uk001364" entityID="https://sp.onlinelibrary.wiley.com/shibboleth">
+	
+	<Extensions>
+
+
+		<DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+		<DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384"/>
+		<DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+		<DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224"/>
+		<DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+		<SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512"/>
+		<SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384"/>
+		<SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/>
+		<SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha224"/>
+		<SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+		<SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"/>
+		<SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+		<SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/>
+		<SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha1"/>
+		<SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+		<SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+		<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://ukfederation.org.uk" registrationInstant="2010-07-27T11:15:10Z">
+			<mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+		</mdrpi:RegistrationInfo>
+
+	</Extensions>
+	<SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+		<Extensions>
+			<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+				<mdui:DisplayName xml:lang="en">John Wiley &amp; Sons Limited: Wiley Online Library</mdui:DisplayName>
+				<mdui:Description xml:lang="en">This service allows Wiley Online Library users to use login credentials at their home organisations</mdui:Description>
+				<mdui:Logo height="60" width="74">https://sp.onlinelibrary.wiley.com/images/WOL_Stacked_k.gif</mdui:Logo>
+				<mdui:Logo height="16" width="16">https://sp.onlinelibrary.wiley.com/images/WOL_favicon.png</mdui:Logo>
+			</mdui:UIInfo>
+			<init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://sp.onlinelibrary.wiley.com/Shibboleth.sso/DS"/>
+			<idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sp.onlinelibrary.wiley.com/Shibboleth.sso/DS" index="1"/>
+		</Extensions>
+		<KeyDescriptor>
+			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+				<ds:X509Data>
+					<ds:X509Certificate>
+						MIIFTDCCBDSgAwIBAgIQGN7fuC0Uze8yew92tsrArTANBgkqhkiG9w0BAQUFADCB
+						tTELMAkGA1UEBhMCVVMxFzAVBgNVBAoTDlZlcmlTaWduLCBJbmMuMR8wHQYDVQQL
+						ExZWZXJpU2lnbiBUcnVzdCBOZXR3b3JrMTswOQYDVQQLEzJUZXJtcyBvZiB1c2Ug
+						YXQgaHR0cHM6Ly93d3cudmVyaXNpZ24uY29tL3JwYSAoYykxMDEvMC0GA1UEAxMm
+						VmVyaVNpZ24gQ2xhc3MgMyBTZWN1cmUgU2VydmVyIENBIC0gRzMwHhcNMTQwNjA0
+						MDAwMDAwWhcNMTYwNzE3MjM1OTU5WjCBljELMAkGA1UEBhMCVVMxEzARBgNVBAgT
+						Ck5ldyBKZXJzZXkxETAPBgNVBAcUCFNvbWVyc2V0MR8wHQYDVQQKFBZKb2huIFdp
+						bGV5ICYgU29ucywgSW5jMRkwFwYDVQQLFBBJbnRlcm5ldCBIb3N0aW5nMSMwIQYD
+						VQQDFBpzcC5vbmxpbmVsaWJyYXJ5LndpbGV5LmNvbTCCASIwDQYJKoZIhvcNAQEB
+						BQADggEPADCCAQoCggEBALxNMyyEQztZxX2CnHwTsI5AIKhOza2HNuJ7fsfbmnS7
+						xCaDNVaVoT9nWvpLNwJ8Dn54IYCVJoFtnwkWHFu/E6AKjGROJt1YDQUMmoeNse+/
+						L1fj5NdGSiUpmFdnrJFSB5dFQ1qDG3R+23lfEZCKqByqEd6nnNZJIgMe32+1vA+k
+						S46cU2tRw+Z5UUDjdZ5dyTjKpdQ4mC+zQW4X1h6vrouNxcs/1En+EFqadQuVmLsQ
+						Yzkj0eLBGrYatWNELyZOxIOFj8ERb9Z+08eiXHa19K7uYUHw7ZBlyYciJZNZYVbw
+						59YiXaByT9BR7cFgGxNKoAJpfw+PsBnT7kFB103yxqkCAwEAAaOCAXMwggFvMCUG
+						A1UdEQQeMByCGnNwLm9ubGluZWxpYnJhcnkud2lsZXkuY29tMAkGA1UdEwQCMAAw
+						DgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjBl
+						BgNVHSAEXjBcMFoGCmCGSAGG+EUBBzYwTDAjBggrBgEFBQcCARYXaHR0cHM6Ly9k
+						LnN5bWNiLmNvbS9jcHMwJQYIKwYBBQUHAgIwGRoXaHR0cHM6Ly9kLnN5bWNiLmNv
+						bS9ycGEwHwYDVR0jBBgwFoAUDURcFlNEwYJ+HSCrJfQBY9i+eaUwKwYDVR0fBCQw
+						IjAgoB6gHIYaaHR0cDovL3NkLnN5bWNiLmNvbS9zZC5jcmwwVwYIKwYBBQUHAQEE
+						SzBJMB8GCCsGAQUFBzABhhNodHRwOi8vc2Quc3ltY2QuY29tMCYGCCsGAQUFBzAC
+						hhpodHRwOi8vc2Quc3ltY2IuY29tL3NkLmNydDANBgkqhkiG9w0BAQUFAAOCAQEA
+						Dc2lww9Dk/JaDPLQoHbqQjprtJZUTe9cEVvu02AKWMGvNlaUWDeHAqd1D+dbmMn7
+						mIXhqERDQUiEr7kS9yehKNSazQXvNy5S9xnPuO64m77zoDTslWIREyRgRPClxmvE
+						6LXZzucaLy1KMuuiWK2Jle/yb8e9s5M51jU0UQVVQjFQaWe1NKUzrt31QgWAgTWX
+						vSMwOdHJKGYpHXjpalopAX8fNV4lNg6kt9Ob3kJsQtUQkVLlPkwaVwlVLgWjbTIO
+						avofP9ub8R9GYHjPSoX6IlOlJTFigxBnP4AonNGmQZjVgqp81MZSMhwEo7MZvhnT
+						QQTmkDY7OVzHpicSEkVGKw==
+					</ds:X509Certificate>
+				</ds:X509Data>
+			</ds:KeyInfo>
+			<EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+			<EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc"/>
+			<EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+			<EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc"/>
+			<EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep"/>
+			<EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+		</KeyDescriptor>
+		<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sp.onlinelibrary.wiley.com/Shibboleth.sso/Artifact/SOAP" index="1"/>
+		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sp.onlinelibrary.wiley.com/Shibboleth.sso/SLO/SOAP"/>
+		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sp.onlinelibrary.wiley.com/Shibboleth.sso/SLO/Redirect"/>
+		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp.onlinelibrary.wiley.com/Shibboleth.sso/SLO/POST"/>
+		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sp.onlinelibrary.wiley.com/Shibboleth.sso/SLO/Artifact"/>
+		<ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sp.onlinelibrary.wiley.com/Shibboleth.sso/NIM/SOAP"/>
+		<ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sp.onlinelibrary.wiley.com/Shibboleth.sso/NIM/Redirect"/>
+		<ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp.onlinelibrary.wiley.com/Shibboleth.sso/NIM/POST"/>
+		<ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sp.onlinelibrary.wiley.com/Shibboleth.sso/NIM/Artifact"/>
+		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp.onlinelibrary.wiley.com/Shibboleth.sso/SAML2/POST" index="1"/>
+		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sp.onlinelibrary.wiley.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sp.onlinelibrary.wiley.com/Shibboleth.sso/SAML2/Artifact" index="3"/>
+		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://sp.onlinelibrary.wiley.com/Shibboleth.sso/SAML2/ECP" index="4"/>
+		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://sp.onlinelibrary.wiley.com/Shibboleth.sso/SAML/POST" index="5"/>
+		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://sp.onlinelibrary.wiley.com/Shibboleth.sso/SAML/Artifact" index="6"/>
+		<AttributeConsumingService index="1">
+			<ServiceName xml:lang="en">John Wiley &amp; Sons Limited: Wiley Online Library</ServiceName>
+			<ServiceDescription xml:lang="en">
+				This service allows Wiley Online Library users to use login credentials at their home organisations.
+			</ServiceDescription>
+			<RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:mace:dir:attribute-def:eduPersonScopedAffiliation" NameFormat="urn:mace:shibboleth:1.0:attributeNamespace:uri"/>
+			<RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+		</AttributeConsumingService>
+	</SPSSODescriptor>
+	<Organization>
+		<OrganizationName xml:lang="en">John Wiley &amp; Sons Limited</OrganizationName>
+		<OrganizationDisplayName xml:lang="en">John Wiley &amp; Sons Limited: Wiley Online Library</OrganizationDisplayName>
+		<OrganizationURL xml:lang="en">http://wiley.com/</OrganizationURL>
+	</Organization>
+	<ContactPerson contactType="support">
+		<GivenName>Zhiming</GivenName>
+		<SurName>Chen</SurName>
+		<EmailAddress>mailto:zchen@wiley.com</EmailAddress>
+	</ContactPerson>
+	<ContactPerson contactType="technical">
+		<GivenName>Zhiming</GivenName>
+		<SurName>Chen</SurName>
+		<EmailAddress>mailto:zchen@wiley.com</EmailAddress>
+	</ContactPerson>
+
+</EntityDescriptor>

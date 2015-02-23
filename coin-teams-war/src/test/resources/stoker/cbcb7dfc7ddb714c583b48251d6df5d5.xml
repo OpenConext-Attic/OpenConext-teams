@@ -1,0 +1,142 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://search.de.dariah.eu/schereg">
+    <Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-04-11T07:22:30Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </Extensions>
+    <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://search.de.dariah.eu/schereg/saml/login/alias/schereg?disco=true" index="1"/>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="de">DARIAH Schema Registry</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">DARIAH Schema Registry</mdui:DisplayName>
+          <mdui:Description xml:lang="de">DARIAH Schema Registry</mdui:Description>
+          <mdui:Description xml:lang="en">DARIAH Schema Registry</mdui:Description>
+          <mdui:InformationURL xml:lang="de">http://dariah.eu/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">http://dariah.eu/</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://de.dariah.eu/ServicePrivacyPolicy</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>search.de.dariah.eu</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=search.de.dariah.eu,O=Georg-August-Universitaet Goettingen,L=Goettingen,ST=Niedersachsen,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGAjCCBOqgAwIBAgIHF0FMzwiCfDANBgkqhkiG9w0BAQUFADCBrjELMAkGA1UE
+BhMCREUxFjAUBgNVBAgTDU5pZWRlcnNhY2hzZW4xEzARBgNVBAcTCkdvZXR0aW5n
+ZW4xLTArBgNVBAoTJEdlb3JnLUF1Z3VzdC1Vbml2ZXJzaXRhZXQgR29ldHRpbmdl
+bjEjMCEGA1UEAxMaVW5pdmVyc2l0YWV0LUdvZXR0aW5nZW4gQ0ExHjAcBgkqhkiG
+9w0BCQEWD2d3ZGctY2FAZ3dkZy5kZTAeFw0xNDAzMTMxNTMxMTJaFw0xOTAzMTIx
+NTMxMTJaMIGHMQswCQYDVQQGEwJERTEWMBQGA1UECBMNTmllZGVyc2FjaHNlbjET
+MBEGA1UEBxMKR29ldHRpbmdlbjEtMCsGA1UEChMkR2VvcmctQXVndXN0LVVuaXZl
+cnNpdGFldCBHb2V0dGluZ2VuMRwwGgYDVQQDExNzZWFyY2guZGUuZGFyaWFoLmV1
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu7pmrlhefv+M2gPqsZGL
+VcaIqF4WYCm6UGO6P2CzjPCMXOoXdHI5dCTAPl0moSDoTLIJ9PHrCsel5qpdblfh
+nuB7b2TbeehaE/kZqduvcbZn3/TTOdax6dwmlbQbbkwEjPcLTiII1co9vccN3OJj
+pClCGbM+g4iPYtqRcSJlmgh6sbyEi8GaRSt/hrVjLz7LgLA4zlwFNCWvwWnapNOw
+PgVINO1PUW7/gUuqaXD4nigvvJueyj5vI17/7XTOJNVOQGdx+WnPutdJupqFR967
+TGKMCYwZivzMh+a36onE+N81dMRERNa+xUbaef0JmWodMRRJX/XINEmNMtvGgB3A
+wQIDAQABo4ICSDCCAkQwOQYDVR0gBDIwMDARBg8rBgEEAYGtIYIsAQEEAwEwEQYP
+KwYBBAGBrSGCLAIBBAMBMAgGBmeBDAECAjAJBgNVHRMEAjAAMAsGA1UdDwQEAwIE
+8DAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwHQYDVR0OBBYEFCCZUdbp
+ix/yKKub4Cu5WlpydwXbMB8GA1UdIwQYMBaAFB29c8xt7m4cdHDZoxs6uqgn3rzr
+MB4GA1UdEQQXMBWCE3NlYXJjaC5kZS5kYXJpYWguZXUwgY8GA1UdHwSBhzCBhDBA
+oD6gPIY6aHR0cDovL2NkcDEucGNhLmRmbi5kZS91bmktZ29ldHRpbmdlbi1jYS9w
+dWIvY3JsL2NhY3JsLmNybDBAoD6gPIY6aHR0cDovL2NkcDIucGNhLmRmbi5kZS91
+bmktZ29ldHRpbmdlbi1jYS9wdWIvY3JsL2NhY3JsLmNybDCB3QYIKwYBBQUHAQEE
+gdAwgc0wMwYIKwYBBQUHMAGGJ2h0dHA6Ly9vY3NwLnBjYS5kZm4uZGUvT0NTUC1T
+ZXJ2ZXIvT0NTUDBKBggrBgEFBQcwAoY+aHR0cDovL2NkcDEucGNhLmRmbi5kZS91
+bmktZ29ldHRpbmdlbi1jYS9wdWIvY2FjZXJ0L2NhY2VydC5jcnQwSgYIKwYBBQUH
+MAKGPmh0dHA6Ly9jZHAyLnBjYS5kZm4uZGUvdW5pLWdvZXR0aW5nZW4tY2EvcHVi
+L2NhY2VydC9jYWNlcnQuY3J0MA0GCSqGSIb3DQEBBQUAA4IBAQCATCaFTv5NkXiH
+Gqk6O1y9Zkt7MtJheq1ATf2itAeCHVIapN6damvsHhb5IUwKu4pSAyT4h5c6PCiK
+N7f+C0KJPSbH7yEz62BdSa2n+Ut+L8rdz2KjxYC3LMtZgJDOCqVP9c3JL6zGQItA
+3RaIPoIzrB4kD/pJz3I2Tl7JfbnYSDtTaLVzysHtuApY5N+zjLJ54GokAlB5hjcm
+CTn74yz2sDJeQUgUC5DqgxOsPHcnqbNd999xBtDgHZ6xIJwVGhGaTKd1dp7XqH/b
+Lw95jxPRFCuuzadG3QQwB3TtR4fzqDp1envPT4sfv3fvuMd9uKd1AVZhQT4Ekknp
+VJ2CRsza
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <KeyDescriptor use="encryption">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>search.de.dariah.eu</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=search.de.dariah.eu,O=Georg-August-Universitaet Goettingen,L=Goettingen,ST=Niedersachsen,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGAjCCBOqgAwIBAgIHF0FMzwiCfDANBgkqhkiG9w0BAQUFADCBrjELMAkGA1UE
+BhMCREUxFjAUBgNVBAgTDU5pZWRlcnNhY2hzZW4xEzARBgNVBAcTCkdvZXR0aW5n
+ZW4xLTArBgNVBAoTJEdlb3JnLUF1Z3VzdC1Vbml2ZXJzaXRhZXQgR29ldHRpbmdl
+bjEjMCEGA1UEAxMaVW5pdmVyc2l0YWV0LUdvZXR0aW5nZW4gQ0ExHjAcBgkqhkiG
+9w0BCQEWD2d3ZGctY2FAZ3dkZy5kZTAeFw0xNDAzMTMxNTMxMTJaFw0xOTAzMTIx
+NTMxMTJaMIGHMQswCQYDVQQGEwJERTEWMBQGA1UECBMNTmllZGVyc2FjaHNlbjET
+MBEGA1UEBxMKR29ldHRpbmdlbjEtMCsGA1UEChMkR2VvcmctQXVndXN0LVVuaXZl
+cnNpdGFldCBHb2V0dGluZ2VuMRwwGgYDVQQDExNzZWFyY2guZGUuZGFyaWFoLmV1
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu7pmrlhefv+M2gPqsZGL
+VcaIqF4WYCm6UGO6P2CzjPCMXOoXdHI5dCTAPl0moSDoTLIJ9PHrCsel5qpdblfh
+nuB7b2TbeehaE/kZqduvcbZn3/TTOdax6dwmlbQbbkwEjPcLTiII1co9vccN3OJj
+pClCGbM+g4iPYtqRcSJlmgh6sbyEi8GaRSt/hrVjLz7LgLA4zlwFNCWvwWnapNOw
+PgVINO1PUW7/gUuqaXD4nigvvJueyj5vI17/7XTOJNVOQGdx+WnPutdJupqFR967
+TGKMCYwZivzMh+a36onE+N81dMRERNa+xUbaef0JmWodMRRJX/XINEmNMtvGgB3A
+wQIDAQABo4ICSDCCAkQwOQYDVR0gBDIwMDARBg8rBgEEAYGtIYIsAQEEAwEwEQYP
+KwYBBAGBrSGCLAIBBAMBMAgGBmeBDAECAjAJBgNVHRMEAjAAMAsGA1UdDwQEAwIE
+8DAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwHQYDVR0OBBYEFCCZUdbp
+ix/yKKub4Cu5WlpydwXbMB8GA1UdIwQYMBaAFB29c8xt7m4cdHDZoxs6uqgn3rzr
+MB4GA1UdEQQXMBWCE3NlYXJjaC5kZS5kYXJpYWguZXUwgY8GA1UdHwSBhzCBhDBA
+oD6gPIY6aHR0cDovL2NkcDEucGNhLmRmbi5kZS91bmktZ29ldHRpbmdlbi1jYS9w
+dWIvY3JsL2NhY3JsLmNybDBAoD6gPIY6aHR0cDovL2NkcDIucGNhLmRmbi5kZS91
+bmktZ29ldHRpbmdlbi1jYS9wdWIvY3JsL2NhY3JsLmNybDCB3QYIKwYBBQUHAQEE
+gdAwgc0wMwYIKwYBBQUHMAGGJ2h0dHA6Ly9vY3NwLnBjYS5kZm4uZGUvT0NTUC1T
+ZXJ2ZXIvT0NTUDBKBggrBgEFBQcwAoY+aHR0cDovL2NkcDEucGNhLmRmbi5kZS91
+bmktZ29ldHRpbmdlbi1jYS9wdWIvY2FjZXJ0L2NhY2VydC5jcnQwSgYIKwYBBQUH
+MAKGPmh0dHA6Ly9jZHAyLnBjYS5kZm4uZGUvdW5pLWdvZXR0aW5nZW4tY2EvcHVi
+L2NhY2VydC9jYWNlcnQuY3J0MA0GCSqGSIb3DQEBBQUAA4IBAQCATCaFTv5NkXiH
+Gqk6O1y9Zkt7MtJheq1ATf2itAeCHVIapN6damvsHhb5IUwKu4pSAyT4h5c6PCiK
+N7f+C0KJPSbH7yEz62BdSa2n+Ut+L8rdz2KjxYC3LMtZgJDOCqVP9c3JL6zGQItA
+3RaIPoIzrB4kD/pJz3I2Tl7JfbnYSDtTaLVzysHtuApY5N+zjLJ54GokAlB5hjcm
+CTn74yz2sDJeQUgUC5DqgxOsPHcnqbNd999xBtDgHZ6xIJwVGhGaTKd1dp7XqH/b
+Lw95jxPRFCuuzadG3QQwB3TtR4fzqDp1envPT4sfv3fvuMd9uKd1AVZhQT4Ekknp
+VJ2CRsza
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://search.de.dariah.eu/schereg/saml/SingleLogout/alias/schereg"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://search.de.dariah.eu/schereg/saml/SingleLogout/alias/schereg"/>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://search.de.dariah.eu/schereg/saml/SSO/alias/schereg" index="0"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://search.de.dariah.eu/schereg/saml/SSO/alias/schereg" index="1"/>
+      <AttributeConsumingService index="1">
+        <ServiceName xml:lang="de">DARIAH Schema Registry</ServiceName>
+        <ServiceName xml:lang="en">DARIAH Schema Registry</ServiceName>
+        <ServiceDescription xml:lang="de">DARIAH Schema Registry</ServiceDescription>
+        <ServiceDescription xml:lang="en">DARIAH Schema Registry</ServiceDescription>
+        <RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+      </AttributeConsumingService>
+    </SPSSODescriptor>
+    <Organization>
+      <OrganizationName xml:lang="de">e112</OrganizationName>
+      <OrganizationName xml:lang="en">e112</OrganizationName>
+      <OrganizationDisplayName xml:lang="de">Gesellschaft für wissenschaftliche Datenverarbeitung mbH</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="en">Gesellschaft für wissenschaftliche Datenverarbeitung mbH</OrganizationDisplayName>
+      <OrganizationURL xml:lang="de">http://www.gwdg.de</OrganizationURL>
+      <OrganizationURL xml:lang="en">http://www.gwdg.de</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Tobias</GivenName>
+      <SurName>Gradl</SurName>
+      <EmailAddress>mailto:tobias.gradl@uni-bamberg.de</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="support">
+      <GivenName>Dariah</GivenName>
+      <SurName>Support</SurName>
+      <EmailAddress>mailto:register@dariah.eu</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

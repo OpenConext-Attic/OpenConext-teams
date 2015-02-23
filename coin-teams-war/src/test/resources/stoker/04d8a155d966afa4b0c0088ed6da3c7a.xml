@@ -1,0 +1,107 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://identity.mdh.se/idp/shibboleth">
+<md:Extensions>
+<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.swamid.se/">
+<mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+</mdrpi:RegistrationInfo>
+</md:Extensions>
+  <IDPSSODescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+    <Extensions>
+      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">mdh.se</shibmd:Scope>
+      <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <mdui:DisplayName xml:lang="sv">Mälardalens Högskola</mdui:DisplayName>
+        <mdui:DisplayName xml:lang="en">Mälardalen University</mdui:DisplayName>
+        <mdui:Description xml:lang="sv">Identity Provider för anställda och studenter vid Mälardalens högskola.</mdui:Description>
+        <mdui:Description xml:lang="en">The Mälardalen University Identity Provider is used by employees and students at the university.</mdui:Description>
+        <mdui:Logo height="216" width="117">https://identity.mdh.se/img/logo-sv.png</mdui:Logo>
+        <mdui:Keywords xml:lang="sv">mdh vasteras eskilstuna malardalen malardalen+university malardalens+hogskola mälardalens+högskola</mdui:Keywords>
+        <mdui:Keywords xml:lang="en">mdh vasteras eskilstuna malardalen malardalen+university malardalens+hogskola mälardalens+högskola</mdui:Keywords>
+      </mdui:UIInfo>
+      <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <mdui:DomainHint>mdh.se</mdui:DomainHint>
+        <mdui:GeolocationHint>geo:59.6186,16.5407</mdui:GeolocationHint>
+        <mdui:GeolocationHint>geo:59.3716,16.5085</mdui:GeolocationHint>
+      </mdui:DiscoHints>
+    </Extensions>
+    <KeyDescriptor>
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>
+MIIDKDCCAhCgAwIBAgIVAIPxTFqNFghYnsNGOQDHDvRnU53tMA0GCSqGSIb3DQEB
+BQUAMBoxGDAWBgNVBAMTD2lkZW50aXR5Lm1kaC5zZTAeFw0wOTA5MDIxMzE5MDRa
+Fw0yOTA5MDIxMzE5MDRaMBoxGDAWBgNVBAMTD2lkZW50aXR5Lm1kaC5zZTCCASIw
+DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALBpGX8JJ+RvjMMMD3q/j01q58p8
+z0R9tuklMD5smW+Tz0JgiG3KDnynWvcYyg3s9DevNRUMmsQqzDBko771ecyhqkHy
+SoCkfVNJ9k7RaQmoaglSGZlR5N9lgcysHNA8qVqJYpUpsSFuQckr1dzS3RjngcTM
+ICcuBjy/JviV8fKzYzF0v7F9HW+BEuJXHH6lhqhDIuI4R4n7I9/lYYxJWvQZVelJ
+F6/Z+RnbqaSzViq1qcMe5AWcnZgC85i0KiIcnaKiImNRJbVrVUN+eniQSj9ROJyf
+uk7Ldhpg8gvqsaUVd2drDY43XymAu7XFVnBBX340JKgb7F8wxpvIK6Gh6ZMCAwEA
+AaNlMGMwQgYDVR0RBDswOYIPaWRlbnRpdHkubWRoLnNlhiZodHRwczovL2lkZW50
+aXR5Lm1kaC5zZS9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU/qdjANz6BbQi/0eQ
+PgsaI1I0V4MwDQYJKoZIhvcNAQEFBQADggEBAG3OEKV7S8aojN/D7UOqURiCRrjC
+Dk6wEnMLX6uIYAFCv6jc5QdkMWaaDBR0tgGhmgzRZOGnl9pvzT1AjMIhvMu2/luI
+b2oawOhycFG1rECJCpDi+gLDGhxzbQY/E9VIz+AcBAxglBFbDqqIynhFs+GZn+fv
+P7nZB2+XoE3sf8xqd2a9xO7vy1r17Q7bx8PzwklL9GdFppuRnimioYoF3atEQM6R
+7UwSK+MqY42FI27aHfIMAN7ccEun9HViAHU9HT/tng0kSydoF9VOvTI657LX7vpb
+0hhoH3UMUkrHgTwtNYpylgL6YEy/GtQHimQGN/O6aAQt1ZIyXKnuQufcnNk=
+
+                    </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://identity.mdh.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://identity.mdh.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+    <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://identity.mdh.se/idp/profile/Shibboleth/SSO"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://identity.mdh.se/idp/profile/SAML2/POST/SSO"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://identity.mdh.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://identity.mdh.se/idp/profile/SAML2/Redirect/SSO"/>
+  </IDPSSODescriptor>
+  <AttributeAuthorityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+    <Extensions>
+      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">mdh.se</shibmd:Scope>
+    </Extensions>
+    <KeyDescriptor>
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>
+MIIDKDCCAhCgAwIBAgIVAIPxTFqNFghYnsNGOQDHDvRnU53tMA0GCSqGSIb3DQEB
+BQUAMBoxGDAWBgNVBAMTD2lkZW50aXR5Lm1kaC5zZTAeFw0wOTA5MDIxMzE5MDRa
+Fw0yOTA5MDIxMzE5MDRaMBoxGDAWBgNVBAMTD2lkZW50aXR5Lm1kaC5zZTCCASIw
+DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALBpGX8JJ+RvjMMMD3q/j01q58p8
+z0R9tuklMD5smW+Tz0JgiG3KDnynWvcYyg3s9DevNRUMmsQqzDBko771ecyhqkHy
+SoCkfVNJ9k7RaQmoaglSGZlR5N9lgcysHNA8qVqJYpUpsSFuQckr1dzS3RjngcTM
+ICcuBjy/JviV8fKzYzF0v7F9HW+BEuJXHH6lhqhDIuI4R4n7I9/lYYxJWvQZVelJ
+F6/Z+RnbqaSzViq1qcMe5AWcnZgC85i0KiIcnaKiImNRJbVrVUN+eniQSj9ROJyf
+uk7Ldhpg8gvqsaUVd2drDY43XymAu7XFVnBBX340JKgb7F8wxpvIK6Gh6ZMCAwEA
+AaNlMGMwQgYDVR0RBDswOYIPaWRlbnRpdHkubWRoLnNlhiZodHRwczovL2lkZW50
+aXR5Lm1kaC5zZS9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU/qdjANz6BbQi/0eQ
+PgsaI1I0V4MwDQYJKoZIhvcNAQEFBQADggEBAG3OEKV7S8aojN/D7UOqURiCRrjC
+Dk6wEnMLX6uIYAFCv6jc5QdkMWaaDBR0tgGhmgzRZOGnl9pvzT1AjMIhvMu2/luI
+b2oawOhycFG1rECJCpDi+gLDGhxzbQY/E9VIz+AcBAxglBFbDqqIynhFs+GZn+fv
+P7nZB2+XoE3sf8xqd2a9xO7vy1r17Q7bx8PzwklL9GdFppuRnimioYoF3atEQM6R
+7UwSK+MqY42FI27aHfIMAN7ccEun9HViAHU9HT/tng0kSydoF9VOvTI657LX7vpb
+0hhoH3UMUkrHgTwtNYpylgL6YEy/GtQHimQGN/O6aAQt1ZIyXKnuQufcnNk=
+
+                    </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://identity.mdh.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+    <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://identity.mdh.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+  </AttributeAuthorityDescriptor>
+  
+  
+<Organization xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
+    <OrganizationName xml:lang="en">MDH</OrganizationName>
+    <OrganizationDisplayName xml:lang="sv">Mälardalens Högskola</OrganizationDisplayName>
+    <OrganizationDisplayName xml:lang="en">Mälardalen University</OrganizationDisplayName>
+    <OrganizationURL xml:lang="en">http://www.mdh.se</OrganizationURL>
+  </Organization>
+<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="technical">
+    <Company>Mälardalen University</Company>
+    <EmailAddress>peter.falck@mdh.se</EmailAddress>
+  </ContactPerson>
+</md:EntityDescriptor>

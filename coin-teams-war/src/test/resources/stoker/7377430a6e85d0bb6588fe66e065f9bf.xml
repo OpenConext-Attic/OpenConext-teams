@@ -1,0 +1,117 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://idp.ifc.edu.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">IFC - Instituto Federal Catarinense</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">IFC - Instituto Federal Catarinense</mdui:DisplayName>
+          <mdui:Description xml:lang="en">IFC - Instituto Federal Catarinense</mdui:Description>
+          <mdui:Description xml:lang="pt-br">IFC - Instituto Federal Catarinense</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ifc.edu.br</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ifc.edu.br</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIICxjCCAa4CAQAwDQYJKoZIhvcNAQEFBQAwKTEMMAoGA1UECxMDRFRJMQswCQYD
+VQQGEwJCUjEMMAoGA1UEAxMDaWRwMB4XDTE0MDQwOTE3MzAyN1oXDTE5MDQwODE3
+MzAyN1owKTEMMAoGA1UECxMDRFRJMQswCQYDVQQGEwJCUjEMMAoGA1UEAxMDaWRw
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAweLZ9PCMIFyNRZxpJraU
+tsB76JjKzQtx6QfkHSiDx5uwHTgiTQilQBJFCAlz2NQGlFH46zHGTemNS3S5J2GA
+zcBTuJskMbFFXOnfi33F8jBJTodaCq2V9pGwdjTs3ebPKekDYCeHRPYwhBszPWqj
+eXOCrAzZEfBwdsxallOhle6mqr4mw2tFwx5k67X8kdwVpkFaNjGtUDMfltjhVy6u
+0NiRhgaT9E9WMj/wKrDVzs0rYkxthF6qh+FcoLIIwB9SenqtmiK9uAWhRje7LH3Y
+lsu8G7kTdGyS0/CyABr9+FL8XxJ2VKwIABWEvl6UoinY122zAy/uDxzk4qkq0ge7
+ywIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQCwZr/7KyPjp03yXWWifSpXVOZMWb0k
+RoJyA5upb4YWilPJGH/B5frSuXnzaAY7vSFEGKqjzk2JcpH5hv2M0wLWBYXZgp3c
+X6t16xJB7M0Ob5mOFz7Z0toxyuNHm8egrKjdhUS9od67QempObje5TRgwk8szHhv
+REBeVYn9VTnMBpHvTzVXUqWzvVaULHwo9207emUQPljqP8whQkpMzjp49OsD75ua
+3ejIxW0axzH47H9klC86IALnAXv+Ad5sh41ZHuBX6zz7N/Cenu/W9SFDJ5x1IIsw
+xLSEYO4XtQH/sy1ouM4VkghXlqRSeKDOgynu35E6pd2ZtyqDIjWQlpxk
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ifc.edu.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ifc.edu.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.ifc.edu.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ifc.edu.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ifc.edu.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ifc.edu.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIICxjCCAa4CAQAwDQYJKoZIhvcNAQEFBQAwKTEMMAoGA1UECxMDRFRJMQswCQYD
+VQQGEwJCUjEMMAoGA1UEAxMDaWRwMB4XDTE0MDQwOTE3MzAyN1oXDTE5MDQwODE3
+MzAyN1owKTEMMAoGA1UECxMDRFRJMQswCQYDVQQGEwJCUjEMMAoGA1UEAxMDaWRw
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAweLZ9PCMIFyNRZxpJraU
+tsB76JjKzQtx6QfkHSiDx5uwHTgiTQilQBJFCAlz2NQGlFH46zHGTemNS3S5J2GA
+zcBTuJskMbFFXOnfi33F8jBJTodaCq2V9pGwdjTs3ebPKekDYCeHRPYwhBszPWqj
+eXOCrAzZEfBwdsxallOhle6mqr4mw2tFwx5k67X8kdwVpkFaNjGtUDMfltjhVy6u
+0NiRhgaT9E9WMj/wKrDVzs0rYkxthF6qh+FcoLIIwB9SenqtmiK9uAWhRje7LH3Y
+lsu8G7kTdGyS0/CyABr9+FL8XxJ2VKwIABWEvl6UoinY122zAy/uDxzk4qkq0ge7
+ywIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQCwZr/7KyPjp03yXWWifSpXVOZMWb0k
+RoJyA5upb4YWilPJGH/B5frSuXnzaAY7vSFEGKqjzk2JcpH5hv2M0wLWBYXZgp3c
+X6t16xJB7M0Ob5mOFz7Z0toxyuNHm8egrKjdhUS9od67QempObje5TRgwk8szHhv
+REBeVYn9VTnMBpHvTzVXUqWzvVaULHwo9207emUQPljqP8whQkpMzjp49OsD75ua
+3ejIxW0axzH47H9klC86IALnAXv+Ad5sh41ZHuBX6zz7N/Cenu/W9SFDJ5x1IIsw
+xLSEYO4XtQH/sy1ouM4VkghXlqRSeKDOgynu35E6pd2ZtyqDIjWQlpxk
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ifc.edu.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ifc.edu.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">IFC - Instituto Federal Catarinense</OrganizationName>
+      <OrganizationName xml:lang="pt-br">IFC - Instituto Federal Catarinense</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">IFC - Instituto Federal Catarinense</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">IFC - Instituto Federal Catarinense</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.ifc.edu.br</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.ifc.edu.br</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Renato de Souza Muniz</SurName>
+      <EmailAddress>infra@ifc.edu.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

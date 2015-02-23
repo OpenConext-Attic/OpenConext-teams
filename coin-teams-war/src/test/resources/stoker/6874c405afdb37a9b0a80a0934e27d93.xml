@@ -1,0 +1,127 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://cafe.ifrs.edu.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">IFRS - Instituto Federal de Educacao, Ciencia e Tecnologia do Rio Grande do Sul</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">IFRS - Instituto Federal de Educacao, Ciencia e Tecnologia do Rio Grande do Sul</mdui:DisplayName>
+          <mdui:Description xml:lang="en">IFRS - Instituto Federal de Educacao, Ciencia e Tecnologia do Rio Grande do Sul</mdui:Description>
+          <mdui:Description xml:lang="pt-br">IFRS - Instituto Federal de Educacao, Ciencia e Tecnologia do Rio Grande do Sul</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ifrs.edu.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ifrs.edu.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIDsDCCApgCAQAwDQYJKoZIhvcNAQEFBQAwgZ0xDTALBgNVBAoTBElGUlMxDDAK
+BgNVBAsTA0RUSTEfMB0GCSqGSIb3DQEJARYQY2FmZUBpZnJzLmVkdS5icjEZMBcG
+A1UEBxQQQmVudG8gR29uw6dhbHZlczEaMBgGA1UECBMRUmlvIEdyYW5kZSBkbyBT
+dWwxCzAJBgNVBAYTAkJSMRkwFwYDVQQDExBjYWZlLmlmcnMuZWR1LmJyMB4XDTE0
+MDQwOTE2MTkxNFoXDTE5MDQwODE2MTkxNFowgZ0xDTALBgNVBAoTBElGUlMxDDAK
+BgNVBAsTA0RUSTEfMB0GCSqGSIb3DQEJARYQY2FmZUBpZnJzLmVkdS5icjEZMBcG
+A1UEBxQQQmVudG8gR29uw6dhbHZlczEaMBgGA1UECBMRUmlvIEdyYW5kZSBkbyBT
+dWwxCzAJBgNVBAYTAkJSMRkwFwYDVQQDExBjYWZlLmlmcnMuZWR1LmJyMIIBIjAN
+BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsXUlkSu36bt4LJdQ5za7kB40dJlD
+HAV+9CCRoUmQnFvCbu2xKdnY5Ou518/dn0sKLNRFJSj2xGpUV2Z3R7dMvOhyOSqb
+VB1lnkeAyeTd238ZVJgvHokWBdP2ykUuHN1snMNtVExME2Ie7jqUKSQrhB+8ImZV
+7AU7v76pY5Yu5AysvBL0GCBmhatWeMLpXdFJxCP6WviVeoRIBPJKYElvcH1kZn4D
+QTL8Org4tTWCsp83PkjLN/LE0xYpxQyGCx/oeUTwLt2tY/csyk5z7yLxEPxcxpj9
+OOjmpT0CU7Q6t0s846BxVNYuv2QQOwBqAhf7bWtz0EO+n8qnsVEgicLGawIDAQAB
+MA0GCSqGSIb3DQEBBQUAA4IBAQBJznGzZ6tpuPdLyTRk4t1o+26fAwLxRcNbjlVq
+MzlEWuUo6CJOXcFSiDDDzK47m8nG+SzSaJLbJTrBxO8MNWUzlVWlJ0sQhZzhxmGv
+9MRcUDf/1rfmrVTimpJ2mxupcFZr25Xwa/kWsjOtY50OJSJgMBY8YbpXhuQfdKS+
+vCFaVKqsdaeWU96/w8n5XdlN7qOCU9mNTFL5o1Hya0N6gE9XOFYJG+Bl9GYirlNv
+1BPl9cuCCtZpNRiW1UZXcEvyq4dwGW/1eNg/LjWQTerR/y4u0eLcJaBZDz9GDztr
+wI2yGmmso+W7sduE4zoAK9icH9XtpZV+vwVSSxqUI1yK+/pg
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.ifrs.edu.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.ifrs.edu.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafe.ifrs.edu.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafe.ifrs.edu.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafe.ifrs.edu.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafe.ifrs.edu.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIDsDCCApgCAQAwDQYJKoZIhvcNAQEFBQAwgZ0xDTALBgNVBAoTBElGUlMxDDAK
+BgNVBAsTA0RUSTEfMB0GCSqGSIb3DQEJARYQY2FmZUBpZnJzLmVkdS5icjEZMBcG
+A1UEBxQQQmVudG8gR29uw6dhbHZlczEaMBgGA1UECBMRUmlvIEdyYW5kZSBkbyBT
+dWwxCzAJBgNVBAYTAkJSMRkwFwYDVQQDExBjYWZlLmlmcnMuZWR1LmJyMB4XDTE0
+MDQwOTE2MTkxNFoXDTE5MDQwODE2MTkxNFowgZ0xDTALBgNVBAoTBElGUlMxDDAK
+BgNVBAsTA0RUSTEfMB0GCSqGSIb3DQEJARYQY2FmZUBpZnJzLmVkdS5icjEZMBcG
+A1UEBxQQQmVudG8gR29uw6dhbHZlczEaMBgGA1UECBMRUmlvIEdyYW5kZSBkbyBT
+dWwxCzAJBgNVBAYTAkJSMRkwFwYDVQQDExBjYWZlLmlmcnMuZWR1LmJyMIIBIjAN
+BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsXUlkSu36bt4LJdQ5za7kB40dJlD
+HAV+9CCRoUmQnFvCbu2xKdnY5Ou518/dn0sKLNRFJSj2xGpUV2Z3R7dMvOhyOSqb
+VB1lnkeAyeTd238ZVJgvHokWBdP2ykUuHN1snMNtVExME2Ie7jqUKSQrhB+8ImZV
+7AU7v76pY5Yu5AysvBL0GCBmhatWeMLpXdFJxCP6WviVeoRIBPJKYElvcH1kZn4D
+QTL8Org4tTWCsp83PkjLN/LE0xYpxQyGCx/oeUTwLt2tY/csyk5z7yLxEPxcxpj9
+OOjmpT0CU7Q6t0s846BxVNYuv2QQOwBqAhf7bWtz0EO+n8qnsVEgicLGawIDAQAB
+MA0GCSqGSIb3DQEBBQUAA4IBAQBJznGzZ6tpuPdLyTRk4t1o+26fAwLxRcNbjlVq
+MzlEWuUo6CJOXcFSiDDDzK47m8nG+SzSaJLbJTrBxO8MNWUzlVWlJ0sQhZzhxmGv
+9MRcUDf/1rfmrVTimpJ2mxupcFZr25Xwa/kWsjOtY50OJSJgMBY8YbpXhuQfdKS+
+vCFaVKqsdaeWU96/w8n5XdlN7qOCU9mNTFL5o1Hya0N6gE9XOFYJG+Bl9GYirlNv
+1BPl9cuCCtZpNRiW1UZXcEvyq4dwGW/1eNg/LjWQTerR/y4u0eLcJaBZDz9GDztr
+wI2yGmmso+W7sduE4zoAK9icH9XtpZV+vwVSSxqUI1yK+/pg
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.ifrs.edu.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.ifrs.edu.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">IFRS - Instituto Federal de Educacao, Ciencia e Tecnologia do Rio Grande do Sul</OrganizationName>
+      <OrganizationName xml:lang="pt-br">IFRS - Instituto Federal de Educacao, Ciencia e Tecnologia do Rio Grande do Sul</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">IFRS - Instituto Federal de Educacao, Ciencia e Tecnologia do Rio Grande do Sul</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">IFRS - Instituto Federal de Educacao, Ciencia e Tecnologia do Rio Grande do Sul</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.ifrs.edu.br/</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.ifrs.edu.br/</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Suporte CAFe IFRS</SurName>
+      <EmailAddress>cafe@ifrs.edu.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

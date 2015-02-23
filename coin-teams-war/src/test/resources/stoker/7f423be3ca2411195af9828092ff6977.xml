@@ -1,0 +1,84 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.crous-strasbourg.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-04-28T11:03:43Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">crous-strasbourg.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      <mdui:DisplayName xml:lang="en">CROUS Strasbourg</mdui:DisplayName>
+          		      <mdui:Description xml:lang="en">Administrative staff CROUS</mdui:Description>
+          		      <mdui:DisplayName xml:lang="fr">CROUS Strasbourg</mdui:DisplayName>
+          		      <mdui:Description xml:lang="fr">personnel administratif du CROUS</mdui:Description>
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIEezCCA2OgAwIBAgIQeZpbhzUV4+gL9K3eNTs3hDANBgkqhkiG9w0BAQUFADA2
+MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+U1NMIENBMB4XDTE0MDMyNDAwMDAwMFoXDTE3MDMyMzIzNTk1OVowRTEhMB8GA1UE
+CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMSAwHgYDVQQDExdpZHAuY3JvdXMt
+c3RyYXNib3VyZy5mcjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL6w
+f8Zbcbh3/fHcTMnr9qtmvV/DDfhwhpMNlZ3WIKp4LDeX3rq/qsS6xVPrfOMOj7+p
+FHvyGJKzY9BKCVVwioRYkx5UG7hZaxJ4vEAfremNqFB/5/BL3iNs//Xgg3J/TdXQ
+RQIrv3Wimj/Fa/2jalr6jPJC2PlBCfxwS9a3vtuqo2qs0v5B3/gDBQGzZYQlHeGP
+aCrJ+luS/dBZDzsMfDE4gqm1hvGT1tabfuUZGmBxXNDpBgoqQRkqbFo7wHzwaTgD
+XBzLUrXz3s2CaAslDF+U/anQ+bMT126KRo+FxrlTvMoRADYYaf9V2GbRzzRQqpG0
+BVqR6KfiAyauyGSysGECAwEAAaOCAXQwggFwMB8GA1UdIwQYMBaAFAy9k2gM896r
+o0lrKzdXR+qQ47ntMB0GA1UdDgQWBBSAAdpSjTa8MV+nybPYNenLhdM5bDAOBgNV
+HQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYI
+KwYBBQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEwOgYD
+VR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFT
+U0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0
+LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0
+cDovL29jc3AudGNzLnRlcmVuYS5vcmcwIgYDVR0RBBswGYIXaWRwLmNyb3VzLXN0
+cmFzYm91cmcuZnIwDQYJKoZIhvcNAQEFBQADggEBAHkNtIeJ+9SmBfRSCUGVgfLK
+Lk9TXjYP3kBgfvu/brnuC9XcaNnpWK6bLU6+ok+iVbexVKE0H5+41wfNV2WfTAiI
+FRhT0gAh4Ian/8DVfJTci9AyowV0vNo6jiolia3jrj7pT2JV0zi68D7ia7qCq+8W
+1BcH7QcZhbEla3A4vYWXDL2ZkOGVtHwu8+bISH5kkwbAR1kSj1W6j68WOMHzzk2q
+9Trm+VsJgWqE1qZ2MQ+IDhK8126oFKyh4s4HUWs789FtwQCpaDlGJeD0pyNDvabl
+3Is6+m8rCoctcDmdACGX08QdzxMKStXnVoM31v5H3CDiAroDNYunnrntdief2+I=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.crous-strasbourg.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.crous-strasbourg.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.crous-strasbourg.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">CROUS Strasbourg</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">CROUS Strasbourg</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>serviceinfo@crous.u-strasbg.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

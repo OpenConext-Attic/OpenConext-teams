@@ -1,0 +1,84 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth.ensiie.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-06-01T11:47:42Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ensiie.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">ENSIIE</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDPDCCAiSgAwIBAgIVAJhRpKXWoL4ec82/4p6JsfCsvqKyMA0GCSqGSIb3DQEB
+BQUAMB8xHTAbBgNVBAMTFHNoaWJib2xldGguZW5zaWllLmZyMB4XDTExMDEyMDA5
+MTQ0OVoXDTMxMDEyMDA5MTQ0OVowHzEdMBsGA1UEAxMUc2hpYmJvbGV0aC5lbnNp
+aWUuZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCHdchDzLlTFyjs
+d9B41OSth9PhLDux66bxohuYtsLWri93KmXhI4I9lBQNkUhQopg6b8Q6XGyKrdsE
+SOLIuRmD+O0ml5xN36fPfJRCh5Y1Z8Jg4luD3zDaK+LybgU437Dd0IKmPH27Iene
+BiLmMCs0ekRmjQN4cmmzRFoYbY9qaZQjW3y+vg7ucUF7YrXWxbxUcTiNWTdl3N3s
+WxWbRQEdcOeQl9CRNI6nA7Bo0V+6IjB+/8J9ho3GYoLtWbcdAeAW34dwv6AvVrex
+XJqb6PcjbqkESZ8PnXDHD1UMsnLy+NbF0CWxi/A1fAhHDYPMEPWIrJBWJ/Fzl6qN
+x2wlkSPTAgMBAAGjbzBtMEwGA1UdEQRFMEOCFHNoaWJib2xldGguZW5zaWllLmZy
+hitodHRwczovL3NoaWJib2xldGguZW5zaWllLmZyL2lkcC9zaGliYm9sZXRoMB0G
+A1UdDgQWBBT58XqSFu3/O2kvOm+ckV4Eeyur9zANBgkqhkiG9w0BAQUFAAOCAQEA
+eUF1Ye+cUNUfZvi0QHiDVtB1bJVFDVimtqt3DJl5g/eYV5jeLHK48+2xrqo2HRk5
+SU+JpT4lGmxVv89cyGF6QzDl5ZC6f5mTi+bR+DXJagoDTeXTph1bDSy9v12tTmXi
+Omo9LtDoYKd4WKUOxzgMJli1ng3wojkFrCmfVJjUzbFWs7EX9DjDYSfwHEXxO+jI
+vrHxCMUO/ZzbFqeDNVTakzahgQ9yAkjDXUVMuvUgAVnfijxKalijRKcUjZQd2CD8
+OcxQqlta3BMFNJvyeGMEx+OTkwl4aBjXweyhhJjRvEbgDHQDiwciDyfhUMjgAXas
+2SsRh/A6XGOz0FDi5j0Qzw==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.ensiie.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.ensiie.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.ensiie.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">ENSIIE</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">ENSIIE</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>THOMAS Gael</SurName>
+				 <EmailAddress>gael.thomas@ensiie.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    		
+
+				
+			
+	</EntityDescriptor>

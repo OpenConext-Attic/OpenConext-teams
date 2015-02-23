@@ -1,0 +1,131 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://idpcafe.ufjf.br/idp/shibboleth">
+    <Extensions>
+
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+                              <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">ufjf.br</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">UFJF - Universidade Federal de Juiz de Fora</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">UFJF - Universidade Federal de Juiz de Fora</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UFJF - Universidade Federal de Juiz de Fora</mdui:Description>
+          <mdui:Description xml:lang="pt-br">UFJF - Universidade Federal de Juiz de Fora</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ufjf.br</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ufjf.br</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIID/DCCAuQCAQAwDQYJKoZIhvcNAQEFBQAwgcMxNDAyBgNVBAoTK1VGSkYgLSBV
+bml2ZXJzaWRhZGUgRmVkZXJhbCBkZSBKdWl6IGRlIEZvcmExDTALBgNVBAsTBENH
+Q08xJzAlBgkqhkiG9w0BCQEWGGVuZ2VuaGFyaWEucmVkZXNAdWZqZi5icjEVMBMG
+A1UEBxMMSnVpeiBkZSBGb3JhMRUwEwYDVQQIEwxNaW5hcyBHZXJhaXMxCzAJBgNV
+BAYTAkJSMRgwFgYDVQQDEw9pZHBjYWZlLnVmamYuYnIwHhcNMTQwNTE1MTI1NDA4
+WhcNMTcwNTE0MTI1NDA4WjCBwzE0MDIGA1UEChMrVUZKRiAtIFVuaXZlcnNpZGFk
+ZSBGZWRlcmFsIGRlIEp1aXogZGUgRm9yYTENMAsGA1UECxMEQ0dDTzEnMCUGCSqG
+SIb3DQEJARYYZW5nZW5oYXJpYS5yZWRlc0B1ZmpmLmJyMRUwEwYDVQQHEwxKdWl6
+IGRlIEZvcmExFTATBgNVBAgTDE1pbmFzIEdlcmFpczELMAkGA1UEBhMCQlIxGDAW
+BgNVBAMTD2lkcGNhZmUudWZqZi5icjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+AQoCggEBALchDbtE8aCMl4QLHxwYXSd6XUKkGLr8MUTeRqanArp6GjbPdmRCVXXD
+1jQxYKOreu3FAe6HA5N+miqKs6/lYFspfiYv3hhv7kYjvch8HDde2Y4dBb6R/tDv
+RronbnX/7yHnlYvVgJsgG8vAvvk8G2i8DkFxXm2voBgd1oZKFCxZ91u5VspOZBll
+9IpRo92eV4s2r4gA29Y5PTt+9QhKcYbwqbY0H/qOsrDUUw3N6eHkbMCmTbTwF9QQ
+9kdGNE9kqsCpVe2pvdDRufAGM2lhW9FRQ7TtQVM2W05gAKqM/gtqmFTHcXOW61s9
+1UNQHy950x3+6XV5uPSJ5goWVH/IBq8CAwEAATANBgkqhkiG9w0BAQUFAAOCAQEA
+ZvdlVROsCPu31t4NMLcJffMJ3UczKuQz/hnpqFopzHx/ZzAvA2qh7EyyDSKZYcVb
+u1Ot25INLgEMywDAE54zD5kzPiWqe7L1ozoXoO5KB3wLPn6E61JVq4T4OJDdKyJy
++laNFVPumFJ1OoOJimQW5s8LhuW7cwIojE5r0Mi5M8lxuazQIxMUMsOy+cjvEJ1l
+4xAqcBQPPzN8BS9nh21wZ0yrpxDTk7WhASv+OmjFhod5fyYdWrATt/7ayoP3lNv9
+IgvH8wv82qKhKozHFDyFhPwNwBMLIskMni1P/NJSlXbMYt3/I6mvRKLGBVZWOdeG
+VHUsC0A0Nd9rEkuwkV0GdA==
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idpcafe.ufjf.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idpcafe.ufjf.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idpcafe.ufjf.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idpcafe.ufjf.br/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idpcafe.ufjf.br/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idpcafe.ufjf.br/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+      <Extensions>
+        <shibmd:Scope regexp="false">ufjf.br</shibmd:Scope>
+      </Extensions>
+
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIID/DCCAuQCAQAwDQYJKoZIhvcNAQEFBQAwgcMxNDAyBgNVBAoTK1VGSkYgLSBV
+bml2ZXJzaWRhZGUgRmVkZXJhbCBkZSBKdWl6IGRlIEZvcmExDTALBgNVBAsTBENH
+Q08xJzAlBgkqhkiG9w0BCQEWGGVuZ2VuaGFyaWEucmVkZXNAdWZqZi5icjEVMBMG
+A1UEBxMMSnVpeiBkZSBGb3JhMRUwEwYDVQQIEwxNaW5hcyBHZXJhaXMxCzAJBgNV
+BAYTAkJSMRgwFgYDVQQDEw9pZHBjYWZlLnVmamYuYnIwHhcNMTQwNTE1MTI1NDA4
+WhcNMTcwNTE0MTI1NDA4WjCBwzE0MDIGA1UEChMrVUZKRiAtIFVuaXZlcnNpZGFk
+ZSBGZWRlcmFsIGRlIEp1aXogZGUgRm9yYTENMAsGA1UECxMEQ0dDTzEnMCUGCSqG
+SIb3DQEJARYYZW5nZW5oYXJpYS5yZWRlc0B1ZmpmLmJyMRUwEwYDVQQHEwxKdWl6
+IGRlIEZvcmExFTATBgNVBAgTDE1pbmFzIEdlcmFpczELMAkGA1UEBhMCQlIxGDAW
+BgNVBAMTD2lkcGNhZmUudWZqZi5icjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+AQoCggEBALchDbtE8aCMl4QLHxwYXSd6XUKkGLr8MUTeRqanArp6GjbPdmRCVXXD
+1jQxYKOreu3FAe6HA5N+miqKs6/lYFspfiYv3hhv7kYjvch8HDde2Y4dBb6R/tDv
+RronbnX/7yHnlYvVgJsgG8vAvvk8G2i8DkFxXm2voBgd1oZKFCxZ91u5VspOZBll
+9IpRo92eV4s2r4gA29Y5PTt+9QhKcYbwqbY0H/qOsrDUUw3N6eHkbMCmTbTwF9QQ
+9kdGNE9kqsCpVe2pvdDRufAGM2lhW9FRQ7TtQVM2W05gAKqM/gtqmFTHcXOW61s9
+1UNQHy950x3+6XV5uPSJ5goWVH/IBq8CAwEAATANBgkqhkiG9w0BAQUFAAOCAQEA
+ZvdlVROsCPu31t4NMLcJffMJ3UczKuQz/hnpqFopzHx/ZzAvA2qh7EyyDSKZYcVb
+u1Ot25INLgEMywDAE54zD5kzPiWqe7L1ozoXoO5KB3wLPn6E61JVq4T4OJDdKyJy
++laNFVPumFJ1OoOJimQW5s8LhuW7cwIojE5r0Mi5M8lxuazQIxMUMsOy+cjvEJ1l
+4xAqcBQPPzN8BS9nh21wZ0yrpxDTk7WhASv+OmjFhod5fyYdWrATt/7ayoP3lNv9
+IgvH8wv82qKhKozHFDyFhPwNwBMLIskMni1P/NJSlXbMYt3/I6mvRKLGBVZWOdeG
+VHUsC0A0Nd9rEkuwkV0GdA==
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idpcafe.ufjf.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idpcafe.ufjf.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+    </AttributeAuthorityDescriptor>
+
+    <Organization>
+      <OrganizationName xml:lang="en">UFJF - Universidade Federal de Juiz de Fora</OrganizationName>
+      <OrganizationName xml:lang="pt-br">UFJF - Universidade Federal de Juiz de Fora</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">UFJF - Universidade Federal de Juiz de Fora</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="pt-br">UFJF - Universidade Federal de Juiz de Fora</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.ufjf.br</OrganizationURL>
+      <OrganizationURL xml:lang="pt-br">http://www.ufjf.br</OrganizationURL>
+    </Organization>
+
+    <ContactPerson contactType="technical">
+      <SurName>Jose Luiz Ribeiro de Souza Filho</SurName>
+      <EmailAddress>engenharia.redes@ufjf.edu.br</EmailAddress>
+    </ContactPerson>
+
+  </EntityDescriptor>

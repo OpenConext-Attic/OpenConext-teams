@@ -1,0 +1,116 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.inserm.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2010-09-29T14:53:19Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">inserm.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">INSERM</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDHzCCAgegAwIBAgIUPRg4DDJsvsJXUOi8j5yeUXXX7vwwDQYJKoZIhvcNAQEF
+BQAwGDEWMBQGA1UEAxMNaWRwLmluc2VybS5mcjAeFw0xMDA5MjcxMjQwMzVaFw0z
+MDA5MjcxMjQwMzVaMBgxFjAUBgNVBAMTDWlkcC5pbnNlcm0uZnIwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCZMeilvtmNQnYydiIIwt449Et+Hpk5lqUg
+6WSjV5CHD7Lz784CjJwXJ3gZ2c2oC6ejVOFxr0RUuxdxmawVY211MZPuyjY8G34i
+sqbxBLYseqBw9SGUQqWKgoPTimcHryL+qj18mzOgevSFYKvVJ/q/nqxDor3/c20V
+KpjVBIL6lMWNqnBrZX63D1O6/clt8RHFDVjOaCHn47IQVBccRfE4AMr9tRCs+q91
+CzvGYMyxSy4hlqyPK/WW+LDY5Hmn3Kp8LZWSKekyBZB8nK1j4qSxOET1zFucd3FU
+MB7pQdtgzs15wbR8JTK1YYO6OJ3ffrY9srenSlcLYdZ3Iud+6pbXAgMBAAGjYTBf
+MD4GA1UdEQQ3MDWCDWlkcC5pbnNlcm0uZnKGJGh0dHBzOi8vaWRwLmluc2VybS5m
+ci9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU8fCrONu36laDi9nBzT+NIIKejZQw
+DQYJKoZIhvcNAQEFBQADggEBADDcCgGRVAub909ulzl/iYhzl3QhR9XjKxzWV4JH
+4HI7Hb3DAPOcffdbSdG2lLv4qw+Ds9Y08tI9Gof7bDVWE08ye9xFN2BwBTn2KKJz
+lq6FPbfW5Swi289Q0UvCI7J5LbYTAiU+2CYSSgxg0cGer8ho1+hSsKIoLaqXMjz2
+3TMmJK+QuPbnW2jKS3xcdHOUhtZXYKQE+veaHNlNt/8vqF9C7IzCRfSCeT880cHw
+f6ou5oRTltOZOUJfXI1XMhAUNnU7zQvrFeoGrRzGv3zq8AieXbRyWhXY1Eo1mPpS
+4gA/AqUGz/DMMnCEWuy1Dmq9rAOVcoAxntyKDo0ntUiBrUg=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.inserm.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.inserm.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.inserm.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">inserm.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDHzCCAgegAwIBAgIUPRg4DDJsvsJXUOi8j5yeUXXX7vwwDQYJKoZIhvcNAQEF
+BQAwGDEWMBQGA1UEAxMNaWRwLmluc2VybS5mcjAeFw0xMDA5MjcxMjQwMzVaFw0z
+MDA5MjcxMjQwMzVaMBgxFjAUBgNVBAMTDWlkcC5pbnNlcm0uZnIwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCZMeilvtmNQnYydiIIwt449Et+Hpk5lqUg
+6WSjV5CHD7Lz784CjJwXJ3gZ2c2oC6ejVOFxr0RUuxdxmawVY211MZPuyjY8G34i
+sqbxBLYseqBw9SGUQqWKgoPTimcHryL+qj18mzOgevSFYKvVJ/q/nqxDor3/c20V
+KpjVBIL6lMWNqnBrZX63D1O6/clt8RHFDVjOaCHn47IQVBccRfE4AMr9tRCs+q91
+CzvGYMyxSy4hlqyPK/WW+LDY5Hmn3Kp8LZWSKekyBZB8nK1j4qSxOET1zFucd3FU
+MB7pQdtgzs15wbR8JTK1YYO6OJ3ffrY9srenSlcLYdZ3Iud+6pbXAgMBAAGjYTBf
+MD4GA1UdEQQ3MDWCDWlkcC5pbnNlcm0uZnKGJGh0dHBzOi8vaWRwLmluc2VybS5m
+ci9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU8fCrONu36laDi9nBzT+NIIKejZQw
+DQYJKoZIhvcNAQEFBQADggEBADDcCgGRVAub909ulzl/iYhzl3QhR9XjKxzWV4JH
+4HI7Hb3DAPOcffdbSdG2lLv4qw+Ds9Y08tI9Gof7bDVWE08ye9xFN2BwBTn2KKJz
+lq6FPbfW5Swi289Q0UvCI7J5LbYTAiU+2CYSSgxg0cGer8ho1+hSsKIoLaqXMjz2
+3TMmJK+QuPbnW2jKS3xcdHOUhtZXYKQE+veaHNlNt/8vqF9C7IzCRfSCeT880cHw
+f6ou5oRTltOZOUJfXI1XMhAUNnU7zQvrFeoGrRzGv3zq8AieXbRyWhXY1Eo1mPpS
+4gA/AqUGz/DMMnCEWuy1Dmq9rAOVcoAxntyKDo0ntUiBrUg=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.inserm.fr/idp/AA"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">INSERM</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">INSERM</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>resnat.dsi@inserm.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

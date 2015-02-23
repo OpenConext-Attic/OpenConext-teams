@@ -18,9 +18,11 @@ package nl.surfnet.coin.teams.service.impl;
 
 import java.util.Calendar;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
@@ -45,31 +47,52 @@ import static org.mockito.Mockito.when;
         "classpath:coin-shared-context.xml"})
 @TransactionConfiguration(transactionManager = "teamTransactionManager", defaultRollback = true)
 @Transactional
+@ActiveProfiles("openconext")
 public class TeamInviteServiceHibernateImplTest {
+
+  private String email;
+  private Team team;
+
+  @Before
+  public void setUp() throws Exception {
+    email = "coincalendar@gmail.com";
+    team = new Team("team-1", "team", "team");
+  }
 
   @Autowired
   private TeamInviteService teamInviteService;
 
   @Test
   public void testAlreadyInvited() throws Exception {
-    String email = "coincalendar@gmail.com";
-    Team team = mock(Team.class);
-    when(team.getId()).thenReturn("team-1");
 
-    assertNull(teamInviteService.findInvitation(email, team));
+    assertNull(teamInviteService.findOpenInvitation(email, team));
 
     Invitation invitation = new Invitation(email, team.getId());
     teamInviteService.saveOrUpdate(invitation);
 
-    assertNotNull(teamInviteService.findInvitation(email, team));
+    assertNotNull(teamInviteService.findOpenInvitation(email, team));
+  }
+
+  @Test
+  public void testDoesNotReturnAcceptedInvitation() throws Exception {
+    Invitation invitation = new Invitation(email, team.getId());
+    invitation.accept();
+    teamInviteService.saveOrUpdate(invitation);
+
+    assertNull(teamInviteService.findOpenInvitation(email, team));
+  }
+
+  @Test
+  public void testDoesNotReturnDeclinedInvitation() throws Exception {
+    Invitation invitation = new Invitation(email, team.getId());
+    invitation.decline();
+    teamInviteService.saveOrUpdate(invitation);
+
+    assertNull(teamInviteService.findOpenInvitation(email, team));
   }
 
   @Test
   public void testFindInvitationByInviteId() throws Exception {
-    String email = "coincalendar@gmail.com";
-    Team team = mock(Team.class);
-    when(team.getId()).thenReturn("team-1");
-
     Invitation invitation = new Invitation(email, team.getId());
     String hash = invitation.getInvitationHash();
 
@@ -78,12 +101,9 @@ public class TeamInviteServiceHibernateImplTest {
 
     assertNotNull(teamInviteService.findInvitationByInviteId(hash));
   }
+
   @Test
   public void testFindAllInvitationById() throws Exception {
-    String email = "coincalendar@gmail.com";
-    Team team = mock(Team.class);
-    when(team.getId()).thenReturn("team-1");
-
     Invitation invitation = new Invitation(email, team.getId());
     Calendar calendar = Calendar.getInstance();
     calendar.add(Calendar.DAY_OF_WEEK, -20);
@@ -97,10 +117,6 @@ public class TeamInviteServiceHibernateImplTest {
 
   @Test
   public void testDonotFindExpiredInvitationByInviteId() throws Exception {
-    String email = "coincalendar@gmail.com";
-    Team team = mock(Team.class);
-    when(team.getId()).thenReturn("team-1");
-
     Invitation invitation = new Invitation(email, team.getId());
     Calendar calendar = Calendar.getInstance();
     calendar.add(Calendar.DAY_OF_WEEK, -16);
@@ -118,30 +134,23 @@ public class TeamInviteServiceHibernateImplTest {
 
   @Test
   public void testFindInvitationsForTeam() throws Exception {
-    Team team1 = mock(Team.class);
-    when(team1.getId()).thenReturn("team-1");
-    Team team2 = mock(Team.class);
-        when(team2.getId()).thenReturn("team-2");
+    Team team2 = new Team("team-2", "team-2", "team-2");
     Invitation invitation1 = new Invitation(
-            "coincalendar@gmail.com", team1.getId());
+            "coincalendar@gmail.com", team.getId());
     Invitation invitation2 = new Invitation(
-            "coincalendar@yahoo.com", team1.getId());
+            "coincalendar@yahoo.com", team.getId());
     Invitation invitation3 = new Invitation(
             "coincalendar@yahoo.com", team2.getId());
-    assertEquals(0, teamInviteService.findAllInvitationsForTeam(team1).size());
+    assertEquals(0, teamInviteService.findAllInvitationsForTeam(team).size());
     teamInviteService.saveOrUpdate(invitation1);
     teamInviteService.saveOrUpdate(invitation2);
     teamInviteService.saveOrUpdate(invitation3);
-    assertEquals(2, teamInviteService.findAllInvitationsForTeam(team1).size());
+    assertEquals(2, teamInviteService.findAllInvitationsForTeam(team).size());
     assertEquals(3, teamInviteService.findAll().size());
   }
 
   @Test
   public void testCleanupExpiredInvitations() throws Exception {
-    String email = "coincalendar@gmail.com";
-    Team team = mock(Team.class);
-    when(team.getId()).thenReturn("team-1");
-
     Invitation oldInvitation = new Invitation(
             email, team.getId());
     Calendar calendar = Calendar.getInstance();

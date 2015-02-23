@@ -1,0 +1,118 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.student.bth.se/idp/shibboleth">
+<md:Extensions>
+<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.swamid.se/">
+<mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+</mdrpi:RegistrationInfo>
+</md:Extensions>
+  <IDPSSODescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+    <Extensions>
+      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">bth.se</shibmd:Scope>
+      <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <mdui:DisplayName xml:lang="sv">Blekinge Tekniska Högskola - Studenter</mdui:DisplayName>
+        <mdui:DisplayName xml:lang="en">Blekinge Institute of Technology - Students</mdui:DisplayName>
+        <mdui:Description xml:lang="sv">Identity Provider för Blekinge Tekniska Högskola för studenter</mdui:Description>
+        <mdui:Description xml:lang="en">Identity Provider for Blekinge Institute of Technology for students</mdui:Description>
+        <mdui:InformationURL xml:lang="sv">http://www.bth.se</mdui:InformationURL>
+        <mdui:InformationURL xml:lang="en">http://www.bth.se/eng</mdui:InformationURL>
+        <mdui:Keywords xml:lang="sv">Blekinge+Tekniska+Högskola BTH</mdui:Keywords>
+        <mdui:Keywords xml:lang="en">Blekinge+Tekniska+Högskola BTH</mdui:Keywords>
+      </mdui:UIInfo>
+      <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <mdui:DomainHint>bth.se</mdui:DomainHint>
+      </mdui:DiscoHints>
+    </Extensions>
+    <KeyDescriptor>
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>MIIDMzCCAhugAwIBAgIUXtEpwm2skeWeBBMWVN7MATD1VK8wDQYJKoZIhvcNAQEF
+BQAwHTEbMBkGA1UEAxMSaWRwLnN0dWRlbnQuYnRoLnNlMB4XDTEwMDgyNTIwMDU0
+OFoXDTMwMDgyNTIwMDU0OFowHTEbMBkGA1UEAxMSaWRwLnN0dWRlbnQuYnRoLnNl
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsO+nW3r0Rzu0ojoCY0Jm
+R/GuN73dy9gDYOtvgwtFJkVdQBuEGDvVYgD4WUzCnSSy5b4EGFwAaBLIfZ4UAL2c
+fWIWJknPrfSxFqR9dLJJo9hkHMX8VBumjhzYHVZqYSm/JVGh4GYewhQmRO0iSG9a
+it5fe6ZyVG67TduhnwzFC8azRSfIgnEjaRGP2qVEiUIbfuiRRr2J88rwxyxrYCa5
+ZVMLjR9wSBRqG8P+00UDolT3Q0lvawF3pj+kEbZ2p+Y6UxZHghHi5EKMkvy1OfKy
+RYkfxXbGk2JEXGcgb3MyRLmdZoqrH0BedH2udrwzOEGUdb/cElqmpFMOyZBdwEVO
+/QIDAQABo2swaTBIBgNVHREEQTA/ghJpZHAuc3R1ZGVudC5idGguc2WGKWh0dHBz
+Oi8vaWRwLnN0dWRlbnQuYnRoLnNlL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRA
+vpCow9+jy11YKdmATEMN1KY1dTANBgkqhkiG9w0BAQUFAAOCAQEALbZz8voHJMiE
+Tjc7RYskFIOAx7k1fmPsF4kSdPyDK8RkyHBfGHa5uJ9wBh4w5BPCp9Wy7SY5+q/y
+E9tDiISVD0NEU8KQX8u8pC1d4OdfT2x6tn+w3Ww5cNaQ3CUsD+VqefiX6Acr3ssX
+0ahszKKVCL8v7ifCqxr1q2dbABB6GV9iwKHB+vfXLIp2Upt6+y3i5+iC1C8uXul0
+TAimxX3igYDGippzeyBoy+es/c7shtdBfj3y3zhfcz/KKJvXFPVF0lwYsW8n2BM3
+nH4GzdNBUhBostxPfU/hk7XiQOMXNvgHzG2y53Vaa+RZPC45VHuFmyixxGFxktsF
+4NzN1iC8kg==</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.student.bth.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.student.bth.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+    <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.student.bth.se/idp/profile/Shibboleth/SSO"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.student.bth.se/idp/profile/SAML2/POST/SSO"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.student.bth.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.student.bth.se/idp/profile/SAML2/Redirect/SSO"/>
+  </IDPSSODescriptor>
+  <AttributeAuthorityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+    <Extensions>
+      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">bth.se</shibmd:Scope>
+    </Extensions>
+    <KeyDescriptor>
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>MIIDMzCCAhugAwIBAgIUXtEpwm2skeWeBBMWVN7MATD1VK8wDQYJKoZIhvcNAQEF
+BQAwHTEbMBkGA1UEAxMSaWRwLnN0dWRlbnQuYnRoLnNlMB4XDTEwMDgyNTIwMDU0
+OFoXDTMwMDgyNTIwMDU0OFowHTEbMBkGA1UEAxMSaWRwLnN0dWRlbnQuYnRoLnNl
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsO+nW3r0Rzu0ojoCY0Jm
+R/GuN73dy9gDYOtvgwtFJkVdQBuEGDvVYgD4WUzCnSSy5b4EGFwAaBLIfZ4UAL2c
+fWIWJknPrfSxFqR9dLJJo9hkHMX8VBumjhzYHVZqYSm/JVGh4GYewhQmRO0iSG9a
+it5fe6ZyVG67TduhnwzFC8azRSfIgnEjaRGP2qVEiUIbfuiRRr2J88rwxyxrYCa5
+ZVMLjR9wSBRqG8P+00UDolT3Q0lvawF3pj+kEbZ2p+Y6UxZHghHi5EKMkvy1OfKy
+RYkfxXbGk2JEXGcgb3MyRLmdZoqrH0BedH2udrwzOEGUdb/cElqmpFMOyZBdwEVO
+/QIDAQABo2swaTBIBgNVHREEQTA/ghJpZHAuc3R1ZGVudC5idGguc2WGKWh0dHBz
+Oi8vaWRwLnN0dWRlbnQuYnRoLnNlL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRA
+vpCow9+jy11YKdmATEMN1KY1dTANBgkqhkiG9w0BAQUFAAOCAQEALbZz8voHJMiE
+Tjc7RYskFIOAx7k1fmPsF4kSdPyDK8RkyHBfGHa5uJ9wBh4w5BPCp9Wy7SY5+q/y
+E9tDiISVD0NEU8KQX8u8pC1d4OdfT2x6tn+w3Ww5cNaQ3CUsD+VqefiX6Acr3ssX
+0ahszKKVCL8v7ifCqxr1q2dbABB6GV9iwKHB+vfXLIp2Upt6+y3i5+iC1C8uXul0
+TAimxX3igYDGippzeyBoy+es/c7shtdBfj3y3zhfcz/KKJvXFPVF0lwYsW8n2BM3
+nH4GzdNBUhBostxPfU/hk7XiQOMXNvgHzG2y53Vaa+RZPC45VHuFmyixxGFxktsF
+4NzN1iC8kg==</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.student.bth.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+    <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.student.bth.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+  </AttributeAuthorityDescriptor>
+  
+  
+  
+  
+<Organization xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
+    <OrganizationName xml:lang="en">STUDENTS-BTH</OrganizationName>
+    <OrganizationDisplayName xml:lang="sv">Blekinge Tekniska Högskola (Studenter)</OrganizationDisplayName>
+    <OrganizationDisplayName xml:lang="en">Blekinge Tekniska Högskola (Studenter)</OrganizationDisplayName>
+    <OrganizationURL xml:lang="en">http://www.bth.se</OrganizationURL>
+  </Organization>
+<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="administrative">
+    <Company>Blekinge Institute of Technology - Students</Company>
+    <SurName>IT Help Desk</SurName>
+    <EmailAddress>ithelpdesk@bth.se</EmailAddress>
+    <TelephoneNumber>+46 455 38 51 00</TelephoneNumber>
+  </ContactPerson>
+<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="technical">
+    <Company>Blekinge Institute of Technology - Students</Company>
+    <SurName>IT Help Desk</SurName>
+    <EmailAddress>ithelpdesk@bth.se</EmailAddress>
+    <TelephoneNumber>+46 455 38 51 00</TelephoneNumber>
+  </ContactPerson>
+<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="support">
+    <Company>Blekinge Institute of Technology - Students</Company>
+    <SurName>IT Help Desk</SurName>
+    <EmailAddress>ithelpdesk@bth.se</EmailAddress>
+    <TelephoneNumber>+46 455 38 51 00</TelephoneNumber>
+  </ContactPerson>
+</md:EntityDescriptor>

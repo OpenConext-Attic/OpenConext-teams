@@ -1,0 +1,129 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.telecom-lille1.eu/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-12-04T10:53:26Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">telecom-lille1.eu</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Telecom Lille1</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDPzCCAiegAwIBAgIUJLHfF/BYKnVTAfbCyG7p6neXmikwDQYJKoZIhvcNAQEF
+BQAwIDEeMBwGA1UEAxMVaWRwLnRlbGVjb20tbGlsbGUxLmV1MB4XDTA5MTAxMzEy
+NTE1NVoXDTI5MTAxMzEyNTE1NVowIDEeMBwGA1UEAxMVaWRwLnRlbGVjb20tbGls
+bGUxLmV1MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAke9f/k5yNntZ
+mKHJse2R1dALp2yQ431GM7WgcwLz61E10KQFp4QvHcRnOA28aQ2ftOdDYXF8Ce/g
+l/f/gzmfLI3UkV33VQnu7wTUcG7qnA4ixmSz1wXshiBNiCqy+DlvzxxFa1rrrhTK
+DCGNxJEsNcT42xnnoL739jJt7hhwOzNTR6jd+PtnkBBJkULj0JNU3lgVVLaic61Z
+2sqqbp976AE81I5Peu/uNwBEQEze3JZFq4lPMftIT1qCrpZueUzZJe/IaB8gckur
+U+ts8Qk7X6LaWA9rHLz3M1cS5I/nFgxX5BzNTpJac8YEFl4rN0j8VVNKMuQ8NPoz
+lMSlVexERQIDAQABo3EwbzBOBgNVHREERzBFghVpZHAudGVsZWNvbS1saWxsZTEu
+ZXWGLGh0dHBzOi8vaWRwLnRlbGVjb20tbGlsbGUxLmV1L2lkcC9zaGliYm9sZXRo
+MB0GA1UdDgQWBBRIcbHtrFzmqsjXU8/WEtUyCjUm+DANBgkqhkiG9w0BAQUFAAOC
+AQEAfeUGRk0BupcoO20DeNRmBokqCZn0N7n5mmco4eJWjl4CD0dvxcNmTHmO9nYS
+FPVBNASEjmnaU12RSAIM0mVnLwo6kXAQsbKa2xKGL6l3jkmsvcEj8F1Dg5e0QGBe
+eSdYLGI2mGbAoIQWeK3majTQXZ+UyzVXKjzJ2JCk96MvEwKODd4HGX+Z8eMRE/0A
+SoP9I+z1FYAuXjOeKazq+UY3jbiSx/UDBAA0g7FHkzJRaFiws0BZiiOkqPMHLGlB
+cjxHOjLM8xkrkI3+w28uv1nrNWH82728WeyMt5PWqVTyKg8SjPViZWusJF0KUkS/
+/jKovrhBMghl87+BWkzQTRzSyw==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.telecom-lille1.eu/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.telecom-lille1.eu/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.telecom-lille1.eu/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">telecom-lille1.eu</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDPzCCAiegAwIBAgIUJLHfF/BYKnVTAfbCyG7p6neXmikwDQYJKoZIhvcNAQEF
+BQAwIDEeMBwGA1UEAxMVaWRwLnRlbGVjb20tbGlsbGUxLmV1MB4XDTA5MTAxMzEy
+NTE1NVoXDTI5MTAxMzEyNTE1NVowIDEeMBwGA1UEAxMVaWRwLnRlbGVjb20tbGls
+bGUxLmV1MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAke9f/k5yNntZ
+mKHJse2R1dALp2yQ431GM7WgcwLz61E10KQFp4QvHcRnOA28aQ2ftOdDYXF8Ce/g
+l/f/gzmfLI3UkV33VQnu7wTUcG7qnA4ixmSz1wXshiBNiCqy+DlvzxxFa1rrrhTK
+DCGNxJEsNcT42xnnoL739jJt7hhwOzNTR6jd+PtnkBBJkULj0JNU3lgVVLaic61Z
+2sqqbp976AE81I5Peu/uNwBEQEze3JZFq4lPMftIT1qCrpZueUzZJe/IaB8gckur
+U+ts8Qk7X6LaWA9rHLz3M1cS5I/nFgxX5BzNTpJac8YEFl4rN0j8VVNKMuQ8NPoz
+lMSlVexERQIDAQABo3EwbzBOBgNVHREERzBFghVpZHAudGVsZWNvbS1saWxsZTEu
+ZXWGLGh0dHBzOi8vaWRwLnRlbGVjb20tbGlsbGUxLmV1L2lkcC9zaGliYm9sZXRo
+MB0GA1UdDgQWBBRIcbHtrFzmqsjXU8/WEtUyCjUm+DANBgkqhkiG9w0BAQUFAAOC
+AQEAfeUGRk0BupcoO20DeNRmBokqCZn0N7n5mmco4eJWjl4CD0dvxcNmTHmO9nYS
+FPVBNASEjmnaU12RSAIM0mVnLwo6kXAQsbKa2xKGL6l3jkmsvcEj8F1Dg5e0QGBe
+eSdYLGI2mGbAoIQWeK3majTQXZ+UyzVXKjzJ2JCk96MvEwKODd4HGX+Z8eMRE/0A
+SoP9I+z1FYAuXjOeKazq+UY3jbiSx/UDBAA0g7FHkzJRaFiws0BZiiOkqPMHLGlB
+cjxHOjLM8xkrkI3+w28uv1nrNWH82728WeyMt5PWqVTyKg8SjPViZWusJF0KUkS/
+/jKovrhBMghl87+BWkzQTRzSyw==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.telecom-lille1.eu/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Telecom Lille1</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Telecom Lille1</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Landru</SurName>
+				 <EmailAddress>jacques.landru@telecom-lille1.eu</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Sion</SurName>
+				 <EmailAddress>martine.sion@telecom-lille1.eu</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

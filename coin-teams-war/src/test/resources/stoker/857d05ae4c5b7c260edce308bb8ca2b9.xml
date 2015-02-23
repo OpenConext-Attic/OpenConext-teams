@@ -1,0 +1,96 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://openskos.meertens.knaw.nl/shibboleth">
+    <Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-03-05T08:47:07Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </Extensions>
+    <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://openskos.meertens.knaw.nl/Shibboleth.sso/Login" index="1"/>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="de">OpenSKOS | Meertens</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">OpenSKOS | Meertens</mdui:DisplayName>
+          <mdui:Description xml:lang="de">This Service Provider provides access to the Meertens Institute's Simple Knowledge Organization System Repository</mdui:Description>
+          <mdui:Description xml:lang="en">This Service Provider provides access to the Meertens Institute's Simple Knowledge Organization System Repository</mdui:Description>
+          <mdui:Logo height="44" width="64">https://openskos.meertens.knaw.nl/assets/images/logo-open-skos.png</mdui:Logo>
+          <mdui:InformationURL xml:lang="en">https://openskos.meertens.knaw.nl</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">http://www.meertens.knaw.nl/cms/en/collections/data-protection</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>twww11</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=twww11</ds:X509SubjectName>
+            <ds:X509Certificate>MIIC2TCCAcGgAwIBAgIJAOJ/2Z9fcxVXMA0GCSqGSIb3DQEBBQUAMBExDzANBgNV
+BAMTBnR3d3cxMTAeFw0xMzA0MTYxNTA3MzhaFw0yMzA0MTQxNTA3MzhaMBExDzAN
+BgNVBAMTBnR3d3cxMTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAP4a
+E7gfLARdAbSMy3ntWsCqI0M4uXkeN8vZe2aiBUGi0hN9TuN9DO8mr4P8EXjhT0qQ
+/tfff3FOJggFQwT8xXjSxevD3/fQfc31cc19W48xLzZ2299w0GlT6ABVeykixnT/
+2N4BUFwlGKKSYZ25VvF7HStpO8PoqoOU+vTxxOSHv+k8r/E+e8/Yqy1x+tYwjtCp
+mRTuej2AEg7EvCPez4+63GcSkSFJDTkAdUkIsQwBvBjceeeNjPrfDdcVriYq8zEq
+aHlAM88NOWqkzhFn7RDDQ9I40Km2sv+zEwHn+cYe8RQktx+7kTocNfttlc6Gj3cx
+wBo6gLCYlDtE9Bp4Hg0CAwEAAaM0MDIwEQYDVR0RBAowCIIGdHd3dzExMB0GA1Ud
+DgQWBBTEKetHu5XysV19YPdBXllRdGy+0jANBgkqhkiG9w0BAQUFAAOCAQEAIRi/
+IZLuNXS7kk8e6Hj4QW0eeqNBpHRHVPC/J2/2C9GpRVEPCmsYTRhIDc6y1XDEpJlW
+u6J75jXhfSisrzaVYvDTLymYV2qhob3hqlM39PGcyXWvnyT8HWQA6nhOGIIq2K2c
+M+dr9RBlPlv+0rJq07ZbkNJqfxu4tigKOP/+sJiMuORso9uk4Ak+0cX+yb/48zqE
+6qUUo3jx8o3Uv51YiYTaPeMacxDH4TcMEZOttUmY7SH7jkZCoRlpFnozCB6QwfA/
+5D7JsQ/vElBegBrNmdrIoZyI+ezREelVATJURfgJu+47mmhVWIK0St6S1y+pgPQ4
+1bxBV69YDJSB5BjVPA==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://openskos.meertens.knaw.nl/Shibboleth.sso/SLO/SOAP"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://openskos.meertens.knaw.nl/Shibboleth.sso/SLO/Redirect"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://openskos.meertens.knaw.nl/Shibboleth.sso/SLO/POST"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://openskos.meertens.knaw.nl/Shibboleth.sso/SLO/Artifact"/>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://openskos.meertens.knaw.nl/Shibboleth.sso/SAML2/POST" index="1"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://openskos.meertens.knaw.nl/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://openskos.meertens.knaw.nl/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://openskos.meertens.knaw.nl/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://openskos.meertens.knaw.nl/Shibboleth.sso/SAML/POST" index="5"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://openskos.meertens.knaw.nl/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <AttributeConsumingService index="1">
+        <ServiceName xml:lang="de">OpenSKOS | Meertens</ServiceName>
+        <ServiceName xml:lang="en">OpenSKOS | Meertens</ServiceName>
+        <ServiceDescription xml:lang="de">This Service Provider provides access to the Meertens Institute's Simple Knowledge Organization System Repository</ServiceDescription>
+        <ServiceDescription xml:lang="en">This Service Provider provides access to the Meertens Institute's Simple Knowledge Organization System Repository</ServiceDescription>
+        <RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="uid" Name="urn:oid:0.9.2342.19200300.100.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="schacHomeOrganization" Name="urn:oid:1.3.6.1.4.1.25178.1.2.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+      </AttributeConsumingService>
+    </SPSSODescriptor>
+    <Organization>
+      <OrganizationName xml:lang="de">e404</OrganizationName>
+      <OrganizationName xml:lang="en">e404</OrganizationName>
+      <OrganizationDisplayName xml:lang="de">Meertens Institute</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="en">Meertens Institute</OrganizationDisplayName>
+      <OrganizationURL xml:lang="de">http://www.meertens.knaw.nl</OrganizationURL>
+      <OrganizationURL xml:lang="en">http://www.meertens.knaw.nl</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="support">
+      <GivenName>KNAW</GivenName>
+      <SurName>Support</SurName>
+      <EmailAddress>mailto:servicedesk@knaw.nl</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="technical">
+      <GivenName>Marc</GivenName>
+      <SurName>Kemps-Snijders</SurName>
+      <EmailAddress>mailto:marc.kemps.snijders@meertens.knaw.nl</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="administrative">
+      <GivenName>Marc</GivenName>
+      <SurName>Kemps-Snijders</SurName>
+      <EmailAddress>mailto:marc.kemps.snijders@meertens.knaw.nl</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

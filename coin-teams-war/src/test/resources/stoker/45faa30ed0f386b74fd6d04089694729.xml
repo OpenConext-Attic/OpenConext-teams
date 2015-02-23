@@ -1,0 +1,78 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://auth.univ-paris-diderot.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-06-22T15:05:05Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-paris-diderot.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de Paris 7 - Denis Diderot</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDSDCCAjCgAwIBAgIJAN6STuFrAhxnMA0GCSqGSIb3DQEBBQUAMCUxIzAhBgNV
+BAMTGmF1dGgudW5pdi1wYXJpcy1kaWRlcm90LmZyMB4XDTE0MDMwNDEzMDA1NFoX
+DTE3MDMwMzEzMDA1NFowJTEjMCEGA1UEAxMaYXV0aC51bml2LXBhcmlzLWRpZGVy
+b3QuZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCpIa57mIoE7c60
+vKjcad8J0NnF2PS6JunZVvCQxdoFn7M7bNHLXnzbR3eRy/YOvs5Lap/PAZYeefUB
+XN7jsge+V1iqrz464yZGbNYHrweqp8EZU2L8GLNhHI6gOHHDGVR9NbsYFtrfrYnP
+unzON0yI99fg+YKRKIjbzPPsAcsaC6EtztqCzdui/iXpG2jNlvWWWx2TSQR4Dxn/
+cKHABFOwMmoqL/yJ0nvk2zEmL0etBSUdoiGeAOy4YxlrtRWKP8A4xrOwYwCt/v5k
+KWeLb5FHUvLMTRszxd56422oQnAS//0Xjr6k3rIGy6x4QaDj2pnGfBVF7Bj8KzeV
+7LAqpDoZAgMBAAGjezB5MFgGA1UdEQRRME+CGmF1dGgudW5pdi1wYXJpcy1kaWRl
+cm90LmZyhjFodHRwczovL2F1dGgudW5pdi1wYXJpcy1kaWRlcm90LmZyL2lkcC9z
+aGliYm9sZXRoMB0GA1UdDgQWBBQ77uGaL//q8VYtszQ2KFmuivP1fzANBgkqhkiG
+9w0BAQUFAAOCAQEAdmP3c/NNbbabPnpFeykRfkHIOLkVNsqwxR0a2Jr3LNSm9SE/
+Uta0MubpVTrImYQ9Fj8d3/MbSJtFR83dQ7Ib3/JZ04RqHz1LThOga8Qjw7s/O4Do
+j0NW1Rv/3CDCeDM5nOJ+4QlCLu0NqoAKDURooIJf0VTr5LnOAKMeQMAejXrtFjZT
+2IjXihUHeROCpIja7zzo84eZbbZvmOmrIJBbtDIEVjqqq7v9cYAbsrFxRw7WZo8J
+AeQBiqc1r72+AtBF18BJnpvVviUUxNU+MWLbNl+SaWhuUOqKqpFYcmF2jUHrM+N4
+VMThjYGNfbI8izARv+4LCGkfOSrlpq/2KqJ+FQ==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://auth.univ-paris-diderot.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://auth.univ-paris-diderot.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://auth.univ-paris-diderot.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Paris 7 - Denis Diderot</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Paris 7 - Denis Diderot</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>noc@univ-paris-diderot.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

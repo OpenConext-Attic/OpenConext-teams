@@ -1,0 +1,101 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://login.idp.hhs.se/idp/shibboleth">
+<md:Extensions>
+<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.swamid.se/">
+<mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+</mdrpi:RegistrationInfo>
+</md:Extensions>
+  <IDPSSODescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+    <Extensions>
+      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">hhs.se</shibmd:Scope>
+      <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <mdui:DisplayName xml:lang="sv">Handelshögskolan i Stockholm</mdui:DisplayName>
+        <mdui:DisplayName xml:lang="en">Stockholm School of Economics</mdui:DisplayName>
+        <mdui:Description xml:lang="sv">Identity Provider för Handelshögskolan i Stockholm.</mdui:Description>
+        <mdui:Description xml:lang="en">Identity Provider for Stockholm School of Economics.</mdui:Description>
+        <mdui:Logo height="82" width="82">https://login.idp.hhs.se/idp/images/logo.png</mdui:Logo>
+      </mdui:UIInfo>
+      <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <mdui:IPHint>193.10.48.0/24</mdui:IPHint>
+        <mdui:DomainHint>hhs.se</mdui:DomainHint>
+        <mdui:GeolocationHint>geo:59.34161,18.05659</mdui:GeolocationHint>
+      </mdui:DiscoHints>
+    </Extensions>
+    <KeyDescriptor>
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>MIIDLDCCAhSgAwIBAgIVAPaVg+Pnce+JDTg4a490Fu28tq5UMA0GCSqGSIb3DQEB
+BQUAMBsxGTAXBgNVBAMTEGxvZ2luLmlkcC5oaHMuc2UwHhcNMTQwMjE4MDgzNTI1
+WhcNMTcwMjE4MDgzNTI1WjAbMRkwFwYDVQQDExBsb2dpbi5pZHAuaGhzLnNlMIIB
+IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApHfxE/NtoBdovpvyI+ShRpC9
+PvASzTQ7O2zsFwRsaooYlSeRxWq4jL4dyC7lm1Z5CPWgOAqcprYFkUI1wFhopOLU
+nYvqjc0jx8lSV9nqdSRC2MJrLbOS8V0CL8pAWeVbHE848nVeJS4elOr2EvYkZAij
+t78R/RvBJrVBpRKiAz1uvCGIyZ2HYt6bQBzWkG4L+pxC3z/ttjI2ql9ctWB3im00
+mzdmN7GW6bCQJlYWm8sy0iHI9Yt1aUMkXlBnrlUVNzq+cp+2hhuB7qy/XqhUVUMq
+PkBxpIkk6To2kCN+00uQP4oslomw3khz0GcrV88+nAIAAEeA3zrYbBvh05ABGQID
+AQABo2cwZTBEBgNVHREEPTA7ghBsb2dpbi5pZHAuaGhzLnNlhidodHRwczovL2xv
+Z2luLmlkcC5oaHMuc2UvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFIMbKfamMiy4
+s3T84Lli4DWzkdIbMA0GCSqGSIb3DQEBBQUAA4IBAQBZt9RVrBFSfR+F5L+zPQrl
+3rTfcJXbivC8hWORCF3mFf3Z7nlOY/c/0LvOMK5pXF+gU50kjMhQ56mQHcmph9NC
+sabeqXJNDw7XlwUTYW4JkN8UpbaPvdeWKnWIUS/3zheqKIwbngkef1VqFLLtPOOw
+Io1509ayQEdBHOVmkC6dyzfy0eLoYOhFWlsP2PGaUkwx2IPEkZIT9HYKSO29vJLh
+Npezy9C4aa5Dvq92Chi9C4SVsjbeq2LNccaYLMj9Gt9HBOoQHNn8bcgKn1I17T9S
+UXquEqvQ92VtMjTxgKgQRmQKkzigbL4FehuxJaF/BrO8KcshRQQkqdQeUvmY1/QC</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://login.idp.hhs.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.idp.hhs.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+    <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://login.idp.hhs.se/idp/profile/Shibboleth/SSO"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.idp.hhs.se/idp/profile/SAML2/POST/SSO"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://login.idp.hhs.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.idp.hhs.se/idp/profile/SAML2/Redirect/SSO"/>
+  </IDPSSODescriptor>
+  <AttributeAuthorityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+    <Extensions>
+      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">hhs.se</shibmd:Scope>
+    </Extensions>
+    <KeyDescriptor>
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>MIIDLDCCAhSgAwIBAgIVAPaVg+Pnce+JDTg4a490Fu28tq5UMA0GCSqGSIb3DQEB
+BQUAMBsxGTAXBgNVBAMTEGxvZ2luLmlkcC5oaHMuc2UwHhcNMTQwMjE4MDgzNTI1
+WhcNMTcwMjE4MDgzNTI1WjAbMRkwFwYDVQQDExBsb2dpbi5pZHAuaGhzLnNlMIIB
+IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApHfxE/NtoBdovpvyI+ShRpC9
+PvASzTQ7O2zsFwRsaooYlSeRxWq4jL4dyC7lm1Z5CPWgOAqcprYFkUI1wFhopOLU
+nYvqjc0jx8lSV9nqdSRC2MJrLbOS8V0CL8pAWeVbHE848nVeJS4elOr2EvYkZAij
+t78R/RvBJrVBpRKiAz1uvCGIyZ2HYt6bQBzWkG4L+pxC3z/ttjI2ql9ctWB3im00
+mzdmN7GW6bCQJlYWm8sy0iHI9Yt1aUMkXlBnrlUVNzq+cp+2hhuB7qy/XqhUVUMq
+PkBxpIkk6To2kCN+00uQP4oslomw3khz0GcrV88+nAIAAEeA3zrYbBvh05ABGQID
+AQABo2cwZTBEBgNVHREEPTA7ghBsb2dpbi5pZHAuaGhzLnNlhidodHRwczovL2xv
+Z2luLmlkcC5oaHMuc2UvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFIMbKfamMiy4
+s3T84Lli4DWzkdIbMA0GCSqGSIb3DQEBBQUAA4IBAQBZt9RVrBFSfR+F5L+zPQrl
+3rTfcJXbivC8hWORCF3mFf3Z7nlOY/c/0LvOMK5pXF+gU50kjMhQ56mQHcmph9NC
+sabeqXJNDw7XlwUTYW4JkN8UpbaPvdeWKnWIUS/3zheqKIwbngkef1VqFLLtPOOw
+Io1509ayQEdBHOVmkC6dyzfy0eLoYOhFWlsP2PGaUkwx2IPEkZIT9HYKSO29vJLh
+Npezy9C4aa5Dvq92Chi9C4SVsjbeq2LNccaYLMj9Gt9HBOoQHNn8bcgKn1I17T9S
+UXquEqvQ92VtMjTxgKgQRmQKkzigbL4FehuxJaF/BrO8KcshRQQkqdQeUvmY1/QC</ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://login.idp.hhs.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+    <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.idp.hhs.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+  </AttributeAuthorityDescriptor>
+  
+  
+<Organization xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
+    <OrganizationName xml:lang="en">HHS</OrganizationName>
+    <OrganizationDisplayName xml:lang="sv">Handelshögskolan i Stockholm</OrganizationDisplayName>
+    <OrganizationDisplayName xml:lang="en">Stockholm School of Economics</OrganizationDisplayName>
+    <OrganizationURL xml:lang="en">http://www.hhs.se</OrganizationURL>
+  </Organization>
+<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="technical">
+    <Company>Handelshögskolan i Stockholm</Company>
+    <EmailAddress>itsupport@hhs.se</EmailAddress>
+  </ContactPerson>
+</md:EntityDescriptor>

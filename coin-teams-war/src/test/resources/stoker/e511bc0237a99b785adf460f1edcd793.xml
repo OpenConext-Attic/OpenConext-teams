@@ -1,0 +1,117 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.ujf.cas.cz/idp/shibboleth">
+    <Extensions>
+      <eduidmd:RepublishRequest xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0">
+        <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
+      </eduidmd:RepublishRequest>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.eduid.cz/" registrationInstant="2014-04-09T14:17:34Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <mdasrt:Attribute xmlns:mdasrt="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <mdasrt:AttributeValue>http://eduid.cz/uri/idp-group/avcr</mdasrt:AttributeValue>
+        </mdasrt:Attribute>
+      </mdattr:EntityAttributes>
+    </Extensions>
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">ujf.cas.cz</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">Nuclear Physics Institute of the ASCR</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">Ústav jaderné fyziky AV ČR</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity Provider NPI ASCR employees.</mdui:Description>
+          <mdui:Description xml:lang="cs">Identity Provider pro zaměstnance ÚJF AV ČR</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ujf.cas.cz/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">http://www.ujf.cas.cz/</mdui:InformationURL>
+          <mdui:Logo height="44" width="74">https://jiftach.cas.cz/loga/logo-ujf-44.png</mdui:Logo>
+          <mdui:Logo height="411" width="960">https://jiftach.cas.cz/loga/logo-ujf-201.png</mdui:Logo>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDJDCCAgygAwIBAgIVAOD7Yz6jYE8fRkrwh1ZXoCmNIVU6MA0GCSqGSIb3DQEB
+BQUAMBkxFzAVBgNVBAMTDmlkcC51amYuY2FzLmN6MB4XDTE0MDQwMTExMDUyOVoX
+DTM0MDQwMTExMDUyOVowGTEXMBUGA1UEAxMOaWRwLnVqZi5jYXMuY3owggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCk6sa+XtQhFGDXscfnTX1UUzCmoDh5
+Kz4uFhU7NlFIK7uAjTp3QivxHKiCEP71zGnOcHC/sxBcEa7mt5qcp8eRuN9yxQRQ
+hB82z2WGHmzhB5qn6DCf1gMHMdlF1xSjm5tttmYyyTRqeKFDj4G7kkbvZoLC88UA
+8b5mqLubMNfGbDARjEQdAFjHbi6KZPvxHEg9EHxfSQHPwOon1GBpy565iacaZyKq
+N1c6rBQ1Dk7wM7ggbzye663O/BE3iL3i6j3trKD5oNp+73UHHDov1uevf6a+ytJd
+g7ls87pFGYEnkjMLOQz1ClsbOGmqcpLIaVxL5A0MqLaA1W/a8EyXXSFHAgMBAAGj
+YzBhMEAGA1UdEQQ5MDeCDmlkcC51amYuY2FzLmN6hiVodHRwczovL2lkcC51amYu
+Y2FzLmN6L2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBSQTmbv/Y1doqdDwVhaTZm6
+/cTQSjANBgkqhkiG9w0BAQUFAAOCAQEAAymJ3004P1+g69w44c50ARFmSwmNkRig
+/NYhXIBOHCMmHDpzCNBmlLYlxHqf/eoOcC2aEnJsjHt442tmw33Wz4BE4k8X7S7Q
+VskudwRhmCqSglM4OI7hDlNqL7RqFFph6TgeNXHlJgC7ZPZT8///0AlDXI0Zlo1i
+qmRTjFNJq948mACt8uENgTAANFT76+OJMAPfd/9ILn+2EX6rf/yg/DjWzGqcoDkS
+5/h7LWagG5taDgrHmTzYp5+PumgVB2l8avie+ABirn//quP3ppZbSP5xD3ODhx77
+omalIqG0h8g4GccE3iuYIFki2jTqg3YNgi/tWm8a2ORKi9t4kDjUQA==
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ujf.cas.cz:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ujf.cas.cz:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ujf.cas.cz/idp/profile/SAML2/Redirect/SLO"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ujf.cas.cz/idp/profile/SAML2/POST/SLO"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ujf.cas.cz:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ujf.cas.cz/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ujf.cas.cz/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.ujf.cas.cz/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ujf.cas.cz/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">ujf.cas.cz</shibmd:Scope>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDJDCCAgygAwIBAgIVAOD7Yz6jYE8fRkrwh1ZXoCmNIVU6MA0GCSqGSIb3DQEB
+BQUAMBkxFzAVBgNVBAMTDmlkcC51amYuY2FzLmN6MB4XDTE0MDQwMTExMDUyOVoX
+DTM0MDQwMTExMDUyOVowGTEXMBUGA1UEAxMOaWRwLnVqZi5jYXMuY3owggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCk6sa+XtQhFGDXscfnTX1UUzCmoDh5
+Kz4uFhU7NlFIK7uAjTp3QivxHKiCEP71zGnOcHC/sxBcEa7mt5qcp8eRuN9yxQRQ
+hB82z2WGHmzhB5qn6DCf1gMHMdlF1xSjm5tttmYyyTRqeKFDj4G7kkbvZoLC88UA
+8b5mqLubMNfGbDARjEQdAFjHbi6KZPvxHEg9EHxfSQHPwOon1GBpy565iacaZyKq
+N1c6rBQ1Dk7wM7ggbzye663O/BE3iL3i6j3trKD5oNp+73UHHDov1uevf6a+ytJd
+g7ls87pFGYEnkjMLOQz1ClsbOGmqcpLIaVxL5A0MqLaA1W/a8EyXXSFHAgMBAAGj
+YzBhMEAGA1UdEQQ5MDeCDmlkcC51amYuY2FzLmN6hiVodHRwczovL2lkcC51amYu
+Y2FzLmN6L2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBSQTmbv/Y1doqdDwVhaTZm6
+/cTQSjANBgkqhkiG9w0BAQUFAAOCAQEAAymJ3004P1+g69w44c50ARFmSwmNkRig
+/NYhXIBOHCMmHDpzCNBmlLYlxHqf/eoOcC2aEnJsjHt442tmw33Wz4BE4k8X7S7Q
+VskudwRhmCqSglM4OI7hDlNqL7RqFFph6TgeNXHlJgC7ZPZT8///0AlDXI0Zlo1i
+qmRTjFNJq948mACt8uENgTAANFT76+OJMAPfd/9ILn+2EX6rf/yg/DjWzGqcoDkS
+5/h7LWagG5taDgrHmTzYp5+PumgVB2l8avie+ABirn//quP3ppZbSP5xD3ODhx77
+omalIqG0h8g4GccE3iuYIFki2jTqg3YNgi/tWm8a2ORKi9t4kDjUQA==
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ujf.cas.cz:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ujf.cas.cz:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+    </AttributeAuthorityDescriptor>
+    <Organization>
+      <OrganizationName xml:lang="en">Nuclear Physics Institute of the ASCR</OrganizationName>
+      <OrganizationName xml:lang="cs">Ústav jaderné fyziky AV ČR</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">Nuclear Physics Institute of the ASCR</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="cs">Ústav jaderné fyziky AV ČR, v.v.i.</OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.ujf.cas.cz/</OrganizationURL>
+      <OrganizationURL xml:lang="cs">http://www.ujf.cas.cz/</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Petr</GivenName>
+      <SurName>Vaníček</SurName>
+      <EmailAddress>vanicekp@utia.cas.cz</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

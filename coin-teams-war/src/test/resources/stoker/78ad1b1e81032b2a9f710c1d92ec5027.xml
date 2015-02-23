@@ -1,0 +1,78 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.univ-orleans.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-04-18T17:24:32Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-orleans.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université d'Orléans</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDPDCCAiSgAwIBAgIVANWZeCtKF/UQd4fR6YuwUFezr4HpMA0GCSqGSIb3DQEB
+BQUAMB8xHTAbBgNVBAMTFHNoaWIudW5pdi1vcmxlYW5zLmZyMB4XDTExMDQxMTEy
+MDgzMFoXDTMxMDQxMTEyMDgzMFowHzEdMBsGA1UEAxMUc2hpYi51bml2LW9ybGVh
+bnMuZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDCTIQZAwSNXNbF
+4QOav/RSjyjZjSxLsQtUazKnrbz4NfBb2ne7rz6vCLsWL5ROCo6SxVvs3pXKNSUD
+vURq6o98KadI0MIn9b4NM5K/4pczaSlF1R6hw0IPYh5eYefIt4hOc92JXHUPn/AP
+fQc2xTiMT1ym5mEsPeAefwr0nkbdv/X7joxldaRNqmTgwqrtKacWVY/soMwtRB+m
+bFHd8bAQmnLTVGl/ZP26or3XaTspPkqnY6F2lg/0Zajrj2suV0zhxJ7h+yvEuQju
+GTDsB1+y7WUqV6e3ZYwAEirjX3gjK3cdehNYLukk1v9HVP3nFeiMjfHeAuLqWwoP
+oRwCxs9dAgMBAAGjbzBtMEwGA1UdEQRFMEOCFHNoaWIudW5pdi1vcmxlYW5zLmZy
+hitodHRwczovL3NoaWIudW5pdi1vcmxlYW5zLmZyL2lkcC9zaGliYm9sZXRoMB0G
+A1UdDgQWBBS2+qObLJGIfmja7fzCOw56RXQlpzANBgkqhkiG9w0BAQUFAAOCAQEA
+RZ+y3gkKx9sZ+RCNCfcsqW5J13+vJw5tAog7tiNaeR92/gkPduQnV77R3O1Dc9m1
+97EMCsYfY6LReQOEHTy3yl3oJm/VPDlyaHS6pufnfLtf/PYoQEWhJDCNhA4ebJ8R
+fbi97IoQA3hHQPYwo1qBfZkCy10k2EzHz6hz9EZtEXEjMCcgFGFNhfDkNBWrmDln
+Lk2EiYwXkYbiqz4l8/tVJ3YFYVNmNezvW/PvgeiJaSKaIWwpeHxu/YdB+grKUckN
+IM41Gy3rPU+4VD6wsj+dXYpUCvMUwVKaQahxu1DKWH9hrMMBkYio3dLds0GNs0GJ
+C+qiXdGuUa6kUpYVBFC+Vw==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.univ-orleans.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.univ-orleans.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.univ-orleans.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université d'Orléans</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université d'Orléans</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>equipe.reseau@univ-orleans.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

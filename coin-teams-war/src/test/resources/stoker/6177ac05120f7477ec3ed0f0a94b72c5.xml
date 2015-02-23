@@ -1,0 +1,117 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.psu.cas.cz/idp/shibboleth">
+    <Extensions>
+      <eduidmd:RepublishRequest xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0">
+        <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
+      </eduidmd:RepublishRequest>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.eduid.cz/" registrationInstant="2014-07-25T15:25:07Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <mdasrt:Attribute xmlns:mdasrt="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <mdasrt:AttributeValue>http://eduid.cz/uri/idp-group/avcr</mdasrt:AttributeValue>
+        </mdasrt:Attribute>
+      </mdattr:EntityAttributes>
+    </Extensions>
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">psu.cas.cz</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="en">The Institute of Psychology of Academy of Science of Czech Republic</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">Psychologický ústav Akademie věd České republiky</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity Provider PSU AV CR employees.</mdui:Description>
+          <mdui:Description xml:lang="cs">Identity Provider pro zaměstnance PSÚ AV ČR</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.psu.cas.cz/about</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">http://www.psu.cas.cz/about</mdui:InformationURL>
+          <mdui:Logo height="44" width="43">https://jiftach.cas.cz/loga/logo-psu-44.png</mdui:Logo>
+          <mdui:Logo height="200" width="197">https://jiftach.cas.cz/loga/logo-psu-200.png</mdui:Logo>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDIzCCAgugAwIBAgIUJGJLo8LBNXH49TIdHVPulwy9J78wDQYJKoZIhvcNAQEF
+BQAwGTEXMBUGA1UEAxMOaWRwLnBzdS5jYXMuY3owHhcNMTQwNzIzMTAwNDMwWhcN
+MzQwNzIzMTAwNDMwWjAZMRcwFQYDVQQDEw5pZHAucHN1LmNhcy5jejCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBAL2AIx+TNI7QvJF1A6csMa/+bCQRPmGL
+ZjJ9YGzaByJwp65HsVh4wmHdPVFenJVtwUuPT0R7WN401XPGNGPtE+D/gf7LQ32g
+xAfwEIBJ8L5ascYnjnhfj4pfK11z+ZQVriLZeF+88FoTtCTUz/L/dqN4w7tcD1JJ
+iY23LggwPGffurHurleuqXMYkctQ3PKMiH0XiA96SsHVqaVi21ukw3i3I6gTctuD
+Per1Sl0psU8UVu9TOyrzNN5hcFxs97U2mUdJXu2CswnWEKOJI7M0tWwaD0es3ouj
+RklNEuzYPahlJYCvaeAoGyIOXoPVCsiJdwOv7hA8D2aCBFNZBEp7MisCAwEAAaNj
+MGEwQAYDVR0RBDkwN4IOaWRwLnBzdS5jYXMuY3qGJWh0dHBzOi8vaWRwLnBzdS5j
+YXMuY3ovaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFNju9u5qEk5CMlhp6s/bAYgs
+N7EwMA0GCSqGSIb3DQEBBQUAA4IBAQB5BMqqwq6+5hXdwidcN14ZSrDwrk2xCRPB
+Xz22tBS/OzKn0QYSWbkuTR1bo2pb84HDRDC8ZMA08R8ymdtf/MZvP79v5SNoCmrh
+TBWW4bNGxDiytE7v9ebKE0pySrWs9fGvYCkUEpZ2U8uPayNazaBmbXRfxbwWx9af
+qRVSx7QU0HO9BlqrIqJeNIGvKuzFaSSzEuprRFTqwTwZE8u/1ysuY/yOARMfyNNU
+SEBa4KldPbiyJ1lbTk5Lckt7Se3n1riY1wIy8jTfPGiytQqupxBwrKHSQHRa10Au
+RzpU/YfIzxlDG61GIAa1poZ/OlrgKIhdI13Gh9EWt2fMYAd7WP50
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.psu.cas.cz:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.psu.cas.cz:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.psu.cas.cz/idp/profile/SAML2/Redirect/SLO"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.psu.cas.cz/idp/profile/SAML2/POST/SLO"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.psu.cas.cz:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.psu.cas.cz/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.psu.cas.cz/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.psu.cas.cz/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.psu.cas.cz/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">psu.cas.cz</shibmd:Scope>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDIzCCAgugAwIBAgIUJGJLo8LBNXH49TIdHVPulwy9J78wDQYJKoZIhvcNAQEF
+BQAwGTEXMBUGA1UEAxMOaWRwLnBzdS5jYXMuY3owHhcNMTQwNzIzMTAwNDMwWhcN
+MzQwNzIzMTAwNDMwWjAZMRcwFQYDVQQDEw5pZHAucHN1LmNhcy5jejCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBAL2AIx+TNI7QvJF1A6csMa/+bCQRPmGL
+ZjJ9YGzaByJwp65HsVh4wmHdPVFenJVtwUuPT0R7WN401XPGNGPtE+D/gf7LQ32g
+xAfwEIBJ8L5ascYnjnhfj4pfK11z+ZQVriLZeF+88FoTtCTUz/L/dqN4w7tcD1JJ
+iY23LggwPGffurHurleuqXMYkctQ3PKMiH0XiA96SsHVqaVi21ukw3i3I6gTctuD
+Per1Sl0psU8UVu9TOyrzNN5hcFxs97U2mUdJXu2CswnWEKOJI7M0tWwaD0es3ouj
+RklNEuzYPahlJYCvaeAoGyIOXoPVCsiJdwOv7hA8D2aCBFNZBEp7MisCAwEAAaNj
+MGEwQAYDVR0RBDkwN4IOaWRwLnBzdS5jYXMuY3qGJWh0dHBzOi8vaWRwLnBzdS5j
+YXMuY3ovaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFNju9u5qEk5CMlhp6s/bAYgs
+N7EwMA0GCSqGSIb3DQEBBQUAA4IBAQB5BMqqwq6+5hXdwidcN14ZSrDwrk2xCRPB
+Xz22tBS/OzKn0QYSWbkuTR1bo2pb84HDRDC8ZMA08R8ymdtf/MZvP79v5SNoCmrh
+TBWW4bNGxDiytE7v9ebKE0pySrWs9fGvYCkUEpZ2U8uPayNazaBmbXRfxbwWx9af
+qRVSx7QU0HO9BlqrIqJeNIGvKuzFaSSzEuprRFTqwTwZE8u/1ysuY/yOARMfyNNU
+SEBa4KldPbiyJ1lbTk5Lckt7Se3n1riY1wIy8jTfPGiytQqupxBwrKHSQHRa10Au
+RzpU/YfIzxlDG61GIAa1poZ/OlrgKIhdI13Gh9EWt2fMYAd7WP50
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.psu.cas.cz:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.psu.cas.cz:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+    </AttributeAuthorityDescriptor>
+    <Organization>
+      <OrganizationName xml:lang="en">The Institute of Psychology of Academy of Science of Czech Republic</OrganizationName>
+      <OrganizationName xml:lang="cs">Psychologický ústav Akademie věd České republiky</OrganizationName>
+      <OrganizationDisplayName xml:lang="en">The Institute of Psychology of Academy of Science of Czech Republic, Public Research Institution</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="cs">Psychologický ústav Akademie věd České republiky, v.v.i. </OrganizationDisplayName>
+      <OrganizationURL xml:lang="en">http://www.psu.cas.cz/about</OrganizationURL>
+      <OrganizationURL xml:lang="cs">http://www.psu.cas.cz/about</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Petr</GivenName>
+      <SurName>Vaníček</SurName>
+      <EmailAddress>vanicekp@utia.cas.cz</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

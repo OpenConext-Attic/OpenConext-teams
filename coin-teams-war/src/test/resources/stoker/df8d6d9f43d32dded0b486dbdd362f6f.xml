@@ -1,0 +1,118 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth.univ-paris-est.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-07-10T14:34:50Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-paris-est.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université Paris - Est</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDXDCCAkSgAwIBAgIVAN+DxU7o62WL7i36RkN6D6PRm0jqMA0GCSqGSIb3DQEB
+BQUAMCcxJTAjBgNVBAMTHHNoaWJib2xldGgudW5pdi1wYXJpcy1lc3QuZnIwHhcN
+MTIwNzA0MDcyMjAwWhcNMzIwNzA0MDcyMjAwWjAnMSUwIwYDVQQDExxzaGliYm9s
+ZXRoLnVuaXYtcGFyaXMtZXN0LmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+CgKCAQEAkrTsAnTcBP9CxCVbjCyA74Nl/zSOMm1L3Iy6DHDAKHvDdpj+RwrrhmQW
+sFBn6HqmSkCe6uO+7NwWfCIF5h0PdvRFNCfAQNLv6k5d3PU6Ala8gIKrUuviQUul
+AMd2JsGoVhbUB2ieQFWn8CrBkjFbvuLBd4Dlgmiw/mveqwiLapzmi/CRHcHQOSiP
+eDl7p9bUXfpYkJN0974ptVB6phGMyVWpW1q1n61W/xN84NCOCeo0yMNqGRkhJfyN
+hrczmA5QFL3QF11imB3Y6kHZFkBRSSr0B+0FvKjxgfej3C7P0KWNmeYPPHxhYKmx
+G0Sii5++F5IdUiLgpA5b6SHVLrDHiwIDAQABo38wfTBcBgNVHREEVTBTghxzaGli
+Ym9sZXRoLnVuaXYtcGFyaXMtZXN0LmZyhjNodHRwczovL3NoaWJib2xldGgudW5p
+di1wYXJpcy1lc3QuZnIvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFCmKWcbQVqe7
+UnO+QpVcDdKOFRGzMA0GCSqGSIb3DQEBBQUAA4IBAQAEQTnWIsJCaKZp8hJvMkwp
+3TBuf0rF8MvQlF2zAXb6ZsWLl41tEYZxFOFMny0GR7JjfWQqKWr7Db/R13e6xFiy
+vlRibUEZS3cR/1TtOEj7PqttNuZrWJVAgBzAHHgJPyWz9C3Q8d474YVHwJsYCDIY
+mGObSSmyOTQAKqFYYNbPW0Y9X2jSWjS5D7JLhA6jECosQiFU212cSyCShHilp75V
+7qS8dXivDDTgSLzSTzOlPKj3qgR+6mmDYClqCaJe2iFfSMBCbk2aspn8+6hQceM4
+W1qZBfNF1cOpL5ceUG8MFu0NLSbSyFh+3TSWBJKFl6Ml3PqAQcMvfXRZ3QVZ+sWR
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.univ-paris-est.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.univ-paris-est.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.univ-paris-est.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-paris-est.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDXDCCAkSgAwIBAgIVAN+DxU7o62WL7i36RkN6D6PRm0jqMA0GCSqGSIb3DQEB
+BQUAMCcxJTAjBgNVBAMTHHNoaWJib2xldGgudW5pdi1wYXJpcy1lc3QuZnIwHhcN
+MTIwNzA0MDcyMjAwWhcNMzIwNzA0MDcyMjAwWjAnMSUwIwYDVQQDExxzaGliYm9s
+ZXRoLnVuaXYtcGFyaXMtZXN0LmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+CgKCAQEAkrTsAnTcBP9CxCVbjCyA74Nl/zSOMm1L3Iy6DHDAKHvDdpj+RwrrhmQW
+sFBn6HqmSkCe6uO+7NwWfCIF5h0PdvRFNCfAQNLv6k5d3PU6Ala8gIKrUuviQUul
+AMd2JsGoVhbUB2ieQFWn8CrBkjFbvuLBd4Dlgmiw/mveqwiLapzmi/CRHcHQOSiP
+eDl7p9bUXfpYkJN0974ptVB6phGMyVWpW1q1n61W/xN84NCOCeo0yMNqGRkhJfyN
+hrczmA5QFL3QF11imB3Y6kHZFkBRSSr0B+0FvKjxgfej3C7P0KWNmeYPPHxhYKmx
+G0Sii5++F5IdUiLgpA5b6SHVLrDHiwIDAQABo38wfTBcBgNVHREEVTBTghxzaGli
+Ym9sZXRoLnVuaXYtcGFyaXMtZXN0LmZyhjNodHRwczovL3NoaWJib2xldGgudW5p
+di1wYXJpcy1lc3QuZnIvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFCmKWcbQVqe7
+UnO+QpVcDdKOFRGzMA0GCSqGSIb3DQEBBQUAA4IBAQAEQTnWIsJCaKZp8hJvMkwp
+3TBuf0rF8MvQlF2zAXb6ZsWLl41tEYZxFOFMny0GR7JjfWQqKWr7Db/R13e6xFiy
+vlRibUEZS3cR/1TtOEj7PqttNuZrWJVAgBzAHHgJPyWz9C3Q8d474YVHwJsYCDIY
+mGObSSmyOTQAKqFYYNbPW0Y9X2jSWjS5D7JLhA6jECosQiFU212cSyCShHilp75V
+7qS8dXivDDTgSLzSTzOlPKj3qgR+6mmDYClqCaJe2iFfSMBCbk2aspn8+6hQceM4
+W1qZBfNF1cOpL5ceUG8MFu0NLSbSyFh+3TSWBJKFl6Ml3PqAQcMvfXRZ3QVZ+sWR
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.univ-paris-est.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université Paris - Est</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université Paris - Est</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>systeme-information@univ-paris-est.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

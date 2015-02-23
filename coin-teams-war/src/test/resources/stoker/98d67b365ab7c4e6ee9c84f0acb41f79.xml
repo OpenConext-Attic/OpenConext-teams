@@ -1,0 +1,85 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idpcnous.cnous.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2013-02-07T10:05:15Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">cnous.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">CNOUS Personnels</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIEgzCCA2ugAwIBAgIRAN+fTxO99oLKFyV67Q3f9oUwDQYJKoZIhvcNAQEFBQAw
+NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+IFNTTCBDQTAeFw0xMzAxMzAwMDAwMDBaFw0xNjAxMzAyMzU5NTlaMFwxCzAJBgNV
+BAYTAkZSMTEwLwYDVQQKEyhDRU5UIE5BVElPTkFMIERFUyBPRVVWUkVTIFVOSVZF
+UlNJVEFJUkVTMRowGAYDVQQDExFpZHBjbm91cy5jbm91cy5mcjCCASIwDQYJKoZI
+hvcNAQEBBQADggEPADCCAQoCggEBAKmDZI9ioaT/upYky/FUoSsDM+ro/CmIlUQx
+878APgpaDBjBE9fDmQ2CYUcrOza6RSSfQPLxI6C6M0bRMSI73qFfipZyaBASRJlU
+K/Ksi2zE99N3+9/C44RoC5GecIw06Dh/XJAmMzMBmZC8DozWzyGqxxUvqjzmS5/X
+NPYUCIio0lATxdxn69AVMAmq13w5FTnQ5szxOs/32NHdhjC1e47i63fiuD0nfbzO
+MjPDGAP3fovPs5WCz6fboVIMvsBQmpJgAYN56OyihdcoDHjN99PeB9m4W8cbt278
++Vy8FPJai04ewnk9ZV41d7FBQcmJjiLSo1N4Bv6gbwPSuP7dKFECAwEAAaOCAWQw
+ggFgMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBSi
+79FoH7qArry8MfcXBjuww+bjoTAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIw
+ADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwGAYDVR0gBBEwDzANBgsr
+BgEEAbIxAQICHTA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJl
+bmEub3JnL1RFUkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUH
+MAKGKWh0dHA6Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYG
+CCsGAQUFBzABhhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9yZzAcBgNVHREEFTAT
+ghFpZHBjbm91cy5jbm91cy5mcjANBgkqhkiG9w0BAQUFAAOCAQEAUuPcmzXpxblf
+R0qTWKRTxfQQuH8NxLhQkpsHoARXU3DUKcpNrLkAgio1RAqJpm6S/qLssBxdFPqQ
+UFtI/C45HwIpk+X9gKFYfms5j/cX04y9+6zGJNX/rbQeLuDBmy8Ezak6ANQh0pFc
+4y8Om1X8GZuUdGxc5kN/lTiR87rRtD9Z+JX27C/dCtcvmM240w12EqNP9SsSzd4c
+GgtSQhKmeEnFDu1WDJo3hEgmJ1vual3s2T/+yDWswMdXVdsSVV6gjwMVCMLmhmEQ
+BYCUKfQUTVt7q7XD2d4Jc9DujMUsEUM+narQH37dQbMFli95mGkeqq+Eui33KuHN
+jwAZiSN1rg==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idpcnous.cnous.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idpcnous.cnous.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idpcnous.cnous.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">CNOUS Personnels</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">CNOUS Personnels</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>equipe.systeme@cnous.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

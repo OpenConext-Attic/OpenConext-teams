@@ -110,7 +110,7 @@ public class AddTeamController {
     }
 
     Person person = (Person) request.getSession().getAttribute(
-        LoginInterceptor.PERSON_SESSION_KEY);
+      LoginInterceptor.PERSON_SESSION_KEY);
 
     Team team = new Team();
     team.setViewable(true);
@@ -129,12 +129,12 @@ public class AddTeamController {
                         @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
                         @RequestParam() String token,
                         SessionStatus status)
-      throws IOException {
+    throws IOException {
     TokenUtil.checkTokens(sessionToken, token, status);
     ViewUtil.addViewToModelMap(request, modelMap);
 
     Person person = (Person) request.getSession().getAttribute(
-        LoginInterceptor.PERSON_SESSION_KEY);
+      LoginInterceptor.PERSON_SESSION_KEY);
     String personId = person.getId();
 
     String admin2 = request.getParameter("admin2");
@@ -169,7 +169,7 @@ public class AddTeamController {
       teamId = grouperTeamService.addTeam(teamName, teamName, teamDescription, stemId);
       AuditLog.log("User {} added team (name: {}, id: {}) with stem {}", personId, teamName, teamId, stemId);
       final Locale locale = localeResolver.resolveLocale(request);
-      inviteAdmin(teamId, person, admin2, teamName, admin2Message ,locale);
+      inviteAdmin(teamId, person, admin2, teamName, admin2Message, locale);
     } catch (DuplicateTeamException e) {
       modelMap.addAttribute("nameerror", "duplicate");
       return "addteam";
@@ -186,9 +186,15 @@ public class AddTeamController {
 
     status.setComplete();
     modelMap.clear();
-    return "redirect:detailteam.shtml?team="
+    if (environment.isGroupzyEnabled()) {
+      return String.format("redirect:/teams/%s/service-providers.shtml?view=", teamId, ViewUtil.getView(request));
+    } else {
+      return "redirect:detailteam.shtml?team="
         + URLEncoder.encode(teamId, "utf-8") + "&view="
         + ViewUtil.getView(request);
+
+    }
+
   }
 
   private void inviteAdmin(final String teamId, final Person inviter, final String admin2, final String teamName,
@@ -207,7 +213,7 @@ public class AddTeamController {
     Object[] messageValuesSubject = {teamName};
 
     String subject = messageSource.getMessage(AddMemberController.INVITE_SEND_INVITE_SUBJECT,
-        messageValuesSubject, locale);
+      messageValuesSubject, locale);
 
 
     addMemberController.sendInvitationByMail(invitation, subject, inviter, locale);

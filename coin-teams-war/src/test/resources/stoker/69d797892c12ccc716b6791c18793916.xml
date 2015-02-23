@@ -1,0 +1,135 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.ids-mannheim.de/idp/shibboleth">
+    <Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2009-12-22T10:22:36Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">ids-mannheim.de</saml1md:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="de">Institut für Deutsche Sprache (IDS)</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Institut für Deutsche Sprache (IDS)</mdui:DisplayName>
+          <mdui:Description xml:lang="de">Identity-Provider des Institut für Deutsche Sprache</mdui:Description>
+          <mdui:Description xml:lang="en">Identity-Provider of the Institut für Deutsche Sprache</mdui:Description>
+          <mdui:Logo height="16" width="16">https://idp.ids-mannheim.de/logos/ids-logo-small.png</mdui:Logo>
+          <mdui:Logo height="63" width="318">https://idp.ids-mannheim.de/logos/ids-logo-large.png</mdui:Logo>
+          <mdui:InformationURL xml:lang="de">http://www.ids-mannheim.de</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">http://www.ids-mannheim.de</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>idp.ids-mannheim.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=idp.ids-mannheim.de,OU=DFN-PKI,O=DFN-Verein,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIE4zCCA8ugAwIBAgIEDyTTjjANBgkqhkiG9w0BAQUFADBVMQswCQYDVQQGEwJE
+RTETMBEGA1UEChMKREZOLVZlcmVpbjEQMA4GA1UECxMHREZOLVBLSTEfMB0GA1UE
+AxMWREZOLVZlcmVpbiBDQSBTZXJ2aWNlczAeFw0wOTExMTkxNDI4MTVaFw0xNDEx
+MTgxNDI4MTVaMFIxCzAJBgNVBAYTAkRFMRMwEQYDVQQKEwpERk4tVmVyZWluMRAw
+DgYDVQQLEwdERk4tUEtJMRwwGgYDVQQDExNpZHAuaWRzLW1hbm5oZWltLmRlMIIB
+IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAt7L/7N+17/v7lajOiMdvThxk
+NoiCwy2RDzaDi7IEvJtXmT1CkKXVg84uxCneoixdPwO9EZAyphOGfXyvIWiWOEkB
+8135pYTbKNYPuG0+fIYXPvHE1+oFMca3K21GgssvoOZYJfi/wrORLx77iQXRgGYF
+mRllzaspZriQNbIvCwVsKsoL8zt9TeVa0Ltv6A7dRg/36u8XppG4glE4xuuXQgNI
+mj0qpJ9pV76bgzPKUNm2/aXDiyqoI4qvp2h4vM2sFv2MAguPkHI7PPcVXn1L2q3h
+WpylL+gjjNfZm1TdDww+r1HFdeQDORmjSh+Cd4bbdEeA2bWH3NHjSR6xWwCj/wID
+AQABo4IBvDCCAbgwCQYDVR0TBAIwADALBgNVHQ8EBAMCBeAwHQYDVR0lBBYwFAYI
+KwYBBQUHAwIGCCsGAQUFBwMBMB0GA1UdDgQWBBSg5wzZdnXH5hJRlkFfkCXU0cFr
+4TAfBgNVHSMEGDAWgBQdqfGGJnZNz139UKNu6/G8InVt6zCBkQYDVR0fBIGJMIGG
+MEGgP6A9hjtodHRwOi8vY2RwMS5wY2EuZGZuLmRlL2dsb2JhbC1zZXJ2aWNlcy1j
+YS9wdWIvY3JsL2NhY3JsLmNybDBBoD+gPYY7aHR0cDovL2NkcDIucGNhLmRmbi5k
+ZS9nbG9iYWwtc2VydmljZXMtY2EvcHViL2NybC9jYWNybC5jcmwwgaoGCCsGAQUF
+BwEBBIGdMIGaMEsGCCsGAQUFBzAChj9odHRwOi8vY2RwMS5wY2EuZGZuLmRlL2ds
+b2JhbC1zZXJ2aWNlcy1jYS9wdWIvY2FjZXJ0L2NhY2VydC5jcnQwSwYIKwYBBQUH
+MAKGP2h0dHA6Ly9jZHAyLnBjYS5kZm4uZGUvZ2xvYmFsLXNlcnZpY2VzLWNhL3B1
+Yi9jYWNlcnQvY2FjZXJ0LmNydDANBgkqhkiG9w0BAQUFAAOCAQEAB1uluFS88lYI
+QPiuEvlALX1GYfNZTNCJogeflb5E59zdd49Y7L5zs9IXbYLUMqSQrbLyv4i4nK4e
+bApMu6sgKRf6qPW/MZUAmW0VXjce+W3elGohc4D0MSVHXZQN48Y3S0Jktc5CVC46
+HzxN+4WnjMpVFIB8d5PoL8Nck6vuKvM/IzQbUKym9VC29qwxUIyzG7/f6OuzwXtJ
+xPmwm/Z3/0myg08CF/awdegYuOaq2NBWi7ZvJefTvunuzhwv8LcNPon2mFomUq+E
+VVbh+FSPaIx4RWUSCYsAX8B5Yx9FCb0PJ8HnemcVzgyA8x4Qh5JYbdo0FiNI04LE
+99YJ9IIzYQ==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ids-mannheim.de:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ids-mannheim.de:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ids-mannheim.de/idp/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ids-mannheim.de/idp/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.ids-mannheim.de/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ids-mannheim.de/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">ids-mannheim.de</saml1md:Scope>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>idp.ids-mannheim.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=idp.ids-mannheim.de,OU=DFN-PKI,O=DFN-Verein,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIE4zCCA8ugAwIBAgIEDyTTjjANBgkqhkiG9w0BAQUFADBVMQswCQYDVQQGEwJE
+RTETMBEGA1UEChMKREZOLVZlcmVpbjEQMA4GA1UECxMHREZOLVBLSTEfMB0GA1UE
+AxMWREZOLVZlcmVpbiBDQSBTZXJ2aWNlczAeFw0wOTExMTkxNDI4MTVaFw0xNDEx
+MTgxNDI4MTVaMFIxCzAJBgNVBAYTAkRFMRMwEQYDVQQKEwpERk4tVmVyZWluMRAw
+DgYDVQQLEwdERk4tUEtJMRwwGgYDVQQDExNpZHAuaWRzLW1hbm5oZWltLmRlMIIB
+IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAt7L/7N+17/v7lajOiMdvThxk
+NoiCwy2RDzaDi7IEvJtXmT1CkKXVg84uxCneoixdPwO9EZAyphOGfXyvIWiWOEkB
+8135pYTbKNYPuG0+fIYXPvHE1+oFMca3K21GgssvoOZYJfi/wrORLx77iQXRgGYF
+mRllzaspZriQNbIvCwVsKsoL8zt9TeVa0Ltv6A7dRg/36u8XppG4glE4xuuXQgNI
+mj0qpJ9pV76bgzPKUNm2/aXDiyqoI4qvp2h4vM2sFv2MAguPkHI7PPcVXn1L2q3h
+WpylL+gjjNfZm1TdDww+r1HFdeQDORmjSh+Cd4bbdEeA2bWH3NHjSR6xWwCj/wID
+AQABo4IBvDCCAbgwCQYDVR0TBAIwADALBgNVHQ8EBAMCBeAwHQYDVR0lBBYwFAYI
+KwYBBQUHAwIGCCsGAQUFBwMBMB0GA1UdDgQWBBSg5wzZdnXH5hJRlkFfkCXU0cFr
+4TAfBgNVHSMEGDAWgBQdqfGGJnZNz139UKNu6/G8InVt6zCBkQYDVR0fBIGJMIGG
+MEGgP6A9hjtodHRwOi8vY2RwMS5wY2EuZGZuLmRlL2dsb2JhbC1zZXJ2aWNlcy1j
+YS9wdWIvY3JsL2NhY3JsLmNybDBBoD+gPYY7aHR0cDovL2NkcDIucGNhLmRmbi5k
+ZS9nbG9iYWwtc2VydmljZXMtY2EvcHViL2NybC9jYWNybC5jcmwwgaoGCCsGAQUF
+BwEBBIGdMIGaMEsGCCsGAQUFBzAChj9odHRwOi8vY2RwMS5wY2EuZGZuLmRlL2ds
+b2JhbC1zZXJ2aWNlcy1jYS9wdWIvY2FjZXJ0L2NhY2VydC5jcnQwSwYIKwYBBQUH
+MAKGP2h0dHA6Ly9jZHAyLnBjYS5kZm4uZGUvZ2xvYmFsLXNlcnZpY2VzLWNhL3B1
+Yi9jYWNlcnQvY2FjZXJ0LmNydDANBgkqhkiG9w0BAQUFAAOCAQEAB1uluFS88lYI
+QPiuEvlALX1GYfNZTNCJogeflb5E59zdd49Y7L5zs9IXbYLUMqSQrbLyv4i4nK4e
+bApMu6sgKRf6qPW/MZUAmW0VXjce+W3elGohc4D0MSVHXZQN48Y3S0Jktc5CVC46
+HzxN+4WnjMpVFIB8d5PoL8Nck6vuKvM/IzQbUKym9VC29qwxUIyzG7/f6OuzwXtJ
+xPmwm/Z3/0myg08CF/awdegYuOaq2NBWi7ZvJefTvunuzhwv8LcNPon2mFomUq+E
+VVbh+FSPaIx4RWUSCYsAX8B5Yx9FCb0PJ8HnemcVzgyA8x4Qh5JYbdo0FiNI04LE
+99YJ9IIzYQ==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ids-mannheim.de:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ids-mannheim.de:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+    </AttributeAuthorityDescriptor>
+    <Organization>
+      <OrganizationName xml:lang="de">e217</OrganizationName>
+      <OrganizationName xml:lang="en">e217</OrganizationName>
+      <OrganizationDisplayName xml:lang="de">Institut für Deutsche Sprache (IDS)</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="en">Institut für Deutsche Sprache (IDS)</OrganizationDisplayName>
+      <OrganizationURL xml:lang="de">http://www.ids-mannheim.de</OrganizationURL>
+      <OrganizationURL xml:lang="en">http://www.ids-mannheim.de</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Oliver</GivenName>
+      <SurName>Schonefeld</SurName>
+      <EmailAddress>mailto:schonefeld@ids-mannheim.de</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="administrative">
+      <GivenName>Andreas</GivenName>
+      <SurName>Witt</SurName>
+      <EmailAddress>mailto:witt@ids-mannheim.de</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="support">
+      <GivenName>AAI</GivenName>
+      <SurName>Team</SurName>
+      <EmailAddress>mailto:aai@ids-mannheim.de</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

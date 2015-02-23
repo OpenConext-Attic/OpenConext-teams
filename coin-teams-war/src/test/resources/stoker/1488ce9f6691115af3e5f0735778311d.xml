@@ -1,0 +1,88 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://sso.ird.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-12-05T17:22:15Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ird.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">IRD - Institut de Recherche pour le Développement</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDEzCCAfugAwIBAgIUVaH89Xx207IW1cTeMZoDrJ2S8cMwDQYJKoZIhvcNAQEF
+BQAwFTETMBEGA1UEAxMKc3NvLmlyZC5mcjAeFw0xMjEyMDQwODUzMTJaFw0zMjEy
+MDQwODUzMTJaMBUxEzARBgNVBAMTCnNzby5pcmQuZnIwggEiMA0GCSqGSIb3DQEB
+AQUAA4IBDwAwggEKAoIBAQCxoxms45eFcIYxIAqWg8xwg1WpmjsGFAeOnBYoldj2
+Mm2bQSxgdA5wNgdHvpsE1NfsWatZ3o+Cu+lAeL4tbzhyeLcv/5tP7xW1lCUCOsnt
+U+71/QN+hd8t0cTZnOcIVQz2933j+GSlYLb7j4mkeOmH2N1t7eZUBHDHDzhTbRbo
+owW1vMec+I7kgS5hxoOJmthyGxqKquBiFbyVR6D2afe1AoFZCTgH5o34o0LJ56JC
+J+7L86F1PKd8M8BRD/+Bgk5z01rP6iLE4CTw0aalcVAcwUhfu+lSQaQc+UnsAkb6
+IO0r2WpflOy/h3qDYAe5ZaoadAVF7DXI3XkkM7PLvoHXAgMBAAGjWzBZMDgGA1Ud
+EQQxMC+CCnNzby5pcmQuZnKGIWh0dHBzOi8vc3NvLmlyZC5mci9pZHAvc2hpYmJv
+bGV0aDAdBgNVHQ4EFgQUxuTYXqdJEQMDfLAcMpaizQmY728wDQYJKoZIhvcNAQEF
+BQADggEBAI0GQeWZzGLSJtpy/ThyIGBsvc9I4POytPsGTAXXjl225vxBW5wREjXT
+5iZYvqDcaRX7/5Ya0LuixjZd4vw0f/GxNVA1q7UrkYD186qwxdD9ERVBK4A8TKw+
+DTqPj960n+BmHjvfbO5kUiOCxRN8aUwkroiIuokjKo/F/ee4PPhJFmjkjC5UQnAR
+XmxFE6G9gZKzMxZsGStIeip2XgtC8+XSS5mO9sXG2AciRYb9A6yAbq1H6UHgCA4+
+pNLOn4jzVVeC76NhcjDI5Uqx+XbQXfZoVsft8i6RsNXGCHWst5dsepdXMoeJOfkP
+kkuzfMwgp7mBgkel9B3MiVnSCXPSNNU=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.ird.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso.ird.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://sso.ird.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">IRD - Institut de Recherche pour le Développement</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">IRD - Institut de Recherche pour le Développement</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>calvayrac</SurName>
+				 <EmailAddress>didier.calvayrac@ird.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>rouquette</SurName>
+				 <EmailAddress>julien.rouquette@ird.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

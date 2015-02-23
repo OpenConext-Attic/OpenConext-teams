@@ -1,0 +1,89 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.u-bordeaux2.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-07-22T13:59:16Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">u-bordeaux2.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de Bordeaux 2 - Victor Segalen</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDMzCCAhugAwIBAgIUc4KqBCpHPbcVzlUyb7nDoJn4CK0wDQYJKoZIhvcNAQEF
+BQAwHTEbMBkGA1UEAxMSaWRwLnUtYm9yZGVhdXgyLmZyMB4XDTA5MDYyMzA5MTUy
+MVoXDTI5MDYyMzA5MTUyMVowHTEbMBkGA1UEAxMSaWRwLnUtYm9yZGVhdXgyLmZy
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAktJPvpXPKI/6Nl1dysLc
+oZZCrvCg9QhUW+ELfNLGBR4p8FmkXC/1RT7osvEt6MsFVhjtOO/3idpbQkqXhlMD
+ORfcm4hSPDCoEM1OmlwlfHBqeVVb+rfLzEswAQt/v+/IGo3cY9ISa+zUbIEOy5Nu
++LXG1qYd8/tadV7kgsv+kgvCpkspwdqQArParmjboeGYnGD2E1AL3XgU42R/G3Vn
++kNDevHVc1dk6ZKz+7ZqJy5V1pkco5+g9ydAgoTRH6si+AZc975mrzJhAfiwQsoh
+qwpm546ZLaaPXjzJim7S+jA1clc8R/ljGTBZFaWhVIUqJupj5ynAngeOW4OxECGZ
+fwIDAQABo2swaTBIBgNVHREEQTA/ghJpZHAudS1ib3JkZWF1eDIuZnKGKWh0dHBz
+Oi8vaWRwLnUtYm9yZGVhdXgyLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBQ3
+TXyR0d3UvTuQcCnpnWw/mqJyzjANBgkqhkiG9w0BAQUFAAOCAQEAWYtEQih5OA9S
+Apst2Etm8TTDUAttPVxTPkTf263R/An4g8GLngITxCBE4zySoux8KbqPAhQDoFmT
+opRajsYbdzHdQJhNXegBeFbjdr3xaPgVq10mAGk0ZHzsdjivyW2XhSDnzXXn79Xa
+etxfQrJS7o3K992BFAeje6QvjLD3428BBLS6zxMapBPQi07Qufc7Jy7cSLI8xjAj
+xnCcpD6NEdTmHoD7i4krgmzByDoFLNCnAWQAvwze60yOwOaTZy1ccnKheRE/MGuZ
+CDJF+BVT5M2AwByRtc/852lumMNLljK4Jmg9SMPqvjKJUrg6xov89NVIF5I+vOBn
+fNrBEZFRlQ==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.u-bordeaux2.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.u-bordeaux2.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.u-bordeaux2.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Bordeaux 2 - Victor Segalen</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Bordeaux 2 - Victor Segalen</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Laurent LAVAUD</SurName>
+				 <EmailAddress>laurent.lavaud@u-bordeaux2.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Doris CHAUVET</SurName>
+				 <EmailAddress>doris.chauvet@u-bordeaux2.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

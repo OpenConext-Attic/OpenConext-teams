@@ -1,0 +1,116 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://sp.corpus1.mpi.nl">
+    <Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-02-08T21:53:28Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+    <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://corpus1.mpi.nl/Shibboleth.sso/Login" index="1"/>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="de">Max Planck Institute for Psycholinguistics Corpus1 Service Provider for Linguistic Services</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Max Planck Institute for Psycholinguistics Corpus1 Service Provider for Linguistic Services</mdui:DisplayName>
+          <mdui:Description xml:lang="de">Max Planck Institute for Psycholinguistics Corpus1 Service Provider for Linguistic Services</mdui:Description>
+          <mdui:Description xml:lang="en">Max Planck Institute for Psycholinguistics Corpus1 Service Provider for Linguistic Services</mdui:Description>
+          <mdui:InformationURL xml:lang="de">http://www.mpi.nl</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">http://www.mpi.nl</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>corpus1.mpi.nl</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>emailAddress=latadmin@mpi.nl,CN=corpus1.mpi.nl,O=MPI-PL,L=Nijmegen,ST=GLD,C=NL</ds:X509SubjectName>
+            <ds:X509Certificate>MIIDbDCCAlQCCQDcydJCAWzKeDANBgkqhkiG9w0BAQUFADB4MQswCQYDVQQGEwJO
+TDEMMAoGA1UECBMDR0xEMREwDwYDVQQHEwhOaWptZWdlbjEPMA0GA1UEChMGTVBJ
+LVBMMRcwFQYDVQQDEw5jb3JwdXMxLm1waS5ubDEeMBwGCSqGSIb3DQEJARYPbGF0
+YWRtaW5AbXBpLm5sMB4XDTE0MDUwMjExMjkwNVoXDTE5MDUwMTExMjkwNVoweDEL
+MAkGA1UEBhMCTkwxDDAKBgNVBAgTA0dMRDERMA8GA1UEBxMITmlqbWVnZW4xDzAN
+BgNVBAoTBk1QSS1QTDEXMBUGA1UEAxMOY29ycHVzMS5tcGkubmwxHjAcBgkqhkiG
+9w0BCQEWD2xhdGFkbWluQG1waS5ubDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+AQoCggEBAMFrApun/KXB9YtFiT49PHz7uV9EoVmrFsCBNqVWYhM+msq2dkM7rNVe
+eZdy2hHID72ILMeqeXKX+hFQPyX18eN4L6lfJzzJJI2HGdIuGPyKZXCsVrCqnIWo
+VPRi5dnTlCpCEPhebt05L9TMQJrLWue2qDhhdwkaYrVfm+tsYGK9yiy3Gbsoa10L
+kEpd2oJZLDGHXSZJ6GL4oUMbQ+Z9bIjCelQWC4tU/u6qFGIzyoabaJbAlnFAxFSq
+DIQ9+27JObXMnVH/6iK0mhHTooB72Gd0LQHVHGiCrFyxmbhMp7tIX0vU3Qn4/U8F
+kt/Kep3+Wam/1h1NmmOJzTux2NuRurcCAwEAATANBgkqhkiG9w0BAQUFAAOCAQEA
+YPPRnb1/92C/Si/V5I15TfFSTdOeMcVHQ0DY0ohUw8B4fEbr9htjZoW7Umyco5pF
+kf+2Jm0GRVEJKjBxFEsbNbY8vusnP25u88vJa4Qy3JJZbsYGcPZiFOKffZWg/xqW
+t5F3i+akH5ihUn910/5l85SDUnDS1VvHVdOGwsedRNW4Yi9eEWjiEGQwjlhH0sWh
+uxjCIgYajcptpsZ8N8g+bR7ysVk61E5tcmScA5Pnu1fwu6+76mTF6gZO57jzWK93
+FlSHA6c7bCPMo+r4EZVccHBdrTRe6ZdD+OSOuEV4i0iI7IONOE1/ClWKUyueTsA/
+vKRir2Cb6A/NaScKNHBBhg==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <KeyDescriptor use="encryption">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>corpus1.mpi.nl</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>emailAddress=latadmin@mpi.nl,CN=corpus1.mpi.nl,O=MPI-PL,L=Nijmegen,ST=GLD,C=NL</ds:X509SubjectName>
+            <ds:X509Certificate>MIIDbDCCAlQCCQDcydJCAWzKeDANBgkqhkiG9w0BAQUFADB4MQswCQYDVQQGEwJO
+TDEMMAoGA1UECBMDR0xEMREwDwYDVQQHEwhOaWptZWdlbjEPMA0GA1UEChMGTVBJ
+LVBMMRcwFQYDVQQDEw5jb3JwdXMxLm1waS5ubDEeMBwGCSqGSIb3DQEJARYPbGF0
+YWRtaW5AbXBpLm5sMB4XDTE0MDUwMjExMjkwNVoXDTE5MDUwMTExMjkwNVoweDEL
+MAkGA1UEBhMCTkwxDDAKBgNVBAgTA0dMRDERMA8GA1UEBxMITmlqbWVnZW4xDzAN
+BgNVBAoTBk1QSS1QTDEXMBUGA1UEAxMOY29ycHVzMS5tcGkubmwxHjAcBgkqhkiG
+9w0BCQEWD2xhdGFkbWluQG1waS5ubDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+AQoCggEBAMFrApun/KXB9YtFiT49PHz7uV9EoVmrFsCBNqVWYhM+msq2dkM7rNVe
+eZdy2hHID72ILMeqeXKX+hFQPyX18eN4L6lfJzzJJI2HGdIuGPyKZXCsVrCqnIWo
+VPRi5dnTlCpCEPhebt05L9TMQJrLWue2qDhhdwkaYrVfm+tsYGK9yiy3Gbsoa10L
+kEpd2oJZLDGHXSZJ6GL4oUMbQ+Z9bIjCelQWC4tU/u6qFGIzyoabaJbAlnFAxFSq
+DIQ9+27JObXMnVH/6iK0mhHTooB72Gd0LQHVHGiCrFyxmbhMp7tIX0vU3Qn4/U8F
+kt/Kep3+Wam/1h1NmmOJzTux2NuRurcCAwEAATANBgkqhkiG9w0BAQUFAAOCAQEA
+YPPRnb1/92C/Si/V5I15TfFSTdOeMcVHQ0DY0ohUw8B4fEbr9htjZoW7Umyco5pF
+kf+2Jm0GRVEJKjBxFEsbNbY8vusnP25u88vJa4Qy3JJZbsYGcPZiFOKffZWg/xqW
+t5F3i+akH5ihUn910/5l85SDUnDS1VvHVdOGwsedRNW4Yi9eEWjiEGQwjlhH0sWh
+uxjCIgYajcptpsZ8N8g+bR7ysVk61E5tcmScA5Pnu1fwu6+76mTF6gZO57jzWK93
+FlSHA6c7bCPMo+r4EZVccHBdrTRe6ZdD+OSOuEV4i0iI7IONOE1/ClWKUyueTsA/
+vKRir2Cb6A/NaScKNHBBhg==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://corpus1.mpi.nl/Shibboleth.sso/SLO/SOAP"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://corpus1.mpi.nl/Shibboleth.sso/SLO/Redirect"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://corpus1.mpi.nl/Shibboleth.sso/SLO/POST"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://corpus1.mpi.nl/Shibboleth.sso/SLO/Artifact"/>
+      <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://corpus1.mpi.nl/Shibboleth.sso/NIM/SOAP"/>
+      <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://corpus1.mpi.nl/Shibboleth.sso/NIM/Redirect"/>
+      <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://corpus1.mpi.nl/Shibboleth.sso/NIM/POST"/>
+      <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://corpus1.mpi.nl/Shibboleth.sso/NIM/Artifact"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://corpus1.mpi.nl/Shibboleth.sso/SAML2/POST" index="1"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://corpus1.mpi.nl/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://corpus1.mpi.nl/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://corpus1.mpi.nl/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://corpus1.mpi.nl/Shibboleth.sso/SAML/POST" index="5"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://corpus1.mpi.nl/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <AttributeConsumingService index="1">
+        <ServiceName xml:lang="de">Max Planck Institute for Psycholinguistics Corpus1 Service Provider for Linguistic Services</ServiceName>
+        <ServiceName xml:lang="en">Max Planck Institute for Psycholinguistics Corpus1 Service Provider for Linguistic Services</ServiceName>
+        <ServiceDescription xml:lang="de">Max Planck Institute for Psycholinguistics Corpus1 Service Provider for Linguistic Services</ServiceDescription>
+        <ServiceDescription xml:lang="en">Max Planck Institute for Psycholinguistics Corpus1 Service Provider for Linguistic Services</ServiceDescription>
+        <RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+      </AttributeConsumingService>
+    </SPSSODescriptor>
+    <Organization>
+      <OrganizationName xml:lang="de">e235</OrganizationName>
+      <OrganizationName xml:lang="en">e235</OrganizationName>
+      <OrganizationDisplayName xml:lang="de">Max-Planck-Institut für Psycholinguistik</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="en">Max Planck Institute for Psycholinguistics</OrganizationDisplayName>
+      <OrganizationURL xml:lang="de">http://www.mpi.nl</OrganizationURL>
+      <OrganizationURL xml:lang="en">http://www.mpi.nl</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Technical</GivenName>
+      <SurName>Support</SurName>
+      <EmailAddress>mailto:latadmin@mpi.nl</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="support">
+      <GivenName>General</GivenName>
+      <SurName>Support</SurName>
+      <EmailAddress>mailto:latadmin@mpi.nl</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

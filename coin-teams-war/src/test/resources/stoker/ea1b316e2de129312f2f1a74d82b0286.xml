@@ -1,0 +1,100 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://testssso.uni-muenster.de/shibboleth-sp">
+    <Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-03-13T10:36:34Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+    <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://testssso.uni-muenster.de/-shibboleth.sso/Login" index="1"/>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="de">Universität Münster (Staging)</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Universität Münster (Staging)</mdui:DisplayName>
+          <mdui:Description xml:lang="de">Dies ist ein weiterer, nur zeitweise aktiver Zugang zum Single Sign-On der Universität Münster (siehe dort).</mdui:Description>
+          <mdui:Description xml:lang="en">Dies ist ein weiterer, nur zeitweise aktiver Zugang zum Single Sign-On der Universität Münster (siehe dort).</mdui:Description>
+          <mdui:Logo height="32" width="32">https://www.uni-muenster.de/imperia/md/content/allgemein/farbunabhaengig/favicon.ico</mdui:Logo>
+          <mdui:Logo height="60" width="278">https://www.uni-muenster.de/imperia/md/images/allgemein/farbunabhaengig/wwu_logo.png</mdui:Logo>
+          <mdui:InformationURL xml:lang="de">http://www.uni-muenster.de/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">http://www.uni-muenster.de/en/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>testssso.uni-muenster.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=testssso.uni-muenster.de,OU=Zentrum fuer Informationsverarbeitung,O=Universitaet Muenster,L=Muenster,ST=Nordrhein-Westfalen,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIF+DCCBOCgAwIBAgIHFCidFzwGDzANBgkqhkiG9w0BAQUFADCBjDELMAkGA1UE
+BhMCREUxHjAcBgNVBAoTFVVuaXZlcnNpdGFldCBNdWVuc3RlcjE6MDgGA1UEAxMx
+WmVydGlmaXppZXJ1bmdzc3RlbGxlIFVuaXZlcnNpdGFldCBNdWVuc3RlciAtIEcw
+MjEhMB8GCSqGSIb3DQEJARYSY2FAdW5pLW11ZW5zdGVyLmRlMB4XDTEyMDcyMDA5
+MDYxNloXDTE3MDcxOTA5MDYxNlowgbExCzAJBgNVBAYTAkRFMRwwGgYDVQQIExNO
+b3JkcmhlaW4tV2VzdGZhbGVuMREwDwYDVQQHEwhNdWVuc3RlcjEeMBwGA1UEChMV
+VW5pdmVyc2l0YWV0IE11ZW5zdGVyMS4wLAYDVQQLEyVaZW50cnVtIGZ1ZXIgSW5m
+b3JtYXRpb25zdmVyYXJiZWl0dW5nMSEwHwYDVQQDExh0ZXN0c3Nzby51bmktbXVl
+bnN0ZXIuZGUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDCYK4Y7STE
+L8OlunXF0IQl7BqeJQVZ88sfR3yHWqwihuhh5Xy+xqBHpVg07VbOMr9E+cx0zgOO
+wqMkTIA6+B7RfI5EGiIaiUI3TUew1oibfFqwQ7GC34rawnVzYmOiOHoKdBqD8KTN
+hR5zdDK64OdhrmUCCQ9ViSelXoBK9oo7ko3IqmEJrSWc8EqN5/k4/LEQuieJJEok
+YHuIAKTWy5tyglVcN0mlpR+kZOeKf96IO14z71GmMbUSNHepidzSyoTL5Na9uG0u
+dchHkrDRkdJtr9Ou23P75bJLuRJ+K8wo1sT63lCinEhupK91z3vHg0DsA8v6uBit
+UyGfTxnz4izLAgMBAAGjggI2MIICMjAvBgNVHSAEKDAmMBEGDysGAQQBga0hgiwB
+AQQCAzARBg8rBgEEAYGtIYIsAgEEAgMwCQYDVR0TBAIwADALBgNVHQ8EBAMCBeAw
+HQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMB0GA1UdDgQWBBRYwYC2Uz5H
+6Ynz6B811VlykXutszAfBgNVHSMEGDAWgBS+nlGiyZJ8u2CL5rBoZHdaUhmhADA9
+BgNVHREENjA0ghh0ZXN0c3Nzby51bmktbXVlbnN0ZXIuZGWBGHd3d2FkbWluQHVu
+aS1tdWVuc3Rlci5kZTB7BgNVHR8EdDByMDegNaAzhjFodHRwOi8vY2RwMS5wY2Eu
+ZGZuLmRlL3d3dS1jYS9wdWIvY3JsL2dfY2FjcmwuY3JsMDegNaAzhjFodHRwOi8v
+Y2RwMi5wY2EuZGZuLmRlL3d3dS1jYS9wdWIvY3JsL2dfY2FjcmwuY3JsMIHLBggr
+BgEFBQcBAQSBvjCBuzAzBggrBgEFBQcwAYYnaHR0cDovL29jc3AucGNhLmRmbi5k
+ZS9PQ1NQLVNlcnZlci9PQ1NQMEEGCCsGAQUFBzAChjVodHRwOi8vY2RwMS5wY2Eu
+ZGZuLmRlL3d3dS1jYS9wdWIvY2FjZXJ0L2dfY2FjZXJ0LmNydDBBBggrBgEFBQcw
+AoY1aHR0cDovL2NkcDIucGNhLmRmbi5kZS93d3UtY2EvcHViL2NhY2VydC9nX2Nh
+Y2VydC5jcnQwDQYJKoZIhvcNAQEFBQADggEBACQHZ+2pf6Lyk2q7Teu2nPxG1uAz
+KmEKY2GkQmDpySrcVn5Gex4b2EtmgcmEOXgzHtYHOlJYcSjHVLZt+41eTsh5si8D
+ozAv2qIJV/RjRg9btBCHYJRsxoP5rRuZZ/ASfCb+stJWgx+1gu0PodosZgFKiM2E
+3zWjeMkqDxP9uS1NLyB+/V8N67cdOYdP/dKx9dIw+rCeAsr0OlFaEX3q/LzA2NWU
+O7HVimoyfRBz43eqdPCoyZ89aMPYdktSICu/kaOXHtAp1j4BrDwr3fnbE+lPpU/1
+EecubiQE8/Mek9uGrP8kBfIyCBKwvjxuXqgCIBhis6wo9C1/uM1c4uiqg7M=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://testssso.uni-muenster.de/-shibboleth.sso/SLO/SOAP"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://testssso.uni-muenster.de/-shibboleth.sso/SLO/Redirect"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://testssso.uni-muenster.de/-shibboleth.sso/SLO/POST"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://testssso.uni-muenster.de/-shibboleth.sso/SLO/Artifact"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://testssso.uni-muenster.de/-shibboleth.sso/SAML2/POST" index="0"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://testssso.uni-muenster.de/-shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://testssso.uni-muenster.de/-shibboleth.sso/SAML2/Artifact" index="2"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://testssso.uni-muenster.de/-shibboleth.sso/SAML2/ECP" index="3"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://testssso.uni-muenster.de/-shibboleth.sso/SAML/POST" index="4"/>
+      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://testssso.uni-muenster.de/-shibboleth.sso/SAML/Artifact" index="5"/>
+      <AttributeConsumingService index="1">
+        <ServiceName xml:lang="de">Universität Münster (Staging)</ServiceName>
+        <ServiceName xml:lang="en">Universität Münster (Staging)</ServiceName>
+        <ServiceDescription xml:lang="de">Dies ist ein weiterer, nur zeitweise aktiver Zugang zum Single Sign-On der Universität Münster (siehe dort).</ServiceDescription>
+        <ServiceDescription xml:lang="en">Dies ist ein weiterer, nur zeitweise aktiver Zugang zum Single Sign-On der Universität Münster (siehe dort).</ServiceDescription>
+        <RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+      </AttributeConsumingService>
+    </SPSSODescriptor>
+    <Organization>
+      <OrganizationName xml:lang="de">e247</OrganizationName>
+      <OrganizationName xml:lang="en">e247</OrganizationName>
+      <OrganizationDisplayName xml:lang="de">Westfälische Wilhelms-Universität Münster</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="en">Westfälische Wilhelms-Universität Münster</OrganizationDisplayName>
+      <OrganizationURL xml:lang="de">http://www.uni-muenster.de/</OrganizationURL>
+      <OrganizationURL xml:lang="en">http://www.uni-muenster.de/en/</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Rainer</GivenName>
+      <SurName>Perske</SurName>
+      <EmailAddress>mailto:wwwadmin@uni-muenster.de</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="support">
+      <GivenName>Rainer</GivenName>
+      <SurName>Perske</SurName>
+      <EmailAddress>mailto:wwwadmin@uni-muenster.de</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

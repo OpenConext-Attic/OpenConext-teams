@@ -1,0 +1,124 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.entpe.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-10-05T09:54:38Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">entpe.net</shibmd:Scope>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">entpe.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">ENTPE - Vaulx en Velin</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDHDCCAgSgAwIBAgIVAIcupykPhzWwN/P9ju7uKjH1/diEMA0GCSqGSIb3DQEB
+BQUAMBcxFTATBgNVBAMTDGlkcC5lbnRwZS5mcjAeFw0xMjA4MzAxMzQyMzRaFw0z
+MjA4MzAxMzQyMzRaMBcxFTATBgNVBAMTDGlkcC5lbnRwZS5mcjCCASIwDQYJKoZI
+hvcNAQEBBQADggEPADCCAQoCggEBAIBXq+m0dzCNCaWhUxNWKFezemlJDt+bxukb
+a8mtA3V2EXQnENCt8YQUC64SdA3TWwdx8IJ/YRIpTqbX8WssBaNXU2ugWbFkaJ2P
+2LUIAXTycbU+j2XzM1eonxfeqn8qcIEN4Saz65OiHtXBamjm4Uc3H5ICCLJJb+yB
+B96JQeScJU39kQEL26dVIJuaW5kjRNEQa2kZW9r2Ovf1mfiRcyXZBvYss4HTM0jV
+8Jo5xULb3fQXE7+s9dox218g/ITBtYnGBa38Og6dDTurbjuhyJNA/xWq0fbQp6K1
+OVLR64FG6gi/UHkG7SQlA40Jeb7dbi5ehocyfOjvPO5AH0UiUXcCAwEAAaNfMF0w
+PAYDVR0RBDUwM4IMaWRwLmVudHBlLmZyhiNodHRwczovL2lkcC5lbnRwZS5mci9p
+ZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUX9y2zApvJ+zBx2GaVq+hWcrLdTowDQYJ
+KoZIhvcNAQEFBQADggEBAEq1KyPR75ZoWdwLXL/z/dn0SPYRAyhQQizq7Oy9kqTL
+V8VoisIXbe+J1kLrgNTz27n7ly1ulJWT/NZcdAL0xoX4tDpBZLs/eLIfhKHpcyhl
+3GzzFSiFOVjz1NlaVwElBfPf7A4SZqWHgVZkrmKVt0I5Ai6ZKrARayGdQi0cvC43
+gPjZyS2WLKKQr3zO5RYT+D3Z2Cx+0buIdDWpfOawV8cMAVxkub7uvjgnt8LRddDn
+hz5Ka52K32oCM/oo9XNZsXDL7uA83DKl//sRCrRmbrtp0G1xUXzZa+vCbQ2ndUSX
+BY7XFJgwUuyw39r64rK9lOkAjCZntHyPjx/sy8m020A=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.entpe.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.entpe.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.entpe.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">entpe.net</shibmd:Scope>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">entpe.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDHDCCAgSgAwIBAgIVAIcupykPhzWwN/P9ju7uKjH1/diEMA0GCSqGSIb3DQEB
+BQUAMBcxFTATBgNVBAMTDGlkcC5lbnRwZS5mcjAeFw0xMjA4MzAxMzQyMzRaFw0z
+MjA4MzAxMzQyMzRaMBcxFTATBgNVBAMTDGlkcC5lbnRwZS5mcjCCASIwDQYJKoZI
+hvcNAQEBBQADggEPADCCAQoCggEBAIBXq+m0dzCNCaWhUxNWKFezemlJDt+bxukb
+a8mtA3V2EXQnENCt8YQUC64SdA3TWwdx8IJ/YRIpTqbX8WssBaNXU2ugWbFkaJ2P
+2LUIAXTycbU+j2XzM1eonxfeqn8qcIEN4Saz65OiHtXBamjm4Uc3H5ICCLJJb+yB
+B96JQeScJU39kQEL26dVIJuaW5kjRNEQa2kZW9r2Ovf1mfiRcyXZBvYss4HTM0jV
+8Jo5xULb3fQXE7+s9dox218g/ITBtYnGBa38Og6dDTurbjuhyJNA/xWq0fbQp6K1
+OVLR64FG6gi/UHkG7SQlA40Jeb7dbi5ehocyfOjvPO5AH0UiUXcCAwEAAaNfMF0w
+PAYDVR0RBDUwM4IMaWRwLmVudHBlLmZyhiNodHRwczovL2lkcC5lbnRwZS5mci9p
+ZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUX9y2zApvJ+zBx2GaVq+hWcrLdTowDQYJ
+KoZIhvcNAQEFBQADggEBAEq1KyPR75ZoWdwLXL/z/dn0SPYRAyhQQizq7Oy9kqTL
+V8VoisIXbe+J1kLrgNTz27n7ly1ulJWT/NZcdAL0xoX4tDpBZLs/eLIfhKHpcyhl
+3GzzFSiFOVjz1NlaVwElBfPf7A4SZqWHgVZkrmKVt0I5Ai6ZKrARayGdQi0cvC43
+gPjZyS2WLKKQr3zO5RYT+D3Z2Cx+0buIdDWpfOawV8cMAVxkub7uvjgnt8LRddDn
+hz5Ka52K32oCM/oo9XNZsXDL7uA83DKl//sRCrRmbrtp0G1xUXzZa+vCbQ2ndUSX
+BY7XFJgwUuyw39r64rK9lOkAjCZntHyPjx/sy8m020A=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.entpe.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">ENTPE - Vaulx en Velin</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">ENTPE - Vaulx en Velin</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Christian GARDET</SurName>
+				 <EmailAddress>christian.gardet@entpe.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    		
+
+				
+			
+	</EntityDescriptor>

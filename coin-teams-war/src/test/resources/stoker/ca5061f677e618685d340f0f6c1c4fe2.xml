@@ -1,0 +1,45 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://tcs-escience-portal.terena.org/simplesamlphp/module.php/saml/sp/metadata.php/default-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.surfconext.nl/" registrationInstant="2013-05-03T16:37:26Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://wiki.surfnetlabs.nl/display/eduGAIN/EduGAIN</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">TERENA eScience Personal Certificate Service</mdui:DisplayName>
+          <mdui:Description xml:lang="en">This service allows you to get or deactive a personal certificate for eScience applications, such as grid use.</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.terena.org/tcs</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEITCCAwmgAwIBAgIJAMphslCtGfAvMA0GCSqGSIb3DQEBBQUAMGgxCzAJBgNVBAYTAk5MMQswCQYDVQQIEwJOSDESMBAGA1UEBxMJQW1zdGVyZGFtMQ8wDQYDVQQKEwZURVJFTkExJzAlBgNVBAMTHnRjcy1lc2NpZW5jZS1wb3J0YWwudGVyZW5hLm9yZzAeFw0xMzA0MDgwOTM4MDlaFw0zMzA0MDcwOTM4MDlaMGgxCzAJBgNVBAYTAk5MMQswCQYDVQQIEwJOSDESMBAGA1UEBxMJQW1zdGVyZGFtMQ8wDQYDVQQKEwZURVJFTkExJzAlBgNVBAMTHnRjcy1lc2NpZW5jZS1wb3J0YWwudGVyZW5hLm9yZzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANJ78GlTdVJr8q1KWscjN4BEYwgaDQzpkfl5g0dJ/I1XhgRit1SFY1Qcu6MHgpaIJCepkwdrHeDXKJj/t/SwXOeDuwwqwYQIzHVFeGsG0fXkhpvA9Ae07bn6SlQqxp6msleHU+d4oGZnrUOcOVywnDkAaMMUvenWK42f/oBcyf0aJuFlt7ZvaBJv57/z2L02ESkQlCBH3R3NGt77GsBCNXdqGsYaz0BXgQ1U/25ofmL+HcxkbtBFlOfFKfntRMSJJZ3/osgsfkhx++ESQ88OaVdC0X1WEZcphkFjzd/QujxNRW1xlXErVhTtJvX85jYSwoQ0Hl2aO1lF7qundGBYYOsCAwEAAaOBzTCByjAdBgNVHQ4EFgQUFDOLIP6//PMYotoXXSVbz65lyAIwgZoGA1UdIwSBkjCBj4AUFDOLIP6//PMYotoXXSVbz65lyAKhbKRqMGgxCzAJBgNVBAYTAk5MMQswCQYDVQQIEwJOSDESMBAGA1UEBxMJQW1zdGVyZGFtMQ8wDQYDVQQKEwZURVJFTkExJzAlBgNVBAMTHnRjcy1lc2NpZW5jZS1wb3J0YWwudGVyZW5hLm9yZ4IJAMphslCtGfAvMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBAJhZchVmfk3ASZ1Spgk56942jWUZCVuloJpo6m0nxQvisa/ZcdsVVfbHFS8AgH79Fub253qHMPzasCfh/WWNn57SVf7QcP+ROA0JuPjmE7gAcPvEb035/tw/3+I5rmNWIq2HVW9ySs5dJVv+p9j1ecr5kLiD4eNJRQxUD0XXNkruWF4NChxTREUim/WaIBy8qlt8ljXF3zyXwkQ7KchQ8/vQu2/4g4cVrjOZR8oulgpTOZcVnVwzdfYZSicWxHv3TkGmc5mPBtUxfUKcuLBbJX38K8346P8aQnizVN26gsW2LbGUEsPwg9HgGnGxaMtL4m/fC32Y7lxU4X6D0MsH3xY=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEITCCAwmgAwIBAgIJAMphslCtGfAvMA0GCSqGSIb3DQEBBQUAMGgxCzAJBgNVBAYTAk5MMQswCQYDVQQIEwJOSDESMBAGA1UEBxMJQW1zdGVyZGFtMQ8wDQYDVQQKEwZURVJFTkExJzAlBgNVBAMTHnRjcy1lc2NpZW5jZS1wb3J0YWwudGVyZW5hLm9yZzAeFw0xMzA0MDgwOTM4MDlaFw0zMzA0MDcwOTM4MDlaMGgxCzAJBgNVBAYTAk5MMQswCQYDVQQIEwJOSDESMBAGA1UEBxMJQW1zdGVyZGFtMQ8wDQYDVQQKEwZURVJFTkExJzAlBgNVBAMTHnRjcy1lc2NpZW5jZS1wb3J0YWwudGVyZW5hLm9yZzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANJ78GlTdVJr8q1KWscjN4BEYwgaDQzpkfl5g0dJ/I1XhgRit1SFY1Qcu6MHgpaIJCepkwdrHeDXKJj/t/SwXOeDuwwqwYQIzHVFeGsG0fXkhpvA9Ae07bn6SlQqxp6msleHU+d4oGZnrUOcOVywnDkAaMMUvenWK42f/oBcyf0aJuFlt7ZvaBJv57/z2L02ESkQlCBH3R3NGt77GsBCNXdqGsYaz0BXgQ1U/25ofmL+HcxkbtBFlOfFKfntRMSJJZ3/osgsfkhx++ESQ88OaVdC0X1WEZcphkFjzd/QujxNRW1xlXErVhTtJvX85jYSwoQ0Hl2aO1lF7qundGBYYOsCAwEAAaOBzTCByjAdBgNVHQ4EFgQUFDOLIP6//PMYotoXXSVbz65lyAIwgZoGA1UdIwSBkjCBj4AUFDOLIP6//PMYotoXXSVbz65lyAKhbKRqMGgxCzAJBgNVBAYTAk5MMQswCQYDVQQIEwJOSDESMBAGA1UEBxMJQW1zdGVyZGFtMQ8wDQYDVQQKEwZURVJFTkExJzAlBgNVBAMTHnRjcy1lc2NpZW5jZS1wb3J0YWwudGVyZW5hLm9yZ4IJAMphslCtGfAvMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBAJhZchVmfk3ASZ1Spgk56942jWUZCVuloJpo6m0nxQvisa/ZcdsVVfbHFS8AgH79Fub253qHMPzasCfh/WWNn57SVf7QcP+ROA0JuPjmE7gAcPvEb035/tw/3+I5rmNWIq2HVW9ySs5dJVv+p9j1ecr5kLiD4eNJRQxUD0XXNkruWF4NChxTREUim/WaIBy8qlt8ljXF3zyXwkQ7KchQ8/vQu2/4g4cVrjOZR8oulgpTOZcVnVwzdfYZSicWxHv3TkGmc5mPBtUxfUKcuLBbJX38K8346P8aQnizVN26gsW2LbGUEsPwg9HgGnGxaMtL4m/fC32Y7lxU4X6D0MsH3xY=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://tcs-escience-portal.terena.org/simplesamlphp/module.php/saml/sp/saml2-logout.php/default-sp"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://tcs-escience-portal.terena.org/simplesamlphp/module.php/saml/sp/saml2-acs.php/default-sp" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://tcs-escience-portal.terena.org/simplesamlphp/module.php/saml/sp/saml1-acs.php/default-sp" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://tcs-escience-portal.terena.org/simplesamlphp/module.php/saml/sp/saml2-acs.php/default-sp" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://tcs-escience-portal.terena.org/simplesamlphp/module.php/saml/sp/saml1-acs.php/default-sp/artifact" index="3"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">TERENA</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">TERENA</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.terena.org/tcs</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>UvT</md:GivenName>
+      <md:SurName>LIS Unix</md:SurName>
+      <md:EmailAddress>lis-unix@uvt.nl</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,84 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.ec-lille.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-04-02T09:29:58Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ec-lille.fr</shibmd:Scope>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ig2i.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Ecole Centrale de LILLE</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDJzCCAg+gAwIBAgIUZqE7Q+IH1nvI8J9EfTCnG/5KwYQwDQYJKoZIhvcNAQEF
+BQAwGjEYMBYGA1UEAxMPaWRwLmVjLWxpbGxlLmZyMB4XDTEyMDMyOTA3MjEwMFoX
+DTMyMDMyOTA3MjEwMFowGjEYMBYGA1UEAxMPaWRwLmVjLWxpbGxlLmZyMIIBIjAN
+BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAurcjSe2yQvV0wftgNyRCtoGWYADp
+MfWXihXrJtPQjLcuI3ipqN5bJz8W5dwKOa1ca6CNtI7J5UO4ORtQhm+GTXSnqKU3
+hNDPcTXvwt8XJ6UhiXxc8k7Rd38ajwobf1hUih3rMJXC34I1pU2REtQrBZls9T32
+B4HjoN1+FR5kCbAGrTpnTzUnEoZUivoXR0aVQdZoNvvyESM4tBnVCFDgVatGAn9/
+ZnkKyk5tyXtF4+eeTo1hDx/rYNvUhYmWXeI2CYVsVYUxmRUp13W6d1+sE1Jajcpr
+X1kwgGNk1H/JIChetxD3KMcTrreF4qEDztzghCs/nMosCe5D0aTzliCqdQIDAQAB
+o2UwYzBCBgNVHREEOzA5gg9pZHAuZWMtbGlsbGUuZnKGJmh0dHBzOi8vaWRwLmVj
+LWxpbGxlLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBS8k5z2mHglPmRe5mYj
+jPcglb7IxDANBgkqhkiG9w0BAQUFAAOCAQEAiPcyMDpgvPV9HRgodx8GFUQyhrpg
+mkJdDlSTqe3tC6tC84RbAJ1iz1lznmNTtmao4meoZclddh/6xn0GLB6YL7j3e0Zm
+TD40/6j6PL4ECXmqhNLEIUi1gPGGbJk8h1tIlhNLWmQVKQmpR8G3j1EksUsAWCoY
+envB4RkNo6WLpReZj5bRF0iSr6n7+ffuSAl22cis1d8QMYcu/rsL7CKXuCHN2sRb
+IOtBkZ38jQP2f/nTz5h2cliO4tiMckGW+284yHmxNX+6cLriWj6hRsFa5gt8dPSJ
+Kg3NiOUmGq2VSgHAqi8QEVsRCKvmIgZmEyQRzB+NjEoqCqBnhxXKKhqmlA==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ec-lille.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ec-lille.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ec-lille.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Ecole Centrale de LILLE</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Ecole Centrale de LILLE</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Jonathan Chatriot</SurName>
+				 <EmailAddress>jonathan.chatriot@ec-lille.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    		
+
+				
+			
+	</EntityDescriptor>

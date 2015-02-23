@@ -1,0 +1,124 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth.univ-corse.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2010-06-24T18:11:52Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-corse.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de Corse</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDSzCCAjOgAwIBAgIUMl8XYihMN+c1fr7Z/kwhIqchZ14wDQYJKoZIhvcNAQEF
+BQAwIzEhMB8GA1UEAxMYc2hpYmJvbGV0aC51bml2LWNvcnNlLmZyMB4XDTEwMDUy
+MDA4MjIyOFoXDTMwMDUyMDA4MjIyOFowIzEhMB8GA1UEAxMYc2hpYmJvbGV0aC51
+bml2LWNvcnNlLmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmBAW
+WcnpElNR57uUh2Eb7CEy5InpGkloYXu6jUpiZGV/vIM+dB0n2n/gWLLy5G2ME0Om
+clCBmVWG3uDMNZZyC6EBiEoBWbyj6Af93eEOscjfXXSMWgg0Atmyh84/HZWemhM3
+od2NXDRgHRpJ8ZjZ0VcQE4YNjh7kk5yDaFIoHPqpVK5ItNpZfk1nQ6gYHTsuAe9z
+6UDYE/fXOqF2+TO3Q+XG8+aRjcf0g+y2PaZnv8eSJGRYG3412oJEG4MggFmsAWkc
+lCLEiyMk325+7/8tKY5n/Rnd7jCuLEAqZMo2R/PlwbUO7kf5tcRoWaoKeBtjeweP
+LoIqXeXDkYQB93Q+MQIDAQABo3cwdTBUBgNVHREETTBLghhzaGliYm9sZXRoLnVu
+aXYtY29yc2UuZnKGL2h0dHBzOi8vc2hpYmJvbGV0aC51bml2LWNvcnNlLmZyL2lk
+cC9zaGliYm9sZXRoMB0GA1UdDgQWBBStZw7/ALbTOYIUU68SwgUXNM+5LTANBgkq
+hkiG9w0BAQUFAAOCAQEAjzOt2lHyqGXgYtxbu8D4aCdJfCgT9dKcN3zfZLJKUUBk
+w5QRiOoz4AKj/QWqYucmWu4KElu6J8GDKsAblw5IGkMto1Pf+hIogTgqSXaFd9/O
+tu/fwQ4sWsVZIl8MeC735h6C+NK4d3cCB+0fHRJFZ4mriZG9tGHmUHFB4rqn27JK
+nrsOwXXTta43x7OixVk4T30ALeIRWw9GjwssjHOBI6BvXI36tEM4mjdV6TBP13Qv
+ajnfP3xyXWF0/SRe0vvOEqDioR1lKpoeqvINaa5O4u60VsqOFPoZPmNxASoOnnz8
+T9heLa0GVnNgDEgGzmeVmC1UCkmkhz0s325gEEfxAg==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.univ-corse.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.univ-corse.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.univ-corse.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-corse.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDSzCCAjOgAwIBAgIUMl8XYihMN+c1fr7Z/kwhIqchZ14wDQYJKoZIhvcNAQEF
+BQAwIzEhMB8GA1UEAxMYc2hpYmJvbGV0aC51bml2LWNvcnNlLmZyMB4XDTEwMDUy
+MDA4MjIyOFoXDTMwMDUyMDA4MjIyOFowIzEhMB8GA1UEAxMYc2hpYmJvbGV0aC51
+bml2LWNvcnNlLmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmBAW
+WcnpElNR57uUh2Eb7CEy5InpGkloYXu6jUpiZGV/vIM+dB0n2n/gWLLy5G2ME0Om
+clCBmVWG3uDMNZZyC6EBiEoBWbyj6Af93eEOscjfXXSMWgg0Atmyh84/HZWemhM3
+od2NXDRgHRpJ8ZjZ0VcQE4YNjh7kk5yDaFIoHPqpVK5ItNpZfk1nQ6gYHTsuAe9z
+6UDYE/fXOqF2+TO3Q+XG8+aRjcf0g+y2PaZnv8eSJGRYG3412oJEG4MggFmsAWkc
+lCLEiyMk325+7/8tKY5n/Rnd7jCuLEAqZMo2R/PlwbUO7kf5tcRoWaoKeBtjeweP
+LoIqXeXDkYQB93Q+MQIDAQABo3cwdTBUBgNVHREETTBLghhzaGliYm9sZXRoLnVu
+aXYtY29yc2UuZnKGL2h0dHBzOi8vc2hpYmJvbGV0aC51bml2LWNvcnNlLmZyL2lk
+cC9zaGliYm9sZXRoMB0GA1UdDgQWBBStZw7/ALbTOYIUU68SwgUXNM+5LTANBgkq
+hkiG9w0BAQUFAAOCAQEAjzOt2lHyqGXgYtxbu8D4aCdJfCgT9dKcN3zfZLJKUUBk
+w5QRiOoz4AKj/QWqYucmWu4KElu6J8GDKsAblw5IGkMto1Pf+hIogTgqSXaFd9/O
+tu/fwQ4sWsVZIl8MeC735h6C+NK4d3cCB+0fHRJFZ4mriZG9tGHmUHFB4rqn27JK
+nrsOwXXTta43x7OixVk4T30ALeIRWw9GjwssjHOBI6BvXI36tEM4mjdV6TBP13Qv
+ajnfP3xyXWF0/SRe0vvOEqDioR1lKpoeqvINaa5O4u60VsqOFPoZPmNxASoOnnz8
+T9heLa0GVnNgDEgGzmeVmC1UCkmkhz0s325gEEfxAg==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.univ-corse.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Corse</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Corse</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>VAREILLE</SurName>
+				 <EmailAddress>vareille@univ-corse.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    		
+
+				
+			
+	</EntityDescriptor>

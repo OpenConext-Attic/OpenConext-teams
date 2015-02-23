@@ -1,0 +1,148 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.epfl.ch/idp/shibboleth">
+		<Extensions>
+                <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://rr.aai.switch.ch/" registrationInstant="2014-09-29T15:25:24Z">
+                    <mdrpi:RegistrationPolicy xml:lang="en">https://www.switch.ch/aai/federation/switchaai/metadata-registration-practice-statement-20110711.txt</mdrpi:RegistrationPolicy>
+                </mdrpi:RegistrationInfo>
+                <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+                    <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+                        <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+                    </saml:Attribute>
+                </mdattr:EntityAttributes>
+		</Extensions>
+		<IDPSSODescriptor errorURL="http://support-it.epfl.ch/" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+			<Extensions>
+				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">epfl.ch</shibmd:Scope>
+				<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+					<mdui:DisplayName xml:lang="de">EPFL - EPF Lausanne</mdui:DisplayName>
+					<mdui:DisplayName xml:lang="en">EPFL - EPF Lausanne</mdui:DisplayName>
+					<mdui:DisplayName xml:lang="fr">EPFL - EPF Lausanne</mdui:DisplayName>
+					<mdui:Description xml:lang="de">Eidgenössische Technische Hochschule Lausanne</mdui:Description>
+					<mdui:Description xml:lang="en">Swiss Federal Institute of Technology Lausanne</mdui:Description>
+					<mdui:Description xml:lang="fr">Ecole Polytechnique Fédérale de Lausanne</mdui:Description>
+					<mdui:Logo height="16" width="16">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAe0lEQVQ4Ed2QUQqAMAxDq3j/K08ymhDKnGz4pSBLu/SRLuJXX8ttcPL3Bb1Hb5w2dJibWsa8Y19WAtQw4eYKkg0AXLpZl0UMPbMEZX5czgCPsR1FAMw+QI3Y1Dx9Pq6s6n5vtSBMoMaq+ATge64E6G+ym4Bv1AjYSdEhN3OaFRR7lkw7AAAAAElFTkSuQmCC</mdui:Logo>
+					<mdui:Logo height="60" width="80">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAA8CAYAAADxJz2MAAAC0GlDQ1BJQ0NQcm9maWxlAAB4nI2Uz0sUYRjHv7ONGChBYGZ7iKFDSKhMFmVE5a6/2LRtWX+UEsTs7Lu7k7Oz08zsmiIRXjpm0T0qDx76Azx46JSXwsAsAuluUUSCl5LteWfG3RHtxwsz83mfH9/ned/hfYEaWTFNPSQBecOxkn1R6fromFT7ESEcQR3CqFNU24wkEgOgwWOxa2y+h8C/K617+/866tK2mgeE/UDoR5rZKrDvF9kLWWoEELlew4RjOsT3OFue/THnlMfzrn0o2UW8SHxANS0e/5q4Q80paaBGJG7JBmJSAc7rRdXv5yA99cwYHqTvcerpLrN7fBZm0kp3P3Eb8ec06+7hmsTzGa03RtxMz1rG6h32WDihObEhj0Mjhh4f8LnJSMWv+pqi6UST2/p2abBn235LuZwgDhMnxwv9PKaRcjunckPXPBb0qVxX3Od3VjHJ6x6jmDlTd/8X9RZ6hVHoYNBg0NuAhCT6EEUrTFgoIEMejSI0sjI3xiK2Mb5npI5EgCXyr1POuptzG0XK5lkjiMYx01JRkOQP8ld5VX4qz8lfZsPF5qpnxrqpqcsPvpMur7yt63v9njx9lepGyKsjS9Z8ZU12oNNAdxljNlxV4jXY/fhmYJUsUKkVKVdp3K1Ucn02vSOBan/aPYpdml5sqtZaFRdurNQvTe/Yq8KuVbHKqnbOq3HBfCYeFU+KMbFDPAdJvCR2ihfFbpqdFwcqGcOkomHCVbKhUJaBSfKaO/6ZFwvvrLmjoY8ZzNJUiZ//hFXIaDoLHNF/uP9z8HvFo7Ei8MIGDp+u2jaS7h0iNC5Xbc4V4MI3ug/eVm3NdB4OPQEWzqhFq+RLC8IbimZ3HD7pKpiTlpbNOVK7LJ+VInQlMSlmqG0tkqLrkuuyJYvZzCqxdBvszKl2T6WedqXmU7m8Qeev9hGw9bBc/vmsXN56Tj2sAS/138C8/UXN/ALEAAAJI2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNC40LjAiPgogICA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogICAgICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiAgIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAKPD94cGFja2V0IGVuZD0idyI/Pqfd9JIAAAAhdEVYdFNvZnR3YXJlAEdyYXBoaWNDb252ZXJ0ZXIgKEludGVsKXeH+hkAAAhsSURBVHic7FtpjBRFFH471+7MLPd9ugEFkfsUCMilyOWuiIDArqAiKAiogOCBohGiIqeICkpE8EoMUQLEQIwxiMiRIP7wj/4QY2L0h/EEE5S1Puor+m0zwyE7dHrkJd/2dFV113tfv3r1qrpXKisr5TL+OwJXIOwIXIGwI3AFwo7AFQg7Alcg7AhcgbAjcAXCjsAVCDsCVyDsCFyBsEM+TRVX5hKfG7yZTK0oLCgQI/jzhYHpWX40qGFQwnPgCYN56nyonCnbWHfcoKXBI6o9zqUsFu97KMd2OeScQGPIifJ4oiWNH6WMnc0yP4Exg294fthHXgeDk6xbyTJNYEleEfiZwY5k+r161vsgu2nozwbJLARCHlZlvRWB61l2wqB53hMIIxYmCofRUHjhPzT0BUVKJgI7qrIlLEsZ/Mayber6/CXQxL+fekWjURr6gDL02nMQGDE4xrLtLBuj2o3NewL3GWxNpjen5Yzh+72IV5iFQMhRlu3l+Ws8/8ugOO8JPGjwdGHRVBoZN/iTRm6SqpKNwB9Y9iHPv+b5x77r85PAQ6kalRPj8S40srMycsZ5EFhTvHj5vEEd8WbfZ/4XBO5PFZ/sE426mXacMnLIeRBYqspuFBsz3fkdeU/gXoNPzATSOhJxRs5VRvY1qE0vy0bgBzz/TmxeOFa1Gcfra+c1gbuS6a8aefnfUmVkpSInE4E3iDdc72WbezJcD8QzEVgai/cONYFIoHcm04fregSuvAACOxkMNBhg4FKgORdC4MhYvOfBPCDwiCJwmTJyGAnqk4XATKIJvI/XA+hgvp/AUbF4r1ATiCG8O5X+tolH4CJlZGMfORdKYF9f3XRVhxWMDI3F2oeewD2p4uNtI6dnkanKyB7VTKCesUegoFskWmtfmAkEDhgMisZKaOR1ykh/GnKxBF6t6hagoLHx/N2p4qN7w0wgEunp8cStNBIpy9808tVqJhATza+iNhlQsLEo9db+MBMI5dcVJdeqRe8B8dbCEUXAxRII2cq634XbZDPjhRWXIpXJGYEYPh+l0kebF0Qch48pEgZUM4ETVP0kFLQ3cdDocSzXwzjn+4Hl8cRgGnmleAmy3lCoDgLhdb+wfh8KMIzNCNh8IMwE4n3IO8nUjqS3e7WdRuJ9RosLIHDGOQiE6GS9PwoGRGPdsSbPKYHIl3KJL81kUhFP9KeReKdxgka+Xc0ENjX4g232GBTAC9cUJrccMToc4oiobsiwWGxOLjHCoF80NlxNJpiZ5xN4K1dLnWcjp6tq0yxLG8gI1a4hCpoVRBqUxeLzR+UIZ9HlslyWSyQJsa6fCFqRsAq+BMAuMRbi2LzE2hJ52i1id0yKxL4QR3zCMqwp2+HdbQ3eo4HYbaXxvnuXGyCNuYvn7QwGEZPFJtRYik1h/WiDXvyN/rFzM5T3xkPuwj5KxdvZ7sf7YR8R+SBSGmzgYg5J8NpCsXG0K69JUKcYbevJchz7816lLJsmNgUT9tOROt8vfDu4mJWI85jt3E4vpJ7YnZQi1fEG/l7uI2uJVH3bJrxfI4MHDeobPKrqQCw2GUrE+0oBBq0yqEtlnbjZGYTfzWsc+aN9+jpdnKzmEaRgGdmZ525NDhKwwdFUqq7TZ7F8HusgAw2uETuRzXb2Yq/ueoO2Yl/g+MX/Fu1FHpf5yjeL9RotILADO8bTna7qQMBaqUogBBuq+sU7RKc3IPA2sRsUFeIRouUl8fYM32AZCGxI/eFRE1nuCLxZqr6v6WZwp2QmsCl1xDXypLpoERs4gevjfWwtVbaYx1U+pZfImQIC3f4f3qxtUHWtxT7xErErjbPd6yn123kgBEN6nk9f//XaA2E4RtNGsa8JII5AONBCdV2ZQXuxQ7gDy+DtGFH4rOT0Q18jdjjBQ/D5BEgcz8Zd2SniHZ7OTQatxHoPnjLiE96aIQauExs36iglZtFIJ3hieKoD2AfiFGLKShoIUvHS/FmxwxmCsLFCvDACg7DeHcFz3A/xbBT7B4nLeYxRz2LWu71IhKnH+bucfbt7QS949zL2iXCCfA8hxe0ugdDnpGr4uCw+wXBH7IYTDBT7oGue7QIncNFsKwIn8Mo+52iTL4KJAl4YydYAgRhDCkO4RGx64VwTbo/hjeHiAuwVYt1+jGozUOzwdoKh44YLhunt4n3P0oR9jJWqszbCAYbScLFhQXgNJh6kM/VV227sU4v7DC7K+7v+YAuGbBuxQ9O1Q9/6I6fB6jeGKOJfDdU+wnulxaZj453Ni9kAscblcy6pxiTgdk0wa01hmzm+NvDa+ayD4IHoQK5/p8XLzbTg3lfxNwK4yx1X09i4aotcUc/4qMOmqou/S1WdC/bz2KeLpcj3dNaBSdFNLCCoB+3ZJV5u6nRC+oR4eYoDBGw8/U68YKNSThMIeV28CWOMagOPmCyeR6HuIWWQn0D04U+6p4hHIGQNj9i1maAMh2C06AA+nDpMy9CfIxBe9b7SaRLrXIoylragL6Q5XWgrUryXxU6eFWwLPTFRnUq2XY51Lg9MULFMHthd7NOEkWkqBi9yTzSTB/qXjlPEIxDDZRF/r87Q1u+BeFeMuO1IXypezJrJIx5uK94XaRlWEggNc1lfziNSGXwR4QjEw0F2sl68dAspz2kPRKLpZhe47iZehE6wDY8n0o0G1mebVwxGqjYu3VlGclzuh8wfq4MtYtMA3LcF+4TXN1Qk4APMybwXYibCApZlO8WGhDaq7Uj2hXsMoTGOSJACgqfzOI51Lt8rI2kupsIW5HWLxQsTC0hgO/E+L0E8fJe/sXzEgx0d+L8JhB2BKxB2BK5A2BG4AmFH4AqEHYErEHYErkDYEbgCYUfgCoQdgSsQdgSuQNjxLwAAAP//AwBkyVWrN8BywQAAAABJRU5ErkJggg==</mdui:Logo>
+				</mdui:UIInfo>
+				<mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+					<mdui:IPHint>2001:620:618::/48</mdui:IPHint>
+					<mdui:IPHint>192.26.28.0/22</mdui:IPHint>
+					<mdui:IPHint>192.26.28.0/24</mdui:IPHint>
+					<mdui:IPHint>128.178.0.0/15</mdui:IPHint>
+					<mdui:IPHint>192.26.29.0/24</mdui:IPHint>
+					<mdui:IPHint>128.178.0.0/16</mdui:IPHint>
+					<mdui:IPHint>192.26.30.0/24</mdui:IPHint>
+					<mdui:IPHint>128.179.0.0/16</mdui:IPHint>
+					<mdui:IPHint>192.26.31.0/24</mdui:IPHint>
+					<mdui:IPHint>192.26.32.0/20</mdui:IPHint>
+					<mdui:IPHint>192.26.32.0/24</mdui:IPHint>
+					<mdui:IPHint>192.26.33.0/24</mdui:IPHint>
+					<mdui:IPHint>192.26.34.0/24</mdui:IPHint>
+					<mdui:IPHint>192.26.35.0/24</mdui:IPHint>
+					<mdui:IPHint>192.26.36.0/24</mdui:IPHint>
+					<mdui:IPHint>192.26.37.0/24</mdui:IPHint>
+					<mdui:IPHint>192.26.38.0/24</mdui:IPHint>
+					<mdui:IPHint>192.26.39.0/24</mdui:IPHint>
+					<mdui:IPHint>192.26.40.0/24</mdui:IPHint>
+					<mdui:IPHint>192.26.41.0/24</mdui:IPHint>
+					<mdui:IPHint>192.26.42.0/24</mdui:IPHint>
+					<mdui:IPHint>192.26.43.0/24</mdui:IPHint>
+					<mdui:IPHint>192.26.44.0/24</mdui:IPHint>
+					<mdui:IPHint>192.26.46.0/24</mdui:IPHint>
+					<mdui:IPHint>192.26.47.0/24</mdui:IPHint>
+					<mdui:IPHint>192.33.192.0/20</mdui:IPHint>
+					<mdui:IPHint>192.33.208.0/22</mdui:IPHint>
+					<mdui:DomainHint>epfl.ch</mdui:DomainHint>
+					<mdui:GeolocationHint>geo:46.520515,6.565576</mdui:GeolocationHint>
+				</mdui:DiscoHints>
+			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					<ds:X509Data>
+						<ds:X509Certificate>
+MIIDDDCCAfSgAwIBAgIJAPOb5N7pnCviMA0GCSqGSIb3DQEBBQUAMBYxFDASBgNV
+BAMTC2lkcC5lcGZsLmNoMB4XDTEzMDQxODA5MTM0MFoXDTE2MDQxNzA5MTM0MFow
+FjEUMBIGA1UEAxMLaWRwLmVwZmwuY2gwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
+ggEKAoIBAQDIBrHGK9eROQuDVC8YG/Q1Cv31Fvc8JdezQOgqqkASU6PvymRDEmLQ
+3Y9hNPB6YgkcF5UJzGTPMvoLMnIkqAiT+J11bMpHXrimLz+v6xwFxQb8at8qKbz7
+3LpyUdwGe9fZDoVgyXHCl/fKxTdeUI/yskSD3w1SQIasIKnb5Qr/lDQ+yCqq2iYK
+wNe5PnPd/XVxjfD09FmkXfYRLQVA5h4XH+q1HlhdpchB/DB9qxZcxalwaTQw70mG
+HLOsl+4Flehsi18gCjMyaX/EO6rYzDMbXm1GvhkobZ1YcRzJRvb8J//TjJgxue3K
+VRAyULjs517E1jJHnRBvEBg9yxZLd/9TAgMBAAGjXTBbMDoGA1UdEQQzMDGCC2lk
+cC5lcGZsLmNohiJodHRwczovL2lkcC5lcGZsLmNoL2lkcC9zaGliYm9sZXRoMB0G
+A1UdDgQWBBQ/WGIfS2XSjumGqpYplSwMU52FhTANBgkqhkiG9w0BAQUFAAOCAQEA
+mejhQf4W7YHubVMVqZ7N7Zq6mGRY9TJSp0w88Ehvv0LfLKfyvwbqrrbbTYP9ERr+
+ufnrYUTclvVlSlutkLuGrJ1YkIjhEc6qqPLdtUAHE3cJpAYZMK4zGCmbg64eQBTt
+/UiBgOx6UgoS1m7ix6F7qS37iqGYngwanb0HoNRjYAP2cqAxVdmS8sLGERWRWzn9
+jV9Dj9Wwx4s9vL5rS6OxV8OXi42yQ+dfBR+eih6ebNEs+SbbWhLi83/U60WFwa1P
+btvDbgeRSa7SgaA72pCtk5Blb9fArSq5yBXqARTtXFMaH8hZOd3iu9h4Mnsl8879
+EyP/QDjoD02nYu++815n4g==
+						</ds:X509Certificate>
+					</ds:X509Data>
+				</ds:KeyInfo>
+			</KeyDescriptor>
+			<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.epfl.ch:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+			<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.epfl.ch:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.epfl.ch/idp/profile/Shibboleth/SSO"/>
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.epfl.ch/idp/profile/SAML2/Redirect/SSO"/>
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.epfl.ch/idp/profile/SAML2/POST/SSO"/>
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.epfl.ch/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+		</IDPSSODescriptor>
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">epfl.ch</shibmd:Scope>
+			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					<ds:X509Data>
+						<ds:X509Certificate>
+MIIDDDCCAfSgAwIBAgIJAPOb5N7pnCviMA0GCSqGSIb3DQEBBQUAMBYxFDASBgNV
+BAMTC2lkcC5lcGZsLmNoMB4XDTEzMDQxODA5MTM0MFoXDTE2MDQxNzA5MTM0MFow
+FjEUMBIGA1UEAxMLaWRwLmVwZmwuY2gwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
+ggEKAoIBAQDIBrHGK9eROQuDVC8YG/Q1Cv31Fvc8JdezQOgqqkASU6PvymRDEmLQ
+3Y9hNPB6YgkcF5UJzGTPMvoLMnIkqAiT+J11bMpHXrimLz+v6xwFxQb8at8qKbz7
+3LpyUdwGe9fZDoVgyXHCl/fKxTdeUI/yskSD3w1SQIasIKnb5Qr/lDQ+yCqq2iYK
+wNe5PnPd/XVxjfD09FmkXfYRLQVA5h4XH+q1HlhdpchB/DB9qxZcxalwaTQw70mG
+HLOsl+4Flehsi18gCjMyaX/EO6rYzDMbXm1GvhkobZ1YcRzJRvb8J//TjJgxue3K
+VRAyULjs517E1jJHnRBvEBg9yxZLd/9TAgMBAAGjXTBbMDoGA1UdEQQzMDGCC2lk
+cC5lcGZsLmNohiJodHRwczovL2lkcC5lcGZsLmNoL2lkcC9zaGliYm9sZXRoMB0G
+A1UdDgQWBBQ/WGIfS2XSjumGqpYplSwMU52FhTANBgkqhkiG9w0BAQUFAAOCAQEA
+mejhQf4W7YHubVMVqZ7N7Zq6mGRY9TJSp0w88Ehvv0LfLKfyvwbqrrbbTYP9ERr+
+ufnrYUTclvVlSlutkLuGrJ1YkIjhEc6qqPLdtUAHE3cJpAYZMK4zGCmbg64eQBTt
+/UiBgOx6UgoS1m7ix6F7qS37iqGYngwanb0HoNRjYAP2cqAxVdmS8sLGERWRWzn9
+jV9Dj9Wwx4s9vL5rS6OxV8OXi42yQ+dfBR+eih6ebNEs+SbbWhLi83/U60WFwa1P
+btvDbgeRSa7SgaA72pCtk5Blb9fArSq5yBXqARTtXFMaH8hZOd3iu9h4Mnsl8879
+EyP/QDjoD02nYu++815n4g==
+						</ds:X509Certificate>
+					</ds:X509Data>
+				</ds:KeyInfo>
+			</KeyDescriptor>
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.epfl.ch:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.epfl.ch:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+		<Organization>
+			<OrganizationName xml:lang="en">epfl.ch</OrganizationName>
+			<OrganizationDisplayName xml:lang="de">EPFL - EPF Lausanne</OrganizationDisplayName>
+			<OrganizationDisplayName xml:lang="en">EPFL - EPF Lausanne</OrganizationDisplayName>
+			<OrganizationDisplayName xml:lang="fr">EPFL - EPF Lausanne</OrganizationDisplayName>
+			<OrganizationURL xml:lang="de">http://www.epfl.ch/</OrganizationURL>
+			<OrganizationURL xml:lang="en">http://www.epfl.ch/</OrganizationURL>
+			<OrganizationURL xml:lang="fr">http://www.epfl.ch/</OrganizationURL>
+		</Organization>
+		<ContactPerson contactType="support">
+			<GivenName>AAI</GivenName>
+			<SurName>EPFL Team</SurName>
+			<EmailAddress>mailto:aai@epfl.ch</EmailAddress>
+			
+		</ContactPerson>
+		<ContactPerson contactType="technical">
+			<GivenName>AAI</GivenName>
+			<SurName>EPFL Team</SurName>
+			<EmailAddress>mailto:aai@epfl.ch</EmailAddress>
+			
+		</ContactPerson>
+	</EntityDescriptor>

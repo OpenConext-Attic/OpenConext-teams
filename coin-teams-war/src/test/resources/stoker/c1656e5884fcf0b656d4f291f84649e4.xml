@@ -1,0 +1,89 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth.ensicaen.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2010-11-10T23:00:08Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ensicaen.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">ENSICAEN</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDQzCCAiugAwIBAgIUWJlRFhwGwMk4lj3M8MGZi+WUiKQwDQYJKoZIhvcNAQEF
+BQAwITEfMB0GA1UEAxMWc2hpYmJvbGV0aC5lbnNpY2Flbi5mcjAeFw0xMDAzMTUw
+OTI0MzlaFw0zMDAzMTUwOTI0MzlaMCExHzAdBgNVBAMTFnNoaWJib2xldGguZW5z
+aWNhZW4uZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCVj+NT2Lhd
+BHoJ7m+6gaI8xBsdkm7dNyFtVJyfsMU9Dvc/qlhjNR+2YSVbiDdmDvqeMgbrFjcC
+lMo5ife47oQMLjBUHhvj2xliSt+evvqEUnRRnJU10PIf4Bchub/v82hS5JbPxL8b
+wLyFag5llUg6hbi93lvhp+bgYk8ZAz5hmJ/VrS3yAQ4sCsogGB1nMuQ00JGZxxxE
+4PfQnVL10DDP5/RpHDLENJu4vZKY/7C+S9CEN4RkqxA+yNyP3JS0KRbP9+7ATYiR
+q+QhF2V4eQZ4KnjiN62O+lJ6Gs3vVBAPqdb2lEFfnaSBsZ19HyZFY6/GjNIcyv3h
+qf5za6LbS4xBAgMBAAGjczBxMFAGA1UdEQRJMEeCFnNoaWJib2xldGguZW5zaWNh
+ZW4uZnKGLWh0dHBzOi8vc2hpYmJvbGV0aC5lbnNpY2Flbi5mci9pZHAvc2hpYmJv
+bGV0aDAdBgNVHQ4EFgQUI3L7p8efYitE5TlY75ZGW7uC4eAwDQYJKoZIhvcNAQEF
+BQADggEBAIC8Dw+q0N19K6FB0xTbEGYEvLbIXSzPei5QAx8aJVm6fowYs1N582Le
+UXfwhI2N0hkIUQiPVnZ263lM2J17OO7neACCFtyHPkG0Qa8gMcu+0BuZZ+YU9zyc
+t7msRhc+8ZFE//98p8mhQ182k1Qwif4Vzn8Sq+ygBIyZyim4zKT2TsS09EuXdzFw
+jdfJTflIFXumBysheVxnDGXqfaIcl9s4s1PC45Ekvfn0KjA8mHU6OOgR6822HvUo
+mNhb2f0nJQSmsahxi2OvvzkuegbrCzMH/55Wb51w8oHcXF/2IUHgKdIXEXa7HtMT
+fM3qXap8JFtk63lFp9nrjdR9nwduKnM=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.ensicaen.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.ensicaen.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.ensicaen.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">ENSICAEN</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">ENSICAEN</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>LEPLANQUAIS ARNAUD</SurName>
+				 <EmailAddress>arnaud.leplanquais@ensicaen.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>LEVEE FREDDY</SurName>
+				 <EmailAddress>freddy.levee@ensicaen.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

@@ -1,0 +1,78 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://auth.mines-paristech.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2010-11-05T10:46:47Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">mines-paristech.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">MINES ParisTech</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDUzCCAjugAwIBAgIULpiQTz0SaR3yYl4od7IxCNrwBzUwDQYJKoZIhvcNAQEF
+BQAwJTEjMCEGA1UEAxMaYXV0aC5taW5lcy1wYXJpc3RlY2guZnI6ODAwHhcNMTAw
+NjMwMDg0NTUzWhcNMzAwNjMwMDg0NTUzWjAlMSMwIQYDVQQDExphdXRoLm1pbmVz
+LXBhcmlzdGVjaC5mcjo4MDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+AMgwMOQgpHeIUXIPrAidenRWJoNDtBbBtJewLYBVXNcjlw48JjYUe4kVAibhvpoB
+GtT/5LDpL7b0f3Dcn79TK1f71KO1NyTReRfE8hahq+9nSfUf9W0g7AE/wzEt/4s2
+oQmhxIaLo/y4d8Jm2gdweX7Zru+e8DmdBfH8XVHEFrleY+iZfHM/RH/uc9hN3XrD
+DFWojw8k+uFBU9MkT8Lw3/qPrCxbMEIcpvrkyDFYiCidJJf9kkSZOBFbfoXMwpyw
+6AUrfax3gCUtN55qexEt/kZlbZr/RWCWRXDlevEHoNm/96j9PntgRFahUALUyhxQ
+BbAx1yzWHRsT5hlPHihht1sCAwEAAaN7MHkwWAYDVR0RBFEwT4IaYXV0aC5taW5l
+cy1wYXJpc3RlY2guZnI6ODCGMWh0dHBzOi8vYXV0aC5taW5lcy1wYXJpc3RlY2gu
+ZnI6ODAvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFEzaglAXYAkaW5DIa13RKccd
+GCGNMA0GCSqGSIb3DQEBBQUAA4IBAQC81N/3UxzYjfCOJPaGkaJmTDkIXPvv45ym
+TCQlISY68bvtWQlf4yGHKW3aLuPZxoCJoGDcYZi4BF2QEPmvQ307GAqJzga3/FlE
+m6QhFpeYnyX6Wa5OEw/EkPj5yMxnymcEO0mWO/oYUnlzmy7yvUR7M+q/wRE2lKHP
+RDLESfEaYEQTniavE4zHDQPTfV0L4tmMMuZ1HrOU7w4kxw6QbHbF74GOC8YCRTDR
+lu66L8LI4yrW5jPq7gDBHSoOwFKbvssCjAdA4qiIU4LkBBspnboZZIP4uNTyp+qg
+SWg2P9PgjSZlwDZkaVgJlTTZJw1mYNCrsOiWjaa7c18O8gcBYmsL
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://auth.mines-paristech.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://auth.mines-paristech.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://auth.mines-paristech.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">MINES ParisTech</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">MINES ParisTech</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>federation@mines-paristech.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

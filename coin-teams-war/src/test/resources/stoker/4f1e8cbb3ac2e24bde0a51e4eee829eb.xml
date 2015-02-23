@@ -1,0 +1,88 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://idp.csc.fi/idp/shibboleth">
+    <Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.csc.fi/haka">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.csc.fi/english/institutions/haka/instructions/join/eduGAINRegistrationStatement/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+    <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">csc.fi</shibmd:Scope>
+        <shibmd:Scope regexp="false">funet.fi</shibmd:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="fi">CSC - Tieteen tietotekniikan keskus Oy</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="sv">CSC - Tieteen tietotekniikan keskus Oy</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">CSC - IT Center for Science Ltd.</mdui:DisplayName>
+          <mdui:Description xml:lang="fi">CSC on opetus- ja kulttuuriministeriön hallinnoima tieteen tietotekniikan keskus.</mdui:Description>
+          <mdui:Description xml:lang="sv">CSC — Tieteen tietotekniikan keskus Oy är IT-centret för vetenskap.</mdui:Description>
+          <mdui:Description xml:lang="en">CSC — IT Center for Science Ltd is administered by the Ministry of Education, Science and Culture.</mdui:Description>
+          <mdui:Logo height="256" width="256">https://idp.csc.fi/idp/img/csc.jpg</mdui:Logo>
+          <mdui:InformationURL xml:lang="fi">http://www.csc.fi/index_html</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">http://www.csc.fi/english</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="sv">http://www.csc.fi/svenska</mdui:InformationURL>
+        </mdui:UIInfo>
+        <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DomainHint>csc.fi</mdui:DomainHint>
+          <mdui:GeolocationHint>geo:64.2311008,27.7041552</mdui:GeolocationHint>
+          <mdui:GeolocationHint>geo:60.1785928,24.8332895</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIFxTCCBK2gAwIBAgIRAL73x8HVOpETqtPrUQiDLkowDQYJKoZIhvcNAQEFBQAw
+NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+IFNTTCBDQTAeFw0xNDA0MDkwMDAwMDBaFw0xNzA0MDgyMzU5NTlaMDgxITAfBgNV
+BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDETMBEGA1UEAxMKaWRwLmNzYy5m
+aTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBALxQbKAbjH1Y6nXZLERE
++8+VuH3w0K/FXMG3K0ySP36uU5QylaFDTx++DZT+IlEwuEXEHoW673P1ymL/Gg1j
++SlZdBxH6fFOqSLaT1jFtrpWleIwTWJtupwbB+GVNaPCFvo0snB0u4x1czcisFvG
+kc+GTN99e7dcuLA2kaQsVtoH9BLY99rubto6jbPdAb98htm+1a4yBZ/k3cirpDLo
+TZn2ILV/wEnsU/CdELweBm+3Ws6RcneqS6q+iNX6arA3+/eskksqbvd0PbbWHVl1
+b3r21T82lo+V6AdxBEKyZvlrxek8T8/m15AIAy6Id4GC/dc2crMFfrQV0hjXl//M
+ssOzUnbf5gJsX1ZHg8XrdEb60cssI0kriOOjDahYOCfP7nYYC26XzTrwfqQuQv/s
+3ZADXmQeLcMG42U2iBJaeXoqS1GymnToX08hx/UxabLSi+Hd2xOkurddq7A9x+Y7
+43q/6wKLoByNyFdyDVe+Tczap6vySov/WF5NgSn6mHfiC+EOHDhLQsRISyCTYWh/
+nmECl7nwaslnKfotwh+ax5EIlOF89dWOYgQk99ry6p8PrnJciHp5YsQGFi2uahwX
+Wy0Q0GWwPluh9QPRyV2Msk/xKYfkQV+JGk6jrES+6kHMI3xj6kf47u1jn8hSZmVR
+EbJgpgP8VadStP6zCWMBWbTdAgMBAAGjggHKMIIBxjAfBgNVHSMEGDAWgBQMvZNo
+DPPeq6NJays3V0fqkOO57TAdBgNVHQ4EFgQUT4gxrqHsUIEm8Q6JLQ79lpx1VrIw
+DgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUH
+AwEGCCsGAQUFBwMCMCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQIB
+MDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVS
+RU5BU1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDov
+L2NydC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGG
+Gmh0dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMHgGA1UdEQRxMG+CCmlkcC5jc2Mu
+ZmmCEWhha2EtaWRwMDEuY3NjLmZpghFoYWthLWlkcDAyLmNzYy5maYIRaGFrYS1p
+ZHAwMy5jc2MuZmmCDGlkcDAxLmNzYy5maYIMaWRwMDIuY3NjLmZpggxpZHAwMy5j
+c2MuZmkwDQYJKoZIhvcNAQEFBQADggEBAHLHoTcTEV6UgJ/RvzuRuQJlcxEURYzs
+Vg5WroFJYpGUa3OPHqHdWWJIAYWjE21oRKoxrOigpr/Ux24AP7z6OEh/ACUtrT86
+nwl2FZsWJOQ/7kkplDs3Yjy+7kkQyUVZoiPcNVE9nRVJuX0J2pwq29dkDibgTiv1
+QsoRrRYbh+Ocsi72e5feCe/vY9ZjnwKQmfQsDmzU72PwaJ5AwHh2bHE+9Eoj7AiN
+OrrMi7TzCc5DvLYpuskPWaTstbxW2d+c/wWX+2eaC51BUS4SRgc2QXGj4YgEmYvT
+yfHB/Vk5J4H+DO2SNiPj868WRhf2sTanPMS7LxqSsL+wiOXVBbISe+c=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.csc.fi/idp/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+    <Organization>
+      <OrganizationName xml:lang="fi">CSC - Tieteen tietotekniikan keskus Oy</OrganizationName>
+      <OrganizationName xml:lang="en">CSC - IT Center for Science Ltd.</OrganizationName>
+      <OrganizationName xml:lang="sv">CSC - Tieteen tietotekniikan keskus Oy</OrganizationName>
+      <OrganizationDisplayName xml:lang="fi">CSC - Tieteen tietotekniikan keskus Oy</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="en">CSC - IT Center for Science Ltd.</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="sv">CSC - Tieteen tietotekniikan keskus Oy</OrganizationDisplayName>
+      <OrganizationURL xml:lang="fi">http://www.csc.fi</OrganizationURL>
+      <OrganizationURL xml:lang="en">http://www.csc.fi</OrganizationURL>
+      <OrganizationURL xml:lang="sv">http://www.csc.fi</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Janne</GivenName>
+      <SurName>Lauros</SurName>
+      <EmailAddress>mailto:haka@csc.fi</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="support">
+      <EmailAddress>mailto:haka@csc.fi</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

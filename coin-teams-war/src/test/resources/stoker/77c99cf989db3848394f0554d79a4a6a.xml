@@ -1,0 +1,113 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" ID="IDEM-EDUGAIN00034" entityID="https://idp.unipi.it/idp/shibboleth">
+        <Extensions>
+            <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.idem.garr.it/" registrationInstant="2011-11-01T15:00:00Z">
+                <mdrpi:RegistrationPolicy xml:lang="en">https://www.idem.garr.it/idem-metadata-registration-practice-statement</mdrpi:RegistrationPolicy>
+            </mdrpi:RegistrationInfo>
+        </Extensions>
+        <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+            <Extensions>
+                <shibmd:Scope regexp="false">unipi.it</shibmd:Scope>
+                <mdui:UIInfo>
+                    <mdui:DisplayName xml:lang="it">Università degli Studi di Pisa</mdui:DisplayName>
+                    <mdui:DisplayName xml:lang="en">University of Pisa</mdui:DisplayName>
+                    <mdui:Description xml:lang="en">Identity Provider for University of Pisa users</mdui:Description>
+                    <mdui:Description xml:lang="it">Identity Provider per gli utenti dell'Universita' degli Studi di Pisa</mdui:Description>
+                    <mdui:InformationURL xml:lang="it">https://idp.unipi.it/</mdui:InformationURL>
+                    <mdui:InformationURL xml:lang="en">https://idp.unipi.it/</mdui:InformationURL>
+                    <mdui:PrivacyStatementURL xml:lang="it">https://idp.unipi.it/privacy_it.html</mdui:PrivacyStatementURL>
+                    <mdui:PrivacyStatementURL xml:lang="en">https://idp.unipi.it/privacy_en.html</mdui:PrivacyStatementURL>
+                    <mdui:Logo height="82" width="80">https://idp.unipi.it/logos/cherubino_80x80.png</mdui:Logo>
+                    <mdui:Logo height="16" width="16">https://idp.unipi.it/logos/cherubino_16x16.png</mdui:Logo>
+                </mdui:UIInfo>
+            </Extensions>
+            <KeyDescriptor>
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+MIIDHDCCAgSgAwIBAgIVANpHH4cWOn6yEYz2lRJ3vuZn9emLMA0GCSqGSIb3DQEB
+BQUAMBcxFTATBgNVBAMTDGlkcC51bmlwaS5pdDAeFw0xMTAzMTAxMzM4MjRaFw0z
+MTAzMTAxMzM4MjRaMBcxFTATBgNVBAMTDGlkcC51bmlwaS5pdDCCASIwDQYJKoZI
+hvcNAQEBBQADggEPADCCAQoCggEBAIxD1yQuyQ1P7wVjslFUKXVAtWQ2Oe9h7vVO
+zGVo+08dZ1RFoS9e4wtMj3UOme7VwxKdvlkzp3B0sSJS5FqZ7oMf3Wi0SZKbldew
+zvO/ToeJLjCq4oQBXmi7RePwHZ2GEmyzk7JTujtnBrY6vjfIB+AwviT3y13OHCqB
+T1XCi8bNsAoviDjyN/TKG/AU1pJFc5NWFLRy1YKC+5FlJCh/Kr+uC/KVdUhn40Wm
+cAjLfTATK+Y1RbVb4eHF6vJOOBsTQqvat4heBmpBnuyY06ngU/dZp6Te3BCPMSm2
+6PQnYF8uf9Ftf5U++J32DJIRKimN8N3y0sVK8xsaIUbmAfkT6gMCAwEAAaNfMF0w
+PAYDVR0RBDUwM4IMaWRwLnVuaXBpLml0hiNodHRwczovL2lkcC51bmlwaS5pdC9p
+ZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUuVwagCJNNlDEGjXsYBV07TH67W4wDQYJ
+KoZIhvcNAQEFBQADggEBACVqW+MNuwIyvc4ut3mhAt/TBD5HOFO7kPaylsaTwIe6
+hBgb6H9cEMHQAmgNFITHjzLjDiM5dag9dWqdDvHLoINgKEKgBSN8/tEJoh7qI60m
+Pv7PNEN3Jolwm8YeB0dite8aPioPvw4kReGAQnmkvDX4q809p3SRBOI9SCM4Rgwu
+xZq2gW4a+MiO6qdJ/MQi/3526//S2wreCvVijqYj68zo+NEN/3vevH/r9aWLZYsI
+VPU5U8UPwrVbbpGR6yUiilBrLvdHfaXWNOTnY7XBdMBms0JZEYGRiyUmQ6j4Pi/H
+23jC2wFN8qTFa4MKNluOJFOvXzgSY5iS1t6g0hrslao=
+</ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.unipi.it:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.unipi.it:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+            <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.unipi.it/idp/profile/Shibboleth/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.unipi.it/idp/profile/SAML2/POST/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.unipi.it/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.unipi.it/idp/profile/SAML2/Redirect/SSO"/>
+        </IDPSSODescriptor>
+        <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+            <Extensions>
+                <shibmd:Scope regexp="false">unipi.it</shibmd:Scope>
+            </Extensions>
+            <KeyDescriptor>
+                <ds:KeyInfo>
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+MIIDHDCCAgSgAwIBAgIVANpHH4cWOn6yEYz2lRJ3vuZn9emLMA0GCSqGSIb3DQEB
+BQUAMBcxFTATBgNVBAMTDGlkcC51bmlwaS5pdDAeFw0xMTAzMTAxMzM4MjRaFw0z
+MTAzMTAxMzM4MjRaMBcxFTATBgNVBAMTDGlkcC51bmlwaS5pdDCCASIwDQYJKoZI
+hvcNAQEBBQADggEPADCCAQoCggEBAIxD1yQuyQ1P7wVjslFUKXVAtWQ2Oe9h7vVO
+zGVo+08dZ1RFoS9e4wtMj3UOme7VwxKdvlkzp3B0sSJS5FqZ7oMf3Wi0SZKbldew
+zvO/ToeJLjCq4oQBXmi7RePwHZ2GEmyzk7JTujtnBrY6vjfIB+AwviT3y13OHCqB
+T1XCi8bNsAoviDjyN/TKG/AU1pJFc5NWFLRy1YKC+5FlJCh/Kr+uC/KVdUhn40Wm
+cAjLfTATK+Y1RbVb4eHF6vJOOBsTQqvat4heBmpBnuyY06ngU/dZp6Te3BCPMSm2
+6PQnYF8uf9Ftf5U++J32DJIRKimN8N3y0sVK8xsaIUbmAfkT6gMCAwEAAaNfMF0w
+PAYDVR0RBDUwM4IMaWRwLnVuaXBpLml0hiNodHRwczovL2lkcC51bmlwaS5pdC9p
+ZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUuVwagCJNNlDEGjXsYBV07TH67W4wDQYJ
+KoZIhvcNAQEFBQADggEBACVqW+MNuwIyvc4ut3mhAt/TBD5HOFO7kPaylsaTwIe6
+hBgb6H9cEMHQAmgNFITHjzLjDiM5dag9dWqdDvHLoINgKEKgBSN8/tEJoh7qI60m
+Pv7PNEN3Jolwm8YeB0dite8aPioPvw4kReGAQnmkvDX4q809p3SRBOI9SCM4Rgwu
+xZq2gW4a+MiO6qdJ/MQi/3526//S2wreCvVijqYj68zo+NEN/3vevH/r9aWLZYsI
+VPU5U8UPwrVbbpGR6yUiilBrLvdHfaXWNOTnY7XBdMBms0JZEYGRiyUmQ6j4Pi/H
+23jC2wFN8qTFa4MKNluOJFOvXzgSY5iS1t6g0hrslao=
+</ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.unipi.it:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+            <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.unipi.it:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+        </AttributeAuthorityDescriptor>
+        <Organization>
+            <OrganizationName xml:lang="it">Università degli Studi di Pisa</OrganizationName>
+            <OrganizationName xml:lang="en">University of Pisa</OrganizationName>
+            <OrganizationDisplayName xml:lang="it">Università di Pisa</OrganizationDisplayName>
+            <OrganizationDisplayName xml:lang="en">University of Pisa</OrganizationDisplayName>
+            <OrganizationURL xml:lang="it">http://www.unipi.it</OrganizationURL>
+            <OrganizationURL xml:lang="en">http://www.unipi.it/english</OrganizationURL>
+        </Organization>
+        <ContactPerson contactType="technical">
+            <SurName>Technical Support</SurName>
+            <EmailAddress>idem@unipi.it</EmailAddress>
+        </ContactPerson>
+        <ContactPerson contactType="support">
+            <GivenName>Samuele</GivenName>
+            <SurName>Tognini</SurName>
+            <EmailAddress>samuele.tognini@unipi.it</EmailAddress>
+        </ContactPerson>
+        <ContactPerson contactType="support">
+            <GivenName>Davide</GivenName>
+            <SurName>Vaghetti</SurName>
+            <EmailAddress>davide.vaghetti@unipi.it</EmailAddress>
+        </ContactPerson>
+    </EntityDescriptor>

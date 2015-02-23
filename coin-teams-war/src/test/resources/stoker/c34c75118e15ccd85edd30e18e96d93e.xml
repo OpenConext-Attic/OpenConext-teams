@@ -1,0 +1,77 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.inha.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2013-07-04T12:21:05Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">inha.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">INHA - Institut National de l'Histoire de l'Art</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDGDCCAgCgAwIBAgIVAO4pV7sAz3uXoZSchrwj2d0PI981MA0GCSqGSIb3DQEB
+BQUAMBYxFDASBgNVBAMTC2lkcC5pbmhhLmZyMB4XDTEzMDUyNzEzMjk0OVoXDTMz
+MDUyNzEzMjk0OVowFjEUMBIGA1UEAxMLaWRwLmluaGEuZnIwggEiMA0GCSqGSIb3
+DQEBAQUAA4IBDwAwggEKAoIBAQDa2e5fujqS/ViLxvdM+Enmgf5YlLTbv42SVoZ/
+eRbfyjEN50ykyYGrf3TD2a/qzFjOtTWnJFIEkf6jAQj79+axkYST5DxcE6G9q51k
+XmBUbxAOo3qP9an19B1sPuDz9gGZE33Iwu2qcOw8Z0dH69DWF4wNdu1mHZFeXS66
+WyJeww00xeARXo+flW8RvSTLCoU+TcFjYRP0OyGs+5YwMFw+wHQOJuR5hQakp9Lm
+M56083ADhpEXeQvyZUOxyd1QFhVFlUX6e6l6ww7svLStHCB1r5AVZff2qMIHe7v8
+kmfOYWbNgfajUWML3uI0gV84Ye5eHvhAgH/K75UYiL5A759rAgMBAAGjXTBbMDoG
+A1UdEQQzMDGCC2lkcC5pbmhhLmZyhiJodHRwczovL2lkcC5pbmhhLmZyL2lkcC9z
+aGliYm9sZXRoMB0GA1UdDgQWBBT6ICU4qeViyJcpEbrb0Zafyr/q3TANBgkqhkiG
+9w0BAQUFAAOCAQEADTAcGw7sH3vRJyCfv7kdWEzefxYx9nQPmeAY1z7/nL0qV865
+izTHDW7x9CMcQBnbapyuNB+uQbmJzovNW/eLjxNzFoqy4DVCYf2oFq4DX3RpPZj8
+a0Qsmll/OC6LZ1OnsSTg2F38fN+WwhHP9AEPdktsIxt1D0v7qr3gPzipdj1Bz3Z7
+md+a7DpGG/GPiczhrHZbrlwfMsbWTvfM6q4NqEHUWohV5TdJz3SVXnF7VWYjkgy2
+dk/zNZ/MGrjW4UnPGRTom36a+nElGRuRkIoyiOGzXuPyYZv6Phauwd3T5TmT1xi2
+BOkRf1b1DqBCezZIc9+vQAydDa2NLP0u415mxA==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.inha.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.inha.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.inha.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">INHA - Institut National de l'Histoire de l'Art</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">INHA - Institut National de l'Histoire de l'Art</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>admin@inha.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

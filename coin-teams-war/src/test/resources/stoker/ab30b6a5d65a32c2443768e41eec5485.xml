@@ -1,0 +1,106 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="uk001200" entityID="https://idp.nesc.gla.ac.uk/idp/shibboleth">
+	
+	<Extensions>
+
+
+
+
+		<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://ukfederation.org.uk" registrationInstant="2010-01-29T14:17:30Z">
+			<mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+		</mdrpi:RegistrationInfo>
+	</Extensions>
+	<IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+		<Extensions>
+			<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">nesc.gla.ac.uk</shibmd:Scope>
+			<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+				<mdui:DisplayName xml:lang="en">National e-Science Centre Hub (Glasgow)</mdui:DisplayName>
+				<mdui:Logo height="168" width="198">https://idp.nesc.gla.ac.uk:8444/nescgla.gif</mdui:Logo>
+			</mdui:UIInfo>    
+		</Extensions>
+		<KeyDescriptor>
+			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+				<ds:X509Data>
+					<ds:X509Certificate>
+						MIIDNDCCAhygAwIBAgIVAPq1QpqioWHeh0ScXnahkNLcLb9SMA0GCSqGSIb3DQEB
+						BQUAMB0xGzAZBgNVBAMTEmlkcC5uZXNjLmdsYS5hYy51azAeFw0xMDAxMjgxMjQ2
+						MzZaFw0zMDAxMjgxMjQ2MzZaMB0xGzAZBgNVBAMTEmlkcC5uZXNjLmdsYS5hYy51
+						azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIzMo/jm/4YdOcraBypo
+						44Pt5VVSsq362JfQUcuONHVVncUV4WD/60FMjJRIeEzFfFpzbAne6pUnixb9Z1B6
+						fcSpTVN6YhO81LqwnYNumOOlYmYPwDYPObyvpIhcUI4fB/qUbSyURXisbIXlgjow
+						vNbrjxT94otpChHh/MDDf/av1Js96tHUW9qHeE6hCtjKsBOgQRc4F7O4jAwkstlX
+						An0p6uImBE29Dp28XPl2pvGmCX3nXFOxWFNA8/hLaP2WwLwj1We4x9sKrQ36nHXx
+						Vs96YJBQ57UaaXBPciLX0OLi789yuXGBFQVfze1bB+nwg6jyBBYNVRfowcf52tDe
+						ZCUCAwEAAaNrMGkwSAYDVR0RBEEwP4ISaWRwLm5lc2MuZ2xhLmFjLnVrhilodHRw
+						czovL2lkcC5uZXNjLmdsYS5hYy51ay9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU
+						Bp6Cv9b7k/vjHWMzMz9WVf7A/FUwDQYJKoZIhvcNAQEFBQADggEBAHrb5/goxXFy
+						YTItKSfhHvqYKdLMBYrGDn8c0mXOm3vy1rC4osncx9TjPbjLAJg+i6rZxdfCzgN3
+						Cjlg1FyMEpsRkscPRSQlg9gge2Ecd/iWSoq8Md25feH1Xm7AA91Q3S81mheSXqx/
+						As0WUNFBp9tvIYHCBUMujQzw/O0s3qI8COnjAFpj4K1Hp+0zrjjE860ezhKuGs3c
+						v+9IVxUpfm8spl6EnuWbPGY0+J8N4DqL14G1SuOsMJNMB+qw9JFikzNy0YfHD9YK
+						Gcw5OSlSkClxFLW1fQ3aMDYjRi65tmArCZ4p3utYdqEWy4qzitl/helnRtPojX0b
+						XuZK6AuQhAE=
+					</ds:X509Certificate>
+				</ds:X509Data>
+			</ds:KeyInfo>
+		</KeyDescriptor>
+		<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.nesc.gla.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+		<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.nesc.gla.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+		<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+		<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.nesc.gla.ac.uk/idp/profile/Shibboleth/SSO"/>
+		<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.nesc.gla.ac.uk/idp/profile/SAML2/POST/SSO"/>
+		<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.nesc.gla.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+		<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.nesc.gla.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+	</IDPSSODescriptor>
+	<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+		<Extensions>
+			<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">nesc.gla.ac.uk</shibmd:Scope>
+		</Extensions>
+		<KeyDescriptor>
+			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+				<ds:X509Data>
+					<ds:X509Certificate>
+						MIIDNDCCAhygAwIBAgIVAPq1QpqioWHeh0ScXnahkNLcLb9SMA0GCSqGSIb3DQEB
+						BQUAMB0xGzAZBgNVBAMTEmlkcC5uZXNjLmdsYS5hYy51azAeFw0xMDAxMjgxMjQ2
+						MzZaFw0zMDAxMjgxMjQ2MzZaMB0xGzAZBgNVBAMTEmlkcC5uZXNjLmdsYS5hYy51
+						azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIzMo/jm/4YdOcraBypo
+						44Pt5VVSsq362JfQUcuONHVVncUV4WD/60FMjJRIeEzFfFpzbAne6pUnixb9Z1B6
+						fcSpTVN6YhO81LqwnYNumOOlYmYPwDYPObyvpIhcUI4fB/qUbSyURXisbIXlgjow
+						vNbrjxT94otpChHh/MDDf/av1Js96tHUW9qHeE6hCtjKsBOgQRc4F7O4jAwkstlX
+						An0p6uImBE29Dp28XPl2pvGmCX3nXFOxWFNA8/hLaP2WwLwj1We4x9sKrQ36nHXx
+						Vs96YJBQ57UaaXBPciLX0OLi789yuXGBFQVfze1bB+nwg6jyBBYNVRfowcf52tDe
+						ZCUCAwEAAaNrMGkwSAYDVR0RBEEwP4ISaWRwLm5lc2MuZ2xhLmFjLnVrhilodHRw
+						czovL2lkcC5uZXNjLmdsYS5hYy51ay9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU
+						Bp6Cv9b7k/vjHWMzMz9WVf7A/FUwDQYJKoZIhvcNAQEFBQADggEBAHrb5/goxXFy
+						YTItKSfhHvqYKdLMBYrGDn8c0mXOm3vy1rC4osncx9TjPbjLAJg+i6rZxdfCzgN3
+						Cjlg1FyMEpsRkscPRSQlg9gge2Ecd/iWSoq8Md25feH1Xm7AA91Q3S81mheSXqx/
+						As0WUNFBp9tvIYHCBUMujQzw/O0s3qI8COnjAFpj4K1Hp+0zrjjE860ezhKuGs3c
+						v+9IVxUpfm8spl6EnuWbPGY0+J8N4DqL14G1SuOsMJNMB+qw9JFikzNy0YfHD9YK
+						Gcw5OSlSkClxFLW1fQ3aMDYjRi65tmArCZ4p3utYdqEWy4qzitl/helnRtPojX0b
+						XuZK6AuQhAE=
+					</ds:X509Certificate>
+				</ds:X509Data>
+			</ds:KeyInfo>
+		</KeyDescriptor>
+		<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.nesc.gla.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+		<AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.nesc.gla.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+		<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+		<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+	</AttributeAuthorityDescriptor>
+	<Organization>
+		<OrganizationName xml:lang="en">University of Glasgow</OrganizationName>
+		<OrganizationDisplayName xml:lang="en">National e-Science Centre Hub (Glasgow)</OrganizationDisplayName>
+		<OrganizationURL xml:lang="en">http://www.nesc.ac.uk/hub/</OrganizationURL>
+	</Organization>
+	<ContactPerson contactType="support">
+		<GivenName>John</GivenName>
+		<SurName>Watt</SurName>
+		<EmailAddress>mailto:John.Watt@glasgow.ac.uk</EmailAddress>
+	</ContactPerson>
+	<ContactPerson contactType="technical">
+		<GivenName>John</GivenName>
+		<SurName>Watt</SurName>
+		<EmailAddress>mailto:John.Watt@glasgow.ac.uk</EmailAddress>
+	</ContactPerson>
+
+</EntityDescriptor>

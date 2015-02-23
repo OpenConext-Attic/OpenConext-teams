@@ -59,11 +59,10 @@ $(function() {
   }
   
 	COIN.Core.register('detailteam', COIN.MODULES.Detailteam);
-	
-	
-//	if ($("#IntroPage").length > 0) {
-//		COIN.Core.register('landingpage', COIN.MODULES.Landingpage);
-//	}
-		
+
+  if ($('#search-service-providers-container').length > 0) {
+    COIN.Core.register('addallowedserviceproviders', COIN.MODULES.AddAllowedServiceProviders);
+  }
+
 	COIN.Core.startAll();
 });

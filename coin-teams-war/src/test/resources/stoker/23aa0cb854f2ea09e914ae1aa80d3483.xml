@@ -1,0 +1,78 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibbo.ephe.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-05-19T13:42:23Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ephe.sorbonne.fr</shibmd:Scope>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">etu.ephe.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      <mdui:DisplayName xml:lang="en">EPHE - Ecole Pratique des Hautes Etudes</mdui:DisplayName>
+          		      <mdui:Description xml:lang="en">EPHE - Ecole Pratique des Hautes Etudes</mdui:Description>
+          		      <mdui:DisplayName xml:lang="fr">EPHE - Ecole Pratique des Hautes Etudes</mdui:DisplayName>
+          		      <mdui:Description xml:lang="fr">Administratifs , enseignants chercheurs et étudiants EPHE.</mdui:Description>
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDJDCCAgygAwIBAgIVANOJEmB/RSq08vn3PcA/H7ukbajAMA0GCSqGSIb3DQEB
+BQUAMBkxFzAVBgNVBAMTDnNoaWJiby5lcGhlLmZyMB4XDTE0MDUxOTA4MjI1N1oX
+DTM0MDUxOTA4MjI1N1owGTEXMBUGA1UEAxMOc2hpYmJvLmVwaGUuZnIwggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDI4+IJOGa+cmOpJD8q9VeYqvP8ZaRA
++JmrK6SnW22qtxoxIDaVjCb8OCcrDWewdw7q6jjUsmj8nAgmV2PLGNn1RbWjWvZN
+xI/bmfa3X9EEILm644BiV2c0riLWxo0/b8tlhYQ9ys4py4zlFlrWSkhFo2Lr5i6o
+9Qrd9dHVV22TV8Gj1sKWzCx1Rf0xRENYN0AUUafOrO5P0ixBAzOq3VDs32j/xrZm
+kxv9a9h3/z3WAucP5Xrip52iuQMBFpoPV6Jg9DWUz5PF7M6Fhy7hXM+Chf/wZDmN
+aaBvi/cqo5QXvuaig+Ru4+tjRJyKkre9s5tkb7PQlFCJLmBM5ltSi+zdAgMBAAGj
+YzBhMEAGA1UdEQQ5MDeCDnNoaWJiby5lcGhlLmZyhiVodHRwczovL3NoaWJiby5l
+cGhlLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBQi9BRR9wUI7SW85gyPxGtF
+0XBsHjANBgkqhkiG9w0BAQUFAAOCAQEAe5Mt6cKdJvYGUZchEK2KmteKL0On1KgS
+LjYx0IY8cQodPkKgPmk2+Y/ykaacjLFl+nPaklEiOVtFrGYxYLa0FngNfyOFrRGi
+bjbOwp1K3V2q3i5Ai2k7FiOSvIuFAXK4KrIW7UQVlYz3K/m6owj1O9B0+IIG+HYG
+0IBMSERU/HEGxDpkNT0UD9IzEsPzQN2Cee2EzIZRO1VYtdga9AtzLcpuTe/EVo92
+3KvObCZRk1aMAA6yTWAsBcVbaHueSvl2K2zW0HhXo8JvWz+LRRQRjTOagvBJoK1q
+hq79XpeV3MhLDgRkfc7tH1jHHeyUZUrOtcPvPmbLRySPxSB7WBtOqA==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibbo.ephe.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibbo.ephe.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibbo.ephe.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">EPHE - Ecole Pratique des Hautes Etudes</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">EPHE - Ecole Pratique des Hautes Etudes</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>interv@ephe.sorbonne.Fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

@@ -1,0 +1,64 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.heanet.ie/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.heanet.ie" registrationInstant="2010-11-01T00:00:00Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">heanet.ie</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">HEAnet Limited.</mdui:DisplayName>
+          <mdui:Logo height="82" width="200">https://edugate.heanet.ie/rr3/logos/heanet.png</mdui:Logo>
+          <mdui:InformationURL xml:lang="en">http://www.heanet.ie</mdui:InformationURL>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:GeolocationHint>geo:53.34964831237833,-6.246660947799683</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDHzCCAgegAwIBAgIUGqvc4DxR6ZObzP+9tjmx/JHShXIwDQYJKoZIhvcNAQEF
+BQAwGDEWMBQGA1UEAxMNaWRwLmhlYW5ldC5pZTAeFw0xMDA0MzAxMDU0MzZaFw0z
+MDA0MzAxMDU0MzZaMBgxFjAUBgNVBAMTDWlkcC5oZWFuZXQuaWUwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCzASQpsLEEYKVuaK9JiA66mzcCkx1X50SO
+uEtaPBejFzRZ3i5j7rgE7m+2ku+kjt8JJg9JUOrdnKJ0S/9aVggpKQvDAo9rNvjO
+/dyNge4OfUliuSUHw+LOiyxH0ELMW7DTVknLimzZNlHewmunUD/c/uI54Zb8XGYd
+MpmmfPq7LBeurCxBDZ101ujdj94lvtGTPY2WcnBj3ILoyAd1CquGU4o66ws333Ht
+7vA/NTLIO40qQSvEsMR9Lyb/ZQR+XmcssoJ8TqC6lWf2FfAt4phX904FBB9CHapZ
+dtHRRl6r1AifH9NZ/uh24+ct736MY5eqLyy5C5Wp0GmGac33+Iq5AgMBAAGjYTBf
+MD4GA1UdEQQ3MDWCDWlkcC5oZWFuZXQuaWWGJGh0dHBzOi8vaWRwLmhlYW5ldC5p
+ZS9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUhEdkRl4cvkY8kAeuxgl0TK1i61Mw
+DQYJKoZIhvcNAQEFBQADggEBAKk1EPv3OYkfuvz8js6xl7fI31jPJhDao2yExaeZ
+8P3joqz4YwGmI/Ahm+HNGtqYEXvP8MUpO8yPkkiuJl7L9pHu0Wk2v026XO1B2fZX
+z/4PHuTzo+cpPkcJewzDMKQuNMINzx0gOTpXH2WsSVaHEFBXm0g2OUkk8p4vnY5o
+O1D15tXmi7abFTXObJbvnNrQZJ4+wZAk+wGIfjEd5uKGIMgxET35RJLoUcgQnVxe
+Z0nveWuA2Iu/d6B+48I2J+I0vto6XneJrsVIt8MovKtbjFRs0fAZoD+UtthT+ZVz
+rbgeIIersVLLyLj9SIJrC+FVbLzD3jRnEI4r+mqAxzVNprk=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.heanet.ie/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.heanet.ie/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">HEAnet</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">HEAnet</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://idp.heanet.ie/support.htm</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:SurName>Glenn Wearen</md:SurName>
+      <md:EmailAddress>glenn.wearen@heanet.ie</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Janusz Ulanowski</md:SurName>
+      <md:EmailAddress>janusz.ulanowski@heanet.ie</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:SurName>NOC</md:SurName>
+      <md:EmailAddress>noc-middleware@heanet.ie</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

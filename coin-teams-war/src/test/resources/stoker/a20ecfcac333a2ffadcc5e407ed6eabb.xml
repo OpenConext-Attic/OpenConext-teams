@@ -1,0 +1,113 @@
+<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://edugate.heanet.ie/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.heanet.ie" registrationInstant="2010-11-01T00:00:00Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://edugate.heanet.ie/Shibboleth.sso/DS" index="0"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://edugate.heanet.ie/Shibboleth.sso/DS"/>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Edugate Resource Registry</mdui:DisplayName>
+          <mdui:Description xml:lang="en">The Edugate Resource Registry website is a central administration tool for managing the Edugate federation and additional bilateral relationships. This website also serves 
+The website will process your userid, name and email address to authorise access. Further data is used for the Whoami section of the website for troubleshooting purposes only and this additional data is not retained after you logout/leave the site.</mdui:Description>
+          <mdui:Logo height="108" width="306">https://edugate.heanet.ie/rr3/logos/edugate.png</mdui:Logo>
+          <mdui:InformationURL xml:lang="en">https://edugate.heanet.ie/rr3</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://edugate.heanet.ie/rr3/p/page/privacy</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIFbjCCA1YCCQCB0T3DNIZANDANBgkqhkiG9w0BAQUFADB5MQswCQYDVQQGEwJJ
+RTEPMA0GA1UECBMGRHVibGluMQ8wDQYDVQQHEwZEdWJsaW4xEzARBgNVBAoTCkhF
+QW5ldCBMdGQxEDAOBgNVBAMTB0VkdWdhdGUxITAfBgkqhkiG9w0BCQEWEnN1cHBv
+cnRAZWR1Z2F0ZS5pZTAeFw0xMDAzMDUxMTEwMTdaFw0yMDAzMDIxMTEwMTdaMHkx
+CzAJBgNVBAYTAklFMQ8wDQYDVQQIEwZEdWJsaW4xDzANBgNVBAcTBkR1YmxpbjET
+MBEGA1UEChMKSEVBbmV0IEx0ZDEQMA4GA1UEAxMHRWR1Z2F0ZTEhMB8GCSqGSIb3
+DQEJARYSc3VwcG9ydEBlZHVnYXRlLmllMIICIjANBgkqhkiG9w0BAQEFAAOCAg8A
+MIICCgKCAgEA01w+k8x58Sqqs+X0a/vScGc2g4BMBO0KE9lXujcNpXX+fwkzAhLK
+kQuvMtp0sSn7/WrsGa5MNSm5Z6+U3yGV3VCNRlUuiPdPe4zzXaMV3lPGDPNZeSTD
+BMlDXGALtzWBlAriQhctfvjamBRYwXrC0KDFkUCNu6DphR8bjBHhWFx9V20oQ75o
+3wLC7irMa09JkJpc82SVg3PqJ3ogt9Y0BTuqUgoiSGZIoTCsLrkLUotSZOkzxRQq
+u3nVL7cEFEWRmVEkaD3qjq6epo4EHDSUO6HB6WCV5gDccgGb0A5yCIvQY7SjEaaY
+hKmVMixwdki44+hNFPP5Qv+4A5NPxUVlAB8WzdRsrTTc4wDW4XDDAF7+0NmNZECc
+wN9/tLZROATQiFg6Fsmzar39DZos5EUo+4L/ozL8yBXOqdTwrTKKwrWmaQQTDpO6
+ASxGFWyXFbWIoun6/iUSpSgTnjRpgTnGVwFRmMV3bI7jd3egNemNhHZgwQ8js88N
+eQK2Uq3kjNa33NSEjpFNYShR7Tg4d8OUmdCdR3olakF/W6huToc46Skfp783+yqo
+L6qQ5xwL6XCeeB9EFtuGyy/J578W70Y5N0QnlIO14ShfBhMH9DL+wxidVuriJlrM
+mx130sELvNIpPJHf4gXpGAWDhxn2QqMAu1QK0+EueWfZTddglzRrk70CAwEAATAN
+BgkqhkiG9w0BAQUFAAOCAgEAhImtRqXMbxZNIog0TgaQvy62DFtbABS0FCM/xMGo
+vuY5l7YF/ot5SNE4MqWYX1pyOQRVIELuvNByH+FLKDmF6jyU9U0c8w9c6Uhf7Zs/
+0lgIfpR8LGvTHiNjbSuy6aCK+0JxGugaZZloSmGkIir9Yi6MQr8HOLdCkRYCISZQ
+pdGJFTwwDEoUDVr0szV4Aupm3wI/MtU80clwrHiVVyY0BoHc63gZ6j3Bn2BiuIb8
+pnxV3nwDnU9pSxkaBAH8Mo6zTo3dM9kdfdXlKvU3VIZ60O/Y8E2FZIKgqUK3enab
+YnX59OpeUExsaEUYRav5CQQlnNoYTOfG5E/foM4ojZhDv8hfeJmnvTjlDvQF4IaC
+WzziDM/1e/mGLjUHShbjv+OaxWBOwQjmPrsqEHTg7iTMTxuHfxnIVnv5/efknDiA
+9QPAVCY5BHH61FMxYfEoIhnLc3qSBGhx1keledDoXRzTyycfZi88Dj2YDBzLCbbT
+KxocVWR5wlAkMpxpFHsLIRp+XYNdc1cG6NQO4eHwoAJ/y1qdGssA9RR9/TEnlKMT
+mUavwgBEqGeMh1w0GwTmXGruoBOZMJNks9WzCmp+3QKsVCjZd/KIxHITq+jNeFRf
+LzMJnF1row2YXqF4AYDluUyCMPo89glxvlX9lDJ3TW5Xz4OJWqrz4WvEyWJIAMZy
+UBY=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://edugate.heanet.ie/Shibboleth.sso/SAML2/POST" index="1" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://edugate.heanet.ie/Shibboleth.sso/SAML2/Artifact" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://edugate.heanet.ie/Shibboleth.sso/SAML2/ECP" index="8"/>
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="en">Edugate Resource Registry</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">The Edugate Resource Registry website is a central administration tool for managing the Edugate federation and additional bilateral relationships. This website also serves 
+The website will process your userid, name and email address to authorise access. Further data is used for the Whoami section of the website for troubleshooting purposes only and this additional data is not retained after you logout/leave the site.</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="preferredLanguage" Name="urn:oid:2.16.840.1.113730.3.1.39" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="email" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="homePostalAddress" Name="urn:oid:0.9.2342.19200300.100.1.39" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="postalAddress" Name="urn:oid:2.5.4.16" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="homePhone" Name="urn:oid:0.9.2342.19200300.100.1.20" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="telephoneNumber" Name="urn:oid:2.5.4.20" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="mobile" Name="urn:oid:0.9.2342.19200300.100.1.41" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="eduPersonAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="eduPersonOrgDN" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="eduPersonOrgUnitDN" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="eduPersonEntitlement" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.7" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="surname" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="uid" Name="urn:oid:0.9.2342.19200300.100.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="employeeNumber" Name="urn:oid:2.16.840.1.113730.3.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="ou" Name="urn:oid:2.5.4.11" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="organizationName" Name="urn:oid:2.5.4.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="eduPersonAssurance" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.11" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="freebusyurl" Name="urn:oid:1.3.6.1.4.1.250.1.57" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="eduPersonNickname" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.2" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="schacHomeOrganizationType" Name="urn:oid:1.3.6.1.4.1.25178.1.2.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="schacHomeOrganization" Name="urn:oid:1.3.6.1.4.1.25178.1.2.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="commonName" Name="urn:oid:2.5.4.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">HEAnet</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">HEAnet</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://edugate.heanet.ie/rr3</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Glenn</md:GivenName>
+      <md:SurName>Wearen</md:SurName>
+      <md:EmailAddress>glenn.wearen@heanet.ie</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>NOC</md:GivenName>
+      <md:SurName>HEAnet</md:SurName>
+      <md:EmailAddress>noc@heanet.ie</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>NOC</md:GivenName>
+      <md:SurName>HEAnet</md:SurName>
+      <md:EmailAddress>noc@heanet.ie</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,89 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://federation.ined.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2013-09-26T17:01:56Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ined.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">INED - Institut National d'Etudes Démographiques</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDNDCCAhygAwIBAgIVALSDfGTkP7KOu8osupywHMFeyFANMA0GCSqGSIb3DQEB
+BQUAMB0xGzAZBgNVBAMTEmZlZGVyYXRpb24uaW5lZC5mcjAeFw0xMzA3MjMxNzE3
+MzJaFw0zMzA3MjMxNzE3MzJaMB0xGzAZBgNVBAMTEmZlZGVyYXRpb24uaW5lZC5m
+cjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMJG3Cg6FzR6km9GqLst
+gxKkkLLSsfnfncy+/ulDiS5tu3ueqr2c/dwz6o0kn97WrBLLlrFIiYaQPIZp1Lp3
+gA7utUMZeEs3ABn631suaI4ra+sMdrhIKgPBRmXchfPrWEk0QgqIkZhK7vP+yH4Z
+h4Tx+s5aLIDDmsh3tESGaWvP4OEE4oE6lTXS5coGrD1P3LqRLRBmmD/VBur3YDQG
+MfXKthCrBXfSsawSITjqN/HIRZO+75ZcO8L29BGu3jpDZQJOocvzsXEGcf1Yfzro
+BSf3w9wCRkuTpYqgvSqaIjG0BVxlq5S8V9NpVjgmQSiBBTBjDfXEhQnbvARg9o3i
+/2cCAwEAAaNrMGkwSAYDVR0RBEEwP4ISZmVkZXJhdGlvbi5pbmVkLmZyhilodHRw
+czovL2ZlZGVyYXRpb24uaW5lZC5mci9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU
+H5JcyQ9+maCLgPuzsi40nhRq8hgwDQYJKoZIhvcNAQEFBQADggEBAGtHb3XbAcb0
+bOuPVgifcFmXV7/AnUciKnhZBaMPSt8Q4brCg7+BPzNsGH0k9FGRfH8EHrHLa2qm
+0xqrBf1dEM3v1vq981fLnuks3rmqTrWApPYvxehrAlmtYRexYMv7QXVH06zECBee
+xgHHvFcGJ/JEHRYO8ZFeytl4dQej4tIKxfeW2WUR8zrrfBZNPKvPeN8Y/sHwO8EL
+NbDmdeOfpc1PjxHHbPkJQDLMdAZuMPTYYRdv7+v4s2saF8T3e7kazMNQOW8tQdwL
+i3VOe/mxnZMuPaIV1sWncTmcvo1hUtT89R4DQIimZCyCorKfPM4DNSPp/4KWB8SE
+SCHrArErnq8=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://federation.ined.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://federation.ined.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://federation.ined.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">INED - Institut National d'Etudes Démographiques</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">INED - Institut National d'Etudes Démographiques</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Marc Lamouche</SurName>
+				 <EmailAddress>marc.lamouche@ined.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Rainer Kugel</SurName>
+				 <EmailAddress>rainer.kugel@ined.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

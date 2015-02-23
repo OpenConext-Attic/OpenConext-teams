@@ -1,0 +1,69 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://login.helsinki.fi/shibboleth">
+    <Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.csc.fi/haka">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.csc.fi/english/institutions/haka/instructions/join/eduGAINRegistrationStatement/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+    <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <shibmd:Scope regexp="false">helsinki.fi</shibmd:Scope>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIE3jCCA8agAwIBAgIQWSnA5EzgO1nthR4AsdlaoTANBgkqhkiG9w0BAQUFADA2
+MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+U1NMIENBMB4XDTEyMDYxNTAwMDAwMFoXDTE1MDYxNTIzNTk1OVowgbcxCzAJBgNV
+BAYTAkZJMQ4wDAYDVQQREwUwMDAxNDEQMA4GA1UECBMHVXVzaW1hYTERMA8GA1UE
+BxMISGVsc2lua2kxIjAgBgNVBAkTGVBMIDI2IChUZW9sbGlzdXVza2F0dSAyMykx
+HzAdBgNVBAoTFlVuaXZlcnNpdHkgb2YgSGVsc2lua2kxEjAQBgNVBAsTCUlUIENl
+bnRlcjEaMBgGA1UEAxMRbG9naW4uaGVsc2lua2kuZmkwggEiMA0GCSqGSIb3DQEB
+AQUAA4IBDwAwggEKAoIBAQDrQpyohqDuaPxlOQDkWC/I/aw1ZhYMjLVDEx7x6XxR
+W9C5J4tTXpYYT3Us+oEUSJObhBTSm9EQ0tbDqnZjubwWZDkXHr1tnyP+JCFoFTZ/
+tqV768I3fE3TKdgEY3paVM8MWZPoyJf4uy1dKCz5lwie3anIYNVXw6mlPqbI9zAT
+b5elTMn+cBw9dML4dAQVODTuDJ2+avRMO4ItuqEj5f5PdI0HUjLU2ejRUQLP2nNX
+2MWgtweWvTIS/IWO1neE3Kn8v3j1VLdS3Xk2t/UBSeGl5e6MARhiHbLtigAWuIZv
+1pznlwdppBOzACm0e3somcJrbFnFOnbGmRQKtXq2yQJ3AgMBAAGjggFkMIIBYDAf
+BgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAdBgNVHQ4EFgQUqm3ksXlN
+/umZswjtgICNhBMvWlAwDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYD
+VR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBgGA1UdIAQRMA8wDQYLKwYBBAGy
+MQECAh0wOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9y
+Zy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilo
+dHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEF
+BQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwHAYDVR0RBBUwE4IRbG9n
+aW4uaGVsc2lua2kuZmkwDQYJKoZIhvcNAQEFBQADggEBACHDbip+j9xIvdz0WXvF
+4jhBCz4FoGoe7THcFwhVZL8oO3pKGyFHvAFQjdxibgWimOjYQyEnRoE2NYi27ccj
+S3hTQ3xcxoN6Zwq7Nq7iFNmQJ6Lc2uimU5zW7tLRqlTWQKKUm6/niFYv598Mg0PT
+NYY+HvJbSaNYXLkLzxOl8+fWFZqxmThOsb5KAx1xVjNVo2DiwC0crol7Wd0uDJEm
+9W8PdlbMcU04uznzo1v5EggbllAoFoqgWLL36H9zkbkh9NpA3a3j0PyvPaQHzwaC
+54RgRywzt/5g35mU+1cX4gTxt3aP6buBLAaEVtDJ+XQcfZJj3KhPQ2oo2y6Z6fNd
+Ahw=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.helsinki.fi/idp/profile/SAML2/Redirect/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.helsinki.fi/idp/profile/SAML2/POST/SSO"/>
+    </IDPSSODescriptor>
+    <Organization>
+      <OrganizationName xml:lang="fi">Helsingin yliopisto</OrganizationName>
+      <OrganizationName xml:lang="en">University of Helsinki</OrganizationName>
+      <OrganizationName xml:lang="sv">Helsingfors universitet</OrganizationName>
+      <OrganizationDisplayName xml:lang="fi">Helsingin yliopisto</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="en">University of Helsinki</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="sv">Helsingfors universitet</OrganizationDisplayName>
+      <OrganizationURL xml:lang="fi">http://www.helsinki.fi/yliopisto/</OrganizationURL>
+      <OrganizationURL xml:lang="en">http://www.helsinki.fi/yliopisto/</OrganizationURL>
+      <OrganizationURL xml:lang="sv">http://www.helsinki.fi/yliopisto/</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Janne</GivenName>
+      <SurName>Peltonen</SurName>
+      <EmailAddress>mailto:idm-hosting@helsinki.fi</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="support">
+      <GivenName>Juha</GivenName>
+      <SurName>Niemi</SurName>
+      <EmailAddress>mailto:idm-hosting@helsinki.fi</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

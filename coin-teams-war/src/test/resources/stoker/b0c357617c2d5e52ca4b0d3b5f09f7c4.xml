@@ -1,0 +1,78 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth.obspm.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-02-16T12:03:34Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">obspm.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Observatoire de Paris</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDODCCAiCgAwIBAgIVAN6NefE7MNV1gsFFJM6ZXxl7ricmMA0GCSqGSIb3DQEB
+BQUAMB4xHDAaBgNVBAMTE3NoaWJib2xldGgub2JzcG0uZnIwHhcNMTEwMjAzMTYx
+NTIwWhcNMzEwMjAzMTYxNTIwWjAeMRwwGgYDVQQDExNzaGliYm9sZXRoLm9ic3Bt
+LmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAorMZSrDEOOO6Zvun
++HTeRAYTSqd7FSq6F9ojEwPMs1wu6IREubuy8VdxUiPLawen20ZFp3X8XDCAQnWj
+qIq2EN4lmc8Ibtq6tVO6OjS5CilSmPw2pzyl1uc6Cipd/AemRahBzDHUPZgKJSSs
+vABRQDfalExfXUndgnYaROxMKHmrLdBUnHQO/8v0ZQQwXaHxFPCrMoA5FFF6D4Ro
+xrGhxR0TdDWXdyIat9ltvWIslziH+J1gGY+e1q5tmmAaZCeFdy/MthAhCxuTT64d
+E1+nXXT+6tUsI7mHc9/5Vusb4bc6UNxNKTECTB566qMK3CVq19JLrvl/ajzZoo1C
+06pKywIDAQABo20wazBKBgNVHREEQzBBghNzaGliYm9sZXRoLm9ic3BtLmZyhipo
+dHRwczovL3NoaWJib2xldGgub2JzcG0uZnIvaWRwL3NoaWJib2xldGgwHQYDVR0O
+BBYEFI4fpndolWB8RsDA1fRZm87FZGxaMA0GCSqGSIb3DQEBBQUAA4IBAQABf7PS
+TBmzFMbWo85wif9s/cXjoDefSk3RltzARoLvIBxjeMR+xFanb4VeLLbMpVhoZDE/
+EAgQgBZdfZ963sa65/a0MpPQ7c8CwWuVRLNAPFcbOusWMfCV5RGohCbkoPcRWhKy
+i7WmF8LW2bDPzHIIAJ0fJPEwsPD6MceV9aZgtnvcIax2zObATB9AO4e4HTm/QKPE
+Z95J8KjcXSTo7FeOLgY4AxTb4F4feNLZmFD0q06+CZLVZ46ZJBx4ISSobKypu6qE
+wOVcvEXq+Zt5q2+IQgg0Pxk+XEaEj0qq1JmZPrOGOq8wZES2ObjMbnFPwuoNZLMN
+4JZ1jEbeKm7bdK4P
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.obspm.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.obspm.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.obspm.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Observatoire de Paris</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Observatoire de Paris</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>interne.admin.DIO@obspm.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

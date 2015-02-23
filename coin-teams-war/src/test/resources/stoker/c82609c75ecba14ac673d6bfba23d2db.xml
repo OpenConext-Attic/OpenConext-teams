@@ -1,0 +1,78 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth.grenoble-inp.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-07-11T10:36:51Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">grenoble-inp.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Grenoble INP - Institut polytechnique de Grenoble</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDVDCCAjygAwIBAgIVAO/QaN+dR8TZXZ6cNFwn8jJiB3QdMA0GCSqGSIb3DQEB
+BQUAMCUxIzAhBgNVBAMTGnNoaWJib2xldGguZ3Jlbm9ibGUtaW5wLmZyMB4XDTEy
+MDEwOTA5MzY1NVoXDTMyMDEwOTA5MzY1NVowJTEjMCEGA1UEAxMac2hpYmJvbGV0
+aC5ncmVub2JsZS1pbnAuZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+AQDKu60J1wRxU9drIKvmtJJfsJ/w+Xmdd+PQOxz0+mIwpdUSpkMbkXWoiYTsj2nf
+BorFExB0qYHAUJTdPVBJL1LVSqOBK8k1w7BopKJnQ/XYujiSPuodTifKRYjiGyiB
+rDKs+pNLawv8jzWTtqnM8NYsfa0+25kdVDwHhKqmSmypB6leLyjNr9MKdHDQ38ca
+q3tKlKz0Mif1iZ0BZdo5eQSzZwO67pzU/4YUgmN2HpJxrwRsk9U98oILg2NVW+0U
+BNcheLXY2XrRd+fTbbPbTTMA4RNcYLCS0EPJ6YA77+wZ5YfD1FGu/hxBKUbCP8b8
+hhQ5O7Y//nWY3w5MlGqLAPjbAgMBAAGjezB5MFgGA1UdEQRRME+CGnNoaWJib2xl
+dGguZ3Jlbm9ibGUtaW5wLmZyhjFodHRwczovL3NoaWJib2xldGguZ3Jlbm9ibGUt
+aW5wLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBTAG7NXFV8rO7re+ySoBXuv
+3FrnkDANBgkqhkiG9w0BAQUFAAOCAQEAIFBwVqbJE++ODmHmwh6E3ScDv+LDM3q3
+GBpZKQ6I+g5uVdM1r5TRKZBxKL59J51wHBQ2+AmDhlNEeqUszaw42GXFJhWLf8RU
+5hnqyBQawD8NpztjyoNgHg1dLdg6uz8k1YHXTw3mG4eWaqxmeeUKspv+XXyBg7Sw
+xVox8mkoixLKQpOZ20xTOK41X+bAockt816dkuSR2ZV+v8fwE4BZbFunf9XZRJmD
+eyd91K5Q48y3V66rM3lnwlbdRFcBD9QC8vL+kHL1L5RIUSiClWuSm4J6adU29spC
+OXNNpafFw7y4uune6Y8Jq542pO0I1Hlx1rcd9u0vZ3P+ewZdQP5kkw==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.grenoble-inp.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.grenoble-inp.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.grenoble-inp.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Grenoble INP - Institut polytechnique de Grenoble</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Grenoble INP - Institut polytechnique de Grenoble</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>federation.sos@grenoble-inp.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

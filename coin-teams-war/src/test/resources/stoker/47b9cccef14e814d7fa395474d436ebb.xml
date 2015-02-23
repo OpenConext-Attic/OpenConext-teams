@@ -1,0 +1,86 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://cas.ent-etrs.net/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-03-24T16:19:23Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ent-etrs.net</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Ecole des Transmissions - Cesson Sévigné</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDKzCCAhOgAwIBAgIUXvJvEuE8bWQyAkG8bh3m7vmoqzgwDQYJKoZIhvcNAQEF
+BQAwGzEZMBcGA1UEAxMQY2FzLmVudC1ldHJzLm5ldDAeFw0xMTAzMjMxMTMzMDJa
+Fw0xNjAzMjMxMTMzMDJaMBsxGTAXBgNVBAMTEGNhcy5lbnQtZXRycy5uZXQwggEi
+MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCHJPDrl8egS/TqUaTu75zjeaWy
+7EEl0GgROrdoy4vrvKYOmofMHol90Epqd2e6HVhqUOnqWuUhm95lHfThMezBIPBo
+0qOY1QcGstS5allQ/iRY+ODRe3e0CCraHt6JGkckseVDrwlRmZImpJqZkpQyk1Yc
+fL9mlOrnC9lPrN5THoaazjcREicc0crehoyLkzoZzWWP6vzNMmyW2L9zqUqhbWhP
+UG6hZQ4c+pRUpjE+EEedzgMnpPy+M5BNcCRyCUCNwL11EvoYEYhcMNvR1x/qS+l0
+qqNR2qurS7W/hChAbBjyFw0nWzsAwS6NtiUYgjJ4I3uhOSg54hBQ5lqUTeNbAgMB
+AAGjZzBlMEQGA1UdEQQ9MDuCEGNhcy5lbnQtZXRycy5uZXSGJ2h0dHBzOi8vY2Fz
+LmVudC1ldHJzLm5ldC9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUiY4Lpt2DpIZo
+pwRHJPz4FWXDEcowDQYJKoZIhvcNAQEFBQADggEBAFGniMt16npf3zfKPwWo/bXn
+bivyG35m82xTRKspKLhUHkmXYN3ZaKz9Z44DShDGPlpddzaM7vFZqiEPQwu4Cw8G
+c3I06F53JEzhZgD9bScVrvONkZD4Si2WLqBpJX6vld2VJ6ptj+Sp0NpuO68tBYV3
+8kLkqSXtbGoPO+BmYG+1giEDSxIX/trYzzkzCtJgfZbPlnF0osjOl+vcyBdzwBdF
+Ww4LysygxWHWOWMRfDDZBdWiXN5hxqwt2AlXbg7bVUVs6yN077J+Cvrs3fJfSARB
+GE/cxG6DtyEQnF1mr7LZN8U7uNLg0uff90fHQPYL2y0ERDV04Ve9P0DVA0YjWuQ=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cas.ent-etrs.net/idp/profile/SAML2/POST/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cas.ent-etrs.net/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Ecole des Transmissions - Cesson Sévigné</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Ecole des Transmissions - Cesson Sévigné</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Patrick JAOUEN</SurName>
+				 <EmailAddress>patrick.jaouen@ent-etrs.net</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Dominique MULLER</SurName>
+				 <EmailAddress>dominique.muller@ent-etrs.net</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>

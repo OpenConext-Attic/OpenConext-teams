@@ -1,0 +1,118 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.admin.grnet.gr/idp/shibboleth">
+        <Extensions xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi">
+            <mdrpi:RegistrationInfo registrationAuthority="http://aai.grnet.gr/">
+                <mdrpi:RegistrationPolicy xml:lang="en">http://aai.grnet.gr/static/policy/policy-en-1.1.0.pdf</mdrpi:RegistrationPolicy>
+                <mdrpi:RegistrationPolicy xml:lang="el">http://aai.grnet.gr/static/policy/policy-el-1.1.0.pdf</mdrpi:RegistrationPolicy>
+            </mdrpi:RegistrationInfo>
+        </Extensions>
+        <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+            <Extensions>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">grnet-hq.admin.grnet.gr</shibmd:Scope>
+                <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+                    <mdui:DisplayName xml:lang="en">Greek Research and Technology Network</mdui:DisplayName>
+                    <mdui:DisplayName xml:lang="el">Εθνικό Δίκτυο Έρευνας και Τεχνολογίας</mdui:DisplayName>
+                    <mdui:InformationURL xml:lang="en">http://www.grnet.gr/</mdui:InformationURL>
+                    <mdui:InformationURL xml:lang="el">http://www.grnet.gr/</mdui:InformationURL>
+                    <mdui:Logo height="54" width="125">https://idp.admin.grnet.gr/static/mdui_grnet_logo_125x54.png</mdui:Logo>
+                    <mdui:Logo height="64" width="65">https://idp.admin.grnet.gr/static/mdui_grnet_logo_65x64.png</mdui:Logo>
+                </mdui:UIInfo>
+                <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+                    <mdui:DomainHint>admin.grnet.gr</mdui:DomainHint>
+                    <mdui:DomainHint>noc.grnet.gr</mdui:DomainHint>
+                    <mdui:IPHint>195.251.28.0/23</mdui:IPHint>
+                    <mdui:IPHint>2001:648:2320::/48</mdui:IPHint>
+                    <mdui:IPHint>83.212.9.0/24</mdui:IPHint>
+                    <mdui:IPHint>2001:648:2340::/48</mdui:IPHint>
+                    <mdui:GeolocationHint>geo:37.98709500,23.765772</mdui:GeolocationHint>
+                </mdui:DiscoHints>
+            </Extensions>
+            <KeyDescriptor use="signing">
+                <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDKDCCAhCgAwIBAgIJAJzvjilzprtbMA0GCSqGSIb3DQEBBQUAMB0xGzAZBgNV
+                            BAMTEmlkcC5hZG1pbi5ncm5ldC5ncjAeFw0xNDA0MDgxNjUyNDhaFw0xOTA0MDcx
+                            NjUyNDhaMB0xGzAZBgNVBAMTEmlkcC5hZG1pbi5ncm5ldC5ncjCCASIwDQYJKoZI
+                            hvcNAQEBBQADggEPADCCAQoCggEBAOzRbV+pz5RuGqwAOzI4jUXUSQXHFy6IYlLr
+                            VjisR2+7ZI24GybJAstcpmmNCtFQsM1CKte1x7TFHZFfDWCVv4IVGqtx9lLw+Jhg
+                            VjV8DzX0EYVIKyJimKWwIEn2BuEKWAcTUMdGehiYVeI4sxS+FgbiJxcWiMgq4bB5
+                            QV4gBoglEbI/S1vfoBBOEdKoEUamM+MAWCR83E2+JrhMXL+BrK+ojunyq/qyoL21
+                            GLTKL8jHTUgYMidSOx0oeMzTly8LzTONRDSs6ABxgQODU+b7qgjIqoCwY/kA1mUk
+                            ziqX/eQkxhK/ycf3HMrUVSwHLyOl5SMfpKWPcPuryTTTuFczmBsCAwEAAaNrMGkw
+                            SAYDVR0RBEEwP4ISaWRwLmFkbWluLmdybmV0LmdyhilodHRwczovL2lkcC5hZG1p
+                            bi5ncm5ldC5nci9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUb4DIDVDxNLIg4MDr
+                            gAyL+erDTzkwDQYJKoZIhvcNAQEFBQADggEBAED8EAttcxvYdQGcE8UpuDYyMqZ1
+                            gH0fSBbs61hh/bv4NjT/2ycWik/xtdiQj5foFcDNRBDD0Z09NteURUqqwaMXZrFX
+                            0YVUlIIZ6Pi7bTFRD4Rv+uX3edLVOZekPL9H28Rkk1ndCHsFLm2cQYd9Rd+DxjS4
+                            KRtNmyH8BYTzE8YKdX173kc2gdYKTAPNpt2Vj1+ctB9OgFybzIoEKwVtGA4upU5Z
+                            9vSsXQxRZQaYacBoPMBhUgU0dY+d7cA1pAwVsMbeXqPigEnmpMHapquvrzfO/a/m
+                            WuVAvsoC7QBvZa5PSfIqJ5NAA5IfvScAfYCKRZ0xEQudPJZ0SjEo44ZsMWo=
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.admin.grnet.gr:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.admin.grnet.gr:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+            <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.admin.grnet.gr/idp/profile/Shibboleth/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.admin.grnet.gr/idp/profile/SAML2/POST/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.admin.grnet.gr/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.admin.grnet.gr/idp/profile/SAML2/Redirect/SSO"/>
+        </IDPSSODescriptor>
+        <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+            <Extensions>
+                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">grnet-hq.admin.grnet.gr</shibmd:Scope>
+            </Extensions>
+            <KeyDescriptor use="signing">
+                <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:X509Data>
+                        <ds:X509Certificate>
+                            MIIDKDCCAhCgAwIBAgIJAJzvjilzprtbMA0GCSqGSIb3DQEBBQUAMB0xGzAZBgNV
+                            BAMTEmlkcC5hZG1pbi5ncm5ldC5ncjAeFw0xNDA0MDgxNjUyNDhaFw0xOTA0MDcx
+                            NjUyNDhaMB0xGzAZBgNVBAMTEmlkcC5hZG1pbi5ncm5ldC5ncjCCASIwDQYJKoZI
+                            hvcNAQEBBQADggEPADCCAQoCggEBAOzRbV+pz5RuGqwAOzI4jUXUSQXHFy6IYlLr
+                            VjisR2+7ZI24GybJAstcpmmNCtFQsM1CKte1x7TFHZFfDWCVv4IVGqtx9lLw+Jhg
+                            VjV8DzX0EYVIKyJimKWwIEn2BuEKWAcTUMdGehiYVeI4sxS+FgbiJxcWiMgq4bB5
+                            QV4gBoglEbI/S1vfoBBOEdKoEUamM+MAWCR83E2+JrhMXL+BrK+ojunyq/qyoL21
+                            GLTKL8jHTUgYMidSOx0oeMzTly8LzTONRDSs6ABxgQODU+b7qgjIqoCwY/kA1mUk
+                            ziqX/eQkxhK/ycf3HMrUVSwHLyOl5SMfpKWPcPuryTTTuFczmBsCAwEAAaNrMGkw
+                            SAYDVR0RBEEwP4ISaWRwLmFkbWluLmdybmV0LmdyhilodHRwczovL2lkcC5hZG1p
+                            bi5ncm5ldC5nci9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUb4DIDVDxNLIg4MDr
+                            gAyL+erDTzkwDQYJKoZIhvcNAQEFBQADggEBAED8EAttcxvYdQGcE8UpuDYyMqZ1
+                            gH0fSBbs61hh/bv4NjT/2ycWik/xtdiQj5foFcDNRBDD0Z09NteURUqqwaMXZrFX
+                            0YVUlIIZ6Pi7bTFRD4Rv+uX3edLVOZekPL9H28Rkk1ndCHsFLm2cQYd9Rd+DxjS4
+                            KRtNmyH8BYTzE8YKdX173kc2gdYKTAPNpt2Vj1+ctB9OgFybzIoEKwVtGA4upU5Z
+                            9vSsXQxRZQaYacBoPMBhUgU0dY+d7cA1pAwVsMbeXqPigEnmpMHapquvrzfO/a/m
+                            WuVAvsoC7QBvZa5PSfIqJ5NAA5IfvScAfYCKRZ0xEQudPJZ0SjEo44ZsMWo=
+                        </ds:X509Certificate>
+                    </ds:X509Data>
+                </ds:KeyInfo>
+            </KeyDescriptor>
+            <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.admin.grnet.gr:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+            <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.admin.grnet.gr:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+        </AttributeAuthorityDescriptor>
+        <Organization>
+            <OrganizationName xml:lang="en">Greek Research and Technology Network</OrganizationName>
+            <OrganizationName xml:lang="el">Εθνικό Δίκτυο Έρευνας και Τεχνολογίας</OrganizationName>
+            <OrganizationDisplayName xml:lang="en">Greek Research and Technology Network</OrganizationDisplayName>
+            <OrganizationDisplayName xml:lang="el">Εθνικό Δίκτυο Έρευνας και Τεχνολογίας</OrganizationDisplayName>
+            <OrganizationURL xml:lang="en">http://www.grnet.gr/</OrganizationURL>
+            <OrganizationURL xml:lang="el">http://www.grnet.gr/</OrganizationURL>
+        </Organization>
+        <ContactPerson contactType="technical">
+            <Company>Greek Research and Technology Network</Company>
+            <EmailAddress>helpdesk@grnet.gr</EmailAddress>
+            <TelephoneNumber>800-11-47638</TelephoneNumber>
+            <TelephoneNumber>+30-2109569181</TelephoneNumber>
+        </ContactPerson>
+        <ContactPerson contactType="support">
+            <Company>GRNET headquarters</Company>
+            <EmailAddress>support@admin.grnet.gr</EmailAddress>
+            <TelephoneNumber>+30-2107474275</TelephoneNumber>
+        </ContactPerson>
+    </EntityDescriptor>

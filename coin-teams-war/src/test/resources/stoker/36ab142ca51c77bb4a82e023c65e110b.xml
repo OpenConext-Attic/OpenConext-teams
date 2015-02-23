@@ -1,0 +1,78 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth.upmf-grenoble.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-11-07T16:44:49Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">upmf-grenoble.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      <mdui:DisplayName xml:lang="en">Grenoble 2 University - UPMF</mdui:DisplayName>
+          		      <mdui:Description xml:lang="en">Staff and students of Grenoble 2 University</mdui:Description>
+          		      <mdui:DisplayName xml:lang="fr">Université de Grenoble 2 UPMF</mdui:DisplayName>
+          		      <mdui:Description xml:lang="fr">Personnels et étudiants de l’université Grenoble 2</mdui:Description>
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDVzCCAj+gAwIBAgIUO1f61l32R6TuA6rB5vgAXHLdHFMwDQYJKoZIhvcNAQEF
+BQAwJjEkMCIGA1UEAxMbc2hpYmJvbGV0aC51cG1mLWdyZW5vYmxlLmZyMB4XDTEy
+MDYwNjEzNTYxMVoXDTMyMDYwNjEzNTYxMVowJjEkMCIGA1UEAxMbc2hpYmJvbGV0
+aC51cG1mLWdyZW5vYmxlLmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+AQEApxQzW/bnlgZAvW5YGo5kkUHGQ7kmIH68l7JQJs/lpKGiFJ9J1dker2NpZAeM
+O4DXoPky5GYaLIUW7gB+rwV5rn/xdPcHXEoM6fk4Fo+UdAvAoCfy5+td7H2Vh9FN
+W01HShLqyP6L1t2wNRYYybSn6d1Bn8fmifPaj70AwpTjnIPcfzfoLJQ7cZ2FEiIs
+wncAb2WGIwUpVWff/i8tPFQFb17+DB9iZJZcuBNNutR+XL8ieEqKn1iRMFOacs0m
+lH5g4Upv5s2V+43DJY08+KhNT4ZTAuPDeeduHsR6xWaPJXMr1zIE8kojoI7xWVfi
+ueki9ESCMgGRdo1gxHvSAr0hZQIDAQABo30wezBaBgNVHREEUzBRghtzaGliYm9s
+ZXRoLnVwbWYtZ3Jlbm9ibGUuZnKGMmh0dHBzOi8vc2hpYmJvbGV0aC51cG1mLWdy
+ZW5vYmxlLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBS7nbtER24yD2pjgXdT
+K9fyXANcdTANBgkqhkiG9w0BAQUFAAOCAQEAWC0ENJVG41ftYyD19+p0d1Ij0kfQ
+Xz86gMzPL/738R1fdrfgDG33nm95lR98v0+MrxwANS7ah9173mxGFY+otLFCwMdb
+5A8+SFx3HTdJmCyiQ0cE7KcWKp2H7t+Y/9rpF9YCw2DQ9SjsdmqdPHnmrNlYBtQN
+7TXRykcIk9vJpCtq5G265MQ9fVkvutx0dFmhkwIB03HwX91V7EQyKFPS7BsMfu50
+i4Rso8QVUsjhRyUPu+LGdANROT8v+NgRL9ef7xDu4VdjMUHJKqxjQ+ahQdEu7+Lb
+zZ6QCFpB0/4tW9KCEPrLa+D/keEg+5vWKfMF+e5TMX4H4d2MW4in6HfySw==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.upmf-grenoble.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.upmf-grenoble.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.upmf-grenoble.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Grenoble 2 UPMF</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Grenoble 2 UPMF</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>sysadm-dsiu2@upmf-grenoble.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

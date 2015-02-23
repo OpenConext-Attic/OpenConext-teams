@@ -1,0 +1,84 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth.envt.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2013-07-15T15:58:51Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">envt.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Ecole Nationale Vétérinaire de Toulouse (ENVT)</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDNDCCAhygAwIBAgIVALbIAX96KL3MHHLOC3iIdPBazQtRMA0GCSqGSIb3DQEB
+BQUAMB0xGzAZBgNVBAMTEnNoaWJib2xldGguZW52dC5mcjAeFw0xMzA2MjYwNzQ1
+MjhaFw0zMzA2MjYwNzQ1MjhaMB0xGzAZBgNVBAMTEnNoaWJib2xldGguZW52dC5m
+cjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL14Y39Z+9nkRJRbtsZs
+GIFZcTO8R4DH9nhPuokCn/mByrzCtVAEdC91yQ7+jGgXB/DZ/HECMvolPFnV3aRP
+CrsFap1m1WbaL72fLhO3zxappC0BzZxyefuHtRkvf2yx6hS7qg2HHgzNVqUpJFW9
+cbaxLyIIZuy6cmGvfNGZ7SchdgIqcUclhxZWOo8HH2d4rFZWIIOScZ9gyhThlZUs
+ZKXCe2cw0b69B3tU7DVT2ZL3G8HPDOsJ02EHckSJhExRRB6obM7FSnvi2qOkSoTS
+/tobBMNR6vGN6EYc3+6MwR572TEG0YKDWA4UkfVkrb5BGwclehPoYybuwLO9bIGz
+y+MCAwEAAaNrMGkwSAYDVR0RBEEwP4ISc2hpYmJvbGV0aC5lbnZ0LmZyhilodHRw
+czovL3NoaWJib2xldGguZW52dC5mci9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU
+fCqGnApiVU0GuQF3nPx7nd06SPswDQYJKoZIhvcNAQEFBQADggEBADI4y7Im35ne
+5YqpHF4hfF6HCIVezRvIrm6WrdL5aB7U//Pfq+ZTDnByLzULEU2LIgOlEyFlz5Os
+5yYI9c5nGrStndK9dvWTTUhQdZjVBJAfiHx0wBIdgEgI/R7X4kUpgZgpPC/WCk0W
+CP+KGdCy+HnpZ40bq0AhDKIoX5iXoXIIvmioONovPXmUh0aHgHVFufW8Y4qHilW/
+iowguqDTs4Es0C9ynTwu/wWLb1GWoIRtBHq7BR1yUCnefmDlZ1dP5sNCShVALvie
+ba49eIXgBqBxpQGrsHsgBR0UlekV5SmAQxH42PmEzeOpLCRTvlmOn2SYTJd4gJ1a
+JZ1pqUirmzM=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.envt.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.envt.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.envt.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Ecole Nationale Vétérinaire de Toulouse (ENVT)</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Ecole Nationale Vétérinaire de Toulouse (ENVT)</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>ARNOUX Jean-Baptiste</SurName>
+				 <EmailAddress>jb.arnoux@envt.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    		
+
+				
+			
+	</EntityDescriptor>

@@ -1,0 +1,87 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://www.sso.uni-erlangen.de/simplesaml/saml2/idp/metadata.php">
+    <Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2010-08-11T14:59:01Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">uni-erlangen.de</saml1md:Scope>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">fau.de</saml1md:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="de">Universität Erlangen-Nürnberg</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Universität Erlangen-Nürnberg</mdui:DisplayName>
+          <mdui:Description xml:lang="de">Identity Provider der Universität Erlangen-Nürnberg</mdui:Description>
+          <mdui:Description xml:lang="en">Identity Provider der Universität Erlangen-Nürnberg</mdui:Description>
+          <mdui:InformationURL xml:lang="de">https://www.sso.uni-erlangen.de</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">https://www.sso.uni-erlangen.de</mdui:InformationURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor use="signing">
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>www.sso.fau.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=www.sso.fau.de,OU=Regionales Rechenzentrum Erlangen (RRZE),O=Universitaet Erlangen-Nuernberg,L=Erlangen,ST=Bayern,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIHCTCCBfGgAwIBAgIHFVh6d4xjCjANBgkqhkiG9w0BAQUFADCBozELMAkGA1UE
+BhMCREUxDzANBgNVBAgTBkJheWVybjERMA8GA1UEBxMIRXJsYW5nZW4xKDAmBgNV
+BAoTH1VuaXZlcnNpdGFldCBFcmxhbmdlbi1OdWVybmJlcmcxDTALBgNVBAsTBFJS
+WkUxDzANBgNVBAMTBkZBVS1DQTEmMCQGCSqGSIb3DQEJARYXY2FAcnJ6ZS51bmkt
+ZXJsYW5nZW4uZGUwHhcNMTMwMzA3MjA0NzM2WhcNMTgwMzA2MjA0NzM2WjCBpzEL
+MAkGA1UEBhMCREUxDzANBgNVBAgTBkJheWVybjERMA8GA1UEBxMIRXJsYW5nZW4x
+KDAmBgNVBAoTH1VuaXZlcnNpdGFldCBFcmxhbmdlbi1OdWVybmJlcmcxMTAvBgNV
+BAsTKFJlZ2lvbmFsZXMgUmVjaGVuemVudHJ1bSBFcmxhbmdlbiAoUlJaRSkxFzAV
+BgNVBAMTDnd3dy5zc28uZmF1LmRlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+CgKCAQEAs/qsX/p+z8uxh3feD2sZWdb/NpOI5/YkPeXYQPQAdlRKBijHLohlLRAz
+CNFU7YWhy/FxY4uLE97h0hPVpoxCPlOW5qh56C1ZEWGBdhJImfYpzJbB2UIIUUR2
+WXLjZPyQObzxocui2M3XWa/uhpc3nPvBC/HLzr4fbU0f20D9hr0MXFurfuhGID+j
+t1jRsVWTjMWEVDAXDduKYUCAqrp1RlSc/H6z4WFeiQ92+4Q/+axig6KRkg0e0LBh
+MDA3ozIODmfFDIuo++rGvHWG47GLbLQyJLLeGkPlxxqo8uvVhtENxd5jrIkZrRd8
+y+dFr+jRh36DMmJGTzVkeweZPT2ZpQIDAQABo4IDOjCCAzYwOQYDVR0gBDIwMDAR
+Bg8rBgEEAYGtIYIsAQEEAwAwEQYPKwYBBAGBrSGCLAIBBAMAMAgGBmeBDAECAjAJ
+BgNVHRMEAjAAMAsGA1UdDwQEAwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYB
+BQUHAwEwHQYDVR0OBBYEFGL4MCMuRKr8cD0oslgL7QGRYj+uMB8GA1UdIwQYMBaA
+FPRz8/rGQrPGXGnAWL50OPlhK45iMIHvBgNVHREEgecwgeSCDW9wZW5pZC5mYXUu
+ZGWCD29wZW5pZC5ycnplLm5ldIIec3NvLXByb3h5LnJyemUudW5pLWVybGFuZ2Vu
+LmRlggpzc28uZmF1LmRlghhzc28ucnJ6ZS51bmktZXJsYW5nZW4uZGWCE3Nzby51
+bmktZXJsYW5nZW4uZGWCEXd3dy5vcGVuaWQuZmF1LmRlghN3d3cub3BlbmlkLnJy
+emUubmV0gg53d3cuc3NvLmZhdS5kZYIXd3d3LnNzby51bmktZXJsYW5nZW4uZGWB
+FnNzby1hZG1pbnNAcnJ6ZS5mYXUuZGUwgZ8GA1UdHwSBlzCBlDBIoEagRIZCaHR0
+cDovL2NkcDEucGNhLmRmbi5kZS91bmktZXJsYW5nZW4tbnVlcm5iZXJnLWNhL3B1
+Yi9jcmwvY2FjcmwuY3JsMEigRqBEhkJodHRwOi8vY2RwMi5wY2EuZGZuLmRlL3Vu
+aS1lcmxhbmdlbi1udWVybmJlcmctY2EvcHViL2NybC9jYWNybC5jcmwwge0GCCsG
+AQUFBwEBBIHgMIHdMDMGCCsGAQUFBzABhidodHRwOi8vb2NzcC5wY2EuZGZuLmRl
+L09DU1AtU2VydmVyL09DU1AwUgYIKwYBBQUHMAKGRmh0dHA6Ly9jZHAxLnBjYS5k
+Zm4uZGUvdW5pLWVybGFuZ2VuLW51ZXJuYmVyZy1jYS9wdWIvY2FjZXJ0L2NhY2Vy
+dC5jcnQwUgYIKwYBBQUHMAKGRmh0dHA6Ly9jZHAyLnBjYS5kZm4uZGUvdW5pLWVy
+bGFuZ2VuLW51ZXJuYmVyZy1jYS9wdWIvY2FjZXJ0L2NhY2VydC5jcnQwDQYJKoZI
+hvcNAQEFBQADggEBALIsNWnuaDrQA7Tu1ReusFhrkdOKpIH90mMWOBXZoUTPxEaK
+n86rjUAoFj1u1NlWyUrMYRWneXlvy3jQ3KEo7H6nJiEoa7LH1siTNcmOjDiN1dqA
+PO6+zAiESP5Xwsr2D1msyPXade0ra2PFSeG4XZ6hF/KEEYN0xxFpPbrvBD/fa+MU
+fp8NqxF7uANosdABgJs9RFmEmGuWd/Rc3aGzd3+dGwh9nFnKxON9fTrOlXNxa9Og
+jO0N75bg2RQTXLaMZLlUoVGE7n6FljoKjyiXlvUBSSeErakYPLpvgolN6QwAkM2j
+c/GLdms9imUWk7YQ8hzH7aUxdRWOmXLmc+2n/lY=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.sso.uni-erlangen.de/simplesaml/saml2/idp/SingleLogoutService.php"/>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.sso.uni-erlangen.de/simplesaml/saml2/idp/SSOService.php"/>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://www.sso.uni-erlangen.de/simplesaml/shib13/idp/SSOService.php"/>
+    </IDPSSODescriptor>
+    <Organization>
+      <OrganizationName xml:lang="de">e131</OrganizationName>
+      <OrganizationName xml:lang="en">e131</OrganizationName>
+      <OrganizationDisplayName xml:lang="de">Friedrich-Alexander-Universität Erlangen-Nürnberg</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="en">Friedrich-Alexander-Universität Erlangen-Nürnberg</OrganizationDisplayName>
+      <OrganizationURL xml:lang="de">https://www.sso.uni-erlangen.de</OrganizationURL>
+      <OrganizationURL xml:lang="en">https://www.sso.uni-erlangen.de</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Frank</GivenName>
+      <SurName>Tröger</SurName>
+      <EmailAddress>mailto:sso-admins@rrze.fau.de</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

@@ -1,0 +1,78 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.u-bordeaux-montaigne.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-04-07T17:16:06Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">u-bordeaux-montaigne.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université Bordeaux Montaigne</mdui:DisplayName>
+          		      <mdui:Description xml:lang="fr">Toute la communauté de l'université Bordeaux Montaigne</mdui:Description>
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDVzCCAj+gAwIBAgIUHPBrysVhtt7R/gvuIk4VwxtbXfUwDQYJKoZIhvcNAQEF
+BQAwJjEkMCIGA1UEAxMbaWRwLnUtYm9yZGVhdXgtbW9udGFpZ25lLmZyMB4XDTE0
+MDQwNzE0MzczMVoXDTM0MDQwNzE0MzczMVowJjEkMCIGA1UEAxMbaWRwLnUtYm9y
+ZGVhdXgtbW9udGFpZ25lLmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+AQEAzoBNnucktebQfAKs+CzNFw3DJjZqiBl63mrILfJ54L/5x99825pcWwpBoXIR
+/9hrEAvgM6bKVnICQSb8ES0D0kV8aCQBltm4Bw/JmvmQDuCfmRombFAYKA+KLx+4
+6VuuXKOWH9EqrQIFsc4418Ln8zqTIvNunT9rxFN0D7uWPtElxuID2tz9CnvkWw5w
+rvQPKEqpCEJlMugBQISlvm70Q6TCeWMeeZ317jAtpXi9ELx7mTokJ1qENDzTUPkb
+uJN5aH8JZ/LjKIkXqmj658/gnTyuWWMw1bCiwDtJVvsAOJOa7QVma4Ph55O84biN
+s9Zwj/g8GmDnkoRYQxQO8w/krwIDAQABo30wezBaBgNVHREEUzBRghtpZHAudS1i
+b3JkZWF1eC1tb250YWlnbmUuZnKGMmh0dHBzOi8vaWRwLnUtYm9yZGVhdXgtbW9u
+dGFpZ25lLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRd5DOByJ5+rahWNtvg
+/Wsz2LJy/jANBgkqhkiG9w0BAQUFAAOCAQEAC1PLClY7gYSkCJebDPsplSGUcJiw
+X8gEe7G8tsmNnE0bNuCWvnmJuHEuHWkFb7VQSbC4nLVaapnmP2d+IgPRRBwXzeAA
+8bG9Mh6rGbWvi61NExqw7PWZ+HLVbFv400q/C4NZENCAM2nleI97G+Zcn6iNmVXO
+xvmptgBpVcFa3iDcheYOKngb9JxI1+b31/RyCqYKqUOXVtmdnybefoRFBSaf13D/
+LlzyjzOOYDvl5zBkEX4V5HaZpY2mEPRM6paKiVrxzExfzZL8X8q5OGbg5G3fbNMv
+rCJ2i9qLyjorUvRNPm7ihuZZGUIn0qiv9WaZ9iEbRCGLWjE6oZrGbOecbw==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.u-bordeaux-montaigne.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.u-bordeaux-montaigne.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.u-bordeaux-montaigne.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université Bordeaux Montaigne</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université Bordeaux Montaigne</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>reseau@u-bordeaux-montaigne.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

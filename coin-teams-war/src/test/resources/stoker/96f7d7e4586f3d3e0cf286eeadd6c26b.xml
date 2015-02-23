@@ -1,0 +1,84 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.vet-alfort.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-06-06T14:14:52Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">vet-alfort.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      <mdui:DisplayName xml:lang="en">National Veterinary School of Alfort</mdui:DisplayName>
+          		      <mdui:Description xml:lang="en">ENVA Students, Teachers and researchers and employees.</mdui:Description>
+          		      <mdui:DisplayName xml:lang="fr">Ecole Nationale Vétérinaire d'ALFORT</mdui:DisplayName>
+          		      <mdui:Description xml:lang="fr">Etudiants, Enseignants-Chercheur, Personnels de l'ENVA</mdui:Description>
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDMDCCAhigAwIBAgIVAO3N41irRpARAo+XP9yzoR89gA0sMA0GCSqGSIb3DQEB
+BQUAMBwxGjAYBgNVBAMTEWlkcC52ZXQtYWxmb3J0LmZyMB4XDTE0MDYwNjA4NDcz
+NVoXDTM0MDYwNjA4NDczNVowHDEaMBgGA1UEAxMRaWRwLnZldC1hbGZvcnQuZnIw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCDMy3shCyhtNVjXK6/6gSc
+seewwAOZRAPaOppoj+iGJ+261cOu/JthyfDkRnxXvuDkbwatFyqzGBAjZUWrjj9F
+vpLA8AhKFn555ZdFaEz613xB1Ixt2erYh0/B7n54jMKX/R6puVfBPqviYagJBBav
+Ge2tNJu2Q2/qjkWBf9tIE0ZrKAXQJWYwAiaWIFa4nECbmlEq2Y5iyA/Um6xLRwLZ
+jPPr0CNDE86h8z4HTppc5q6Vam7mN4wHlKUWlf6Ie4zPy7WnW6Bp1gxqkx1zGeeA
+pqHYd3H3Mw6Nxpa3W1CUsIXdIYSKpo/ahfpipK8ci5DExUgfjG+IUMnGcoACdX2X
+AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEWlkcC52ZXQtYWxmb3J0LmZyhihodHRwczov
+L2lkcC52ZXQtYWxmb3J0LmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBQdpcAH
+JJCWpA6ERBlywLRbThojDTANBgkqhkiG9w0BAQUFAAOCAQEAeVSp+V5olBI0kcyV
+02igfUKwnrCD116/yABfvo8lpLCVhTI0Hydfyywq9duJNZnpmtlNdgRN+d+OUnx3
+hlDvg1BAh1jPObwa0e9i4KtAr6fZHVxs3TczaUW2V+qdzQCPDj2y+qkEeFyCFEoP
+tAv7a/xGeAqQ4dupq2j6RlqfB62GdZGhfvzLJIUCz4MkH+X2SSRoAwrTUwPkeeqa
+xQIiyDnuAGh+RL+tU4BzJZkfmyLDtgrN+jP1rlmBIph0JB3uV2zG0FuIboFlIkZP
+8juD6wsMppjhxFHr+jq4B9iUmMNMCgsg6gX60VF7JNvTuoB6iXE77dJ/a1o7SXlh
+95exag==
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.vet-alfort.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.vet-alfort.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.vet-alfort.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Ecole Nationale Vétérinaire d'ALFORT</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Ecole Nationale Vétérinaire d'ALFORT</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Hervé Battaglia</SurName>
+				 <EmailAddress>herve.battaglia@vet-alfort.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    		
+
+				
+			
+	</EntityDescriptor>

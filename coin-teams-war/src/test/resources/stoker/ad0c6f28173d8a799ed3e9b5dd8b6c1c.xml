@@ -1,0 +1,143 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth-idp.mpg.de/mpg/shibboleth">
+    <Extensions>
+      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-03-10T14:26:51Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </Extensions>
+    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">mpg.de</saml1md:Scope>
+        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+          <mdui:DisplayName xml:lang="de">Max-Planck Institute (im MetaDir der GWDG)</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Max-Planck Institutes (in MetaDir of GWDG)</mdui:DisplayName>
+          <mdui:Description xml:lang="de">IdP für MPG Accounts in GWDG MetaDir</mdui:Description>
+          <mdui:Description xml:lang="en">Idp for MPG Accounts in GWDG MetaDir</mdui:Description>
+          <mdui:Logo height="16" width="16">https://www.mpg.de/favicon.ico</mdui:Logo>
+          <mdui:Logo height="163" width="300">https://shibboleth-idp.mpg.de/mpg/uApprove/logo-mpg.png</mdui:Logo>
+          <mdui:InformationURL xml:lang="de">https://www.mpg.de/kurzportrait</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">https://www.mpg.de/183251/portrait</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="de">http://www.mpg.de/impressum</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="en">http://www.mpg.de/imprint</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>shibboleth-idp.mpg.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=shibboleth-idp.mpg.de,OU=PKI,O=Max-Planck-Gesellschaft,L=Goettingen,ST=Niedersachsen,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIFlTCCBH2gAwIBAgIHF4B2l7InVDANBgkqhkiG9w0BAQUFADBeMQswCQYDVQQG
+EwJERTEgMB4GA1UEChMXTWF4LVBsYW5jay1HZXNlbGxzY2hhZnQxDzANBgNVBAMT
+Bk1QRyBDQTEcMBoGCSqGSIb3DQEJARYNbXBnLWNhQG1wZy5kZTAeFw0xNDA0MzAx
+MzIyMTVaFw0xOTA0MjkxMzIyMTVaMIGKMQswCQYDVQQGEwJERTEWMBQGA1UECBMN
+TmllZGVyc2FjaHNlbjETMBEGA1UEBxMKR29ldHRpbmdlbjEgMB4GA1UEChMXTWF4
+LVBsYW5jay1HZXNlbGxzY2hhZnQxDDAKBgNVBAsTA1BLSTEeMBwGA1UEAxMVc2hp
+YmJvbGV0aC1pZHAubXBnLmRlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+AQEArolAQS1UWd9cHm/XD91J6m3yhQHIzNcHyAPHyPsF4Z/M5+2g4hlSSIPrHYSc
+HI2PSF7DpttiBfTMim2yq7GFCBdJHtZZP0i5Ajk2KuyM4oHHxANYaBzAPiClYbOb
+0oO0hENluVnIBiTkgcfmmFrEXiiA7ltjyONOmSRdEeIdbDUm704NI5d0S6OJ0J+5
+01NLXyHwMLdiLa7dOIjINY9wMJVOhgotYb0HodCfZUF4vuuvkw/JEWK2xEigvTD9
+aIJXdwdpcrx7DgkBbNto+fNPV2evJHHUy++QPbiNG2/2QajLnUAIAgQQsAfZX7zT
+xN2UW9V2dKXIykA621NzSOp8bwIDAQABo4ICKTCCAiUwOQYDVR0gBDIwMDARBg8r
+BgEEAYGtIYIsAQEEAwEwEQYPKwYBBAGBrSGCLAIBBAMBMAgGBmeBDAECAjAJBgNV
+HRMEAjAAMAsGA1UdDwQEAwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUH
+AwEwHQYDVR0OBBYEFP4tPNkQOhz1sk/77Ft0aqscEojMMB8GA1UdIwQYMBaAFALW
+Hm4Jq79YZacKPEgzYdHOfcNbMC4GA1UdEQQnMCWCFXNoaWJib2xldGgtaWRwLm1w
+Zy5kZYEMc2hpYkBnd2RnLmRlMHcGA1UdHwRwMG4wNaAzoDGGL2h0dHA6Ly9jZHAx
+LnBjYS5kZm4uZGUvbXBnLWNhL3B1Yi9jcmwvY2FjcmwuY3JsMDWgM6Axhi9odHRw
+Oi8vY2RwMi5wY2EuZGZuLmRlL21wZy1jYS9wdWIvY3JsL2NhY3JsLmNybDCBxwYI
+KwYBBQUHAQEEgbowgbcwMwYIKwYBBQUHMAGGJ2h0dHA6Ly9vY3NwLnBjYS5kZm4u
+ZGUvT0NTUC1TZXJ2ZXIvT0NTUDA/BggrBgEFBQcwAoYzaHR0cDovL2NkcDEucGNh
+LmRmbi5kZS9tcGctY2EvcHViL2NhY2VydC9jYWNlcnQuY3J0MD8GCCsGAQUFBzAC
+hjNodHRwOi8vY2RwMi5wY2EuZGZuLmRlL21wZy1jYS9wdWIvY2FjZXJ0L2NhY2Vy
+dC5jcnQwDQYJKoZIhvcNAQEFBQADggEBACneffiJgzK7uq8KZEhT3Qh1YA8EoPHD
+z5pigbg1F2IjuRozsxx2MPIHbzvuuXgXLhCNfxw4kepXammx0aYKFQJfhL9/O8Xo
+/KusssOTqTOM5tPJ6w5irVthTIAodch2St9DmF6YV4LfOnXPdKNKAz+LMOfl80ua
+tB/B2fjfaQGqTZY70RctOsS3SdOPub29OqAPS3xYT/dCZd3CSP4E6pjpqFKWDz0w
+LmveeJ9FG98fbaN0wbBh6abViYIfyeednJGp6efTra9aHjdxlGyExBnGjeAbi7iK
+tfyPYfYMvj1QxW+/LOG5aWb/RlyNQG90t+E7Ydh7zj03deDYQk4u3wM=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth-idp.mpg.de:8443/mpg/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth-idp.mpg.de:8443/mpg/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth-idp.mpg.de/mpg/profile/SAML2/Redirect/SLO"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth-idp.mpg.de/mpg/profile/SAML2/POST/SLO"/>
+      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth-idp.mpg.de:8443/mpg/profile/SAML2/SOAP/SLO"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth-idp.mpg.de/mpg/profile/Shibboleth/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth-idp.mpg.de/mpg/profile/SAML2/POST/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth-idp.mpg.de/mpg/profile/SAML2/POST-SimpleSign/SSO"/>
+      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth-idp.mpg.de/mpg/profile/SAML2/Redirect/SSO"/>
+    </IDPSSODescriptor>
+    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <Extensions>
+        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">mpg.de</saml1md:Scope>
+      </Extensions>
+      <KeyDescriptor>
+        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+          <ds:KeyName>shibboleth-idp.mpg.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=shibboleth-idp.mpg.de,OU=PKI,O=Max-Planck-Gesellschaft,L=Goettingen,ST=Niedersachsen,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIFlTCCBH2gAwIBAgIHF4B2l7InVDANBgkqhkiG9w0BAQUFADBeMQswCQYDVQQG
+EwJERTEgMB4GA1UEChMXTWF4LVBsYW5jay1HZXNlbGxzY2hhZnQxDzANBgNVBAMT
+Bk1QRyBDQTEcMBoGCSqGSIb3DQEJARYNbXBnLWNhQG1wZy5kZTAeFw0xNDA0MzAx
+MzIyMTVaFw0xOTA0MjkxMzIyMTVaMIGKMQswCQYDVQQGEwJERTEWMBQGA1UECBMN
+TmllZGVyc2FjaHNlbjETMBEGA1UEBxMKR29ldHRpbmdlbjEgMB4GA1UEChMXTWF4
+LVBsYW5jay1HZXNlbGxzY2hhZnQxDDAKBgNVBAsTA1BLSTEeMBwGA1UEAxMVc2hp
+YmJvbGV0aC1pZHAubXBnLmRlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+AQEArolAQS1UWd9cHm/XD91J6m3yhQHIzNcHyAPHyPsF4Z/M5+2g4hlSSIPrHYSc
+HI2PSF7DpttiBfTMim2yq7GFCBdJHtZZP0i5Ajk2KuyM4oHHxANYaBzAPiClYbOb
+0oO0hENluVnIBiTkgcfmmFrEXiiA7ltjyONOmSRdEeIdbDUm704NI5d0S6OJ0J+5
+01NLXyHwMLdiLa7dOIjINY9wMJVOhgotYb0HodCfZUF4vuuvkw/JEWK2xEigvTD9
+aIJXdwdpcrx7DgkBbNto+fNPV2evJHHUy++QPbiNG2/2QajLnUAIAgQQsAfZX7zT
+xN2UW9V2dKXIykA621NzSOp8bwIDAQABo4ICKTCCAiUwOQYDVR0gBDIwMDARBg8r
+BgEEAYGtIYIsAQEEAwEwEQYPKwYBBAGBrSGCLAIBBAMBMAgGBmeBDAECAjAJBgNV
+HRMEAjAAMAsGA1UdDwQEAwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUH
+AwEwHQYDVR0OBBYEFP4tPNkQOhz1sk/77Ft0aqscEojMMB8GA1UdIwQYMBaAFALW
+Hm4Jq79YZacKPEgzYdHOfcNbMC4GA1UdEQQnMCWCFXNoaWJib2xldGgtaWRwLm1w
+Zy5kZYEMc2hpYkBnd2RnLmRlMHcGA1UdHwRwMG4wNaAzoDGGL2h0dHA6Ly9jZHAx
+LnBjYS5kZm4uZGUvbXBnLWNhL3B1Yi9jcmwvY2FjcmwuY3JsMDWgM6Axhi9odHRw
+Oi8vY2RwMi5wY2EuZGZuLmRlL21wZy1jYS9wdWIvY3JsL2NhY3JsLmNybDCBxwYI
+KwYBBQUHAQEEgbowgbcwMwYIKwYBBQUHMAGGJ2h0dHA6Ly9vY3NwLnBjYS5kZm4u
+ZGUvT0NTUC1TZXJ2ZXIvT0NTUDA/BggrBgEFBQcwAoYzaHR0cDovL2NkcDEucGNh
+LmRmbi5kZS9tcGctY2EvcHViL2NhY2VydC9jYWNlcnQuY3J0MD8GCCsGAQUFBzAC
+hjNodHRwOi8vY2RwMi5wY2EuZGZuLmRlL21wZy1jYS9wdWIvY2FjZXJ0L2NhY2Vy
+dC5jcnQwDQYJKoZIhvcNAQEFBQADggEBACneffiJgzK7uq8KZEhT3Qh1YA8EoPHD
+z5pigbg1F2IjuRozsxx2MPIHbzvuuXgXLhCNfxw4kepXammx0aYKFQJfhL9/O8Xo
+/KusssOTqTOM5tPJ6w5irVthTIAodch2St9DmF6YV4LfOnXPdKNKAz+LMOfl80ua
+tB/B2fjfaQGqTZY70RctOsS3SdOPub29OqAPS3xYT/dCZd3CSP4E6pjpqFKWDz0w
+LmveeJ9FG98fbaN0wbBh6abViYIfyeednJGp6efTra9aHjdxlGyExBnGjeAbi7iK
+tfyPYfYMvj1QxW+/LOG5aWb/RlyNQG90t+E7Ydh7zj03deDYQk4u3wM=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </KeyDescriptor>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth-idp.mpg.de:8443/mpg/profile/SAML1/SOAP/AttributeQuery"/>
+      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth-idp.mpg.de:8443/mpg/profile/SAML2/SOAP/AttributeQuery"/>
+      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
+    </AttributeAuthorityDescriptor>
+    <Organization>
+      <OrganizationName xml:lang="de">e71</OrganizationName>
+      <OrganizationName xml:lang="en">e71</OrganizationName>
+      <OrganizationDisplayName xml:lang="de">Max-Planck-Gesellschaft</OrganizationDisplayName>
+      <OrganizationDisplayName xml:lang="en">Max-Planck-Gesellschaft</OrganizationDisplayName>
+      <OrganizationURL xml:lang="de">http://www.biochem.mpg.de</OrganizationURL>
+      <OrganizationURL xml:lang="en">http://www.biochem.mpg.de</OrganizationURL>
+    </Organization>
+    <ContactPerson contactType="technical">
+      <GivenName>Daniel</GivenName>
+      <SurName>Adler</SurName>
+      <EmailAddress>mailto:daniel.adler@gwdg.de</EmailAddress>
+    </ContactPerson>
+    <ContactPerson contactType="support">
+      <GivenName>Christof</GivenName>
+      <SurName>Pohl</SurName>
+      <EmailAddress>mailto:christof.pohl@gwdg.de</EmailAddress>
+    </ContactPerson>
+  </EntityDescriptor>

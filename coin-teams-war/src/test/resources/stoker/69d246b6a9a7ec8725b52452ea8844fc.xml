@@ -1,0 +1,91 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://doccom.iml.unibe.ch/shibboleth">
+			<Extensions>
+                <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://rr.aai.switch.ch/" registrationInstant="2014-09-08T10:55:32Z">
+                    <mdrpi:RegistrationPolicy xml:lang="en">https://www.switch.ch/aai/federation/switchaai/metadata-registration-practice-statement-20110711.txt</mdrpi:RegistrationPolicy>
+                </mdrpi:RegistrationInfo>
+                <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+                    <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+                        <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+                    </saml:Attribute>
+                </mdattr:EntityAttributes>
+			</Extensions>
+			<SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+				<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+					<mdui:DisplayName xml:lang="de">DOCCOM  Deutsch Universität Bern</mdui:DisplayName>
+					<mdui:DisplayName xml:lang="en">DOCCOM  German University Bern</mdui:DisplayName>
+					<mdui:Description xml:lang="de">DOCCOM Deutsch, Institut für medezinische Lehre, Universität Bern</mdui:Description>
+					<mdui:Description xml:lang="en">DOCCOM German, Institute for medical Education, University Bern</mdui:Description>
+					<mdui:PrivacyStatementURL xml:lang="en">https://doccom.iml.unibe.ch/Customizing/global/agreement/privacypolicy_en.html</mdui:PrivacyStatementURL>
+				</mdui:UIInfo>
+			</Extensions>
+			<KeyDescriptor>
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					<ds:X509Data>
+						<ds:X509Certificate>
+MIIDKDCCAhCgAwIBAgIJAMU8stHHiSQ3MA0GCSqGSIb3DQEBBQUAMB4xHDAaBgNV
+BAMTE2RvY2NvbS5pbWwudW5pYmUuY2gwHhcNMTQwNDEwMDc1NzI5WhcNMTcwNDA5
+MDc1NzI5WjAeMRwwGgYDVQQDExNkb2Njb20uaW1sLnVuaWJlLmNoMIIBIjANBgkq
+hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA081f+9+P/zwCwB/xPFLGYr/Olry6Ald8
+/VCcXHiO9V9OAezmSzMRfILyPLcpKZNl4rKmy3vcc67UzuJ+xA0SgzrsyqsOmxJc
+eAnPh58vkrhTooaP6JyXSV9rvrxA01m6TZMFjFJmljZ+5kmixjZ4F+zY9eBsXTXD
+utznEzh0DP1Ds6pL+eYeFezHlSSke4OhWDNVvCUSR3wE4IyImhc0afNhm7g8TOOm
+v/XavhPEw7xJBk40ivm9as/VjEe/Hu52C6McfJAUH2dyyG29jgqsFuMRDJd2zaU5
+1H+2Oxn7qLilqJ0nnbRck2RL5A2z/nOt8X4pBT6g4nBfrj+2zFA+PQIDAQABo2kw
+ZzBGBgNVHREEPzA9ghNkb2Njb20uaW1sLnVuaWJlLmNohiZodHRwczovL2RvY2Nv
+bS5pbWwudW5pYmUuY2gvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUIDmYnT2lN75n/KwN
+hAKm76KxX8swDQYJKoZIhvcNAQEFBQADggEBAJBf6iPfVq31qU4vL420UVjKdmMu
+lHAknUBiQgTiUsySUaAVPnPJcpzxlxKRBSd0s0/DbJQYmbCEEbGPZ6i2eLTMSocb
+kSy7D8uh0ZNtOAiTfeWc+76of+BHlXlq027rN5amd21nV4cdXmXMBuMyCidh4iNV
+zMKI709D+kxZvkCdIUlDM1TWd1v8aVViHnxNrlQ54wDFP4jRB9uDHAxUjtFfbdIL
+HpeGPZUR5zOfAiIl+zASdutD9TQVu20kr+/xSJybhXINXLj+r+x4P9xS8eYTQkLJ
+FLSCieH5zHtHuRj8cSafaBgJoQvFTOkZoD8D8N9CcCIKBUQleyBNpRBIfc0=
+						</ds:X509Certificate>
+					</ds:X509Data>
+				</ds:KeyInfo>
+			</KeyDescriptor>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+			<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://doccom.iml.unibe.ch/Shibboleth.sso/SAML2/POST" index="1"/>
+			<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://doccom.iml.unibe.ch/Shibboleth.sso/SAML2/Artifact" index="2"/>
+			<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://doccom.iml.unibe.ch/Shibboleth.sso/SAML2/ECP" index="3"/>
+			<AttributeConsumingService index="1">
+					<ServiceName xml:lang="de">DOCCOM  Deutsch Universität Bern</ServiceName>
+					<ServiceName xml:lang="en">DOCCOM  German University Bern</ServiceName>
+					<ServiceDescription xml:lang="de">DOCCOM Deutsch, Institut für medezinische Lehre, Universität Bern</ServiceDescription>
+					<ServiceDescription xml:lang="en">DOCCOM German, Institute for medical Education, University Bern</ServiceDescription>
+				<RequestedAttribute FriendlyName="email" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+					
+					
+				<RequestedAttribute FriendlyName="eduPersonAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+					
+				<RequestedAttribute FriendlyName="surname" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+				<RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+				<RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+				<RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+				<RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+				<RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+				<RequestedAttribute FriendlyName="commonName" Name="urn:oid:2.5.4.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+				<RequestedAttribute FriendlyName="schacHomeOrganization" Name="urn:oid:1.3.6.1.4.1.25178.1.2.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+				<RequestedAttribute FriendlyName="schacHomeOrganizationType" Name="urn:oid:1.3.6.1.4.1.25178.1.2.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+			</AttributeConsumingService>
+			</SPSSODescriptor>
+		<Organization>
+			<OrganizationName xml:lang="en">unibe.ch</OrganizationName>
+			<OrganizationDisplayName xml:lang="de">Universität Bern</OrganizationDisplayName>
+			<OrganizationDisplayName xml:lang="en">University of Bern</OrganizationDisplayName>
+			<OrganizationURL xml:lang="de">http://www.unibe.ch/</OrganizationURL>
+			<OrganizationURL xml:lang="en">http://www.unibe.ch/</OrganizationURL>
+		</Organization>
+		<ContactPerson contactType="support">
+			<GivenName>Michel</GivenName>
+			<SurName>Adrian</SurName>
+			<EmailAddress>mailto:adrian.michel@iml.unibe.ch</EmailAddress>
+			
+		</ContactPerson>
+		<ContactPerson contactType="technical">
+			<GivenName>Hahn</GivenName>
+			<SurName>Axel</SurName>
+			<EmailAddress>mailto:sysadmin@iml.unibe.ch</EmailAddress>
+			<TelephoneNumber>+41 031 631 58 53</TelephoneNumber>
+		</ContactPerson>
+		</EntityDescriptor>

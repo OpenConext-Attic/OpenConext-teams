@@ -21,7 +21,7 @@
  * - webapp/WEB-INF/jsp/js.jsp and
  * - webapp/js/coin-teams/init.js.
  */
-COIN.MODULES. = function(sandbox) {
+COIN.MODULES.MY_NAME = function(sandbox) {
 	// Public interface
 	var module = {
 		init: function() {

@@ -1,0 +1,78 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth.univ-evry.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-01-21T11:14:33Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-evry.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université d'Evry Val d'Essonne</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDRzCCAi+gAwIBAgIUAq2mpKTxqh6qstX6eHwrmooVbmMwDQYJKoZIhvcNAQEF
+BQAwIjEgMB4GA1UEAxMXc2hpYmJvbGV0aC51bml2LWV2cnkuZnIwHhcNMTAwOTI0
+MTA0OTA0WhcNMzAwOTI0MTA0OTA0WjAiMSAwHgYDVQQDExdzaGliYm9sZXRoLnVu
+aXYtZXZyeS5mcjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJp52EEk
+t5jLp2Fdl+FW8WxlusVfSKNpnmDCk08OeoWrF+6oxlfGzRxK87iUGawBhHx9Q3Iv
+pDyxfCBr6Cl8uLD1B881s1HF79T5iNeNS42MwGCjYxDmnDK1Jc1DcNDP8e5wfvBL
+2fT8WSjajtOOy+KXFltTsIcoenaCLcPb3l3EBpxmQQdgLwWb886kExL6oeYXxtXs
+DlTo6jzVCtFRxw9JMx7DaaxlPGHLBkGuUjYV6HJ1lX9N9lKzLt5C8QP+zlvaNj4l
+l4NWnvoxZ6b6tmB8A3yOv6YJNZmJEztCWr5szNuLIHV1Ps//jinag738uxQVsH2b
+gYAkC5aLCdheVnMCAwEAAaN1MHMwUgYDVR0RBEswSYIXc2hpYmJvbGV0aC51bml2
+LWV2cnkuZnKGLmh0dHBzOi8vc2hpYmJvbGV0aC51bml2LWV2cnkuZnIvaWRwL3No
+aWJib2xldGgwHQYDVR0OBBYEFEWCfI5AXn3/RakH6dnpRYDa2t9VMA0GCSqGSIb3
+DQEBBQUAA4IBAQBLNO5vu0/3c4pxRULtvx6c/OUQQQcjiPraIvVQVrnEb24aGKs7
+pIHGnk3VnyPaieODwif5KDUqQc3fkG0tXIUVshI4aRzopVL4qFDfwi7KbpDS6nUC
+cRyZSJ4Xp6SYPhadkK49sLSe9lf5tdcn8Kr6EpAL3uvQx45HdtzV9CI1KS8nI/ZE
++pvpXfptS9ZSrvsEz2SP9KjeEzSWiBTfCmGkKVxTPTiq/Qrg9Ceeoep8sj39Dh6Z
+2Y95aiTAmI2kjFbS4s2bZHjk/0TsYmOB8H6X+Ily18J3+xTfqvBw3c/inBzx1NT+
+21YW2cnfO+jzg5ZJqmB5D1PP001cJMAoHwV3
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.univ-evry.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.univ-evry.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.univ-evry.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université d'Evry Val d'Essonne</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université d'Evry Val d'Essonne</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+			    <ContactPerson contactType="technical">
+			     <EmailAddress>assistance-reseau@univ-evry.fr</EmailAddress>
+		        </ContactPerson>
+		    	
+			
+	</EntityDescriptor>

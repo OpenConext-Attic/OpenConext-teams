@@ -31,13 +31,22 @@ public class TeamEnvironment {
   private String openSocialUrl;
   private String systemEmail;
   private String groupNameContext;
+  private boolean groupzyEnabled;
 
   private int maxInvitations;
 
   private long maxUploadSize;
   private String shindigHost;
 
-    /**
+  public boolean isGroupzyEnabled() {
+    return groupzyEnabled;
+  }
+
+  public void setGroupzyEnabled(boolean groupzyEnabled) {
+    this.groupzyEnabled = groupzyEnabled;
+  }
+
+  /**
    * @return the version
    */
   public String getVersion() {

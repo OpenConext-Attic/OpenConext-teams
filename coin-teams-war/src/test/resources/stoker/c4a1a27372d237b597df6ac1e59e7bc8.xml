@@ -1,0 +1,124 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.univ-tours.fr/idp/shibboleth">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-06-24T18:00:31Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-tours.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">Université de Tours</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDLzCCAhegAwIBAgIUVH5OPXLEAtiW4UVmoDzKej0fR7wwDQYJKoZIhvcNAQEF
+BQAwHDEaMBgGA1UEAxMRaWRwLnVuaXYtdG91cnMuZnIwHhcNMDkwNjA5MTI0NTIx
+WhcNMjkwNjA5MTI0NTIxWjAcMRowGAYDVQQDExFpZHAudW5pdi10b3Vycy5mcjCC
+ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJV+FLOks9NmLB17N7XlmI+E
+r7NgQKavtPYd75TgOu5ubqe2YYD7DoLrQQzalOs7dw7Q2b1Pd+DSbqKjthjdD/wm
+IrvbA3bddVtU0hurW+wOfcP/aqvODxOL2PjYgRucGu82UfocIxbjDQyKvAhS1wsR
+tz2p0rLdCGKevDJqeJsSC7JAGolSYmnpZHRRY/86qKuvO/5XxBFUxqAuplOD2Cyk
++SgMsyd1eRNgfNf18peOPuK/s7midkIoSNfmffQri/gqlxXrZujj7sYQawU1bAt6
+IGxxDfKsyzinTxSj/8wXUfO1YaaSZpoOzQI6s42CvqZf5fnLBAu5G7QmGVPSQL8C
+AwEAAaNpMGcwRgYDVR0RBD8wPYIRaWRwLnVuaXYtdG91cnMuZnKGKGh0dHBzOi8v
+aWRwLnVuaXYtdG91cnMuZnIvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFCJdjIn0
+Y6lWGricZa673uc04sZuMA0GCSqGSIb3DQEBBQUAA4IBAQAGMS23ntdqT1WC7zXy
+KvER9CkWn8VHr3/j8FgHxJ/Ny5+eAAp348PPgk4FIl5W3JAyg5ZwqZYUET34xXBd
+C66AZjpoQvuyXEtWWlhama0FFW4UMRKjYxGSFf8BJFmyMk4fRtwolbm9s+MWD4bz
+ZpQtX9RZhBibLqx6BROOvyVFDsXxT/SbR7sHIlZE4Vd9bis6QE2SAefj6qyehYPL
+Nm452WAqt1hsasELZYoMp3q/jUFuLwIqk4HaoyP0ugbGZS5S+uf6vrodMvoVwf84
+Sf1I3HGOP6+0iyh+HO8fJM+1VZRsIxCJy69Z4uWDSacQOJo7cvj6sXSDRdv2Ecm8
+DW4K
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.univ-tours.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.univ-tours.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.univ-tours.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-tours.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDLzCCAhegAwIBAgIUVH5OPXLEAtiW4UVmoDzKej0fR7wwDQYJKoZIhvcNAQEF
+BQAwHDEaMBgGA1UEAxMRaWRwLnVuaXYtdG91cnMuZnIwHhcNMDkwNjA5MTI0NTIx
+WhcNMjkwNjA5MTI0NTIxWjAcMRowGAYDVQQDExFpZHAudW5pdi10b3Vycy5mcjCC
+ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJV+FLOks9NmLB17N7XlmI+E
+r7NgQKavtPYd75TgOu5ubqe2YYD7DoLrQQzalOs7dw7Q2b1Pd+DSbqKjthjdD/wm
+IrvbA3bddVtU0hurW+wOfcP/aqvODxOL2PjYgRucGu82UfocIxbjDQyKvAhS1wsR
+tz2p0rLdCGKevDJqeJsSC7JAGolSYmnpZHRRY/86qKuvO/5XxBFUxqAuplOD2Cyk
++SgMsyd1eRNgfNf18peOPuK/s7midkIoSNfmffQri/gqlxXrZujj7sYQawU1bAt6
+IGxxDfKsyzinTxSj/8wXUfO1YaaSZpoOzQI6s42CvqZf5fnLBAu5G7QmGVPSQL8C
+AwEAAaNpMGcwRgYDVR0RBD8wPYIRaWRwLnVuaXYtdG91cnMuZnKGKGh0dHBzOi8v
+aWRwLnVuaXYtdG91cnMuZnIvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFCJdjIn0
+Y6lWGricZa673uc04sZuMA0GCSqGSIb3DQEBBQUAA4IBAQAGMS23ntdqT1WC7zXy
+KvER9CkWn8VHr3/j8FgHxJ/Ny5+eAAp348PPgk4FIl5W3JAyg5ZwqZYUET34xXBd
+C66AZjpoQvuyXEtWWlhama0FFW4UMRKjYxGSFf8BJFmyMk4fRtwolbm9s+MWD4bz
+ZpQtX9RZhBibLqx6BROOvyVFDsXxT/SbR7sHIlZE4Vd9bis6QE2SAefj6qyehYPL
+Nm452WAqt1hsasELZYoMp3q/jUFuLwIqk4HaoyP0ugbGZS5S+uf6vrodMvoVwf84
+Sf1I3HGOP6+0iyh+HO8fJM+1VZRsIxCJy69Z4uWDSacQOJo7cvj6sXSDRdv2Ecm8
+DW4K
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.univ-tours.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">Université de Tours</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">Université de Tours</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Patrice Garnier</SurName>
+				 <EmailAddress>patrice.garnier@univ-tours.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    		
+
+				
+			
+	</EntityDescriptor>

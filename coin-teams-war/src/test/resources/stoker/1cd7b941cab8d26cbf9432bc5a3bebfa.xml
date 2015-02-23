@@ -1,0 +1,132 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://login.liu.se/idp/shibboleth">
+<md:Extensions>
+<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.swamid.se/">
+<mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+</mdrpi:RegistrationInfo>
+</md:Extensions>
+  <IDPSSODescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+    <Extensions>
+      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">liu.se</shibmd:Scope>
+      <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <mdui:DisplayName xml:lang="sv">Linköpings Universitet</mdui:DisplayName>
+        <mdui:DisplayName xml:lang="en">Linköping University</mdui:DisplayName>
+        <mdui:Description xml:lang="sv">Identitsutgivare för anställda och studenter vid Linköpings universitet.</mdui:Description>
+        <mdui:Description xml:lang="en">Identity Provider for employees and students at Linköping University.</mdui:Description>
+        <mdui:InformationURL xml:lang="sv">http://www.liu.se/?l=sv</mdui:InformationURL>
+        <mdui:InformationURL xml:lang="en">http://www.liu.se/?l=en</mdui:InformationURL>
+        <mdui:Logo height="68" width="350" xml:lang="sv">https://login.liu.se/idp/images/logo-350x68-sv.png</mdui:Logo>
+        <mdui:Logo height="53" width="80" xml:lang="sv">https://login.liu.se/idp/images/logo-80x53-sv.png</mdui:Logo>
+        <mdui:Logo height="50" width="50" xml:lang="sv">https://login.liu.se/idp/images/logo-50x50.png</mdui:Logo>
+        <mdui:Logo height="16" width="16" xml:lang="sv">https://login.liu.se/idp/images/logo-16x16.png</mdui:Logo>
+        <mdui:Logo height="68" width="350" xml:lang="en">https://login.liu.se/idp/images/logo-350x68-en.png</mdui:Logo>
+        <mdui:Logo height="53" width="80" xml:lang="en">https://login.liu.se/idp/images/logo-80x53-en.png</mdui:Logo>
+        <mdui:Logo height="50" width="50" xml:lang="en">https://login.liu.se/idp/images/logo-50x50.png</mdui:Logo>
+        <mdui:Logo height="16" width="16" xml:lang="en">https://login.liu.se/idp/images/logo-16x16.png</mdui:Logo>
+        <mdui:Keywords xml:lang="sv">liu linkopings+universitet linkoping+university</mdui:Keywords>
+        <mdui:Keywords xml:lang="en">liu linkopings+universitet linkoping+university</mdui:Keywords>
+      </mdui:UIInfo>
+      <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <mdui:DomainHint>liu.se</mdui:DomainHint>
+        <mdui:IPHint>130.236.0.0/16</mdui:IPHint>
+        <mdui:IPHint>2001:6b0:17::/48</mdui:IPHint>
+        <mdui:GeolocationHint>geo:58.397282,15.578624</mdui:GeolocationHint>
+      </mdui:DiscoHints>
+    </Extensions>
+    <KeyDescriptor>
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>
+MIIDGzCCAgOgAwIBAgIUUGevf/6+3wexHl4UyWmMfjha+8owDQYJKoZIhvcNAQEF
+BQAwFzEVMBMGA1UEAxMMbG9naW4ubGl1LnNlMB4XDTA5MDYyNTA2Mjg1NloXDTI5
+MDYyNTA2Mjg1NlowFzEVMBMGA1UEAxMMbG9naW4ubGl1LnNlMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkdGaEeZYE4lLbCTP3I/7SWH2dI4RfbVp0bPH
+X3TSDGUAJMf8lVwignl37pypkj1it/Ea1oOs1QAUUJF2s7eDKbbsQZ6IMEZHUCG9
+2yBt6cAA7HH8XyhyQodkTZd6JhY/HJY1oAiKXar7JSnxnVdg6365Z4rP+W4UHcHM
+ePgj6SqR0eW6qXmEIx9a/cyJ+s/R5cUiTrNDL9c0FH/watGYgesLxCxSSgijW7L1
+Cobl5Y5+Wr8i3sPPNVVtHXsp1aRI4G4YWW2qsoPF94s9f+LguJ+vHMT2URqplOZ3
+g41V7NFMqSw8f7n32BKl7ekAVBfhAwMuiKSENCuJ1vWHsXS7wwIDAQABo18wXTA8
+BgNVHREENTAzggxsb2dpbi5saXUuc2WGI2h0dHBzOi8vbG9naW4ubGl1LnNlL2lk
+cC9zaGliYm9sZXRoMB0GA1UdDgQWBBSouPd/n3U2de/t4ArJMSZcZGlsrjANBgkq
+hkiG9w0BAQUFAAOCAQEAdupL+cmtm9wOczmRze5JGpSkrEnJLWOABVH71QGhRPd3
+bEA93XLjwiO9NPuFyLrb03IUrcgdlgkxnCoq2dla2IQBI6ky+VSuc4lCsdanI+XB
+t2SymRPiqJ60K04Rm4TYOZHsDVHPO3dE3f4mjbhx/irlPmDIM+eB88SbT1nPRQfv
+G2bsafC6oxZjtT5CDJP30lUpieKkmIneVjTmYHBLQmWvl0G5o5j5OLtVj1xhfz9r
+zB2373DVTdsTnFIbFLDF8bGXt1jhxNOT5cxviUYKI+L1VLwKRjWlFd2tUMMKKz/I
+dE1S/LL5o/3BCZXOh9Fuvm6ND4e+jSkCizMQNgm4iw==
+
+                    </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://login.liu.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.liu.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+    <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://login.liu.se/idp/profile/Shibboleth/SSO"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.liu.se/idp/profile/SAML2/POST/SSO"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://login.liu.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.liu.se/idp/profile/SAML2/Redirect/SSO"/>
+  </IDPSSODescriptor>
+  <AttributeAuthorityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+    <Extensions>
+      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">liu.se</shibmd:Scope>
+    </Extensions>
+    <KeyDescriptor>
+      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:X509Data>
+          <ds:X509Certificate>
+MIIDGzCCAgOgAwIBAgIUUGevf/6+3wexHl4UyWmMfjha+8owDQYJKoZIhvcNAQEF
+BQAwFzEVMBMGA1UEAxMMbG9naW4ubGl1LnNlMB4XDTA5MDYyNTA2Mjg1NloXDTI5
+MDYyNTA2Mjg1NlowFzEVMBMGA1UEAxMMbG9naW4ubGl1LnNlMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkdGaEeZYE4lLbCTP3I/7SWH2dI4RfbVp0bPH
+X3TSDGUAJMf8lVwignl37pypkj1it/Ea1oOs1QAUUJF2s7eDKbbsQZ6IMEZHUCG9
+2yBt6cAA7HH8XyhyQodkTZd6JhY/HJY1oAiKXar7JSnxnVdg6365Z4rP+W4UHcHM
+ePgj6SqR0eW6qXmEIx9a/cyJ+s/R5cUiTrNDL9c0FH/watGYgesLxCxSSgijW7L1
+Cobl5Y5+Wr8i3sPPNVVtHXsp1aRI4G4YWW2qsoPF94s9f+LguJ+vHMT2URqplOZ3
+g41V7NFMqSw8f7n32BKl7ekAVBfhAwMuiKSENCuJ1vWHsXS7wwIDAQABo18wXTA8
+BgNVHREENTAzggxsb2dpbi5saXUuc2WGI2h0dHBzOi8vbG9naW4ubGl1LnNlL2lk
+cC9zaGliYm9sZXRoMB0GA1UdDgQWBBSouPd/n3U2de/t4ArJMSZcZGlsrjANBgkq
+hkiG9w0BAQUFAAOCAQEAdupL+cmtm9wOczmRze5JGpSkrEnJLWOABVH71QGhRPd3
+bEA93XLjwiO9NPuFyLrb03IUrcgdlgkxnCoq2dla2IQBI6ky+VSuc4lCsdanI+XB
+t2SymRPiqJ60K04Rm4TYOZHsDVHPO3dE3f4mjbhx/irlPmDIM+eB88SbT1nPRQfv
+G2bsafC6oxZjtT5CDJP30lUpieKkmIneVjTmYHBLQmWvl0G5o5j5OLtVj1xhfz9r
+zB2373DVTdsTnFIbFLDF8bGXt1jhxNOT5cxviUYKI+L1VLwKRjWlFd2tUMMKKz/I
+dE1S/LL5o/3BCZXOh9Fuvm6ND4e+jSkCizMQNgm4iw==
+
+                    </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://login.liu.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+    <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.liu.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+  </AttributeAuthorityDescriptor>
+  
+  
+  
+  
+<Organization xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
+    <OrganizationName xml:lang="sv">LiU</OrganizationName>
+    <OrganizationName xml:lang="en">LiU</OrganizationName>
+    <OrganizationDisplayName xml:lang="sv">Linköpings Universitet</OrganizationDisplayName>
+    <OrganizationDisplayName xml:lang="en">Linköping University</OrganizationDisplayName>
+    <OrganizationURL xml:lang="sv">http://www.liu.se?l=sv</OrganizationURL>
+    <OrganizationURL xml:lang="en">http://www.liu.se?l=en</OrganizationURL>
+  </Organization>
+<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="administrative">
+    <Company>Linköping University</Company>
+    <SurName>LiU-IT SAML admins</SurName>
+    <EmailAddress>saml-admins@it.liu.se</EmailAddress>
+  </ContactPerson>
+<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="technical">
+    <Company>Linköping University</Company>
+    <SurName>LiU-IT SAML admins</SurName>
+    <EmailAddress>saml-admins@it.liu.se</EmailAddress>
+  </ContactPerson>
+<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="support">
+    <Company>Linköping University</Company>
+    <SurName>LiU-IT Helpdesk</SurName>
+    <EmailAddress>helpdesk@liu.se</EmailAddress>
+  </ContactPerson>
+</md:EntityDescriptor>

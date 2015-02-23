@@ -1,0 +1,129 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="urn:mace:cru.fr:federation:ens-lsh.fr">
+			<Extensions>
+				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-05-13T13:13:51Z">
+					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+				</mdrpi:RegistrationInfo>
+			</Extensions>
+		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ens-lsh.fr</shibmd:Scope>
+    
+			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
+          		      
+          		      
+          		      <mdui:DisplayName xml:lang="fr">ENS Lettres et Sciences humaines</mdui:DisplayName>
+          		      
+      			    </mdui:UIInfo>
+			</Extensions>
+				<KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDQzCCAiugAwIBAgIUaXDeZKLpq89kivZfZ//X0NfeRUYwDQYJKoZIhvcNAQEF
+BQAwITEfMB0GA1UEAxMWc2hpYmJvbGV0aDIuZW5zLWxzaC5mcjAeFw0wOTA0MjQw
+ODEyMDFaFw0yOTA0MjQwODEyMDFaMCExHzAdBgNVBAMTFnNoaWJib2xldGgyLmVu
+cy1sc2guZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDHNMjdxzFx
+mWO63iu8QH+lMEXiDOjrr8PU+GRKVmThf1S5HZKruPa6l+9gV2mpeKOVDaQTgbGG
+sHui63HhNt4zzV55IXP9j+NHRyHkEpASXQKDeHLCTCHfs1QKmZKk3IfFcWqCCgVU
+byWjqv0vMf1g8/+RjDOpsb0eSU7De6rfPr/T/Rig7LqHH+O8ylB1g9pSaWW/oL5W
+qD+65djAlzlajlL/vmXE5UblgxnPvIpmltpQaRbUCbdJgTDchnRjE3LCFmwaSO7n
+FcBD4JEnYPe7BOqJv/DQcSNpAK/k5r5emnuCQAAh7wmlw+jmbiCFI78wkqBTAmrO
+ASkoj819hENJAgMBAAGjczBxMFAGA1UdEQRJMEeCFnNoaWJib2xldGgyLmVucy1s
+c2guZnKGLWh0dHBzOi8vc2hpYmJvbGV0aDIuZW5zLWxzaC5mci9pZHAvc2hpYmJv
+bGV0aDAdBgNVHQ4EFgQUo7Hd+mlHXBsrwd5DdoQxDGXouzwwDQYJKoZIhvcNAQEF
+BQADggEBABWfdOgzwxn6Goz9jU/IOk74GkGkeeVxsIKsS4OiXZyGC7ATMRk2kGPA
+vgF+2XUURWXsb93mjdkC7YyHDXTgBFUYsX8tv20j5MjDOBQI4l9XVoJ6cOyxfG2+
+aNLgjEEAYeu7n1bZCU+9mMeeqHnB8f4ovM4r1PdkBT2ttmUX7dU+coPLa/JetOTO
+AVXxYRZY4ty/dx2KdOetIcmD8UypcRVAmkry27l6ybWBEA8vqwPn78jFJeS/s92m
+ALjg3wnfawAlwRtGLxUhf9n7igtjhjrKRL9WVVnMPg08GpB6IDRzNedWjIhE8gmo
+beyt/O7UlYCwegLabizFFtOY7ztDocU=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+					</ds:KeyInfo>
+				</KeyDescriptor>
+
+				
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+			
+			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth2.ens-lsh.fr/idp/profile/SAML2/POST/SSO"/>
+	        
+	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth2.ens-lsh.fr/idp/profile/SAML2/Redirect/SSO"/>
+	        
+	        
+			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth2.ens-lsh.fr/idp/profile/Shibboleth/SSO"/>
+			
+
+		</IDPSSODescriptor>
+		
+	
+		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+			<Extensions>
+    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ens-lsh.fr</shibmd:Scope>
+    			</Extensions>
+			<KeyDescriptor use="signing">
+				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+					  
+					  <ds:X509Data>
+					    <ds:X509Certificate>
+					      MIIDQzCCAiugAwIBAgIUaXDeZKLpq89kivZfZ//X0NfeRUYwDQYJKoZIhvcNAQEF
+BQAwITEfMB0GA1UEAxMWc2hpYmJvbGV0aDIuZW5zLWxzaC5mcjAeFw0wOTA0MjQw
+ODEyMDFaFw0yOTA0MjQwODEyMDFaMCExHzAdBgNVBAMTFnNoaWJib2xldGgyLmVu
+cy1sc2guZnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDHNMjdxzFx
+mWO63iu8QH+lMEXiDOjrr8PU+GRKVmThf1S5HZKruPa6l+9gV2mpeKOVDaQTgbGG
+sHui63HhNt4zzV55IXP9j+NHRyHkEpASXQKDeHLCTCHfs1QKmZKk3IfFcWqCCgVU
+byWjqv0vMf1g8/+RjDOpsb0eSU7De6rfPr/T/Rig7LqHH+O8ylB1g9pSaWW/oL5W
+qD+65djAlzlajlL/vmXE5UblgxnPvIpmltpQaRbUCbdJgTDchnRjE3LCFmwaSO7n
+FcBD4JEnYPe7BOqJv/DQcSNpAK/k5r5emnuCQAAh7wmlw+jmbiCFI78wkqBTAmrO
+ASkoj819hENJAgMBAAGjczBxMFAGA1UdEQRJMEeCFnNoaWJib2xldGgyLmVucy1s
+c2guZnKGLWh0dHBzOi8vc2hpYmJvbGV0aDIuZW5zLWxzaC5mci9pZHAvc2hpYmJv
+bGV0aDAdBgNVHQ4EFgQUo7Hd+mlHXBsrwd5DdoQxDGXouzwwDQYJKoZIhvcNAQEF
+BQADggEBABWfdOgzwxn6Goz9jU/IOk74GkGkeeVxsIKsS4OiXZyGC7ATMRk2kGPA
+vgF+2XUURWXsb93mjdkC7YyHDXTgBFUYsX8tv20j5MjDOBQI4l9XVoJ6cOyxfG2+
+aNLgjEEAYeu7n1bZCU+9mMeeqHnB8f4ovM4r1PdkBT2ttmUX7dU+coPLa/JetOTO
+AVXxYRZY4ty/dx2KdOetIcmD8UypcRVAmkry27l6ybWBEA8vqwPn78jFJeS/s92m
+ALjg3wnfawAlwRtGLxUhf9n7igtjhjrKRL9WVVnMPg08GpB6IDRzNedWjIhE8gmo
+beyt/O7UlYCwegLabizFFtOY7ztDocU=
+					    </ds:X509Certificate>
+					  </ds:X509Data>
+					  
+				</ds:KeyInfo>
+			</KeyDescriptor>
+
+				
+
+			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth2.ens-lsh.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
+			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+		</AttributeAuthorityDescriptor>
+
+
+		<Organization>
+		
+			<OrganizationName xml:lang="en">ENS Lettres et Sciences humaines</OrganizationName>
+			<OrganizationDisplayName xml:lang="en">ENS Lettres et Sciences humaines</OrganizationDisplayName>
+			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
+		
+		</Organization>
+
+			
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Christophe Girard</SurName>
+				 <EmailAddress>Christophe.Girard@ens-lsh.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+		    	
+			    <ContactPerson contactType="technical">
+				 <SurName>Christelle Chaput</SurName>
+				 <EmailAddress>Christelle.Chaput@ens-lsh.fr</EmailAddress>
+		        </ContactPerson>
+			    	
+
+				
+			
+	</EntityDescriptor>
