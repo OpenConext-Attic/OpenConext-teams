@@ -22,7 +22,7 @@
     <version>3.11.0</version>
   </parent>
   <artifactId>coin-teams-parent</artifactId>
-  <version>4.0.4</version>
+  <version>4.0.4.1</version>
   <packaging>pom</packaging>
   <name>coin-teams-parent</name>
   <description>OpenConext Teams Parent</description>
@@ -30,7 +30,7 @@
     <connection>scm:git:git@github.com:OpenConext/OpenConext-teams.git</connection>
     <url>scm:git:git@github.com:OpenConext/OpenConext-teams.git</url>
     <developerConnection>scm:git:git@github.com:OpenConext/OpenConext-teams.git</developerConnection>
-    <tag>coin-teams-parent-4.0.4</tag>
+    <tag>v4.0.4.1</tag>
   </scm>
 
   <properties>
@@ -125,6 +125,12 @@
             <version>1.9.2</version>
           </dependency>
         </dependencies>
+        <configuration>
+          <tagNameFormat>v@{project.version}</tagNameFormat>
+          <autoVersionSubmodules>true</autoVersionSubmodules>
+          <pushChanges>false</pushChanges> <!--Release Plugin don't push to remote-->
+          <localCheckout>true</localCheckout> <!--Release Plugin clone from local repo-->
+        </configuration>
       </plugin>
     </plugins>
   </build>

@@ -157,7 +157,7 @@ COIN.MODULES.Detailteam = function(sandbox) {
     actionRole: function(el) {
       $('#memberId').val(library.getMemberId(el));
       $('#roleId').val(library.getRole(el));
-      if (el.attr('checked')) {
+      if (el.prop('checked')) {
         $('#doAction').val('add');
       } else {
         $('#doAction').val('remove');
