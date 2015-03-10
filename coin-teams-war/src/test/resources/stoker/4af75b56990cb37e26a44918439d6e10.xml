@@ -1,0 +1,88 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://fieldtrial.webfiltering.ja.net/shibboleth-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://fieldtrial.webfiltering.ja.net/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDCTCCAfGgAwIBAgIJALB0hSzEevYIMA0GCSqGSIb3DQEBBQUAMCExHzAdBgNV
+						BAMTFnNuZnR3ZWIwMS5pZGV2LmlmbC5uZXQwHhcNMTAwMjE5MTMyODQ2WhcNMjAw
+						MjE3MTMyODQ2WjAhMR8wHQYDVQQDExZzbmZ0d2ViMDEuaWRldi5pZmwubmV0MIIB
+						IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA8Cu9o/6D/wmBP45C/0SSxgPv
+						MuYMz8MwX/HJFP2+W4ADHmQhb4DL9x0kxF5ESuy26jCdtB4aUSl1BIi0qNhQ363t
+						sPMrD19R3xgZ1plxt+A9Y6VkkB+lO8A2WFpuwmI+pl7mP8jLvBKgG0g1oxLIqFZS
+						0S9Q7c4Fn9zQTcCNBiirlfTMXggVvASHfpqFIVe+NF5BWrGZqJ7RiPIB4ZnkR1AZ
+						ZNVpu5BsoZdpX601qTf6kT2xDuObdjmWvZWG+Z7VfiRts3lWStSHJe1RoN7nQBQt
+						byBkOzLT/41IrlpJYzzRgfBc0zV+WvMlxqz7rvmNQAPwfEm2bIUrCRRXrDPTHQID
+						AQABo0QwQjAhBgNVHREEGjAYghZzbmZ0d2ViMDEuaWRldi5pZmwubmV0MB0GA1Ud
+						DgQWBBTpdGvCZNgsXYU87SWVZdDvBacV3jANBgkqhkiG9w0BAQUFAAOCAQEANeg4
+						Io4/wYni0tlCN7ObChWNEEb7yuWOA8hKqrxHw0KowzlwY6aXa+cAoibNs8nU2Vfg
+						aeJCm1z87cz/HtvzRtMRW/ddjS/cTbZPzWu8p9EADOGEOGTkofXnJZqFSdCCeFOy
+						78yqS1GCf3hm7Qvj3hhJ8Wbz+jFX0BEjR3kjxMgFCDXz/a0iohCbfFY5ZiByIIHZ
+						rNaIlPACPcHWrUIOzukV7ZeN+wlxbNhm5aXHiEWC6xSLSRHTDYMNhoac/1wEjU9Z
+						zz1XVHG0KovZIi9psy0ehbjZyjupNcsIGjY/flxs6qLNoD1gNxDkJ+2qt+NMZMGJ
+						pEJ7l2rYmZM+/vn4aw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDCTCCAfGgAwIBAgIJALB0hSzEevYIMA0GCSqGSIb3DQEBBQUAMCExHzAdBgNV
+						BAMTFnNuZnR3ZWIwMS5pZGV2LmlmbC5uZXQwHhcNMTAwMjE5MTMyODQ2WhcNMjAw
+						MjE3MTMyODQ2WjAhMR8wHQYDVQQDExZzbmZ0d2ViMDEuaWRldi5pZmwubmV0MIIB
+						IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA8Cu9o/6D/wmBP45C/0SSxgPv
+						MuYMz8MwX/HJFP2+W4ADHmQhb4DL9x0kxF5ESuy26jCdtB4aUSl1BIi0qNhQ363t
+						sPMrD19R3xgZ1plxt+A9Y6VkkB+lO8A2WFpuwmI+pl7mP8jLvBKgG0g1oxLIqFZS
+						0S9Q7c4Fn9zQTcCNBiirlfTMXggVvASHfpqFIVe+NF5BWrGZqJ7RiPIB4ZnkR1AZ
+						ZNVpu5BsoZdpX601qTf6kT2xDuObdjmWvZWG+Z7VfiRts3lWStSHJe1RoN7nQBQt
+						byBkOzLT/41IrlpJYzzRgfBc0zV+WvMlxqz7rvmNQAPwfEm2bIUrCRRXrDPTHQID
+						AQABo0QwQjAhBgNVHREEGjAYghZzbmZ0d2ViMDEuaWRldi5pZmwubmV0MB0GA1Ud
+						DgQWBBTpdGvCZNgsXYU87SWVZdDvBacV3jANBgkqhkiG9w0BAQUFAAOCAQEANeg4
+						Io4/wYni0tlCN7ObChWNEEb7yuWOA8hKqrxHw0KowzlwY6aXa+cAoibNs8nU2Vfg
+						aeJCm1z87cz/HtvzRtMRW/ddjS/cTbZPzWu8p9EADOGEOGTkofXnJZqFSdCCeFOy
+						78yqS1GCf3hm7Qvj3hhJ8Wbz+jFX0BEjR3kjxMgFCDXz/a0iohCbfFY5ZiByIIHZ
+						rNaIlPACPcHWrUIOzukV7ZeN+wlxbNhm5aXHiEWC6xSLSRHTDYMNhoac/1wEjU9Z
+						zz1XVHG0KovZIi9psy0ehbjZyjupNcsIGjY/flxs6qLNoD1gNxDkJ+2qt+NMZMGJ
+						pEJ7l2rYmZM+/vn4aw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://fieldtrial.webfiltering.ja.net/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://fieldtrial.webfiltering.ja.net/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://fieldtrial.webfiltering.ja.net/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://fieldtrial.webfiltering.ja.net/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://fieldtrial.webfiltering.ja.net/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://fieldtrial.webfiltering.ja.net/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://fieldtrial.webfiltering.ja.net/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://fieldtrial.webfiltering.ja.net/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://fieldtrial.webfiltering.ja.net/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://fieldtrial.webfiltering.ja.net/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://fieldtrial.webfiltering.ja.net/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://fieldtrial.webfiltering.ja.net/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://fieldtrial.webfiltering.ja.net/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://fieldtrial.webfiltering.ja.net/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://fieldtrial.webfiltering.ja.net/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">RM Education plc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">RM Education plc: Safetynet JANET Field Trial</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.rm.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Shibboleth Technical Contact</md:GivenName>
+      <md:EmailAddress>mailto:shibtechcontact@ifl.net</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Shibboleth Technical Contact</md:GivenName>
+      <md:EmailAddress>mailto:shibtechcontact@ifl.net</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

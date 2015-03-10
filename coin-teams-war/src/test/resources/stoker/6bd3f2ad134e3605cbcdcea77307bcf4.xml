@@ -1,0 +1,64 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://submissions.ref.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-09-20T10:40:56Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://submissions.ref.ac.uk/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://submissions.ref.ac.uk/Shibboleth.sso/Login" index="1"/>
+        <mdui:UIInfo>
+          <mdui:Logo height="100" width="360">https://submissions.ref.ac.uk/i/reflogo_subs.gif</mdui:Logo>
+          <mdui:DisplayName xml:lang="en">REF 2014 Submission system</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC3zCCAcegAwIBAgIJAP8XeLlAC0V5MA0GCSqGSIb3DQEBBQUAMBMxETAPBgNV
+						BAMTCHJlZi13ZWIxMB4XDTEyMDYxMjA3MjYyNVoXDTIyMDYxMDA3MjYyNVowEzER
+						MA8GA1UEAxMIcmVmLXdlYjEwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+						AQDOgCaKzMbgtA6CxE1zNX2r4/bcIaPcfkPhFwRpoaE038g5C7HfSOWWXzkWVL8/
+						vV5eWKRd89XQ7fSUUwXAs4X3gZlSlzNxmPIEDPI9oRQDbKW2LNjW/En75IWJlrdL
+						u5QdSj/LMsqcRvBOAS729yCswFLstJLrqLbHALiqtKW5zeq2gWJ55p1XEZUXtb0C
+						gSjzI/Ni0mHvPouXqbuMQ2X2qrdZkzVcD8Uvoqk/jTtiPaFkpcIpqQsQ0f8qUJ2n
+						0fUPv89vxl0RqIWs8HC885NpCVTm28XwTFt10PlTY49GCXKOjP1ZilhtnQk0VhWX
+						tar6f3h4S5N9rN9lO4/z3JShAgMBAAGjNjA0MBMGA1UdEQQMMAqCCHJlZi13ZWIx
+						MB0GA1UdDgQWBBQTvJTNEamzZ7uy0pGYmn33zELkAjANBgkqhkiG9w0BAQUFAAOC
+						AQEAQRXI7iLaQT7iAXn1KR5qtScyDTZSWwfvIPghihUNP+61aW+UOTG9r7R1H4R+
+						5Zig+v8HmiO8VB7wPubPhL8UkR1C+11vkhGXNauENN1uhEVWK5na+yA7KDE3t8Bf
+						Avy3unb1q8/mc1jKU2kVhbKBhFh68osJV9TZAoYdDRNfkdNFaTQqFl1j5zAkGdxL
+						5Ax4XXtFOPp6TuFLWL1QLxdfozypxkOfHDDFMknhhifVDnNhyNQhV4dtR1adKHmW
+						K52v8ZbRnOSnk0ruip+qXPv6p4fpyJ8yKaUb4uPgtglChLINS8Zgw81aXqGDYY6Y
+						VUVYKKdPUd+3m5jTxdJth8UmPg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://submissions.ref.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://submissions.ref.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://submissions.ref.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://submissions.ref.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://submissions.ref.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://submissions.ref.ac.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://submissions.ref.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://submissions.ref.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://submissions.ref.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://submissions.ref.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://submissions.ref.ac.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Higher Education Funding Council for England</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">REF 2014 Submission system</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.hefce.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>User support</md:GivenName>
+      <md:EmailAddress>mailto:user-support@ref.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Gareth</md:GivenName>
+      <md:SurName>Edwards</md:SurName>
+      <md:EmailAddress>mailto:g.edwards@hefce.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

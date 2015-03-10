@@ -1,0 +1,99 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.coleg-powys.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">coleg-powys.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">NPTC Group (former Coleg Powys users)</mdui:DisplayName>
+          <mdui:Logo height="122" width="100">https://idp.coleg-powys.ac.uk/idp/images/coleg-powys-logo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDgDCCAmgCCQCjEQP33+OFtzANBgkqhkiG9w0BAQUFADCBgTEUMBIGA1UEChML
+						Q29sZWcgUG93eXMxGjAYBgNVBAsTEUNvbXB1dGVyIFNlcnZpY2VzMRAwDgYDVQQH
+						EwdOZXd0b3duMQ4wDAYDVQQIEwVQb3d5czELMAkGA1UEBhMCR0IxHjAcBgNVBAMT
+						FWlkcC5jb2xlZy1wb3d5cy5hYy51azAeFw0xMzA1MDkxNTU3MTVaFw0yMzA1MDcx
+						NTU3MTVaMIGBMRQwEgYDVQQKEwtDb2xlZyBQb3d5czEaMBgGA1UECxMRQ29tcHV0
+						ZXIgU2VydmljZXMxEDAOBgNVBAcTB05ld3Rvd24xDjAMBgNVBAgTBVBvd3lzMQsw
+						CQYDVQQGEwJHQjEeMBwGA1UEAxMVaWRwLmNvbGVnLXBvd3lzLmFjLnVrMIIBIjAN
+						BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0dfdyK7811MVGI1rUn+ftWqIsSd2
+						TlpUnse7ohcs5Wk1goFph32IMhJO4A/utB0ruCK9fBmDI52cfAuIpnK/CoKIymsp
+						y0YfqQy9zj+lvCVHi985l9YN7nL6xFzyqJ38/7roOc4qDZy5E7ZpA6b70R90K8rD
+						h59MLJ/rrUWhBR94aQ3JzKDUeYyMGoAK2oTnmq7ecLy6Z0egAVbMLY9KnadKi9WL
+						ulKCOLNkd/j7+TVxLTrC92z8trXLrXZYjBvjCyVZiGHD/8DQ9ZagNbLxL8HvY/F/
+						g5a52Ep0db408n4TGLUzp6xdg7Q9pc5NoKxVoEtiD3okafByvvHMjC3LTQIDAQAB
+						MA0GCSqGSIb3DQEBBQUAA4IBAQCHuH6vFAogF0VBZXgrgSbBx6vi/w981vUnO71H
+						1bbirh216vUn8a/BPAHuLU1KwK6aOZvnNbFTE5xgORHQWA0gEsUKAhgZt+dUuAVs
+						qWpIzgc5eyqFMA9mOJGy6HbHsUtu4ZnnnL/gSJ5A68eP0drtjfK/84N0HOZnPXqF
+						2SP8s6cs6Qc8aO/C/iLcAg+UYprIs8pcIbYQOPeuqo8bYAAzD78udsaiBmdB9mqh
+						t6sfik6Q3GLW1U0wRHE0JN42Y8EqJ96/2PFxun0sAkNJczpt9R8P6PxM0cfLVOth
+						gugBHo3aeeUlP0WHK5s/hswzuZwxBV4lGIu0R5azAEx9EXem
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.coleg-powys.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.coleg-powys.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.coleg-powys.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.coleg-powys.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.coleg-powys.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.coleg-powys.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">coleg-powys.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDgDCCAmgCCQCjEQP33+OFtzANBgkqhkiG9w0BAQUFADCBgTEUMBIGA1UEChML
+						Q29sZWcgUG93eXMxGjAYBgNVBAsTEUNvbXB1dGVyIFNlcnZpY2VzMRAwDgYDVQQH
+						EwdOZXd0b3duMQ4wDAYDVQQIEwVQb3d5czELMAkGA1UEBhMCR0IxHjAcBgNVBAMT
+						FWlkcC5jb2xlZy1wb3d5cy5hYy51azAeFw0xMzA1MDkxNTU3MTVaFw0yMzA1MDcx
+						NTU3MTVaMIGBMRQwEgYDVQQKEwtDb2xlZyBQb3d5czEaMBgGA1UECxMRQ29tcHV0
+						ZXIgU2VydmljZXMxEDAOBgNVBAcTB05ld3Rvd24xDjAMBgNVBAgTBVBvd3lzMQsw
+						CQYDVQQGEwJHQjEeMBwGA1UEAxMVaWRwLmNvbGVnLXBvd3lzLmFjLnVrMIIBIjAN
+						BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0dfdyK7811MVGI1rUn+ftWqIsSd2
+						TlpUnse7ohcs5Wk1goFph32IMhJO4A/utB0ruCK9fBmDI52cfAuIpnK/CoKIymsp
+						y0YfqQy9zj+lvCVHi985l9YN7nL6xFzyqJ38/7roOc4qDZy5E7ZpA6b70R90K8rD
+						h59MLJ/rrUWhBR94aQ3JzKDUeYyMGoAK2oTnmq7ecLy6Z0egAVbMLY9KnadKi9WL
+						ulKCOLNkd/j7+TVxLTrC92z8trXLrXZYjBvjCyVZiGHD/8DQ9ZagNbLxL8HvY/F/
+						g5a52Ep0db408n4TGLUzp6xdg7Q9pc5NoKxVoEtiD3okafByvvHMjC3LTQIDAQAB
+						MA0GCSqGSIb3DQEBBQUAA4IBAQCHuH6vFAogF0VBZXgrgSbBx6vi/w981vUnO71H
+						1bbirh216vUn8a/BPAHuLU1KwK6aOZvnNbFTE5xgORHQWA0gEsUKAhgZt+dUuAVs
+						qWpIzgc5eyqFMA9mOJGy6HbHsUtu4ZnnnL/gSJ5A68eP0drtjfK/84N0HOZnPXqF
+						2SP8s6cs6Qc8aO/C/iLcAg+UYprIs8pcIbYQOPeuqo8bYAAzD78udsaiBmdB9mqh
+						t6sfik6Q3GLW1U0wRHE0JN42Y8EqJ96/2PFxun0sAkNJczpt9R8P6PxM0cfLVOth
+						gugBHo3aeeUlP0WHK5s/hswzuZwxBV4lGIu0R5azAEx9EXem
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.coleg-powys.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.coleg-powys.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Neath Port Talbot College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">NPTC Group (former Coleg Powys users)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.coleg-powys.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Support</md:GivenName>
+      <md:EmailAddress>mailto:support@nptcgroup.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Lewis</md:SurName>
+      <md:EmailAddress>mailto:chris.lewis@nptcgroup.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

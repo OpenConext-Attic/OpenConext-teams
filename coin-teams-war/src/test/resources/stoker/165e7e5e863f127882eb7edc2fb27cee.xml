@@ -1,0 +1,55 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.educationcity.com/sso/shib">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEODCCAyCgAwIBAgIJAJP4qCROG9chMA0GCSqGSIb3DQEBBQUAMIGcMQswCQYD
+						VQQGEwJHQjEQMA4GA1UECAwHUnV0bGFuZDEPMA0GA1UEBwwGT2FraGFtMRowGAYD
+						VQQKDBFFZHVjYXRpb25jaXR5LmNvbTEeMBwGA1UEAwwVd3d3LmVkdWNhdGlvbmNp
+						dHkuY29tMS4wLAYJKoZIhvcNAQkBFh9TaGliYm9sZXRoTWdyQGVkdWNhdGlvbmNp
+						dHkuY29tMB4XDTEzMDUwODE0NTIwNFoXDTIzMDUwNjE0NTIwNFowgZwxCzAJBgNV
+						BAYTAkdCMRAwDgYDVQQIDAdSdXRsYW5kMQ8wDQYDVQQHDAZPYWtoYW0xGjAYBgNV
+						BAoMEUVkdWNhdGlvbmNpdHkuY29tMR4wHAYDVQQDDBV3d3cuZWR1Y2F0aW9uY2l0
+						eS5jb20xLjAsBgkqhkiG9w0BCQEWH1NoaWJib2xldGhNZ3JAZWR1Y2F0aW9uY2l0
+						eS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCgtVBZLJ3VEniw
+						jiveOA5oxDoFz72FHLlqz20TmC6cWn6o7VRLJiySN7Zxt2SzRTOfJCQrewthut5i
+						xw+npIuhrGJgwvpNwlr/bEqj0y+JAJuguh5Rj6OjT/CKZfviB42YBmzprxU00aOo
+						4nkprVl4Rf0OETieFtu9SvlamKS8glnriEYwuYYDvyp4VWnMUCghZioQNzmU8gG5
+						5RuGrwkMWB/nUk7C7b/sKMGLyukOA7fCiN9/RYZnn8QAG4ewFcOxGz8avpSntNSF
+						GRALww9tHV5NmuY24lRoBj/3qT6lSb8fqaDk60oWi/ghext2bNMhvEJZy78RRlvS
+						PwX1kH1VAgMBAAGjezB5MAkGA1UdEwQCMAAwLAYJYIZIAYb4QgENBB8WHU9wZW5T
+						U0wgR2VuZXJhdGVkIENlcnRpZmljYXRlMB0GA1UdDgQWBBS625zAI6F0ag4QH5Zf
+						Jz8zCjjmLjAfBgNVHSMEGDAWgBS625zAI6F0ag4QH5ZfJz8zCjjmLjANBgkqhkiG
+						9w0BAQUFAAOCAQEAe8DXNpu2ZlNWeQLvFSrk9VlYyR7ryN8Dhy432dsAmZvAAwLN
+						cFLmT5N30gHyXV5xRNwHqmlHVlsVE//V3oKaxLZYEUzy+O90Bn+9WJJe1paqof73
+						aWKLDex85ssHc+mKPGPzDj1LnOHP8moNlS3X/Ugrbi7A+WgzphppKQH4SCDaN7rA
+						g3Dcd88FbDOrB9k0g7oSUdStfO4jedQhUCmAXv6BTXSMBesHkjHX6QA2m08R77eL
+						D/mlzv0D2Av3nkQypbyzqkEvYwzHZJXDqfTOvsdWEWdtxCJcRyjJL/VLHpoTXAJf
+						oycz/Dc4vkhv1KXtYoms3M/osdcTCsm1O8dsPQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.educationcity.com/sso/shib/acs1/" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.educationcity.com/sso/shib/acs1/" index="1"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">EducationCity Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">EducationCity</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.educationcity.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Customer Support</md:GivenName>
+      <md:EmailAddress>mailto:support@educationcity.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Helen</md:GivenName>
+      <md:SurName>Dillon</md:SurName>
+      <md:EmailAddress>mailto:ShibbolethMgr@educationcity.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

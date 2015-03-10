@@ -1,24 +1,24 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.ebi.ac.uk/ega/">
-    <Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.csc.fi/haka">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.ebi.ac.uk/ega/">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.csc.fi/haka">
         <mdrpi:RegistrationPolicy xml:lang="en">http://www.csc.fi/english/institutions/haka/instructions/join/eduGAINRegistrationStatement/</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-    </Extensions>
-    <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
         <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://www.ebi.ac.uk/ega/Shibboleth.sso/Login" index="1"/>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="en">The European Genome-phenome Archive</mdui:DisplayName>
           <mdui:DisplayName xml:lang="fi">European Genome-phenome Archive</mdui:DisplayName>
-          <mdui:Description xml:lang="en">The European Genome-phenome Archive is a service from the EMBL-EBI to archive and disseminate data from biomedical research projects.</mdui:Description>
           <mdui:Description xml:lang="fi">European Genome-phenome Archive on EMBL-EBI:n ylläpitämä datan arkistointi- ja jakopalvelu  biolääketieteen tutkimusprojekteille.</mdui:Description>
+          <mdui:Description xml:lang="en">The European Genome-phenome Archive is a service from the EMBL-EBI to archive and disseminate data from biomedical research projects.</mdui:Description>
           <mdui:Logo height="62" width="180">https://www.ebi.ac.uk/ega/sites/ebi.ac.uk.ega/files/documents/images/EMBL_EBI_RGB_petrol_lo-res.jpg</mdui:Logo>
           <mdui:Keywords xml:lang="en">NGS genotype variation cancer diabetes disease</mdui:Keywords>
           <mdui:InformationURL xml:lang="en">https://www.ebi.ac.uk/ega/</mdui:InformationURL>
           <mdui:PrivacyStatementURL xml:lang="en">http://www.ebi.ac.uk/about/cookies</mdui:PrivacyStatementURL>
         </mdui:UIInfo>
-      </Extensions>
-      <KeyDescriptor>
+      </md:Extensions>
+      <md:KeyDescriptor>
         <ds:KeyInfo>
           <ds:X509Data>
             <ds:X509Certificate>MIIDAzCCAeugAwIBAgIJAMOTGo+6cOgBMA0GCSqGSIb3DQEBBQUAMB8xHTAbBgNV
@@ -40,36 +40,36 @@ sfLW43EnSzV7e0PSQWCpyd4zM9o5AXFN8W5DxT3xxDgSLKVLfcPhhmWZY0j0Smif
 u7YBIOFkbw==</ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.ebi.ac.uk/ega/Shibboleth.sso/SAML2/POST" index="1" isDefault="true"/>
-      <AttributeConsumingService index="1" isDefault="true">
-        <ServiceName xml:lang="fi">European Genome-phenome Archive</ServiceName>
-        <ServiceName xml:lang="en">The European Genome-phenome Archive</ServiceName>
-        <ServiceDescription xml:lang="fi">European Genome-phenome Archive on EMBL-EBI:n yllapitama datan arkistointi- ja jakopalvelu  biolaaketieteen tutkimusprojekteille.</ServiceDescription>
-        <ServiceDescription xml:lang="en">The European Genome-phenome Archive is a service from the EMBL-EBI to archive and disseminate data from biomedical research projects.</ServiceDescription>
-        <RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
-      </AttributeConsumingService>
-    </SPSSODescriptor>
-    <Organization>
-      <OrganizationName xml:lang="fi">EMBL-EBI    European Bioinformatics Institute</OrganizationName>
-      <OrganizationName xml:lang="en">EMBL-EBI    European Bioinformatics Institute</OrganizationName>
-      <OrganizationName xml:lang="sv">EMBL-EBI    European Bioinformatics Institute</OrganizationName>
-      <OrganizationDisplayName xml:lang="fi">EMBL-EBI    European Bioinformatics Institute</OrganizationDisplayName>
-      <OrganizationDisplayName xml:lang="en">EMBL-EBI    European Bioinformatics Institute</OrganizationDisplayName>
-      <OrganizationDisplayName xml:lang="sv">EMBL-EBI    European Bioinformatics Institute</OrganizationDisplayName>
-      <OrganizationURL xml:lang="fi">http://www.ebi.ac.uk/</OrganizationURL>
-      <OrganizationURL xml:lang="en">http://www.ebi.ac.uk/</OrganizationURL>
-      <OrganizationURL xml:lang="sv">http://www.ebi.ac.uk/</OrganizationURL>
-    </Organization>
-    <ContactPerson contactType="technical">
-      <GivenName>Jag</GivenName>
-      <SurName>Kandasamy</SurName>
-      <EmailAddress>mailto:kandaj@ebi.ac.uk</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="support">
-      <GivenName>Jag</GivenName>
-      <SurName>Kandasamy</SurName>
-      <EmailAddress>mailto:kandaj@ebi.ac.uk</EmailAddress>
-    </ContactPerson>
-  </EntityDescriptor>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.ebi.ac.uk/ega/Shibboleth.sso/SAML2/POST" index="1" isDefault="true"/>
+      <md:AttributeConsumingService index="1" isDefault="true">
+        <md:ServiceName xml:lang="fi">European Genome-phenome Archive</md:ServiceName>
+        <md:ServiceName xml:lang="en">The European Genome-phenome Archive</md:ServiceName>
+        <md:ServiceDescription xml:lang="fi">European Genome-phenome Archive on EMBL-EBI:n yllapitama datan arkistointi- ja jakopalvelu  biolaaketieteen tutkimusprojekteille.</md:ServiceDescription>
+        <md:ServiceDescription xml:lang="en">The European Genome-phenome Archive is a service from the EMBL-EBI to archive and disseminate data from biomedical research projects.</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="fi">EMBL-EBI    European Bioinformatics Institute</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">EMBL-EBI    European Bioinformatics Institute</md:OrganizationName>
+      <md:OrganizationName xml:lang="sv">EMBL-EBI    European Bioinformatics Institute</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="fi">EMBL-EBI    European Bioinformatics Institute</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">EMBL-EBI    European Bioinformatics Institute</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="sv">EMBL-EBI    European Bioinformatics Institute</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="fi">http://www.ebi.ac.uk/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.ebi.ac.uk/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="sv">http://www.ebi.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Jag</md:GivenName>
+      <md:SurName>Kandasamy</md:SurName>
+      <md:EmailAddress>mailto:kandaj@ebi.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Jag</md:GivenName>
+      <md:SurName>Kandasamy</md:SurName>
+      <md:EmailAddress>mailto:kandaj@ebi.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

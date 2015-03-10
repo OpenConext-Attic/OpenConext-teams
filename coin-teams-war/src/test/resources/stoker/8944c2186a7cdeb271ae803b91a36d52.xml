@@ -1,0 +1,94 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.carnegiecollege.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">carnegiecollege.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDUDCCAjigAwIBAgIVAOUN5zR4W0Yp623P7ivOXWG1NWWNMA0GCSqGSIb3DQEB
+						BQUAMCQxIjAgBgNVBAMTGWlkcC5jYXJuZWdpZWNvbGxlZ2UuYWMudWswHhcNMTEw
+						ODAxMTE1MTA0WhcNMzEwODAxMTE1MTA0WjAkMSIwIAYDVQQDExlpZHAuY2FybmVn
+						aWVjb2xsZWdlLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA
+						jiGLbGd7T4/psE8UmyiVNE1j/T4sNaEwOdLvp0stPmfu8I+heqJ/TgblcJs0d3Vg
+						2I0SQoXqecXxZMYEXvHL80lHKZUKgCF5U7hEbCdc2Q6mtGhxbcmxonbGxXEEnzci
+						v2HMvXND/uKlS/walNdpWxUZTruElufziDsJJ2bvbOFbK29JQmpbtovryCP68+TC
+						qUHeyhy9vekri0tHeB/R1lIZHuUUVkhlhHD9njlNxaireJDmOouef7aYmKpX+CA7
+						HD/pWazQnBLTJi1cLSbez12QDwDjKhIEh17+ne945Ibo9laDBmxhkHQ8CHsk09T5
+						Bh+mImcqg2fREh8c+ELjLQIDAQABo3kwdzBWBgNVHREETzBNghlpZHAuY2FybmVn
+						aWVjb2xsZWdlLmFjLnVrhjBodHRwczovL2lkcC5jYXJuZWdpZWNvbGxlZ2UuYWMu
+						dWsvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFMz/6hexyF79UfvamqhIzF41IeCX
+						MA0GCSqGSIb3DQEBBQUAA4IBAQBPsSxzTWj/1zTaokQqCzcw3ULAb77rgV3ldUN/
+						BdFGDIOn96JBAH5th8IBduafAFr9C8tfzmAV9uYLPoIeVWaZy+vjI2jIMr6Ciurt
+						uV96WaUEfdqHXzST6zGQl3Zg1XLZIyNJFDTPjurufLNCEGdC1/9qFtYfNL/MVXsK
+						qawDw3GsR+96Nl1QTYpYeRllUABAbxTZO/jm7gOLx+II4b7/3y5cpnKKlLmO7ALx
+						6HponMBdA1XIp7jA/UAjqgj1uxj0VWwIB3th1ZHHC5iGSZoZsT2F/61MWws0DoTz
+						UcbdW5gmbo27wUFi3yN1cTFz2SMowbSx4fOzJcu/ulqb2Cz+
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.carnegiecollege.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.carnegiecollege.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.carnegiecollege.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.carnegiecollege.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.carnegiecollege.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.carnegiecollege.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">carnegiecollege.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDUDCCAjigAwIBAgIVAOUN5zR4W0Yp623P7ivOXWG1NWWNMA0GCSqGSIb3DQEB
+						BQUAMCQxIjAgBgNVBAMTGWlkcC5jYXJuZWdpZWNvbGxlZ2UuYWMudWswHhcNMTEw
+						ODAxMTE1MTA0WhcNMzEwODAxMTE1MTA0WjAkMSIwIAYDVQQDExlpZHAuY2FybmVn
+						aWVjb2xsZWdlLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA
+						jiGLbGd7T4/psE8UmyiVNE1j/T4sNaEwOdLvp0stPmfu8I+heqJ/TgblcJs0d3Vg
+						2I0SQoXqecXxZMYEXvHL80lHKZUKgCF5U7hEbCdc2Q6mtGhxbcmxonbGxXEEnzci
+						v2HMvXND/uKlS/walNdpWxUZTruElufziDsJJ2bvbOFbK29JQmpbtovryCP68+TC
+						qUHeyhy9vekri0tHeB/R1lIZHuUUVkhlhHD9njlNxaireJDmOouef7aYmKpX+CA7
+						HD/pWazQnBLTJi1cLSbez12QDwDjKhIEh17+ne945Ibo9laDBmxhkHQ8CHsk09T5
+						Bh+mImcqg2fREh8c+ELjLQIDAQABo3kwdzBWBgNVHREETzBNghlpZHAuY2FybmVn
+						aWVjb2xsZWdlLmFjLnVrhjBodHRwczovL2lkcC5jYXJuZWdpZWNvbGxlZ2UuYWMu
+						dWsvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFMz/6hexyF79UfvamqhIzF41IeCX
+						MA0GCSqGSIb3DQEBBQUAA4IBAQBPsSxzTWj/1zTaokQqCzcw3ULAb77rgV3ldUN/
+						BdFGDIOn96JBAH5th8IBduafAFr9C8tfzmAV9uYLPoIeVWaZy+vjI2jIMr6Ciurt
+						uV96WaUEfdqHXzST6zGQl3Zg1XLZIyNJFDTPjurufLNCEGdC1/9qFtYfNL/MVXsK
+						qawDw3GsR+96Nl1QTYpYeRllUABAbxTZO/jm7gOLx+II4b7/3y5cpnKKlLmO7ALx
+						6HponMBdA1XIp7jA/UAjqgj1uxj0VWwIB3th1ZHHC5iGSZoZsT2F/61MWws0DoTz
+						UcbdW5gmbo27wUFi3yN1cTFz2SMowbSx4fOzJcu/ulqb2Cz+
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.carnegiecollege.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.carnegiecollege.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Fife College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Carnegie College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://carnegiecollege.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Sarah Louise</md:GivenName>
+      <md:SurName>MacAdie</md:SurName>
+      <md:EmailAddress>mailto:sarahlouisemacadie@fife.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Paul</md:GivenName>
+      <md:SurName>Campbell</md:SurName>
+      <md:EmailAddress>mailto:paulcampbell@fife.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

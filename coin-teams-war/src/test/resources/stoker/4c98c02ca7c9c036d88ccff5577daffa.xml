@@ -1,0 +1,64 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibtest.zetoc.mimas.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIID+jCCAuKgAwIBAgIJALJQK6WnWBR9MA0GCSqGSIb3DQEBBQUAMH4xCzAJBgNV
+						BAYTAkdCMRMwEQYDVQQHEwpNYW5jaGVzdGVyMSUwIwYDVQQKExxUaGUgVW5pdmVy
+						c2l0eSBvZiBNYW5jaGVzdGVyMQ4wDAYDVQQLEwVNaW1hczEjMCEGA1UEAxMac2hp
+						YnRlc3QuemV0b2MubWltYXMuYWMudWswHhcNMTMwMTMwMTIyODQwWhcNMjMwMTI4
+						MTIyODQwWjB+MQswCQYDVQQGEwJHQjETMBEGA1UEBxMKTWFuY2hlc3RlcjElMCMG
+						A1UEChMcVGhlIFVuaXZlcnNpdHkgb2YgTWFuY2hlc3RlcjEOMAwGA1UECxMFTWlt
+						YXMxIzAhBgNVBAMTGnNoaWJ0ZXN0LnpldG9jLm1pbWFzLmFjLnVrMIIBIjANBgkq
+						hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwYrzV9W4FRjd960nw7LQiR5ThpyMeY1K
+						tDzt4WG6K3hKfPrvbddxa5RjsQV2HbnTjEguOwM5pVqgYClgEP5TDRPWzzKwp/uF
+						l1RNPFAdzpYZry3+b5IOyTipOLaH0lSX2sxGeHzeM42Qk7sv5ze8M1OifovcMEUK
+						NZER6/evAJbUSwIpuYrom6WSyRP9cPFz/8aLHoQjVsk1GcXXEcfACGWKCHO4ImaB
+						y1+PfLgM7z8x4hGYM0Ovrmy6S3F4lnoS9E44l1nee2eicPEWRFepdprKEcl8sdF+
+						t/uhBeDX7AH2D3dzCJ7yxRzNKtOeKCKgpUjNxCTl75XmhGTLk4f4LwIDAQABo3sw
+						eTAJBgNVHRMEAjAAMCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVyYXRlZCBD
+						ZXJ0aWZpY2F0ZTAdBgNVHQ4EFgQUwxHyq5lUAiW+S9Wcs0KtNf9+mGswHwYDVR0j
+						BBgwFoAUwxHyq5lUAiW+S9Wcs0KtNf9+mGswDQYJKoZIhvcNAQEFBQADggEBAGf5
+						LwIB+2JMqPXXkE8giX64mlkKDUDvwht3dlkN5vV9pbejCghaY/aEFGGOw88tmGhw
+						L+as0lPq0kCvdUGRP1/N5zU198gLOvL6i6Oo3psCVgSIobEd+eIjBqJj+/KcjyU9
+						yhembQl9SuEgzUiGzkE2giwOv1SnD605/sSjrnBuPdI2PU3/r0tsipB1IN4PXRtK
+						epdNWNz3pMY8i82Zt86ehzgR/V1UJhAgJ53v8UCaAj+OuQGSiiOBUGnG8eDbm9ET
+						bA1OE1Qdd7atomQvFpRilpWvYVFDjd9v7oEovrcc0oZJ9ObIcFug951Kfpvhk4d7
+						XR9LvyjviSLUKhaEZa0=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibtest.zetoc.mimas.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibtest.zetoc.mimas.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibtest.zetoc.mimas.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibtest.zetoc.mimas.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibtest.zetoc.mimas.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibtest.zetoc.mimas.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibtest.zetoc.mimas.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibtest.zetoc.mimas.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibtest.zetoc.mimas.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibtest.zetoc.mimas.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibtest.zetoc.mimas.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://shibtest.zetoc.mimas.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shibtest.zetoc.mimas.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://shibtest.zetoc.mimas.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">The University of Manchester</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">MIMAS Zetoc Service Test</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://mimas.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Zetoc Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:zetoc@mimas.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mimas Technical Support</md:GivenName>
+      <md:EmailAddress>mailto:mimas-shib-tech@listserv.manchester.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

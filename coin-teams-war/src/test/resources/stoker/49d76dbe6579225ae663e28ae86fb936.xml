@@ -1,43 +1,43 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://login.athena-innovation.gr/idp/shibboleth">
-        <Extensions xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi">
-            <mdrpi:RegistrationInfo registrationAuthority="http://aai.grnet.gr/">
-                <mdrpi:RegistrationPolicy xml:lang="en">http://aai.grnet.gr/static/policy/policy-en-1.1.0.pdf</mdrpi:RegistrationPolicy>
-                <mdrpi:RegistrationPolicy xml:lang="el">http://aai.grnet.gr/static/policy/policy-el-1.1.0.pdf</mdrpi:RegistrationPolicy>
-            </mdrpi:RegistrationInfo>
-        </Extensions>
-        <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-            <Extensions>
-                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">athena-innovation.gr</shibmd:Scope>
-                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">imis.athena-innovation.gr</shibmd:Scope>
-                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ilsp.athena-innovation.gr</shibmd:Scope>
-                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ceti.athena-innovation.gr</shibmd:Scope>
-                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">isi.athena-innovation.gr</shibmd:Scope>
-                <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-                    <mdui:DisplayName xml:lang="en">Athena - Research and Innovation Center</mdui:DisplayName>
-                    <mdui:DisplayName xml:lang="el">Αθηνά - Ερευνητικό Κέντρο Καινοτομίας</mdui:DisplayName>
-                    <mdui:InformationURL xml:lang="en">http://www.athena-innovation.gr/en.html</mdui:InformationURL>
-                    <mdui:InformationURL xml:lang="el">http://www.athena-innovation.gr/el.html</mdui:InformationURL>
-                    <mdui:Logo height="90" width="73">https://login.athena-innovation.gr/logo.png</mdui:Logo>
-                </mdui:UIInfo>
-                <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-                    <mdui:DomainHint>athena-innovation.gr</mdui:DomainHint>
-                    <mdui:DomainHint>imis.athena-innovation.gr</mdui:DomainHint>
-                    <mdui:DomainHint>ilsp.gr</mdui:DomainHint>
-                    <mdui:DomainHint>ceti.gr</mdui:DomainHint>
-                    <mdui:DomainHint>isi.gr</mdui:DomainHint>
-                    <mdui:IPHint>195.251.63.0/24</mdui:IPHint>
-                    <mdui:IPHint>195.251.3.0/24</mdui:IPHint>
-                    <mdui:IPHint>195.251.58.0/24</mdui:IPHint>
-                    <mdui:IPHint>194.177.192.0/24</mdui:IPHint>
-                    <mdui:IPHint>194.177.217.0/24</mdui:IPHint>
-                    <mdui:IPHint>2001:648:2600::/48</mdui:IPHint>
-                    <mdui:GeolocationHint>geo:38.0365046,23.802512</mdui:GeolocationHint>
-                </mdui:DiscoHints>
-            </Extensions>
-            <KeyDescriptor>
-                <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-                    <ds:X509Data>
-                        <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://login.athena-innovation.gr/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://aai.grnet.gr/">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://aai.grnet.gr/static/policy/policy-en-1.1.0.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="el">http://aai.grnet.gr/static/policy/policy-el-1.1.0.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">athena-innovation.gr</shibmd:Scope>
+        <shibmd:Scope regexp="false">imis.athena-innovation.gr</shibmd:Scope>
+        <shibmd:Scope regexp="false">ilsp.athena-innovation.gr</shibmd:Scope>
+        <shibmd:Scope regexp="false">ceti.athena-innovation.gr</shibmd:Scope>
+        <shibmd:Scope regexp="false">isi.athena-innovation.gr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Athena - Research and Innovation Center</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="el">Αθηνά - Ερευνητικό Κέντρο Καινοτομίας</mdui:DisplayName>
+          <mdui:InformationURL xml:lang="en">http://www.athena-innovation.gr/en.html</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="el">http://www.athena-innovation.gr/el.html</mdui:InformationURL>
+          <mdui:Logo height="90" width="73">https://login.athena-innovation.gr/logo.png</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>athena-innovation.gr</mdui:DomainHint>
+          <mdui:DomainHint>imis.athena-innovation.gr</mdui:DomainHint>
+          <mdui:DomainHint>ilsp.gr</mdui:DomainHint>
+          <mdui:DomainHint>ceti.gr</mdui:DomainHint>
+          <mdui:DomainHint>isi.gr</mdui:DomainHint>
+          <mdui:IPHint>195.251.63.0/24</mdui:IPHint>
+          <mdui:IPHint>195.251.3.0/24</mdui:IPHint>
+          <mdui:IPHint>195.251.58.0/24</mdui:IPHint>
+          <mdui:IPHint>194.177.192.0/24</mdui:IPHint>
+          <mdui:IPHint>194.177.217.0/24</mdui:IPHint>
+          <mdui:IPHint>2001:648:2600::/48</mdui:IPHint>
+          <mdui:GeolocationHint>geo:38.0365046,23.802512</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
                             MIIEmzCCA4OgAwIBAgIQTEvhgWFGJLdkM4ZD5wBQTDANBgkqhkiG9w0BAQUFADA2
                             MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
                             U1NMIENBMB4XDTE0MDQwOTAwMDAwMFoXDTE3MDQwODIzNTk1OVowSDEhMB8GA1UE
@@ -64,31 +64,31 @@
                             iVNxJAYr4coKFN/Xj58Ay6JjomJCgmve/lnkdQRuvAZFcu7UiGJfDpBiJNr1Qyzp
                             bH/fFKDIDSjRobYahs2BQ/SwbEwwA7e0gx0vS/ACwA==
                         </ds:X509Certificate>
-                    </ds:X509Data>
-                </ds:KeyInfo>
-            </KeyDescriptor>
-            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://login.athena-innovation.gr:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.athena-innovation.gr:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
-            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-            <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://login.athena-innovation.gr/idp/profile/Shibboleth/SSO"/>
-            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.athena-innovation.gr/idp/profile/SAML2/POST/SSO"/>
-            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://login.athena-innovation.gr/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.athena-innovation.gr/idp/profile/SAML2/Redirect/SSO"/>
-        </IDPSSODescriptor>
-        <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-            <Extensions>
-                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">athena-innovation.gr</shibmd:Scope>
-                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">imis.athena-innovation.gr</shibmd:Scope>
-                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ilsp.athena-innovation.gr</shibmd:Scope>
-                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ceti.athena-innovation.gr</shibmd:Scope>
-                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">isi.athena-innovation.gr</shibmd:Scope>
-            </Extensions>
-            <KeyDescriptor>
-                <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-                    <ds:X509Data>
-                        <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://login.athena-innovation.gr:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.athena-innovation.gr:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://login.athena-innovation.gr/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.athena-innovation.gr/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://login.athena-innovation.gr/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.athena-innovation.gr/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">athena-innovation.gr</shibmd:Scope>
+        <shibmd:Scope regexp="false">imis.athena-innovation.gr</shibmd:Scope>
+        <shibmd:Scope regexp="false">ilsp.athena-innovation.gr</shibmd:Scope>
+        <shibmd:Scope regexp="false">ceti.athena-innovation.gr</shibmd:Scope>
+        <shibmd:Scope regexp="false">isi.athena-innovation.gr</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
                             MIIEmzCCA4OgAwIBAgIQTEvhgWFGJLdkM4ZD5wBQTDANBgkqhkiG9w0BAQUFADA2
                             MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
                             U1NMIENBMB4XDTE0MDQwOTAwMDAwMFoXDTE3MDQwODIzNTk1OVowSDEhMB8GA1UE
@@ -115,29 +115,29 @@
                             iVNxJAYr4coKFN/Xj58Ay6JjomJCgmve/lnkdQRuvAZFcu7UiGJfDpBiJNr1Qyzp
                             bH/fFKDIDSjRobYahs2BQ/SwbEwwA7e0gx0vS/ACwA==
                         </ds:X509Certificate>
-                    </ds:X509Data>
-                </ds:KeyInfo>
-            </KeyDescriptor>
-            <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://login.athena-innovation.gr:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-            <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.athena-innovation.gr:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
-            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-        </AttributeAuthorityDescriptor>
-        <Organization>
-            <OrganizationName xml:lang="en">Athena - Research and Innovation Center in Information, Communication and Knowledge Technologies</OrganizationName>
-            <OrganizationName xml:lang="el">Αθηνά - Ερευνητικό Κέντρο Καινοτομίας στις Τεχνολογίες της Πληροφορίας, των Επικοινωνιών και της Γνώσης</OrganizationName>
-            <OrganizationDisplayName xml:lang="en">Athena - Research and Innovation Center</OrganizationDisplayName>
-            <OrganizationDisplayName xml:lang="el">Αθηνά - Ερευνητικό Κέντρο Καινοτομίας</OrganizationDisplayName>
-            <OrganizationURL xml:lang="en">http://www.athena-innovation.gr/</OrganizationURL>
-            <OrganizationURL xml:lang="el">http://www.athena-innovation.gr/</OrganizationURL>
-        </Organization>
-        <ContactPerson contactType="technical">
-            <Company>Research Center Athena - Institute for the Management of Information Systems</Company>
-            <EmailAddress>staff@imis.athena-innovation.gr</EmailAddress>
-        </ContactPerson>
-        <ContactPerson contactType="support">
-            <Company>Research Center Athena - Institute for the Management of Information Systems</Company>
-            <EmailAddress>staff@imis.athena-innovation.gr</EmailAddress>
-        </ContactPerson>
-    </EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://login.athena-innovation.gr:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://login.athena-innovation.gr:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Athena - Research and Innovation Center in Information, Communication and Knowledge Technologies</md:OrganizationName>
+      <md:OrganizationName xml:lang="el">Αθηνά - Ερευνητικό Κέντρο Καινοτομίας στις Τεχνολογίες της Πληροφορίας, των Επικοινωνιών και της Γνώσης</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Athena - Research and Innovation Center</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="el">Αθηνά - Ερευνητικό Κέντρο Καινοτομίας</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.athena-innovation.gr/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="el">http://www.athena-innovation.gr/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:Company>Research Center Athena - Institute for the Management of Information Systems</md:Company>
+      <md:EmailAddress>staff@imis.athena-innovation.gr</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>Research Center Athena - Institute for the Management of Information Systems</md:Company>
+      <md:EmailAddress>staff@imis.athena-innovation.gr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

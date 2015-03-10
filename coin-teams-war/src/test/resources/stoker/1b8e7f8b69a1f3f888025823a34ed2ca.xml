@@ -1,0 +1,109 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.tcat.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2011-09-05T15:44:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">tcat.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEADCCAugCCQCwjoaBYKCfJzANBgkqhkiG9w0BAQUFADCBwTELMAkGA1UEBhMC
+						R0IxEzARBgNVBAgTClNocm9wc2hpcmUxEDAOBgNVBAcTB1RlbGZvcmQxLTArBgNV
+						BAoMJFRlbGZvcmQgQ29sbGVnZSBvZiBBcnRzICYgVGVjaG5vbG9neTEaMBgGA1UE
+						CxMRQ29tcHV0ZXIgU2VydmljZXMxFzAVBgNVBAMTDmlkcC50Y2F0LmFjLnVrMScw
+						JQYJKoZIhvcNAQkBFhhwYXVsLmZsYW5kZXJzQHRjYXQuYWMudWswHhcNMTQwNzE1
+						MTUxMzE1WhcNMjQwNzEyMTUxMzE1WjCBwTELMAkGA1UEBhMCR0IxEzARBgNVBAgT
+						ClNocm9wc2hpcmUxEDAOBgNVBAcTB1RlbGZvcmQxLTArBgNVBAoMJFRlbGZvcmQg
+						Q29sbGVnZSBvZiBBcnRzICYgVGVjaG5vbG9neTEaMBgGA1UECxMRQ29tcHV0ZXIg
+						U2VydmljZXMxFzAVBgNVBAMTDmlkcC50Y2F0LmFjLnVrMScwJQYJKoZIhvcNAQkB
+						FhhwYXVsLmZsYW5kZXJzQHRjYXQuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IB
+						DwAwggEKAoIBAQDwEPad4kYnJdollfR+J9PakClAmKbQKKHQt5gTIotM/5YWnQKv
+						MuNgZmBlgP4u5j7HcI2x3GHt6SD8PDrhACRnHUlVAOsH7AtkHpzX0k5Lawes8DBV
+						JmCMwUOSoboO3Kf4Niu0fzMJ2ou+Cwz7JXrV6KjJP4GgkakZIgG6ntpRsY7X3zPU
+						b5GaSsC2boxY3snewwnFQ/yg5EleBo3hvAr0WzN+pu2UsG0kRd1GdMIPf32XWl8o
+						V9+ZzDqxVjzJNHGfaelo6+1oOVubEg4TFUVLC0QyMhMx94tz2Yi7sKItonzrzrVq
+						HcHtKA41ZpCYlgV5wxXJ7QVVgGene/ietIbVAgMBAAEwDQYJKoZIhvcNAQEFBQAD
+						ggEBAAHHT1eun1pip4eal05s9EaRBXrSAhE9+qrUNpw26FwTqMdVuwHzadYD1OAy
+						NIj9Kvzb0Beg5cDbvKZwVZGJq2ggEN2OBe8jEfOpDdAySaPFPGqtjpK+prpN5Tos
+						y5FK+4RzszXAi4gw4Nt/q90FN3tjWOkCzqGohCY2MSfSoLWig6kpJg0Hew7OAIKP
+						ncwOyF72tR6YpC2b0ME1yCVQfZ8u/lYtK+CiYQJmtVews1EVylbh6tAJukMyaaCv
+						SmmiXVquChnW/ZIR4PTlFYkt+rJ7DklXcka6iAj9JimdVhvtejcsnLufxA3tcvwN
+						SpAzJUepxnhluW2OGgk/PxNhR+c=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.tcat.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.tcat.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.tcat.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.tcat.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.tcat.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.tcat.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">tcat.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEADCCAugCCQCwjoaBYKCfJzANBgkqhkiG9w0BAQUFADCBwTELMAkGA1UEBhMC
+						R0IxEzARBgNVBAgTClNocm9wc2hpcmUxEDAOBgNVBAcTB1RlbGZvcmQxLTArBgNV
+						BAoMJFRlbGZvcmQgQ29sbGVnZSBvZiBBcnRzICYgVGVjaG5vbG9neTEaMBgGA1UE
+						CxMRQ29tcHV0ZXIgU2VydmljZXMxFzAVBgNVBAMTDmlkcC50Y2F0LmFjLnVrMScw
+						JQYJKoZIhvcNAQkBFhhwYXVsLmZsYW5kZXJzQHRjYXQuYWMudWswHhcNMTQwNzE1
+						MTUxMzE1WhcNMjQwNzEyMTUxMzE1WjCBwTELMAkGA1UEBhMCR0IxEzARBgNVBAgT
+						ClNocm9wc2hpcmUxEDAOBgNVBAcTB1RlbGZvcmQxLTArBgNVBAoMJFRlbGZvcmQg
+						Q29sbGVnZSBvZiBBcnRzICYgVGVjaG5vbG9neTEaMBgGA1UECxMRQ29tcHV0ZXIg
+						U2VydmljZXMxFzAVBgNVBAMTDmlkcC50Y2F0LmFjLnVrMScwJQYJKoZIhvcNAQkB
+						FhhwYXVsLmZsYW5kZXJzQHRjYXQuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IB
+						DwAwggEKAoIBAQDwEPad4kYnJdollfR+J9PakClAmKbQKKHQt5gTIotM/5YWnQKv
+						MuNgZmBlgP4u5j7HcI2x3GHt6SD8PDrhACRnHUlVAOsH7AtkHpzX0k5Lawes8DBV
+						JmCMwUOSoboO3Kf4Niu0fzMJ2ou+Cwz7JXrV6KjJP4GgkakZIgG6ntpRsY7X3zPU
+						b5GaSsC2boxY3snewwnFQ/yg5EleBo3hvAr0WzN+pu2UsG0kRd1GdMIPf32XWl8o
+						V9+ZzDqxVjzJNHGfaelo6+1oOVubEg4TFUVLC0QyMhMx94tz2Yi7sKItonzrzrVq
+						HcHtKA41ZpCYlgV5wxXJ7QVVgGene/ietIbVAgMBAAEwDQYJKoZIhvcNAQEFBQAD
+						ggEBAAHHT1eun1pip4eal05s9EaRBXrSAhE9+qrUNpw26FwTqMdVuwHzadYD1OAy
+						NIj9Kvzb0Beg5cDbvKZwVZGJq2ggEN2OBe8jEfOpDdAySaPFPGqtjpK+prpN5Tos
+						y5FK+4RzszXAi4gw4Nt/q90FN3tjWOkCzqGohCY2MSfSoLWig6kpJg0Hew7OAIKP
+						ncwOyF72tR6YpC2b0ME1yCVQfZ8u/lYtK+CiYQJmtVews1EVylbh6tAJukMyaaCv
+						SmmiXVquChnW/ZIR4PTlFYkt+rJ7DklXcka6iAj9JimdVhvtejcsnLufxA3tcvwN
+						SpAzJUepxnhluW2OGgk/PxNhR+c=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.tcat.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.tcat.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Telford College of Arts and Technology</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Telford College of Arts &amp; Technology (old)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.tcat.ac.uk</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Paul</md:GivenName>
+      <md:SurName>Flanders</md:SurName>
+      <md:EmailAddress>mailto:Paul.Flanders@tcat.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Paul</md:GivenName>
+      <md:SurName>Flanders</md:SurName>
+      <md:EmailAddress>mailto:Paul.Flanders@tcat.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,119 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.konstfack.se/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">konstfack.se</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="sv">Konstfack</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Konstfack</mdui:DisplayName>
+          <mdui:Description xml:lang="sv">University College of Arts, Crafts and Design</mdui:Description>
+          <mdui:Description xml:lang="en">University College of Arts, Crafts and Design</mdui:Description>
+          <mdui:InformationURL xml:lang="sv">http://www.konstfack.se</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">http://www.konstfack.se/en</mdui:InformationURL>
+          <mdui:Logo height="142" width="142">https://idp.konstfack.se/idp/images/logo.jpg</mdui:Logo>
+          <mdui:Logo height="142" width="142" xml:lang="sv">https://idp.konstfack.se/idp/images/logo.jpg</mdui:Logo>
+          <mdui:Logo height="142" width="142" xml:lang="en">https://idp.konstfack.se/idp/images/logo.jpg</mdui:Logo>
+          <mdui:Keywords xml:lang="sv">konstfack</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">konstfack</mdui:Keywords>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>konstfack.se</mdui:DomainHint>
+          <mdui:IPHint>130.242.16.0/24</mdui:IPHint>
+          <mdui:GeolocationHint>geo:59.299772,17.994303</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDLDCCAhSgAwIBAgIVAPA2v/jvONxWV73+wdqELeA5iFTMMA0GCSqGSIb3DQEB
+BQUAMBsxGTAXBgNVBAMTEGlkcC5rb25zdGZhY2suc2UwHhcNMTMwMTIzMDkwMjIy
+WhcNMTYwMTIzMDkwMjIyWjAbMRkwFwYDVQQDExBpZHAua29uc3RmYWNrLnNlMIIB
+IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuKqHMcnTbkHRUUPt5SYVWnrz
+vzPsKTo9treYMIVyNsJRqlaTMZxx5Y9AbyWjGq9c1MMP/7oVtu9ABLSzkEu61y8R
+cN0YfKeby8JgLpQ8Wx6tJdHJ2sgBPD7swlf0tIBUR0fEg9/XXzSrlCG92cEphDqF
+7JEs+WjnIGOVZFZ46pc6i0P5UR4zwLI0MnLH18UcztavnK2tqOny7JzO0fyPXpft
+bR5rO6CINXsjwSNhngKsZoQt5rxGO0jOfowtv6CWa0STZKYg+oQFlttmV3TqK5S0
+AZWOjsb5wLbjOxEjJ9imjwYRaLNAIiHf/kPy3510grJ38opoOoyio++Lb2nhQQID
+AQABo2cwZTBEBgNVHREEPTA7ghBpZHAua29uc3RmYWNrLnNlhidodHRwczovL2lk
+cC5rb25zdGZhY2suc2UvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFFQ5EaKkR2w+
+gZn3p2frzQRUOyazMA0GCSqGSIb3DQEBBQUAA4IBAQBYOq5A0EQe9lEfg432gl9S
+4/nnAH1V8OHReiFL6Inz9r3LZi9UUMhOS3P+9zuuRfBuhjRD8Wb7y7OD+ecS2ZMR
+gbzxwpfI8BICrrxTSnBQv1wXQnDvX7XuTH+UqPfc5ZWKInX2kE1VNRb/5mwODPt3
+i+hJa2eQhpQGsv4I8cL1Pu1uIuA1+5y+JLINPrwvqu0BwKdHDApQ7JrGCf0+CbLm
+vw3ZJUolwiBzmSW487sdzsI85Nnp/NFbjZPfVNfwK++e24meft9lZY8oqhPp+B88
+SHHQuQC8v/yTq6ZVFlRvTNkZ+W/vPYOeE6x49Dygeu65WDf/H2NUy6dggcmH+LpS</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.konstfack.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.konstfack.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.konstfack.se/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.konstfack.se/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.konstfack.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.konstfack.se/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">konstfack.se</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDLDCCAhSgAwIBAgIVAPA2v/jvONxWV73+wdqELeA5iFTMMA0GCSqGSIb3DQEB
+BQUAMBsxGTAXBgNVBAMTEGlkcC5rb25zdGZhY2suc2UwHhcNMTMwMTIzMDkwMjIy
+WhcNMTYwMTIzMDkwMjIyWjAbMRkwFwYDVQQDExBpZHAua29uc3RmYWNrLnNlMIIB
+IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuKqHMcnTbkHRUUPt5SYVWnrz
+vzPsKTo9treYMIVyNsJRqlaTMZxx5Y9AbyWjGq9c1MMP/7oVtu9ABLSzkEu61y8R
+cN0YfKeby8JgLpQ8Wx6tJdHJ2sgBPD7swlf0tIBUR0fEg9/XXzSrlCG92cEphDqF
+7JEs+WjnIGOVZFZ46pc6i0P5UR4zwLI0MnLH18UcztavnK2tqOny7JzO0fyPXpft
+bR5rO6CINXsjwSNhngKsZoQt5rxGO0jOfowtv6CWa0STZKYg+oQFlttmV3TqK5S0
+AZWOjsb5wLbjOxEjJ9imjwYRaLNAIiHf/kPy3510grJ38opoOoyio++Lb2nhQQID
+AQABo2cwZTBEBgNVHREEPTA7ghBpZHAua29uc3RmYWNrLnNlhidodHRwczovL2lk
+cC5rb25zdGZhY2suc2UvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFFQ5EaKkR2w+
+gZn3p2frzQRUOyazMA0GCSqGSIb3DQEBBQUAA4IBAQBYOq5A0EQe9lEfg432gl9S
+4/nnAH1V8OHReiFL6Inz9r3LZi9UUMhOS3P+9zuuRfBuhjRD8Wb7y7OD+ecS2ZMR
+gbzxwpfI8BICrrxTSnBQv1wXQnDvX7XuTH+UqPfc5ZWKInX2kE1VNRb/5mwODPt3
+i+hJa2eQhpQGsv4I8cL1Pu1uIuA1+5y+JLINPrwvqu0BwKdHDApQ7JrGCf0+CbLm
+vw3ZJUolwiBzmSW487sdzsI85Nnp/NFbjZPfVNfwK++e24meft9lZY8oqhPp+B88
+SHHQuQC8v/yTq6ZVFlRvTNkZ+W/vPYOeE6x49Dygeu65WDf/H2NUy6dggcmH+LpS</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.konstfack.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.konstfack.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Konstfack</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sv">Konstfack</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Konstfack</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.konstfack.se</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:Company>Konstfack</md:Company>
+      <md:SurName>Håkan Pettersson</md:SurName>
+      <md:EmailAddress>hakan.pettersson@konstfack.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 8 4504396</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:Company>Konstfack</md:Company>
+      <md:SurName>Håkan Pettersson</md:SurName>
+      <md:EmailAddress>hakan.pettersson@konstfack.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 8 4504396</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>Konstfack</md:Company>
+      <md:SurName>Helpdesk IT Konstfack</md:SurName>
+      <md:EmailAddress>helpdesk@konstfack.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 8 450 4399</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

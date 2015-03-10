@@ -1,0 +1,70 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth2sp.gar.semcs.net/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-05-28T10:24:56Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://shibboleth2sp.gar.semcs.net/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://shibboleth2sp.gar.semcs.net/Shibboleth.sso/Login" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDzjCCAzegAwIBAgIDEAAjMA0GCSqGSIb3DQEBBAUAMG8xCzAJBgNVBAYTAlVL
+						MQ8wDQYDVQQIEwZTdXNzZXgxETAPBgNVBAcTCEJyaWdodG9uMRIwEAYDVQQKEwlz
+						ZW1hbnRpY28xKDAmBgNVBAMTH3NlbWFudGljbyBDZXJ0aWZpY2F0ZSBBdXRob3Jp
+						dHkwHhcNMTIwNDIwMTM1MjI5WhcNMTcwNDE5MTM1MjI5WjBrMQswCQYDVQQGEwJV
+						SzEPMA0GA1UECBMGU3Vzc2V4MREwDwYDVQQHEwhCcmlnaHRvbjESMBAGA1UEChMJ
+						c2VtYW50aWNvMSQwIgYDVQQDExtzaGliYm9sZXRoMnNwLmdhci5zZW1jcy5uZXQw
+						ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDdJq+9YYHBJSKcQ26wtmpE
+						hsXw0R2I+9H9WSzo6ERHWulIEv7ttLeE6c3kaZ2n0lI9LQJ2AY1FrHh5tuf7gNCG
+						2RuCOn3i5TMKOw1V3t6PST+iobyoHm/sVH5g83gsnWdy4wMQr35u/0ltPpx5prEd
+						iTLDBechElt+xSBmwab5FK+MDqd9cjYsg8JSw4bdwA9sXmODhARJTt4tq8lM4okO
+						XJv9Wxs1YChFDfp8IxCbPt6POqwSsRzQkUEOmXslZXFAliClL1MN0PrEIzjHX37+
+						VuUJiClGh0xIk8Q5W8zQmSt7aFDXz0Sd5iMTAFt4uD3euQKSj1h3zlKra7/tDKIF
+						AgMBAAGjgfcwgfQwCQYDVR0TBAIwADAsBglghkgBhvhCAQ0EHxYdT3BlblNTTCBH
+						ZW5lcmF0ZWQgQ2VydGlmaWNhdGUwHQYDVR0OBBYEFKMVuS23Tsl/+3uAUf2T1db7
+						/LWdMIGZBgNVHSMEgZEwgY6AFAIbTpo38I1qaERGxh1E/rqyXr45oXOkcTBvMQsw
+						CQYDVQQGEwJVSzEPMA0GA1UECBMGU3Vzc2V4MREwDwYDVQQHEwhCcmlnaHRvbjES
+						MBAGA1UEChMJc2VtYW50aWNvMSgwJgYDVQQDEx9zZW1hbnRpY28gQ2VydGlmaWNh
+						dGUgQXV0aG9yaXR5ggEAMA0GCSqGSIb3DQEBBAUAA4GBAHV2kw0DugD5tIFjK8Nz
+						zc07Blr0nhVACm9y3rE+qThIW9N36HG9QiFbMjNECctggBtR/3Ne81wMqJF4V2fT
+						O37Rw5jvRqdt0E37hhYtiWVCQPPKYtuHpQ9Jiz/8nEiH2Ozpq3CHC8VDb3D5qbZm
+						x5OFM73HnkJd1Zy08T41rQ9l
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth2sp.gar.semcs.net/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth2sp.gar.semcs.net/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth2sp.gar.semcs.net/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth2sp.gar.semcs.net/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibboleth2sp.gar.semcs.net/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth2sp.gar.semcs.net/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth2sp.gar.semcs.net/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth2sp.gar.semcs.net/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibboleth2sp.gar.semcs.net/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth2sp.gar.semcs.net/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth2sp.gar.semcs.net/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibboleth2sp.gar.semcs.net/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://shibboleth2sp.gar.semcs.net/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shibboleth2sp.gar.semcs.net/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://shibboleth2sp.gar.semcs.net/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">The Little Group Ltd</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">VLebooks.com</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.vlebooks.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Simon</md:GivenName>
+      <md:SurName>Pallant</md:SurName>
+      <md:EmailAddress>mailto:gsupport@gardners.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Simon</md:GivenName>
+      <md:SurName>Pallant</md:SurName>
+      <md:EmailAddress>mailto:gsupport@gardners.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

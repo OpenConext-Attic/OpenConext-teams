@@ -1,0 +1,119 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="urn:mace:eduserv.org.uk:athens:provider:tvu.ac.uk">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">tvu.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEeDCCA2CgAwIBAgIRAJsjppl09pdBOodDFDJIICEwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzA0MTUwMDAwMDBaFw0xNjA0MTQyMzU5NTlaMEMxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEeMBwGA1UEAxMVc2hpYmJvbGV0
+						aDIudHZ1LmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsrIB
+						oRzm965a3jJw5ZtnlwkDPOsdRsqpINAO0wK1l7dgCNkCyXHE83GA71wqtKa3n3/5
+						BVfPXd8uhWop/THWmUu/29VyMEJdo94ahl9KJ1IxkSFW/nDIsHTrQddZr/sjYNtw
+						jOohG/iDZve6LLhrdPxuiCgOcVCq32kg01/erwvpFJBgu4hsdFL0jrhn0mHPqc9N
+						RMXnRP7duAvWKPH6cTUKeCkCYhanYZemZoEhsFPUP+ahQOraZnSHVa0zeUjIUPBC
+						VisVzGQjzG1nS5WRcIMaWhjsCeF/rVGhhbuV/rVIPbYfM7YlmJiIyL+zzzlQcORR
+						ZgrGz3ijeyCQZsY92wIDAQABo4IBcjCCAW4wHwYDVR0jBBgwFoAUDL2TaAzz3quj
+						SWsrN1dH6pDjue0wHQYDVR0OBBYEFMZZ7NSWwqtYB0te0FBz956PHQYmMA4GA1Ud
+						DwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggr
+						BgEFBQcDAjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAECATA6BgNV
+						HR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNT
+						TENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQu
+						dGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRw
+						Oi8vb2NzcC50Y3MudGVyZW5hLm9yZzAgBgNVHREEGTAXghVzaGliYm9sZXRoMi50
+						dnUuYWMudWswDQYJKoZIhvcNAQEFBQADggEBAAYWCw70ie/vQUIFBceDxr6c5Pm9
+						5hTQStS6scyEX9j65f81CnzAzXhuwNqyYn8QbWMm4WV/j7RJhqE5sNNgEIoyAWWt
+						LG+XOuDCTuHEcwMgsoMq6ESPDBkuVSxxrX4YeyI3ssGKAOkpMqhsxrfLDkIwE4/r
+						VxxkimAI4E7GnN7RJDykAo4pczr1VqyMxVACEW561CFxcp2PNFs9m0fM16tkla4f
+						fytNoHcf/mcJWXaAAOkoDmCob0F8bJauUx9Ul4Nhsp8SyXpMQoKlxuxInHNU3nkJ
+						s4XBFY3CGcP1NizUMMo6uWkiqC68iprykMcar3qMC/h4aPCdWDmeS1BZPgo=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth2.tvu.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth2.tvu.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth2.tvu.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth2.tvu.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth2.tvu.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth2.tvu.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">tvu.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEeDCCA2CgAwIBAgIRAJsjppl09pdBOodDFDJIICEwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzA0MTUwMDAwMDBaFw0xNjA0MTQyMzU5NTlaMEMxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEeMBwGA1UEAxMVc2hpYmJvbGV0
+						aDIudHZ1LmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsrIB
+						oRzm965a3jJw5ZtnlwkDPOsdRsqpINAO0wK1l7dgCNkCyXHE83GA71wqtKa3n3/5
+						BVfPXd8uhWop/THWmUu/29VyMEJdo94ahl9KJ1IxkSFW/nDIsHTrQddZr/sjYNtw
+						jOohG/iDZve6LLhrdPxuiCgOcVCq32kg01/erwvpFJBgu4hsdFL0jrhn0mHPqc9N
+						RMXnRP7duAvWKPH6cTUKeCkCYhanYZemZoEhsFPUP+ahQOraZnSHVa0zeUjIUPBC
+						VisVzGQjzG1nS5WRcIMaWhjsCeF/rVGhhbuV/rVIPbYfM7YlmJiIyL+zzzlQcORR
+						ZgrGz3ijeyCQZsY92wIDAQABo4IBcjCCAW4wHwYDVR0jBBgwFoAUDL2TaAzz3quj
+						SWsrN1dH6pDjue0wHQYDVR0OBBYEFMZZ7NSWwqtYB0te0FBz956PHQYmMA4GA1Ud
+						DwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggr
+						BgEFBQcDAjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAECATA6BgNV
+						HR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNT
+						TENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQu
+						dGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRw
+						Oi8vb2NzcC50Y3MudGVyZW5hLm9yZzAgBgNVHREEGTAXghVzaGliYm9sZXRoMi50
+						dnUuYWMudWswDQYJKoZIhvcNAQEFBQADggEBAAYWCw70ie/vQUIFBceDxr6c5Pm9
+						5hTQStS6scyEX9j65f81CnzAzXhuwNqyYn8QbWMm4WV/j7RJhqE5sNNgEIoyAWWt
+						LG+XOuDCTuHEcwMgsoMq6ESPDBkuVSxxrX4YeyI3ssGKAOkpMqhsxrfLDkIwE4/r
+						VxxkimAI4E7GnN7RJDykAo4pczr1VqyMxVACEW561CFxcp2PNFs9m0fM16tkla4f
+						fytNoHcf/mcJWXaAAOkoDmCob0F8bJauUx9Ul4Nhsp8SyXpMQoKlxuxInHNU3nkJ
+						s4XBFY3CGcP1NizUMMo6uWkiqC68iprykMcar3qMC/h4aPCdWDmeS1BZPgo=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth2.tvu.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth2.tvu.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">The University of West London</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of West London</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.tvu.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>IT Service Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:itservicedesk@uwl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Amanda</md:GivenName>
+      <md:SurName>Burns</md:SurName>
+      <md:EmailAddress>mailto:amanda.burns@uwl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Vani</md:GivenName>
+      <md:SurName>Aul</md:SurName>
+      <md:EmailAddress>mailto:Vani.Aul@uwl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>IT Network Services</md:GivenName>
+      <md:EmailAddress>mailto:networkservices@uwl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Richard</md:GivenName>
+      <md:SurName>Rumun</md:SurName>
+      <md:EmailAddress>mailto:richard.rumun@uwl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

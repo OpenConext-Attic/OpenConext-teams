@@ -1,0 +1,55 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://staging.lifeisaboutlearning.com/shibboleth-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="1" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://staging.lifeisaboutlearning.com/Shibboleth.sso/Secure"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDFTCCAf2gAwIBAgIJAPtViNwB/v+VMA0GCSqGSIb3DQEBBQUAMCUxIzAhBgNV
+						BAMTGnN0YWdpbmctd2ViMS5zdGFnaW5nLmxvY2FsMB4XDTExMTAxMzEzMTYzNVoX
+						DTIxMTAxMDEzMTYzNVowJTEjMCEGA1UEAxMac3RhZ2luZy13ZWIxLnN0YWdpbmcu
+						bG9jYWwwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCsSO+LEfMhRz4+
+						uG061XictuNJevlzijTaPoWaj2DKujftRfAOyU0AWkavCO3xHaNMFv75j6XT7dXd
+						FfHB4tGo3mImHU2eIWWVGzgW/s2aW9hVSTKxdGyv+8mJlmvG6/t/R9ST+3xftu0q
+						BhNuLJ0bXoX80DDnUlELKL5CfToICzxjWd9j4kWhizozANaCL0bOiSWZOSeJKyMF
+						pMaKAAg9sfimH8oA5h8GRkV4CThTVpjomo0pkolJd6qg8XUaDW741IRp6B8IKDcD
+						1O0PecGPulpmGmfUw8rkNiZLTlWgluURYd+lOwJsyasl+L8KzOcHGvkJt9DvUt1+
+						lDCCZQqBAgMBAAGjSDBGMCUGA1UdEQQeMByCGnN0YWdpbmctd2ViMS5zdGFnaW5n
+						LmxvY2FsMB0GA1UdDgQWBBQ15cgGQF4wtYN8+itk5IVnxEdLITANBgkqhkiG9w0B
+						AQUFAAOCAQEABPS6lPeNvN6Uy791yHF7St30KguiNupP/VQup+uxbDk8lqjjll9U
+						KkJuaUU1eMh5wS1jxguBEK7gHvznl/sP2CpFlvsPjp3YjqiGKtIay+4/oJdQ/FGm
+						fdcStvP1kyUC+mzBxOZ5J5gjLHntO3DDjiKf/gow7t5r4gk2Zf+BsgrkgNc0xNNe
+						N72Uwlv3YkaWqnsuwvdk8haYTXO2xRyC9oDmckLEwkTBlprJ/xd0QlLmCCvRdvbV
+						b2PQA7P/jCpmFijFWdQ7b5E/yxUa16Er5WOJ7RWofAsL5fUwaup+VZe7w5P1CA3q
+						wMNSSkLVhUVe+ea/BAb0o5QDEn314PCgNA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://staging.lifeisaboutlearning.com/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://staging.lifeisaboutlearning.com/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://staging.lifeisaboutlearning.com/Shibboleth.sso/SLO/Artifact"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://staging.lifeisaboutlearning.com/Shibboleth.sso/SLO/Redirect"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://staging.lifeisaboutlearning.com/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://staging.lifeisaboutlearning.com/Shibboleth.sso/SAML/POST" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">UniServity Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">UniServity Limited: staging SP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.uniservity.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>UniServity Support</md:GivenName>
+      <md:EmailAddress>mailto:support@uniservity.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>John</md:GivenName>
+      <md:SurName>Burns</md:SurName>
+      <md:EmailAddress>mailto:john.burns@uniservity.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

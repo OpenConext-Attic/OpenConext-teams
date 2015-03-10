@@ -1,25 +1,20 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibbo.enise.fr/idp/shibboleth">
-			<Extensions>
-				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-06-09T10:47:49Z">
-					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
-				</mdrpi:RegistrationInfo>
-			</Extensions>
-		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">enise.fr</shibmd:Scope>
-    
-			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
-          		      
-          		      
-          		      <mdui:DisplayName xml:lang="fr">ENISE</mdui:DisplayName>
-          		      
-      			    </mdui:UIInfo>
-			</Extensions>
-				<KeyDescriptor use="signing">
-<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibbo.enise.fr/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-06-09T10:47:49Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">enise.fr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="fr">ENISE</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIDKDCCAhCgAwIBAgIVAKRfdU8KUsLMr6sENGNF8GhmyStGMA0GCSqGSIb3DQEB
 BQUAMBoxGDAWBgNVBAMTD3NoaWJiby5lbmlzZS5mcjAeFw0xMTA1MjcwOTIxNTZa
 Fw0zMTA1MjcwOTIxNTZaMBoxGDAWBgNVBAMTD3NoaWJiby5lbmlzZS5mcjCCASIw
@@ -38,51 +33,26 @@ S7B6tOHfCbl2dH4soGpfxa7lhqH8xu3JzJKOi+CHBL8q5zxzbiU2Q417gLeswhQ5
 +5cw3Bhz4p5olulTzUsIa1wfae+tSM7YemTCaR1VEKM3JvwHIbMKMeOuL8BCo6o5
 6GIWvBQQJOEbInHSvCFd41vN8us0nDsiislr1Bp26bXXME6ZX7MYct6LQgk=
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-					</ds:KeyInfo>
-				</KeyDescriptor>
-
-				
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-
-			
-			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibbo.enise.fr/idp/profile/SAML2/POST/SSO"/>
-	        
-	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibbo.enise.fr/idp/profile/SAML2/Redirect/SSO"/>
-	        
-	        
-			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibbo.enise.fr/idp/profile/Shibboleth/SSO"/>
-			
-
-		</IDPSSODescriptor>
-		
-
-
-		<Organization>
-		
-			<OrganizationName xml:lang="en">ENISE</OrganizationName>
-			<OrganizationDisplayName xml:lang="en">ENISE</OrganizationDisplayName>
-			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
-		
-		</Organization>
-
-			
-		    	
-			    <ContactPerson contactType="technical">
-				 <SurName>Guy Dantony</SurName>
-				 <EmailAddress>dantony@enise.fr</EmailAddress>
-		        </ContactPerson>
-			    	
-
-		    	
-			    <ContactPerson contactType="technical">
-				 <SurName>Benoit Berson</SurName>
-				 <EmailAddress>berson@enise.fr</EmailAddress>
-		        </ContactPerson>
-			    	
-
-				
-			
-	</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibbo.enise.fr/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibbo.enise.fr/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibbo.enise.fr/idp/profile/Shibboleth/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">ENISE</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">ENISE</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://unknown.site.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Guy Dantony</md:SurName>
+      <md:EmailAddress>dantony@enise.fr</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Benoit Berson</md:SurName>
+      <md:EmailAddress>berson@enise.fr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

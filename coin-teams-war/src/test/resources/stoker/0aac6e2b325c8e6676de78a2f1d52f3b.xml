@@ -1,14 +1,14 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth-idp.uni-goettingen.de/uni/shibboleth">
-    <Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-02-14T07:54:13Z">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth-idp.uni-goettingen.de/uni/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-02-14T07:54:13Z">
         <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
         <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-    </Extensions>
-    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">uni-goettingen.de</saml1md:Scope>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uni-goettingen.de</shibmd:Scope>
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="de">Georg-August Universität Göttingen</mdui:DisplayName>
           <mdui:DisplayName xml:lang="en">Georg-August University Göttingen</mdui:DisplayName>
           <mdui:Description xml:lang="de">Georg-August Universität Göttingen</mdui:Description>
@@ -20,9 +20,9 @@
           <mdui:PrivacyStatementURL xml:lang="de">http://www.uni-goettingen.de/de/439479.html</mdui:PrivacyStatementURL>
           <mdui:PrivacyStatementURL xml:lang="en">http://www.uni-goettingen.de/en/439479.html</mdui:PrivacyStatementURL>
         </mdui:UIInfo>
-      </Extensions>
-      <KeyDescriptor>
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
           <ds:KeyName>shibboleth-idp.uni-goettingen.de</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=shibboleth-idp.uni-goettingen.de,O=Georg-August-Universitaet Goettingen,L=Goettingen,ST=Niedersachsen,C=DE</ds:X509SubjectName>
@@ -62,26 +62,26 @@ NoiaiccK26vE3CCe+eBrIvz53bLP3zTxI0Z+80apvUj+JwIw0UL03626ma24wQ==
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth-idp.uni-goettingen.de:8443/uni/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth-idp.uni-goettingen.de:8443/uni/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth-idp.uni-goettingen.de/uni/profile/SAML2/Redirect/SLO"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth-idp.uni-goettingen.de/uni/profile/SAML2/POST/SLO"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth-idp.uni-goettingen.de:8443/uni/profile/SAML2/SOAP/SLO"/>
-      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
-      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth-idp.uni-goettingen.de/uni/profile/Shibboleth/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth-idp.uni-goettingen.de/uni/profile/SAML2/POST/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth-idp.uni-goettingen.de/uni/profile/SAML2/POST-SimpleSign/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth-idp.uni-goettingen.de/uni/profile/SAML2/Redirect/SSO"/>
-    </IDPSSODescriptor>
-    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">uni-goettingen.de</saml1md:Scope>
-      </Extensions>
-      <KeyDescriptor>
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth-idp.uni-goettingen.de:8443/uni/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth-idp.uni-goettingen.de:8443/uni/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth-idp.uni-goettingen.de/uni/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth-idp.uni-goettingen.de/uni/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth-idp.uni-goettingen.de:8443/uni/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth-idp.uni-goettingen.de/uni/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth-idp.uni-goettingen.de/uni/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth-idp.uni-goettingen.de/uni/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth-idp.uni-goettingen.de/uni/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uni-goettingen.de</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
           <ds:KeyName>shibboleth-idp.uni-goettingen.de</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=shibboleth-idp.uni-goettingen.de,O=Georg-August-Universitaet Goettingen,L=Goettingen,ST=Niedersachsen,C=DE</ds:X509SubjectName>
@@ -121,29 +121,29 @@ NoiaiccK26vE3CCe+eBrIvz53bLP3zTxI0Z+80apvUj+JwIw0UL03626ma24wQ==
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth-idp.uni-goettingen.de:8443/uni/profile/SAML1/SOAP/AttributeQuery"/>
-      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth-idp.uni-goettingen.de:8443/uni/profile/SAML2/SOAP/AttributeQuery"/>
-      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
-    </AttributeAuthorityDescriptor>
-    <Organization>
-      <OrganizationName xml:lang="de">e281</OrganizationName>
-      <OrganizationName xml:lang="en">e281</OrganizationName>
-      <OrganizationDisplayName xml:lang="de">Georg-August-Universität Göttingen</OrganizationDisplayName>
-      <OrganizationDisplayName xml:lang="en">Georg-August-Universität Göttingen</OrganizationDisplayName>
-      <OrganizationURL xml:lang="de">http://www.uni-goettingen.de/</OrganizationURL>
-      <OrganizationURL xml:lang="en">http://www.uni-goettingen.de/en/</OrganizationURL>
-    </Organization>
-    <ContactPerson contactType="technical">
-      <GivenName>Daniel</GivenName>
-      <SurName>Adler</SurName>
-      <EmailAddress>mailto:dadler1@gwdg.de</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="support">
-      <GivenName>Christof</GivenName>
-      <SurName>Pohl</SurName>
-      <EmailAddress>mailto:cpohl@gwdg.de</EmailAddress>
-    </ContactPerson>
-  </EntityDescriptor>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth-idp.uni-goettingen.de:8443/uni/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth-idp.uni-goettingen.de:8443/uni/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e281</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e281</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Georg-August-Universität Göttingen</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Georg-August-Universität Göttingen</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.uni-goettingen.de/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.uni-goettingen.de/en/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Daniel</md:GivenName>
+      <md:SurName>Adler</md:SurName>
+      <md:EmailAddress>mailto:dadler1@gwdg.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Christof</md:GivenName>
+      <md:SurName>Pohl</md:SurName>
+      <md:EmailAddress>mailto:cpohl@gwdg.de</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,29 +1,27 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idpr.tem-tsp.eu/idp/shibboleth">
-			<Extensions>
-				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-02-26T10:38:50Z">
-					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
-				</mdrpi:RegistrationInfo>
-			</Extensions>
-		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">tem-tsp.eu</shibmd:Scope>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">telecom-em.eu</shibmd:Scope>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">telecom-sudparis.eu</shibmd:Scope>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">it-sudparis.eu</shibmd:Scope>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">int-evry.fr</shibmd:Scope>
-    
-			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
-          		      <mdui:DisplayName xml:lang="en">Telecom School of Management and Telecom SudParis</mdui:DisplayName>
-          		      <mdui:Description xml:lang="en">Members of Evry Campus of Institute Mines Telecom, Telecom School of Management and Telecom SudParis</mdui:Description>
-          		      <mdui:DisplayName xml:lang="fr">Telecom SudParis et Telecom Management</mdui:DisplayName>
-          		      <mdui:Description xml:lang="fr">Membres du Campus d'Evry de l'Institut Mines Telecom , Telecom école de  Management et Telecom SudParis</mdui:Description>
-      			    </mdui:UIInfo>
-			</Extensions>
-				<KeyDescriptor use="signing">
-<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idpr.tem-tsp.eu/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-02-26T10:38:50Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">tem-tsp.eu</shibmd:Scope>
+        <shibmd:Scope regexp="false">telecom-em.eu</shibmd:Scope>
+        <shibmd:Scope regexp="false">telecom-sudparis.eu</shibmd:Scope>
+        <shibmd:Scope regexp="false">it-sudparis.eu</shibmd:Scope>
+        <shibmd:Scope regexp="false">int-evry.fr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Telecom School of Management and Telecom SudParis</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Members of Evry Campus of Institute Mines Telecom, Telecom School of Management and Telecom SudParis</mdui:Description>
+          <mdui:DisplayName xml:lang="fr">Telecom SudParis et Telecom Management</mdui:DisplayName>
+          <mdui:Description xml:lang="fr">Membres du Campus d'Evry de l'Institut Mines Telecom , Telecom école de  Management et Telecom SudParis</mdui:Description>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIDJzCCAg+gAwIBAgIUDJP/m/P4o+WqTNaBH+2OVPzIENUwDQYJKoZIhvcNAQEF
 BQAwGjEYMBYGA1UEAxMPaWRwci50ZW0tdHNwLmV1MB4XDTE0MDUxNDA4MzEzNVoX
 DTM0MDUxNDA4MzEzNVowGjEYMBYGA1UEAxMPaWRwci50ZW0tdHNwLmV1MIIBIjAN
@@ -42,17 +40,13 @@ V8HZzsUOdJsa5F0WieIy6ENpxXqDsn54w/zLub+s+ZzJoX+jzD1ZAtOaRwmUCa8q
 pqwDllq5XdnRupVTEi5djUgqxLX1GZUhxJal+nW51SoZR8exZSikJlfRhrH2lgOj
 nY0kBaFLyUpV84QgSKKM4CoxwLx+J96/Obnkk5BpUp59XyUh75DR54XUQA==
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-					</ds:KeyInfo>
-				</KeyDescriptor>
-
-				
-				
-				<KeyDescriptor use="signing">
-				       <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIDSDCCAjCgAwIBAgIVAJv2l61sKf1VgzgHPgGRdmvIdBeGMA0GCSqGSIb3DQEB
 BQUAMCIxIDAeBgNVBAMTF3NoaWJpZHAxLml0LXN1ZHBhcmlzLmV1MB4XDTA4MTIw
 NDA4MjIwNFoXDTI4MTIwNDA4MjIwNFowIjEgMB4GA1UEAxMXc2hpYmlkcDEuaXQt
@@ -72,38 +66,27 @@ W8rUAUA2kWKiMrmQS6t6nEpPKnx5BcySXMLi5wuvcQ40IWUnPtebALmh26KSheiE
 PoLdCyt/DO1aGflUdiQA/DF96+XlbGEQL7edHtEsELKz66Z8WK6fasHqNInlTe+S
 SA354+sPezlzSyImVbYaHH6naLQuFV7cmUNPOQ==
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					</ds:KeyInfo>
-				</KeyDescriptor>
-				
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-
-			
-			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idpr.tem-tsp.eu/idp/profile/SAML2/POST/SSO"/>
-	        
-	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idpr.tem-tsp.eu/idp/profile/SAML2/Redirect/SSO"/>
-	        
-	        
-			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idpr.tem-tsp.eu/idp/profile/Shibboleth/SSO"/>
-			
-
-		</IDPSSODescriptor>
-		
-	
-		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">tem-tsp.eu</shibmd:Scope>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">telecom-em.eu</shibmd:Scope>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">telecom-sudparis.eu</shibmd:Scope>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">it-sudparis.eu</shibmd:Scope>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">int-evry.fr</shibmd:Scope>
-    			</Extensions>
-			<KeyDescriptor use="signing">
-				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idpr.tem-tsp.eu/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idpr.tem-tsp.eu/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idpr.tem-tsp.eu/idp/profile/Shibboleth/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">tem-tsp.eu</shibmd:Scope>
+        <shibmd:Scope regexp="false">telecom-em.eu</shibmd:Scope>
+        <shibmd:Scope regexp="false">telecom-sudparis.eu</shibmd:Scope>
+        <shibmd:Scope regexp="false">it-sudparis.eu</shibmd:Scope>
+        <shibmd:Scope regexp="false">int-evry.fr</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIDJzCCAg+gAwIBAgIUDJP/m/P4o+WqTNaBH+2OVPzIENUwDQYJKoZIhvcNAQEF
 BQAwGjEYMBYGA1UEAxMPaWRwci50ZW0tdHNwLmV1MB4XDTE0MDUxNDA4MzEzNVoX
 DTM0MDUxNDA4MzEzNVowGjEYMBYGA1UEAxMPaWRwci50ZW0tdHNwLmV1MIIBIjAN
@@ -122,17 +105,13 @@ V8HZzsUOdJsa5F0WieIy6ENpxXqDsn54w/zLub+s+ZzJoX+jzD1ZAtOaRwmUCa8q
 pqwDllq5XdnRupVTEi5djUgqxLX1GZUhxJal+nW51SoZR8exZSikJlfRhrH2lgOj
 nY0kBaFLyUpV84QgSKKM4CoxwLx+J96/Obnkk5BpUp59XyUh75DR54XUQA==
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-				</ds:KeyInfo>
-			</KeyDescriptor>
-
-				
-				
-				<KeyDescriptor use="signing">
-				       <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIDSDCCAjCgAwIBAgIVAJv2l61sKf1VgzgHPgGRdmvIdBeGMA0GCSqGSIb3DQEB
 BQUAMCIxIDAeBgNVBAMTF3NoaWJpZHAxLml0LXN1ZHBhcmlzLmV1MB4XDTA4MTIw
 NDA4MjIwNFoXDTI4MTIwNDA4MjIwNFowIjEgMB4GA1UEAxMXc2hpYmlkcDEuaXQt
@@ -152,29 +131,19 @@ W8rUAUA2kWKiMrmQS6t6nEpPKnx5BcySXMLi5wuvcQ40IWUnPtebALmh26KSheiE
 PoLdCyt/DO1aGflUdiQA/DF96+XlbGEQL7edHtEsELKz66Z8WK6fasHqNInlTe+S
 SA354+sPezlzSyImVbYaHH6naLQuFV7cmUNPOQ==
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					</ds:KeyInfo>
-				</KeyDescriptor>
-				
-
-			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idpr.tem-tsp.eu/idp/profile/SAML1/SOAP/AttributeQuery"/>
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-		</AttributeAuthorityDescriptor>
-
-
-		<Organization>
-		
-			<OrganizationName xml:lang="en">Telecom SudParis et Telecom Management</OrganizationName>
-			<OrganizationDisplayName xml:lang="en">Telecom SudParis et Telecom Management</OrganizationDisplayName>
-			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
-		
-		</Organization>
-
-			
-			    <ContactPerson contactType="technical">
-			     <EmailAddress>infomatique@tem-tsp.eu</EmailAddress>
-		        </ContactPerson>
-		    	
-			
-	</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idpr.tem-tsp.eu/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Telecom SudParis et Telecom Management</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Telecom SudParis et Telecom Management</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://unknown.site.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>infomatique@tem-tsp.eu</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,148 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.eso.org/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-10-22T16:13:35Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">eso.org</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="de">ESO - European Southern Observatory</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">ESO - European Southern Observatory</mdui:DisplayName>
+          <mdui:Description xml:lang="de">ESo baut und betreibt astronomische Teleskope</mdui:Description>
+          <mdui:Description xml:lang="en">ESO builds and operates astronomical telescopes</mdui:Description>
+          <mdui:Logo height="16" width="16">https://www.eso.org/images/eso-logo-16x16.png</mdui:Logo>
+          <mdui:Logo height="64" width="64">https://www.eso.org/images/eso-logo.ico</mdui:Logo>
+          <mdui:InformationURL xml:lang="de">https://www.eso.org/public/germany/about-eso/esoglance/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">https://www.eso.org/public/about-eso/esoglance/</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">https://www.eso.org/public/privacy.html</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:KeyName>idp.eso.org</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>emailAddress=trustmaster@eso.org,CN=idp.eso.org,O=ESO - European Organisation for Astronomical Research,L=Garching,ST=Bayern,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGWDCCBUCgAwIBAgIHGGCD/SMRJzANBgkqhkiG9w0BAQsFADCBlzELMAkGA1UE
+BhMCREUxPjA8BgNVBAoTNUVTTyAtIEV1cm9wZWFuIE9yZ2FuaXNhdGlvbiBmb3Ig
+QXN0cm9ub21pY2FsIFJlc2VhcmNoMQwwCgYDVQQLEwNURUMxFjAUBgNVBAMTDUVT
+TyBQS0kgLSBHMDIxIjAgBgkqhkiG9w0BCQEWE3RydXN0bWFzdGVyQGVzby5vcmcw
+HhcNMTQxMDE3MTIwNzA5WhcNMTkwNzA5MjM1OTAwWjCBqzELMAkGA1UEBhMCREUx
+DzANBgNVBAgTBkJheWVybjERMA8GA1UEBxMIR2FyY2hpbmcxPjA8BgNVBAoTNUVT
+TyAtIEV1cm9wZWFuIE9yZ2FuaXNhdGlvbiBmb3IgQXN0cm9ub21pY2FsIFJlc2Vh
+cmNoMRQwEgYDVQQDEwtpZHAuZXNvLm9yZzEiMCAGCSqGSIb3DQEJARYTdHJ1c3Rt
+YXN0ZXJAZXNvLm9yZzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL/y
+weMbb9mXT+teqXFEevPWlvO48gTjIqNAcrGs9XvZtLCQB91hftXOkS21aNhpO1jD
+pJeU6WRjH7WEU3/oXGGqXztxV3I6giyMm8UB0qNLtDm2MuGhYT4CqIwunIzqYKJG
+nvvhi6NTAqhO2wP+XIK7dCnYhehRPhAivMKwLWabKKHF4SPV1X4R/AIMPbu2QFnK
+lM3grdo6lctuGWGcJ9n2UU/9ywQmiZmczQigimkjPp6K/1GFZI5TmIP5uO+Wv+sD
+JxETIOvsYQK5y+CmU5fl1kSPKUwpa+ssfKldRZIpTc2sukFlnU8XAmMpSmjyzsXL
+wEoojn5FmgPgdHLQrwUCAwEAAaOCApEwggKNME8GA1UdIARIMEYwEQYPKwYBBAGB
+rSGCLAEBBAMCMBEGDysGAQQBga0hgiwCAQQDATAPBg0rBgEEAYGtIYIsAQEEMA0G
+CysGAQQBga0hgiweMAkGA1UdEwQCMAAwCwYDVR0PBAQDAgXgMB0GA1UdJQQWMBQG
+CCsGAQUFBwMCBggrBgEFBQcDATAdBgNVHQ4EFgQUSPnc6DulTXOTEQM+i/fbNpxx
+6OowHwYDVR0jBBgwFoAUsR53NN55AbLmThsm4pt3idg5vn0weAYDVR0RBHEwb4IR
+YXdlYjQwLmhxLmVzby5vcmeCD2lkcC5hZHMuZXNvLm9yZ4ILaWRwLmVzby5vcmeC
+DmlkcC5ocS5lc28ub3Jngg9zZHAuYWRzLmVzby5vcmeCC3NkcC5lc28ub3Jngg5z
+ZHAuaHEuZXNvLm9yZzB7BgNVHR8EdDByMDegNaAzhjFodHRwOi8vY2RwMS5wY2Eu
+ZGZuLmRlL2Vzby1jYS9wdWIvY3JsL2dfY2FjcmwuY3JsMDegNaAzhjFodHRwOi8v
+Y2RwMi5wY2EuZGZuLmRlL2Vzby1jYS9wdWIvY3JsL2dfY2FjcmwuY3JsMIHLBggr
+BgEFBQcBAQSBvjCBuzAzBggrBgEFBQcwAYYnaHR0cDovL29jc3AucGNhLmRmbi5k
+ZS9PQ1NQLVNlcnZlci9PQ1NQMEEGCCsGAQUFBzAChjVodHRwOi8vY2RwMS5wY2Eu
+ZGZuLmRlL2Vzby1jYS9wdWIvY2FjZXJ0L2dfY2FjZXJ0LmNydDBBBggrBgEFBQcw
+AoY1aHR0cDovL2NkcDIucGNhLmRmbi5kZS9lc28tY2EvcHViL2NhY2VydC9nX2Nh
+Y2VydC5jcnQwDQYJKoZIhvcNAQELBQADggEBAL10jELuLO7BfdWD2GV/chZe20xt
+M8NthmUA4i6VG9/MRTIFzhR9qwnl0nBQPGCisGH07EU6DvKH6XVMBtW2XidOL2Xq
+vyw9Ztvs5H2ypRnV6FDUKRf1PdbdY6pqTInn5Yt8cw8Rv9h5FDNCXLoLjkRuBNQf
+xgdPNKcKNSTAAI+bnXftMKiV6JHYQxbxsL+x4qVYlHQT425U12ZWwYuE28GzjhUf
+qkP9zWDiEtC88Nxn/NisXmpRJul/cG0ddb3N9XAfvBvjIMN4+rxLvb1ehqLreZFf
+26ev5dBb9dYdJ92x6RFKiD6kvBVZSNaN7KY5ogvz8WmWnXlllor+GGdxQkA=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.eso.org:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.eso.org:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.eso.org/idp/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.eso.org/idp/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.eso.org:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.eso.org/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.eso.org/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.eso.org/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.eso.org/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">eso.org</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:KeyName>idp.eso.org</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>emailAddress=trustmaster@eso.org,CN=idp.eso.org,O=ESO - European Organisation for Astronomical Research,L=Garching,ST=Bayern,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGWDCCBUCgAwIBAgIHGGCD/SMRJzANBgkqhkiG9w0BAQsFADCBlzELMAkGA1UE
+BhMCREUxPjA8BgNVBAoTNUVTTyAtIEV1cm9wZWFuIE9yZ2FuaXNhdGlvbiBmb3Ig
+QXN0cm9ub21pY2FsIFJlc2VhcmNoMQwwCgYDVQQLEwNURUMxFjAUBgNVBAMTDUVT
+TyBQS0kgLSBHMDIxIjAgBgkqhkiG9w0BCQEWE3RydXN0bWFzdGVyQGVzby5vcmcw
+HhcNMTQxMDE3MTIwNzA5WhcNMTkwNzA5MjM1OTAwWjCBqzELMAkGA1UEBhMCREUx
+DzANBgNVBAgTBkJheWVybjERMA8GA1UEBxMIR2FyY2hpbmcxPjA8BgNVBAoTNUVT
+TyAtIEV1cm9wZWFuIE9yZ2FuaXNhdGlvbiBmb3IgQXN0cm9ub21pY2FsIFJlc2Vh
+cmNoMRQwEgYDVQQDEwtpZHAuZXNvLm9yZzEiMCAGCSqGSIb3DQEJARYTdHJ1c3Rt
+YXN0ZXJAZXNvLm9yZzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL/y
+weMbb9mXT+teqXFEevPWlvO48gTjIqNAcrGs9XvZtLCQB91hftXOkS21aNhpO1jD
+pJeU6WRjH7WEU3/oXGGqXztxV3I6giyMm8UB0qNLtDm2MuGhYT4CqIwunIzqYKJG
+nvvhi6NTAqhO2wP+XIK7dCnYhehRPhAivMKwLWabKKHF4SPV1X4R/AIMPbu2QFnK
+lM3grdo6lctuGWGcJ9n2UU/9ywQmiZmczQigimkjPp6K/1GFZI5TmIP5uO+Wv+sD
+JxETIOvsYQK5y+CmU5fl1kSPKUwpa+ssfKldRZIpTc2sukFlnU8XAmMpSmjyzsXL
+wEoojn5FmgPgdHLQrwUCAwEAAaOCApEwggKNME8GA1UdIARIMEYwEQYPKwYBBAGB
+rSGCLAEBBAMCMBEGDysGAQQBga0hgiwCAQQDATAPBg0rBgEEAYGtIYIsAQEEMA0G
+CysGAQQBga0hgiweMAkGA1UdEwQCMAAwCwYDVR0PBAQDAgXgMB0GA1UdJQQWMBQG
+CCsGAQUFBwMCBggrBgEFBQcDATAdBgNVHQ4EFgQUSPnc6DulTXOTEQM+i/fbNpxx
+6OowHwYDVR0jBBgwFoAUsR53NN55AbLmThsm4pt3idg5vn0weAYDVR0RBHEwb4IR
+YXdlYjQwLmhxLmVzby5vcmeCD2lkcC5hZHMuZXNvLm9yZ4ILaWRwLmVzby5vcmeC
+DmlkcC5ocS5lc28ub3Jngg9zZHAuYWRzLmVzby5vcmeCC3NkcC5lc28ub3Jngg5z
+ZHAuaHEuZXNvLm9yZzB7BgNVHR8EdDByMDegNaAzhjFodHRwOi8vY2RwMS5wY2Eu
+ZGZuLmRlL2Vzby1jYS9wdWIvY3JsL2dfY2FjcmwuY3JsMDegNaAzhjFodHRwOi8v
+Y2RwMi5wY2EuZGZuLmRlL2Vzby1jYS9wdWIvY3JsL2dfY2FjcmwuY3JsMIHLBggr
+BgEFBQcBAQSBvjCBuzAzBggrBgEFBQcwAYYnaHR0cDovL29jc3AucGNhLmRmbi5k
+ZS9PQ1NQLVNlcnZlci9PQ1NQMEEGCCsGAQUFBzAChjVodHRwOi8vY2RwMS5wY2Eu
+ZGZuLmRlL2Vzby1jYS9wdWIvY2FjZXJ0L2dfY2FjZXJ0LmNydDBBBggrBgEFBQcw
+AoY1aHR0cDovL2NkcDIucGNhLmRmbi5kZS9lc28tY2EvcHViL2NhY2VydC9nX2Nh
+Y2VydC5jcnQwDQYJKoZIhvcNAQELBQADggEBAL10jELuLO7BfdWD2GV/chZe20xt
+M8NthmUA4i6VG9/MRTIFzhR9qwnl0nBQPGCisGH07EU6DvKH6XVMBtW2XidOL2Xq
+vyw9Ztvs5H2ypRnV6FDUKRf1PdbdY6pqTInn5Yt8cw8Rv9h5FDNCXLoLjkRuBNQf
+xgdPNKcKNSTAAI+bnXftMKiV6JHYQxbxsL+x4qVYlHQT425U12ZWwYuE28GzjhUf
+qkP9zWDiEtC88Nxn/NisXmpRJul/cG0ddb3N9XAfvBvjIMN4+rxLvb1ehqLreZFf
+26ev5dBb9dYdJ92x6RFKiD6kvBVZSNaN7KY5ogvz8WmWnXlllor+GGdxQkA=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.eso.org:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.eso.org:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e446</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e446</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">ESO - European Organisation for Astronomical Research</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">ESO - European Organisation for Astronomical Research</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.eso.org</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.eso.org</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Michael</md:GivenName>
+      <md:SurName>Naumann</md:SurName>
+      <md:EmailAddress>mailto:mnaumann@eso.org</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Michael</md:GivenName>
+      <md:SurName>Naumann</md:SurName>
+      <md:EmailAddress>mailto:mnaumann@eso.org</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

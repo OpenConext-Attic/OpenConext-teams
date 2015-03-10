@@ -1,0 +1,60 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://staging.weblearn.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://staging.weblearn.ox.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDQDCCAiigAwIBAgIJAJX0ZKKX7ko1MA0GCSqGSIb3DQEBBQUAMCQxIjAgBgNV
+						BAMTGXN0YWdpbmcud2VibGVhcm4ub3guYWMudWswHhcNMTIwMTIwMTYyNDM2WhcN
+						MjIwMTE3MTYyNDM2WjAkMSIwIAYDVQQDExlzdGFnaW5nLndlYmxlYXJuLm94LmFj
+						LnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAujPN4+nPhmPX7IHC
+						DbKNREIMOegYbwxhS20EnBlNbePWKeWo/fRDsRITeV5aCBaEAUMPQ4pqm/WN7NOk
+						LkFyFdgf88u9RDRvt8nsiBj8cVP1vGOa8Fd+WJALk+UdTHjDmoz8bERL+cEsD1UC
+						FI/wUKmV9RfNGSEJFR0oDSddXI8Uy5DiFB0psDMY+b2CREqtSZcL8UZ5hXZHrBJn
+						MwSlpO9R09eYWePrDpSmB+3N0kZ8knt/452y4d3tqBiLlei8eYBJYx4uyVrh2yDe
+						TRXxFYf18C95X5alI6qQJ9LLtxUBG8H9dbqZNDZbDPUVZU43C9lyHZSNePL3nCey
+						/XundQIDAQABo3UwczBSBgNVHREESzBJghlzdGFnaW5nLndlYmxlYXJuLm94LmFj
+						LnVrhixodHRwczovL3N0YWdpbmcud2VibGVhcm4ub3guYWMudWsvc2hpYmJvbGV0
+						aDAdBgNVHQ4EFgQUoB3xlJRX2I37Yt1m1afvUCGruzYwDQYJKoZIhvcNAQEFBQAD
+						ggEBADSwA3sYHFxtdqLbm4mXlyYZV/imAfHxs2i4aXmyHYf5ygpKq6TyKxJlYj08
+						SPhSO87l5IsUJFQvvS0gn0JD+KQmD4zKwlxQrHHsSyltttXZr6/iLrpntrl9DXaB
+						6dYes8fj/+2FCai7W4DtMHfCKnIbZjgnjcHP1iJP38/qHF1OS6WFksXHWOHCT2S4
+						lsPet/+7viQNQBkHuxrb9h9hv4kbF+mLB8POpSkFi2qu8+YTwtU2LGOqYsOlcAc9
+						GEMwiQOt0LOOhVndYBUZf0Rt8g/Xn12lm3tkOjpVeRLw0oTli4DedF9JtqVyzKat
+						oWaY395NMNm9ZP2t/8TeydkoqYI=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://staging.weblearn.ox.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://staging.weblearn.ox.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://staging.weblearn.ox.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://staging.weblearn.ox.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://staging.weblearn.ox.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://staging.weblearn.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://staging.weblearn.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://staging.weblearn.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://staging.weblearn.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://staging.weblearn.ox.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://staging.weblearn.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford: Weblearn Staging</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.oucs.ox.ac.uk</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Systems Development and Support</md:GivenName>
+      <md:EmailAddress>mailto:sysdev@it.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Systems Development and Support</md:GivenName>
+      <md:EmailAddress>mailto:sysdev@it.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

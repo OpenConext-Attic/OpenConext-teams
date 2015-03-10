@@ -1,0 +1,54 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://uk.ihs.com/entity">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEGjCCAwKgAwIBAgIJANbtDttZCw1wMA0GCSqGSIb3DQEBBQUAMIGNMQswCQYD
+						VQQGEwJVSzEQMA4GA1UECBMHRW5nbGFuZDESMBAGA1UEBxMJQnJhY2tuZWxsMQww
+						CgYDVQQKEwNJSFMxCzAJBgNVBAsTAklUMRYwFAYDVQQDEw13d3cuaWhzdGkuY29t
+						MSUwIwYJKoZIhvcNAQkBFhZob3N0aW5nc3VwcG9ydEBpaHMuY29tMB4XDTA5MDky
+						MjEwMzM0OFoXDTE5MDkyMDEwMzM0OFowgY0xCzAJBgNVBAYTAlVLMRAwDgYDVQQI
+						EwdFbmdsYW5kMRIwEAYDVQQHEwlCcmFja25lbGwxDDAKBgNVBAoTA0lIUzELMAkG
+						A1UECxMCSVQxFjAUBgNVBAMTDXd3dy5paHN0aS5jb20xJTAjBgkqhkiG9w0BCQEW
+						Fmhvc3RpbmdzdXBwb3J0QGlocy5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
+						ggEKAoIBAQC/Ba3IwwsIvQgkzb/ssluNjiU95zWtyFMBCJ9b03XmB12QPF+/nTEV
+						VFu8Lm4btL7bu4FEQs04rWfxQ4EWpNgeh//UzohcUkikRT+empVepOlyxMCBr+3Q
+						fq/JN8P9riOuhW6uiADUWQ1OXOTdl4lAUXzSc7e/N+7vg4wIb7xzFDtp6h8BqhdF
+						a/noDPXXFesxtEq0ZjSVYahNMOhpsIZXNPKjuBlCFM/IC+5K6LYCY+2qYcuKH4YB
+						QtDtc7/KKJK0i3SpormleAXE9UPX+79nQ2uqUbhNG6OQzKpD+nIYDN/sPec8u2m8
+						2c+GPkqg8pKQz6LzdL8uTN5sZHgzQvg9AgMBAAGjezB5MAkGA1UdEwQCMAAwLAYJ
+						YIZIAYb4QgENBB8WHU9wZW5TU0wgR2VuZXJhdGVkIENlcnRpZmljYXRlMB0GA1Ud
+						DgQWBBR99TJ9Meg90c3p614N474dVMS82DAfBgNVHSMEGDAWgBR99TJ9Meg90c3p
+						614N474dVMS82DANBgkqhkiG9w0BAQUFAAOCAQEAPM9Luz4hiaqXrCtcJ8NmNp40
+						b8x/zkUTI9VRq0EtIlD2UqnVVAh4HrGgGI0wnlzIdyaMdfjied/PBflfDto5tTz9
+						Z/9C4EViX91kOmApwJyiScP/cJX4BjUk08vORqIbu8oXlOfmcCAjT5+Y6RcloS9h
+						nkGwwNk8UnymkQtqw/MnK3DKTxcLdG4iphtzwpbcnAgO/Nb/mT8/tRWy215OuDII
+						DzE+93eMDZMqxG6X3jyYtfF9f551vCFvTDvOxkDd9dnSYPzb+++8BfTYtEnwpNiK
+						yKYcCFVxFCy1km7h2HBrOZMLUAbs0gGoTmSRAEByt0E3C8xzV1Ywu9htzRHmog==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.ihsti.com/logon/federatedaccess/UKFedAuthRec.aspx" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.ihsti.com/logon/federatedaccess/UKFedAuthRec.aspx" index="1"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">IHS (Global) Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">IHS (Global) Limited</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://uk.ihs.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Customer Support</md:GivenName>
+      <md:EmailAddress>mailto:customer.support@ihs.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Trevor</md:GivenName>
+      <md:SurName>Cooley</md:SurName>
+      <md:EmailAddress>mailto:trevor.cooley@ihs.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,81 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth.highwire.org/entity/secure-sp">
+    <md:Extensions>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-09-26T17:52:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://shibboleth.highwire.org/applications/secure-sp/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEfDCCA2SgAwIBAgIJAMTRVlqTJ11lMA0GCSqGSIb3DQEBBQUAMIG+MQswCQYD
+						VQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEVMBMGA1UEBxMMUmVkd29vZCBD
+						aXR5MRcwFQYDVQQKEw5IaWdoV2lyZSBQcmVzczERMA8GA1UECxMISGlnaFdpcmUx
+						IDAeBgNVBAMTF3NoaWJib2xldGguaGlnaHdpcmUub3JnMTUwMwYJKoZIhvcNAQkB
+						FiZzaGliYm9sZXRoLWFkbWluQGhpZ2h3aXJlLnN0YW5mb3JkLmVkdTAeFw0xNDA0
+						MTUxOTQzMDNaFw0yNDA0MTIxOTQzMDNaMIG+MQswCQYDVQQGEwJVUzETMBEGA1UE
+						CBMKQ2FsaWZvcm5pYTEVMBMGA1UEBxMMUmVkd29vZCBDaXR5MRcwFQYDVQQKEw5I
+						aWdoV2lyZSBQcmVzczERMA8GA1UECxMISGlnaFdpcmUxIDAeBgNVBAMTF3NoaWJi
+						b2xldGguaGlnaHdpcmUub3JnMTUwMwYJKoZIhvcNAQkBFiZzaGliYm9sZXRoLWFk
+						bWluQGhpZ2h3aXJlLnN0YW5mb3JkLmVkdTCCASIwDQYJKoZIhvcNAQEBBQADggEP
+						ADCCAQoCggEBALPB99M9iWjentrddY/rLgzKn1X0j4Ao191iyiowBBt/r/pmn2oz
+						frbONkkTVBB++mNtiufK6jyKnBM5mffPOkXHRo+K1DQec7TvpQ1PmLv/BpBgPrr9
+						ldViOSUnYJuB0IgJVV8oylgeH2Ay0XRkNPlBUjBA2fUPWVpXcvFe+aD2tLdVR9uO
+						XvfTMxAEGqzxTU+OxO6pW2sBXNBmGvZQ0TRyovQh5+pTURY/lm0V/iWvRmRe51WE
+						O/nhYyvRuMmNj8EL38o10S9TXuCkVzY00hK5cclaFge7gz/tfjmadVVcbe8xCVxc
+						nb1lhmt1kH2XtKvU5hyZMTO+VUfXQvqcQyECAwEAAaN7MHkwCQYDVR0TBAIwADAs
+						BglghkgBhvhCAQ0EHxYdT3BlblNTTCBHZW5lcmF0ZWQgQ2VydGlmaWNhdGUwHQYD
+						VR0OBBYEFJpUZq/XaW9/bPvjffkxX0IDvuPiMB8GA1UdIwQYMBaAFJpUZq/XaW9/
+						bPvjffkxX0IDvuPiMA0GCSqGSIb3DQEBBQUAA4IBAQCq/FF56ZB1cL3KbniEJP99
+						U9wTD6KpOrWxvqNbUSV1cefLf5cYHonOjy6oAJSSBSNuP7U5Q//0tXtkvlJoqGUY
+						vqngmeg9wLZ/Fla3tXcDdTj0n1F+NZOx9vBDacIk0Ua4aHXDA4bdytzkV1QyZDRq
+						Q8vq7RoQ8E5IF7Cll+kt2dZXQk8o6Qp3w2ppoMRtYdKOQassqn+V1MYcMPgdxZkS
+						DrcgzktR/JMb5OmPrp4mSy1OWDGrFvUIigsLBPZV9tw1f7y42lnbmQas3RCS30yr
+						CtUPT/PQDkCdBRViGmmMkYwjdaOTiHOJveWtrVXu8vLvO36pqFF4Kft0pgqlfvAE
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.highwire.org/applications/secure-sp/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://shibboleth.highwire.org/applications/secure-sp/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shibboleth.highwire.org/applications/secure-sp/Shibboleth.sso/SAML/POST" index="7"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibboleth.highwire.org/applications/secure-sp/Shibboleth.sso/SAML2/Artifact" index="8"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.highwire.org/applications/secure-sp/Shibboleth.sso/SAML2/POST" index="9"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">HighWire Press, Inc.</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">HighWire Press Online</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://highwire.stanford.edu/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Olga</md:GivenName>
+      <md:SurName>Biasotti</md:SurName>
+      <md:EmailAddress>mailto:shibboleth-admin@highwire.org</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Olga</md:GivenName>
+      <md:SurName>Biasotti</md:SurName>
+      <md:EmailAddress>mailto:shibboleth-admin@highwire.org</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

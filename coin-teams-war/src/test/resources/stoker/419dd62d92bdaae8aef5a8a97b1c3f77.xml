@@ -1,12 +1,12 @@
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://login.services.uu.nl/nidp/saml2/metadata">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://login.services.uu.nl/nidp/saml2/metadata">
     <md:Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.surfconext.nl/" registrationInstant="2014-09-01T16:50:23Z">
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.surfconext.nl/" registrationInstant="2014-09-01T16:50:23Z">
         <mdrpi:RegistrationPolicy xml:lang="en">https://wiki.surfnetlabs.nl/display/eduGAIN/EduGAIN</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
     </md:Extensions>
     <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
       <md:Extensions>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="nl">Universiteit Utrecht</mdui:DisplayName>
           <mdui:DisplayName xml:lang="en">Universiteit Utrecht</mdui:DisplayName>
           <mdui:Description xml:lang="nl">Universiteit Utrecht</mdui:Description>
@@ -16,7 +16,7 @@
           <mdui:Keywords xml:lang="en">Universiteit Utrecht UU</mdui:Keywords>
         </mdui:UIInfo>
       </md:Extensions>
-      <md:KeyDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" use="signing">
+      <md:KeyDescriptor use="signing">
         <ds:KeyInfo>
           <ds:X509Data>
             <ds:X509Certificate>MIID3zCCAsegAwIBAgIJAMVC9xn1ZfsuMA0GCSqGSIb3DQEBCwUAMIGFMQswCQYD
@@ -44,8 +44,8 @@ MrsTf1urM8MnfcxG/82oHIwfMh/sXPCZpo+DTLkhQxctJ3M=
           </ds:X509Data>
         </ds:KeyInfo>
       </md:KeyDescriptor>
-      <md:NameIDFormat xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
-      <md:NameIDFormat xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
       <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://engine.surfconext.nl/authentication/idp/single-sign-on/419dd62d92bdaae8aef5a8a97b1c3f77"/>
     </md:IDPSSODescriptor>
     <md:Organization>

@@ -1,26 +1,21 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://tonga.univ-tlse2.fr/idp/shibboleth">
-			<Extensions>
-				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-05-16T16:09:53Z">
-					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
-				</mdrpi:RegistrationInfo>
-			</Extensions>
-		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">etu.univ-tlse2.fr</shibmd:Scope>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-tlse2.fr</shibmd:Scope>
-    
-			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
-          		      
-          		      
-          		      <mdui:DisplayName xml:lang="fr">Université Toulouse 2 - Mirail</mdui:DisplayName>
-          		      
-      			    </mdui:UIInfo>
-			</Extensions>
-				<KeyDescriptor use="signing">
-<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://tonga.univ-tlse2.fr/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-05-16T16:09:53Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">etu.univ-tlse2.fr</shibmd:Scope>
+        <shibmd:Scope regexp="false">univ-tlse2.fr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="fr">Université Toulouse 2 - Mirail</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIEczCCA1ugAwIBAgIQbZHE6LrL3tqFs4H2fek89zANBgkqhkiG9w0BAQUFADA2
 MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
 U1NMIENBMB4XDTEzMDIyNTAwMDAwMFoXDTE2MDIyNTIzNTk1OVowQTEhMB8GA1UE
@@ -46,17 +41,13 @@ yYOY5hOM9Nzxqq7dlvX91gr6aVTxS7Jke9Aje0Ti9jvas0RX5oJB3ItgVEqCIWRH
 4mlCAjYakzm6ucPqhPmbAupbA8CrMDl37ubPxFKnlDUqp02A1MwDJdUJ80A0f6Ce
 2CYly5GL5m70YorIGMbI46RWO/CgfsNzyphB/QHvtodxSrW/3YYs
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-					</ds:KeyInfo>
-				</KeyDescriptor>
-
-				
-				
-				<KeyDescriptor use="signing">
-				       <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIEFjCCAv6gAwIBAgIQU4s2cfoLMcS4CAQ5w7PbVzANBgkqhkiG9w0BAQUFADA2
 MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
 U1NMIENBMB4XDTEwMDIyMjAwMDAwMFoXDTEzMDIyMTIzNTk1OVowcjELMAkGA1UE
@@ -80,35 +71,24 @@ xRjuQwA+Ci/KVDKRTgMwKPrSLR2unxAEhkQksJ5Qbxz0JZaeDWQuck52JGwY8AxD
 GwPwffWYrCia2bzxfKPUiZbuIIIMQI/JfP79/rDMk/bsiEaOoFyNMgbqG/xMCqJ8
 UiA93mbMlvGxjHprvnENF7KeRcs/1aCCDoPjE7iQ6Ne2AacxR45Vlcer
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					</ds:KeyInfo>
-				</KeyDescriptor>
-				
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-
-			
-			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://tonga.univ-tlse2.fr/idp/profile/SAML2/POST/SSO"/>
-	        
-	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://tonga.univ-tlse2.fr/idp/profile/SAML2/Redirect/SSO"/>
-	        
-	        
-			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://tonga.univ-tlse2.fr/idp/profile/Shibboleth/SSO"/>
-			
-
-		</IDPSSODescriptor>
-		
-	
-		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">etu.univ-tlse2.fr</shibmd:Scope>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-tlse2.fr</shibmd:Scope>
-    			</Extensions>
-			<KeyDescriptor use="signing">
-				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://tonga.univ-tlse2.fr/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://tonga.univ-tlse2.fr/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://tonga.univ-tlse2.fr/idp/profile/Shibboleth/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">etu.univ-tlse2.fr</shibmd:Scope>
+        <shibmd:Scope regexp="false">univ-tlse2.fr</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIEczCCA1ugAwIBAgIQbZHE6LrL3tqFs4H2fek89zANBgkqhkiG9w0BAQUFADA2
 MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
 U1NMIENBMB4XDTEzMDIyNTAwMDAwMFoXDTE2MDIyNTIzNTk1OVowQTEhMB8GA1UE
@@ -134,17 +114,13 @@ yYOY5hOM9Nzxqq7dlvX91gr6aVTxS7Jke9Aje0Ti9jvas0RX5oJB3ItgVEqCIWRH
 4mlCAjYakzm6ucPqhPmbAupbA8CrMDl37ubPxFKnlDUqp02A1MwDJdUJ80A0f6Ce
 2CYly5GL5m70YorIGMbI46RWO/CgfsNzyphB/QHvtodxSrW/3YYs
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-				</ds:KeyInfo>
-			</KeyDescriptor>
-
-				
-				
-				<KeyDescriptor use="signing">
-				       <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIEFjCCAv6gAwIBAgIQU4s2cfoLMcS4CAQ5w7PbVzANBgkqhkiG9w0BAQUFADA2
 MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
 U1NMIENBMB4XDTEwMDIyMjAwMDAwMFoXDTEzMDIyMTIzNTk1OVowcjELMAkGA1UE
@@ -168,29 +144,19 @@ xRjuQwA+Ci/KVDKRTgMwKPrSLR2unxAEhkQksJ5Qbxz0JZaeDWQuck52JGwY8AxD
 GwPwffWYrCia2bzxfKPUiZbuIIIMQI/JfP79/rDMk/bsiEaOoFyNMgbqG/xMCqJ8
 UiA93mbMlvGxjHprvnENF7KeRcs/1aCCDoPjE7iQ6Ne2AacxR45Vlcer
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					</ds:KeyInfo>
-				</KeyDescriptor>
-				
-
-			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://tonga.univ-tlse2.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-		</AttributeAuthorityDescriptor>
-
-
-		<Organization>
-		
-			<OrganizationName xml:lang="en">Université Toulouse 2 - Mirail</OrganizationName>
-			<OrganizationDisplayName xml:lang="en">Université Toulouse 2 - Mirail</OrganizationDisplayName>
-			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
-		
-		</Organization>
-
-			
-			    <ContactPerson contactType="technical">
-			     <EmailAddress>sos-ent@univ-tlse2.fr</EmailAddress>
-		        </ContactPerson>
-		    	
-			
-	</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://tonga.univ-tlse2.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Université Toulouse 2 - Mirail</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Université Toulouse 2 - Mirail</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://unknown.site.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>sos-ent@univ-tlse2.fr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

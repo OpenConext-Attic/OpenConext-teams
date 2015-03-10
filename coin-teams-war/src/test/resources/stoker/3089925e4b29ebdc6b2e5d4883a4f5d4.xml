@@ -1,6 +1,8 @@
-<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.ncirl.ie/idp/shibboleth">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.ncirl.ie/idp/shibboleth">
     <md:Extensions>
-      <mdrpi:RegistrationInfo registrationAuthority="http://www.heanet.ie" registrationInstant="2011-02-09T00:00:00Z"/>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.heanet.ie" registrationInstant="2011-02-09T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.edugate.ie/welcome-edugate-federation/membership</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
     </md:Extensions>
     <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
       <md:Extensions>
@@ -8,9 +10,9 @@
         <mdui:UIInfo>
           <mdui:DisplayName xml:lang="en">National College of Ireland</mdui:DisplayName>
           <mdui:Description xml:lang="en">National College of Ireland</mdui:Description>
-          <mdui:Logo height="124" width="124">https://edugate.heanet.ie/rr3/logos/nci.png</mdui:Logo>
           <mdui:InformationURL xml:lang="en">https://nci360.ncirl.ie/</mdui:InformationURL>
           <mdui:PrivacyStatementURL xml:lang="en">http://www.ncirl.ie/Legal/Privacy.aspx</mdui:PrivacyStatementURL>
+          <mdui:Logo height="124" width="124">https://edugate.heanet.ie/rr3/logos/nci.png</mdui:Logo>
         </mdui:UIInfo>
         <mdui:DiscoHints>
           <mdui:GeolocationHint>geo:53.34900526916922,-6.243662238121033</mdui:GeolocationHint>
@@ -43,13 +45,10 @@ EpAWVSexjo2IWj8KAOEJOpUl5z8XsVybIWIR1IUvYw==
       </md:KeyDescriptor>
       <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
       <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
-      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
-      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
       <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ncirl.ie/idp/profile/SAML2/Redirect/SSO"/>
       <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ncirl.ie/idp/profile/SAML2/POST/SSO"/>
       <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.ncirl.ie/idp/profile/SAML2/POST-SimpleSign/SSO"/>
       <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ncirl.ie/idp/profile/SAML2/SOAP/ECP"/>
-      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ncirl.ie/idp/profile/Shibboleth/SSO"/>
     </md:IDPSSODescriptor>
     <md:Organization>
       <md:OrganizationName xml:lang="en">National College of Ireland</md:OrganizationName>

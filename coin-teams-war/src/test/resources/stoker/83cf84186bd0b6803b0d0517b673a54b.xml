@@ -1,0 +1,82 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shib.lexisnexis.com">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEQzCCAyugAwIBAgIJAKsEBMs9ysWqMA0GCSqGSIb3DQEBBQUAMGUxCzAJBgNV
+						BAYTAlVTMQ0wCwYDVQQIEwRPaGlvMRMwEQYDVQQHEwpNaWFtaXNidXJnMRQwEgYD
+						VQQKEwtMRVhJUy1ORVhJUzEcMBoGA1UEAxMTc2hpYi5sZXhpc25leGlzLmNvbTAe
+						Fw0xMTExMzAwMjQ4MzRaFw0yMTExMjcwMjQ4MzRaMGUxCzAJBgNVBAYTAlVTMQ0w
+						CwYDVQQIEwRPaGlvMRMwEQYDVQQHEwpNaWFtaXNidXJnMRQwEgYDVQQKEwtMRVhJ
+						Uy1ORVhJUzEcMBoGA1UEAxMTc2hpYi5sZXhpc25leGlzLmNvbTCCASIwDQYJKoZI
+						hvcNAQEBBQADggEPADCCAQoCggEBANjDzx1Y2nFbwojj8gXeqQnJ4QIhK/XYagTy
+						I3v7vJODtI5Ekns5oUqW3eDlJrOsixuzk5sYoqQEkNF3vjcVXPrwEOVb/I4vq/qb
+						Sk8q1+YkFD7CCNx8sMOhUeuJEsYYdgxOaWuHzB0juAGxbeCYGLZU8DY/Zb5kBLXU
+						esSqF1uRKTUl+z5CTls/91Bq9PuM58jesGRIKTg7doyAx+VJi0frnr0Dyse2mG6Y
+						onlgiGOSVdUGQsqj4zHP10xRGbQqEfpvnZxRR/j34uZLaS3H9r0Yks8FSQj+UmtL
+						OkaEDqoWJVGpdwY+HUX6bmTt5BBu1uowAlgOI+6jqF6cXrX0jR0CAwEAAaOB9TCB
+						8jAJBgNVHRMEAjAAMCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVyYXRlZCBD
+						ZXJ0aWZpY2F0ZTAdBgNVHQ4EFgQUbbexhyY79bl5AamiayqLi4BN4PowgZcGA1Ud
+						IwSBjzCBjIAUbbexhyY79bl5AamiayqLi4BN4PqhaaRnMGUxCzAJBgNVBAYTAlVT
+						MQ0wCwYDVQQIEwRPaGlvMRMwEQYDVQQHEwpNaWFtaXNidXJnMRQwEgYDVQQKEwtM
+						RVhJUy1ORVhJUzEcMBoGA1UEAxMTc2hpYi5sZXhpc25leGlzLmNvbYIJAKsEBMs9
+						ysWqMA0GCSqGSIb3DQEBBQUAA4IBAQC5UdjOHxhSl8qRwWklR4bpml1aD4/lDInE
+						3/QtvJRQVnZY/VlUF6wnyFMiRJ8twjYvFDQ9OnUFj56N1rc0tbrYxxwhmJ8zGVs0
+						mNKoRZDSa/iUDZ1tUZ1e2Qc2D0/kqqg8tD2WUmXJqHu8SdFZE0wobj2mIOxAO6pV
+						PCAt4y7P0xNscbZ9tXX5RoVIAw1mR7NqFPeGSSUDkzkdpF/ikuRiv2/JLhsb5V+3
+						k5wU1ANaeyvxE8/SFlu3Vi9H0z1ga7Cqp/W9SK93M2yf+ThYWfQj685P2pZkFlm9
+						+3eetB5dJG2Q/ZtZB6LI+i7qqpIoe0fMVx/5GS/Le5m1vuHaCU95
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.lexisnexis.com/start/shib/post" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.lexisnexis.com/start/shib/artifact" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://cdc1-www.lexisnexis.com/start/shib/post" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://cdc1-www.lexisnexis.com/start/shib/artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://cdc2-www.lexisnexis.com/start/shib/post" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://cdc2-www.lexisnexis.com/start/shib/artifact" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://cdc3-www.lexisnexis.com/start/shib/post" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://cdc3-www.lexisnexis.com/start/shib/artifact" index="7"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://cdc4-www.lexisnexis.com/start/shib/post" index="8"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://cdc4-www.lexisnexis.com/start/shib/artifact" index="9"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://cdc5-www.lexisnexis.com/start/shib/post" index="10"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://cdc5-www.lexisnexis.com/start/shib/artifact" index="11"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://cdc6-www.lexisnexis.com/start/shib/post" index="12"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://cdc6-www.lexisnexis.com/start/shib/artifact" index="13"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://cdc7-www.lexisnexis.com/start/shib/post" index="14"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://cdc7-www.lexisnexis.com/start/shib/artifact" index="15"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://cdc8-www.lexisnexis.com/start/shib/post" index="16"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://cdc8-www.lexisnexis.com/start/shib/artifact" index="17"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://cdc9-www.lexisnexis.com/start/shib/post" index="18"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://cdc9-www.lexisnexis.com/start/shib/artifact" index="19"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://cdc9shib-www.lexisnexis.com/start/shib/post" index="20"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://cdc9shib-www.lexisnexis.com/start/shib/artifact" index="21"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://cdc10-www.lexisnexis.com/start/shib/post" index="22"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://cdc10-www.lexisnexis.com/start/shib/artifact" index="23"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://cdc11-www.lexisnexis.com/start/shib/post" index="24"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://cdc11-www.lexisnexis.com/start/shib/artifact" index="25"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://cdc12-www.lexisnexis.com/start/shib/post" index="26"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://cdc12-www.lexisnexis.com/start/shib/artifact" index="27"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://release-www.lexisnexis.com/start/shib/post" index="28"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://release-www.lexisnexis.com/start/shib/artifact" index="29"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Lexis-Nexis Europe Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">LexisNexis</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.lexisnexis.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Key Accounts Support</md:GivenName>
+      <md:EmailAddress>mailto:KeyAccountsSupport@lexisnexis.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Technical Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:technical.helpdesk@lexisnexis.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,51 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.magonlinelibrary.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-11-20T16:06:20Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDPDCCAiSgAwIBAgIJAOxJ6oH31iOVMA0GCSqGSIb3DQEBBQUAMCMxITAfBgNV
+						BAMTGHd3dy5tYWdvbmxpbmVsaWJyYXJ5LmNvbTAeFw0xMzExMTkxNDAwNDNaFw0y
+						MzExMTcxNDAwNDNaMCMxITAfBgNVBAMTGHd3dy5tYWdvbmxpbmVsaWJyYXJ5LmNv
+						bTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANX7vUWYKC2Ke/ZrzYvD
+						Gw5Mm0NrEf0aMwrnw2wvsS2lncSUXj8bDTwQi3x+xC0/1hmNFEpRnhfyu5JwKDXP
+						yw+38q8aE4B8p1s9HNvj0YJPlUTK15mQabc3HQ9S5goeYeUq+mZenoS84w1NBym+
+						Fu3jbWvaQAtrBlbJP8/+U6OLMVdesqUNTK3IAOu3NHuk8mdFmOSDExznHbHhgzpz
+						s9Tu5lhyS62gUayA6YpQWOw6EUjiRmsAMwcSwXeD1lPwNt1veW0RELdciMscGHAP
+						SkeSwGCSl5BY5vOg5kGF21SRlfbnvnAoe1DlPrT6AghiK2K7VIARoElc4QnyFDNc
+						5Z0CAwEAAaNzMHEwUAYDVR0RBEkwR4IYd3d3Lm1hZ29ubGluZWxpYnJhcnkuY29t
+						hitodHRwczovL3d3dy5tYWdvbmxpbmVsaWJyYXJ5LmNvbS9zaGliYm9sZXRoMB0G
+						A1UdDgQWBBQAs2Jn/mvqHwTEVKRDRTew/qJkNzANBgkqhkiG9w0BAQUFAAOCAQEA
+						F8SJ0Rggh6WOg1tu1WIOi2uDZmqK1x1sljbH7RjKuAafvDf2ihVEzcW6LzFez3Ew
+						MXOkx6uOYq3+TpqWP6ofjKW/pDrfBap9QV7/H6S55Qamqmi9u6UgMK4AITGE2M94
+						YBmAISSAOL2syhb9fpGIG7r5w6gs7NvkrrQ0Ua6jMQ8x5vSH65tKboN+unXw/n1n
+						hPb5xbuJl8vC0BI0lMZ6lWddY8aAs1cjoyjSKP3JyM/noIv+U1bm2vPeYATHgKNI
+						L3VNaZWA1Fyqvu8GyUoBgNijF9sChzzam3oaZyXSSwU/b06TsH6jQk2x+GV/rs3s
+						H8O0nQaQrC99XG29XrRI5Q==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.magonlinelibrary.com/action/samlACS" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.magonlinelibrary.com/action/samlACS" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.magonlinelibrary.com/action/samlACS" index="3"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Atypon Systems, Inc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">MAG Online Library</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.magonlinelibrary.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>sso-support</md:GivenName>
+      <md:EmailAddress>mailto:sso-support@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>sso-tech</md:GivenName>
+      <md:EmailAddress>mailto:sso-tech@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

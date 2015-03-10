@@ -1,0 +1,79 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://unixcf-dashboard.ncl.ac.uk/shibboleth/metadata">
+    <md:Extensions>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-02-11T12:26:40Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://unixcf-dashboard.ncl.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC9zCCAd+gAwIBAgIJAKaFa4lYpIB2MA0GCSqGSIb3DQEBBQUAMBsxGTAXBgNV
+						BAMTEHVuaXhjZi1kYXNoYm9hcmQwHhcNMTQwMTE3MTYxMzQ4WhcNMjQwMTE1MTYx
+						MzQ4WjAbMRkwFwYDVQQDExB1bml4Y2YtZGFzaGJvYXJkMIIBIjANBgkqhkiG9w0B
+						AQEFAAOCAQ8AMIIBCgKCAQEAv6L44IqVxK/kXkUnEcYJWaQqcU74J9Us6klg6Cej
+						bFobfyB153YL3p+z3YrKrR76lkorq1mMI7HzQRtY7/zS8MYcRCJ8tSUTn7kl1e58
+						sKhtrZQx+AD8s9psVXOmvY14gNcHpopxFPP0YSDZZ9fXEbMMKe90uifIVgtYUJ1F
+						pVXtVGlMNfkNCYIoRZ3W7SZfNyLrh4Pln3wfmrq4H88p87iOWR15bD0RrNem6Dmw
+						23S+1B5Jfmq9gBtbAfvWMTHKYvAVKdb6FiMqhgZYVnpaKFR4L6/6pGWKUpruiT6N
+						sRdMf/4HiroLM01UFO6RqwBpdsHO4vIl75+xuNuVMVT/1QIDAQABoz4wPDAbBgNV
+						HREEFDASghB1bml4Y2YtZGFzaGJvYXJkMB0GA1UdDgQWBBQHJiHCjypHSHHvQ6Eo
+						LoxDG3y5WDANBgkqhkiG9w0BAQUFAAOCAQEAMqel3aPjEp8SnR9uHkFnPwY2q/pQ
+						vK90yVVPEp/PKku9eVY1e+RTOWtU5tHEFVarNRQkYvt0X5hd1dviAlP050iT0uvB
+						T+EYgksNWHFxuGWk8SnBpZV3IgRkR1LDUSWHJ/SA+jqnC4murMtNST/GsRD85jtY
+						KUPm/ZOpK0cCEXYVfFHydSJh12OYiakWHe18r5dCgo2T1gp2eXP3DTNqv8wk0WWp
+						xV+1vGZ8Dq6SFgu3TBMZNfV+i7XLFjL9N3v0IqdB/X3af31p0g80MZM0Joke5qdn
+						Z5uf9JoMygnz9Kz3wYvDRPfly1p4CdkQzjoZNS/QDV+N2r8pywu7aB3zLQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://unixcf-dashboard.ncl.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://unixcf-dashboard.ncl.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://unixcf-dashboard.ncl.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://unixcf-dashboard.ncl.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://unixcf-dashboard.ncl.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://unixcf-dashboard.ncl.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://unixcf-dashboard.ncl.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://unixcf-dashboard.ncl.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://unixcf-dashboard.ncl.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://unixcf-dashboard.ncl.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://unixcf-dashboard.ncl.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Newcastle upon Tyne</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Newcastle University UNIX Configuration Management</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ncl.ac.uk/itservice/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Franks</md:SurName>
+      <md:EmailAddress>mailto:chris.franks@ncl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Franks</md:SurName>
+      <md:EmailAddress>mailto:chris.franks@ncl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

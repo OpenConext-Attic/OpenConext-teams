@@ -1,0 +1,57 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://opac.hull-college.ac.uk/secure">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://opac.hull-college.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDDzCCAfegAwIBAgIJANOjhZD2KOnOMA0GCSqGSIb3DQEBBQUAMCMxITAfBgNV
+						BAMTGHdlYmJ5Lmh1bGwtY29sbGVnZS5hYy51azAeFw0xMDEyMjEwOTM2MTNaFw0y
+						MDEyMTgwOTM2MTNaMCMxITAfBgNVBAMTGHdlYmJ5Lmh1bGwtY29sbGVnZS5hYy51
+						azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL8IuxsLcsMEuxEORkW9
+						AnFMjw02hjqgUFDxdvxidErQcU28+mhiLL5E8IE9Rl74eLMQVz4wT1HFrCXuYQcw
+						Re3p38ZVz1jryJPdIrycInbSlofAnvCtou/C6Xoax+FN4N1WzMBQEQCH2JAx0phj
+						z8bg7ZiujJsI19ubQMogbyPgpxmyUPbU2w1RM7N12XUK8x54M7oMNIczSeKcA5AL
+						bw2hAcDiDjmhjwHDQmT6pUeB4pGbjj1XcQ1+OnQtTJaDqBGXJuiTvFr3jyNa2oPv
+						MiZBfOU8AQP7SMCBc/TL3rR9dMVViKIXTV1ypd0Vf2IM7dsckDchrEfuQ/R8vK97
+						ZyECAwEAAaNGMEQwIwYDVR0RBBwwGoIYd2ViYnkuaHVsbC1jb2xsZWdlLmFjLnVr
+						MB0GA1UdDgQWBBRJ3Rc19IVRl3z9Sk6sf/ZVgjBJ+jANBgkqhkiG9w0BAQUFAAOC
+						AQEAABVnWpRznLdi/6Qs0tZigAbHQTmkB+PQQMcn3wHFiRCN8XmjCQlDDwPwjOO0
+						RgXmDs1dsnOerNdxCoDAwKgcpKvwsTNt+BrseDpLgMVyKLlTOyABP/y+Py+dROtX
+						NT38ftWChZlPQlYrXk/sxsSmwSBTkShxD67Cw28xbHjoQs+zyVM/ulX4z76tsvzu
+						9TZI38v39ORLQaev1uXFtEsesP5Jac6jbfZ/K3mfmeV5Jrirz3qiTONz7x4h/GId
+						uC6cDuM71qVAazldO/xl5o70zE8taPprobQAtnQsNipmDtYx9dcrK69k2Mj8fONH
+						hreSCClyOnSq2fhxrYHcWSAqPw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://opac.hull-college.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://opac.hull-college.ac.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://opac.hull-college.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://opac.hull-college.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://opac.hull-college.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://opac.hull-college.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://opac.hull-college.ac.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Hull College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Hull College: Group Libraries Catalogue</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://library.hull-college.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>David</md:GivenName>
+      <md:SurName>Perry</md:SurName>
+      <md:EmailAddress>mailto:dperry@hull-college.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>David</md:GivenName>
+      <md:SurName>Perry</md:SurName>
+      <md:EmailAddress>mailto:dperry@hull-college.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,137 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sid.kent.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">kent.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University of Kent</mdui:DisplayName>
+          <mdui:Logo height="177" width="236">https://jordan.kent.ac.uk/images/logo.png</mdui:Logo>
+          <mdui:Logo height="16" width="16">https://jordan.kent.ac.uk/images/icon-16x16.png</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:IPHint>129.12.0.0/16</mdui:IPHint>
+          <mdui:IPHint>195.195.86.0/23</mdui:IPHint>
+          <mdui:IPHint>195.195.88.0/24</mdui:IPHint>
+          <mdui:IPHint>195.195.89.0/26</mdui:IPHint>
+          <mdui:IPHint>195.195.89.128/25</mdui:IPHint>
+          <mdui:DomainHint>kent.ac.uk</mdui:DomainHint>
+          <mdui:GeolocationHint>geo:51.29861,1.07059</mdui:GeolocationHint>
+          <mdui:GeolocationHint>geo:51.39781,0.54197</mdui:GeolocationHint>
+          <mdui:GeolocationHint>geo:51.19263,0.27140</mdui:GeolocationHint>
+          <mdui:GeolocationHint>geo:48.841877,2.331676</mdui:GeolocationHint>
+          <mdui:GeolocationHint>geo:50.82142,4.39169</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIFtzCCBJ+gAwIBAgIQL+WrqVAi6nPu0mI9W17VBzANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEzMDEwOTAwMDAwMFoXDTE2MDEwOTIzNTk1OVowgYYxCzAJBgNV
+						BAYTAkdCMQ0wCwYDVQQIEwRLZW50MRMwEQYDVQQHEwpDYW50ZXJidXJ5MRswGQYD
+						VQQKExJVbml2ZXJzaXR5IG9mIEtlbnQxGjAYBgNVBAsTEUNvbXB1dGluZyBTZXJ2
+						aWNlMRowGAYDVQQDExFqb3JkYW4ua2VudC5hYy51azCCAiIwDQYJKoZIhvcNAQEB
+						BQADggIPADCCAgoCggIBAPGg+Gei4IjzW4dRDytADYkZUVdoJ/iYdQw6GMW7R4qh
+						0qjK9r2zlpkToS8kHKXRHJ4HjR31gNt4J2iqkFN3N/kqUD3ItgK+XvqWjTtdmIqR
+						MTR+YXm3dObzhAKTVmS6Pvwcp5/6kxG7BO3jK3CjsSeWnG0zLKBwK/HJguUiujw4
+						AOEGgvSB3H86GQ9r+ATZgoAqhElsaJMU3/YKhKn0q8J9pZQOhTQXFVkplOh9Hllx
+						K1NU/gQkMZiYsJtl7HRXL/SfyE9OFibNQ6/CkdWU3XuJcgPwTNsuavl+wzi7tz+q
+						aiCRrEfU2IGOtNnobXjwYv7w//xt8nkER7aDGbPPUWkVSe5VPWuL7f3+qAW8krjY
+						LvxQwOj0tKsHeoZM5YODXT6vq9+vJlNo0PgzU6nDSFWKkfgZ/y5QTGJoZ/neMQrm
+						2hMNBVHq05VeGu/EIONnK0NHp/ob2SaVFTHllYb8RGth5iqgWANdlR73SKX4v59h
+						Z5NgBF6nnPM0xOMxcNJBn6IP3D07VWvHzPzWDZXl1FURjcLgv5AF41k2i4PIhMgg
+						WZOT+Nb5kPq5/aly30hh1QcVcZVMIhD7X1QZTa7MhRFz2gChUTtEV2pmu+b2v1YE
+						kEJxXH4+RpXKELzVANmKXDsau/VV+R6pVr8fDxnaA5xjiKcIrYS5HAv3pT+6Lscz
+						AgMBAAGjggFuMIIBajAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAd
+						BgNVHQ4EFgQUOpVDaesyKDnqlscJJKWiWKHpqEEwDgYDVR0PAQH/BAQDAgWgMAwG
+						A1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMCIGA1Ud
+						IAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQICMDoGA1UdHwQzMDEwL6AtoCuG
+						KWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3JsMG0GCCsG
+						AQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2NydC50Y3MudGVyZW5hLm9y
+						Zy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6Ly9vY3NwLnRjcy50
+						ZXJlbmEub3JnMBwGA1UdEQQVMBOCEWpvcmRhbi5rZW50LmFjLnVrMA0GCSqGSIb3
+						DQEBBQUAA4IBAQCA/61/holHZJ8hI6Uhcab1sPQ0lPp00TY6rC25SPWIx9h2s7YH
+						2WrUu/ju/AoH3dc40n67ZCY4JDGsBh8okU1ELiq2pmA+qA7vl/4mEI8EecnycIZD
+						n2ZT3cr4T417QIT7WJ/CL/gHc/q7wV2gR/57h0AqHnQDHM7+h7MN5hXWE/a2winL
+						tABzuJSSQIJeaAB0O9/rn753rjzoxoWoB97il/W9CmCAAbw8+Q0kK4+9zDCT4l2J
+						H+yTsYxigI/BaQiYE1XKp4ypSndhqJCkCToQCrkDe1Cak0CspAbmdETK75tMn3S3
+						OaaXtDMA/vTUzkI2oLgGqsnhv6IRTH07P9WH
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://jordan.kent.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://jordan.kent.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://jordan.kent.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://jordan.kent.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://jordan.kent.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://jordan.kent.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">kent.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIFtzCCBJ+gAwIBAgIQL+WrqVAi6nPu0mI9W17VBzANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEzMDEwOTAwMDAwMFoXDTE2MDEwOTIzNTk1OVowgYYxCzAJBgNV
+						BAYTAkdCMQ0wCwYDVQQIEwRLZW50MRMwEQYDVQQHEwpDYW50ZXJidXJ5MRswGQYD
+						VQQKExJVbml2ZXJzaXR5IG9mIEtlbnQxGjAYBgNVBAsTEUNvbXB1dGluZyBTZXJ2
+						aWNlMRowGAYDVQQDExFqb3JkYW4ua2VudC5hYy51azCCAiIwDQYJKoZIhvcNAQEB
+						BQADggIPADCCAgoCggIBAPGg+Gei4IjzW4dRDytADYkZUVdoJ/iYdQw6GMW7R4qh
+						0qjK9r2zlpkToS8kHKXRHJ4HjR31gNt4J2iqkFN3N/kqUD3ItgK+XvqWjTtdmIqR
+						MTR+YXm3dObzhAKTVmS6Pvwcp5/6kxG7BO3jK3CjsSeWnG0zLKBwK/HJguUiujw4
+						AOEGgvSB3H86GQ9r+ATZgoAqhElsaJMU3/YKhKn0q8J9pZQOhTQXFVkplOh9Hllx
+						K1NU/gQkMZiYsJtl7HRXL/SfyE9OFibNQ6/CkdWU3XuJcgPwTNsuavl+wzi7tz+q
+						aiCRrEfU2IGOtNnobXjwYv7w//xt8nkER7aDGbPPUWkVSe5VPWuL7f3+qAW8krjY
+						LvxQwOj0tKsHeoZM5YODXT6vq9+vJlNo0PgzU6nDSFWKkfgZ/y5QTGJoZ/neMQrm
+						2hMNBVHq05VeGu/EIONnK0NHp/ob2SaVFTHllYb8RGth5iqgWANdlR73SKX4v59h
+						Z5NgBF6nnPM0xOMxcNJBn6IP3D07VWvHzPzWDZXl1FURjcLgv5AF41k2i4PIhMgg
+						WZOT+Nb5kPq5/aly30hh1QcVcZVMIhD7X1QZTa7MhRFz2gChUTtEV2pmu+b2v1YE
+						kEJxXH4+RpXKELzVANmKXDsau/VV+R6pVr8fDxnaA5xjiKcIrYS5HAv3pT+6Lscz
+						AgMBAAGjggFuMIIBajAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAd
+						BgNVHQ4EFgQUOpVDaesyKDnqlscJJKWiWKHpqEEwDgYDVR0PAQH/BAQDAgWgMAwG
+						A1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMCIGA1Ud
+						IAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQICMDoGA1UdHwQzMDEwL6AtoCuG
+						KWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3JsMG0GCCsG
+						AQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2NydC50Y3MudGVyZW5hLm9y
+						Zy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6Ly9vY3NwLnRjcy50
+						ZXJlbmEub3JnMBwGA1UdEQQVMBOCEWpvcmRhbi5rZW50LmFjLnVrMA0GCSqGSIb3
+						DQEBBQUAA4IBAQCA/61/holHZJ8hI6Uhcab1sPQ0lPp00TY6rC25SPWIx9h2s7YH
+						2WrUu/ju/AoH3dc40n67ZCY4JDGsBh8okU1ELiq2pmA+qA7vl/4mEI8EecnycIZD
+						n2ZT3cr4T417QIT7WJ/CL/gHc/q7wV2gR/57h0AqHnQDHM7+h7MN5hXWE/a2winL
+						tABzuJSSQIJeaAB0O9/rn753rjzoxoWoB97il/W9CmCAAbw8+Q0kK4+9zDCT4l2J
+						H+yTsYxigI/BaQiYE1XKp4ypSndhqJCkCToQCrkDe1Cak0CspAbmdETK75tMn3S3
+						OaaXtDMA/vTUzkI2oLgGqsnhv6IRTH07P9WH
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://jordan.kent.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://jordan.kent.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Kent</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Kent</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.kent.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:helpdesk@kent.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Matthew</md:GivenName>
+      <md:SurName>Slowe</md:SurName>
+      <md:EmailAddress>mailto:M.Slowe@kent.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

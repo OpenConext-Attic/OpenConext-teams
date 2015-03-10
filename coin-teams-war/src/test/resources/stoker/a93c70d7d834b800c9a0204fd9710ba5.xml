@@ -1,0 +1,83 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://web.chorus.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha224"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-11-17T12:19:54Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://web.chorus.ox.ac.uk/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://web.chorus.ox.ac.uk/Shibboleth.sso/Login" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC3zCCAcegAwIBAgIJALFL+iOr5QKwMA0GCSqGSIb3DQEBBQUAMBMxETAPBgNV
+						BAMTCHVuc3NvcHMxMB4XDTE0MDkxOTE1MzAxM1oXDTI0MDkxNjE1MzAxM1owEzER
+						MA8GA1UEAxMIdW5zc29wczEwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+						AQC9jXikIGweeUQMxRFMd2cQHoFDStW8pj5E5dwQvkTiyBRy70CYGgNKil8fGPZM
+						54PHToqXCBKv310cC4RhnSKSbLi+zXduSEzf0GLcsI6mXV+BPzlPuZsZSlIulIEo
+						8DPyLrJT8Z9tNa1Oi33Jo/Rc53OF0up3e6XBBNh78jQEjiTo82PcSecgi9Bg/4yl
+						d7hFdPOKWc34EMi0V2mHLRqiL9V5YSSbfTVxJ3I/35/X9Bzo3a+47a86fhxJ9kh3
+						W2/T6wHMvjYJnGmblhN7MmvVefhHWNIA4F9DVUCQoHed/nU56kY2HIULt/eIxD0s
+						oLkKg9nTYs7qrW9/u3OTEyC3AgMBAAGjNjA0MBMGA1UdEQQMMAqCCHVuc3NvcHMx
+						MB0GA1UdDgQWBBSBQh+JSuz8W3Jxuk3CYYSenJCR2DANBgkqhkiG9w0BAQUFAAOC
+						AQEAhIY0m1pjMYxgVnHL+AsV2XMNif/xaeSKIH3HAz0j8/7mL1wUub4mf4c5lu3c
+						DnzHMe1yY60+x+7kSiq+K5L+dbPWT7NvLWSNqfV+vPJKxuGpBOFq9kVVr9x2uNM4
+						bhlPpiDfcoozMF6R0Jnj34iuHAQgSpTfKTjECMNOT9v8jEruFzJxqqnl8H0RX408
+						lLx8XMjbVIErKSUgZT0K42rhOa+7nlAinV1SufvHQLjb8bKdnsbNIauCH8aBcs7D
+						94H1j90T/JvshPULLqAgq7FWeXRIqe4YhUT6gqjElnz3L9G+zG+1g/XCkTMdY2X9
+						TTVomgOCogTGw8rJ7I2OxSFpFw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://web.chorus.ox.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://web.chorus.ox.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://web.chorus.ox.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://web.chorus.ox.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://web.chorus.ox.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://web.chorus.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://web.chorus.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://web.chorus.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://web.chorus.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://web.chorus.ox.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://web.chorus.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford Chorus Service</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://web.chorus.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>SO Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:sohelpdesk.com.uk@unify.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>SO Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:sohelpdesk.com.uk@unify.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,60 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://esdswp01.ds.man.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://esdswp01.ds.man.ac.uk/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://esdswp01.ds.man.ac.uk/Shibboleth.sso/Login" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDBjCCAe6gAwIBAgIJAKCst/LT2atiMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV
+						BAMTFWVzZHN3cDAxLmRzLm1hbi5hYy51azAeFw0xMTA4MjUxNDU3MzBaFw0yMTA4
+						MjIxNDU3MzBaMCAxHjAcBgNVBAMTFWVzZHN3cDAxLmRzLm1hbi5hYy51azCCASIw
+						DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAM2VrVToTVgEsS1K8MyHK+nvCOeV
+						T5gtFk9LTY6C5vAVD/lIWp76KmwpvOCnc1ZwEOzpzTJKvsLmN6OpI0oB56DgAU30
+						eb7VE72IlrZzq41Jwt6pt5Eda08npE0YY4mzeSmjuZwzV/TsjtFbDjB4k22LDZrE
+						1UHMNy9OP4FvBYm1eCKkYMpW7XGr2HZWMzVmavdCe8wtQzoIZCjvH+7gF/hokArN
+						8RRKvw2HxBsQBMWPmoEaoosT//9RS+W/daVjqyU/47WFxOAJBMf3s7WqcNumPcbI
+						IV4ApR+eaR5+xMsHx3sXxBGZrPkRm461XCSnrq/Rzb5Vc9ecJL+4h6m+eIECAwEA
+						AaNDMEEwIAYDVR0RBBkwF4IVZXNkc3dwMDEuZHMubWFuLmFjLnVrMB0GA1UdDgQW
+						BBQFfo7/j+0kUsgcDL9JM2MZB8uFgDANBgkqhkiG9w0BAQUFAAOCAQEAELePcQjX
+						STeh/K/A6eK5AzOXb76gtbtzdXAAOyPkQMI7nl1SmntgVtFb3SqbGmPyf24fwyjE
+						ghRwKp+cqkDTMRt4mAnky4gSVqFb978gN2+0qeLd1wOW+sSxCHy7QGnNv/+NMPTr
+						qmSwMnuP3icuaClHB4wndhDLjuGHJI8hzVB/gvNMRY607Jj01vof3um3J6hZVELa
+						QqvJf1p4AzkEqc/UVs5mNkeieg9eSkxCYMG7gWhu8P7peMnuEmRjenws3gh4gzWP
+						ZYoFe5iqgYhhtBTcwBEgRI825ISfRwE78qCfBOv8OS7rzGzjDO/lI8QuF12VNU5w
+						1K0XFxLVLmEFpw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://esdswp01.ds.man.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://esdswp01.ds.man.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://esdswp01.ds.man.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://esdswp01.ds.man.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://esdswp01.ds.man.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://esdswp01.ds.man.ac.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://esdswp01.ds.man.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://esdswp01.ds.man.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://esdswp01.ds.man.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://esdswp01.ds.man.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://esdswp01.ds.man.ac.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">The University of Manchester</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">MIMAS: ESDS International Web Server One</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://esds.mcc.ac.uk//</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>ESDS International Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:international@esds.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mimas Technical Support</md:GivenName>
+      <md:EmailAddress>mailto:mimas-shib-tech@listserv.manchester.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

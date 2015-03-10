@@ -1,25 +1,20 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="urn:mace:cru.fr:federation:utc.fr">
-			<Extensions>
-				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-06-04T14:19:04Z">
-					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
-				</mdrpi:RegistrationInfo>
-			</Extensions>
-		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">utc.fr</shibmd:Scope>
-    
-			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
-          		      
-          		      
-          		      <mdui:DisplayName xml:lang="fr">UTC - Université de Technologie de Compiègne</mdui:DisplayName>
-          		      
-      			    </mdui:UIInfo>
-			</Extensions>
-				<KeyDescriptor use="signing">
-<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="urn:mace:cru.fr:federation:utc.fr">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-06-04T14:19:04Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">utc.fr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="fr">UTC - Université de Technologie de Compiègne</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIDEzCCAfugAwIBAgIUUqqJXvb5AbgkDCOIeaTw+AhDKzQwDQYJKoZIhvcNAQEF
 BQAwFTETMBEGA1UEAxMKaWRwLnV0Yy5mcjAeFw0xMDA4MjUxMTQ5MDZaFw0zMDA4
 MjUxMTQ5MDZaMBUxEzARBgNVBAMTCmlkcC51dGMuZnIwggEiMA0GCSqGSIb3DQEB
@@ -38,17 +33,13 @@ mGTNKVxb7j2dc9EfJEsTOXc0J7d2S+T92CB4rZ+wC2fj21G4/WQ30lXooXy/kvdW
 oUcxy/ZBMc0HizwoTm7s1siWvszzg2kzOgdywf98wghDNKJ2AtsEZ17KouVxhvDk
 hChKBBWarG/QuOFPQPpaPOLrhW//PAU=
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-					</ds:KeyInfo>
-				</KeyDescriptor>
-
-				
-				
-				<KeyDescriptor use="signing">
-				       <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIEpzCCA4+gAwIBAgIRANd0mx2mkE7UNMEtPiP7uCUwDQYJKoZIhvcNAQEFBQAw
 NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
 IFNTTCBDQTAeFw0xMDAxMDYwMDAwMDBaFw0xMzAxMDUyMzU5NTlaMIGDMQswCQYD
@@ -75,49 +66,26 @@ ar9vD4k5grT+DwTqh9GiAIh3EQXj11e03h0fhVlHa/WpbD8zMQLSy7KiLfAVUJmk
 mhQLQG+GOfNlx3IujS9j/7gE2cI5OTBUrImHjPH41SHCVF8ZOqzyg1v0Xc7JYgTj
 70kZXvt58HpgN/IqMlNyBtYCRE5+SVCIaX4bEA0qyOTKwLEZIwZNh3LWQw==
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					</ds:KeyInfo>
-				</KeyDescriptor>
-				
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-
-			
-			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.utc.fr/idp/profile/SAML2/POST/SSO"/>
-	        
-	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.utc.fr/idp/profile/SAML2/Redirect/SSO"/>
-	        
-	        
-			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.utc.fr/idp/profile/Shibboleth/SSO"/>
-			
-
-		</IDPSSODescriptor>
-		
-
-
-		<Organization>
-		
-			<OrganizationName xml:lang="en">UTC - Université de Technologie de Compiègne</OrganizationName>
-			<OrganizationDisplayName xml:lang="en">UTC - Université de Technologie de Compiègne</OrganizationDisplayName>
-			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
-		
-		</Organization>
-
-			
-		    	
-			    <ContactPerson contactType="technical">
-				 <SurName>David Lewis</SurName>
-				 <EmailAddress>david.lewis@utc.fr</EmailAddress>
-		        </ContactPerson>
-			    	
-
-		    	
-			    <ContactPerson contactType="technical">
-				 <SurName>Jean-Marc Berenguier</SurName>
-				 <EmailAddress>jmb@utc.fr</EmailAddress>
-		        </ContactPerson>
-			    	
-
-				
-			
-	</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.utc.fr/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.utc.fr/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.utc.fr/idp/profile/Shibboleth/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">UTC - Université de Technologie de Compiègne</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">UTC - Université de Technologie de Compiègne</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://unknown.site.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>David Lewis</md:SurName>
+      <md:EmailAddress>david.lewis@utc.fr</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Jean-Marc Berenguier</md:SurName>
+      <md:EmailAddress>jmb@utc.fr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

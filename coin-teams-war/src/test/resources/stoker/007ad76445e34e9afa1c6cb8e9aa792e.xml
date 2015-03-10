@@ -1,0 +1,68 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth.amdigital.co.uk/shibboleth-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://shibboleth.amdigital.co.uk/Shibboleth.sso/WAYF/UKFederation"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://shibboleth.amdigital.co.uk/Shibboleth.sso/WAYF"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://shibboleth.amdigital.co.uk/Shibboleth.sso/DS"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://shibboleth.amdigital.co.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDFTCCAf2gAwIBAgIJAPe6QSEcGRk8MA0GCSqGSIb3DQEBBQUAMCUxIzAhBgNV
+						BAMTGnNoaWJib2xldGguYW1kaWdpdGFsLmNvLnVrMB4XDTExMDMwMzEyMDIxMloX
+						DTE2MDMwMTEyMDIxMlowJTEjMCEGA1UEAxMac2hpYmJvbGV0aC5hbWRpZ2l0YWwu
+						Y28udWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC4pvlbjpzFVWoX
+						CwMEQs/lKAB5fRNdIbeCLqumBjdVeh/rNVWHsLdOltDuaLlfRT+OXYI3962tezKO
+						gPJb0WhuUEoT5My92nyceHU1tUtZTtRxrXh7NbNxNasmBpXxhWxdxPkQpvt7tza8
+						bcoXX7Y1V8AFdoOoOA+CE05mimoqPf+76JuW6PTpF083fPMyf34EyYwWiVcGNfTJ
+						IaNdAd23Q3hxpm2P3WhFI3y/jWK74jziP0a9r6Wp/HRIvcyFfLlaqlFaOvr7v0SR
+						Gk6kuMF2sXrfj9OMd7m6+5v9CRdiX56nYYHdD1jhf/5zsNXMDvMTY1fNtosEIomm
+						BaGnnwIHAgMBAAGjSDBGMCUGA1UdEQQeMByCGnNoaWJib2xldGguYW1kaWdpdGFs
+						LmNvLnVrMB0GA1UdDgQWBBRSfPmrYGKQQdVWbnmrysdcv1KtpzANBgkqhkiG9w0B
+						AQUFAAOCAQEAYalolZpZEQk9zTCR503YHoxf901rRBqF39GBt59Gw/pDKhop+ktm
+						i0aYmIJP60NATkKYluvUtQBKSb11FaSil6QZuzcz5q1aVPfyW1jMgK2C3R0f43mD
+						pl8gfZGBXF6Sm96KGuXrT89+bWuzndflDLCaHltTmwg7UFM0uGYhfO49TVENLU9O
+						9O3zn5BmDgPO6E7zlnLLkLd3HYV5mf8JmQmupCsuHeL8Ip1twZbbuixEVrXSOEV/
+						iw65O0mJIhVzUnl2rQ+/7GiB0A3wZpvGu8EVEgjJGT6wye3l8D8lN11NNGCs76CC
+						lM5VbBovDN5R8HI4KUo2eMInLDUUf5p0oQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.amdigital.co.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.amdigital.co.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.amdigital.co.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.amdigital.co.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibboleth.amdigital.co.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.amdigital.co.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.amdigital.co.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.amdigital.co.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibboleth.amdigital.co.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.amdigital.co.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.amdigital.co.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibboleth.amdigital.co.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://shibboleth.amdigital.co.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shibboleth.amdigital.co.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://shibboleth.amdigital.co.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Adam Matthew Digital Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Adam Matthew Digital Limited</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.amdigital.co.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Jonathan</md:GivenName>
+      <md:SurName>Mansfield</md:SurName>
+      <md:EmailAddress>mailto:support@amdigital.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Glyn</md:GivenName>
+      <md:SurName>Porritt</md:SurName>
+      <md:EmailAddress>mailto:glyn@amdigital.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

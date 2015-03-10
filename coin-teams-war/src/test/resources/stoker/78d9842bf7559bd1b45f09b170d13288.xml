@@ -1,0 +1,58 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://login.talisaspire.com/entity">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIESjCCAzKgAwIBAgIJAMtZwUsUp4zOMA0GCSqGSIb3DQEBBQUAMIGlMQswCQYD
+						VQQGEwJVSzEWMBQGA1UECAwNV2VzdCBNaWRsYW5kczETMBEGA1UEBwwKQmlybWlu
+						Z2hhbTEYMBYGA1UECgwPVGFsaXMgRWR1Y2F0aW9uMQ4wDAYDVQQLDAVUYWxpczEY
+						MBYGA1UEAwwPdGFsaXNhc3BpcmUuY29tMSUwIwYJKoZIhvcNAQkBFhZjaHJpcy5j
+						bGFya2VAdGFsaXMuY29tMB4XDTExMDMwODA1MTM0MFoXDTIxMDMwNTA1MTM0MFow
+						gaUxCzAJBgNVBAYTAlVLMRYwFAYDVQQIDA1XZXN0IE1pZGxhbmRzMRMwEQYDVQQH
+						DApCaXJtaW5naGFtMRgwFgYDVQQKDA9UYWxpcyBFZHVjYXRpb24xDjAMBgNVBAsM
+						BVRhbGlzMRgwFgYDVQQDDA90YWxpc2FzcGlyZS5jb20xJTAjBgkqhkiG9w0BCQEW
+						FmNocmlzLmNsYXJrZUB0YWxpcy5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
+						ggEKAoIBAQC2jZ0F13y/HTgY+8IeQup/7jpz3B92qJAKqwr0C/MyQfwYAmB1GjOF
+						KatEmOGFVfNtYRrALj7pbupnk8Ef9LuaQ4tIoKronwbdGhlgXkju4dkw29Mb4pQ/
+						+XUBeWfsw+P9B6TwWk8Ve12bPqrwdSgEUFXgke74HjJIzGDGGdd7p4uAUJM7zXzY
+						JeirO8hJps8SURuBKqlB5bIZM55NQ3l+HaoSP5MAFhzToBDTFS9XBalr6cz34pNm
+						7Tl2OZrF4Ze3icIWYuTDp/P+TKoyVbEVJXpAzvg4xve9/HCIBMD3TWoNJ4H78iR9
+						GIs8UMZFQL72G1PEX9x5u5FZDgEaJ59LAgMBAAGjezB5MAkGA1UdEwQCMAAwLAYJ
+						YIZIAYb4QgENBB8WHU9wZW5TU0wgR2VuZXJhdGVkIENlcnRpZmljYXRlMB0GA1Ud
+						DgQWBBQLIjm7E2bjzlksRCqfC3wndwz54TAfBgNVHSMEGDAWgBQLIjm7E2bjzlks
+						RCqfC3wndwz54TANBgkqhkiG9w0BAQUFAAOCAQEAqBGZuPQkesleYXskpWTcmMSo
+						SOVN/fqGgwKKIizYn41iGJVnbJyy2v5c3I3mHd09zNhqCyHJysIy5EhwrA24BXHF
+						n6CbrPDIiDlg6gRx6rpBwxdXLnyihBHSSg5MSe5aGW5r/gEJ/2/LE9kavj/N8Ggu
+						sI5mcCc2NACB3QCr8/ZDZgUH0EadrQfTp1B3glB2fMCHm0dGsXnU9DWjXSHq5BTA
+						z1wvLSK2Ckd1wgZEUnFza58XZimpQq0KCyPMThwL/83iQ4V5qJilUpN+ogG9XGe4
+						g6HEwkRBtuhy/v1sVlpVJjib7O0duue06oed6ZCCXD0fem3zD8VZ8WORRE/rWA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.talisaspire.com/expire"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://login.talisaspire.com/expire"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.talisaspire.com/consume" index="1" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://login.talisaspire.com/consume" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://login.talisaspire.com/consume" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://login.talisaspire.com/consume" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Talis Group Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Talis Education Limited</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.talisaspire.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Talis Aspire Support</md:GivenName>
+      <md:EmailAddress>mailto:support@talisaspire.zendesk.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Clarke</md:SurName>
+      <md:EmailAddress>mailto:chris.clarke@talis.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

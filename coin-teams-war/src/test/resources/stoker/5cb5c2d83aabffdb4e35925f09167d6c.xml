@@ -1,0 +1,105 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.essingtoncc.co.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-05-21T15:59:21Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">essingtoncc.co.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIID0jCCAroCCQCGyNfhukfamTANBgkqhkiG9w0BAQUFADCBqjELMAkGA1UEBhMC
+						R0IxFjAUBgNVBAgMDVN0YWZmb3Jkc2hpcmUxEjAQBgNVBAcMCUVzc2luZ3RvbjEr
+						MCkGA1UECgwiRXNzaW5ndG9uIENvbXB1dGVyIENvbnN1bHRhbmN5IEx0ZDEeMBwG
+						A1UEAwwVaWRwLmVzc2luZ3RvbmNjLmNvLnVrMSIwIAYJKoZIhvcNAQkBFhNzdXBw
+						b3J0QGFnbTE5NjAuY29tMB4XDTE0MDUwMjEzNDk0N1oXDTI0MDQyOTEzNDk0N1ow
+						gaoxCzAJBgNVBAYTAkdCMRYwFAYDVQQIDA1TdGFmZm9yZHNoaXJlMRIwEAYDVQQH
+						DAlFc3Npbmd0b24xKzApBgNVBAoMIkVzc2luZ3RvbiBDb21wdXRlciBDb25zdWx0
+						YW5jeSBMdGQxHjAcBgNVBAMMFWlkcC5lc3Npbmd0b25jYy5jby51azEiMCAGCSqG
+						SIb3DQEJARYTc3VwcG9ydEBhZ20xOTYwLmNvbTCCASIwDQYJKoZIhvcNAQEBBQAD
+						ggEPADCCAQoCggEBAMsPBbmhQnhaUeaTfJcOioEIyFDMOEvnKf1bAiFqa3CRw8mX
+						QSFLhOofkLQppkdBgPN+i9kDqc+noa4QXw2gZxzePLiipjJ1oA50FNVhEUd86/cL
+						8gGfrY0Xt0l9JtU7XWGQPAjVv0oAa5FDbEyWBsGkWekD1wxNd3jGDyGDn6/0sxm6
+						jxVExyDp3mzX/v17xsAW+t9+hhvSh8yxSQj+IH9Un5AXq2sPOrya7JgSsHbJl6Ql
+						mnCO12+bHz59F/GTdGtAvz2lQQ/QqVRG8QGqL6Q5xyM1AYq4RxJVRBza1t+LD4u0
+						2yJSstGOWdC4O/T8yiNDQyQt3wOPTrMuBiGiDMcCAwEAATANBgkqhkiG9w0BAQUF
+						AAOCAQEAPsofQ9oo0zDYNV8Yxo+S2xyRV5LqfpamWqclIZs3Mu1Yt4RkopnoiCfv
+						RP/bb6h/hM+5LbCtcl/6HzYuPcJvs3kqKMbOXhVtqR6ad9PYH6gLr3wzaDDioYcC
+						0LMvvhhUUfPFqbkNV7cH1+qRq1SHi9GXWeBeUISrm+gHXsu7CuoY5Cynv5u2ugv1
+						Giv+wxW8FWn4kVV5g77tP/FphuHqeKEAesjOMS2b4MU8DB2ptzj5NfGEmcWpf3cU
+						ZKkmrie5td8TdkKkn8UyJbGsbLcv6fFbFTCh9V/n8uBUCJTT+CQpKDNmPKNuRxSW
+						x1EIfHvBWWZhPjOeFVoyVrdxsAdnIA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.essingtoncc.co.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.essingtoncc.co.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.essingtoncc.co.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.essingtoncc.co.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.essingtoncc.co.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.essingtoncc.co.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">essingtoncc.co.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIID0jCCAroCCQCGyNfhukfamTANBgkqhkiG9w0BAQUFADCBqjELMAkGA1UEBhMC
+						R0IxFjAUBgNVBAgMDVN0YWZmb3Jkc2hpcmUxEjAQBgNVBAcMCUVzc2luZ3RvbjEr
+						MCkGA1UECgwiRXNzaW5ndG9uIENvbXB1dGVyIENvbnN1bHRhbmN5IEx0ZDEeMBwG
+						A1UEAwwVaWRwLmVzc2luZ3RvbmNjLmNvLnVrMSIwIAYJKoZIhvcNAQkBFhNzdXBw
+						b3J0QGFnbTE5NjAuY29tMB4XDTE0MDUwMjEzNDk0N1oXDTI0MDQyOTEzNDk0N1ow
+						gaoxCzAJBgNVBAYTAkdCMRYwFAYDVQQIDA1TdGFmZm9yZHNoaXJlMRIwEAYDVQQH
+						DAlFc3Npbmd0b24xKzApBgNVBAoMIkVzc2luZ3RvbiBDb21wdXRlciBDb25zdWx0
+						YW5jeSBMdGQxHjAcBgNVBAMMFWlkcC5lc3Npbmd0b25jYy5jby51azEiMCAGCSqG
+						SIb3DQEJARYTc3VwcG9ydEBhZ20xOTYwLmNvbTCCASIwDQYJKoZIhvcNAQEBBQAD
+						ggEPADCCAQoCggEBAMsPBbmhQnhaUeaTfJcOioEIyFDMOEvnKf1bAiFqa3CRw8mX
+						QSFLhOofkLQppkdBgPN+i9kDqc+noa4QXw2gZxzePLiipjJ1oA50FNVhEUd86/cL
+						8gGfrY0Xt0l9JtU7XWGQPAjVv0oAa5FDbEyWBsGkWekD1wxNd3jGDyGDn6/0sxm6
+						jxVExyDp3mzX/v17xsAW+t9+hhvSh8yxSQj+IH9Un5AXq2sPOrya7JgSsHbJl6Ql
+						mnCO12+bHz59F/GTdGtAvz2lQQ/QqVRG8QGqL6Q5xyM1AYq4RxJVRBza1t+LD4u0
+						2yJSstGOWdC4O/T8yiNDQyQt3wOPTrMuBiGiDMcCAwEAATANBgkqhkiG9w0BAQUF
+						AAOCAQEAPsofQ9oo0zDYNV8Yxo+S2xyRV5LqfpamWqclIZs3Mu1Yt4RkopnoiCfv
+						RP/bb6h/hM+5LbCtcl/6HzYuPcJvs3kqKMbOXhVtqR6ad9PYH6gLr3wzaDDioYcC
+						0LMvvhhUUfPFqbkNV7cH1+qRq1SHi9GXWeBeUISrm+gHXsu7CuoY5Cynv5u2ugv1
+						Giv+wxW8FWn4kVV5g77tP/FphuHqeKEAesjOMS2b4MU8DB2ptzj5NfGEmcWpf3cU
+						ZKkmrie5td8TdkKkn8UyJbGsbLcv6fFbFTCh9V/n8uBUCJTT+CQpKDNmPKNuRxSW
+						x1EIfHvBWWZhPjOeFVoyVrdxsAdnIA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.essingtoncc.co.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.essingtoncc.co.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Essington Computer Consultancy Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Essington Computer Consultancy Test IdP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.essingtoncc.co.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Andrew</md:GivenName>
+      <md:SurName>Morris</md:SurName>
+      <md:EmailAddress>mailto:agm@agm1960.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Andrew</md:GivenName>
+      <md:SurName>Morris</md:SurName>
+      <md:EmailAddress>mailto:agm@agm1960.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

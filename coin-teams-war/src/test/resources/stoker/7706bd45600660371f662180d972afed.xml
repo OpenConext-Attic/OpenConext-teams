@@ -1,36 +1,36 @@
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.hig.se/idp/shibboleth">
-<md:Extensions>
-<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.swamid.se/">
-<mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
-</mdrpi:RegistrationInfo>
-</md:Extensions>
-  <IDPSSODescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-    <Extensions>
-      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">hig.se</shibmd:Scope>
-      <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-        <mdui:DisplayName xml:lang="sv">Högskolan i Gävle</mdui:DisplayName>
-        <mdui:DisplayName xml:lang="en">University of Gävle</mdui:DisplayName>
-        <mdui:Description xml:lang="sv">Identity Provider för anställda och studenter vid Högskolan i Gävle.</mdui:Description>
-        <mdui:Description xml:lang="en">The University of Gävle Identity Provider is used by employees and students at the university.</mdui:Description>
-        <mdui:Logo height="94" width="83">https://webkonto.student.hig.se/head/loggaengelska.png</mdui:Logo>
-        <mdui:Logo height="94" width="83" xml:lang="sv">https://webkonto.student.hig.se/head/logga3.png</mdui:Logo>
-        <mdui:Logo height="94" width="83" xml:lang="en">https://webkonto.student.hig.se/head/loggaengelska.png</mdui:Logo>
-        <mdui:Keywords xml:lang="sv">gävle gavle hig</mdui:Keywords>
-        <mdui:Keywords xml:lang="en">gävle gavle hig</mdui:Keywords>
-      </mdui:UIInfo>
-      <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-        <mdui:DomainHint>hig.se</mdui:DomainHint>
-        <mdui:IPHint>130.243.0.0/20</mdui:IPHint>
-        <mdui:IPHint>193.11.48.0/20</mdui:IPHint>
-        <mdui:IPHint>193.10.163.0/24</mdui:IPHint>
-        <mdui:IPHint>2001:6b0:23::/48</mdui:IPHint>
-        <mdui:GeolocationHint>geo:60.6692,17.1191</mdui:GeolocationHint>
-      </mdui:DiscoHints>
-    </Extensions>
-    <KeyDescriptor>
-      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-        <ds:X509Data>
-          <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.hig.se/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hig.se</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="sv">Högskolan i Gävle</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">University of Gävle</mdui:DisplayName>
+          <mdui:Description xml:lang="sv">Identity Provider för anställda och studenter vid Högskolan i Gävle.</mdui:Description>
+          <mdui:Description xml:lang="en">The University of Gävle Identity Provider is used by employees and students at the university.</mdui:Description>
+          <mdui:Logo height="94" width="83">https://webkonto.student.hig.se/head/loggaengelska.png</mdui:Logo>
+          <mdui:Logo height="94" width="83" xml:lang="sv">https://webkonto.student.hig.se/head/logga3.png</mdui:Logo>
+          <mdui:Logo height="94" width="83" xml:lang="en">https://webkonto.student.hig.se/head/loggaengelska.png</mdui:Logo>
+          <mdui:Keywords xml:lang="sv">gävle gavle hig</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">gävle gavle hig</mdui:Keywords>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>hig.se</mdui:DomainHint>
+          <mdui:IPHint>130.243.0.0/20</mdui:IPHint>
+          <mdui:IPHint>193.11.48.0/20</mdui:IPHint>
+          <mdui:IPHint>193.10.163.0/24</mdui:IPHint>
+          <mdui:IPHint>2001:6b0:23::/48</mdui:IPHint>
+          <mdui:GeolocationHint>geo:60.6692,17.1191</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIDFDCCAfygAwIBAgIVAKDMK5kO5prtSxBh3prGd9azJDLHMA0GCSqGSIb3DQEB
 BQUAMBUxEzARBgNVBAMTCmlkcC5oaWcuc2UwHhcNMTEwOTE5MTAxMzEzWhcNMzEw
 OTE5MTAxMzEzWjAVMRMwEQYDVQQDEwppZHAuaGlnLnNlMIIBIjANBgkqhkiG9w0B
@@ -50,26 +50,26 @@ otLAA/GPqLtaaQ1u9fpDcdN5GjkHR1QyYN/UhhF0iXczvUp4o/D0ELbtdBPA5Rwf
 +eeRni4ggtByVTzg9fALQjDJydWcw0Oy
 
                     </ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </KeyDescriptor>
-    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.hig.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.hig.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-    <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.hig.se/idp/profile/Shibboleth/SSO"/>
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.hig.se/idp/profile/SAML2/POST/SSO"/>
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.hig.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.hig.se/idp/profile/SAML2/Redirect/SSO"/>
-  </IDPSSODescriptor>
-  <AttributeAuthorityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-    <Extensions>
-      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">hig.se</shibmd:Scope>
-    </Extensions>
-    <KeyDescriptor>
-      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-        <ds:X509Data>
-          <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.hig.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.hig.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.hig.se/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.hig.se/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.hig.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.hig.se/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hig.se</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIDFDCCAfygAwIBAgIVAKDMK5kO5prtSxBh3prGd9azJDLHMA0GCSqGSIb3DQEB
 BQUAMBUxEzARBgNVBAMTCmlkcC5oaWcuc2UwHhcNMTEwOTE5MTAxMzEzWhcNMzEw
 OTE5MTAxMzEzWjAVMRMwEQYDVQQDEwppZHAuaGlnLnNlMIIBIjANBgkqhkiG9w0B
@@ -89,40 +89,36 @@ otLAA/GPqLtaaQ1u9fpDcdN5GjkHR1QyYN/UhhF0iXczvUp4o/D0ELbtdBPA5Rwf
 +eeRni4ggtByVTzg9fALQjDJydWcw0Oy
 
                     </ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </KeyDescriptor>
-    <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.hig.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-    <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.hig.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-  </AttributeAuthorityDescriptor>
-  
-  
-  
-  
-<Organization xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
-    <OrganizationName xml:lang="en">HIG</OrganizationName>
-    <OrganizationDisplayName xml:lang="sv">Högskolan i Gävle</OrganizationDisplayName>
-    <OrganizationDisplayName xml:lang="en">University of Gävle</OrganizationDisplayName>
-    <OrganizationURL xml:lang="en">http://www.hig.se</OrganizationURL>
-  </Organization>
-<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="administrative">
-    <Company>University of Gävle</Company>
-    <SurName>Network Operations</SurName>
-    <EmailAddress>nat@hig.se</EmailAddress>
-    <TelephoneNumber>+46 26 648500</TelephoneNumber>
-  </ContactPerson>
-<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="technical">
-    <Company>University of Gävle</Company>
-    <SurName>Operations</SurName>
-    <EmailAddress>nat@hig.se</EmailAddress>
-    <TelephoneNumber>+46 26 648500</TelephoneNumber>
-  </ContactPerson>
-<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="support">
-    <Company>University of Gävle</Company>
-    <SurName>IT Support</SurName>
-    <EmailAddress>itsupport@hig.se</EmailAddress>
-    <TelephoneNumber>+46 26 648500</TelephoneNumber>
-  </ContactPerson>
-</md:EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.hig.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.hig.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">HIG</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sv">Högskolan i Gävle</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">University of Gävle</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.hig.se</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:Company>University of Gävle</md:Company>
+      <md:SurName>Network Operations</md:SurName>
+      <md:EmailAddress>nat@hig.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 26 648500</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:Company>University of Gävle</md:Company>
+      <md:SurName>Operations</md:SurName>
+      <md:EmailAddress>nat@hig.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 26 648500</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>University of Gävle</md:Company>
+      <md:SurName>IT Support</md:SurName>
+      <md:EmailAddress>itsupport@hig.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 26 648500</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,105 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" entityID="http://adfs01.fhs.se/adfs/services/trust">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">fhs.se</shibmd:Scope>
+        <shibmd:Scope regexp="false">student.fhs.se</shibmd:Scope>
+        <shibmd:Scope regexp="false">op.fhs.se</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="sv">Försvarshögskolan</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Swedish National Defence College</mdui:DisplayName>
+          <mdui:Description xml:lang="sv">Identity Provider för Försvarshögskolan</mdui:Description>
+          <mdui:Description xml:lang="en">Identity Provider for Swedish National Defence College</mdui:Description>
+          <mdui:InformationURL xml:lang="sv">http://www.fhs.se</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">http://www.fhs.se/en/</mdui:InformationURL>
+          <mdui:Logo height="118" width="106" xml:lang="sv">https://www.fhs.se/files/sidhuvud/logotyp-sv.jpg</mdui:Logo>
+          <mdui:Logo height="116" width="103" xml:lang="en">https://www.fhs.se/files/sidhuvud/logotyp-en.jpg</mdui:Logo>
+          <mdui:Keywords xml:lang="sv">fhs</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">fhs</mdui:Keywords>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>fhs.se</mdui:DomainHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIC3DCCAcSgAwIBAgIQEtn/4PySSIBD2nDYOPUPOTANBgkqhkiG9w0BAQsFADAqMSgwJgYDVQQDEx9BREZTIEVuY3J5cHRpb24gLSBhZGZzMDEuZmhzLnNlMB4XDTE0MDExMjE5MjU1OVoXDTE1MDExMjE5MjU1OVowKjEoMCYGA1UEAxMfQURGUyBFbmNyeXB0aW9uIC0gYWRmczAxLmZocy5zZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALyIVhYImzGqrMUuGx9faUksMfz4e3OI6hTYRC4a90cyS/Qbpwvq3b8MQf/QgVG0VV79Mug48Y9RXsRhaoIAMkr2+sO1bGf80vK1BzIOgrpL0EoD8F+yokIRVkBrmxBaPgkeJu6OmeCsNpaSpsS12YGlaMwZq/eRjUiPdsKnnHxiTH0XEhGNdBV06liSUVjYuKu2MhdFeMQ+9+2jwUjtoc81GOSia4QA69PE5s+wGfv+hrTYDCsttUFL0AUjdWeFg8YsvjdYAS/z9GxN+JWa/nOBGgtAMEXXIoERpg8i5o4TuxOcDlHlUG68Fk3qSDB9RWIi8qw8l2GnZ1U2/hekRGkCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAUSzky/EeUwFlVDUJSIGuyFUWJsVMcrlAKHlbST72P/2cHldp2MucSxcmdOSe0ToECBKeHit5182hKyOc3O6WcoPHSC9CDEpbXZpZmsYygkAcnjZYuBnfp0h0weWaKLPRx5mL7xsiE2fn2u3gg6IQenvaatWprGH5flCJospb5SwLrI2z+5VfTo8nor0CEAp/RMb44PxQCas2mUysg2u2Mi4ZBjtXYkCkaybi285UIQFDfsHwlFfyZh/0SS7vu+3XyyKF3qCMcls8DGZGaS+NddSDhMXTd0qwkkpFn9I5yr7VP/1L32L6RKGSiuC9Ta+emPZKQa6UKduYfHmk6XKTrA==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIC1jCCAb6gAwIBAgIQKhAv7tvnLoFM2et83uQ/XzANBgkqhkiG9w0BAQsFADAnMSUwIwYDVQQDExxBREZTIFNpZ25pbmcgLSBhZGZzMDEuZmhzLnNlMB4XDTEzMDIwMTE3MTQ1MFoXDTE0MDIwMTE3MTQ1MFowJzElMCMGA1UEAxMcQURGUyBTaWduaW5nIC0gYWRmczAxLmZocy5zZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKEoDVI2vLh+TIPAvDrrjoai+qVbI6lHzcH9Hkx7UzJrlKu3JKYl/YaXL3j+UrXviCKFnML2J7ufFTmw4YoTx25eoSWHK88YXNqPh42EoQd0Y9OeSh/TJzNI/EBakIR0T9RZtRsmzLluuWdWUONEaUNHVhOg9334gXRbN6teZiHGXaq+TelM38a3uKNsLQ63NWKRwc4vWLiT1LqflFVkGEb5gY553SSAygbQOqBfd1R2DCmdG6VoQsvqPSXYO5BpGll4TgllcAr2cOwojU3tvGjU+gZqxKKQ47Tm0J6Dyz+6VSvMqaIJP9weCY6WpPaRyMXKDT8CUNP+pl0vLWH6MLMCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAeTQ53HiJVFr6xFGXFoTNwOeT3Jv0uGQyGIgrebRC3/bf/mOnNcALyMI+WJz2MQC9HEtymf2hJ1qUGs+wpJbMwrCywjTzkQYKgKRTuayQaXc8YpDQF8f6WBlIeA6W1NgYem1Tmli5UVwqpcelYOMWFpsE6s4MrTHy5EvptWUoDtQtobu0zwmPibv1ObBfkLaIvdCbMuEHL7p+deVlTdRlnTe+77CqhMAT8jv4aNDD1IJONU0XpXdVrtmWOOiwijrmLuvR2JlRAyym505sQokdo/5Um8hrhu+dSRWy5RHvBQ+xDRRuZQvhtHtuYiZMtmfUpGjXpO/xC9mxxnFHZzZBog==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIC1jCCAb6gAwIBAgIQKEGE7N1PhqND4Izv6Nl9tzANBgkqhkiG9w0BAQsFADAnMSUwIwYDVQQDExxBREZTIFNpZ25pbmcgLSBhZGZzMDEuZmhzLnNlMB4XDTE0MDExMjE5MjYwMloXDTE1MDExMjE5MjYwMlowJzElMCMGA1UEAxMcQURGUyBTaWduaW5nIC0gYWRmczAxLmZocy5zZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANgssWOg27ZeOAIofyLaYIxZxFPVyWVMoX8uaAeM0mYEj+ENT1pM4+G7sGNwKEIyOST6Lu7L7BMMku8jFF6Rt2GgV7dWDgWa2nNQ3H3XDQIH4ggZTmibrfBoyEpgNwuPhCqW+n4sr19jmO5aYs3elwSc4ogiaEPQy+CDpBKq9wO4hD4YOuD6jBtmkySvkG/rE7BSkC/fxg6qeNFdC4xVhkJZuU+tJRbBIHznqAD6kErdgHlM82sKoTN6q1dZk9AkE8ZwmI9T1s2g2eY1cB77Px7rqXCvbA2+Tjt2I3f8m99JxY5gHedR7UJfKLBPlo3V0rMJZlFfGOGKR8z9AphA/G0CAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAtbBphHKTw16aTAZ1ihlZQNnT3UgVC2JwlnZD16iczLa+96NiBNwu6il9K7UwjA/JD6t7dNWoVXEJTREGJUs9IzN1XP7PwqU8zlIiug8p7q8Efit8JppO1vmgpofom+OVxZ1A8vc5wmsuvwLoEQGu0Y/3JawPsaDvA7wdF+Bnqo+DTVCIe3wOGAY6D2C4XIvYZirz3cFoTd4BrGLx/dfRkmBmIeDJ39G1DcRfAZF59b1c7n4OeEhq2dg7yKP1ql0e1bKOKKqW0wXStNHamceJWU/hbCNid87rKpvTMvH8ClkC2pf3R2/bR27VuhWyAbPTp1+hhIJKmCWTkEtt/JOg4w==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://adfs01.fhs.se/adfs/services/trust/artifactresolution" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://adfs01.fhs.se/adfs/ls/"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adfs01.fhs.se/adfs/ls/"/>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://adfs01.fhs.se/adfs/ls/"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://adfs01.fhs.se/adfs/ls/"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adfs01.fhs.se/adfs/ls/"/>
+      <saml:Attribute FriendlyName="E-Mail Address" Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <saml:Attribute FriendlyName="Given Name" Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <saml:Attribute FriendlyName="Name" Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <saml:Attribute FriendlyName="UPN" Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <saml:Attribute FriendlyName="Common Name" Name="http://schemas.xmlsoap.org/claims/CommonName" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <saml:Attribute FriendlyName="AD FS 1.x E-Mail Address" Name="http://schemas.xmlsoap.org/claims/EmailAddress" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <saml:Attribute FriendlyName="Group" Name="http://schemas.xmlsoap.org/claims/Group" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <saml:Attribute FriendlyName="AD FS 1.x UPN" Name="http://schemas.xmlsoap.org/claims/UPN" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <saml:Attribute FriendlyName="Role" Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <saml:Attribute FriendlyName="Surname" Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <saml:Attribute FriendlyName="PPID" Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <saml:Attribute FriendlyName="Name ID" Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <saml:Attribute FriendlyName="Authentication time stamp" Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <saml:Attribute FriendlyName="Authentication method" Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <saml:Attribute FriendlyName="Deny only group SID" Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <saml:Attribute FriendlyName="Deny only primary SID" Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <saml:Attribute FriendlyName="Deny only primary group SID" Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <saml:Attribute FriendlyName="Group SID" Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <saml:Attribute FriendlyName="Primary group SID" Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <saml:Attribute FriendlyName="Primary SID" Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <saml:Attribute FriendlyName="Windows account name" Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <saml:Attribute FriendlyName="eduPersonScopedAffiliation" Name="http://schemas.xmlsoap.org/claims/eduPersonScopedAffiliation" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="sv">Försvarshögskolan</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sv">Försvarshögskolan</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Försvarshögskolan</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="sv">http://www.fhs.se/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:Company>Swedish National Defence College</md:Company>
+      <md:SurName>FHS IT Helpdesk</md:SurName>
+      <md:EmailAddress>helpdesk@fhs.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 8 55342545</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:Company>Swedish National Defence College</md:Company>
+      <md:SurName>FHS IT Helpdesk</md:SurName>
+      <md:EmailAddress>helpdesk@fhs.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 8 55342545</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>Swedish National Defence College</md:Company>
+      <md:SurName>FHS IT Helpdesk</md:SurName>
+      <md:EmailAddress>helpdesk@fhs.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 08 55342545</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

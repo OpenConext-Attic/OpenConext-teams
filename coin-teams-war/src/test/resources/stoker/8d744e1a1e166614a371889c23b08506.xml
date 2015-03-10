@@ -1,0 +1,122 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.edina.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2009-06-24T17:03:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">edina.ac.uk</shibmd:Scope>
+        <shibmd:Scope regexp="false">trial.edina.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">EDINA (staff and trials)</mdui:DisplayName>
+          <mdui:Description xml:lang="en">EDINA-internal IdP</mdui:Description>
+          <mdui:Logo height="57" width="113">https://dlib-idp.edina.ac.uk/img/edina.gif</mdui:Logo>
+          <mdui:Logo height="16" width="16">https://dlib-idp.edina.ac.uk/img/edina-16x16.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEsDCCA5igAwIBAgIRAMQPXNT/ixUHnoW1X6rTlLYwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjA1MjIwMDAwMDBaFw0xNTA1MjIyMzU5NTlaMIGFMQswCQYD
+						VQQGEwJHQjERMA8GA1UECBMIU2NvdGxhbmQxEjAQBgNVBAcTCUVkaW5idXJnaDEg
+						MB4GA1UEChMXVW5pdmVyc2l0eSBvZiBFZGluYnVyZ2gxDjAMBgNVBAsTBUVESU5B
+						MR0wGwYDVQQDExRkbGliLWlkcC5lZGluYS5hYy51azCCASIwDQYJKoZIhvcNAQEB
+						BQADggEPADCCAQoCggEBAOGx88tQrqjkQasImchJRv2oX0m2233CXpwCCpLMTph2
+						ArRQ+GokqZ8anAz/Y5IYbLntGc8w42Qp6NDuLsX9ir32eUbEfRKvzDH8iJeP2bma
+						fe7wJVNHsNZ0nCZPqmp0wcWXfKPT8XKVyiz7RMJjqKrL04PVou6g7YHuUq1LYTul
+						qL1ScXZS8I8untGshULq4oi3k5cT+9JMU4YbrrMI74Nuj4o4AtdZ3SFwQKu2yLWl
+						nIcPMyZH1hlvDlzpvqL/StUb26YLmE35jT/1794khT73TwvX+WojS+9Ok2Sze82m
+						1ru0Q4mF7uSYv/MWRDMzCQAzMegR4q/HUMAXDijxyIECAwEAAaOCAWcwggFjMB8G
+						A1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBQNo/wVzmA5
+						1XzsRMuYjloRuRiZkDAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNV
+						HSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwGAYDVR0gBBEwDzANBgsrBgEEAbIx
+						AQICHTA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3Jn
+						L1RFUkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0
+						dHA6Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUF
+						BzABhhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9yZzAfBgNVHREEGDAWghRkbGli
+						LWlkcC5lZGluYS5hYy51azANBgkqhkiG9w0BAQUFAAOCAQEACHJvGryrLo8QB2bL
+						+uIBNSG2sXzSqGf28PsUNpfKivbEFlutzz+6weEHaNXIYM+UWDJifCuCY8f1fmJl
+						XBybp5bU3JbB/KGgShDEGXRP8UfT4WJJXTaVUAQgEHgQqUzGmkfVUyG7SSe3hv66
+						2Gg9w/L1j4i4rXB1AGFcMiLe0OnPzOrQSWGYMHsRA7WKBfYduhApLs0kvztxk2VH
+						xcLkfi3czTvRPyikacsE1VmXxRk3MnmGiR+HDgraCvTCGu/hDUCBgqVPr13Sw5yw
+						1AeG9/PSofb6/BW8DYlDtHcKwZrX7JbokXAzgYEYN8fhB2pkD2SYf1CL+XRUNcwO
+						3VfgQw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://dlib-idp.edina.ac.uk:8443/shibboleth-idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://dlib-idp.edina.ac.uk:8443/shibboleth-idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://dlib-idp.edina.ac.uk/shibboleth-idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://dlib-idp.edina.ac.uk/shibboleth-idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://dlib-idp.edina.ac.uk/shibboleth-idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://dlib-idp.edina.ac.uk/shibboleth-idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">edina.ac.uk</shibmd:Scope>
+        <shibmd:Scope regexp="false">trial.edina.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEsDCCA5igAwIBAgIRAMQPXNT/ixUHnoW1X6rTlLYwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjA1MjIwMDAwMDBaFw0xNTA1MjIyMzU5NTlaMIGFMQswCQYD
+						VQQGEwJHQjERMA8GA1UECBMIU2NvdGxhbmQxEjAQBgNVBAcTCUVkaW5idXJnaDEg
+						MB4GA1UEChMXVW5pdmVyc2l0eSBvZiBFZGluYnVyZ2gxDjAMBgNVBAsTBUVESU5B
+						MR0wGwYDVQQDExRkbGliLWlkcC5lZGluYS5hYy51azCCASIwDQYJKoZIhvcNAQEB
+						BQADggEPADCCAQoCggEBAOGx88tQrqjkQasImchJRv2oX0m2233CXpwCCpLMTph2
+						ArRQ+GokqZ8anAz/Y5IYbLntGc8w42Qp6NDuLsX9ir32eUbEfRKvzDH8iJeP2bma
+						fe7wJVNHsNZ0nCZPqmp0wcWXfKPT8XKVyiz7RMJjqKrL04PVou6g7YHuUq1LYTul
+						qL1ScXZS8I8untGshULq4oi3k5cT+9JMU4YbrrMI74Nuj4o4AtdZ3SFwQKu2yLWl
+						nIcPMyZH1hlvDlzpvqL/StUb26YLmE35jT/1794khT73TwvX+WojS+9Ok2Sze82m
+						1ru0Q4mF7uSYv/MWRDMzCQAzMegR4q/HUMAXDijxyIECAwEAAaOCAWcwggFjMB8G
+						A1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBQNo/wVzmA5
+						1XzsRMuYjloRuRiZkDAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNV
+						HSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwGAYDVR0gBBEwDzANBgsrBgEEAbIx
+						AQICHTA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3Jn
+						L1RFUkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0
+						dHA6Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUF
+						BzABhhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9yZzAfBgNVHREEGDAWghRkbGli
+						LWlkcC5lZGluYS5hYy51azANBgkqhkiG9w0BAQUFAAOCAQEACHJvGryrLo8QB2bL
+						+uIBNSG2sXzSqGf28PsUNpfKivbEFlutzz+6weEHaNXIYM+UWDJifCuCY8f1fmJl
+						XBybp5bU3JbB/KGgShDEGXRP8UfT4WJJXTaVUAQgEHgQqUzGmkfVUyG7SSe3hv66
+						2Gg9w/L1j4i4rXB1AGFcMiLe0OnPzOrQSWGYMHsRA7WKBfYduhApLs0kvztxk2VH
+						xcLkfi3czTvRPyikacsE1VmXxRk3MnmGiR+HDgraCvTCGu/hDUCBgqVPr13Sw5yw
+						1AeG9/PSofb6/BW8DYlDtHcKwZrX7JbokXAzgYEYN8fhB2pkD2SYf1CL+XRUNcwO
+						3VfgQw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://dlib-idp.edina.ac.uk:8443/shibboleth-idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://dlib-idp.edina.ac.uk:8443/shibboleth-idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Edinburgh</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">EDINA (staff and trials)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://edina.ac.uk/about/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>EDINA Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:edina@ed.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>EDINA Infrastructure</md:GivenName>
+      <md:EmailAddress>mailto:edina.infrastructure@ed.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>UK federation infrastructure</md:GivenName>
+      <md:EmailAddress>mailto:ukfed.infrastructure@ed.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

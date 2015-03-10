@@ -1,0 +1,49 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.worldscientific.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-09-24T08:34:41Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDODCCAiCgAwIBAgIJAN8rvfQxRosjMA0GCSqGSIb3DQEBBQUAMCIxIDAeBgNV
+						BAMTF3d3dy53b3JsZHNjaWVudGlmaWMuY29tMB4XDTEyMDkyMTE4MDY1MloXDTE1
+						MDkyMTE4MDY1MlowIjEgMB4GA1UEAxMXd3d3Lndvcmxkc2NpZW50aWZpYy5jb20w
+						ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDMBlFtBSLSMwwtYOqU6Upi
+						TYajGEjgmMEr7b7UjV0vWrjGNKspZVXfFGZa27XfhrdZ1ekRPQQ5s5BoxukXuk18
+						SObgG+2PgIYNU888sgimadjowXMMNASBd+mSMYuFz2roY7T3lgYqEB9IApNQzYsV
+						3k/Lj1SC0s/vfkxUxV0RP0qWQi+57f/pS2Z7S0tOyJQ7mxwJ3/DIiJ1yzo1BeRFA
+						MLbwPF1tkI5s/QOjZZdLPkZtCzc9wXFj4GQ82/3eOXpoXO0nNRFyh/DTMwT6djVJ
+						Snc6kWVRct0ZAtKRR6tWuKOvOSijR7ls0g30z5hkGMxhd9OUI+Y51+6zDGAXdsz3
+						AgMBAAGjcTBvME4GA1UdEQRHMEWCF3d3dy53b3JsZHNjaWVudGlmaWMuY29thipo
+						dHRwczovL3d3dy53b3JsZHNjaWVudGlmaWMuY29tL3NoaWJib2xldGgwHQYDVR0O
+						BBYEFCdkPpMBahBeOaQ9iAd+kq7dJXxiMA0GCSqGSIb3DQEBBQUAA4IBAQCM39BN
+						gmVXOVt2zbqKJ5QCKpvs4z5CdOsPiomT71FSGT+mUOVLAjgzvEMxMWinp7f9Bq2a
+						BRVpGFtbUEatr9cF7FzmD0zfXJsrMLRmhvh9QmF4v+AQb4VTlzHNXywyTx9m9rsk
+						LvVmbteXmVHQVOUd5WXjGPzj0e4LpyPbPfXS7wBvugbOUr4wSr5pSVvJq4wBTeKS
+						O9dz5WxRkasHt0ygZSkAdcjHRqgGhJQTPxPCGkGanuRq3AvK4APyBbVmkXTHDTTU
+						VXgvYj3Ojap/CpCctwreorQx6ur/ZMUj0+8TOtPpPeFVv/XCcJ6Yvlb+oBfYMb98
+						mIu7OuMzvnTSQKHo
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.worldscientific.com/action/samlACS" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.worldscientific.com/action/samlACS" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.worldscientific.com/action/samlACS" index="3"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Atypon Systems, Inc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">World Scientific Publishing</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.worldscientific.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>sso-support</md:GivenName>
+      <md:EmailAddress>mailto:sso-support@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>sso-tech</md:GivenName>
+      <md:EmailAddress>mailto:sso-tech@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,94 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth.rcn.org.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-08-24T08:40:57Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">rcn.org.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDPzCCAiegAwIBAgIUXswXhO6uDK4MV7I9aly5vnD77ZcwDQYJKoZIhvcNAQEF
+						BQAwIDEeMBwGA1UEAxMVc2hpYmJvbGV0aC5yY24ub3JnLnVrMB4XDTEyMDgxNTE1
+						MTcwM1oXDTMyMDgxNTE1MTcwM1owIDEeMBwGA1UEAxMVc2hpYmJvbGV0aC5yY24u
+						b3JnLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwdOecQlpkznI
+						hj5OKgl7HSg1bcTEbk4t2l4CZ/nrQYqTr/y3eGM66v4+V/jU65iw989xVal3o65N
+						baDB1+eIAEtDadhCxVZrdqRFLm8M5XgCfZ9FHZyPmth02mh6ODrqHGpuK6g7rfYw
+						RZ+1aU00kUoPTS3Ex95m9wufCai/IYpCLNF0uLqvgrPjHUdSkFBhJumUH8Km7HHo
+						iJRLc3lCIBfnEDLHLgESNQ/R7H7t3bg0ncar6EvNXEJzG+2lfQqVSZcQh+cgl4Z8
+						/O0w/C67yIop+NYlbP+H42NqHwWu5UNYvj1QFidh3UAD0kEGaCu6JLV8aBpKyoTR
+						hanCRBgPtwIDAQABo3EwbzBOBgNVHREERzBFghVzaGliYm9sZXRoLnJjbi5vcmcu
+						dWuGLGh0dHBzOi8vc2hpYmJvbGV0aC5yY24ub3JnLnVrL2lkcC9zaGliYm9sZXRo
+						MB0GA1UdDgQWBBQWbyOjE1aj+Hbxix3s/WCO8tOA9zANBgkqhkiG9w0BAQUFAAOC
+						AQEAm20IB4KT5TykwOLIRbEhNK9+ccd0EcRKkTc91w/J7JCU64n69AJZ/xeXCo5E
+						8YxmkJSO/SQSTzXrWFR+lGo0brO622Uc9YxUdbTIfiiq/bZIDqTiEiIkpfUoBTkB
+						l5LenKSFfnvnty697DGOKJ5ZCyvuEiitdYyIrXU09wrVw+03FnhMwkUKOaZ0WFxl
+						jbsZ5ut9IHExbGMJJDg+dMBS7B9dlekzYvzdcqJaF3YMUgF4mCuKvM52VxCaJeHg
+						ZKFO8alq69naYWxQ8zjYygPSpM3wZ+U+ympl8A/SWz2nAYYAMHeRiHy5+HxqtRoH
+						vGxcw0jItQ4SQ9/nHEbArNfwkQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.rcn.org.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.rcn.org.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.rcn.org.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.rcn.org.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.rcn.org.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.rcn.org.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">rcn.org.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDPzCCAiegAwIBAgIUXswXhO6uDK4MV7I9aly5vnD77ZcwDQYJKoZIhvcNAQEF
+						BQAwIDEeMBwGA1UEAxMVc2hpYmJvbGV0aC5yY24ub3JnLnVrMB4XDTEyMDgxNTE1
+						MTcwM1oXDTMyMDgxNTE1MTcwM1owIDEeMBwGA1UEAxMVc2hpYmJvbGV0aC5yY24u
+						b3JnLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwdOecQlpkznI
+						hj5OKgl7HSg1bcTEbk4t2l4CZ/nrQYqTr/y3eGM66v4+V/jU65iw989xVal3o65N
+						baDB1+eIAEtDadhCxVZrdqRFLm8M5XgCfZ9FHZyPmth02mh6ODrqHGpuK6g7rfYw
+						RZ+1aU00kUoPTS3Ex95m9wufCai/IYpCLNF0uLqvgrPjHUdSkFBhJumUH8Km7HHo
+						iJRLc3lCIBfnEDLHLgESNQ/R7H7t3bg0ncar6EvNXEJzG+2lfQqVSZcQh+cgl4Z8
+						/O0w/C67yIop+NYlbP+H42NqHwWu5UNYvj1QFidh3UAD0kEGaCu6JLV8aBpKyoTR
+						hanCRBgPtwIDAQABo3EwbzBOBgNVHREERzBFghVzaGliYm9sZXRoLnJjbi5vcmcu
+						dWuGLGh0dHBzOi8vc2hpYmJvbGV0aC5yY24ub3JnLnVrL2lkcC9zaGliYm9sZXRo
+						MB0GA1UdDgQWBBQWbyOjE1aj+Hbxix3s/WCO8tOA9zANBgkqhkiG9w0BAQUFAAOC
+						AQEAm20IB4KT5TykwOLIRbEhNK9+ccd0EcRKkTc91w/J7JCU64n69AJZ/xeXCo5E
+						8YxmkJSO/SQSTzXrWFR+lGo0brO622Uc9YxUdbTIfiiq/bZIDqTiEiIkpfUoBTkB
+						l5LenKSFfnvnty697DGOKJ5ZCyvuEiitdYyIrXU09wrVw+03FnhMwkUKOaZ0WFxl
+						jbsZ5ut9IHExbGMJJDg+dMBS7B9dlekzYvzdcqJaF3YMUgF4mCuKvM52VxCaJeHg
+						ZKFO8alq69naYWxQ8zjYygPSpM3wZ+U+ympl8A/SWz2nAYYAMHeRiHy5+HxqtRoH
+						vGxcw0jItQ4SQ9/nHEbArNfwkQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.rcn.org.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.rcn.org.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Royal College of Nursing</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Royal College of Nursing</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.rcn.org.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Ian</md:GivenName>
+      <md:SurName>Jacklin</md:SurName>
+      <md:EmailAddress>mailto:ian.jacklin@rcn.org.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Richard</md:GivenName>
+      <md:SurName>Forsyth</md:SurName>
+      <md:EmailAddress>mailto:service.desk@rcn.org.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,94 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://leedstrinity.ac.uk/oala/metadata">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">leedstrinity.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIID0DCCArigAwIBAgIJAIjk4Kwl/h8pMA0GCSqGSIb3DQEBBQUAME4xKTAnBgNV
+						BAoTIExlZWRzIFRyaW5pdHkgVW5pdmVyc2l0eSBDb2xsZWdlMSEwHwYDVQQDExhs
+						YWlkcC5sZWVkc3RyaW5pdHkuYWMudWswHhcNMTEwNzExMTUyMzUzWhcNMjEwNzA4
+						MTUyMzUzWjBOMSkwJwYDVQQKEyBMZWVkcyBUcmluaXR5IFVuaXZlcnNpdHkgQ29s
+						bGVnZTEhMB8GA1UEAxMYbGFpZHAubGVlZHN0cmluaXR5LmFjLnVrMIIBIjANBgkq
+						hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAw/9bLwTP7SZutO6X+sUMG7pv4yPNmLGO
+						thWm0PORm0ENtopolxC13bfCnMWLEzD01MkWLHLp3H1Mf9N+nMj7kJPbR+92180p
+						fQlXz7PSviGwjNChbVDJvRzC+z/qDf3skRo5qNSqmXpQzfHC3OG5jXb6pa/lDQzm
+						4iY6a13yCiSd1QlcT/4EzLpmgoyCnP0N0jw0EDmKtfQWtkyFsbAsJ8Gx65ykG7gY
+						kaYV/oyGNOhdYaxe02zcgGUZxxHCiSo3w9TV83wWFTufSdwMMoub3XHvC9kDfE/F
+						u9fz01ClQomVzuHY0m6KdCZA1iKY4/GT1d7mHgJOSLmLIzriFtFTPwIDAQABo4Gw
+						MIGtMB0GA1UdDgQWBBTGNjTJ1OSofwGC0/s7BsBo6eOOIDB+BgNVHSMEdzB1gBTG
+						NjTJ1OSofwGC0/s7BsBo6eOOIKFSpFAwTjEpMCcGA1UEChMgTGVlZHMgVHJpbml0
+						eSBVbml2ZXJzaXR5IENvbGxlZ2UxITAfBgNVBAMTGGxhaWRwLmxlZWRzdHJpbml0
+						eS5hYy51a4IJAIjk4Kwl/h8pMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQAD
+						ggEBAJtt39tCDzI46L55zb4hzRqWPio8/gmoW5oOhParyPu/VWrIHOeIbNxyKoBk
+						agUiOIYx5KoPgZxpMXDD0WiKaSYbes6EA0YoCX4U9WuZsBD+sexlbeIlLQM9axip
+						TomO9q/cQI97n3J7Bk/iR87guOU2fYEKwgg95PODcOguCAjqzRr+JtmGRU5JJ9RT
+						+wIvRjQcfi7iHgTfaRIWrdIUqGI565IW+zaL4dJjduR2tOkHmmMQM7XLiKy+1RV6
+						hiTw6O9ZgAbb1k6UlXJ58qZgeqwBEzDd9AvQRKIIsk7MD/7u7AiaLkpSD/FIKa3n
+						BDeKbG3KsdzVqHjcQxeUmsCbRe0=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIID0DCCArigAwIBAgIJAIjk4Kwl/h8pMA0GCSqGSIb3DQEBBQUAME4xKTAnBgNV
+						BAoTIExlZWRzIFRyaW5pdHkgVW5pdmVyc2l0eSBDb2xsZWdlMSEwHwYDVQQDExhs
+						YWlkcC5sZWVkc3RyaW5pdHkuYWMudWswHhcNMTEwNzExMTUyMzUzWhcNMjEwNzA4
+						MTUyMzUzWjBOMSkwJwYDVQQKEyBMZWVkcyBUcmluaXR5IFVuaXZlcnNpdHkgQ29s
+						bGVnZTEhMB8GA1UEAxMYbGFpZHAubGVlZHN0cmluaXR5LmFjLnVrMIIBIjANBgkq
+						hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAw/9bLwTP7SZutO6X+sUMG7pv4yPNmLGO
+						thWm0PORm0ENtopolxC13bfCnMWLEzD01MkWLHLp3H1Mf9N+nMj7kJPbR+92180p
+						fQlXz7PSviGwjNChbVDJvRzC+z/qDf3skRo5qNSqmXpQzfHC3OG5jXb6pa/lDQzm
+						4iY6a13yCiSd1QlcT/4EzLpmgoyCnP0N0jw0EDmKtfQWtkyFsbAsJ8Gx65ykG7gY
+						kaYV/oyGNOhdYaxe02zcgGUZxxHCiSo3w9TV83wWFTufSdwMMoub3XHvC9kDfE/F
+						u9fz01ClQomVzuHY0m6KdCZA1iKY4/GT1d7mHgJOSLmLIzriFtFTPwIDAQABo4Gw
+						MIGtMB0GA1UdDgQWBBTGNjTJ1OSofwGC0/s7BsBo6eOOIDB+BgNVHSMEdzB1gBTG
+						NjTJ1OSofwGC0/s7BsBo6eOOIKFSpFAwTjEpMCcGA1UEChMgTGVlZHMgVHJpbml0
+						eSBVbml2ZXJzaXR5IENvbGxlZ2UxITAfBgNVBAMTGGxhaWRwLmxlZWRzdHJpbml0
+						eS5hYy51a4IJAIjk4Kwl/h8pMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQAD
+						ggEBAJtt39tCDzI46L55zb4hzRqWPio8/gmoW5oOhParyPu/VWrIHOeIbNxyKoBk
+						agUiOIYx5KoPgZxpMXDD0WiKaSYbes6EA0YoCX4U9WuZsBD+sexlbeIlLQM9axip
+						TomO9q/cQI97n3J7Bk/iR87guOU2fYEKwgg95PODcOguCAjqzRr+JtmGRU5JJ9RT
+						+wIvRjQcfi7iHgTfaRIWrdIUqGI565IW+zaL4dJjduR2tOkHmmMQM7XLiKy+1RV6
+						hiTw6O9ZgAbb1k6UlXJ58qZgeqwBEzDd9AvQRKIIsk7MD/7u7AiaLkpSD/FIKa3n
+						BDeKbG3KsdzVqHjcQxeUmsCbRe0=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://laidp.leedstrinity.ac.uk/oala/sso"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://laidp.leedstrinity.ac.uk/oala/sso"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Leeds Trinity University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Leeds Trinity University OALA</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.leedstrinity.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:Helpdesk@leedstrinity.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ryan</md:GivenName>
+      <md:SurName>Dolan</md:SurName>
+      <md:EmailAddress>mailto:R.Dolan@leedstrinity.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Jeremy</md:GivenName>
+      <md:SurName>Grayson</md:SurName>
+      <md:EmailAddress>mailto:J.Grayson@leedstrinity.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

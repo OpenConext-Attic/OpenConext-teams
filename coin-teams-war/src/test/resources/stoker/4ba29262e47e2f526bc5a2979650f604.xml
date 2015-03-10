@@ -1,0 +1,62 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://trial.kerboodle.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://trial.kerboodle.com/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://trial.kerboodle.com/Shibboleth.sso/Login" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDEjCCAfqgAwIBAgIJAPBI5jWo0oJMMA0GCSqGSIb3DQEBBQUAMCQxIjAgBgNV
+						BAMTGW50ZHAtbHNtMTcwLnRob3JuZXMuY28udWswHhcNMTEwODAxMTQ1OTA5WhcN
+						MjEwNzI5MTQ1OTA5WjAkMSIwIAYDVQQDExludGRwLWxzbTE3MC50aG9ybmVzLmNv
+						LnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsEbGbRicYWnWlSxy
+						KrGm1lKA4tZ4tXIY5chYREHPyClF9sSlQrGoqAmZgTVNNzAfyuefdp7LdZ2B691r
+						Rho8R28LSjTpu0c88bfpZrQx2HPyv05HXP61MHtQ/I+gSQaBR2Uti7CQwxSRQ7/u
+						AKjrK3vg4OJiYS5QpNKfkqTGUHaTUwyEPI9fL/gDARP6x/WNBfYh7ms5sz52j38N
+						R9B+ptgZ2f9paPJZN0hzmgdEHnRmCP3946Hg2CVQykfCe7DaLTo5S39qq4XnTNlg
+						hLixrPu8P0iDKU1+P7O6/r/d1bfPuMbu7t8znLvrdI/4iLmaO++bwEvTjVbcZexA
+						lIFHQQIDAQABo0cwRTAkBgNVHREEHTAbghludGRwLWxzbTE3MC50aG9ybmVzLmNv
+						LnVrMB0GA1UdDgQWBBQ4r6uTVM2qYPJQOfynIw3fyohWqzANBgkqhkiG9w0BAQUF
+						AAOCAQEASllchP+o4YVz1Rcz1UIu32VI50gCaF8EHdTrgaQd3Hn2YplMVUam6B++
+						lzoqa/TjKsZ262hFIN3akw1Tb2geZXQR4YWnd17qcbqVysiGW/u+6XxAoJH971qm
+						ZX9Id4CGgrHWkDDjpCTurr7hRF0lq2hd6KDfdeWzzudA2T9PK3KsiDS1B/V3jXGW
+						TPmSIxaGsluEsXtItDl2JAWlZsS1Lh3UZr6hQ1yDq4wl8DRuyvNg48s4Y9I0pYGn
+						cNIXmsQI1fc8X/vQanNc+GOkmplJo/ilCyG2xjlerS4GLIEMvTKPqY3PK1GTsrsG
+						RK4GHMD3D1vsaRiW+fkUGJjDIG93rw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://trial.kerboodle.com/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://trial.kerboodle.com/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://trial.kerboodle.com/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://trial.kerboodle.com/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://trial.kerboodle.com/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://trial.kerboodle.com/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://trial.kerboodle.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://trial.kerboodle.com/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://trial.kerboodle.com/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://trial.kerboodle.com/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://trial.kerboodle.com/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Nelson Thornes Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Nelson Thornes Limited: Kerboodle trial server</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.nelsonthornes.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Tim</md:GivenName>
+      <md:SurName>Jarvis</md:SurName>
+      <md:EmailAddress>mailto:team@kerboodle.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Tim</md:GivenName>
+      <md:SurName>Jarvis</md:SurName>
+      <md:EmailAddress>mailto:tjarvis@nelsonthornes.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

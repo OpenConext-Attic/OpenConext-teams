@@ -1,0 +1,116 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.highbury.ac.uk/entity">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2008-08-20T12:09:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">highbury.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEyDCCA7CgAwIBAgIQZB6lJ6rGWX4WIU6tbVUz8TANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDEyNTAwMDAwMFoXDTE1MDEyNDIzNTk1OVowgZgxCzAJBgNV
+						BAYTAkdCMRIwEAYDVQQIEwlIYW1wc2hpcmUxEzARBgNVBAcTClBvcnRzbW91dGgx
+						JTAjBgNVBAoTHEhpZ2hidXJ5IENvbGxlZ2UsIFBvcnRzbW91dGgxFDASBgNVBAsT
+						C0lUIFNlcnZpY2VzMSMwIQYDVQQDExpzaGliYm9sZXRoMi5oaWdoYnVyeS5hYy51
+						azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOIfj7OKBL/hsE2Yx8eo
+						Dyzpdd5FuZ5DE/BhFt1X2rQlorGr18tw8iWtznPAN7Zw0u8CB88hS0K3JxIuULMV
+						Qo9u0QHDNVJDq8l4bcW4bAVpPYqxTbp6ab+VBpFwHH6DnMHhtTdPHm5BmLNKYjgu
+						d775URG2NWIWok6cwZfyYjxLuAhFHhLT3YzxQvNhl0EAiYEk/S0Iv7yx392maZ8P
+						F4Vht5EyumMlmiBCc0s3kb08NLW436Ai037N/GXT69+Z+Q2xjuRzvKlviG51e16l
+						6Izdg+ZUHvA4RSEblAfxf4i1RwGlxLrIOI6+ZSk66y1G0qJWORn5i7MvmJAC+ewM
+						vXkCAwEAAaOCAW0wggFpMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47nt
+						MB0GA1UdDgQWBBRYkv6QJ3l4aK9lv/mM46OtzLBRZTAOBgNVHQ8BAf8EBAMCBaAw
+						DAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwGAYD
+						VR0gBBEwDzANBgsrBgEEAbIxAQICHTA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8v
+						Y3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRh
+						MF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5B
+						U1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9y
+						ZzAlBgNVHREEHjAcghpzaGliYm9sZXRoMi5oaWdoYnVyeS5hYy51azANBgkqhkiG
+						9w0BAQUFAAOCAQEAnbuDSqbimUMicUQAt+0v+7v3D3xxsldRpIofOqYZxLbaqHIN
+						AXpII5GPLiVek67lZddKAbRFEisQdzLGc3a+5wv+HdEN/m+FgBaXOWSgYFhcotJw
+						KIW7TiDuZsUxPc6dm2St7SOGUpI7XpXeCTN0G3DkMbwL6JqiN/Tg5pOHcThUuXaT
+						qpQsFIZKMQi9PY86mGtYUNjOFjeH4nYU5W4RgITXdRkK76cKHYnKdhp9UtKTKdiS
+						muftMNGGD2BAljKcrXxKDNhfNHA7jPcqIp9QlQLZOpoEO+tS4/Hzwkg6EYq09BKE
+						jfqCv8oii+dsrFzG6+N9CUUbMQn2hjLlpCS9Jg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth2.highbury.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth2.highbury.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth2.highbury.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth2.highbury.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth2.highbury.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth2.highbury.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">highbury.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEyDCCA7CgAwIBAgIQZB6lJ6rGWX4WIU6tbVUz8TANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDEyNTAwMDAwMFoXDTE1MDEyNDIzNTk1OVowgZgxCzAJBgNV
+						BAYTAkdCMRIwEAYDVQQIEwlIYW1wc2hpcmUxEzARBgNVBAcTClBvcnRzbW91dGgx
+						JTAjBgNVBAoTHEhpZ2hidXJ5IENvbGxlZ2UsIFBvcnRzbW91dGgxFDASBgNVBAsT
+						C0lUIFNlcnZpY2VzMSMwIQYDVQQDExpzaGliYm9sZXRoMi5oaWdoYnVyeS5hYy51
+						azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOIfj7OKBL/hsE2Yx8eo
+						Dyzpdd5FuZ5DE/BhFt1X2rQlorGr18tw8iWtznPAN7Zw0u8CB88hS0K3JxIuULMV
+						Qo9u0QHDNVJDq8l4bcW4bAVpPYqxTbp6ab+VBpFwHH6DnMHhtTdPHm5BmLNKYjgu
+						d775URG2NWIWok6cwZfyYjxLuAhFHhLT3YzxQvNhl0EAiYEk/S0Iv7yx392maZ8P
+						F4Vht5EyumMlmiBCc0s3kb08NLW436Ai037N/GXT69+Z+Q2xjuRzvKlviG51e16l
+						6Izdg+ZUHvA4RSEblAfxf4i1RwGlxLrIOI6+ZSk66y1G0qJWORn5i7MvmJAC+ewM
+						vXkCAwEAAaOCAW0wggFpMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47nt
+						MB0GA1UdDgQWBBRYkv6QJ3l4aK9lv/mM46OtzLBRZTAOBgNVHQ8BAf8EBAMCBaAw
+						DAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwGAYD
+						VR0gBBEwDzANBgsrBgEEAbIxAQICHTA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8v
+						Y3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRh
+						MF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5B
+						U1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9y
+						ZzAlBgNVHREEHjAcghpzaGliYm9sZXRoMi5oaWdoYnVyeS5hYy51azANBgkqhkiG
+						9w0BAQUFAAOCAQEAnbuDSqbimUMicUQAt+0v+7v3D3xxsldRpIofOqYZxLbaqHIN
+						AXpII5GPLiVek67lZddKAbRFEisQdzLGc3a+5wv+HdEN/m+FgBaXOWSgYFhcotJw
+						KIW7TiDuZsUxPc6dm2St7SOGUpI7XpXeCTN0G3DkMbwL6JqiN/Tg5pOHcThUuXaT
+						qpQsFIZKMQi9PY86mGtYUNjOFjeH4nYU5W4RgITXdRkK76cKHYnKdhp9UtKTKdiS
+						muftMNGGD2BAljKcrXxKDNhfNHA7jPcqIp9QlQLZOpoEO+tS4/Hzwkg6EYq09BKE
+						jfqCv8oii+dsrFzG6+N9CUUbMQn2hjLlpCS9Jg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth2.highbury.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth2.highbury.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Highbury College, Portsmouth</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Highbury College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.highbury.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Paul</md:GivenName>
+      <md:SurName>Butcher</md:SurName>
+      <md:EmailAddress>mailto:paul.butcher@highbury.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>College IT Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:servicedesk@highbury.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Jon</md:GivenName>
+      <md:SurName>Kennedy</md:SurName>
+      <md:EmailAddress>mailto:Jon.Kennedy@highbury.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

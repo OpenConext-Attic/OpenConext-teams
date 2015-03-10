@@ -1,0 +1,110 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="urn:mace:eduserv.org.uk:athens:provider:liv.ac.uk">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2010-02-09T16:53:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">liv.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEnzCCA4egAwIBAgIRAIv33WSMS4kqlok+uJUy0kcwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjA4MDYwMDAwMDBaFw0xNTA4MDYyMzU5NTlaMHUxCzAJBgNV
+						BAYTAkdCMRAwDgYDVQQIEwdFbmdsYW5kMRMwEQYDVQQHEwpNZXJzZXlzaWRlMSAw
+						HgYDVQQKExdVbml2ZXJzaXR5IG9mIExpdmVycG9vbDEdMBsGA1UEAxMUc2hpYmJv
+						bGV0aC5saXYuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCA
+						LmW5AN7CT3f0Iqy13WeSvNMn24Y1cx5phLGX8ChbD8ffxpcuPA3jBcm9F+UZO0G7
+						5PFguqwoTrKonl+Izgl3Usu73mwQVGzDCAsIOWFAl5aUwc2R+XAD/7K/gC8p1kT+
+						ML4pzaRAN6Qf34KBmy4kPocFN88bmxYdgo+KhRS+nyzZ3QhL88jME047pF0/RnVi
+						nEjybLefBYPNAubfZiwMWb7OkX8u+Q8Q4FAwfRV3yhA+QEkiFQJ/p5iursdDBb+k
+						hdZYO94apDiY088R53Oqt/0DZ+M3OMa5DDnINmEstRKhXX1uVXB9g5xD001DTu/N
+						c4oDA/UrB7HBO2Bd/QBvAgMBAAGjggFnMIIBYzAfBgNVHSMEGDAWgBQMvZNoDPPe
+						q6NJays3V0fqkOO57TAdBgNVHQ4EFgQUKPuz+R4w9NGzzTTpQvCLUA14z9gwDgYD
+						VR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEG
+						CCsGAQUFBwMCMBgGA1UdIAQRMA8wDQYLKwYBBAGyMQECAh0wOgYDVR0fBDMwMTAv
+						oC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmww
+						bQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJl
+						bmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3Au
+						dGNzLnRlcmVuYS5vcmcwHwYDVR0RBBgwFoIUc2hpYmJvbGV0aC5saXYuYWMudWsw
+						DQYJKoZIhvcNAQEFBQADggEBAAEtlWvRDI17lbagMgDTbJnkLBk7B38Ysa9Ebt+h
+						BVXXhOx2WmCfMtJDryNep8PT9ZzCU1f3opqo8udcrFS5DKkWQQ1ioR33XOBPA7JK
+						/1ZGs+VRp5TtJOqfWSkg9sWK4U8YcT4zHrHdfd23B1CCe3gds47+xlgGRYRP2ePv
+						sRGz+QPPfOsZYs2nfadncaWYmfEqPeTQAuP5krZqFMIxajEELXzsRoCRxe8Q0JKi
+						F7fFoeLC+Z+DxU8O+uvk71e+4b67ZoXOQlQ+Uc+CJJIlgKtSwVFHQ1lyu7SKDM4h
+						UVLhBp3j4MEneqICrEGjBGJAxPp8UKyhVbgfS1AK6RhqdbI=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.liv.ac.uk:10443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.liv.ac.uk:10443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.liv.ac.uk:9443/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.liv.ac.uk:9443/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.liv.ac.uk:9443/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.liv.ac.uk:9443/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">liv.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEnzCCA4egAwIBAgIRAIv33WSMS4kqlok+uJUy0kcwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjA4MDYwMDAwMDBaFw0xNTA4MDYyMzU5NTlaMHUxCzAJBgNV
+						BAYTAkdCMRAwDgYDVQQIEwdFbmdsYW5kMRMwEQYDVQQHEwpNZXJzZXlzaWRlMSAw
+						HgYDVQQKExdVbml2ZXJzaXR5IG9mIExpdmVycG9vbDEdMBsGA1UEAxMUc2hpYmJv
+						bGV0aC5saXYuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCA
+						LmW5AN7CT3f0Iqy13WeSvNMn24Y1cx5phLGX8ChbD8ffxpcuPA3jBcm9F+UZO0G7
+						5PFguqwoTrKonl+Izgl3Usu73mwQVGzDCAsIOWFAl5aUwc2R+XAD/7K/gC8p1kT+
+						ML4pzaRAN6Qf34KBmy4kPocFN88bmxYdgo+KhRS+nyzZ3QhL88jME047pF0/RnVi
+						nEjybLefBYPNAubfZiwMWb7OkX8u+Q8Q4FAwfRV3yhA+QEkiFQJ/p5iursdDBb+k
+						hdZYO94apDiY088R53Oqt/0DZ+M3OMa5DDnINmEstRKhXX1uVXB9g5xD001DTu/N
+						c4oDA/UrB7HBO2Bd/QBvAgMBAAGjggFnMIIBYzAfBgNVHSMEGDAWgBQMvZNoDPPe
+						q6NJays3V0fqkOO57TAdBgNVHQ4EFgQUKPuz+R4w9NGzzTTpQvCLUA14z9gwDgYD
+						VR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEG
+						CCsGAQUFBwMCMBgGA1UdIAQRMA8wDQYLKwYBBAGyMQECAh0wOgYDVR0fBDMwMTAv
+						oC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmww
+						bQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJl
+						bmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3Au
+						dGNzLnRlcmVuYS5vcmcwHwYDVR0RBBgwFoIUc2hpYmJvbGV0aC5saXYuYWMudWsw
+						DQYJKoZIhvcNAQEFBQADggEBAAEtlWvRDI17lbagMgDTbJnkLBk7B38Ysa9Ebt+h
+						BVXXhOx2WmCfMtJDryNep8PT9ZzCU1f3opqo8udcrFS5DKkWQQ1ioR33XOBPA7JK
+						/1ZGs+VRp5TtJOqfWSkg9sWK4U8YcT4zHrHdfd23B1CCe3gds47+xlgGRYRP2ePv
+						sRGz+QPPfOsZYs2nfadncaWYmfEqPeTQAuP5krZqFMIxajEELXzsRoCRxe8Q0JKi
+						F7fFoeLC+Z+DxU8O+uvk71e+4b67ZoXOQlQ+Uc+CJJIlgKtSwVFHQ1lyu7SKDM4h
+						UVLhBp3j4MEneqICrEGjBGJAxPp8UKyhVbgfS1AK6RhqdbI=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.liv.ac.uk:10443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.liv.ac.uk:10443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Liverpool</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Liverpool</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.liv.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>John</md:GivenName>
+      <md:SurName>Gilbertson</md:SurName>
+      <md:EmailAddress>mailto:webmaster@liv.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Tim</md:GivenName>
+      <md:SurName>Pretlove</md:SurName>
+      <md:EmailAddress>mailto:T.Pretlove@liverpool.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

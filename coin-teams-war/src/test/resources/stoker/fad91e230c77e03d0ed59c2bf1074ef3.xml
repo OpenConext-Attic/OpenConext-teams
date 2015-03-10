@@ -1,0 +1,60 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sso.legendonlineservices.co.uk/shibboleth-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://sso.legendonlineservices.co.uk/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sso.legendonlineservices.co.uk/Shibboleth.sso/Login" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIICzTCCAbWgAwIBAgIJAJobCx55lv5EMA0GCSqGSIb3DQEBBQUAMA0xCzAJBgNV
+						BAMTAncxMB4XDTExMDgxMTA4NDkyNFoXDTIxMDgwODA4NDkyNFowDTELMAkGA1UE
+						AxMCdzEwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDhMOvBTMzwJXzE
+						J59XFKXaqeI5zLdnA0YzdFsPnbLOlf/5+qjgRb86LlR1hYxDReSbKz1nm3H6eN9D
+						5IHZ/fZgdnvDblKno/xK0emOGRQ7ILDoHm9HTrpcd+qwzOGsqhN3dtZxMvGHv+bz
+						mULMepXiKk4KyqUp/pMuv52n0lshyJG5mJ0SctJEptUx/1IhXn6OhDg3fzvWiWQ9
+						6lgDiCg5TZ9p6r0FgEaAfp+EKfLIQKohkD8j1r88sSzIqgTW8TR+k0IOgSKydpiL
+						UPC8KqVFAATA7YisCxSwQL0Ol/km8h9M6I61U5sMzxQb96OjJNkJ0XkkqKpdJiQg
+						I0m6HiVnAgMBAAGjMDAuMA0GA1UdEQQGMASCAncxMB0GA1UdDgQWBBTcBGviv7Uv
+						SMf+iglk0SBxtdd8KzANBgkqhkiG9w0BAQUFAAOCAQEAicU/pEyeTf8EhIx3Hz/L
+						tN0lUevjM3RX5cpXHPnHGeO6lidknaaBi7e0Wnkbkur8VuKh9aTOENV+yNH4cQA+
+						ePNQefs0FqlzHiVMNFrb6nTzA4IXHCqLKkLWilFuQ17z+wih38PFjzqucXKZViow
+						MWaNgEGEyYBOyAKND5MtdS9WSQImqOn/fnx5PM6brLascO5a8ZBp96Zky7WvN28t
+						/eV2xzqBtVt3O87D1ta+yIbw0p2yXlWogVQNc4u6OKOcA9Rv2dO1UVPCGCsQCtdp
+						t3NdGb/WFfWxBSl2R2zNf9/vhRN+Senh5iasZaoZyaGSF1SZtyskYNDLshiBG/FS
+						7Q==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sso.legendonlineservices.co.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sso.legendonlineservices.co.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso.legendonlineservices.co.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.legendonlineservices.co.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sso.legendonlineservices.co.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.legendonlineservices.co.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sso.legendonlineservices.co.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sso.legendonlineservices.co.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://sso.legendonlineservices.co.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://sso.legendonlineservices.co.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://sso.legendonlineservices.co.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Serco Leisure Operating Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Serco Leisure Operating Limited: Legend Online Services</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.legendware.co.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Support</md:GivenName>
+      <md:EmailAddress>mailto:support@legendware.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Paul</md:GivenName>
+      <md:SurName>Robertson</md:SurName>
+      <md:EmailAddress>mailto:paul.robertson@legendware.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

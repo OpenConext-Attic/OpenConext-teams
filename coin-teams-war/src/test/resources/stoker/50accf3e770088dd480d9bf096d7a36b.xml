@@ -1,0 +1,66 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth.globaldata.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://shibboleth.globaldata.com/Shibboleth.sso/SAML2/POST"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://shibboleth.globaldata.com/Shibboleth.sso/SAML2/POST" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDDDCCAfSgAwIBAgIJAItPz9n2+PuaMA0GCSqGSIb3DQEBBQUAMCIxIDAeBgNV
+						BAMTF2RlZDA5Ni5tYXhpbXVtYXNwLmxvY2FsMB4XDTExMTEyODEwMTQxMFoXDTE2
+						MTEyNjEwMTQxMFowIjEgMB4GA1UEAxMXZGVkMDk2Lm1heGltdW1hc3AubG9jYWww
+						ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwNeNpZKlWDp7GciyA162g
+						VSy3uTRG2BT48mp/oB4Wh7DqNbPHx8PrWJrN0xw+c1o1OarYuaWK24H9F1n3ZI8g
+						i/czA4Zi2JsIZmWksu5jYVgZQQnMyVCrA1fB4tjz2GTnrmy7HTt7axMAHlUyupDw
+						gh/YcaJ84U1JssiLeSypkHeSyLv/Cew5HI6kARv99/oVSBR7kfOAUPg+fP8kjvlK
+						dn6RShLwkY+9KQCK9lY6aaJHrNtRDfSQVZsZgfLwzK+HCGspWHFp7KirfdTBcCkR
+						w+berqH4RmOPbcv4TxGva/XEefM9Ikw8FD1Yb7Hcum6avHcD/s02jYzvISUr56FT
+						AgMBAAGjRTBDMCIGA1UdEQQbMBmCF2RlZDA5Ni5tYXhpbXVtYXNwLmxvY2FsMB0G
+						A1UdDgQWBBQsoQCuifh3Q5K7lzut09/s9A3G8jANBgkqhkiG9w0BAQUFAAOCAQEA
+						DyvSdKPdXmbCft4A6Bwqpw0Y1hMuyme8wOskJpQIJ7WXhdyCB3eOYz1dGcmFkeQU
+						aUJS6x9ZPLkRVX0e8Eoa/w1rYam5Zi3Fv0ZjLLKA7EFkX4aNzeE8vU0y/XZ9amRf
+						fIZ/Tse7wvCJTHWNrw0eoTy2xNnPRWhLALF8nNaR66S5Usesosv0fKqpK20nrjmF
+						wtHuAhh4Jbh6mZZemqKOgcxs9JX5qTsO96plS+Rb2iH2oMP0PrqzjwvHyFAPv8gb
+						Rt8vBK4vYP16FHxWHw9TNnlQ93w4ozWNtnUHOrvoXghavIUg7MTOIQZ5awgMKr8U
+						KRmv+oFXiBHlwyDVz3wIPg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.globaldata.com/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.globaldata.com/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.globaldata.com/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.globaldata.com/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibboleth.globaldata.com/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.globaldata.com/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.globaldata.com/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.globaldata.com/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibboleth.globaldata.com/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.globaldata.com/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.globaldata.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibboleth.globaldata.com/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://shibboleth.globaldata.com/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shibboleth.globaldata.com/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://shibboleth.globaldata.com/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">GlobalData Ltd</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">GlobalData Ltd SP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.globaldata.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Jeevan Kumar</md:GivenName>
+      <md:SurName>Pinnireddy</md:SurName>
+      <md:EmailAddress>mailto:jpinnireddy@globaldata.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Jeevan Kumar</md:GivenName>
+      <md:SurName>Pinnireddy</md:SurName>
+      <md:EmailAddress>mailto:jpinnireddy@globaldata.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

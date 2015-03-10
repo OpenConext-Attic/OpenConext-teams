@@ -1,0 +1,83 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.westlaw.co.uk/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDDjCCAfagAwIBAgIETjbD0TANBgkqhkiG9w0BAQUFADBJMSkwJwYDVQQKEyBUaG9tc29uIFJl
+						dXRlcnMgKExlZ2FsKSBMaW1pdGVkLjEcMBoGA1UEAxMTbG9naW4ud2VzdGxhdy5jby51azAeFw0x
+						MTA4MDExNTE4NDFaFw0yMTA3MjkxNTE4NDFaMEkxKTAnBgNVBAoTIFRob21zb24gUmV1dGVycyAo
+						TGVnYWwpIExpbWl0ZWQuMRwwGgYDVQQDExNsb2dpbi53ZXN0bGF3LmNvLnVrMIIBIjANBgkqhkiG
+						9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjqegY1cVyO5Y8nIZFAoZZitBVfBgocOQt0xCykkT0i7jXKsT
+						2PAtCpLIyHfS6bQk19c0MwT+jeVpoMGEQNT9pBBX6zQvCTrKPO6sK/Zcxdlvuh4AJH0wrUMj6abl
+						vpNUKuA/SLgL3p2PGcvLA3GhV721LW8Z5DuxZw7N423Y0HYOpmlI8+37UBDNHtHJwNmt4Qly8CrB
+						nXb+8/6m3YaYLRCr1lP8Dxq/zWjFWuPd/hj/OFyfsMezOlvzXsjc0ST6YcpRjSiqPYOKgX6g8hMD
+						rePGbr+LAjjfeK5MmWCV/sGI4IC/QnQJ0IZ+caejJYA7G95aZcGKHu5FgDL1b7ES7QIDAQABMA0G
+						CSqGSIb3DQEBBQUAA4IBAQBU/dwEsds+SSTk9SSvUidLWjJT+OGfrdyQitN3M9qpTeSx29VzjxkS
+						/CePYfxhy+1p4D7lNWyUTIL4uoy29c4r52ev/JAVYnlQCie2/ElHuZs/rMlsWCFtZ8+fEAsouaDg
+						l64efxlzyis0f8jv41GaYi/zCp2AG1G6+3ldSlGSPKrEUbvC4L2OcShLpu5Px3yhYBPf/4BvildQ
+						owb5qZGmukHvcWTAXnypf5NspgAOfCrltLjzXDHbwVgO18uK438wB/KQGBqEQ3bgTZFeX4vhBiA5
+						riiNruaVCg47WT6HKGoOHDFd8I6L/CNOkfIRxkPkLljpmcFV6OmEOw5jCtbU
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://login.westlaw.co.uk/app/authentication/sso/ukfed/auth/rcv" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://login.westlaw.co.uk/app/authentication/sso/ukfed/auth/rcv" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://login.westlaw.co.uk.ukclt.int.westlaw.com/app/authentication/sso/ukfed/auth/rcv" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://login.westlaw.co.uk.ukclt.int.westlaw.com/app/authentication/sso/ukfed/auth/rcv" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://login.westlaw.co.uk.ukclt2.int.westlaw.com/maf/wluk/app/authentication/sso/ukfed/auth/rcv" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://login.westlaw.co.uk.ukclt2.int.westlaw.com/maf/wluk/app/authentication/sso/ukfed/auth/rcv" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://labs.westlaw.co.uk/maf/wluk/app/authentication/sso/ukfed/auth/rcv" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://labs.westlaw.co.uk/maf/wluk/app/authentication/sso/ukfed/auth/rcv" index="7"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://login.westlaw.co.uk.ukclt.int.westlaw.com/maf/wluk/app/authentication/sso/ukfed/auth/rcv" index="8"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://login.westlaw.co.uk.ukclt.int.westlaw.com/maf/wluk/app/authentication/sso/ukfed/auth/rcv" index="9"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://login.westlaw.co.uk/maf/wluk/app/authentication/sso/ukfed/auth/rcv" index="10"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://login.westlaw.co.uk/maf/wluk/app/authentication/sso/ukfed/auth/rcv" index="11"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://login.westlaw.co.uk.ukqc.int.westlaw.com/maf/wluk/app/authentication/sso/ukfed/auth/rcv" index="12"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://login.westlaw.co.uk.ukqc.int.westlaw.com/maf/wluk/app/authentication/sso/ukfed/auth/rcv" index="13"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://login.westlaw.co.uk.ukclt3.int.westlaw.com/maf/wluk/app/authentication/sso/ukfed/auth/rcv" index="14"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://login.westlaw.co.uk.ukclt3.int.westlaw.com/maf/wluk/app/authentication/sso/ukfed/auth/rcv" index="15"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://login.westlaw.co.uk.ukqc2.int.westlaw.com/maf/wluk/app/authentication/sso/ukfed/auth/rcv" index="16"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://login.westlaw.co.uk.ukqc2.int.westlaw.com/maf/wluk/app/authentication/sso/ukfed/auth/rcv" index="17"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://prd.wluk.int.westgroup.com/maf/wluk/app/authentication/sso/ukfed/auth/rcv" index="18"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://prd.wluk.int.westgroup.com/maf/wluk/app/authentication/sso/ukfed/auth/rcv" index="19"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://prd.wluklabs.int.westgroup.com/maf/wluk/app/authentication/sso/ukfed/auth/rcv" index="20"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://prd.wluklabs.int.westgroup.com/maf/wluk/app/authentication/sso/ukfed/auth/rcv" index="21"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://clt.wluk.int.westgroup.com/maf/wluk/app/authentication/sso/ukfed/auth/rcv" index="22"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://clt.wluk.int.westgroup.com/maf/wluk/app/authentication/sso/ukfed/auth/rcv" index="23"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://qc.wluk.int.westgroup.com/maf/wluk/app/authentication/sso/ukfed/auth/rcv" index="24"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://qc.wluk.int.westgroup.com/maf/wluk/app/authentication/sso/ukfed/auth/rcv" index="25"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://m.westlaw.co.uk/maf/api/v1/authenticate/validate/sso/ukfed" index="26"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://m.westlaw.co.uk/maf/api/v1/authenticate/validate/sso/ukfed" index="27"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://clt.m.westlaw.co.uk/maf/api/v1/authenticate/validate/sso/ukfed" index="28"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://clt.m.westlaw.co.uk/maf/api/v1/authenticate/validate/sso/ukfed" index="29"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://m.westlaw.co.uk/maf/mwluk/api/v1/authenticate/validate/sso/ukfed" index="30"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://m.westlaw.co.uk/maf/mwluk/api/v1/authenticate/validate/sso/ukfed" index="31"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://clt.m.westlaw.co.uk/maf/mwluk/api/v1/authenticate/validate/sso/ukfed" index="32"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://clt.m.westlaw.co.uk/maf/mwluk/api/v1/authenticate/validate/sso/ukfed" index="33"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://m.westlaw.co.uk.dev.int.westgroup.com/maf/mwluk/api/v1/authenticate/validate/sso/ukfed" index="34"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://m.westlaw.co.uk.dev.int.westgroup.com/maf/mwluk/api/v1/authenticate/validate/sso/ukfed" index="35"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://m.westlaw.co.uk.qc.int.westgroup.com/maf/mwluk/api/v1/authenticate/validate/sso/ukfed" index="36"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://m.westlaw.co.uk.qc.int.westgroup.com/maf/mwluk/api/v1/authenticate/validate/sso/ukfed" index="37"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Thomson Reuters (Professional) UK Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Westlaw UK</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.westlaw.co.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Douglas</md:GivenName>
+      <md:SurName>Potts</md:SurName>
+      <md:EmailAddress>mailto:douglas.potts@thomsonreuters.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Andy</md:GivenName>
+      <md:SurName>Halford</md:SurName>
+      <md:EmailAddress>mailto:andrew.halford@thomsonreuters.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

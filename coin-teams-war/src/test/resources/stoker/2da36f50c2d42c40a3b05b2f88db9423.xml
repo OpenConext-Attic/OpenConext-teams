@@ -1,0 +1,86 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://lectopia.ncl.ac.uk/shibboleth/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://lectopia.ncl.ac.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC4zCCAcugAwIBAgIBADANBgkqhkiG9w0BAQUFADAXMRUwEwYDVQQDEwxsZWN0
+						b3BpYS1uZXcwHhcNMTAwNDI4MTM0MzU1WhcNMjAwNDI1MTM0MzU1WjAXMRUwEwYD
+						VQQDEwxsZWN0b3BpYS1uZXcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+						AQDtxYuuBrryd7jF+SCROSuRKXtmTHXnmGKe24cgQLVrBtyWHsw0MubKY94ydlJK
+						+fs273ME9l+oeIPSpcL4xtk/3K9quhKaq7srw99tEZlDCenB6ZgCHLuO2PTe37ih
+						SXe4AMcQO7yyZaVB7jk+3xWUb+Q01w2YzFNmF95SSL0YYmsCSbvitLrycQ7OmqKU
+						GKfIV7zeYtzZufWcG3Bq51/jBtKjB99yZ7q44g6LN8RX2gFWwWGaAzusdbB9EjIP
+						fFNjSR+KbIUwwrhUfgkzAUN6ihbsV8ipWuSTEcJZFqvn9Vz/H1zq2pXQ5EqbR/CP
+						a5SvZWSWzpNCpzLQ2OEhxzhXAgMBAAGjOjA4MBcGA1UdEQQQMA6CDGxlY3RvcGlh
+						LW5ldzAdBgNVHQ4EFgQUWJBF/P6HJ0nbp5T3QoJwpNn3Kg8wDQYJKoZIhvcNAQEF
+						BQADggEBAHtyLHVNnhur3ucSScj5nDY6tllHfXJycyYkGjPhJkDOsZJmvaUVkMmb
+						RfKSNJwEoduYN30GvrEJxELrRtyeacHh7WFN1NMJlJ99As1PyAjmjXtTINmfv1qJ
+						JFYPnimUR/w0S6trOT00IwubZ7EdpIuOueetPIabZE7DyT5UnS659UvpTZ5N/IQj
+						qOUcP1PZFan2/jCMAUDqXlSK4Nbtw7hkAj7+I//Y5S07X5kDxOGrryjFxB10TZ7Q
+						ZElm+hAdSMs3yuKP7SwIHfQSdRN6RKGEp8wg4/JFZi68y5ISZk2K/PlnCAmBf2wa
+						st2ZJTUQrE0f/V9R2BaSP9Bmzvm8Kic=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC4zCCAcugAwIBAgIBADANBgkqhkiG9w0BAQUFADAXMRUwEwYDVQQDEwxsZWN0
+						b3BpYS1uZXcwHhcNMTAwNDI4MTM0MzU1WhcNMjAwNDI1MTM0MzU1WjAXMRUwEwYD
+						VQQDEwxsZWN0b3BpYS1uZXcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+						AQDtxYuuBrryd7jF+SCROSuRKXtmTHXnmGKe24cgQLVrBtyWHsw0MubKY94ydlJK
+						+fs273ME9l+oeIPSpcL4xtk/3K9quhKaq7srw99tEZlDCenB6ZgCHLuO2PTe37ih
+						SXe4AMcQO7yyZaVB7jk+3xWUb+Q01w2YzFNmF95SSL0YYmsCSbvitLrycQ7OmqKU
+						GKfIV7zeYtzZufWcG3Bq51/jBtKjB99yZ7q44g6LN8RX2gFWwWGaAzusdbB9EjIP
+						fFNjSR+KbIUwwrhUfgkzAUN6ihbsV8ipWuSTEcJZFqvn9Vz/H1zq2pXQ5EqbR/CP
+						a5SvZWSWzpNCpzLQ2OEhxzhXAgMBAAGjOjA4MBcGA1UdEQQQMA6CDGxlY3RvcGlh
+						LW5ldzAdBgNVHQ4EFgQUWJBF/P6HJ0nbp5T3QoJwpNn3Kg8wDQYJKoZIhvcNAQEF
+						BQADggEBAHtyLHVNnhur3ucSScj5nDY6tllHfXJycyYkGjPhJkDOsZJmvaUVkMmb
+						RfKSNJwEoduYN30GvrEJxELrRtyeacHh7WFN1NMJlJ99As1PyAjmjXtTINmfv1qJ
+						JFYPnimUR/w0S6trOT00IwubZ7EdpIuOueetPIabZE7DyT5UnS659UvpTZ5N/IQj
+						qOUcP1PZFan2/jCMAUDqXlSK4Nbtw7hkAj7+I//Y5S07X5kDxOGrryjFxB10TZ7Q
+						ZElm+hAdSMs3yuKP7SwIHfQSdRN6RKGEp8wg4/JFZi68y5ISZk2K/PlnCAmBf2wa
+						st2ZJTUQrE0f/V9R2BaSP9Bmzvm8Kic=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://lectopia.ncl.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://lectopia.ncl.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://lectopia.ncl.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://lectopia.ncl.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://lectopia.ncl.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://lectopia.ncl.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://lectopia.ncl.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://lectopia.ncl.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://lectopia.ncl.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://lectopia.ncl.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://lectopia.ncl.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://lectopia.ncl.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://lectopia.ncl.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://lectopia.ncl.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Newcastle upon Tyne</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Newcastle University: Lectopia Server</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ncl.ac.uk/iss/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>ISS Helpline</md:GivenName>
+      <md:EmailAddress>mailto:helpline@ncl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Franks</md:SurName>
+      <md:EmailAddress>mailto:chris.franks@ncl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

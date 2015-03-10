@@ -1,0 +1,99 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://dlib-tirnanog.ucs.ed.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-07-03T10:53:42Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">dlib-tirnanog.ucs.ed.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDVDCCAjygAwIBAgIVAODyk7mMoUoYzltLzYC/JtGZQMb6MA0GCSqGSIb3DQEB
+						BQUAMCUxIzAhBgNVBAMTGmRsaWItdGlybmFub2cudWNzLmVkLmFjLnVrMB4XDTEz
+						MDUzMTEwMjk0M1oXDTMzMDUzMTEwMjk0M1owJTEjMCEGA1UEAxMaZGxpYi10aXJu
+						YW5vZy51Y3MuZWQuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+						AQCKjx88FRe8y8+PDAV4FaB21YWDt+1VrC2AwecxLSum68NOg2dGJLoEj3SggRdJ
+						rwW1qisZCC43P3tKjP++vGOqwXJQjUBQ+NsE/1o+OMm4kdzT/3CtWlbMCt2LrOKK
+						Awcxctg+hQUBB/v5yJi2Li9j38MRFeqTMocia5N4z1d9LA2sQIk6G0ID23AL8sts
+						FG6n7kM1Sks/o4pWVC9MHbmJGPxSeAH0iypWT11y7Q2L/kyRwQstU7TTM3ORbTuE
+						XYn/hASx2+N7iCNdsj1SVo0bwL/RavQqW9vY7ha5cmmk+lGuMflO6Mue/Zhg9Y9F
+						F7sMMSXtI1q9Lo2ukd+O2WEJAgMBAAGjezB5MFgGA1UdEQRRME+CGmRsaWItdGly
+						bmFub2cudWNzLmVkLmFjLnVrhjFodHRwczovL2RsaWItdGlybmFub2cudWNzLmVk
+						LmFjLnVrL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBTUtDiVpBMT2JmUtdHVe/K2
+						ThCQHjANBgkqhkiG9w0BAQUFAAOCAQEAGbTsOEw+ZdABn5Am47D3dbq2Fx3ll4Ks
+						xWfE/mduKOphquJm+TPv0T3PUXefHTJk8ESpJxJPCkTWQqStmPw6Q4vB64ByN3N/
+						rY6oTSpAMRx4BnrRJMuhNoO6UVBIq/xQngO2pyDlDzp/3PUMCiir1SnAlHsr2wxQ
+						HABixOnaV5V8AvBo68uFfezbVcXHdxRBL274mAlHg1DGwyNWa6SKDrVxJca7Llnf
+						c3X9nWnjl1g6KSSvn2fMDte0Ciicj2QShW4RuiURv7wChltggjfFuvjnua2AQRLw
+						MB6cv6Ty6FnjVpmi9+PAdsw09nP5uatsgyQzRIgt36KO7a8ywJP8BQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://dlib-tirnanog.ucs.ed.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://dlib-tirnanog.ucs.ed.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://dlib-tirnanog.ucs.ed.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://dlib-tirnanog.ucs.ed.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://dlib-tirnanog.ucs.ed.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://dlib-tirnanog.ucs.ed.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">dlib-tirnanog.ucs.ed.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDVDCCAjygAwIBAgIVAODyk7mMoUoYzltLzYC/JtGZQMb6MA0GCSqGSIb3DQEB
+						BQUAMCUxIzAhBgNVBAMTGmRsaWItdGlybmFub2cudWNzLmVkLmFjLnVrMB4XDTEz
+						MDUzMTEwMjk0M1oXDTMzMDUzMTEwMjk0M1owJTEjMCEGA1UEAxMaZGxpYi10aXJu
+						YW5vZy51Y3MuZWQuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+						AQCKjx88FRe8y8+PDAV4FaB21YWDt+1VrC2AwecxLSum68NOg2dGJLoEj3SggRdJ
+						rwW1qisZCC43P3tKjP++vGOqwXJQjUBQ+NsE/1o+OMm4kdzT/3CtWlbMCt2LrOKK
+						Awcxctg+hQUBB/v5yJi2Li9j38MRFeqTMocia5N4z1d9LA2sQIk6G0ID23AL8sts
+						FG6n7kM1Sks/o4pWVC9MHbmJGPxSeAH0iypWT11y7Q2L/kyRwQstU7TTM3ORbTuE
+						XYn/hASx2+N7iCNdsj1SVo0bwL/RavQqW9vY7ha5cmmk+lGuMflO6Mue/Zhg9Y9F
+						F7sMMSXtI1q9Lo2ukd+O2WEJAgMBAAGjezB5MFgGA1UdEQRRME+CGmRsaWItdGly
+						bmFub2cudWNzLmVkLmFjLnVrhjFodHRwczovL2RsaWItdGlybmFub2cudWNzLmVk
+						LmFjLnVrL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBTUtDiVpBMT2JmUtdHVe/K2
+						ThCQHjANBgkqhkiG9w0BAQUFAAOCAQEAGbTsOEw+ZdABn5Am47D3dbq2Fx3ll4Ks
+						xWfE/mduKOphquJm+TPv0T3PUXefHTJk8ESpJxJPCkTWQqStmPw6Q4vB64ByN3N/
+						rY6oTSpAMRx4BnrRJMuhNoO6UVBIq/xQngO2pyDlDzp/3PUMCiir1SnAlHsr2wxQ
+						HABixOnaV5V8AvBo68uFfezbVcXHdxRBL274mAlHg1DGwyNWa6SKDrVxJca7Llnf
+						c3X9nWnjl1g6KSSvn2fMDte0Ciicj2QShW4RuiURv7wChltggjfFuvjnua2AQRLw
+						MB6cv6Ty6FnjVpmi9+PAdsw09nP5uatsgyQzRIgt36KO7a8ywJP8BQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://dlib-tirnanog.ucs.ed.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://dlib-tirnanog.ucs.ed.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Edinburgh</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Tirnanog Test IdP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ukfederation.org.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Steve</md:GivenName>
+      <md:SurName>Glover</md:SurName>
+      <md:EmailAddress>mailto:steve.glover@ed.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Steve</md:GivenName>
+      <md:SurName>Glover</md:SurName>
+      <md:EmailAddress>mailto:steve.glover@ed.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,107 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.nottingham.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2008-05-25T14:11:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">nottingham.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEdTCCA12gAwIBAgIQe1M3iT3f/2KTNQrtPxJO9zANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEzMDQxMTAwMDAwMFoXDTE2MDQxMDIzNTk1OVowQjEhMB8GA1UE
+						CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMR0wGwYDVQQDExRpZHAubm90dGlu
+						Z2hhbS5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAPCJKaG8
+						8WhWnpx1nIaiU+QJnQONYwqLyA8mpBThyXDGBZum2/u7rJeaqAicbtOSO+Wlwfz0
+						nPPxgv7g103BOCELqo5vc2agVJZTTGBHAPbJsSpnqZTcxZVqCooemLFeh+7YS5C/
+						vk1XZmk0O63JAqmTJSFOi4OpdcbI1uojACA5mhpYVb1PllMwbOMOBDPT79DZSUDi
+						8nu3xzEYOkSOw33Fk8wmXMU4/vjn3ZHBv9SbUyA0FyRiMIk3XujXRIUaVrJBKvkQ
+						MFF6r84N6oRQH/UCsvzBYYBIh0f0Vl+irwpzj7e/p/8FV1QQmVMB9D4DG1zcqTiK
+						nEC0YIAnf9ec1JUCAwEAAaOCAXEwggFtMB8GA1UdIwQYMBaAFAy9k2gM896ro0lr
+						KzdXR+qQ47ntMB0GA1UdDgQWBBTQtQfjFYFrVoVdyhsPVSEgFgwwgTAOBgNVHQ8B
+						Af8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYB
+						BQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEwOgYDVR0f
+						BDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xD
+						QS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRj
+						cy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDov
+						L29jc3AudGNzLnRlcmVuYS5vcmcwHwYDVR0RBBgwFoIUaWRwLm5vdHRpbmdoYW0u
+						YWMudWswDQYJKoZIhvcNAQEFBQADggEBAHpnljGSmsagTtG4QQXuYT9riYNyw4lX
+						w3P96GIFPKPH4q1B5IUbIWqvXm5/YWG1t5GK3sdNl/H0I2Araej3h3Ep1VKyU1IS
+						MtmyAMVFbEFK7qpLqGadOCJojIOKkgSNv9B601iJ9MLc3HETBK3/plotP1SBMiBH
+						ErIC3PM2XB6gZ53u7GdsBt58gL0KamrLWRfBymXMB30EdBZyncAUse5EuCmP0+zy
+						YrWrdQpwZFzid6O8ClK4matKCpg4i2XG0mw+5sH7aPN/j+whNj4xzvKbv1T9Yke+
+						mA0w+oSnr4UMSWEb2bb985BmqcNfixmz0EtzfqnKkLL0h1oS9WLoFKs=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.nottingham.ac.uk:8443/shibboleth-idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.nottingham.ac.uk:8443/shibboleth-idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.nottingham.ac.uk/shibboleth-idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.nottingham.ac.uk/shibboleth-idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.nottingham.ac.uk/shibboleth-idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.nottingham.ac.uk/shibboleth-idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">nottingham.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEdTCCA12gAwIBAgIQe1M3iT3f/2KTNQrtPxJO9zANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEzMDQxMTAwMDAwMFoXDTE2MDQxMDIzNTk1OVowQjEhMB8GA1UE
+						CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMR0wGwYDVQQDExRpZHAubm90dGlu
+						Z2hhbS5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAPCJKaG8
+						8WhWnpx1nIaiU+QJnQONYwqLyA8mpBThyXDGBZum2/u7rJeaqAicbtOSO+Wlwfz0
+						nPPxgv7g103BOCELqo5vc2agVJZTTGBHAPbJsSpnqZTcxZVqCooemLFeh+7YS5C/
+						vk1XZmk0O63JAqmTJSFOi4OpdcbI1uojACA5mhpYVb1PllMwbOMOBDPT79DZSUDi
+						8nu3xzEYOkSOw33Fk8wmXMU4/vjn3ZHBv9SbUyA0FyRiMIk3XujXRIUaVrJBKvkQ
+						MFF6r84N6oRQH/UCsvzBYYBIh0f0Vl+irwpzj7e/p/8FV1QQmVMB9D4DG1zcqTiK
+						nEC0YIAnf9ec1JUCAwEAAaOCAXEwggFtMB8GA1UdIwQYMBaAFAy9k2gM896ro0lr
+						KzdXR+qQ47ntMB0GA1UdDgQWBBTQtQfjFYFrVoVdyhsPVSEgFgwwgTAOBgNVHQ8B
+						Af8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYB
+						BQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEwOgYDVR0f
+						BDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xD
+						QS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRj
+						cy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDov
+						L29jc3AudGNzLnRlcmVuYS5vcmcwHwYDVR0RBBgwFoIUaWRwLm5vdHRpbmdoYW0u
+						YWMudWswDQYJKoZIhvcNAQEFBQADggEBAHpnljGSmsagTtG4QQXuYT9riYNyw4lX
+						w3P96GIFPKPH4q1B5IUbIWqvXm5/YWG1t5GK3sdNl/H0I2Araej3h3Ep1VKyU1IS
+						MtmyAMVFbEFK7qpLqGadOCJojIOKkgSNv9B601iJ9MLc3HETBK3/plotP1SBMiBH
+						ErIC3PM2XB6gZ53u7GdsBt58gL0KamrLWRfBymXMB30EdBZyncAUse5EuCmP0+zy
+						YrWrdQpwZFzid6O8ClK4matKCpg4i2XG0mw+5sH7aPN/j+whNj4xzvKbv1T9Yke+
+						mA0w+oSnr4UMSWEb2bb985BmqcNfixmz0EtzfqnKkLL0h1oS9WLoFKs=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.nottingham.ac.uk:8443/shibboleth-idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.nottingham.ac.uk:8443/shibboleth-idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Nottingham</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Nottingham</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.nottingham.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>University of Nottingham IT Helpline</md:GivenName>
+      <md:EmailAddress>mailto:itservicedesk@nottingham.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Craig</md:GivenName>
+      <md:SurName>Betts</md:SurName>
+      <md:EmailAddress>mailto:Craig.Betts@nottingham.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

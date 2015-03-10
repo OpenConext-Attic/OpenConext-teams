@@ -1,0 +1,68 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://intranet.merton.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-09-26T15:23:58Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://intranet.merton.ox.ac.uk/Shibboleth.sso/Login"/>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University of Oxford, Merton College Intranet</mdui:DisplayName>
+          <mdui:Logo height="111" width="263">https://intranet.merton.ox.ac.uk/sites/intranet.merton.ox.ac.uk/themes/intranet_merton/logo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDPDCCAiSgAwIBAgIJAKQRJD1xnl84MA0GCSqGSIb3DQEBBQUAMCMxITAfBgNV
+						BAMTGGludHJhbmV0Lm1lcnRvbi5veC5hYy51azAeFw0xMzA5MjMxMzIwMzlaFw0y
+						MzA5MjExMzIwMzlaMCMxITAfBgNVBAMTGGludHJhbmV0Lm1lcnRvbi5veC5hYy51
+						azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJp0mSk8QaA3c+pVIhXH
+						OqeLTK1d8dfufGu0fXb6mk3NEHlfh9kYV6Nil1S52S0OPpCoQpN9WqZoNxENwBKB
+						izzkZAZkQsA1v64lX1uVbHK3wIF9JS0im1quoeeRO8RKuHhjpUKzeXlWnW3lMLnu
+						2ej8mmIkNfRKXuCSUUXJiz5KScTNyE/0PiPfcRxDWpacxwOfu9g85sKyFib1gx/5
+						kQTGjABsts3PeAyg7SljCzA/U6J9ViLL19HttvHC+5NBu99amLA71JlR4zLp7W1v
+						XzAJg0YiKDI6KtVVnEmQwcruWYK3+dGpbdzevqXPQl2rQIKep2MxQU7A5M4xNFbx
+						WY0CAwEAAaNzMHEwUAYDVR0RBEkwR4IYaW50cmFuZXQubWVydG9uLm94LmFjLnVr
+						hitodHRwczovL2ludHJhbmV0Lm1lcnRvbi5veC5hYy51ay9zaGliYm9sZXRoMB0G
+						A1UdDgQWBBQPWqo8KVCpXpCs58z3yiZxZ7aEXDANBgkqhkiG9w0BAQUFAAOCAQEA
+						N6g+njK3z8Em26gSbBPkb4IEbyvTfThDXOaQdut6Z483Vz5zVL1K+4VWVNTfD2wG
+						n1s86viBwlcPJJpn5odC1qFKQ9vQUgG7d6ThYlkbD1HSMa3oHYcZ1InASsULyXjW
+						uIn0LrsIj0VWZuRR1cn4yMJ39sFy6a+cF8ja3UlZasePp//1wk+/wuzV4jawCBKz
+						/1hHqxpIN9q/vDF9YJV6Ymks3ZOEu7fhzg5UufviWDbAAUmnvGalqCKytCyWKD1i
+						b3NJBlsPeMT6yUB7hAJFAejood7dtZsCUPn2IDv6f2bPORb1Y/KTI647jYeWY8T9
+						U2c4+fv9MNj3M0Of+23vCw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://intranet.merton.ox.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://intranet.merton.ox.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://intranet.merton.ox.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://intranet.merton.ox.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://intranet.merton.ox.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://intranet.merton.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://intranet.merton.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://intranet.merton.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://intranet.merton.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://intranet.merton.ox.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://intranet.merton.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford, Merton College Intranet</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://intranet.merton.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Simon</md:GivenName>
+      <md:SurName>Cope</md:SurName>
+      <md:EmailAddress>mailto:simon.cope@merton.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Steve</md:GivenName>
+      <md:SurName>Bowdery</md:SurName>
+      <md:EmailAddress>mailto:steve.bowdery@merton.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

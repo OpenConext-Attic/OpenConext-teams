@@ -1,14 +1,14 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" entityID="https://login.helsinki.fi/shibboleth">
-    <Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.csc.fi/haka">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://login.helsinki.fi/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.csc.fi/haka">
         <mdrpi:RegistrationPolicy xml:lang="en">http://www.csc.fi/english/institutions/haka/instructions/join/eduGAINRegistrationStatement/</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-    </Extensions>
-    <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
         <shibmd:Scope regexp="false">helsinki.fi</shibmd:Scope>
-      </Extensions>
-      <KeyDescriptor>
+      </md:Extensions>
+      <md:KeyDescriptor>
         <ds:KeyInfo>
           <ds:X509Data>
             <ds:X509Certificate>MIIE3jCCA8agAwIBAgIQWSnA5EzgO1nthR4AsdlaoTANBgkqhkiG9w0BAQUFADA2
@@ -40,30 +40,30 @@ NYY+HvJbSaNYXLkLzxOl8+fWFZqxmThOsb5KAx1xVjNVo2DiwC0crol7Wd0uDJEm
 Ahw=</ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.helsinki.fi/idp/profile/SAML2/Redirect/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.helsinki.fi/idp/profile/SAML2/POST/SSO"/>
-    </IDPSSODescriptor>
-    <Organization>
-      <OrganizationName xml:lang="fi">Helsingin yliopisto</OrganizationName>
-      <OrganizationName xml:lang="en">University of Helsinki</OrganizationName>
-      <OrganizationName xml:lang="sv">Helsingfors universitet</OrganizationName>
-      <OrganizationDisplayName xml:lang="fi">Helsingin yliopisto</OrganizationDisplayName>
-      <OrganizationDisplayName xml:lang="en">University of Helsinki</OrganizationDisplayName>
-      <OrganizationDisplayName xml:lang="sv">Helsingfors universitet</OrganizationDisplayName>
-      <OrganizationURL xml:lang="fi">http://www.helsinki.fi/yliopisto/</OrganizationURL>
-      <OrganizationURL xml:lang="en">http://www.helsinki.fi/yliopisto/</OrganizationURL>
-      <OrganizationURL xml:lang="sv">http://www.helsinki.fi/yliopisto/</OrganizationURL>
-    </Organization>
-    <ContactPerson contactType="technical">
-      <GivenName>Janne</GivenName>
-      <SurName>Peltonen</SurName>
-      <EmailAddress>mailto:idm-hosting@helsinki.fi</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="support">
-      <GivenName>Juha</GivenName>
-      <SurName>Niemi</SurName>
-      <EmailAddress>mailto:idm-hosting@helsinki.fi</EmailAddress>
-    </ContactPerson>
-  </EntityDescriptor>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.helsinki.fi/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://login.helsinki.fi/idp/profile/SAML2/POST/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="fi">Helsingin yliopisto</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">University of Helsinki</md:OrganizationName>
+      <md:OrganizationName xml:lang="sv">Helsingfors universitet</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="fi">Helsingin yliopisto</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">University of Helsinki</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="sv">Helsingfors universitet</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="fi">http://www.helsinki.fi/yliopisto/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.helsinki.fi/yliopisto/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="sv">http://www.helsinki.fi/yliopisto/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Janne</md:GivenName>
+      <md:SurName>Peltonen</md:SurName>
+      <md:EmailAddress>mailto:idm-hosting@helsinki.fi</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Juha</md:GivenName>
+      <md:SurName>Niemi</md:SurName>
+      <md:EmailAddress>mailto:idm-hosting@helsinki.fi</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

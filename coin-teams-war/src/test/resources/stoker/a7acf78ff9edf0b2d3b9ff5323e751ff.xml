@@ -1,0 +1,73 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.umu.se/saml2/idp/metadata.php">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">umu.se</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="sv">Umeå universitet</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Umeå University</mdui:DisplayName>
+          <mdui:Description xml:lang="sv">Identity Provider för Umeå universitet</mdui:Description>
+          <mdui:Description xml:lang="en">Identity Provider for Umeå University</mdui:Description>
+          <mdui:InformationURL xml:lang="sv">http://www.umu.se/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">http://www.umu.se/english/</mdui:InformationURL>
+          <mdui:Logo height="63" width="358">https://www.umu.se/static/images/umu_logo.jpg</mdui:Logo>
+          <mdui:Logo height="63" width="358" xml:lang="sv">https://www.umu.se/static/images/umu_logo.jpg</mdui:Logo>
+          <mdui:Logo height="63" width="350" xml:lang="en">https://www.umu.se/static/images/umu_logo_eng.jpg</mdui:Logo>
+          <mdui:Keywords xml:lang="sv">umu umea+universitet umea+university</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">umu umea+universitet umea+university</mdui:Keywords>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>umu.se</mdui:DomainHint>
+          <mdui:IPHint>130.239.0.0/16</mdui:IPHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDhzCCAm+gAwIBAgIJAI1+B/ykYMKxMA0GCSqGSIb3DQEBBQUAMFoxCzAJBgNVBAYTAlNFMQ0wCwYDVQQHDARVbWVhMRkwFwYDVQQKDBBVbWVhIHVuaXZlcnNpdGV0MQwwCgYDVQQLDANJVFMxEzARBgNVBAMMCmlkcC51bXUuc2UwHhcNMTIwMTE3MDkwNzAyWhcNMjIwMTE0MDkwNzAyWjBaMQswCQYDVQQGEwJTRTENMAsGA1UEBwwEVW1lYTEZMBcGA1UECgwQVW1lYSB1bml2ZXJzaXRldDEMMAoGA1UECwwDSVRTMRMwEQYDVQQDDAppZHAudW11LnNlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxi4TpxJad+Voksq5ArQ1D5yYx0u9Tq6kaNJDFGUQOSb6rzfiiau3p/Uy02Hy5Y/iPAZblYffrTpQOC6dcrYRdoKI20ZWyc7dwc24yuo8mfsnNt5xoAHZbmAO6jw98tvYz0WWXYYcBbkiAwELfSdLd1n8V6mCpx3oLji/xzhBw+B+sLkLUXVaG3p3lTDicRmpuZPnaOKVDexYHWrJ98JZw45k8aw/SpwBZJzcJ4HtaUIrtrjasdbPmfL92nr8XM3mFMQRBjMwZNnt8MIpBnnmZVk9HlzgFooL1OkaujpLMxzhAi2Ft8rHxZYsboGZytlPgPGnfANQ4+bFb67bKFfUXwIDAQABo1AwTjAdBgNVHQ4EFgQUWGMuElpC3shsrqn7K+chLwAGFMAwHwYDVR0jBBgwFoAUWGMuElpC3shsrqn7K+chLwAGFMAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOCAQEAM0k3m+271OHet+AWgHhApuy3TcnobVixJSAdOjiPhX8sIbA62m9NDEFrPBew1HUh2XYaO87rSxZXS2NsXQmkkcOpavAqVISckEX9jpjgBEC/8Kz2uFzf9uf/7eYA1tnJTRVpfy1XLd9D7B3R8B/vjnYBJVgKtlz2qJrDr7RvZ8+twMYcDnqiVcjbvhDN0ItOdW9Wn5arzMQddUUI4Ok9KBPJxO3NP9crHJ7o63gLvB6YjEK+zcKagIHc8y+8xmuXzbg2zaQAY9GKxdyVjbmMQtEm8R99vmrmXgz0qfng8ET8WPkRl7ugPTYCo+H2Bq/rN31pRLF+MVBq/kHc7lPk3w==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDhzCCAm+gAwIBAgIJAI1+B/ykYMKxMA0GCSqGSIb3DQEBBQUAMFoxCzAJBgNVBAYTAlNFMQ0wCwYDVQQHDARVbWVhMRkwFwYDVQQKDBBVbWVhIHVuaXZlcnNpdGV0MQwwCgYDVQQLDANJVFMxEzARBgNVBAMMCmlkcC51bXUuc2UwHhcNMTIwMTE3MDkwNzAyWhcNMjIwMTE0MDkwNzAyWjBaMQswCQYDVQQGEwJTRTENMAsGA1UEBwwEVW1lYTEZMBcGA1UECgwQVW1lYSB1bml2ZXJzaXRldDEMMAoGA1UECwwDSVRTMRMwEQYDVQQDDAppZHAudW11LnNlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxi4TpxJad+Voksq5ArQ1D5yYx0u9Tq6kaNJDFGUQOSb6rzfiiau3p/Uy02Hy5Y/iPAZblYffrTpQOC6dcrYRdoKI20ZWyc7dwc24yuo8mfsnNt5xoAHZbmAO6jw98tvYz0WWXYYcBbkiAwELfSdLd1n8V6mCpx3oLji/xzhBw+B+sLkLUXVaG3p3lTDicRmpuZPnaOKVDexYHWrJ98JZw45k8aw/SpwBZJzcJ4HtaUIrtrjasdbPmfL92nr8XM3mFMQRBjMwZNnt8MIpBnnmZVk9HlzgFooL1OkaujpLMxzhAi2Ft8rHxZYsboGZytlPgPGnfANQ4+bFb67bKFfUXwIDAQABo1AwTjAdBgNVHQ4EFgQUWGMuElpC3shsrqn7K+chLwAGFMAwHwYDVR0jBBgwFoAUWGMuElpC3shsrqn7K+chLwAGFMAwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOCAQEAM0k3m+271OHet+AWgHhApuy3TcnobVixJSAdOjiPhX8sIbA62m9NDEFrPBew1HUh2XYaO87rSxZXS2NsXQmkkcOpavAqVISckEX9jpjgBEC/8Kz2uFzf9uf/7eYA1tnJTRVpfy1XLd9D7B3R8B/vjnYBJVgKtlz2qJrDr7RvZ8+twMYcDnqiVcjbvhDN0ItOdW9Wn5arzMQddUUI4Ok9KBPJxO3NP9crHJ7o63gLvB6YjEK+zcKagIHc8y+8xmuXzbg2zaQAY9GKxdyVjbmMQtEm8R99vmrmXgz0qfng8ET8WPkRl7ugPTYCo+H2Bq/rN31pRLF+MVBq/kHc7lPk3w==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.umu.se/saml2/idp/ArtifactResolutionService.php" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.umu.se/saml2/idp/SingleLogoutService.php"/>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.umu.se/saml2/idp/SSOService.php"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="sv">UmU</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">UmU</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sv">Umeå Universitet</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Umeå University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="sv">http://www.umu.se</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.umu.se/english</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:Company>Umeå University</md:Company>
+      <md:SurName>ITS datordrift</md:SurName>
+      <md:EmailAddress>datordrift@its.umu.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 90 786 6300</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:Company>Umeå University</md:Company>
+      <md:SurName>ITS datordrift</md:SurName>
+      <md:EmailAddress>datordrift@its.umu.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 90 786 6300</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>Umeå University</md:Company>
+      <md:SurName>Servicedesk Umeå universitet</md:SurName>
+      <md:EmailAddress>support@its.umu.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 90 786 6300</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

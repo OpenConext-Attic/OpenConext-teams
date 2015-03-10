@@ -1,33 +1,31 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" ID="IDEM-EDUGAIN00035" entityID="https://zeroshell.irccs-stellamaris.it:12081/shibboleth">
-        <Extensions>
-            <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.idem.garr.it/" registrationInstant="2014-06-04T10:00:00Z">
-                <mdrpi:RegistrationPolicy xml:lang="en">https://www.idem.garr.it/idem-metadata-registration-practice-statement</mdrpi:RegistrationPolicy>
-            </mdrpi:RegistrationInfo>
-            
-            
-            <mdattr:EntityAttributes>
-                <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
-                    <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
-                </saml:Attribute>
-            </mdattr:EntityAttributes>
-        </Extensions>
-        <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
-            <Extensions>
-                <mdui:UIInfo>
-                    <mdui:DisplayName xml:lang="en">WIFI powered by IRCCS Fondazione Stella Maris</mdui:DisplayName>
-                    <mdui:DisplayName xml:lang="it">WIFI erogato da IRCCS Fondazione Stella Maris</mdui:DisplayName>
-                    <mdui:Description xml:lang="en">IRCCS Fondazione Stella Maris, WiFi network access</mdui:Description>
-                    <mdui:Description xml:lang="it">Accesso alla rete WiFi di IRCCS Fondazione Stella Maris</mdui:Description>
-                    <mdui:InformationURL xml:lang="en">http://www.fsm.unipi.it/idem/servizio_wifi_en.html</mdui:InformationURL>
-                    <mdui:InformationURL xml:lang="it">http://www.fsm.unipi.it/idem/servizio_wifi.html</mdui:InformationURL>
-                    <mdui:PrivacyStatementURL xml:lang="en">http://www.fsm.unipi.it/idem/servizio_wifi_en.html</mdui:PrivacyStatementURL>
-                    <mdui:PrivacyStatementURL xml:lang="it">http://www.fsm.unipi.it/idem/servizio_wifi.html</mdui:PrivacyStatementURL>
-                </mdui:UIInfo>
-            </Extensions>
-            <KeyDescriptor use="encryption">
-                <ds:KeyInfo>
-                    <ds:X509Data>
-                        <ds:X509Certificate>
+<md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://zeroshell.irccs-stellamaris.it:12081/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.idem.garr.it/" registrationInstant="2014-06-04T10:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.idem.garr.it/idem-metadata-registration-practice-statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">WIFI powered by IRCCS Fondazione Stella Maris</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="it">WIFI erogato da IRCCS Fondazione Stella Maris</mdui:DisplayName>
+          <mdui:Description xml:lang="en">IRCCS Fondazione Stella Maris, WiFi network access</mdui:Description>
+          <mdui:Description xml:lang="it">Accesso alla rete WiFi di IRCCS Fondazione Stella Maris</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.fsm.unipi.it/idem/servizio_wifi_en.html</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="it">http://www.fsm.unipi.it/idem/servizio_wifi.html</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">http://www.fsm.unipi.it/idem/servizio_wifi_en.html</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="it">http://www.fsm.unipi.it/idem/servizio_wifi.html</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIEpTCCA42gAwIBAgIRAK+9wyhwi2cPugqoTWMzt7wwDQYJKoZIhvcNAQEFBQAw
 NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
 IFNTTCBDQTAeFw0xNDA0MTAwMDAwMDBaFw0xNzA0MDkyMzU5NTlaMEwxITAfBgNV
@@ -54,13 +52,13 @@ RLeYr22GJWHkTrHWH+ur2FaB/VzMaRMpBnK084mSrnKmKI2hTHdrv7wYX8lnuYhs
 CYFaxF/RoF9vvQeQQnKwXv3l6SZHei08SgLClw5oWXiwwv8i0cgKNmf0rvXooZJa
 EBqhfy4T1t3TB0ARzgnn8tJ8VwrzLlEJBiy/h77aZregVImJIX6t20M=
 </ds:X509Certificate>
-                    </ds:X509Data>
-                </ds:KeyInfo>
-            </KeyDescriptor>
-            <KeyDescriptor use="signing">
-                <ds:KeyInfo>
-                    <ds:X509Data>
-                        <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIEpTCCA42gAwIBAgIRAK+9wyhwi2cPugqoTWMzt7wwDQYJKoZIhvcNAQEFBQAw
 NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
 IFNTTCBDQTAeFw0xNDA0MTAwMDAwMDBaFw0xNzA0MDkyMzU5NTlaMEwxITAfBgNV
@@ -87,38 +85,36 @@ RLeYr22GJWHkTrHWH+ur2FaB/VzMaRMpBnK084mSrnKmKI2hTHdrv7wYX8lnuYhs
 CYFaxF/RoF9vvQeQQnKwXv3l6SZHei08SgLClw5oWXiwwv8i0cgKNmf0rvXooZJa
 EBqhfy4T1t3TB0ARzgnn8tJ8VwrzLlEJBiy/h77aZregVImJIX6t20M=
 </ds:X509Certificate>
-                    </ds:X509Data>
-                </ds:KeyInfo>
-            </KeyDescriptor>
-            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://zeroshell.irccs-stellamaris.it:12081/Shibboleth.sso/SAML2/POST" index="1"/>
-            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://zeroshell.irccs-stellamaris.it:12081/Shibboleth.sso/SAML/Artifact" index="5"/>
-            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://zeroshell.irccs-stellamaris.it:12081/Shibboleth.sso/SAML/POST" index="4"/>
-            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://zeroshell.irccs-stellamaris.it:12081/Shibboleth.sso/SAML2/ECP" index="3"/>
-            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://zeroshell.irccs-stellamaris.it:12081/Shibboleth.sso/SAML2/Artifact" index="2"/>
-            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://zeroshell.irccs-stellamaris.it:12081/Shibboleth.sso/SAML2/POST-SimpleSign" index="6"/>
-            <AttributeConsumingService index="1">
-                
-                <ServiceName xml:lang="en">WiFi IRCCS Fondazione Stella Maris</ServiceName>
-                <ServiceDescription xml:lang="en">WiFi IRCCS Fondazione Stella Maris</ServiceDescription>
-                <RequestedAttribute FriendlyName="eduPersonTargetedId" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-                <RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-                <RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
-            </AttributeConsumingService>
-            
-        </SPSSODescriptor>
-        <Organization>
-            <OrganizationName xml:lang="en">IRCCS Fondazione Stella Maris</OrganizationName>
-            <OrganizationName xml:lang="it">IRCCS Fondazione Stella Maris</OrganizationName>
-            <OrganizationDisplayName xml:lang="en">WiFi provided by IRCCS Fondazione Stella Maris</OrganizationDisplayName>
-            <OrganizationDisplayName xml:lang="it">WiFi erogato da IRCCS Fondazione Stella Maris</OrganizationDisplayName>
-            <OrganizationURL xml:lang="en">http://www.fsm.unipi.it</OrganizationURL>
-            <OrganizationURL xml:lang="it">http://www.fsm.unipi.it</OrganizationURL>
-        </Organization>
-        <ContactPerson contactType="administrative">
-            <SurName>Massimo Del Sarto</SurName>
-            <EmailAddress>ced@fsm.unipi.it</EmailAddress>
-        </ContactPerson>
-        <ContactPerson contactType="technical">
-            <EmailAddress>ced@fsm.unipi.it</EmailAddress>
-        </ContactPerson>
-    </EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://zeroshell.irccs-stellamaris.it:12081/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://zeroshell.irccs-stellamaris.it:12081/Shibboleth.sso/SAML/Artifact" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://zeroshell.irccs-stellamaris.it:12081/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://zeroshell.irccs-stellamaris.it:12081/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://zeroshell.irccs-stellamaris.it:12081/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://zeroshell.irccs-stellamaris.it:12081/Shibboleth.sso/SAML2/POST-SimpleSign" index="6"/>
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="en">WiFi IRCCS Fondazione Stella Maris</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">WiFi IRCCS Fondazione Stella Maris</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedId" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">IRCCS Fondazione Stella Maris</md:OrganizationName>
+      <md:OrganizationName xml:lang="it">IRCCS Fondazione Stella Maris</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">WiFi provided by IRCCS Fondazione Stella Maris</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="it">WiFi erogato da IRCCS Fondazione Stella Maris</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.fsm.unipi.it</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="it">http://www.fsm.unipi.it</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:SurName>Massimo Del Sarto</md:SurName>
+      <md:EmailAddress>mailto:ced@fsm.unipi.it</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>mailto:ced@fsm.unipi.it</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

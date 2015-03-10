@@ -1,25 +1,20 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://vip.espci.fr/saml2/idp/metadata.php">
-			<Extensions>
-				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2010-05-31T18:03:42Z">
-					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
-				</mdrpi:RegistrationInfo>
-			</Extensions>
-		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">espci.fr</shibmd:Scope>
-    
-			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
-          		      
-          		      
-          		      <mdui:DisplayName xml:lang="fr">ESPCI ParisTech</mdui:DisplayName>
-          		      
-      			    </mdui:UIInfo>
-			</Extensions>
-				<KeyDescriptor use="signing">
-<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://vip.espci.fr/saml2/idp/metadata.php">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://federation.renater.fr/" registrationInstant="2010-05-31T18:03:42Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">espci.fr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="fr">ESPCI ParisTech</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIFdjCCBF6gAwIBAgIQINOwQe4k09iKRAogjYscZDANBgkqhkiG9w0BAQUFADA2
 MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
 U1NMIENBMB4XDTE0MDQwODAwMDAwMFoXDTE3MDQwNzIzNTk1OVowOjEhMB8GA1UE
@@ -51,17 +46,13 @@ MthAhzQKI6LenYb3jIJqy8OKgEAZB/kQcWfmVlXws7CyxFk6XJS7tIm52d9ywMGe
 M3PXyfI7EheNPXVG8+6JL5disJ3pvtZwIrzh3ApWc4NDE2BISXejQZxpl5wVtCt+
 aWaLoR3kbEdTYA==
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-					</ds:KeyInfo>
-				</KeyDescriptor>
-
-				
-				
-				<KeyDescriptor use="signing">
-				       <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIFdjCCBF6gAwIBAgIQINOwQe4k09iKRAogjYscZDANBgkqhkiG9w0BAQUFADA2
 MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
 U1NMIENBMB4XDTE0MDQwODAwMDAwMFoXDTE3MDQwNzIzNTk1OVowOjEhMB8GA1UE
@@ -93,49 +84,26 @@ MthAhzQKI6LenYb3jIJqy8OKgEAZB/kQcWfmVlXws7CyxFk6XJS7tIm52d9ywMGe
 M3PXyfI7EheNPXVG8+6JL5disJ3pvtZwIrzh3ApWc4NDE2BISXejQZxpl5wVtCt+
 aWaLoR3kbEdTYA==
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					</ds:KeyInfo>
-				</KeyDescriptor>
-				
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-
-			
-			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://vip.espci.fr/saml2/idp/SSOService.php"/>
-	        
-	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://vip.espci.fr/saml2/idp/SSOService.php"/>
-	        
-	        
-			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://vip.espci.fr/shib13/idp/SSOService.php"/>
-			
-
-		</IDPSSODescriptor>
-		
-
-
-		<Organization>
-		
-			<OrganizationName xml:lang="en">ESPCI ParisTech</OrganizationName>
-			<OrganizationDisplayName xml:lang="en">ESPCI ParisTech</OrganizationDisplayName>
-			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
-		
-		</Organization>
-
-			
-		    	
-			    <ContactPerson contactType="technical">
-				 <SurName>Emmanuel Dreyfus</SurName>
-				 <EmailAddress>Emmanuel.Dreyfus@espci.fr</EmailAddress>
-		        </ContactPerson>
-			    	
-
-		    	
-			    <ContactPerson contactType="technical">
-				 <SurName>Jean-Jacques Puig</SurName>
-				 <EmailAddress>Jean-Jacques.Puig@espci.fr</EmailAddress>
-		        </ContactPerson>
-			    	
-
-				
-			
-	</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://vip.espci.fr/saml2/idp/SSOService.php"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://vip.espci.fr/saml2/idp/SSOService.php"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://vip.espci.fr/shib13/idp/SSOService.php"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">ESPCI ParisTech</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">ESPCI ParisTech</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://unknown.site.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Emmanuel Dreyfus</md:SurName>
+      <md:EmailAddress>Emmanuel.Dreyfus@espci.fr</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Jean-Jacques Puig</md:SurName>
+      <md:EmailAddress>Jean-Jacques.Puig@espci.fr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

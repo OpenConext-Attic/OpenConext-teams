@@ -1,0 +1,150 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="http://oasp.beta.athensams.net/OaspMetadata">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0         urn:oasis:names:tc:SAML:1.1:protocol         urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">openathens.net</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEtTCCA52gAwIBAgIBADANBgkqhkiG9w0BAQUFADCBnTELMAkGA1UEBhMCR0Ix
+						ETAPBgNVBAgTCFNvbWVyc2V0MQ0wCwYDVQQHEwRCYXRoMRAwDgYDVQQKEwdFZHVz
+						ZXJ2MQ8wDQYDVQQLEwZBdGhlbnMxIDAeBgNVBAMTF29hc3AuYmV0YS5hdGhlbnNh
+						bXMubmV0MScwJQYJKoZIhvcNAQkBFhhhdGhlbnNkc3BAZWR1c2Vydi5vcmcudWsw
+						HhcNMDgwMjE1MDk1ODM1WhcNMTgwMjEyMDk1ODM1WjCBnTELMAkGA1UEBhMCR0Ix
+						ETAPBgNVBAgTCFNvbWVyc2V0MQ0wCwYDVQQHEwRCYXRoMRAwDgYDVQQKEwdFZHVz
+						ZXJ2MQ8wDQYDVQQLEwZBdGhlbnMxIDAeBgNVBAMTF29hc3AuYmV0YS5hdGhlbnNh
+						bXMubmV0MScwJQYJKoZIhvcNAQkBFhhhdGhlbnNkc3BAZWR1c2Vydi5vcmcudWsw
+						ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDLYAfycv0j9S88QfU4GCGU
+						Md16DqYLQpEDBvRPLuAjKypBoIZwnKbhh+p6GlafYsXk/oNpG5EZ4Wn/tYd8CM2w
+						2bpoifmGAiXKvWoh87vgotkZnrvStGj/Aw7eUM8nsfduMbiw6vCO7BQAfwGzkUL7
+						7obaMLA9Zbz5afGAvzq9k58+D6u9ox/DzAdN4iqbrFgvnxiN2uvusIkIeMoxUREd
+						qiFFoXlk97Sj7yeKggkA25AtOUO2LnI8Le7FT3dP2jlCB9onlIa0ZR0Fm/RjFu4t
+						zxB+jwvZ3VTqmxIzzCYxi6wK+xOaJPVwLvSGTwyquNUJSrMAOef43rIMCVAQDmKr
+						AgMBAAGjgf0wgfowHQYDVR0OBBYEFH7zEIp6CNN5LLMic1imrULmiSBgMIHKBgNV
+						HSMEgcIwgb+AFH7zEIp6CNN5LLMic1imrULmiSBgoYGjpIGgMIGdMQswCQYDVQQG
+						EwJHQjERMA8GA1UECBMIU29tZXJzZXQxDTALBgNVBAcTBEJhdGgxEDAOBgNVBAoT
+						B0VkdXNlcnYxDzANBgNVBAsTBkF0aGVuczEgMB4GA1UEAxMXb2FzcC5iZXRhLmF0
+						aGVuc2Ftcy5uZXQxJzAlBgkqhkiG9w0BCQEWGGF0aGVuc2RzcEBlZHVzZXJ2Lm9y
+						Zy51a4IBADAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQBoIKKJtwn/
+						MUxqYHeOpCjgHxOFssQpALuuasCpx7Ojb/a1fkV2523hI09zDTy2m7s3C9szPhwx
+						Zv1LUshbMsZon2bYXZwDdFa8tkzOYlZpKhguv6r/5LFZI2s09uDaVrFl6cVxFAUz
+						FQiY8XQHME4m+hxqf8RMGMid+33QtIIlEAD4/OnvquHXBxiO8ESMxebV4mNLkn34
+						KEfS16BFBP3scX62GBHqg+dAZVJHHjbIdIQsPcFa/3UElFMxur1gOKclzjHa8GX3
+						0YGxOwt3hjmCenx6jVu/4RF5tN8GLvq5dcU1o0M6b8bDf70Htq2WS+4RIAsO+NHd
+						7HIXRm4dVYw+
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://oasp-beta.athensams.net/oala/sso"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://oasp-beta.athensams.net/oala/sso"/>
+    </md:IDPSSODescriptor>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEtTCCA52gAwIBAgIBADANBgkqhkiG9w0BAQUFADCBnTELMAkGA1UEBhMCR0Ix
+						ETAPBgNVBAgTCFNvbWVyc2V0MQ0wCwYDVQQHEwRCYXRoMRAwDgYDVQQKEwdFZHVz
+						ZXJ2MQ8wDQYDVQQLEwZBdGhlbnMxIDAeBgNVBAMTF29hc3AuYmV0YS5hdGhlbnNh
+						bXMubmV0MScwJQYJKoZIhvcNAQkBFhhhdGhlbnNkc3BAZWR1c2Vydi5vcmcudWsw
+						HhcNMDgwMjE1MDk1ODM1WhcNMTgwMjEyMDk1ODM1WjCBnTELMAkGA1UEBhMCR0Ix
+						ETAPBgNVBAgTCFNvbWVyc2V0MQ0wCwYDVQQHEwRCYXRoMRAwDgYDVQQKEwdFZHVz
+						ZXJ2MQ8wDQYDVQQLEwZBdGhlbnMxIDAeBgNVBAMTF29hc3AuYmV0YS5hdGhlbnNh
+						bXMubmV0MScwJQYJKoZIhvcNAQkBFhhhdGhlbnNkc3BAZWR1c2Vydi5vcmcudWsw
+						ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDLYAfycv0j9S88QfU4GCGU
+						Md16DqYLQpEDBvRPLuAjKypBoIZwnKbhh+p6GlafYsXk/oNpG5EZ4Wn/tYd8CM2w
+						2bpoifmGAiXKvWoh87vgotkZnrvStGj/Aw7eUM8nsfduMbiw6vCO7BQAfwGzkUL7
+						7obaMLA9Zbz5afGAvzq9k58+D6u9ox/DzAdN4iqbrFgvnxiN2uvusIkIeMoxUREd
+						qiFFoXlk97Sj7yeKggkA25AtOUO2LnI8Le7FT3dP2jlCB9onlIa0ZR0Fm/RjFu4t
+						zxB+jwvZ3VTqmxIzzCYxi6wK+xOaJPVwLvSGTwyquNUJSrMAOef43rIMCVAQDmKr
+						AgMBAAGjgf0wgfowHQYDVR0OBBYEFH7zEIp6CNN5LLMic1imrULmiSBgMIHKBgNV
+						HSMEgcIwgb+AFH7zEIp6CNN5LLMic1imrULmiSBgoYGjpIGgMIGdMQswCQYDVQQG
+						EwJHQjERMA8GA1UECBMIU29tZXJzZXQxDTALBgNVBAcTBEJhdGgxEDAOBgNVBAoT
+						B0VkdXNlcnYxDzANBgNVBAsTBkF0aGVuczEgMB4GA1UEAxMXb2FzcC5iZXRhLmF0
+						aGVuc2Ftcy5uZXQxJzAlBgkqhkiG9w0BCQEWGGF0aGVuc2RzcEBlZHVzZXJ2Lm9y
+						Zy51a4IBADAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQBoIKKJtwn/
+						MUxqYHeOpCjgHxOFssQpALuuasCpx7Ojb/a1fkV2523hI09zDTy2m7s3C9szPhwx
+						Zv1LUshbMsZon2bYXZwDdFa8tkzOYlZpKhguv6r/5LFZI2s09uDaVrFl6cVxFAUz
+						FQiY8XQHME4m+hxqf8RMGMid+33QtIIlEAD4/OnvquHXBxiO8ESMxebV4mNLkn34
+						KEfS16BFBP3scX62GBHqg+dAZVJHHjbIdIQsPcFa/3UElFMxur1gOKclzjHa8GX3
+						0YGxOwt3hjmCenx6jVu/4RF5tN8GLvq5dcU1o0M6b8bDf70Htq2WS+4RIAsO+NHd
+						7HIXRm4dVYw+
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEtTCCA52gAwIBAgIBADANBgkqhkiG9w0BAQUFADCBnTELMAkGA1UEBhMCR0Ix
+						ETAPBgNVBAgTCFNvbWVyc2V0MQ0wCwYDVQQHEwRCYXRoMRAwDgYDVQQKEwdFZHVz
+						ZXJ2MQ8wDQYDVQQLEwZBdGhlbnMxIDAeBgNVBAMTF29hc3AuYmV0YS5hdGhlbnNh
+						bXMubmV0MScwJQYJKoZIhvcNAQkBFhhhdGhlbnNkc3BAZWR1c2Vydi5vcmcudWsw
+						HhcNMDgwMjE1MDk1ODM1WhcNMTgwMjEyMDk1ODM1WjCBnTELMAkGA1UEBhMCR0Ix
+						ETAPBgNVBAgTCFNvbWVyc2V0MQ0wCwYDVQQHEwRCYXRoMRAwDgYDVQQKEwdFZHVz
+						ZXJ2MQ8wDQYDVQQLEwZBdGhlbnMxIDAeBgNVBAMTF29hc3AuYmV0YS5hdGhlbnNh
+						bXMubmV0MScwJQYJKoZIhvcNAQkBFhhhdGhlbnNkc3BAZWR1c2Vydi5vcmcudWsw
+						ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDLYAfycv0j9S88QfU4GCGU
+						Md16DqYLQpEDBvRPLuAjKypBoIZwnKbhh+p6GlafYsXk/oNpG5EZ4Wn/tYd8CM2w
+						2bpoifmGAiXKvWoh87vgotkZnrvStGj/Aw7eUM8nsfduMbiw6vCO7BQAfwGzkUL7
+						7obaMLA9Zbz5afGAvzq9k58+D6u9ox/DzAdN4iqbrFgvnxiN2uvusIkIeMoxUREd
+						qiFFoXlk97Sj7yeKggkA25AtOUO2LnI8Le7FT3dP2jlCB9onlIa0ZR0Fm/RjFu4t
+						zxB+jwvZ3VTqmxIzzCYxi6wK+xOaJPVwLvSGTwyquNUJSrMAOef43rIMCVAQDmKr
+						AgMBAAGjgf0wgfowHQYDVR0OBBYEFH7zEIp6CNN5LLMic1imrULmiSBgMIHKBgNV
+						HSMEgcIwgb+AFH7zEIp6CNN5LLMic1imrULmiSBgoYGjpIGgMIGdMQswCQYDVQQG
+						EwJHQjERMA8GA1UECBMIU29tZXJzZXQxDTALBgNVBAcTBEJhdGgxEDAOBgNVBAoT
+						B0VkdXNlcnYxDzANBgNVBAsTBkF0aGVuczEgMB4GA1UEAxMXb2FzcC5iZXRhLmF0
+						aGVuc2Ftcy5uZXQxJzAlBgkqhkiG9w0BCQEWGGF0aGVuc2RzcEBlZHVzZXJ2Lm9y
+						Zy51a4IBADAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQBoIKKJtwn/
+						MUxqYHeOpCjgHxOFssQpALuuasCpx7Ojb/a1fkV2523hI09zDTy2m7s3C9szPhwx
+						Zv1LUshbMsZon2bYXZwDdFa8tkzOYlZpKhguv6r/5LFZI2s09uDaVrFl6cVxFAUz
+						FQiY8XQHME4m+hxqf8RMGMid+33QtIIlEAD4/OnvquHXBxiO8ESMxebV4mNLkn34
+						KEfS16BFBP3scX62GBHqg+dAZVJHHjbIdIQsPcFa/3UElFMxur1gOKclzjHa8GX3
+						0YGxOwt3hjmCenx6jVu/4RF5tN8GLvq5dcU1o0M6b8bDf70Htq2WS+4RIAsO+NHd
+						7HIXRm4dVYw+
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://oasp-beta.athensams.net/oa/auth/rcv/shib/post" index="1" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://oasp-beta.athensams.net/oa/auth/rcv/shib/art" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://oasp-beta.athensams.net/oa/auth/rcv/saml2/post" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://oasp-beta.athensams.net/oa/auth/rcv/saml2/art" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://oasp-beta.athensams.net:5070/oa/auth/rcv/shib/post" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://oasp-beta.athensams.net:5070/oa/auth/rcv/shib/art" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://oasp-beta.athensams.net:5070/oa/auth/rcv/saml2/post" index="7"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://oasp-beta.athensams.net:5070/oa/auth/rcv/saml2/art" index="8"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://oasp-beta.athensams.net/oa/auth/rcv" index="9"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://oasp-beta.athensams.net/oa/auth/rcv" index="10"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://oasp-beta.athensams.net/oa/auth/rcv" index="11"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://oasp-beta.athensams.net/oa/auth/rcv" index="12"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://oasp-beta.athensams.net:5070/oa/auth/rcv" index="13"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://oasp-beta.athensams.net:5070/oa/auth/rcv" index="14"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://oasp-beta.athensams.net:5070/oa/auth/rcv" index="15"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://oasp-beta.athensams.net:5070/oa/auth/rcv" index="16"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Eduserv</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Eduserv Beta</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.athensams.net/dsp/openathens_sp</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Athens Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:athenshelp@eduserv.org.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Athens Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:athenshelp@eduserv.org.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,109 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.wmin.ac.uk/entity">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2007-03-09T15:50:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">wmin.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEnjCCA4agAwIBAgIQUB0mBc0vXZgV4/qqfZEFOjANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDEyNTAwMDAwMFoXDTE1MDEyNDIzNTk1OVowezELMAkGA1UE
+						BhMCR0IxDzANBgNVBAgTBkxvbmRvbjEPMA0GA1UEBxMGTG9uZG9uMSIwIAYDVQQK
+						ExlVbml2ZXJzaXR5IG9mIFdlc3RtaW5zdGVyMQ0wCwYDVQQLEwRJU0xTMRcwFQYD
+						VQQDEw5pZHAud21pbi5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC
+						ggEBAK5lFctDO3zJ1Byq/NsAIX8WQD05iZHGleoeXtrhs33a4c+s9KJsLgBueBSu
+						ZYfHyuR9IE7JPkBfXWG0E5/nIsEDZtdNP4hl3TLt0DfJPvMFMrq/Z1rJ5yi9mECf
+						l85HgaHbpmdzRtoRlRNBxNsxmqksGYIB4NMHdmKXVxb1qtQHksafncFgpdvnkz+j
+						fswwAyvHd4NRdMW0Uucab7Ca0WflOMwS4439JAGwdNWwxHd0aiPk2Pu1uRG0G+x1
+						u3cfzhLUKXUtJrHZd7KxxkrcRzRsW3gSehHV/ATK8eOV+wV334Aek2r94LL6iWmB
+						T7/QW6EZwH04woygbkmZKywpK0cCAwEAAaOCAWEwggFdMB8GA1UdIwQYMBaAFAy9
+						k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBRhKH6d7h5BfSzFHoTPWsXNUQq3
+						ojAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEF
+						BQcDAQYIKwYBBQUHAwIwGAYDVR0gBBEwDzANBgsrBgEEAbIxAQICHTA6BgNVHR8E
+						MzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENB
+						LmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNz
+						LnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8v
+						b2NzcC50Y3MudGVyZW5hLm9yZzAZBgNVHREEEjAQgg5pZHAud21pbi5hYy51azAN
+						BgkqhkiG9w0BAQUFAAOCAQEAsQwj5mRUX4X1rlK8XBj2QLlILMbTzAzrB+gSpFPD
+						KwrNk2LybOoqgkrPcc3LxO9qFFtmkXfIIfldpjYGjJJkjSHEgZfoWBiHSKQgllyI
+						NUNsDReE5zinRXPFPfTf7kh9lywYl7qQC7sx8CmF+El7hWBX1Z/j35JWuk4tucc/
+						ldXf4qXSFeKklw8/jpRvHXTs741nYbAaT9AdWCXICzgEq4Z6Z2rtf+gzzawo7DWt
+						LXDVTBpK95045Jx8ce0o46PcWY3bcWMe2Q7o+iSnkvgQ/xnnv9gCThs01LYVxgWV
+						cYD5Xwpx/LDszcLIr1XhqfdVWrRfSrNVt/Zxs3uG0N3Hgw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.wmin.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.wmin.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shib-login.wmin.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib-login.wmin.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib-login.wmin.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib-login.wmin.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">wmin.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEnjCCA4agAwIBAgIQUB0mBc0vXZgV4/qqfZEFOjANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDEyNTAwMDAwMFoXDTE1MDEyNDIzNTk1OVowezELMAkGA1UE
+						BhMCR0IxDzANBgNVBAgTBkxvbmRvbjEPMA0GA1UEBxMGTG9uZG9uMSIwIAYDVQQK
+						ExlVbml2ZXJzaXR5IG9mIFdlc3RtaW5zdGVyMQ0wCwYDVQQLEwRJU0xTMRcwFQYD
+						VQQDEw5pZHAud21pbi5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC
+						ggEBAK5lFctDO3zJ1Byq/NsAIX8WQD05iZHGleoeXtrhs33a4c+s9KJsLgBueBSu
+						ZYfHyuR9IE7JPkBfXWG0E5/nIsEDZtdNP4hl3TLt0DfJPvMFMrq/Z1rJ5yi9mECf
+						l85HgaHbpmdzRtoRlRNBxNsxmqksGYIB4NMHdmKXVxb1qtQHksafncFgpdvnkz+j
+						fswwAyvHd4NRdMW0Uucab7Ca0WflOMwS4439JAGwdNWwxHd0aiPk2Pu1uRG0G+x1
+						u3cfzhLUKXUtJrHZd7KxxkrcRzRsW3gSehHV/ATK8eOV+wV334Aek2r94LL6iWmB
+						T7/QW6EZwH04woygbkmZKywpK0cCAwEAAaOCAWEwggFdMB8GA1UdIwQYMBaAFAy9
+						k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBRhKH6d7h5BfSzFHoTPWsXNUQq3
+						ojAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEF
+						BQcDAQYIKwYBBQUHAwIwGAYDVR0gBBEwDzANBgsrBgEEAbIxAQICHTA6BgNVHR8E
+						MzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENB
+						LmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNz
+						LnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8v
+						b2NzcC50Y3MudGVyZW5hLm9yZzAZBgNVHREEEjAQgg5pZHAud21pbi5hYy51azAN
+						BgkqhkiG9w0BAQUFAAOCAQEAsQwj5mRUX4X1rlK8XBj2QLlILMbTzAzrB+gSpFPD
+						KwrNk2LybOoqgkrPcc3LxO9qFFtmkXfIIfldpjYGjJJkjSHEgZfoWBiHSKQgllyI
+						NUNsDReE5zinRXPFPfTf7kh9lywYl7qQC7sx8CmF+El7hWBX1Z/j35JWuk4tucc/
+						ldXf4qXSFeKklw8/jpRvHXTs741nYbAaT9AdWCXICzgEq4Z6Z2rtf+gzzawo7DWt
+						LXDVTBpK95045Jx8ce0o46PcWY3bcWMe2Q7o+iSnkvgQ/xnnv9gCThs01LYVxgWV
+						cYD5Xwpx/LDszcLIr1XhqfdVWrRfSrNVt/Zxs3uG0N3Hgw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.wmin.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.wmin.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Westminster</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Westminster</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.wmin.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Cavendish IT Service</md:GivenName>
+      <md:EmailAddress>mailto:cav-its@westminster.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>David</md:GivenName>
+      <md:SurName>Marriott</md:SurName>
+      <md:EmailAddress>mailto:d.marriott@westminster.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,100 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idpdev.bham.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-10-30T12:57:07Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">bham.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University of Birmingham (Development IdP)</mdui:DisplayName>
+          <mdui:Logo height="34" width="141">https://idpdev.bham.ac.uk/idp/images/University-of-Birmingham-logo.gif</mdui:Logo>
+          <mdui:Logo height="48" width="39">https://idpdev.bham.ac.uk/idp/images/University-of-Birmingham-crest.gif</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDMDCCAhigAwIBAgIVAIYsx+VotYdyVTmVfMXJU4jl5M1bMA0GCSqGSIb3DQEB
+						BQUAMBwxGjAYBgNVBAMTEWlkcGRldi5iaGFtLmFjLnVrMB4XDTEzMTAyMzA3MTM0
+						MFoXDTMzMTAyMzA3MTM0MFowHDEaMBgGA1UEAxMRaWRwZGV2LmJoYW0uYWMudWsw
+						ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCY1FzTRZgi3cA4QNBcz4xV
+						ZFi8+EqBjDqQ2fef/4ckTS6W/nrV0qsAx7Hlthl4O1XlzGC2bk2+ZdLFFCQ4nV64
+						0/ec4Wx2UxEZXpxQjibnv0MqYbyk/J/wiAKp+xGA0NT3EOP8pCamp2QXWgZWBysR
+						kb4Rpp3NcTRUTuDMk4nevte93t0D5tExns8/INhpPrDcshTJvcqe8ceYuu8qXYC3
+						OhBfpG4xYMdosIaATTYouAFHAu3Y9x7+uhkmdkY6HxAgbHrFCQLw0NdStHjZnEMo
+						FhqUPvQ/mM7hAeLgv+ivO2onTG16pEMT3xBolhwMmUumPE6W42L0zCtCGmaIRrTb
+						AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEWlkcGRldi5iaGFtLmFjLnVrhihodHRwczov
+						L2lkcGRldi5iaGFtLmFjLnVrL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBQzLn0z
+						tT3JpTytvqqhKNA5jtDrBTANBgkqhkiG9w0BAQUFAAOCAQEAbewlCu0UQk1sQRRK
+						ZRkARC7tHeeShJtm5xiA3tPARCJuUU5g635kdn0HDZRqynQHuOGyQK/5pif77kE/
+						TvbgqYEydFkU6NpM9Ne78CD10IjCpz+P/zjTVXcxIDa2jJiJqFcqNp0YIkoVdMzn
+						T3zHRhWrJJ+yBglhscYdfNMpfPXTTQyR2mtgtB1gFDSWyMNIktRiUcSvltCol+pl
+						mMEHtar6zXK5BR8uawb21eNUiYbCLPi6X87G4HidymZk157RPBW7l+qPYNMUyt5E
+						c32vcTICvbiBLWmnqG8k6evZ9Ztpd+rlDpGO+iynDGglTmnOA6HbmT9P9DBEEwso
+						1YEpyA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idpdev.bham.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idpdev.bham.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idpdev.bham.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idpdev.bham.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idpdev.bham.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idpdev.bham.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">bham.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDMDCCAhigAwIBAgIVAIYsx+VotYdyVTmVfMXJU4jl5M1bMA0GCSqGSIb3DQEB
+						BQUAMBwxGjAYBgNVBAMTEWlkcGRldi5iaGFtLmFjLnVrMB4XDTEzMTAyMzA3MTM0
+						MFoXDTMzMTAyMzA3MTM0MFowHDEaMBgGA1UEAxMRaWRwZGV2LmJoYW0uYWMudWsw
+						ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCY1FzTRZgi3cA4QNBcz4xV
+						ZFi8+EqBjDqQ2fef/4ckTS6W/nrV0qsAx7Hlthl4O1XlzGC2bk2+ZdLFFCQ4nV64
+						0/ec4Wx2UxEZXpxQjibnv0MqYbyk/J/wiAKp+xGA0NT3EOP8pCamp2QXWgZWBysR
+						kb4Rpp3NcTRUTuDMk4nevte93t0D5tExns8/INhpPrDcshTJvcqe8ceYuu8qXYC3
+						OhBfpG4xYMdosIaATTYouAFHAu3Y9x7+uhkmdkY6HxAgbHrFCQLw0NdStHjZnEMo
+						FhqUPvQ/mM7hAeLgv+ivO2onTG16pEMT3xBolhwMmUumPE6W42L0zCtCGmaIRrTb
+						AgMBAAGjaTBnMEYGA1UdEQQ/MD2CEWlkcGRldi5iaGFtLmFjLnVrhihodHRwczov
+						L2lkcGRldi5iaGFtLmFjLnVrL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBQzLn0z
+						tT3JpTytvqqhKNA5jtDrBTANBgkqhkiG9w0BAQUFAAOCAQEAbewlCu0UQk1sQRRK
+						ZRkARC7tHeeShJtm5xiA3tPARCJuUU5g635kdn0HDZRqynQHuOGyQK/5pif77kE/
+						TvbgqYEydFkU6NpM9Ne78CD10IjCpz+P/zjTVXcxIDa2jJiJqFcqNp0YIkoVdMzn
+						T3zHRhWrJJ+yBglhscYdfNMpfPXTTQyR2mtgtB1gFDSWyMNIktRiUcSvltCol+pl
+						mMEHtar6zXK5BR8uawb21eNUiYbCLPi6X87G4HidymZk157RPBW7l+qPYNMUyt5E
+						c32vcTICvbiBLWmnqG8k6evZ9Ztpd+rlDpGO+iynDGglTmnOA6HbmT9P9DBEEwso
+						1YEpyA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idpdev.bham.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idpdev.bham.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Birmingham</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Birmingham (Development IdP)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.bham.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Service Desk</md:GivenName>
+      <md:EmailAddress>mailto:ServiceDesk@contacts.bham.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Graham</md:GivenName>
+      <md:SurName>Bryan</md:SurName>
+      <md:EmailAddress>mailto:J.G.Bryan@bham.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

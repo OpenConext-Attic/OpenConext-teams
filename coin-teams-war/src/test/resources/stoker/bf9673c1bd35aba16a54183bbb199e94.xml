@@ -1,0 +1,110 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://el-shib.redbridge-college.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">redbridge-college.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEwDCCA6igAwIBAgIRAOIFRAsgYGQ47TBLkuFk0xUwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjA5MTEwMDAwMDBaFw0xNTA5MTEyMzU5NTlaMIGKMQswCQYD
+						VQQGEwJHQjEQMA4GA1UECBMHUm9tZm9yZDEOMAwGA1UEBxMFRXNzZXgxGjAYBgNV
+						BAoTEVJlZGJyaWRnZSBDb2xsZWdlMRMwEQYDVQQLEwpFLUxlYXJuaW5nMSgwJgYD
+						VQQDEx9lbC1zaGliLnJlZGJyaWRnZS1jb2xsZWdlLmFjLnVrMIIBIjANBgkqhkiG
+						9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs4orLy5QnpSUHTjIhQL7VxQd6qXWSwBzqcCz
+						i7/Z+q5PYI8J+HplveLcqL1qC7vpDRYY4qmYukXRFjXFqxFahEovaeIfjBrSYr1M
+						v2TkCIxmwG0vndr/CEUVb5Dq13+Tw5JVg3on5LGIt0FGfYvmOCCBu0skUxE/ltC3
+						tuU6ZYRGNuaX0yCCGTm7AAX9G/xRDWlUlyVTzgDk8ndL1IrTR66xB3Y7ufjlXssE
+						mhOo87cnzOEmPs5hZLiJDsBW6j2I+zYaQjZz97fyIwkLOXenvi/XNA8DiiTqSJIV
+						5WmicXaqC5oBZ0D7J4k2W2qFO9X4DSAVCdCyUgFVTkBQa9+QywIDAQABo4IBcjCC
+						AW4wHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH6pDjue0wHQYDVR0OBBYEFOLF
+						y0014/mnDphFXRx1nl/SCObhMA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAA
+						MB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAYBgNVHSAEETAPMA0GCysG
+						AQQBsjEBAgIdMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVu
+						YS5vcmcvVEVSRU5BU1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcw
+						AoYpaHR0cDovL2NydC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYI
+						KwYBBQUHMAGGGmh0dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMCoGA1UdEQQjMCGC
+						H2VsLXNoaWIucmVkYnJpZGdlLWNvbGxlZ2UuYWMudWswDQYJKoZIhvcNAQEFBQAD
+						ggEBAK+y2q9cP34wYcOvF5c3jSUJB4bp4nWIJiWwgE8xJfoVAeGQCoUhQzZn8Fnu
+						yl/HzkeTXvBz6ujlyrZNgn9+DA8ZW3HAJEUDOBqtXZ9gqJlxe3fmO8s1oCy3gxdf
+						p6oXlfSkKHHIgt0njmoa19NgjCys95WCwWjNmbrHQ+q5M03mxHNgtwA/vK7EGBL2
+						UKSjEncSw+NLp/FpDTcwu/haHACR5cvzIMjCMWsiGDcK8PwiqnvPhthoBf92Yo7c
+						RQ7/EvQIvQGv1Sp9vGrfDj7BHT5OCpi8tkYMJSQ81+nsjQfGZB9yr/q1LwlHlFDi
+						2mGhuEODCFY1HUmMM9OD1yNH/co=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://el-shib.redbridge-college.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://el-shib.redbridge-college.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://el-shib.redbridge-college.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://el-shib.redbridge-college.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://el-shib.redbridge-college.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://el-shib.redbridge-college.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">redbridge-college.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEwDCCA6igAwIBAgIRAOIFRAsgYGQ47TBLkuFk0xUwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjA5MTEwMDAwMDBaFw0xNTA5MTEyMzU5NTlaMIGKMQswCQYD
+						VQQGEwJHQjEQMA4GA1UECBMHUm9tZm9yZDEOMAwGA1UEBxMFRXNzZXgxGjAYBgNV
+						BAoTEVJlZGJyaWRnZSBDb2xsZWdlMRMwEQYDVQQLEwpFLUxlYXJuaW5nMSgwJgYD
+						VQQDEx9lbC1zaGliLnJlZGJyaWRnZS1jb2xsZWdlLmFjLnVrMIIBIjANBgkqhkiG
+						9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs4orLy5QnpSUHTjIhQL7VxQd6qXWSwBzqcCz
+						i7/Z+q5PYI8J+HplveLcqL1qC7vpDRYY4qmYukXRFjXFqxFahEovaeIfjBrSYr1M
+						v2TkCIxmwG0vndr/CEUVb5Dq13+Tw5JVg3on5LGIt0FGfYvmOCCBu0skUxE/ltC3
+						tuU6ZYRGNuaX0yCCGTm7AAX9G/xRDWlUlyVTzgDk8ndL1IrTR66xB3Y7ufjlXssE
+						mhOo87cnzOEmPs5hZLiJDsBW6j2I+zYaQjZz97fyIwkLOXenvi/XNA8DiiTqSJIV
+						5WmicXaqC5oBZ0D7J4k2W2qFO9X4DSAVCdCyUgFVTkBQa9+QywIDAQABo4IBcjCC
+						AW4wHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH6pDjue0wHQYDVR0OBBYEFOLF
+						y0014/mnDphFXRx1nl/SCObhMA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAA
+						MB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAYBgNVHSAEETAPMA0GCysG
+						AQQBsjEBAgIdMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVu
+						YS5vcmcvVEVSRU5BU1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcw
+						AoYpaHR0cDovL2NydC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYI
+						KwYBBQUHMAGGGmh0dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMCoGA1UdEQQjMCGC
+						H2VsLXNoaWIucmVkYnJpZGdlLWNvbGxlZ2UuYWMudWswDQYJKoZIhvcNAQEFBQAD
+						ggEBAK+y2q9cP34wYcOvF5c3jSUJB4bp4nWIJiWwgE8xJfoVAeGQCoUhQzZn8Fnu
+						yl/HzkeTXvBz6ujlyrZNgn9+DA8ZW3HAJEUDOBqtXZ9gqJlxe3fmO8s1oCy3gxdf
+						p6oXlfSkKHHIgt0njmoa19NgjCys95WCwWjNmbrHQ+q5M03mxHNgtwA/vK7EGBL2
+						UKSjEncSw+NLp/FpDTcwu/haHACR5cvzIMjCMWsiGDcK8PwiqnvPhthoBf92Yo7c
+						RQ7/EvQIvQGv1Sp9vGrfDj7BHT5OCpi8tkYMJSQ81+nsjQfGZB9yr/q1LwlHlFDi
+						2mGhuEODCFY1HUmMM9OD1yNH/co=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://el-shib.redbridge-college.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://el-shib.redbridge-college.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Redbridge College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Redbridge College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.redbridge-college.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Costas</md:GivenName>
+      <md:SurName>Calcanis</md:SurName>
+      <md:EmailAddress>mailto:ccalcanis@redbridge-college.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Costas</md:GivenName>
+      <md:SurName>Calcanis</md:SurName>
+      <md:EmailAddress>mailto:ccalcanis@redbridge-college.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

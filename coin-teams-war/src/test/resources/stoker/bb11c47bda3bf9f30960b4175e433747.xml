@@ -1,0 +1,70 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://archive.guardian.co.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://archive.guardian.co.uk/Shibboleth.sso/WAYF/UKFederation"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://archive.guardian.co.uk/Shibboleth.sso/DS"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://archive.guardian.co.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDoDCCAogCCQD3vWcl7rNUgDANBgkqhkiG9w0BAQUFADCBkTELMAkGA1UEBhMC
+						R0IxEDAOBgNVBAgTB0VuZ2xhbmQxDzANBgNVBAcTBkxvbmRvbjEeMBwGA1UEChQV
+						R3VhcmRpYW4gTmV3cyAmIE1lZGlhMR4wHAYDVQQLExVHdWFyZGlhbiBQcm9mZXNz
+						aW9uYWwxHzAdBgNVBAMTFmFyY2hpdmUuZ3VhcmRpYW4uY28udWswHhcNMTEwMjAx
+						MDkyNjE0WhcNMjEwMTI5MDkyNjE0WjCBkTELMAkGA1UEBhMCR0IxEDAOBgNVBAgT
+						B0VuZ2xhbmQxDzANBgNVBAcTBkxvbmRvbjEeMBwGA1UEChQVR3VhcmRpYW4gTmV3
+						cyAmIE1lZGlhMR4wHAYDVQQLExVHdWFyZGlhbiBQcm9mZXNzaW9uYWwxHzAdBgNV
+						BAMTFmFyY2hpdmUuZ3VhcmRpYW4uY28udWswggEiMA0GCSqGSIb3DQEBAQUAA4IB
+						DwAwggEKAoIBAQClyvCzzPicg89DDrCTdwlSKxxhWkoDdDM/zvQplF33faQHBEX1
+						kX+NHiWm7bFsR1EgsZEXN5MShCkxSapGJ/KQNaqWCasBxOnlKPNmnSxg8DUf8Il/
+						Er6NDOm7w8mzyr6jKyLLBWSpRM79+aNqlp8mJnrEYEohwcmIjNX9yDhD9MMX4INh
+						npBKP3lHpUSEVcvF4l/CEaMHl37l2ipwqc2p9Yb3adKI3m5Mo1HwhIOX+FVMB3H8
+						s2wP8rBniNJLqzU61PCzgsj3yu8GuVyTHdy5MkzxsANiFZ5rM9x3MyMK81ddC+/h
+						6s/LPahVKDe8M/Dxpohi8T+245pBzAVmR7udAgMBAAEwDQYJKoZIhvcNAQEFBQAD
+						ggEBABK63U1h8B1I3AFeaCir1rQjgvTLqIAwDPSO5O60CoA1Dsa5STjdOQHlWfU6
+						6yk2RMDl79avgQ79dZuKYfOTRgWNFttTe6qXfC7V8iPL1S6ZI5UD/QXNfUFDYnPT
+						2rKjPWOQSvtcFRNIQQEggIJJARCJ+6wmrQdSFdEwTApo1vUMrvewglWoZtOZYZjZ
+						5PqI5ayLcMUj4gYwtt3aTdAa+EeE9upHEvvAVkx4TT9sZzzH6UIFuAOqAdVxoixY
+						TYacJZq5++ryJ0ljizbVDyflHYPrnZq/F7FrsTLG0zWvKK+WwOClHU5na5YZIBA4
+						nhD5qKnl7TBNTd30v5ddf1XcImY=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://archive.guardian.co.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://archive.guardian.co.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://archive.guardian.co.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://archive.guardian.co.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://archive.guardian.co.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://archive.guardian.co.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://archive.guardian.co.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://archive.guardian.co.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://archive.guardian.co.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://archive.guardian.co.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://archive.guardian.co.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://archive.guardian.co.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://archive.guardian.co.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://archive.guardian.co.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://archive.guardian.co.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Guardian News &amp; Media Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">The Guardian and Observer digital archive</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://archive.guardian.co.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Lucy</md:GivenName>
+      <md:SurName>Haire</md:SurName>
+      <md:EmailAddress>mailto:lucy.haire@guardian.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Rupert</md:GivenName>
+      <md:SurName>Bates</md:SurName>
+      <md:EmailAddress>mailto:rupert.bates@guardian.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

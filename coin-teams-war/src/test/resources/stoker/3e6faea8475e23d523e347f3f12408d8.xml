@@ -1,0 +1,58 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.theacademiclibrary.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIID1DCCArwCCQD9Y+KomO9ukjANBgkqhkiG9w0BAQUFADCBqzELMAkGA1UEBhMC
+						R0IxEDAOBgNVBAgTB0VuZ2xhbmQxDzANBgNVBAcTBkxvbmRvbjEhMB8GA1UEChMY
+						VGhlIEFjYWRlbWljIExpYnJhcnkgTHRkMQswCQYDVQQLEwJJVDEdMBsGA1UEAxMU
+						VGhlIEFjYWRlbWljIExpYnJhcnkxKjAoBgkqhkiG9w0BCQEWG2luZm9AdGhlYWNh
+						ZGVtaWNsaWJyYXJ5LmNvbTAeFw0xMTA2MjkxMzU5MjNaFw0zMTA2MjQxMzU5MjNa
+						MIGrMQswCQYDVQQGEwJHQjEQMA4GA1UECBMHRW5nbGFuZDEPMA0GA1UEBxMGTG9u
+						ZG9uMSEwHwYDVQQKExhUaGUgQWNhZGVtaWMgTGlicmFyeSBMdGQxCzAJBgNVBAsT
+						AklUMR0wGwYDVQQDExRUaGUgQWNhZGVtaWMgTGlicmFyeTEqMCgGCSqGSIb3DQEJ
+						ARYbaW5mb0B0aGVhY2FkZW1pY2xpYnJhcnkuY29tMIIBIjANBgkqhkiG9w0BAQEF
+						AAOCAQ8AMIIBCgKCAQEArlZeMdafmBZRy0it8Gq4kFczwd6flPFFqv7pYMFdB0rs
+						zhZqqlsMEb9OA9rJIyoiaf1p2UZdeXqymUE8v5+F69/Z7Oo7LgOM7eF3UPPsy0+G
+						nTFKQag49b0n7H7ykpaLC6gaEzWPbgUZKSsbQ8Jx4EWsEXL11MP3U4iRwqEwm16V
+						BFfC2t6hrBIP+igj7e5lOWidHs5t8RLziN1xmC8bsVvBMLBT7fEP1LAXoLcnn/Y8
+						GsiewWfffCBmwNFat6MkzCkdh3UAbxcg2x3Nuj9ayq33G2x5wZBhA/nsgZERhV+A
+						AtuokFyyaq4JlRTgaKCUvmqmuztPdqwr+bCN9IipLQIDAQABMA0GCSqGSIb3DQEB
+						BQUAA4IBAQAwa4Y9YQoU+1legqiHTu9EMEapPOSI1IPwIxrYXvazKSbT6hQ13Tii
+						pWjYRU6hDuVlMLYPs+HiiiOYhGQ0bB0HjIJiZhTRhVEmok5uJFUtJVounIA/Z/W6
+						gycuhukZEDMZU+LMv3QXX4Yi13uFUh0E87hRjEgLAQ+AYoEUvdxm5WsY7gXu7k7h
+						SEspacCKffZwP6vH5zlzK8OZ5kL1vKM/ZCrk/mT/V+QiarI04mwk5gKHOidHe2Ms
+						IrC5pzCgN8Vy0am0QOFmRZVeXNFUt6cJCenXXh0P0qZgOXyjI+bhtzbKOc3bCcqq
+						eJSiWxJhFLlf2d1X7PiPTLqUlhwY/QXK
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.theacademiclibrary.com/openathens/openathenssp_isapi.dll" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.theacademiclibrary.com/openathens/openathenssp_isapi.dll" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.theacademiclibrary.com/shib/shibrcv.oasp" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.theacademiclibrary.com/shib/shibrcv.oasp" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.theacademiclibrary.com/shibrcv.oasp" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.theacademiclibrary.com/shibrcv.oasp" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">The Academic Library Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">The Academic Library</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.theacademiclibrary.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Pat</md:GivenName>
+      <md:SurName>Coyne</md:SurName>
+      <md:EmailAddress>mailto:info@theacademiclibrary.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Pat</md:GivenName>
+      <md:SurName>Coyne</md:SurName>
+      <md:EmailAddress>mailto:info@theacademiclibrary.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

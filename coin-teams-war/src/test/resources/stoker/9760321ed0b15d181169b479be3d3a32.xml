@@ -1,14 +1,14 @@
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://store.lu.lv">
-    <Extensions xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://laife.lanet.lv/" registrationInstant="2013-10-10T10:10:10Z">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://store.lu.lv">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://laife.lanet.lv/" registrationInstant="2013-10-10T10:10:10Z">
         <mdrpi:RegistrationPolicy xml:lang="en">https://laife.lanet.lv/wiki/Latvian-Academic-Identity-Federation-Policy.pdf</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-    </Extensions>
-  <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-    <md:KeyDescriptor use="signing">
-      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-        <ds:X509Data>
-          <ds:X509Certificate>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIC6DCCAdCgAwIBAgIJANOTPRn8Yj6/MA0GCSqGSIb3DQEBBQUAMBYxFDASBgNV
 BAMTC3N0b3JlLmx1Lmx2MB4XDTEzMDMwODEwMzcyNVoXDTI4MDMwNDEwMzcyNVow
 FjEUMBIGA1UEAxMLc3RvcmUubHUubHYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
@@ -26,13 +26,13 @@ E6m2FLWKCd74yEkCWZjPLL6XwGFivfUfpC65O8SIWi606B0fPBPFjldkY2qe/X89
 TBhpZrPMJoN9kYql+W/DkEYWP1Nwgu6Cy4R+MLdgSSsssAKnUAPXVXDQR5vHEPNC
 ibEIPrm7mKfc0uCo6x2gKWDvjQPf/Qr/ZYNoqQ==
 </ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </md:KeyDescriptor>
-    <md:KeyDescriptor use="encryption">
-      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-        <ds:X509Data>
-          <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIC6DCCAdCgAwIBAgIJANOTPRn8Yj6/MA0GCSqGSIb3DQEBBQUAMBYxFDASBgNV
 BAMTC3N0b3JlLmx1Lmx2MB4XDTEzMDMwODEwMzcyNVoXDTI4MDMwNDEwMzcyNVow
 FjEUMBIGA1UEAxMLc3RvcmUubHUubHYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
@@ -50,24 +50,24 @@ E6m2FLWKCd74yEkCWZjPLL6XwGFivfUfpC65O8SIWi606B0fPBPFjldkY2qe/X89
 TBhpZrPMJoN9kYql+W/DkEYWP1Nwgu6Cy4R+MLdgSSsssAKnUAPXVXDQR5vHEPNC
 ibEIPrm7mKfc0uCo6x2gKWDvjQPf/Qr/ZYNoqQ==
 </ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </md:KeyDescriptor>
-    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://store.lu.lv/simplesaml/module.php/saml/sp/saml2-logout.php/default-sp"/>
-    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://store.lu.lv/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp" index="0"/>
-    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://store.lu.lv/simplesaml/module.php/saml/sp/saml1-acs.php/default-sp" index="1"/>
-    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://store.lu.lv/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp" index="2"/>
-    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://store.lu.lv/simplesaml/module.php/saml/sp/saml1-acs.php/default-sp/artifact" index="3"/>
-  </md:SPSSODescriptor>
-      <Organization xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
-        <OrganizationName xml:lang="en">LAIFE - LU</OrganizationName>
-        <OrganizationDisplayName xml:lang="en">University of Latvia - LU SP</OrganizationDisplayName>
-        <OrganizationURL xml:lang="en">http://www.lu.lv/</OrganizationURL>
-        <OrganizationURL xml:lang="lv">http://www.lu.lv/</OrganizationURL>
-    </Organization>
-  <md:ContactPerson contactType="technical">
-    <md:GivenName>Martins</md:GivenName>
-    <md:SurName>Purins</md:SurName>
-    <md:EmailAddress>mpurins@lu.lv</md:EmailAddress>
-  </md:ContactPerson>
-</md:EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://store.lu.lv/simplesaml/module.php/saml/sp/saml2-logout.php/default-sp"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://store.lu.lv/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://store.lu.lv/simplesaml/module.php/saml/sp/saml1-acs.php/default-sp" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://store.lu.lv/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://store.lu.lv/simplesaml/module.php/saml/sp/saml1-acs.php/default-sp/artifact" index="3"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">LAIFE - LU</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Latvia - LU SP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.lu.lv/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="lv">http://www.lu.lv/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Martins</md:GivenName>
+      <md:SurName>Purins</md:SurName>
+      <md:EmailAddress>mpurins@lu.lv</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

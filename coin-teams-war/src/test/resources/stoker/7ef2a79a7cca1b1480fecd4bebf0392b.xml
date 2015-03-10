@@ -1,0 +1,114 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="http://sso.sunderland.ac.uk/auth/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">sunderland.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDVjCCAj6gAwIBAgIILQ5N0azZci0wDQYJKoZIhvcNAQEFBQAwQjEhMB8GA1UE
+						CgwYVW5pdmVyc2l0eSBvZiBTdW5kZXJsYW5kMR0wGwYDVQQDDBRzc28uc3VuZGVy
+						bGFuZC5hYy51azAeFw0xNDA2MTcwNzQ0NDJaFw0yNDA2MTcwNzQ0NDJaMEIxITAf
+						BgNVBAoMGFVuaXZlcnNpdHkgb2YgU3VuZGVybGFuZDEdMBsGA1UEAwwUc3NvLnN1
+						bmRlcmxhbmQuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDR
+						+uVqAlnBPfii2qWCgu96Pvd+68pdoAH7WgsFtfn1zdyQK9X+WT7CT4RzNXQ/nEi1
+						n6r5D+xE57dknzCj/cgI465605GmckfcsyQbI4d4tJUMwIS6DKTr5YBV4wSOWXl1
+						+Ksws+ew7V/GOAh9EJIOiijq3E/e8R+O+pgH0Rvmpugyi+Nj3afppkSsIbLO0apL
+						94Cy1dIqxqQejrZnL8pMbdpELq9W8sDMTWsGjvLoRj2q3QYUN7217sf/pD4+5Noy
+						sVDEuE4UKZJfuXAAwL73JZmUjraGGqBFJj6Xt8ymTNrCCQO0MA7uuFC/sE+CIDeR
+						L9w/ofKvcmq2SZdb2mGHAgMBAAGjUDBOMB0GA1UdDgQWBBSYfGXJCjojjLJ4r4gr
+						SSL9uGflzDAfBgNVHSMEGDAWgBSYfGXJCjojjLJ4r4grSSL9uGflzDAMBgNVHRME
+						BTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQAfRpGz0INl+VKylH9UTb1+GmyEIzlX
+						RpWjTgKDGW2hvK07fH3ABGa28XUX3yVah1vXzOmfvQ9/f7l2tA5OaJzWHCXijANN
+						nkcCKJZSB2AFSkdL+jpXWbrVClomKIJfFLN1CzPvPJ3Ls9P/Xm0AZGFTZF3fM6ZH
+						WoaJAKOIUzfARiIRBoIf6y8EEpa3ZdcgPlRwAlHtKMxnUHrdomtBdDSz8WNqHPVF
+						UF4nDkcqtwcThIfvtOrNtEG0rwb9ENXL1VNiP1cJZHqyttTQY+vC8quwhnsGeJzk
+						aQg21GPVp0vGTWHkB+0uti2fwkky/onzGlsYr8IfXu0Yw3tBwQy8kHn+                        
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDVjCCAj6gAwIBAgIILQ5N0azZci0wDQYJKoZIhvcNAQEFBQAwQjEhMB8GA1UE
+						CgwYVW5pdmVyc2l0eSBvZiBTdW5kZXJsYW5kMR0wGwYDVQQDDBRzc28uc3VuZGVy
+						bGFuZC5hYy51azAeFw0xNDA2MTcwNzQ0NDJaFw0yNDA2MTcwNzQ0NDJaMEIxITAf
+						BgNVBAoMGFVuaXZlcnNpdHkgb2YgU3VuZGVybGFuZDEdMBsGA1UEAwwUc3NvLnN1
+						bmRlcmxhbmQuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDR
+						+uVqAlnBPfii2qWCgu96Pvd+68pdoAH7WgsFtfn1zdyQK9X+WT7CT4RzNXQ/nEi1
+						n6r5D+xE57dknzCj/cgI465605GmckfcsyQbI4d4tJUMwIS6DKTr5YBV4wSOWXl1
+						+Ksws+ew7V/GOAh9EJIOiijq3E/e8R+O+pgH0Rvmpugyi+Nj3afppkSsIbLO0apL
+						94Cy1dIqxqQejrZnL8pMbdpELq9W8sDMTWsGjvLoRj2q3QYUN7217sf/pD4+5Noy
+						sVDEuE4UKZJfuXAAwL73JZmUjraGGqBFJj6Xt8ymTNrCCQO0MA7uuFC/sE+CIDeR
+						L9w/ofKvcmq2SZdb2mGHAgMBAAGjUDBOMB0GA1UdDgQWBBSYfGXJCjojjLJ4r4gr
+						SSL9uGflzDAfBgNVHSMEGDAWgBSYfGXJCjojjLJ4r4grSSL9uGflzDAMBgNVHRME
+						BTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQAfRpGz0INl+VKylH9UTb1+GmyEIzlX
+						RpWjTgKDGW2hvK07fH3ABGa28XUX3yVah1vXzOmfvQ9/f7l2tA5OaJzWHCXijANN
+						nkcCKJZSB2AFSkdL+jpXWbrVClomKIJfFLN1CzPvPJ3Ls9P/Xm0AZGFTZF3fM6ZH
+						WoaJAKOIUzfARiIRBoIf6y8EEpa3ZdcgPlRwAlHtKMxnUHrdomtBdDSz8WNqHPVF
+						UF4nDkcqtwcThIfvtOrNtEG0rwb9ENXL1VNiP1cJZHqyttTQY+vC8quwhnsGeJzk
+						aQg21GPVp0vGTWHkB+0uti2fwkky/onzGlsYr8IfXu0Yw3tBwQy8kHn+                        
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://sso.sunderland.ac.uk/auth/sso"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso.sunderland.ac.uk/auth/sso"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Sunderland</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Sunderland</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.sunderland.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Ian</md:GivenName>
+      <md:SurName>Lundell</md:SurName>
+      <md:EmailAddress>mailto:ian.lundell@sunderland.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Rachel</md:GivenName>
+      <md:SurName>Webb</md:SurName>
+      <md:EmailAddress>mailto:rachel.webb@sunderland.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Laura</md:GivenName>
+      <md:SurName>Wilkinson</md:SurName>
+      <md:EmailAddress>mailto:laura.wilkinson@sunderland.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Ian</md:GivenName>
+      <md:SurName>Frost</md:SurName>
+      <md:EmailAddress>mailto:ian.frost@sunderland.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Scott</md:GivenName>
+      <md:SurName>Sweeting</md:SurName>
+      <md:EmailAddress>mailto:scott.sweeting@sunderland.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Dean</md:GivenName>
+      <md:SurName>Hale</md:SurName>
+      <md:EmailAddress>mailto:dean.hale@sunderland.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Adil</md:GivenName>
+      <md:SurName>Khan</md:SurName>
+      <md:EmailAddress>mailto:adil.khan@sunderland.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Daniel</md:GivenName>
+      <md:SurName>Dixon</md:SurName>
+      <md:EmailAddress>mailto:daniel.dixon@sunderland.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ian</md:GivenName>
+      <md:SurName>Frost</md:SurName>
+      <md:EmailAddress>mailto:ian.frost@sunderland.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

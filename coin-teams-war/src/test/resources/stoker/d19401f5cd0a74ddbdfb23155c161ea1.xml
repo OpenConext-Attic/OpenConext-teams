@@ -1,0 +1,112 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.math.cas.cz/idp/shibboleth">
+    <md:Extensions>
+      <eduidmd:RepublishRequest xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0">
+        <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
+      </eduidmd:RepublishRequest>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.eduid.cz/" registrationInstant="2014-11-10T13:39:02Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">math.cas.cz</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Institute of Mathematics AS CR</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">Matematický ústav AV ČR</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity Provider MU AV CR employees.</mdui:Description>
+          <mdui:Description xml:lang="cs">Identity Provider pro zaměstnance MÚ AV ČR</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.math.cas.cz/index.php?lang=1</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">http://www.math.cas.cz/index.php?lang=0</mdui:InformationURL>
+          <mdui:Logo height="44" width="44">https://jiftach.cas.cz/loga/logo-math-44.png</mdui:Logo>
+          <mdui:Logo height="100" width="100">https://jiftach.cas.cz/loga/logo-math-100.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDKDCCAhCgAwIBAgIVAMI6h1I2Ucbuc9TH2mQ3pJfm1qhGMA0GCSqGSIb3DQEB
+BQUAMBoxGDAWBgNVBAMTD2lkcC5tYXRoLmNhcy5jejAeFw0xNDExMDcwOTE0MzRa
+Fw0zNDExMDcwOTE0MzRaMBoxGDAWBgNVBAMTD2lkcC5tYXRoLmNhcy5jejCCASIw
+DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL162cnXK9D8343uG82KuAbzVz1p
+sVYb++2LmIjoTV/zyG08zV+uFwcoZbRogE4FUTqCnQjRM0CVmQ83JGuuKy1WoVJ0
+frmAdAPKK2JhF/K6BRVYDMbxl7hfA2UWN1j7lwBivxywaG4yG1yvinevWz/vkLKo
+y3V1k3xMDk41103KYjnZ7zJzREgtpBY9zfiw7MhbeM+I3HHVSo76dQPjdcfJALco
+y3vG7OlsCaS4qovEPu5JbmStjscmNNCCOv89hPah3DZsxGLfZ3olikCGO+rGXPwe
+kzAGKoKVVuxRGCSCf1ppZYVPD5c6I82aFCVuRLDM8O4qQ6Fab6mJ6/rY6ksCAwEA
+AaNlMGMwQgYDVR0RBDswOYIPaWRwLm1hdGguY2FzLmN6hiZodHRwczovL2lkcC5t
+YXRoLmNhcy5jei9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU8puHnxuPvVxmZuQq
+3xOdeo0vxjgwDQYJKoZIhvcNAQEFBQADggEBAJmSwgJ/MOxvBI9NK65zMHYp2tHi
+CyCxtPnGxL3+9A/2Lx0AuxLCYVKDgU0GNaDkIERIQeMm5DyModRgrkhyEplo1Yxw
+aVw3qypUgmWyFx1gZb4zmp79E4AYGhCwWaRpczQsQMgs7w8QLHi9h+LZNo6hCR8w
+CP0e18qET2/sk6jb5d8xNV/KForfL7xWVDFhr4CGYZSfsaBtfmNDYf92XkAbxUrv
+SoTahRu2eTDuvcQSrsIy13GhlWj9D5fTUjeIx9y83wFfR5c1G2u9jWYyjHCP3BPV
+9BY8Bxf+cas1FfM8Ajg8fddlhBG/1/KJwXbjUWw9MNE3hdZQZ0WQ37yhIJs=
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.math.cas.cz:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.math.cas.cz:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.math.cas.cz/idp/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.math.cas.cz/idp/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.math.cas.cz:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.math.cas.cz/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.math.cas.cz/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.math.cas.cz/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.math.cas.cz/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">math.cas.cz</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDKDCCAhCgAwIBAgIVAMI6h1I2Ucbuc9TH2mQ3pJfm1qhGMA0GCSqGSIb3DQEB
+BQUAMBoxGDAWBgNVBAMTD2lkcC5tYXRoLmNhcy5jejAeFw0xNDExMDcwOTE0MzRa
+Fw0zNDExMDcwOTE0MzRaMBoxGDAWBgNVBAMTD2lkcC5tYXRoLmNhcy5jejCCASIw
+DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL162cnXK9D8343uG82KuAbzVz1p
+sVYb++2LmIjoTV/zyG08zV+uFwcoZbRogE4FUTqCnQjRM0CVmQ83JGuuKy1WoVJ0
+frmAdAPKK2JhF/K6BRVYDMbxl7hfA2UWN1j7lwBivxywaG4yG1yvinevWz/vkLKo
+y3V1k3xMDk41103KYjnZ7zJzREgtpBY9zfiw7MhbeM+I3HHVSo76dQPjdcfJALco
+y3vG7OlsCaS4qovEPu5JbmStjscmNNCCOv89hPah3DZsxGLfZ3olikCGO+rGXPwe
+kzAGKoKVVuxRGCSCf1ppZYVPD5c6I82aFCVuRLDM8O4qQ6Fab6mJ6/rY6ksCAwEA
+AaNlMGMwQgYDVR0RBDswOYIPaWRwLm1hdGguY2FzLmN6hiZodHRwczovL2lkcC5t
+YXRoLmNhcy5jei9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU8puHnxuPvVxmZuQq
+3xOdeo0vxjgwDQYJKoZIhvcNAQEFBQADggEBAJmSwgJ/MOxvBI9NK65zMHYp2tHi
+CyCxtPnGxL3+9A/2Lx0AuxLCYVKDgU0GNaDkIERIQeMm5DyModRgrkhyEplo1Yxw
+aVw3qypUgmWyFx1gZb4zmp79E4AYGhCwWaRpczQsQMgs7w8QLHi9h+LZNo6hCR8w
+CP0e18qET2/sk6jb5d8xNV/KForfL7xWVDFhr4CGYZSfsaBtfmNDYf92XkAbxUrv
+SoTahRu2eTDuvcQSrsIy13GhlWj9D5fTUjeIx9y83wFfR5c1G2u9jWYyjHCP3BPV
+9BY8Bxf+cas1FfM8Ajg8fddlhBG/1/KJwXbjUWw9MNE3hdZQZ0WQ37yhIJs=
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.math.cas.cz:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.math.cas.cz:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Institute of Mathematics</md:OrganizationName>
+      <md:OrganizationName xml:lang="cs">Matematický ústav</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Institute of Mathematics AS CR</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="cs">Matematický ústav AV ČR, v.v.i.</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.math.cas.cz/index.php?lang=0</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="cs">http://www.math.cas.cz/index.php?lang=1</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Petr</md:GivenName>
+      <md:SurName>Vaníček</md:SurName>
+      <md:EmailAddress>vanicekp@utia.cas.cz</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

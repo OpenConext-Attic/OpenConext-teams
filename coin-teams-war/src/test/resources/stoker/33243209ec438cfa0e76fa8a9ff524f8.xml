@@ -1,54 +1,77 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://aai.sztaki.hu/idp">
-        <Extensions>
-            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">sztaki</ns9:MetadataSet>
-            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href</ns9:MetadataSet>
-            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href-edugain</ns9:MetadataSet>
-            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">href-idps</ns9:MetadataSet>
-            <ns9:MetadataSet xmlns:ns9="urn:geant:niif.hu:eduid.hu:entity-attributes:processing-info">hexaa</ns9:MetadataSet>
-            <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://eduid.hu"/>
-        </Extensions>
-        <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
-            <Extensions>
-                <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">sztaki.hu</shibmd:Scope>
-                <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                    <mdui:IPHint>195.111.0.0/22</mdui:IPHint>
-                    <mdui:IPHint>193.225.86.0/23</mdui:IPHint>
-                    <mdui:GeolocationHint>geo:47.518209,19.055844</mdui:GeolocationHint>
-                </mdui:DiscoHints>
-                <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                    <mdui:Logo height="58" width="150">https://aai.sztaki.hu/logo/sztaki.png</mdui:Logo>
-                </mdui:UIInfo>
-            </Extensions>
-            <KeyDescriptor>
-                <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-                    <ds:X509Data>
-                        <ds:X509Certificate>MIIDwDCCAymgAwIBAgIBTzANBgkqhkiG9w0BAQQFADCBmzELMAkGA1UEBhMCSFUxETAPBgNVBAgTCEJ1ZGFwZXN0MREwDwYDVQQHEwhCdWRhcGVzdDETMBEGA1UEChMKTVRBIFNaVEFLSTENMAsGA1UECxMESVRBSzEeMBwGA1UEAxMVQ2VydGlmaWNhdGUgQXV0aG9yaXR5MSIwIAYJKoZIhvcNAQkBFhNzeXMtYWRtaW5Ac3p0YWtpLmh1MB4XDTA5MDgyNjEwMTc1M1oXDTE5MDgyNDEwMTc1M1owgYQxCzAJBgNVBAYTAkhVMREwDwYDVQQIEwhCdWRhcGVzdDETMBEGA1UEChMKTVRBIFNaVEFLSTENMAsGA1UECxMESVRBSzEaMBgGA1UEAxMRYWFpLnN6dGFraS5odS1pZHAxIjAgBgkqhkiG9w0BCQEWE3N5cy1hZG1pbkBzenRha2kuaHUwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAOwYmjlZUiD3pG0R6EZuRHgBYNt5NfpjEDQkeGoGnD0o1LWse4/7Hmf8JoZDKRRkEFuZ0C1S20wxEnOsSK4lsftRpApaibVnAlFpmv04Y5FbAAt2G2cQjEy1L0z1Ks+iLXSZ1c3XDTBknRReUZweIndfB1Y35OEE2yUACiHKlzuPAgMBAAGjggEnMIIBIzAJBgNVHRMEAjAAMCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVyYXRlZCBDZXJ0aWZpY2F0ZTAdBgNVHQ4EFgQUMdY3+6/zwEDnlpoSr0DJ5cG5rm4wgcgGA1UdIwSBwDCBvYAUGR0qvyO4kXX/r2cF74rzd2gIsruhgaGkgZ4wgZsxCzAJBgNVBAYTAkhVMREwDwYDVQQIEwhCdWRhcGVzdDERMA8GA1UEBxMIQnVkYXBlc3QxEzARBgNVBAoTCk1UQSBTWlRBS0kxDTALBgNVBAsTBElUQUsxHjAcBgNVBAMTFUNlcnRpZmljYXRlIEF1dGhvcml0eTEiMCAGCSqGSIb3DQEJARYTc3lzLWFkbWluQHN6dGFraS5odYIBADANBgkqhkiG9w0BAQQFAAOBgQAHI9LPaySa8/kmI6y+1z3xKh0xlyHgxY5zTq8QgV03wBz9rRVu9qewfB4lEp0opGxQGx9r9Gck/XXoekYImjsNXOkQ4vXztLQToWCJZQEe2c8c6xfGM+QZG4wNR4yq++DK7LcttW4ZI0A91UoeipNYFqY8K7N9kWsLp7pTGtZEWQ==</ds:X509Certificate>
-                    </ds:X509Data>
-                    <ds:KeyName>aai.sztaki.hu-idp</ds:KeyName>
-                </ds:KeyInfo>
-            </KeyDescriptor>
-            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai.sztaki.hu/idp/saml2/idp/SingleLogoutServiceiFrame.php"/>
-            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai.sztaki.hu/idp/saml2/idp/SSOService.php"/>
-        </IDPSSODescriptor>
-        <Organization>
-            <OrganizationName xml:lang="hu">MTA SZTAKI - Magyar Tudományos Akadémia Számítástechnikai és Automatizálási Kutatóintézet</OrganizationName>
-            <OrganizationName xml:lang="en">Computer and Automation Research Institute, Hungarian Academy of Sciences</OrganizationName>
-            <OrganizationDisplayName xml:lang="hu">MTA SZTAKI</OrganizationDisplayName>
-            <OrganizationDisplayName xml:lang="en">MTA SZTAKI</OrganizationDisplayName>
-            <OrganizationURL xml:lang="hu">https://aai.sztaki.hu</OrganizationURL>
-            <OrganizationURL xml:lang="en">https://aai.sztaki.hu</OrganizationURL>
-        </Organization>
-        <ContactPerson contactType="technical">
-            <SurName>AAI Administrator Team</SurName>
-            <EmailAddress>mailto:aai@sztaki.hu</EmailAddress>
-        </ContactPerson>
-        <ContactPerson contactType="support">
-            <SurName>AAI Administrator Team</SurName>
-            <EmailAddress>mailto:aai@sztaki.hu</EmailAddress>
-        </ContactPerson>
-        <ContactPerson contactType="administrative">
-            <SurName>AAI Administrator Team</SurName>
-            <EmailAddress>mailto:aai@sztaki.hu</EmailAddress>
-        </ContactPerson>
-    </EntityDescriptor>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://aai.sztaki.hu/idp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://eduid.hu" registrationInstant="2009-11-03T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://metadata.eduid.hu/registration_policy_1_0.txt</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">sztaki.hu</shibmd:Scope>
+        <mdui:DiscoHints>
+          <mdui:IPHint>195.111.0.0/22</mdui:IPHint>
+          <mdui:IPHint>193.225.86.0/23</mdui:IPHint>
+          <mdui:GeolocationHint>geo:47.518209,19.055844</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="hu">MTA SZTAKI - Magyar Tudományos Akadémia Számítástechnikai és Automatizálási Kutatóintézet</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Computer and Automation Research Institute, Hungarian Academy of Sciences</mdui:DisplayName>
+          <mdui:Description xml:lang="hu">MTA SZTAKI</mdui:Description>
+          <mdui:Description xml:lang="en">MTA SZTAKI</mdui:Description>
+          <mdui:Logo height="58" width="150">https://aai.sztaki.hu/logo/sztaki.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDwDCCAymgAwIBAgIBTzANBgkqhkiG9w0BAQQFADCBmzELMAkGA1UEBhMCSFUx
+ETAPBgNVBAgTCEJ1ZGFwZXN0MREwDwYDVQQHEwhCdWRhcGVzdDETMBEGA1UEChMK
+TVRBIFNaVEFLSTENMAsGA1UECxMESVRBSzEeMBwGA1UEAxMVQ2VydGlmaWNhdGUg
+QXV0aG9yaXR5MSIwIAYJKoZIhvcNAQkBFhNzeXMtYWRtaW5Ac3p0YWtpLmh1MB4X
+DTA5MDgyNjEwMTc1M1oXDTE5MDgyNDEwMTc1M1owgYQxCzAJBgNVBAYTAkhVMREw
+DwYDVQQIEwhCdWRhcGVzdDETMBEGA1UEChMKTVRBIFNaVEFLSTENMAsGA1UECxME
+SVRBSzEaMBgGA1UEAxMRYWFpLnN6dGFraS5odS1pZHAxIjAgBgkqhkiG9w0BCQEW
+E3N5cy1hZG1pbkBzenRha2kuaHUwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGB
+AOwYmjlZUiD3pG0R6EZuRHgBYNt5NfpjEDQkeGoGnD0o1LWse4/7Hmf8JoZDKRRk
+EFuZ0C1S20wxEnOsSK4lsftRpApaibVnAlFpmv04Y5FbAAt2G2cQjEy1L0z1Ks+i
+LXSZ1c3XDTBknRReUZweIndfB1Y35OEE2yUACiHKlzuPAgMBAAGjggEnMIIBIzAJ
+BgNVHRMEAjAAMCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVyYXRlZCBDZXJ0
+aWZpY2F0ZTAdBgNVHQ4EFgQUMdY3+6/zwEDnlpoSr0DJ5cG5rm4wgcgGA1UdIwSB
+wDCBvYAUGR0qvyO4kXX/r2cF74rzd2gIsruhgaGkgZ4wgZsxCzAJBgNVBAYTAkhV
+MREwDwYDVQQIEwhCdWRhcGVzdDERMA8GA1UEBxMIQnVkYXBlc3QxEzARBgNVBAoT
+Ck1UQSBTWlRBS0kxDTALBgNVBAsTBElUQUsxHjAcBgNVBAMTFUNlcnRpZmljYXRl
+IEF1dGhvcml0eTEiMCAGCSqGSIb3DQEJARYTc3lzLWFkbWluQHN6dGFraS5odYIB
+ADANBgkqhkiG9w0BAQQFAAOBgQAHI9LPaySa8/kmI6y+1z3xKh0xlyHgxY5zTq8Q
+gV03wBz9rRVu9qewfB4lEp0opGxQGx9r9Gck/XXoekYImjsNXOkQ4vXztLQToWCJ
+ZQEe2c8c6xfGM+QZG4wNR4yq++DK7LcttW4ZI0A91UoeipNYFqY8K7N9kWsLp7pT
+GtZEWQ==
+                                            </ds:X509Certificate>
+          </ds:X509Data>
+          <ds:KeyName>aai.sztaki.hu-idp</ds:KeyName>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai.sztaki.hu/idp/saml2/idp/SingleLogoutServiceiFrame.php"/>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://aai.sztaki.hu/idp/saml2/idp/SSOService.php"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="hu">MTA SZTAKI - Magyar Tudományos Akadémia Számítástechnikai és Automatizálási Kutatóintézet</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">Computer and Automation Research Institute, Hungarian Academy of Sciences</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="hu">MTA SZTAKI</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">MTA SZTAKI</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="hu">https://aai.sztaki.hu</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://aai.sztaki.hu</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>AAI Administrator Team</md:SurName>
+      <md:EmailAddress>mailto:aai@sztaki.hu</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:SurName>AAI Administrator Team</md:SurName>
+      <md:EmailAddress>mailto:aai@sztaki.hu</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:SurName>AAI Administrator Team</md:SurName>
+      <md:EmailAddress>mailto:aai@sztaki.hu</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

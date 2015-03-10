@@ -1,0 +1,63 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://ezproxy.bodleian.ox.ac.uk/sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-07-01T13:52:15Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://ezproxy-prd.bodleian.ox.ac.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEwjCCA6qgAwIBAgIBAjANBgkqhkiG9w0BAQUFADCBoTEmMCQGA1UEAxMdZXpw
+						cm94eS1wcmQuYm9kbGVpYW4ub3guYWMudWsxCzAJBgNVBAYTAkdCMR0wGwYDVQQK
+						ExRVbml2ZXJzaXR5IG9mIE94Zm9yZDEbMBkGA1UECxMSQm9kbGVpYW4gTGlicmFy
+						aWVzMS4wLAYJKoZIhvcNAQkBFh9zaW1vbi5tY2xlaXNoQGJvZGxlaWFuLm94LmFj
+						LnVrMB4XDTE0MDYyMzE0NDkyMFoXDTI0MDYyMjE0NDkyMFowgaExJjAkBgNVBAMT
+						HWV6cHJveHktcHJkLmJvZGxlaWFuLm94LmFjLnVrMQswCQYDVQQGEwJHQjEdMBsG
+						A1UEChMUVW5pdmVyc2l0eSBvZiBPeGZvcmQxGzAZBgNVBAsTEkJvZGxlaWFuIExp
+						YnJhcmllczEuMCwGCSqGSIb3DQEJARYfc2ltb24ubWNsZWlzaEBib2RsZWlhbi5v
+						eC5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMy7FpGCv0m1
+						vFDU51um8KLgUHdvb86ItBRdFWZAG0L0DN771m4KKP0zvhvsTOM9r7Ed3gj+eOp0
+						BpE/MmZ52ZB6qBYaC2Ele7WXIQuRR0Uzp4uENyHMrduTc/MjNQPsw9Ncfp8u6M11
+						aQ1lTkVVudandM0EEUY01PiyBfIg0bMECn/alNpSONbOH95RCogN3ekJfWHQiDlK
+						pYqTVi+ru87WQHeDsJeP7RHxZRJCS1Sb0qA+61RpheQ4XEDWU9Z0uqxOqO7qduDT
+						yU3y5fNcTPaGPj8dW26/Jo9T7lugq88564Y26Qa3ZtNW/GZlhZ5icWxPZNzIpp6C
+						HosCP69zjJkCAwEAAaOCAQEwgf4wHQYDVR0OBBYEFLB6ps4ijHla7Ge8uzD+d9JG
+						hymdMIHOBgNVHSMEgcYwgcOAFLB6ps4ijHla7Ge8uzD+d9JGhymdoYGnpIGkMIGh
+						MSYwJAYDVQQDEx1lenByb3h5LXByZC5ib2RsZWlhbi5veC5hYy51azELMAkGA1UE
+						BhMCR0IxHTAbBgNVBAoTFFVuaXZlcnNpdHkgb2YgT3hmb3JkMRswGQYDVQQLExJC
+						b2RsZWlhbiBMaWJyYXJpZXMxLjAsBgkqhkiG9w0BCQEWH3NpbW9uLm1jbGVpc2hA
+						Ym9kbGVpYW4ub3guYWMudWuCAQIwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUF
+						AAOCAQEAZOF4suQjW4BS/mEX5wBI1onO3jm//y6AqG+afYPYzbKdTI/v6vgSEmgt
+						Z2n7Oon+IGaSThSQ6/AVXE3WtqF7ForHBXeiFbLMPVDnMb9toJ0fj18QGwXDUTEM
+						V2jxmheFqbFz7lzBocD3gdSe2RiPyK6r7eVbKKhWTxSi6/26kuzkxj1ZRYLDzQ2z
+						+6g14ZhRzndwXfP02gR0vJI+W4qbhFAwXLUpHYDHseOHmi0YMZqGYSI2MPW6p0mQ
+						s+JAy11ZO8tyNj2GE4xM5kuvlct2QeU7ylJS/g/ZRsIShr+vQYUhb0/vWdHKCrRj
+						UAF75n0odH/cwINMGEcK6L4NNU1orA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ezproxy-prd.bodleian.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="1" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ezproxy-prd.bodleian.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford EZproxy service</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://bodleian.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Simon</md:GivenName>
+      <md:SurName>McLeish</md:SurName>
+      <md:EmailAddress>mailto:simon.mcleish@bodleian.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Simon</md:GivenName>
+      <md:SurName>McLeish</md:SurName>
+      <md:EmailAddress>mailto:simon.mcleish@bodleian.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

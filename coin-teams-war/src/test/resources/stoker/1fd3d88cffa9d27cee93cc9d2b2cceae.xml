@@ -1,25 +1,20 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp-etu.crous-grenoble.fr/idp/shibboleth">
-			<Extensions>
-				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-09-04T16:10:14Z">
-					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
-				</mdrpi:RegistrationInfo>
-			</Extensions>
-		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">crous-grenoble.fr</shibmd:Scope>
-    
-			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
-          		      
-          		      
-          		      <mdui:DisplayName xml:lang="fr">CROUS Grenoble - étudiants</mdui:DisplayName>
-          		      
-      			    </mdui:UIInfo>
-			</Extensions>
-				<KeyDescriptor use="signing">
-<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp-etu.crous-grenoble.fr/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://federation.renater.fr/" registrationInstant="2012-09-04T16:10:14Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">crous-grenoble.fr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="fr">CROUS Grenoble - étudiants</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIDTzCCAjegAwIBAgIUa/WpAhPdXKjK1Y6xsR36dWY2AtEwDQYJKoZIhvcNAQEF
 BQAwJDEiMCAGA1UEAxMZaWRwLWV0dS5jcm91cy1ncmVub2JsZS5mcjAeFw0xMjA5
 MDIwNzAzMDFaFw0zMjA5MDIwNzAzMDFaMCQxIjAgBgNVBAMTGWlkcC1ldHUuY3Jv
@@ -39,40 +34,21 @@ WrU7dAr/V3AtILCrLi6DimBM26rPSsVhjYNcCpvv9Wrqv/j/PcIq/O9AHYTGvNcY
 9ETYn7cWEBKXzgKBfSHJfdsyXuJVrnWC/aRS5TFFdwdfiLKPcsZkOm91NMNCPbgz
 XKhZB5QMwDW1nFHiHsXElQy2l4lLGZGvyCwpjqaqmXBwVvU=
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-					</ds:KeyInfo>
-				</KeyDescriptor>
-
-				
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-
-			
-			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp-etu.crous-grenoble.fr/idp/profile/SAML2/POST/SSO"/>
-	        
-	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp-etu.crous-grenoble.fr/idp/profile/SAML2/Redirect/SSO"/>
-	        
-	        
-			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp-etu.crous-grenoble.fr/idp/profile/Shibboleth/SSO"/>
-			
-
-		</IDPSSODescriptor>
-		
-
-
-		<Organization>
-		
-			<OrganizationName xml:lang="en">CROUS Grenoble - étudiants</OrganizationName>
-			<OrganizationDisplayName xml:lang="en">CROUS Grenoble - étudiants</OrganizationDisplayName>
-			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
-		
-		</Organization>
-
-			
-			    <ContactPerson contactType="technical">
-			     <EmailAddress>informatique@crous-grenoble.fr</EmailAddress>
-		        </ContactPerson>
-		    	
-			
-	</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp-etu.crous-grenoble.fr/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp-etu.crous-grenoble.fr/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp-etu.crous-grenoble.fr/idp/profile/Shibboleth/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">CROUS Grenoble - étudiants</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">CROUS Grenoble - étudiants</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://unknown.site.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>informatique@crous-grenoble.fr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

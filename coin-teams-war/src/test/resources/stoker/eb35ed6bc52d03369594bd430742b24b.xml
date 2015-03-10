@@ -1,0 +1,101 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://uk-bris-shibboleth.moveon4.com/shibboleth">
+    <md:Extensions>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-11-05T15:07:12Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://uk-bris-shibboleth.moveon4.com/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://uk-bris-shibboleth.moveon4.com/Shibboleth.sso/Login" index="1"/>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">qsu-unisolution</mdui:DisplayName>
+          <mdui:Logo height="29" width="189">https://static.moveon4.com/sso/images/logo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIFgTCCA2mgAwIBAgIJAPyfEjrHG6KuMA0GCSqGSIb3DQEBCwUAMFcxCzAJBgNV
+						BAYTAkRFMRwwGgYDVQQKDBNRUyB1bmlzb2x1dGlvbiBHbWJIMSowKAYDVQQDDCF1
+						ay1icmlzdG9sLXNoaWJib2xldGgubW92ZW9uNC5jb20wHhcNMTQxMTA1MDY1MDM4
+						WhcNMzQxMDMxMDY1MDM4WjBXMQswCQYDVQQGEwJERTEcMBoGA1UECgwTUVMgdW5p
+						c29sdXRpb24gR21iSDEqMCgGA1UEAwwhdWstYnJpc3RvbC1zaGliYm9sZXRoLm1v
+						dmVvbjQuY29tMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAy58jkooZ
+						4lsnCxbii74W0dEtLU+6+DCRCtPyjKUpVG/dYTlj1WNASBiHWDKKYBk4L/SpkUik
+						WWvOktHoXCz3KPU6VaqtB2Um2dSKpEQb7qhQjeK36LB6kq6opwKk2svIaxkT1E3j
+						pc+o+toGxaLfoc9D11ZiwnWibaRZFvqWJ/cl0saNNzfdHjNIDJlNPZSfiXbGdGim
+						jgzc7Q1cG8acwLBaEYfNScd/+zKob7Hh0QJqpvP9faLdgsbtz6/hgJdbzrnnuIw5
+						WZijXpCkjbXV77JdoRRdTa7IotL6/p9/QgfoU21tjydql0RorjuhBV9xj4aEY0xo
+						Dm5hKpCb2NtxZU9FlyVEyYx+lrAkUHkrWTJuH6YlGref+TgXAyq3Pu1UcQfPxGv7
+						tGv6Sr0lxPI+MwbXkY1KcmWYQvgsIthPcuHRoud9x4TOwY2trMKwq8KEYJPj7Hhg
+						luoGOlLgLy9uE1rY8IrVMPta0jAWbVJ7087OnWS9bzBPPff+ThZVh3pOrIOW3ZDZ
+						EEOe+FgaPKiuTyCT3rsKecmTOmMCXiFISWgq9x8VPxOIxJRL0ze7c1NlHuGU494K
+						UjHj29M5cDmyVud3yJVDSr5kde5QvdVT2Rjid+8seaX0L0R+5BFc3VAjDRkRQlZM
+						6/OHPHiN1yTZ3rvS9/Gmu0Gxaou8AF7DtBECAwEAAaNQME4wHQYDVR0OBBYEFD5O
+						Xi14slUrKao3oHh+fJfqknUEMB8GA1UdIwQYMBaAFD5OXi14slUrKao3oHh+fJfq
+						knUEMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQELBQADggIBACotJj7JrPXhz//v
+						d7lW6LSVOFEbMJQ+faci4XIXg2Hp/imeAKNpbldokdYjHLbobC5OgPpwjGgb89K9
+						9y0XUSmPucnKMFLFB6OLibMf1zCHel956wLJOrGGdoAy3hdhi/na2U02vtjexxGT
+						IqbicXEmAcVCRve0TDSUU/yJ/Q9kjNEoOlyo1Sy3+4SeO7tuY6FRCM07WnucXzJL
+						gNCrnqVxCTNa5ZhjP/Ppp2V3jIvcwvXg4TAtmKZBu6RhBSni4Ml4kTmiy2g9U8NP
+						3j1zWY0V5QaZ8B+nbBjRxpthROM+qN0M0ILxw/ClKIECo4k2ScmP/Idx82bGmX3H
+						kiyTX6+OoXY4uM3utyjDm3hTmz2w/Mwj+dZy5StmU7qxcjOIYlyrl7uRUyltW0c2
+						3U5scKxzexpKZ7anUmxecAvV0D5jmJyBOoUIwS0NbOJmS3aWdhu2gjJIXJCFeHY4
+						wz3mDO5e3XWr7c8Rw3Mh15bWxVZyYv7TvdbuPmZyEHL4Tmq1vnzsFDOMdOQQNlS9
+						kN8cbSNag89eDMLjs+0I64QRuC8zW7VzRw8/Jm/w4Th0ZNfF36dbmGe1Oa4YHKlq
+						aZmnja4uIchgKipEXlNaG1+HACmzj0SIKGpaBtiryIcogwbZoeCaxKp69YgyaQEk
+						swIdKrlywppmFlZP04UczhynlNo3
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://uk-bris-shibboleth.moveon4.com/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://uk-bris-shibboleth.moveon4.com/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://uk-bris-shibboleth.moveon4.com/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://uk-bris-shibboleth.moveon4.com/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://uk-bris-shibboleth.moveon4.com/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://uk-bris-shibboleth.moveon4.com/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://uk-bris-shibboleth.moveon4.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://uk-bris-shibboleth.moveon4.com/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://uk-bris-shibboleth.moveon4.com/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://uk-bris-shibboleth.moveon4.com/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://uk-bris-shibboleth.moveon4.com/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">QS unisolution GmbH</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">qsu-unisolution</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.qs-unisolution.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Kamran</md:GivenName>
+      <md:SurName>Tabassum</md:SurName>
+      <md:EmailAddress>mailto:kamran@zeptosystems.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Zia</md:GivenName>
+      <md:SurName>Qazi</md:SurName>
+      <md:EmailAddress>mailto:ziaqazi@zeptosystems.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

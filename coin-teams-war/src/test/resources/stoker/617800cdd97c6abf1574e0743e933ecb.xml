@@ -1,23 +1,23 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://sp.ebrary.com/shibboleth">
-    <Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2013-09-25T14:15:53Z">
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sp.ebrary.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2013-09-25T14:15:53Z">
         <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
         <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-    </Extensions>
-    <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sp.ebrary.com/Shibboleth.sso/DS/Edugate" index="1"/>
-        <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sp.ebrary.com/Shibboleth.sso/DS" index="2"/>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sp.ebrary.com/Shibboleth.sso/DS/Edugate" index="1"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sp.ebrary.com/Shibboleth.sso/DS" index="2"/>
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="de">ebrary ebooks</mdui:DisplayName>
           <mdui:DisplayName xml:lang="en">ebrary ebooks</mdui:DisplayName>
           <mdui:Description xml:lang="de">Um Bibliotheken mit strategischen ebook Akquisition unterstützen, bietet eine Reihe von ebrary Pakete unter Abonnement und ewigen Archiv-Modelle, die von Hand durch unsere on-Bibliothekare ausgewählt sind. Diese abgepackte Produkte können miteinander kombiniert, sowie einzelne Titel unter Modelle wie Patron driven Erwerb und kurzfristige Darlehen für den größten Wert erworben werden.</mdui:Description>
           <mdui:Description xml:lang="en">To assist libraries with strategic ebook acquisition, ebrary offers a number of packages under subscription and perpetual archive models that are hand selected by our on-staff librarians. These pre-packaged products can be combined with each other as well as individual titles acquired under models such as patron driven acquisition and short-term loan for the greatest value.</mdui:Description>
         </mdui:UIInfo>
-      </Extensions>
-      <KeyDescriptor>
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
           <ds:KeyName>shibb01.ebrary.com</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=shibb01.ebrary.com</ds:X509SubjectName>
@@ -41,51 +41,51 @@ Dw==
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sp.ebrary.com/Shibboleth.sso/SLO/SOAP"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sp.ebrary.com/Shibboleth.sso/SLO/Redirect"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp.ebrary.com/Shibboleth.sso/SLO/POST"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sp.ebrary.com/Shibboleth.sso/SLO/Artifact"/>
-      <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sp.ebrary.com/Shibboleth.sso/NIM/SOAP"/>
-      <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sp.ebrary.com/Shibboleth.sso/NIM/Redirect"/>
-      <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp.ebrary.com/Shibboleth.sso/NIM/POST"/>
-      <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sp.ebrary.com/Shibboleth.sso/NIM/Artifact"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://sp.ebrary.com/Shibboleth.sso/SAML/POST" index="1"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://sp.ebrary.com/Shibboleth.sso/SAML/Artifact" index="2"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp.ebrary.com/Shibboleth.sso/SAML2/POST" index="3"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sp.ebrary.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="4"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sp.ebrary.com/Shibboleth.sso/SAML2/Artifact" index="5"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://sp.ebrary.com/Shibboleth.sso/SAML2/ECP" index="6"/>
-      <AttributeConsumingService index="1">
-        <ServiceName xml:lang="de">ebrary ebooks</ServiceName>
-        <ServiceName xml:lang="en">ebrary ebooks</ServiceName>
-        <ServiceDescription xml:lang="de">Um Bibliotheken mit strategischen ebook Akquisition unterstützen, bietet eine Reihe von ebrary Pakete unter Abonnement und ewigen Archiv-Modelle, die von Hand durch unsere on-Bibliothekare ausgewählt sind. Diese abgepackte Produkte können miteinander kombiniert, sowie einzelne Titel unter Modelle wie Patron driven Erwerb und kurzfristige Darlehen für den größten Wert erworben werden.</ServiceDescription>
-        <ServiceDescription xml:lang="en">To assist libraries with strategic ebook acquisition, ebrary offers a number of packages under subscription and perpetual archive models that are hand selected by our on-staff librarians. These pre-packaged products can be combined with each other as well as individual titles acquired under models such as patron driven acquisition and short-term loan for the greatest value.</ServiceDescription>
-        <RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-        <RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
-      </AttributeConsumingService>
-    </SPSSODescriptor>
-    <Organization>
-      <OrganizationName xml:lang="de">e65</OrganizationName>
-      <OrganizationName xml:lang="en">e65</OrganizationName>
-      <OrganizationDisplayName xml:lang="de">ProQuest</OrganizationDisplayName>
-      <OrganizationDisplayName xml:lang="en">ProQuest</OrganizationDisplayName>
-      <OrganizationURL xml:lang="de">http://www.proquest.com</OrganizationURL>
-      <OrganizationURL xml:lang="en">http://www.proquest.com</OrganizationURL>
-    </Organization>
-    <ContactPerson contactType="technical">
-      <GivenName>jingwen</GivenName>
-      <SurName>wang</SurName>
-      <EmailAddress>mailto:jingwen@ebrary.com</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="administrative">
-      <GivenName>rob</GivenName>
-      <SurName>wright</SurName>
-      <EmailAddress>mailto:rob@ebrary.com</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="support">
-      <GivenName>jingwen</GivenName>
-      <SurName>wang</SurName>
-      <EmailAddress>mailto:jingwen@ebrary.com</EmailAddress>
-    </ContactPerson>
-  </EntityDescriptor>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sp.ebrary.com/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sp.ebrary.com/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp.ebrary.com/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sp.ebrary.com/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sp.ebrary.com/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sp.ebrary.com/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp.ebrary.com/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sp.ebrary.com/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://sp.ebrary.com/Shibboleth.sso/SAML/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://sp.ebrary.com/Shibboleth.sso/SAML/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp.ebrary.com/Shibboleth.sso/SAML2/POST" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sp.ebrary.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sp.ebrary.com/Shibboleth.sso/SAML2/Artifact" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://sp.ebrary.com/Shibboleth.sso/SAML2/ECP" index="6"/>
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="de">ebrary ebooks</md:ServiceName>
+        <md:ServiceName xml:lang="en">ebrary ebooks</md:ServiceName>
+        <md:ServiceDescription xml:lang="de">Um Bibliotheken mit strategischen ebook Akquisition unterstützen, bietet eine Reihe von ebrary Pakete unter Abonnement und ewigen Archiv-Modelle, die von Hand durch unsere on-Bibliothekare ausgewählt sind. Diese abgepackte Produkte können miteinander kombiniert, sowie einzelne Titel unter Modelle wie Patron driven Erwerb und kurzfristige Darlehen für den größten Wert erworben werden.</md:ServiceDescription>
+        <md:ServiceDescription xml:lang="en">To assist libraries with strategic ebook acquisition, ebrary offers a number of packages under subscription and perpetual archive models that are hand selected by our on-staff librarians. These pre-packaged products can be combined with each other as well as individual titles acquired under models such as patron driven acquisition and short-term loan for the greatest value.</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e65</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e65</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">ProQuest</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">ProQuest</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.proquest.com</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.proquest.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>jingwen</md:GivenName>
+      <md:SurName>wang</md:SurName>
+      <md:EmailAddress>mailto:jingwen@ebrary.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>rob</md:GivenName>
+      <md:SurName>wright</md:SurName>
+      <md:EmailAddress>mailto:rob@ebrary.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>jingwen</md:GivenName>
+      <md:SurName>wang</md:SurName>
+      <md:EmailAddress>mailto:jingwen@ebrary.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

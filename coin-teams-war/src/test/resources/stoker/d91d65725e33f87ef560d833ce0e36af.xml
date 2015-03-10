@@ -1,14 +1,14 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.hebis.de/uni-frankfurt">
-    <Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-08-11T07:07:20Z">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.hebis.de/uni-frankfurt">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-08-11T07:07:20Z">
         <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
         <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-    </Extensions>
-    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">uni-frankfurt.de</saml1md:Scope>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uni-frankfurt.de</shibmd:Scope>
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="de">Universität Frankfurt</mdui:DisplayName>
           <mdui:DisplayName xml:lang="en">Universität Frankfurt</mdui:DisplayName>
           <mdui:Description xml:lang="de">Identity Provider der Johann Wolfgang Goethe Universität Frankfurt am Main</mdui:Description>
@@ -16,9 +16,9 @@
           <mdui:InformationURL xml:lang="de">http://www.uni-frankfurt.de/de?locale=de</mdui:InformationURL>
           <mdui:InformationURL xml:lang="en">http://www.uni-frankfurt.de/en?locale=en</mdui:InformationURL>
         </mdui:UIInfo>
-      </Extensions>
-      <KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
           <ds:KeyName>idp.ub.uni-frankfurt.de</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=idp.ub.uni-frankfurt.de,OU=Hochschulrechenzentrum,O=Johann Wolfgang Goethe-Universitaet Frankfurt am Main,L=Frankfurt am Main,ST=Hessen,C=DE</ds:X509SubjectName>
@@ -59,25 +59,68 @@ L3AVMrfe165uaW2pn5pinAUyFec=
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ub.uni-frankfurt.de:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ub.uni-frankfurt.de:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ub.uni-frankfurt.de/idp/profile/SAML2/Redirect/SLO"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ub.uni-frankfurt.de/idp/profile/SAML2/POST/SLO"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ub.uni-frankfurt.de:8443/idp/profile/SAML2/SOAP/SLO"/>
-      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ub.uni-frankfurt.de/idp/profile/Shibboleth/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ub.uni-frankfurt.de/idp/profile/SAML2/POST/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.ub.uni-frankfurt.de/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ub.uni-frankfurt.de/idp/profile/SAML2/Redirect/SSO"/>
-    </IDPSSODescriptor>
-    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">uni-frankfurt.de</saml1md:Scope>
-      </Extensions>
-      <KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:KeyName>idp.ub.uni-frankfurt.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=idp.ub.uni-frankfurt.de,OU=Hochschulrechenzentrum,O=Johann Wolfgang Goethe-Universitaet Frankfurt am Main,L=Frankfurt am Main,ST=Hessen,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGNzCCBR+gAwIBAgIHGFx3pTtgCDANBgkqhkiG9w0BAQsFADCBoTELMAkGA1UE
+BhMCREUxDzANBgNVBAgTBkhlc3NlbjEaMBgGA1UEBxMRRnJhbmtmdXJ0IGFtIE1h
+aW4xLDAqBgNVBAoTI0pvaGFubiBXb2xmZ2FuZyBHb2V0aGUtVW5pdmVyc2l0YWV0
+MRMwEQYDVQQDEwpVTkktRkZNIENBMSIwIAYJKoZIhvcNAQkBFhNjYUB1bmktZnJh
+bmtmdXJ0LmRlMB4XDTE0MTAxNDEwMjUyNVoXDTE5MDcwOTIzNTkwMFowgb0xCzAJ
+BgNVBAYTAkRFMQ8wDQYDVQQIEwZIZXNzZW4xGjAYBgNVBAcTEUZyYW5rZnVydCBh
+bSBNYWluMT4wPAYDVQQKEzVKb2hhbm4gV29sZmdhbmcgR29ldGhlLVVuaXZlcnNp
+dGFldCBGcmFua2Z1cnQgYW0gTWFpbjEfMB0GA1UECxMWSG9jaHNjaHVscmVjaGVu
+emVudHJ1bTEgMB4GA1UEAxMXaWRwLnViLnVuaS1mcmFua2Z1cnQuZGUwggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCsALjc6bzE8TAoxd+kKkFWraG2H0Bl
+xWDmfi5ByQbQ3XZrF0PsCZhZn6C1WBIWqaMgFmnlpK7/zJt/V2m9pJ1a3jNuYdKi
+JjD17U1xXLcV2hpq1LsIuIRjukS2bZB6baH6gc2QuSQ3e8UlRYjoJrZI6YLTaRh1
+eYqAsHORfjNXk5wrq1KRepH/akKp4hwB5Gy7lN9U9+klk2z+GN6BXndCGL2Y+fiT
+X2HE26HCZ8N7O9GyDSoX1KTr0ErD1bQblMnYh9E+7BnYk4FFeUH7MWUT3CF/rWZB
+qcmZpUZ7MSwH7kHjqrRLthaeJUITBs8JSLrsOweD2NSt41NEG+9E4w+pAgMBAAGj
+ggJUMIICUDBPBgNVHSAESDBGMBEGDysGAQQBga0hgiwBAQQDAjARBg8rBgEEAYGt
+IYIsAgEEAwEwDwYNKwYBBAGBrSGCLAEBBDANBgsrBgEEAYGtIYIsHjAJBgNVHRME
+AjAAMAsGA1UdDwQEAwIE8DATBgNVHSUEDDAKBggrBgEFBQcDATAdBgNVHQ4EFgQU
+5aI383EINa1iBCqan/ibbpmKNkYwHwYDVR0jBBgwFoAUY1l3sUZv4earr8LHk/9f
+cQ1P4P8wIgYDVR0RBBswGYIXaWRwLnViLnVuaS1mcmFua2Z1cnQuZGUwgY0GA1Ud
+HwSBhTCBgjA/oD2gO4Y5aHR0cDovL2NkcDEucGNhLmRmbi5kZS91bmktZnJhbmtm
+dXJ0LWNhL3B1Yi9jcmwvY2FjcmwuY3JsMD+gPaA7hjlodHRwOi8vY2RwMi5wY2Eu
+ZGZuLmRlL3VuaS1mcmFua2Z1cnQtY2EvcHViL2NybC9jYWNybC5jcmwwgdsGCCsG
+AQUFBwEBBIHOMIHLMDMGCCsGAQUFBzABhidodHRwOi8vb2NzcC5wY2EuZGZuLmRl
+L09DU1AtU2VydmVyL09DU1AwSQYIKwYBBQUHMAKGPWh0dHA6Ly9jZHAxLnBjYS5k
+Zm4uZGUvdW5pLWZyYW5rZnVydC1jYS9wdWIvY2FjZXJ0L2NhY2VydC5jcnQwSQYI
+KwYBBQUHMAKGPWh0dHA6Ly9jZHAyLnBjYS5kZm4uZGUvdW5pLWZyYW5rZnVydC1j
+YS9wdWIvY2FjZXJ0L2NhY2VydC5jcnQwDQYJKoZIhvcNAQELBQADggEBACH5yde6
+vRx/6F/xAdh6P8Ns0+j4nAkmx6c/NsK972ieieZ6MMCz5WjuDafhg1oDRq7GHYaN
+61N3zfNmYj8wtLrCgsrv8HCGNGFJmdKcga7IUssiRjAUA91VUU5qerQJ1w3qrxCS
+B4NMolDbixNUnNu6UmquzSPYCXFfSbUIzuygmo/i9DLaBfC/QsJHiKk8k4bfOMA6
+ojbuWH+kSD4sRA5eWgtLj8nbBimO/IdsgB2Ytbl4azRwUl9EWALgzU8bk6sGx4y2
+DQXMmdFBkY9JHcxY7nGJXXGHQ26SFFV3dveQE+GAtG/jIFCsxm9D9NmVQxd9W3i5
+bRTKhSFui7ClOO0=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ub.uni-frankfurt.de:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ub.uni-frankfurt.de:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ub.uni-frankfurt.de/idp/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ub.uni-frankfurt.de/idp/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ub.uni-frankfurt.de:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ub.uni-frankfurt.de/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ub.uni-frankfurt.de/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.ub.uni-frankfurt.de/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ub.uni-frankfurt.de/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uni-frankfurt.de</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
           <ds:KeyName>idp.ub.uni-frankfurt.de</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=idp.ub.uni-frankfurt.de,OU=Hochschulrechenzentrum,O=Johann Wolfgang Goethe-Universitaet Frankfurt am Main,L=Frankfurt am Main,ST=Hessen,C=DE</ds:X509SubjectName>
@@ -118,29 +161,72 @@ L3AVMrfe165uaW2pn5pinAUyFec=
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ub.uni-frankfurt.de:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ub.uni-frankfurt.de:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
-    </AttributeAuthorityDescriptor>
-    <Organization>
-      <OrganizationName xml:lang="de">e35</OrganizationName>
-      <OrganizationName xml:lang="en">e35</OrganizationName>
-      <OrganizationDisplayName xml:lang="de">Johann Wolfgang Goethe-Universität Frankfurt am Main</OrganizationDisplayName>
-      <OrganizationDisplayName xml:lang="en">Johann Wolfgang Goethe-Universität Frankfurt am Main</OrganizationDisplayName>
-      <OrganizationURL xml:lang="de">http://www.uni-frankfurt.de</OrganizationURL>
-      <OrganizationURL xml:lang="en">http://www.uni-frankfurt.de</OrganizationURL>
-    </Organization>
-    <ContactPerson contactType="technical">
-      <GivenName>Axel</GivenName>
-      <SurName>Doerrer</SurName>
-      <EmailAddress>mailto:a.doerrer@ub.uni-frankfurt.de</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="support">
-      <GivenName>Axel</GivenName>
-      <SurName>Doerrer</SurName>
-      <EmailAddress>mailto:a.doerrer@ub.uni-frankfurt.de</EmailAddress>
-    </ContactPerson>
-  </EntityDescriptor>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:KeyName>idp.ub.uni-frankfurt.de</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=idp.ub.uni-frankfurt.de,OU=Hochschulrechenzentrum,O=Johann Wolfgang Goethe-Universitaet Frankfurt am Main,L=Frankfurt am Main,ST=Hessen,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGNzCCBR+gAwIBAgIHGFx3pTtgCDANBgkqhkiG9w0BAQsFADCBoTELMAkGA1UE
+BhMCREUxDzANBgNVBAgTBkhlc3NlbjEaMBgGA1UEBxMRRnJhbmtmdXJ0IGFtIE1h
+aW4xLDAqBgNVBAoTI0pvaGFubiBXb2xmZ2FuZyBHb2V0aGUtVW5pdmVyc2l0YWV0
+MRMwEQYDVQQDEwpVTkktRkZNIENBMSIwIAYJKoZIhvcNAQkBFhNjYUB1bmktZnJh
+bmtmdXJ0LmRlMB4XDTE0MTAxNDEwMjUyNVoXDTE5MDcwOTIzNTkwMFowgb0xCzAJ
+BgNVBAYTAkRFMQ8wDQYDVQQIEwZIZXNzZW4xGjAYBgNVBAcTEUZyYW5rZnVydCBh
+bSBNYWluMT4wPAYDVQQKEzVKb2hhbm4gV29sZmdhbmcgR29ldGhlLVVuaXZlcnNp
+dGFldCBGcmFua2Z1cnQgYW0gTWFpbjEfMB0GA1UECxMWSG9jaHNjaHVscmVjaGVu
+emVudHJ1bTEgMB4GA1UEAxMXaWRwLnViLnVuaS1mcmFua2Z1cnQuZGUwggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCsALjc6bzE8TAoxd+kKkFWraG2H0Bl
+xWDmfi5ByQbQ3XZrF0PsCZhZn6C1WBIWqaMgFmnlpK7/zJt/V2m9pJ1a3jNuYdKi
+JjD17U1xXLcV2hpq1LsIuIRjukS2bZB6baH6gc2QuSQ3e8UlRYjoJrZI6YLTaRh1
+eYqAsHORfjNXk5wrq1KRepH/akKp4hwB5Gy7lN9U9+klk2z+GN6BXndCGL2Y+fiT
+X2HE26HCZ8N7O9GyDSoX1KTr0ErD1bQblMnYh9E+7BnYk4FFeUH7MWUT3CF/rWZB
+qcmZpUZ7MSwH7kHjqrRLthaeJUITBs8JSLrsOweD2NSt41NEG+9E4w+pAgMBAAGj
+ggJUMIICUDBPBgNVHSAESDBGMBEGDysGAQQBga0hgiwBAQQDAjARBg8rBgEEAYGt
+IYIsAgEEAwEwDwYNKwYBBAGBrSGCLAEBBDANBgsrBgEEAYGtIYIsHjAJBgNVHRME
+AjAAMAsGA1UdDwQEAwIE8DATBgNVHSUEDDAKBggrBgEFBQcDATAdBgNVHQ4EFgQU
+5aI383EINa1iBCqan/ibbpmKNkYwHwYDVR0jBBgwFoAUY1l3sUZv4earr8LHk/9f
+cQ1P4P8wIgYDVR0RBBswGYIXaWRwLnViLnVuaS1mcmFua2Z1cnQuZGUwgY0GA1Ud
+HwSBhTCBgjA/oD2gO4Y5aHR0cDovL2NkcDEucGNhLmRmbi5kZS91bmktZnJhbmtm
+dXJ0LWNhL3B1Yi9jcmwvY2FjcmwuY3JsMD+gPaA7hjlodHRwOi8vY2RwMi5wY2Eu
+ZGZuLmRlL3VuaS1mcmFua2Z1cnQtY2EvcHViL2NybC9jYWNybC5jcmwwgdsGCCsG
+AQUFBwEBBIHOMIHLMDMGCCsGAQUFBzABhidodHRwOi8vb2NzcC5wY2EuZGZuLmRl
+L09DU1AtU2VydmVyL09DU1AwSQYIKwYBBQUHMAKGPWh0dHA6Ly9jZHAxLnBjYS5k
+Zm4uZGUvdW5pLWZyYW5rZnVydC1jYS9wdWIvY2FjZXJ0L2NhY2VydC5jcnQwSQYI
+KwYBBQUHMAKGPWh0dHA6Ly9jZHAyLnBjYS5kZm4uZGUvdW5pLWZyYW5rZnVydC1j
+YS9wdWIvY2FjZXJ0L2NhY2VydC5jcnQwDQYJKoZIhvcNAQELBQADggEBACH5yde6
+vRx/6F/xAdh6P8Ns0+j4nAkmx6c/NsK972ieieZ6MMCz5WjuDafhg1oDRq7GHYaN
+61N3zfNmYj8wtLrCgsrv8HCGNGFJmdKcga7IUssiRjAUA91VUU5qerQJ1w3qrxCS
+B4NMolDbixNUnNu6UmquzSPYCXFfSbUIzuygmo/i9DLaBfC/QsJHiKk8k4bfOMA6
+ojbuWH+kSD4sRA5eWgtLj8nbBimO/IdsgB2Ytbl4azRwUl9EWALgzU8bk6sGx4y2
+DQXMmdFBkY9JHcxY7nGJXXGHQ26SFFV3dveQE+GAtG/jIFCsxm9D9NmVQxd9W3i5
+bRTKhSFui7ClOO0=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ub.uni-frankfurt.de:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ub.uni-frankfurt.de:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e35</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e35</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Johann Wolfgang Goethe-Universität Frankfurt am Main</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Johann Wolfgang Goethe-Universität Frankfurt am Main</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.uni-frankfurt.de</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.uni-frankfurt.de</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Axel</md:GivenName>
+      <md:SurName>Doerrer</md:SurName>
+      <md:EmailAddress>mailto:a.doerrer@ub.uni-frankfurt.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Axel</md:GivenName>
+      <md:SurName>Doerrer</md:SurName>
+      <md:EmailAddress>mailto:a.doerrer@ub.uni-frankfurt.de</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

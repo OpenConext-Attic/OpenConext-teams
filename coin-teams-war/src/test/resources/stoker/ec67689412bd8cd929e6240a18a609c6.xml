@@ -1,25 +1,20 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://identities.univ-jfc.fr/idp/prod">
-			<Extensions>
-				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-02-10T15:01:12Z">
-					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
-				</mdrpi:RegistrationInfo>
-			</Extensions>
-		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-jfc.fr</shibmd:Scope>
-    
-			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
-          		      
-          		      
-          		      <mdui:DisplayName xml:lang="fr">CUFR Jean-François Champollion</mdui:DisplayName>
-          		      
-      			    </mdui:UIInfo>
-			</Extensions>
-				<KeyDescriptor use="signing">
-<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://identities.univ-jfc.fr/idp/prod">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-02-10T15:01:12Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">univ-jfc.fr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="fr">CUFR Jean-François Champollion</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIEmjCCA4KgAwIBAgIRAJUDuJkaRvWHyWeev34/8hgwDQYJKoZIhvcNAQEFBQAw
 NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
 IFNTTCBDQTAeFw0xMTExMjkwMDAwMDBaFw0xNDExMjgyMzU5NTlaMHIxCzAJBgNV
@@ -46,17 +41,13 @@ NL+Wg4nuXkz1Uk/2f7r0BvSfkVisZMPlTTEpeuAtrosSd6B2RiCR0qiCPQ0SoaqS
 +jyx9pIRcGIlOqogM0g4sPTu7HMo0YnTQMOBEnbsW28spqIS2YwFqhy1g5Ym0f9s
 hCYLgINEWub/bwGC6PX0gJc70qPAaHGV7JYa/Dgd
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-					</ds:KeyInfo>
-				</KeyDescriptor>
-
-				
-				
-				<KeyDescriptor use="signing">
-				       <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIEMDCCAxigAwIBAgILAQAAAAABHeOs+yswDQYJKoZIhvcNAQEFBQAwXzELMAkG
 A1UEBhMCQkUxEzARBgNVBAoTCkN5YmVydHJ1c3QxFzAVBgNVBAsTDkVkdWNhdGlv
 bmFsIENBMSIwIAYDVQQDExlDeWJlcnRydXN0IEVkdWNhdGlvbmFsIENBMB4XDTA4
@@ -81,44 +72,22 @@ d8v+cbFAWQvaPSss4LZXujMiDo2QCexGuaBGumJ5mXKKOrOzb0GAMPYBStAoR4zX
 rk3h9JOD0El42/6Z7mwlrGIoUZLC7ZetJegQrcfMUwf2VQp086NFzxhX6oDS3Lod
 OCtecuSNWAaLANEqmwX3BZkVcmQ=
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					</ds:KeyInfo>
-				</KeyDescriptor>
-				
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-
-			
-			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cabrel.univ-jfc.fr/idp/profile/SAML2/POST/SSO"/>
-	        
-	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cabrel.univ-jfc.fr/idp/profile/SAML2/Redirect/SSO"/>
-	        
-	        
-			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cabrel.univ-jfc.fr/idp/profile/Shibboleth/SSO"/>
-			
-
-		</IDPSSODescriptor>
-		
-
-
-		<Organization>
-		
-			<OrganizationName xml:lang="en">CUFR Jean-François Champollion</OrganizationName>
-			<OrganizationDisplayName xml:lang="en">CUFR Jean-François Champollion</OrganizationDisplayName>
-			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
-		
-		</Organization>
-
-			
-		    	
-			    <ContactPerson contactType="technical">
-				 <SurName>J.-M. Kubek</SurName>
-				 <EmailAddress>jean-marie.kubek@univ-jfc.fr</EmailAddress>
-		        </ContactPerson>
-			    	
-
-		    		
-
-				
-			
-	</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cabrel.univ-jfc.fr/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cabrel.univ-jfc.fr/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cabrel.univ-jfc.fr/idp/profile/Shibboleth/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">CUFR Jean-François Champollion</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">CUFR Jean-François Champollion</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://unknown.site.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>J.-M. Kubek</md:SurName>
+      <md:EmailAddress>jean-marie.kubek@univ-jfc.fr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

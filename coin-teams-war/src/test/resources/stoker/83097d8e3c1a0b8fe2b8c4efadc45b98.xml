@@ -1,0 +1,64 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://pds-login.ncl.ac.uk/shibboleth/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-10-11T09:49:21Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIE1zCCA7+gAwIBAgIRAMWeZx1G7lbDu7qyvQeDekIwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjA4MjAwMDAwMDBaFw0xNTA4MjAyMzU5NTlaMIGtMQswCQYD
+						VQQGEwJHQjEQMA4GA1UECBMHRW5nbGFuZDEcMBoGA1UEBxMTTmV3Y2FzdGxlIHVw
+						b24gVHluZTEqMCgGA1UEChMhVW5pdmVyc2l0eSBvZiBOZXdjYXN0bGUgdXBvbiBU
+						eW5lMSQwIgYDVQQLExtTY2hvb2wgb2YgQ29tcHV0aW5nIFNjaWVuY2UxHDAaBgNV
+						BAMTE3Bkcy1sb2dpbi5uY2wuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
+						ggEKAoIBAQDkO2U3HoOiy+IfOJFLS946UJfzme0D9J79uE2xSXq9b0qsT/M74Seq
+						uRXT6zCqBhiGJ7dya9K4lA8S6udJRJrzMkxAnZIPEPM9aYCJLLo7sZGgqbLEKfSg
+						uXGspEXT7XBNt5hj/nBQe1hIB75mCADRsgF5j4YjwuMdFicEffbCvzG7jQInouK2
+						yB7oDzAySwdd7MAzdyF5XwOJh9wGR6zTwNDj3tqyQeeJguOKQUivH0Et+Y7PNVa+
+						dVNaRR5o6gwwTXBYfSCEssuiLqeMO/c9RwmIp6/u1h3LWlnNgtCWGCX3yqRf5qzy
+						U40KXTSKK9VmvLCKJsFQNoA2wO/QaT9jAgMBAAGjggFmMIIBYjAfBgNVHSMEGDAW
+						gBQMvZNoDPPeq6NJays3V0fqkOO57TAdBgNVHQ4EFgQUS+DFNUPC97lY0OwaCihM
+						P9X6mgIwDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYI
+						KwYBBQUHAwEGCCsGAQUFBwMCMBgGA1UdIAQRMA8wDQYLKwYBBAGyMQECAh0wOgYD
+						VR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFT
+						U0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0
+						LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0
+						cDovL29jc3AudGNzLnRlcmVuYS5vcmcwHgYDVR0RBBcwFYITcGRzLWxvZ2luLm5j
+						bC5hYy51azANBgkqhkiG9w0BAQUFAAOCAQEAK81/VPze5vAlxuzZtbrJ6q/qCLMB
+						JKSVwYnsrYzxiWtXoIhgl9IPgGtUmbyu+rzXac6Gb4FfID7crN8L2edTog3gv3YJ
+						wR6C1EUoGnirHix2z9PDaTz44ayfGCR7m8ihzshWyIVyPOABdX9Tp2EQ1Dh+miml
+						V9Qf8yPfjNlAGw7ouqnK2Jmsq+dX8IrI0DJ/amcBh0Fx5f7ZRN2Aq2oapWKr3Yp9
+						kIBIpQNZB1Gk19BxE4d5Y7/RIL2JW0T80WH1x4b3KGqI70NhkkQbsIlfJvNRovfO
+						Ltf/8F0z2I8EkfirLBwUjyLvFDV3T1h4oSAvYl4kKqKxW6i6Ub8jbr/jZA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://pds-login.ncl.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://pds-login.ncl.ac.uk/shibboleth/metadata" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://pds-login.ncl.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://pds-login.ncl.ac.uk/Shibboleth.sso/SAML2/Artifact" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://pds-login.ncl.ac.uk/Shibboleth.sso/SAML2/Artifact" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://pds-login.ncl.ac.uk/Shibboleth.sso/SAML/POST" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Newcastle upon Tyne</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Newcastle University SMART Project Server 2</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ncl.ac.uk/computing/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Franks</md:SurName>
+      <md:EmailAddress>mailto:chris.franks@ncl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Maciej</md:GivenName>
+      <md:SurName>Machulak</md:SurName>
+      <md:EmailAddress>mailto:maciej.machulak@ncl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

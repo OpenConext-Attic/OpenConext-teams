@@ -1,0 +1,108 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://bwidpsrv01.bridgwater.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-04-10T08:33:11Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">bridgwater.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEhDCCA2ygAwIBAgIRAMLq8DxqQ9VM4MxH2N6y4W0wDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzA0MDkwMDAwMDBaFw0xNjA0MDgyMzU5NTlaMEkxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEkMCIGA1UEAxMbYndpZHBzMTIw
+						MS5icmlkZ3dhdGVyLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+						AQEA0vlQR95+UaFwqN9If+FF/DU6lCK2B3IMNchzTjKYy+JjlA1HvOHRk3YvbqZZ
+						HYER7PGKedRiSLXp84T3+j1LJt0NsCsusT2HqJUOMtmA4TIJykbUCszM1+AhdlrM
+						EvZa64Sex4YHU/5pbhJM56Wvv407Zu8MadScmFI/wTUSbXFivXQ3Bo8oBS3noMGM
+						Vm5zWZo25rhdz9TKqIiqH8zIIrNoSDT/euxWFQHC+SaL63hvClgGKTskQPHtawsZ
+						eVwKvvK/3VA2kvp32cSyrakYQMSMUaDj/WJUL+hyhRAtVvHeF3cqiKj1260vbW26
+						1WGm1lm4Y2m4QTGnzvi/1TkO3wIDAQABo4IBeDCCAXQwHwYDVR0jBBgwFoAUDL2T
+						aAzz3qujSWsrN1dH6pDjue0wHQYDVR0OBBYEFB33fJXVzgHhXKe+YK6Bry+6aYIV
+						MA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUF
+						BwMBBggrBgEFBQcDAjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAEC
+						ATA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RF
+						UkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6
+						Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzAB
+						hhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9yZzAmBgNVHREEHzAdghtid2lkcHMx
+						MjAxLmJyaWRnd2F0ZXIuYWMudWswDQYJKoZIhvcNAQEFBQADggEBAL7LFjSMYEy9
+						ZE++GoD34F7WvVSqKoHBKtAqemCe4xFzTCzskZhLkOY6SXnJJtbq5/DHpd2qL22g
+						wnhNCJtzTTzZSuzNrFzOeWhp1m+bJH/8Xcjl/5Cf/Eo4BIfeSrQuJOPSdxMMWG6A
+						tLzewEIs6Ibb+b8sUy7j8BA9ky+skXRQL2SlM3ioMDYIiK8Jckk1OKd1U35KQ++i
+						VKdye05mxWSD5Mknta9K1c8biDUf2BqPgy8+QsE2AvfY8+Nov3+bJq6ksSuwAXb6
+						nGnCuRnmVxN86RptKz5oaKroizlEAlQY7CaJ0vzcP9nqMA9B3A5JuUeIgKYEjEjA
+						+4L3YUYYg5I=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://bwidps1201.bridgwater.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://bwidps1201.bridgwater.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://bwidps1201.bridgwater.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://bwidps1201.bridgwater.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://bwidps1201.bridgwater.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://bwidps1201.bridgwater.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">bridgwater.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEhDCCA2ygAwIBAgIRAMLq8DxqQ9VM4MxH2N6y4W0wDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzA0MDkwMDAwMDBaFw0xNjA0MDgyMzU5NTlaMEkxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEkMCIGA1UEAxMbYndpZHBzMTIw
+						MS5icmlkZ3dhdGVyLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+						AQEA0vlQR95+UaFwqN9If+FF/DU6lCK2B3IMNchzTjKYy+JjlA1HvOHRk3YvbqZZ
+						HYER7PGKedRiSLXp84T3+j1LJt0NsCsusT2HqJUOMtmA4TIJykbUCszM1+AhdlrM
+						EvZa64Sex4YHU/5pbhJM56Wvv407Zu8MadScmFI/wTUSbXFivXQ3Bo8oBS3noMGM
+						Vm5zWZo25rhdz9TKqIiqH8zIIrNoSDT/euxWFQHC+SaL63hvClgGKTskQPHtawsZ
+						eVwKvvK/3VA2kvp32cSyrakYQMSMUaDj/WJUL+hyhRAtVvHeF3cqiKj1260vbW26
+						1WGm1lm4Y2m4QTGnzvi/1TkO3wIDAQABo4IBeDCCAXQwHwYDVR0jBBgwFoAUDL2T
+						aAzz3qujSWsrN1dH6pDjue0wHQYDVR0OBBYEFB33fJXVzgHhXKe+YK6Bry+6aYIV
+						MA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUF
+						BwMBBggrBgEFBQcDAjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAEC
+						ATA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RF
+						UkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6
+						Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzAB
+						hhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9yZzAmBgNVHREEHzAdghtid2lkcHMx
+						MjAxLmJyaWRnd2F0ZXIuYWMudWswDQYJKoZIhvcNAQEFBQADggEBAL7LFjSMYEy9
+						ZE++GoD34F7WvVSqKoHBKtAqemCe4xFzTCzskZhLkOY6SXnJJtbq5/DHpd2qL22g
+						wnhNCJtzTTzZSuzNrFzOeWhp1m+bJH/8Xcjl/5Cf/Eo4BIfeSrQuJOPSdxMMWG6A
+						tLzewEIs6Ibb+b8sUy7j8BA9ky+skXRQL2SlM3ioMDYIiK8Jckk1OKd1U35KQ++i
+						VKdye05mxWSD5Mknta9K1c8biDUf2BqPgy8+QsE2AvfY8+Nov3+bJq6ksSuwAXb6
+						nGnCuRnmVxN86RptKz5oaKroizlEAlQY7CaJ0vzcP9nqMA9B3A5JuUeIgKYEjEjA
+						+4L3YUYYg5I=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://bwidps1201.bridgwater.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://bwidps1201.bridgwater.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Bridgwater College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Bridgwater College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.bridgwater.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Richard</md:GivenName>
+      <md:SurName>Anderson</md:SurName>
+      <md:EmailAddress>mailto:andersonr@bridgwater.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Richard</md:GivenName>
+      <md:SurName>Anderson</md:SurName>
+      <md:EmailAddress>mailto:andersonr@bridgwater.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

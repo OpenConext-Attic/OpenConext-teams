@@ -1,25 +1,46 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.u-picardie.fr/shibboleth">
-			<Extensions>
-				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-11-30T17:34:18Z">
-					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
-				</mdrpi:RegistrationInfo>
-			</Extensions>
-		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">u-picardie.fr</shibmd:Scope>
-    
-			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
-          		      
-          		      
-          		      <mdui:DisplayName xml:lang="fr">Université de Picardie Jules Verne</mdui:DisplayName>
-          		      
-      			    </mdui:UIInfo>
-			</Extensions>
-				<KeyDescriptor use="signing">
-<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.u-picardie.fr/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-11-30T17:34:18Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">u-picardie.fr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="fr">Université de Picardie Jules Verne</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+					      MIIDLzCCAhegAwIBAgIUc8NfuYdK4dyRrkHm6/tLQySUqJIwDQYJKoZIhvcNAQEF
+BQAwHDEaMBgGA1UEAwwRaWRwLnUtcGljYXJkaWUuZnIwHhcNMTQxMDE2MDcwNzMz
+WhcNMzQxMDE2MDcwNzMzWjAcMRowGAYDVQQDDBFpZHAudS1waWNhcmRpZS5mcjCC
+ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIXETB/OTBKk7/ZYdhwaXv/C
+aOZF3gT6kl41CEjA7l5cqbL92LV6FSxW0QnvoRogXqGsNoO54HfepaFWWAg9bTJR
+Jdb7SRGQGOhWcuYFag3Q6i5s6/GJaaeapAX5o0Rzld3/2/uPyeTQBtkfYYU//vgZ
+tE8Lf3HDYMJD1B9HuerE8glmEDLB0N/bxAAZI7T2BRmg8+PXnJOZ4SIk77eHMnP1
+Ae5JfKWeqfF8AgLxnP4JD7zHuQT8lB2JbfmAyf1bOSa7ivCEeDOh48rNnBV78uw5
+1N1cMRsIoc+bbd+jkElU8jCu4pbvRfU17pMePbfUnD7I8g0P8r7VJiUIxG7DIvMC
+AwEAAaNpMGcwHQYDVR0OBBYEFNIgDO/aawjPE0CQ0GfmqjVnE6GRMEYGA1UdEQQ/
+MD2CEWlkcC51LXBpY2FyZGllLmZyhihodHRwczovL2lkcC51LXBpY2FyZGllLmZy
+L2lkcC9zaGliYm9sZXRoMA0GCSqGSIb3DQEBBQUAA4IBAQADjxTKGUIdJMklNUpE
+LiNIGAjS1VDb6B5HEzm6up7LejLhoHlyuioAUN44fxvCL1ohHxdIRw0x8KhGjdy1
+2U8GF3nFdW54Mq4UqAXeCcJ2l2zKhAwScsTvN/8M1tAD1u7nm/0gb8H82NPxsF3V
+M7WZ6QFH8UhZZ9a+oZOsLDokNV6RnkvSINxmNYzDFhe9QtYP07xjkOAYIwwS6nYz
+U+g/1EeMs9SHCFLDY5mjMXLXXLDCVFhQDN8ek//VqmEx+gTUDUcmMkxy+7rEMrIw
+zKSuEobTpLGYSGzMJJYF0NU6sMHnkurmFxA1S6tfm3DPniPJwR0RlSBpBeuJkqPg
+oubj
+					    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIDajCCAlKgAwIBAgIVANKhuMi11QAW10TrFPegvTUOqn3bMA0GCSqGSIb3DQEB
 BQUAMCoxKDAmBgNVBAMTH3NoaWJib2xldGgtMDEud2ViLnUtcGljYXJkaWUuZnIw
 HhcNMTEwNjE2MTE0MzAyWhcNMzEwNjE2MTE0MzAyWjAqMSgwJgYDVQQDEx9zaGli
@@ -40,86 +61,26 @@ QGrTBMYBD3Ut9DV1bjYzfCVAB1UkYOJLtLYIk+BxT0WJw5eiAGycuu4IXiGiTWrH
 r+QqS3A3s1MpUhjcsw8FjQI13dTP9JbxHe7m/B44rp2myRaIj5iL9OBrd/Wgmu3d
 6zEip/VxKw2xk8VatR4=
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-					</ds:KeyInfo>
-				</KeyDescriptor>
-
-				
-				
-				<KeyDescriptor use="signing">
-				       <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  <ds:X509Data>
-					    <ds:X509Certificate>
-					      MIIEfTCCA2WgAwIBAgIQFrc22NJ0sZXYUohpmyOzPzANBgkqhkiG9w0BAQUFADA2
-MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
-U1NMIENBMB4XDTExMDYzMDAwMDAwMFoXDTE0MDYyOTIzNTk1OVowVzELMAkGA1UE
-BhMCRlIxLDAqBgNVBAoMI1VuaXZlcnNpdMOpIGRlIFBpY2FyZGllIEp1bGVzIFZl
-cm5lMRowGAYDVQQDExFpZHAudS1waWNhcmRpZS5mcjCCASIwDQYJKoZIhvcNAQEB
-BQADggEPADCCAQoCggEBAKp28e4dTUt02azH+q4b5K3a6G/KBn5pRnImq4iqQAO7
-0sZ2d/7BOE3RhdCdhsNTnmJwhlLLzrI13+3K4Ynn+nDIK9Pc6e2uiMGZPjaKHs3b
-FMDryRyYhymENkeXHTl+EdxWM7OifpGJOqpZbpvps+uByq6KDYPH1HnYyCEC6WXd
-KBXnE6piwnVsL1+TYdvmdew9FVtw2RGsbiYiDY++UStyPNxiTK/8jUcmualeXZgo
-GhNAGCZMPdKl+VJeDOVDKhAUwF4qi+lFltl34pJ4Op6jq196H7SRPJ+9iSEjzuDb
-jjo79CPC8vo6sx8Kuj0+hwgRbXORvJi/YEyIxGZz0xkCAwEAAaOCAWQwggFgMB8G
-A1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBRDxEQmo2u+
-i+w4gS2+FNlrznbibTAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNV
-HSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwGAYDVR0gBBEwDzANBgsrBgEEAbIx
-AQICHTA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3Jn
-L1RFUkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0
-dHA6Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUF
-BzABhhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9yZzAcBgNVHREEFTATghFpZHAu
-dS1waWNhcmRpZS5mcjANBgkqhkiG9w0BAQUFAAOCAQEAf/mglTmr+XP4XzcNQATd
-M1HPc/JptcV6L5NFynuTQgaMn7y/594L8ypoLYFGKhCzHCJLWymImzu5W+17gX44
-kJPFDnHC/tvcIgOL3hcPuZqBe4vzpdzkEeYhFj7eh70n5h5V9TQ+L7afdmsTdPRP
-8dyF8wKtwrXH3tUhlJyJnFy92qQa9PyHqrLVaUfGCS1YBwbnrGLo94Ilj4u74n1P
-yIB/fBitCRnxgC9VNR8oZRXBup5v0qBhyYn1tDji7ipPOtfVzQVydUmfxvxNQvNA
-cUvarUQlWqBSKrKZ+3yXqKx3GZ+jiaKGFxaeR+rhMR0ZBUrp4r+oOfLDe2s8Oadi
-TA==
-					    </ds:X509Certificate>
-					  </ds:X509Data>
-					</ds:KeyInfo>
-				</KeyDescriptor>
-				
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-
-			
-			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.u-picardie.fr/profile/SAML2/POST/SSO"/>
-	        
-	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.u-picardie.fr/profile/SAML2/Redirect/SSO"/>
-	        
-	        
-			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.u-picardie.fr/profile/Shibboleth/SSO"/>
-			
-
-		</IDPSSODescriptor>
-		
-
-
-		<Organization>
-		
-			<OrganizationName xml:lang="en">Université de Picardie Jules Verne</OrganizationName>
-			<OrganizationDisplayName xml:lang="en">Université de Picardie Jules Verne</OrganizationDisplayName>
-			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
-		
-		</Organization>
-
-			
-		    	
-			    <ContactPerson contactType="technical">
-				 <SurName>Jean Charles Delépine</SurName>
-				 <EmailAddress>delepine@u-picardie.fr</EmailAddress>
-		        </ContactPerson>
-			    	
-
-		    	
-			    <ContactPerson contactType="technical">
-				 <SurName>Julien Marignale</SurName>
-				 <EmailAddress>Julien.Marignale@u-picardie.fr</EmailAddress>
-		        </ContactPerson>
-			    	
-
-				
-			
-	</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.u-picardie.fr/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.u-picardie.fr/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.u-picardie.fr/profile/Shibboleth/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Université de Picardie Jules Verne</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Université de Picardie Jules Verne</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://unknown.site.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Jean Charles Delépine</md:SurName>
+      <md:EmailAddress>delepine@u-picardie.fr</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Julien Marignale</md:SurName>
+      <md:EmailAddress>Julien.Marignale@u-picardie.fr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

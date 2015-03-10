@@ -1,25 +1,21 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="uk002245" entityID="https://verify.studentbeans.com/shibboleth">
-	
-	<Extensions>
-
-
-		<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-09-12T12:07:00Z">
-			<mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
-		</mdrpi:RegistrationInfo>
-
-	</Extensions>
-	<SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
-		<Extensions>
-			<init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://verify.studentbeans.com/Shibboleth.sso/Login"/>
-			<idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://verify.studentbeans.com/Shibboleth.sso/Login" index="1"/>
-			<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-				<mdui:DisplayName xml:lang="en">Student Beans</mdui:DisplayName>
-			</mdui:UIInfo>
-		</Extensions>
-		<KeyDescriptor>
-			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-				<ds:X509Data>
-					<ds:X509Certificate>
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://verify.studentbeans.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-09-12T12:07:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://verify.studentbeans.com/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://verify.studentbeans.com/Shibboleth.sso/Login" index="1"/>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Student Beans</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 						MIIEODCCAyCgAwIBAgIJANJg6RwX4lGaMA0GCSqGSIb3DQEBBQUAMIGcMQswCQYD
 						VQQGEwJVSzEPMA0GA1UECAwGTG9uZG9uMQ8wDQYDVQQHDAZMb25kb24xHDAaBgNV
 						BAoME1RoZSBCZWFucyBHcm91cCBMdGQxIDAeBgNVBAMMF3ZlcmlmeS5zdHVkZW50
@@ -44,40 +40,39 @@
 						dbTF8jXsONg/RSWzM2N6J42swNHz1NzcVCbwtvlu8sPzLWftRGLZFLWpj3SJR3mr
 						UKG+a99pFdmiJhaVmr6ppycpR94IcDJb+8Px5A==
 					</ds:X509Certificate>
-				</ds:X509Data>
-			</ds:KeyInfo>
-		</KeyDescriptor>
-		<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://verify.studentbeans.com/Shibboleth.sso/Artifact/SOAP" index="0"/>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://verify.studentbeans.com/Shibboleth.sso/SLO/SOAP"/>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://verify.studentbeans.com/Shibboleth.sso/SLO/Redirect"/>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://verify.studentbeans.com/Shibboleth.sso/SLO/POST"/>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://verify.studentbeans.com/Shibboleth.sso/SLO/Artifact"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://verify.studentbeans.com/Shibboleth.sso/SAML2/POST" index="0"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://verify.studentbeans.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://verify.studentbeans.com/Shibboleth.sso/SAML2/Artifact" index="2"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://verify.studentbeans.com/Shibboleth.sso/SAML2/ECP" index="3"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://verify.studentbeans.com/Shibboleth.sso/SAML/POST" index="4"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://verify.studentbeans.com/Shibboleth.sso/SAML/Artifact" index="5"/>
-	</SPSSODescriptor>
-	<Organization>
-		<OrganizationName xml:lang="en">The Beans Group Limited</OrganizationName>
-		<OrganizationDisplayName xml:lang="en">Student Beans</OrganizationDisplayName>
-		<OrganizationURL xml:lang="en">http://www.studentbeans.com/</OrganizationURL>
-	</Organization>
-	<ContactPerson contactType="support">
-		<GivenName>Vincent</GivenName>
-		<SurName>Siebert</SurName>
-		<EmailAddress>mailto:vincent@thebeansgroup.com</EmailAddress>
-	</ContactPerson>
-	<ContactPerson contactType="support">
-		<GivenName>Seren</GivenName>
-		<SurName>Altiner</SurName>
-		<EmailAddress>mailto:seren@thebeansgroup.com</EmailAddress>
-	</ContactPerson>
-	<ContactPerson contactType="technical">
-		<GivenName>Vincent</GivenName>
-		<SurName>Siebert</SurName>
-		<EmailAddress>mailto:vincent@thebeansgroup.com</EmailAddress>
-	</ContactPerson>
-
-</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://verify.studentbeans.com/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://verify.studentbeans.com/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://verify.studentbeans.com/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://verify.studentbeans.com/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://verify.studentbeans.com/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://verify.studentbeans.com/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://verify.studentbeans.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://verify.studentbeans.com/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://verify.studentbeans.com/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://verify.studentbeans.com/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://verify.studentbeans.com/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">The Beans Group Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Student Beans</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.studentbeans.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Vincent</md:GivenName>
+      <md:SurName>Siebert</md:SurName>
+      <md:EmailAddress>mailto:vincent@thebeansgroup.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Seren</md:GivenName>
+      <md:SurName>Altiner</md:SurName>
+      <md:EmailAddress>mailto:seren@thebeansgroup.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Vincent</md:GivenName>
+      <md:SurName>Siebert</md:SurName>
+      <md:EmailAddress>mailto:vincent@thebeansgroup.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

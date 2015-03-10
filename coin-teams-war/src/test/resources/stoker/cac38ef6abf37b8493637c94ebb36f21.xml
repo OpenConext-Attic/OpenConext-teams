@@ -1,0 +1,104 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://dlib-skaill.ucs.ed.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2010-03-08T11:18:42Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">dlib-skaill.ucs.ed.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Skaill Test IdP</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDRzCCAi+gAwIBAgIUSmTdfn763UNpnElLInB08fIfiOgwDQYJKoZIhvcNAQEF
+						BQAwIjEgMB4GA1UEAxMXZGxpYi1za2FpbGwuZWRpbmEuYWMudWswHhcNMTQwNjE4
+						MTIwMzIxWhcNMzQwNjE4MTIwMzIxWjAiMSAwHgYDVQQDExdkbGliLXNrYWlsbC5l
+						ZGluYS5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJOx63EY
+						J4uh9FlNoNhB1KEi41z1uxuyWp3IOwX+EfUYXIshjnt1J4s0m36TFL7Ng6NfkHHs
+						vWZ2GVX4p0qbK9sPQ/m9jNvA4PI55un/hRBn/KYu3/35Mf4ioiKkFRP/iEl/+YM1
+						gURWxWd8bUyu0LbQRWbMRz9tU3dRruutxm47TNlZEfrEPaSAWb1otytGmw04vcjm
+						y5nWIzPhBrpL1Zu+JekBcwvD3vrIgeA2h3r+8EuG0WghcLcWJtwUlOb5jSXmA/b6
+						8l2F7Bbvy81x88NGBghZBhUnlLFwuUZ1zEDy5hqOVcGgoKlb216LzqRSPTxiiPQ9
+						1PGvxffMLGTYCAMCAwEAAaN1MHMwUgYDVR0RBEswSYIXZGxpYi1za2FpbGwuZWRp
+						bmEuYWMudWuGLmh0dHBzOi8vZGxpYi1za2FpbGwuZWRpbmEuYWMudWsvaWRwL3No
+						aWJib2xldGgwHQYDVR0OBBYEFOfvuXoBOS3z6kiFQNzznSPg5R1rMA0GCSqGSIb3
+						DQEBBQUAA4IBAQCQmnq2HC8MK+yGVLmKCr/wlDZKPwlUSvyNQXhgQYAtwUD9mb53
+						Wz+n7UXTYJQ/koVuJD+nDuQngkqAiEuW4NlMUQgtB5HQfIATQwkv7an029+4UL0m
+						sWryJGjvGbbfZZ6+kt00Rrz3BEaU6fRV63/vrY0PYItvb36tjn0xfrI74MFIdQoj
+						a3fa8kPIc1QYsCtNsV06GEpHpl0asgwNlCukFFyFUCuU/E/8Dadbwlw6o+ObNj3K
+						b6ettwdPpzsvba7W2w/oERE2IJLP1fwJ5I3KE2nOGnlUYaXQFon/w7vDDYfpqCzO
+						R313g/RR8Oq6ulpwKhbAPdoxFpyxxy3OS8K/
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://dlib-skaill.ucs.ed.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://dlib-skaill.ucs.ed.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://dlib-skaill.ucs.ed.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://dlib-skaill.ucs.ed.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://dlib-skaill.ucs.ed.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://dlib-skaill.ucs.ed.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">dlib-skaill.ucs.ed.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDRzCCAi+gAwIBAgIUSmTdfn763UNpnElLInB08fIfiOgwDQYJKoZIhvcNAQEF
+						BQAwIjEgMB4GA1UEAxMXZGxpYi1za2FpbGwuZWRpbmEuYWMudWswHhcNMTQwNjE4
+						MTIwMzIxWhcNMzQwNjE4MTIwMzIxWjAiMSAwHgYDVQQDExdkbGliLXNrYWlsbC5l
+						ZGluYS5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJOx63EY
+						J4uh9FlNoNhB1KEi41z1uxuyWp3IOwX+EfUYXIshjnt1J4s0m36TFL7Ng6NfkHHs
+						vWZ2GVX4p0qbK9sPQ/m9jNvA4PI55un/hRBn/KYu3/35Mf4ioiKkFRP/iEl/+YM1
+						gURWxWd8bUyu0LbQRWbMRz9tU3dRruutxm47TNlZEfrEPaSAWb1otytGmw04vcjm
+						y5nWIzPhBrpL1Zu+JekBcwvD3vrIgeA2h3r+8EuG0WghcLcWJtwUlOb5jSXmA/b6
+						8l2F7Bbvy81x88NGBghZBhUnlLFwuUZ1zEDy5hqOVcGgoKlb216LzqRSPTxiiPQ9
+						1PGvxffMLGTYCAMCAwEAAaN1MHMwUgYDVR0RBEswSYIXZGxpYi1za2FpbGwuZWRp
+						bmEuYWMudWuGLmh0dHBzOi8vZGxpYi1za2FpbGwuZWRpbmEuYWMudWsvaWRwL3No
+						aWJib2xldGgwHQYDVR0OBBYEFOfvuXoBOS3z6kiFQNzznSPg5R1rMA0GCSqGSIb3
+						DQEBBQUAA4IBAQCQmnq2HC8MK+yGVLmKCr/wlDZKPwlUSvyNQXhgQYAtwUD9mb53
+						Wz+n7UXTYJQ/koVuJD+nDuQngkqAiEuW4NlMUQgtB5HQfIATQwkv7an029+4UL0m
+						sWryJGjvGbbfZZ6+kt00Rrz3BEaU6fRV63/vrY0PYItvb36tjn0xfrI74MFIdQoj
+						a3fa8kPIc1QYsCtNsV06GEpHpl0asgwNlCukFFyFUCuU/E/8Dadbwlw6o+ObNj3K
+						b6ettwdPpzsvba7W2w/oERE2IJLP1fwJ5I3KE2nOGnlUYaXQFon/w7vDDYfpqCzO
+						R313g/RR8Oq6ulpwKhbAPdoxFpyxxy3OS8K/
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://dlib-skaill.ucs.ed.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://dlib-skaill.ucs.ed.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Edinburgh</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Skaill Test IdP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ed.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Sara</md:GivenName>
+      <md:SurName>Hopkins</md:SurName>
+      <md:EmailAddress>mailto:sara.hopkins@ed.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Sara</md:GivenName>
+      <md:SurName>Hopkins</md:SurName>
+      <md:EmailAddress>mailto:sara.hopkins@ed.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

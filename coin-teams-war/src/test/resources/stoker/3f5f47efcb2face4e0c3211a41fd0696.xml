@@ -1,0 +1,125 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shib2.qmu.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2009-05-04T12:46:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0         urn:oasis:names:tc:SAML:1.1:protocol         urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Queen Margaret University, Edinburgh</mdui:DisplayName>
+          <mdui:Logo height="47" width="50">https://shib2.qmu.ac.uk/qmu_logo.gif</mdui:Logo>
+          <mdui:Logo height="16" width="16">https://shib2.qmu.ac.uk/qmu_icon.gif</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:IPHint>194.83.92.0/23</mdui:IPHint>
+          <mdui:IPHint>193.62.47.0/24</mdui:IPHint>
+          <mdui:IPHint>194.83.30.0/24</mdui:IPHint>
+          <mdui:IPHint>212.219.89.0/25</mdui:IPHint>
+          <mdui:DomainHint>qmu.ac.uk</mdui:DomainHint>
+          <mdui:GeolocationHint>geo:55.931696,-3.073457</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+        <shibmd:Scope regexp="false">qmu.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIExzCCA6+gAwIBAgIQI9PzKu4AygwyxzdZ+Vy8MzANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDMwNTAwMDAwMFoXDTE1MDMwNTIzNTk1OVowgaIxCzAJBgNV
+						BAYTAkdCMRUwEwYDVQQIEwxFYXN0IExvdGhpYW4xFDASBgNVBAcTC011c3NlbGJ1
+						cmdoMS0wKwYDVQQKEyRRdWVlbiBNYXJnYXJldCBVbml2ZXJzaXR5LCBFZGluYnVy
+						Z2gxHTAbBgNVBAsTFEluZm9ybWF0aW9uIFNlcnZpY2VzMRgwFgYDVQQDEw9zaGli
+						Mi5xbXUuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCZMICA
+						0PJCuEHQftp2sK0objqfhuZRGdYOg/wgqn345YOiCu05gULr6Iz9WbuR8RhpHkUe
+						Pwf1kWmi+m87+UxuvucgS5UtvW/PAI7nA0nlwjx4pP+alQzORFDN1WAHUAQAxJRW
+						bSzrar0S5t+3+Uf0YOYT5g7omYYNseKSORh2pU/6fy2eN00lK8LJi9nAKYZt/IRT
+						PULNc9n1R7RYuRBbMWiuZgdBkjmvLfTOjJigmt2jeYVpFCcSO00F2oN5ehl859WO
+						YMi8W0+C6lOuxOXr3YVYW42CclhdIr3yVyx7u7ebtoWuW84nyFTLmmMXU/Z+h4II
+						uijaZdo17VwzmtopAgMBAAGjggFiMIIBXjAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJ
+						ays3V0fqkOO57TAdBgNVHQ4EFgQUWT3hI7cEgM3rEYxsiNX516/wBKswDgYDVR0P
+						AQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsG
+						AQUFBwMCMBgGA1UdIAQRMA8wDQYLKwYBBAGyMQECAh0wOgYDVR0fBDMwMTAvoC2g
+						K4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYI
+						KwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEu
+						b3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNz
+						LnRlcmVuYS5vcmcwGgYDVR0RBBMwEYIPc2hpYjIucW11LmFjLnVrMA0GCSqGSIb3
+						DQEBBQUAA4IBAQCr79hcOZMSSPu4qKf8qWkWBI9o8ccUzudz3yPKcG7wwhpluqlh
+						OWrSLGr6mA64fgUJ3lbjzCx+i+Yg+Xh2TJgnSTjPNq5+vJgoOn1VmGMXqulNNAmT
+						hF++jcYb86AGlTO9Vy3f/tONZWRKeHHh+QtKvwkg9vHv6oJk79jaD2iD9AMeMvjd
+						2l0SxRzCMETIBocuUMt3BbTSmgncpQ2Gz6wIHTDmjhltr1Q9GtMjUMeELyi9dTCn
+						UHkKUL2/bU+oqaZYtrczOzQ3N3uj64N+2j1M903QPZB7B/IMFHQPzlP2ZypE5A81
+						zoQCz09ZNIskL4SguILyBltLtW9p+kxcwG0v
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib2.qmu.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib2.qmu.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shib2.qmu.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib2.qmu.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib2.qmu.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib2.qmu.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol         urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">qmu.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIExzCCA6+gAwIBAgIQI9PzKu4AygwyxzdZ+Vy8MzANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDMwNTAwMDAwMFoXDTE1MDMwNTIzNTk1OVowgaIxCzAJBgNV
+						BAYTAkdCMRUwEwYDVQQIEwxFYXN0IExvdGhpYW4xFDASBgNVBAcTC011c3NlbGJ1
+						cmdoMS0wKwYDVQQKEyRRdWVlbiBNYXJnYXJldCBVbml2ZXJzaXR5LCBFZGluYnVy
+						Z2gxHTAbBgNVBAsTFEluZm9ybWF0aW9uIFNlcnZpY2VzMRgwFgYDVQQDEw9zaGli
+						Mi5xbXUuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCZMICA
+						0PJCuEHQftp2sK0objqfhuZRGdYOg/wgqn345YOiCu05gULr6Iz9WbuR8RhpHkUe
+						Pwf1kWmi+m87+UxuvucgS5UtvW/PAI7nA0nlwjx4pP+alQzORFDN1WAHUAQAxJRW
+						bSzrar0S5t+3+Uf0YOYT5g7omYYNseKSORh2pU/6fy2eN00lK8LJi9nAKYZt/IRT
+						PULNc9n1R7RYuRBbMWiuZgdBkjmvLfTOjJigmt2jeYVpFCcSO00F2oN5ehl859WO
+						YMi8W0+C6lOuxOXr3YVYW42CclhdIr3yVyx7u7ebtoWuW84nyFTLmmMXU/Z+h4II
+						uijaZdo17VwzmtopAgMBAAGjggFiMIIBXjAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJ
+						ays3V0fqkOO57TAdBgNVHQ4EFgQUWT3hI7cEgM3rEYxsiNX516/wBKswDgYDVR0P
+						AQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsG
+						AQUFBwMCMBgGA1UdIAQRMA8wDQYLKwYBBAGyMQECAh0wOgYDVR0fBDMwMTAvoC2g
+						K4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYI
+						KwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEu
+						b3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNz
+						LnRlcmVuYS5vcmcwGgYDVR0RBBMwEYIPc2hpYjIucW11LmFjLnVrMA0GCSqGSIb3
+						DQEBBQUAA4IBAQCr79hcOZMSSPu4qKf8qWkWBI9o8ccUzudz3yPKcG7wwhpluqlh
+						OWrSLGr6mA64fgUJ3lbjzCx+i+Yg+Xh2TJgnSTjPNq5+vJgoOn1VmGMXqulNNAmT
+						hF++jcYb86AGlTO9Vy3f/tONZWRKeHHh+QtKvwkg9vHv6oJk79jaD2iD9AMeMvjd
+						2l0SxRzCMETIBocuUMt3BbTSmgncpQ2Gz6wIHTDmjhltr1Q9GtMjUMeELyi9dTCn
+						UHkKUL2/bU+oqaZYtrczOzQ3N3uj64N+2j1M903QPZB7B/IMFHQPzlP2ZypE5A81
+						zoQCz09ZNIskL4SguILyBltLtW9p+kxcwG0v
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib2.qmu.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib2.qmu.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Queen Margaret University, Edinburgh</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Queen Margaret University, Edinburgh</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.qmu.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Garry</md:GivenName>
+      <md:SurName>Haining</md:SurName>
+      <md:EmailAddress>mailto:ghaining@qmu.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Garry</md:GivenName>
+      <md:SurName>Haining</md:SurName>
+      <md:EmailAddress>mailto:ghaining@qmu.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

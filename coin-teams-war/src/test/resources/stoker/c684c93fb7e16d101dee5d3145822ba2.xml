@@ -1,26 +1,21 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://vm-idp.paris-sorbonne.fr/idp/shibboleth">
-			<Extensions>
-				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2013-07-02T10:38:53Z">
-					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
-				</mdrpi:RegistrationInfo>
-			</Extensions>
-		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">paris-sorbonne.fr</shibmd:Scope>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">univ-paris4.fr</shibmd:Scope>
-    
-			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
-          		      
-          		      
-          		      <mdui:DisplayName xml:lang="fr">Paris-Sorbonne Universite</mdui:DisplayName>
-          		      
-      			    </mdui:UIInfo>
-			</Extensions>
-				<KeyDescriptor use="signing">
-<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://vm-idp.paris-sorbonne.fr/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://federation.renater.fr/" registrationInstant="2013-07-02T10:38:53Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">paris-sorbonne.fr</shibmd:Scope>
+        <shibmd:Scope regexp="false">univ-paris4.fr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="fr">Paris-Sorbonne Universite</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIDTDCCAjSgAwIBAgIVAMI/RmCj23hGRPU+v9uRMFWtW9obMA0GCSqGSIb3DQEB
 BQUAMCMxITAfBgNVBAMTGHZtLWlkcC5wYXJpcy1zb3Jib25uZS5mcjAeFw0xMzA3
 MjQxNDAxMDNaFw0zMzA3MjQxNDAxMDNaMCMxITAfBgNVBAMTGHZtLWlkcC5wYXJp
@@ -40,17 +35,13 @@ C2AglrZ2PAyVyFeA9T4sDI83Hw0TBXCGFlPKXAkxWw/DuATXn5ChB2ixfTmsxqvl
 KIhv18lDXRbS+DWI8nyXf/0TFFjjKFbfApQc11hVeHZWwDzjMexG2L/6pbt8rjDs
 hJGtnPWpe4IxhR2gkYkT1DdmPuvOIWlF0FJjuUGBBlA=
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-					</ds:KeyInfo>
-				</KeyDescriptor>
-
-				
-				
-				<KeyDescriptor use="signing">
-				       <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIDSzCCAjOgAwIBAgIUc0FQTVYKXqv1YkZNpjccybeOcxMwDQYJKoZIhvcNAQEF
 BQAwIzEhMB8GA1UEAxMYdm0taWRwLnBhcmlzLXNvcmJvbm5lLmZyMB4XDTEzMDYx
 ODEzMTg0OFoXDTMzMDYxODEzMTg0OFowIzEhMB8GA1UEAxMYdm0taWRwLnBhcmlz
@@ -70,49 +61,26 @@ rd2bCFrxuxvvj5td6FA+RgFyJyZ9UTAmzwVXzly6vxG9yGh9XXYzNXmcJtK07FDf
 I9JBAYDkTmGHFdS+c5GS+S4hUxdUCsnY9yNgwB3Ew/7r+IDDI2asBlICoLlCaO39
 lS5dpBgbSWTr2qcKD9KMAsG2n1+05Z0NNeohOEIEXg==
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					</ds:KeyInfo>
-				</KeyDescriptor>
-				
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-
-			
-			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://vm-idp.paris-sorbonne.fr/idp/profile/SAML2/POST/SSO"/>
-	        
-	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://vm-idp.paris-sorbonne.fr/idp/profile/SAML2/Redirect/SSO"/>
-	        
-	        
-			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://vm-idp.paris-sorbonne.fr/idp/profile/Shibboleth/SSO"/>
-			
-
-		</IDPSSODescriptor>
-		
-
-
-		<Organization>
-		
-			<OrganizationName xml:lang="en">Paris-Sorbonne Universite</OrganizationName>
-			<OrganizationDisplayName xml:lang="en">Paris-Sorbonne Universite</OrganizationDisplayName>
-			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
-		
-		</Organization>
-
-			
-		    	
-			    <ContactPerson contactType="technical">
-				 <SurName>NGUYEN Manh Hung</SurName>
-				 <EmailAddress>manh-hung.nguyen@paris-sorbonne.fr</EmailAddress>
-		        </ContactPerson>
-			    	
-
-		    	
-			    <ContactPerson contactType="technical">
-				 <SurName>Brahim MARIR</SurName>
-				 <EmailAddress>brahim.marir@paris-sorbonne.fr</EmailAddress>
-		        </ContactPerson>
-			    	
-
-				
-			
-	</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://vm-idp.paris-sorbonne.fr/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://vm-idp.paris-sorbonne.fr/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://vm-idp.paris-sorbonne.fr/idp/profile/Shibboleth/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Paris-Sorbonne Universite</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Paris-Sorbonne Universite</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://unknown.site.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>NGUYEN Manh Hung</md:SurName>
+      <md:EmailAddress>manh-hung.nguyen@paris-sorbonne.fr</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Brahim MARIR</md:SurName>
+      <md:EmailAddress>brahim.marir@paris-sorbonne.fr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

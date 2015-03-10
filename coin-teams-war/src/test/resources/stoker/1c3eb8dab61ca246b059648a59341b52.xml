@@ -1,25 +1,20 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://identites.ensea.fr/idp/shibboleth">
-			<Extensions>
-				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-05-11T08:50:03Z">
-					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
-				</mdrpi:RegistrationInfo>
-			</Extensions>
-		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ensea.fr</shibmd:Scope>
-    
-			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
-          		      
-          		      
-          		      <mdui:DisplayName xml:lang="fr">ENSEA</mdui:DisplayName>
-          		      
-      			    </mdui:UIInfo>
-			</Extensions>
-				<KeyDescriptor use="signing">
-<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://identites.ensea.fr/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://federation.renater.fr/" registrationInstant="2011-05-11T08:50:03Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ensea.fr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="fr">ENSEA</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIEcTCCA1mgAwIBAgIQUg9Ih5mPMJpavDCAsMuZqTANBgkqhkiG9w0BAQUFADA2
 MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
 U1NMIENBMB4XDTE0MDQxNTAwMDAwMFoXDTE3MDQxNDIzNTk1OVowQDEhMB8GA1UE
@@ -45,17 +40,13 @@ wKvG/2aZDxc5DdjeTq32zVxO9KE8QDfMA14cHTimjnOhSV8MNIp5uLHv8827pLeT
 SP1F5eWtaNyrocG8x1mL3qMePnZl92Fuj0F4FhHkAnhWCxWjCou9sQa8KeBcCO9W
 QK1LMEX5HeO8HKnIkLfCYBO3LiMoZmq45EvpF/kWQqI9WQacXQ==
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-					</ds:KeyInfo>
-				</KeyDescriptor>
-
-				
-				
-				<KeyDescriptor use="signing">
-				       <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIEcTCCA1mgAwIBAgIQG4CD0xtQn3PW9uGm5cYkdzANBgkqhkiG9w0BAQUFADA2
 MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
 U1NMIENBMB4XDTE0MDEyNDAwMDAwMFoXDTE3MDMwODIzNTk1OVowQDEhMB8GA1UE
@@ -81,34 +72,23 @@ HMl1RBtfEkwVl+vESzYk/sSOQ+CXJoi6spKXV0tpBS8Lf/I9IRjayHALjWwklb8l
 fbatPd5QbO8MzMD3Oak05pvHRKvtI7ZWxsbQIg/40sT4KmWDxmkLIDLY/2E8hUDN
 aWAcMmjEoKVXB6St7+El4x83Ul04VV3UNYrTOdDO64mVnp8j2A==
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					</ds:KeyInfo>
-				</KeyDescriptor>
-				
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-
-			
-			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://identites.ensea.fr/idp/profile/SAML2/POST/SSO"/>
-	        
-	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://identites.ensea.fr/idp/profile/SAML2/Redirect/SSO"/>
-	        
-	        
-			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://identites.ensea.fr/idp/profile/Shibboleth/SSO"/>
-			
-
-		</IDPSSODescriptor>
-		
-	
-		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">ensea.fr</shibmd:Scope>
-    			</Extensions>
-			<KeyDescriptor use="signing">
-				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://identites.ensea.fr/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://identites.ensea.fr/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://identites.ensea.fr/idp/profile/Shibboleth/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ensea.fr</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIEcTCCA1mgAwIBAgIQUg9Ih5mPMJpavDCAsMuZqTANBgkqhkiG9w0BAQUFADA2
 MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
 U1NMIENBMB4XDTE0MDQxNTAwMDAwMFoXDTE3MDQxNDIzNTk1OVowQDEhMB8GA1UE
@@ -134,17 +114,13 @@ wKvG/2aZDxc5DdjeTq32zVxO9KE8QDfMA14cHTimjnOhSV8MNIp5uLHv8827pLeT
 SP1F5eWtaNyrocG8x1mL3qMePnZl92Fuj0F4FhHkAnhWCxWjCou9sQa8KeBcCO9W
 QK1LMEX5HeO8HKnIkLfCYBO3LiMoZmq45EvpF/kWQqI9WQacXQ==
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-				</ds:KeyInfo>
-			</KeyDescriptor>
-
-				
-				
-				<KeyDescriptor use="signing">
-				       <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIEcTCCA1mgAwIBAgIQG4CD0xtQn3PW9uGm5cYkdzANBgkqhkiG9w0BAQUFADA2
 MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
 U1NMIENBMB4XDTE0MDEyNDAwMDAwMFoXDTE3MDMwODIzNTk1OVowQDEhMB8GA1UE
@@ -170,29 +146,19 @@ HMl1RBtfEkwVl+vESzYk/sSOQ+CXJoi6spKXV0tpBS8Lf/I9IRjayHALjWwklb8l
 fbatPd5QbO8MzMD3Oak05pvHRKvtI7ZWxsbQIg/40sT4KmWDxmkLIDLY/2E8hUDN
 aWAcMmjEoKVXB6St7+El4x83Ul04VV3UNYrTOdDO64mVnp8j2A==
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					</ds:KeyInfo>
-				</KeyDescriptor>
-				
-
-			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://identites.ensea.fr/idp/profile/SAML2/SOAP/AttributeQuery"/>
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-		</AttributeAuthorityDescriptor>
-
-
-		<Organization>
-		
-			<OrganizationName xml:lang="en">ENSEA</OrganizationName>
-			<OrganizationDisplayName xml:lang="en">ENSEA</OrganizationDisplayName>
-			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
-		
-		</Organization>
-
-			
-			    <ContactPerson contactType="technical">
-			     <EmailAddress>federation@ensea.fr</EmailAddress>
-		        </ContactPerson>
-		    	
-			
-	</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://identites.ensea.fr/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">ENSEA</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">ENSEA</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://unknown.site.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>federation@ensea.fr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

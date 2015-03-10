@@ -1,0 +1,109 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.stokecoll.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">stokecoll.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEvzCCA6egAwIBAgIRANDh4NBaUlUPQG3Mnm19TagwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjExMjAwMDAwMDBaFw0xNTExMjAyMzU5NTlaMIGLMQswCQYD
+						VQQGEwJHQjEWMBQGA1UECBMNU3RhZmZvcmRzaGlyZTEXMBUGA1UEBxMOU3Rva2Ug
+						b24gVHJlbnQxHzAdBgNVBAoTFlN0b2tlLW9uLVRyZW50IENvbGxlZ2UxDDAKBgNV
+						BAsTA0NTVDEcMBoGA1UEAxMTaWRwLnN0b2tlY29sbC5hYy51azCCASIwDQYJKoZI
+						hvcNAQEBBQADggEPADCCAQoCggEBAMRaECmQMak69ZpErEdzkrg2IxPpFsupXASw
+						f2/3v/SevSYTWKjnzAq6SkNnfCxgVlm5TbsFZAAYKoednwqQ2L+u/S12bFPO+mc1
+						WLkoAHUkU6WAgksHsyHZbq/Lq/fEqJSqb4xBt1pN2wflz/dowPx9HquAFMfDczWm
+						ilrnaEV8V45ZGpSWFRWr5NGIhrnuap9wntVXRWsgLm0SPvRwvYXRkS3w0N14yttE
+						8TBJQUmmq7E9s3APdrQq11LKLy5SdK9I5S/BwMwBAhV66YLWqlFt4LESJ3KTlQVe
+						2SW0N0sPim7V+hM81NpIV73lksTZi+Ne7MT50V47YMnwk0i55l0CAwEAAaOCAXAw
+						ggFsMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBQj
+						0wSwI/Ftj8R+DjpdsbDwo+EgmzAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIw
+						ADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwIgYDVR0gBBswGTANBgsr
+						BgEEAbIxAQICHTAIBgZngQwBAgIwOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2Ny
+						bC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBf
+						MDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNT
+						TENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcw
+						HgYDVR0RBBcwFYITaWRwLnN0b2tlY29sbC5hYy51azANBgkqhkiG9w0BAQUFAAOC
+						AQEAMEsG+tjHyVtpdIvfCU9YBCLlFskPWGkyvL07Q+fwQ+viN+y2zL/UiCBvy0aU
+						d3/EYoj3MLuzl9PdmqeihueHT6ym7Tq4fTrAKEFsntGtChEZQm00xcDBJZWSAwAP
+						hNeQYbFKODh6kcRMMu0TTARl8AVHFzLzFT4EHKEIlN8VnVJChOre1P9EzGQ20HH5
+						PvulQd2vLzbkFAyQefgLxSc9jUefuK9pW1z68iw9kgXZkzaHLHWFjIDSqNnYmQt3
+						p0GPZCsdTp9XV9YdKrEVg70EZgNxXMy9sSiwEPVqiEoyyjIMX0F9b/cPB3wlf9pz
+						sy93q4qkiKSfLJkJzcs0CXy01w==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.stokecoll.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.stokecoll.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.stokecoll.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.stokecoll.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.stokecoll.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.stokecoll.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">stokecoll.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEvzCCA6egAwIBAgIRANDh4NBaUlUPQG3Mnm19TagwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjExMjAwMDAwMDBaFw0xNTExMjAyMzU5NTlaMIGLMQswCQYD
+						VQQGEwJHQjEWMBQGA1UECBMNU3RhZmZvcmRzaGlyZTEXMBUGA1UEBxMOU3Rva2Ug
+						b24gVHJlbnQxHzAdBgNVBAoTFlN0b2tlLW9uLVRyZW50IENvbGxlZ2UxDDAKBgNV
+						BAsTA0NTVDEcMBoGA1UEAxMTaWRwLnN0b2tlY29sbC5hYy51azCCASIwDQYJKoZI
+						hvcNAQEBBQADggEPADCCAQoCggEBAMRaECmQMak69ZpErEdzkrg2IxPpFsupXASw
+						f2/3v/SevSYTWKjnzAq6SkNnfCxgVlm5TbsFZAAYKoednwqQ2L+u/S12bFPO+mc1
+						WLkoAHUkU6WAgksHsyHZbq/Lq/fEqJSqb4xBt1pN2wflz/dowPx9HquAFMfDczWm
+						ilrnaEV8V45ZGpSWFRWr5NGIhrnuap9wntVXRWsgLm0SPvRwvYXRkS3w0N14yttE
+						8TBJQUmmq7E9s3APdrQq11LKLy5SdK9I5S/BwMwBAhV66YLWqlFt4LESJ3KTlQVe
+						2SW0N0sPim7V+hM81NpIV73lksTZi+Ne7MT50V47YMnwk0i55l0CAwEAAaOCAXAw
+						ggFsMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBQj
+						0wSwI/Ftj8R+DjpdsbDwo+EgmzAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIw
+						ADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwIgYDVR0gBBswGTANBgsr
+						BgEEAbIxAQICHTAIBgZngQwBAgIwOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2Ny
+						bC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBf
+						MDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNT
+						TENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcw
+						HgYDVR0RBBcwFYITaWRwLnN0b2tlY29sbC5hYy51azANBgkqhkiG9w0BAQUFAAOC
+						AQEAMEsG+tjHyVtpdIvfCU9YBCLlFskPWGkyvL07Q+fwQ+viN+y2zL/UiCBvy0aU
+						d3/EYoj3MLuzl9PdmqeihueHT6ym7Tq4fTrAKEFsntGtChEZQm00xcDBJZWSAwAP
+						hNeQYbFKODh6kcRMMu0TTARl8AVHFzLzFT4EHKEIlN8VnVJChOre1P9EzGQ20HH5
+						PvulQd2vLzbkFAyQefgLxSc9jUefuK9pW1z68iw9kgXZkzaHLHWFjIDSqNnYmQt3
+						p0GPZCsdTp9XV9YdKrEVg70EZgNxXMy9sSiwEPVqiEoyyjIMX0F9b/cPB3wlf9pz
+						sy93q4qkiKSfLJkJzcs0CXy01w==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.stokecoll.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.stokecoll.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Stoke-on-Trent College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Stoke-on-Trent College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.stokecoll.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Support</md:GivenName>
+      <md:EmailAddress>mailto:support@stokecoll.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Guy</md:GivenName>
+      <md:SurName>Hodson</md:SurName>
+      <md:EmailAddress>mailto:guy.hodson@stokecoll.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

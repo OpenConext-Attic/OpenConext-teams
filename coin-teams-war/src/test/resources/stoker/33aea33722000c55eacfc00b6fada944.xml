@@ -1,0 +1,144 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://fede.supelec.fr/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-09-25T17:00:08Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">supelec.fr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Supélec</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Teachers, Researchers, Staff, Students</mdui:Description>
+          <mdui:DisplayName xml:lang="fr">Supélec</mdui:DisplayName>
+          <mdui:Description xml:lang="fr">Enseignants, Chercheurs, Personnels, Etudiants</mdui:Description>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+					      MIIDKDCCAhCgAwIBAgIVAJM8CQeFJc3xn6Z1VQJmlIUprCAEMA0GCSqGSIb3DQEB
+BQUAMBoxGDAWBgNVBAMMD2ZlZGUuc3VwZWxlYy5mcjAeFw0xNDEwMTYwOTUxNTla
+Fw0zNDEwMTYwOTUxNTlaMBoxGDAWBgNVBAMMD2ZlZGUuc3VwZWxlYy5mcjCCASIw
+DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJUgXB50hjGYdLKHZxLSCPztkFuA
+WtNJocV4c/4dZGMjAiarkeiaWkQ6h+NrsCj5qoYeXekfkVHw+1G2+NbhB0miUnxh
+ex1Y5FJ+7Fet31zqk9whwmU6WbpwCCQRPWj/52qSciK66rZyFlqMnID33MWOR6hW
+86VtXZwWjBl2QmQuqFzHQ0aZU7ihUGW6YyodXc/GA8u72AEgzg74NiUgR9ewHsjW
+3d6rDhq6TOuOVpqfxNWZEdnw5qdIz8RhHKHh3W5fHv5xIp0meruvhv6mmXv7NltA
+S0mVt4iCe4MLcTRBtNtIkA8FvdwHnmfFdrwiZvxt7PW3JbPp27JJ5Ozl7fECAwEA
+AaNlMGMwHQYDVR0OBBYEFJaRXAI+mqD0ehgvH9spPnE6a5AxMEIGA1UdEQQ7MDmC
+D2ZlZGUuc3VwZWxlYy5mcoYmaHR0cHM6Ly9mZWRlLnN1cGVsZWMuZnIvaWRwL3No
+aWJib2xldGgwDQYJKoZIhvcNAQEFBQADggEBAGSd2uPxo+hqnAQjN1fAlVr24vO0
++PHkWq5/LD836eb8UWgCvlGB1/D5fQZzvszShofbnnBYA3sT/ZA32uQeCnn2JcXD
+Ggl9/kBDXaLe4sDFRvEmme/5aacES06cuHVQOfo1geiU9b0BWZfQ+PhIs7zMD6lW
+oG7DQC+PuWokOA53MCcMZFGkx9Jc7WYE/mDDUwktRKyKdmWkhBhPqX9WG9TiVjQ8
+4es7yiwOGihNdSw+Fo57loP3CpPYNpbirQy38W98qv2UNRabSrnRG26Pnr6Olitl
+0Mk7i7JvwcZoVBdgutFiM5YhZNH2Lm01vGPdFTeoUvatALsHf2c43PtH/PM=
+					    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+					      MIIDJzCCAg+gAwIBAgIUI3GVT0U51zI/+zqt7XjPQwAliqIwDQYJKoZIhvcNAQEF
+BQAwGjEYMBYGA1UEAxMPZmVkZS5zdXBlbGVjLmZyMB4XDTE0MDYxOTA5MzUxOVoX
+DTM0MDYxOTA5MzUxOVowGjEYMBYGA1UEAxMPZmVkZS5zdXBlbGVjLmZyMIIBIjAN
+BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp4mY5iMIDfdfYOaZfhJ8f1cGJWtW
+nmOqq4X/dpvqIIDS99IpWCL3bDg5v8XtTtywfIdrAStQKiTSW5OXYMvuMpZwQzdX
+lz2b0huK+9h+wK4sEr/VvedRaxR41d2EWCgKRNglSSC8d0je5ohwKBXkdqiscbTN
+/5qRqVR1QPpWRJN0HlLIvE1J0Geb5RRsBtciWMSLAlRxfWKCqFgBZVzL8WlqF624
+cioE1U6K+TUnNXDoZxWdf/Ynn/9VC634ud1KectCNb2dRJO6ywwh4z+Zdd6gVKxu
+YBXngIYRgXdWFfCkhBj1Tj3TaDLkKaKRSZejotINWXUHIrFO0RA0KjWI/QIDAQAB
+o2UwYzBCBgNVHREEOzA5gg9mZWRlLnN1cGVsZWMuZnKGJmh0dHBzOi8vZmVkZS5z
+dXBlbGVjLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRNa4jLphWoCFgrx/Pa
+OM2r2uMx5zANBgkqhkiG9w0BAQUFAAOCAQEAGfZyDAr7cL5vT+7jigc0oYdjfPQ+
+CG8shDpjTOwWjRXThxLX32IUhYPF0mZ+EvrCQdyg01CTE2bkMpcDilnDpsmMOoRo
+p820ReMScYoFNB/nQio21BR1Galps7TdErp8XFNvgwbPW6YdFpqXYxAFNm5wWnxz
+u9dm0M2dMSEe1xgJjYRaU2H/BN5qyGuoyM4K0maM8AHOS9iBnRzuzcZQ7WUWA1JP
+VgWhf5jRP9RPKVQUQOLb036aw3uZ51fSvN/ceCPq5ibwqUEHw9gikRWchPerrYnR
+eDUxLltLVzLhUUNHbW5A2MlBwDFMqCWhZy8vqCJFdLUkTAFhRuJ/VVyYzA==
+					    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://fede.supelec.fr/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://fede.supelec.fr/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://fede.supelec.fr/idp/profile/Shibboleth/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">supelec.fr</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+					      MIIDKDCCAhCgAwIBAgIVAJM8CQeFJc3xn6Z1VQJmlIUprCAEMA0GCSqGSIb3DQEB
+BQUAMBoxGDAWBgNVBAMMD2ZlZGUuc3VwZWxlYy5mcjAeFw0xNDEwMTYwOTUxNTla
+Fw0zNDEwMTYwOTUxNTlaMBoxGDAWBgNVBAMMD2ZlZGUuc3VwZWxlYy5mcjCCASIw
+DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJUgXB50hjGYdLKHZxLSCPztkFuA
+WtNJocV4c/4dZGMjAiarkeiaWkQ6h+NrsCj5qoYeXekfkVHw+1G2+NbhB0miUnxh
+ex1Y5FJ+7Fet31zqk9whwmU6WbpwCCQRPWj/52qSciK66rZyFlqMnID33MWOR6hW
+86VtXZwWjBl2QmQuqFzHQ0aZU7ihUGW6YyodXc/GA8u72AEgzg74NiUgR9ewHsjW
+3d6rDhq6TOuOVpqfxNWZEdnw5qdIz8RhHKHh3W5fHv5xIp0meruvhv6mmXv7NltA
+S0mVt4iCe4MLcTRBtNtIkA8FvdwHnmfFdrwiZvxt7PW3JbPp27JJ5Ozl7fECAwEA
+AaNlMGMwHQYDVR0OBBYEFJaRXAI+mqD0ehgvH9spPnE6a5AxMEIGA1UdEQQ7MDmC
+D2ZlZGUuc3VwZWxlYy5mcoYmaHR0cHM6Ly9mZWRlLnN1cGVsZWMuZnIvaWRwL3No
+aWJib2xldGgwDQYJKoZIhvcNAQEFBQADggEBAGSd2uPxo+hqnAQjN1fAlVr24vO0
++PHkWq5/LD836eb8UWgCvlGB1/D5fQZzvszShofbnnBYA3sT/ZA32uQeCnn2JcXD
+Ggl9/kBDXaLe4sDFRvEmme/5aacES06cuHVQOfo1geiU9b0BWZfQ+PhIs7zMD6lW
+oG7DQC+PuWokOA53MCcMZFGkx9Jc7WYE/mDDUwktRKyKdmWkhBhPqX9WG9TiVjQ8
+4es7yiwOGihNdSw+Fo57loP3CpPYNpbirQy38W98qv2UNRabSrnRG26Pnr6Olitl
+0Mk7i7JvwcZoVBdgutFiM5YhZNH2Lm01vGPdFTeoUvatALsHf2c43PtH/PM=
+					    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+					      MIIDJzCCAg+gAwIBAgIUI3GVT0U51zI/+zqt7XjPQwAliqIwDQYJKoZIhvcNAQEF
+BQAwGjEYMBYGA1UEAxMPZmVkZS5zdXBlbGVjLmZyMB4XDTE0MDYxOTA5MzUxOVoX
+DTM0MDYxOTA5MzUxOVowGjEYMBYGA1UEAxMPZmVkZS5zdXBlbGVjLmZyMIIBIjAN
+BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp4mY5iMIDfdfYOaZfhJ8f1cGJWtW
+nmOqq4X/dpvqIIDS99IpWCL3bDg5v8XtTtywfIdrAStQKiTSW5OXYMvuMpZwQzdX
+lz2b0huK+9h+wK4sEr/VvedRaxR41d2EWCgKRNglSSC8d0je5ohwKBXkdqiscbTN
+/5qRqVR1QPpWRJN0HlLIvE1J0Geb5RRsBtciWMSLAlRxfWKCqFgBZVzL8WlqF624
+cioE1U6K+TUnNXDoZxWdf/Ynn/9VC634ud1KectCNb2dRJO6ywwh4z+Zdd6gVKxu
+YBXngIYRgXdWFfCkhBj1Tj3TaDLkKaKRSZejotINWXUHIrFO0RA0KjWI/QIDAQAB
+o2UwYzBCBgNVHREEOzA5gg9mZWRlLnN1cGVsZWMuZnKGJmh0dHBzOi8vZmVkZS5z
+dXBlbGVjLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRNa4jLphWoCFgrx/Pa
+OM2r2uMx5zANBgkqhkiG9w0BAQUFAAOCAQEAGfZyDAr7cL5vT+7jigc0oYdjfPQ+
+CG8shDpjTOwWjRXThxLX32IUhYPF0mZ+EvrCQdyg01CTE2bkMpcDilnDpsmMOoRo
+p820ReMScYoFNB/nQio21BR1Galps7TdErp8XFNvgwbPW6YdFpqXYxAFNm5wWnxz
+u9dm0M2dMSEe1xgJjYRaU2H/BN5qyGuoyM4K0maM8AHOS9iBnRzuzcZQ7WUWA1JP
+VgWhf5jRP9RPKVQUQOLb036aw3uZ51fSvN/ceCPq5ibwqUEHw9gikRWchPerrYnR
+eDUxLltLVzLhUUNHbW5A2MlBwDFMqCWhZy8vqCJFdLUkTAFhRuJ/VVyYzA==
+					    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://fede.supelec.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Supélec</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Supélec</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">www.supelec.fr</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Laura NEGRE</md:SurName>
+      <md:EmailAddress>laura.negre@supelec.fr</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Thibault LE MEUR</md:SurName>
+      <md:EmailAddress>thibault.lemeur@supelec.fr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

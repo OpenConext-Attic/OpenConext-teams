@@ -1,0 +1,111 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.wnsc.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2009-04-16T17:43:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">wnsc.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIE2TCCA8GgAwIBAgIRAIUC390xQSEkQ9oKgKounJIwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xNDA0MDcwMDAwMDBaFw0xNjA0MDYyMzU5NTlaMIGqMQswCQYD
+						VQQGEwJHQjERMA8GA1UEERMIU1kxMSA0UUIxEzARBgNVBAgTClNocm9wc2hpcmUx
+						ETAPBgNVBAcTCE9TV0VTVFJZMRgwFgYDVQQJEw9TaHJld3NidXJ5IFJvYWQxLTAr
+						BgNVBAoTJFdhbGZvcmQgYW5kIE5vcnRoIFNocm9wc2hpcmUgQ29sbGVnZTEXMBUG
+						A1UEAxMOaWRwLnduc2MuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+						AoIBAQC5Kq2fpaQLF142lTID0dnMGna4JPGQrcfrYPoQaDOvrf2G9ozSWfVdwBD6
+						B4gDtGKw9bPjP0ANVu6lKDiIP3N9gVmbsCqmJDF+Ma+dSt72DcZey8ZLzQowbxzg
+						0teFgRwjKQIoZvPdNZaK2hkpBZXUniItoGDcI4g+jxQ2LZOOD3bnmvDFduqSTpyx
+						n+SdnsaHAVAUuyD4Q1UVuI2UXSRECblwC/3f3/eHEcpfeEvhIB6jfywM19Dhr8bS
+						OBNA0qL2ueVFtktUm8OVznOYZjIobjBwJQ1vH0dxs/5QK6kQtQLR6cM43hRpHErV
+						nfE6MUp9/EjbP+0ePDV1VQKlxhCfAgMBAAGjggFrMIIBZzAfBgNVHSMEGDAWgBQM
+						vZNoDPPeq6NJays3V0fqkOO57TAdBgNVHQ4EFgQUzlbR21MM/AwYnAze5+4EWlWu
+						Qf4wDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYB
+						BQUHAwEGCCsGAQUFBwMCMCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EM
+						AQICMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcv
+						VEVSRU5BU1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0
+						cDovL2NydC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUH
+						MAGGGmh0dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMBkGA1UdEQQSMBCCDmlkcC53
+						bnNjLmFjLnVrMA0GCSqGSIb3DQEBBQUAA4IBAQAe+AS2ia2xB+eA4uS2C+yt7NUu
+						PTTv9dSPSeJv6cfVx2ARaa6q6ndlbobbPCCkhVkgYX8Sh9WZQrG1ifBzFNLPFsu8
+						VkZf7BR9e+II4XbnHo4xdByTphi09rqHi5BxR4NaIY4X4gmz4qpxRQCPnm6H/bg0
+						FN4XY3txCc8BS1a98hhgT9FoyRTzojqC8rHUAqFtdZx3feHNXTWH74AS+DcCvDA9
+						upJo0/oGk5vH0jujGpkLpe1vZP4BQsgThKtd9jtL7OmkNkgi5UizYHOH+7gKw6VZ
+						p5okCcqT3d7BDCODzHckfjF5wW8b+BSpYeiWXDp+1561bMCPprC/BcNrLK8D
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.wnsc.ac.uk/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.wnsc.ac.uk/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.wnsc.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.wnsc.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.wnsc.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.wnsc.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">wnsc.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIE2TCCA8GgAwIBAgIRAIUC390xQSEkQ9oKgKounJIwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xNDA0MDcwMDAwMDBaFw0xNjA0MDYyMzU5NTlaMIGqMQswCQYD
+						VQQGEwJHQjERMA8GA1UEERMIU1kxMSA0UUIxEzARBgNVBAgTClNocm9wc2hpcmUx
+						ETAPBgNVBAcTCE9TV0VTVFJZMRgwFgYDVQQJEw9TaHJld3NidXJ5IFJvYWQxLTAr
+						BgNVBAoTJFdhbGZvcmQgYW5kIE5vcnRoIFNocm9wc2hpcmUgQ29sbGVnZTEXMBUG
+						A1UEAxMOaWRwLnduc2MuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+						AoIBAQC5Kq2fpaQLF142lTID0dnMGna4JPGQrcfrYPoQaDOvrf2G9ozSWfVdwBD6
+						B4gDtGKw9bPjP0ANVu6lKDiIP3N9gVmbsCqmJDF+Ma+dSt72DcZey8ZLzQowbxzg
+						0teFgRwjKQIoZvPdNZaK2hkpBZXUniItoGDcI4g+jxQ2LZOOD3bnmvDFduqSTpyx
+						n+SdnsaHAVAUuyD4Q1UVuI2UXSRECblwC/3f3/eHEcpfeEvhIB6jfywM19Dhr8bS
+						OBNA0qL2ueVFtktUm8OVznOYZjIobjBwJQ1vH0dxs/5QK6kQtQLR6cM43hRpHErV
+						nfE6MUp9/EjbP+0ePDV1VQKlxhCfAgMBAAGjggFrMIIBZzAfBgNVHSMEGDAWgBQM
+						vZNoDPPeq6NJays3V0fqkOO57TAdBgNVHQ4EFgQUzlbR21MM/AwYnAze5+4EWlWu
+						Qf4wDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYB
+						BQUHAwEGCCsGAQUFBwMCMCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EM
+						AQICMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcv
+						VEVSRU5BU1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0
+						cDovL2NydC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUH
+						MAGGGmh0dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMBkGA1UdEQQSMBCCDmlkcC53
+						bnNjLmFjLnVrMA0GCSqGSIb3DQEBBQUAA4IBAQAe+AS2ia2xB+eA4uS2C+yt7NUu
+						PTTv9dSPSeJv6cfVx2ARaa6q6ndlbobbPCCkhVkgYX8Sh9WZQrG1ifBzFNLPFsu8
+						VkZf7BR9e+II4XbnHo4xdByTphi09rqHi5BxR4NaIY4X4gmz4qpxRQCPnm6H/bg0
+						FN4XY3txCc8BS1a98hhgT9FoyRTzojqC8rHUAqFtdZx3feHNXTWH74AS+DcCvDA9
+						upJo0/oGk5vH0jujGpkLpe1vZP4BQsgThKtd9jtL7OmkNkgi5UizYHOH+7gKw6VZ
+						p5okCcqT3d7BDCODzHckfjF5wW8b+BSpYeiWXDp+1561bMCPprC/BcNrLK8D
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.wnsc.ac.uk/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.wnsc.ac.uk/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Walford and North Shropshire College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Walford and North Shropshire College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.wnsc.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>ICT Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:ICTHelpdesk@wnsc.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Henry</md:GivenName>
+      <md:SurName>Nurdin</md:SurName>
+      <md:EmailAddress>mailto:h.nurdin@wnsc.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

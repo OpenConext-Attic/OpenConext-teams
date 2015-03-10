@@ -1,0 +1,62 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.udsu.co.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-11-04T09:51:46Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://www.udsu.co.uk/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://www.udsu.co.uk/Shibboleth.sso/Login" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC7jCCAdagAwIBAgIJALorwOxJ9felMA0GCSqGSIb3DQEBBQUAMBgxFjAUBgNV
+						BAMTDXJlZC51a21zbC5uZXQwHhcNMTIwMTE2MTQyMDI2WhcNMjIwMTEzMTQyMDI2
+						WjAYMRYwFAYDVQQDEw1yZWQudWttc2wubmV0MIIBIjANBgkqhkiG9w0BAQEFAAOC
+						AQ8AMIIBCgKCAQEAt6/w1DLbf7yP1Ds/hbckh6UpvPP21vzMBxe6Lbf83wKx5FOq
+						FxV138Riyr0lgjIjMaXjTq5LK/JV+6HDGq8jJjxYAaOU+R2ZtLC6C0rGT7tQrU1l
+						Zkg5pRz7mu+QNL1SzXxNu/62wpik3Htzk9eaf7v6MaXUqnvXz8QiGeVMcGrazjHG
+						kzCDhme9/s01FVXBsryzFtTsKOMk08ynKVtqDdNYxL5sR4pnkfsd2dfFpFYYurT7
+						0YWChpPt2hUZ3cG6oVuWPtExRfynR+DVhDMrQ8lZqTVYS+nkK9GaY48Z+kLelzPf
+						5aJ5IOwIYGXXYmQxhqZK9BibifIavWcCoaz7HwIDAQABozswOTAYBgNVHREEETAP
+						gg1yZWQudWttc2wubmV0MB0GA1UdDgQWBBTkJ2an+ISi623AA1DyKy+U/G2OdzAN
+						BgkqhkiG9w0BAQUFAAOCAQEACEY1LH3ovYmB3S5+LSXWcA+J7L+s0GoWtwDALVEL
+						EYLUyKUMkoyWzFA/kQ6fJoKVlYzftF6pAarqcF/EKAHP8B2205EMlnlwordaqJ5A
+						70H/KTXpbec9awr/w/AEq9aDKQf0LbrrBCt5R2Eq+FsUwaYzdPb4NNOk2iwOuKRb
+						QgGBOVxn/IHmkkF2nx/lmISlrTw3w/8t14OwRKtokdIkTCRYdJdPeXY4Lux8nDEC
+						MVdMuxTmukTJxZ2jyg3jw03chH+na+7V14PgcxA5wmVkl2Dbk54rf4B8+lKZn9Qs
+						Rc5i1bGCRL38Kj86NSizDS+KVMrx3J48sPExehT3PUM8og==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.udsu.co.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.udsu.co.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.udsu.co.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.udsu.co.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.udsu.co.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.udsu.co.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www.udsu.co.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.udsu.co.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://www.udsu.co.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.udsu.co.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.udsu.co.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Membership Solutions Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Derby Students' Union</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.udsu.co.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>MSL support</md:GivenName>
+      <md:EmailAddress>mailto:support@ukmsl.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>James</md:GivenName>
+      <md:SurName>Bonsall</md:SurName>
+      <md:EmailAddress>mailto:james.bonsall@ukmsl.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

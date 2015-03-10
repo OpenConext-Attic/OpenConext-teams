@@ -1,0 +1,63 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sso-edu.datamonitor.com/shibboleth-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-05-25T14:51:54Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://sso-edu.datamonitor.com/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sso-edu.datamonitor.com/Shibboleth.sso/Login" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDLTCCAhWgAwIBAgIJAPEARr/fSR6iMA0GCSqGSIb3DQEBBQUAMCIxIDAeBgNV
+						BAMTF3Nzby1lZHUuZGF0YW1vbml0b3IuY29tMB4XDTEyMDUyNTEzMTQxOFoXDTE1
+						MDUyNTEzMTQxOFowIjEgMB4GA1UEAxMXc3NvLWVkdS5kYXRhbW9uaXRvci5jb20w
+						ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDTb/l1EYurxP9VEh52g0mh
+						AUghEgUttKK8pK24M6AycR31By7SIheCo6pl91up5AIklg5b5Duq5fMlBN5WRcln
+						jC8sL98QxGS9Rl/F+LowtCxp7uXX9GGQ2NkUwUr4tvjg9HG+9BRDoBRuLLsoD9IJ
+						6nSImBa7gBXlEwh0yPH+9+tHPoI5zXLlY0Ss+pCXA9mU5iseHoYSEsb5EBd0sz+F
+						0galGRXZkVCU3PswP/vJ1AFiXJXfe1FMdBMxpqG/t89EK78RsZAyH6Pg8FplKFXC
+						7h0vLv63Rx1FIodnH9xa6k+5hX1LPk720ueqf+wVJuSJlWuyrAVslyKF6wyUkuTP
+						AgMBAAGjZjBkMEMGA1UdEQQ8MDqCF3Nzby1lZHUuZGF0YW1vbml0b3IuY29thh9o
+						dHRwczovL3Nzby1lZHUuZGF0YW1vbml0b3IuY29tMB0GA1UdDgQWBBRpkR0vHLfO
+						QUjVToJ/aO4n689nzTANBgkqhkiG9w0BAQUFAAOCAQEACRVd/BiZHPRxx1/RR0Z+
+						CYjmo/EhnbLZbGzLYVZcr0f0GvG5Z8rqHoIr8JgAjjJ0f/VAKEXR/VWaR6641zho
+						NQ91BwXmsNlk+sJPb5UZ7f71fqUbj0P4vD//+3Vv8cgZoSnnbZH8SeILDbEtNNsV
+						KK5WBNCHFTNqbZADGT3gbdp2Yqtyqo+0Or4QMFOp5I4pKUZVnfbxdpCL4zha620e
+						g7EF6Na72cHBA1e9oCu3fRtKUFvUsY2sGlOQBljN5GIbukKt3eKhDA1F1sfYVj/w
+						ZTNxdHOrjQBVdn6vnBjFYzKrNgiZZB9ZCm9Gcb2u0/+77IoDiyCWSbDyI9PbjGmT
+						IQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sso-edu.datamonitor.com/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sso-edu.datamonitor.com/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso-edu.datamonitor.com/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso-edu.datamonitor.com/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sso-edu.datamonitor.com/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso-edu.datamonitor.com/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sso-edu.datamonitor.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sso-edu.datamonitor.com/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://sso-edu.datamonitor.com/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://sso-edu.datamonitor.com/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://sso-edu.datamonitor.com/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Datamonitor Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Datamonitor - Shibboleth</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.datamonitor.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Arun</md:GivenName>
+      <md:SurName>Dahar</md:SurName>
+      <md:EmailAddress>mailto:arun.dahar@informa.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Arun</md:GivenName>
+      <md:SurName>Dahar</md:SurName>
+      <md:EmailAddress>mailto:arun.dahar@informa.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

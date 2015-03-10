@@ -1,0 +1,117 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.itam.cas.cz/idp/shibboleth">
+    <md:Extensions>
+      <eduidmd:RepublishRequest xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0">
+        <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
+      </eduidmd:RepublishRequest>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.eduid.cz/" registrationInstant="2014-10-24T16:47:06Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://eduid.cz/uri/idp-group/avcr</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">itam.cas.cz</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Institute of Theoretical and Applied Mechanics AS CR</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">Ústav teoretické a aplikované mechaniky AV ČR</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity Provider ITAM AS CR employees.</mdui:Description>
+          <mdui:Description xml:lang="cs">Identity Provider pro zaměstnance ÚTAM AV ČR</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.itam.cas.cz/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">http://www.itam.cas.cz/</mdui:InformationURL>
+          <mdui:Logo height="44" width="42">https://jiftach.cas.cz/loga/logo-itam-44.png</mdui:Logo>
+          <mdui:Logo height="1095" width="1044">https://jiftach.cas.cz/loga/logo-itam-1095.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDJzCCAg+gAwIBAgIUEsBKg0xdOetjiFaXL+mfQFs6ERcwDQYJKoZIhvcNAQEF
+BQAwGjEYMBYGA1UEAxMPaWRwLml0YW0uY2FzLmN6MB4XDTE0MTAyMjA3MDMxOFoX
+DTM0MTAyMjA3MDMxOFowGjEYMBYGA1UEAxMPaWRwLml0YW0uY2FzLmN6MIIBIjAN
+BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxAvwUCh/S8mxj1tvJq+Q+wssQ91g
+V83jKtGHeZnM+ADZ2iFNglHPE+BBBYb1bj9pqsP2BRwWIPWHeJ8bz1sLVeC90t23
+xLOudYs1ACIskNK7gvcKF1QBGGopHlUXmAgxibLTT+4+ZcBbzOdCMakBlxQd4wr5
+gSB35AD8SR7Qe5t3PoE5SQ3PK224l6DALOW9YdZ5bI0VfUJAqQjiDp9/hfmBXaod
+Kzx2N+G12Jyay7VTnq7HCqUCwkWmMk2ZPmRUFwJ5abxOQtO3ClfDRoGHgVQSlR9O
+Lwe0Ee3wFxvcCvGlTFdJ6WHgV5mhIB4PHxGyHADIW1BGG3Vd8WgX3w/2oQIDAQAB
+o2UwYzBCBgNVHREEOzA5gg9pZHAuaXRhbS5jYXMuY3qGJmh0dHBzOi8vaWRwLml0
+YW0uY2FzLmN6L2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBQ34hoPcWC9wTBNpEun
+P6HH6dsWFDANBgkqhkiG9w0BAQUFAAOCAQEAJ0emvpLRJ3uJgfwgdXNI56Gi7zw/
+VtqXMmeuioY4Hqn3il10yOxvyM9FJCbgsGmCSpyUiIQzvMbZhJXjG/XSM17G3OdB
+t0gXjqSZ8XUzQ76xxGi4pBVlqTr50XpC6tlbOxZ8GflFX5DCGNTOSW/QKZUjnqB/
+ttna9+UdDjmShQa2JBMmJ+mRM6m8RFEy2WQZplChLZkoZqLIWD48YY3GjGtOQ6FP
+2qO9lehSxJNgnAqM7raKBHwJIsZqYuTMaDU1Xm7JVg0eD9ht2Lvzmax69VjL1soY
+G0bWc5sh8gUEJyktAyE0P2pKMYNPDEfIv8LruQtOG9uU2F62xtvp+hJoyg==
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.itam.cas.cz:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.itam.cas.cz:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.itam.cas.cz/idp/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.itam.cas.cz/idp/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.itam.cas.cz:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.itam.cas.cz/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.itam.cas.cz/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.itam.cas.cz/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.itam.cas.cz/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">itam.cas.cz</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDJzCCAg+gAwIBAgIUEsBKg0xdOetjiFaXL+mfQFs6ERcwDQYJKoZIhvcNAQEF
+BQAwGjEYMBYGA1UEAxMPaWRwLml0YW0uY2FzLmN6MB4XDTE0MTAyMjA3MDMxOFoX
+DTM0MTAyMjA3MDMxOFowGjEYMBYGA1UEAxMPaWRwLml0YW0uY2FzLmN6MIIBIjAN
+BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxAvwUCh/S8mxj1tvJq+Q+wssQ91g
+V83jKtGHeZnM+ADZ2iFNglHPE+BBBYb1bj9pqsP2BRwWIPWHeJ8bz1sLVeC90t23
+xLOudYs1ACIskNK7gvcKF1QBGGopHlUXmAgxibLTT+4+ZcBbzOdCMakBlxQd4wr5
+gSB35AD8SR7Qe5t3PoE5SQ3PK224l6DALOW9YdZ5bI0VfUJAqQjiDp9/hfmBXaod
+Kzx2N+G12Jyay7VTnq7HCqUCwkWmMk2ZPmRUFwJ5abxOQtO3ClfDRoGHgVQSlR9O
+Lwe0Ee3wFxvcCvGlTFdJ6WHgV5mhIB4PHxGyHADIW1BGG3Vd8WgX3w/2oQIDAQAB
+o2UwYzBCBgNVHREEOzA5gg9pZHAuaXRhbS5jYXMuY3qGJmh0dHBzOi8vaWRwLml0
+YW0uY2FzLmN6L2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBQ34hoPcWC9wTBNpEun
+P6HH6dsWFDANBgkqhkiG9w0BAQUFAAOCAQEAJ0emvpLRJ3uJgfwgdXNI56Gi7zw/
+VtqXMmeuioY4Hqn3il10yOxvyM9FJCbgsGmCSpyUiIQzvMbZhJXjG/XSM17G3OdB
+t0gXjqSZ8XUzQ76xxGi4pBVlqTr50XpC6tlbOxZ8GflFX5DCGNTOSW/QKZUjnqB/
+ttna9+UdDjmShQa2JBMmJ+mRM6m8RFEy2WQZplChLZkoZqLIWD48YY3GjGtOQ6FP
+2qO9lehSxJNgnAqM7raKBHwJIsZqYuTMaDU1Xm7JVg0eD9ht2Lvzmax69VjL1soY
+G0bWc5sh8gUEJyktAyE0P2pKMYNPDEfIv8LruQtOG9uU2F62xtvp+hJoyg==
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.itam.cas.cz:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.itam.cas.cz:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Institute of Theoretical and Applied Mechanics AS CR</md:OrganizationName>
+      <md:OrganizationName xml:lang="cs">Ústav teoretické a aplikované mechaniky AV ČR</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Institute of Theoretical and Applied Mechanics AS CR, v.v.i.</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="cs">Ústav teoretické a aplikované mechaniky AV ČR, v.v.i.</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.itam.cas.cz/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="cs">http://www.itam.cas.cz/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Petr</md:GivenName>
+      <md:SurName>Vaníček</md:SurName>
+      <md:EmailAddress>vanicekp@utia.cas.cz</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

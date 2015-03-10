@@ -1,0 +1,89 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://subscription.echalk.co.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://subscription.echalk.co.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDUjCCAjqgAwIBAgIJAIxk1ZoatOwHMA0GCSqGSIb3DQEBBQUAMCQxIjAgBgNV
+						BAMTGXN1YnNjcmlwdGlvbi5lY2hhbGsuY28udWswHhcNMDkwODE0MTAyNDMyWhcN
+						MTkwODEyMTAyNDMyWjAkMSIwIAYDVQQDExlzdWJzY3JpcHRpb24uZWNoYWxrLmNv
+						LnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA284/+4DBsyk67HOJ
+						ptE1JK2ntKVDgjUzGlqIdLGepXJEpWL6JEoMA0f2V+TI2GzhcXPUa3Refysqj9Yo
+						v+3Fo6jc8yMUz6PlMkRaOQH/0v5dTCCZIhaqDzBOI5XFCo/nTONY10oSDT59ypRZ
+						/fRWCLHPBRtWYQuKQeFadyFH6Ox4kjfANiykpzHYu+kzOStUsOF4hulZ4p5q4WoB
+						o/tnmCJuZO+wViVZw2P/KF1R4vFsEUiD7sFoFU/+zOyKoS4eC+cCcMBxXu9CsRaS
+						yk+5Ob1wSjDooOdd8pRBsAkuYMxzdv0d+uMznwhiybjlMj8Mk6OFswsHMo4B/moW
+						F2s7gQIDAQABo4GGMIGDMB0GA1UdDgQWBBQrvG0acEEnI7JXqoFYdrzLC171EzBU
+						BgNVHSMETTBLgBQrvG0acEEnI7JXqoFYdrzLC171E6EopCYwJDEiMCAGA1UEAxMZ
+						c3Vic2NyaXB0aW9uLmVjaGFsay5jby51a4IJAIxk1ZoatOwHMAwGA1UdEwQFMAMB
+						Af8wDQYJKoZIhvcNAQEFBQADggEBAHGSPPNL5RZ8hIzclnzlF0kgBZqIdY6pMvBk
+						+ftUmpI6NRkPsY1TI/k7SPYcAOcS+ujPUzrX7nnoosXRZ+z2WmA2Oyd+HTqnw83r
+						GdJflkPCAiKRkmBC7uJGdBP9AR+fTQeBZdbf7DbKQjmpkxjfhPaDM/3Oi69E/jli
+						+YM0f4JcfJWcxEPKRGDSpCkR/idaQZkVDc22T7lq7sOMlKVtS0bg02IjvSf9teJp
+						yLoqT2I7utT6SVExQtH+R3jpEPqKRR2/ct8B9Yc+MaaWwU2CTYsvDydLgGgp7Ar/
+						j4zX/I526fHsI+R5AO9HpeyqGRBhxBBsymL4bb9BZ/Ew43NokdM=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDUjCCAjqgAwIBAgIJAIxk1ZoatOwHMA0GCSqGSIb3DQEBBQUAMCQxIjAgBgNV
+						BAMTGXN1YnNjcmlwdGlvbi5lY2hhbGsuY28udWswHhcNMDkwODE0MTAyNDMyWhcN
+						MTkwODEyMTAyNDMyWjAkMSIwIAYDVQQDExlzdWJzY3JpcHRpb24uZWNoYWxrLmNv
+						LnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA284/+4DBsyk67HOJ
+						ptE1JK2ntKVDgjUzGlqIdLGepXJEpWL6JEoMA0f2V+TI2GzhcXPUa3Refysqj9Yo
+						v+3Fo6jc8yMUz6PlMkRaOQH/0v5dTCCZIhaqDzBOI5XFCo/nTONY10oSDT59ypRZ
+						/fRWCLHPBRtWYQuKQeFadyFH6Ox4kjfANiykpzHYu+kzOStUsOF4hulZ4p5q4WoB
+						o/tnmCJuZO+wViVZw2P/KF1R4vFsEUiD7sFoFU/+zOyKoS4eC+cCcMBxXu9CsRaS
+						yk+5Ob1wSjDooOdd8pRBsAkuYMxzdv0d+uMznwhiybjlMj8Mk6OFswsHMo4B/moW
+						F2s7gQIDAQABo4GGMIGDMB0GA1UdDgQWBBQrvG0acEEnI7JXqoFYdrzLC171EzBU
+						BgNVHSMETTBLgBQrvG0acEEnI7JXqoFYdrzLC171E6EopCYwJDEiMCAGA1UEAxMZ
+						c3Vic2NyaXB0aW9uLmVjaGFsay5jby51a4IJAIxk1ZoatOwHMAwGA1UdEwQFMAMB
+						Af8wDQYJKoZIhvcNAQEFBQADggEBAHGSPPNL5RZ8hIzclnzlF0kgBZqIdY6pMvBk
+						+ftUmpI6NRkPsY1TI/k7SPYcAOcS+ujPUzrX7nnoosXRZ+z2WmA2Oyd+HTqnw83r
+						GdJflkPCAiKRkmBC7uJGdBP9AR+fTQeBZdbf7DbKQjmpkxjfhPaDM/3Oi69E/jli
+						+YM0f4JcfJWcxEPKRGDSpCkR/idaQZkVDc22T7lq7sOMlKVtS0bg02IjvSf9teJp
+						yLoqT2I7utT6SVExQtH+R3jpEPqKRR2/ct8B9Yc+MaaWwU2CTYsvDydLgGgp7Ar/
+						j4zX/I526fHsI+R5AO9HpeyqGRBhxBBsymL4bb9BZ/Ew43NokdM=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://subscription.echalk.co.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://subscription.echalk.co.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://subscription.echalk.co.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://subscription.echalk.co.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://subscription.echalk.co.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://subscription.echalk.co.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://subscription.echalk.co.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://subscription.echalk.co.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://subscription.echalk.co.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://subscription.echalk.co.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://subscription.echalk.co.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://subscription.echalk.co.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://subscription.echalk.co.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://subscription.echalk.co.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">eChalk Ltd</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">eChalk: Interactive resources for whole-class teaching</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.echalk.co.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>eChalk</md:GivenName>
+      <md:EmailAddress>mailto:info@echalk.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>eChalk</md:GivenName>
+      <md:EmailAddress>mailto:info@echalk.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

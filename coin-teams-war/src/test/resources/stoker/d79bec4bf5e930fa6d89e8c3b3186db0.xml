@@ -1,0 +1,68 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth.submit.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEJDCCAwygAwIBAgIJANNCqdS5T/uTMA0GCSqGSIb3DQEBBQUAMIGSMQswCQYD
+						VQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEQMA4GA1UEBwwHT2FrbGFuZDET
+						MBEGA1UECgwKaVBhcmFkaWdtczEgMB4GA1UEAwwXc2hpYmJvbGV0aC5zdWJtaXQu
+						YWMudWsxJTAjBgkqhkiG9w0BCQEWFnNoaWJhZG1pbkB0dXJuaXRpbi5jb20wHhcN
+						MTMwODIzMDAzMjM4WhcNMjMwODIxMDAzMjM4WjCBkjELMAkGA1UEBhMCVVMxEzAR
+						BgNVBAgMCkNhbGlmb3JuaWExEDAOBgNVBAcMB09ha2xhbmQxEzARBgNVBAoMCmlQ
+						YXJhZGlnbXMxIDAeBgNVBAMMF3NoaWJib2xldGguc3VibWl0LmFjLnVrMSUwIwYJ
+						KoZIhvcNAQkBFhZzaGliYWRtaW5AdHVybml0aW4uY29tMIIBIjANBgkqhkiG9w0B
+						AQEFAAOCAQ8AMIIBCgKCAQEAwP4A/JGVAR4/MLEn2/YgG+8RqWnJqi/Pxuux6AR8
+						YJouaq6OIN7FtmFTze4aOVji3u0QoxDU559gl72VA3c4J+DYV/6sKz4LCGrN7NTM
+						RdtHrHJkPtj1ktIkBaCSYPADoTsrlQnRqZ5sSc8Q1vQNFQCfhf61mkKE3VX+EwTK
+						njx6NhyhpPSfctUdPR/QADZZCWazldENSuH7yyUjTlxhBLLQD9Yyahn2e11Afqvc
+						iJvyZMVtfQ0ezKVQlinXTtPKROuVHPybKcCcvu0WLncrW1M1kbhkmUNbCjPWspxp
+						y91ggvdRePbOdZZwmUIxkEMeGiXDA8YvmF2gk6wptRv/7wIDAQABo3sweTAJBgNV
+						HRMEAjAAMCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVyYXRlZCBDZXJ0aWZp
+						Y2F0ZTAdBgNVHQ4EFgQUvcJOH3FW/nHHBg7gjXPFvTUg0EkwHwYDVR0jBBgwFoAU
+						vcJOH3FW/nHHBg7gjXPFvTUg0EkwDQYJKoZIhvcNAQEFBQADggEBAJteiRc11ZQe
+						mm2idBi0wnpXTsXq7Boo2tFBB1QhJ4c/XkkBb1gzBaGe2dH4jZ0NbpN8+JXifplz
+						ZokKNVILqvi7xnR3aAs2lFRqN3mpZ2a3Kkn5liLtiOeuVx37o/n6RxpTKS/KHufz
+						ebYCs8ORGrdWHuiGHPX6LNy9ITONdFr7ma57aQ7Xr47hxgT/XRk48OcDGhTFAlmt
+						XCnhD1dwMqXgkfULzheeg/j2BDCBfWjfG+4D6FzQlbFbyfOK03w8Yjxmy397OYbC
+						Q/KYFVKd7S68jRoJ05AH/RvuEL7Fr8hSYJHhs26lgTM9MFU79jjzfhH4OvYyjoK5
+						Bqox791QdCs=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.submit.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.submit.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.submit.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.submit.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibboleth.submit.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.submit.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.submit.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.submit.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibboleth.submit.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.submit.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.submit.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibboleth.submit.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://shibboleth.submit.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shibboleth.submit.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://shibboleth.submit.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">iParadigms Inc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">iParadigms: TurnitinUK</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.submit.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Michael</md:GivenName>
+      <md:SurName>Shuh</md:SurName>
+      <md:EmailAddress>mailto:mshuh@iparadigms.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>James</md:GivenName>
+      <md:SurName>Miller</md:SurName>
+      <md:EmailAddress>mailto:jmiller@turnitin.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

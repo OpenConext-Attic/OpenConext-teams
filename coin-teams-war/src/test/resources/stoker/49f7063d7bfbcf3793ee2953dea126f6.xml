@@ -1,19 +1,19 @@
-<md:EntityDescriptor xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://login.feld.cvut.cz/idp/shibboleth">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://login.feld.cvut.cz/idp/shibboleth">
     <md:Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.eduid.cz/" registrationInstant="2010-09-15T12:33:26Z">
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.eduid.cz/" registrationInstant="2010-09-15T12:33:26Z">
         <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
         <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
-        <mdasrt:Attribute xmlns:mdasrt="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
-          <mdasrt:AttributeValue>http://eduid.cz/uri/idp-group/university</mdasrt:AttributeValue>
-        </mdasrt:Attribute>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://eduid.cz/uri/idp-group/university</saml:AttributeValue>
+        </saml:Attribute>
       </mdattr:EntityAttributes>
     </md:Extensions>
     <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
       <md:Extensions>
         <shibmd:Scope regexp="false">fel.cvut.cz</shibmd:Scope>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <mdui:UIInfo>
           <mdui:Description xml:lang="en">Identity Provider for CTU FEE in Prague</mdui:Description>
           <mdui:Description xml:lang="cs">Identity Provider pro ČVUT FEL v Praze</mdui:Description>
           <mdui:DisplayName xml:lang="en">Czech Technical University in Prague, Faculty of Electrical Engineering</mdui:DisplayName>
@@ -27,7 +27,7 @@
         </eduidmd:RepublishRequest>
       </md:Extensions>
       <md:KeyDescriptor>
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyInfo>
           <ds:X509Data>
             <ds:X509Certificate>
 MIIEgzCCA2ugAwIBAgIQANoVlz6PcuJYsEUfHOK6tjANBgkqhkiG9w0BAQUFADA2
@@ -75,7 +75,7 @@ yrp1Je1EyA==
         <shibmd:Scope regexp="false">fel.cvut.cz</shibmd:Scope>
       </md:Extensions>
       <md:KeyDescriptor>
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyInfo>
           <ds:X509Data>
             <ds:X509Certificate>
 MIIEgzCCA2ugAwIBAgIQANoVlz6PcuJYsEUfHOK6tjANBgkqhkiG9w0BAQUFADA2

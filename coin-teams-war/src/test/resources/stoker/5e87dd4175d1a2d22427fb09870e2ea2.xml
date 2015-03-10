@@ -1,0 +1,66 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://ilearn.totton.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2009-06-01T17:28:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://ilearn.totton.ac.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDADCCAeigAwIBAgIJAKZfsG5cBfubMA0GCSqGSIb3DQEBBQUAMB4xHDAaBgNV
+						BAMTE3NoaWJzcC50b3R0b24uYWMudWswHhcNMTQwNjI0MTIyODU1WhcNMjQwNjIx
+						MTIyODU1WjAeMRwwGgYDVQQDExNzaGlic3AudG90dG9uLmFjLnVrMIIBIjANBgkq
+						hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4r2sMGbQOo1P+H+R+IRVJtyP81kg4jv2
+						4md08AELOr0UFsgzwQ0Ejod5MY70oz1XLiujGfvQ+1yk/OQ/Rz+o5Ar2/VmpWOS3
+						a/P05oZRH18yfqpCGxXTtvvN2aVbMnYwZcolRY0aSGqcqrhVLulIk9HTf8kqmOXk
+						4JSw8kabjRd5odtmv8Szo+eZWloqicmfRV/JBOPXdqOwSSuDxDC4ZjqkYNLJiWMh
+						zZClrfLIk0W0Rm/FEw9RmB8+7WjjsoYxzqYxn+77IepTz0lkmbpBmB5wv7Fp3RLz
+						Pows0/Wo0DEjS7kGy5pujzUfsoiNA6ejhQKqByn68s1vXIREkoejZwIDAQABo0Ew
+						PzAeBgNVHREEFzAVghNzaGlic3AudG90dG9uLmFjLnVrMB0GA1UdDgQWBBTgyST3
+						tKkSHSntzkqR9Iign/WxOTANBgkqhkiG9w0BAQUFAAOCAQEAIoqUB14Nq9Hdw0pp
+						FK2l+iYeUaubP2+Bnm2EOSrwjPYZeHaM6bjyq2IRwLQwaO4i67udbYRx6uraZyDG
+						ulR+N9+l5as0z75gzpqjUkHxVEt+8iZzAkRhjfBOe0n88scgxi1do4N7EDeM+umZ
+						clbVLUcDZ6+cEaHyWYIm4ejvZ/Mc51gUoNxVwSBEz7uTkmzXTy3tg2E0HT+LGffK
+						SOPe3ZVNxH82t0GT9eVPwABja8T2aWcFkZufeD9skb4vu+7QsfSlGFfS95q/Pa3m
+						EulAkrbXTYFy8Xg91X4za6NQ7jydmP3aaPyE0GqqMcbHLq/Gm+qsjG/dHsviHPjQ
+						v2u+Ew==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://ilearn.totton.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://ilearn.totton.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ilearn.totton.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ilearn.totton.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://ilearn.totton.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://ilearn.totton.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ilearn.totton.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ilearn.totton.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ilearn.totton.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://ilearn.totton.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ilearn.totton.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://ilearn.totton.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://ilearn.totton.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://ilearn.totton.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Totton College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Totton College VLE</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.totton.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Mike</md:GivenName>
+      <md:SurName>Dawson</md:SurName>
+      <md:EmailAddress>mailto:mdawson@totton.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mike</md:GivenName>
+      <md:SurName>Dawson</md:SurName>
+      <md:EmailAddress>mailto:mdawson@totton.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

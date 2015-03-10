@@ -1,0 +1,58 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.ccinform.co.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-10-22T14:54:28Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDZTCCAk2gAwIBAgIJAKKRPRBvWSX/MA0GCSqGSIb3DQEBBQUAMEkxKjAoBgNV
+						BAoMIVJlZWQgQnVzaW5lc3MgSW5mb3JtYXRpb24gTGltaXRlZDEbMBkGA1UEAwwS
+						d3d3LmNjaW5mb3JtLmNvLnVrMB4XDTEzMDkyNjEzNTY1N1oXDTIzMDkyNDEzNTY1
+						N1owSTEqMCgGA1UECgwhUmVlZCBCdXNpbmVzcyBJbmZvcm1hdGlvbiBMaW1pdGVk
+						MRswGQYDVQQDDBJ3d3cuY2NpbmZvcm0uY28udWswggEiMA0GCSqGSIb3DQEBAQUA
+						A4IBDwAwggEKAoIBAQCiSfdM8paAx3KGFEkvIiJmFArz//0sKDgaaXY3vZVd6Stp
+						9LZffRwcJvn6bk8uLYysQt8PZW6kOTiixg3bDCVZMEzt2bq4y8evv0ewOFD3Vjc9
+						wOSor5sP3TpY4F+qzbJrpEbl+iv2JPZ+SjUnpmAdc0VRi1ZnjaSqhfu/qZ75Cri6
+						k6HMxtWxn7vXD8blFpYca2QRplBQWPYuCFNzzzXgjiImJWCYMGsVt79rbg92OV4p
+						3TcCoPzZUzLrhrSjfO348jWYURQQ9xKq6kXeF28CJ9p2FU2y/gcdrihgwaphI9pf
+						AFcoTpW2DpUXY/IYePqbTX0WmStxScXvu2/iCbnjAgMBAAGjUDBOMB0GA1UdDgQW
+						BBRAUKgdenTd14XFc5yK+VGRJ8kdoTAfBgNVHSMEGDAWgBRAUKgdenTd14XFc5yK
+						+VGRJ8kdoTAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQCMyWIX9ktw
+						4r/H9lNuRYQupri7ms/5DxbzXqYQVXIMwFMSeoo1flg6QtBvNcP7sKSlnZMQ4GDP
+						lVuzhS689QFBfFQjTrAoa+R+I48ko9gGkiNf34aQ4pla6ACZ57TpkGgwQWDbGGVs
+						aPIvsdzLALl3jcqTX7IGDYodV7EJAX/lBkq+9WKVHcNQRzf8UhTC+K7KUDJKtA43
+						VEcVnYm5fLKRJbNk4QV62rEk7/fH1bmIVU9Sw3Uh+atVV0hO9pjM0nySYpp87QIA
+						bAQtPE/MMyP0ySM4FRsyJyHiFYJN+OzoU8iW4qt6AqmzV0YKqhkzo5AkH+5H0ysD
+						YZLwgoUJadub
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://id.ccinform.co.uk/ccinform/shibboleth/samlhandler" index="1" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://id.ccinform.co.uk/ccinform/shibboleth/samlhandler" index="2"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Reed Business Information Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">CC Inform</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ccinform.co.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Kim</md:GivenName>
+      <md:SurName>Poupart</md:SurName>
+      <md:EmailAddress>mailto:Kim.poupart@rbi.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mark</md:GivenName>
+      <md:SurName>Gale</md:SurName>
+      <md:EmailAddress>mailto:mark.gale@rbi.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Andrew</md:GivenName>
+      <md:SurName>Farr</md:SurName>
+      <md:EmailAddress>mailto:Andrew.Farr@rbi.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

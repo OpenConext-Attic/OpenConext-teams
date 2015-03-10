@@ -1,0 +1,59 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sp.silverchair.com/spie/development/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-06-08T14:57:55Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://spiedev.silverchair.com/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC9DCCAdygAwIBAgIJALlaiHmGwxxMMA0GCSqGSIb3DQEBBQUAMBoxGDAWBgNV
+						BAMTD3Npc3dlYjEuc3NjLmludDAeFw0xMjA2MDUyMTQ2MzZaFw0yMjA2MDMyMTQ2
+						MzZaMBoxGDAWBgNVBAMTD3Npc3dlYjEuc3NjLmludDCCASIwDQYJKoZIhvcNAQEB
+						BQADggEPADCCAQoCggEBAOf/K/gvKC/u7Ua0cgI1XfMba1Wws8EAmB74uogwn6fd
+						/IoHNj1IYchQ/D8Him3Zn+/ZaqmXiRBs6BrIyvi5Wxcjset63BCM8JSyRK0tyiHu
+						x3d8Y787FKohrJ5KIT7a207fGGTBydEDz79Snp/Mfz334DyOt19/7STPBCAtAtvp
+						Ok4amip2bHfjA9tvQcnrM0hGcYibhEc9Kgxgx62J9rEoRC5sm/B5rvHtccu6lrHZ
+						CcVkK9nByGAA/bRm1B9E0Ds9sFHb4y5/t+wHh/atWOdaxCvQeQdcD9/hqOV6Oe0x
+						AFG/akUrXelKWsmcqcjcHSS2VOlWMUdH6o14Ah6PG1UCAwEAAaM9MDswGgYDVR0R
+						BBMwEYIPc2lzd2ViMS5zc2MuaW50MB0GA1UdDgQWBBT4/+lctR28WS/Ckl3SPVVe
+						JHflNzANBgkqhkiG9w0BAQUFAAOCAQEAK0W7UeTG1w5h97v3Zy+z+Gsx5qIsmY9I
+						ETvlGWIGaOmYx4O/ufFqU1dnqdbBb44Jm8l1N4YZdyo3iMxyD1SryH9tcr8V7PJj
+						Z1VVGS7Gg6Rp6mpEtubGukx1mRzL6GqUelMiG+MxxBLKhJv3Io5/ll6ooMi6VDzV
+						apjaONZvyrwnWfLcGurjHKeBE04zZEQQ1fOxpvLgcQS1XCw1KqqPAYvfNQnbr782
+						l9tktU5kKQam047p/nqlfbTrgh/YIOiOrTaHGs7xS0lGpm2Nv/HE7Plwrm1QFnwq
+						5SFytGmkTdNq/TwMwm8GWlPEObESkTCavAvPo3CqO7xALX2XJRO3WA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://spiedev.silverchair.com/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://spiedev.silverchair.com/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://spiedev.silverchair.com/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://spiedev.silverchair.com/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://spiedev.silverchair.com/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://spiedev.silverchair.com/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://spiedev.silverchair.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://spiedev.silverchair.com/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://spiedev.silverchair.com/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://spiedev.silverchair.com/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://spiedev.silverchair.com/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Silverchair Science + Communications, LLC</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Silverchair Dev: International Society for Optics and Photonics (SPIE)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://spiedev.silverchair.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Shibboleth Admin</md:GivenName>
+      <md:EmailAddress>mailto:ShibbolethAdmin@silverchair.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Josh</md:GivenName>
+      <md:SurName>Laseter</md:SurName>
+      <md:EmailAddress>mailto:jlaseter@silverchair.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

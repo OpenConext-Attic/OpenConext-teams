@@ -1,0 +1,54 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://connectis-sso.staging.federatenow.net/broker/sso/tpd">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-06-04T10:34:37Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEETCCAvmgAwIBAgIEXjilzjANBgkqhkiG9w0BAQsFADCBuDELMAkGA1UEBhMC
+						TkwxEzARBgNVBAgTClNvbWUtU3RhdGUxEjAQBgNVBAcTCVJvdHRlcmRhbTErMCkG
+						A1UEChMiQ29ubmVjdGVkIEluZm9ybWF0aW9uIFN5c3RlbXMgQi5WLjErMCkGA1UE
+						CxMiQ29ubmVjdGVkIEluZm9ybWF0aW9uIFN5c3RlbXMgQi5WLjEmMCQGA1UEAxMd
+						Y29ubmVjdGlzLXNzbyBzdGFnaW5nIHNpZ25pbmcwHhcNMTQwNjA0MDkyMTUwWhcN
+						MjQwNDEyMDkyMTUwWjCBuDELMAkGA1UEBhMCTkwxEzARBgNVBAgTClNvbWUtU3Rh
+						dGUxEjAQBgNVBAcTCVJvdHRlcmRhbTErMCkGA1UEChMiQ29ubmVjdGVkIEluZm9y
+						bWF0aW9uIFN5c3RlbXMgQi5WLjErMCkGA1UECxMiQ29ubmVjdGVkIEluZm9ybWF0
+						aW9uIFN5c3RlbXMgQi5WLjEmMCQGA1UEAxMdY29ubmVjdGlzLXNzbyBzdGFnaW5n
+						IHNpZ25pbmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCFL8GudeE6
+						+ZrNf9A29gp0GWT1ZzlMho1D7CkxqlWa6dLHlHHq/9yVimTJ+gBW98lM5Xtox9pB
+						Sl4NEhJYxnbzqxQQZHrYe2ePndaOA+I3Qt18s9Flii3CfKgivO8Gk7PIsJiUtmpa
+						VQs7VW3exfe9hct+u9+WNuyHvHaEnuf5m2NU3Ik5xyG19etoBhGqhhTeCWr/jXX+
+						r3dJSoCiRKCrw1vtd4H0AYkOu3vsvlGyzv468wj8ya7pSWKhUhYTWIaBI5lf6LYP
+						I3Ic7CixQJMYnjk3HjHUzBkWF4Br/7/REk94FRsCLbBy97DV/reOcGqSSazVMxnu
+						D4oW5vrbvcdfAgMBAAGjITAfMB0GA1UdDgQWBBS6TwUKWGxZJD3DZcMnO5rfH6UB
+						/DANBgkqhkiG9w0BAQsFAAOCAQEAbS/JqZ8HtJ1gVgsTLIGHqIarEov1U3sbijbY
+						5cmCMAT0KwBP0/0FrF3eSDoxBiAUhPyeYRLmgLDY2OMUoXctpsRQEKdSz2uygZgT
+						HUCbwj9m7Wbg7iPGXcoEJhQgJxBh+afOICDNfcOO/mT4LPhy9JY/fg6fqeCfNyeL
+						XbBPIFCJ6tnkwseBBdFN+bOpRLSQjhicQNd91+7E9D99NFw1AkZpj+pNq8cwFpOK
+						0LLFELmeT1gDlRAv5yjz4PyIUONaHGA35eIvyDcE3TV003+x3PNwqGrMwzsXvR6q
+						do7Z7JztljIHExhgDP6V7Ze4Y2nyrEqVhFWOdAwOH/PTaxIsgQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://connectis-sso.staging.federatenow.net/broker/acs/tpd" index="1" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://connectis-sso.staging.federatenow.net/broker/acs/tpd" index="2" isDefault="false"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Connected Information Systems B.V.</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Connectis Staging</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.connectis.nl/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Technical Support</md:GivenName>
+      <md:EmailAddress>mailto:technicalsupport@connectis.nl</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Technical Support</md:GivenName>
+      <md:EmailAddress>mailto:technicalsupport@connectis.nl</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

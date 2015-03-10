@@ -48,6 +48,44 @@ import static org.mockito.Mockito.when;
 public class InvitationControllerTest extends AbstractControllerTest {
   private InvitationController controller;
   private Invitation invitation;
+  private ControllerUtil controllerUtil;
+
+  @Before
+  public void setup() throws Exception {
+    super.setup();
+
+    controller = new InvitationController();
+
+    String invitationHash = "0b733d119c3705ae4fc284203f1ee8ec";
+
+    getRequest().setParameter("id", invitationHash);
+    Person person = getPersonFromSession();
+    Set<Email> emails = new HashSet<Email>();
+    emails.add(new Email("person1@example.com"));
+    person.setEmails(emails);
+    getRequest().getSession().setAttribute(PERSON_SESSION_KEY, person);
+
+    Team mockTeam = mock(Team.class);
+    when(mockTeam.getId()).thenReturn("team-1");
+
+    invitation = new Invitation("person1@example.com", "team-1");
+
+    TeamInviteService teamInviteService = mock(TeamInviteService.class);
+    when(teamInviteService.findInvitationByInviteId(invitationHash)).thenReturn(invitation);
+    when(teamInviteService.findAllInvitationById(invitationHash)).thenReturn(invitation);
+    List<Invitation> pendingInvitations = new ArrayList<Invitation>(1);
+    pendingInvitations.add(invitation);
+    when(teamInviteService.findPendingInvitationsByEmail(
+      invitation.getEmail())).thenReturn(pendingInvitations);
+
+    autoWireMock(controller, teamInviteService, TeamInviteService.class);
+
+    controllerUtil = mock(ControllerUtil.class);
+    when(controllerUtil.getTeamById("team-1")).thenReturn(mockTeam);
+
+    autoWireMock(controller, controllerUtil, ControllerUtil.class);
+    autoWireRemainingResources(controller);
+  }
 
   @Test
   public void testAccept() throws Exception {
@@ -111,13 +149,24 @@ public class InvitationControllerTest extends AbstractControllerTest {
   }
 
   @Test
-  public void testDelete() throws Exception {
+  public void testDeleteAsAnAdmin() throws Exception {
+
+    when(controllerUtil.hasUserAdministrativePrivileges(getPersonFromSession(), invitation.getTeamId())).thenReturn(true);
 
     String token = TokenUtil.generateSessionToken();
     RedirectView view = controller.deleteInvitation(getRequest(), token, token, new SimpleSessionStatus(), getModelMap());
 
     String redirectUrl = "detailteam.shtml?team=team-1&view=app";
     assertEquals(redirectUrl, view.getUrl());
+  }
+
+  @Test(expected = RuntimeException.class)
+  public void testCannotDeleteWhenNoAdminPrivileges() throws Exception {
+
+    when(controllerUtil.hasUserAdministrativePrivileges(getPersonFromSession(), invitation.getTeamId())).thenReturn(false);
+
+    String token = TokenUtil.generateSessionToken();
+    controller.deleteInvitation(getRequest(), token, token, new SimpleSessionStatus(), getModelMap());
   }
 
   @Test
@@ -128,42 +177,6 @@ public class InvitationControllerTest extends AbstractControllerTest {
     assertEquals(1, myInvitations.size());
   }
 
-  @Before
-  public void setup() throws Exception {
-    super.setup();
-
-    controller = new InvitationController();
-
-    String invitationHash = "0b733d119c3705ae4fc284203f1ee8ec";
-
-    getRequest().setParameter("id", invitationHash);
-    Person person = getPersonFromSession();
-    Set<Email> emails = new HashSet<Email>();
-    emails.add(new Email("person1@example.com"));
-    person.setEmails(emails);
-    getRequest().getSession().setAttribute(PERSON_SESSION_KEY, person);
-
-    Team mockTeam = mock(Team.class);
-    when(mockTeam.getId()).thenReturn("team-1");
-
-    invitation = new Invitation("person1@example.com", "team-1");
-
-    TeamInviteService teamInviteService = mock(TeamInviteService.class);
-    when(teamInviteService.findInvitationByInviteId(invitationHash)).thenReturn(invitation);
-    when(teamInviteService.findAllInvitationById(invitationHash)).thenReturn(invitation);
-    List<Invitation> pendingInvitations = new ArrayList<Invitation>(1);
-    pendingInvitations.add(invitation);
-    when(teamInviteService.findPendingInvitationsByEmail(
-            invitation.getEmail())).thenReturn(pendingInvitations);
-
-    autoWireMock(controller, teamInviteService, TeamInviteService.class);
-
-    ControllerUtil controllerUtil = mock(ControllerUtil.class);
-    when(controllerUtil.getTeamById("team-1")).thenReturn(mockTeam);
-
-    autoWireMock(controller, controllerUtil, ControllerUtil.class);
-    autoWireRemainingResources(controller);
-  }
 
   private Person getPersonFromSession() {
     return (Person) getRequest().getSession().getAttribute(PERSON_SESSION_KEY);

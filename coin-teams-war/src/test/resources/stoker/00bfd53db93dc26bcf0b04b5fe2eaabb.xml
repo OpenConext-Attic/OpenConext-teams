@@ -1,0 +1,105 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://ukmyms01-zone02.smg-uk.com/idp/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-04-02T10:29:39Z">
+		</mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">thomson.com</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDcTCCAlmgAwIBAgIUHY8B0tLuriNFq39X7sA2Pna5FmwwDQYJKoZIhvcNAQEF
+						BQAwLDEqMCgGA1UEAxMhdWtteS1vcmFia3Rlc3QtMDEudGxyLnRob21zb24uY29t
+						MB4XDTE0MDIwNjE1MjcxOFoXDTM0MDIwNjE1MjcxOFowLDEqMCgGA1UEAxMhdWtt
+						eS1vcmFia3Rlc3QtMDEudGxyLnRob21zb24uY29tMIIBIjANBgkqhkiG9w0BAQEF
+						AAOCAQ8AMIIBCgKCAQEA2sDwDbm2t6Jc0L89Mj3GXl9RaTsEwCCJ2UNBppGmmc06
+						4oucpILb2Yd6KqBsKBaYC0ue3tlwkdyPlDMR/6+E+dJi478+dMb8mX2URLlILIln
+						QyWZkf6tp1q1F7rSK7DG4A5jF6nt6WxJlWDp6pOPcM7vkaPcRGw4PyAlgq6E8klo
+						noiX4AOIkOfi+11uJii9LqWk9XdwtrIzDd/El2uGkgcLLnwzpWDV2A0tKAEy8WHR
+						UWsotnzmCYfIBMal6o/5fJ7k3KYEOzF90WpYuf7InFGUEzl86rJRWNZtY1h7jepS
+						otzMbzn7Q5Ljc4MYjbXG4BmCw2JC7XCkjKQy7TuNbQIDAQABo4GKMIGHMGYGA1Ud
+						EQRfMF2CIXVrbXktb3JhYmt0ZXN0LTAxLnRsci50aG9tc29uLmNvbYY4aHR0cHM6
+						Ly91a215LW9yYWJrdGVzdC0wMS50bHIudGhvbXNvbi5jb20vaWRwL3NoaWJib2xl
+						dGgwHQYDVR0OBBYEFGnD/uW9bTDxa7yN/FtkfYvhMESnMA0GCSqGSIb3DQEBBQUA
+						A4IBAQAV1L5ji+TIyn+BZr94DQOb6pkHAdFgceuq8YxBJoW9oKNJwC9K6lQp0Wus
+						q5J4RlIErH3M+q8txtm1J5oH2C9KxPOw1Htw8KSKQfT5LD98HVETMdOGCmmtX5IO
+						GLiegJTiXazfmecTi9xi1pVOfVLn97uCY7TK5I0YFDkFN2Whf4GNXY8w9iDGCyN8
+						4c6mJD3kCkjWv06ITX/OgTGpHDPobiNu4aEQpMokmw7fE8ff+fBLIEhKQ7y+Zovz
+						veOmrduNCjLZY6Ve2poxgw+eIfGsnRLYkz7ak7h/7BYNhUYz48cGPnHOb2+B9J0M
+						MUfe/9b/hNW/YTMa9+4MQNOEkWHO
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://ukmy-orabktest-01.tlr.thomson.com:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://ukmy-orabktest-01.tlr.thomson.com:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://ukmy-orabktest-01.tlr.thomson.com/idp/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ukmy-orabktest-01.tlr.thomson.com/idp/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://ukmy-orabktest-01.tlr.thomson.com:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://ukmy-orabktest-01.tlr.thomson.com/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ukmy-orabktest-01.tlr.thomson.com/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://ukmy-orabktest-01.tlr.thomson.com/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://ukmy-orabktest-01.tlr.thomson.com/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">thomson.com</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDcTCCAlmgAwIBAgIUHY8B0tLuriNFq39X7sA2Pna5FmwwDQYJKoZIhvcNAQEF
+						BQAwLDEqMCgGA1UEAxMhdWtteS1vcmFia3Rlc3QtMDEudGxyLnRob21zb24uY29t
+						MB4XDTE0MDIwNjE1MjcxOFoXDTM0MDIwNjE1MjcxOFowLDEqMCgGA1UEAxMhdWtt
+						eS1vcmFia3Rlc3QtMDEudGxyLnRob21zb24uY29tMIIBIjANBgkqhkiG9w0BAQEF
+						AAOCAQ8AMIIBCgKCAQEA2sDwDbm2t6Jc0L89Mj3GXl9RaTsEwCCJ2UNBppGmmc06
+						4oucpILb2Yd6KqBsKBaYC0ue3tlwkdyPlDMR/6+E+dJi478+dMb8mX2URLlILIln
+						QyWZkf6tp1q1F7rSK7DG4A5jF6nt6WxJlWDp6pOPcM7vkaPcRGw4PyAlgq6E8klo
+						noiX4AOIkOfi+11uJii9LqWk9XdwtrIzDd/El2uGkgcLLnwzpWDV2A0tKAEy8WHR
+						UWsotnzmCYfIBMal6o/5fJ7k3KYEOzF90WpYuf7InFGUEzl86rJRWNZtY1h7jepS
+						otzMbzn7Q5Ljc4MYjbXG4BmCw2JC7XCkjKQy7TuNbQIDAQABo4GKMIGHMGYGA1Ud
+						EQRfMF2CIXVrbXktb3JhYmt0ZXN0LTAxLnRsci50aG9tc29uLmNvbYY4aHR0cHM6
+						Ly91a215LW9yYWJrdGVzdC0wMS50bHIudGhvbXNvbi5jb20vaWRwL3NoaWJib2xl
+						dGgwHQYDVR0OBBYEFGnD/uW9bTDxa7yN/FtkfYvhMESnMA0GCSqGSIb3DQEBBQUA
+						A4IBAQAV1L5ji+TIyn+BZr94DQOb6pkHAdFgceuq8YxBJoW9oKNJwC9K6lQp0Wus
+						q5J4RlIErH3M+q8txtm1J5oH2C9KxPOw1Htw8KSKQfT5LD98HVETMdOGCmmtX5IO
+						GLiegJTiXazfmecTi9xi1pVOfVLn97uCY7TK5I0YFDkFN2Whf4GNXY8w9iDGCyN8
+						4c6mJD3kCkjWv06ITX/OgTGpHDPobiNu4aEQpMokmw7fE8ff+fBLIEhKQ7y+Zovz
+						veOmrduNCjLZY6Ve2poxgw+eIfGsnRLYkz7ak7h/7BYNhUYz48cGPnHOb2+B9J0M
+						MUfe/9b/hNW/YTMa9+4MQNOEkWHO
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://ukmy-orabktest-01.tlr.thomson.com:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://ukmy-orabktest-01.tlr.thomson.com:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Thomson Reuters (Professional) UK Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Westlaw UK Test IdP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.westlaw.co.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Doug</md:GivenName>
+      <md:SurName>Potts</md:SurName>
+      <md:EmailAddress>mailto:douglas.potts@thomsonreuters.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Andy</md:GivenName>
+      <md:SurName>Halford</md:SurName>
+      <md:EmailAddress>mailto:andrew.halford@thomsonreuters.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

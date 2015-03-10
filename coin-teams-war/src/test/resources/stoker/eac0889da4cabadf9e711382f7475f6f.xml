@@ -1,0 +1,89 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sp.primaryblogger.co.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://shib.primaryblogger.co.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDBjCCAe6gAwIBAgIJAOZHOEMKBHC2MA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV
+						BAMTFWxvY2FsaG9zdC5sb2NhbGRvbWFpbjAeFw0wOTExMDgyMzUxNThaFw0xOTEx
+						MDYyMzUxNThaMCAxHjAcBgNVBAMTFWxvY2FsaG9zdC5sb2NhbGRvbWFpbjCCASIw
+						DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANgEkbr2RKR4I0utlNh/vw1jX7p0
+						i7kqSW+nn6yL0AkkoTCheUI7wG+g0tr85EI8NJDgjn32VTuwKuvZfG8Glq6egaN3
+						gYTrZobvMpeGE5EdkFDRqGdecxjaNoVnVJypPo2h6WYiID7AvHb2+HWMcwa4sboH
+						ROg+xUA9WEuD0NHXiNgM7Olq41GDGnfkpra3xIQyuTdqi8m4BeKx0C37twr7cuEf
+						dDUI/obOQXGKMaq7o0vEIRIzQAVkiYdwHhT0QCZ9iy8TdNzLymGHqqwWUql3kADh
+						d4JF159CUg4DfC+nOOsyrBrALcKQrnvPG/m9co8RXE1uUjdU/3Eu/KcM0wUCAwEA
+						AaNDMEEwIAYDVR0RBBkwF4IVbG9jYWxob3N0LmxvY2FsZG9tYWluMB0GA1UdDgQW
+						BBRocwEiryFGPISri/h1VtntIAhbuzANBgkqhkiG9w0BAQUFAAOCAQEAebIJkE/j
+						XykPygSsAdZVXKw/udtaFkWOnTQCjfUpJClLnuTwTSwd4n5yp+YbQ5OK3i9TsziF
+						vIF8Ef6Lu7CBDEgKqQbQaiRSPSGV83eCcQ3dPMz3Y7e0b1N5VJZ2+PdOvU0G62ti
+						P40Lq5ggDCKejJNh/G/3cZ13ycwUZ7e5tqS0dcCKqBNvDLbYEGa9jjClclFOyDv8
+						3fDaIHNHpBeXqtP3TOkAAkdBLQrdvuA2DOYl1fNLMFFKKP8ARt9zTwNCEyLuzSmG
+						+gFtPl/xOz4ha0mucdRHuztOM32CHnYO8dv4s6hr0hWVu5rt+msf4UN1lgNd3lVf
+						LzHzZem0YfRmWw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDBjCCAe6gAwIBAgIJAOZHOEMKBHC2MA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV
+						BAMTFWxvY2FsaG9zdC5sb2NhbGRvbWFpbjAeFw0wOTExMDgyMzUxNThaFw0xOTEx
+						MDYyMzUxNThaMCAxHjAcBgNVBAMTFWxvY2FsaG9zdC5sb2NhbGRvbWFpbjCCASIw
+						DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANgEkbr2RKR4I0utlNh/vw1jX7p0
+						i7kqSW+nn6yL0AkkoTCheUI7wG+g0tr85EI8NJDgjn32VTuwKuvZfG8Glq6egaN3
+						gYTrZobvMpeGE5EdkFDRqGdecxjaNoVnVJypPo2h6WYiID7AvHb2+HWMcwa4sboH
+						ROg+xUA9WEuD0NHXiNgM7Olq41GDGnfkpra3xIQyuTdqi8m4BeKx0C37twr7cuEf
+						dDUI/obOQXGKMaq7o0vEIRIzQAVkiYdwHhT0QCZ9iy8TdNzLymGHqqwWUql3kADh
+						d4JF159CUg4DfC+nOOsyrBrALcKQrnvPG/m9co8RXE1uUjdU/3Eu/KcM0wUCAwEA
+						AaNDMEEwIAYDVR0RBBkwF4IVbG9jYWxob3N0LmxvY2FsZG9tYWluMB0GA1UdDgQW
+						BBRocwEiryFGPISri/h1VtntIAhbuzANBgkqhkiG9w0BAQUFAAOCAQEAebIJkE/j
+						XykPygSsAdZVXKw/udtaFkWOnTQCjfUpJClLnuTwTSwd4n5yp+YbQ5OK3i9TsziF
+						vIF8Ef6Lu7CBDEgKqQbQaiRSPSGV83eCcQ3dPMz3Y7e0b1N5VJZ2+PdOvU0G62ti
+						P40Lq5ggDCKejJNh/G/3cZ13ycwUZ7e5tqS0dcCKqBNvDLbYEGa9jjClclFOyDv8
+						3fDaIHNHpBeXqtP3TOkAAkdBLQrdvuA2DOYl1fNLMFFKKP8ARt9zTwNCEyLuzSmG
+						+gFtPl/xOz4ha0mucdRHuztOM32CHnYO8dv4s6hr0hWVu5rt+msf4UN1lgNd3lVf
+						LzHzZem0YfRmWw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib.primaryblogger.co.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib.primaryblogger.co.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib.primaryblogger.co.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shib.primaryblogger.co.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib.primaryblogger.co.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib.primaryblogger.co.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib.primaryblogger.co.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shib.primaryblogger.co.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib.primaryblogger.co.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib.primaryblogger.co.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shib.primaryblogger.co.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://shib.primaryblogger.co.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shib.primaryblogger.co.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://shib.primaryblogger.co.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Primary Technology Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Primary Technology Limited: Primary Blogger</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.primaryt.co.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>John</md:GivenName>
+      <md:SurName>McLear</md:SurName>
+      <md:EmailAddress>mailto:john@mclear.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>John</md:GivenName>
+      <md:SurName>McLear</md:SurName>
+      <md:EmailAddress>mailto:john@mclear.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

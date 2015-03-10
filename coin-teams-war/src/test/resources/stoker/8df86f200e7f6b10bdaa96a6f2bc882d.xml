@@ -1,0 +1,49 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://ablation.oucs.ox.ac.uk/shibboleth-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDNzCCAh+gAwIBAgIJAL+QQg4gKHSjMA0GCSqGSIb3DQEBBQUAMCExHzAdBgNV
+						BAMTFmFibGF0aW9uLm91Y3Mub3guYWMudWswHhcNMTIwMTIzMTQ0NTIwWhcNMjIw
+						MTIwMTQ0NTIwWjAhMR8wHQYDVQQDExZhYmxhdGlvbi5vdWNzLm94LmFjLnVrMIIB
+						IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnz+8H7tA8WPyMdvx5M8mvPiw
+						8tsXvb9wXpMJ7ytRr4E+Mfw0x4V4Ze3Vlqpbl86GPPZ1UsaRt5BXPJc0+3CYE0iZ
+						Cwji3tB4j4a9mBEgIgDXfepSkhxrFIV55eV5NxiPaoZdn4r3HtcZ+UPViYeha0Sb
+						sQtp8qSYN1N7ro6XvGmPsRaMxciOgTHYuS1l1mATzicO2j1K1vAIPOwJY+64VCmm
+						aVEZIzZvbhbfs/UxjJ0QYL5OIakvh2NwPuJYxomPbPTJ7d8dkjQLKVLqeaBXZVd/
+						vRUUBN4JRiWqjCe/ydJI1PyPJx797uJQGcWY+Xc014uPzP6UKumQPvSUWKmDpwID
+						AQABo3IwcDBPBgNVHREESDBGghZhYmxhdGlvbi5vdWNzLm94LmFjLnVrhixodHRw
+						czovL2FibGF0aW9uLm91Y3Mub3guYWMudWsvc2hpYmJvbGV0aC1zcDAdBgNVHQ4E
+						FgQUWCsKQqfiwjR0/+IitEXa1hrQ9rIwDQYJKoZIhvcNAQEFBQADggEBAAh41Pwr
+						gIEJw5kIsm+8WEPol3+pS/wK2XZ8aDB07uwY39hoQJiBU9pY5YEBrNkbI6JpoHj7
+						SYXK/onH9mugafKVn0NX3uuHnFNIRfBP34CSJHWlfKvYU2sdWUmdZ0g7Es82O/U6
+						Md4CwQK9TN999XdFTGx8b+/cEzLYquAVHPq5+jRGwqlPbqZlBLz1GCzvWGpkmVcs
+						2fu4xbqDRoJCy+NB/fXg8O/0uiyIQexeGG5A76JDCGOLw988AwKkoykd1iIwrvhv
+						VLSRfMpjr+kLRRDFcKnLS0QzDd4ijKMiCnfKYJUzy49x8FUDH+P41uLKDxVB7Ep0
+						TZGHmnZDf5qYsqk=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://ablation.oucs.ox.ac.uk/Shibboleth.sso/SAML/POST" index="1" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://ablation.oucs.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="2"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford: Test SP 1.3</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.oucs.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>IT Services IAM Team</md:GivenName>
+      <md:EmailAddress>mailto:team@sysdev.oucs.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>IT Services IAM Team</md:GivenName>
+      <md:EmailAddress>mailto:team@sysdev.oucs.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

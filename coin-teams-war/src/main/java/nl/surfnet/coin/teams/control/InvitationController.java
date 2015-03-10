@@ -231,12 +231,20 @@ public class InvitationController {
     TokenUtil.checkTokens(sessionToken, token, status);
     Person person = (Person) request.getSession().getAttribute(
         LoginInterceptor.PERSON_SESSION_KEY);
+
     if (person == null) {
       status.setComplete();
       return new RedirectView("landingpage.shtml");
     }
     Invitation invitation = getAllInvitationByRequest(request);
     String teamId = invitation.getTeamId();
+
+    if (!controllerUtil.hasUserAdministrativePrivileges(person, teamId)) {
+      throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct " +
+        "privileges to delete (a) member(s)");
+    }
+
+
     teamInviteService.delete(invitation);
     AuditLog.log("User {} deleted invitation for email {} for team {} with intended role {}", person.getId(), invitation.getEmail(), invitation.getTeamId(), invitation.getIntendedRole());
 
@@ -319,4 +327,5 @@ public class InvitationController {
 
     return teamInviteService.findAllInvitationById(invitationId);
   }
+
 }

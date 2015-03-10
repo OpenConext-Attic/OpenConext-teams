@@ -53,8 +53,6 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
   private static final String[] FORBIDDEN_CHARS = new String[] { "<", ">", "/",
       "\\", "*", ":", ",", "%" };
 
-  private static final Logger LOGGER = LoggerFactory
-      .getLogger(GrouperTeamServiceWsImpl.class);
 
   /**
    * {@inheritDoc}
@@ -417,7 +415,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
     try {
       result = assignPrivilege.execute();
     } catch (RuntimeException e) {
-      LOGGER.info("Could not add member role", e);
+      LOG.info("Could not add member role", e);
       // Grouper converts every exception to RuntimeException
       return false;
     }
@@ -457,7 +455,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
     try {
       result = assignPrivilege.execute();
     } catch (RuntimeException e) {
-      LOGGER.info("Could not remove role", e);
+      LOG.info("Could not remove role", e);
       // Grouper converts every exception to RuntimeException
       return false;
     }

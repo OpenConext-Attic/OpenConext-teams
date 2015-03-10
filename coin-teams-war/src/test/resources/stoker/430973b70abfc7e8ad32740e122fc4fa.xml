@@ -1,0 +1,81 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://brad.ac.uk/oala/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">brad.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDlDCCAnygAwIBAgIJANXFuAkInLUOMA0GCSqGSIb3DQEBBQUAMDoxHzAdBgNV
+						BAoTFlVuaXZlcnNpdHkgb2YgQnJhZGZvcmQxFzAVBgNVBAMTDmlkcC5icmFkLmFj
+						LnVrMB4XDTExMTIxNTA3MzU0NloXDTIxMTIxMjA3MzU0NlowOjEfMB0GA1UEChMW
+						VW5pdmVyc2l0eSBvZiBCcmFkZm9yZDEXMBUGA1UEAxMOaWRwLmJyYWQuYWMudWsw
+						ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC0g3A4ViQaWo3ooKJCJzMT
+						suHZpnYar65+6QiDmZvx1QDGMT+YlYS1jmkuz4YGwJOdj4h9Up9dSCx4M3XweUuD
+						bLclot8c05tOBBzm+8UHkaYnIYx/8GKE8+NKtscerr1UvHlOxTBPPFxogb4X0fQm
+						iW+PEz9wDPpegj4WlY0ktaxgzjhjvZQwFVqGIBxBvdT6phfkWeK5xj2er956tBgl
+						IgCq0fuBp6FVhH1fn+bzxyLN7ORWOnPYZeWbxwECCqRaYD6tsUH2+UL2G6SwnAct
+						7H1K8pvsfvCjHzzDF67B95lTtql/9ifhb4L5Pb58ntwKDoU/G9oYQaN069lwNRIZ
+						AgMBAAGjgZwwgZkwHQYDVR0OBBYEFDeVQv1JG+EQO/AiOsHDqnOjliqEMGoGA1Ud
+						IwRjMGGAFDeVQv1JG+EQO/AiOsHDqnOjliqEoT6kPDA6MR8wHQYDVQQKExZVbml2
+						ZXJzaXR5IG9mIEJyYWRmb3JkMRcwFQYDVQQDEw5pZHAuYnJhZC5hYy51a4IJANXF
+						uAkInLUOMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBAIby+5WHVMoP
+						2p0mzAeMxtM4hBVP3GKl1lkRTSO1AEXCrVbYuaAw45AfZnuadDiQAKFAC0OezT0S
+						DQcVSpxrLN2LP8nMoFzhlWkk6gIjvRDPkzxOse7EIhtRWerm52D5uQ9b+31OKVcU
+						TXce5suAR/hCXcr41iXDcNDJSQkV1WBfd6UR075umgTEi8ssmbYjM3tjWq+XIFSE
+						6hvalVaP6I5fpC+lcQZTvgHtIkwm0PPGtqyVThivuW9469EITTfXx1fAGKiTzuPC
+						u/73ycpe1n4szaouE0SYZplEht4mi/ZmDI7KrpwMISxEfdCAtz3E6mAfibmPoPie
+						/PZXD7xJX28= </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDlDCCAnygAwIBAgIJANXFuAkInLUOMA0GCSqGSIb3DQEBBQUAMDoxHzAdBgNV
+						BAoTFlVuaXZlcnNpdHkgb2YgQnJhZGZvcmQxFzAVBgNVBAMTDmlkcC5icmFkLmFj
+						LnVrMB4XDTExMTIxNTA3MzU0NloXDTIxMTIxMjA3MzU0NlowOjEfMB0GA1UEChMW
+						VW5pdmVyc2l0eSBvZiBCcmFkZm9yZDEXMBUGA1UEAxMOaWRwLmJyYWQuYWMudWsw
+						ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC0g3A4ViQaWo3ooKJCJzMT
+						suHZpnYar65+6QiDmZvx1QDGMT+YlYS1jmkuz4YGwJOdj4h9Up9dSCx4M3XweUuD
+						bLclot8c05tOBBzm+8UHkaYnIYx/8GKE8+NKtscerr1UvHlOxTBPPFxogb4X0fQm
+						iW+PEz9wDPpegj4WlY0ktaxgzjhjvZQwFVqGIBxBvdT6phfkWeK5xj2er956tBgl
+						IgCq0fuBp6FVhH1fn+bzxyLN7ORWOnPYZeWbxwECCqRaYD6tsUH2+UL2G6SwnAct
+						7H1K8pvsfvCjHzzDF67B95lTtql/9ifhb4L5Pb58ntwKDoU/G9oYQaN069lwNRIZ
+						AgMBAAGjgZwwgZkwHQYDVR0OBBYEFDeVQv1JG+EQO/AiOsHDqnOjliqEMGoGA1Ud
+						IwRjMGGAFDeVQv1JG+EQO/AiOsHDqnOjliqEoT6kPDA6MR8wHQYDVQQKExZVbml2
+						ZXJzaXR5IG9mIEJyYWRmb3JkMRcwFQYDVQQDEw5pZHAuYnJhZC5hYy51a4IJANXF
+						uAkInLUOMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBAIby+5WHVMoP
+						2p0mzAeMxtM4hBVP3GKl1lkRTSO1AEXCrVbYuaAw45AfZnuadDiQAKFAC0OezT0S
+						DQcVSpxrLN2LP8nMoFzhlWkk6gIjvRDPkzxOse7EIhtRWerm52D5uQ9b+31OKVcU
+						TXce5suAR/hCXcr41iXDcNDJSQkV1WBfd6UR075umgTEi8ssmbYjM3tjWq+XIFSE
+						6hvalVaP6I5fpC+lcQZTvgHtIkwm0PPGtqyVThivuW9469EITTfXx1fAGKiTzuPC
+						u/73ycpe1n4szaouE0SYZplEht4mi/ZmDI7KrpwMISxEfdCAtz3E6mAfibmPoPie
+						/PZXD7xJX28= </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.brad.ac.uk/oala/sso"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.brad.ac.uk/oala/sso"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Bradford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Bradford</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.brad.ac.uk/library/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Satu</md:GivenName>
+      <md:SurName>Nieminen</md:SurName>
+      <md:EmailAddress>mailto:s.nieminen@bradford.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Geoff</md:GivenName>
+      <md:SurName>Bell</md:SurName>
+      <md:EmailAddress>mailto:g.bell@bradford.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

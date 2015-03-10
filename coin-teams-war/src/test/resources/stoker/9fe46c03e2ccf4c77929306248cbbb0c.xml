@@ -1,0 +1,112 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.southport-college.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2008-03-07T10:31:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">southport-college.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEsTCCA5mgAwIBAgIRAM4+u1j8tHGyZ3CJGu2RVKAwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjAzMDgwMDAwMDBaFw0xNTAzMDgyMzU5NTlaMIGGMQswCQYD
+						VQQGEwJHQjETMBEGA1UECBMKTWVyc2V5c2lkZTESMBAGA1UEBxMJU291dGhwb3J0
+						MRowGAYDVQQKExFTb3V0aHBvcnQgQ29sbGVnZTETMBEGA1UECxMKSVQgU3VwcG9y
+						dDEdMBsGA1UEAxMUaWRwMi5zb3V0aHBvcnQuYWMudWswggEiMA0GCSqGSIb3DQEB
+						AQUAA4IBDwAwggEKAoIBAQCjVvXeYyW/r8x7GC684h0RWFm+98keDBHHCP8zWLEr
+						Rv9B0694XtcK0Cp9BPxbyuRRujsH3/udNCMrDjWLiWlMXQfXAGqhxsRbuyau84Mv
+						W3imOw7Z/Xr4pBuJYSXMeLMt0uwxR4g4Bibwz9iJ9Oha3GiZrHw8Xi3HdGZQhycb
+						s78EHvf1Hc/8K3rIaRHDqafEU6Qsr7cZYFVZcg+eJeMk/UFxVjud1Mcg7IvUbd3A
+						kplU7Vy04toa8qG4CBzDXKL3BLyP9aCaYqKMmv3w7gcl/OiRl54b6XvW06RgHBR9
+						7eEdHuLu9l390Drxbvs9gDreUpp+6Zh/+mwntjKe6K3lAgMBAAGjggFnMIIBYzAf
+						BgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAdBgNVHQ4EFgQUYg8eec5X
+						YEoXxBLSSDAqd7IzU90wDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYD
+						VR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBgGA1UdIAQRMA8wDQYLKwYBBAGy
+						MQECAh0wOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9y
+						Zy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilo
+						dHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEF
+						BQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwHwYDVR0RBBgwFoIUaWRw
+						Mi5zb3V0aHBvcnQuYWMudWswDQYJKoZIhvcNAQEFBQADggEBAL7KMOZXF9gAu2S/
+						KTVwDfY/JJz6JO/Cn1KbK3kjvSXvhx0sajtUnurIPFMudOZC22EDxhMAHuoSDSiS
+						d+pIKVVDaoIt49DWr5jqd511o/f0NV531TIelMJ4mk1pvdysP89rShanZTbJxiwt
+						oYSYpO5GuAcx/1oG0AvuSdAN+0T8ypMKu1JmVIapiyEFn/JW3mDhlK/huEiPMZ+V
+						K4rJBIWPgMbIQMH/7Xau2XOAjpPp3iPJJtz8y13Kdbd3QRqDVEefLsJ0UlHI5tpz
+						50+UYVHEgeODj4CfHLA5JCobZ60OtcOW/ROAPOrU80RM378D05Yyx48DecUZLmRM
+						RYYdy9o=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp2.southport.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp2.southport.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp2.southport.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp2.southport.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp2.southport.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp2.southport.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">southport-college.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEsTCCA5mgAwIBAgIRAM4+u1j8tHGyZ3CJGu2RVKAwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjAzMDgwMDAwMDBaFw0xNTAzMDgyMzU5NTlaMIGGMQswCQYD
+						VQQGEwJHQjETMBEGA1UECBMKTWVyc2V5c2lkZTESMBAGA1UEBxMJU291dGhwb3J0
+						MRowGAYDVQQKExFTb3V0aHBvcnQgQ29sbGVnZTETMBEGA1UECxMKSVQgU3VwcG9y
+						dDEdMBsGA1UEAxMUaWRwMi5zb3V0aHBvcnQuYWMudWswggEiMA0GCSqGSIb3DQEB
+						AQUAA4IBDwAwggEKAoIBAQCjVvXeYyW/r8x7GC684h0RWFm+98keDBHHCP8zWLEr
+						Rv9B0694XtcK0Cp9BPxbyuRRujsH3/udNCMrDjWLiWlMXQfXAGqhxsRbuyau84Mv
+						W3imOw7Z/Xr4pBuJYSXMeLMt0uwxR4g4Bibwz9iJ9Oha3GiZrHw8Xi3HdGZQhycb
+						s78EHvf1Hc/8K3rIaRHDqafEU6Qsr7cZYFVZcg+eJeMk/UFxVjud1Mcg7IvUbd3A
+						kplU7Vy04toa8qG4CBzDXKL3BLyP9aCaYqKMmv3w7gcl/OiRl54b6XvW06RgHBR9
+						7eEdHuLu9l390Drxbvs9gDreUpp+6Zh/+mwntjKe6K3lAgMBAAGjggFnMIIBYzAf
+						BgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAdBgNVHQ4EFgQUYg8eec5X
+						YEoXxBLSSDAqd7IzU90wDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYD
+						VR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBgGA1UdIAQRMA8wDQYLKwYBBAGy
+						MQECAh0wOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9y
+						Zy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilo
+						dHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEF
+						BQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwHwYDVR0RBBgwFoIUaWRw
+						Mi5zb3V0aHBvcnQuYWMudWswDQYJKoZIhvcNAQEFBQADggEBAL7KMOZXF9gAu2S/
+						KTVwDfY/JJz6JO/Cn1KbK3kjvSXvhx0sajtUnurIPFMudOZC22EDxhMAHuoSDSiS
+						d+pIKVVDaoIt49DWr5jqd511o/f0NV531TIelMJ4mk1pvdysP89rShanZTbJxiwt
+						oYSYpO5GuAcx/1oG0AvuSdAN+0T8ypMKu1JmVIapiyEFn/JW3mDhlK/huEiPMZ+V
+						K4rJBIWPgMbIQMH/7Xau2XOAjpPp3iPJJtz8y13Kdbd3QRqDVEefLsJ0UlHI5tpz
+						50+UYVHEgeODj4CfHLA5JCobZ60OtcOW/ROAPOrU80RM378D05Yyx48DecUZLmRM
+						RYYdy9o=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp2.southport.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp2.southport.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Southport College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Southport College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.southport-college.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Arun</md:GivenName>
+      <md:SurName>Gambhir</md:SurName>
+      <md:EmailAddress>mailto:helpdesk@southport.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>James</md:GivenName>
+      <md:SurName>Benson</md:SurName>
+      <md:EmailAddress>mailto:james@southport.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

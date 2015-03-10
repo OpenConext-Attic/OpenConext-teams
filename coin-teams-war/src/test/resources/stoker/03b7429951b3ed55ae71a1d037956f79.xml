@@ -1,0 +1,59 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://drupal-test1.admin.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-06-13T11:32:32Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDGDCCAgCgAwIBAgIJAJLwYa1nUjhIMA0GCSqGSIb3DQEBBQUAMCYxJDAiBgNV
+						BAMTG2RydXBhbC10ZXN0MS5hZG1pbi5veC5hYy51azAeFw0xNDA2MTEwNzM4NTZa
+						Fw0yNDA2MDgwNzM4NTZaMCYxJDAiBgNVBAMTG2RydXBhbC10ZXN0MS5hZG1pbi5v
+						eC5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMCrjkmZs9yt
+						nETaaTxuF459aLEF5H12+vcuwsR662oNVitQqHO1XUUd5KVJ2502H3tpWZbT0rWA
+						wnv0nwHB14gm4evKInO/Da9yojWFUtOFExHqePyDfOQZyKb3mAlpRrQAtCpELTjq
+						Zr0HTht/ODhsmCKdRUzsNDOld6X7HYU834DoQoZCGpHuzDK/Nj6C9gweL1Uxn1RB
+						kVd2t+5/nU0aXSfyMmL++H4kxPDEYEcyZpz2xCwZDfqbSiMn2mltwxUM6Pl5YnwM
+						TMvEN9BiWdhTSckqWoqz9pxbJePM2k4kH2tm+v2oHRlC2/hKEtOggKTyeqdQxryK
+						qqj85s6HZa0CAwEAAaNJMEcwJgYDVR0RBB8wHYIbZHJ1cGFsLXRlc3QxLmFkbWlu
+						Lm94LmFjLnVrMB0GA1UdDgQWBBT8QD5mvc4hICi5sUNX2UZ/9hDmKjANBgkqhkiG
+						9w0BAQUFAAOCAQEAgQLx3imjfSX3QxSJqZPHuzLFoygwXm2EWm5m1LR8aUl1WWIo
+						2CwZR7wMZ0pVYiBJgYqwjkNpozJ1f6Fr9F48o/sSDG673zxjFbOAxLm7nTHBvc39
+						qIMNxvOmhl8f/A7gT+OnR+dmVfPI42BrHhUEAOSTmkTRRT1jV6WHKNwXjqngYqD+
+						EOASg50rUobY9bF+6k6vGhWxTBAS+UcBUsTGiGU9cDS1cuFpONYixQB7cYA++1SR
+						hxhDEKXAC6V3xfJiCLPEcKBaKRyFh+ImaDfcqWjollm0Y2xd/uF1/Tg8AMxLslGw
+						PI60xEImflkCgUGXgjTfpKljm+bcaUKAnUQMpg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://drupal-test1.admin.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://drupal-test1.admin.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://drupal-test1.admin.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://drupal-test1.admin.ox.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://drupal-test2.admin.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://drupal-test2.admin.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://drupal-test2.admin.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="7"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://drupal-test2.admin.ox.ac.uk/Shibboleth.sso/SAML/POST" index="8"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://drupal-test3.admin.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="9"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://drupal-test3.admin.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="10"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://drupal-test3.admin.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="11"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://drupal-test3.admin.ox.ac.uk/Shibboleth.sso/SAML/POST" index="12"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford IT Services drupal-test1</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.it.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>NSMS Team</md:GivenName>
+      <md:EmailAddress>mailto:nsms@it.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>NSMS Team</md:GivenName>
+      <md:EmailAddress>mailto:nsms@it.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

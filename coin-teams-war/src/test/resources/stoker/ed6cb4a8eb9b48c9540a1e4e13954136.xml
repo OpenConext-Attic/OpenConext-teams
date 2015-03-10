@@ -1,14 +1,14 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth-idp.gwdg.de/gwdg/shibboleth">
-    <Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-01-16T13:09:19Z">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth-idp.gwdg.de/gwdg/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-01-16T13:09:19Z">
         <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
         <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-    </Extensions>
-    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">gwdg.de</saml1md:Scope>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">gwdg.de</shibmd:Scope>
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="de">Gesellschaft für wissenschaftliche Datenverarbeitung mbH Göttingen</mdui:DisplayName>
           <mdui:DisplayName xml:lang="en">Gesellschaft für wissenschaftliche Datenverarbeitung mbH Göttingen</mdui:DisplayName>
           <mdui:Description xml:lang="de">Wir bieten als Hochschulrechenzentrum für die Georg-August-Universität Göttingen und als Rechen- und IT-Kompetenzzentrum für die Max-Planck-Gesellschaft ein breites Spektrum an Informations- und Kommunikationsleistungen für die Wissenschaft.</mdui:Description>
@@ -20,9 +20,9 @@
           <mdui:PrivacyStatementURL xml:lang="de">http://www.gwdg.de/index.php?id=impressum</mdui:PrivacyStatementURL>
           <mdui:PrivacyStatementURL xml:lang="en">http://www.gwdg.de/index.php?id=impressum</mdui:PrivacyStatementURL>
         </mdui:UIInfo>
-      </Extensions>
-      <KeyDescriptor>
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
           <ds:KeyName>shibboleth-idp.gwdg.de</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=shibboleth-idp.gwdg.de,O=Gesellschaft fuer wissenschaftliche Datenverarbeitung,L=GOETTINGEN,ST=NIEDERSACHSEN,C=DE</ds:X509SubjectName>
@@ -62,26 +62,26 @@ YGsmOqBm6mBudDrpWoxmEougvsI2JgsTV3XaZdVfCi3vuhgUA3IbPt9nVoDbG2E1
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth-idp.gwdg.de:8443/gwdg/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth-idp.gwdg.de:8443/gwdg/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth-idp.gwdg.de/gwdg/profile/SAML2/Redirect/SLO"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth-idp.gwdg.de/gwdg/profile/SAML2/POST/SLO"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth-idp.gwdg.de:8443/gwdg/profile/SAML2/SOAP/SLO"/>
-      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
-      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth-idp.gwdg.de/gwdg/profile/Shibboleth/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth-idp.gwdg.de/gwdg/profile/SAML2/POST/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth-idp.gwdg.de/gwdg/profile/SAML2/POST-SimpleSign/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth-idp.gwdg.de/gwdg/profile/SAML2/Redirect/SSO"/>
-    </IDPSSODescriptor>
-    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">gwdg.de</saml1md:Scope>
-      </Extensions>
-      <KeyDescriptor>
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth-idp.gwdg.de:8443/gwdg/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth-idp.gwdg.de:8443/gwdg/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth-idp.gwdg.de/gwdg/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth-idp.gwdg.de/gwdg/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth-idp.gwdg.de:8443/gwdg/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth-idp.gwdg.de/gwdg/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth-idp.gwdg.de/gwdg/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth-idp.gwdg.de/gwdg/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth-idp.gwdg.de/gwdg/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">gwdg.de</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
           <ds:KeyName>shibboleth-idp.gwdg.de</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=shibboleth-idp.gwdg.de,O=Gesellschaft fuer wissenschaftliche Datenverarbeitung,L=GOETTINGEN,ST=NIEDERSACHSEN,C=DE</ds:X509SubjectName>
@@ -121,29 +121,29 @@ YGsmOqBm6mBudDrpWoxmEougvsI2JgsTV3XaZdVfCi3vuhgUA3IbPt9nVoDbG2E1
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth-idp.gwdg.de:8443/gwdg/profile/SAML1/SOAP/AttributeQuery"/>
-      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth-idp.gwdg.de:8443/gwdg/profile/SAML2/SOAP/AttributeQuery"/>
-      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
-    </AttributeAuthorityDescriptor>
-    <Organization>
-      <OrganizationName xml:lang="de">e112</OrganizationName>
-      <OrganizationName xml:lang="en">e112</OrganizationName>
-      <OrganizationDisplayName xml:lang="de">Gesellschaft für wissenschaftliche Datenverarbeitung mbH</OrganizationDisplayName>
-      <OrganizationDisplayName xml:lang="en">Gesellschaft für wissenschaftliche Datenverarbeitung mbH</OrganizationDisplayName>
-      <OrganizationURL xml:lang="de">http://www.gwdg.de</OrganizationURL>
-      <OrganizationURL xml:lang="en">http://www.gwdg.de</OrganizationURL>
-    </Organization>
-    <ContactPerson contactType="technical">
-      <GivenName>Daniel</GivenName>
-      <SurName>Adler</SurName>
-      <EmailAddress>mailto:daniel.adler@gwdg.de</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="support">
-      <GivenName>Christof</GivenName>
-      <SurName>Pohl</SurName>
-      <EmailAddress>mailto:christof.pohl@gwdg.de</EmailAddress>
-    </ContactPerson>
-  </EntityDescriptor>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth-idp.gwdg.de:8443/gwdg/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth-idp.gwdg.de:8443/gwdg/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e112</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e112</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Gesellschaft für wissenschaftliche Datenverarbeitung mbH</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Gesellschaft für wissenschaftliche Datenverarbeitung mbH</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.gwdg.de</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.gwdg.de</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Daniel</md:GivenName>
+      <md:SurName>Adler</md:SurName>
+      <md:EmailAddress>mailto:daniel.adler@gwdg.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Christof</md:GivenName>
+      <md:SurName>Pohl</md:SurName>
+      <md:EmailAddress>mailto:christof.pohl@gwdg.de</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

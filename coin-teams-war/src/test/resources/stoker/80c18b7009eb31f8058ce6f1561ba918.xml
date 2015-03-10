@@ -1,0 +1,63 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://ezproxy-2.rgu.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-03-26T10:31:15Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://ezproxy-2.rgu.ac.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEvTCCA6WgAwIBAgIRAMI6iiSgb2L2Cdwq9tU/hMwwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjAzMjEwMDAwMDBaFw0xNTAzMjEyMzU5NTlaMIGTMQswCQYD
+						VQQGEwJHQjEWMBQGA1UECBMNQWJlcmRlZW5zaGlyZTERMA8GA1UEBxMIQWJlcmRl
+						ZW4xJTAjBgNVBAoTHFRoZSBSb2JlcnQgR29yZG9uIFVuaXZlcnNpdHkxFDASBgNV
+						BAsTC0lUIFNlcnZpY2VzMRwwGgYDVQQDExNlenByb3h5LTIucmd1LmFjLnVrMIIB
+						IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArY9QIEy5unA3KHTjLCFyPgI0
+						83AuXOUOQ/6Ob9OXk23ZquAI2Nw292WKPMEgAVmh6f8sqGaig7fvPsQikvIgp1+9
+						ukensBloiapTma+eWK7AfKFJqJlCZhithnc9yT3YKkl9PLXO9UuMQg8FhRrIUpbV
+						csAZkP+TBZn52REA6UexzcbpVf2EtKa+iHOerF1HwYpPbMYrc7zVZXYRUXRgPyQM
+						ow/kJw5+/LYSV33a2SU55cSNhhTaUSPxBfYTUn6kwcb/XfYQBtqSNm2kOJnz6Xgm
+						NvhceKpPgDjfMF6vm/t3oAsWt5IPusFCG3PcICQI29QdoQ4HHnI+mgLsu7HR2QID
+						AQABo4IBZjCCAWIwHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH6pDjue0wHQYD
+						VR0OBBYEFPF+XDHQfeEQrbD/syD08FQmDeLFMA4GA1UdDwEB/wQEAwIFoDAMBgNV
+						HRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAYBgNVHSAE
+						ETAPMA0GCysGAQQBsjEBAgIdMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwu
+						dGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1
+						BggrBgEFBQcwAoYpaHR0cDovL2NydC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xD
+						QS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMB4G
+						A1UdEQQXMBWCE2V6cHJveHktMi5yZ3UuYWMudWswDQYJKoZIhvcNAQEFBQADggEB
+						ALqVQjdOy41Eh+14GxW+1m5WjMAlul/iDpJ5z59XMQpAw08fEQfuc0KsnaTPxcP/
+						07xglpCl74yENorDOpizDxU9Q5AbT6VgaOPA6NzxcSwJ8IEO7QZRiQO45mYWXRMu
+						Gj8yFjF0jUjF8aReYBrtlbdp2JcUeRdtMRy6gh8leQS3mNumkRrShn8UjSIJTfi9
+						CrTqYRyyB6R73HQZlefLogJby041GJV1/BEfgHHabE4yOzsSbMEb/ESlVEgk9HIt
+						8VE1rUOpBXFaGyGWDbRS3m3FXQ9IaOPw0lLzBnBWCFdf8tgvq0zebq8EowCarUGc
+						ceKFjZQfRmUcpaSlZteG+VE=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ezproxy-2.rgu.ac.uk/Shibboleth.sso/SAML2/POST" index="1" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ezproxy-2.rgu.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://ezproxy-2.rgu.ac.uk/Shibboleth.sso/SAML/POST" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://ezproxy-2.rgu.ac.uk/Shibboleth.sso/SAML/Artifact" index="4"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">The Robert Gordon University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Robert Gordon University Test ezproxy Server</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.rgu.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Edward</md:GivenName>
+      <md:SurName>Alaszewski</md:SurName>
+      <md:EmailAddress>mailto:e.alaszewski@rgu.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Michael</md:GivenName>
+      <md:SurName>Cunningham</md:SurName>
+      <md:EmailAddress>mailto:m.cunningham@rgu.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

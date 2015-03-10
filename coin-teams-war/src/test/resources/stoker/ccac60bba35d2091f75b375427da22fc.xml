@@ -1,0 +1,88 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://fedtools.cf.ac.uk/shibboleth-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://fedtools.cf.ac.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC3zCCAcegAwIBAgIJAM7JIonTnUD/MA0GCSqGSIb3DQEBBQUAMBMxETAPBgNV
+						BAMTCGZlZHRvb2xzMB4XDTEwMDkyNzE2MTg1N1oXDTIwMDkyNDE2MTg1N1owEzER
+						MA8GA1UEAxMIZmVkdG9vbHMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+						AQDBTpfbTYmveByH8KiblATeku3bT+b3EUzgZsXnBdWQE4xxMzAzlwPxNJ3uC+my
+						RRYecSK67BNpJwiBOuPr+6eTEfqXzWff293m+06ID9yLUgsdpOX67O7f1g8UD91d
+						AX4B80EYEXTQE4saSaDAQNxm0CuwU47WW00jS2tcU417UhC9MoeMAtlb/p+ECwny
+						u0iFN9RoV/v6kZPlMuT5VZDwOFuLDVEb8Ll9s2KyjpUhGe00xUDBDHxt4Lm6O9Ad
+						NFqDr5N9H0JO+qmeagoCaGtviMlbge+Q007bZ0KeM81zQxVT2Yq4Cwwxm7z4qSHl
+						rc+WIUiK2DvdlZcYWTNX4s0BAgMBAAGjNjA0MBMGA1UdEQQMMAqCCGZlZHRvb2xz
+						MB0GA1UdDgQWBBQjISCYWz+rWados9I6hRdv/JSrIzANBgkqhkiG9w0BAQUFAAOC
+						AQEAfmvxqbE6efg5Ea4grtyzkialbBCxO7uxRdqlxcZ0zrdVmEVCPBiJ2rHEdYVM
+						vI+Krfk6J0rWpAXTRE/9+nZUoVtfZu3lU0Y8mBZNPTiiBDGcJSfnfRdM3j2kT7py
+						HGRte1eAVYOXqiSapv1qPG72DE6Q8tkK0XFmHoUQ6ZAuHpp/71CZ5FX7MIVIw15o
+						5Ft+07DPMdrf8AmJmot3Durqm/syDwJRVgShIRf9U423lZxKiheny5XUMfFI53rj
+						dApJFiqYGBbYRlsJVDkYvokzrEsbJqqKrUk+M/ii5VGRiFwLHMcXExz4Vt1LfpOY
+						Il3BKT36TIRcwrFZsRMxa2ImuQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC3zCCAcegAwIBAgIJAM7JIonTnUD/MA0GCSqGSIb3DQEBBQUAMBMxETAPBgNV
+						BAMTCGZlZHRvb2xzMB4XDTEwMDkyNzE2MTg1N1oXDTIwMDkyNDE2MTg1N1owEzER
+						MA8GA1UEAxMIZmVkdG9vbHMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+						AQDBTpfbTYmveByH8KiblATeku3bT+b3EUzgZsXnBdWQE4xxMzAzlwPxNJ3uC+my
+						RRYecSK67BNpJwiBOuPr+6eTEfqXzWff293m+06ID9yLUgsdpOX67O7f1g8UD91d
+						AX4B80EYEXTQE4saSaDAQNxm0CuwU47WW00jS2tcU417UhC9MoeMAtlb/p+ECwny
+						u0iFN9RoV/v6kZPlMuT5VZDwOFuLDVEb8Ll9s2KyjpUhGe00xUDBDHxt4Lm6O9Ad
+						NFqDr5N9H0JO+qmeagoCaGtviMlbge+Q007bZ0KeM81zQxVT2Yq4Cwwxm7z4qSHl
+						rc+WIUiK2DvdlZcYWTNX4s0BAgMBAAGjNjA0MBMGA1UdEQQMMAqCCGZlZHRvb2xz
+						MB0GA1UdDgQWBBQjISCYWz+rWados9I6hRdv/JSrIzANBgkqhkiG9w0BAQUFAAOC
+						AQEAfmvxqbE6efg5Ea4grtyzkialbBCxO7uxRdqlxcZ0zrdVmEVCPBiJ2rHEdYVM
+						vI+Krfk6J0rWpAXTRE/9+nZUoVtfZu3lU0Y8mBZNPTiiBDGcJSfnfRdM3j2kT7py
+						HGRte1eAVYOXqiSapv1qPG72DE6Q8tkK0XFmHoUQ6ZAuHpp/71CZ5FX7MIVIw15o
+						5Ft+07DPMdrf8AmJmot3Durqm/syDwJRVgShIRf9U423lZxKiheny5XUMfFI53rj
+						dApJFiqYGBbYRlsJVDkYvokzrEsbJqqKrUk+M/ii5VGRiFwLHMcXExz4Vt1LfpOY
+						Il3BKT36TIRcwrFZsRMxa2ImuQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://fedtools.cf.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://fedtools.cf.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://fedtools.cf.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://fedtools.cf.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://fedtools.cf.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://fedtools.cf.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://fedtools.cf.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://fedtools.cf.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://fedtools.cf.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://fedtools.cf.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://fedtools.cf.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://fedtools.cf.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://fedtools.cf.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://fedtools.cf.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://fedtools.cf.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Cardiff University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Cardiff University: Federation Tools provided as-is (1)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://iam.cardiff.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Rhys</md:GivenName>
+      <md:SurName>Smith</md:SurName>
+      <md:EmailAddress>mailto:smith@cardiff.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Rhys</md:GivenName>
+      <md:SurName>Smith</md:SurName>
+      <md:EmailAddress>mailto:smith@cardiff.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

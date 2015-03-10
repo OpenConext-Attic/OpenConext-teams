@@ -1,0 +1,88 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://cts.ngs.ac.uk/shibboleth-sp">
+    <md:Extensions>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-11-12T17:11:27Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor WantAssertionsSigned="1" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://cts.ngs.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEuzCCA6OgAwIBAgIRAJBEMY4fVk7v47Bxgouy4uMwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjA0MjYwMDAwMDBaFw0xNTA0MjYyMzU5NTlaMIGXMQswCQYD
+						VQQGEwJHQjEUMBIGA1UECBMLT3hmb3Jkc2hpcmUxDzANBgNVBAcTBkRpZGNvdDEy
+						MDAGA1UEChMpU2NpZW5jZSBhbmQgVGVjaG5vbG9neSBGYWNpbGl0aWVzIENvdW5j
+						aWwxFTATBgNVBAsTDFJBTC1lU2NpZW5jZTEWMBQGA1UEAxMNY3RzLm5ncy5hYy51
+						azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN4sCL+4v3+GM2v5uOoj
+						m5U+XqKDO3kn2GSLm5GB90FdXLicXR5+m9r24ER0aEevvlUrxgU/JilJB+XJPbcY
+						kjVdHll4D3x8+tzrosl294C9UEfy1j7FzEId8vqtjtodoPGoPmOvoljR/IeQfQHu
+						p6DRi1gpcE5hPu2nFJ0b/k2K8X1JbdCusIiqZaOIfQWLO06EYyMRCRqrL3HjajV1
+						iJx6uP8B2NippEeACGy18lt0YtHDs7qj/x7VzQ/cqodAUB/hpQZdLcubzI1TG0Xt
+						OL3JKSVjKziasH7Uw36iJUm8WLMTFa3SCIJT8VNdKvTfeCv7OggReqq/cRAdxbJm
+						rOcCAwEAAaOCAWAwggFcMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47nt
+						MB0GA1UdDgQWBBRXa/dQtrbPu3JiHkWXxFJLeWeX1TAOBgNVHQ8BAf8EBAMCBaAw
+						DAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwGAYD
+						VR0gBBEwDzANBgsrBgEEAbIxAQICHTA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8v
+						Y3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRh
+						MF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5B
+						U1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9y
+						ZzAYBgNVHREEETAPgg1jdHMubmdzLmFjLnVrMA0GCSqGSIb3DQEBBQUAA4IBAQCP
+						NY1/mvTb5R+J1XIkVJYspHneyT7zch5JxeO5GRX9to3n0RrOjKa/fbEeqwd9L3kU
+						pCTzCun+14vVJxA0WZo+Dixn8pp8X8ynxVBxU+7lx0tuws4zYZ25KSDdel9dnE56
+						LWu+eY7A1/a/hzvwmU0FCmebc4AeZIto3/zxp+3Ru6MqvtmUxEKbySIWysRF2O2g
+						3VwFUbLMbqpZN8fRJYoSvID5dTSqYOjzvAa2Kx5u8mtzMF42omix//IwTu0AfQmH
+						Zm+1JamaX0c4BnlYUSaqixjzPb027m5uFDRvUK3hcmgOIBsvrPgmLO4pyUt/On2u
+						X3v8UWz50Il8mjxUF4Ok
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cts.ngs.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cts.ngs.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cts.ngs.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cts.ngs.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://cts.ngs.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cts.ngs.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cts.ngs.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://cts.ngs.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://cts.ngs.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://cts.ngs.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://cts.ngs.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Science and Technology Facilities Council</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">STFC: NGS SARoNGS CTS SP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ngs.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>NGS HelpDesk</md:GivenName>
+      <md:EmailAddress>mailto:support@grid-support.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Suleman</md:GivenName>
+      <md:SurName>Tariq</md:SurName>
+      <md:EmailAddress>mailto:suleman.tariq@stfc.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

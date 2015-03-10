@@ -1,0 +1,56 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://pubs.acs.org/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2009-02-18T17:36:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDDDCCAfSgAwIBAgIJAOzcasgcJSa4MA0GCSqGSIb3DQEBBQUAMBcxFTATBgNV
+						BAMTDHB1YnMuYWNzLm9yZzAeFw0xMzExMTkxODU1MDNaFw0yMzExMTcxODU1MDNa
+						MBcxFTATBgNVBAMTDHB1YnMuYWNzLm9yZzCCASIwDQYJKoZIhvcNAQEBBQADggEP
+						ADCCAQoCggEBALImSxorZmmzwmreQuS1BVGZkMj73sgCMICQzTYANKHnh+ePY3gC
+						z01Y+hT/hEy7cugwJm5UXynMhIsFo5N8gnhyouCbvZ0Lxh9gwk9bUAGfiz2jqSJH
+						xx8Q3HTpPR8HkIa7UmHzlDIpkqAD9snW7V4YomQE3j+4rW/svlla3H14g6o0XuX4
+						FL+1oufOmOfVfTKjzMfIiFfR6B5Dy4wJwFanPg6J/hF7/FZDX2sgS8x9KsKrLeVY
+						OfduVu5zABA77RDKTI6aNecePKTVndzLrSn5pTEtTPckRYuoD9SMR3SZCS79ldhz
+						oG0qTMfgCuGY2emKb4XoOb/ZWhZ7iYlS9Q0CAwEAAaNbMFkwOAYDVR0RBDEwL4IM
+						cHVicy5hY3Mub3Jnhh9odHRwczovL3B1YnMuYWNzLm9yZy9zaGliYm9sZXRoMB0G
+						A1UdDgQWBBTbqI9nN5yxvTDNHBMS8b0QZJ6JXTANBgkqhkiG9w0BAQUFAAOCAQEA
+						X69dLDGafkljVuMCEGPLKvPkHIlmKjhKAH4dN02XQ8RKIYURa5wPnmL/yEp9Zncy
+						cALR9HvfFwYFx+g+8RIU6S9kOUFz0n5vKLmjOXX/8TSVKTrV0z/tq3/rXK0A7ERI
+						3F27TMEqazUTvLu3qsdcTC9geQBrwikJfEdtOzzHAtCUiAxW5UakfvjUnoZ9o+iO
+						ydnNa/tXKePgutQedylFePevjWY720k48YGfPjGK13nrYLrF52k7QjvSkj7Y18x/
+						8GUzvq+yCgYrddBczbR8g2OcC0/xDKm3vE+T6oJkpKHJFMUW26mgOMR3bgtm2Tey
+						ZOvs4J+UrDF71xNxlC9wTQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://pubs.acs.org/action/samlACS" index="0"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">American Chemical Society, Inc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">ACS Publications</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.acs.org/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Kal</md:GivenName>
+      <md:SurName>Hashmani</md:SurName>
+      <md:EmailAddress>mailto:K_hashmani@acs.org</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Michael</md:GivenName>
+      <md:SurName>Norton</md:SurName>
+      <md:EmailAddress>mailto:M_norton@acs.org</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>John</md:GivenName>
+      <md:SurName>MacArthur</md:SurName>
+      <md:EmailAddress>mailto:j_macarthur@acs.org</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

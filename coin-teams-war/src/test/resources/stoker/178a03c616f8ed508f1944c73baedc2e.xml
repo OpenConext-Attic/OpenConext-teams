@@ -1,0 +1,64 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shib.ukmsl.com/shibboleth-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2009-09-16T16:43:06.362897Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://shib.ukmsl.com/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://shib.ukmsl.com/Shibboleth.sso/Login" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDGzCCAgOgAwIBAgIJAOulbFGs3eq7MA0GCSqGSIb3DQEBBQUAMCcxJTAjBgNV
+						BAMTHHR1cmJlcnQuc3VuaW9uLndhcndpY2suYWMudWswHhcNMTEwODMwMDkwNzMw
+						WhcNMjEwODI3MDkwNzMwWjAnMSUwIwYDVQQDExx0dXJiZXJ0LnN1bmlvbi53YXJ3
+						aWNrLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoVp3lX99
+						jZkKVQIWyMblgNh9oHW9l2eEE7gW7RyzMEcjJ/lWehfc7K8LDiWWbidZapYC5Sx7
+						pRwdgdqOAC8grdmdcJA/qj0ep0fV3I9jnVIlgwRGn2RO9Io955nLQzwRTvYmt/9I
+						e77UaHwA+XNzTzw9cOzsoTgcyAPjRqnfhvlUFfsFblCWTrUNhD/HvgpWmYmJsdrF
+						sbVA0UzXVnMe9qFSkBXS/lhD5h5prR/3JEq0TKqPTGDYFTaOjpPgwqSDmySem+bb
+						bxJjAvBgcqw3kLEboy9rZMFej5tg9ojBHe12QjHNey+pGXNNeu0qJbrJ13KTIj5n
+						ZSTzchG5IsNHDwIDAQABo0owSDAnBgNVHREEIDAeghx0dXJiZXJ0LnN1bmlvbi53
+						YXJ3aWNrLmFjLnVrMB0GA1UdDgQWBBTh+kMq012za4Vb14VoRQiKCduefzANBgkq
+						hkiG9w0BAQUFAAOCAQEADE2xlhQD+GsVP9wp4iGgCnvwaS4+WY/pNclIsvVQM3FA
+						jqLqJZNQ3qm4gORayrhAsdkMUetnjDAQjDDFW/PUlFVIXQOyA1zjY5Fsga6/ljsc
+						MnoexDo4msuSsqQ2ug42cHD8PhRVTMhj5sPsOtUZe2f7aiuIzWkJp/wb3iVy2nxu
+						DYftq3HQKKsx0H2I6M/DsHTovhShrj0DhS9SK5vBhS8+bJv1fP6sc3YYazxdRcMC
+						WG2lytblwDmdavbtjGzserMTYQSqn2/F5Cv8J+3c7XSvZufqFc4CbwlGJTIgTtT8
+						QVg8XpX98kwieHCNWmeVMJL2qiov3OhYK8xG4uYHAQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib.ukmsl.com/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib.ukmsl.com/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib.ukmsl.com/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib.ukmsl.com/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shib.ukmsl.com/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib.ukmsl.com/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib.ukmsl.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shib.ukmsl.com/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://shib.ukmsl.com/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shib.ukmsl.com/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://shib.ukmsl.com/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Membership Solutions Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Membership Solutions Limited: MSL Test Service Provider</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ukmsl.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>James</md:GivenName>
+      <md:SurName>Bonsall</md:SurName>
+      <md:EmailAddress>mailto:helpdesk@ukmsl.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>James</md:GivenName>
+      <md:SurName>Bonsall</md:SurName>
+      <md:EmailAddress>mailto:helpdesk@ukmsl.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,14 +1,14 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://sso.dshs-koeln.de/idp/shibboleth">
-    <Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-10-01T10:15:58Z">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sso.dshs-koeln.de/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-10-01T10:15:58Z">
         <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
         <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-    </Extensions>
-    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">dshs-koeln.de</saml1md:Scope>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">dshs-koeln.de</shibmd:Scope>
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="de">Deutsche Sporthochschule Köln</mdui:DisplayName>
           <mdui:DisplayName xml:lang="en">German Sport University Cologne</mdui:DisplayName>
           <mdui:Description xml:lang="de">Die Deutsche Sporthochschule Köln, 1947 in Köln gegründet, vereint qualifizierte Lehre, internationale Forschung und Spitzensport auf höchstem Niveau. Sie ist Deutschlands einzige Universität, die sich ausschließlich dem Themenfeld Sport und Bewegung widmet. Während an anderen Universitäten die Sportwissenschaft neben vielen weiteren Fachgebieten besteht, findet man in Köln eine außergewöhnliche Situation vor: An 21 Instituten, vier An-Instituten und neun wissenschaftlichen Zentren wird das vielfältige und spannende Gebiet der Sportwissenschaft in allen seinen Facetten detailliert unter die Lupe genommen.</mdui:Description>
@@ -18,9 +18,9 @@
           <mdui:InformationURL xml:lang="de">http://www.dshs-koeln.de/</mdui:InformationURL>
           <mdui:InformationURL xml:lang="en">http://www.dshs-koeln.de/english/</mdui:InformationURL>
         </mdui:UIInfo>
-      </Extensions>
-      <KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
           <ds:KeyName>sso.dshs-koeln.de</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=sso.dshs-koeln.de,OU=Dezernat 5.3,O=Deutsche Sporthochschule Koeln,L=Koeln,ST=Nordrhein-Westfalen,C=DE</ds:X509SubjectName>
@@ -61,25 +61,25 @@ G6UwcO6gyha4+bma6xJXYLqJqPE=
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://sso.dshs-koeln.de:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sso.dshs-koeln.de:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso.dshs-koeln.de/idp/profile/SAML2/Redirect/SLO"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.dshs-koeln.de/idp/profile/SAML2/POST/SLO"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sso.dshs-koeln.de:8443/idp/profile/SAML2/SOAP/SLO"/>
-      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://sso.dshs-koeln.de/idp/profile/Shibboleth/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.dshs-koeln.de/idp/profile/SAML2/POST/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sso.dshs-koeln.de/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso.dshs-koeln.de/idp/profile/SAML2/Redirect/SSO"/>
-    </IDPSSODescriptor>
-    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">dshs-koeln.de</saml1md:Scope>
-      </Extensions>
-      <KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://sso.dshs-koeln.de:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sso.dshs-koeln.de:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso.dshs-koeln.de/idp/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.dshs-koeln.de/idp/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sso.dshs-koeln.de:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://sso.dshs-koeln.de/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.dshs-koeln.de/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sso.dshs-koeln.de/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso.dshs-koeln.de/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">dshs-koeln.de</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
           <ds:KeyName>sso.dshs-koeln.de</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=sso.dshs-koeln.de,OU=Dezernat 5.3,O=Deutsche Sporthochschule Koeln,L=Koeln,ST=Nordrhein-Westfalen,C=DE</ds:X509SubjectName>
@@ -120,29 +120,29 @@ G6UwcO6gyha4+bma6xJXYLqJqPE=
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://sso.dshs-koeln.de:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sso.dshs-koeln.de:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
-    </AttributeAuthorityDescriptor>
-    <Organization>
-      <OrganizationName xml:lang="de">e421</OrganizationName>
-      <OrganizationName xml:lang="en">e421</OrganizationName>
-      <OrganizationDisplayName xml:lang="de">Deutsche Sporthochschule Köln</OrganizationDisplayName>
-      <OrganizationDisplayName xml:lang="en">German Sport University Cologne</OrganizationDisplayName>
-      <OrganizationURL xml:lang="de">http://www.dshs-koeln.de</OrganizationURL>
-      <OrganizationURL xml:lang="en">http://www.dshs-koeln.de/english/</OrganizationURL>
-    </Organization>
-    <ContactPerson contactType="support">
-      <GivenName>Helpdesk</GivenName>
-      <SurName>DSHS</SurName>
-      <EmailAddress>mailto:support@dshs-koeln.de</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="technical">
-      <GivenName>Silke</GivenName>
-      <SurName>Knorr</SurName>
-      <EmailAddress>mailto:s.knorr@dshs-koeln.de</EmailAddress>
-    </ContactPerson>
-  </EntityDescriptor>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://sso.dshs-koeln.de:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sso.dshs-koeln.de:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e421</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e421</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Deutsche Sporthochschule Köln</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">German Sport University Cologne</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.dshs-koeln.de</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.dshs-koeln.de/english/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Helpdesk</md:GivenName>
+      <md:SurName>DSHS</md:SurName>
+      <md:EmailAddress>mailto:support@dshs-koeln.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Silke</md:GivenName>
+      <md:SurName>Knorr</md:SurName>
+      <md:EmailAddress>mailto:s.knorr@dshs-koeln.de</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

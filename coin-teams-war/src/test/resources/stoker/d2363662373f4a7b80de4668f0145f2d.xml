@@ -1,0 +1,70 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://bos2-demo.ilrt.bris.ac.uk/entity">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-10-10T11:06:58Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Bristol Online Surveys Demo service</mdui:DisplayName>
+          <mdui:Description xml:lang="en">BOS is an easy-to-use service that allows you to develop, deploy, and 
+					analyse surveys via the Web. Extensively used in UK HE.</mdui:Description>
+          <mdui:Logo height="80" width="185">https://www.survey.bris.ac.uk/graphics/bos-logo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEujCCA6KgAwIBAgIQN+Teq1Hb0/8iFr3JDSA3CTANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDMyODAwMDAwMFoXDTE1MDMyODIzNTk1OVowgYsxCzAJBgNV
+						BAYTAkdCMRAwDgYDVQQIEwdCcmlzdG9sMRAwDgYDVQQHEwdCcmlzdG9sMR4wHAYD
+						VQQKExVVbml2ZXJzaXR5IG9mIEJyaXN0b2wxFDASBgNVBAsTC0lUIFNlcnZpY2Vz
+						MSIwIAYDVQQDExlib3MyLWRlbW8uaWxydC5icmlzLmFjLnVrMIIBIjANBgkqhkiG
+						9w0BAQEFAAOCAQ8AMIIBCgKCAQEA16MgcClHM70Su62UQLSkm41+W6Vz+0iysbac
+						OPvRg7I5Rd8a4O67lo4UVXhjU9a9R2GrZjgCKypRk17LgzgAFaaufikaUbNikAdV
+						7BWpyblwUhkykBggi30y225n4qILKk3h6IvA3FdJdxpQny5zf0NKenh5zoT+esaX
+						dsIE44qWswHau+XAm68fBtDShYGYfM6jnChtVe1IH/sUPMqtcEgF7zGyg2fX2QhF
+						pXkZbBfYPRi6dRKW3TTJXrQstCY4S34FkKhfGiSEDiXkDIF4DFhGBOlPwE0LgKuV
+						mskH+H6QKyRGJ31byyGWA60jXLUvRCYTUC0X1QecDpzsYWuY+wIDAQABo4IBbDCC
+						AWgwHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH6pDjue0wHQYDVR0OBBYEFF/C
+						zSaqft8zb8wsXk+4P6lKLrzWMA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAA
+						MB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAYBgNVHSAEETAPMA0GCysG
+						AQQBsjEBAgIdMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVu
+						YS5vcmcvVEVSRU5BU1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcw
+						AoYpaHR0cDovL2NydC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYI
+						KwYBBQUHMAGGGmh0dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMCQGA1UdEQQdMBuC
+						GWJvczItZGVtby5pbHJ0LmJyaXMuYWMudWswDQYJKoZIhvcNAQEFBQADggEBAGFr
+						tqku6nCg+Za0LBlPhiVs3aFcI58uyTIII3g12W5xV2YMCXe210kTO34AlhOxVqiU
+						zWm016KPdfENw7mJ8FvbrknnfOd2iH4ab10VVDm01kzf51t0oyWXrJa0aOhuXVzG
+						SP0hF+1KbPohnZgaSyAWAr1IeK/VwHfXdE00OLjncTQiSJLIh5ueHyj555hsrgbb
+						bspduV3b3K35rlMaP1NQH2gOk912eke4j5xbXWC4ekuOwoFD+hngC1lMmKlyyvfB
+						02jDUy56RLSgVQoQko6Mrjsv9s6GHynvHL5y+eYYCCtuKdwwxJemE3l8DJWHyAu2
+						OhHgA/aNafJH12DpBSE=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://bos2-demo.ilrt.bris.ac.uk/authsaml2/singleLogout" ResponseLocation="https://bos2-demo.ilrt.bris.ac.uk/authsaml2/singleLogoutReturn"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://bos2-demo.ilrt.bris.ac.uk/authsaml2/singleLogoutSOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://bos2-demo.ilrt.bris.ac.uk/authsaml2/manageNameIdSOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://bos2-demo.ilrt.bris.ac.uk/authsaml2/manageNameId" ResponseLocation="https://bos2-demo.ilrt.bris.ac.uk/authsaml2/manageNameIdReturn"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://bos2-demo.ilrt.bris.ac.uk/authsaml2/singleSignOnArtifact" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://bos2-demo.ilrt.bris.ac.uk/authsaml2/singleSignOnPost" index="2"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Bristol</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Bristol Online Surveys Demo service</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.survey.bris.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Ed</md:GivenName>
+      <md:SurName>Crewe</md:SurName>
+      <md:EmailAddress>mailto:ed.crewe@bris.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ed</md:GivenName>
+      <md:SurName>Crewe</md:SurName>
+      <md:EmailAddress>mailto:ed.crewe@bris.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

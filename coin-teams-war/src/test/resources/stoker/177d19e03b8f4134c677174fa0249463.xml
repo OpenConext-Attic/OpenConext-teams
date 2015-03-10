@@ -1,29 +1,29 @@
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.nordu.net/idp/shibboleth">
-<md:Extensions>
-<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.swamid.se/">
-<mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
-</mdrpi:RegistrationInfo>
-</md:Extensions>
-  <IDPSSODescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-    <Extensions>
-      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">nordu.net</shibmd:Scope>
-      <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-        <mdui:DisplayName xml:lang="sv">NORDUnet</mdui:DisplayName>
-        <mdui:DisplayName xml:lang="en">NORDUnet</mdui:DisplayName>
-        <mdui:Description xml:lang="sv">NORDUnet A/S Identitetsutfärdare används av anställda och gäster vid NORDUnet</mdui:Description>
-        <mdui:Description xml:lang="en">The NORDUnet A/S Identity Provider is used by employees and guests of NORDUnet.</mdui:Description>
-        <mdui:Logo height="46" width="203">https://www.nordu.net/resources/NORDUnet2.jpg</mdui:Logo>
-        <mdui:Logo height="46" width="203" xml:lang="sv">https://www.nordu.net/resources/NORDUnet2.jpg</mdui:Logo>
-        <mdui:Logo height="46" width="203" xml:lang="en">https://www.nordu.net/resources/NORDUnet2.jpg</mdui:Logo>
-      </mdui:UIInfo>
-      <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-        <mdui:DomainHint>nordu.net</mdui:DomainHint>
-      </mdui:DiscoHints>
-    </Extensions>
-    <KeyDescriptor>
-      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-        <ds:X509Data>
-          <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.nordu.net/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">nordu.net</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="sv">NORDUnet</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">NORDUnet</mdui:DisplayName>
+          <mdui:Description xml:lang="sv">NORDUnet A/S Identitetsutfärdare används av anställda och gäster vid NORDUnet</mdui:Description>
+          <mdui:Description xml:lang="en">The NORDUnet A/S Identity Provider is used by employees and guests of NORDUnet.</mdui:Description>
+          <mdui:Logo height="46" width="203">https://www.nordu.net/resources/NORDUnet2.jpg</mdui:Logo>
+          <mdui:Logo height="46" width="203" xml:lang="sv">https://www.nordu.net/resources/NORDUnet2.jpg</mdui:Logo>
+          <mdui:Logo height="46" width="203" xml:lang="en">https://www.nordu.net/resources/NORDUnet2.jpg</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>nordu.net</mdui:DomainHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIDHzCCAgegAwIBAgIUbYzFMX2BKRKmZwRSWg0HZ3/MQQwwDQYJKoZIhvcNAQEF
 BQAwGDEWMBQGA1UEAxMNaWRwLm5vcmR1Lm5ldDAeFw0wOTA5MDMxOTI4NDlaFw0y
 OTA5MDMxOTI4NDlaMBgxFjAUBgNVBAMTDWlkcC5ub3JkdS5uZXQwggEiMA0GCSqG
@@ -43,26 +43,26 @@ aOBLkJxpXY7rZDixrz59ny629qmOOakSCsuVkNwDPmbLQy9dKmHXTcge2xP0mDK7
 JiNCTXH29oP8kWBEBVaDxrDIrfDv53VjURS+KXqpBLjsuVE=
 
                     </ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </KeyDescriptor>
-    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.nordu.net:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.nordu.net:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-    <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.nordu.net/idp/profile/Shibboleth/SSO"/>
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.nordu.net/idp/profile/SAML2/POST/SSO"/>
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.nordu.net/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.nordu.net/idp/profile/SAML2/Redirect/SSO"/>
-  </IDPSSODescriptor>
-  <AttributeAuthorityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-    <Extensions>
-      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">nordu.net</shibmd:Scope>
-    </Extensions>
-    <KeyDescriptor>
-      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-        <ds:X509Data>
-          <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.nordu.net:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.nordu.net:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.nordu.net/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.nordu.net/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.nordu.net/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.nordu.net/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">nordu.net</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIDHzCCAgegAwIBAgIUbYzFMX2BKRKmZwRSWg0HZ3/MQQwwDQYJKoZIhvcNAQEF
 BQAwGDEWMBQGA1UEAxMNaWRwLm5vcmR1Lm5ldDAeFw0wOTA5MDMxOTI4NDlaFw0y
 OTA5MDMxOTI4NDlaMBgxFjAUBgNVBAMTDWlkcC5ub3JkdS5uZXQwggEiMA0GCSqG
@@ -82,36 +82,32 @@ aOBLkJxpXY7rZDixrz59ny629qmOOakSCsuVkNwDPmbLQy9dKmHXTcge2xP0mDK7
 JiNCTXH29oP8kWBEBVaDxrDIrfDv53VjURS+KXqpBLjsuVE=
 
                     </ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </KeyDescriptor>
-    <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.nordu.net:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-    <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.nordu.net:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-  </AttributeAuthorityDescriptor>
-  
-  
-  
-  
-<Organization xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
-    <OrganizationName xml:lang="en">NORDUnet</OrganizationName>
-    <OrganizationDisplayName xml:lang="sv">NORDUnet</OrganizationDisplayName>
-    <OrganizationDisplayName xml:lang="en">NORDUnet</OrganizationDisplayName>
-    <OrganizationURL xml:lang="en">http://www.nordu.net</OrganizationURL>
-  </Organization>
-<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="administrative">
-    <Company>NORDUnet</Company>
-    <SurName>noc@nordu.net</SurName>
-    <EmailAddress>noc@nordu.net</EmailAddress>
-  </ContactPerson>
-<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="technical">
-    <Company>NORDUnet</Company>
-    <EmailAddress>noc@nordu.net</EmailAddress>
-  </ContactPerson>
-<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="support">
-    <Company>NORDUnet</Company>
-    <SurName>NUNOC</SurName>
-    <EmailAddress>noc@nordu.net</EmailAddress>
-  </ContactPerson>
-</md:EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.nordu.net:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.nordu.net:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">NORDUnet</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sv">NORDUnet</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">NORDUnet</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.nordu.net</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:Company>NORDUnet</md:Company>
+      <md:SurName>noc@nordu.net</md:SurName>
+      <md:EmailAddress>noc@nordu.net</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:Company>NORDUnet</md:Company>
+      <md:EmailAddress>noc@nordu.net</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>NORDUnet</md:Company>
+      <md:SurName>NUNOC</md:SurName>
+      <md:EmailAddress>noc@nordu.net</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

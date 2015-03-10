@@ -1,0 +1,104 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.farn-ct.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2011-04-12T11:59:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">farn-ct.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIID+DCCAuACCQDiBNfRRk2CeTANBgkqhkiG9w0BAQUFADCBvTELMAkGA1UEBhMC
+						R0IxEjAQBgNVBAgMCUhhbXBzaGlyZTEUMBIGA1UEBwwLRmFybmJvcm91Z2gxKjAo
+						BgNVBAoMIUZhcm5ib3JvdWdoIENvbGxlZ2Ugb2YgVGVjaG5vbG9neTEUMBIGA1UE
+						CwwLSVQgU2VydmljZXMxGjAYBgNVBAMMEWlkcC5mYXJuLWN0LmFjLnVrMSYwJAYJ
+						KoZIhvcNAQkBFhd3LmhhbHNhbGxAZmFybi1jdC5hYy51azAeFw0xNDAzMDMxMjE4
+						MzhaFw0yNDAyMjkxMjE4MzhaMIG9MQswCQYDVQQGEwJHQjESMBAGA1UECAwJSGFt
+						cHNoaXJlMRQwEgYDVQQHDAtGYXJuYm9yb3VnaDEqMCgGA1UECgwhRmFybmJvcm91
+						Z2ggQ29sbGVnZSBvZiBUZWNobm9sb2d5MRQwEgYDVQQLDAtJVCBTZXJ2aWNlczEa
+						MBgGA1UEAwwRaWRwLmZhcm4tY3QuYWMudWsxJjAkBgkqhkiG9w0BCQEWF3cuaGFs
+						c2FsbEBmYXJuLWN0LmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+						AQEAw3S9I4W4QmKzx4xKCW/RRmBwyNJaUSe7idAWZvh/4g3pG4ZqfvjTiwHPH2QF
+						hHwl6+BH52jfpCMliKwYh+JyN0dStTdyvz96/G7fyBb4ZZouVuh1BOX0F8Uz8xKA
+						FqJ4iS4ld9YgBhT9F57W0uGLmS4Jy0W6BWv2lPmv1OMZaL3c2CQizLs2wV0GcVxx
+						KJgdVCoopE0nqi6PIBehlU2cSuluiclfojFmRLaEv8T/6C/b+MogfqR+s93RwMrn
+						7v3+G6xURcDaT+OMXP7sIT/0St28+MPR+rEwbZPNjkhTnoUnPhAWl6ZZTHM46nbN
+						hNr4vlJL+ZGqocmQI3seEyXboQIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQCW+V0X
+						iZ1t1PpdU0b7hgZAG0qh6R7UmUY5Baxtp4FIN1WebvnSr0keskwff59iIHeZ4/Km
+						u4Q7fkvghlteTti7r2LTS47CASwKi1UrtvmNMerSmdYeDYeymt94LXiTzK9dlXRW
+						ZYM5LPHeEIoHOFeRvwnXACKvJs0y4MwshxDGn4WIfLKj+z9y/FRsohRlxQihFx5y
+						qwjP8f2vXwGgZnM1WvcyH+Q/uhypmjdKmI1OkevgTclBZC8m6OJz0bwKqVnRD9AZ
+						Bqgu4cXU7lk5y1nreWIF8soBdlqgGwIngb+obZjG/cWsP4wGoVyFPgdHbpqTZVaf
+						TgP5ojXtIFXiNKGS
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.farn-ct.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.farn-ct.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.farn-ct.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.farn-ct.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.farn-ct.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.farn-ct.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">farn-ct.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIID+DCCAuACCQDiBNfRRk2CeTANBgkqhkiG9w0BAQUFADCBvTELMAkGA1UEBhMC
+						R0IxEjAQBgNVBAgMCUhhbXBzaGlyZTEUMBIGA1UEBwwLRmFybmJvcm91Z2gxKjAo
+						BgNVBAoMIUZhcm5ib3JvdWdoIENvbGxlZ2Ugb2YgVGVjaG5vbG9neTEUMBIGA1UE
+						CwwLSVQgU2VydmljZXMxGjAYBgNVBAMMEWlkcC5mYXJuLWN0LmFjLnVrMSYwJAYJ
+						KoZIhvcNAQkBFhd3LmhhbHNhbGxAZmFybi1jdC5hYy51azAeFw0xNDAzMDMxMjE4
+						MzhaFw0yNDAyMjkxMjE4MzhaMIG9MQswCQYDVQQGEwJHQjESMBAGA1UECAwJSGFt
+						cHNoaXJlMRQwEgYDVQQHDAtGYXJuYm9yb3VnaDEqMCgGA1UECgwhRmFybmJvcm91
+						Z2ggQ29sbGVnZSBvZiBUZWNobm9sb2d5MRQwEgYDVQQLDAtJVCBTZXJ2aWNlczEa
+						MBgGA1UEAwwRaWRwLmZhcm4tY3QuYWMudWsxJjAkBgkqhkiG9w0BCQEWF3cuaGFs
+						c2FsbEBmYXJuLWN0LmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+						AQEAw3S9I4W4QmKzx4xKCW/RRmBwyNJaUSe7idAWZvh/4g3pG4ZqfvjTiwHPH2QF
+						hHwl6+BH52jfpCMliKwYh+JyN0dStTdyvz96/G7fyBb4ZZouVuh1BOX0F8Uz8xKA
+						FqJ4iS4ld9YgBhT9F57W0uGLmS4Jy0W6BWv2lPmv1OMZaL3c2CQizLs2wV0GcVxx
+						KJgdVCoopE0nqi6PIBehlU2cSuluiclfojFmRLaEv8T/6C/b+MogfqR+s93RwMrn
+						7v3+G6xURcDaT+OMXP7sIT/0St28+MPR+rEwbZPNjkhTnoUnPhAWl6ZZTHM46nbN
+						hNr4vlJL+ZGqocmQI3seEyXboQIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQCW+V0X
+						iZ1t1PpdU0b7hgZAG0qh6R7UmUY5Baxtp4FIN1WebvnSr0keskwff59iIHeZ4/Km
+						u4Q7fkvghlteTti7r2LTS47CASwKi1UrtvmNMerSmdYeDYeymt94LXiTzK9dlXRW
+						ZYM5LPHeEIoHOFeRvwnXACKvJs0y4MwshxDGn4WIfLKj+z9y/FRsohRlxQihFx5y
+						qwjP8f2vXwGgZnM1WvcyH+Q/uhypmjdKmI1OkevgTclBZC8m6OJz0bwKqVnRD9AZ
+						Bqgu4cXU7lk5y1nreWIF8soBdlqgGwIngb+obZjG/cWsP4wGoVyFPgdHbpqTZVaf
+						TgP5ojXtIFXiNKGS
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.farn-ct.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.farn-ct.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Farnborough College of Technology</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Farnborough College of Technology</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.farn-ct.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Pat</md:GivenName>
+      <md:SurName>Knight</md:SurName>
+      <md:EmailAddress>mailto:p.knight@farn-ct.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ted</md:GivenName>
+      <md:SurName>Hancock</md:SurName>
+      <md:EmailAddress>mailto:e.hancock@farn-ct.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

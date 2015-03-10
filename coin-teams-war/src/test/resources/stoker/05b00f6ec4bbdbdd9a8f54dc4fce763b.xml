@@ -1,19 +1,19 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://repos.ids-mannheim.de/shibboleth">
-    <Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2013-02-08T13:14:47Z">
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://repos.ids-mannheim.de/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2013-02-08T13:14:47Z">
         <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
         <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
-        <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
           <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
         </saml:Attribute>
       </mdattr:EntityAttributes>
-    </Extensions>
-    <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://repos.ids-mannheim.de/Shibboleth.sso/Login" index="1"/>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://repos.ids-mannheim.de/Shibboleth.sso/Login" index="1"/>
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="de">Institut für Deutsche Sprache (IDS) - Forschungsprimärdatenrepository</mdui:DisplayName>
           <mdui:DisplayName xml:lang="en">Institute for the German Language (IDS) - Respository</mdui:DisplayName>
           <mdui:Description xml:lang="de">Das Forschungsprimärdatenrepository des Institut für Deutsche Sprache (IDS)</mdui:Description>
@@ -22,88 +22,90 @@
           <mdui:InformationURL xml:lang="en">https://repos.ids-mannheim.de</mdui:InformationURL>
           <mdui:PrivacyStatementURL xml:lang="en">https://repos.ids-mannheim.de/privacy.html</mdui:PrivacyStatementURL>
         </mdui:UIInfo>
-      </Extensions>
-      <KeyDescriptor>
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
           <ds:KeyName>repos.ids-mannheim.de</ds:KeyName>
           <ds:X509Data>
-            <ds:X509SubjectName>CN=repos.ids-mannheim.de,O=Institut fuer Deutsche Sprache,L=Mannheim,ST=Baden-Wuerttemberg,C=DE</ds:X509SubjectName>
-            <ds:X509Certificate>MIIFrTCCBJWgAwIBAgIHFSoBfvFYgTANBgkqhkiG9w0BAQUFADBVMQswCQYDVQQG
-EwJERTETMBEGA1UEChMKREZOLVZlcmVpbjEQMA4GA1UECxMHREZOLVBLSTEfMB0G
-A1UEAxMWREZOLVZlcmVpbiBDQSBTZXJ2aWNlczAeFw0xMzAxMzExNDQ3MTFaFw0x
-ODAxMzAxNDQ3MTFaMIGGMQswCQYDVQQGEwJERTEbMBkGA1UECBMSQmFkZW4tV3Vl
-cnR0ZW1iZXJnMREwDwYDVQQHEwhNYW5uaGVpbTEnMCUGA1UEChMeSW5zdGl0dXQg
-ZnVlciBEZXV0c2NoZSBTcHJhY2hlMR4wHAYDVQQDExVyZXBvcy5pZHMtbWFubmhl
-aW0uZGUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCef4ups838DAB9
-AFeOl3+K4nADphpeElH6iRY41C+o9dOQ+m5N9Twmpp7K0EjZGObwvmESRry07pL6
-72mO0pTV7lTiE9USv3CIRMxCplv4bzaCphv2veXFYKUXU/nuo8CT5i6y6GLS/k7q
-0mTVIxOk12thQLcV3mRfvY88OP4yGeWDMmo/Nvefaha3TxrNt5iIilZ9UWstnPSp
-u3pV3uX+l8gUNVRHAretThJyyj2bBNJwxZ2P16nzQZL68hrJOBf4wruJOp743/c+
-X3lKLtapFo/XHfwylwC+V1FIHFKvgVNdAv28d0rtwoQcEJXfHlaHiPTyu+YQMRmn
-MpUcInV3AgMBAAGjggJOMIICSjA5BgNVHSAEMjAwMBEGDysGAQQBga0hgiwBAQQD
-ADARBg8rBgEEAYGtIYIsAgEEAwAwCAYGZ4EMAQICMAkGA1UdEwQCMAAwCwYDVR0P
-BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATAdBgNVHQ4EFgQU
-ESD/k/Bc7kTRJc0rsugmsX+uy+EwHwYDVR0jBBgwFoAUHanxhiZ2Tc9d/VCjbuvx
-vCJ1beswIAYDVR0RBBkwF4IVcmVwb3MuaWRzLW1hbm5oZWltLmRlMIGRBgNVHR8E
-gYkwgYYwQaA/oD2GO2h0dHA6Ly9jZHAxLnBjYS5kZm4uZGUvZ2xvYmFsLXNlcnZp
-Y2VzLWNhL3B1Yi9jcmwvY2FjcmwuY3JsMEGgP6A9hjtodHRwOi8vY2RwMi5wY2Eu
-ZGZuLmRlL2dsb2JhbC1zZXJ2aWNlcy1jYS9wdWIvY3JsL2NhY3JsLmNybDCB3wYI
-KwYBBQUHAQEEgdIwgc8wMwYIKwYBBQUHMAGGJ2h0dHA6Ly9vY3NwLnBjYS5kZm4u
-ZGUvT0NTUC1TZXJ2ZXIvT0NTUDBLBggrBgEFBQcwAoY/aHR0cDovL2NkcDEucGNh
-LmRmbi5kZS9nbG9iYWwtc2VydmljZXMtY2EvcHViL2NhY2VydC9jYWNlcnQuY3J0
-MEsGCCsGAQUFBzAChj9odHRwOi8vY2RwMi5wY2EuZGZuLmRlL2dsb2JhbC1zZXJ2
-aWNlcy1jYS9wdWIvY2FjZXJ0L2NhY2VydC5jcnQwDQYJKoZIhvcNAQEFBQADggEB
-AJjBPxcfPIjEor07OUrgzTSup6qh4auvTaQzmLj/Q7N5lA2oLElqIm8kmmW+630f
-BK0p0LeExeOmpNI5rIR34qY6sIA99hdYYMwGrxEnNqPIo7PEfrY0naSIHp8nykJk
-n3zsRY/eskpYdUKhbYLdm23mcp9aitQ2cHp4Li+X599Jwew/epXKpkPs+X5n7Vl6
-WDdN1kceolQ/2UKi/eO4P7DoEh5R5EPZCJzCnekVCaAUgz8zXrbdJp9Ctzk03rgH
-b1xeN6QBnOlltEeOTtUV2b/KADXu1eNF41dVN2ofSWAn1zx321gHv/fb0hEhTbUE
-hoWgvpRdJLO3MqO0sMEedQE=
+            <ds:X509SubjectName>emailAddress=aai@ids-mannheim.de,CN=repos.ids-mannheim.de,O=Institut fuer Deutsche Sprache,L=Mannheim,ST=Baden-Wuerttemberg,C=DE</ds:X509SubjectName>
+            <ds:X509Certificate>MIIGJzCCBQ+gAwIBAgIHGHGxH2MWmjANBgkqhkiG9w0BAQsFADCBoDELMAkGA1UE
+BhMCREUxGzAZBgNVBAgTEkJhZGVuLVd1ZXJ0dGVtYmVyZzERMA8GA1UEBxMITWFu
+bmhlaW0xJzAlBgNVBAoTHkluc3RpdHV0IGZ1ZXIgRGV1dHNjaGUgU3ByYWNoZTEV
+MBMGA1UEAxMMSURTLUNBIC0gRzAxMSEwHwYJKoZIhvcNAQkBFhJjYUBpZHMtbWFu
+bmhlaW0uZGUwHhcNMTQxMDMwMTI0ODE1WhcNMTkwNzA5MjM1OTAwWjCBqjELMAkG
+A1UEBhMCREUxGzAZBgNVBAgTEkJhZGVuLVd1ZXJ0dGVtYmVyZzERMA8GA1UEBxMI
+TWFubmhlaW0xJzAlBgNVBAoTHkluc3RpdHV0IGZ1ZXIgRGV1dHNjaGUgU3ByYWNo
+ZTEeMBwGA1UEAxMVcmVwb3MuaWRzLW1hbm5oZWltLmRlMSIwIAYJKoZIhvcNAQkB
+FhNhYWlAaWRzLW1hbm5oZWltLmRlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+CgKCAQEAuIe/YlfRcV1xLv2I83Lg41HXIaQLoj5Ab02GfHcHC6x31VLVzQMykrFq
+MWYUBbeF3M8ovDv7oVwOHSA27LVXggDeMZoBhqFnpPcJQKL7cK3v+oWISAyriqTf
+dB/oNRsEujMgHIkhrRuuosjJENNcv81nWtpyavvg4lOZC4yds2ahzXU8Tbx9t3Nw
+conk8HM9ZhAeRPojASHHO35nXSRiI7ikqoQpGrXSeJZ8eJGBme+vmNGi+pHxniGP
+H1KnwQnLZKd9VoFj63rw9voF+0ZaSxm7ClkkC1Xs/1RhIPgU1csJagD5FB7wiDYD
+tmu/wy06p9bVMst6gyR30shL7RBwbQIDAQABo4ICWDCCAlQwCQYDVR0TBAIwADAL
+BgNVHQ8EBAMCBeAwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMB0GA1Ud
+DgQWBBTxsDInhd3RoonFHLodHlu/LRjdWDAfBgNVHSMEGDAWgBRWupaFnbGEqHOR
+4fY5n6GGMEQOzjAgBgNVHREEGTAXghVyZXBvcy5pZHMtbWFubmhlaW0uZGUwgYsG
+A1UdHwSBgzCBgDA+oDygOoY4aHR0cDovL2NkcDEucGNhLmRmbi5kZS9pZHMtbWFu
+bmhlaW0tY2EvcHViL2NybC9jYWNybC5jcmwwPqA8oDqGOGh0dHA6Ly9jZHAyLnBj
+YS5kZm4uZGUvaWRzLW1hbm5oZWltLWNhL3B1Yi9jcmwvY2FjcmwuY3JsMIHZBggr
+BgEFBQcBAQSBzDCByTAzBggrBgEFBQcwAYYnaHR0cDovL29jc3AucGNhLmRmbi5k
+ZS9PQ1NQLVNlcnZlci9PQ1NQMEgGCCsGAQUFBzAChjxodHRwOi8vY2RwMS5wY2Eu
+ZGZuLmRlL2lkcy1tYW5uaGVpbS1jYS9wdWIvY2FjZXJ0L2NhY2VydC5jcnQwSAYI
+KwYBBQUHMAKGPGh0dHA6Ly9jZHAyLnBjYS5kZm4uZGUvaWRzLW1hbm5oZWltLWNh
+L3B1Yi9jYWNlcnQvY2FjZXJ0LmNydDBPBgNVHSAESDBGMBEGDysGAQQBga0hgiwB
+AQQDAjARBg8rBgEEAYGtIYIsAgEEAwEwDwYNKwYBBAGBrSGCLAEBBDANBgsrBgEE
+AYGtIYIsHjANBgkqhkiG9w0BAQsFAAOCAQEARo2svVONUwfGY5GtC2B23GtDJj9Z
+Qac7iOiqrpszdbdXFtIVuZBWaZpeeei/0ZHNEzByrEIqCsgwrMat5CkjURt7uBLw
+T4i6DwZIlHs/RRr1euCJszIc25Pco/JCHf+UCNaWmXi8tWbM+RbvP14lGpgMqtEU
+2JPXOJVaUapaUeeWCx2WNpjvZQ3l7KIm3Mzz80P9gL3oMEkFZYkSaNjAV2AQwNoH
+6DYCJd/I407y24ykEwvD8HQjyERNEDJFz2P5IyH4kmsIOwXNQEoOhSFt/cvvSplt
+PZjG46BQGsou6pJHmLhC/+tMXlY0jVRn6uQ4yFjtazWE24EYG+Q7dJ5yMw==
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://repos.ids-mannheim.de/Shibboleth.sso/SLO/SOAP"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://repos.ids-mannheim.de/Shibboleth.sso/SLO/Redirect"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://repos.ids-mannheim.de/Shibboleth.sso/SLO/POST"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://repos.ids-mannheim.de/Shibboleth.sso/SLO/Artifact"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://repos.ids-mannheim.de/Shibboleth.sso/SAML2/POST" index="1"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://repos.ids-mannheim.de/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://repos.ids-mannheim.de/Shibboleth.sso/SAML2/Artifact" index="3"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://repos.ids-mannheim.de/Shibboleth.sso/SAML2/ECP" index="4"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://repos.ids-mannheim.de/Shibboleth.sso/SAML/POST" index="5"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://repos.ids-mannheim.de/Shibboleth.sso/SAML/Artifact" index="6"/>
-      <AttributeConsumingService index="1">
-        <ServiceName xml:lang="de">Institut für Deutsche Sprache (IDS) - Forschungsprimärdatenrepository</ServiceName>
-        <ServiceName xml:lang="en">Institute for the German Language (IDS) - Respository</ServiceName>
-        <ServiceDescription xml:lang="de">Das Forschungsprimärdatenrepository des Institut für Deutsche Sprache (IDS)</ServiceDescription>
-        <ServiceDescription xml:lang="en">Repository of language resources provided by the Institute for the German Language (IDS).</ServiceDescription>
-        <RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-        <RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-        <RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
-      </AttributeConsumingService>
-    </SPSSODescriptor>
-    <Organization>
-      <OrganizationName xml:lang="de">e217</OrganizationName>
-      <OrganizationName xml:lang="en">e217</OrganizationName>
-      <OrganizationDisplayName xml:lang="de">Institut für Deutsche Sprache (IDS)</OrganizationDisplayName>
-      <OrganizationDisplayName xml:lang="en">Institut für Deutsche Sprache (IDS)</OrganizationDisplayName>
-      <OrganizationURL xml:lang="de">http://www.ids-mannheim.de</OrganizationURL>
-      <OrganizationURL xml:lang="en">http://www.ids-mannheim.de</OrganizationURL>
-    </Organization>
-    <ContactPerson contactType="administrative">
-      <GivenName>Andreas</GivenName>
-      <SurName>Witt</SurName>
-      <EmailAddress>mailto:witt@ids-mannheim.de</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="technical">
-      <GivenName>Oliver</GivenName>
-      <SurName>Schonefeld</SurName>
-      <EmailAddress>mailto:schonefeld@ids-mannheim.de</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="support">
-      <GivenName>AAI</GivenName>
-      <SurName>Team</SurName>
-      <EmailAddress>mailto:aai@ids-mannheim.de</EmailAddress>
-    </ContactPerson>
-  </EntityDescriptor>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://repos.ids-mannheim.de/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://repos.ids-mannheim.de/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://repos.ids-mannheim.de/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://repos.ids-mannheim.de/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://repos.ids-mannheim.de/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://repos.ids-mannheim.de/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://repos.ids-mannheim.de/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://repos.ids-mannheim.de/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://repos.ids-mannheim.de/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://repos.ids-mannheim.de/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="de">Institut für Deutsche Sprache (IDS) - Forschungsprimärdatenrepository</md:ServiceName>
+        <md:ServiceName xml:lang="en">Institute for the German Language (IDS) - Respository</md:ServiceName>
+        <md:ServiceDescription xml:lang="de">Das Forschungsprimärdatenrepository des Institut für Deutsche Sprache (IDS)</md:ServiceDescription>
+        <md:ServiceDescription xml:lang="en">Repository of language resources provided by the Institute for the German Language (IDS).</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e217</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e217</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Institut für Deutsche Sprache (IDS)</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Institut für Deutsche Sprache (IDS)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.ids-mannheim.de</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.ids-mannheim.de</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Andreas</md:GivenName>
+      <md:SurName>Witt</md:SurName>
+      <md:EmailAddress>mailto:witt@ids-mannheim.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Oliver</md:GivenName>
+      <md:SurName>Schonefeld</md:SurName>
+      <md:EmailAddress>mailto:schonefeld@ids-mannheim.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>AAI</md:GivenName>
+      <md:SurName>Team</md:SurName>
+      <md:EmailAddress>mailto:aai@ids-mannheim.de</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

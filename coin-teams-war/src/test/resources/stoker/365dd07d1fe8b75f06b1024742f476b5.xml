@@ -1,0 +1,94 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://coventry.ac.uk/idp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">coventry.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDODCCAiCgAwIBAgIVAL0mMgDu5top1RP1uWsDIPodHtSIMA0GCSqGSIb3DQEB
+						BQUAMB4xHDAaBgNVBAMTE2lkcDIuY292ZW50cnkuYWMudWswHhcNMTMwNzEyMDkz
+						NjIyWhcNMzMwNzEyMDkzNjIyWjAeMRwwGgYDVQQDExNpZHAyLmNvdmVudHJ5LmFj
+						LnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAn6tyDBeIOr1TNvvs
+						tzM3LABsvXKstxllmo4TKiRIdLHML9GeDmQeK5J+Ayly6uD+W++45pUrma0Yv9pM
+						6AGXJZsSRd+JNhBrv3IV2CWGWKAZIsd/nDLO6yPDAFNsyBrCLicibY8mH/o/uXYj
+						YUHkC/VB4Sjb5uzM1u+q4Vx93hYCwrZu6L6Wtr5jHdMepZ813c95wP+8+pVydY5x
+						tqWjB3iTXsl+AC7Y3bqVK0FgqidVhifjBO+p8aZfxm/Ycen1LJuS7JYCCDSn/UL5
+						SXo5qvEzXuKLwicugewrqXJwpzMkZif+ppl54yDwtG5pVHQT2+KwmDyXQiZAv1ji
+						DikFcwIDAQABo20wazBKBgNVHREEQzBBghNpZHAyLmNvdmVudHJ5LmFjLnVrhipo
+						dHRwczovL2lkcDIuY292ZW50cnkuYWMudWsvaWRwL3NoaWJib2xldGgwHQYDVR0O
+						BBYEFBv/ZE7Ke43/cMfhyAuTRI5/hE2kMA0GCSqGSIb3DQEBBQUAA4IBAQCIZQeM
+						D88/cHeyRWLIUoxBb8Pdb9HwEG51qmg7b+/dwkjomtO5uanQYdO78ar7zmnMAnNJ
+						QFV9WSrp4armb7XqUSrol4OR85F+TCCGJrkRHMHbl1GKECD1iyS1Pgd0DXbP+eqz
+						KaY8aNKN0PCKurzn4tTUAVXZ5vsup8GEps+/uhCHZbAAnH9ilcATposzClVpGvgl
+						LFYNPVs92nXyrx4PC7rfxNEr+AEIeGdjXpbVexdcgy1q9pvRX+dp/Q9jPtg1Gq1r
+						JDUzK95tyg7HYNkAgvc9sjxOxjHjJfhVob237ouSKvJHmKjF/DfNotgfYNCwqdYH
+						PpU40zSkez1KZrd9
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp2.coventry.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp2.coventry.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp2.coventry.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp2.coventry.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp2.coventry.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp2.coventry.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">coventry.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDODCCAiCgAwIBAgIVAL0mMgDu5top1RP1uWsDIPodHtSIMA0GCSqGSIb3DQEB
+						BQUAMB4xHDAaBgNVBAMTE2lkcDIuY292ZW50cnkuYWMudWswHhcNMTMwNzEyMDkz
+						NjIyWhcNMzMwNzEyMDkzNjIyWjAeMRwwGgYDVQQDExNpZHAyLmNvdmVudHJ5LmFj
+						LnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAn6tyDBeIOr1TNvvs
+						tzM3LABsvXKstxllmo4TKiRIdLHML9GeDmQeK5J+Ayly6uD+W++45pUrma0Yv9pM
+						6AGXJZsSRd+JNhBrv3IV2CWGWKAZIsd/nDLO6yPDAFNsyBrCLicibY8mH/o/uXYj
+						YUHkC/VB4Sjb5uzM1u+q4Vx93hYCwrZu6L6Wtr5jHdMepZ813c95wP+8+pVydY5x
+						tqWjB3iTXsl+AC7Y3bqVK0FgqidVhifjBO+p8aZfxm/Ycen1LJuS7JYCCDSn/UL5
+						SXo5qvEzXuKLwicugewrqXJwpzMkZif+ppl54yDwtG5pVHQT2+KwmDyXQiZAv1ji
+						DikFcwIDAQABo20wazBKBgNVHREEQzBBghNpZHAyLmNvdmVudHJ5LmFjLnVrhipo
+						dHRwczovL2lkcDIuY292ZW50cnkuYWMudWsvaWRwL3NoaWJib2xldGgwHQYDVR0O
+						BBYEFBv/ZE7Ke43/cMfhyAuTRI5/hE2kMA0GCSqGSIb3DQEBBQUAA4IBAQCIZQeM
+						D88/cHeyRWLIUoxBb8Pdb9HwEG51qmg7b+/dwkjomtO5uanQYdO78ar7zmnMAnNJ
+						QFV9WSrp4armb7XqUSrol4OR85F+TCCGJrkRHMHbl1GKECD1iyS1Pgd0DXbP+eqz
+						KaY8aNKN0PCKurzn4tTUAVXZ5vsup8GEps+/uhCHZbAAnH9ilcATposzClVpGvgl
+						LFYNPVs92nXyrx4PC7rfxNEr+AEIeGdjXpbVexdcgy1q9pvRX+dp/Q9jPtg1Gq1r
+						JDUzK95tyg7HYNkAgvc9sjxOxjHjJfhVob237ouSKvJHmKjF/DfNotgfYNCwqdYH
+						PpU40zSkez1KZrd9
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp2.coventry.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp2.coventry.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Coventry University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Coventry University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.coventry.ac.uk/cu/its/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Gary</md:GivenName>
+      <md:SurName>Walton</md:SurName>
+      <md:EmailAddress>mailto:g.walton@coventry.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Gary</md:GivenName>
+      <md:SurName>Walton</md:SurName>
+      <md:EmailAddress>mailto:g.walton@coventry.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

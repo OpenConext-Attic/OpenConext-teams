@@ -1,0 +1,96 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp4.halesowen.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-06-07T09:48:34Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">halesowen.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDOzCCAiOgAwIBAgIUK9oe82/zsqUqklJuya/xb+7Fj7swDQYJKoZIhvcNAQEF
+						BQAwHzEdMBsGA1UEAxMUaWRwNC5oYWxlc293ZW4uYWMudWswHhcNMTIwNjA2MDky
+						NjQ4WhcNMzIwNjA2MDkyNjQ4WjAfMR0wGwYDVQQDExRpZHA0LmhhbGVzb3dlbi5h
+						Yy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJ2STl9SssEcCIdJ
+						TOOLkqRtw7yeG3rQMdqUS7cKflWKfxoXwxLlSs0RJTPO2HubTUuzENfE2XF96gE+
+						VfZSDN+R2hKJvTUFlt49YN7Wfu8bUDeVAiLbv1eVs9syHtMQEa7CtFXssrXuQxJ6
+						iGA7eeL9llbnN4WoGsDNUIYrkKrKo25hPkiFgkxXGFr4IcnJAO4Ftjvu0m/v0YQL
+						JGbHeCSwOL3/giBUHQsTQLxzPibc1rfVZv7r3ZdF4QMivb93nxKjO1WNtAH/9YRZ
+						BbGknDfG5QeFCNFqIRPSeO98U0/WSwK/+Rz05xSEdHp8rWIEpwNuUpPQjUYg+QDm
+						CrlEAPUCAwEAAaNvMG0wTAYDVR0RBEUwQ4IUaWRwNC5oYWxlc293ZW4uYWMudWuG
+						K2h0dHBzOi8vaWRwNC5oYWxlc293ZW4uYWMudWsvaWRwL3NoaWJib2xldGgwHQYD
+						VR0OBBYEFHJgh1AYz5+Z2R0MUD13TjbR55T1MA0GCSqGSIb3DQEBBQUAA4IBAQAz
+						+5Fks4TIm7jqC4pEP7rjaugHhh6eZfvpcpOcyu3W0LdSrJIKCEn+3qRJZ+g/7OFX
+						HLwytVyzttZlLqkErt0YqD/T721wn6Jl2DNzzX/v0a9ZOsoc31VyF5/QSX7uemK7
+						nMNDB9tIa5f8vFQfhm1NV+ylIklSs2grP7V4bwggOQLiHfHIYW+E+Jza8QonqLjO
+						fUPwUBv6HaTHNbY7emeX8d6vb9mURX5kiPlel75zRuSDe3j2XaBNdzJ6djtWPMqa
+						5nzipbC1Y36S60xTelCkQz/bkQxdhGpeXAyGcjmVKESSPY5ZhIhQ5wIsD/HJhSCx
+						qdnuw21SDaBFMMFsh10J
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp4.halesowen.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp4.halesowen.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp4.halesowen.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp4.halesowen.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp4.halesowen.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp4.halesowen.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">halesowen.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDOzCCAiOgAwIBAgIUK9oe82/zsqUqklJuya/xb+7Fj7swDQYJKoZIhvcNAQEF
+						BQAwHzEdMBsGA1UEAxMUaWRwNC5oYWxlc293ZW4uYWMudWswHhcNMTIwNjA2MDky
+						NjQ4WhcNMzIwNjA2MDkyNjQ4WjAfMR0wGwYDVQQDExRpZHA0LmhhbGVzb3dlbi5h
+						Yy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJ2STl9SssEcCIdJ
+						TOOLkqRtw7yeG3rQMdqUS7cKflWKfxoXwxLlSs0RJTPO2HubTUuzENfE2XF96gE+
+						VfZSDN+R2hKJvTUFlt49YN7Wfu8bUDeVAiLbv1eVs9syHtMQEa7CtFXssrXuQxJ6
+						iGA7eeL9llbnN4WoGsDNUIYrkKrKo25hPkiFgkxXGFr4IcnJAO4Ftjvu0m/v0YQL
+						JGbHeCSwOL3/giBUHQsTQLxzPibc1rfVZv7r3ZdF4QMivb93nxKjO1WNtAH/9YRZ
+						BbGknDfG5QeFCNFqIRPSeO98U0/WSwK/+Rz05xSEdHp8rWIEpwNuUpPQjUYg+QDm
+						CrlEAPUCAwEAAaNvMG0wTAYDVR0RBEUwQ4IUaWRwNC5oYWxlc293ZW4uYWMudWuG
+						K2h0dHBzOi8vaWRwNC5oYWxlc293ZW4uYWMudWsvaWRwL3NoaWJib2xldGgwHQYD
+						VR0OBBYEFHJgh1AYz5+Z2R0MUD13TjbR55T1MA0GCSqGSIb3DQEBBQUAA4IBAQAz
+						+5Fks4TIm7jqC4pEP7rjaugHhh6eZfvpcpOcyu3W0LdSrJIKCEn+3qRJZ+g/7OFX
+						HLwytVyzttZlLqkErt0YqD/T721wn6Jl2DNzzX/v0a9ZOsoc31VyF5/QSX7uemK7
+						nMNDB9tIa5f8vFQfhm1NV+ylIklSs2grP7V4bwggOQLiHfHIYW+E+Jza8QonqLjO
+						fUPwUBv6HaTHNbY7emeX8d6vb9mURX5kiPlel75zRuSDe3j2XaBNdzJ6djtWPMqa
+						5nzipbC1Y36S60xTelCkQz/bkQxdhGpeXAyGcjmVKESSPY5ZhIhQ5wIsD/HJhSCx
+						qdnuw21SDaBFMMFsh10J
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp4.halesowen.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp4.halesowen.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Halesowen College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Halesowen College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.halesowen.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Tim</md:GivenName>
+      <md:SurName>Crees</md:SurName>
+      <md:EmailAddress>mailto:tcrees@halesowen.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Jonathan</md:GivenName>
+      <md:SurName>Priest</md:SurName>
+      <md:EmailAddress>mailto:jpriest@halesowen.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

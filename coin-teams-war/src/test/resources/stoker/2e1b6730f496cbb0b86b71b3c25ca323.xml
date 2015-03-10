@@ -1,0 +1,59 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://test.oecd-ilibrary.org/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-06-02T13:56:58Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDnDCCAoSgAwIBAgIEU2tkWDANBgkqhkiG9w0BAQUFADCBjzELMAkGA1UEBhMC
+						R0IxFDASBgNVBAgTC094Zm9yZHNoaXJlMQ8wDQYDVQQHEwZPeGZvcmQxHjAcBgNV
+						BAoTFVB1Ymxpc2hpbmcgVGVjaG5vbG9neTEZMBcGA1UECxMQU2Nob2xhcmx5IE9u
+						bGluZTEeMBwGA1UEAxMVUHVibGlzaGluZyBUZWNobm9sb2d5MB4XDTE0MDUwODEx
+						MDI0OFoXDTI0MDUwNTExMDI0OFowgY8xCzAJBgNVBAYTAkdCMRQwEgYDVQQIEwtP
+						eGZvcmRzaGlyZTEPMA0GA1UEBxMGT3hmb3JkMR4wHAYDVQQKExVQdWJsaXNoaW5n
+						IFRlY2hub2xvZ3kxGTAXBgNVBAsTEFNjaG9sYXJseSBPbmxpbmUxHjAcBgNVBAMT
+						FVB1Ymxpc2hpbmcgVGVjaG5vbG9neTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+						AQoCggEBAJcWVXPMtm502GM5AzoGvXR4OtPIMaGYwDkw1LMpKfCuQoT8NCoX9V7t
+						egvVdrnXqwCyEvMmjHm2qWbBAh56DLWayL8wzDzOzdX9b0yTZ6von1iNEP8S91Of
+						hEv12yMdX3k2chcP3PUrGVt1jX+/HpyPJm5KdhJAgdtFwFbCxTfzx9SXgllft7x6
+						3Y+WVOnrQKLI+wr8qGwd6aCcP0vlFQGHftVf0qxGb6sTclX70CH+S8QapoHM8awf
+						TtTHEE/QdEIv7Hqk3hbP4irB0P6Ut8ZRLo92Ud9uW7+ua0AaLDzJuFgC4WeeMDnq
+						G/QL6Ezbp1Zf/i4wubi/j3r1YQbqjZ0CAwEAATANBgkqhkiG9w0BAQUFAAOCAQEA
+						FUSajzGeOC5KjjAWxsvkXxpM9t4K7GmXSb+B43gTyl6XmGd+K0QRFe1GveK7IGzZ
+						jpw72Q+x4E4VkuihkK7SUqe5ASTe80Wmpg62Ovf5ljf2+tyg1OpNJvKKtL19SB2N
+						gcmY0xXo6Q9zy/3QoYqKmSaV49V2FVzndzvWM2x7Th0oMhpHUpG706IHxnuoY8jm
+						mD2LPea0pWih1hxznLrsXVTZAzjyh5uIIiMQPj8siApUltyKQ2A259GRB6sta0Ui
+						4kBuxFmldtOEJF/FwAZ6NMc0fUJJhCwRo03DDlL6heFyG/eU8XsyjVqt5ccS2QZ0
+						uHVkvFNSMPSdP9/x/ASMxQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://test.oecd-ilibrary.org/session/shib" index="1" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://test.oecd-ilibrary.org/session/shib" index="2"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Publishing Technology plc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">OECD iLibrary</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://test.oecd-ilibrary.org/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Talvinder</md:GivenName>
+      <md:SurName>Matharu</md:SurName>
+      <md:EmailAddress>mailto:Talvinder.matharu@publishingtechnology.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Babu</md:GivenName>
+      <md:SurName>Panneerselvam</md:SurName>
+      <md:EmailAddress>mailto:babu.panneerselvam@publishingtechnology.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Talvinder</md:GivenName>
+      <md:SurName>Matharu</md:SurName>
+      <md:EmailAddress>mailto:Talvinder.matharu@publishingtechnology.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

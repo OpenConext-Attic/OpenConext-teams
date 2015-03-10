@@ -1,0 +1,87 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://recap-dev.ncl.ac.uk/shibboleth/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://recap-dev.ncl.ac.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC2jCCAcKgAwIBAgIBADANBgkqhkiG9w0BAQUFADAUMRIwEAYDVQQDEwlyZWNh
+						cC1kZXYwHhcNMTAwOTE3MTM1MTE5WhcNMjAwOTE0MTM1MTE5WjAUMRIwEAYDVQQD
+						EwlyZWNhcC1kZXYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDkELHY
+						2TRXSyyB5O1ZY7z4QcsLWdCoaZHrHfjFEu2SuLNHTqfgYS4pwrjwRMM6yk1hnU0g
+						DaAL/b6X/BiA1knpPSDQLl9Sa3OFEbqofLKE/W7clzYdeIHcHPKV8yd+sEGW44jt
+						nOocHXSjykr6Oy4WzhPWL4ZZ3y/7SpM8nyNL/kXP5uwEK8xfAJBfn6Ni8wskTrlP
+						/ElATRPzjttSCuDyo9vrvlJIaJTYigavviEYBWETtMCLkaufIcKLjOS1bjGIObL5
+						HglBs7eFLefZuRMNg1o8lgRGMlazEybTP2SG9WFEtniRWywnQWQ+YqU5XRyi+pSh
+						h6kNmIRGsnnYn/0DAgMBAAGjNzA1MBQGA1UdEQQNMAuCCXJlY2FwLWRldjAdBgNV
+						HQ4EFgQUUwPobw2nbrYHXR9PXuCR1U1S7qowDQYJKoZIhvcNAQEFBQADggEBABN6
+						i+zxwBwa/D9gkCRjXuXuJ8ztC7oVGaFLVSkZDvwoQxI1Z5o58a0DpvyGvuJSJxwD
+						2ueELxoxE2a/CpncpocbzFvfBhaWBoUSZmoBXd+H4jhu5AS2MXF33yHR01EySnGP
+						ttI9IThgBruNA1qrRcOwysQBi27ts9BFWYV9ZMwVEj0/3ik2rpniPEr+nkrev6kp
+						tCL0KJh0jK2IIugKlRH8T+4Inqga+mj123IW2t4EFhp+wCKNS1Gc8iS0D9NQxLhl
+						X7CZsQO5hcZFrpbkzaSSUX9deyD/1IDZEbqrpfuu5xniKwIok7Ogk8xaANo6EufS
+						4sjl/MRW5fMJJXuzqhI=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC2jCCAcKgAwIBAgIBADANBgkqhkiG9w0BAQUFADAUMRIwEAYDVQQDEwlyZWNh
+						cC1kZXYwHhcNMTAwOTE3MTM1MTE5WhcNMjAwOTE0MTM1MTE5WjAUMRIwEAYDVQQD
+						EwlyZWNhcC1kZXYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDkELHY
+						2TRXSyyB5O1ZY7z4QcsLWdCoaZHrHfjFEu2SuLNHTqfgYS4pwrjwRMM6yk1hnU0g
+						DaAL/b6X/BiA1knpPSDQLl9Sa3OFEbqofLKE/W7clzYdeIHcHPKV8yd+sEGW44jt
+						nOocHXSjykr6Oy4WzhPWL4ZZ3y/7SpM8nyNL/kXP5uwEK8xfAJBfn6Ni8wskTrlP
+						/ElATRPzjttSCuDyo9vrvlJIaJTYigavviEYBWETtMCLkaufIcKLjOS1bjGIObL5
+						HglBs7eFLefZuRMNg1o8lgRGMlazEybTP2SG9WFEtniRWywnQWQ+YqU5XRyi+pSh
+						h6kNmIRGsnnYn/0DAgMBAAGjNzA1MBQGA1UdEQQNMAuCCXJlY2FwLWRldjAdBgNV
+						HQ4EFgQUUwPobw2nbrYHXR9PXuCR1U1S7qowDQYJKoZIhvcNAQEFBQADggEBABN6
+						i+zxwBwa/D9gkCRjXuXuJ8ztC7oVGaFLVSkZDvwoQxI1Z5o58a0DpvyGvuJSJxwD
+						2ueELxoxE2a/CpncpocbzFvfBhaWBoUSZmoBXd+H4jhu5AS2MXF33yHR01EySnGP
+						ttI9IThgBruNA1qrRcOwysQBi27ts9BFWYV9ZMwVEj0/3ik2rpniPEr+nkrev6kp
+						tCL0KJh0jK2IIugKlRH8T+4Inqga+mj123IW2t4EFhp+wCKNS1Gc8iS0D9NQxLhl
+						X7CZsQO5hcZFrpbkzaSSUX9deyD/1IDZEbqrpfuu5xniKwIok7Ogk8xaANo6EufS
+						4sjl/MRW5fMJJXuzqhI=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://recap-dev.ncl.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://recap-dev.ncl.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://recap-dev.ncl.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://recap-dev.ncl.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://recap-dev.ncl.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://recap-dev.ncl.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://recap-dev.ncl.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://recap-dev.ncl.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://recap-dev.ncl.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://recap-dev.ncl.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://recap-dev.ncl.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://recap-dev.ncl.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://recap-dev.ncl.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://recap-dev.ncl.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Newcastle upon Tyne</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Newcastle University dev Recap server</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ncl.ac.uk/iss/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Franks</md:SurName>
+      <md:EmailAddress>mailto:chris.franks@ncl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Franks</md:SurName>
+      <md:EmailAddress>mailto:chris.franks@ncl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

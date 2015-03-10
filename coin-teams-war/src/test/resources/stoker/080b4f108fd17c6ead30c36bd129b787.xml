@@ -1,0 +1,59 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://arch2moodle.conted.ox.ac.uk/shibboleth-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2011-11-14T17:08:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEpjCCA46gAwIBAgIJALdGk/GDLkgoMA0GCSqGSIb3DQEBBQUAMIHTMQswCQYD
+						VQQGEwJVSzEUMBIGA1UECAwLT3hmb3Jkc2hpcmUxDzANBgNVBAcMBk94Zm9yZDEd
+						MBsGA1UECgwUVW5pdmVyc2l0eSBvZiBPeGZvcmQxLDAqBgNVBAsMI0RlcGFydG1l
+						bnQgZm9yIENvbnRpbnVpbmcgRWR1Y2F0aW9uMSQwIgYDVQQDDBthcmNoMm1vb2Rs
+						ZS5jb250ZWQub3guYWMudWsxKjAoBgkqhkiG9w0BCQEWG21pa2UudGF5bG9yQGNv
+						bnRlZC5veC5hYy51azAeFw0xNDA1MTkxNTQ1MTFaFw0yNDA1MTYxNTQ1MTFaMIHT
+						MQswCQYDVQQGEwJVSzEUMBIGA1UECAwLT3hmb3Jkc2hpcmUxDzANBgNVBAcMBk94
+						Zm9yZDEdMBsGA1UECgwUVW5pdmVyc2l0eSBvZiBPeGZvcmQxLDAqBgNVBAsMI0Rl
+						cGFydG1lbnQgZm9yIENvbnRpbnVpbmcgRWR1Y2F0aW9uMSQwIgYDVQQDDBthcmNo
+						Mm1vb2RsZS5jb250ZWQub3guYWMudWsxKjAoBgkqhkiG9w0BCQEWG21pa2UudGF5
+						bG9yQGNvbnRlZC5veC5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC
+						ggEBAL0OZbHXRsG9wrB70737KdlY8xdaDGvSedBTPKYXIf00B4xMLSXsYov19yTO
+						rcPLuVda0rNt85mTrC/M/VD9hlHgzALnJIsApqUprsDzoTS/vClWwNyqOKP4mDWF
+						Yqw2nUUekJKrdcHETNptAsmqFcevv/EVCBd6OCNZExNAVYwvZvSDKT92Y0Ou3Nvt
+						c4Lxndyq3LQTbXwuB69ctx0SZbHB6MOUD0dFdmH6g22jzuA59M1Gevc0cXXUvw+a
+						qGsUTtRN85Q5t0lCs9UvW+9N4nvAHkuR8wnn7/ate0VyPuHrbkSOEoCbVtafkx6c
+						/A2SfiYmP5g8aCFSoGHqu3iWhocCAwEAAaN7MHkwCQYDVR0TBAIwADAsBglghkgB
+						hvhCAQ0EHxYdT3BlblNTTCBHZW5lcmF0ZWQgQ2VydGlmaWNhdGUwHQYDVR0OBBYE
+						FPXvl+z8qlRh81pc6/+0moo6Uz2NMB8GA1UdIwQYMBaAFPXvl+z8qlRh81pc6/+0
+						moo6Uz2NMA0GCSqGSIb3DQEBBQUAA4IBAQAph+BB117ucSrjA4bg1DjzeQYwMmgS
+						ndz5kQXqgTyafXs/3sSBNS9g9hKKadzntTLQdoSytzgcEDIhskzl9FkJQN6scq96
+						+LmZZjz9CIXyn3dBLOBpP2whuT4V8CetustNdbTMZE2xml0JCmeHL0uy87bQS37S
+						v9uevHXdxb1EoZxRZmue4mWPJYfEuT0xSLSLXxah60bgS/t3rBuRXVmOuicxHylM
+						Wr9ZuBF0R/9h9gbOS1vyTM9TCrZtA39HBCyDFCt6TH4KNiXX9B9a3cX3a8mADfZI
+						eouxo4D9OsCnCEJs7ZFa2Hbzcoxi+t2mOKR1BmE2YsOAIqyw4YnpARHv
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://arch2moodle.conted.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://arch2moodle.conted.ox.ac.uk/Shibboleth.sso/SAML/POST" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford: Archive for award bearing courses site</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.conted.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Mike</md:GivenName>
+      <md:SurName>Taylor</md:SurName>
+      <md:EmailAddress>mailto:mike.taylor@conted.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mike</md:GivenName>
+      <md:SurName>Taylor</md:SurName>
+      <md:EmailAddress>mailto:mike.taylor@conted.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

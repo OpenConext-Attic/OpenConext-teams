@@ -1,0 +1,52 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://bathspa.ac.uk/oala/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-06-11T18:26:50Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">bathspa.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDSDCCAjACCQDcLoBcXhuQpDANBgkqhkiG9w0BAQUFADBmMQswCQYDVQQGEwJH
+						QjENMAsGA1UECAwEQmF0aDENMAsGA1UEBwwEQmF0aDEcMBoGA1UECgwTQmF0aCBT
+						cGEgVW5pdmVyc2l0eTEbMBkGA1UEAwwSYXV0aC5iYXRoc3BhLmFjLnVrMB4XDTE0
+						MDkxMTEyNDY0MFoXDTI0MDkwODEyNDY0MFowZjELMAkGA1UEBhMCR0IxDTALBgNV
+						BAgMBEJhdGgxDTALBgNVBAcMBEJhdGgxHDAaBgNVBAoME0JhdGggU3BhIFVuaXZl
+						cnNpdHkxGzAZBgNVBAMMEmF1dGguYmF0aHNwYS5hYy51azCCASIwDQYJKoZIhvcN
+						AQEBBQADggEPADCCAQoCggEBANDnvw+jI/NjbEuPbKzjfQa5FqOZGYy2cGaX8opS
+						WODxFwY/Ua8a9JJQlX2a8b2Wu7niQyJo1z75+cTVTljXXi4z5sghIhheFu0nv6zs
+						jA73qefWlNkpUK7ytjPVrS1LE0OttEt5uvRVb4M0j3oIF3ueAMNeASJMGw7hHqM8
+						7s9diYWljFnIiAnN0SXtMNskRBOvXQCxY1tY/qB8g1t4vx9TXyC3s54JBhT+o3wU
+						dy0dCWpiY9iQNQLx3+l/74XqlwIIaFYHylheQMxkp1pEP1kO8LHor1n/0mtCzvK0
+						wGOUge2oW6AaDhqEZSOkcEIhDw4M6dKyNvOM7UiXFO853fUCAwEAATANBgkqhkiG
+						9w0BAQUFAAOCAQEARqEYYD8T5djkWXdTunxb9OCUNTVX6MOmBgFoE9wREI3zOWHR
+						sR0nLbQylmfpqQBvgncqlhc0Ozd+Va8MXYcAFxoCBLOVc28I+Buengp+lhbddHBX
+						1WaXAovAO8gzXCTO2KlUagzLDMGdUetz9UE+raA5D+RNPtchdNsXM+ma/rFzuZNI
+						WC36eJwChM8Lz+Pge/lQAb9tsllTwvy8fh/xGwBxR5N+f5tupZjbj3uuWevR8oa3
+						/egG7ermySwN33hXy3aWdP22CDWc8kxV44J5p8Cq3UTU08aXtlDMtaiTwBZ633Hx
+						/6/Zs/TcjIKAfbi6nBCf9z6u2SrAtIiRcU51nw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://auth.bathspa.ac.uk/oala/sso"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://auth.bathspa.ac.uk/oala/sso"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Bath Spa University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Bath Spa University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.bathspa.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>E-Resources</md:GivenName>
+      <md:EmailAddress>mailto:e-resources@bathspa.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Pete</md:GivenName>
+      <md:SurName>Fry</md:SurName>
+      <md:EmailAddress>mailto:p.fry@bathspa.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

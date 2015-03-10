@@ -1,0 +1,51 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.mitpressjournals.org/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDtTCCAp2gAwIBAgIJAOSUQ1IxKrLFMA0GCSqGSIb3DQEBBQUAMIGZMQswCQYD
+						VQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEUMBIGA1UEBxMLU2FudGEgQ2xh
+						cmExHTAbBgNVBAoTFEF0eXBvbiBTeXN0ZW1zLCBJbmMuMR0wGwYDVQQLExRBdHlw
+						b24gU3lzdGVtcywgSW5jLjEhMB8GA1UEAxMYd3d3Lm1pdHByZXNzam91cm5hbHMu
+						b3JnMB4XDTEwMDQyOTE4NTUwOVoXDTIwMDQyNjE4NTUwOVowgZkxCzAJBgNVBAYT
+						AlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRQwEgYDVQQHEwtTYW50YSBDbGFyYTEd
+						MBsGA1UEChMUQXR5cG9uIFN5c3RlbXMsIEluYy4xHTAbBgNVBAsTFEF0eXBvbiBT
+						eXN0ZW1zLCBJbmMuMSEwHwYDVQQDExh3d3cubWl0cHJlc3Nqb3VybmFscy5vcmcw
+						ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDBPu6I5h+u+RBjd9CGQZ+S
+						LCJgGLTT6QA2ZA0jeBwpy49IiMt1XritmWpth6+6Ujl7AfJo9IdVkAyxftbLyZoq
+						X1AFJalhC0PVgijowgQ/dyf0bRwR220GAlfRhXu6bgVyd9AdHcxbwSu6mEXCg6yx
+						Jg/sELZd6YBUyXjoRLavPOJkoVT+bABMYJEK7cmMnf3dfC7qn5AM8nOqa/b7vTSl
+						+6cKazBv9jPZz98vbfKaz7if/WHOOdyZQxtdhs7m4bRLo4eiulzZl90IlHkTyIPt
+						RVij6cXOYlj9LqYD/omAOsIx/HJOj+POh0bTYEezY487Iz51FfOhTox1NV3UVoTv
+						AgMBAAEwDQYJKoZIhvcNAQEFBQADggEBAGNaKJAhMr+Ms9tqT2SQ5ZSqjU9AKleg
+						257H7SjInDwq3BfDCh7GBJtZ2HziUXUuq4Cu9ufhvyI03aiEkTumupNI27Hhy/jR
+						914HO+RAbOe3v6H6sPSpPSLPVza/wI4UD2i6dwgf8Gb0+WZAputqV80Uu6dd9CNc
+						8x8SH2yVkEwrsS+ropXyxA5+oqvHVeCdsoPSYy2sueQzls8bawTjk7Ukv4DrmFbD
+						mxigOHHj//L5hysJNl6msFo3p88e1yNJt7z8PgFBdlzRdrizFfrqUYcX17WBfZ0I
+						kFKGffEJeigQ0XTt+EwxUqeIS4bJiCzP95FGjUysTQ7i029sfSQhXVg=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.mitpressjournals.org/action/samlACS" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.mitpressjournals.org/action/samlACS" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.mitpressjournals.org/action/samlACS" index="3"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Atypon Systems, Inc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Atypon Systems: MIT Press Journals</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.mitpressjournals.org/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>SSO-Support</md:GivenName>
+      <md:EmailAddress>mailto:SSO-Support@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>SSO-Tech</md:GivenName>
+      <md:EmailAddress>mailto:SSO-Tech@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

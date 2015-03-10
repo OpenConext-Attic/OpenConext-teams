@@ -44,13 +44,7 @@ COIN.MODULES.AddAllowedServiceProviders = function(sandbox) {
         var element = $("#selected-service-providers .hidden-service-provider").clone();
         element.attr("class", "new-service-provider").find("span").text(selected.displayNameEn);
         element.find("input").val(selected.entityId);
-//
-//        var element = $("<li class=\"new-service-provider\">" + selected.displayNameEn + "</li>");
-//        element.append($("<input type=\"hidden\" name=\"services[]\" value=\"" + selected.entityId + "\" />"));
-//        element.append($("<a class=\"add-service-provider\" href='#'>x</a>"));
-//
         $("#selected-service-providers").append(element);
-
 
         $(this).typeahead('val', '');
       });
@@ -59,6 +53,15 @@ COIN.MODULES.AddAllowedServiceProviders = function(sandbox) {
         console.log(e);
         $(this).parents("li").remove();
       });
+
+      $(document).on("click", 'input[name=cancel-add-sp]', function(e) {
+        e.preventDefault();
+        var team = $('input[name=team]').val();
+        var view = $('input[name=view]').val();
+        window.location.href = '../../detailteam.shtml?team=' + encodeURIComponent(team) + '&view=' + encodeURIComponent(view);
+
+      });
+
 
     },
 

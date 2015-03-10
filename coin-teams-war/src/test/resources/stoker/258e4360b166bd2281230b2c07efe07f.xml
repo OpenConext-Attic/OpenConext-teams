@@ -1,0 +1,112 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.rkh.se/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">rkh.se</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="sv">Röda Korsets Högskola</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Swedish Red Cross University College</mdui:DisplayName>
+          <mdui:Description xml:lang="sv">Identity Provider för Röda Korsets Högskola</mdui:Description>
+          <mdui:Description xml:lang="en">Identity Provider for Swedish Red Cross University College</mdui:Description>
+          <mdui:InformationURL xml:lang="sv">http://www.rkh.se/sv/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">http://www.rkh.se/en</mdui:InformationURL>
+          <mdui:Logo height="90" width="165" xml:lang="sv">http://www.rkh.se/images/logo.png</mdui:Logo>
+          <mdui:Logo height="90" width="165" xml:lang="en">http://www.rkh.se/images/logo.png</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>rkh.se</mdui:DomainHint>
+          <mdui:IPHint>193.11.166.66</mdui:IPHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDEzCCAfugAwIBAgIUSxTqdp7tDACfsf1wsKvgXqio4y8wDQYJKoZIhvcNAQEF
+BQAwFTETMBEGA1UEAxMKaWRwLnJraC5zZTAeFw0xMjExMTIxMzQ4MzZaFw0zMjEx
+MTIxMzQ4MzZaMBUxEzARBgNVBAMTCmlkcC5ya2guc2UwggEiMA0GCSqGSIb3DQEB
+AQUAA4IBDwAwggEKAoIBAQCF9AP/NqQC4kdNom3wMY/3DF38Tdgy9bY5qyy/RlOo
+4t+G7MMYHvIKKxpD5s1wFbir4e84mn2eGgiMZ5BqlS4xl3wjBnY3syUpEfGA5QcT
+Ar0uS9ToncrxqbAp4ZzgtF6YrP53cWL9lbHZjImESd5NfIt515mDWFfuxJyCTYxf
+zvtEJLxdTfjj0U8sWFxQ0sW5z4Ib49RvpIEaf+/STAjaqP6l8gfDaLp7chRyLPPN
+4Hywk7ZgK/hGX2pRjXogAkbMDBECaPPtn0XUruHdC8hqshpC33xoHaCvfFE6OYfq
+uZX0I2pCiOKRFy/qO1YoIEE8f0EaQy35wptpiVAGoTmvAgMBAAGjWzBZMDgGA1Ud
+EQQxMC+CCmlkcC5ya2guc2WGIWh0dHBzOi8vaWRwLnJraC5zZS9pZHAvc2hpYmJv
+bGV0aDAdBgNVHQ4EFgQUnN5WyGgWFoUD8kRlz0xaculYHQMwDQYJKoZIhvcNAQEF
+BQADggEBABbsy0PiV0PF8zc83scwz29zVf15Bhk7FUgv0mhNd94g/OO7D5hcKlvM
+wEPDvFrmaYxiPDKN+PxIB70fQfjwqoMZHOIhMwqzbKbbzxf3lRlgihtnrbwLw4vp
+ele3AfWv2twARiowDSQuskUNoqiRTA14IXROrRFzr3urcR3V67zS0vdYZmM02+Pu
+nSHk2aE+g4n5CZd5VJYi41Aq17QXnpn+AQGoGGLy88MADah5olUphcwr/GYBLGw2
+pdeXtXJxxPV13GCms9LWYEUHf5JLBCsXPNGOe+6c7qWLVSi1Tn12ZFOOH4JCcoKr
+MH7l5Ii1TxKGmGspEIChPmEAY1ntIV8=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.rkh.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.rkh.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.rkh.se/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.rkh.se/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.rkh.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.rkh.se/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">rkh.se</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDEzCCAfugAwIBAgIUSxTqdp7tDACfsf1wsKvgXqio4y8wDQYJKoZIhvcNAQEF
+BQAwFTETMBEGA1UEAxMKaWRwLnJraC5zZTAeFw0xMjExMTIxMzQ4MzZaFw0zMjEx
+MTIxMzQ4MzZaMBUxEzARBgNVBAMTCmlkcC5ya2guc2UwggEiMA0GCSqGSIb3DQEB
+AQUAA4IBDwAwggEKAoIBAQCF9AP/NqQC4kdNom3wMY/3DF38Tdgy9bY5qyy/RlOo
+4t+G7MMYHvIKKxpD5s1wFbir4e84mn2eGgiMZ5BqlS4xl3wjBnY3syUpEfGA5QcT
+Ar0uS9ToncrxqbAp4ZzgtF6YrP53cWL9lbHZjImESd5NfIt515mDWFfuxJyCTYxf
+zvtEJLxdTfjj0U8sWFxQ0sW5z4Ib49RvpIEaf+/STAjaqP6l8gfDaLp7chRyLPPN
+4Hywk7ZgK/hGX2pRjXogAkbMDBECaPPtn0XUruHdC8hqshpC33xoHaCvfFE6OYfq
+uZX0I2pCiOKRFy/qO1YoIEE8f0EaQy35wptpiVAGoTmvAgMBAAGjWzBZMDgGA1Ud
+EQQxMC+CCmlkcC5ya2guc2WGIWh0dHBzOi8vaWRwLnJraC5zZS9pZHAvc2hpYmJv
+bGV0aDAdBgNVHQ4EFgQUnN5WyGgWFoUD8kRlz0xaculYHQMwDQYJKoZIhvcNAQEF
+BQADggEBABbsy0PiV0PF8zc83scwz29zVf15Bhk7FUgv0mhNd94g/OO7D5hcKlvM
+wEPDvFrmaYxiPDKN+PxIB70fQfjwqoMZHOIhMwqzbKbbzxf3lRlgihtnrbwLw4vp
+ele3AfWv2twARiowDSQuskUNoqiRTA14IXROrRFzr3urcR3V67zS0vdYZmM02+Pu
+nSHk2aE+g4n5CZd5VJYi41Aq17QXnpn+AQGoGGLy88MADah5olUphcwr/GYBLGw2
+pdeXtXJxxPV13GCms9LWYEUHf5JLBCsXPNGOe+6c7qWLVSi1Tn12ZFOOH4JCcoKr
+MH7l5Ii1TxKGmGspEIChPmEAY1ntIV8=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.rkh.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.rkh.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">The Red Cross University College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sv">Röda Korsets Högskola</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">The Red Cross University College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.rkh.se</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:Company>Swedish Red Cross University College</md:Company>
+      <md:SurName>IT-support</md:SurName>
+      <md:EmailAddress>itsupport@rkh.se</md:EmailAddress>
+      <md:TelephoneNumber>+46858751607/+46858751603</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:Company>Swedish Red Cross University College</md:Company>
+      <md:SurName>IT-support</md:SurName>
+      <md:EmailAddress>itsupport@rkh.se</md:EmailAddress>
+      <md:TelephoneNumber>+46858751607</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>Swedish Red Cross University College</md:Company>
+      <md:SurName>IT-Support Röda Korsets Högskola</md:SurName>
+      <md:EmailAddress>itsupport@rkh.se</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

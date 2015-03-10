@@ -1,0 +1,55 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.bournemouth.ac.uk/oala/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">bournemouth.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDqTCCApGgAwIBAgIJALZkHs4cgnSCMA0GCSqGSIb3DQEBBQUAMEExHzAdBgNV
+						BAoTFkJvdXJuZW1vdXRoIFVuaXZlcnNpdHkxHjAcBgNVBAMTFWlkcC5ib3VybmVt
+						b3V0aC5hYy51azAeFw0xNDAxMjAwOTI3NDlaFw0yNDAxMTgwOTI3NDlaMEExHzAd
+						BgNVBAoTFkJvdXJuZW1vdXRoIFVuaXZlcnNpdHkxHjAcBgNVBAMTFWlkcC5ib3Vy
+						bmVtb3V0aC5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOCN
+						LseVokel4GJsn3t04U7WLorCo75qr7okZHWI+OONBJmdREUjdB56r4pzHgpQGXJq
+						vlK4FNS35wStcziZwZNI9tH1Q4yieZSGdQ0bqBqxQJ/Jz4bEHV4sD88qoFiXgH3+
+						ri3ONHw0q7R5A7ZbDEuV0dJm8yIRo9jDKo4muW8OEe9sCorp4CyQpCFBXnTOWzKN
+						7soj7VW8GAYNPim3uiuwv62wTykWw+zEQI40cjttauEFTv+UwqX9OgfVHA/je2HA
+						48hZav2g9YU+Yo/WouwgMO+Y8wDSrlcTs+p2shDDdcSU26O2uoQyKqY+cNKmBtF3
+						TiZE/+zRt3DE/akHl+MCAwEAAaOBozCBoDAdBgNVHQ4EFgQUXssZRCo90zME4EbK
+						maLozgGIjZ8wcQYDVR0jBGowaIAUXssZRCo90zME4EbKmaLozgGIjZ+hRaRDMEEx
+						HzAdBgNVBAoTFkJvdXJuZW1vdXRoIFVuaXZlcnNpdHkxHjAcBgNVBAMTFWlkcC5i
+						b3VybmVtb3V0aC5hYy51a4IJALZkHs4cgnSCMAwGA1UdEwQFMAMBAf8wDQYJKoZI
+						hvcNAQEFBQADggEBANwscCtfXRADL1PjVgDyt2tiCitj/0DFJUSgj1g+9vpxo94s
+						cwRAn3TF/w8izcwAOp5h3R+Sgfqdgeaqm0FzruZHHfpPnG+o+UUwaxymt/wMMtOE
+						Tal5ajyjgcvHp5D4PvKvvZfV1VlB9FO4F21+suY4aeLfet9s238s1Kzh66PHfn8b
+						gRycyQReJHmOqpqfmcvhv1dd0itTz1W4D7ZcA0PkAfjoAf3Lb6ChExbfuujm3S0Q
+						dITlX1wWoQsNsCXRR+ss3mhVrQhbWPBDvOQcSTqY9sHCEEvVVEelccI7DaXTr1RE
+						sNEN/lIZ5gfmE611CgjOy8LpmWwzM1n45XVK9Wo=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.bournemouth.ac.uk/oala/sso"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.bournemouth.ac.uk/oala/sso"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Bournemouth University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Bournemouth University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.bournemouth.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Martin</md:GivenName>
+      <md:SurName>Foy</md:SurName>
+      <md:EmailAddress>mailto:mfoy@bournemouth.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Martin</md:GivenName>
+      <md:SurName>Foy</md:SurName>
+      <md:EmailAddress>mailto:mfoy@bournemouth.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

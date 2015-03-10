@@ -1,0 +1,48 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.icevirtuallibrary.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDkjCCAnqgAwIBAgIETFGlqTANBgkqhkiG9w0BAQUFADCBijELMAkGA1UEBhMCR0IxFDASBgNV
+						BAgTC094Zm9yZHNoaXJlMQ8wDQYDVQQHEwZPeGZvcmQxHjAcBgNVBAoTFVB1Ymxpc2hpbmcgVGVj
+						aG5vbG9neTEUMBIGA1UECxMLRW5naW5lZXJpbmcxHjAcBgNVBAMTFVB1Ymxpc2hpbmcgVGVjaG5v
+						bG9neTAeFw0xMDA3MjkxNjAwNDFaFw0yMDA3MjYxNjAwNDFaMIGKMQswCQYDVQQGEwJHQjEUMBIG
+						A1UECBMLT3hmb3Jkc2hpcmUxDzANBgNVBAcTBk94Zm9yZDEeMBwGA1UEChMVUHVibGlzaGluZyBU
+						ZWNobm9sb2d5MRQwEgYDVQQLEwtFbmdpbmVlcmluZzEeMBwGA1UEAxMVUHVibGlzaGluZyBUZWNo
+						bm9sb2d5MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgDY7L3DZLJU1rL/0YYxpu3mN
+						pkyQ8aJvVwF3JRBD5NbV7eOCE4VmGhQVfHHSAv6jvcIyjDzIIVhFdFN/m8nud5xlIRWqkK2UB4r/
+						gfwQEPbcM+cKNUPwtVqk9z1XRIp338/vsu+LvC6F8+s8vkk95pnVShbVcTacfQLbOQEFNRDmSN5w
+						TVQUyHqm/pWknUz5Ot56JGXEOP0OXCqmpN4ajFdmPuC4ZQzra8A/noMKu2SBtYXGhrweqoPZRnJC
+						YUgzmSoKJrYsEuemkod2eGjdlVlGh3UT2iK+Cz/16G6zXmvUDCwxRULkYLYlUPSXih+S2T1Nbl4T
+						3NrmFpbWaQ4gSwIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQACtChlhIaqb33d447kMf6Lup5cXbN7
+						rIEzbUf94mQTn8G50fs1udmRT7oaAokkh2FFlpRWLgdmHUVGmBNWtdF6ncHOKFXqdTFgCNeVZL7h
+						I8O6DPCAza4Ty7johPW9UL3PKj7ILTKh096EHFkryD4GAy8VGGEjR2rHQk0mSX7WFO2EfjIxGZUm
+						WQAbupXydVS4KEwl0FL5hIapvWWIVux97S+KKrsZQAi7QwfaY/2gjFP6bO6R+5kW52qrkhFVBnbY
+						CBn3v35bYqvPRQ6eQhp+1In1tWKybpA6aJOutsdEO4Z0ocWyw5d3oErlveYSNhQPubCO4XaMeEvY
+						zvIF4NlO
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.icevirtuallibrary.com/session/shib" index="1" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.icevirtuallibrary.com/session/shib" index="2"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Publishing Technology plc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Publishing Technology: ICE Virtual Library</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.icevirtuallibrary.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Librarians</md:GivenName>
+      <md:EmailAddress>mailto:librarians@icevl.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Hatim</md:GivenName>
+      <md:SurName>Ghadiyali</md:SurName>
+      <md:EmailAddress>mailto:Hatim.Ghadiyali@publishingtechnology.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

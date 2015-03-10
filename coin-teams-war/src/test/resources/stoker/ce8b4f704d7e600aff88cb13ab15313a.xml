@@ -1,0 +1,59 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://study.conted.ox.ac.uk/shibboleth-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2011-08-04T13:59:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEmjCCA4KgAwIBAgIJAOLozXNL6LsnMA0GCSqGSIb3DQEBBQUAMIHNMQswCQYD
+						VQQGEwJVSzEUMBIGA1UECAwLT3hmb3Jkc2hpcmUxDzANBgNVBAcMBk94Zm9yZDEd
+						MBsGA1UECgwUVW5pdmVyc2l0eSBvZiBPeGZvcmQxLDAqBgNVBAsMI0RlcGFydG1l
+						bnQgZm9yIENvbnRpbnVpbmcgRWR1Y2F0aW9uMR4wHAYDVQQDDBVzdHVkeS5jb250
+						ZWQub3guYWMudWsxKjAoBgkqhkiG9w0BCQEWG21pa2UudGF5bG9yQGNvbnRlZC5v
+						eC5hYy51azAeFw0xNDA1MjAxMDQ4MDhaFw0yNDA1MTcxMDQ4MDhaMIHNMQswCQYD
+						VQQGEwJVSzEUMBIGA1UECAwLT3hmb3Jkc2hpcmUxDzANBgNVBAcMBk94Zm9yZDEd
+						MBsGA1UECgwUVW5pdmVyc2l0eSBvZiBPeGZvcmQxLDAqBgNVBAsMI0RlcGFydG1l
+						bnQgZm9yIENvbnRpbnVpbmcgRWR1Y2F0aW9uMR4wHAYDVQQDDBVzdHVkeS5jb250
+						ZWQub3guYWMudWsxKjAoBgkqhkiG9w0BCQEWG21pa2UudGF5bG9yQGNvbnRlZC5v
+						eC5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKQoniFVDKEq
+						6jlQx2bHK9cCCT2T4n8J4X3cHDgOnvngHl/n97SaRBrqkIW9wmDudfV/y7nGCptK
+						6towZz+rM0RDmCfIu7VH57WhEpfB4iUqGjYCY44vVy8gDJdRWgXf7pqa/9B0yHzy
+						ulyqOqlObv8YNz/fWgTnKQTCDiy6N4dVxWm1GElRv/grCQIzJ5tiWt9H11w8lyeZ
+						2kTFwbgJOGqAc6C9sJ7TXIycZef2oJaQ+Qf7oCD0BVyRy08yV5Xhhem6jWa+Zx7I
+						s00cN61Co34QAzXHdUdA21myUBd4R5i1kjNIroqV/a5+5Oj8NWOsFAtcAPLqrpvO
+						0+rzGQXFCCsCAwEAAaN7MHkwCQYDVR0TBAIwADAsBglghkgBhvhCAQ0EHxYdT3Bl
+						blNTTCBHZW5lcmF0ZWQgQ2VydGlmaWNhdGUwHQYDVR0OBBYEFINOZtymmwrCBaQ6
+						SBLdj5qEF+kPMB8GA1UdIwQYMBaAFINOZtymmwrCBaQ6SBLdj5qEF+kPMA0GCSqG
+						SIb3DQEBBQUAA4IBAQAhqfovymE3xaeIHPF/rqOT0odVHG20bKu4UdGI+xj5RlcZ
+						qhVwFiSgUU/fIK2wZ5vl3fCJEY1Jlq/okJfQhoDcGSWBlcXJ8Dy1LI7YzIPM9YYX
+						vyQTAKR/iimGYuWXLRAyKFBMliLVH51EeGP0bh+02fEW20jqrxkRfrrlZNNsRaZ+
+						gDRamuJk6cEQNIbH9vJ12gyng17kTfV9D5p+7mBBiBf4LAyZYBwpXFQcMR5MVlQX
+						E5fLZIdP/chQFDreH6byJlD+8ZHWy+sQqhUSFRNBcgEATwuq9aNcXkzm/0CKOVaD
+						4o+kyplCfQiX41wflBJr2mENvIue2wY387e4q0t2
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://study.conted.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://study.conted.ox.ac.uk/Shibboleth.sso/SAML/POST" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford: Award bearing course delivery site</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.conted.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Mike</md:GivenName>
+      <md:SurName>Taylor</md:SurName>
+      <md:EmailAddress>mailto:mike.taylor@conted.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mike</md:GivenName>
+      <md:SurName>Taylor</md:SurName>
+      <md:EmailAddress>mailto:mike.taylor@conted.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

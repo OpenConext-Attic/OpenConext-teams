@@ -1,0 +1,60 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sp.silverchair.com/acp/production/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-04-12T09:33:34Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://annals.org/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDDzCCAfegAwIBAgIJANicnaiWujsWMA0GCSqGSIb3DQEBBQUAMCMxITAfBgNV
+						BAMTGHNjbTYtZDVwdm0td2ViMS5zY3NsLmludDAeFw0xMjAzMjMxNjEzNDlaFw0y
+						MjAzMjExNjEzNDlaMCMxITAfBgNVBAMTGHNjbTYtZDVwdm0td2ViMS5zY3NsLmlu
+						dDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMBwkz9AV9PbPUK7SXa7
+						rWvUj+xCylNNDrE4beQIKFSon64hKwfgXFyH7y9UMAq8eajn4J86htU7sLxQxaxe
+						XMkU35WHo7GoFbtSFb+L6NHHv+UnIpl2FpeVwGGFUAEG/L4q69Bpy4VMDs0/7m6r
+						UBEn/vz74A9nIvglxtyY3aOC9z5RWf0WYQ6MKFXDcVpWzXXRBxiQAGjwNLIDwMn/
+						CCSsDjnt8vKWyBr8d/ehkPalUYWj5pBWdhrdSrQ1cWCrBtYJpBxJFgXbFs4i28w8
+						b/Zf7ZkXkRLEL6d9C3Bs4yOQmBLWB33VURvAwTGt2SSgVCSt1PYrjkX8qdxe0bE6
+						PJ0CAwEAAaNGMEQwIwYDVR0RBBwwGoIYc2NtNi1kNXB2bS13ZWIxLnNjc2wuaW50
+						MB0GA1UdDgQWBBSDkYKQ64pYrPAkh2OIuEEcmy3reTANBgkqhkiG9w0BAQUFAAOC
+						AQEAuMzCg0YVNDuS7dA9lQSKoqrXh5UjrTVS66McThWCSVz5anQLzk+yYzjDRfY5
+						6UGp6vzrnXkd06hLXiYkhp+iKaWi0XtcSzMJ2hKK7JZCEjlDv2aa5G1RZOlVbrgb
+						b5iLQRhPD8vkD41JfwqVWFPSUbhCHLpVyxcGsiSvns0lUyShDr+ud/ew1+uD38T+
+						IYw3q6gIHAZTydVD5h3Zk0H2VtT1QjoMs9YQFl1iJJCLayeOSRulsUdyB8DxhkGJ
+						mEdO6bcXXu7zFrr7ckCioS4N12ZSQuIDPFyfb9/fbpxmcbMmqY3KvZlPvR9OkV6L
+						Td7a8cntDuAvJ/skPcyYKaXcbA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://annals.org/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://annals.org/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://annals.org/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://annals.org/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://annals.org/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://annals.org/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://annals.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://annals.org/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://annals.org/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://annals.org/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://annals.org/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Silverchair Science + Communications, LLC</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Silverchair Production: Annals of Internal Medicine</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://annals.org/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Shibboleth Admin</md:GivenName>
+      <md:EmailAddress>mailto:ShibbolethAdmin@silverchair.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Josh</md:GivenName>
+      <md:SurName>Laseter</md:SurName>
+      <md:EmailAddress>mailto:jlaseter@silverchair.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

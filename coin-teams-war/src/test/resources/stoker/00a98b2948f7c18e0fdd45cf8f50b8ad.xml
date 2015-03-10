@@ -1,15 +1,15 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://www.sso.uni-erlangen.de/simplesaml/saml2/idp/metadata.php">
-    <Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2010-08-11T14:59:01Z">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.sso.uni-erlangen.de/simplesaml/saml2/idp/metadata.php">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2010-08-11T14:59:01Z">
         <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
         <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-    </Extensions>
-    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">uni-erlangen.de</saml1md:Scope>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">fau.de</saml1md:Scope>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uni-erlangen.de</shibmd:Scope>
+        <shibmd:Scope regexp="false">fau.de</shibmd:Scope>
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="de">Universität Erlangen-Nürnberg</mdui:DisplayName>
           <mdui:DisplayName xml:lang="en">Universität Erlangen-Nürnberg</mdui:DisplayName>
           <mdui:Description xml:lang="de">Identity Provider der Universität Erlangen-Nürnberg</mdui:Description>
@@ -17,9 +17,9 @@
           <mdui:InformationURL xml:lang="de">https://www.sso.uni-erlangen.de</mdui:InformationURL>
           <mdui:InformationURL xml:lang="en">https://www.sso.uni-erlangen.de</mdui:InformationURL>
         </mdui:UIInfo>
-      </Extensions>
-      <KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
           <ds:KeyName>www.sso.fau.de</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=www.sso.fau.de,OU=Regionales Rechenzentrum Erlangen (RRZE),O=Universitaet Erlangen-Nuernberg,L=Erlangen,ST=Bayern,C=DE</ds:X509SubjectName>
@@ -64,24 +64,24 @@ c/GLdms9imUWk7YQ8hzH7aUxdRWOmXLmc+2n/lY=
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.sso.uni-erlangen.de/simplesaml/saml2/idp/SingleLogoutService.php"/>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.sso.uni-erlangen.de/simplesaml/saml2/idp/SSOService.php"/>
-      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://www.sso.uni-erlangen.de/simplesaml/shib13/idp/SSOService.php"/>
-    </IDPSSODescriptor>
-    <Organization>
-      <OrganizationName xml:lang="de">e131</OrganizationName>
-      <OrganizationName xml:lang="en">e131</OrganizationName>
-      <OrganizationDisplayName xml:lang="de">Friedrich-Alexander-Universität Erlangen-Nürnberg</OrganizationDisplayName>
-      <OrganizationDisplayName xml:lang="en">Friedrich-Alexander-Universität Erlangen-Nürnberg</OrganizationDisplayName>
-      <OrganizationURL xml:lang="de">https://www.sso.uni-erlangen.de</OrganizationURL>
-      <OrganizationURL xml:lang="en">https://www.sso.uni-erlangen.de</OrganizationURL>
-    </Organization>
-    <ContactPerson contactType="technical">
-      <GivenName>Frank</GivenName>
-      <SurName>Tröger</SurName>
-      <EmailAddress>mailto:sso-admins@rrze.fau.de</EmailAddress>
-    </ContactPerson>
-  </EntityDescriptor>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.sso.uni-erlangen.de/simplesaml/saml2/idp/SingleLogoutService.php"/>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.sso.uni-erlangen.de/simplesaml/saml2/idp/SSOService.php"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://www.sso.uni-erlangen.de/simplesaml/shib13/idp/SSOService.php"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e131</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e131</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Friedrich-Alexander-Universität Erlangen-Nürnberg</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Friedrich-Alexander-Universität Erlangen-Nürnberg</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">https://www.sso.uni-erlangen.de</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">https://www.sso.uni-erlangen.de</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Frank</md:GivenName>
+      <md:SurName>Tröger</md:SurName>
+      <md:EmailAddress>mailto:sso-admins@rrze.fau.de</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

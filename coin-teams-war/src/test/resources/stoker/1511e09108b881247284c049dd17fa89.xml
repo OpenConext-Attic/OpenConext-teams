@@ -1,0 +1,84 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.glasgowkelvin.ac.uk/openathens">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-09-22T14:18:15Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">glasgowkelvin.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Glasgow Kelvin College</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDWDCCAkCgAwIBAgIIEcxlhYHW7FYwDQYJKoZIhvcNAQEFBQAwQzEfMB0GA1UE
+						CgwWR2xhc2dvdyBLZWx2aW4gQ29sbGVnZTEgMB4GA1UEAwwXaWRwLmdsYXNnb3dr
+						ZWx2aW4uYWMudWswHhcNMTQwODI5MTMyODUyWhcNMjQwODI5MTMyODUyWjBDMR8w
+						HQYDVQQKDBZHbGFzZ293IEtlbHZpbiBDb2xsZWdlMSAwHgYDVQQDDBdpZHAuZ2xh
+						c2dvd2tlbHZpbi5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+						AOxm3dLSX+UNx+aVR24NNhE03L/lpOpLPxU+COARq2kuD8AGv6OxUWt0tdDYskJp
+						SwMQRQmqP2R32ulYMQBeeD0e+Kale+b9uX/Zkut8PohQZeSkCMpV0lEmkK07ivOB
+						Mh6FiViWZ0XWAQ/6RfnSC/9L+PJcqpRkAwr0qkGo7k2eaE7ffIhZY7ImKVAiPS7r
+						YAgZPCiWHtC8eN6+h9kJJo7FyFacKMO82lid+rHdUq+X3335xHL7tFjOCzk/AcI8
+						9DSdgvrL3rB/bMmsko7+tz/DbEfrFwMqwpVuX1Cs7YWl88E7VB+FBJZsTLJH2XDQ
+						m9930Nq2iULafPahz+IHhgECAwEAAaNQME4wHQYDVR0OBBYEFGZmAoJCe7wdXY7f
+						/pFKFpXXbwZDMB8GA1UdIwQYMBaAFGZmAoJCe7wdXY7f/pFKFpXXbwZDMAwGA1Ud
+						EwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBAEPUdwYfF7ElyNcGzmGgCz0sqZAC
+						UaNoersFgCvSzrc2BWmeivgBUy0VVt5tU2YZKTAcIhvh/ZXNbJzoc+YH/KuLJ1hi
+						7b/jDBPH7QZZ4uv4U/WkSr4n/1tRpUnLrY505X/hCxpH11MOs2OHd5edwiIDuiUA
+						3hDuvyCQYLy386VhX3UZVBtew16Z5KUhPcbtW/k+RhYuH/j2Inq/4W1UpmsNR2Ug
+						l2RyOBeMBakzxmb2R6y3nWcxAidG42LV8DLVUbqwoEcIg4Mt5jbZDrlEhPvW4zal
+						TWIuR+MKKnSlSNym/jSdIEVMIQ/mmLy8Pmqg/bdX5zgOHNLQEtGgpX0ReOo=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDWDCCAkCgAwIBAgIIEcxlhYHW7FYwDQYJKoZIhvcNAQEFBQAwQzEfMB0GA1UE
+						CgwWR2xhc2dvdyBLZWx2aW4gQ29sbGVnZTEgMB4GA1UEAwwXaWRwLmdsYXNnb3dr
+						ZWx2aW4uYWMudWswHhcNMTQwODI5MTMyODUyWhcNMjQwODI5MTMyODUyWjBDMR8w
+						HQYDVQQKDBZHbGFzZ293IEtlbHZpbiBDb2xsZWdlMSAwHgYDVQQDDBdpZHAuZ2xh
+						c2dvd2tlbHZpbi5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+						AOxm3dLSX+UNx+aVR24NNhE03L/lpOpLPxU+COARq2kuD8AGv6OxUWt0tdDYskJp
+						SwMQRQmqP2R32ulYMQBeeD0e+Kale+b9uX/Zkut8PohQZeSkCMpV0lEmkK07ivOB
+						Mh6FiViWZ0XWAQ/6RfnSC/9L+PJcqpRkAwr0qkGo7k2eaE7ffIhZY7ImKVAiPS7r
+						YAgZPCiWHtC8eN6+h9kJJo7FyFacKMO82lid+rHdUq+X3335xHL7tFjOCzk/AcI8
+						9DSdgvrL3rB/bMmsko7+tz/DbEfrFwMqwpVuX1Cs7YWl88E7VB+FBJZsTLJH2XDQ
+						m9930Nq2iULafPahz+IHhgECAwEAAaNQME4wHQYDVR0OBBYEFGZmAoJCe7wdXY7f
+						/pFKFpXXbwZDMB8GA1UdIwQYMBaAFGZmAoJCe7wdXY7f/pFKFpXXbwZDMAwGA1Ud
+						EwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBAEPUdwYfF7ElyNcGzmGgCz0sqZAC
+						UaNoersFgCvSzrc2BWmeivgBUy0VVt5tU2YZKTAcIhvh/ZXNbJzoc+YH/KuLJ1hi
+						7b/jDBPH7QZZ4uv4U/WkSr4n/1tRpUnLrY505X/hCxpH11MOs2OHd5edwiIDuiUA
+						3hDuvyCQYLy386VhX3UZVBtew16Z5KUhPcbtW/k+RhYuH/j2Inq/4W1UpmsNR2Ug
+						l2RyOBeMBakzxmb2R6y3nWcxAidG42LV8DLVUbqwoEcIg4Mt5jbZDrlEhPvW4zal
+						TWIuR+MKKnSlSNym/jSdIEVMIQ/mmLy8Pmqg/bdX5zgOHNLQEtGgpX0ReOo=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.glasgowkelvin.ac.uk/oala/sso"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.glasgowkelvin.ac.uk/oala/sso"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Glasgow Kelvin College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Glasgow Kelvin College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.glasgowkelvin.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Matt</md:GivenName>
+      <md:SurName>Campbell</md:SurName>
+      <md:EmailAddress>mailto:MCampbell@glasgowkelvin.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Andrew</md:GivenName>
+      <md:SurName>McBride</md:SurName>
+      <md:EmailAddress>mailto:amcbride@glasgowkelvin.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

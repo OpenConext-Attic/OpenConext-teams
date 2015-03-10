@@ -1,0 +1,121 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth.medvik.cz/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.eduid.cz/" registrationInstant="2014-10-16T11:08:52Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://eduid.cz/uri/idp-group/library</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="true">medvik.cz</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">National Medical Library, Prague - Medvik</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="cs">Národní lékařská knihovna - Medvik</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity Provider for users of Medvik system.</mdui:Description>
+          <mdui:Description xml:lang="cs">Identity Provider pro uživatele systému Medvik.</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.nlk.cz/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="cs">http://www.nlk.cz/</mdui:InformationURL>
+          <mdui:Logo height="75" width="108">https://www.medvik.cz/images/medvik-logo.png</mdui:Logo>
+        </mdui:UIInfo>
+        <eduidmd:RepublishRequest xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0">
+          <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
+        </eduidmd:RepublishRequest>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+
+MIIDPDCCAiSgAwIBAgIVALhNUzUSgsNOgW9LDvjMF1eO3MVfMA0GCSqGSIb3DQEB
+BQUAMB8xHTAbBgNVBAMMFHNoaWJib2xldGgubWVkdmlrLmN6MB4XDTE0MTAwNjEy
+NDAyMFoXDTM0MTAwNjEyNDAyMFowHzEdMBsGA1UEAwwUc2hpYmJvbGV0aC5tZWR2
+aWsuY3owggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDbFpOdyzUFOL+l
+OfkXH3elU8ELBA4HPJxhmnbC0HLcOhtG7F1cpeeHn1qEW8VmTpdrjcXc1+cy7tBo
+cJOtkSYxWPU8SPzSnSXEoxpvaFfLjmQScJ4BnbTj03pItD+ZxBodSwS1MCI0LjJw
+Al1KI2fnV3hCsJ11PW35bhRqyl0zdTrne2Y7s5eQ6lnYOVcxNQBwY5Pz72TuNrvz
+PjyCD9v1iHozseTc+tkhl1EgWtr7NX9uvYqhh0IiowvjWQzhJbKH710mrhtyazYV
+1QsjU/M28FJJh8OY8zwaCN6xKTc+JONGdFMonK4yjrbzZUw8OUfktl4rAMyLtbA2
+WuLV9fRRAgMBAAGjbzBtMB0GA1UdDgQWBBSIZSVLqhf/EKsXe5yziqT5xbGAijBM
+BgNVHREERTBDghRzaGliYm9sZXRoLm1lZHZpay5jeoYraHR0cHM6Ly9zaGliYm9s
+ZXRoLm1lZHZpay5jei9pZHAvc2hpYmJvbGV0aDANBgkqhkiG9w0BAQUFAAOCAQEA
+aliUWOCr/uziYYSeLmJbKRcNwQVyYhGZOVpaar2LpgVo1NfS7+MRjZCEWg+oXPKF
+9ixygW/vaxBeXtXR5/FMgBkzP4NmlRMUVYL8paMqqUqBvJ7Do0yrGOBKf/enm0iJ
+FPk29vsRDXPZtqchryyFgQcubaItqzMjV1tDGNeKKcWXk7DtdXWYX8zYw/9ANWjz
+Avi9oeMfp7Q/w76zUkcHl5PiV8Mr7cxF4InWUWhR/+jbDKL0B22R0je0Jw9QUD2d
+IBOVCjh6ZnQwMUpNxRVeU1zEvy1CHYLyc/jhFnxxmgS0k24qlyQ6BuB76t++E1a5
+0WzVDPkawhmccTbRUyqTcQ==
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.medvik.cz/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.medvik.cz/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.medvik.cz/idp/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.medvik.cz/idp/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.medvik.cz/idp/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.medvik.cz/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.medvik.cz/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.medvik.cz/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.medvik.cz/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="true">medvik.cz</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+
+MIIDPDCCAiSgAwIBAgIVALhNUzUSgsNOgW9LDvjMF1eO3MVfMA0GCSqGSIb3DQEB
+BQUAMB8xHTAbBgNVBAMMFHNoaWJib2xldGgubWVkdmlrLmN6MB4XDTE0MTAwNjEy
+NDAyMFoXDTM0MTAwNjEyNDAyMFowHzEdMBsGA1UEAwwUc2hpYmJvbGV0aC5tZWR2
+aWsuY3owggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDbFpOdyzUFOL+l
+OfkXH3elU8ELBA4HPJxhmnbC0HLcOhtG7F1cpeeHn1qEW8VmTpdrjcXc1+cy7tBo
+cJOtkSYxWPU8SPzSnSXEoxpvaFfLjmQScJ4BnbTj03pItD+ZxBodSwS1MCI0LjJw
+Al1KI2fnV3hCsJ11PW35bhRqyl0zdTrne2Y7s5eQ6lnYOVcxNQBwY5Pz72TuNrvz
+PjyCD9v1iHozseTc+tkhl1EgWtr7NX9uvYqhh0IiowvjWQzhJbKH710mrhtyazYV
+1QsjU/M28FJJh8OY8zwaCN6xKTc+JONGdFMonK4yjrbzZUw8OUfktl4rAMyLtbA2
+WuLV9fRRAgMBAAGjbzBtMB0GA1UdDgQWBBSIZSVLqhf/EKsXe5yziqT5xbGAijBM
+BgNVHREERTBDghRzaGliYm9sZXRoLm1lZHZpay5jeoYraHR0cHM6Ly9zaGliYm9s
+ZXRoLm1lZHZpay5jei9pZHAvc2hpYmJvbGV0aDANBgkqhkiG9w0BAQUFAAOCAQEA
+aliUWOCr/uziYYSeLmJbKRcNwQVyYhGZOVpaar2LpgVo1NfS7+MRjZCEWg+oXPKF
+9ixygW/vaxBeXtXR5/FMgBkzP4NmlRMUVYL8paMqqUqBvJ7Do0yrGOBKf/enm0iJ
+FPk29vsRDXPZtqchryyFgQcubaItqzMjV1tDGNeKKcWXk7DtdXWYX8zYw/9ANWjz
+Avi9oeMfp7Q/w76zUkcHl5PiV8Mr7cxF4InWUWhR/+jbDKL0B22R0je0Jw9QUD2d
+IBOVCjh6ZnQwMUpNxRVeU1zEvy1CHYLyc/jhFnxxmgS0k24qlyQ6BuB76t++E1a5
+0WzVDPkawhmccTbRUyqTcQ==
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.medvik.cz/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.medvik.cz/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">National Medical Library</md:OrganizationName>
+      <md:OrganizationName xml:lang="cs">Národní lékařská knihovna</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">National Medical Library, Prague - Medvik</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="cs">Národní lékařská knihovna - Medvik</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.nlk.cz/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="cs">http://www.nlk.cz/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Filip</md:GivenName>
+      <md:SurName>Kriz</md:SurName>
+      <md:EmailAddress>medvik@nlk.cz</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

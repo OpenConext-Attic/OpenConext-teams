@@ -1,21 +1,21 @@
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.meduniwien.ac.at/idp/shibboleth">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.meduniwien.ac.at/idp/shibboleth">
     <md:Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://eduid.at" registrationInstant="2008-09-03T14:46:35Z">
+      <mdrpi:RegistrationInfo registrationAuthority="http://eduid.at" registrationInstant="2008-09-03T14:46:35Z">
         <mdrpi:RegistrationPolicy xml:lang="en">https://eduid.at/policy/mdrps-20140606</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
     </md:Extensions>
     <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
       <md:Extensions>
-        <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">meduniwien.ac.at</shibmd:Scope>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <shibmd:Scope regexp="false">meduniwien.ac.at</shibmd:Scope>
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="en">Medical University of Vienna</mdui:DisplayName>
           <mdui:DisplayName xml:lang="de">Medizinische Universität Wien</mdui:DisplayName>
-          <mdui:Logo height="82" width="172">https://idp.meduniwien.ac.at/idp/images/meduni_logo.gif</mdui:Logo>
-          <mdui:Logo height="16" width="16">https://idp.meduniwien.ac.at/idp/favicon.ico</mdui:Logo>
+          <mdui:Logo width="172" height="82">https://idp.meduniwien.ac.at/idp/images/meduni_logo.gif</mdui:Logo>
+          <mdui:Logo width="16" height="16">https://idp.meduniwien.ac.at/idp/favicon.ico</mdui:Logo>
         </mdui:UIInfo>
       </md:Extensions>
       <md:KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyInfo>
           <ds:X509Data>
             <ds:X509Certificate>
 MIIDOzCCAiOgAwIBAgIULLvePur8kLbXZX40PB9OXf5KCxwwDQYJKoZIhvcNAQEF
@@ -52,10 +52,10 @@ OKQ7j1Bqsv6B43xMHff+
     </md:IDPSSODescriptor>
     <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
       <md:Extensions>
-        <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">meduniwien.ac.at</shibmd:Scope>
+        <shibmd:Scope regexp="false">meduniwien.ac.at</shibmd:Scope>
       </md:Extensions>
       <md:KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyInfo>
           <ds:X509Data>
             <ds:X509Certificate>
 MIIDOzCCAiOgAwIBAgIULLvePur8kLbXZX40PB9OXf5KCxwwDQYJKoZIhvcNAQEF
@@ -92,7 +92,7 @@ OKQ7j1Bqsv6B43xMHff+
       <md:OrganizationDisplayName xml:lang="de">Medizinische Universität Wien</md:OrganizationDisplayName>
       <md:OrganizationDisplayName xml:lang="en">Medical University of Vienna</md:OrganizationDisplayName>
       <md:OrganizationURL xml:lang="de">http://www.meduniwien.ac.at/</md:OrganizationURL>
-      <md:OrganizationURL xml:lang="en">http://www.meduniwien.ac.at/homepage/en/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.meduniwien.ac.at/homepage/1/homepage/</md:OrganizationURL>
     </md:Organization>
     <md:ContactPerson contactType="technical">
       <md:GivenName>Herbert</md:GivenName>

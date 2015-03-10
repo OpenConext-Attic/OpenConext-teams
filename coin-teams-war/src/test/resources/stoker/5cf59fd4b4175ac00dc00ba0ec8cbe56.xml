@@ -1,0 +1,93 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://rhc-fed.reaseheath.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">reaseheath.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDSzCCAjOgAwIBAgIUNxasJULKbpMOpbItLjinO2pL3PAwDQYJKoZIhvcNAQEF
+						BQAwIzEhMB8GA1UEAxMYcmhjLWZlZC5yZWFzZWhlYXRoLmFjLnVrMB4XDTEwMDQy
+						ODEzMDIxNFoXDTMwMDQyODEzMDIxNFowIzEhMB8GA1UEAxMYcmhjLWZlZC5yZWFz
+						ZWhlYXRoLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhA/C
+						TAyqXBbOxhdvH+rHx6/ndNIzjsXHkc9RNukt1Wh8AYmZemrlWKej49hkbEe7xmPy
+						FIv2O3mGcy7g6kk7nq2nxwhbTuQrphwrOzlZczUJ/tnGQ0wmptBxxPc0XNqYY91w
+						2u4x9sPwqr+6c++trui5yY19aTMsVFT8AvQUuiduRMk+AzbO2NRhPrZx/0u56S/y
+						ZDffhiOsiBvs4mDINtkpLg1y3XwaRIum/90MXmaM0dmSHiK/qF55IlgSjjI/HbTo
+						k7xtDx55GoafEsgIDy5QmXmg4YpIg8oGXhL5whv2T5t/KFJCYRMDB1GoRzozDfvF
+						nw96LUIj/sj8Z+nBCQIDAQABo3cwdTBUBgNVHREETTBLghhyaGMtZmVkLnJlYXNl
+						aGVhdGguYWMudWuGL2h0dHBzOi8vcmhjLWZlZC5yZWFzZWhlYXRoLmFjLnVrL2lk
+						cC9zaGliYm9sZXRoMB0GA1UdDgQWBBT05rbZBV59vbt0pafOJPWkJYXOrjANBgkq
+						hkiG9w0BAQUFAAOCAQEAHQ9b3tuhB7XlnMA9Vr3o+bVHH8T9Q7bHKLhU33E+NfFv
+						tAxyHVWxRgr7bB9Djt3JIF4CxBrnMF1PKY07L/ux6cEE1KyMlO+vTtB1E7RNGzs0
+						gpML9g1Sgqc2WGzp7dUDmmthcqd4/oFQvkFbAIOCzK1fX7IVm6B5S0MVsi6D3C30
+						QFEbkeCExCPO53+3f4bvb+ghJLKr1Tn/ZnGTpxfRk9UXxlKdnmHgexUh9a2Zsgmu
+						sGCRQL/6FsO6cheIiAbrbecqriG0JKqdoOh6IZmmAmaqMhgoXpncCakdO4A8QU8t
+						S99oJ8PNcigPCSv5zllL+TqtWkASNW/9KxXCnZGDbA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://rhc-fed.reaseheath.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://rhc-fed.reaseheath.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://rhc-fed.reaseheath.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://rhc-fed.reaseheath.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://rhc-fed.reaseheath.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://rhc-fed.reaseheath.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">reaseheath.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDSzCCAjOgAwIBAgIUNxasJULKbpMOpbItLjinO2pL3PAwDQYJKoZIhvcNAQEF
+						BQAwIzEhMB8GA1UEAxMYcmhjLWZlZC5yZWFzZWhlYXRoLmFjLnVrMB4XDTEwMDQy
+						ODEzMDIxNFoXDTMwMDQyODEzMDIxNFowIzEhMB8GA1UEAxMYcmhjLWZlZC5yZWFz
+						ZWhlYXRoLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhA/C
+						TAyqXBbOxhdvH+rHx6/ndNIzjsXHkc9RNukt1Wh8AYmZemrlWKej49hkbEe7xmPy
+						FIv2O3mGcy7g6kk7nq2nxwhbTuQrphwrOzlZczUJ/tnGQ0wmptBxxPc0XNqYY91w
+						2u4x9sPwqr+6c++trui5yY19aTMsVFT8AvQUuiduRMk+AzbO2NRhPrZx/0u56S/y
+						ZDffhiOsiBvs4mDINtkpLg1y3XwaRIum/90MXmaM0dmSHiK/qF55IlgSjjI/HbTo
+						k7xtDx55GoafEsgIDy5QmXmg4YpIg8oGXhL5whv2T5t/KFJCYRMDB1GoRzozDfvF
+						nw96LUIj/sj8Z+nBCQIDAQABo3cwdTBUBgNVHREETTBLghhyaGMtZmVkLnJlYXNl
+						aGVhdGguYWMudWuGL2h0dHBzOi8vcmhjLWZlZC5yZWFzZWhlYXRoLmFjLnVrL2lk
+						cC9zaGliYm9sZXRoMB0GA1UdDgQWBBT05rbZBV59vbt0pafOJPWkJYXOrjANBgkq
+						hkiG9w0BAQUFAAOCAQEAHQ9b3tuhB7XlnMA9Vr3o+bVHH8T9Q7bHKLhU33E+NfFv
+						tAxyHVWxRgr7bB9Djt3JIF4CxBrnMF1PKY07L/ux6cEE1KyMlO+vTtB1E7RNGzs0
+						gpML9g1Sgqc2WGzp7dUDmmthcqd4/oFQvkFbAIOCzK1fX7IVm6B5S0MVsi6D3C30
+						QFEbkeCExCPO53+3f4bvb+ghJLKr1Tn/ZnGTpxfRk9UXxlKdnmHgexUh9a2Zsgmu
+						sGCRQL/6FsO6cheIiAbrbecqriG0JKqdoOh6IZmmAmaqMhgoXpncCakdO4A8QU8t
+						S99oJ8PNcigPCSv5zllL+TqtWkASNW/9KxXCnZGDbA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://rhc-fed.reaseheath.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://rhc-fed.reaseheath.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Reaseheath College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Reaseheath College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.reaseheath.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>IT Services</md:GivenName>
+      <md:EmailAddress>mailto:itservices@reaseheath.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Oliver</md:GivenName>
+      <md:SurName>Wardell</md:SurName>
+      <md:EmailAddress>mailto:oliverw@reaseheath.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

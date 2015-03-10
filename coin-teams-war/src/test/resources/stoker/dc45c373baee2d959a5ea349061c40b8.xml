@@ -1,32 +1,27 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" ID="IDEM-EDUGAIN00039" entityID="https://idp.unipg.it/idp/shibboleth">
-        
-        <Extensions>
-            <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.idem.garr.it/" registrationInstant="2014-09-09T12:00:00Z">
-                <mdrpi:RegistrationPolicy xml:lang="en">https://www.idem.garr.it/idem-metadata-registration-practice-statement</mdrpi:RegistrationPolicy>
-            </mdrpi:RegistrationInfo>
-        </Extensions>
-        
-        
-        <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-            
-            <Extensions>
-                <mdui:UIInfo>
-                    <mdui:DisplayName xml:lang="en">University of Perugia</mdui:DisplayName>
-                    <mdui:DisplayName xml:lang="it">Università degli studi di Perugia</mdui:DisplayName>
-                    <mdui:Description xml:lang="en">Identity provider for the University of Perugia</mdui:Description>
-                    <mdui:Description xml:lang="it">Identity provider per gli utenti dell'Università degli studi di Perugia</mdui:Description>
-                    <mdui:InformationURL xml:lang="en">http://www.unipg.it/en/idem-federation</mdui:InformationURL>
-                    <mdui:InformationURL xml:lang="it">http://www.unipg.it/il-portale/servizi-on-line/federazione-idem</mdui:InformationURL>
-                    <mdui:PrivacyStatementURL xml:lang="en">http://www.unipg.it/en/idem-federation/idem-privacy</mdui:PrivacyStatementURL>
-                    <mdui:PrivacyStatementURL xml:lang="it">http://www.unipg.it/il-portale/servizi-on-line/federazione-idem/informativa-idem</mdui:PrivacyStatementURL>
-                </mdui:UIInfo>
-                <shibmd:Scope regexp="false">unipg.it</shibmd:Scope>
-            </Extensions>
-            
-            <KeyDescriptor>
-                <ds:KeyInfo>
-                    <ds:X509Data>
-                        <ds:X509Certificate>
+<md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.unipg.it/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.idem.garr.it/" registrationInstant="2014-09-09T12:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.idem.garr.it/idem-metadata-registration-practice-statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University of Perugia</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="it">Università degli studi di Perugia</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity provider for the University of Perugia</mdui:Description>
+          <mdui:Description xml:lang="it">Identity provider per gli utenti dell'Università degli studi di Perugia</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.unipg.it/en/idem-federation</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="it">http://www.unipg.it/il-portale/servizi-on-line/federazione-idem</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">http://www.unipg.it/en/idem-federation/idem-privacy</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="it">http://www.unipg.it/il-portale/servizi-on-line/federazione-idem/informativa-idem</mdui:PrivacyStatementURL>
+        </mdui:UIInfo>
+        <shibmd:Scope regexp="false">unipg.it</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIDGzCCAgOgAwIBAgIUbtCA5KDFFzAdtSTGPwrF8RKSWf8wDQYJKoZIhvcNAQEF
 BQAwFzEVMBMGA1UEAxMMaWRwLnVuaXBnLml0MB4XDTEzMTEyOTEwNDgyN1oXDTMz
 MTEyOTEwNDgyN1owFzEVMBMGA1UEAxMMaWRwLnVuaXBnLml0MIIBIjANBgkqhkiG
@@ -45,42 +40,29 @@ i+4ZUJg7ph20zCfmZuqz9U7rd2Cextu267R6HGTb7j44QyqyR/HLmGcisZuA8F14
 NESI9h/L+O7VkKo6jKvBZhUuOxNrc/NvUToO5BaKJjtdP0kHDKKgKHpuE5FHSeGr
 a3btFASB68LjOF7z6SBM9h7F+NMDYLzCDuf6qHqMkg==
 </ds:X509Certificate>
-                    </ds:X509Data>
-                </ds:KeyInfo>
-            </KeyDescriptor>
-            
-            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.unipg.it:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-            
-            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.unipg.it:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-            
-            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.unipg.it/idp/profile/SAML2/Redirect/SLO"/>
-            
-            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.unipg.it/idp/profile/SAML2/POST/SLO"/>
-            
-            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.unipg.it:8443/idp/profile/SAML2/SOAP/SLO"/>
-            
-            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-            
-            <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.unipg.it/idp/profile/Shibboleth/SSO"/>
-            
-            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.unipg.it/idp/profile/SAML2/POST/SSO"/>
-            
-            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.unipg.it/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-            
-            <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.unipg.it/idp/profile/SAML2/Redirect/SSO"/>
-        </IDPSSODescriptor>
-        
-        <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-            
-            <Extensions>
-                <shibmd:Scope regexp="false">unipg.it</shibmd:Scope>
-            </Extensions>
-            
-            <KeyDescriptor>
-                <ds:KeyInfo>
-                    <ds:X509Data>
-                        <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.unipg.it:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.unipg.it:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.unipg.it/idp/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.unipg.it/idp/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.unipg.it:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.unipg.it/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.unipg.it/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.unipg.it/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.unipg.it/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">unipg.it</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIDGzCCAgOgAwIBAgIUbtCA5KDFFzAdtSTGPwrF8RKSWf8wDQYJKoZIhvcNAQEF
 BQAwFzEVMBMGA1UEAxMMaWRwLnVuaXBnLml0MB4XDTEzMTEyOTEwNDgyN1oXDTMz
 MTEyOTEwNDgyN1owFzEVMBMGA1UEAxMMaWRwLnVuaXBnLml0MIIBIjANBgkqhkiG
@@ -99,29 +81,24 @@ i+4ZUJg7ph20zCfmZuqz9U7rd2Cextu267R6HGTb7j44QyqyR/HLmGcisZuA8F14
 NESI9h/L+O7VkKo6jKvBZhUuOxNrc/NvUToO5BaKJjtdP0kHDKKgKHpuE5FHSeGr
 a3btFASB68LjOF7z6SBM9h7F+NMDYLzCDuf6qHqMkg==
 </ds:X509Certificate>
-                    </ds:X509Data>
-                </ds:KeyInfo>
-            </KeyDescriptor>
-            
-            <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.unipg.it:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-            
-            <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.unipg.it:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-            
-            <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-            <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-            
-        </AttributeAuthorityDescriptor>
-        <Organization>
-            <OrganizationName xml:lang="it">Università degli studi di Perugia</OrganizationName>
-            <OrganizationName xml:lang="en">University of Perugia</OrganizationName>
-            <OrganizationDisplayName xml:lang="it">Università degli studi di Perugia</OrganizationDisplayName>
-            <OrganizationDisplayName xml:lang="en">University of Perugia</OrganizationDisplayName>
-            <OrganizationURL xml:lang="it">http://www.unipg.it</OrganizationURL>
-            <OrganizationURL xml:lang="en">http://www.unipg.it/en</OrganizationURL>
-        </Organization>
-        <ContactPerson contactType="technical">
-            <GivenName>Supporto IDEM</GivenName>
-            <EmailAddress>servizio.idem@unipg.it</EmailAddress>
-        </ContactPerson>
-        
-    </EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.unipg.it:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.unipg.it:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="it">Università degli studi di Perugia</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">University of Perugia</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="it">Università degli studi di Perugia</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">University of Perugia</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="it">http://www.unipg.it</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.unipg.it/en</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Supporto IDEM</md:GivenName>
+      <md:EmailAddress>mailto:servizio.idem@unipg.it</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

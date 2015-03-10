@@ -1,0 +1,88 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://rt.idp.stanmore.ac.uk/oala/metadata">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-05-10T11:44:41Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">stanmore.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDlzCCAn+gAwIBAgIJAMP0vztMFrfnMA0GCSqGSIb3DQEBBQUAMDsxGTAXBgNV
+						BAoTEFN0YW5tb3JlIENvbGxlZ2UxHjAcBgNVBAMTFXJ0LmlkcC5zdGFubW9yZS5h
+						Yy51azAeFw0xMjA0MjUxMjI3NTdaFw0yMjA0MjMxMjI3NTdaMDsxGTAXBgNVBAoT
+						EFN0YW5tb3JlIENvbGxlZ2UxHjAcBgNVBAMTFXJ0LmlkcC5zdGFubW9yZS5hYy51
+						azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKgNapJ35yJfZAcg8tDf
+						k5XIX3I9HHZbMdpTBpnjUgI72a/2EegOXSoedcav1MAJ/oxMshTr3qyNcjbnhkuB
+						t6dQx+V9Yk8M2M5UXtcnfJ/84G3YR8tfNz1DpeT3o++bTCHe7igBq9fWM75rCxWR
+						PvoXrkZOqt1VwxJ2tQVfsWkqzpy18iTkLoTqMmlZczW+XePCC7FBXctLHy2sk73F
+						06FjfMXtxtCANUdMZdhU7yMyObUbOiAlC3mVK8jy/TCyabudC2XW0iOJKALkn0i6
+						l7r5ObCJxfD2/H4FNGj+Sz0LVkDEPJX3drnh9dfixm18wCWEt7NpA7P6ENv0BecN
+						PQ8CAwEAAaOBnTCBmjAdBgNVHQ4EFgQUIxeDTguJBveW8Segf1LD1m87ZQAwawYD
+						VR0jBGQwYoAUIxeDTguJBveW8Segf1LD1m87ZQChP6Q9MDsxGTAXBgNVBAoTEFN0
+						YW5tb3JlIENvbGxlZ2UxHjAcBgNVBAMTFXJ0LmlkcC5zdGFubW9yZS5hYy51a4IJ
+						AMP0vztMFrfnMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBAIEqZFKH
+						jobqGhqVEeNemrApDov4HAvGk+J9jK5rp4BoSaJrROTKDvS0Yqad37NYEA+hoGEF
+						kAX+HoKA2pY5kc70xSKWnpgLJDkI+0GkgktVjloC54sc3Y2dYzkulRnb7YqVguom
+						dEEBeVT1GP3STiQMKzVwMMewhZY3NTYyoXdFegBYMHtTuCcYfjSZo/tkooxqM+zT
+						3RgS661ZJA6iGnyWqBy+3LjIFXqzmd4pdVdw2a5Nrtz0J6PYYaskGjKz2qFVV2KG
+						nMS88T16ayPSG4iqFLdwRhwhzZH6iRjacESKpesJaOeqA0eEOxCHwfNzl9xfhC1Z
+						FNY6LW3zFDsFF5U=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDlzCCAn+gAwIBAgIJAMP0vztMFrfnMA0GCSqGSIb3DQEBBQUAMDsxGTAXBgNV
+						BAoTEFN0YW5tb3JlIENvbGxlZ2UxHjAcBgNVBAMTFXJ0LmlkcC5zdGFubW9yZS5h
+						Yy51azAeFw0xMjA0MjUxMjI3NTdaFw0yMjA0MjMxMjI3NTdaMDsxGTAXBgNVBAoT
+						EFN0YW5tb3JlIENvbGxlZ2UxHjAcBgNVBAMTFXJ0LmlkcC5zdGFubW9yZS5hYy51
+						azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKgNapJ35yJfZAcg8tDf
+						k5XIX3I9HHZbMdpTBpnjUgI72a/2EegOXSoedcav1MAJ/oxMshTr3qyNcjbnhkuB
+						t6dQx+V9Yk8M2M5UXtcnfJ/84G3YR8tfNz1DpeT3o++bTCHe7igBq9fWM75rCxWR
+						PvoXrkZOqt1VwxJ2tQVfsWkqzpy18iTkLoTqMmlZczW+XePCC7FBXctLHy2sk73F
+						06FjfMXtxtCANUdMZdhU7yMyObUbOiAlC3mVK8jy/TCyabudC2XW0iOJKALkn0i6
+						l7r5ObCJxfD2/H4FNGj+Sz0LVkDEPJX3drnh9dfixm18wCWEt7NpA7P6ENv0BecN
+						PQ8CAwEAAaOBnTCBmjAdBgNVHQ4EFgQUIxeDTguJBveW8Segf1LD1m87ZQAwawYD
+						VR0jBGQwYoAUIxeDTguJBveW8Segf1LD1m87ZQChP6Q9MDsxGTAXBgNVBAoTEFN0
+						YW5tb3JlIENvbGxlZ2UxHjAcBgNVBAMTFXJ0LmlkcC5zdGFubW9yZS5hYy51a4IJ
+						AMP0vztMFrfnMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBAIEqZFKH
+						jobqGhqVEeNemrApDov4HAvGk+J9jK5rp4BoSaJrROTKDvS0Yqad37NYEA+hoGEF
+						kAX+HoKA2pY5kc70xSKWnpgLJDkI+0GkgktVjloC54sc3Y2dYzkulRnb7YqVguom
+						dEEBeVT1GP3STiQMKzVwMMewhZY3NTYyoXdFegBYMHtTuCcYfjSZo/tkooxqM+zT
+						3RgS661ZJA6iGnyWqBy+3LjIFXqzmd4pdVdw2a5Nrtz0J6PYYaskGjKz2qFVV2KG
+						nMS88T16ayPSG4iqFLdwRhwhzZH6iRjacESKpesJaOeqA0eEOxCHwfNzl9xfhC1Z
+						FNY6LW3zFDsFF5U=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://rt.idp.stanmore.ac.uk/oala/sso"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://rt.idp.stanmore.ac.uk/oala/sso"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Stanmore College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Stanmore College TEST</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.stanmore.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Ashok</md:GivenName>
+      <md:SurName>Jain</md:SurName>
+      <md:EmailAddress>mailto:a.jain@stanmore.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Himesh</md:GivenName>
+      <md:SurName>Gohil</md:SurName>
+      <md:EmailAddress>mailto:support@stanmore.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

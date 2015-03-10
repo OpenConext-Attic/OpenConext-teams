@@ -1,0 +1,67 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibtest.copac.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEqzCCA5OgAwIBAgIQNaQKyn5I3KvJMbfFiT6fKDANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEzMDExMDAwMDAwMFoXDTE2MDExMDIzNTk1OVoweDELMAkGA1UE
+						BhMCR0IxEzARBgNVBAgTClNvbWUtU3RhdGUxJTAjBgNVBAoTHFRoZSBVbml2ZXJz
+						aXR5IG9mIE1hbmNoZXN0ZXIxDjAMBgNVBAsTBU1pbWFzMR0wGwYDVQQDExRzaGli
+						dGVzdC5jb3BhYy5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+						AOB8APPzklLfr8onf7jJ5QWXg9qSwyv4OD7MI1CKlhTWb823O3iPX75XIjqZjFO9
+						EAZTxUwOBIxpmIWKt54HFt6jyuRAUVXxb9itICpOvI4lPqZuL9SiSOieT4p3lDCB
+						dXnoI4+JP6HUwc6EKHLhyRW0Q3bHjhSvxuArMNBRFSt6Ub8/IsytCdjai9rekQvH
+						+w2Rxv4c3TnRXemESfytPpyPVeBnBP/A5M73+oQ4ZOBrP7kr/6jDbaAWBRPzY4vV
+						TZInHKt3nhD8lD0avETHCVKPrXSHl7/NkGCeFQjb35Wrh2yMCb4X4C21mbbSc7Co
+						jxngvxKjZG3i29oCjOmDhAUCAwEAAaOCAXEwggFtMB8GA1UdIwQYMBaAFAy9k2gM
+						896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBRs6qv/R9HUiqMWPiSJnw4MsKEt2TAO
+						BgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcD
+						AQYIKwYBBQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgIw
+						OgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJF
+						TkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8v
+						Y3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYa
+						aHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwHwYDVR0RBBgwFoIUc2hpYnRlc3Qu
+						Y29wYWMuYWMudWswDQYJKoZIhvcNAQEFBQADggEBADK9aNSziNKbrsd/FCh1Cpiz
+						R8rgs1dV1XVT/4ujJXJB1D9reS7GFdeBAQfmzyr91p18JE91biGPCJ6lepimmwxZ
+						qNSvAWXN9XzVBmEzsx//9bYfG6D6NkbAcwiRq55IcqU46dhEV6WDGB8oMroYn9HW
+						cSbQ9aiheN+O6a/SRBZypTJGeNiQdCa66OpGjs73nGe4mvb36CPr1fzWbGf3gWG5
+						HgPzIhypbVI4JpBORlHqKDsC8MvgxIkyUhWwNyLBlC6fijceMN3rmHz98CefeG0a
+						S5e2E/dEHa+2m10+7mwUvLMiPVuCWlHXFKnowQb7f9R/riTtQWAi/MFqib3RS2Y=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibtest.copac.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibtest.copac.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibtest.copac.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibtest.copac.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibtest.copac.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibtest.copac.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibtest.copac.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibtest.copac.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibtest.copac.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibtest.copac.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibtest.copac.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://shibtest.copac.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shibtest.copac.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://shibtest.copac.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">The University of Manchester</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">MIMAS Copac Test</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.mimas.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Copac Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:copac@mimas.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mimas Technical Support</md:GivenName>
+      <md:EmailAddress>mailto:mimas-shib-tech@listserv.manchester.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

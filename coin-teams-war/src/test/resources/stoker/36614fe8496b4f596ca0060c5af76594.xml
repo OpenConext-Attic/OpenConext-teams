@@ -1,222 +1,217 @@
-<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://wayf.wayf.dk">
-<md:Extensions>
-<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.wayf.dk">
-<mdrpi:RegistrationPolicy xml:lang="en">http://wayf.dk/images/stories/WAYF-filer/metadataregistrationpracticestatementwayf.pdf</mdrpi:RegistrationPolicy>
-</mdrpi:RegistrationInfo>
-</md:Extensions>
-  <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://wayf.wayf.dk">
     <md:Extensions>
-      <shibmd:Scope regexp="false">kb.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">hi.is</shibmd:Scope>
-      <shibmd:Scope regexp="false">ruc.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">tietgen.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">orphanage.wayf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">ucl.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">aau.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">viauc.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">ucc.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">drlund-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">iha.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">sdu.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">itu.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">frberg-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">ags.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">nordfyns-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">midtfyns-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">middelfart-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">opengym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">maribo-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">mulerne-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">nakskov-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">norreg.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">nyborg-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">ribekatedralskole.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">sctknud-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">svendborg-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">tgy.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">tornbjerg-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">vestfyns-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">vucfyn.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">sosufyn.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">sopu.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">sosufh.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">faaborg-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">og.itsf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">aa.itsf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">aip.itsf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">ak.itsf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">akat.itsf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">asg.itsf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">eg.itsf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">gg.itsf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">lg.itsf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">mg.itsf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">ra.itsf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">rs.itsf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">sg.itsf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">sgy.itsf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">sosur.itsf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">sska.itsf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">sss.itsf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">stv.itsf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">udc.itsf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">vd.itsf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">vhg.itsf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">via.itsf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">its.itsf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">sikker-adgang.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">regionsjaelland.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">ibc.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">natmus.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">rungsted-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">roskilde-gym.gymund.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">greve-hym.gymund.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">himmelev-gymnasium.gymund.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">kggym.gymund.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">rks-gym.gymund.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">solgym.gymund.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">sst.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">ucsj.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">sosuc.cphwest.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">cphwest.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">dab.minibib.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">akf.minibib.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">bst.minibib.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">dmi.minibib.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">ism.minibib.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">ens.minibib.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">fbo.minibib.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">fob.minibib.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">fsv.minibib.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">kuc.minibib.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">kul.minibib.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">ami.minibib.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">sfi.minibib.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">ank.minibib.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">vfc.minibib.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">stm.minibib.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">vej.minibib.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">dsl.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">sosu-syd.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">videndjurs.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">munkensdam.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">odensekatedralskole.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">nghf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">cg-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">hs-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">kolding-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">zbc.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">frsgym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">cbs.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">sosuesbjerg.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">uniit.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">dskd.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">ku.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">kristne-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">eucsyd.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">ikgym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">dsn.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">naestved-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">learnmark.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">aabc.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">vordingborg-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">aalborgstudenterkursus.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">dmjx.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">hasseris-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">apoteket.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">erhvervsakademiaarhus.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">statsskolen.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">ucsyd.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">sosusj.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">kadk.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">dtu.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">ucn.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">gribskovgymnasium.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">gefion-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">frhavn-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">sde.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">eal.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">eucnvs.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">hrs.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">vuc-vs.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">sceu.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">nykat-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">vgtgym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">odense.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">dalumls.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">fredericia-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">ghg.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">au.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">koldcollege.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">knord.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">bggym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">vibkat.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">vghf.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">eucnord.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">phmetropol.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">horsensgym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">eucvest.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">handelsskolen.com</shibmd:Scope>
-      <shibmd:Scope regexp="false">cphbusiness.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">kea.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">statsbiblioteket.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">itcn.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">sosunord.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">eadania.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">mf-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">techcollege.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">tradium.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">dansidp.stads.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">vucnordjylland.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">umit.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">bcsyd.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">campusvejle.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">rosborg-gym.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">fhavnhs.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">adm.aau.dk@aau.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">aub.aau.dk@aau.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">civil.aau.dk@aau.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">create.aau.dk@aau.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">es.aau.dk@aau.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">hst.aau.dk@aau.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">id.aau.dk@aau.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">its.aau.dk@aau.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">learning.aau.dk@aau.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">m-tech.aau.dk@aau.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">plan.aau.dk@aau.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">sbi.aau.dk@aau.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">staff.aau.dk@aau.dk</shibmd:Scope>
-      <shibmd:Scope regexp="false">student.aau.dk@aau.dk</shibmd:Scope>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.wayf.dk">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://wayf.dk/images/stories/WAYF-filer/metadataregistrationpracticestatementwayf.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
     </md:Extensions>
-    <md:KeyDescriptor use="signing">
-      <ds:KeyInfo>
-        <ds:X509Data>
-          <ds:X509Certificate>MIIE3TCCA8WgAwIBAgISESFgDbqp6YXwPvILGKAnrUDtMA0GCSqGSIb3DQEBBQUAMFcxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMS0wKwYDVQQDEyRHbG9iYWxTaWduIERvbWFpbiBWYWxpZGF0aW9uIENBIC0gRzIwHhcNMTIwMTA0MDkzNTU0WhcNMTcwMTAzMDkzNTU0WjBHMQswCQYDVQQGEwJESzEhMB8GA1UECxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRUwEwYDVQQDEwx3YXlmLndheWYuZGswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDAosqmcujXhA49vHQLLTKZxFTz3guMRnwHvUxz5vvuMPYVTGl+fXPdq9ULhkNc1jlCr4+pFOwLdy9zkuAn8dK7grQEaU58K0uF4MTyKixFnPvU3806roL8PnrmUQ2t8y76U9jzsk/B3Ggi5pVqhOktHpZyzz1yBpE14R+/DPzHrpKIFJY4N2uzoBrcEAsJY6aTUfIaB/NEpe4BY8sDZ3CTuU3tWUfhdlZESYsmngdnHD6k0HUKti9F43UM6JyN6fz7T70JlHAcTHzYKhjtPLcWG8lWFqNtry7fCYC5SlKn4zmyifoASxRoH3EuxtE/Fmmt+M6I83kg3H0R1b8PHimfAgMBAAGjggGxMIIBrTAOBgNVHQ8BAf8EBAMCBaAwTAYDVR0gBEUwQzBBBgkrBgEEAaAyAQowNDAyBggrBgEFBQcCARYmaHR0cHM6Ly93d3cuZ2xvYmFsc2lnbi5jb20vcmVwb3NpdG9yeS8wFwYDVR0RBBAwDoIMd2F5Zi53YXlmLmRrMAkGA1UdEwQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMD8GA1UdHwQ4MDYwNKAyoDCGLmh0dHA6Ly9jcmwuZ2xvYmFsc2lnbi5jb20vZ3MvZ3Nkb21haW52YWxnMi5jcmwwgYgGCCsGAQUFBwEBBHwwejBBBggrBgEFBQcwAoY1aHR0cDovL3NlY3VyZS5nbG9iYWxzaWduLmNvbS9jYWNlcnQvZ3Nkb21haW52YWxnMi5jcnQwNQYIKwYBBQUHMAGGKWh0dHA6Ly9vY3NwMi5nbG9iYWxzaWduLmNvbS9nc2RvbWFpbnZhbGcyMB0GA1UdDgQWBBS44PHFNUdj1NTiqkjShHfvW50SIzAfBgNVHSMEGDAWgBSWrfqwW7mDZCp2whyKadpC3P79KDANBgkqhkiG9w0BAQUFAAOCAQEAjqwtcRjT+gYKMhgwpJ4MNpL6W80efrcMDdWnZUJzN081ht0dcQqvdAVjkWylEQbbS1LXc9OZecRJGR1vxBzS7bq0lRauPuYodzOsDzP4cEW/W+PvWIEIpm5yIBZ31P7VnRpaRwmeff8OlhDOvM4+wdovRvIpLgyeyW05R2i4DenI8juCaWXNG+CATj35gW3uh/LD9DBzpZDoQ41/5yJPZUuiHfZtnW0M7oVnhidn5sT319Xiag3Jlqe7dx1D+b0oZVDTbwrECOdROTcbOkbGsr4VleBcTtL5RoF4cDokYB6LpIDmSMiBV6DztPcrPC/ERS/tEBMbfMWVAus4f0SvdQ==</ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </md:KeyDescriptor>
-    <md:KeyDescriptor use="encryption">
-      <ds:KeyInfo>
-        <ds:X509Data>
-          <ds:X509Certificate>MIIE3TCCA8WgAwIBAgISESFgDbqp6YXwPvILGKAnrUDtMA0GCSqGSIb3DQEBBQUAMFcxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMS0wKwYDVQQDEyRHbG9iYWxTaWduIERvbWFpbiBWYWxpZGF0aW9uIENBIC0gRzIwHhcNMTIwMTA0MDkzNTU0WhcNMTcwMTAzMDkzNTU0WjBHMQswCQYDVQQGEwJESzEhMB8GA1UECxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRUwEwYDVQQDEwx3YXlmLndheWYuZGswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDAosqmcujXhA49vHQLLTKZxFTz3guMRnwHvUxz5vvuMPYVTGl+fXPdq9ULhkNc1jlCr4+pFOwLdy9zkuAn8dK7grQEaU58K0uF4MTyKixFnPvU3806roL8PnrmUQ2t8y76U9jzsk/B3Ggi5pVqhOktHpZyzz1yBpE14R+/DPzHrpKIFJY4N2uzoBrcEAsJY6aTUfIaB/NEpe4BY8sDZ3CTuU3tWUfhdlZESYsmngdnHD6k0HUKti9F43UM6JyN6fz7T70JlHAcTHzYKhjtPLcWG8lWFqNtry7fCYC5SlKn4zmyifoASxRoH3EuxtE/Fmmt+M6I83kg3H0R1b8PHimfAgMBAAGjggGxMIIBrTAOBgNVHQ8BAf8EBAMCBaAwTAYDVR0gBEUwQzBBBgkrBgEEAaAyAQowNDAyBggrBgEFBQcCARYmaHR0cHM6Ly93d3cuZ2xvYmFsc2lnbi5jb20vcmVwb3NpdG9yeS8wFwYDVR0RBBAwDoIMd2F5Zi53YXlmLmRrMAkGA1UdEwQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMD8GA1UdHwQ4MDYwNKAyoDCGLmh0dHA6Ly9jcmwuZ2xvYmFsc2lnbi5jb20vZ3MvZ3Nkb21haW52YWxnMi5jcmwwgYgGCCsGAQUFBwEBBHwwejBBBggrBgEFBQcwAoY1aHR0cDovL3NlY3VyZS5nbG9iYWxzaWduLmNvbS9jYWNlcnQvZ3Nkb21haW52YWxnMi5jcnQwNQYIKwYBBQUHMAGGKWh0dHA6Ly9vY3NwMi5nbG9iYWxzaWduLmNvbS9nc2RvbWFpbnZhbGcyMB0GA1UdDgQWBBS44PHFNUdj1NTiqkjShHfvW50SIzAfBgNVHSMEGDAWgBSWrfqwW7mDZCp2whyKadpC3P79KDANBgkqhkiG9w0BAQUFAAOCAQEAjqwtcRjT+gYKMhgwpJ4MNpL6W80efrcMDdWnZUJzN081ht0dcQqvdAVjkWylEQbbS1LXc9OZecRJGR1vxBzS7bq0lRauPuYodzOsDzP4cEW/W+PvWIEIpm5yIBZ31P7VnRpaRwmeff8OlhDOvM4+wdovRvIpLgyeyW05R2i4DenI8juCaWXNG+CATj35gW3uh/LD9DBzpZDoQ41/5yJPZUuiHfZtnW0M7oVnhidn5sT319Xiag3Jlqe7dx1D+b0oZVDTbwrECOdROTcbOkbGsr4VleBcTtL5RoF4cDokYB6LpIDmSMiBV6DztPcrPC/ERS/tEBMbfMWVAus4f0SvdQ==</ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </md:KeyDescriptor>
-    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://wayf.wayf.dk/saml2/idp/SingleLogoutService.php"/>
-    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
-    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://wayf.wayf.dk/saml2/idp/SSOService.php"/>
-  </md:IDPSSODescriptor>
-  <md:Organization>
-    <md:OrganizationName xml:lang="en">WAYF - Where are you from</md:OrganizationName>
-    <md:OrganizationName xml:lang="da">WAYF - Where are you from</md:OrganizationName>
-    <md:OrganizationDisplayName xml:lang="en">WAYF - Where are you from</md:OrganizationDisplayName>
-    <md:OrganizationDisplayName xml:lang="da">WAYF - Where are you from</md:OrganizationDisplayName>
-    <md:OrganizationURL xml:lang="da">http://wayf.dk/index.php/da</md:OrganizationURL>
-    <md:OrganizationURL xml:lang="en">http://wayf.dk/index.php/en</md:OrganizationURL>
-  </md:Organization>
-  <md:ContactPerson contactType="technical">
-    <md:GivenName>WAYF</md:GivenName>
-    <md:SurName>Operations</md:SurName>
-    <md:EmailAddress>drift@wayf.dk</md:EmailAddress>
-  </md:ContactPerson>
-</md:EntityDescriptor>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">kb.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">hi.is</shibmd:Scope>
+        <shibmd:Scope regexp="false">ruc.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">tietgen.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">orphanage.wayf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">ucl.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">aau.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">viauc.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">ucc.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">drlund-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">iha.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">sdu.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">itu.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">frberg-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">ags.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">nordfyns-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">midtfyns-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">middelfart-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">opengym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">maribo-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">mulerne-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">nakskov-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">norreg.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">nyborg-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">ribekatedralskole.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">sctknud-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">svendborg-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">tgy.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">tornbjerg-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">vestfyns-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">vucfyn.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">sosufyn.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">sopu.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">sosufh.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">faaborg-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">og.itsf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">aa.itsf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">aip.itsf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">ak.itsf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">akat.itsf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">asg.itsf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">eg.itsf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">gg.itsf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">lg.itsf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">mg.itsf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">ra.itsf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">rs.itsf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">sg.itsf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">sgy.itsf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">sosur.itsf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">sska.itsf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">sss.itsf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">stv.itsf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">udc.itsf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">vd.itsf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">vhg.itsf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">via.itsf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">its.itsf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">sikker-adgang.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">regionsjaelland.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">ibc.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">natmus.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">rungsted-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">sst.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">ucsj.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">sosuc.cphwest.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">cphwest.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">dab.minibib.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">akf.minibib.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">bst.minibib.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">dmi.minibib.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">ism.minibib.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">ens.minibib.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">fbo.minibib.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">fob.minibib.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">fsv.minibib.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">kuc.minibib.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">kul.minibib.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">ami.minibib.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">sfi.minibib.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">ank.minibib.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">vfc.minibib.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">stm.minibib.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">vej.minibib.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">dsl.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">sosu-syd.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">videndjurs.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">munkensdam.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">odensekatedralskole.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">nghf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">cg-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">hs-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">kolding-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">zbc.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">frsgym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">cbs.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">sosuesbjerg.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">uniit.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">dskd.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">ku.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">kristne-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">eucsyd.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">ikgym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">dsn.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">naestved-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">learnmark.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">aabc.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">vordingborg-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">aalborgstudenterkursus.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">dmjx.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">hasseris-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">apoteket.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">erhvervsakademiaarhus.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">statsskolen.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">ucsyd.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">sosusj.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">kadk.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">dtu.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">ucn.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">gribskovgymnasium.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">gefion-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">frhavn-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">sde.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">eal.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">eucnvs.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">hrs.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">vuc-vs.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">sceu.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">nykat-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">vgtgym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">odense.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">dalumls.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">fredericia-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">ghg.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">au.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">koldcollege.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">knord.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">bggym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">vibkat.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">vghf.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">eucnord.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">phmetropol.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">horsensgym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">eucvest.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">handelsskolen.com</shibmd:Scope>
+        <shibmd:Scope regexp="false">cphbusiness.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">kea.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">statsbiblioteket.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">itcn.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">sosunord.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">eadania.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">mf-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">techcollege.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">tradium.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">dansidp.stads.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">vucnordjylland.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">umit.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">bcsyd.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">campusvejle.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">rosborg-gym.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">fhavnhs.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">ah.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">adm.aau.dk@aau.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">aub.aau.dk@aau.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">civil.aau.dk@aau.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">create.aau.dk@aau.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">es.aau.dk@aau.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">hst.aau.dk@aau.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">id.aau.dk@aau.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">its.aau.dk@aau.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">learning.aau.dk@aau.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">m-tech.aau.dk@aau.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">plan.aau.dk@aau.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">sbi.aau.dk@aau.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">staff.aau.dk@aau.dk</shibmd:Scope>
+        <shibmd:Scope regexp="false">student.aau.dk@aau.dk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIE3TCCA8WgAwIBAgISESFgDbqp6YXwPvILGKAnrUDtMA0GCSqGSIb3DQEBBQUAMFcxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMS0wKwYDVQQDEyRHbG9iYWxTaWduIERvbWFpbiBWYWxpZGF0aW9uIENBIC0gRzIwHhcNMTIwMTA0MDkzNTU0WhcNMTcwMTAzMDkzNTU0WjBHMQswCQYDVQQGEwJESzEhMB8GA1UECxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRUwEwYDVQQDEwx3YXlmLndheWYuZGswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDAosqmcujXhA49vHQLLTKZxFTz3guMRnwHvUxz5vvuMPYVTGl+fXPdq9ULhkNc1jlCr4+pFOwLdy9zkuAn8dK7grQEaU58K0uF4MTyKixFnPvU3806roL8PnrmUQ2t8y76U9jzsk/B3Ggi5pVqhOktHpZyzz1yBpE14R+/DPzHrpKIFJY4N2uzoBrcEAsJY6aTUfIaB/NEpe4BY8sDZ3CTuU3tWUfhdlZESYsmngdnHD6k0HUKti9F43UM6JyN6fz7T70JlHAcTHzYKhjtPLcWG8lWFqNtry7fCYC5SlKn4zmyifoASxRoH3EuxtE/Fmmt+M6I83kg3H0R1b8PHimfAgMBAAGjggGxMIIBrTAOBgNVHQ8BAf8EBAMCBaAwTAYDVR0gBEUwQzBBBgkrBgEEAaAyAQowNDAyBggrBgEFBQcCARYmaHR0cHM6Ly93d3cuZ2xvYmFsc2lnbi5jb20vcmVwb3NpdG9yeS8wFwYDVR0RBBAwDoIMd2F5Zi53YXlmLmRrMAkGA1UdEwQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMD8GA1UdHwQ4MDYwNKAyoDCGLmh0dHA6Ly9jcmwuZ2xvYmFsc2lnbi5jb20vZ3MvZ3Nkb21haW52YWxnMi5jcmwwgYgGCCsGAQUFBwEBBHwwejBBBggrBgEFBQcwAoY1aHR0cDovL3NlY3VyZS5nbG9iYWxzaWduLmNvbS9jYWNlcnQvZ3Nkb21haW52YWxnMi5jcnQwNQYIKwYBBQUHMAGGKWh0dHA6Ly9vY3NwMi5nbG9iYWxzaWduLmNvbS9nc2RvbWFpbnZhbGcyMB0GA1UdDgQWBBS44PHFNUdj1NTiqkjShHfvW50SIzAfBgNVHSMEGDAWgBSWrfqwW7mDZCp2whyKadpC3P79KDANBgkqhkiG9w0BAQUFAAOCAQEAjqwtcRjT+gYKMhgwpJ4MNpL6W80efrcMDdWnZUJzN081ht0dcQqvdAVjkWylEQbbS1LXc9OZecRJGR1vxBzS7bq0lRauPuYodzOsDzP4cEW/W+PvWIEIpm5yIBZ31P7VnRpaRwmeff8OlhDOvM4+wdovRvIpLgyeyW05R2i4DenI8juCaWXNG+CATj35gW3uh/LD9DBzpZDoQ41/5yJPZUuiHfZtnW0M7oVnhidn5sT319Xiag3Jlqe7dx1D+b0oZVDTbwrECOdROTcbOkbGsr4VleBcTtL5RoF4cDokYB6LpIDmSMiBV6DztPcrPC/ERS/tEBMbfMWVAus4f0SvdQ==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIE3TCCA8WgAwIBAgISESFgDbqp6YXwPvILGKAnrUDtMA0GCSqGSIb3DQEBBQUAMFcxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMS0wKwYDVQQDEyRHbG9iYWxTaWduIERvbWFpbiBWYWxpZGF0aW9uIENBIC0gRzIwHhcNMTIwMTA0MDkzNTU0WhcNMTcwMTAzMDkzNTU0WjBHMQswCQYDVQQGEwJESzEhMB8GA1UECxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRUwEwYDVQQDEwx3YXlmLndheWYuZGswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDAosqmcujXhA49vHQLLTKZxFTz3guMRnwHvUxz5vvuMPYVTGl+fXPdq9ULhkNc1jlCr4+pFOwLdy9zkuAn8dK7grQEaU58K0uF4MTyKixFnPvU3806roL8PnrmUQ2t8y76U9jzsk/B3Ggi5pVqhOktHpZyzz1yBpE14R+/DPzHrpKIFJY4N2uzoBrcEAsJY6aTUfIaB/NEpe4BY8sDZ3CTuU3tWUfhdlZESYsmngdnHD6k0HUKti9F43UM6JyN6fz7T70JlHAcTHzYKhjtPLcWG8lWFqNtry7fCYC5SlKn4zmyifoASxRoH3EuxtE/Fmmt+M6I83kg3H0R1b8PHimfAgMBAAGjggGxMIIBrTAOBgNVHQ8BAf8EBAMCBaAwTAYDVR0gBEUwQzBBBgkrBgEEAaAyAQowNDAyBggrBgEFBQcCARYmaHR0cHM6Ly93d3cuZ2xvYmFsc2lnbi5jb20vcmVwb3NpdG9yeS8wFwYDVR0RBBAwDoIMd2F5Zi53YXlmLmRrMAkGA1UdEwQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMD8GA1UdHwQ4MDYwNKAyoDCGLmh0dHA6Ly9jcmwuZ2xvYmFsc2lnbi5jb20vZ3MvZ3Nkb21haW52YWxnMi5jcmwwgYgGCCsGAQUFBwEBBHwwejBBBggrBgEFBQcwAoY1aHR0cDovL3NlY3VyZS5nbG9iYWxzaWduLmNvbS9jYWNlcnQvZ3Nkb21haW52YWxnMi5jcnQwNQYIKwYBBQUHMAGGKWh0dHA6Ly9vY3NwMi5nbG9iYWxzaWduLmNvbS9nc2RvbWFpbnZhbGcyMB0GA1UdDgQWBBS44PHFNUdj1NTiqkjShHfvW50SIzAfBgNVHSMEGDAWgBSWrfqwW7mDZCp2whyKadpC3P79KDANBgkqhkiG9w0BAQUFAAOCAQEAjqwtcRjT+gYKMhgwpJ4MNpL6W80efrcMDdWnZUJzN081ht0dcQqvdAVjkWylEQbbS1LXc9OZecRJGR1vxBzS7bq0lRauPuYodzOsDzP4cEW/W+PvWIEIpm5yIBZ31P7VnRpaRwmeff8OlhDOvM4+wdovRvIpLgyeyW05R2i4DenI8juCaWXNG+CATj35gW3uh/LD9DBzpZDoQ41/5yJPZUuiHfZtnW0M7oVnhidn5sT319Xiag3Jlqe7dx1D+b0oZVDTbwrECOdROTcbOkbGsr4VleBcTtL5RoF4cDokYB6LpIDmSMiBV6DztPcrPC/ERS/tEBMbfMWVAus4f0SvdQ==</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://wayf.wayf.dk/saml2/idp/SingleLogoutService.php"/>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://wayf.wayf.dk/saml2/idp/SSOService.php"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">WAYF - Where are you from</md:OrganizationName>
+      <md:OrganizationName xml:lang="da">WAYF - Where are you from</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">WAYF - Where are you from</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="da">WAYF - Where are you from</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="da">http://wayf.dk/index.php/da</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://wayf.dk/index.php/en</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>WAYF</md:GivenName>
+      <md:SurName>Operations</md:SurName>
+      <md:EmailAddress>drift@wayf.dk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

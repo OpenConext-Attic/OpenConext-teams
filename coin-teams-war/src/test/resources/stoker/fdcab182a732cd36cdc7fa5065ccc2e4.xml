@@ -1,0 +1,101 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth.c2kqa.net/idp/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2010-06-08T12:31:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">c2kqa.net</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDOzCCAiOgAwIBAgIUOmrWnoGvFDkaJ0RFpEBraZk80cMwDQYJKoZIhvcNAQEF
+						BQAwHzEdMBsGA1UEAxMUc2hpYmJvbGV0aC5jMmtxYS5uZXQwHhcNMTAwNjIzMTAy
+						OTA0WhcNMzAwNjIzMTAyOTA0WjAfMR0wGwYDVQQDExRzaGliYm9sZXRoLmMya3Fh
+						Lm5ldDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJAaXKjkiDo2I09Y
+						lpyzrWyIg2MrK0AKi5dIi5Svue8pv9XXCwhlBaFqvPZgmI6isdCUzOXAh0lV/XzY
+						OEvvQsBVoEeebWpWm7pPOS8rtGYuUvwFPkdi6MyXsVw7Ei+d70rFeKJijNbhnMkg
+						oMRk/pRTPROQCffl4SqmFAqb2vn+L4XbXcXdcT/bhaxitbjalTffvx3PrGhco/D1
+						wjWxoR9kY8Q6t9K9/8hnZU3xlUUqy5Viq5fCacu7zv9frhZ1O85p6F/NZSwnKQq0
+						wZrbDDBGwXHVh4IMIwVLTaCmB7gNUWTfo0dOPKjakUMNaIEsyDt6KNRe0CGslv3J
+						eVzKMJcCAwEAAaNvMG0wTAYDVR0RBEUwQ4IUc2hpYmJvbGV0aC5jMmtxYS5uZXSG
+						K2h0dHBzOi8vc2hpYmJvbGV0aC5jMmtxYS5uZXQvaWRwL3NoaWJib2xldGgwHQYD
+						VR0OBBYEFOA3DMt6qji7fUywGEUlp+SNCqGGMA0GCSqGSIb3DQEBBQUAA4IBAQBj
+						CI4GK5AcY+NYY3twlyOt4BTjECTWTndFbctqKM1eLgNOrucaKchRGoqZUs5TOjpM
+						DWTD6sROH1SSmPb+igQeR7H1hLBsVCHt25WCNfaSlw9v4s1+6H78iugY30bdP00/
+						wx1YQ8oQAT/f0u0QyNCmwHrFc3Z0KL7Ep/Ja8Dv2BfKXZ2D1epNins1ehZeMbEbT
+						/FYibzNtKmBDmCiTF20Bglf6nJySn8cN31z+VlHQNZxyCz/vae4TfgOktsDN7AOL
+						q3KitZrzJZ0KGE9R1nnKSuW86fm+eLp6ai0jhUZP9NV+uUb/O4wRuJP8JTec0tjd
+						DE3ljx9HJYZ7RbLYPnxd
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.c2kqa.net:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.c2kqa.net:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.c2kqa.net/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.c2kqa.net/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.c2kqa.net/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.c2kqa.net/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">c2kqa.net</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDOzCCAiOgAwIBAgIUOmrWnoGvFDkaJ0RFpEBraZk80cMwDQYJKoZIhvcNAQEF
+						BQAwHzEdMBsGA1UEAxMUc2hpYmJvbGV0aC5jMmtxYS5uZXQwHhcNMTAwNjIzMTAy
+						OTA0WhcNMzAwNjIzMTAyOTA0WjAfMR0wGwYDVQQDExRzaGliYm9sZXRoLmMya3Fh
+						Lm5ldDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJAaXKjkiDo2I09Y
+						lpyzrWyIg2MrK0AKi5dIi5Svue8pv9XXCwhlBaFqvPZgmI6isdCUzOXAh0lV/XzY
+						OEvvQsBVoEeebWpWm7pPOS8rtGYuUvwFPkdi6MyXsVw7Ei+d70rFeKJijNbhnMkg
+						oMRk/pRTPROQCffl4SqmFAqb2vn+L4XbXcXdcT/bhaxitbjalTffvx3PrGhco/D1
+						wjWxoR9kY8Q6t9K9/8hnZU3xlUUqy5Viq5fCacu7zv9frhZ1O85p6F/NZSwnKQq0
+						wZrbDDBGwXHVh4IMIwVLTaCmB7gNUWTfo0dOPKjakUMNaIEsyDt6KNRe0CGslv3J
+						eVzKMJcCAwEAAaNvMG0wTAYDVR0RBEUwQ4IUc2hpYmJvbGV0aC5jMmtxYS5uZXSG
+						K2h0dHBzOi8vc2hpYmJvbGV0aC5jMmtxYS5uZXQvaWRwL3NoaWJib2xldGgwHQYD
+						VR0OBBYEFOA3DMt6qji7fUywGEUlp+SNCqGGMA0GCSqGSIb3DQEBBQUAA4IBAQBj
+						CI4GK5AcY+NYY3twlyOt4BTjECTWTndFbctqKM1eLgNOrucaKchRGoqZUs5TOjpM
+						DWTD6sROH1SSmPb+igQeR7H1hLBsVCHt25WCNfaSlw9v4s1+6H78iugY30bdP00/
+						wx1YQ8oQAT/f0u0QyNCmwHrFc3Z0KL7Ep/Ja8Dv2BfKXZ2D1epNins1ehZeMbEbT
+						/FYibzNtKmBDmCiTF20Bglf6nJySn8cN31z+VlHQNZxyCz/vae4TfgOktsDN7AOL
+						q3KitZrzJZ0KGE9R1nnKSuW86fm+eLp6ai0jhUZP9NV+uUb/O4wRuJP8JTec0tjd
+						DE3ljx9HJYZ7RbLYPnxd
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.c2kqa.net:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.c2kqa.net:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Western Education and Library Board</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">C2k</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.c2kni.org.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Joe</md:GivenName>
+      <md:SurName>Boyle</md:SurName>
+      <md:EmailAddress>mailto:joe.boyle@capita.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Joe</md:GivenName>
+      <md:SurName>Boyle</md:SurName>
+      <md:EmailAddress>mailto:joe.boyle@capita.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

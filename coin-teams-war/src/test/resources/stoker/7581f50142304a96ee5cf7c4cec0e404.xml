@@ -1,25 +1,55 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://federation.bretagne.iufm.fr/idp/shibboleth">
-			<Extensions>
-				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-10-12T16:14:58Z">
-					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
-				</mdrpi:RegistrationInfo>
-			</Extensions>
-		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">bretagne.iufm.fr</shibmd:Scope>
-    
-			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
-          		      
-          		      
-          		      <mdui:DisplayName xml:lang="fr">IUFM de Bretagne</mdui:DisplayName>
-          		      
-      			    </mdui:UIInfo>
-			</Extensions>
-				<KeyDescriptor use="signing">
-<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://federation.bretagne.iufm.fr/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://federation.renater.fr/" registrationInstant="2009-10-12T16:14:58Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">bretagne.iufm.fr</shibmd:Scope>
+        <shibmd:Scope regexp="false">espe-bretagne.fr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="fr">ESPE de Bretagne</mdui:DisplayName>
+          <mdui:Description xml:lang="fr">Personnels et étudiant de l'ESPE de Bretagne</mdui:Description>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+					      MIIEhDCCA2ygAwIBAgIRAPSODBFpc8g+0TGgl6Q8SN8wDQYJKoZIhvcNAQEFBQAw
+NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+IFNTTCBDQTAeFw0xMzAyMTEwMDAwMDBaFw0xNjA0MDUyMzU5NTlaMEkxITAfBgNV
+BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEkMCIGA1UEAxMbZmVkZXJhdGlv
+bi5icmV0YWduZS5pdWZtLmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+AQEA0W8trO2zbN+5N30+4N+JpWEmcmUbp2wYAJB0v4rinl6MzMs007wHfKj14rKC
+5eIvkbtgzbhs/biZVvA+/Xky7TyIL/Z/34Ha1JeoYsezfmdf0qT8J2jOcuG8DVU3
+/J6Mtg9Zfz4GwNq4NFO4qx0vXZhX3LT3+8sQmPH96a9XmrPQB514Flc1mWZmZ/he
+XdTkhmu/o9/3fx2guNwjddQ9ruWalmSpTD7FSt5LMsavWfp4niATTcGXR+yQsWuG
+ULjIMfWUjmaY+0s+658WSZzD+o9sFknoQpNKjufCkEFUMQuUfFfZGJlGxZOYRhDq
+eHNFgFBHzZHXixrjge2HVA1fxQIDAQABo4IBeDCCAXQwHwYDVR0jBBgwFoAUDL2T
+aAzz3qujSWsrN1dH6pDjue0wHQYDVR0OBBYEFC4C3PlQ1bY/T8VIR4gpUtQKnfm8
+MA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUF
+BwMBBggrBgEFBQcDAjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAEC
+ATA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RF
+UkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6
+Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzAB
+hhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9yZzAmBgNVHREEHzAdghtmZWRlcmF0
+aW9uLmJyZXRhZ25lLml1Zm0uZnIwDQYJKoZIhvcNAQEFBQADggEBABBedNTktIew
+Jsv/6U2BjnnBtL7+nRX5nHE5M+oqIO39NJg0iDuWNAXJK9p36C31ucuNTAYrFvQq
+vBrMiwjDwpaNCAs6/3c1J9iH8GH9r2FONFFXHGswvKhlwqE7MaQh2l/+qHs4wfRe
+nsP2N+nWD1nvxIlQvfcF5W2mZWxE5ZT73etDiilcorRvI423P5BeeRYciBa8im8A
+GrGTlcvHZkTfuZ01NQiTnXnWmghzyqug72nwj42FLThQgDdeDOrzTEKREtehNcpp
+PULGkDErBea0SdXtVN3swhySNl9Ba69OYezLZ8hdDCrcN3wPw8VGi6xDMa4ENkKL
+hjz3pTN+SFo=
+					    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIErDCCA5SgAwIBAgIQRmz9EXsKgXSG7w3iHBAacTANBgkqhkiG9w0BAQUFADA2
 MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
 U1NMIENBMB4XDTEwMDQwODAwMDAwMFoXDTEzMDQwNzIzNTk1OVowfDELMAkGA1UE
@@ -46,64 +76,57 @@ qxZy9/94Zs43Ntpm2XijY5uL9x6pykzLVFDLG3ZdpnrnJz3MMC6wtF14VcOTwfjm
 LJWCNOb6ewDwXycbnYzCnEvL1z34BTU6GAb4t4yEjQEyPmqOTMbHeE/TD9//7LO6
 HF+7wdprWF0e2/C+accIlza8LuwyPv+M5K2Q6XonBrAbHEuWJTFfJ9CxkzK9oj5+
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-					</ds:KeyInfo>
-				</KeyDescriptor>
-
-				
-				
-				<KeyDescriptor use="signing">
-				       <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  <ds:X509Data>
-					    <ds:X509Certificate>
-					      MIIDVzCCAj+gAwIBAgIUd6NolqLYTp7E8s7GebWrv9/qRnMwDQYJKoZIhvcNAQEF
-BQAwJjEkMCIGA1UEAxMbZmVkZXJhdGlvbi5icmV0YWduZS5pdWZtLmZyMB4XDTA5
-MDYxMDE1NTQ0OFoXDTI5MDYxMDE1NTQ0OFowJjEkMCIGA1UEAxMbZmVkZXJhdGlv
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://federation.bretagne.iufm.fr/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://federation.bretagne.iufm.fr/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://federation.bretagne.iufm.fr/idp/profile/Shibboleth/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">bretagne.iufm.fr</shibmd:Scope>
+        <shibmd:Scope regexp="false">espe-bretagne.fr</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+					      MIIEhDCCA2ygAwIBAgIRAPSODBFpc8g+0TGgl6Q8SN8wDQYJKoZIhvcNAQEFBQAw
+NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+IFNTTCBDQTAeFw0xMzAyMTEwMDAwMDBaFw0xNjA0MDUyMzU5NTlaMEkxITAfBgNV
+BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEkMCIGA1UEAxMbZmVkZXJhdGlv
 bi5icmV0YWduZS5pdWZtLmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
-AQEAjDPeB1kiK19n/njLD+Wxu1PEHVzdWJfVqfFQd011OON9Mw1sxL083/rcXrHE
-zPgcgUDHVq98OZfGNFJIRsyQyf+YDqvH8v3xBkSqEgkiypaOSBlrMNFeU5zUsvUm
-R8l4LUAXOTpT7Ok5ZcdAQcqlrEWKBszAkUw4d4ERvAvK3x78pczppg5cD9yfH/2e
-dDC7eZc0X8/mjeN8adSZC1lSfYo1xjCPQm02cGOyGmx8XeWqOr+FrdBjZsec+e5d
-Y0Q0n/aGfEe1SgOlar8FsnZfWCF8STLU0zi6jpqCyDXrmKTsmwcIjI0Gc91NlfwT
-NzpPTfQpB56t1fT3WedN+fUztQIDAQABo30wezBaBgNVHREEUzBRghtmZWRlcmF0
-aW9uLmJyZXRhZ25lLml1Zm0uZnKGMmh0dHBzOi8vZmVkZXJhdGlvbi5icmV0YWdu
-ZS5pdWZtLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRtZOuWaCjO08kcj5Vs
-OOPhfUIolDANBgkqhkiG9w0BAQUFAAOCAQEAFUIZfk5kOBw9irRVuZRtdGzTfpB0
-vaqkd8IecQ6zQYJEz9M9WOVdMFQEv5mcEsjyKCyPUiF6SthecpSZElCASqJWu7Vn
-bneyuEHau7RVbzISMwFT+VtFhQfKMXRXWvMV1gpNNUJYg1VCZDYbMhBNfMgnmGVo
-1CJdAUzq9CI3xQlxZlkpoo+eyBbpYMnrXShVH2G8yrBOAX7lkZziJCwnZ0lvv8N0
-bNN2zAnAvAFIkUzRF/Tbl8cx9v95S8o1eI069pS87/eoNI5KUbXmUMlnzYOtLrkm
-VjJTppfg6Lmhe4fn7LzZPUC5m4MO7POVNVZA31BhxIakHzVXuofK0gUjVQ==
+AQEA0W8trO2zbN+5N30+4N+JpWEmcmUbp2wYAJB0v4rinl6MzMs007wHfKj14rKC
+5eIvkbtgzbhs/biZVvA+/Xky7TyIL/Z/34Ha1JeoYsezfmdf0qT8J2jOcuG8DVU3
+/J6Mtg9Zfz4GwNq4NFO4qx0vXZhX3LT3+8sQmPH96a9XmrPQB514Flc1mWZmZ/he
+XdTkhmu/o9/3fx2guNwjddQ9ruWalmSpTD7FSt5LMsavWfp4niATTcGXR+yQsWuG
+ULjIMfWUjmaY+0s+658WSZzD+o9sFknoQpNKjufCkEFUMQuUfFfZGJlGxZOYRhDq
+eHNFgFBHzZHXixrjge2HVA1fxQIDAQABo4IBeDCCAXQwHwYDVR0jBBgwFoAUDL2T
+aAzz3qujSWsrN1dH6pDjue0wHQYDVR0OBBYEFC4C3PlQ1bY/T8VIR4gpUtQKnfm8
+MA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUF
+BwMBBggrBgEFBQcDAjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAEC
+ATA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RF
+UkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6
+Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzAB
+hhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9yZzAmBgNVHREEHzAdghtmZWRlcmF0
+aW9uLmJyZXRhZ25lLml1Zm0uZnIwDQYJKoZIhvcNAQEFBQADggEBABBedNTktIew
+Jsv/6U2BjnnBtL7+nRX5nHE5M+oqIO39NJg0iDuWNAXJK9p36C31ucuNTAYrFvQq
+vBrMiwjDwpaNCAs6/3c1J9iH8GH9r2FONFFXHGswvKhlwqE7MaQh2l/+qHs4wfRe
+nsP2N+nWD1nvxIlQvfcF5W2mZWxE5ZT73etDiilcorRvI423P5BeeRYciBa8im8A
+GrGTlcvHZkTfuZ01NQiTnXnWmghzyqug72nwj42FLThQgDdeDOrzTEKREtehNcpp
+PULGkDErBea0SdXtVN3swhySNl9Ba69OYezLZ8hdDCrcN3wPw8VGi6xDMa4ENkKL
+hjz3pTN+SFo=
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					</ds:KeyInfo>
-				</KeyDescriptor>
-				
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-
-			
-			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://federation.bretagne.iufm.fr/idp/profile/SAML2/POST/SSO"/>
-	        
-	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://federation.bretagne.iufm.fr/idp/profile/SAML2/Redirect/SSO"/>
-	        
-	        
-			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://federation.bretagne.iufm.fr/idp/profile/Shibboleth/SSO"/>
-			
-
-		</IDPSSODescriptor>
-		
-	
-		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">bretagne.iufm.fr</shibmd:Scope>
-    			</Extensions>
-			<KeyDescriptor use="signing">
-				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIErDCCA5SgAwIBAgIQRmz9EXsKgXSG7w3iHBAacTANBgkqhkiG9w0BAQUFADA2
 MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
 U1NMIENBMB4XDTEwMDQwODAwMDAwMFoXDTEzMDQwNzIzNTk1OVowfDELMAkGA1UE
@@ -130,59 +153,19 @@ qxZy9/94Zs43Ntpm2XijY5uL9x6pykzLVFDLG3ZdpnrnJz3MMC6wtF14VcOTwfjm
 LJWCNOb6ewDwXycbnYzCnEvL1z34BTU6GAb4t4yEjQEyPmqOTMbHeE/TD9//7LO6
 HF+7wdprWF0e2/C+accIlza8LuwyPv+M5K2Q6XonBrAbHEuWJTFfJ9CxkzK9oj5+
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-				</ds:KeyInfo>
-			</KeyDescriptor>
-
-				
-				
-				<KeyDescriptor use="signing">
-				       <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  <ds:X509Data>
-					    <ds:X509Certificate>
-					      MIIDVzCCAj+gAwIBAgIUd6NolqLYTp7E8s7GebWrv9/qRnMwDQYJKoZIhvcNAQEF
-BQAwJjEkMCIGA1UEAxMbZmVkZXJhdGlvbi5icmV0YWduZS5pdWZtLmZyMB4XDTA5
-MDYxMDE1NTQ0OFoXDTI5MDYxMDE1NTQ0OFowJjEkMCIGA1UEAxMbZmVkZXJhdGlv
-bi5icmV0YWduZS5pdWZtLmZyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
-AQEAjDPeB1kiK19n/njLD+Wxu1PEHVzdWJfVqfFQd011OON9Mw1sxL083/rcXrHE
-zPgcgUDHVq98OZfGNFJIRsyQyf+YDqvH8v3xBkSqEgkiypaOSBlrMNFeU5zUsvUm
-R8l4LUAXOTpT7Ok5ZcdAQcqlrEWKBszAkUw4d4ERvAvK3x78pczppg5cD9yfH/2e
-dDC7eZc0X8/mjeN8adSZC1lSfYo1xjCPQm02cGOyGmx8XeWqOr+FrdBjZsec+e5d
-Y0Q0n/aGfEe1SgOlar8FsnZfWCF8STLU0zi6jpqCyDXrmKTsmwcIjI0Gc91NlfwT
-NzpPTfQpB56t1fT3WedN+fUztQIDAQABo30wezBaBgNVHREEUzBRghtmZWRlcmF0
-aW9uLmJyZXRhZ25lLml1Zm0uZnKGMmh0dHBzOi8vZmVkZXJhdGlvbi5icmV0YWdu
-ZS5pdWZtLmZyL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRtZOuWaCjO08kcj5Vs
-OOPhfUIolDANBgkqhkiG9w0BAQUFAAOCAQEAFUIZfk5kOBw9irRVuZRtdGzTfpB0
-vaqkd8IecQ6zQYJEz9M9WOVdMFQEv5mcEsjyKCyPUiF6SthecpSZElCASqJWu7Vn
-bneyuEHau7RVbzISMwFT+VtFhQfKMXRXWvMV1gpNNUJYg1VCZDYbMhBNfMgnmGVo
-1CJdAUzq9CI3xQlxZlkpoo+eyBbpYMnrXShVH2G8yrBOAX7lkZziJCwnZ0lvv8N0
-bNN2zAnAvAFIkUzRF/Tbl8cx9v95S8o1eI069pS87/eoNI5KUbXmUMlnzYOtLrkm
-VjJTppfg6Lmhe4fn7LzZPUC5m4MO7POVNVZA31BhxIakHzVXuofK0gUjVQ==
-					    </ds:X509Certificate>
-					  </ds:X509Data>
-					</ds:KeyInfo>
-				</KeyDescriptor>
-				
-
-			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://federation.bretagne.iufm.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-		</AttributeAuthorityDescriptor>
-
-
-		<Organization>
-		
-			<OrganizationName xml:lang="en">IUFM de Bretagne</OrganizationName>
-			<OrganizationDisplayName xml:lang="en">IUFM de Bretagne</OrganizationDisplayName>
-			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
-		
-		</Organization>
-
-			
-			    <ContactPerson contactType="technical">
-			     <EmailAddress>federation@espe-bretagne.fr</EmailAddress>
-		        </ContactPerson>
-		    	
-			
-	</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://federation.bretagne.iufm.fr/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">ESPE de Bretagne</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">ESPE de Bretagne</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://unknown.site.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>federation@espe-bretagne.fr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,16 +1,16 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://shibboleth-idp.uni-regensburg.de/idp/shibboleth">
-    <Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-06-25T09:17:34Z">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth-idp.uni-regensburg.de/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-06-25T09:17:34Z">
         <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
         <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-    </Extensions>
-    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">uni-regensburg.de</saml1md:Scope>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">ur.de</saml1md:Scope>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">ukr.de</saml1md:Scope>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uni-regensburg.de</shibmd:Scope>
+        <shibmd:Scope regexp="false">ur.de</shibmd:Scope>
+        <shibmd:Scope regexp="false">ukr.de</shibmd:Scope>
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="de">Universität Regensburg</mdui:DisplayName>
           <mdui:DisplayName xml:lang="en">Universität Regensburg</mdui:DisplayName>
           <mdui:Description xml:lang="de">IdP der Universität Regensburg</mdui:Description>
@@ -22,9 +22,9 @@
           <mdui:PrivacyStatementURL xml:lang="de">http://www.uni-regensburg.de/datenschutz/index.html</mdui:PrivacyStatementURL>
           <mdui:PrivacyStatementURL xml:lang="en">http://www.uni-regensburg.de/privacy/index.html</mdui:PrivacyStatementURL>
         </mdui:UIInfo>
-      </Extensions>
-      <KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
           <ds:KeyName>shibboleth-idp.uni-regensburg.de</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=shibboleth-idp.uni-regensburg.de,OU=Rechenzentrum,O=Universitaet Regensburg,L=Regensburg,ST=Bayern,C=DE</ds:X509SubjectName>
@@ -62,24 +62,24 @@ yRrHi0bPUSEYjGLZ5Muj2HV6lkYUuuhQxYEy8YCM01kN3A==
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth-idp.uni-regensburg.de:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth-idp.uni-regensburg.de:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth-idp.uni-regensburg.de/idp/profile/Shibboleth/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth-idp.uni-regensburg.de/idp/profile/SAML2/POST/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth-idp.uni-regensburg.de/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth-idp.uni-regensburg.de/idp/profile/SAML2/Redirect/SSO"/>
-    </IDPSSODescriptor>
-    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">uni-regensburg.de</saml1md:Scope>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">ur.de</saml1md:Scope>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">ukr.de</saml1md:Scope>
-      </Extensions>
-      <KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth-idp.uni-regensburg.de:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth-idp.uni-regensburg.de:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth-idp.uni-regensburg.de/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth-idp.uni-regensburg.de/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth-idp.uni-regensburg.de/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth-idp.uni-regensburg.de/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uni-regensburg.de</shibmd:Scope>
+        <shibmd:Scope regexp="false">ur.de</shibmd:Scope>
+        <shibmd:Scope regexp="false">ukr.de</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
           <ds:KeyName>shibboleth-idp.uni-regensburg.de</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=shibboleth-idp.uni-regensburg.de,OU=Rechenzentrum,O=Universitaet Regensburg,L=Regensburg,ST=Bayern,C=DE</ds:X509SubjectName>
@@ -117,38 +117,38 @@ yRrHi0bPUSEYjGLZ5Muj2HV6lkYUuuhQxYEy8YCM01kN3A==
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth-idp.uni-regensburg.de:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth-idp.uni-regensburg.de:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-    </AttributeAuthorityDescriptor>
-    <Organization>
-      <OrganizationName xml:lang="de">e311</OrganizationName>
-      <OrganizationName xml:lang="en">e311</OrganizationName>
-      <OrganizationDisplayName xml:lang="de">Universität Regensburg</OrganizationDisplayName>
-      <OrganizationDisplayName xml:lang="en">University Regensburg</OrganizationDisplayName>
-      <OrganizationURL xml:lang="de">http://www.uni-regensburg.de</OrganizationURL>
-      <OrganizationURL xml:lang="en">http://www.uni-regensburg.de/index.html.en</OrganizationURL>
-    </Organization>
-    <ContactPerson contactType="administrative">
-      <GivenName>Martin</GivenName>
-      <SurName>Wimmer</SurName>
-      <EmailAddress>mailto:martin.wimmer@rz.uni-regensburg.de</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="technical">
-      <GivenName>Edmund</GivenName>
-      <SurName>Weber</SurName>
-      <EmailAddress>mailto:edmund.weber@rz.uni-regensburg.de</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="support">
-      <GivenName>Help</GivenName>
-      <SurName>Desk</SurName>
-      <EmailAddress>mailto:support@rz.uni-regensburg.de</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="technical">
-      <GivenName>Gerd</GivenName>
-      <SurName>Böhm</SurName>
-      <EmailAddress>mailto:gerd.boehm@rz.uni-regensburg.de</EmailAddress>
-    </ContactPerson>
-  </EntityDescriptor>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth-idp.uni-regensburg.de:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth-idp.uni-regensburg.de:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e311</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e311</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Universität Regensburg</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">University Regensburg</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.uni-regensburg.de</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.uni-regensburg.de/index.html.en</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Martin</md:GivenName>
+      <md:SurName>Wimmer</md:SurName>
+      <md:EmailAddress>mailto:martin.wimmer@rz.uni-regensburg.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Edmund</md:GivenName>
+      <md:SurName>Weber</md:SurName>
+      <md:EmailAddress>mailto:edmund.weber@rz.uni-regensburg.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Help</md:GivenName>
+      <md:SurName>Desk</md:SurName>
+      <md:EmailAddress>mailto:support@rz.uni-regensburg.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Gerd</md:GivenName>
+      <md:SurName>Böhm</md:SurName>
+      <md:EmailAddress>mailto:gerd.boehm@rz.uni-regensburg.de</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

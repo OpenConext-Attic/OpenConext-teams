@@ -1,91 +1,81 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://sso.siropglobal.org/shibboleth">
-			<Extensions>
-                <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://rr.aai.switch.ch/" registrationInstant="2013-12-18T14:48:17Z">
-                    <mdrpi:RegistrationPolicy xml:lang="en">https://www.switch.ch/aai/federation/switchaai/metadata-registration-practice-statement-20110711.txt</mdrpi:RegistrationPolicy>
-                </mdrpi:RegistrationInfo>
-			</Extensions>
-			<SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
-			<Extensions>
-				<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-					<mdui:DisplayName xml:lang="en">SiROP platform (www.siropglobal.org)</mdui:DisplayName>
-					<mdui:Description xml:lang="en">Thousands of students and researchers use SiROP to post and search open positions such as internships, Master, Bachelor or PhD projects and PostDoc positions. We connect students, researchers and institutions.</mdui:Description>
-				</mdui:UIInfo>
-			</Extensions>
-			<KeyDescriptor>
-				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					<ds:X509Data>
-						<ds:X509Certificate>
-MIIDKDCCAhCgAwIBAgIJAJWTpV8oESWTMA0GCSqGSIb3DQEBBQUAMB4xHDAaBgNV
-BAMTE3Nzby5zaXJvcGdsb2JhbC5vcmcwHhcNMTExMTA4MTU1NDE0WhcNMTQxMTA3
-MTU1NDE0WjAeMRwwGgYDVQQDExNzc28uc2lyb3BnbG9iYWwub3JnMIIBIjANBgkq
-hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArPs/gtSV28ZTUV8g20L6nE3DFkUH2UcW
-iKl3LRQT9m+e7ExNkGLJTm2NBa+fHsLGFZUWWswvGTwKNOsI/hAjUEevqXblhpbB
-TLvWFwthXO4KVLaFtodDDfPY3LMaj4nYf+/SnTEGKFUoXTVB+BUNZ9wZU853WbZa
-UVyV7kRMwQFP4uaPeIIwwjEV1bE+p+d7ya9yNIlJRhFFqyqr5Yllof3hChZqh8u7
-4FUS1qlUUxJMBSqJmcNsViTlexCHcgcjpj1Y9/tCzB4cF2Z4tZ3/oleERSdgGRiZ
-vIMEly+9dmLMELOeO7uXzt9iM+m86PhHilYmU2Dzq9QcRbRk5IkqvwIDAQABo2kw
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sso.siropglobal.org/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://rr.aai.switch.ch/" registrationInstant="2014-10-29T08:23:57Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.switch.ch/aai/federation/switchaai/metadata-registration-practice-statement-20110711.txt</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">SiROP platform (www.siropglobal.org)</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Thousands of students and researchers use SiROP to post and search open positions such as internships, Master, Bachelor or PhD projects and PostDoc positions. We connect students, researchers and institutions.</mdui:Description>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDKDCCAhCgAwIBAgIJALzQmVldx2A3MA0GCSqGSIb3DQEBBQUAMB4xHDAaBgNV
+BAMTE3Nzby5zaXJvcGdsb2JhbC5vcmcwHhcNMTQxMDI4MDgxNzI5WhcNMTcxMDI3
+MDgxNzI5WjAeMRwwGgYDVQQDExNzc28uc2lyb3BnbG9iYWwub3JnMIIBIjANBgkq
+hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAx64WLavrAOUS3hrtNy48EdBVdzwbYcDg
+0HmBm6inH9I4yASQp+QSPXJ+5l3FymRLigGKt2HcLzNMsO7h7ptaMd+A3PI1UKT7
+yTu7kzOjsE+9iHgTQ4nbGhQt3yl5xjjBdYdqqQrEj5FWEbvYhA/Wt+iVQMMG+zoW
+dXDwyz9TTqL/UiE02mSt0Ro9ApmLk/kj/1MxUO5miBBuGyRrFUGdXNPgt1OSjPlI
+5VDjAXdg9CYDJffHUMhq6l/QextaQy1yFNDras8A8bGxTUe84VcAAjLIcnCtv827
+mWbwunc4mk4SDTUvVD0lEiB2xBujYPDbztE/DEzChiythqzU1mDDhwIDAQABo2kw
 ZzBGBgNVHREEPzA9ghNzc28uc2lyb3BnbG9iYWwub3JnhiZodHRwczovL3Nzby5z
-aXJvcGdsb2JhbC5vcmcvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUhWvrjYWWW1NKLpSe
-I7Sk2ipB0yAwDQYJKoZIhvcNAQEFBQADggEBAGe5Qh3X+fQvQd8EPYP94b+XSfBJ
-tbvHyi6gBUkBMmnafb5Hzjh0901/Vb8AnKt2Ix4fpqreyIIPHI+03XaZBC8qETtN
-XIQEqHPpuTLZn+GcuF0M/twQHq1Gtn+XBC9wVlHsEw5LhI9ZsxauDQVXOvHJkSCF
-xoE4PKbmRhdC/yEleLcHkqJRZm2ghvQq8cXkz1y+dlWmNFbHxbwGVUyiXPKH9VXm
-7uHDTq8TquEldY5/NB0w+wk5fkizj0c5xV391YjOhbIHKJ27cZ12+/7iyjJJ0shj
-DP4gOoktkZlkyPT0AUi/samZ1GKtYrOGd9Z1/7fLlYYeFyA1QdFbBX5qxPM=
+aXJvcGdsb2JhbC5vcmcvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUUHYB3v8YkZziQywd
+6zbzQeks38UwDQYJKoZIhvcNAQEFBQADggEBAGKoO/l+amYeu2+/uI57e52A9PX1
+JhjburFtSrayQizXS4zFSIbu9H8SUGzo7UQ2wLEM9uI/rAlmn4Z5VnvkstkODfFj
+I29JZYw3d817h4Jqi20lasU++TfHMYGmnN7Wv9OjIQbOHIIZBGqyL7z7cTLYybT3
+7EI41ClPlg1xYunxMCEcVueS5VCVDpi/iRRgbtf8GefqPWe6nZxcbpmADIPMO8q4
+L7afxqiM5NYZ1c/id4cxXS2tptR943z6Kzfyw6pEClx/1QOWd+muOiE87QTv8ACS
+KnGGy1QRuuesWG8bve/GvCzKfjPNQDlJZv69Hchj3OmVnUVfVBhFKXjlCEQ=
 						</ds:X509Certificate>
-					</ds:X509Data>
-				</ds:KeyInfo>
-			</KeyDescriptor>
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-			<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.siropglobal.org/Shibboleth.sso/SAML2/POST" index="1"/>
-			<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sso.siropglobal.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
-			<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sso.siropglobal.org/Shibboleth.sso/SAML2/Artifact" index="3"/>
-			<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://sso.siropglobal.org/Shibboleth.sso/SAML2/ECP" index="4"/>
-			<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://sso.siropglobal.org/Shibboleth.sso/SAML/POST" index="5"/>
-			<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://sso.siropglobal.org/Shibboleth.sso/SAML/Artifact" index="6"/>
-			<AttributeConsumingService index="1">
-					<ServiceName xml:lang="en">SiROP platform (www.siropglobal.org)</ServiceName>
-					<ServiceDescription xml:lang="en">Thousands of students and researchers use SiROP to post and search open positions such as internships, Master, Bachelor or PhD projects and PostDoc positions. We connect students, researchers and institutions.</ServiceDescription>
-					
-					
-				<RequestedAttribute FriendlyName="email" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-					
-				<RequestedAttribute FriendlyName="eduPersonAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
-					
-					
-					
-					
-					
-				<RequestedAttribute FriendlyName="surname" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
-				<RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
-				<RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-				<RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
-				<RequestedAttribute FriendlyName="schacHomeOrganization" Name="urn:oid:1.3.6.1.4.1.25178.1.2.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
-				<RequestedAttribute FriendlyName="schacHomeOrganizationType" Name="urn:oid:1.3.6.1.4.1.25178.1.2.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
-			</AttributeConsumingService>
-			</SPSSODescriptor>
-		<Organization>
-			<OrganizationName xml:lang="en">switch.ch</OrganizationName>
-			<OrganizationDisplayName xml:lang="de">SWITCH</OrganizationDisplayName>
-			<OrganizationDisplayName xml:lang="en">SWITCH</OrganizationDisplayName>
-			<OrganizationDisplayName xml:lang="fr">SWITCH</OrganizationDisplayName>
-			<OrganizationDisplayName xml:lang="it">SWITCH</OrganizationDisplayName>
-			<OrganizationURL xml:lang="de">http://www.switch.ch/</OrganizationURL>
-			<OrganizationURL xml:lang="en">http://www.switch.ch/</OrganizationURL>
-			<OrganizationURL xml:lang="fr">http://www.switch.ch/</OrganizationURL>
-			<OrganizationURL xml:lang="it">http://www.switch.ch/</OrganizationURL>
-		</Organization>
-		<ContactPerson contactType="support">
-			<GivenName>Andreas</GivenName>
-			<SurName>Brodbeck</SurName>
-			<EmailAddress>mailto:it@siropglobal.org</EmailAddress>
-			
-		</ContactPerson>
-		<ContactPerson contactType="technical">
-			<GivenName>Andreas</GivenName>
-			<SurName>Brodbeck</SurName>
-			<EmailAddress>mailto:andreas.brodbeck@mindclue.ch</EmailAddress>
-			
-		</ContactPerson>
-		</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sso.siropglobal.org/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sso.siropglobal.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sso.siropglobal.org/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://sso.siropglobal.org/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://sso.siropglobal.org/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://sso.siropglobal.org/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="en">SiROP platform (www.siropglobal.org)</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">Thousands of students and researchers use SiROP to post and search open positions such as internships, Master, Bachelor or PhD projects and PostDoc positions. We connect students, researchers and institutions.</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="email" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="eduPersonAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="surname" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="schacHomeOrganization" Name="urn:oid:1.3.6.1.4.1.25178.1.2.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="schacHomeOrganizationType" Name="urn:oid:1.3.6.1.4.1.25178.1.2.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">switch.ch</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">SWITCH</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">SWITCH</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="fr">SWITCH</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="it">SWITCH</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.switch.ch/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.switch.ch/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="fr">http://www.switch.ch/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="it">http://www.switch.ch/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Andreas</md:GivenName>
+      <md:SurName>Brodbeck</md:SurName>
+      <md:EmailAddress>mailto:it@siropglobal.org</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Andreas</md:GivenName>
+      <md:SurName>Brodbeck</md:SurName>
+      <md:EmailAddress>mailto:andreas.brodbeck@mindclue.ch</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,82 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://authest.bathspa.ac.uk/oala/metadata">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-06-14T11:36:22Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">bathspa.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+					MIIDUDCCAjigAwIBAgIIRqiLzGQHQaswDQYJKoZIhvcNAQEFBQAwPzEcMBoGA1UE
+					CgwTQmF0aCBTcGEgVW5pdmVyc2l0eTEfMB0GA1UEAwwWYXV0aHRlc3QuYmF0aHNw
+					YS5hYy51azAeFw0xMzA2MTIxMjAwMzNaFw0yMzA2MTIxMjAwMzNaMD8xHDAaBgNV
+					BAoME0JhdGggU3BhIFVuaXZlcnNpdHkxHzAdBgNVBAMMFmF1dGh0ZXN0LmJhdGhz
+					cGEuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCW6aSWgT8R
+					ZcWJ4CPCq+q+Q7HkmVwkLmrzq6EGKw2iWsv5julaNTOl6WAx2+xQecNWag+3rfGp
+					uanS2frS+R7hO0x04VW4uBqfBKycUEvjJ9IeSaKifuVqui42YrUvypUAiMD0dyC1
+					2GxkuAPsnpUyIiiFf/+jB29HaOhHl55ZJL7PLU79X63qoLGOcEfx3JpXzWZknp1o
+					0+b3B6xWFTBElAuh/V7ZVwMnlQb6FDXdwURpP4Lfn2eNvEA5lj8nRgxqlFon0kGH
+					2FPhlJ61nAcS15eSaaTCnsfz8pVgjPdd1nZq3SajTeJaZq4Fb4LB6NkdSN4eDNrN
+					uQb4KDq96epdAgMBAAGjUDBOMB0GA1UdDgQWBBQem211nEnqC/c1sA/RIhSaKiOP
+					gzAfBgNVHSMEGDAWgBQem211nEnqC/c1sA/RIhSaKiOPgzAMBgNVHRMEBTADAQH/
+					MA0GCSqGSIb3DQEBBQUAA4IBAQAvZz0attopvGO1nP/afw1/j/5AaWTZVgE6aQqA
+					Pq5krYkN0eDdEh0pYuSOGE9yj2ol7GfDJJdVqg5XK6xmwRnXgLKYjo7wiHq6U+mf
+					tX2QESmKS5qiKc8GXZ7TB/Rzc4Q3pKcDC6ugMLPx3s4fKctttM2KU8FZ7YwA+esy
+					SV6EThbdpCA4FFpTyMOK8ITuoeUyq6YK6sEIxMkq2gE/R+cB4VL1z/rpVC/FgN/G
+					/MEIfzzKv+htixan0Vo0Gx5I6BPRvVi3Jk8mRjvw052p+1muveeBjeCvnBiXkkiT
+					2z1owf0akLc7gonqQhWx3mwrj9WXKUxSwI/KU9QyJ7+g24GQ
+				</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+					MIIDUDCCAjigAwIBAgIIRqiLzGQHQaswDQYJKoZIhvcNAQEFBQAwPzEcMBoGA1UE
+					CgwTQmF0aCBTcGEgVW5pdmVyc2l0eTEfMB0GA1UEAwwWYXV0aHRlc3QuYmF0aHNw
+					YS5hYy51azAeFw0xMzA2MTIxMjAwMzNaFw0yMzA2MTIxMjAwMzNaMD8xHDAaBgNV
+					BAoME0JhdGggU3BhIFVuaXZlcnNpdHkxHzAdBgNVBAMMFmF1dGh0ZXN0LmJhdGhz
+					cGEuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCW6aSWgT8R
+					ZcWJ4CPCq+q+Q7HkmVwkLmrzq6EGKw2iWsv5julaNTOl6WAx2+xQecNWag+3rfGp
+					uanS2frS+R7hO0x04VW4uBqfBKycUEvjJ9IeSaKifuVqui42YrUvypUAiMD0dyC1
+					2GxkuAPsnpUyIiiFf/+jB29HaOhHl55ZJL7PLU79X63qoLGOcEfx3JpXzWZknp1o
+					0+b3B6xWFTBElAuh/V7ZVwMnlQb6FDXdwURpP4Lfn2eNvEA5lj8nRgxqlFon0kGH
+					2FPhlJ61nAcS15eSaaTCnsfz8pVgjPdd1nZq3SajTeJaZq4Fb4LB6NkdSN4eDNrN
+					uQb4KDq96epdAgMBAAGjUDBOMB0GA1UdDgQWBBQem211nEnqC/c1sA/RIhSaKiOP
+					gzAfBgNVHSMEGDAWgBQem211nEnqC/c1sA/RIhSaKiOPgzAMBgNVHRMEBTADAQH/
+					MA0GCSqGSIb3DQEBBQUAA4IBAQAvZz0attopvGO1nP/afw1/j/5AaWTZVgE6aQqA
+					Pq5krYkN0eDdEh0pYuSOGE9yj2ol7GfDJJdVqg5XK6xmwRnXgLKYjo7wiHq6U+mf
+					tX2QESmKS5qiKc8GXZ7TB/Rzc4Q3pKcDC6ugMLPx3s4fKctttM2KU8FZ7YwA+esy
+					SV6EThbdpCA4FFpTyMOK8ITuoeUyq6YK6sEIxMkq2gE/R+cB4VL1z/rpVC/FgN/G
+					/MEIfzzKv+htixan0Vo0Gx5I6BPRvVi3Jk8mRjvw052p+1muveeBjeCvnBiXkkiT
+					2z1owf0akLc7gonqQhWx3mwrj9WXKUxSwI/KU9QyJ7+g24GQ
+				</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://authtest.bathspa.ac.uk/oala/sso"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://authtest.bathspa.ac.uk/oala/sso"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Bath Spa University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Bath Spa University Test IdP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.bathspa.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Server Team</md:GivenName>
+      <md:EmailAddress>mailto:serverteam@bathspa.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Server Team</md:GivenName>
+      <md:EmailAddress>mailto:serverteam@bathspa.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

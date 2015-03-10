@@ -1,0 +1,108 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.richuish.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2008-04-17T13:52:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0         urn:oasis:names:tc:SAML:1.1:protocol         urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">richuish.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEcTCCA1mgAwIBAgIQOK05z/jgLpm7t1J1gbk9JzANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEzMDQxMjAwMDAwMFoXDTE2MDQxMTIzNTk1OVowQDEhMB8GA1UE
+						CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRswGQYDVQQDExJpZHAucmljaHVp
+						c2guYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDc/+JhPJ6P
+						2RjvN7s7WlFfifcFU/bh9md3XhKI4TqBNPQc3xPaB1m9hJ09pPJqwW58yJTu0F8w
+						eh+0GDq/AEDPPMbWNSGC8hq9Ih4LdB2RdSg81Fl8clFqjNlO4lZjMTXuOVkFwOtm
+						e8gXIsNryCWL5gcuaHzD6AWkTOMVN66HwCuZ/JgFC1KE8b+28pbE0dVmQAD6k4RJ
+						F2RF/GUVV+RyNBiKGQj0STCJmz6wVEZpBw1hq2XxFfyBatk9ASYAAY7oLDNQNDpK
+						4CUSwevosmHPJV4tNvoGsACqMmUxZH/P/WSk20JCUWIiHCy3pdQMxfr1mrH0u1V8
+						KOvmYDdUK49xAgMBAAGjggFvMIIBazAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3
+						V0fqkOO57TAdBgNVHQ4EFgQUDot17IlAyyEIRz0G/r4/UTFoGb0wDgYDVR0PAQH/
+						BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUF
+						BwMCMCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQIBMDoGA1UdHwQz
+						MDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0Eu
+						Y3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2NydC50Y3Mu
+						dGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6Ly9v
+						Y3NwLnRjcy50ZXJlbmEub3JnMB0GA1UdEQQWMBSCEmlkcC5yaWNodWlzaC5hYy51
+						azANBgkqhkiG9w0BAQUFAAOCAQEAMDv9hIY0OHIXmIEhM40KM0I6LgJ4MQWLO+zH
+						GqiCVokJaAgVN6I7YYmXoZNdVT8ydDXBy3O++c2I79RuGHA3odevop+92VjY25yo
+						lCAhL+aIWy6AD1nzVYTT99qZdkgxCf3d1ryB/A8xhVpkUgSChwlviq09R17+ihYM
+						ZXeFk70BGXMnvbwuEi6fyB5xG1Ki+21ktQBRIaOhlXkPrDsAuUZeVnGZ1AhFvt/K
+						dPPwiuxkdI9aAXORj37yj0HZBCuO4SGnM0hwx5DzgiIzTv6BI7UKkr3rhbGUDPHB
+						0g92pSiGsoE2FzexcNmU7B4J5QH/+CQWTt5zLb6/X0jjC++7Kw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.richuish.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.richuish.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.richuish.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.richuish.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.richuish.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.richuish.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">richuish.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEcTCCA1mgAwIBAgIQOK05z/jgLpm7t1J1gbk9JzANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEzMDQxMjAwMDAwMFoXDTE2MDQxMTIzNTk1OVowQDEhMB8GA1UE
+						CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRswGQYDVQQDExJpZHAucmljaHVp
+						c2guYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDc/+JhPJ6P
+						2RjvN7s7WlFfifcFU/bh9md3XhKI4TqBNPQc3xPaB1m9hJ09pPJqwW58yJTu0F8w
+						eh+0GDq/AEDPPMbWNSGC8hq9Ih4LdB2RdSg81Fl8clFqjNlO4lZjMTXuOVkFwOtm
+						e8gXIsNryCWL5gcuaHzD6AWkTOMVN66HwCuZ/JgFC1KE8b+28pbE0dVmQAD6k4RJ
+						F2RF/GUVV+RyNBiKGQj0STCJmz6wVEZpBw1hq2XxFfyBatk9ASYAAY7oLDNQNDpK
+						4CUSwevosmHPJV4tNvoGsACqMmUxZH/P/WSk20JCUWIiHCy3pdQMxfr1mrH0u1V8
+						KOvmYDdUK49xAgMBAAGjggFvMIIBazAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3
+						V0fqkOO57TAdBgNVHQ4EFgQUDot17IlAyyEIRz0G/r4/UTFoGb0wDgYDVR0PAQH/
+						BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUF
+						BwMCMCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQIBMDoGA1UdHwQz
+						MDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0Eu
+						Y3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2NydC50Y3Mu
+						dGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6Ly9v
+						Y3NwLnRjcy50ZXJlbmEub3JnMB0GA1UdEQQWMBSCEmlkcC5yaWNodWlzaC5hYy51
+						azANBgkqhkiG9w0BAQUFAAOCAQEAMDv9hIY0OHIXmIEhM40KM0I6LgJ4MQWLO+zH
+						GqiCVokJaAgVN6I7YYmXoZNdVT8ydDXBy3O++c2I79RuGHA3odevop+92VjY25yo
+						lCAhL+aIWy6AD1nzVYTT99qZdkgxCf3d1ryB/A8xhVpkUgSChwlviq09R17+ihYM
+						ZXeFk70BGXMnvbwuEi6fyB5xG1Ki+21ktQBRIaOhlXkPrDsAuUZeVnGZ1AhFvt/K
+						dPPwiuxkdI9aAXORj37yj0HZBCuO4SGnM0hwx5DzgiIzTv6BI7UKkr3rhbGUDPHB
+						0g92pSiGsoE2FzexcNmU7B4J5QH/+CQWTt5zLb6/X0jjC++7Kw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.richuish.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.richuish.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Richard Huish College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Richard Huish College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.richuish.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Roz</md:GivenName>
+      <md:SurName>Abbott</md:SurName>
+      <md:EmailAddress>mailto:roza@richuish.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Roz</md:GivenName>
+      <md:SurName>Abbott</md:SurName>
+      <md:EmailAddress>mailto:roza@richuish.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

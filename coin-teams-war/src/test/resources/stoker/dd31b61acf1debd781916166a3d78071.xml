@@ -1,0 +1,81 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="http://adfs.yz.yamagata-u.ac.jp/adfs/services/trust">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.gakunin.jp" registrationInstant="2012-02-22T04:06:22Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.gakunin.jp/en-Join/</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="ja">https://www.gakunin.jp/join/</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://adfs.yz.yamagata-u.ac.jp/adfs/adfs/ls/IdpInitiatedSignOn.aspx" index="1"/>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">SharePoint Foundation Service</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="ja">シェアポイントサービス</mdui:DisplayName>
+          <mdui:Description xml:lang="ja">山形大学が提供するWindows系OSで動作するSPへの認証連携サービス．ユーザ向けサービスとしては，Sharepoint Foundationやe-サイエンスプラットフォームの提供する予定です．</mdui:Description>
+          <mdui:InformationURL xml:lang="ja">https://adfs.yz.yamagata-u.ac.jp/</mdui:InformationURL>
+          <mdui:Logo height="43" width="120">https://a.yamagata-u.ac.jp/amenity/img/federationbanner.aspx</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIE1zCCA7+gAwIBAgIIQS0FCDHAioYwDQYJKoZIhvcNAQEFBQAwfTELMAkGA1UE
+BhMCSlAxETAPBgNVBAcTCEFjYWRlbWUyMSowKAYDVQQKEyFOYXRpb25hbCBJbnN0
+aXR1dGUgb2YgSW5mb3JtYXRpY3MxDTALBgNVBAsTBFVQS0kxIDAeBgNVBAsTF05J
+SSBPcGVuIERvbWFpbiBDQSAtIEcyMB4XDTE0MDIyNjA3NTMwM1oXDTE2MDMyNzA4
+MDMwM1owgYIxCzAJBgNVBAYTAkpQMREwDwYDVQQHEwhBY2FkZW1lMjEcMBoGA1UE
+ChMTWWFtYWdhdGEgVW5pdmVyc2l0eTEfMB0GA1UECxMWRmFjdWx0eSBvZiBFbmdp
+bmVlcmluZzEhMB8GA1UEAxMYYWRmcy55ei55YW1hZ2F0YS11LmFjLmpwMIIBIjAN
+BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu+Pt+7VATkbKs+83jX7yK4xW+aIV
+71fsrId64IUFGSzeLcg8DbPIdeIdcJFfY4NZR15t8hU0IjMDx0D0Qz2oxLpZz1OD
+dQz1kZuN2hmaAGL9m4b6taRPl1WPcG7PrEVqAqUqQbmfHvt/8vEiVyDY5Mtmatgn
+tw4Av2fFe3uM1XuPbsNArQ7KzH1sNmAE9AIYEQv93fFOIA97t1RTfOVnttMfzQS/
+MyR0hr786ZZzMOIM4Ustg+VP4yWj0+eO039xKiW3VnA0KUNi+KlL0FldKBp2cdI5
+J7eMIFdzYRFRRxrOWSYfyhtRBK2gKMil4838RDaMXNUwO737UYD2h+wwtwIDAQAB
+o4IBUzCCAU8wDgYDVR0PAQH/BAQDAgWgMBMGA1UdJQQMMAoGCCsGAQUFBwMBMB0G
+A1UdDgQWBBTfko5e2B2zNVY0VDLQIwwp9TmZ8zAfBgNVHSMEGDAWgBR7Cgf3GMqM
+DtbavFCAbCxHAtEN+zAjBgNVHREEHDAaghhhZGZzLnl6LnlhbWFnYXRhLXUuYWMu
+anAwZgYDVR0gBF8wXTBNBgoqgwiMnB4BAgIBMD8wPQYIKwYBBQUHAgEWMWh0dHBz
+Oi8vcmVwbzEuc2Vjb210cnVzdC5uZXQvc3BjcHAvY3BzL2luZGV4Lmh0bWwwDAYK
+KoMIjJsbZIcFATBIBgNVHR8EQTA/MD2gO6A5hjdodHRwOi8vcmVwbzEuc2Vjb210
+cnVzdC5uZXQvc3BwY2EvbmlpL29kY2EyL2Z1bGxjcmwuY3JsMBEGCWCGSAGG+EIB
+AQQEAwIGQDANBgkqhkiG9w0BAQUFAAOCAQEANlm58vz9JAzddz3PM/nndM5k948P
+ySIoBYycZ5WzvKok5cq71x9uwZ50ZWAt3ru8p/ARLK/AkirrgWpcu6Zz6CxOR8WK
+GBSjDsiLJ1/u2CW3i+G1pCZHtw6PfLVbBTFJTQUoPHb6Gq06w7XkK054/lb00h7T
+12nVVteu0PKFn4DtRtyTC9VT/EdPwocGQNHcgtzuUR+P/EpyKJnIIqvStueFoMs5
+FqvmriGO8NgObxRz1X8x1w5jx34iIXCberb2U8Kx1Cb4gO7EJAFx0nCyvHOaUJlt
+CpjWNdmP/KMtEP9w4Of6RWQudObp2gGhtUfrlP7devqnJsZjmIZR3R5kvg==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://adfs.yz.yamagata-u.ac.jp/adfs/ls/"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adfs.yz.yamagata-u.ac.jp/adfs/ls/"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adfs.yz.yamagata-u.ac.jp/adfs/ls/" index="1" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://adfs.yz.yamagata-u.ac.jp/adfs/ls/" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://adfs.yz.yamagata-u.ac.jp/adfs/ls/" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://adfs.yz.yamagata-u.ac.jp/adfs/ls/" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://adfs.yz.yamagata-u.ac.jp/adfs/ls/" index="5"/>
+      <md:AttributeConsumingService index="1" isDefault="true">
+        <md:ServiceName xml:lang="ja">シェアポイントサービス</md:ServiceName>
+        <md:ServiceName xml:lang="en">SharePoint Foundation Service</md:ServiceName>
+        <md:ServiceDescription xml:lang="ja">山形大学が提供するWindows系OSで動作するSPへの認証連携サービス．ユーザ向けサービスとしては，Sharepoint Foundationやe-サイエンスプラットフォームの提供する予定です．</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="organizationName" Name="urn:oid:2.5.4.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+        <md:RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+        <md:RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Yamagata University</md:OrganizationName>
+      <md:OrganizationName xml:lang="ja">山形大学</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">SharePoint Foundation Service</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="ja">シェアポイントサービス</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.yamagata-u.ac.jp/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Tomohiro</md:GivenName>
+      <md:SurName>Ito</md:SurName>
+      <md:EmailAddress>mailto:tomohiro@yz.yamagata-u.ac.jp</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,6 +1,6 @@
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://www3.eduid.cz/shibboleth">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www3.eduid.cz/shibboleth">
     <md:Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.eduid.cz/" registrationInstant="2014-02-03T10:42:36Z">
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.eduid.cz/" registrationInstant="2014-02-03T10:42:36Z">
         <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
         <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
@@ -9,7 +9,7 @@
       <md:Extensions>
         <init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://www3.eduid.cz/Shibboleth.sso/Login"/>
         <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://www3.eduid.cz/Shibboleth.sso/Login" index="1"/>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="en">eduID.cz</mdui:DisplayName>
           <mdui:DisplayName xml:lang="cs">eduID.cz</mdui:DisplayName>
           <mdui:Description xml:lang="en">Informational web of the eduID.cz federation. It brings informations to end users and to technical staff at end institutions.</mdui:Description>
@@ -23,7 +23,7 @@
         </eduidmd:RepublishRequest>
       </md:Extensions>
       <md:KeyDescriptor>
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyInfo>
           <ds:KeyName>https://www3.eduid.cz/shibboleth</ds:KeyName>
           <ds:KeyName>www3.eduid.cz</ds:KeyName>
           <ds:X509Data>

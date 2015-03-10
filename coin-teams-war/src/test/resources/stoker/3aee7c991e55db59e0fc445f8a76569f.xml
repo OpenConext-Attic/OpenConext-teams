@@ -1,0 +1,57 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://courses.scholar.hw.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEujCCA6KgAwIBAgIQRLomkyosVgECbA0c3XaRHzANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMTAwMzAwMDAwMFoXDTE1MTAwMzIzNTk1OVowgYwxCzAJBgNV
+						BAYTAkdCMRMwEQYDVQQIEwpNaWRsb3RoaWFuMRIwEAYDVQQHEwlFZGluYnVyZ2gx
+						HzAdBgNVBAoTFkhlcmlvdC1XYXR0IFVuaXZlcnNpdHkxEDAOBgNVBAsTB1NDSE9M
+						QVIxITAfBgNVBAMTGGNvdXJzZXMuc2Nob2xhci5ody5hYy51azCCASIwDQYJKoZI
+						hvcNAQEBBQADggEPADCCAQoCggEBANjbD0Ux5Uv0WiNcGkafLQKrrMDMiq8JS/tM
+						VYQ5u0AaYFTekO+LMzqqB/mOHlgm5Rs1xEo9VgG7gdFV943P61lTn/qweB1mHU7a
+						zJG16He+5yu21eJ+iT9kwTi7LU17208xEhkClEuy7pwGOW5+wiDNtpk3OSeqpEAW
+						EVPbwRPHC8Zyh3dbe/LFD8H9dxScmxYC8FTPAGGJWi1L4zXWwtMEJW4VlubYbaWQ
+						NlUuNyyiI+00jowg96aFDSwUqDBGo7uf0gYuVrgjUk1pjNdTEgq872JXRHN4e4P4
+						6bVMKYskLSkW4AMaEeCmnNaabJN0P3VJar1/Ptc/nJ3BKwlCRycCAwEAAaOCAWsw
+						ggFnMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBTC
+						1f/4bAhBMH3eDvZ5AU1Z7gPd3zAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIw
+						ADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwGAYDVR0gBBEwDzANBgsr
+						BgEEAbIxAQICHTA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJl
+						bmEub3JnL1RFUkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUH
+						MAKGKWh0dHA6Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYG
+						CCsGAQUFBzABhhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9yZzAjBgNVHREEHDAa
+						ghhjb3Vyc2VzLnNjaG9sYXIuaHcuYWMudWswDQYJKoZIhvcNAQEFBQADggEBAAVp
+						IYPdo0+/kLxIcuqEu0q5v5Xgwj4cpug13IZGzrkorKNZvsMrclTl7WR+4XdTlseW
+						q1oQBqXAca6IftsheRJicQHKGdjUcdKWcKIR1dESiJTS6ZgVn+2P9+7cqO6g+7KA
+						KfgQOtbaWIjfuyyitrFdHpmNiDu6IbL7CE1D66SEpmGeudEd3iOqJ5Jg2cMYzp3m
+						5bgibxsUL6RmZZy4FTs3+EaTAgwYplToHWswYVcBKUOT8zHViaLoAGIa91Jdk8gs
+						he+WuTto9CopcLzbYhDq6+V4Z7wSPxXvIhsYR4XueFAdtfikwtJuG5ILtLylJBBE
+						IdO6f+kcAEgl9zyanis=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://courses.scholar.hw.ac.uk/Shibboleth.sso/SAML/Artifact" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://courses.scholar.hw.ac.uk/Shibboleth.sso/SAML/POST" index="2"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Heriot-Watt University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Heriot-Watt University: The SCHOLAR Programme</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://scholar.hw.ac.uk/sco.html</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>IT Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:ithelp@hw.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>George</md:GivenName>
+      <md:SurName>Livie</md:SurName>
+      <md:EmailAddress>mailto:G.Livie@hw.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

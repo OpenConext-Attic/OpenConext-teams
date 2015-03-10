@@ -1,0 +1,108 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth.kcollege.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2011-03-08T17:52:30Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">kcollege.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEVDCCAzygAwIBAgIJAIt8JpQ7ds27MA0GCSqGSIb3DQEBBQUAMIGqMQswCQYD
+						VQQGEwJHQjENMAsGA1UECBMES2VudDESMBAGA1UEBxMJVG9uYnJpZGdlMRIwEAYD
+						VQQKEwlLIENvbGxlZ2UxFjAUBgNVBAsTDUlUIERlcGFydG1lbnQxIjAgBgNVBAMT
+						GXNoaWJib2xldGgua2NvbGxlZ2UuYWMudWsxKDAmBgkqhkiG9w0BCQEWGWl0c2Vy
+						dmljZXNAa2NvbGxlZ2UuYWMudWswHhcNMTQwMjEyMDk1MDA5WhcNMjQwMjEwMDk1
+						MDA5WjCBqjELMAkGA1UEBhMCR0IxDTALBgNVBAgTBEtlbnQxEjAQBgNVBAcTCVRv
+						bmJyaWRnZTESMBAGA1UEChMJSyBDb2xsZWdlMRYwFAYDVQQLEw1JVCBEZXBhcnRt
+						ZW50MSIwIAYDVQQDExlzaGliYm9sZXRoLmtjb2xsZWdlLmFjLnVrMSgwJgYJKoZI
+						hvcNAQkBFhlpdHNlcnZpY2VzQGtjb2xsZWdlLmFjLnVrMIIBIjANBgkqhkiG9w0B
+						AQEFAAOCAQ8AMIIBCgKCAQEAyUONnw9FNuYKcET6VNifgEdvZOAOZXlyJTOmS+dR
+						tEhyW8TBc5gFjyPyc12Odj3qelGj/IwN0UuvN9XSZwVXVfTfxShmAxfA4jGp9/QS
+						3GDvDJRaIEpZBXdnnj1/mBtXUc3kz8bATlKK2iOyl+M4YtwxoHzDyFhlsu+h4A2Y
+						LOl3ippTtSql++pgoRAITDLuALIgF/BSzWV/wv1l11AzPauPONJTPWH8uBZ8e85H
+						kcgm2+psZwP3NYGrgzWmR2OKFZg/4buis+S1LDTX66zuwaMnCwnK7y6jcgQ8piB0
+						Y5ypSZCq4fOUc7vNiYmA/EJVq5c6//cyfo4OHUxMgOStHwIDAQABo3sweTAJBgNV
+						HRMEAjAAMCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVyYXRlZCBDZXJ0aWZp
+						Y2F0ZTAdBgNVHQ4EFgQUhvOVaHPTsggHRCxEXm6G8hfJbVswHwYDVR0jBBgwFoAU
+						hvOVaHPTsggHRCxEXm6G8hfJbVswDQYJKoZIhvcNAQEFBQADggEBALIGgkvNn9fX
+						HlxH5CiHKVOSwEHE7MlnkJLOemlMv/n4jjWJyKOQ1XR6nZ7Q9UQl0v5cHZKJMMYq
+						chJebSDsho3kb9LkibDEAO6b2b8ZUGMf0F/6hqETy5Qj/w9YFRHqsIHkDMbCZAKd
+						8fm5chrfV2op269TzIrs0LLiCqGE7Jak0ZafxxHUofxQb2d31OdT5xga47ReJI1n
+						CwTAsqXJlK6Zt6T5x29G94U0l5jgYlIrkbGI5ybdfCmOI7NIk+N6uadQ0CLx4sbH
+						TGHu0K6ZOPVhjPVgBOVGFbmVDx9WrGCSliwiYBc8hzurYDhZFH323wiUja7yrCUs
+						zGCgMnWgl18=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.kcollege.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.kcollege.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.kcollege.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.kcollege.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.kcollege.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.kcollege.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">kcollege.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEVDCCAzygAwIBAgIJAIt8JpQ7ds27MA0GCSqGSIb3DQEBBQUAMIGqMQswCQYD
+						VQQGEwJHQjENMAsGA1UECBMES2VudDESMBAGA1UEBxMJVG9uYnJpZGdlMRIwEAYD
+						VQQKEwlLIENvbGxlZ2UxFjAUBgNVBAsTDUlUIERlcGFydG1lbnQxIjAgBgNVBAMT
+						GXNoaWJib2xldGgua2NvbGxlZ2UuYWMudWsxKDAmBgkqhkiG9w0BCQEWGWl0c2Vy
+						dmljZXNAa2NvbGxlZ2UuYWMudWswHhcNMTQwMjEyMDk1MDA5WhcNMjQwMjEwMDk1
+						MDA5WjCBqjELMAkGA1UEBhMCR0IxDTALBgNVBAgTBEtlbnQxEjAQBgNVBAcTCVRv
+						bmJyaWRnZTESMBAGA1UEChMJSyBDb2xsZWdlMRYwFAYDVQQLEw1JVCBEZXBhcnRt
+						ZW50MSIwIAYDVQQDExlzaGliYm9sZXRoLmtjb2xsZWdlLmFjLnVrMSgwJgYJKoZI
+						hvcNAQkBFhlpdHNlcnZpY2VzQGtjb2xsZWdlLmFjLnVrMIIBIjANBgkqhkiG9w0B
+						AQEFAAOCAQ8AMIIBCgKCAQEAyUONnw9FNuYKcET6VNifgEdvZOAOZXlyJTOmS+dR
+						tEhyW8TBc5gFjyPyc12Odj3qelGj/IwN0UuvN9XSZwVXVfTfxShmAxfA4jGp9/QS
+						3GDvDJRaIEpZBXdnnj1/mBtXUc3kz8bATlKK2iOyl+M4YtwxoHzDyFhlsu+h4A2Y
+						LOl3ippTtSql++pgoRAITDLuALIgF/BSzWV/wv1l11AzPauPONJTPWH8uBZ8e85H
+						kcgm2+psZwP3NYGrgzWmR2OKFZg/4buis+S1LDTX66zuwaMnCwnK7y6jcgQ8piB0
+						Y5ypSZCq4fOUc7vNiYmA/EJVq5c6//cyfo4OHUxMgOStHwIDAQABo3sweTAJBgNV
+						HRMEAjAAMCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVyYXRlZCBDZXJ0aWZp
+						Y2F0ZTAdBgNVHQ4EFgQUhvOVaHPTsggHRCxEXm6G8hfJbVswHwYDVR0jBBgwFoAU
+						hvOVaHPTsggHRCxEXm6G8hfJbVswDQYJKoZIhvcNAQEFBQADggEBALIGgkvNn9fX
+						HlxH5CiHKVOSwEHE7MlnkJLOemlMv/n4jjWJyKOQ1XR6nZ7Q9UQl0v5cHZKJMMYq
+						chJebSDsho3kb9LkibDEAO6b2b8ZUGMf0F/6hqETy5Qj/w9YFRHqsIHkDMbCZAKd
+						8fm5chrfV2op269TzIrs0LLiCqGE7Jak0ZafxxHUofxQb2d31OdT5xga47ReJI1n
+						CwTAsqXJlK6Zt6T5x29G94U0l5jgYlIrkbGI5ybdfCmOI7NIk+N6uadQ0CLx4sbH
+						TGHu0K6ZOPVhjPVgBOVGFbmVDx9WrGCSliwiYBc8hzurYDhZFH323wiUja7yrCUs
+						zGCgMnWgl18=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.kcollege.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.kcollege.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">South and West Kent College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">K College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.kcollege.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Gareth</md:GivenName>
+      <md:SurName>Mitchell</md:SurName>
+      <md:EmailAddress>mailto:garethmitchell@kcollege.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Gareth</md:GivenName>
+      <md:SurName>Mitchell</md:SurName>
+      <md:EmailAddress>mailto:garethmitchell@kcollege.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

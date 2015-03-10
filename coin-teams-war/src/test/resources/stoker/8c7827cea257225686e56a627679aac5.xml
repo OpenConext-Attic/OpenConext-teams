@@ -1,0 +1,74 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://copac.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2009-02-03T17:10:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://copac.ac.uk/Shibboleth.sso/DS" index="1"/>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Copac: National, Academic &amp; Specialist Library Catalogue</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Search increasing numbers of UK and Irish academic, national &amp; specialist library catalogues</mdui:Description>
+          <mdui:Logo height="117" width="300">https://copac.ac.uk/img/copac-shibboleth.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEFjCCAv6gAwIBAgIJAO6xAo1XfaxPMA0GCSqGSIb3DQEBBQUAMIGEMQswCQYD
+						VQQGEwJHQjETMBEGA1UECBMKTWFuY2hlc3RlcjETMBEGA1UEBxMKTWFuY2hlc3Rl
+						cjElMCMGA1UEChMcVGhlIFVuaXZlcnNpdHkgb2YgTWFuY2hlc3RlcjEOMAwGA1UE
+						CxMFTWltYXMxFDASBgNVBAMTC2NvcGFjLmFjLnVrMB4XDTEzMDUzMDE1MzAxNFoX
+						DTIzMDUyODE1MzAxNFowgYQxCzAJBgNVBAYTAkdCMRMwEQYDVQQIEwpNYW5jaGVz
+						dGVyMRMwEQYDVQQHEwpNYW5jaGVzdGVyMSUwIwYDVQQKExxUaGUgVW5pdmVyc2l0
+						eSBvZiBNYW5jaGVzdGVyMQ4wDAYDVQQLEwVNaW1hczEUMBIGA1UEAxMLY29wYWMu
+						YWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCkHGpQmx3P3Af0
+						fkVm9D8iNZVqBDVFjXZXfktCzU5Zq368JQsItRz03ON4xCmU7Qe/gugcmxNxukQ6
+						2B+tNcuFyVaJ+u6Fe2hvwjk1oP4Ss6fMFkE+UmOlqbwcrPdEeSVFIBWW8Wexhs1e
+						e71CR/LtzX369K8TSQrzAsVGIbhXCVnKDyhclgilF+20AaWTVj2iNrUd15POvmZQ
+						HP646gd9o8JxPlzILXdabJtd8liIIPsCqD8KH0K4M1rlhWDz0MLct8VM9GVuv23p
+						nOOEz3hkhhxfJUlDqt3C3HHtPwJ157tVMUJSAzRdOLnqt3B3hhftFzLzf/jT6/FZ
+						mazrYbP/AgMBAAGjgYgwgYUwCQYDVR0TBAIwADALBgNVHQ8EBAMCBLAwHQYDVR0l
+						BBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBYGA1UdEQQPMA2CC2NvcGFjLmFjLnVr
+						MDQGA1UdEgQtMCuBKW1pbWFzLXNoaWItdGVjaEBsaXN0c2Vydi5tYW5jaGVzdGVy
+						LmFjLnVrMA0GCSqGSIb3DQEBBQUAA4IBAQB5QfB/NqgTytj+KdQ2TrV8gySfKbGe
+						dOeM1cGSpX8FyXXiEavVAHlDsuhsd9RcMROqkj90oQQFUm3CJnh0m40++WXdI9+v
+						7bMQ0xYVzGnsX7qBxxHlSslGRNF7/4Ya6UTrDOTpmIVSvNDmMWqBnwBwVQ6zKxLP
+						xYs0qSlnDNKjXgpcWOJPz6cuCuOOOXDoMuIdpNSWHfHz9E1PfUo4QOClG+HVOus2
+						5SFQ7I6cUaJz3K8IQzOIyhqKJiWyr+U+c49UObr8HrurvvQ1GIibCEG5/5nV5y9R
+						UETawIuGZeVFL2GfLp1JS4Fe6QvAenQwPFVqKKhwRalihh53YYkNvchV
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://copac.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://copac.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://copac.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://copac.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://copac.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://copac.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://copac.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://copac.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://copac.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://copac.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://copac.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://copac.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://copac.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://copac.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">The University of Manchester</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">MIMAS Copac</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://copac.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Copac Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:copac@mimas.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mimas Technical Support</md:GivenName>
+      <md:EmailAddress>mailto:mimas-shib-tech@listserv.manchester.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

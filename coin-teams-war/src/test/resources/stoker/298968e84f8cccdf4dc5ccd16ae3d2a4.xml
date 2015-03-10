@@ -1,0 +1,61 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://test.shu.unidesk.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-05-03T13:52:51Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://test.shu.unidesk.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC/TCCAeWgAwIBAgIJAKOQZJ9XeRRZMA0GCSqGSIb3DQEBBQUAMB0xGzAZBgNV
+						BAMTEnRlc3QudW5pZGVzay5hYy51azAeFw0xMjAzMjIxNjUwMTdaFw0yMjAzMjAx
+						NjUwMTdaMB0xGzAZBgNVBAMTEnRlc3QudW5pZGVzay5hYy51azCCASIwDQYJKoZI
+						hvcNAQEBBQADggEPADCCAQoCggEBAPweFLYNELDowDm8YWp8G8RKR0q+ufgUN7H7
+						h7RTesgxlO9T8wXLT1e4s1ruCVrYtkt8q3K+iXukZ+J5QD4lMtvWHfbpKJNddygG
+						RkURpJQ7bY1rTdWA6jNi16TR+8M2ECIf4Q6CVukHHrX9PuZM+b7Ktg2gf3fmy7vQ
+						MQ2/2Rp8/LKGKotVAoRYrNc8y3Y2PR9omsidxNGyyXxfD2OyTobuk1Ezb7Fk4Oq+
+						4VmetrJ5CwFOwTBmFUgfaazuooEvGM7tA/jjRGDY5H+4oyVDK63Ktf59pwGln6Bo
+						JyBfJIWYK/5w3psQJZCFyNgJ4WQSgxbAiORGQPZLfKxsvAaGD2UCAwEAAaNAMD4w
+						HQYDVR0RBBYwFIISdGVzdC51bmlkZXNrLmFjLnVrMB0GA1UdDgQWBBRxsmQCxZXe
+						bZvQMvehqWxt1yHYijANBgkqhkiG9w0BAQUFAAOCAQEAtOWghRw2KKVvYbX0sQEX
+						VDYPpi4Q1q6b1vl/MK0WU+zWjOmuljIIw377NOuH+A8zwJF2maelKlEHFmlMg8nl
+						a8MPTIQIhgJ3baXwfy5jvEIQrK++0LwaFiBdwg0dM3er6pyODVypn6oNpKY9gcFA
+						xCl05pTEBIWPAxFNcvYj/liPrDC8RcEBpnEiGZcJgvPGCulXV3O9FCRkoyTaVoUB
+						e42UmPVs7zqOGsBy6ZcHRGoD53VWtkvax8iBGBobK0fGICh6vyX7Qb6Me3r/7S1h
+						6WUcF/Nm7P5V6V2an8MJPYyIVNn6QorTplFsBhK4/Wr+Xb4JIurIwCWDqbVIYo1j
+						TA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://test.shu.unidesk.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://test.shu.unidesk.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://test.shu.unidesk.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://test.shu.unidesk.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://test.shu.unidesk.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://test.shu.unidesk.ac.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://test.shu.unidesk.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://test.shu.unidesk.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://test.shu.unidesk.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://test.shu.unidesk.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://test.shu.unidesk.ac.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Edinburgh</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Edinburgh: Unidesk - Sheffield Hallam University (Test)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ed.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>IS Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:IS.Helpdesk@ed.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>IS Application Technology Management</md:GivenName>
+      <md:EmailAddress>mailto:apps-certs@mlist.is.ed.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

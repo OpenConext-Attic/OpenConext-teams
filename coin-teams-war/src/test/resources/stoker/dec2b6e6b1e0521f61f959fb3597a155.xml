@@ -1,0 +1,70 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://adss.uas.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://adss.uas.ox.ac.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEbDCCA1SgAwIBAgIJAMHhwKmD2myoMA0GCSqGSIb3DQEBBQUAMIG2MQswCQYD
+						VQQGEwJHQjEUMBIGA1UECBMLT3hmb3Jkc2hpcmUxDzANBgNVBAcTBk94Zm9yZDEd
+						MBsGA1UEChMUVW5pdmVyc2l0eSBvZiBPeGZvcmQxFDASBgNVBAsTC0lUIFNlcnZp
+						Y2VzMRowGAYDVQQDExFhZHNzLnVhcy5veC5hYy51azEvMC0GCSqGSIb3DQEJARYg
+						b3BzLXRlYW1AbWFpbGxpc3QuYWRtaW4ub3guYWMudWswHhcNMTIwODMxMDgyNjUw
+						WhcNMjIwODI5MDgyNjUwWjCBtjELMAkGA1UEBhMCR0IxFDASBgNVBAgTC094Zm9y
+						ZHNoaXJlMQ8wDQYDVQQHEwZPeGZvcmQxHTAbBgNVBAoTFFVuaXZlcnNpdHkgb2Yg
+						T3hmb3JkMRQwEgYDVQQLEwtJVCBTZXJ2aWNlczEaMBgGA1UEAxMRYWRzcy51YXMu
+						b3guYWMudWsxLzAtBgkqhkiG9w0BCQEWIG9wcy10ZWFtQG1haWxsaXN0LmFkbWlu
+						Lm94LmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7Uq21vQR
+						aGkM8BRh+Rm2G6yIDXfg/u3+LFY0yLaN8CFI6Ke4vd5NB8FjKTLDqkCo7vOUIBxr
+						mSYGtmzI3xMj45nk5meFCF2DFPWW9Ahl2Eoiyf14H7dDljG5jvNNUqUBg2uUGd0s
+						+rkExZJOsVHcYOYk30pLR2RdRph2JpHR2hMpG5sMTx0wIPN/sphfYejYy8nDXmeI
+						TUmAh1fPbTw+lqhGiP3u1KEub1H8POW61pXHijTR8+vZhig58iJDCeAGIMt1Ohz+
+						fHY3PGWNyOSberjWmOfbRBPIFbsBZhgZCX5aUg51XJNL3MMmkcdwoueLX5JWniCd
+						rC+a/hUJzAd4JwIDAQABo3sweTAJBgNVHRMEAjAAMCwGCWCGSAGG+EIBDQQfFh1P
+						cGVuU1NMIEdlbmVyYXRlZCBDZXJ0aWZpY2F0ZTAdBgNVHQ4EFgQU8GLgsgMbSHPL
+						7InagZMCUhfRxhUwHwYDVR0jBBgwFoAU8GLgsgMbSHPL7InagZMCUhfRxhUwDQYJ
+						KoZIhvcNAQEFBQADggEBAEfQGtUoP+adGHM14S7luh/rS8tIXpZIwt5apYwsZRmn
+						e1f12TeRm2U4kJeWa+tbpWZpHT8AyQ1MA83FZzpB+1sisRof5ef6MloOdPpFstBu
+						TZQQMT+BRbIDF5jGqd0CjGxjXk4EkzNINiyNR/luSPBILATUrukjlm0K6AnvXCK5
+						Jqv6VzqE7r9SANzaf6EzToudGI4lenAJK6QlFfkiT3ikcAf/wxjN+/KKk1FIupv1
+						+eaxb/3JNQCm9e3jWJQKuwGYS42TwD6nynJvZMNx4HbDTnHdnoFnRxshT8Lcj4Ux
+						Es1CiT3smbVVyekIg2yBRtwdwCM2CrOjlPKCYgxrMa4=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://adss.uas.ox.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://adss.uas.ox.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adss.uas.ox.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://adss.uas.ox.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://adss.uas.ox.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://adss.uas.ox.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adss.uas.ox.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://adss.uas.ox.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adss.uas.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://adss.uas.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://adss.uas.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://adss.uas.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://adss.uas.ox.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://adss.uas.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford: ADSS Live System</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.admin.ox.ac.uk/bsp/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Ops</md:GivenName>
+      <md:EmailAddress>mailto:ops@admin.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Tom</md:GivenName>
+      <md:SurName>Livings</md:SurName>
+      <md:EmailAddress>mailto:tom.livings@it.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

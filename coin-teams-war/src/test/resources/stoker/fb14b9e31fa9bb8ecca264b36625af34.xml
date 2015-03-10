@@ -1,0 +1,94 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibsles.brunel.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">brunel.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDNDCCAhygAwIBAgIJAPWdUCwLL6STMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV
+						BAMTFXNoaWJzbGVzLmJydW5lbC5hYy51azAeFw0xMjA2MDExMTMwMDFaFw0yMjA2
+						MDExMTMwMDFaMCAxHjAcBgNVBAMTFXNoaWJzbGVzLmJydW5lbC5hYy51azCCASIw
+						DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANeoXX34/IQVQfUnXhGeOIv+casO
+						4UTpWfR7m1jGvZwH29IDkD/yp1smabJz4uxHaMfgeN3KdjOThvkblPvElwuddnX0
+						ql6+zeJ0W/QaNU0dxgGzrUnaUcVsqmBH3onrR63dr94opNzYDw2SIV1HAhiUKCIM
+						A5zOAIEMTfSiS8xLxgQ8zR13tLPsq8TdRPoHDdqpbQFZOhxCD804NN3MvsN0LUnP
+						VvJ939m3aUpZbwjLlQsMgRBdkV7WfUxGggCfGgLMfuT8IoN555b0NzzsHdjIdCzi
+						jjpogH7HZYeIRn//qWCwz0Ulg6d/wpzyWW/YQhlkXiiP+LCRWbPtIBr4bskCAwEA
+						AaNxMG8wTgYDVR0RBEcwRYIVc2hpYnNsZXMuYnJ1bmVsLmFjLnVrhixodHRwczov
+						L3NoaWJzbGVzLmJydW5lbC5hYy51ay9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU
+						Xp7b4ZI5lsrpyW2A+MmkBO+D/70wDQYJKoZIhvcNAQEFBQADggEBALimmRmPVvsh
+						gn3C/lssDcncpnnrNjhuMgjCkeO2Vh9bvDW4WDRgvNPsR2WXoRGFrFYB8DExh6Lk
+						+J92k7BKQtPriDYh+NtYxqc9z1pJxp0AIzh9DohkyY0QXllLjJ+GM5ddt0iRMAvJ
+						3tPbv2Kk6sZYIa2bgmQJiyjnDLFKHjihJk8cLzbWQ84NMZJmDyub+SpoEcFEcaZ7
+						0s54t2iEQpQ9z0JCYwZSE6JcBB0uxqxLEO79a2VJFTeQlf/u/0Urd6kVpprqh8rZ
+						84p18Y4QJKlwEQhkkqg8PykdSAHzaIDTN9N6qJjfdFSKLp0DRHWpeDqnbhlc2+8H
+						NySru11ACLA=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibsles.brunel.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibsles.brunel.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibsles.brunel.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibsles.brunel.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibsles.brunel.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibsles.brunel.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">brunel.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDNDCCAhygAwIBAgIJAPWdUCwLL6STMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV
+						BAMTFXNoaWJzbGVzLmJydW5lbC5hYy51azAeFw0xMjA2MDExMTMwMDFaFw0yMjA2
+						MDExMTMwMDFaMCAxHjAcBgNVBAMTFXNoaWJzbGVzLmJydW5lbC5hYy51azCCASIw
+						DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANeoXX34/IQVQfUnXhGeOIv+casO
+						4UTpWfR7m1jGvZwH29IDkD/yp1smabJz4uxHaMfgeN3KdjOThvkblPvElwuddnX0
+						ql6+zeJ0W/QaNU0dxgGzrUnaUcVsqmBH3onrR63dr94opNzYDw2SIV1HAhiUKCIM
+						A5zOAIEMTfSiS8xLxgQ8zR13tLPsq8TdRPoHDdqpbQFZOhxCD804NN3MvsN0LUnP
+						VvJ939m3aUpZbwjLlQsMgRBdkV7WfUxGggCfGgLMfuT8IoN555b0NzzsHdjIdCzi
+						jjpogH7HZYeIRn//qWCwz0Ulg6d/wpzyWW/YQhlkXiiP+LCRWbPtIBr4bskCAwEA
+						AaNxMG8wTgYDVR0RBEcwRYIVc2hpYnNsZXMuYnJ1bmVsLmFjLnVrhixodHRwczov
+						L3NoaWJzbGVzLmJydW5lbC5hYy51ay9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQU
+						Xp7b4ZI5lsrpyW2A+MmkBO+D/70wDQYJKoZIhvcNAQEFBQADggEBALimmRmPVvsh
+						gn3C/lssDcncpnnrNjhuMgjCkeO2Vh9bvDW4WDRgvNPsR2WXoRGFrFYB8DExh6Lk
+						+J92k7BKQtPriDYh+NtYxqc9z1pJxp0AIzh9DohkyY0QXllLjJ+GM5ddt0iRMAvJ
+						3tPbv2Kk6sZYIa2bgmQJiyjnDLFKHjihJk8cLzbWQ84NMZJmDyub+SpoEcFEcaZ7
+						0s54t2iEQpQ9z0JCYwZSE6JcBB0uxqxLEO79a2VJFTeQlf/u/0Urd6kVpprqh8rZ
+						84p18Y4QJKlwEQhkkqg8PykdSAHzaIDTN9N6qJjfdFSKLp0DRHWpeDqnbhlc2+8H
+						NySru11ACLA=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibsles.brunel.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibsles.brunel.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Brunel University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Brunel University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.brunel.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Alex</md:GivenName>
+      <md:SurName>Fraser</md:SurName>
+      <md:EmailAddress>mailto:alex.fraser@brunel.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Alex</md:GivenName>
+      <md:SurName>Fraser</md:SurName>
+      <md:EmailAddress>mailto:alex.fraser@brunel.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

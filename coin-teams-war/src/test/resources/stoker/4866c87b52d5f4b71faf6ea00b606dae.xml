@@ -1,0 +1,82 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://library.qub.ac.uk/shibboleth/metadata">
+    <md:Extensions>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-05-31T09:25:24Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://raptor.qub.ac.uk/Shibboleth.sso/Login"/>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Queen's University SP</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Queen's University SP for special access Library E-Resources</mdui:Description>
+          <mdui:Logo height="95" width="80">https://ezproxy1.qub.ac.uk:8443/icons/Q.gif</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC2TCCAcGgAwIBAgIJANx6SVUginfkMA0GCSqGSIb3DQEBBQUAMBExDzANBgNV
+						BAMTBnJhcHRvcjAeFw0xMzA0MjQwODU0MTdaFw0yMzA0MjIwODU0MTdaMBExDzAN
+						BgNVBAMTBnJhcHRvcjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKB3
+						k6ymJAJTxp7t77CFWoRJKYBCfNxiXaE5BcT76ZcWIohzpsiHyTpPlKU0uZe1rjNh
+						gOEVjcdNI3n6AAaIT3CvawtbczAIHi5XflQ//S9qdn+W1+kgcSFvgINSIhHIW66F
+						OXSa7oHCHNxmb3LYE7EZj1pEpFAgYvNG4V6UW8lgDmB4fS4DPdO+BPj6AIYVb6PF
+						50FzrMiDPdRkr/aXZ7evxWmD7ruojrJRLuFI7bZoNlaEGpKRQ/krZPZz1VddUy/d
+						tFznDa328ytxn9fGq5ZWPoiaA/1zaEJ9yVdAwKi/M5KQRTgZZ/Yae/zu8rTlTjZB
+						ob5AJgSgOW5RoAyKG+cCAwEAAaM0MDIwEQYDVR0RBAowCIIGcmFwdG9yMB0GA1Ud
+						DgQWBBTsdKLXymwLx7MoCSzQZgdEcVhc2zANBgkqhkiG9w0BAQUFAAOCAQEANfHO
+						1TeImBAPHOsgGuGedT9q45nkmtJDXSGI7a68chsPvaOzQfAlVeFFBDyQ7YfoHmLb
+						yuBjU5OCRfpJ3PyQAnVO8l/aEMUT1qe4HKbOWLV3jdM/HxumqkEDraZe3mAceelj
+						7Xs+Fpncf80Iie3I4LEvgjSkqryciRQFFESA8dLMkuKoMKMmiswVwKVErw/nMClb
+						ARNvuh8GT+MqNqACjO9Dstixdcr2A5WapXIs5G+is7RnGVtxwQBp4Q0ULqbqSJiD
+						7dODX4wncRad73U0SAmqFt9fpftB4rOuHloEKkkoGGKSvqlWUGkiT5GWw/BH0o1n
+						eZkMlsZjMmrX7Nk0/A==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://raptor.qub.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://raptor.qub.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://raptor.qub.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://raptor.qub.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://raptor.qub.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://raptor.qub.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://raptor.qub.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://raptor.qub.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://raptor.qub.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://raptor.qub.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://raptor.qub.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">The Queen's University of Belfast</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Queen's University SP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.qub.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Karen</md:GivenName>
+      <md:SurName>Murphy</md:SurName>
+      <md:EmailAddress>mailto:eresources@qub.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Karen</md:GivenName>
+      <md:SurName>Murphy</md:SurName>
+      <md:EmailAddress>mailto:k.l.murphy@qub.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

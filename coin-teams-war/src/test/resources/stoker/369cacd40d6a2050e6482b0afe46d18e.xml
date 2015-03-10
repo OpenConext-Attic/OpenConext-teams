@@ -1,0 +1,93 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.chichester.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">chichester.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDPDCCAiSgAwIBAgIVAJjvxUK9DXhdlH/EkMId7VAbUERjMA0GCSqGSIb3DQEB
+						BQUAMB8xHTAbBgNVBAMTFGlkcC5jaGljaGVzdGVyLmFjLnVrMB4XDTEzMDcwMzE1
+						MjUxNloXDTMzMDcwMzE1MjUxNlowHzEdMBsGA1UEAxMUaWRwLmNoaWNoZXN0ZXIu
+						YWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCPypPq8ApF4OPt
+						ENNcoWFIOnyJtNDbGoaRRlMTg7CDf1HkQb6Y9+zeK3gg1HC4PdI4Hxw+gqyhdeLE
+						Op9uKvu9Mc2vx3ekfzQ5gbt9m0XgmnBAo+Pp21nOIwwQHRM3bLmld1A9jW3hcgA6
+						MIjuJ6SeETWpbuFx00KNUXO7BuxBtvnhPesp1NRK03yHSI9T+pevq1Im1U0aplHP
+						747tAS7/lGZBk/f3Xa0iCkriO6/9fEuXianylagIyJnvLBTImwMHPFYU1hrcpBez
+						nfHYpHmUEQ26ol83ZrwT+oDgY6mBsZKcMp4pn9aBVxqXSIP9wB3C0kMYzTPvj6vI
+						3tAIJ0krAgMBAAGjbzBtMEwGA1UdEQRFMEOCFGlkcC5jaGljaGVzdGVyLmFjLnVr
+						hitodHRwczovL2lkcC5jaGljaGVzdGVyLmFjLnVrL2lkcC9zaGliYm9sZXRoMB0G
+						A1UdDgQWBBQVTtCrfHJjvTZ+wDTp5oNJlTJRRjANBgkqhkiG9w0BAQUFAAOCAQEA
+						O3KMZhp4iLbEGamacfT0kOrh9IDuhcjHlwRbATf7VBW2IuHZbBPNO11Z8Km6a2g0
+						NDIHuc8jPYxY6rt//kjQwf4UEGxjiYwuplGsiN9FJfHcbXUkt9+8HUJpCX2C/jcg
+						yEX9NGRp+4VGnqLV5ddJcFa7hH2g08bj6hfNBKQcmSdeuWAKR/XBM6xCW9yNskpb
+						GMvVNbPQiLbkXCaEqgu3qOHuUXExez+BYT3WL7XL4yencFGtbZccgDMjS5zk3gYL
+						11qYKdO9e8zZ1qufcZmIXPh4pVeM9WuRPq378hTwCMgBCEKM+/UMqcfagwLe+180
+						n9abLyFHDmPsq3igTHKAkQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.chichester.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.chichester.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.chichester.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.chichester.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.chichester.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.chichester.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">chichester.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDPDCCAiSgAwIBAgIVAJjvxUK9DXhdlH/EkMId7VAbUERjMA0GCSqGSIb3DQEB
+						BQUAMB8xHTAbBgNVBAMTFGlkcC5jaGljaGVzdGVyLmFjLnVrMB4XDTEzMDcwMzE1
+						MjUxNloXDTMzMDcwMzE1MjUxNlowHzEdMBsGA1UEAxMUaWRwLmNoaWNoZXN0ZXIu
+						YWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCPypPq8ApF4OPt
+						ENNcoWFIOnyJtNDbGoaRRlMTg7CDf1HkQb6Y9+zeK3gg1HC4PdI4Hxw+gqyhdeLE
+						Op9uKvu9Mc2vx3ekfzQ5gbt9m0XgmnBAo+Pp21nOIwwQHRM3bLmld1A9jW3hcgA6
+						MIjuJ6SeETWpbuFx00KNUXO7BuxBtvnhPesp1NRK03yHSI9T+pevq1Im1U0aplHP
+						747tAS7/lGZBk/f3Xa0iCkriO6/9fEuXianylagIyJnvLBTImwMHPFYU1hrcpBez
+						nfHYpHmUEQ26ol83ZrwT+oDgY6mBsZKcMp4pn9aBVxqXSIP9wB3C0kMYzTPvj6vI
+						3tAIJ0krAgMBAAGjbzBtMEwGA1UdEQRFMEOCFGlkcC5jaGljaGVzdGVyLmFjLnVr
+						hitodHRwczovL2lkcC5jaGljaGVzdGVyLmFjLnVrL2lkcC9zaGliYm9sZXRoMB0G
+						A1UdDgQWBBQVTtCrfHJjvTZ+wDTp5oNJlTJRRjANBgkqhkiG9w0BAQUFAAOCAQEA
+						O3KMZhp4iLbEGamacfT0kOrh9IDuhcjHlwRbATf7VBW2IuHZbBPNO11Z8Km6a2g0
+						NDIHuc8jPYxY6rt//kjQwf4UEGxjiYwuplGsiN9FJfHcbXUkt9+8HUJpCX2C/jcg
+						yEX9NGRp+4VGnqLV5ddJcFa7hH2g08bj6hfNBKQcmSdeuWAKR/XBM6xCW9yNskpb
+						GMvVNbPQiLbkXCaEqgu3qOHuUXExez+BYT3WL7XL4yencFGtbZccgDMjS5zk3gYL
+						11qYKdO9e8zZ1qufcZmIXPh4pVeM9WuRPq378hTwCMgBCEKM+/UMqcfagwLe+180
+						n9abLyFHDmPsq3igTHKAkQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.chichester.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.chichester.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Chichester College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Chichester College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.chichester.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:helpdesk@chichester.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Owen</md:GivenName>
+      <md:SurName>Heaume</md:SurName>
+      <md:EmailAddress>mailto:Owen.Heaume@chichester.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

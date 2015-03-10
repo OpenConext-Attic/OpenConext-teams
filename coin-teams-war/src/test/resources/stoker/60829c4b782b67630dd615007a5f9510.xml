@@ -1,33 +1,34 @@
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.aco.net/idp/shibboleth">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.aco.net/idp/shibboleth">
     <md:Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://eduid.at" registrationInstant="2009-11-23T13:36:52Z"/>
-      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
-        <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+      <mdrpi:RegistrationInfo registrationAuthority="http://eduid.at" registrationInstant="2009-11-23T13:36:52Z"/>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category-support" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
           <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
         </saml:Attribute>
       </mdattr:EntityAttributes>
     </md:Extensions>
     <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
       <md:Extensions>
-        <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">aco.net</shibmd:Scope>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <shibmd:Scope regexp="false">aco.net</shibmd:Scope>
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="en">ACOnet staff</mdui:DisplayName>
           <mdui:DisplayName xml:lang="de">ACOnet Team</mdui:DisplayName>
           <mdui:Description xml:lang="en">Identity Provider for ACOnet staff</mdui:Description>
           <mdui:Description xml:lang="de">Identity Provider des ACOnet-Teams</mdui:Description>
-          <mdui:Logo height="60" width="137">https://www.aco.net/fileadmin/aconet/Logos/Banner/137x60.gif</mdui:Logo>
-          <mdui:Logo height="16" width="16">https://eduid.at/style/aconet16x16.gif</mdui:Logo>
+          <mdui:Logo width="137" height="60">https://www.aco.net/fileadmin/aconet/Logos/Banner/137x60.gif</mdui:Logo>
+          <mdui:Logo width="16" height="16">https://eduid.at/style/aconet16x16.gif</mdui:Logo>
           <mdui:InformationURL xml:lang="en">http://www.aco.net/organisation.html?L=1</mdui:InformationURL>
           <mdui:InformationURL xml:lang="de">http://www.aco.net/organisation.html</mdui:InformationURL>
         </mdui:UIInfo>
-        <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <mdui:DiscoHints>
           <mdui:IPHint>192.153.174.0/24</mdui:IPHint>
           <mdui:DomainHint>aco.net</mdui:DomainHint>
           <mdui:GeolocationHint>geo:48.2132234,16.3581464</mdui:GeolocationHint>
         </mdui:DiscoHints>
       </md:Extensions>
       <md:KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyInfo>
           <ds:X509Data>
             <ds:X509Certificate>
 MIIDGDCCAgCgAwIBAgIVAOmKQ6SgpmK/8vtQmiMBkQ1+yZ1XMA0GCSqGSIb3DQEB
@@ -66,10 +67,10 @@ nWGBQ+FiDBdPEO2Ny3SNjJ3B67hbmXBJSEJw9g==
     </md:IDPSSODescriptor>
     <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
       <md:Extensions>
-        <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">aco.net</shibmd:Scope>
+        <shibmd:Scope regexp="false">aco.net</shibmd:Scope>
       </md:Extensions>
       <md:KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyInfo>
           <ds:X509Data>
             <ds:X509Certificate>
 MIIDGDCCAgCgAwIBAgIVAOmKQ6SgpmK/8vtQmiMBkQ1+yZ1XMA0GCSqGSIb3DQEB

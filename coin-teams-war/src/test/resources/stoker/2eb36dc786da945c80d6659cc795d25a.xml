@@ -1,0 +1,101 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://bsp-idp-test.shibboleth.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2011-07-19T16:38:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ox.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDZzCCAk+gAwIBAgIJAM3e/P6wMOMuMA0GCSqGSIb3DQEBBQUAMCsxKTAnBgNV
+						BAMTIGJzcC1pZHAtdGVzdC5zaGliYm9sZXRoLm94LmFjLnVrMB4XDTE0MDcwMjA3
+						MTI1NloXDTM0MDcwMjA3MTI1NlowKzEpMCcGA1UEAxMgYnNwLWlkcC10ZXN0LnNo
+						aWJib2xldGgub3guYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+						AQCt/2e1JENtpBwhw42LY4rGCDtc90BV3+LCKws4GUTs+OWqUcgpzk0/uDSbIOtl
+						AuWR0Sl/EPSbrHdATYOxYXIvBuYWfrBu/h91EcJEaM+ZO72ElDQgahXnTarZMWX6
+						JJKPlYgLRVg5e5L98O9BU4u2w5xcvMAlKZ0UgHpTeEBPtgdXIVTltaPFI1601S+b
+						B/fDAofXpzYa3HkmaLNJ41QA0rFXAVsek5WFKgsY79ncYkMa5eb69ysj3BLIbAPy
+						7DSKFJKMX26+TSRs/j/v2lr1TgGnAvuAkZ9BXwhkRh6jaO59W0oGWtJ2kmxAL4fy
+						MuiWxYAuVe9Q+lgMs4Au9/a3AgMBAAGjgY0wgYowHQYDVR0OBBYEFGBKWbztDye4
+						IfOgk3iFZXCIcw8HMFsGA1UdIwRUMFKAFGBKWbztDye4IfOgk3iFZXCIcw8HoS+k
+						LTArMSkwJwYDVQQDEyBic3AtaWRwLXRlc3Quc2hpYmJvbGV0aC5veC5hYy51a4IJ
+						AM3e/P6wMOMuMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBADTLWycf
+						BRfbYZl3N+08fIzb+d3lA82OKXTopCv4Jxn5dE8rnql8qunq19PKymn2JvMImTQ5
+						gEd+kCxCvWnQdQSmSUhfDbNB3LgBkIw4yIbOdzIlVmzAPL7WaIqjgRyx1JmMPheH
+						iGQYoLfVIcDSrLt7mu4ssIrgzxzH/xNgLru+ZW6yuY4UdntS3OyWTssGFW3pqftv
+						6aPCyW8KB6ycsPwZGHyGFIbBmJMRFztYVlfKi4MzI7uhsv6TXVfsIxzNopTLL8CS
+						w/O6T47a6BBXJjj5BtU9t7h15TTjG/X5Sie1mIPYUjprTZhcuNyzN/LX90F1yM0G
+						TIMOueSzlXJLKyY=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://bsp-idp-test.shibboleth.ox.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://bsp-idp-test.shibboleth.ox.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://bsp-idp-test.shibboleth.ox.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://bsp-idp-test.shibboleth.ox.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://bsp-idp-test.shibboleth.ox.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://bsp-idp-test.shibboleth.ox.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ox.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDZzCCAk+gAwIBAgIJAM3e/P6wMOMuMA0GCSqGSIb3DQEBBQUAMCsxKTAnBgNV
+						BAMTIGJzcC1pZHAtdGVzdC5zaGliYm9sZXRoLm94LmFjLnVrMB4XDTE0MDcwMjA3
+						MTI1NloXDTM0MDcwMjA3MTI1NlowKzEpMCcGA1UEAxMgYnNwLWlkcC10ZXN0LnNo
+						aWJib2xldGgub3guYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+						AQCt/2e1JENtpBwhw42LY4rGCDtc90BV3+LCKws4GUTs+OWqUcgpzk0/uDSbIOtl
+						AuWR0Sl/EPSbrHdATYOxYXIvBuYWfrBu/h91EcJEaM+ZO72ElDQgahXnTarZMWX6
+						JJKPlYgLRVg5e5L98O9BU4u2w5xcvMAlKZ0UgHpTeEBPtgdXIVTltaPFI1601S+b
+						B/fDAofXpzYa3HkmaLNJ41QA0rFXAVsek5WFKgsY79ncYkMa5eb69ysj3BLIbAPy
+						7DSKFJKMX26+TSRs/j/v2lr1TgGnAvuAkZ9BXwhkRh6jaO59W0oGWtJ2kmxAL4fy
+						MuiWxYAuVe9Q+lgMs4Au9/a3AgMBAAGjgY0wgYowHQYDVR0OBBYEFGBKWbztDye4
+						IfOgk3iFZXCIcw8HMFsGA1UdIwRUMFKAFGBKWbztDye4IfOgk3iFZXCIcw8HoS+k
+						LTArMSkwJwYDVQQDEyBic3AtaWRwLXRlc3Quc2hpYmJvbGV0aC5veC5hYy51a4IJ
+						AM3e/P6wMOMuMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBADTLWycf
+						BRfbYZl3N+08fIzb+d3lA82OKXTopCv4Jxn5dE8rnql8qunq19PKymn2JvMImTQ5
+						gEd+kCxCvWnQdQSmSUhfDbNB3LgBkIw4yIbOdzIlVmzAPL7WaIqjgRyx1JmMPheH
+						iGQYoLfVIcDSrLt7mu4ssIrgzxzH/xNgLru+ZW6yuY4UdntS3OyWTssGFW3pqftv
+						6aPCyW8KB6ycsPwZGHyGFIbBmJMRFztYVlfKi4MzI7uhsv6TXVfsIxzNopTLL8CS
+						w/O6T47a6BBXJjj5BtU9t7h15TTjG/X5Sie1mIPYUjprTZhcuNyzN/LX90F1yM0G
+						TIMOueSzlXJLKyY=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://bsp-idp-test.shibboleth.ox.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://bsp-idp-test.shibboleth.ox.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford: (BSP-test)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>IT Services IAM Team</md:GivenName>
+      <md:EmailAddress>mailto:team@sysdev.oucs.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>IT Services IAM Team</md:GivenName>
+      <md:EmailAddress>mailto:team@sysdev.oucs.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

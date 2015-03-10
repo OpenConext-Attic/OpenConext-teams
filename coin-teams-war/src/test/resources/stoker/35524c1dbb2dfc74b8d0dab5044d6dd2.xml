@@ -1,0 +1,67 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://uat.digitaltheatreplus.com">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-08-19T15:29:44Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://dtplus.uat.vualto.com/Shibboleth.sso/Login"/>
+        <mdui:UIInfo>
+          <mdui:Logo height="60" width="104">https://digitaltheatreplus.com/sites/all/themes/digitaltheatreplus/images/logo.png</mdui:Logo>
+          <mdui:DisplayName xml:lang="en">Digital Theatre Plus (test site)</mdui:DisplayName>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDBjCCAe6gAwIBAgIJANaX6ppqsyTMMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV
+						BAMTFWR0cGx1cy51YXQudnVhbHRvLmNvbTAeFw0xNDA4MDQwOTM2MzNaFw0yNDA4
+						MDEwOTM2MzNaMCAxHjAcBgNVBAMTFWR0cGx1cy51YXQudnVhbHRvLmNvbTCCASIw
+						DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALPqJcWAY3p69eBmlJOCtQzRQWZF
+						osie4DnauZj5lnv0dONDi0HmpOMKaIEpGk2eIb5e7WRkdDdBMX4sq2+8aTgF8h0J
+						1cBZozFWEaVloD/Y049WF+BCyDipQxZWdHXuIC84w5Tnqy9lEBJjJZTI+n6Brcwf
+						ql2/Ao79SftGI5Mj+xgtAlXIpue4aYsaOOjU8JjiFZ92eNufe1WZlknqNCWB1YDM
+						PUJ4pUdAd3BtbgfT2m/7Ke/X6ly+SkUpkw2To+HU4IxrWzp2/NlaV/oub0xyZUKr
+						VaA/iaKJErNy0EYB5RTczyuYdlxm0nFEdDjKKpV2lBQ7gEFFS59+Z1EP93ECAwEA
+						AaNDMEEwIAYDVR0RBBkwF4IVZHRwbHVzLnVhdC52dWFsdG8uY29tMB0GA1UdDgQW
+						BBRSiWT+Tt9yalHP724P9qv9UqTQ+TANBgkqhkiG9w0BAQUFAAOCAQEAlmXLm1z8
+						+MQwuXCShn9XL65A8kkODZzmPblKi9M+D/7P48/RdLEgAdVWiMyRdr/WgFsk01pY
+						hqc2MhW6qMXhEt5bzSCEFrK5qhJd01q4TjMEfhg++dI9e1J4po9u+HiGMQAmxX1C
+						3CCDpy6cSBOLM4lVE/O7niehk7B7P6xlzGHRCVqtZlfkMP1HbV7nLnVZSkzGx2S+
+						zb5rciB24IYrz5HW46tnyGBvWZsxJe4P6iETYq0cX3GIPVJo9odMCBJ+VBtix+m/
+						GJtmUCj7yfMyg2p+o//EKOqTkWlM+TsmWAYIEmO6GT7OJDNrMyDNqXCnOdArvj/V
+						/Vn1hQzMvWYnqQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://dtplus.uat.vualto.com/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://dtplus.uat.vualto.com/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://dtplus.uat.vualto.com/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://dtplus.uat.vualto.com/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://dtplus.uat.vualto.com/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://dtplus.uat.vualto.com/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://dtplus.uat.vualto.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://dtplus.uat.vualto.com/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://dtplus.uat.vualto.com/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://dtplus.uat.vualto.com/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://dtplus.uat.vualto.com/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Digital Theatre.com Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Digital Theatre Plus (test site)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">https://www.digitaltheatreplus.com/about-us</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Jonathan</md:GivenName>
+      <md:SurName>Ware</md:SurName>
+      <md:EmailAddress>mailto:support@digitaltheatre.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Carly</md:GivenName>
+      <md:SurName>Britton</md:SurName>
+      <md:EmailAddress>mailto:support@vualto.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

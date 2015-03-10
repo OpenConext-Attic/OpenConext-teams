@@ -1,0 +1,54 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-07-31T11:24:50Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC6zCCAdOgAwIBAgIJAPx/LwmeUGTyMA0GCSqGSIb3DQEBBQUAMBcxFTATBgNV
+						BAMTDHd3dy5veC5hYy51azAeFw0xNDA3MjkwODExNTNaFw0yNDA3MjYwODExNTNa
+						MBcxFTATBgNVBAMTDHd3dy5veC5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEP
+						ADCCAQoCggEBAOc2rOr/XaHUNhfWxfolloVnnDDY3BvIP/AWugahGYXEelclRaNX
+						95rh21w+Pw6qcMwkaCoc8LBNE2O7ReUp2zUWsB1t87w8v8XDUPEpPAQ9XVTHFGAt
+						4A93oYO8UuZPC6CoPu2guuXJT+gS5jiswk/R3729CUlphY/Ov9+QO1jfuoNu8mGY
+						FllFALRsDKc8PH83UuEhF4R9rtz1LYoD/vs6NjR+n1dovkRMqxRZBxuEgcEX1tft
+						WciPXI4Nk4DbbgOPgmcl0dPUK+IMTLLQF/So/qO02cxDZKp9DA+rws79J0qPOOUQ
+						AaYqFjB8qRjKfs9xUrCviXNHzgWmLKbEUkUCAwEAAaM6MDgwFwYDVR0RBBAwDoIM
+						d3d3Lm94LmFjLnVrMB0GA1UdDgQWBBRdot3++gHpLRLS+MGj/T9eobiBrjANBgkq
+						hkiG9w0BAQUFAAOCAQEALUNCD99LKk+88GfsmMNIczRzOEQynKD1i5X6247/5zs+
+						w81ezac3VrDk09O9PFhkeh4D32KupXWQ4+bY7ijlBj/BVDhrrgKZZeD5mu+J8Ru+
+						Ypz4r7bV+t8dUukfNy6xLMqePEmrmhLgWql0EtOpRrsZC/GNdpkl+kJG3EoPt8cZ
+						umV/wHnzjahIYYKQ2YyrwU6tT/jMDciNSZOEJOoVkujmhu3yK0eIwfAJQzJ90fGg
+						t/KiRYU/XnfJ+HdgNOth5XvmNSG3gmzVtGVLbPbfp7i4sCHMOD5FzSziYwp6m6Pn
+						Q9nQhuIfcxbBFG6jt794VKX50sAROXsVPFcYfT3gTg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://www.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.ox.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.oxfordtoday.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www.oxfordtoday.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://www.oxfordtoday.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="7"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.oxfordtoday.ox.ac.uk/Shibboleth.sso/SAML/POST" index="8"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>NSMS Team</md:GivenName>
+      <md:EmailAddress>mailto:nsms@it.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>NSMS Team</md:GivenName>
+      <md:EmailAddress>mailto:nsms@it.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

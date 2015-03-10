@@ -1,0 +1,124 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibdev2.stir.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2009-10-23T10:56:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">stir.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIFczCCBFugAwIBAgIQIL2D0diB6YBG+8rOQmekSzANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTE0MDUxMzAwMDAwMFoXDTE3MDUxMjIzNTk1OVowQTEhMB8GA1UE
+						CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRwwGgYDVQQDExNzaGliZGV2Mi5z
+						dGlyLmFjLnVrMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAwgrFtR/J
+						voK7/c+KDX0XUZqQkDnx+XwAvkJwRvRWJDgMmqajuC10ksTw9T/CW65BCXDpRI/x
+						TAn2ktYvR+JdfV3IeV6oBdur4f6jlSipKZOfDXej7Ypi/kQjCrjKvS3zboCYq4y2
+						rV+/N8bW8z/vFjgaogmCROoGAJrISVZnGuXuMwoldN5qgzdaAFuiZ8wuVnWkFIIm
+						fnDCxDgtIWSF+xD4KIhZPOVM/jEdn/DuVTbWIZtddlx8RlnVlBEjQ0qY+ggXejXf
+						5Ny6vgNK8wmKHbR+eZQNfh+EwmdbTwHPWSZBUaz9qGDcxgB2I0NNHKOGl4+O3BL6
+						IVIPqgIdrR8XLD7xd0uT2iKOKGANHUq0HLkCSEfL9G6zvL7eTWYaoQEbgiLt4MvO
+						P0b6LYmcyfIILi3N0gm854nw9LIwfOtu90P1wf0QKCJ7VWPws85dBKurKVOeT05l
+						IT5mSE9I2VczG+iLJye2ty3Y7fUlMsA47nlc3lQ6ECjZIfEK9yBxzi9E7TuMZD5m
+						rbq1FBJ/t09GO7WfvIAujaetCZhBBa5/cs7H1C5jY6AOXOnMjjvt0KjMD4SI1qAT
+						mqSz7F19C/qTIpfEtB1b0uA16G1txrCsPOys6qy0LeOTlPZcx6VUMHj5GQwsd3jl
+						myZ1va1yq7muxs8EAjOoHb8I+JMT52Zsi6ECAwEAAaOCAXAwggFsMB8GA1UdIwQY
+						MBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBTk+Ch3PUz9vlaFREMq
+						xqML3xNPxDAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAU
+						BggrBgEFBQcDAQYIKwYBBQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAI
+						BgZngQwBAgEwOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5h
+						Lm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAC
+						hilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggr
+						BgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwHgYDVR0RBBcwFYIT
+						c2hpYmRldjIuc3Rpci5hYy51azANBgkqhkiG9w0BAQUFAAOCAQEAoY+8HykdGG3j
+						Wo9U/RTQsGUejsaafMPPjcpQjFep0GI3S+cDFYiw4RNuumhlM7FvJQQ2+exogkG6
+						xlXSj4KxuXfY5aYRcV5hnHGQE/9AzClpYiilVQmPoVkfd3dmHAcDkp5ka7j+0MyA
+						ceB0T51gFWY3u+Idd96z4xrJDbVenn0dy1HsvNsaiozrndzXdpGWs0XDumic7jxZ
+						bavf0Ovny/qEwpR5vrSyEr2rwqzs8crHw4HTtekaTUnzXyBZ+HidfEDq7T+qVw2k
+						JJDXl3JKJ9QAJhoJsVEdDNBO6NqODHT+mLQl3OoHTxHoF74zn1LJw06SRNBAwkvm
+						ky1VDCZ6sw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibdev2.stir.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibdev2.stir.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibdev2.stir.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibdev2.stir.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibdev2.stir.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibdev2.stir.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">stir.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIFczCCBFugAwIBAgIQIL2D0diB6YBG+8rOQmekSzANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTE0MDUxMzAwMDAwMFoXDTE3MDUxMjIzNTk1OVowQTEhMB8GA1UE
+						CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRwwGgYDVQQDExNzaGliZGV2Mi5z
+						dGlyLmFjLnVrMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAwgrFtR/J
+						voK7/c+KDX0XUZqQkDnx+XwAvkJwRvRWJDgMmqajuC10ksTw9T/CW65BCXDpRI/x
+						TAn2ktYvR+JdfV3IeV6oBdur4f6jlSipKZOfDXej7Ypi/kQjCrjKvS3zboCYq4y2
+						rV+/N8bW8z/vFjgaogmCROoGAJrISVZnGuXuMwoldN5qgzdaAFuiZ8wuVnWkFIIm
+						fnDCxDgtIWSF+xD4KIhZPOVM/jEdn/DuVTbWIZtddlx8RlnVlBEjQ0qY+ggXejXf
+						5Ny6vgNK8wmKHbR+eZQNfh+EwmdbTwHPWSZBUaz9qGDcxgB2I0NNHKOGl4+O3BL6
+						IVIPqgIdrR8XLD7xd0uT2iKOKGANHUq0HLkCSEfL9G6zvL7eTWYaoQEbgiLt4MvO
+						P0b6LYmcyfIILi3N0gm854nw9LIwfOtu90P1wf0QKCJ7VWPws85dBKurKVOeT05l
+						IT5mSE9I2VczG+iLJye2ty3Y7fUlMsA47nlc3lQ6ECjZIfEK9yBxzi9E7TuMZD5m
+						rbq1FBJ/t09GO7WfvIAujaetCZhBBa5/cs7H1C5jY6AOXOnMjjvt0KjMD4SI1qAT
+						mqSz7F19C/qTIpfEtB1b0uA16G1txrCsPOys6qy0LeOTlPZcx6VUMHj5GQwsd3jl
+						myZ1va1yq7muxs8EAjOoHb8I+JMT52Zsi6ECAwEAAaOCAXAwggFsMB8GA1UdIwQY
+						MBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBTk+Ch3PUz9vlaFREMq
+						xqML3xNPxDAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAU
+						BggrBgEFBQcDAQYIKwYBBQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAI
+						BgZngQwBAgEwOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5h
+						Lm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAC
+						hilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggr
+						BgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwHgYDVR0RBBcwFYIT
+						c2hpYmRldjIuc3Rpci5hYy51azANBgkqhkiG9w0BAQUFAAOCAQEAoY+8HykdGG3j
+						Wo9U/RTQsGUejsaafMPPjcpQjFep0GI3S+cDFYiw4RNuumhlM7FvJQQ2+exogkG6
+						xlXSj4KxuXfY5aYRcV5hnHGQE/9AzClpYiilVQmPoVkfd3dmHAcDkp5ka7j+0MyA
+						ceB0T51gFWY3u+Idd96z4xrJDbVenn0dy1HsvNsaiozrndzXdpGWs0XDumic7jxZ
+						bavf0Ovny/qEwpR5vrSyEr2rwqzs8crHw4HTtekaTUnzXyBZ+HidfEDq7T+qVw2k
+						JJDXl3JKJ9QAJhoJsVEdDNBO6NqODHT+mLQl3OoHTxHoF74zn1LJw06SRNBAwkvm
+						ky1VDCZ6sw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibdev2.stir.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibdev2.stir.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Stirling</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Stirling - Development</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.stir.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Information Centre</md:GivenName>
+      <md:EmailAddress>mailto:infocentre@stir.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Michael</md:GivenName>
+      <md:SurName>White</md:SurName>
+      <md:EmailAddress>mailto:michael.white@stir.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

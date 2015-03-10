@@ -1,0 +1,108 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.kirkleescollege.ac.uk/entity">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">kirkleescollege.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEgDCCA2igAwIBAgIRALyJOa+uq/oIUbNaLn2KXiwwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzA0MDMwMDAwMDBaFw0xNjA0MDIyMzU5NTlaMEcxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEiMCAGA1UEAxMZaWRwLmtpcmts
+						ZWVzY29sbGVnZS5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+						ALLhXXGAlGzAXjTroZwzaMOxuBK/OhDokwfsjhn7ZI4MGUIdWvstZeHbkGtLiwuP
+						jWQ/usuTbiDwHWBvIBBLse+3q7k0QmKAtVSXZK6EsK9rPQsQH0eURmD4ja2qC15/
+						LefzP8yPNBhAjMRRrb9bBXry6TtQItIFUvgLUXbdmjWYY2AB41qhSx3ZBPIvVCYF
+						RTwVLykiZ+W8OaviB4N5kKkyNa4eSANcF+g8DC3WozFm6g+He4qtXNvc6iERdvlF
+						TlPcsWfEJoz9JSku2/u9+DNxwN041bLTfJq3Hwy/8lkQE2YbLdmv/IQz1ErYA1qE
+						Ad2faNnHeNjlKfRePnBf8W0CAwEAAaOCAXYwggFyMB8GA1UdIwQYMBaAFAy9k2gM
+						896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBSCqCPYjgeb90vOUQbpnXkrucpgoDAO
+						BgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcD
+						AQYIKwYBBQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEw
+						OgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJF
+						TkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8v
+						Y3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYa
+						aHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwJAYDVR0RBB0wG4IZaWRwLmtpcmts
+						ZWVzY29sbGVnZS5hYy51azANBgkqhkiG9w0BAQUFAAOCAQEAQyOuUyGYf8IPri1z
+						Y2yk+b3cpXUmJp1cqAkyrlvGdYzxWwLNTiFmnfqXl2F5NwY1spcoYcoQAVF1NFdr
+						xnEXnt5abNqSQysVoO8x6bhNilzELp25LIQNMhVtgPmm3mOwiYvHTixi0DCf8fy/
+						XsyKGxghAMpcIFwPbB6n+60Z9rKt2IR5eXdBFeP/zlA4rpHkHZKv/4J9XhDUI0Jz
+						756Te1Pz3yg1tf+7sj0pXJVvYMJev2AdBbSpAbjYzM2Ql2yBXMYA+z5zL/if1cUL
+						ogmKl5PdPZpZJfPazJwj6yT/FWPxI0FcA7QtM+TQ6SDrcnPckQHmXAFaI6mbbyzg
+						JtfZCQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.kirkleescollege.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.kirkleescollege.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.kirkleescollege.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.kirkleescollege.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.kirkleescollege.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.kirkleescollege.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">kirkleescollege.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEgDCCA2igAwIBAgIRALyJOa+uq/oIUbNaLn2KXiwwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzA0MDMwMDAwMDBaFw0xNjA0MDIyMzU5NTlaMEcxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEiMCAGA1UEAxMZaWRwLmtpcmts
+						ZWVzY29sbGVnZS5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+						ALLhXXGAlGzAXjTroZwzaMOxuBK/OhDokwfsjhn7ZI4MGUIdWvstZeHbkGtLiwuP
+						jWQ/usuTbiDwHWBvIBBLse+3q7k0QmKAtVSXZK6EsK9rPQsQH0eURmD4ja2qC15/
+						LefzP8yPNBhAjMRRrb9bBXry6TtQItIFUvgLUXbdmjWYY2AB41qhSx3ZBPIvVCYF
+						RTwVLykiZ+W8OaviB4N5kKkyNa4eSANcF+g8DC3WozFm6g+He4qtXNvc6iERdvlF
+						TlPcsWfEJoz9JSku2/u9+DNxwN041bLTfJq3Hwy/8lkQE2YbLdmv/IQz1ErYA1qE
+						Ad2faNnHeNjlKfRePnBf8W0CAwEAAaOCAXYwggFyMB8GA1UdIwQYMBaAFAy9k2gM
+						896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBSCqCPYjgeb90vOUQbpnXkrucpgoDAO
+						BgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcD
+						AQYIKwYBBQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEw
+						OgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJF
+						TkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8v
+						Y3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYa
+						aHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwJAYDVR0RBB0wG4IZaWRwLmtpcmts
+						ZWVzY29sbGVnZS5hYy51azANBgkqhkiG9w0BAQUFAAOCAQEAQyOuUyGYf8IPri1z
+						Y2yk+b3cpXUmJp1cqAkyrlvGdYzxWwLNTiFmnfqXl2F5NwY1spcoYcoQAVF1NFdr
+						xnEXnt5abNqSQysVoO8x6bhNilzELp25LIQNMhVtgPmm3mOwiYvHTixi0DCf8fy/
+						XsyKGxghAMpcIFwPbB6n+60Z9rKt2IR5eXdBFeP/zlA4rpHkHZKv/4J9XhDUI0Jz
+						756Te1Pz3yg1tf+7sj0pXJVvYMJev2AdBbSpAbjYzM2Ql2yBXMYA+z5zL/if1cUL
+						ogmKl5PdPZpZJfPazJwj6yT/FWPxI0FcA7QtM+TQ6SDrcnPckQHmXAFaI6mbbyzg
+						JtfZCQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.kirkleescollege.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.kirkleescollege.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Kirklees College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Kirklees College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.kirkleescollege.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Sam</md:GivenName>
+      <md:SurName>Lim</md:SurName>
+      <md:EmailAddress>mailto:slim@kirkleescollege.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Sam</md:GivenName>
+      <md:SurName>Lim</md:SurName>
+      <md:EmailAddress>mailto:slim@kirkleescollege.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

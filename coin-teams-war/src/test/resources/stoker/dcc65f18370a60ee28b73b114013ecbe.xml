@@ -1,0 +1,94 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp1.glos.ac.uk/entity">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2008-08-08T10:27:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">glos.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDJzCCAg+gAwIBAgIUCsJYB48Mz3bcb/dTeJJEcFS9NPQwDQYJKoZIhvcNAQEF
+						BQAwGjEYMBYGA1UEAxMPaWRwMS5nbG9zLmFjLnVrMB4XDTE0MDUyNzE1NDkxMVoX
+						DTM0MDUyNzE1NDkxMVowGjEYMBYGA1UEAxMPaWRwMS5nbG9zLmFjLnVrMIIBIjAN
+						BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhlNvzpLXrExyTGgdo924dAhh+8T+
+						DDyFnfMBX74lgFvk9/Os73dq7ooAudnJW21c8vpD+24bMcgI8NPZchHvTKZNEciI
+						3xkwyWvR0zV3pdQimojUmiX1fPfa7IOhZZ6qGFHGrucXs883wUoc/rLK3Xm7blV2
+						jeHM7GiKYHs/WO2a3ITWkJqgeh7gXL/kRNNHGrLbgFloNOCT74KT01SNBgzWxiq9
+						QBjqZR+tnaiu6dzeCMbB+wWmLLP3VOUDFxS9uNQGb8ZgOv3/n7Az7umt9xE5FfLu
+						vOwEqpkoOxTsEootS2b6+tzbX0ZVaPAVjaKMWyXuPBU2wlPPbVU5r8cxEQIDAQAB
+						o2UwYzBCBgNVHREEOzA5gg9pZHAxLmdsb3MuYWMudWuGJmh0dHBzOi8vaWRwMS5n
+						bG9zLmFjLnVrL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBR+Xmt33O3jaMudgIUV
+						OLYp7RYNIzANBgkqhkiG9w0BAQUFAAOCAQEAZhozuufgK2Jm2NDfyWti7ANRfe3I
+						Bo++sDx8LwdL7obTwDKn4+Yco3vOrigILfoawl2heoG16mhfUWFZgwu21Surt6uL
+						c7V7f3v4ZzEIkb/DYFmk8wPx22htqAcO9sj0duHVP45pFW4Orchc6umt+ZCFgwWB
+						WByMENe+1csz9xMqRT1QlkBleOjo3/nEcv24kzpOCmCVe2CMSnxekGc8Jp38GBEi
+						FSs+x2SKYUI4dR4wz7nKIybUCxR5aQ0tsryYKVf7hSw6oatKD6TGmFNJYiy0Ifq3
+						kOm6roKl1gcoqKYmFZfJVnU0H1rtoJ7XQMWtxX3rVtYhwHghbhfB03i6FA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp1.glos.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp1.glos.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shiblogin.glos.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shiblogin.glos.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shiblogin.glos.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shiblogin.glos.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">glos.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDJzCCAg+gAwIBAgIUCsJYB48Mz3bcb/dTeJJEcFS9NPQwDQYJKoZIhvcNAQEF
+						BQAwGjEYMBYGA1UEAxMPaWRwMS5nbG9zLmFjLnVrMB4XDTE0MDUyNzE1NDkxMVoX
+						DTM0MDUyNzE1NDkxMVowGjEYMBYGA1UEAxMPaWRwMS5nbG9zLmFjLnVrMIIBIjAN
+						BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhlNvzpLXrExyTGgdo924dAhh+8T+
+						DDyFnfMBX74lgFvk9/Os73dq7ooAudnJW21c8vpD+24bMcgI8NPZchHvTKZNEciI
+						3xkwyWvR0zV3pdQimojUmiX1fPfa7IOhZZ6qGFHGrucXs883wUoc/rLK3Xm7blV2
+						jeHM7GiKYHs/WO2a3ITWkJqgeh7gXL/kRNNHGrLbgFloNOCT74KT01SNBgzWxiq9
+						QBjqZR+tnaiu6dzeCMbB+wWmLLP3VOUDFxS9uNQGb8ZgOv3/n7Az7umt9xE5FfLu
+						vOwEqpkoOxTsEootS2b6+tzbX0ZVaPAVjaKMWyXuPBU2wlPPbVU5r8cxEQIDAQAB
+						o2UwYzBCBgNVHREEOzA5gg9pZHAxLmdsb3MuYWMudWuGJmh0dHBzOi8vaWRwMS5n
+						bG9zLmFjLnVrL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBR+Xmt33O3jaMudgIUV
+						OLYp7RYNIzANBgkqhkiG9w0BAQUFAAOCAQEAZhozuufgK2Jm2NDfyWti7ANRfe3I
+						Bo++sDx8LwdL7obTwDKn4+Yco3vOrigILfoawl2heoG16mhfUWFZgwu21Surt6uL
+						c7V7f3v4ZzEIkb/DYFmk8wPx22htqAcO9sj0duHVP45pFW4Orchc6umt+ZCFgwWB
+						WByMENe+1csz9xMqRT1QlkBleOjo3/nEcv24kzpOCmCVe2CMSnxekGc8Jp38GBEi
+						FSs+x2SKYUI4dR4wz7nKIybUCxR5aQ0tsryYKVf7hSw6oatKD6TGmFNJYiy0Ifq3
+						kOm6roKl1gcoqKYmFZfJVnU0H1rtoJ7XQMWtxX3rVtYhwHghbhfB03i6FA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp1.glos.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp1.glos.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Gloucestershire</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Gloucestershire</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.glos.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Pete</md:GivenName>
+      <md:SurName>Maller</md:SurName>
+      <md:EmailAddress>mailto:pmaller@glos.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Pete</md:GivenName>
+      <md:SurName>Maller</md:SurName>
+      <md:EmailAddress>mailto:pmaller@glos.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

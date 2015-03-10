@@ -1,0 +1,110 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.knowsleycollege.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2010-02-01T17:22:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">knowsleycollege.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEgDCCA2igAwIBAgIRAJp6NZY3oZd2UzczIfqpV5UwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xNDAxMDkwMDAwMDBaFw0xNzAxMDgyMzU5NTlaMEcxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEiMCAGA1UEAxMZaWRwLmtub3dz
+						bGV5Y29sbGVnZS5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+						AKRJddwlsUcpb0Wx0i00fAhJCsUmCTfTtmT49JRyCoTYchZlSp7ZS2OAQssFDYiD
+						RHLClkSw+iUgIFCbal1bDSDDFJosZJv4JD4U0FD4q8twDw48bfS3k1+JBPR/M0eU
+						+wd4A0siZf0WcTItiU3MmzLv4I9mOW5IZ8akjZiLCdnkR1zjAbAAoX18mYsld9xA
+						LOSO4NydM08pRLOtWJFtVKlLnQ0tn+cG0NoYELpMueVopSUM7+K5fLaEOqqd5smO
+						eb11WyHbZuxuR1C40Xpb6OsWiNQYoyF7m1G+x3F8GiUvaqiejhSmXm0VkNv1QbHj
+						ko0ygft+w/V2dTQNYdrwqckCAwEAAaOCAXYwggFyMB8GA1UdIwQYMBaAFAy9k2gM
+						896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBSx+f3A3ueD76o4IG5ZlByOeLnGmjAO
+						BgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcD
+						AQYIKwYBBQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEw
+						OgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJF
+						TkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8v
+						Y3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYa
+						aHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwJAYDVR0RBB0wG4IZaWRwLmtub3dz
+						bGV5Y29sbGVnZS5hYy51azANBgkqhkiG9w0BAQUFAAOCAQEAaizqm9abK5mC4yKi
+						kAVp7Y2DBzjXB1PUtguSOCx0EbfIX8/OK6PrRa3o45eMSEo5eecwpFJwCSDqg+V0
+						kCJp6lbIz37iP3WaJjaeYCqkBedphtFBSh1QKcrrKjQXvHlezgiNhVie+qcvEyT2
+						F28YSP2Bb3Yyb/LRNX3g8Om9EYUeg1TKy/ECyOwS7Bbqk7I37A8S2c1G0YnbdiFT
+						hkA+eu7b2/C1cZr3ETLYuR5ZQ83pLNmAJRIM89lMukuSeIYrYELOm+o97rw4wqrD
+						PvraWXaWABehzvK7oqqu/SZiVYri54k4w8UA8CL16ME3tL6UGql/05Sl0Q6aQZmT
+						8HV+cQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.knowsleycollege.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.knowsleycollege.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.knowsleycollege.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.knowsleycollege.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.knowsleycollege.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.knowsleycollege.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">knowsleycollege.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEgDCCA2igAwIBAgIRAJp6NZY3oZd2UzczIfqpV5UwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xNDAxMDkwMDAwMDBaFw0xNzAxMDgyMzU5NTlaMEcxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEiMCAGA1UEAxMZaWRwLmtub3dz
+						bGV5Y29sbGVnZS5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+						AKRJddwlsUcpb0Wx0i00fAhJCsUmCTfTtmT49JRyCoTYchZlSp7ZS2OAQssFDYiD
+						RHLClkSw+iUgIFCbal1bDSDDFJosZJv4JD4U0FD4q8twDw48bfS3k1+JBPR/M0eU
+						+wd4A0siZf0WcTItiU3MmzLv4I9mOW5IZ8akjZiLCdnkR1zjAbAAoX18mYsld9xA
+						LOSO4NydM08pRLOtWJFtVKlLnQ0tn+cG0NoYELpMueVopSUM7+K5fLaEOqqd5smO
+						eb11WyHbZuxuR1C40Xpb6OsWiNQYoyF7m1G+x3F8GiUvaqiejhSmXm0VkNv1QbHj
+						ko0ygft+w/V2dTQNYdrwqckCAwEAAaOCAXYwggFyMB8GA1UdIwQYMBaAFAy9k2gM
+						896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBSx+f3A3ueD76o4IG5ZlByOeLnGmjAO
+						BgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcD
+						AQYIKwYBBQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEw
+						OgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJF
+						TkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8v
+						Y3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYa
+						aHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwJAYDVR0RBB0wG4IZaWRwLmtub3dz
+						bGV5Y29sbGVnZS5hYy51azANBgkqhkiG9w0BAQUFAAOCAQEAaizqm9abK5mC4yKi
+						kAVp7Y2DBzjXB1PUtguSOCx0EbfIX8/OK6PrRa3o45eMSEo5eecwpFJwCSDqg+V0
+						kCJp6lbIz37iP3WaJjaeYCqkBedphtFBSh1QKcrrKjQXvHlezgiNhVie+qcvEyT2
+						F28YSP2Bb3Yyb/LRNX3g8Om9EYUeg1TKy/ECyOwS7Bbqk7I37A8S2c1G0YnbdiFT
+						hkA+eu7b2/C1cZr3ETLYuR5ZQ83pLNmAJRIM89lMukuSeIYrYELOm+o97rw4wqrD
+						PvraWXaWABehzvK7oqqu/SZiVYri54k4w8UA8CL16ME3tL6UGql/05Sl0Q6aQZmT
+						8HV+cQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.knowsleycollege.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.knowsleycollege.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Knowsley Community College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Knowsley College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.knowsleycollege.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Andrew</md:GivenName>
+      <md:SurName>McDonald</md:SurName>
+      <md:EmailAddress>mailto:amcdonald@knowsleycollege.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Andrew</md:GivenName>
+      <md:SurName>McDonald</md:SurName>
+      <md:EmailAddress>mailto:amcdonald@knowsleycollege.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

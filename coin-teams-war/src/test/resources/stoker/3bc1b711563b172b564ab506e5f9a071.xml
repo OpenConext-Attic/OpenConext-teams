@@ -1,0 +1,57 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sso.vgtu.lt/saml2/idp/metadata.php">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://fedi.litnet.lt" registrationInstant="2013-10-15T09:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="lt">https://fedi.litnet.lt/lt/tvarka</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="en">https://fedi.litnet.lt/en/policy</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="lt">Vilniaus Gedimino technikos universitetas</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Vilnius Gediminas technical university</mdui:DisplayName>
+          <mdui:Description xml:lang="lt">VGTU desc (lt)</mdui:Description>
+          <mdui:Description xml:lang="en">VGTU desc (en)</mdui:Description>
+          <mdui:InformationURL xml:lang="lt">http://www.vgtu.lt/lt</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">http://www.vgtu.lt/en</mdui:InformationURL>
+          <mdui:Logo width="256" height="256">http://www.vgtu.lt/media/VGTU%20tinklapis/pictures/logo2014_pagr.jpg</mdui:Logo>
+          <mdui:Logo width="80" height="88">http://www.vgtu.lt/media/VGTU%20tinklapis/pictures/logo2014_pagr.jpg</mdui:Logo>
+          <mdui:Logo width="16" height="16">http://www.vgtu.lt/media/VGTU%20tinklapis/pictures/logo2014_pagr.jpg</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:IPHint>158.129.192.0/18</mdui:IPHint>
+          <mdui:DomainHint>vgtu.lt</mdui:DomainHint>
+          <mdui:GeolocationHint>geo:54.683333,25.283333</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIID2TCCAsGgAwIBAgIJAJxLaKaVPb80MA0GCSqGSIb3DQEBBQUAMIGCMQswCQYDVQQGEwJMVDEQMA4GA1UECAwHVmlsbml1czEQMA4GA1UEBwwHVmlsbml1czENMAsGA1UECgwEVkdUVTELMAkGA1UECwwCSVQxFDASBgNVBAMMC3Nzby52Z3R1Lmx0MR0wGwYJKoZIhvcNAQkBFg5maWxzYXZAdmd0dS5sdDAeFw0xMzAzMDUxMDU3NDRaFw0yMzAzMDUxMDU3NDRaMIGCMQswCQYDVQQGEwJMVDEQMA4GA1UECAwHVmlsbml1czEQMA4GA1UEBwwHVmlsbml1czENMAsGA1UECgwEVkdUVTELMAkGA1UECwwCSVQxFDASBgNVBAMMC3Nzby52Z3R1Lmx0MR0wGwYJKoZIhvcNAQkBFg5maWxzYXZAdmd0dS5sdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANPBRmQdW7yE6Ob47RS63wc6eamLrbcZ8d3BHbkTKOg3zvty9kNGlsRHKJKaTxZJHxxJeGyFK7wD1T7esm6H4xlGd/vPkJ8BiJGaYFt+z6AK0U/C24lAUTBme0XE12kVhR2Ld+AbocdKbgRvkQDs2nupi8bT8GrcLPqEVNfrEcuoWPR0VDrn+cc9eQWsnwAi6vqPNG9BP+tXun1mKRNjLwe7xpIU2dEt4kNNvHKHzbuqMOePvURsMLYWM0GiLA5qMXU/plsgEva09gSONJqUo5PiF5CkcFZqyyJNKznIAZnLuFWJR7a3G4ArQ0BEuGzv7nchzVf+ffdClMlYOflWas0CAwEAAaNQME4wHQYDVR0OBBYEFHaPCulJCIz/U1G0e7fraytboJPGMB8GA1UdIwQYMBaAFHaPCulJCIz/U1G0e7fraytboJPGMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBACoR6yldDCdkFwAM/UvbmAAhYizDFszWNi53//exw4Q7LYFFExl7h6jjnZphO8/JpYBQ8gqthhEyQe1QRs/3ZBkWJC6mhUu9V6pv/n+10wPew8fm2W6FIgprTmjfz98BCff/Bk7SAqssJRGSKKmgqetMcBXQDEcAQ9i1RpFK/j51mQ6+ynBRvynN0wpAGbKYnKlH4nZhe9DDhKO+P9MDMzbDrTudjZViRUXYxY0Ay8Kfm3TgjL+Yw8/LGhSXO0k9XfCcLVC+e+4YQEUOCQNgOPDRKmZH/jntqXmfY0Dtak0612n8RmJzwybPFyeNY+yeZhb+XEWT9uwq3YM7Zl85YSg=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIID2TCCAsGgAwIBAgIJAJxLaKaVPb80MA0GCSqGSIb3DQEBBQUAMIGCMQswCQYDVQQGEwJMVDEQMA4GA1UECAwHVmlsbml1czEQMA4GA1UEBwwHVmlsbml1czENMAsGA1UECgwEVkdUVTELMAkGA1UECwwCSVQxFDASBgNVBAMMC3Nzby52Z3R1Lmx0MR0wGwYJKoZIhvcNAQkBFg5maWxzYXZAdmd0dS5sdDAeFw0xMzAzMDUxMDU3NDRaFw0yMzAzMDUxMDU3NDRaMIGCMQswCQYDVQQGEwJMVDEQMA4GA1UECAwHVmlsbml1czEQMA4GA1UEBwwHVmlsbml1czENMAsGA1UECgwEVkdUVTELMAkGA1UECwwCSVQxFDASBgNVBAMMC3Nzby52Z3R1Lmx0MR0wGwYJKoZIhvcNAQkBFg5maWxzYXZAdmd0dS5sdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANPBRmQdW7yE6Ob47RS63wc6eamLrbcZ8d3BHbkTKOg3zvty9kNGlsRHKJKaTxZJHxxJeGyFK7wD1T7esm6H4xlGd/vPkJ8BiJGaYFt+z6AK0U/C24lAUTBme0XE12kVhR2Ld+AbocdKbgRvkQDs2nupi8bT8GrcLPqEVNfrEcuoWPR0VDrn+cc9eQWsnwAi6vqPNG9BP+tXun1mKRNjLwe7xpIU2dEt4kNNvHKHzbuqMOePvURsMLYWM0GiLA5qMXU/plsgEva09gSONJqUo5PiF5CkcFZqyyJNKznIAZnLuFWJR7a3G4ArQ0BEuGzv7nchzVf+ffdClMlYOflWas0CAwEAAaNQME4wHQYDVR0OBBYEFHaPCulJCIz/U1G0e7fraytboJPGMB8GA1UdIwQYMBaAFHaPCulJCIz/U1G0e7fraytboJPGMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBACoR6yldDCdkFwAM/UvbmAAhYizDFszWNi53//exw4Q7LYFFExl7h6jjnZphO8/JpYBQ8gqthhEyQe1QRs/3ZBkWJC6mhUu9V6pv/n+10wPew8fm2W6FIgprTmjfz98BCff/Bk7SAqssJRGSKKmgqetMcBXQDEcAQ9i1RpFK/j51mQ6+ynBRvynN0wpAGbKYnKlH4nZhe9DDhKO+P9MDMzbDrTudjZViRUXYxY0Ay8Kfm3TgjL+Yw8/LGhSXO0k9XfCcLVC+e+4YQEUOCQNgOPDRKmZH/jntqXmfY0Dtak0612n8RmJzwybPFyeNY+yeZhb+XEWT9uwq3YM7Zl85YSg=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso.vgtu.lt/saml2/idp/SingleLogoutService.php"/>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sso.vgtu.lt/saml2/idp/SSOService.php"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Vilnius Gediminas Technical University</md:OrganizationName>
+      <md:OrganizationName xml:lang="lt">Vilniaus Gedimino technikos universitetas</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Vilnius Gediminas Technical University</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="lt">Vilniaus Gedimino technikos universitetas</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.vgtu.lt</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Filip</md:GivenName>
+      <md:SurName>Savin</md:SurName>
+      <md:EmailAddress>sso@vgtu.lt</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

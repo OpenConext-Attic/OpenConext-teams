@@ -1,0 +1,111 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://bsp-idp.shibboleth.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ox.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEkDCCA3igAwIBAgIJAK74tuCrn4gMMA0GCSqGSIb3DQEBBQUAMIHIMQswCQYD
+						VQQGEwJHQjEUMBIGA1UECBMLT3hmb3Jkc2hpcmUxDzANBgNVBAcTBk94Zm9yZDEd
+						MBsGA1UEChMUVW5pdmVyc2l0eSBvZiBPeGZvcmQxGzAZBgNVBAsTEkNvbXB1dGlu
+						ZyBTZXJ2aWNlczEkMCIGA1UEAxMbYnNwLWlkcC5zaGliYm9sZXRoLm94LmFjLnVr
+						MTAwLgYJKoZIhvcNAQkBFiFlbWFpbEFkZHJlc3M9c3lzZGV2QG91Y3Mub3guYWMu
+						dWswHhcNMTIwNTE4MDg1MjMwWhcNMjIwNTE2MDg1MjMwWjCByDELMAkGA1UEBhMC
+						R0IxFDASBgNVBAgTC094Zm9yZHNoaXJlMQ8wDQYDVQQHEwZPeGZvcmQxHTAbBgNV
+						BAoTFFVuaXZlcnNpdHkgb2YgT3hmb3JkMRswGQYDVQQLExJDb21wdXRpbmcgU2Vy
+						dmljZXMxJDAiBgNVBAMTG2JzcC1pZHAuc2hpYmJvbGV0aC5veC5hYy51azEwMC4G
+						CSqGSIb3DQEJARYhZW1haWxBZGRyZXNzPXN5c2RldkBvdWNzLm94LmFjLnVrMIIB
+						IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvnBxr4sjCqHqNQuqRKlscoqV
+						n+KjKIL4oDVQY8lZpp9jbce7cLopWhAMhWXA5YwWBJTluYPkiEnzLQsWPdf4EKAG
+						PtXz9OVAjZzKq3KB/Rdi29LUjuI5Ugd39OJn1NIH2FsVG7z/te3IrHf/n7/mTmYl
+						OpPJ7XaAJgrRiNil5M2n/tmSg1rhbghR3TQAh0qtsO0h5N/b6cnRyFxVWk5Wn4U6
+						KPfYd+jVCUkOawC22bW+6Poxh6fDDm9RgCstP14MpdST7VWBidv7kc1HiuSS/DH0
+						dj3l9eqtpObDhUVHdDHTffpS32IuEdqPq5xJ80QRCmQxeRIQW3qzlAG3c4+WpwID
+						AQABo3sweTAJBgNVHRMEAjAAMCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVy
+						YXRlZCBDZXJ0aWZpY2F0ZTAdBgNVHQ4EFgQUhm2QdhrbYvY9WzUEmTv/iAkRq5Uw
+						HwYDVR0jBBgwFoAUhm2QdhrbYvY9WzUEmTv/iAkRq5UwDQYJKoZIhvcNAQEFBQAD
+						ggEBAIO+pz3LCPf88PSx7Mm3KbJ+EPxPbwY+nlk2IuIkxIDR4IVpdCV6uY70uR8+
+						bN7mb9mpjGsJGcyDpSncQmM3qwC45Lv6F0giJQXCH84iTPoFoLSjToxE9kYaN9tg
+						UOQiZODEuQWLGp80qHHWKYpG1/wxok3chwUW0dy8zGSm9esWwbEsInkm0cKq4MiG
+						wZ0maBagoaennxoKP9DKJp7bSePoAh/nZTCzQaQGK1JcQZsgzkHnomf7UaUFuslH
+						pDq4lDx2f/mAtxY40toa3H7Bgm5Dd/lkqpgeYI5kkOJmlFCYroKrmhG0jtOX3RMT
+						8aC6ef6hAwmREKbmNT8faiMPsss=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://bsp-idp.shibboleth.ox.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://bsp-idp.shibboleth.ox.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://bsp-idp.shibboleth.ox.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://bsp-idp.shibboleth.ox.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://bsp-idp.shibboleth.ox.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://bsp-idp.shibboleth.ox.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol         urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ox.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEkDCCA3igAwIBAgIJAK74tuCrn4gMMA0GCSqGSIb3DQEBBQUAMIHIMQswCQYD
+						VQQGEwJHQjEUMBIGA1UECBMLT3hmb3Jkc2hpcmUxDzANBgNVBAcTBk94Zm9yZDEd
+						MBsGA1UEChMUVW5pdmVyc2l0eSBvZiBPeGZvcmQxGzAZBgNVBAsTEkNvbXB1dGlu
+						ZyBTZXJ2aWNlczEkMCIGA1UEAxMbYnNwLWlkcC5zaGliYm9sZXRoLm94LmFjLnVr
+						MTAwLgYJKoZIhvcNAQkBFiFlbWFpbEFkZHJlc3M9c3lzZGV2QG91Y3Mub3guYWMu
+						dWswHhcNMTIwNTE4MDg1MjMwWhcNMjIwNTE2MDg1MjMwWjCByDELMAkGA1UEBhMC
+						R0IxFDASBgNVBAgTC094Zm9yZHNoaXJlMQ8wDQYDVQQHEwZPeGZvcmQxHTAbBgNV
+						BAoTFFVuaXZlcnNpdHkgb2YgT3hmb3JkMRswGQYDVQQLExJDb21wdXRpbmcgU2Vy
+						dmljZXMxJDAiBgNVBAMTG2JzcC1pZHAuc2hpYmJvbGV0aC5veC5hYy51azEwMC4G
+						CSqGSIb3DQEJARYhZW1haWxBZGRyZXNzPXN5c2RldkBvdWNzLm94LmFjLnVrMIIB
+						IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvnBxr4sjCqHqNQuqRKlscoqV
+						n+KjKIL4oDVQY8lZpp9jbce7cLopWhAMhWXA5YwWBJTluYPkiEnzLQsWPdf4EKAG
+						PtXz9OVAjZzKq3KB/Rdi29LUjuI5Ugd39OJn1NIH2FsVG7z/te3IrHf/n7/mTmYl
+						OpPJ7XaAJgrRiNil5M2n/tmSg1rhbghR3TQAh0qtsO0h5N/b6cnRyFxVWk5Wn4U6
+						KPfYd+jVCUkOawC22bW+6Poxh6fDDm9RgCstP14MpdST7VWBidv7kc1HiuSS/DH0
+						dj3l9eqtpObDhUVHdDHTffpS32IuEdqPq5xJ80QRCmQxeRIQW3qzlAG3c4+WpwID
+						AQABo3sweTAJBgNVHRMEAjAAMCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVy
+						YXRlZCBDZXJ0aWZpY2F0ZTAdBgNVHQ4EFgQUhm2QdhrbYvY9WzUEmTv/iAkRq5Uw
+						HwYDVR0jBBgwFoAUhm2QdhrbYvY9WzUEmTv/iAkRq5UwDQYJKoZIhvcNAQEFBQAD
+						ggEBAIO+pz3LCPf88PSx7Mm3KbJ+EPxPbwY+nlk2IuIkxIDR4IVpdCV6uY70uR8+
+						bN7mb9mpjGsJGcyDpSncQmM3qwC45Lv6F0giJQXCH84iTPoFoLSjToxE9kYaN9tg
+						UOQiZODEuQWLGp80qHHWKYpG1/wxok3chwUW0dy8zGSm9esWwbEsInkm0cKq4MiG
+						wZ0maBagoaennxoKP9DKJp7bSePoAh/nZTCzQaQGK1JcQZsgzkHnomf7UaUFuslH
+						pDq4lDx2f/mAtxY40toa3H7Bgm5Dd/lkqpgeYI5kkOJmlFCYroKrmhG0jtOX3RMT
+						8aC6ef6hAwmREKbmNT8faiMPsss=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://bsp-idp.shibboleth.ox.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://bsp-idp.shibboleth.ox.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford (BSP)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Sysdev</md:GivenName>
+      <md:EmailAddress>mailto:sysdev@it.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Help</md:GivenName>
+      <md:EmailAddress>mailto:help@it.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

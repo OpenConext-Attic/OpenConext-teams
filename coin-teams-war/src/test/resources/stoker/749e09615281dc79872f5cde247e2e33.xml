@@ -1,0 +1,92 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.newcollege.ac.uk/athensla">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-10-17T09:21:34Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">newcollege.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">New College Swindon (testing LA)</mdui:DisplayName>
+          <mdui:Logo height="523" width="258">https://www.newcollege.ac.uk/athens/logo.jpg</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDYDCCAkigAwIBAgIIDMoTE+e8SLkwDQYJKoZIhvcNAQEFBQAwRzEcMBoGA1UE
+						CgwTTmV3IENvbGxlZ2UgU3dpbmRvbjEnMCUGA1UEAwweYXRoZW5zcnVudGltZS5u
+						ZXdjb2xsZWdlLmFjLnVrMB4XDTE0MDkwOTEzMjk0N1oXDTI0MDkwOTEzMjk0N1ow
+						RzEcMBoGA1UECgwTTmV3IENvbGxlZ2UgU3dpbmRvbjEnMCUGA1UEAwweYXRoZW5z
+						cnVudGltZS5uZXdjb2xsZWdlLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+						MIIBCgKCAQEA0Ez45eYCSrflOrisYZeEFa67TskdS51M4kAIuscDLu7Kff9H6dBO
+						yYKPBDsYitiyI1z5fY7+cYt4kb+77ke/2AU+JnT3RUePm/9G3xzGFY5Fu4KTXnXj
+						6Bui5zXSna35ry4eLagL0buNRpx/saSyg6+8MFdRBqVb668XYq19xxngRI6DlN2n
+						nM9NiA5AV+NGIsC7/RC0tYXQ2G3VJePi65Iejan+77leUeTp1hufJD5OwfudoXFc
+						58/hdz4PFHC3NUd8UMhL1WyibbvYwhfBta5V6H/Im0BL0e1qQJjdb/vg3P7w0SOI
+						H2qsAPzqa3DZPCTPf4uLorZ87t73q9J+XQIDAQABo1AwTjAdBgNVHQ4EFgQU0HGl
+						6yLJboYAwDMCD8QfzF5odXcwHwYDVR0jBBgwFoAU0HGl6yLJboYAwDMCD8QfzF5o
+						dXcwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOCAQEAoXzQtdDC4MIhfHWZ
+						dydDbdxXdTus14w6betasZ1XdOEAXK+L+yAJ0FWjNsvXAZCKqkOZoQDpfCpTaIkV
+						EQtzHeHO8/xHkobTHrNeuJnPTBbIl5ZWMedaoY5bu2n4+MWW5G08sSfxpZzcTeNw
+						dQJl1Q+eHlcn1zFsZglZvyYF7crg1n0OVH6Ws+yJs772BrNopFqmaMpdPeLpd8Pk
+						eOFLI4LOL8mVNH2lDvt2LYxkOhW2U9XpGc3j2u8kbHEVPXVVrSaaNtwzeSa3W4sY
+						73sUhZUXRR7JmqIZsXmX80WflC+LakBe+LKGsAqzCHcYBP1dFImF5M0fDOFSOqYN
+						/0f/XA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDYDCCAkigAwIBAgIIDMoTE+e8SLkwDQYJKoZIhvcNAQEFBQAwRzEcMBoGA1UE
+						CgwTTmV3IENvbGxlZ2UgU3dpbmRvbjEnMCUGA1UEAwweYXRoZW5zcnVudGltZS5u
+						ZXdjb2xsZWdlLmFjLnVrMB4XDTE0MDkwOTEzMjk0N1oXDTI0MDkwOTEzMjk0N1ow
+						RzEcMBoGA1UECgwTTmV3IENvbGxlZ2UgU3dpbmRvbjEnMCUGA1UEAwweYXRoZW5z
+						cnVudGltZS5uZXdjb2xsZWdlLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+						MIIBCgKCAQEA0Ez45eYCSrflOrisYZeEFa67TskdS51M4kAIuscDLu7Kff9H6dBO
+						yYKPBDsYitiyI1z5fY7+cYt4kb+77ke/2AU+JnT3RUePm/9G3xzGFY5Fu4KTXnXj
+						6Bui5zXSna35ry4eLagL0buNRpx/saSyg6+8MFdRBqVb668XYq19xxngRI6DlN2n
+						nM9NiA5AV+NGIsC7/RC0tYXQ2G3VJePi65Iejan+77leUeTp1hufJD5OwfudoXFc
+						58/hdz4PFHC3NUd8UMhL1WyibbvYwhfBta5V6H/Im0BL0e1qQJjdb/vg3P7w0SOI
+						H2qsAPzqa3DZPCTPf4uLorZ87t73q9J+XQIDAQABo1AwTjAdBgNVHQ4EFgQU0HGl
+						6yLJboYAwDMCD8QfzF5odXcwHwYDVR0jBBgwFoAU0HGl6yLJboYAwDMCD8QfzF5o
+						dXcwDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOCAQEAoXzQtdDC4MIhfHWZ
+						dydDbdxXdTus14w6betasZ1XdOEAXK+L+yAJ0FWjNsvXAZCKqkOZoQDpfCpTaIkV
+						EQtzHeHO8/xHkobTHrNeuJnPTBbIl5ZWMedaoY5bu2n4+MWW5G08sSfxpZzcTeNw
+						dQJl1Q+eHlcn1zFsZglZvyYF7crg1n0OVH6Ws+yJs772BrNopFqmaMpdPeLpd8Pk
+						eOFLI4LOL8mVNH2lDvt2LYxkOhW2U9XpGc3j2u8kbHEVPXVVrSaaNtwzeSa3W4sY
+						73sUhZUXRR7JmqIZsXmX80WflC+LakBe+LKGsAqzCHcYBP1dFImF5M0fDOFSOqYN
+						/0f/XA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://athensruntime.newcollege.ac.uk/oala/sso"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://athensruntime.newcollege.ac.uk/oala/sso"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">New College Swindon</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">New College Swindon (testing LA)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.newcollege.ac.uk/athens/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Jason</md:GivenName>
+      <md:SurName>Hull</md:SurName>
+      <md:EmailAddress>mailto:jason.hull@newcollege.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ian</md:GivenName>
+      <md:SurName>Hole</md:SurName>
+      <md:EmailAddress>mailto:Ian.hole@newcollege.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

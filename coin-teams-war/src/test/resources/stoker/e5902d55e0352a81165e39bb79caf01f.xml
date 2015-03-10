@@ -1,14 +1,16 @@
-<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.heanet.ie/idp/shibboleth">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.heanet.ie/idp/shibboleth">
     <md:Extensions>
-      <mdrpi:RegistrationInfo registrationAuthority="http://www.heanet.ie" registrationInstant="2010-11-01T00:00:00Z"/>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.heanet.ie" registrationInstant="2010-11-01T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.edugate.ie/welcome-edugate-federation/membership</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
     </md:Extensions>
     <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
       <md:Extensions>
         <shibmd:Scope regexp="false">heanet.ie</shibmd:Scope>
         <mdui:UIInfo>
           <mdui:DisplayName xml:lang="en">HEAnet Limited.</mdui:DisplayName>
-          <mdui:Logo height="82" width="200">https://edugate.heanet.ie/rr3/logos/heanet.png</mdui:Logo>
           <mdui:InformationURL xml:lang="en">http://www.heanet.ie</mdui:InformationURL>
+          <mdui:Logo height="82" width="200">https://edugate.heanet.ie/rr3/logos/heanet.png</mdui:Logo>
         </mdui:UIInfo>
         <mdui:DiscoHints>
           <mdui:GeolocationHint>geo:53.34964831237833,-6.246660947799683</mdui:GeolocationHint>

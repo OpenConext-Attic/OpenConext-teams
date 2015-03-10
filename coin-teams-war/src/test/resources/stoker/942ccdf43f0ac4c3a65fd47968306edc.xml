@@ -1,0 +1,114 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://kclidp.kcl.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">kcl.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">King's College London</mdui:DisplayName>
+          <mdui:Logo height="16" width="16">https://kclidp.kcl.ac.uk/logo1.png</mdui:Logo>
+          <mdui:Logo height="60" width="80">https://kclidp.kcl.ac.uk/logo2.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEZjCCA06gAwIBAgIBADANBgkqhkiG9w0BAQUFADB2MQswCQYDVQQGEwJHQjEP
+						MA0GA1UECBMGTG9uZG9uMQ8wDQYDVQQHEwZMb25kb24xHTAbBgNVBAoTFEtpbmdz
+						IENvbGxlZ2UgTG9uZG9uMQswCQYDVQQLEwJJVDEZMBcGA1UEAxMQa2NsaWRwLmtj
+						bC5hYy51azAeFw0xMzAxMDkxNjQyMTRaFw0yMzAxMDcxNjQyMTRaMHYxCzAJBgNV
+						BAYTAkdCMQ8wDQYDVQQIEwZMb25kb24xDzANBgNVBAcTBkxvbmRvbjEdMBsGA1UE
+						ChMUS2luZ3MgQ29sbGVnZSBMb25kb24xCzAJBgNVBAsTAklUMRkwFwYDVQQDExBr
+						Y2xpZHAua2NsLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA
+						yEpyzp6Y1kvj+GsPL1pQiQvDBLnNck72Bn7SVCrEAbhoYSSymjchXt7yI3dw1pMB
+						f9+0iA6s5ex0Mt7tnjggWV6wIGM3zw62X+cSINnWp4TRWHZ3LVEwcU9O2R1o0o3U
+						467XviRD/SrNsaRnZp/5XmddQjTt0nLqsGw/RVqlEwGNoxr3/ufUqyC9C2mbOtb7
+						DcrUqH7z4R+f6YokzqMhjuBtd7bHr4aKDeRKzmltpGlVFEz4wrVNi+79WfjLkX7l
+						dcxzXU9jnHOpgzbnUcmkwbxSl9DBSC9VxJBC83ncXRuRBgyqPpXYmZ6xdnUm+7e2
+						eCRUuVRGB09QC4yrvCXZZwIDAQABo4H+MIH7MAkGA1UdEwQCMAAwLAYJYIZIAYb4
+						QgENBB8WHU9wZW5TU0wgR2VuZXJhdGVkIENlcnRpZmljYXRlMB0GA1UdDgQWBBSp
+						TH5kAuUTBts/2kYGhN6eOKOXzDCBoAYDVR0jBIGYMIGVgBSpTH5kAuUTBts/2kYG
+						hN6eOKOXzKF6pHgwdjELMAkGA1UEBhMCR0IxDzANBgNVBAgTBkxvbmRvbjEPMA0G
+						A1UEBxMGTG9uZG9uMR0wGwYDVQQKExRLaW5ncyBDb2xsZWdlIExvbmRvbjELMAkG
+						A1UECxMCSVQxGTAXBgNVBAMTEGtjbGlkcC5rY2wuYWMudWuCAQAwDQYJKoZIhvcN
+						AQEFBQADggEBAJ0zF1N2N5bQS/ZK08jAbsd1gDuk4u4D5o8vEW5Np3aUPrHE3fK1
+						59bl8mpz3q9/kDJuu2NGZRlNGpFOUSDZJBWz6g6gg6sYSgTVXSRnfsSBnQ103dzb
+						v0MG4GA9B+WAD/6/henwXa0cSB708MU9ezq8dufilyHzNo033tfKXiWZbbvgO+mk
+						hBFPNvEdfJ98vLKS6q+wmNlvmzhFr7aoH1tYENryGrJWTJ0PEjv+SYWiHRjZdrF4
+						hZEob0ux+XK8uPgMAepyHgBduBcJgDhABlkLSZ5qECgDRpQXzgZglrHzU8k0Y0PA
+						lTZdf+SSG52AWWaNmRD/L5fOY0EKkCphfrs=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://kclidp.kcl.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://kclidp.kcl.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://kclidp.kcl.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://kclidp.kcl.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://kclidp.kcl.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://kclidp.kcl.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">kcl.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEZjCCA06gAwIBAgIBADANBgkqhkiG9w0BAQUFADB2MQswCQYDVQQGEwJHQjEP
+						MA0GA1UECBMGTG9uZG9uMQ8wDQYDVQQHEwZMb25kb24xHTAbBgNVBAoTFEtpbmdz
+						IENvbGxlZ2UgTG9uZG9uMQswCQYDVQQLEwJJVDEZMBcGA1UEAxMQa2NsaWRwLmtj
+						bC5hYy51azAeFw0xMzAxMDkxNjQyMTRaFw0yMzAxMDcxNjQyMTRaMHYxCzAJBgNV
+						BAYTAkdCMQ8wDQYDVQQIEwZMb25kb24xDzANBgNVBAcTBkxvbmRvbjEdMBsGA1UE
+						ChMUS2luZ3MgQ29sbGVnZSBMb25kb24xCzAJBgNVBAsTAklUMRkwFwYDVQQDExBr
+						Y2xpZHAua2NsLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA
+						yEpyzp6Y1kvj+GsPL1pQiQvDBLnNck72Bn7SVCrEAbhoYSSymjchXt7yI3dw1pMB
+						f9+0iA6s5ex0Mt7tnjggWV6wIGM3zw62X+cSINnWp4TRWHZ3LVEwcU9O2R1o0o3U
+						467XviRD/SrNsaRnZp/5XmddQjTt0nLqsGw/RVqlEwGNoxr3/ufUqyC9C2mbOtb7
+						DcrUqH7z4R+f6YokzqMhjuBtd7bHr4aKDeRKzmltpGlVFEz4wrVNi+79WfjLkX7l
+						dcxzXU9jnHOpgzbnUcmkwbxSl9DBSC9VxJBC83ncXRuRBgyqPpXYmZ6xdnUm+7e2
+						eCRUuVRGB09QC4yrvCXZZwIDAQABo4H+MIH7MAkGA1UdEwQCMAAwLAYJYIZIAYb4
+						QgENBB8WHU9wZW5TU0wgR2VuZXJhdGVkIENlcnRpZmljYXRlMB0GA1UdDgQWBBSp
+						TH5kAuUTBts/2kYGhN6eOKOXzDCBoAYDVR0jBIGYMIGVgBSpTH5kAuUTBts/2kYG
+						hN6eOKOXzKF6pHgwdjELMAkGA1UEBhMCR0IxDzANBgNVBAgTBkxvbmRvbjEPMA0G
+						A1UEBxMGTG9uZG9uMR0wGwYDVQQKExRLaW5ncyBDb2xsZWdlIExvbmRvbjELMAkG
+						A1UECxMCSVQxGTAXBgNVBAMTEGtjbGlkcC5rY2wuYWMudWuCAQAwDQYJKoZIhvcN
+						AQEFBQADggEBAJ0zF1N2N5bQS/ZK08jAbsd1gDuk4u4D5o8vEW5Np3aUPrHE3fK1
+						59bl8mpz3q9/kDJuu2NGZRlNGpFOUSDZJBWz6g6gg6sYSgTVXSRnfsSBnQ103dzb
+						v0MG4GA9B+WAD/6/henwXa0cSB708MU9ezq8dufilyHzNo033tfKXiWZbbvgO+mk
+						hBFPNvEdfJ98vLKS6q+wmNlvmzhFr7aoH1tYENryGrJWTJ0PEjv+SYWiHRjZdrF4
+						hZEob0ux+XK8uPgMAepyHgBduBcJgDhABlkLSZ5qECgDRpQXzgZglrHzU8k0Y0PA
+						lTZdf+SSG52AWWaNmRD/L5fOY0EKkCphfrs=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://kclidp.kcl.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://kclidp.kcl.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">King's College London</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">King's College London</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.kcl.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>ISS Servers and Data Storage Team</md:GivenName>
+      <md:EmailAddress>mailto:systemsteam@kcl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>ISS Servers and Data Storage Team</md:GivenName>
+      <md:EmailAddress>mailto:systemsteam@kcl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mike</md:GivenName>
+      <md:SurName>Fitzpatrick</md:SurName>
+      <md:EmailAddress>mailto:Mike.Fitzpatrick@kcl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

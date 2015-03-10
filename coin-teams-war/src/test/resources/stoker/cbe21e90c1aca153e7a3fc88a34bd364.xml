@@ -1,0 +1,63 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://dev-sso.knewknovel.com/entry/uk_federation/Metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-06-21T13:15:39Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:Description xml:lang="en">The Knovel website integrates technical reference information with analytical and search tools for engineers.</mdui:Description>
+          <mdui:DisplayName xml:lang="en">Knovel Corporation: Phoenix Dev-SSO Test</mdui:DisplayName>
+          <mdui:Logo height="115" width="350">https://dev-content.knewknovel.com/web/integration/ukfed/images/logo_350_115.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDyjCCArKgAwIBAgIJALW6A/BUfZ3FMA0GCSqGSIb3DQEBBQUAMGYxCzAJBgNV
+						BAYTAlVTMQswCQYDVQQIEwJOWTEMMAoGA1UEBxMDTllDMRswGQYDVQQKExJLbm92
+						ZWwgQ29ycG9yYXRpb24xHzAdBgNVBAMTFmRldi1zc28ua25ld2tub3ZlbC5jb20w
+						HhcNMTQwNDE0MTMxMjU1WhcNMzQwNDA5MTMxMjU1WjBmMQswCQYDVQQGEwJVUzEL
+						MAkGA1UECBMCTlkxDDAKBgNVBAcTA05ZQzEbMBkGA1UEChMSS25vdmVsIENvcnBv
+						cmF0aW9uMR8wHQYDVQQDExZkZXYtc3NvLmtuZXdrbm92ZWwuY29tMIIBIjANBgkq
+						hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnX01rHw3vO6lIPsCouVCUF7ypKNSk9Gu
+						IXCKZ1P+bt4dtd0QE+8HyLkyk6e55Yx+sxsHuD0laHbzvuv35GdhT5Prgct2UMYN
+						UpChSHticrmfOV854FzKDJEfmbeLpS23GhMeHo1x0KFsFOM1tPYGjmxkRDMN5Cvv
+						z9mXmknF/0WEipOWBR4I9aUcmziiZZpqentVdEpYiodVJaOu0hSqOlXs1mDtB4tF
+						KOSzlvDS8qjlA2fynvwe1qAqUd8khp5w5jvVkh4NTPFSl2fIwrQc4irI6NM6Kw7o
+						izflkVuLV2aW2qb1IldI81g2qqOpeP1YYSGrFxDJ3XdEevoza4ozDwIDAQABo3sw
+						eTAJBgNVHRMEAjAAMCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVyYXRlZCBD
+						ZXJ0aWZpY2F0ZTAdBgNVHQ4EFgQUjcBQ9UtvvI+ytSMztbS5Z1hnz/cwHwYDVR0j
+						BBgwFoAUjcBQ9UtvvI+ytSMztbS5Z1hnz/cwDQYJKoZIhvcNAQEFBQADggEBAF00
+						MyzrFcM0daBiKqxG3dm7rw3noJF/wQkXNqtRWJvxnB3WpuWNJYn8g1s3m9HhNVNQ
+						8lFfIVzxMHhtZbj2AJSxB+3CtLlxEI+Ek+V4fbIcoAsTfe61OMuNVAJbyvdjjxSC
+						Ewv9B71RSXuU9nZw/Zl0Z3bO0vLvbgtlEKlO/M2U749PxqLjvIPTGL0k+nScpC4y
+						fuVAi8o5ufW2OccVaeMd5WupA7PhJHGGdAN4qszavFkTsE2JIheNdk4Zewob61iu
+						XWQKqMUCvhHMPkCVBWqbAJzSOIE0gqqbsWDxoOhWv6FDj15iOpPxmzc2g1v5g9N5
+						PCaBwus+SIk+uZ5o3uU=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://dev-sso.knewknovel.com/saml/module.php/saml/sp/saml2-logout.php/default-sp"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://dev-sso.knewknovel.com/saml/module.php/saml/sp/saml2-acs.php/default-sp" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://dev-sso.knewknovel.com/saml/module.php/saml/sp/saml1-acs.php/default-sp" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://dev-sso.knewknovel.com/saml/module.php/saml/sp/saml2-acs.php/default-sp" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://dev-sso.knewknovel.com/saml/module.php/saml/sp/saml1-acs.php/default-sp/artifact" index="3"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Knovel Corporation</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Knovel Corporation: Phoenix Dev-SSO Test</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://why.knovel.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Michael</md:GivenName>
+      <md:SurName>Crisler</md:SurName>
+      <md:EmailAddress>mailto:m.crisler@elsevier.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Johnny</md:GivenName>
+      <md:SurName>Cheung</md:SurName>
+      <md:EmailAddress>mailto:kops@knovel.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

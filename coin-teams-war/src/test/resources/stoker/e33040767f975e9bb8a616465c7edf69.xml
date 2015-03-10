@@ -1,0 +1,60 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sp.silverchair.com/ama/production/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-05-01T09:41:42Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://jamanetwork.com/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDDzCCAfegAwIBAgIJAORzNvJp0EaDMA0GCSqGSIb3DQEBBQUAMCMxITAfBgNV
+						BAMTGHNjbTYtZDVwdm0td2ViMS5zY3NsLmludDAeFw0xMjA0MTYxOTA1NTVaFw0y
+						MjA0MTQxOTA1NTVaMCMxITAfBgNVBAMTGHNjbTYtZDVwdm0td2ViMS5zY3NsLmlu
+						dDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL9MqpHzY/2XNz5e72by
+						iLIMsfTp+IkYpxH7J24qf9S59sNFD228Eds7HOixJwIx4qPkMkKWQiJgHbOw9yo6
+						1vYZKWeJs9AiJhZxJqML69mcpXaJ+DcHrTuIARbLixwv8DgrbaqVd7E6xfGnqkwd
+						DBn6fEKEOOKENzZoLoihYfXbVmvAmErwoezim/cBMBJP8+v1/tbYaTwBWkOMEzap
+						C29TA8+rIqHeeH34NczHkKvcdecV/G5wh1/xrCpQFjQ3301L3T25HBE8dPXdxrap
+						ysgQyjNM7lvDHkpJIGRTv/pLeKWwuESpmqqsd8rdm/EV1G/rj1lab0zz5VoX0/+H
+						l8ECAwEAAaNGMEQwIwYDVR0RBBwwGoIYc2NtNi1kNXB2bS13ZWIxLnNjc2wuaW50
+						MB0GA1UdDgQWBBRMXra8qny2NUOSMAON/3BRFvrkNzANBgkqhkiG9w0BAQUFAAOC
+						AQEAFjRqhwmt88P4noKvHM4nBVtIobkwD283MrJ9fD/Fc+tTuqCj5XhIA9tmhzkH
+						wuGP6tByD35/C7feUC9QSycD5+g8c1XuX7DoaBpjarBvlZRBQHeDDMl0Axq/5QaZ
+						KTTx0sAUqueD5Ksn8AOEmSXKagQQxmcD4T9A1+aENL3iORU/yTCIuEbulP/hTWqS
+						/4LfA6JCQzz9vWpeFEOQPxzYQdPtn/imfqK+APgxJ+sOt4VBiWDow3Rc/Jurvr/e
+						3rS8ZogxfmobnOH0s+5b057fVvyufQDC0HKekcn27HKzyGlml/uZVN0dN2ZxsPk9
+						dF0f57p7T8LXtcYychN122+l5A==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://jamanetwork.com/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://jamanetwork.com/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://jamanetwork.com/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://jamanetwork.com/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://jamanetwork.com/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://jamanetwork.com/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://jamanetwork.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://jamanetwork.com/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://jamanetwork.com/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://jamanetwork.com/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://jamanetwork.com/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Silverchair Science + Communications, LLC</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Silverchair Production: The American Medical Association</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://jamanetwork.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Shibboleth Admin</md:GivenName>
+      <md:EmailAddress>mailto:ShibbolethAdmin@silverchair.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Josh</md:GivenName>
+      <md:SurName>Laseter</md:SurName>
+      <md:EmailAddress>mailto:jlaseter@silverchair.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

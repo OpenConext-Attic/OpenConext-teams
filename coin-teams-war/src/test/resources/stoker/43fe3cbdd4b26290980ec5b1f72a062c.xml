@@ -1,18 +1,14 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="uk000905" entityID="https://www.portal.euromonitor.com/shibboleth">
-	
-	<Extensions>
-
-
-		<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://ukfederation.org.uk" registrationInstant="2009-01-22T16:58:00Z">
-			<mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
-		</mdrpi:RegistrationInfo>
-
-	</Extensions>
-	<SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
-		<KeyDescriptor use="signing">
-			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-				<ds:X509Data>
-					<ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.portal.euromonitor.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2009-01-22T16:58:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 						MIIEHDCCAwSgAwIBAgIJAJuSt635KQAmMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYD
 						VQQGEwJHQjEYMBYGA1UECAwPR3JlYXRlciAgTG9uZG9uMQ8wDQYDVQQHDAZMb25k
 						b24xIjAgBgNVBAoMGUV1cm9tb25pdG9yIEludGVybmF0aW9uYWwxCzAJBgNVBAsM
@@ -36,13 +32,13 @@
 						BX00Mf1vU2OadW3VBlMyQuzcvpB6oon/pCbOVYJ+vsI4mNIJ27tNI66urifUwtby
 						6N7Wsak8uoAFS1GACPsJ/az3sQsUvTOy3FFrJOUkTUK1ReErc5jHS67YdLT1cHy9
 					</ds:X509Certificate>
-				</ds:X509Data>
-			</ds:KeyInfo>
-		</KeyDescriptor>
-		<KeyDescriptor use="encryption">
-			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-				<ds:X509Data>
-					<ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 						MIIEHDCCAwSgAwIBAgIJAJuSt635KQAmMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYD
 						VQQGEwJHQjEYMBYGA1UECAwPR3JlYXRlciAgTG9uZG9uMQ8wDQYDVQQHDAZMb25k
 						b24xIjAgBgNVBAoMGUV1cm9tb25pdG9yIEludGVybmF0aW9uYWwxCzAJBgNVBAsM
@@ -66,31 +62,29 @@
 						BX00Mf1vU2OadW3VBlMyQuzcvpB6oon/pCbOVYJ+vsI4mNIJ27tNI66urifUwtby
 						6N7Wsak8uoAFS1GACPsJ/az3sQsUvTOy3FFrJOUkTUK1ReErc5jHS67YdLT1cHy9
 					</ds:X509Certificate>
-				</ds:X509Data>
-			</ds:KeyInfo>
-		</KeyDescriptor>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.portal.euromonitor.com/portal/oa/auth/rcv/shib/post" index="1" isDefault="true"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.portal.euromonitor.com/portal/oa/auth/rcv/shib/art" index="2"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.portal.euromonitor.com/portal/oa/auth/rcv/saml2/post" index="3"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.portal.euromonitor.com/portal/oa/auth/rcv/saml2/art" index="4"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.portal.euromonitor.com/portal/default.aspx" index="5"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.portal.euromonitor.com/portal/default.aspx" index="6"/>
-	</SPSSODescriptor>
-	<Organization>
-		<OrganizationName xml:lang="en">Euromonitor International plc</OrganizationName>
-		<OrganizationDisplayName xml:lang="en">Euromonitor International Passport System</OrganizationDisplayName>
-		<OrganizationURL xml:lang="en">http://www.euromonitor.com/contact.aspx</OrganizationURL>
-	</Organization>
-	<ContactPerson contactType="support">
-		<GivenName>Jurgen</GivenName>
-		<SurName>Wiehan</SurName>
-		<EmailAddress>mailto:jurgen.wiehan@euromonitor.com</EmailAddress>
-	</ContactPerson>
-	<ContactPerson contactType="technical">
-		<GivenName>Jurgen</GivenName>
-		<SurName>Wiehan</SurName>
-		<EmailAddress>mailto:jurgen.wiehan@euromonitor.com</EmailAddress>
-	</ContactPerson>
-
-
-</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.portal.euromonitor.com/portal/oa/auth/rcv/shib/post" index="1" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.portal.euromonitor.com/portal/oa/auth/rcv/shib/art" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.portal.euromonitor.com/portal/oa/auth/rcv/saml2/post" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.portal.euromonitor.com/portal/oa/auth/rcv/saml2/art" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.portal.euromonitor.com/portal/default.aspx" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.portal.euromonitor.com/portal/default.aspx" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Euromonitor International plc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Euromonitor International Passport System</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.euromonitor.com/contact.aspx</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Jurgen</md:GivenName>
+      <md:SurName>Wiehan</md:SurName>
+      <md:EmailAddress>mailto:jurgen.wiehan@euromonitor.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Jurgen</md:GivenName>
+      <md:SurName>Wiehan</md:SurName>
+      <md:EmailAddress>mailto:jurgen.wiehan@euromonitor.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

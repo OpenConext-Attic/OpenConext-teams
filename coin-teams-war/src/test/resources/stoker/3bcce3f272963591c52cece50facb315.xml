@@ -1,0 +1,95 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://qa.idp.uhi.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-02-08T12:47:43Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uhi.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDLDCCAhSgAwIBAgIVANneP+Hfy2xrQ53aw8HQ+q7keJG8MA0GCSqGSIb3DQEB
+						BQUAMBsxGTAXBgNVBAMTEHFhLmlkcC51aGkuYWMudWswHhcNMTMwMjA4MDgyODQ1
+						WhcNMzMwMjA4MDgyODQ1WjAbMRkwFwYDVQQDExBxYS5pZHAudWhpLmFjLnVrMIIB
+						IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlXe5g51wML4p4iVbnMtrY1UZ
+						MwRAtZXU1vKNIy3XvoqzOTYA/dRB30t8A3hw/4AuhwI7yU5NdIXMP56K1hfxUfV5
+						S7ZLwnPuc87diwqXJ/m+5Tbb7i+7d4drcpB+MrYYW4JzbHiFXbk9Ze1JnAkhMTYU
+						VbmKN6Zj6YFf99Cjde4RolQlQ62VH/9AXn4IWwl4hVXvy6Qgp5hvYIaIL1TpjdKH
+						aOs8c1DUDXGgnSuOMD/jWeaGYn4WS/DbH7aaWXf/Zoz/xwyt8aVOvWw1UqkquNd/
+						E32zseb5Zp8CAYD9x60Xbwj1bI2HUIFzgwakwP1X6CnUu82fUeL+JJ5ZQQtoXwID
+						AQABo2cwZTBEBgNVHREEPTA7ghBxYS5pZHAudWhpLmFjLnVrhidodHRwczovL3Fh
+						LmlkcC51aGkuYWMudWsvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFDyTxLg3Gvf/
+						fXWfHu0sMyLodkRSMA0GCSqGSIb3DQEBBQUAA4IBAQA036ZXr0EiOMvr8ClIRlc8
+						7yFiXYFeG1slgTj6uwridK51PZhwfszlg3M/uyaogjWQd2IXJtG03s+svWpsXTWP
+						Cq70+Aa9nXM5aLs/TY5aNVQpDKPhmG8xvI5WViIMvXZ4Ty/egPGfjp+W//Nj1ogR
+						4eCQAKrUFpb1UvZqA736QcWachN+WqUlEnwtvU+yE8Wtj8CGnxRLODuRIgDhi3ml
+						jD7nr8Xu1R7d+yuulxgJQDsBrNUs2vGyBurM1nGqaZePn57HDjczJWKmKFzQ5+HH
+						r5fv3Tl9vSvzKI+N03lMB3+IVQW8H5yMajUA4B8HUAdltcGNFmir4+bgpOYtcP3X
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://qa.idp.uhi.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://qa.idp.uhi.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://qa.idp.uhi.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://qa.idp.uhi.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://qa.idp.uhi.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://qa.idp.uhi.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uhi.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDLDCCAhSgAwIBAgIVANneP+Hfy2xrQ53aw8HQ+q7keJG8MA0GCSqGSIb3DQEB
+						BQUAMBsxGTAXBgNVBAMTEHFhLmlkcC51aGkuYWMudWswHhcNMTMwMjA4MDgyODQ1
+						WhcNMzMwMjA4MDgyODQ1WjAbMRkwFwYDVQQDExBxYS5pZHAudWhpLmFjLnVrMIIB
+						IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlXe5g51wML4p4iVbnMtrY1UZ
+						MwRAtZXU1vKNIy3XvoqzOTYA/dRB30t8A3hw/4AuhwI7yU5NdIXMP56K1hfxUfV5
+						S7ZLwnPuc87diwqXJ/m+5Tbb7i+7d4drcpB+MrYYW4JzbHiFXbk9Ze1JnAkhMTYU
+						VbmKN6Zj6YFf99Cjde4RolQlQ62VH/9AXn4IWwl4hVXvy6Qgp5hvYIaIL1TpjdKH
+						aOs8c1DUDXGgnSuOMD/jWeaGYn4WS/DbH7aaWXf/Zoz/xwyt8aVOvWw1UqkquNd/
+						E32zseb5Zp8CAYD9x60Xbwj1bI2HUIFzgwakwP1X6CnUu82fUeL+JJ5ZQQtoXwID
+						AQABo2cwZTBEBgNVHREEPTA7ghBxYS5pZHAudWhpLmFjLnVrhidodHRwczovL3Fh
+						LmlkcC51aGkuYWMudWsvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFDyTxLg3Gvf/
+						fXWfHu0sMyLodkRSMA0GCSqGSIb3DQEBBQUAA4IBAQA036ZXr0EiOMvr8ClIRlc8
+						7yFiXYFeG1slgTj6uwridK51PZhwfszlg3M/uyaogjWQd2IXJtG03s+svWpsXTWP
+						Cq70+Aa9nXM5aLs/TY5aNVQpDKPhmG8xvI5WViIMvXZ4Ty/egPGfjp+W//Nj1ogR
+						4eCQAKrUFpb1UvZqA736QcWachN+WqUlEnwtvU+yE8Wtj8CGnxRLODuRIgDhi3ml
+						jD7nr8Xu1R7d+yuulxgJQDsBrNUs2vGyBurM1nGqaZePn57HDjczJWKmKFzQ5+HH
+						r5fv3Tl9vSvzKI+N03lMB3+IVQW8H5yMajUA4B8HUAdltcGNFmir4+bgpOYtcP3X
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://qa.idp.uhi.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://qa.idp.uhi.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of the Highlands and Islands</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of the Highlands and Islands QA IdP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.uhi.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>UHI Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:uhihelpdesk@uhi.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>UHI Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:uhihelpdesk@uhi.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

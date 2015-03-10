@@ -1,0 +1,67 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sprov.d2digital.co.uk/">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-07-26T11:23:11Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://sprov.d2digital.co.uk/Shibboleth.sso/Login"/>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">d2 Digital By Design Limited</mdui:DisplayName>
+          <mdui:Description xml:lang="en">d2 Test SP</mdui:Description>
+          <mdui:Logo height="170" width="170">https://shib.d2digital.co.uk/d2-logo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDMzCCAhugAwIBAgIJAIdis0SAXmmpMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV
+						BAMTFXNwcm92LmQyZGlnaXRhbC5jby51azAeFw0xMjA3MjUxMjMzMzlaFw0yMjA3
+						MjMxMjMzMzlaMCAxHjAcBgNVBAMTFXNwcm92LmQyZGlnaXRhbC5jby51azCCASIw
+						DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMbf3pH83WxgptR2EyioaxWy4OMy
+						PIxIoJ/ERpNdpTxQqWsjJf4pHcHA/DtbRpX9PFDgGFm604JfmzOj/Wd/U05Wo1MF
+						VhlvxgDvdpbANS9rR62f83WZv9WGkxk+N/Bz1haRdRFi3x4/zef3uxwOFJnGHHD0
+						Jas1+9nYUv/FxPNXYVDnBp1MfGk6OWlG3OPsemJXPSvgw0iG201oabyx/GWb/e2E
+						mi1Yjd65ksVvzdZ6LxZHAUGuyeV3m4wP35EaXjesHJ6Y5CmUZ9dapOGDlavJRjda
+						0Eau3HCAiS0mJ9KZjyOFIgX3oowO+cf+XXpzb3rp1X92wsT707wG5wN+ezECAwEA
+						AaNwMG4wTQYDVR0RBEYwRIIVc3Byb3YuZDJkaWdpdGFsLmNvLnVrhitodHRwczov
+						L3Nwcm92LmQyZGlnaXRhbC5jby51ay9zaGliYm9sZXRoLXNwMB0GA1UdDgQWBBQj
+						6RBpdUzW3y30eT1nnauBiEZ7ozANBgkqhkiG9w0BAQUFAAOCAQEASxk2bIv7u2TE
+						Ikm5avZwC0Jg4YmS/vEiMbsbF/cn7KklmdqrKoVZXPHXZGqGO95/Wni81s5ZCAPI
+						+Ny0a+4SGufdW6mu7LdzdKsDQTXw+tEGNF3+7FMyTaW9Ey4cQt+RgIUy/injMwnR
+						w5dC9P3x/w5PlmNgD8TTsKWeLoonP4y6RdtgsW7h33zylG5PdHmremgGmiKYr0mT
+						u5EpXfUGl1A/HdGkUYIP4AYxz0MB1K2ZdLrWtFqP1kgT8+iwxIh/v+PEVZ8ltU91
+						xdRbHTBf3Fd/8gVhZw4lSDWFHbyJDznGTYE6H5UyxgLqGI/KgQfMxDVdqXQhZ0Hu
+						UZV+Z3CP5w==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sprov.d2digital.co.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sprov.d2digital.co.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sprov.d2digital.co.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sprov.d2digital.co.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sprov.d2digital.co.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sprov.d2digital.co.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sprov.d2digital.co.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sprov.d2digital.co.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://sprov.d2digital.co.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://sprov.d2digital.co.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://sprov.d2digital.co.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">D2.Digital By Design Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">d2 Test Service Provider</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.d2digital.co.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Adam</md:GivenName>
+      <md:SurName>Thorpe</md:SurName>
+      <md:EmailAddress>mailto:shibboleth@d2digital.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Adam</md:GivenName>
+      <md:SurName>Thorpe</md:SurName>
+      <md:EmailAddress>mailto:shibboleth@d2digital.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

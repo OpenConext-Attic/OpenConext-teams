@@ -1,0 +1,78 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sp.tshhosting.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2008-07-14T10:17:00Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://www.isiknowledge.com/" index="1"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://www.webofknowledge.com/" index="2"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://admin-router.webofknowledge.com/" index="3"/>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Thomson Reuters SP (Web of Knowledge &amp; EndNote Web)</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Explore literature in the sciences, social sciences, arts and humanities and publish bibliographies.</mdui:Description>
+          <mdui:Logo height="84" width="292">https://www.myendnoteweb.com/Download/logos/tr-wok-logo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIF7jCCBNagAwIBAgIQH5TpeUp+Ukx0gMOWeqLCZDANBgkqhkiG9w0BAQUFADCB
+						tTELMAkGA1UEBhMCVVMxFzAVBgNVBAoTDlZlcmlTaWduLCBJbmMuMR8wHQYDVQQL
+						ExZWZXJpU2lnbiBUcnVzdCBOZXR3b3JrMTswOQYDVQQLEzJUZXJtcyBvZiB1c2Ug
+						YXQgaHR0cHM6Ly93d3cudmVyaXNpZ24uY29tL3JwYSAoYykxMDEvMC0GA1UEAxMm
+						VmVyaVNpZ24gQ2xhc3MgMyBTZWN1cmUgU2VydmVyIENBIC0gRzMwHhcNMTIwNjIy
+						MDAwMDAwWhcNMTYwNzExMjM1OTU5WjCB2jELMAkGA1UEBhMCVVMxFDASBgNVBAgT
+						C0Nvbm5lY3RpY3V0MRMwEQYDVQQHFApFYXN0IEhhdmVuMTAwLgYDVQQKFCdUaG9t
+						c29uIFJldXRlcnMgKFRheCAmIEFjY291bnRpbmcpIEluYy4xGzAZBgNVBAsUElRo
+						b21zb24gU2NpZW50aWZpYzEzMDEGA1UECxQqVGVybXMgb2YgdXNlIGF0IHd3dy52
+						ZXJpc2lnbi5jb20vcnBhIChjKTA1MRwwGgYDVQQDFBNzaGliLnRzaGhvc3Rpbmcu
+						Y29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyW3478pCuAxKLWVx
+						n6RDCOsnRHN4GP9Z10GWhuE9CTCe+Z95sfeMhwwbpYgclX0ygYv8ZTsDqfu6Ln78
+						RDg/5G4H6ceA0dgiE7FT3yWCR/puIb8kWYgaq5XD5jq+e0cCWWeLhkL836D8LDuI
+						OwKXvbbzaRql38RxJj59lg/XARc7j6UdMUPcKcJrkSeuMrn6gw626x4yL01R5uEc
+						5s+VuwodLo1hTiRsewCOyfX0N7Fv16j8bxEecZtTfGOSL5FoxcjXjAf3JQcFoKr7
+						76IY5ImPxNnS1vwfx84tWN0m/481ho/Q9rH15jChF/QXvIENCu/LUfURO0UajjHs
+						yGADdQIDAQABo4IB0TCCAc0wCQYDVR0TBAIwADALBgNVHQ8EBAMCBaAwRQYDVR0f
+						BD4wPDA6oDigNoY0aHR0cDovL1NWUlNlY3VyZS1HMy1jcmwudmVyaXNpZ24uY29t
+						L1NWUlNlY3VyZUczLmNybDBEBgNVHSAEPTA7MDkGC2CGSAGG+EUBBxcDMCowKAYI
+						KwYBBQUHAgEWHGh0dHBzOi8vd3d3LnZlcmlzaWduLmNvbS9ycGEwHQYDVR0lBBYw
+						FAYIKwYBBQUHAwEGCCsGAQUFBwMCMB8GA1UdIwQYMBaAFA1EXBZTRMGCfh0gqyX0
+						AWPYvnmlMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3Au
+						dmVyaXNpZ24uY29tMEAGCCsGAQUFBzAChjRodHRwOi8vU1ZSU2VjdXJlLUczLWFp
+						YS52ZXJpc2lnbi5jb20vU1ZSU2VjdXJlRzMuY2VyMG4GCCsGAQUFBwEMBGIwYKFe
+						oFwwWjBYMFYWCWltYWdlL2dpZjAhMB8wBwYFKw4DAhoEFEtruSiWBgy70FI4myms
+						SweLIQUYMCYWJGh0dHA6Ly9sb2dvLnZlcmlzaWduLmNvbS92c2xvZ28xLmdpZjAN
+						BgkqhkiG9w0BAQUFAAOCAQEAJ+ckyvFj6ePTWp6PMkHSonNavE43FfEIw0cRoKWv
+						SgEwHPLRVpvS+iOwTzeTjy3Srph58ZbZugvjjp3Bc1vdbwcmUEsXGm2MN+M6tYK0
+						qIIvS9hGIKClhzKR43BEybO2BttESL2Bv2UUJcVH0Ds3//6pcUyaHuIxbnKbezfn
+						j5ijhM3Bth829thSjIr9zYbqKdYl2sBFhzBQe5oPdCNEger4Nn8SqbrMMbP4IhIX
+						IP8ivy/IUHCt3nZongEQgQsPnG1m3LHyWdTQ98XeHbgn8YOJdRPbsRFtNIYyXurv
+						PDhe2VbSBBIUxBcGBTWkewIXexyKjQlfjFXQiOdS0M6zfQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.isiknowledge.com/?auth=Shibboleth" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.webofknowledge.com/?auth=Shibboleth" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.isiknowledge.com/?auth=Shibboleth" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.webofknowledge.com/?auth=Shibboleth" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://admin-router.webofknowledge.com/?auth=Shibboleth" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://admin-router.webofknowledge.com/?auth=Shibboleth" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Thomson Scientific Inc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Thomson Scientific Inc: Thomson Reuters</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.thomsonreuters.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>European Help Desk</md:GivenName>
+      <md:EmailAddress>mailto:ts.cts.emea@thomson.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Technical Support</md:GivenName>
+      <md:EmailAddress>mailto:websupp@thomsonreuters.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

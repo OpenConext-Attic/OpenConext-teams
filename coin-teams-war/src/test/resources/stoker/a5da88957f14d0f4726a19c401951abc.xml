@@ -1,0 +1,66 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://havana.ucs.ed.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIID2DCCAsACCQDhpWXD/oCByTANBgkqhkiG9w0BAQUFADCBrTELMAkGA1UEBhMC
+						R0IxETAPBgNVBAgTCFNjb3RsYW5kMRIwEAYDVQQHEwlFZGluYnVyZ2gxJDAiBgNV
+						BAoTG1RoZSBVbml2ZXJzaXR5IG9mIEVkaW5idXJnaDEPMA0GA1UECxMGSVMtSVRJ
+						MRwwGgYDVQQDExNoYXZhbmEudWNzLmVkLmFjLnVrMSIwIAYJKoZIhvcNAQkBFhNt
+						Lm1jaW50b3NoQGVkLmFjLnVrMB4XDTEzMDczMDE0MDM1N1oXDTMzMDcyNTE0MDM1
+						N1owga0xCzAJBgNVBAYTAkdCMREwDwYDVQQIEwhTY290bGFuZDESMBAGA1UEBxMJ
+						RWRpbmJ1cmdoMSQwIgYDVQQKExtUaGUgVW5pdmVyc2l0eSBvZiBFZGluYnVyZ2gx
+						DzANBgNVBAsTBklTLUlUSTEcMBoGA1UEAxMTaGF2YW5hLnVjcy5lZC5hYy51azEi
+						MCAGCSqGSIb3DQEJARYTbS5tY2ludG9zaEBlZC5hYy51azCCASIwDQYJKoZIhvcN
+						AQEBBQADggEPADCCAQoCggEBAK2yC2qIxgLO+wMp4SKVyKCDpwDurMHkZkkTSidQ
+						MtWLNgYwHezrL0m8iZKnCNEzT2R5i2w23aKtBkBpDqyLFWKHVGEj5O386T4AB1BL
+						NJ1uqL6tNf1tkTxIBpubWWKKE8XIM/lLoN/mRJ54f/2yxiqvzvImoWA+3Uz7fIpW
+						/kcfyDNnWInxPDkY65Jj7Ymd9L1bRvejIeMTkAwjMatA+astXHL/fepWEu7dvXCU
+						6Bhi95nmZTAw1dmiOCE7pfMYLM7Dn9yDNxTsk+pw0RQrEtFNoGPwxp68xJ2OmKmD
+						iIdxOp9Q0hm9KnnflTTMeGKFxsp+sjksdHh2M0N/h4JMAl8CAwEAATANBgkqhkiG
+						9w0BAQUFAAOCAQEAUdniY6kaIwI0T6XxNTDUihAOwp2DAoEM/EaYRcR6DrxarzIu
+						1UbxqKRkavje+s9HO8iiFPwpLM7fnksxBAnaeNTveH7hgvJ67ELGmTd303yf7FaY
+						PpB7VX5d95seuSYqedgciSA6pJRi7oalCryRSCZ0+9uqfO7DZQ8BnzjGZKvOU44q
+						TjlvzyFrtqiwsl8a0vDk7a7YLpD+tsgxgzvQ++x7x4RBiMLxPfoLtN4h13SoLya5
+						JwJJ+DMu7camjdGd1nyg1jv/eEUA3vuQg7CPR3jONSw5dSsNK+jHMzeogG165oAV
+						IKD+m69XgWLE9gQQCzekuQChiZg5+O5EcyPAUA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://havana.ucs.ed.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://havana.ucs.ed.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://havana.ucs.ed.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://havana.ucs.ed.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://havana.ucs.ed.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://havana.ucs.ed.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://havana.ucs.ed.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://havana.ucs.ed.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://havana.ucs.ed.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://havana.ucs.ed.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://havana.ucs.ed.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://havana.ucs.ed.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://havana.ucs.ed.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://havana.ucs.ed.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://havana.ucs.ed.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Edinburgh</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Edinburgh: JANET(UK) JVCS booking system</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.jvcs.ja.net/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Mark</md:GivenName>
+      <md:SurName>McIntosh</md:SurName>
+      <md:EmailAddress>mailto:M.McIntosh@ed.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mark</md:GivenName>
+      <md:SurName>McIntosh</md:SurName>
+      <md:EmailAddress>mailto:M.McIntosh@ed.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,97 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shib.bsdc.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-07-13T09:42:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">bsdc.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Burton and South Derbyshire College</mdui:DisplayName>
+          <mdui:Logo height="163" width="288">https://shib.bsdc.ac.uk/mduilogo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDKDCCAhCgAwIBAgIVAPqc3rb7Due/A8SDksahSIV81mhLMA0GCSqGSIb3DQEB
+						BQUAMBoxGDAWBgNVBAMTD3NoaWIuYnNkYy5hYy51azAeFw0xMjA3MTAxNTUyMzVa
+						Fw0zMjA3MTAxNTUyMzVaMBoxGDAWBgNVBAMTD3NoaWIuYnNkYy5hYy51azCCASIw
+						DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALVOink2gWh8mkWeSVHq2r9YG1Tm
+						MqJO8YLKq6iYGPLHgqBknI2RnbNOP2BbvRz6HpXOBhSADK6ihqs2oPWPgvfQSaaQ
+						k0SPcObBaxoQf1obLqrckTQlsUMZpiYXbFqNQvxzvieRotPA+UDJypvpo7eoWjfR
+						R7xgPDl+MyEGr0j+eg817H2ODl98TeP7wNkbct6ROxi/SRTv2G31lslOqpV7k0EB
+						vWZhDTqdJ5QfOABXUIDJsiS0HGmQmF6r22X/eSpYgCPXoYbXJUzM0Kmxg5ak6MUt
+						Cbf1l9RpY5z5CIOBjiImDI0JsJQFqDCIgEbHFJwxHayM04p+rgZOuaCSBD0CAwEA
+						AaNlMGMwQgYDVR0RBDswOYIPc2hpYi5ic2RjLmFjLnVrhiZodHRwczovL3NoaWIu
+						YnNkYy5hYy51ay9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUdGAiYrBrJg3eOSOb
+						kV7aCm4GFm4wDQYJKoZIhvcNAQEFBQADggEBAAFPVigjx7LAJET1QnJQukSSJK7W
+						0EpEzBtVEA4OG7bEWcSc1vn4Jxzsceg+Q7QLPahg3isvR5NGGJ2sBC/KaOXZqI9e
+						6CkuUhu2bqJnsY7KvkTMt4H44WUzTx2z5YPhHWkIGo0F39MH7pKk3OMLe71BbLG4
+						WFdm8pU2h+LDxCbGWnHqsuIr2C5hqvKKs77Pti7otupF2+6+2XOlE1bk3DJMGLG6
+						5i3cPVfbVjl/Ztn02yBxrgoVTKLqChuTcez6Af5eVptOkfnWcn9J3YedTv3P5CpT
+						ymcVURb4Pl30AjdHCCwyQvSiuYZfdDSOolEVcnTZVvKK1wft5xLTTAb2R4M=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib.bsdc.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib.bsdc.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shib.bsdc.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib.bsdc.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib.bsdc.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib.bsdc.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">bsdc.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDKDCCAhCgAwIBAgIVAPqc3rb7Due/A8SDksahSIV81mhLMA0GCSqGSIb3DQEB
+						BQUAMBoxGDAWBgNVBAMTD3NoaWIuYnNkYy5hYy51azAeFw0xMjA3MTAxNTUyMzVa
+						Fw0zMjA3MTAxNTUyMzVaMBoxGDAWBgNVBAMTD3NoaWIuYnNkYy5hYy51azCCASIw
+						DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALVOink2gWh8mkWeSVHq2r9YG1Tm
+						MqJO8YLKq6iYGPLHgqBknI2RnbNOP2BbvRz6HpXOBhSADK6ihqs2oPWPgvfQSaaQ
+						k0SPcObBaxoQf1obLqrckTQlsUMZpiYXbFqNQvxzvieRotPA+UDJypvpo7eoWjfR
+						R7xgPDl+MyEGr0j+eg817H2ODl98TeP7wNkbct6ROxi/SRTv2G31lslOqpV7k0EB
+						vWZhDTqdJ5QfOABXUIDJsiS0HGmQmF6r22X/eSpYgCPXoYbXJUzM0Kmxg5ak6MUt
+						Cbf1l9RpY5z5CIOBjiImDI0JsJQFqDCIgEbHFJwxHayM04p+rgZOuaCSBD0CAwEA
+						AaNlMGMwQgYDVR0RBDswOYIPc2hpYi5ic2RjLmFjLnVrhiZodHRwczovL3NoaWIu
+						YnNkYy5hYy51ay9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUdGAiYrBrJg3eOSOb
+						kV7aCm4GFm4wDQYJKoZIhvcNAQEFBQADggEBAAFPVigjx7LAJET1QnJQukSSJK7W
+						0EpEzBtVEA4OG7bEWcSc1vn4Jxzsceg+Q7QLPahg3isvR5NGGJ2sBC/KaOXZqI9e
+						6CkuUhu2bqJnsY7KvkTMt4H44WUzTx2z5YPhHWkIGo0F39MH7pKk3OMLe71BbLG4
+						WFdm8pU2h+LDxCbGWnHqsuIr2C5hqvKKs77Pti7otupF2+6+2XOlE1bk3DJMGLG6
+						5i3cPVfbVjl/Ztn02yBxrgoVTKLqChuTcez6Af5eVptOkfnWcn9J3YedTv3P5CpT
+						ymcVURb4Pl30AjdHCCwyQvSiuYZfdDSOolEVcnTZVvKK1wft5xLTTAb2R4M=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib.bsdc.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib.bsdc.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Burton and South Derbyshire College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Burton and South Derbyshire College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.bsdc.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:helpdesk@bsdc.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Alan</md:GivenName>
+      <md:SurName>Coats</md:SurName>
+      <md:EmailAddress>mailto:alan.coats@bsdc.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

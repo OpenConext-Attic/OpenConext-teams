@@ -1,0 +1,96 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://darlfam.darlington.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">darlington.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDfjCCAmYCCQCfd04ndbp77DANBgkqhkiG9w0BAQUFADCBgDELMAkGA1UEBhMC
+						R0IxDzANBgNVBAgTBkRVUkhBTTETMBEGA1UEBxMKREFSTElOR1RPTjEbMBkGA1UE
+						ChMSREFSTElOR1RPTiBDT0xMRUdFMQswCQYDVQQLEwJJVDEhMB8GA1UEAxMYZGFy
+						bGZhbS5kYXJsaW5ndG9uLmFjLnVrMB4XDTEzMDIyNzEzMDAwOFoXDTIzMDIyNTEz
+						MDAwOFowgYAxCzAJBgNVBAYTAkdCMQ8wDQYDVQQIEwZEVVJIQU0xEzARBgNVBAcT
+						CkRBUkxJTkdUT04xGzAZBgNVBAoTEkRBUkxJTkdUT04gQ09MTEVHRTELMAkGA1UE
+						CxMCSVQxITAfBgNVBAMTGGRhcmxmYW0uZGFybGluZ3Rvbi5hYy51azCCASIwDQYJ
+						KoZIhvcNAQEBBQADggEPADCCAQoCggEBALf2S6/2r5IbxIWlR7SVi1/ba7sgWKa5
+						/GKP8XSwAc38MLyj4/kgLZ0dTN59VM5icjOPvpJaUdkDVecR5B6WpPABCsQ7L/vx
+						K0sQaf1arynMl2ZbAJLNeab7wzVIlmY6mF2EgV/Od/DujnC9tK9bUX7xdrR0IAE6
+						geCst6x/iAPCHWRs0rlabxzR3uuY8dva3VRy5Q1E3wZPLsd61Y70kDUiVsU/Wj8B
+						SKqM9xGp3ciNzJozqPwNKbO9+0y+W6dOv2qZP2w8kLeCRJ9/Gwq2+S2Yrjb0GoBK
+						VV/2oXnX4Q0lFeAzySTV8DzugCEmGzAbNnzwLGv2RiodnKIc9c2iQWMCAwEAATAN
+						BgkqhkiG9w0BAQUFAAOCAQEAsTzNvSkDG0Ldj0orl7Y4GgKi+GvxLJ9ZNWSrYl3+
+						Xjjjx7uKgvaz2mM80d8gUdrFOklykZyDQ80PQW/4KYUC7i+Mgrrdj8RkE3UdGErV
+						lFGZ8+TU7jDrdmmK9JtKDkrCXs7N22lFSTZs7e72pQcez2aq+B17+CV2fuJZeWDb
+						aJGf9FUS7ggB3GD+EtCwkhxQU1vGoDs9HxUbBMsD3T9ce2DryPYOqsSsdACvFil+
+						OBPR70odKIk4LhmIfx8Nc3MzXilS/XVMw9JG68sXalkYQDjBT3/YR9DrywbE5zVe
+						khhFuq8lOaH+cpW82kov+HN3rQQLklwtd3AEAlaM+w4jiQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://darlfam.darlington.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://darlfam.darlington.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://darlfam.darlington.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://darlfam.darlington.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://darlfam.darlington.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://darlfam.darlington.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">darlington.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDfjCCAmYCCQCfd04ndbp77DANBgkqhkiG9w0BAQUFADCBgDELMAkGA1UEBhMC
+						R0IxDzANBgNVBAgTBkRVUkhBTTETMBEGA1UEBxMKREFSTElOR1RPTjEbMBkGA1UE
+						ChMSREFSTElOR1RPTiBDT0xMRUdFMQswCQYDVQQLEwJJVDEhMB8GA1UEAxMYZGFy
+						bGZhbS5kYXJsaW5ndG9uLmFjLnVrMB4XDTEzMDIyNzEzMDAwOFoXDTIzMDIyNTEz
+						MDAwOFowgYAxCzAJBgNVBAYTAkdCMQ8wDQYDVQQIEwZEVVJIQU0xEzARBgNVBAcT
+						CkRBUkxJTkdUT04xGzAZBgNVBAoTEkRBUkxJTkdUT04gQ09MTEVHRTELMAkGA1UE
+						CxMCSVQxITAfBgNVBAMTGGRhcmxmYW0uZGFybGluZ3Rvbi5hYy51azCCASIwDQYJ
+						KoZIhvcNAQEBBQADggEPADCCAQoCggEBALf2S6/2r5IbxIWlR7SVi1/ba7sgWKa5
+						/GKP8XSwAc38MLyj4/kgLZ0dTN59VM5icjOPvpJaUdkDVecR5B6WpPABCsQ7L/vx
+						K0sQaf1arynMl2ZbAJLNeab7wzVIlmY6mF2EgV/Od/DujnC9tK9bUX7xdrR0IAE6
+						geCst6x/iAPCHWRs0rlabxzR3uuY8dva3VRy5Q1E3wZPLsd61Y70kDUiVsU/Wj8B
+						SKqM9xGp3ciNzJozqPwNKbO9+0y+W6dOv2qZP2w8kLeCRJ9/Gwq2+S2Yrjb0GoBK
+						VV/2oXnX4Q0lFeAzySTV8DzugCEmGzAbNnzwLGv2RiodnKIc9c2iQWMCAwEAATAN
+						BgkqhkiG9w0BAQUFAAOCAQEAsTzNvSkDG0Ldj0orl7Y4GgKi+GvxLJ9ZNWSrYl3+
+						Xjjjx7uKgvaz2mM80d8gUdrFOklykZyDQ80PQW/4KYUC7i+Mgrrdj8RkE3UdGErV
+						lFGZ8+TU7jDrdmmK9JtKDkrCXs7N22lFSTZs7e72pQcez2aq+B17+CV2fuJZeWDb
+						aJGf9FUS7ggB3GD+EtCwkhxQU1vGoDs9HxUbBMsD3T9ce2DryPYOqsSsdACvFil+
+						OBPR70odKIk4LhmIfx8Nc3MzXilS/XVMw9JG68sXalkYQDjBT3/YR9DrywbE5zVe
+						khhFuq8lOaH+cpW82kov+HN3rQQLklwtd3AEAlaM+w4jiQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://darlfam.darlington.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://darlfam.darlington.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Darlington College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Darlington College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.darlington.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Dean</md:GivenName>
+      <md:SurName>Stockdale</md:SurName>
+      <md:EmailAddress>mailto:dstockdale@darlington.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Jeremy</md:GivenName>
+      <md:SurName>Mussell</md:SurName>
+      <md:EmailAddress>mailto:jmussell@darlington.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

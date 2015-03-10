@@ -1,0 +1,107 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.plymouth.ac.uk/shibboleth-idp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">plymouth.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEojCCA4qgAwIBAgIRAPAgFccUOwHXw+NHO3EBPLIwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjAxMTIwMDAwMDBaFw0xNTAxMTEyMzU5NTlaMHwxCzAJBgNV
+						BAYTAkdCMQ4wDAYDVQQIEwVEZXZvbjERMA8GA1UEBxMIUGx5bW91dGgxHzAdBgNV
+						BAoTFlVuaXZlcnNpdHkgb2YgUGx5bW91dGgxDDAKBgNVBAsTA0lMUzEbMBkGA1UE
+						AxMSaWRwLnBseW1vdXRoLmFjLnVrMIIBIDANBgkqhkiG9w0BAQEFAAOCAQ0AMIIB
+						CAKCAQEA2cxCI11J+TQ0XHlfomNIzFRmUvZ4Y63NcL94TOMpFkbV7idiAkwbydCi
+						grpv5oKEGT4hrFB1woHOFmC7iJTO+0jcw0uKALFHyR7kf9KVxKy42Sklsoz73SJf
+						TmaNhpvbnzfw9fbtSNH2IjzAnSGoG7xKj7v3Nq/MT1ApjAm57tpj3tE5bwG1TzCp
+						7tvdCXVJHx++heCMVG0g6ZhlOoH6Y8cJSqBri2z4cTpOcB+uAlaacUszS4hM4j2m
+						2miiRdlA81KX72GH6q6FuWQWygOzD0wMl7ycBzpF3d9cIdUrS1qNIqOmkRGmBgXk
+						j2QjWxArO/aVGcEaCCPjOxiPlUQEUQIBI6OCAWUwggFhMB8GA1UdIwQYMBaAFAy9
+						k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBREvPPuf6gQb2OMLPtaoSOCX+L6
+						zjAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEF
+						BQcDAQYIKwYBBQUHAwIwGAYDVR0gBBEwDzANBgsrBgEEAbIxAQICHTA6BgNVHR8E
+						MzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENB
+						LmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNz
+						LnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8v
+						b2NzcC50Y3MudGVyZW5hLm9yZzAdBgNVHREEFjAUghJpZHAucGx5bW91dGguYWMu
+						dWswDQYJKoZIhvcNAQEFBQADggEBAI+28c16qkQLYd10tvEk9Id2HWyoawuFBdlg
+						HUYUWvXF8OllyXUxtkQnELy6boQrRqK+XbtVPlZrbXtb0OLdYri1J5O+rNumzSX/
+						lEy3Q/6n172RObPQqd35HYcReEHLB64D5dAbrr5VLEspPneLAluyKc94rS7vtuim
+						vxBSL8/3DeG5O3gVyQVsRN/DGq2MOui82bjoINoBdLAlhO4jHu2LH1EcY9zql13i
+						HGMqojRFDFchKtjoKm4y1i1qFQXllYAglyXUBGei/DdVk6zGtv+XDLJDdjm2fUt0
+						37HLzgXSRUxWkoLzCzFxYhO/VHJJvFjUswGOeuzDpxSNG70XoZA=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.plymouth.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.plymouth.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.plymouth.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.plymouth.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.plymouth.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.plymouth.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">plymouth.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEojCCA4qgAwIBAgIRAPAgFccUOwHXw+NHO3EBPLIwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjAxMTIwMDAwMDBaFw0xNTAxMTEyMzU5NTlaMHwxCzAJBgNV
+						BAYTAkdCMQ4wDAYDVQQIEwVEZXZvbjERMA8GA1UEBxMIUGx5bW91dGgxHzAdBgNV
+						BAoTFlVuaXZlcnNpdHkgb2YgUGx5bW91dGgxDDAKBgNVBAsTA0lMUzEbMBkGA1UE
+						AxMSaWRwLnBseW1vdXRoLmFjLnVrMIIBIDANBgkqhkiG9w0BAQEFAAOCAQ0AMIIB
+						CAKCAQEA2cxCI11J+TQ0XHlfomNIzFRmUvZ4Y63NcL94TOMpFkbV7idiAkwbydCi
+						grpv5oKEGT4hrFB1woHOFmC7iJTO+0jcw0uKALFHyR7kf9KVxKy42Sklsoz73SJf
+						TmaNhpvbnzfw9fbtSNH2IjzAnSGoG7xKj7v3Nq/MT1ApjAm57tpj3tE5bwG1TzCp
+						7tvdCXVJHx++heCMVG0g6ZhlOoH6Y8cJSqBri2z4cTpOcB+uAlaacUszS4hM4j2m
+						2miiRdlA81KX72GH6q6FuWQWygOzD0wMl7ycBzpF3d9cIdUrS1qNIqOmkRGmBgXk
+						j2QjWxArO/aVGcEaCCPjOxiPlUQEUQIBI6OCAWUwggFhMB8GA1UdIwQYMBaAFAy9
+						k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBREvPPuf6gQb2OMLPtaoSOCX+L6
+						zjAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEF
+						BQcDAQYIKwYBBQUHAwIwGAYDVR0gBBEwDzANBgsrBgEEAbIxAQICHTA6BgNVHR8E
+						MzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENB
+						LmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNz
+						LnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8v
+						b2NzcC50Y3MudGVyZW5hLm9yZzAdBgNVHREEFjAUghJpZHAucGx5bW91dGguYWMu
+						dWswDQYJKoZIhvcNAQEFBQADggEBAI+28c16qkQLYd10tvEk9Id2HWyoawuFBdlg
+						HUYUWvXF8OllyXUxtkQnELy6boQrRqK+XbtVPlZrbXtb0OLdYri1J5O+rNumzSX/
+						lEy3Q/6n172RObPQqd35HYcReEHLB64D5dAbrr5VLEspPneLAluyKc94rS7vtuim
+						vxBSL8/3DeG5O3gVyQVsRN/DGq2MOui82bjoINoBdLAlhO4jHu2LH1EcY9zql13i
+						HGMqojRFDFchKtjoKm4y1i1qFQXllYAglyXUBGei/DdVk6zGtv+XDLJDdjm2fUt0
+						37HLzgXSRUxWkoLzCzFxYhO/VHJJvFjUswGOeuzDpxSNG70XoZA=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.plymouth.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.plymouth.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Plymouth</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Plymouth University: Turnitin</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.plymouth.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Service Desk</md:GivenName>
+      <md:EmailAddress>mailto:support@plymouth.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mark</md:GivenName>
+      <md:SurName>Tipple</md:SurName>
+      <md:EmailAddress>mailto:mark.tipple@plymouth.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

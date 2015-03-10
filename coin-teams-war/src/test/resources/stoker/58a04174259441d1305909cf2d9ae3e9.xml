@@ -1,0 +1,61 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth.iumis.co.uk/shibboleth-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-05-03T13:55:20Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://shibboleth.iumis.co.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDBjCCAe6gAwIBAgIJAMfd/MptgTr4MA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV
+						BAMTFXUwMTgwNDUudW5pd2FyZS5jby51azAeFw0xMjA0MjAxMjQyMzZaFw0yMjA0
+						MTgxMjQyMzZaMCAxHjAcBgNVBAMTFXUwMTgwNDUudW5pd2FyZS5jby51azCCASIw
+						DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKRgcl652XDcWIJ4rVhsdKbWPRD/
+						+pr2WI7G91fpbrbgpmelV8i+YyQ3Xztz/7XbfQDLPyWUvy8cPRUXLBq+xzk65Hj+
+						Pe17k8Bo2YzWk3mVj9utSi+4VWZ+qC4l+GnIdQ4t0iDj9X9KcMCJFv541Ih1I0cA
+						Dq3YggxcibM13Bne3mYkBr38Zk8zUHFW0oxlwndOtvMaTZkoANuPAxgs2W004VFh
+						9BOv6Ww+w0aU08LkmI5U5Yxojuq/53/1IDXsMPoSdxrICR/AzJ2RbZB8i2ttYvCy
+						yU8VungwG8rkGU5T8w91kSQdlmF0TaiiYTqYqVxon0tRulqyKRomPIBIIasCAwEA
+						AaNDMEEwIAYDVR0RBBkwF4IVdTAxODA0NS51bml3YXJlLmNvLnVrMB0GA1UdDgQW
+						BBRXqfbwMPvQYTEZhluO4Cu+YM7d6TANBgkqhkiG9w0BAQUFAAOCAQEAFanur4sV
+						TKS5I8TvnCyG57S4W3xJb18W64opxWNxEPHIady60LRlLWIQWaXFLIEL5zq4/VEA
+						0boBhIhSGJO821Z/WRH0bzD4gVjnbR1aJasaxgd1hkwTcJRRorW/f8OPnCNy/FAH
+						VaMplq1E0yMFcCozq0ZfWXwlUaZMdvCqweAsSFt3EehdtZpJVoA73fOoPiwoYzSl
+						BnmDKI4Ch//jObq+xXoENh7q2w/pbPPCeDOyYi50fV69n0sGVpsCUwkNdm+r+94g
+						Nbnt/AF1tYJKe6aqD99bOFtcFksQP75LCDERU5vsluFzm5Qf9YwXFM39YfiP2X/u
+						7ArVRNUmGaMpHw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.iumis.co.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.iumis.co.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.iumis.co.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.iumis.co.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibboleth.iumis.co.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.iumis.co.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.iumis.co.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibboleth.iumis.co.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://shibboleth.iumis.co.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shibboleth.iumis.co.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://shibboleth.iumis.co.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Uniware Systems Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Uniware Systems Limited: Test Development System</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.uniware.co.uk/upay</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Dean</md:GivenName>
+      <md:SurName>Cachia</md:SurName>
+      <md:EmailAddress>mailto:dean.cachia@uniware.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Craig</md:GivenName>
+      <md:SurName>Moore</md:SurName>
+      <md:EmailAddress>mailto:Craig.Moore@uniware.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

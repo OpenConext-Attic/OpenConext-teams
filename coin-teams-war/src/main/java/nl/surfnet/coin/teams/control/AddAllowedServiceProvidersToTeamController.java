@@ -7,6 +7,7 @@ import nl.surfnet.coin.stoker.Stoker;
 import nl.surfnet.coin.stoker.StokerEntry;
 import nl.surfnet.coin.teams.domain.TeamServiceProvider;
 import nl.surfnet.coin.teams.service.TeamsDao;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
 import nl.surfnet.coin.teams.util.ViewUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -31,6 +32,10 @@ import static com.google.common.collect.Collections2.transform;
 public class AddAllowedServiceProvidersToTeamController {
 
   private final static Log logger = LogFactory.getLog(AddAllowedServiceProvidersToTeamController.class);
+
+  @Autowired
+  private TeamEnvironment teamEnvironment;
+
   private final static Function<TeamServiceProvider, String> toSpEntityId = new Function<TeamServiceProvider, String>() {
     @Override
     public String apply(TeamServiceProvider input) {
@@ -100,8 +105,11 @@ public class AddAllowedServiceProvidersToTeamController {
     if (logger.isDebugEnabled()) {
       logger.debug("Adding the following spEntityIds " + spEntityIds);
     }
-
-    teamsDao.persist(teamId, spEntityIds);
+    /*
+     * We need the teamId pre-fixed with the group name context as this is what API uses when filtering
+     */
+    String uniqueTeamId = teamEnvironment.getGroupNameContext() + teamId;
+    teamsDao.persist(uniqueTeamId, spEntityIds);
     return "redirect:/detailteam.shtml?team="
       + URLEncoder.encode(teamId, "utf-8") + "&view="
       + ViewUtil.getView(view);

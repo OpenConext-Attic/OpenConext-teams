@@ -1,49 +1,55 @@
-<md:EntityDescriptor xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.umk.pl/simplesaml/saml2/idp/metadata.php">
-  <md:Extensions>
-    <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://aai.pionier.net.pl" registrationInstant="2013-12-15T00:00:00Z">
-      <mdrpi:RegistrationPolicy xml:lang="en">https://aai.pionier.net.pl/en/index.php?page=rps</mdrpi:RegistrationPolicy>
-    </mdrpi:RegistrationInfo>
-  </md:Extensions>
-  <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.umk.pl/simplesaml/saml2/idp/metadata.php">
     <md:Extensions>
-      <shibmd:Scope regexp="false">umk.pl</shibmd:Scope>
-      <shibmd:Scope regexp="false">uni.torun.pl</shibmd:Scope>
-      <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-         <mdui:DisplayName xml:lang="en">Nicolaus Copernicus University</mdui:DisplayName>
-         <mdui:Description xml:lang="en">
+      <mdrpi:RegistrationInfo registrationAuthority="https://aai.pionier.net.pl" registrationInstant="2013-12-15T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://aai.pionier.net.pl/en/index.php?page=rps</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">umk.pl</shibmd:Scope>
+        <shibmd:Scope regexp="false">uni.torun.pl</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Nicolaus Copernicus University</mdui:DisplayName>
+          <mdui:Description xml:lang="en">
             Nicolaus Copernicus University Identity Provider is used by employees.
          </mdui:Description>
-         <mdui:Logo height="168" width="150" xml:lang="en">https://www.umk.pl/grafika/logoumk.png</mdui:Logo>
-      </mdui:UIInfo>
-    </md:Extensions>
-    <md:KeyDescriptor use="signing">
-      <ds:KeyInfo>
-        <ds:X509Data>
-          <ds:X509Certificate>MIIDejCCAmICCQC6YrVExu7BUTANBgkqhkiG9w0BAQUFADB/MQswCQYDVQQGEwJQTDExMC8GA1UEChMoVW5pd2Vyc3l0ZXQgTWlrb2xhamEgS29wZXJuaWthIHcgVG9ydW5pdTEoMCYGA1UECxMfVWN6ZW5pYW5lIENlbnRydW0gSW5mb3JtYXR5Y3puZTETMBEGA1UEAxMKaWRwLnVtay5wbDAeFw0xMzA0MjIwODUwMzVaFw0yMzA0MjIwODUwMzVaMH8xCzAJBgNVBAYTAlBMMTEwLwYDVQQKEyhVbml3ZXJzeXRldCBNaWtvbGFqYSBLb3Blcm5pa2EgdyBUb3J1bml1MSgwJgYDVQQLEx9VY3plbmlhbmUgQ2VudHJ1bSBJbmZvcm1hdHljem5lMRMwEQYDVQQDEwppZHAudW1rLnBsMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArq1rEn9i3haxBrIM/h/8V20Ap+LeLeG9SNand3N5k6wTqfQMPHnhDoTSKg4iI1+Wlnlr91HCaUGTqGmuWZpSTmlLIgneKSkB3BZir7Yrz44mjD5b0OOBLKxoQQQrZiVE0Rz2Ek14WDLQ9reI6uBTFV39PRM2JSLCSbzlEO70+vJ1d6oxWwinzcL+wG8NApc2mt3VJgRwF15P2H7PKU1le03CdatY7GyHGqBllQuQ3aa8a3jbqZRlQ7BDw+HiuJGsWRoNKAQkci8SCLz7/RJX3XuWWRdM+DBGw7jALY/4WW00DUWaKv76nfsTqRwG8pySab4EQPoUsYGO196jTC9DVQIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQBu6pNnNvtILCiCgjsBjp7T2tWQLPLrgjpMD4yTBgg0IgQjP+wpLhwBB8huX6FfhySaedz9YXEphUIPN9ZuJyfonp+w1ITHtEguY9V7K06IkTpXJV4/LXjzV7iGVZ3tgvtlYz+uBT2kTdqJcCWBj860JMWP7BHJ3orQsGUka9QentVEtKMqvmdOfOXCd48NZYFvCg4iQlr2lHxPTANTKVf8+d7Js3+MFBqTSPLsRsDAknL9tZWTM+1U6toECw+p4dTk3u3Osn8Fkmbwg/AnUyNP9cfWW9YSHEbLzq0kFWP6SoViqzc2WYPPusaLELoZBZlqFp0dLtEcgQPasj2dJE+a</ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </md:KeyDescriptor>
-    <md:KeyDescriptor use="encryption">
-      <ds:KeyInfo>
-        <ds:X509Data>
-          <ds:X509Certificate>MIIDejCCAmICCQC6YrVExu7BUTANBgkqhkiG9w0BAQUFADB/MQswCQYDVQQGEwJQTDExMC8GA1UEChMoVW5pd2Vyc3l0ZXQgTWlrb2xhamEgS29wZXJuaWthIHcgVG9ydW5pdTEoMCYGA1UECxMfVWN6ZW5pYW5lIENlbnRydW0gSW5mb3JtYXR5Y3puZTETMBEGA1UEAxMKaWRwLnVtay5wbDAeFw0xMzA0MjIwODUwMzVaFw0yMzA0MjIwODUwMzVaMH8xCzAJBgNVBAYTAlBMMTEwLwYDVQQKEyhVbml3ZXJzeXRldCBNaWtvbGFqYSBLb3Blcm5pa2EgdyBUb3J1bml1MSgwJgYDVQQLEx9VY3plbmlhbmUgQ2VudHJ1bSBJbmZvcm1hdHljem5lMRMwEQYDVQQDEwppZHAudW1rLnBsMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArq1rEn9i3haxBrIM/h/8V20Ap+LeLeG9SNand3N5k6wTqfQMPHnhDoTSKg4iI1+Wlnlr91HCaUGTqGmuWZpSTmlLIgneKSkB3BZir7Yrz44mjD5b0OOBLKxoQQQrZiVE0Rz2Ek14WDLQ9reI6uBTFV39PRM2JSLCSbzlEO70+vJ1d6oxWwinzcL+wG8NApc2mt3VJgRwF15P2H7PKU1le03CdatY7GyHGqBllQuQ3aa8a3jbqZRlQ7BDw+HiuJGsWRoNKAQkci8SCLz7/RJX3XuWWRdM+DBGw7jALY/4WW00DUWaKv76nfsTqRwG8pySab4EQPoUsYGO196jTC9DVQIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQBu6pNnNvtILCiCgjsBjp7T2tWQLPLrgjpMD4yTBgg0IgQjP+wpLhwBB8huX6FfhySaedz9YXEphUIPN9ZuJyfonp+w1ITHtEguY9V7K06IkTpXJV4/LXjzV7iGVZ3tgvtlYz+uBT2kTdqJcCWBj860JMWP7BHJ3orQsGUka9QentVEtKMqvmdOfOXCd48NZYFvCg4iQlr2lHxPTANTKVf8+d7Js3+MFBqTSPLsRsDAknL9tZWTM+1U6toECw+p4dTk3u3Osn8Fkmbwg/AnUyNP9cfWW9YSHEbLzq0kFWP6SoViqzc2WYPPusaLELoZBZlqFp0dLtEcgQPasj2dJE+a</ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </md:KeyDescriptor>
-    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.umk.pl/simplesaml/saml2/idp/SingleLogoutService.php"/>
-    <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
-    <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.umk.pl/simplesaml/saml2/idp/SSOService.php"/>
-  </md:IDPSSODescriptor>
-  <md:Organization>
-    <md:OrganizationName xml:lang="en">Nicolaus Copernicus University in Torun</md:OrganizationName>
-    <md:OrganizationName xml:lang="pl">Uniwersytet Mikołaja Kopernika w Toruniu</md:OrganizationName>
-    <md:OrganizationDisplayName xml:lang="en">Nicolaus Copernicus University in Torun</md:OrganizationDisplayName>
-    <md:OrganizationDisplayName xml:lang="pl">Uniwersytet Mikołaja Kopernika w Toruniu</md:OrganizationDisplayName>
-    <md:OrganizationURL xml:lang="en">http://www.umk.pl</md:OrganizationURL>
-  </md:Organization>
-  <md:ContactPerson contactType="technical">
-    <md:GivenName>NCU IdP</md:GivenName>
-    <md:SurName>Team</md:SurName>
-    <md:EmailAddress>admin@umk.pl</md:EmailAddress>
-  </md:ContactPerson>
-</md:EntityDescriptor>
+          <mdui:Logo height="168" width="150" xml:lang="en">https://www.umk.pl/grafika/logoumk64.png</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:IPHint>158.75.0.0/16</mdui:IPHint>
+          <mdui:DomainHint>uni.torun.pl</mdui:DomainHint>
+          <mdui:DomainHint>umk.pl</mdui:DomainHint>
+          <mdui:GeolocationHint>geo:53.1234804,18.0084378</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDejCCAmICCQC6YrVExu7BUTANBgkqhkiG9w0BAQUFADB/MQswCQYDVQQGEwJQTDExMC8GA1UEChMoVW5pd2Vyc3l0ZXQgTWlrb2xhamEgS29wZXJuaWthIHcgVG9ydW5pdTEoMCYGA1UECxMfVWN6ZW5pYW5lIENlbnRydW0gSW5mb3JtYXR5Y3puZTETMBEGA1UEAxMKaWRwLnVtay5wbDAeFw0xMzA0MjIwODUwMzVaFw0yMzA0MjIwODUwMzVaMH8xCzAJBgNVBAYTAlBMMTEwLwYDVQQKEyhVbml3ZXJzeXRldCBNaWtvbGFqYSBLb3Blcm5pa2EgdyBUb3J1bml1MSgwJgYDVQQLEx9VY3plbmlhbmUgQ2VudHJ1bSBJbmZvcm1hdHljem5lMRMwEQYDVQQDEwppZHAudW1rLnBsMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArq1rEn9i3haxBrIM/h/8V20Ap+LeLeG9SNand3N5k6wTqfQMPHnhDoTSKg4iI1+Wlnlr91HCaUGTqGmuWZpSTmlLIgneKSkB3BZir7Yrz44mjD5b0OOBLKxoQQQrZiVE0Rz2Ek14WDLQ9reI6uBTFV39PRM2JSLCSbzlEO70+vJ1d6oxWwinzcL+wG8NApc2mt3VJgRwF15P2H7PKU1le03CdatY7GyHGqBllQuQ3aa8a3jbqZRlQ7BDw+HiuJGsWRoNKAQkci8SCLz7/RJX3XuWWRdM+DBGw7jALY/4WW00DUWaKv76nfsTqRwG8pySab4EQPoUsYGO196jTC9DVQIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQBu6pNnNvtILCiCgjsBjp7T2tWQLPLrgjpMD4yTBgg0IgQjP+wpLhwBB8huX6FfhySaedz9YXEphUIPN9ZuJyfonp+w1ITHtEguY9V7K06IkTpXJV4/LXjzV7iGVZ3tgvtlYz+uBT2kTdqJcCWBj860JMWP7BHJ3orQsGUka9QentVEtKMqvmdOfOXCd48NZYFvCg4iQlr2lHxPTANTKVf8+d7Js3+MFBqTSPLsRsDAknL9tZWTM+1U6toECw+p4dTk3u3Osn8Fkmbwg/AnUyNP9cfWW9YSHEbLzq0kFWP6SoViqzc2WYPPusaLELoZBZlqFp0dLtEcgQPasj2dJE+a</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDejCCAmICCQC6YrVExu7BUTANBgkqhkiG9w0BAQUFADB/MQswCQYDVQQGEwJQTDExMC8GA1UEChMoVW5pd2Vyc3l0ZXQgTWlrb2xhamEgS29wZXJuaWthIHcgVG9ydW5pdTEoMCYGA1UECxMfVWN6ZW5pYW5lIENlbnRydW0gSW5mb3JtYXR5Y3puZTETMBEGA1UEAxMKaWRwLnVtay5wbDAeFw0xMzA0MjIwODUwMzVaFw0yMzA0MjIwODUwMzVaMH8xCzAJBgNVBAYTAlBMMTEwLwYDVQQKEyhVbml3ZXJzeXRldCBNaWtvbGFqYSBLb3Blcm5pa2EgdyBUb3J1bml1MSgwJgYDVQQLEx9VY3plbmlhbmUgQ2VudHJ1bSBJbmZvcm1hdHljem5lMRMwEQYDVQQDEwppZHAudW1rLnBsMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArq1rEn9i3haxBrIM/h/8V20Ap+LeLeG9SNand3N5k6wTqfQMPHnhDoTSKg4iI1+Wlnlr91HCaUGTqGmuWZpSTmlLIgneKSkB3BZir7Yrz44mjD5b0OOBLKxoQQQrZiVE0Rz2Ek14WDLQ9reI6uBTFV39PRM2JSLCSbzlEO70+vJ1d6oxWwinzcL+wG8NApc2mt3VJgRwF15P2H7PKU1le03CdatY7GyHGqBllQuQ3aa8a3jbqZRlQ7BDw+HiuJGsWRoNKAQkci8SCLz7/RJX3XuWWRdM+DBGw7jALY/4WW00DUWaKv76nfsTqRwG8pySab4EQPoUsYGO196jTC9DVQIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQBu6pNnNvtILCiCgjsBjp7T2tWQLPLrgjpMD4yTBgg0IgQjP+wpLhwBB8huX6FfhySaedz9YXEphUIPN9ZuJyfonp+w1ITHtEguY9V7K06IkTpXJV4/LXjzV7iGVZ3tgvtlYz+uBT2kTdqJcCWBj860JMWP7BHJ3orQsGUka9QentVEtKMqvmdOfOXCd48NZYFvCg4iQlr2lHxPTANTKVf8+d7Js3+MFBqTSPLsRsDAknL9tZWTM+1U6toECw+p4dTk3u3Osn8Fkmbwg/AnUyNP9cfWW9YSHEbLzq0kFWP6SoViqzc2WYPPusaLELoZBZlqFp0dLtEcgQPasj2dJE+a</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.umk.pl/simplesaml/saml2/idp/SingleLogoutService.php"/>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.umk.pl/simplesaml/saml2/idp/SSOService.php"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Nicolaus Copernicus University in Torun</md:OrganizationName>
+      <md:OrganizationName xml:lang="pl">Uniwersytet Mikołaja Kopernika w Toruniu</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Nicolaus Copernicus University in Torun</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pl">Uniwersytet Mikołaja Kopernika w Toruniu</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.umk.pl</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>NCU IdP</md:GivenName>
+      <md:SurName>Team</md:SurName>
+      <md:EmailAddress>admin@umk.pl</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

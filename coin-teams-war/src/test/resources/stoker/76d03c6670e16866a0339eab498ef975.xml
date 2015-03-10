@@ -1,0 +1,58 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.login.dumgal.ac.uk/oala/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2011-12-05T15:58:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">dumgal.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDwTCCAqmgAwIBAgIJAIgvuI4PmdjVMA0GCSqGSIb3DQEBBQUAMEkxJjAkBgNV
+						BAoTHUR1bWZyaWVzIGFuZCBHYWxsb3dheSBDb2xsZWdlMR8wHQYDVQQDExZ3d3cu
+						bG9naW4uZHVtZ2FsLmFjLnVrMB4XDTE0MDMyMDEzNTcwOFoXDTI0MDMxNzEzNTcw
+						OFowSTEmMCQGA1UEChMdRHVtZnJpZXMgYW5kIEdhbGxvd2F5IENvbGxlZ2UxHzAd
+						BgNVBAMTFnd3dy5sb2dpbi5kdW1nYWwuYWMudWswggEiMA0GCSqGSIb3DQEBAQUA
+						A4IBDwAwggEKAoIBAQCoxfB66zAeC16RLp8dFbrBpfi9zddARRAb317m5UYig1oL
+						0ht7+rajRx9Y7it4GVum3gnEcZ0U7IAvUoGCavGTcg3NFrgFHCNDKnP0C55dTfs1
+						ABToyUsQP6J4iAyGZL7gttdcw2iKwLO2GgfgvMm6K5SltKvmg/MTL1l0FNAY/1aE
+						AWO2vVLottFJjB1InHYRTiY9rWSwzf6NVbiMHt8pok8dE8MSjQvzH6jNZYKj6ib7
+						0jIXScx1f+JTH5LCyKU4q9SsWbE3flU7r2Zq2Vkcg7v1wmY2v/KwYt+zbtEwwi6z
+						2JyNpaL0XoK/9owkm3zQwi51NgP4DHXeyfxRtcpRAgMBAAGjgaswgagwHQYDVR0O
+						BBYEFEXErYTB8YyULUKnLraEy0cuWijsMHkGA1UdIwRyMHCAFEXErYTB8YyULUKn
+						LraEy0cuWijsoU2kSzBJMSYwJAYDVQQKEx1EdW1mcmllcyBhbmQgR2FsbG93YXkg
+						Q29sbGVnZTEfMB0GA1UEAxMWd3d3LmxvZ2luLmR1bWdhbC5hYy51a4IJAIgvuI4P
+						mdjVMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADggEBAEkNkJE/FfIjeoC+
+						BIA49Ig2Csb7N/oY2X9FxMXvNcRNEJ2hxEi6lqCzTjkjooQcTCpWvm0gszwwB9ny
+						0lYzJU8Rbx1PyQfYDrKuagJ2lkDEBKJYpnWrl5+63q8RhYZ9WqHfdL/K16LwhtRN
+						a4dq0ZRZ6a9EAgIOcJoyMXgR9nBxQ1DwT3HmpuXWR9++/7mXOg0AHg27066nW8Oz
+						+fGvILEhti+R7JHgIUrT3W10tavHhNiZ5pw0sfF1bSMODTa6kKw6rCPH+7bmSwqe
+						gSTSTHHHRbGohR1hH9yzmrGN8ZzOsnLs+KkDCfFcCEvMjwjueCxpmcCp0Cf/zn9l
+						rZDiSl0=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://www.login.dumgal.ac.uk/oala/sso"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.login.dumgal.ac.uk/oala/sso"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Dumfries and Galloway College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Dumfries and Galloway College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.dumgal.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Steve</md:GivenName>
+      <md:SurName>Baxter</md:SurName>
+      <md:EmailAddress>mailto:baxters@dumgal.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Eric</md:GivenName>
+      <md:SurName>Dunbar</md:SurName>
+      <md:EmailAddress>mailto:dunbare@dumgal.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

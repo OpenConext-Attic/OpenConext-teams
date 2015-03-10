@@ -1,0 +1,123 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.approval.glowscotland.org.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">approval.glowscotland.org.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIFyTCCBLGgAwIBAgIQNVv6vCdm+B2Ww8ov2gDvJDANBgkqhkiG9w0BAQUFADCB
+						tTELMAkGA1UEBhMCVVMxFzAVBgNVBAoTDlZlcmlTaWduLCBJbmMuMR8wHQYDVQQL
+						ExZWZXJpU2lnbiBUcnVzdCBOZXR3b3JrMTswOQYDVQQLEzJUZXJtcyBvZiB1c2Ug
+						YXQgaHR0cHM6Ly93d3cudmVyaXNpZ24uY29tL3JwYSAoYykxMDEvMC0GA1UEAxMm
+						VmVyaVNpZ24gQ2xhc3MgMyBTZWN1cmUgU2VydmVyIENBIC0gRzMwHhcNMTIwOTI2
+						MDAwMDAwWhcNMTYxMDEyMjM1OTU5WjCB9jELMAkGA1UEBhMCR0IxFDASBgNVBAgT
+						C094Zm9yZHNoaXJlMREwDwYDVQQHFAhBYmluZ2RvbjEPMA0GA1UEChQGUk0gUExD
+						MTUwMwYDVQQLFCxUZXJtcyBvZiB1c2UgYXQgd3d3LnZlcmlzaWduLmNvLnVrL3Jw
+						YSAoYykwNTEiMCAGA1UECxMZQXV0aGVudGljYXRlZCBieSBWZXJpU2lnbjEnMCUG
+						A1UECxMeTWVtYmVyLCBWZXJpU2lnbiBUcnVzdCBOZXR3b3JrMSkwJwYDVQQDFCBp
+						ZHAuYXBwcm92YWwuZ2xvd3Njb3RsYW5kLm9yZy51azCCASIwDQYJKoZIhvcNAQEB
+						BQADggEPADCCAQoCggEBANV/QA/Q/7h32gu4dBR2VSyC65H3fmk87UIVRT6CHAG8
+						UScEalaWYMbjdNJoGA/w4uywYvxbrZEDHq+b/a/s3mZXs19HjeRzOpw8UqLRRNei
+						Yu7EIppfjCXXliWskYZ4DN9CMv9d0G8nuhH1hZm9DLCVXvsRmvu/qPecnQCZGVi4
+						vYeF7AW3j7Oae7bmIF2be2og5K33dSuGAVOvcB7q3iOvgp6SwePd0b1izPZTJQ93
+						qBme0nPreKOtI59lomYIuxUdjKcZrnKcdiVCLQbkmq4dn9AqL2kn357ZKTCJKh2q
+						Gjiy2jrsF9R5605lR8ww2h1FoM4NuHLxIDjhasUx2LECAwEAAaOCAZAwggGMMCsG
+						A1UdEQQkMCKCIGlkcC5hcHByb3ZhbC5nbG93c2NvdGxhbmQub3JnLnVrMAkGA1Ud
+						EwQCMAAwDgYDVR0PAQH/BAQDAgWgMEUGA1UdHwQ+MDwwOqA4oDaGNGh0dHA6Ly9T
+						VlJTZWN1cmUtRzMtY3JsLnZlcmlzaWduLmNvbS9TVlJTZWN1cmVHMy5jcmwwQwYD
+						VR0gBDwwOjA4BgpghkgBhvhFAQc2MCowKAYIKwYBBQUHAgEWHGh0dHBzOi8vd3d3
+						LnZlcmlzaWduLmNvbS9jcHMwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMC
+						MB8GA1UdIwQYMBaAFA1EXBZTRMGCfh0gqyX0AWPYvnmlMHYGCCsGAQUFBwEBBGow
+						aDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AudmVyaXNpZ24uY29tMEAGCCsGAQUF
+						BzAChjRodHRwOi8vU1ZSU2VjdXJlLUczLWFpYS52ZXJpc2lnbi5jb20vU1ZSU2Vj
+						dXJlRzMuY2VyMA0GCSqGSIb3DQEBBQUAA4IBAQARGraY/Oi38TY9ag3kqLbQdikg
+						zl7h7IwRrNq6ApnA5lP2Pe1YxaddPUTckJPxkIYHpo1sfvBDr6ysJgM7onLzPEvI
+						elRKjE/DaYcypLroREaDo4xM8RlF2x1n1A+QchAn/9+Jl8F++AskizHllMTZY5JM
+						l5c9BqgTh8MR2XTEyMTdObFRqtH7XXIY7sovrfyThWqYSaONepYNFCWdl+YsV8Qj
+						4EtP5S2OzPK4Cq/W4o3bX9+COO5ogvMqte7zZhg39BVXzPgxU0D1snoY1iwIWSwi
+						FyOlGRITIABEBH3YBIOzf2BMQj8PWJNy3GvOwyNBmWRsURPlfgsVAY6lwwz1
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.approval.glowscotland.org.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.approval.glowscotland.org.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.approval.glowscotland.org.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.approval.glowscotland.org.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.approval.glowscotland.org.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.approval.glowscotland.org.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">approval.glowscotland.org.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIFyTCCBLGgAwIBAgIQNVv6vCdm+B2Ww8ov2gDvJDANBgkqhkiG9w0BAQUFADCB
+						tTELMAkGA1UEBhMCVVMxFzAVBgNVBAoTDlZlcmlTaWduLCBJbmMuMR8wHQYDVQQL
+						ExZWZXJpU2lnbiBUcnVzdCBOZXR3b3JrMTswOQYDVQQLEzJUZXJtcyBvZiB1c2Ug
+						YXQgaHR0cHM6Ly93d3cudmVyaXNpZ24uY29tL3JwYSAoYykxMDEvMC0GA1UEAxMm
+						VmVyaVNpZ24gQ2xhc3MgMyBTZWN1cmUgU2VydmVyIENBIC0gRzMwHhcNMTIwOTI2
+						MDAwMDAwWhcNMTYxMDEyMjM1OTU5WjCB9jELMAkGA1UEBhMCR0IxFDASBgNVBAgT
+						C094Zm9yZHNoaXJlMREwDwYDVQQHFAhBYmluZ2RvbjEPMA0GA1UEChQGUk0gUExD
+						MTUwMwYDVQQLFCxUZXJtcyBvZiB1c2UgYXQgd3d3LnZlcmlzaWduLmNvLnVrL3Jw
+						YSAoYykwNTEiMCAGA1UECxMZQXV0aGVudGljYXRlZCBieSBWZXJpU2lnbjEnMCUG
+						A1UECxMeTWVtYmVyLCBWZXJpU2lnbiBUcnVzdCBOZXR3b3JrMSkwJwYDVQQDFCBp
+						ZHAuYXBwcm92YWwuZ2xvd3Njb3RsYW5kLm9yZy51azCCASIwDQYJKoZIhvcNAQEB
+						BQADggEPADCCAQoCggEBANV/QA/Q/7h32gu4dBR2VSyC65H3fmk87UIVRT6CHAG8
+						UScEalaWYMbjdNJoGA/w4uywYvxbrZEDHq+b/a/s3mZXs19HjeRzOpw8UqLRRNei
+						Yu7EIppfjCXXliWskYZ4DN9CMv9d0G8nuhH1hZm9DLCVXvsRmvu/qPecnQCZGVi4
+						vYeF7AW3j7Oae7bmIF2be2og5K33dSuGAVOvcB7q3iOvgp6SwePd0b1izPZTJQ93
+						qBme0nPreKOtI59lomYIuxUdjKcZrnKcdiVCLQbkmq4dn9AqL2kn357ZKTCJKh2q
+						Gjiy2jrsF9R5605lR8ww2h1FoM4NuHLxIDjhasUx2LECAwEAAaOCAZAwggGMMCsG
+						A1UdEQQkMCKCIGlkcC5hcHByb3ZhbC5nbG93c2NvdGxhbmQub3JnLnVrMAkGA1Ud
+						EwQCMAAwDgYDVR0PAQH/BAQDAgWgMEUGA1UdHwQ+MDwwOqA4oDaGNGh0dHA6Ly9T
+						VlJTZWN1cmUtRzMtY3JsLnZlcmlzaWduLmNvbS9TVlJTZWN1cmVHMy5jcmwwQwYD
+						VR0gBDwwOjA4BgpghkgBhvhFAQc2MCowKAYIKwYBBQUHAgEWHGh0dHBzOi8vd3d3
+						LnZlcmlzaWduLmNvbS9jcHMwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMC
+						MB8GA1UdIwQYMBaAFA1EXBZTRMGCfh0gqyX0AWPYvnmlMHYGCCsGAQUFBwEBBGow
+						aDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AudmVyaXNpZ24uY29tMEAGCCsGAQUF
+						BzAChjRodHRwOi8vU1ZSU2VjdXJlLUczLWFpYS52ZXJpc2lnbi5jb20vU1ZSU2Vj
+						dXJlRzMuY2VyMA0GCSqGSIb3DQEBBQUAA4IBAQARGraY/Oi38TY9ag3kqLbQdikg
+						zl7h7IwRrNq6ApnA5lP2Pe1YxaddPUTckJPxkIYHpo1sfvBDr6ysJgM7onLzPEvI
+						elRKjE/DaYcypLroREaDo4xM8RlF2x1n1A+QchAn/9+Jl8F++AskizHllMTZY5JM
+						l5c9BqgTh8MR2XTEyMTdObFRqtH7XXIY7sovrfyThWqYSaONepYNFCWdl+YsV8Qj
+						4EtP5S2OzPK4Cq/W4o3bX9+COO5ogvMqte7zZhg39BVXzPgxU0D1snoY1iwIWSwi
+						FyOlGRITIABEBH3YBIOzf2BMQj8PWJNy3GvOwyNBmWRsURPlfgsVAY6lwwz1
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.approval.glowscotland.org.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.approval.glowscotland.org.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">RM Education plc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Glow Scotland (Approval)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.glowscotland.org.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Glow Support</md:GivenName>
+      <md:EmailAddress>mailto:glowsupport@rm.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Glow Support</md:GivenName>
+      <md:EmailAddress>mailto:glowsupport@rm.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

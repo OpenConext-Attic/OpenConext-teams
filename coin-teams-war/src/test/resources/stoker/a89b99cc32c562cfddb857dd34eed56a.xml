@@ -1,0 +1,65 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.ltscotland.org.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-05-28T13:32:50Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://www.educationscotland.gov.uk/Shibboleth.sso/WAYF/Glow"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDEjCCAfqgAwIBAgIJAMFVcb/xT28pMA0GCSqGSIb3DQEBBQUAMCQxIjAgBgNV
+						BAMTGWx0c2Utd2ViMDEubHRzY290bGFuZC5jb20wHhcNMTAwNDA2MTEwODMzWhcN
+						MjAwNDAzMTEwODMzWjAkMSIwIAYDVQQDExlsdHNlLXdlYjAxLmx0c2NvdGxhbmQu
+						Y29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0cNyCYPET1vjazeG
+						oTDedpNCEKqceFny1kyLJRwdu8D76/4Y/U9G0lLcWo25xFwnu8bBYP0Wx1ARelQH
+						VnZK8iiauUMKeu1N6Pq/4zRXUQzI5+SCEKfGGh4IqV4W1eid0WET30PdziNo8s5q
+						0A6kp4FIKYD5EKZwVALe57/b2tAFFyf37jxZTZxvrLWJDUdC4lwK32hbormk3Pi9
+						qKwOUlxYgkKcwxVWbUGHWpUI1DWfpvqsRObQTCXbPfbtBWtdrRRwIlHQjY+Ns0Hk
+						Au8xKXLEFllu1t0XCJ7fTimJ0XwiqGh7sLcQnc2W63hZOkKHgESjVHEIUjH1pZaZ
+						VLEbIQIDAQABo0cwRTAkBgNVHREEHTAbghlsdHNlLXdlYjAxLmx0c2NvdGxhbmQu
+						Y29tMB0GA1UdDgQWBBQs0eoj0gCKFhGV81jjIuGRu7jYRjANBgkqhkiG9w0BAQUF
+						AAOCAQEAfIQzlxcJDwFgeghBOThTNYlWWrTg9sBGX2ScJrTdpZ2YCBVCiqJzvHbs
+						CVVm/wxXg6RszMl6jZJUMCZo+uCFRjP/VVaZYdHxGOYwz2U68gUeO41dlF7MlC++
+						/dIuKK+XXRyrM49hwdDZS14mQTkor6Kt8zpabLtn6FCpr8tDEtXuFn28PiyWyxq3
+						JimO/CV4gydrnNg2iGkZHHP46dkIvi0mIqMVv8OTwqgSdpe1i/HldGZ5IWGdouIZ
+						YJH+7toasSbjwqMusDEt0GMuMM0QqM8SFsTaAp7rBjnepE2gYVTK+RGloI+CCVoD
+						2XXgRAd0fVakFAhtv93JvF7VW3e5TA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.educationscotland.gov.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.educationscotland.gov.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.educationscotland.gov.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.educationscotland.gov.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.educationscotland.gov.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.educationscotland.gov.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.educationscotland.gov.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.educationscotland.gov.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.educationscotland.gov.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.educationscotland.gov.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www.educationscotland.gov.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.educationscotland.gov.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://www.educationscotland.gov.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.educationscotland.gov.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.educationscotland.gov.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Education Scotland</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Education Scotland</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.educationscotland.gov.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Graham</md:GivenName>
+      <md:SurName>Wilson</md:SurName>
+      <md:EmailAddress>mailto:graham.wilson@educationscotland.gov.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Graham</md:GivenName>
+      <md:SurName>Wilson</md:SurName>
+      <md:EmailAddress>mailto:graham.wilson@educationscotland.gov.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

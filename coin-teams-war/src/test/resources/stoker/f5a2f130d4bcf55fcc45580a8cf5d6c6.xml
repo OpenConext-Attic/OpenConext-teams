@@ -1,0 +1,51 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.annualreviews.org/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDrzCCApegAwIBAgIJAISIclSx3A7XMA0GCSqGSIb3DQEBBQUAMIGWMQswCQYD
+						VQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEUMBIGA1UEBxMLU2FudGEgQ2xh
+						cmExHTAbBgNVBAoTFEF0eXBvbiBTeXN0ZW1zLCBJbmMuMR0wGwYDVQQLExRBdHlw
+						b24gU3lzdGVtcywgSW5jLjEeMBwGA1UEAxMVd3d3LmFubnVhbHJldmlld3Mub3Jn
+						MB4XDTEwMDkxNjE4MTAyNloXDTIwMDkxMzE4MTAyNlowgZYxCzAJBgNVBAYTAlVT
+						MRMwEQYDVQQIEwpDYWxpZm9ybmlhMRQwEgYDVQQHEwtTYW50YSBDbGFyYTEdMBsG
+						A1UEChMUQXR5cG9uIFN5c3RlbXMsIEluYy4xHTAbBgNVBAsTFEF0eXBvbiBTeXN0
+						ZW1zLCBJbmMuMR4wHAYDVQQDExV3d3cuYW5udWFscmV2aWV3cy5vcmcwggEiMA0G
+						CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDHRNaQRFxhtFGzrqtVl8hZpLM31/aP
+						W/y6ETnsG2NMXo5coglRVKpzykWyFTTgjX0/yXFtmJ7zTo4Aye1crn2FFKTYDYBX
+						aGx+MI/nTaVqz031hZ5gfDHwPtjYken9kBs9cl8MTvDT0vUz/PglkR+BP+Ccp7Jk
+						NQOcZ9BEye+L6B1muiTMxzZxiaWcwBzU++K4LUcYTzKGcRsyQvjJ6s6fGxryc+gT
+						VDfyOWmB7LiE7x+5MukPht+WLsJqkTlLJlho/GkuoxUMZesALS3P/OwPMuDCXLI3
+						ngCRx4JDJFw6n8xCv6tboI3JKbSA3g/6KfFQMaw6nBNEbQ7aNbQjJqVlAgMBAAEw
+						DQYJKoZIhvcNAQEFBQADggEBAC/ayKMZPSGElvNUCtGsTZXvaBieWIMbsga3bGGV
+						Zwi8CB2hRy0INVe+TVSbTVD4KY/Y2gZ8bHo3xF0JvpIiFMECJ1QE0TTxzOz3bbT9
+						L7EL5UGpDLXUYZ0y/6k5wOmtErr/qZ4Vpuix8Y5TB8s0SRiBi9A4hneB6h8/q4nm
+						CLvgTsxOooeBfCe2MIy4ivgjjWNR9RGFXDHRHGPczspu3EPZufJXiTrQt7JdePJe
+						iujg9yy7LLghWoiFqZt5zyZQSM98eYrrvsNcOIzS5k/eyJ2e/KiY8ZjTH+jjXcr4
+						rbsCePE5Q048c63PRvd2Wb705n2Fsdwfw1JDN+s4ZAZ9Umc=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.annualreviews.org/action/samlACS" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.annualreviews.org/action/samlACS" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.annualreviews.org/action/samlACS" index="3"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Atypon Systems, Inc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Atypon Systems: Annual Reviews</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.annualreviews.org/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>SSO-Support</md:GivenName>
+      <md:EmailAddress>mailto:SSO-Support@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>SSO-Tech</md:GivenName>
+      <md:EmailAddress>mailto:SSO-Tech@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

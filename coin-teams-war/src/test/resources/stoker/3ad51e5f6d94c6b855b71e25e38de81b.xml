@@ -1,21 +1,17 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://idp.hainaut-promsoc.be/idp/shibboleth">
-
-   <Extensions>
+<md:EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.hainaut-promsoc.be/idp/shibboleth">
+    <md:Extensions>
       <mdrpi:RegistrationInfo registrationAuthority="http://federation.belnet.be/" registrationInstant="2012-03-27T12:00:00Z">
-          <mdrpi:RegistrationPolicy xml:lang="en">http://federation.belnet.be/files/Belnet-metadata-registration-practice-statement.txt</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="en">http://federation.belnet.be/files/Belnet-metadata-registration-practice-statement.txt</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-   </Extensions>
-
-    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-
-        <Extensions>
-            <shibmd:Scope regexp="false">hainaut-promsoc.be</shibmd:Scope>
-        </Extensions>
-
-        <KeyDescriptor>
-            <ds:KeyInfo>
-                <ds:X509Data>
-                    <ds:X509Certificate>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hainaut-promsoc.be</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIEejCCA2KgAwIBAgIRAOJDreYdfwftYXxuTiaSgikwDQYJKoZIhvcNAQEFBQAw
 NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
 IFNTTCBDQTAeFw0xNDA1MTcwMDAwMDBaFw0xNzA1MTYyMzU5NTlaMEQxITAfBgNV
@@ -41,42 +37,29 @@ Zce+zsOUf6D8xfDHAReHt5RaWtfSmlHENVix51e5kQ8Q5WAkABvSSVEvOtB1Lqlp
 Ce+uSCFKDpGchEC4Wmfb3W3ka1Vi5Q5ARUNvsjPO02XSbXYJ0bTGFUnJcOKytFBp
 HQh46e9lb2vBUoh87RleCYdNpkZRu92tzeY/iD7AHvyiap1fKXUg2tle+ahF2A==
 </ds:X509Certificate>
-                </ds:X509Data>
-            </ds:KeyInfo>
-        </KeyDescriptor>
-        
-        <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.hainaut-promsoc.be:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-
-        <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.hainaut-promsoc.be:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-        
-        <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.hainaut-promsoc.be/idp/profile/SAML2/Redirect/SLO"/>
-        
-        <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.hainaut-promsoc.be/idp/profile/SAML2/POST/SLO"/>
-        
-        <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.hainaut-promsoc.be:8443/idp/profile/SAML2/SOAP/SLO"/>
-                                   
-        <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-
-        <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.hainaut-promsoc.be/idp/profile/Shibboleth/SSO"/>
-        
-        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.hainaut-promsoc.be/idp/profile/SAML2/POST/SSO"/>
-
-        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.hainaut-promsoc.be/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-        
-        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.hainaut-promsoc.be/idp/profile/SAML2/Redirect/SSO"/>
-    </IDPSSODescriptor>
-
-    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-
-        <Extensions>
-            <shibmd:Scope regexp="false">hainaut-promsoc.be</shibmd:Scope>
-        </Extensions>
-
-        <KeyDescriptor>
-            <ds:KeyInfo>
-                <ds:X509Data>
-                    <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.hainaut-promsoc.be:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.hainaut-promsoc.be:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.hainaut-promsoc.be/idp/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.hainaut-promsoc.be/idp/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.hainaut-promsoc.be:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.hainaut-promsoc.be/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.hainaut-promsoc.be/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.hainaut-promsoc.be/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.hainaut-promsoc.be/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hainaut-promsoc.be</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIEejCCA2KgAwIBAgIRAOJDreYdfwftYXxuTiaSgikwDQYJKoZIhvcNAQEFBQAw
 NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
 IFNTTCBDQTAeFw0xNDA1MTcwMDAwMDBaFw0xNzA1MTYyMzU5NTlaMEQxITAfBgNV
@@ -102,32 +85,22 @@ Zce+zsOUf6D8xfDHAReHt5RaWtfSmlHENVix51e5kQ8Q5WAkABvSSVEvOtB1Lqlp
 Ce+uSCFKDpGchEC4Wmfb3W3ka1Vi5Q5ARUNvsjPO02XSbXYJ0bTGFUnJcOKytFBp
 HQh46e9lb2vBUoh87RleCYdNpkZRu92tzeY/iD7AHvyiap1fKXUg2tle+ahF2A==
 </ds:X509Certificate>
-                </ds:X509Data>
-            </ds:KeyInfo>
-        </KeyDescriptor>
-
-        <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.hainaut-promsoc.be:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-        
-        <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.hainaut-promsoc.be:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-        
-        <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-        
-    </AttributeAuthorityDescriptor>
-
-<Organization>
-	<OrganizationName xml:lang="en">Enseignement de Promotion Sociale de la Province de Hainaut</OrganizationName>
-
-	<OrganizationDisplayName xml:lang="en">Hainaut-PromSoc</OrganizationDisplayName>
-	
-	<OrganizationURL xml:lang="en">http://www.hainaut-promsoc.be</OrganizationURL>
-	
-</Organization>
-
-<ContactPerson contactType="technical">
-	<GivenName>Technical Support</GivenName>
-	<SurName>Technical Support</SurName>
-	<EmailAddress>webmaster@hainaut-promsoc.be</EmailAddress>
-</ContactPerson>
-    
-</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.hainaut-promsoc.be:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.hainaut-promsoc.be:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Enseignement de Promotion Sociale de la Province de Hainaut</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Hainaut-PromSoc</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.hainaut-promsoc.be</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Technical Support</md:GivenName>
+      <md:SurName>Technical Support</md:SurName>
+      <md:EmailAddress>webmaster@hainaut-promsoc.be</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

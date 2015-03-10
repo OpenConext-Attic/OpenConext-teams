@@ -1,0 +1,75 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://customers.myunidays.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2011-09-16T17:03:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://customers.myunidays.com/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://customers.myunidays.com/Shibboleth.sso/Login" index="1"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://customers.myunidays.com/Shibboleth.sso/Login" index="2"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://customers.myunidays.com/Shibboleth.sso/Login"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://customers.myunidays.com/Shibboleth.sso/WAYF/UKFederation"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://customers.myunidays.com/Shibboleth.sso/DS"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://customers.myunidays.com/Shibboleth.sso/DS" index="3"/>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">UNiDAYS</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Delivering online student discount and promotions from the biggest retailers for free to students.</mdui:Description>
+          <mdui:Logo height="100" width="300">https://d2hltel0toual2.cloudfront.net/images/wayf/logo_300x100px.png</mdui:Logo>
+          <mdui:Logo height="16" width="80">https://d2hltel0toual2.cloudfront.net/images/wayf/logo_80x16px.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDKDCCAhACCQC8EjoQK/aL7jANBgkqhkiG9w0BAQUFADBWMQswCQYDVQQGEwJH
+						QjETMBEGA1UECBMKU29tZS1TdGF0ZTEQMA4GA1UEChMHVW5pRGF5czEgMB4GA1UE
+						AxMXY3VzdG9tZXJzLm15dW5pZGF5cy5jb20wHhcNMTIwMzIwMDk0NzUyWhcNMzIw
+						MzE1MDk0NzUyWjBWMQswCQYDVQQGEwJHQjETMBEGA1UECBMKU29tZS1TdGF0ZTEQ
+						MA4GA1UEChMHVW5pRGF5czEgMB4GA1UEAxMXY3VzdG9tZXJzLm15dW5pZGF5cy5j
+						b20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMJfrb7y+eVIjMnMj
+						KQEaWZWX9omtsMmrkxgOAEO5snjni2OJfWShhGmTKpBHClE8AmomOdDr3grEW6Nd
+						5J0+yDh21A7bW6cdaxpwvr2FRZGaIkJFob0Lh7pnH59UIwfeO36fEUa/QfVWafZJ
+						JeWZe4gKcdI+ndY0tMvK4m/pMcO6rxy4AwsJdvxM0bE9R3WNlB8lgcxmbP4pjoZC
+						B29buyOS5/CmFzbA5IffwyJcyk+8dHVF7tbZ0CyjjOsXIrjCryUzsqDOdBLt5yup
+						n6BcBzob6bU8AMojnVT10NCxOWqL+O9i1VScJ/dzyiDbR05iWDa2VQ+/Ya9UpD4d
+						Pl5bAgMBAAEwDQYJKoZIhvcNAQEFBQADggEBAKp/yt95eag2/oZdvxaIWLzjljEd
+						lZdlxzZVSXgI67Ci+RhBp+jrBAgNrk/2QxEtau8t54Ufy4hxCFh4o/YvQ3F/Rmaz
+						t7jz51Xj4/DeQ0Y/b5Kb+8MaZF8ZCNseU8Fd92c1Io+sAPQPtFqgR+kzxMOQAWET
+						L/IOUn+DhRh434WBVEciLUduGIpP+sI3gaszurWQIJslPrxOEf+X9aDjOSvLqJvw
+						jPsDxBi12zyperdHQgdNr6Jbd1h110XCpJzwCGXElxlNd+Z3R/sMW0wn7lCLYQA7
+						xmBjp1ntxjW8jWQiW/3pb5t/HODL79ntP17sTv4kT8EURtMRgYxttfreDdg=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://customers.myunidays.com/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://customers.myunidays.com/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://customers.myunidays.com/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://customers.myunidays.com/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://customers.myunidays.com/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://customers.myunidays.com/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://customers.myunidays.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://customers.myunidays.com/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://customers.myunidays.com/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://customers.myunidays.com/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://customers.myunidays.com/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">MYUNiDAYS Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">UNiDAYS - Perks of Student Life - Customers</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.myunidays.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Andrew</md:GivenName>
+      <md:SurName>Bullock</md:SurName>
+      <md:EmailAddress>mailto:andrew@myunidays.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Andrew</md:GivenName>
+      <md:SurName>Bullock</md:SurName>
+      <md:EmailAddress>mailto:andrew@myunidays.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

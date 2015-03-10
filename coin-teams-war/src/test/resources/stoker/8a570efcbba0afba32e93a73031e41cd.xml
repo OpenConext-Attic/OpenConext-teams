@@ -1,0 +1,97 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://jenkins.ukfederation.org.uk/entity">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-07-12T10:52:56Z"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">UK federation Jenkins CI server</mdui:DisplayName>
+          <mdui:Description xml:lang="en">
+					This continuous integration server is part of the UK federation infrastructure and is only
+					available to UK federation team members.
+				</mdui:Description>
+        </mdui:UIInfo>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://jenkins.ukfederation.org.uk/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://jenkins.ukfederation.org.uk/Shibboleth.sso/Login" index="1"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://jenkins.ukfederation.org.uk/Shibboleth.sso/EDS"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://jenkins.ukfederation.org.uk/Shibboleth.sso/EDS" index="2"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEPjCCAyagAwIBAgIJAOVnQ3eBaoIXMA0GCSqGSIb3DQEBBQUAMIGfMQswCQYD
+						VQQGEwJHQjERMA8GA1UECBMIU2NvdGxhbmQxEjAQBgNVBAcTCUVkaW5idXJnaDFD
+						MEEGA1UEChM6VUsgQWNjZXNzIE1hbmFnZW1lbnQgRmVkZXJhdGlvbiBmb3IgRWR1
+						Y2F0aW9uIGFuZCBSZXNlYXJjaDEkMCIGA1UEAxMbamVua2lucy51a2ZlZGVyYXRp
+						b24ub3JnLnVrMB4XDTEzMDcxMjEwMDQxOFoXDTIzMDcxMDEwMDQxOFowgZ8xCzAJ
+						BgNVBAYTAkdCMREwDwYDVQQIEwhTY290bGFuZDESMBAGA1UEBxMJRWRpbmJ1cmdo
+						MUMwQQYDVQQKEzpVSyBBY2Nlc3MgTWFuYWdlbWVudCBGZWRlcmF0aW9uIGZvciBF
+						ZHVjYXRpb24gYW5kIFJlc2VhcmNoMSQwIgYDVQQDExtqZW5raW5zLnVrZmVkZXJh
+						dGlvbi5vcmcudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCU/xHG
+						Dw0FRJUVC8evIBKqH77osYeVSYqeaHhjnCMDGURYfua8by5lYVWufRS6gVv/MaJU
+						FKbZY9XKPH6uDBJ/l5Lypx6H7V1tZn7BroXg9fNyLrC0WpUrBYw5S+MYFQgEuB+C
+						B2wvuvoKKa0GSPHvgfV/K8ymh08ARsgT83MMfW9rA0+gy2x1AvJt0VYO96rGjI1q
+						0SeDGMWwk58OFXA/4UbIsTg56hl9NfW2QLkSsi4cz/uJD2q1F44Ai/pOUHiT8lVH
+						XAl77Nefma9w5Djng2yVoMd9tQ9Sx5bWOZ6VxnbA0ARJBq/8QzRvkiiQ3Ceacu0G
+						V961M6U1X4ZcqSpRAgMBAAGjezB5MAkGA1UdEwQCMAAwLAYJYIZIAYb4QgENBB8W
+						HU9wZW5TU0wgR2VuZXJhdGVkIENlcnRpZmljYXRlMB0GA1UdDgQWBBSeM+/WeAoJ
+						DPll4Dh3TUT+dI3oPzAfBgNVHSMEGDAWgBSeM+/WeAoJDPll4Dh3TUT+dI3oPzAN
+						BgkqhkiG9w0BAQUFAAOCAQEAHUHH0JodQuv4B984Z8aESW04OJSDFIpYL30luVQr
+						AwFPZ3wopM5qfkO6CpJIa+IK9oQxppOi+Fs+dYEBUYHjXQbx/xbSuqzjr7GE/xS6
+						Kumhmn3Y1RP9/2l0Ema7DMryN7nxIsF+fxDr0LgaXboAMnITKvhf0k5cVDdAO/JT
+						y+lx0ZxwizlzdmjyfmmCIJkUXvPwnh8Le+9AqU2qjh14OPw4cHabf2mtEKAXFkJ/
+						HrX1GuA4GsXXdKYi1Deaj2JIATS/7YTYt4S2vyx+gEN/0+Rg70YC5P9xFWsibAIr
+						WXY859KC7gEzlErCQS2KPKYA4abXdTiut4yaeh+HZN1Ctw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://jenkins.ukfederation.org.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://jenkins.ukfederation.org.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://jenkins.ukfederation.org.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://jenkins.ukfederation.org.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://jenkins.ukfederation.org.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://jenkins.ukfederation.org.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://jenkins.ukfederation.org.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="en">UK federation Jenkins CI server</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">
+				This continuous integration server is part of the UK federation infrastructure and is only
+				available to UK federation team members.
+			</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:mace:dir:attribute-def:eduPersonPrincipalName" NameFormat="urn:mace:shibboleth:1.0:attributeNamespace:uri"/>
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Edinburgh</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">UK federation Jenkins CI server</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://ukfederation.org.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>UK federation helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:service@ukfederation.org.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>UK federation infrastructure</md:GivenName>
+      <md:EmailAddress>mailto:ukfed.infrastructure@ed.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

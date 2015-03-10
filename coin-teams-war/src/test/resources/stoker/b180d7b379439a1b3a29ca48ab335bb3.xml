@@ -1,0 +1,56 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://my.sbs.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-04-09T08:52:26Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://my.sbs.ox.ac.uk/Shibboleth.sso/Login"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://my.sbs.ox.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC9DCCAdygAwIBAgIJAJVRvogczC70MA0GCSqGSIb3DQEBBQUAMBoxGDAWBgNV
+						BAMTD215LnNicy5veC5hYy51azAeFw0xMzA0MDUxODIxMzFaFw0yMzA0MDMxODIx
+						MzFaMBoxGDAWBgNVBAMTD215LnNicy5veC5hYy51azCCASIwDQYJKoZIhvcNAQEB
+						BQADggEPADCCAQoCggEBAOFMWOnq7etNEDgCmE/lKHlcRvPpQph0V4Zf2G9zNixO
+						ZeHhw5ZSSQVtMSj+3Yyfnl1RVFdlux0YHe/0uVk670Duqs+i3ulxTVWo4MXv5iq7
+						xbnBuiK4mez3+MDPE49LR5Txz+MiHUsbIVmcZcIksxPWgyZuD4d/d4MtpYqwpk99
+						WoD55Ng9GOae2bBZnS26qPAKp0aDG7pV6NvQ2dXuqpZMi/+8j+UiemP2aDyjIvF0
+						xu/8/1kIX2QsTn6+/A6qfJd+byEkUef1/Q8HHmTka3b10NbiGzJFXXyvWvyCyPVA
+						tDIMj/jOfziE0z9VFqpZkbrbJfpgshYpUEN2mf85tvsCAwEAAaM9MDswGgYDVR0R
+						BBMwEYIPbXkuc2JzLm94LmFjLnVrMB0GA1UdDgQWBBQ32HmqAoYtyy9Syo+ReOhH
+						Uh5bQzANBgkqhkiG9w0BAQUFAAOCAQEAhwjVQiw60XvGioiZEAtJn88u3X9lkkuQ
+						MTDQoZt1OIXu5gPJe/W5LmiWLjcTVrFLRwQQndTjki/HKkyU0U6HCIvRaqW4M/ac
+						KDIDFuCQugN5b7kHGdG5ak78bGzGvaZSuNcZqG+QtfA5rxhqtYcmyin9+S4xDaJk
+						nXlI0zEE1GXi6UVPNu6WQDYniwSK5EQ53ZrO/shYSX04+mbfkZCnIdOLpQZbQy/K
+						AYcgSvCKfLTGV/yTREOHBqv8AXsIk85z9io8dztQliPAu5qvUz+nNpjZuV4z5/HG
+						JAQyJQOynWStb4SGfCYSIs0ujtdolEQkpG3EPehVm2fslcYEveqUHQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://my.sbs.ox.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://my.sbs.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://my.sbs.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://my.sbs.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://my.sbs.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://my.sbs.ox.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://my.sbs.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford - Said Business School Intranet</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.sbs.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>NSMS Team</md:GivenName>
+      <md:EmailAddress>mailto:nsms@it.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Aaron</md:GivenName>
+      <md:SurName>Wilson</md:SurName>
+      <md:EmailAddress>mailto:aaron.wilson@it.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

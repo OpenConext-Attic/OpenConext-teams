@@ -1,0 +1,88 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sp-test.wortech.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://sp-test.wortech.ac.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDBjCCAe6gAwIBAgIJAMwsgNyzDRXNMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV
+						BAMTFXNwLXRlc3Qud29ydGVjaC5hYy51azAeFw0xMDExMDkxNTI5MDZaFw0yMDEx
+						MDYxNTI5MDZaMCAxHjAcBgNVBAMTFXNwLXRlc3Qud29ydGVjaC5hYy51azCCASIw
+						DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANeI+dq6Q0k+EvCnXvyITtkxUYDS
+						+6b0GXkofMeMyDt+4fy0IznKXK46VncC1sfronjA5ah6Y2VXhDzZKrt/2TtPRNLQ
+						J7k9CfyYUTAXZ5B1pR4a1IevXcoQPFROmXxZsoqViuNXH+BzuIviv9f6TSPennW0
+						SX3plKCFAvnHiYPsPbdcBwTku6NVLOsgfeAV1XQUVHP0f3xBr2wk3TiELxEhbtTx
+						S2rNqgkHkx+eDKAfTBp7GzCh5Q7VsMfKNWmdgAq42HLpOnqvviPF/Fn9KLKCNuMA
+						TH01ypbb4vEL5xP/UbQKfER0Wa67isFpfkXgMeS66wmA6TlwNXCGOudrZIMCAwEA
+						AaNDMEEwIAYDVR0RBBkwF4IVc3AtdGVzdC53b3J0ZWNoLmFjLnVrMB0GA1UdDgQW
+						BBSB03qpqS73R8ADFUKyCMvsO/7OozANBgkqhkiG9w0BAQUFAAOCAQEAxJctEFMq
+						SKsmQPuc/oudcQYsbC8IUzbVjJ6TsuC/s/Y9sVPKtCCmaCJFeymbx9yHRdH8k0dP
+						7n2pFmv7oHpohHniOzF/X5O3HZLTAKq077axk54ca4MtLU4gnkhGqQUQ6tucPJ/8
+						4fu2xH394cGVl3giPI6zZahTvks3OH4GizkELNF5/NYbxx6tilQDmYnijp5z+m88
+						58jIhUpEdUI/ZkwjA7Bgf/+1t8Q9ys2GC9xjBk46H537S7UlDJGwojUTsHPGceVD
+						mRjRzBOnlMe7YT8NEvKK16QvehZlwfnMosIlNFozGmhwVtWlJ+pJATGm0gu4vZDU
+						I64R7eQVc7Z6kw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDBjCCAe6gAwIBAgIJAMwsgNyzDRXNMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV
+						BAMTFXNwLXRlc3Qud29ydGVjaC5hYy51azAeFw0xMDExMDkxNTI5MDZaFw0yMDEx
+						MDYxNTI5MDZaMCAxHjAcBgNVBAMTFXNwLXRlc3Qud29ydGVjaC5hYy51azCCASIw
+						DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANeI+dq6Q0k+EvCnXvyITtkxUYDS
+						+6b0GXkofMeMyDt+4fy0IznKXK46VncC1sfronjA5ah6Y2VXhDzZKrt/2TtPRNLQ
+						J7k9CfyYUTAXZ5B1pR4a1IevXcoQPFROmXxZsoqViuNXH+BzuIviv9f6TSPennW0
+						SX3plKCFAvnHiYPsPbdcBwTku6NVLOsgfeAV1XQUVHP0f3xBr2wk3TiELxEhbtTx
+						S2rNqgkHkx+eDKAfTBp7GzCh5Q7VsMfKNWmdgAq42HLpOnqvviPF/Fn9KLKCNuMA
+						TH01ypbb4vEL5xP/UbQKfER0Wa67isFpfkXgMeS66wmA6TlwNXCGOudrZIMCAwEA
+						AaNDMEEwIAYDVR0RBBkwF4IVc3AtdGVzdC53b3J0ZWNoLmFjLnVrMB0GA1UdDgQW
+						BBSB03qpqS73R8ADFUKyCMvsO/7OozANBgkqhkiG9w0BAQUFAAOCAQEAxJctEFMq
+						SKsmQPuc/oudcQYsbC8IUzbVjJ6TsuC/s/Y9sVPKtCCmaCJFeymbx9yHRdH8k0dP
+						7n2pFmv7oHpohHniOzF/X5O3HZLTAKq077axk54ca4MtLU4gnkhGqQUQ6tucPJ/8
+						4fu2xH394cGVl3giPI6zZahTvks3OH4GizkELNF5/NYbxx6tilQDmYnijp5z+m88
+						58jIhUpEdUI/ZkwjA7Bgf/+1t8Q9ys2GC9xjBk46H537S7UlDJGwojUTsHPGceVD
+						mRjRzBOnlMe7YT8NEvKK16QvehZlwfnMosIlNFozGmhwVtWlJ+pJATGm0gu4vZDU
+						I64R7eQVc7Z6kw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sp-test.wortech.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sp-test.wortech.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sp-test.wortech.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp-test.wortech.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sp-test.wortech.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://sp-test.wortech.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sp-test.wortech.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp-test.wortech.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sp-test.wortech.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp-test.wortech.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://sp-test.wortech.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sp-test.wortech.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://sp-test.wortech.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://sp-test.wortech.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://sp-test.wortech.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Worcester College of Technology</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Worcester College of Technology Test Service Provider</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.wortech.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>IT Services</md:GivenName>
+      <md:EmailAddress>mailto:itservices@wortech.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>IT Services</md:GivenName>
+      <md:EmailAddress>mailto:itservices@wortech.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

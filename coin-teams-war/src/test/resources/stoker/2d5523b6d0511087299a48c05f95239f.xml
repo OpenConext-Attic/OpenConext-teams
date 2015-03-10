@@ -1,0 +1,103 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://staging.jorum.ac.uk/shibboleth">
+    <md:Extensions>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha512"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha384"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#ecdsa-sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-02-04T15:33:29Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://staging.jorum.ac.uk/Shibboleth.sso/Login"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://vm-jorum.ds.man.ac.uk/Shibboleth.sso/Login"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://staging.resourceshare.ac.uk/Shibboleth.sso/Login"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://webstaging.jorum.ac.uk/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://staging.jorum.ac.uk/Shibboleth.sso/Login" index="1"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://vm-jorum.ds.man.ac.uk/Shibboleth.sso/Login" index="2"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://staging.resourceshare.ac.uk/Shibboleth.sso/Login" index="3"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://webstaging.jorum.ac.uk/Shibboleth.sso/Login" index="4"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDKDCCAhCgAwIBAgIJAMvDRTJflddLMA0GCSqGSIb3DQEBBQUAMB4xHDAaBgNV
+						BAMTE3N0YWdpbmcuam9ydW0uYWMudWswHhcNMTMwMjAxMTE0MjMyWhcNMjMwMTMw
+						MTE0MjMyWjAeMRwwGgYDVQQDExNzdGFnaW5nLmpvcnVtLmFjLnVrMIIBIjANBgkq
+						hkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAshCDHUltlUA+s2SyenjOhv25bLCgF0e/
+						6akdpCN65otOt5+naesfGFdZslcQ/CCqAe1i5tFCmBZ8eNSGt75pcmoqkzDPhpBN
+						mOsxaJjdwxHrnQWbFOXr+A10GPsdne0WfdBF/id4ZSPEHAeFPbqXtAP7cV1xQO6p
+						Pq7KVotO6vZZCDvqQlqnMXNuet3uVAYy9KZUCaJc2BqgN/PqZPGuFh05yUTDxpU+
+						NheOQB6G8uJOxeQMgzlda7DGpmyCJ/WQ2AfsFI5j5LFDd1bOF10D+CyWOwduieEX
+						1qNqbEEydR+CfFigLa2lHyOKTrz2S1O3pGo3Gv06ucLHbd+z3yDzDQIDAQABo2kw
+						ZzBGBgNVHREEPzA9ghNzdGFnaW5nLmpvcnVtLmFjLnVrhiZodHRwczovL3N0YWdp
+						bmcuam9ydW0uYWMudWsvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUUC/AOy7IH6iDm768
+						7bNBfNwPApgwDQYJKoZIhvcNAQEFBQADggEBAKtuA1eo/6O9HtcgSN6ykYW/HVIM
+						UvIXjowkbDvTBfF4az9ywZ2fgBMoJwTXUSGR4cRW5E8jlKexloFvfaoFMKNnN/C9
+						evebn4ffrjrfYh9RjsBl1vA6eingNUxUSfMNxsf2evGalI/x243F5XarJYDhbafL
+						U/UTjsVhMGOOVZopa3ibB9dCDw0152WL70p8i1CD5BdMuqEPxoMnDctaJ+4WXuyP
+						A21yBq6YB6zqgnzFWuIGyb+2nluyUEi3NG0Qg6w6sv9ouZl+LM1kUmfyFYHOogJZ
+						XEkxDTRCPMvlCw7I3BmOYjXH2WiVhzM8ytwkOdu12ZtJGSUqFoUhE1YNUdo=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://staging.jorum.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://vm-jorum.ds.man.ac.uk/Shibboleth.sso/Artifact/SOAP" index="2"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://staging.resourceshare.ac.uk/Shibboleth.sso/Artifact/SOAP" index="3"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://webstaging.jorum.ac.uk/Shibboleth.sso/Artifact/SOAP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://staging.jorum.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://staging.jorum.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://staging.jorum.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://staging.jorum.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://staging.jorum.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://staging.jorum.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://vm-jorum.ds.man.ac.uk/Shibboleth.sso/SAML2/POST" index="7"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://vm-jorum.ds.man.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="8"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://vm-jorum.ds.man.ac.uk/Shibboleth.sso/SAML2/Artifact" index="9"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://vm-jorum.ds.man.ac.uk/Shibboleth.sso/SAML2/ECP" index="10"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://vm-jorum.ds.man.ac.uk/Shibboleth.sso/SAML/POST" index="11"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://vm-jorum.ds.man.ac.uk/Shibboleth.sso/SAML/Artifact" index="12"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://staging.resourceshare.ac.uk/Shibboleth.sso/SAML2/POST" index="13"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://staging.resourceshare.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="14"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://staging.resourceshare.ac.uk/Shibboleth.sso/SAML2/Artifact" index="15"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://staging.resourceshare.ac.uk/Shibboleth.sso/SAML2/ECP" index="16"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://staging.resourceshare.ac.uk/Shibboleth.sso/SAML/POST" index="17"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://staging.resourceshare.ac.uk/Shibboleth.sso/SAML/Artifact" index="18"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://webstaging.jorum.ac.uk/Shibboleth.sso/SAML2/POST" index="19"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://webstaging.jorum.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="20"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://webstaging.jorum.ac.uk/Shibboleth.sso/SAML2/Artifact" index="21"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://webstaging.jorum.ac.uk/Shibboleth.sso/SAML2/ECP" index="22"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://webstaging.jorum.ac.uk/Shibboleth.sso/SAML/POST" index="23"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://webstaging.jorum.ac.uk/Shibboleth.sso/SAML/Artifact" index="24"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">The University of Manchester</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">The University of Manchester: Jorum Staging</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://mimas.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Jorum Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:support@jorum.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mimas Technical Support</md:GivenName>
+      <md:EmailAddress>mailto:mimas-shib-tech@listserv.manchester.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

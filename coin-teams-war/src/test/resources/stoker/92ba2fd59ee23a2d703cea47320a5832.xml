@@ -1,27 +1,25 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" ID="IDEM-EDUGAIN00013" entityID="https://fire.rettorato.unito.it/shibboleth">
-        
-        <Extensions>
-            <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.idem.garr.it/" registrationInstant="2009-12-31T15:00:00Z">
-                <mdrpi:RegistrationPolicy xml:lang="en">https://www.idem.garr.it/idem-metadata-registration-practice-statement</mdrpi:RegistrationPolicy>
-            </mdrpi:RegistrationInfo>
-        </Extensions>
-        
-        <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
-            <Extensions>
-                <mdui:UIInfo>
-                    <mdui:DisplayName xml:lang="en">YouBlog</mdui:DisplayName>
-                    <mdui:DisplayName xml:lang="it">YouBlog</mdui:DisplayName>
-                    <mdui:Description xml:lang="en">The system after authentication, allow to create one or more blogs, articles and add comments, send private messages to the authors of the blog. It 'a space of interaction, a way to be (virtually) with the other and freely express their creativity, their opinions on various topics and environment interaction that could become a tool for collaboration in institutional activities.</mdui:Description>
-                    <mdui:Description xml:lang="it">Questo servizio permette previa autenticazione, di creare uno o più blog, inserire articoli e commenti, inviare messaggi privati agli autori dei blog. E' uno spazio di interazione, un modo per stare (virtualmente) insieme agli altri e per esprimere liberamente la propria creatività, la propria opinione sui più svariati argomenti e un ambiente di interazione che può diventare strumento di collaborazione nell’ambito delle attività istituzionali.</mdui:Description>
-                    <mdui:InformationURL xml:lang="en">https://www.serviziweb.unito.it/youblog</mdui:InformationURL>
-                </mdui:UIInfo>
-                <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/DS"/>
-                <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/DS" index="1"/>
-            </Extensions>
-            <KeyDescriptor>
-                <ds:KeyInfo>
-                    <ds:X509Data>
-                        <ds:X509Certificate>
+<md:EntityDescriptor xmlns:alg="urn:oasis:names:tc:SAML:metadata:algsupport" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://fire.rettorato.unito.it/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.idem.garr.it/" registrationInstant="2009-12-31T15:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.idem.garr.it/idem-metadata-registration-practice-statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">YouBlog</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="it">YouBlog</mdui:DisplayName>
+          <mdui:Description xml:lang="en">The system after authentication, allow to create one or more blogs, articles and add comments, send private messages to the authors of the blog. It 'a space of interaction, a way to be (virtually) with the other and freely express their creativity, their opinions on various topics and environment interaction that could become a tool for collaboration in institutional activities.</mdui:Description>
+          <mdui:Description xml:lang="it">Questo servizio permette previa autenticazione, di creare uno o più blog, inserire articoli e commenti, inviare messaggi privati agli autori dei blog. E' uno spazio di interazione, un modo per stare (virtualmente) insieme agli altri e per esprimere liberamente la propria creatività, la propria opinione sui più svariati argomenti e un ambiente di interazione che può diventare strumento di collaborazione nell’ambito delle attività istituzionali.</mdui:Description>
+          <mdui:InformationURL xml:lang="en">https://www.serviziweb.unito.it/youblog</mdui:InformationURL>
+        </mdui:UIInfo>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/DS"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIEjTCCA3WgAwIBAgIRALMOFHysegGUCjSEYcftmJowDQYJKoZIhvcNAQEFBQAw
 NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
 IFNTTCBDQTAeFw0xNDA0MTYwMDAwMDBaFw0xNzA0MTUyMzU5NTlaMEExITAfBgNV
@@ -48,52 +46,46 @@ n5E1tth8U9DKoCTXE3pKxiqfWXpJW5cFX2MZcVdo5GTqe9dvelwx93iAdmioJ3RZ
 b0FyxAbrdFq2jGEYvXtRAfJXs04jIpBoJ/0oJyllaZCH4pYM5icvdoQx6vPs53t7
 rzXp6dkn7WJjKlafzxTRso8=
 </ds:X509Certificate>
-                    </ds:X509Data>
-                </ds:KeyInfo>
-            </KeyDescriptor>
-            <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/Artifact/SOAP" index="1"/>
-            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/SLO/Artifact"/>
-            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/SLO/POST"/>
-            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/SLO/Redirect"/>
-            <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/SLO/SOAP"/>
-            <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/NIM/Artifact"/>
-            <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/NIM/POST"/>
-            <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/NIM/Redirect"/>
-            <ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/NIM/SOAP"/>
-            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/SAML/Artifact" index="6"/>
-            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/SAML/POST" index="7"/>
-            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/SAML2/Artifact" index="8"/>
-            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/SAML2/ECP" index="9"/>
-            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/SAML2/POST" index="10"/>
-            <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/SAML2/POST-SimpleSign" index="11"/>
-            
-            <AttributeConsumingService index="1">
-                
-                <ServiceName xml:lang="en">YouBlog</ServiceName>
-                <ServiceDescription xml:lang="en">The system after authentication, allow to create one or more blogs, articles and add comments, send private messages to the authors of the blog. It 'a space of interaction, a way to be (virtually) with the other and freely express their creativity, their opinions on various topics and environment interaction that could become a tool for collaboration in institutional activities.</ServiceDescription>
-                
-                <RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-                <RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-                <RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-                <RequestedAttribute FriendlyName="sn" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-                <RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-                
-            </AttributeConsumingService>
-            
-        </SPSSODescriptor>
-        <Organization>
-            <OrganizationName xml:lang="en">Università degli Studi di Torino</OrganizationName>
-            <OrganizationName xml:lang="it">Università degli Studi di Torino</OrganizationName>
-            <OrganizationDisplayName xml:lang="en">YouBlog provided by Università degli Studi di Torino</OrganizationDisplayName>
-            <OrganizationDisplayName xml:lang="it">YouBlog erogato da Università degli Studi di Torino</OrganizationDisplayName>
-            <OrganizationURL xml:lang="en">http://www.unito.it/</OrganizationURL>
-            <OrganizationURL xml:lang="it">http://www.unito.it</OrganizationURL>
-        </Organization>
-        
-        <ContactPerson contactType="technical">
-            <EmailAddress>sewi-id@unito.it</EmailAddress>
-        </ContactPerson>
-        <ContactPerson contactType="support">
-            <EmailAddress>sewi-id@unito.it</EmailAddress>
-        </ContactPerson>
-    </EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/SLO/Artifact"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/SLO/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/NIM/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/NIM/SOAP"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/SAML/POST" index="7"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/SAML2/Artifact" index="8"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/SAML2/ECP" index="9"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/SAML2/POST" index="10"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www.serviziweb.unito.it/youblog/Shibboleth.sso/SAML2/POST-SimpleSign" index="11"/>
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="en">YouBlog</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">The system after authentication, allow to create one or more blogs, articles and add comments, send private messages to the authors of the blog. It 'a space of interaction, a way to be (virtually) with the other and freely express their creativity, their opinions on various topics and environment interaction that could become a tool for collaboration in institutional activities.</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="sn" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Università degli Studi di Torino</md:OrganizationName>
+      <md:OrganizationName xml:lang="it">Università degli Studi di Torino</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">YouBlog provided by Università degli Studi di Torino</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="it">YouBlog erogato da Università degli Studi di Torino</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.unito.it/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="it">http://www.unito.it</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>mailto:sewi-id@unito.it</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:EmailAddress>mailto:sewi-id@unito.it</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

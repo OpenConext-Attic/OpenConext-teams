@@ -1,0 +1,53 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.jstor.org/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDLDCCAhSgAwIBAgIJAO/X91yads6bMA0GCSqGSIb3DQEBBQUAMBgxFjAUBgNV
+						BAMTDXd3dy5qc3Rvci5vcmcwHhcNMTAwMjI2MjAwOTM1WhcNMjAwMzA1MjAwOTM1
+						WjAYMRYwFAYDVQQDEw13d3cuanN0b3Iub3JnMIIBIjANBgkqhkiG9w0BAQEFAAOC
+						AQ8AMIIBCgKCAQEAw7BvEJwj35DHu9tuWh/vA8EP+KAgS6VJhKfPDNR2EFrxFgD4
+						FAXJ7WPpF5A0Le1YuYK6JX2Ud5K5uTGAzVg8V1JpFDXy+WXnNebQIWUl3cR3+uAO
+						evP0PRYENkD5oBIt8+maWvH2ualYRuX0Bz6MNqLZKz9EkUYF2FQs42h93X8K+ySY
+						zr8AwmnXbsReMXrvFvwJ0KAxCIgatkSRcCyjih5S+dqxn1NN41jIaptofBMrF1Dl
+						hIlMTxe5CAyAAZgTpI1Qm+i19KLuWqbP4HcOa1w8Heiv3bH8HCSzekTPTMWr3anX
+						q1Jv81wCldLijykb3gSPmPrVmUmdbsmB2iVymwIDAQABo3kwdzAdBgNVHQ4EFgQU
+						eV7t5OZc4Yb7ZjJTzWQYOTmNJHUwSAYDVR0jBEEwP4AUeV7t5OZc4Yb7ZjJTzWQY
+						OTmNJHWhHKQaMBgxFjAUBgNVBAMTDXd3dy5qc3Rvci5vcmeCCQDv1/dcmnbOmzAM
+						BgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQCcd/tR8Hm2a/G4eRYtDAFZ
+						00hj0LDsY6g7tKlumG9YkQnClLHcjNkofkGEkMgcbAerrPly+gebQKDWv6HqKR76
+						8SYFWYnk5GaoNsMyYbHuxDpJIL1b/55u1JUQKW3VEExB8xIfxnXHojsrtktnufSv
+						SpOxSE35MNv5c7khBeQ+lu+69YDc30/5H3AiEpJgCvmxkCIS1Z8WCCWJq7SaR+HQ
+						chQqK/VS9i2CsHaU3CwZapCqrMaftVoQNo7WfFHkvX7NH4YrNGM5ORE5yEHjP3LI
+						+f+BedC/QRSjPImH8Pjm/iEQ7tbCrouRqz/PJWDoJ+2WJPl+t/aud7L+DVlogKKz
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.jstor.org/action/samlACS" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shibtest.jstor.org/action/samlACS" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://cicada.jstor.org/action/samlACS" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://omega.jstor.org/action/samlACS" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://firefly.jstor.org/action/samlACS" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibtest.jstor.org/action/samlACS" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://cricket.jstor.org/action/samlACS" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Ithaka Harbors, Inc.</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Ithaka Harbors: JSTOR</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.jstor.org/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>JSTOR User Services</md:GivenName>
+      <md:EmailAddress>mailto:support@jstor.org</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Peter</md:GivenName>
+      <md:SurName>Vlahakis</md:SurName>
+      <md:EmailAddress>mailto:Peter.Vlahakis@ithaka.org</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

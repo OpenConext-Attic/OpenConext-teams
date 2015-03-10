@@ -1,0 +1,103 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.port.ac.uk/entity">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">port.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEIjCCAwqgAwIBAgIJALf8bLjT1bnmMA0GCSqGSIb3DQEBBQUAMIGRMQswCQYD
+						VQQGEwJHQjESMBAGA1UECBMJSGFtcHNoaXJlMRMwEQYDVQQHEwpQb3J0c21vdXRo
+						MSEwHwYDVQQKExhVbml2ZXJzaXR5IG9mIFBvcnRzbW91dGgxHTAbBgNVBAsTFElu
+						Zm9ybWF0aW9uIFNlcnZpY2VzMRcwFQYDVQQDEw5pZHAucG9ydC5hYy51azAeFw0x
+						MjA0MDQxMzIyMTZaFw0yMjA0MDIxMzIyMTZaMIGRMQswCQYDVQQGEwJHQjESMBAG
+						A1UECBMJSGFtcHNoaXJlMRMwEQYDVQQHEwpQb3J0c21vdXRoMSEwHwYDVQQKExhV
+						bml2ZXJzaXR5IG9mIFBvcnRzbW91dGgxHTAbBgNVBAsTFEluZm9ybWF0aW9uIFNl
+						cnZpY2VzMRcwFQYDVQQDEw5pZHAucG9ydC5hYy51azCCASIwDQYJKoZIhvcNAQEB
+						BQADggEPADCCAQoCggEBAOVFjymX7M8xWKzGhKlZ5/3aDsDeWjQ2oeooO1MSaFbT
+						j/pMtOC3Qrsa7P3Hhwshh5m0nAYTqpdl4NvFFOiMv0WMmKiNDKR3DvrF8p5HP21Z
+						NFFE1EI2K+ciRUpFgFg/+Aiy/J8hiiFvNgY/K1Bu7YzmJHakrrnQRn/1J+vDq7GJ
+						E/9GUz5rqVBjh1Ny+346Pls5SYUf5aj0H5KmD83TRZsjfAQecl4hxsbZTmZQmn/1
+						OTtqBp0yDy3DZYTWoeJ9ab2Smm+KRhP67rNG568S6hRvAPwdOxxQOnLZtZVbZJvl
+						0zjT4no3JBBoJ+25Xdb5LiQKBLh4Q1e0Y0cDW4gPd+ECAwEAAaN7MHkwCQYDVR0T
+						BAIwADAsBglghkgBhvhCAQ0EHxYdT3BlblNTTCBHZW5lcmF0ZWQgQ2VydGlmaWNh
+						dGUwHQYDVR0OBBYEFGfthAjlQZ/cBPBgNARSaZC1cAfVMB8GA1UdIwQYMBaAFGft
+						hAjlQZ/cBPBgNARSaZC1cAfVMA0GCSqGSIb3DQEBBQUAA4IBAQCqBvYpE7bPdaOa
+						OLoDnDySj0FdExCJCQpRGE1nFQ1eT4GrDjlPO2QE1jE2tStS6Wv4ZuW1qJyuEJDe
+						fMJn7xtilLSDpzvocxhDGoF/SgDdDA5wpHt5iz/4e1wfDHHbUwxDiCXSYSPTn55u
+						2ElvtdyQiiagoPkaIMoco3XKIyIG6LGoZPeFp0FS6GV541T6yJOzE71nCwJZ+RWA
+						iAdkoJsFOs+PgXPPlN9hdEmspKrAKnp9G7JeIjc6at+YijvkSoCmRCdqNFj3jwDR
+						KnGXAg5ikRPxi2wV6VGgyXCqoFhMFVQE/3zlNd8sPy6uEqHUo0gwE6amJJeafsN5
+						tetph4SV
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.port.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.port.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shib-login.port.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib-login.port.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib-login.port.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib-login.port.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">port.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEIjCCAwqgAwIBAgIJALf8bLjT1bnmMA0GCSqGSIb3DQEBBQUAMIGRMQswCQYD
+						VQQGEwJHQjESMBAGA1UECBMJSGFtcHNoaXJlMRMwEQYDVQQHEwpQb3J0c21vdXRo
+						MSEwHwYDVQQKExhVbml2ZXJzaXR5IG9mIFBvcnRzbW91dGgxHTAbBgNVBAsTFElu
+						Zm9ybWF0aW9uIFNlcnZpY2VzMRcwFQYDVQQDEw5pZHAucG9ydC5hYy51azAeFw0x
+						MjA0MDQxMzIyMTZaFw0yMjA0MDIxMzIyMTZaMIGRMQswCQYDVQQGEwJHQjESMBAG
+						A1UECBMJSGFtcHNoaXJlMRMwEQYDVQQHEwpQb3J0c21vdXRoMSEwHwYDVQQKExhV
+						bml2ZXJzaXR5IG9mIFBvcnRzbW91dGgxHTAbBgNVBAsTFEluZm9ybWF0aW9uIFNl
+						cnZpY2VzMRcwFQYDVQQDEw5pZHAucG9ydC5hYy51azCCASIwDQYJKoZIhvcNAQEB
+						BQADggEPADCCAQoCggEBAOVFjymX7M8xWKzGhKlZ5/3aDsDeWjQ2oeooO1MSaFbT
+						j/pMtOC3Qrsa7P3Hhwshh5m0nAYTqpdl4NvFFOiMv0WMmKiNDKR3DvrF8p5HP21Z
+						NFFE1EI2K+ciRUpFgFg/+Aiy/J8hiiFvNgY/K1Bu7YzmJHakrrnQRn/1J+vDq7GJ
+						E/9GUz5rqVBjh1Ny+346Pls5SYUf5aj0H5KmD83TRZsjfAQecl4hxsbZTmZQmn/1
+						OTtqBp0yDy3DZYTWoeJ9ab2Smm+KRhP67rNG568S6hRvAPwdOxxQOnLZtZVbZJvl
+						0zjT4no3JBBoJ+25Xdb5LiQKBLh4Q1e0Y0cDW4gPd+ECAwEAAaN7MHkwCQYDVR0T
+						BAIwADAsBglghkgBhvhCAQ0EHxYdT3BlblNTTCBHZW5lcmF0ZWQgQ2VydGlmaWNh
+						dGUwHQYDVR0OBBYEFGfthAjlQZ/cBPBgNARSaZC1cAfVMB8GA1UdIwQYMBaAFGft
+						hAjlQZ/cBPBgNARSaZC1cAfVMA0GCSqGSIb3DQEBBQUAA4IBAQCqBvYpE7bPdaOa
+						OLoDnDySj0FdExCJCQpRGE1nFQ1eT4GrDjlPO2QE1jE2tStS6Wv4ZuW1qJyuEJDe
+						fMJn7xtilLSDpzvocxhDGoF/SgDdDA5wpHt5iz/4e1wfDHHbUwxDiCXSYSPTn55u
+						2ElvtdyQiiagoPkaIMoco3XKIyIG6LGoZPeFp0FS6GV541T6yJOzE71nCwJZ+RWA
+						iAdkoJsFOs+PgXPPlN9hdEmspKrAKnp9G7JeIjc6at+YijvkSoCmRCdqNFj3jwDR
+						KnGXAg5ikRPxi2wV6VGgyXCqoFhMFVQE/3zlNd8sPy6uEqHUo0gwE6amJJeafsN5
+						tetph4SV
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.port.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.port.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Portsmouth</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Portsmouth</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.port.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>University IT Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:servicedesk@port.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Phil</md:GivenName>
+      <md:SurName>Burland</md:SurName>
+      <md:EmailAddress>mailto:phil.burland@port.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

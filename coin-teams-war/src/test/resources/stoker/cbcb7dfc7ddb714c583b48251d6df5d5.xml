@@ -1,19 +1,19 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://search.de.dariah.eu/schereg">
-    <Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-04-11T07:22:30Z">
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://search.de.dariah.eu/schereg">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2014-04-11T07:22:30Z">
         <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
         <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
-        <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
           <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
         </saml:Attribute>
       </mdattr:EntityAttributes>
-    </Extensions>
-    <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://search.de.dariah.eu/schereg/saml/login/alias/schereg?disco=true" index="1"/>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://search.de.dariah.eu/schereg/saml/login/alias/schereg?disco=true" index="1"/>
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="de">DARIAH Schema Registry</mdui:DisplayName>
           <mdui:DisplayName xml:lang="en">DARIAH Schema Registry</mdui:DisplayName>
           <mdui:Description xml:lang="de">DARIAH Schema Registry</mdui:Description>
@@ -22,9 +22,9 @@
           <mdui:InformationURL xml:lang="en">http://dariah.eu/</mdui:InformationURL>
           <mdui:PrivacyStatementURL xml:lang="en">https://de.dariah.eu/ServicePrivacyPolicy</mdui:PrivacyStatementURL>
         </mdui:UIInfo>
-      </Extensions>
-      <KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
           <ds:KeyName>search.de.dariah.eu</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=search.de.dariah.eu,O=Georg-August-Universitaet Goettingen,L=Goettingen,ST=Niedersachsen,C=DE</ds:X509SubjectName>
@@ -64,9 +64,9 @@ VJ2CRsza
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <KeyDescriptor use="encryption">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
           <ds:KeyName>search.de.dariah.eu</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=search.de.dariah.eu,O=Georg-August-Universitaet Goettingen,L=Goettingen,ST=Niedersachsen,C=DE</ds:X509SubjectName>
@@ -106,37 +106,37 @@ VJ2CRsza
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://search.de.dariah.eu/schereg/saml/SingleLogout/alias/schereg"/>
-      <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://search.de.dariah.eu/schereg/saml/SingleLogout/alias/schereg"/>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://search.de.dariah.eu/schereg/saml/SSO/alias/schereg" index="0"/>
-      <AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://search.de.dariah.eu/schereg/saml/SSO/alias/schereg" index="1"/>
-      <AttributeConsumingService index="1">
-        <ServiceName xml:lang="de">DARIAH Schema Registry</ServiceName>
-        <ServiceName xml:lang="en">DARIAH Schema Registry</ServiceName>
-        <ServiceDescription xml:lang="de">DARIAH Schema Registry</ServiceDescription>
-        <ServiceDescription xml:lang="en">DARIAH Schema Registry</ServiceDescription>
-        <RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-      </AttributeConsumingService>
-    </SPSSODescriptor>
-    <Organization>
-      <OrganizationName xml:lang="de">e112</OrganizationName>
-      <OrganizationName xml:lang="en">e112</OrganizationName>
-      <OrganizationDisplayName xml:lang="de">Gesellschaft für wissenschaftliche Datenverarbeitung mbH</OrganizationDisplayName>
-      <OrganizationDisplayName xml:lang="en">Gesellschaft für wissenschaftliche Datenverarbeitung mbH</OrganizationDisplayName>
-      <OrganizationURL xml:lang="de">http://www.gwdg.de</OrganizationURL>
-      <OrganizationURL xml:lang="en">http://www.gwdg.de</OrganizationURL>
-    </Organization>
-    <ContactPerson contactType="technical">
-      <GivenName>Tobias</GivenName>
-      <SurName>Gradl</SurName>
-      <EmailAddress>mailto:tobias.gradl@uni-bamberg.de</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="support">
-      <GivenName>Dariah</GivenName>
-      <SurName>Support</SurName>
-      <EmailAddress>mailto:register@dariah.eu</EmailAddress>
-    </ContactPerson>
-  </EntityDescriptor>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://search.de.dariah.eu/schereg/saml/SingleLogout/alias/schereg"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://search.de.dariah.eu/schereg/saml/SingleLogout/alias/schereg"/>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://search.de.dariah.eu/schereg/saml/SSO/alias/schereg" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://search.de.dariah.eu/schereg/saml/SSO/alias/schereg" index="1"/>
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="de">DARIAH Schema Registry</md:ServiceName>
+        <md:ServiceName xml:lang="en">DARIAH Schema Registry</md:ServiceName>
+        <md:ServiceDescription xml:lang="de">DARIAH Schema Registry</md:ServiceDescription>
+        <md:ServiceDescription xml:lang="en">DARIAH Schema Registry</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e112</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e112</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Gesellschaft für wissenschaftliche Datenverarbeitung mbH</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Gesellschaft für wissenschaftliche Datenverarbeitung mbH</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.gwdg.de</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.gwdg.de</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Tobias</md:GivenName>
+      <md:SurName>Gradl</md:SurName>
+      <md:EmailAddress>mailto:tobias.gradl@uni-bamberg.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Dariah</md:GivenName>
+      <md:SurName>Support</md:SurName>
+      <md:EmailAddress>mailto:register@dariah.eu</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

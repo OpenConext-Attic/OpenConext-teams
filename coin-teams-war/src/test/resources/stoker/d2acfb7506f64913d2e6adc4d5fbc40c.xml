@@ -1,0 +1,118 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.edinburghcollege.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-05-17T13:40:35Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">edinburghcollege.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEgTCCA2mgAwIBAgIQK6upqHeZFTtRMqjw0pSkmzANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEzMTAxNDAwMDAwMFoXDTE2MTAxMzIzNTk1OVowSDEhMB8GA1UE
+						CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMSMwIQYDVQQDExppZHAuZWRpbmJ1
+						cmdoY29sbGVnZS5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+						ANDTceThPhtkN4vHjeJeXfWN6vv+haVyaabv0If2HIsQQfinei7rKJ7+QfaMZbVI
+						SdhNx9FlnsE8O4KHYCrr4wZbRuvarj/5VVpEccczxIIqrMa1GSCAF6WS456+RYwK
+						mFcQxENki52AhuTbtgaDtI9Lv0oU1N+oqMqk88VkKMR6APV1EVyLbUE8NQhfrC5f
+						dadIGwwK9ws/H7DgMcUYzeHfUQtjd0ePq8bYXS0YbD336ytQmuNnEXqPlFD8Qjyv
+						oYw9SDRRQPMbBRDU9rvLcDJDj4tjqinH+SHYcUdjd4bQlWDxlZaIIbP29mUskhPY
+						xPqd1s59EQAAAauHjzQxKI0CAwEAAaOCAXcwggFzMB8GA1UdIwQYMBaAFAy9k2gM
+						896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBS6CgBynqxsyXiGOQ1pI61lS7LoojAO
+						BgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcD
+						AQYIKwYBBQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEw
+						OgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJF
+						TkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8v
+						Y3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYa
+						aHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwJQYDVR0RBB4wHIIaaWRwLmVkaW5i
+						dXJnaGNvbGxlZ2UuYWMudWswDQYJKoZIhvcNAQEFBQADggEBABYjPfDTpKf2NKnz
+						LTrQ5IvyeVTu/xSCNkmG7M2yI7anN7nZ9xJVWO0ymbjJjZJ4623lLlWnx8gMUIdl
+						xpqJRf8af4uGONpbj5wNIphbPnexaTYEQHi0n8DPSsiPTt7clDI3SYQf9DyLnUEI
+						VNk9o5wwI4R1SfiCTFEoOcLaVrfBTuLmXl2TOVZ5M3tqOkOQeLkP/jPeQq7LxfSd
+						TfwVM+xalQwYU80gajMoy8UIarLR3blfjbe/s1W971x9oFfTIpcayIHioyCsn3jd
+						y9m05ArSqVX/R92evdM8ajQRyzw8Y8zndJen0Ird3BTeYP0Qzuk5N4rccgAgUgyx
+						JlE9suQ=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.edinburghcollege.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.edinburghcollege.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.edinburghcollege.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.edinburghcollege.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.edinburghcollege.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.edinburghcollege.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">edinburghcollege.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEgTCCA2mgAwIBAgIQK6upqHeZFTtRMqjw0pSkmzANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEzMTAxNDAwMDAwMFoXDTE2MTAxMzIzNTk1OVowSDEhMB8GA1UE
+						CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMSMwIQYDVQQDExppZHAuZWRpbmJ1
+						cmdoY29sbGVnZS5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+						ANDTceThPhtkN4vHjeJeXfWN6vv+haVyaabv0If2HIsQQfinei7rKJ7+QfaMZbVI
+						SdhNx9FlnsE8O4KHYCrr4wZbRuvarj/5VVpEccczxIIqrMa1GSCAF6WS456+RYwK
+						mFcQxENki52AhuTbtgaDtI9Lv0oU1N+oqMqk88VkKMR6APV1EVyLbUE8NQhfrC5f
+						dadIGwwK9ws/H7DgMcUYzeHfUQtjd0ePq8bYXS0YbD336ytQmuNnEXqPlFD8Qjyv
+						oYw9SDRRQPMbBRDU9rvLcDJDj4tjqinH+SHYcUdjd4bQlWDxlZaIIbP29mUskhPY
+						xPqd1s59EQAAAauHjzQxKI0CAwEAAaOCAXcwggFzMB8GA1UdIwQYMBaAFAy9k2gM
+						896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBS6CgBynqxsyXiGOQ1pI61lS7LoojAO
+						BgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcD
+						AQYIKwYBBQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEw
+						OgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJF
+						TkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8v
+						Y3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYa
+						aHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwJQYDVR0RBB4wHIIaaWRwLmVkaW5i
+						dXJnaGNvbGxlZ2UuYWMudWswDQYJKoZIhvcNAQEFBQADggEBABYjPfDTpKf2NKnz
+						LTrQ5IvyeVTu/xSCNkmG7M2yI7anN7nZ9xJVWO0ymbjJjZJ4623lLlWnx8gMUIdl
+						xpqJRf8af4uGONpbj5wNIphbPnexaTYEQHi0n8DPSsiPTt7clDI3SYQf9DyLnUEI
+						VNk9o5wwI4R1SfiCTFEoOcLaVrfBTuLmXl2TOVZ5M3tqOkOQeLkP/jPeQq7LxfSd
+						TfwVM+xalQwYU80gajMoy8UIarLR3blfjbe/s1W971x9oFfTIpcayIHioyCsn3jd
+						y9m05ArSqVX/R92evdM8ajQRyzw8Y8zndJen0Ird3BTeYP0Qzuk5N4rccgAgUgyx
+						JlE9suQ=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.edinburghcollege.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.edinburghcollege.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Edinburgh College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Edinburgh College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.edinburghcollege.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Jessica</md:GivenName>
+      <md:SurName>Wilkinson</md:SurName>
+      <md:EmailAddress>mailto:jessica.wilkinson@edinburghcollege.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Gordon</md:GivenName>
+      <md:SurName>Hope</md:SurName>
+      <md:EmailAddress>mailto:gordon.hope@edinburghcollege.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Julian</md:GivenName>
+      <md:SurName>Ward</md:SurName>
+      <md:EmailAddress>mailto:julian.ward@edinburghcollege.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Paul</md:GivenName>
+      <md:SurName>Archer</md:SurName>
+      <md:EmailAddress>mailto:paul.archer@edinburghcollege.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

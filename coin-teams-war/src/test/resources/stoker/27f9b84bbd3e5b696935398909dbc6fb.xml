@@ -1,52 +1,52 @@
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://filesender.redclara.net/simplesaml/module.php/saml/sp/metadata.php/default-sp">  
-<md:Extensions>
-<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://cofre.reuna.cl" registrationInstant="2014-02-21T00:00:00Z">
-<mdrpi:RegistrationPolicy xml:lang="es">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://filesender.redclara.net/simplesaml/module.php/saml/sp/metadata.php/default-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cofre.reuna.cl" registrationInstant="2014-02-21T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="es">
 http://cofre.reuna.cl/index.php/es/reglas-federacion
 </mdrpi:RegistrationPolicy>
-</mdrpi:RegistrationInfo>
-</md:Extensions>
-<md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">    
-<md:Extensions>
-	  <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-		<mdui:DisplayName xml:lang="en">Filesender - RedCLARA</mdui:DisplayName>
-		<mdui:DisplayName xml:lang="es">Filesender - RedCLARA</mdui:DisplayName>
-		<mdui:Description xml:lang="en">RedCLARA's Filesender Service</mdui:Description>
-		<mdui:Description xml:lang="es">Servicio Filesender de RedCLARA</mdui:Description>
-		<mdui:InformationURL xml:lang="en">http://www.redclara.net/index.php?lang=en</mdui:InformationURL>
-		<mdui:InformationURL xml:lang="es">http://www.redclara.net/index.php?lang=es</mdui:InformationURL>
-    </mdui:UIInfo>
-  </md:Extensions>
-<md:KeyDescriptor use="signing">      
-<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">        
-<ds:X509Data>          
-<ds:X509Certificate>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
-</ds:X509Certificate>        
-</ds:X509Data>      
-</ds:KeyInfo>    
-</md:KeyDescriptor>    
-<md:KeyDescriptor use="encryption">      
-<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">        
-<ds:X509Data>          
-<ds:X509Certificate>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
-</ds:X509Certificate>        
-</ds:X509Data>      
-</ds:KeyInfo>    
-</md:KeyDescriptor>    
-<md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://filesender.redclara.net/simplesaml/module.php/saml/sp/saml2-logout.php/default-sp"/>    
-<md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://filesender.redclara.net/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp" index="0"/>    
-<md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://filesender.redclara.net/simplesaml/module.php/saml/sp/saml1-acs.php/default-sp" index="1"/>    
-<md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://filesender.redclara.net/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp" index="2"/>    
-<md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://filesender.redclara.net/simplesaml/module.php/saml/sp/saml1-acs.php/default-sp/artifact" index="3"/>  
-</md:SPSSODescriptor>  
-  <md:Organization>
-        <md:OrganizationName xml:lang="en">RedCLARA</md:OrganizationName>
-        <md:OrganizationDisplayName xml:lang="en">RedCLARA</md:OrganizationDisplayName>
-        <md:OrganizationURL xml:lang="en">http://www.redclara.net/</md:OrganizationURL>
-  </md:Organization>
-<md:ContactPerson contactType="technical">    
-<md:GivenName>SEG</md:GivenName>    
-<md:SurName>RedCLARA</md:SurName>    
-<md:EmailAddress>seg@redclara.net</md:EmailAddress>  
-</md:ContactPerson>
-</md:EntityDescriptor>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Filesender - RedCLARA</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="es">Filesender - RedCLARA</mdui:DisplayName>
+          <mdui:Description xml:lang="en">RedCLARA's Filesender Service</mdui:Description>
+          <mdui:Description xml:lang="es">Servicio Filesender de RedCLARA</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.redclara.net/index.php?lang=en</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="es">http://www.redclara.net/index.php?lang=es</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>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
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>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
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://filesender.redclara.net/simplesaml/module.php/saml/sp/saml2-logout.php/default-sp"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://filesender.redclara.net/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://filesender.redclara.net/simplesaml/module.php/saml/sp/saml1-acs.php/default-sp" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://filesender.redclara.net/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://filesender.redclara.net/simplesaml/module.php/saml/sp/saml1-acs.php/default-sp/artifact" index="3"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">RedCLARA</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">RedCLARA</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.redclara.net/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>SEG</md:GivenName>
+      <md:SurName>RedCLARA</md:SurName>
+      <md:EmailAddress>seg@redclara.net</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

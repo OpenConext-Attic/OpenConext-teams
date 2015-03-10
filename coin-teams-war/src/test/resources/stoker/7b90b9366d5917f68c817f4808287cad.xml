@@ -1,0 +1,58 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.myinterfase.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEqjCCA5KgAwIBAgIJALAy5mejW0XwMA0GCSqGSIb3DQEBBAUAMIGUMQswCQYD
+						VQQGEwJVUzEOMAwGA1UECBMFVGV4YXMxDzANBgNVBAcTBkF1c3RpbjEZMBcGA1UE
+						ChMQQ1NPIFJlc2VhcmNoIEluYzETMBEGA1UECxMKcHJvZHVjdGlvbjEMMAoGA1UE
+						AxMDY3NvMSYwJAYJKoZIhvcNAQkBFhdzdXBwb3J0QGNzb3Jlc2VhcmNoLmNvbTAe
+						Fw0wODA3MjgxODQ3MjdaFw0xODA3MjYxODQ3MjdaMIGUMQswCQYDVQQGEwJVUzEO
+						MAwGA1UECBMFVGV4YXMxDzANBgNVBAcTBkF1c3RpbjEZMBcGA1UEChMQQ1NPIFJl
+						c2VhcmNoIEluYzETMBEGA1UECxMKcHJvZHVjdGlvbjEMMAoGA1UEAxMDY3NvMSYw
+						JAYJKoZIhvcNAQkBFhdzdXBwb3J0QGNzb3Jlc2VhcmNoLmNvbTCCASIwDQYJKoZI
+						hvcNAQEBBQADggEPADCCAQoCggEBAJYDztkLmhjwhZrFuCNLMi5bDoiLm/mdSEih
+						yeEl5pTMdaw2ZF4I19+DtKxK7PcWSSXWKJfVfD93kys8eZ+xx9fBNiFVqZdkk7Z9
+						jUAhG5NB/kvLVNrEP2i4ZryXaLpbes/9HSKP2ZE6Iozdz45Ie7tbig6lN3itqDiE
+						/AXDTnpBEB2WXaxlIomCzPbWm3bjFEbTOpzaAeyQBv9paxftSvrOREI18Ubv8OYj
+						gWszVWTQLuNg7FCivZTk7REerI5hXNVsB0KY2FeIEUqqajxIxlj+vCZTTOhjeHLA
+						QKIMkVFAmWEn6zLQDGI8yV4ooab6P1eZNs/vSmY/Foc6Z4fBrkcCAwEAAaOB/DCB
+						+TAdBgNVHQ4EFgQUok5bi4sjD0Ud4emkOVF1Or5db/IwgckGA1UdIwSBwTCBvoAU
+						ok5bi4sjD0Ud4emkOVF1Or5db/KhgZqkgZcwgZQxCzAJBgNVBAYTAlVTMQ4wDAYD
+						VQQIEwVUZXhhczEPMA0GA1UEBxMGQXVzdGluMRkwFwYDVQQKExBDU08gUmVzZWFy
+						Y2ggSW5jMRMwEQYDVQQLEwpwcm9kdWN0aW9uMQwwCgYDVQQDEwNjc28xJjAkBgkq
+						hkiG9w0BCQEWF3N1cHBvcnRAY3NvcmVzZWFyY2guY29tggkAsDLmZ6NbRfAwDAYD
+						VR0TBAUwAwEB/zANBgkqhkiG9w0BAQQFAAOCAQEAOUVYBoiWvLmhKqYmMXQAMjUx
+						OpJPCel/bjMfW4Wlp+2yOuQcuqc9ZkFUME6tjqOgSuQkkU6R88h9jeeZX+s5TAVF
+						dPImqHPM/rcLGnoe1Wa/6UR6Zwcp4rsFSDu0+7Jd3PKG3j6lKWezUXargrJZdG5u
+						tXuwJf+f6QUiWWNiQI40kF7FhqlCWJ0CqXvNBGRXmdVwLQrADUUyNs4N3DM3hVDS
+						0/G9cmszj6oBd/EQznuxVJVvk6vpGBifh47t/LCWNd3rgPf2Rk3qx1HRoqcheJBK
+						pFT1skULlbFxWMSbnHzHd5evjh5a5B0pzmlrkXpAtVoIVAur0M8FX8+ts+mTNA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.myinterfase.com/Shibboleth.sso/SAML/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.myinterfase.com/Shibboleth.sso/SAML/Artifact" index="2"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">CSO Research, Inc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">CSO Research, Inc: Interfase</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.csoresearch.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Jason</md:GivenName>
+      <md:SurName>Lanham</md:SurName>
+      <md:EmailAddress>mailto:jason@csoresearch.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Jason</md:GivenName>
+      <md:SurName>Lanham</md:SurName>
+      <md:EmailAddress>mailto:jason@csoresearch.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

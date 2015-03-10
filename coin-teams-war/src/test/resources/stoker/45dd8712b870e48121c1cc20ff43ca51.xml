@@ -1,0 +1,124 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://gihidentity01.ihs.se/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">gih.se</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="sv">Gymnastik- och idrottshögskolan</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">The Swedish School of Sport and Health Sciences</mdui:DisplayName>
+          <mdui:Description xml:lang="sv">Identitetsutgivare för Gymnastik- och Idrottshögskolan vid Stockholms Stadion</mdui:Description>
+          <mdui:Description xml:lang="en">Identity Provider for The Swedish School of Sport and Health Sciences</mdui:Description>
+          <mdui:InformationURL xml:lang="sv">https://gihidentity01.ihs.se/idp/Authn/UserPassword</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">https://gihidentity01.ihs.se/idp/Authn/UserPassword</mdui:InformationURL>
+          <mdui:Logo height="107" width="204" xml:lang="sv">https://gihidentity01.ihs.se/idp/images/gihlogo.gif</mdui:Logo>
+          <mdui:Keywords xml:lang="sv">gih gymnastik-+och+idrottshögskolan the+swedish+school+of+sport+and+health+sciences</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">gih gymnastik-+och+idrottshögskolan the+swedish+school+of+sport+and+health+sciences</mdui:Keywords>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>gih.se</mdui:DomainHint>
+          <mdui:GeolocationHint>geo:59.3467350,18.0811920</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+
+MIIDOzCCAiOgAwIBAgIUX4LM+yBFUKdFziHUCVyiPPGiL8YwDQYJKoZIhvcNAQEF
+BQAwHzEdMBsGA1UEAxMUZ2loaWRlbnRpdHkwMS5paHMuc2UwHhcNMTMwOTIwMTA1
+NTIzWhcNMzMwOTIwMTA1NTIzWjAfMR0wGwYDVQQDExRnaWhpZGVudGl0eTAxLmlo
+cy5zZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKjZBXC3TcY47KYX
+t3n4IH6X8Jszyeinq+Zo6mtsJgzu9JPikIiG9jDJj+ylQiTDSSTBMSAUZ3p6ola/
++/IlDu0q5oLFCMEe3m9AdJIwyT6CjIJOiLSzeaTOqQNtXowLFCxj+PPrVRaqJiYc
++7f3+5SMwn2iOLkr6/ZFW5cuhw9flzR/Qp7m9ByTIcs73XK1JcQPP1UoPgo8mUXj
+/IHbxB/+P0NzjMXbKZEFEnZQzDoxNYDbARh6T/hJreIKBr+B0KnKogZnM9WgdJof
+O6GKR1lETrGgmCITblP7dbrRIL2VxMmXQEMhdS78Y5GNRPnGxp00kT2h/tTA1Reb
+52sROA0CAwEAAaNvMG0wTAYDVR0RBEUwQ4IUZ2loaWRlbnRpdHkwMS5paHMuc2WG
+K2h0dHBzOi8vZ2loaWRlbnRpdHkwMS5paHMuc2UvaWRwL3NoaWJib2xldGgwHQYD
+VR0OBBYEFIzCrjaWTfLensnYqTm/G3CNWsbNMA0GCSqGSIb3DQEBBQUAA4IBAQB7
+pVQO0Su0rB9WHWpitL0kNNfFQgapWHHZ8hYUDFWxiON7IGG6GlVsqgvwGCQwYgci
+E+WrKirES8+tE/EWhNfSvydlBuHwkvBP2WqsjUVbG0U4xbguE3C1ZrcfKcjBkSDH
+YmMuoYqX6RkHuwExl0xLr1ApVz8l2D9HVXdVi3aG31gMpo4/G1GukY8Pny8ZSbNP
+cb9+7g88/LLBLc5cx1iccfK4h0Er5QAFjNd3uKD3p0sxQYKPGs5X2ZwOxJlmeAiU
+3Ujhy7jzfaV7bFtz+GL8WTHoi2OfI1YqES5Jr3sQnlArhemcYUxnpBN4yvDF2QK1
+icptKTpDxrRjfCXibBT1
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://gihidentity01.ihs.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://gihidentity01.ihs.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://gihidentity01.ihs.se/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://gihidentity01.ihs.se/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://gihidentity01.ihs.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://gihidentity01.ihs.se/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ihs.se</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+
+MIIDOzCCAiOgAwIBAgIUX4LM+yBFUKdFziHUCVyiPPGiL8YwDQYJKoZIhvcNAQEF
+BQAwHzEdMBsGA1UEAxMUZ2loaWRlbnRpdHkwMS5paHMuc2UwHhcNMTMwOTIwMTA1
+NTIzWhcNMzMwOTIwMTA1NTIzWjAfMR0wGwYDVQQDExRnaWhpZGVudGl0eTAxLmlo
+cy5zZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKjZBXC3TcY47KYX
+t3n4IH6X8Jszyeinq+Zo6mtsJgzu9JPikIiG9jDJj+ylQiTDSSTBMSAUZ3p6ola/
++/IlDu0q5oLFCMEe3m9AdJIwyT6CjIJOiLSzeaTOqQNtXowLFCxj+PPrVRaqJiYc
++7f3+5SMwn2iOLkr6/ZFW5cuhw9flzR/Qp7m9ByTIcs73XK1JcQPP1UoPgo8mUXj
+/IHbxB/+P0NzjMXbKZEFEnZQzDoxNYDbARh6T/hJreIKBr+B0KnKogZnM9WgdJof
+O6GKR1lETrGgmCITblP7dbrRIL2VxMmXQEMhdS78Y5GNRPnGxp00kT2h/tTA1Reb
+52sROA0CAwEAAaNvMG0wTAYDVR0RBEUwQ4IUZ2loaWRlbnRpdHkwMS5paHMuc2WG
+K2h0dHBzOi8vZ2loaWRlbnRpdHkwMS5paHMuc2UvaWRwL3NoaWJib2xldGgwHQYD
+VR0OBBYEFIzCrjaWTfLensnYqTm/G3CNWsbNMA0GCSqGSIb3DQEBBQUAA4IBAQB7
+pVQO0Su0rB9WHWpitL0kNNfFQgapWHHZ8hYUDFWxiON7IGG6GlVsqgvwGCQwYgci
+E+WrKirES8+tE/EWhNfSvydlBuHwkvBP2WqsjUVbG0U4xbguE3C1ZrcfKcjBkSDH
+YmMuoYqX6RkHuwExl0xLr1ApVz8l2D9HVXdVi3aG31gMpo4/G1GukY8Pny8ZSbNP
+cb9+7g88/LLBLc5cx1iccfK4h0Er5QAFjNd3uKD3p0sxQYKPGs5X2ZwOxJlmeAiU
+3Ujhy7jzfaV7bFtz+GL8WTHoi2OfI1YqES5Jr3sQnlArhemcYUxnpBN4yvDF2QK1
+icptKTpDxrRjfCXibBT1
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://gihidentity01.ihs.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://gihidentity01.ihs.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">The Swedish School of sport and health sciences</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sv">Gymnastik- och Idrottshögskolan</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">The Swedish School of Sport and Health Sciences</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.gih.se</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:Company>The Swedish School of Sport and Health Sciences</md:Company>
+      <md:SurName>Fredrik Nilsson</md:SurName>
+      <md:EmailAddress>fredrik.nilsson@gih.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 8 12053734</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:Company>The Swedish School of Sport and Health Sciences</md:Company>
+      <md:SurName>Michael Thunell</md:SurName>
+      <md:EmailAddress>michael.thunell@gih.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 8 12053807</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>The Swedish School of Sport and Health Sciences</md:Company>
+      <md:SurName>Charlie Skog</md:SurName>
+      <md:EmailAddress>charlie.skog@gih.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 8 12053792</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,58 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.lboro.ac.uk/simplesaml/saml2/idp/metadata.php">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2011-03-10T17:31:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">lboro.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIID8zCCAtugAwIBAgIJAJC1ySyy8NnHMA0GCSqGSIb3DQEBBQUAMIGPMQswCQYD
+						VQQGEwJHQjEXMBUGA1UECAwOTGVpY2VzdGVyc2hpcmUxFTATBgNVBAcMDExvdWdo
+						Ym9yb3VnaDEgMB4GA1UECgwXTG91Z2hib3JvdWdoIFVuaXZlcnNpdHkxFDASBgNV
+						BAsMC0lUIFNlcnZpY2VzMRgwFgYDVQQDDA9pZHAubGJvcm8uYWMudWswHhcNMTQw
+						NjI2MTQ0NTMzWhcNMzQwNjI2MTQ0NTMzWjCBjzELMAkGA1UEBhMCR0IxFzAVBgNV
+						BAgMDkxlaWNlc3RlcnNoaXJlMRUwEwYDVQQHDAxMb3VnaGJvcm91Z2gxIDAeBgNV
+						BAoMF0xvdWdoYm9yb3VnaCBVbml2ZXJzaXR5MRQwEgYDVQQLDAtJVCBTZXJ2aWNl
+						czEYMBYGA1UEAwwPaWRwLmxib3JvLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOC
+						AQ8AMIIBCgKCAQEA3bzqGATB5A3Ve1tYdKK33TzyiojOKh32KKxQSsULl4HAY+tW
+						K6ecQB56Meq7vxkQ0eIau/uyfk7Q87qhH4gX/tTpfsbvrPaaB/X0/AU0uNnaCVK0
+						Vh7AZYzZF+nTgzFxCq+aOiVPCR7f5LLBY3BFj6QdBzKalAShozuwHiLtnL3nYpVt
+						yEwEbbBS1BuKmsGSKAncrMiWKdmzMTMyCZtu0u1dmtpnwbfppFoPlj/zM8KDjBdr
+						Aehg5Rflrj8lifnkJSEpIHT+BTlx6zyvbCPSWdk9VTzXpPM3JlQwIs0dlJzPMh6w
+						CAw66N393Awd9ilkpoGrkdG/hFzPD2D/0RNX7wIDAQABo1AwTjAdBgNVHQ4EFgQU
+						18Vf/8a7klrMfl3UMChCt8tzOG8wHwYDVR0jBBgwFoAU18Vf/8a7klrMfl3UMChC
+						t8tzOG8wDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOCAQEAtlrSXUAKW4tV
+						0I7JkmVUvKhrlFlZJMqR8WNwxG5l6+5BFvXLb0DoGH1YdynAWn9MtdvWTm/hGOZ5
+						Vr/FYBbHHjZN4HK6DMceZSq9YAMdEUtpIPMd1sGdplVKofHqYUEbKL+VJnBYSYnr
+						J1VQhScUX0PjM5rAwlXxdh2kBNlyeC1ZsjNvLPH95T+Ev8i6BFVrSbe09I40mBiQ
+						JThq5JpngMmPGZg5r/H3PnAJdN5OwUyLPLj4D/raVOAk7tiySTPWzWRyPxzbRXr0
+						tDPQasPZEABCL4E0cEK4YHwrffT/nd3I0KQ2wS/C17z3798QYPQJ9f6KHty2X5mf
+						PmG2OinSJg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.lboro.ac.uk/simplesaml/saml2/idp/SingleLogoutService.php"/>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.lboro.ac.uk/simplesaml/saml2/idp/SSOService.php"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Loughborough University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Loughborough University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.lboro.ac.uk/it/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Loughborough University IT Services</md:GivenName>
+      <md:EmailAddress>mailto:it.services@lboro.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Loughborough University IT Services</md:GivenName>
+      <md:EmailAddress>mailto:it.services@lboro.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

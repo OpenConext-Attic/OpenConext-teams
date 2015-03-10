@@ -1,0 +1,100 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shiblogin.hull.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-06-28T11:48:17Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hull.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University of Hull (Shibboleth)</mdui:DisplayName>
+          <mdui:Logo height="80" width="60">https://library.hull.ac.uk/screens/newlogo.jpg</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDOzCCAiOgAwIBAgIULUB2P8Qd8xEzfYUd14VtQqBiwXswDQYJKoZIhvcNAQEF
+						BQAwHzEdMBsGA1UEAxMUc2hpYmxvZ2luLmh1bGwuYWMudWswHhcNMTMwNjI2MTQy
+						ODQwWhcNMzMwNjI2MTQyODQwWjAfMR0wGwYDVQQDExRzaGlibG9naW4uaHVsbC5h
+						Yy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK4dV4SFn79Mv9KA
+						ul1dlv9rPUfQuZPBVkNNjCtGk+KA3RpDPcidgV/2s8AdMG8NTknoT4vFzPYlgyaS
+						g2/tpzHKx9XqqJJQcAG4EvA3Pf8GF80Jk/hiI9T21tlp1S10g6KAU9hhqcsFZPR1
+						jSCtK45yjQ/WMzxdh/ds99qmCkjEQIn253Ra15vcoQApdSCusPO5oTENBK0SUTQe
+						uhGdWJlFBDHs7eHX+Fngyx066FrlrgUsCpiCor54m7DTB3NBOCD5LlpZMGJonrS6
+						O3XX/Bdt03ZdbPVLoAMb1hDY0uaIxrcCg3gMuIa9+wE5PsA/gvU60+uv3lzVzvsI
+						w81aZxsCAwEAAaNvMG0wTAYDVR0RBEUwQ4IUc2hpYmxvZ2luLmh1bGwuYWMudWuG
+						K2h0dHBzOi8vc2hpYmxvZ2luLmh1bGwuYWMudWsvaWRwL3NoaWJib2xldGgwHQYD
+						VR0OBBYEFLMPSMcSqArLLEqd9nbiw7CBYaO3MA0GCSqGSIb3DQEBBQUAA4IBAQCs
+						sKAv5nTTPIJ70oUcqtifzfHIYYCKnAKU0M6ug6Vcd0mFZJJ705u3dmtsTDylbDC7
+						sNDHtw/gbrmPb6PCGK0+8Ifr0yl16/i5vAzm7oCN2OqTsX94qAlWuey8xNIF9SW5
+						3q7n2jTOvOo4293pV1hNFGkpZSrqM/KaNhgOxOKx2ezb17QvEmKXX/JUJprOA+Y1
+						iWz5dMqvNl4a8Gbvp71bMtREfKa6m904CBCK69NKllb4kqRRoXggkVQjHQlLChv1
+						+e+c96h5fZroNkwofpqn6rpmvQfSmV2eRkpShhOjXXOarehRMQ+TIJJhdYR/w/8R/
+						I7/29liqhV3JptWNE4C
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shiblogin.hull.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shiblogin.hull.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shiblogin.hull.ac.uk/idp/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shiblogin.hull.ac.uk/idp/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shiblogin.hull.ac.uk:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shiblogin.hull.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shiblogin.hull.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shiblogin.hull.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shiblogin.hull.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hull.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDOzCCAiOgAwIBAgIULUB2P8Qd8xEzfYUd14VtQqBiwXswDQYJKoZIhvcNAQEF
+						BQAwHzEdMBsGA1UEAxMUc2hpYmxvZ2luLmh1bGwuYWMudWswHhcNMTMwNjI2MTQy
+						ODQwWhcNMzMwNjI2MTQyODQwWjAfMR0wGwYDVQQDExRzaGlibG9naW4uaHVsbC5h
+						Yy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK4dV4SFn79Mv9KA
+						ul1dlv9rPUfQuZPBVkNNjCtGk+KA3RpDPcidgV/2s8AdMG8NTknoT4vFzPYlgyaS
+						g2/tpzHKx9XqqJJQcAG4EvA3Pf8GF80Jk/hiI9T21tlp1S10g6KAU9hhqcsFZPR1
+						jSCtK45yjQ/WMzxdh/ds99qmCkjEQIn253Ra15vcoQApdSCusPO5oTENBK0SUTQe
+						uhGdWJlFBDHs7eHX+Fngyx066FrlrgUsCpiCor54m7DTB3NBOCD5LlpZMGJonrS6
+						O3XX/Bdt03ZdbPVLoAMb1hDY0uaIxrcCg3gMuIa9+wE5PsA/gvU60+uv3lzVzvsI
+						w81aZxsCAwEAAaNvMG0wTAYDVR0RBEUwQ4IUc2hpYmxvZ2luLmh1bGwuYWMudWuG
+						K2h0dHBzOi8vc2hpYmxvZ2luLmh1bGwuYWMudWsvaWRwL3NoaWJib2xldGgwHQYD
+						VR0OBBYEFLMPSMcSqArLLEqd9nbiw7CBYaO3MA0GCSqGSIb3DQEBBQUAA4IBAQCs
+						sKAv5nTTPIJ70oUcqtifzfHIYYCKnAKU0M6ug6Vcd0mFZJJ705u3dmtsTDylbDC7
+						sNDHtw/gbrmPb6PCGK0+8Ifr0yl16/i5vAzm7oCN2OqTsX94qAlWuey8xNIF9SW5
+						3q7n2jTOvOo4293pV1hNFGkpZSrqM/KaNhgOxOKx2ezb17QvEmKXX/JUJprOA+Y1
+						iWz5dMqvNl4a8Gbvp71bMtREfKa6m904CBCK69NKllb4kqRRoXggkVQjHQlLChv1
+						+e+c96h5fZroNkwofpqn6rpmvQfSmV2eRkpShhOjXXOarehRMQ+TIJJhdYR/w/8R
+						/I7/29liqhV3JptWNE4C
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shiblogin.hull.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shiblogin.hull.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Hull</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Hull (Shibboleth)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.hull.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Library help</md:GivenName>
+      <md:EmailAddress>mailto:libhelp@hull.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Michael</md:GivenName>
+      <md:SurName>McLoughlin</md:SurName>
+      <md:EmailAddress>mailto:Michael.McLoughlin@hull.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

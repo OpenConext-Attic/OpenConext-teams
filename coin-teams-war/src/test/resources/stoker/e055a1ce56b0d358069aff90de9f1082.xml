@@ -1,0 +1,72 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://isls-shibsp1.wmin.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://isls-shibsp1.wmin.ac.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEfDCCA2SgAwIBAgIRAKcKlpWKeiQ2JgZOpQd7r2EwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzAzMDQwMDAwMDBaFw0xNjAzMDMyMzU5NTlaMEUxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEgMB4GA1UEAxMXaXNscy1zaGli
+						c3AxLndtaW4uYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDq
+						Sxx+9Zm7n7ts0gcLBL/GQZP56I05X3MvQlwpUBuA9yklTUwj0pqHoFA52djvPQ0B
+						qQQHkIfn9oasbC5W9RoDWfLYgFKYTx3Hat8eXz+qBYBUBvjRSVbCvwcIuKPwkOYd
+						jLhbwhzBKQjJ2IRWFt7/+fapP5pD1GH0ONYi8CGGYl2GDq3PR5q0vY1138k929Qf
+						5/usrmB8gS+dWP3YDFtZHVSKAPJPRTAYdxrXu0oNljNoCe1qYzwjCQ8PaFiblrD5
+						XwdDgzpVTIsIcNvCqlzSQLdonuL/PNsyX1zp6ZVE0YK+MwHY2PHuLAvAelmJuev7
+						Rv6RvrK9/aqow00uvGjzAgMBAAGjggF0MIIBcDAfBgNVHSMEGDAWgBQMvZNoDPPe
+						q6NJays3V0fqkOO57TAdBgNVHQ4EFgQUlraHm+YFRDr0FiNFsq5kX8EU4ZYwDgYD
+						VR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEG
+						CCsGAQUFBwMCMCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQIBMDoG
+						A1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5B
+						U1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2Ny
+						dC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0
+						dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMCIGA1UdEQQbMBmCF2lzbHMtc2hpYnNw
+						MS53bWluLmFjLnVrMA0GCSqGSIb3DQEBBQUAA4IBAQAlJVMwZfnCbDGZ6tRoWcv/
+						9SsLIpuq3Qqz0h0Yj0UdsIQ8PN9XSf1XIQj4pcNA1l1vktjPtPj6NKihliOIyZse
+						shUfTdaZW03i6lEGiluEUptYKDnIOx37EPJjzv/LqLNGK9Pc6RaPn3tsWF7SXMxw
+						7w749ND4CQlVRFyrH5eYy9RhrKWjr+dA/wvnx+Zd+6+KtsqrAA3nn+LHyrGKpx1o
+						8lNuCyzYaYjhVk66P94RHX24e+pNbKMB8rgrY3yDCduz+RTpfpei2zdyQ7ozhrsC
+						axbN6Uoxykqr5+rRKWbZi38xg9VP+mnAXiGvl5s+v2hjV6Gq2/orQwDLhV+b40U4
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://isls-shibsp1.wmin.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://isls-shibsp1.wmin.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://isls-shibsp1.wmin.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://isls-shibsp1.wmin.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://isls-shibsp1.wmin.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://isls-shibsp1.wmin.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://isls-shibsp1.wmin.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://isls-shibsp1.wmin.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://isls-shibsp1.wmin.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://isls-shibsp1.wmin.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://isls-shibsp1.wmin.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://isls-shibsp1.wmin.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://isls-shibsp1.wmin.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://isls-shibsp1.wmin.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://isls-shibsp1.wmin.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Westminster</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Westminster: Shibboleth Service Provider</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.wmin.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Ann</md:GivenName>
+      <md:SurName>Munn</md:SurName>
+      <md:EmailAddress>mailto:a.e.munn@westminster.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Dave</md:GivenName>
+      <md:SurName>Marriott</md:SurName>
+      <md:EmailAddress>mailto:d.marriott@westminster.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

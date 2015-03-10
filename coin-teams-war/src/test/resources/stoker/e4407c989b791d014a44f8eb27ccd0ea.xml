@@ -1,0 +1,96 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.macclesfield.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">macclesfield.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDbDCCAlQCCQD/7vODco0h7zANBgkqhkiG9w0BAQUFADB4MQswCQYDVQQGEwJH
+						QjERMA8GA1UECBMIQ2hlc2hpcmUxFTATBgNVBAcTDE1hY2NsZXNmaWVsZDEdMBsG
+						A1UEChMUTWFjY2xlc2ZpZWxkIENvbGxlZ2UxIDAeBgNVBAMTF2lkcDIubWFjY2xl
+						c2ZpZWxkLmFjLnVrMB4XDTEzMDIwNzExMjYwOFoXDTMzMDIwMjExMjYwOFoweDEL
+						MAkGA1UEBhMCR0IxETAPBgNVBAgTCENoZXNoaXJlMRUwEwYDVQQHEwxNYWNjbGVz
+						ZmllbGQxHTAbBgNVBAoTFE1hY2NsZXNmaWVsZCBDb2xsZWdlMSAwHgYDVQQDExdp
+						ZHAyLm1hY2NsZXNmaWVsZC5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+						AQoCggEBAMDM05odoeteSlOjg3QAARLG25Ze052B7oef9N8SJe9qktTJsCp8lrzo
+						QXR/CN/8XCRGiysNEtD5+dts4Vt16EU5eB3oknVjFwJ2tm14fAsOJkhYxEeL89oQ
+						mGBS0DR5H+O8JFHwTVgYWaMK8Biei81MISIWo0QFgY/lhM4msVbJLmNfbWKvp2bU
+						RQBOIv+zUYiLvESt1ZlXOiFZdJHvXJBhN5xV834x28KJMhsPtuGNI/NcHOpJ7gfy
+						QIS2aDn03hws2UmfFSaNo5Fbv69FmF1b1RNzdl/E91aj2xrwq/kCslBd0qvGVBQS
+						B3zaZvXN+zkvmfm6oqvrzo+ohdozk1kCAwEAATANBgkqhkiG9w0BAQUFAAOCAQEA
+						Cbl1ic6Me2HZNOyy42mLGWip6BRF3AmyRlAjYEnGOWjrbjnljF40C2ggFNFnpZZt
+						TiRd7Ovzvbm+xJJiA3TiHiEZcmTH00DG6mEiqpan71wxkMvDrGD3c1KTVk4ALXwb
+						aSPz1JNIrw9XlX+JD6rXr9rH6aUPx7ckWi5nrodY6fW89WDiEtx7WOkDc1Zj77Gq
+						JDpIl002iw2tQp+TRHDUD4Kc73JKc8IuJBDhxSedztn/jyZFfciIHBNMjaBQsd3n
+						9/dIxdTe1CnRSzW8XzAbJPUdaYjy5ORlYKJ28OqKs/11N2llbaTuAwZqm3Ps9bKL
+						URTAw0QV//xFG86AyPeEYg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp2.macclesfield.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp2.macclesfield.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp2.macclesfield.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp2.macclesfield.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp2.macclesfield.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp2.macclesfield.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">macclesfield.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDbDCCAlQCCQD/7vODco0h7zANBgkqhkiG9w0BAQUFADB4MQswCQYDVQQGEwJH
+						QjERMA8GA1UECBMIQ2hlc2hpcmUxFTATBgNVBAcTDE1hY2NsZXNmaWVsZDEdMBsG
+						A1UEChMUTWFjY2xlc2ZpZWxkIENvbGxlZ2UxIDAeBgNVBAMTF2lkcDIubWFjY2xl
+						c2ZpZWxkLmFjLnVrMB4XDTEzMDIwNzExMjYwOFoXDTMzMDIwMjExMjYwOFoweDEL
+						MAkGA1UEBhMCR0IxETAPBgNVBAgTCENoZXNoaXJlMRUwEwYDVQQHEwxNYWNjbGVz
+						ZmllbGQxHTAbBgNVBAoTFE1hY2NsZXNmaWVsZCBDb2xsZWdlMSAwHgYDVQQDExdp
+						ZHAyLm1hY2NsZXNmaWVsZC5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+						AQoCggEBAMDM05odoeteSlOjg3QAARLG25Ze052B7oef9N8SJe9qktTJsCp8lrzo
+						QXR/CN/8XCRGiysNEtD5+dts4Vt16EU5eB3oknVjFwJ2tm14fAsOJkhYxEeL89oQ
+						mGBS0DR5H+O8JFHwTVgYWaMK8Biei81MISIWo0QFgY/lhM4msVbJLmNfbWKvp2bU
+						RQBOIv+zUYiLvESt1ZlXOiFZdJHvXJBhN5xV834x28KJMhsPtuGNI/NcHOpJ7gfy
+						QIS2aDn03hws2UmfFSaNo5Fbv69FmF1b1RNzdl/E91aj2xrwq/kCslBd0qvGVBQS
+						B3zaZvXN+zkvmfm6oqvrzo+ohdozk1kCAwEAATANBgkqhkiG9w0BAQUFAAOCAQEA
+						Cbl1ic6Me2HZNOyy42mLGWip6BRF3AmyRlAjYEnGOWjrbjnljF40C2ggFNFnpZZt
+						TiRd7Ovzvbm+xJJiA3TiHiEZcmTH00DG6mEiqpan71wxkMvDrGD3c1KTVk4ALXwb
+						aSPz1JNIrw9XlX+JD6rXr9rH6aUPx7ckWi5nrodY6fW89WDiEtx7WOkDc1Zj77Gq
+						JDpIl002iw2tQp+TRHDUD4Kc73JKc8IuJBDhxSedztn/jyZFfciIHBNMjaBQsd3n
+						9/dIxdTe1CnRSzW8XzAbJPUdaYjy5ORlYKJ28OqKs/11N2llbaTuAwZqm3Ps9bKL
+						URTAw0QV//xFG86AyPeEYg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp2.macclesfield.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp2.macclesfield.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Macclesfield College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Macclesfield College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.macclesfield.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Scott</md:GivenName>
+      <md:SurName>White</md:SurName>
+      <md:EmailAddress>mailto:scott.white@macclesfield.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Scott</md:GivenName>
+      <md:SurName>White</md:SurName>
+      <md:EmailAddress>mailto:scott.white@macclesfield.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

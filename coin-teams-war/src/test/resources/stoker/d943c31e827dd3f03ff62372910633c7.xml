@@ -1,0 +1,100 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp2.londonlibrary.co.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">londonlibrary.co.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIID4zCCAsugAwIBAgIQG8nxIvuKxXyztHTfjSVepjANBgkqhkiG9w0BAQUFADA8
+						MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMVGhhd3RlLCBJbmMuMRYwFAYDVQQDEw1U
+						aGF3dGUgU1NMIENBMB4XDTEyMDQyODAwMDAwMFoXDTE1MDYwNDIzNTk1OVowfDEL
+						MAkGA1UEBhMCR0IxDzANBgNVBAgTBkxvbmRvbjEPMA0GA1UEBxQGTG9uZG9uMRsw
+						GQYDVQQKFBJUaGUgTG9uZG9uIExpYnJhcnkxCzAJBgNVBAsUAklUMSEwHwYDVQQD
+						FBhpZHAyLmxvbmRvbmxpYnJhcnkuY28udWswggEiMA0GCSqGSIb3DQEBAQUAA4IB
+						DwAwggEKAoIBAQCv+8/P1qUVuZp/ZdIC9WN9+xiUJWmUynBYtQK3i1CQwTIOA8UL
+						5dwQjoSL57qs+CtTidKRHtbVjjh79Cn0J78eMPvhDZvz0eUuXDE+yje4dgzQiAgf
+						lgXC93GKbVDL0McjdMB0CigzHNHeMND+iW23NPjF/3uKfJ5kE2PSbT0NX6aQThIz
+						wkK+EVxi1JkK8/Kp0vJtIsjtOVQ38F/orX0v5Ma7PrjGCrMy0JTBrPYgN7MaHIIh
+						LHIKQ1cPewrXzEsuE3wjrpmEDUUkIR8ukibGARZU+zboHJII1Ay8Ug9gsJmEYlMx
+						AmLyMygjQEjgR6lFOC24EdkutgAIVmNkpQnnAgMBAAGjgaAwgZ0wDAYDVR0TAQH/
+						BAIwADA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vc3ZyLW92LWNybC50aGF3dGUu
+						Y29tL1RoYXd0ZU9WLmNybDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIw
+						MgYIKwYBBQUHAQEEJjAkMCIGCCsGAQUFBzABhhZodHRwOi8vb2NzcC50aGF3dGUu
+						Y29tMA0GCSqGSIb3DQEBBQUAA4IBAQAUhOnO2siR+2vwEs/ayu2pznMNNTx++izD
+						L/0uxkCZVz2pJ0+amHrOdKTT2kxh/qE80QImdF4kncIQm1rNIy+exV9akY7j57er
+						OJt2Mriawe/vSwGDHA7j2rbBY+an/9GO3uKa5tshw1DCGgd5SKqqKrMJ8N9skB6R
+						xVsS0Rv7iOHM59cjLbXT9gW/MWeFcyN1OwhGfYZkyZ8rCKLmnZdc2TdIlFKYpCOw
+						Eya/cRt7jDIbirOzzJUOFlBg2jE3/+MSyeCQFcR4iv1FzjTj3DpVWPRwEz3fYAuf
+						hEQrOAW36sXQOEdmYgyivReyetd4+GSQT2HToCThGg9ttO+q7C7J
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp2.londonlibrary.co.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp2.londonlibrary.co.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp2.londonlibrary.co.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp2.londonlibrary.co.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp2.londonlibrary.co.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp2.londonlibrary.co.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">londonlibrary.co.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIID4zCCAsugAwIBAgIQG8nxIvuKxXyztHTfjSVepjANBgkqhkiG9w0BAQUFADA8
+						MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMVGhhd3RlLCBJbmMuMRYwFAYDVQQDEw1U
+						aGF3dGUgU1NMIENBMB4XDTEyMDQyODAwMDAwMFoXDTE1MDYwNDIzNTk1OVowfDEL
+						MAkGA1UEBhMCR0IxDzANBgNVBAgTBkxvbmRvbjEPMA0GA1UEBxQGTG9uZG9uMRsw
+						GQYDVQQKFBJUaGUgTG9uZG9uIExpYnJhcnkxCzAJBgNVBAsUAklUMSEwHwYDVQQD
+						FBhpZHAyLmxvbmRvbmxpYnJhcnkuY28udWswggEiMA0GCSqGSIb3DQEBAQUAA4IB
+						DwAwggEKAoIBAQCv+8/P1qUVuZp/ZdIC9WN9+xiUJWmUynBYtQK3i1CQwTIOA8UL
+						5dwQjoSL57qs+CtTidKRHtbVjjh79Cn0J78eMPvhDZvz0eUuXDE+yje4dgzQiAgf
+						lgXC93GKbVDL0McjdMB0CigzHNHeMND+iW23NPjF/3uKfJ5kE2PSbT0NX6aQThIz
+						wkK+EVxi1JkK8/Kp0vJtIsjtOVQ38F/orX0v5Ma7PrjGCrMy0JTBrPYgN7MaHIIh
+						LHIKQ1cPewrXzEsuE3wjrpmEDUUkIR8ukibGARZU+zboHJII1Ay8Ug9gsJmEYlMx
+						AmLyMygjQEjgR6lFOC24EdkutgAIVmNkpQnnAgMBAAGjgaAwgZ0wDAYDVR0TAQH/
+						BAIwADA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vc3ZyLW92LWNybC50aGF3dGUu
+						Y29tL1RoYXd0ZU9WLmNybDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIw
+						MgYIKwYBBQUHAQEEJjAkMCIGCCsGAQUFBzABhhZodHRwOi8vb2NzcC50aGF3dGUu
+						Y29tMA0GCSqGSIb3DQEBBQUAA4IBAQAUhOnO2siR+2vwEs/ayu2pznMNNTx++izD
+						L/0uxkCZVz2pJ0+amHrOdKTT2kxh/qE80QImdF4kncIQm1rNIy+exV9akY7j57er
+						OJt2Mriawe/vSwGDHA7j2rbBY+an/9GO3uKa5tshw1DCGgd5SKqqKrMJ8N9skB6R
+						xVsS0Rv7iOHM59cjLbXT9gW/MWeFcyN1OwhGfYZkyZ8rCKLmnZdc2TdIlFKYpCOw
+						Eya/cRt7jDIbirOzzJUOFlBg2jE3/+MSyeCQFcR4iv1FzjTj3DpVWPRwEz3fYAuf
+						hEQrOAW36sXQOEdmYgyivReyetd4+GSQT2HToCThGg9ttO+q7C7J
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp2.londonlibrary.co.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp2.londonlibrary.co.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">London Library</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">London Library</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.londonlibrary.co.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Will</md:GivenName>
+      <md:SurName>David</md:SurName>
+      <md:EmailAddress>mailto:will.david@londonlibrary.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Will</md:GivenName>
+      <md:SurName>David</md:SurName>
+      <md:EmailAddress>mailto:will.david@londonlibrary.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

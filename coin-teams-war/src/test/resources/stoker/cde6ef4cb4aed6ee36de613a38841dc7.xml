@@ -1,25 +1,23 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://www.rediris.es/sir/umaidp">
-		<md:Extensions xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
-        	<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.rediris.es/" registrationInstant="2012-10-09T13:08:24Z">
-            	<mdrpi:RegistrationPolicy xml:lang="en">https://www.rediris.es/sir/edugain/SIR_MRPS.pdf</mdrpi:RegistrationPolicy>
-        	</mdrpi:RegistrationInfo>
-		</md:Extensions>
-		<IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-
-			<md:Extensions xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
-            	<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-        	        <mdui:DisplayName xml:lang="en">Universidad de Málaga</mdui:DisplayName>
-    	            <mdui:DisplayName xml:lang="es">Universidad de Málaga</mdui:DisplayName>
-	                <mdui:Description xml:lang="en">The Identity Provider of Universidad de Málaga</mdui:Description>
-                	<mdui:Description xml:lang="es">El proveedor de identidad de la Universidad de Málaga</mdui:Description>
-            	</mdui:UIInfo>
-            	<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">uma.es</shibmd:Scope>
-        	</md:Extensions>
-
-			<KeyDescriptor use="signing">
-				<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					<ds:X509Data>
-						<ds:X509Certificate>MIIEeTCCA2GgAwIBAgIQCP9faAGj247/+QVzgpX08zANBgkqhkiG9w0BAQUFADA2
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.rediris.es/sir/umaidp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.rediris.es/" registrationInstant="2012-10-09T13:08:24Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.rediris.es/sir/edugain/SIR_MRPS.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">UMA - University of Malaga</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="es">UMA - Universidad de Málaga</mdui:DisplayName>
+          <mdui:Description xml:lang="en">The Identity Provider of University of Malaga</mdui:Description>
+          <mdui:Description xml:lang="es">El proveedor de identidad de la Universidad de Málaga</mdui:Description>
+        </mdui:UIInfo>
+        <shibmd:Scope regexp="false">uma.es</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEeTCCA2GgAwIBAgIQCP9faAGj247/+QVzgpX08zANBgkqhkiG9w0BAQUFADA2
 MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
 U1NMIENBMB4XDTEzMDcwMTAwMDAwMFoXDTE2MDYzMDIzNTk1OVowRDEhMB8GA1UE
 CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMR8wHQYDVQQDExZzYW1saWRwLnNp
@@ -43,37 +41,27 @@ ZWRpcmlzLmVzMA0GCSqGSIb3DQEBBQUAA4IBAQB0gmr232YgpUC4HkwAHXaH91Zx
 PHPMw2zauvtR/WPwdPszgfIOV/vkJ0rq9AjOXxSX7V2jpkxISGW/m93iahwXEoVF
 c8VXQhNjEfcm6uawmISjsyp6ta/U3e/8GJka2csDrF/bfipMBDSdWcLMscpYO8cb
 DC0L6vehZJ+lPz3wPH6YJmlstICZUdJIgDV3TUhmji6NNKa4p6by34QdYcDH</ds:X509Certificate>
-					</ds:X509Data>
-				</ds:KeyInfo>
-			</KeyDescriptor>
-
-			
-			<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="http://sir.rediris.es/uma/saml2/idp/SingleLogoutService.php" ResponseLocation="http://sir.rediris.es/uma/saml2/idp/SingleLogoutService.php"/>
-
-			
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-
-			
-			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="http://sir.rediris.es/uma/shib13/idp/SSOService.php"/>
-			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="http://sir.rediris.es/uma/saml2/idp/SSOService.php"/>
-
-		</IDPSSODescriptor>
-
-		<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
-			<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="http://sir.rediris.es/uma/shib13/idp/aa.php"/>
-		</AttributeAuthorityDescriptor>
-
-		<md:Organization xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
-        	<md:OrganizationName xml:lang="en">RedIRIS</md:OrganizationName>
-        	<md:OrganizationName xml:lang="es">RedIRIS</md:OrganizationName>
-        	<md:OrganizationDisplayName xml:lang="en">University of Malaga</md:OrganizationDisplayName>
-        	<md:OrganizationDisplayName xml:lang="es">Universidad de Málaga</md:OrganizationDisplayName>
-        	<md:OrganizationURL xml:lang="en">http://www.rediris.es/index.php.en</md:OrganizationURL>
-        	<md:OrganizationURL xml:lang="es">http://www.rediris.es/</md:OrganizationURL>
-    	</md:Organization>
-    	<md:ContactPerson xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" contactType="technical">
-        	<md:GivenName>SIR helpdesk</md:GivenName>
-        	<md:EmailAddress>sir@rediris.es</md:EmailAddress>
-    	</md:ContactPerson>
-
-	</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="http://sir.rediris.es/uma/saml2/idp/SingleLogoutService.php" ResponseLocation="http://sir.rediris.es/uma/saml2/idp/SingleLogoutService.php"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="http://sir.rediris.es/uma/shib13/idp/SSOService.php"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="http://sir.rediris.es/uma/saml2/idp/SSOService.php"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="http://sir.rediris.es/uma/shib13/idp/aa.php"/>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">UMA</md:OrganizationName>
+      <md:OrganizationName xml:lang="es">UMA</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">UMA - University of Malaga</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="es">UMA - Universidad de Málaga</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.rediris.es/index.php.en</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="es">http://www.rediris.es/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>SIR helpdesk</md:GivenName>
+      <md:EmailAddress>sir@rediris.es</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

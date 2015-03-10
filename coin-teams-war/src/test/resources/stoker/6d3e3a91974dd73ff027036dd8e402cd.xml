@@ -1,0 +1,112 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth-idp.don.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2009-05-07T11:17:05Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">don.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEsjCCA5qgAwIBAgIQJXdh9qnY6REO/Zy3Td93GDANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDUyMTAwMDAwMFoXDTE1MDUyMTIzNTk1OVowgY8xCzAJBgNV
+						BAYTAkdCMRgwFgYDVQQIEw9Tb3V0aCBZb3Jrc2hpcmUxEjAQBgNVBAcTCURvbmNh
+						c3RlcjEaMBgGA1UEChMRRG9uY2FzdGVyIENvbGxlZ2UxHjAcBgNVBAsTFUNvcnBv
+						cmF0ZSBJVCBTZXJ2aWNlczEWMBQGA1UEAxMNaWRwLmRvbi5hYy51azCCASIwDQYJ
+						KoZIhvcNAQEBBQADggEPADCCAQoCggEBAOExJKNwk9FG5VM2l8PxFFSn+rxJoHDz
+						xPi+V34Yp5vSaEUdSB3X99jY3SAHGs6dQv+Lo1cN56bdKz4sbozhCI27keRtE5FS
+						bkKYTgYgzemovXfyNi4S1orDiuYRtU++tWyvaaX3vn9BjFgv6BrUUB5WSjmcpJDw
+						Slsgg/v1ypI37keCSFbsJjCzKtEob2EyYp87mKtoFYtBC8g5XN6IbhrXh62kjiO0
+						79kJ6Nv1MdB5AbiiZByI52N6HLBaHsR7JcBYRlkGiLYD/yz0pp1exnFXbhmJuxz4
+						12C4nwkbj7ohoKFiqrRDiEQngcGaocuKVzdMeUm6hvBY8AlwOsBLYWkCAwEAAaOC
+						AWAwggFcMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQW
+						BBQ/E3x/Zf39MX7MOTyLGbBmeu4fQjAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/
+						BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwGAYDVR0gBBEwDzAN
+						BgsrBgEEAbIxAQICHTA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50
+						ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYB
+						BQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0
+						MCYGCCsGAQUFBzABhhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9yZzAYBgNVHREE
+						ETAPgg1pZHAuZG9uLmFjLnVrMA0GCSqGSIb3DQEBBQUAA4IBAQBjSCq267eB5uFW
+						U+T2FM6mEMtpDj9CEd1T5/3MsHjCZL0SGFq/EjEdVefEQmgLK1JWGvDHVWezO/q6
+						XCCzaxzcEYEx+yoSiLPh/XXwalQe9q5ACm3Q4YhgOkrbwnnYoov1Kke6mgGfc6t5
+						XnU5IFx5jO7+zCmrrxwhBCXts1NJxWPGtASOrE6nuKgLhqlAifxm8cD43oX8CGPf
+						DOiKhq+GtE1AGngBM3oaz212VOm57O4mptjzUomhK993ErLWbNgj0fv0MbAXTt2X
+						kyXiO13V3QS/aGG3burxjKwiFa7jOzuOmqKuDhhUUNMZUggc7ANqyjQ6N6wkEQjn
+						tY2MO8Vk
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.don.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.don.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.don.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.don.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.don.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.don.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">don.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEsjCCA5qgAwIBAgIQJXdh9qnY6REO/Zy3Td93GDANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDUyMTAwMDAwMFoXDTE1MDUyMTIzNTk1OVowgY8xCzAJBgNV
+						BAYTAkdCMRgwFgYDVQQIEw9Tb3V0aCBZb3Jrc2hpcmUxEjAQBgNVBAcTCURvbmNh
+						c3RlcjEaMBgGA1UEChMRRG9uY2FzdGVyIENvbGxlZ2UxHjAcBgNVBAsTFUNvcnBv
+						cmF0ZSBJVCBTZXJ2aWNlczEWMBQGA1UEAxMNaWRwLmRvbi5hYy51azCCASIwDQYJ
+						KoZIhvcNAQEBBQADggEPADCCAQoCggEBAOExJKNwk9FG5VM2l8PxFFSn+rxJoHDz
+						xPi+V34Yp5vSaEUdSB3X99jY3SAHGs6dQv+Lo1cN56bdKz4sbozhCI27keRtE5FS
+						bkKYTgYgzemovXfyNi4S1orDiuYRtU++tWyvaaX3vn9BjFgv6BrUUB5WSjmcpJDw
+						Slsgg/v1ypI37keCSFbsJjCzKtEob2EyYp87mKtoFYtBC8g5XN6IbhrXh62kjiO0
+						79kJ6Nv1MdB5AbiiZByI52N6HLBaHsR7JcBYRlkGiLYD/yz0pp1exnFXbhmJuxz4
+						12C4nwkbj7ohoKFiqrRDiEQngcGaocuKVzdMeUm6hvBY8AlwOsBLYWkCAwEAAaOC
+						AWAwggFcMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQW
+						BBQ/E3x/Zf39MX7MOTyLGbBmeu4fQjAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/
+						BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwGAYDVR0gBBEwDzAN
+						BgsrBgEEAbIxAQICHTA6BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50
+						ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYB
+						BQUHMAKGKWh0dHA6Ly9jcnQudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0
+						MCYGCCsGAQUFBzABhhpodHRwOi8vb2NzcC50Y3MudGVyZW5hLm9yZzAYBgNVHREE
+						ETAPgg1pZHAuZG9uLmFjLnVrMA0GCSqGSIb3DQEBBQUAA4IBAQBjSCq267eB5uFW
+						U+T2FM6mEMtpDj9CEd1T5/3MsHjCZL0SGFq/EjEdVefEQmgLK1JWGvDHVWezO/q6
+						XCCzaxzcEYEx+yoSiLPh/XXwalQe9q5ACm3Q4YhgOkrbwnnYoov1Kke6mgGfc6t5
+						XnU5IFx5jO7+zCmrrxwhBCXts1NJxWPGtASOrE6nuKgLhqlAifxm8cD43oX8CGPf
+						DOiKhq+GtE1AGngBM3oaz212VOm57O4mptjzUomhK993ErLWbNgj0fv0MbAXTt2X
+						kyXiO13V3QS/aGG3burxjKwiFa7jOzuOmqKuDhhUUNMZUggc7ANqyjQ6N6wkEQjn
+						tY2MO8Vk
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.don.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.don.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Doncaster College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Doncaster College</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.don.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Sue</md:GivenName>
+      <md:SurName>Gold</md:SurName>
+      <md:EmailAddress>mailto:sue.gold@don.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Pete</md:GivenName>
+      <md:SurName>Lettin</md:SurName>
+      <md:EmailAddress>mailto:pete.lettin@don.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

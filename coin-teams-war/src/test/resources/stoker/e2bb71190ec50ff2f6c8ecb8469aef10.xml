@@ -1,0 +1,107 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp-dev.sussex.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University of Sussex (development)</mdui:DisplayName>
+          <mdui:Description xml:lang="en">University of Sussex (development)</mdui:Description>
+          <mdui:Logo height="60" width="147">https://www.sussex.ac.uk/includes/images/external/logo.jpg</mdui:Logo>
+          <mdui:Logo height="16" width="16">https://www.sussex.ac.uk/includes/images/external/favicon.gif</mdui:Logo>
+        </mdui:UIInfo>
+        <shibmd:Scope regexp="false">sussex.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDOzCCAiOgAwIBAgIUaXHTQJ0iHL7M96NNUnD8cG38agowDQYJKoZIhvcNAQEF
+						BQAwHzEdMBsGA1UEAxMUaWRwLWRldi5zdXNzZXguYWMudWswHhcNMTMwODAyMTMy
+						MjI3WhcNMzMwODAyMTMyMjI3WjAfMR0wGwYDVQQDExRpZHAtZGV2LnN1c3NleC5h
+						Yy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIw2HMiV8nzFA8Af
+						OW2WvgKdr/rsNxXTNhMFNH8dFKnUlBkz7SHAg9ikrDOrJYsZ+19o0B6eUFzO9O9j
+						/weeCN6hSXp3Fm9PKrWx8atVR6mK3sBvN4UjwPy5SrArkvDeZddNYAiklIDo2VXg
+						Qt5C2/0uCfa7GnRwKYrN0Pr83V4w1XAOaY10PhV5au7q2kTtNJo1WZHHT6Kf4K5g
+						fEEYG9P+9M7C846vqEkow5K57cz+/LDBTKJXeuCRNdWydnfn6leDFtCh2ZXviAYs
+						Fhug70+RxVSsJ0eZx5G31y3Z8GB8UfWjWF+a1fQy6vrgK4XZc9QxLc6urOMdmDfL
+						NKzkbdECAwEAAaNvMG0wTAYDVR0RBEUwQ4IUaWRwLWRldi5zdXNzZXguYWMudWuG
+						K2h0dHBzOi8vaWRwLWRldi5zdXNzZXguYWMudWsvaWRwL3NoaWJib2xldGgwHQYD
+						VR0OBBYEFKuGMvjPXWBURM7ApWOBW81l8cfZMA0GCSqGSIb3DQEBBQUAA4IBAQAx
+						XWbyQnOLcIsVg77HRr+FBRmkIv11efMGAdGx8N5S3RJ1T52QquHuizTKO0pldfzx
+						uHPc1FoAW92dIdlaImZbss9BNFvdjQ+oDbjst32RpXmpBr703p4FbxTk30ceZhhd
+						HLTr8pd9Ti2k9XNI+cAaSjCfwcXiJ0BVDDhs+tD6aLmnFPZZbab6Rd01acxmXn/H
+						ac+9/iJP8c3w50IarnevAh7/3Jpfxgrv8MilBzFuDu1VqR1mRvQqaI86FLYkxhgF
+						rWyVSAMwo1dTlw0V7i05upCRLj6pDHJwq8dX5iHO1Gt8JSFfY6aNdIz+kfVgM321
+						YV5CgHdLYfAq+Bcvp9eq
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp-dev.sussex.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp-dev.sussex.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp-dev.sussex.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp-dev.sussex.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp-dev.sussex.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp-dev.sussex.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">sussex.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDOzCCAiOgAwIBAgIUaXHTQJ0iHL7M96NNUnD8cG38agowDQYJKoZIhvcNAQEF
+						BQAwHzEdMBsGA1UEAxMUaWRwLWRldi5zdXNzZXguYWMudWswHhcNMTMwODAyMTMy
+						MjI3WhcNMzMwODAyMTMyMjI3WjAfMR0wGwYDVQQDExRpZHAtZGV2LnN1c3NleC5h
+						Yy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAIw2HMiV8nzFA8Af
+						OW2WvgKdr/rsNxXTNhMFNH8dFKnUlBkz7SHAg9ikrDOrJYsZ+19o0B6eUFzO9O9j
+						/weeCN6hSXp3Fm9PKrWx8atVR6mK3sBvN4UjwPy5SrArkvDeZddNYAiklIDo2VXg
+						Qt5C2/0uCfa7GnRwKYrN0Pr83V4w1XAOaY10PhV5au7q2kTtNJo1WZHHT6Kf4K5g
+						fEEYG9P+9M7C846vqEkow5K57cz+/LDBTKJXeuCRNdWydnfn6leDFtCh2ZXviAYs
+						Fhug70+RxVSsJ0eZx5G31y3Z8GB8UfWjWF+a1fQy6vrgK4XZc9QxLc6urOMdmDfL
+						NKzkbdECAwEAAaNvMG0wTAYDVR0RBEUwQ4IUaWRwLWRldi5zdXNzZXguYWMudWuG
+						K2h0dHBzOi8vaWRwLWRldi5zdXNzZXguYWMudWsvaWRwL3NoaWJib2xldGgwHQYD
+						VR0OBBYEFKuGMvjPXWBURM7ApWOBW81l8cfZMA0GCSqGSIb3DQEBBQUAA4IBAQAx
+						XWbyQnOLcIsVg77HRr+FBRmkIv11efMGAdGx8N5S3RJ1T52QquHuizTKO0pldfzx
+						uHPc1FoAW92dIdlaImZbss9BNFvdjQ+oDbjst32RpXmpBr703p4FbxTk30ceZhhd
+						HLTr8pd9Ti2k9XNI+cAaSjCfwcXiJ0BVDDhs+tD6aLmnFPZZbab6Rd01acxmXn/H
+						ac+9/iJP8c3w50IarnevAh7/3Jpfxgrv8MilBzFuDu1VqR1mRvQqaI86FLYkxhgF
+						rWyVSAMwo1dTlw0V7i05upCRLj6pDHJwq8dX5iHO1Gt8JSFfY6aNdIz+kfVgM321
+						YV5CgHdLYfAq+Bcvp9eq
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp-dev.sussex.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp-dev.sussex.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Sussex</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Sussex (development)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.sussex.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Dave</md:GivenName>
+      <md:SurName>Lewney</md:SurName>
+      <md:EmailAddress>mailto:d.m.lewney@sussex.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Dave</md:GivenName>
+      <md:SurName>Lewney</md:SurName>
+      <md:EmailAddress>mailto:d.m.lewney@sussex.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

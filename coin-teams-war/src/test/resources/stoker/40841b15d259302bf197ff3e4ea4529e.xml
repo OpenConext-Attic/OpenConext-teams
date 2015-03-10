@@ -1,0 +1,126 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://signon.hh.se/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hh.se</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="sv">Högskolan i Halmstad</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">Halmstad University</mdui:DisplayName>
+          <mdui:Description xml:lang="sv">Identity Provider för Högskolan i Halmstad</mdui:Description>
+          <mdui:Description xml:lang="en">Identity Provider for Halmstad University</mdui:Description>
+          <mdui:InformationURL xml:lang="sv">http://www.hh.se</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">http://www.hh.se</mdui:InformationURL>
+          <mdui:Logo height="116" width="350">https://signon.hh.se/hh-logo-en-350x116.png</mdui:Logo>
+          <mdui:Logo height="116" width="350" xml:lang="sv">https://signon.hh.se/hh-logo-sv-350x116.png</mdui:Logo>
+          <mdui:Logo height="116" width="350" xml:lang="en">https://signon.hh.se/hh-logo-en-350x116.png</mdui:Logo>
+          <mdui:PrivacyStatementURL xml:lang="sv">http://signon.hh.se/idp_privacy_statement.html</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="en">http://signon.hh.se/idp_privacy_statement_en.html</mdui:PrivacyStatementURL>
+          <mdui:Keywords xml:lang="sv">hh hh.se hogskolan+i+halmstad halmstad+university</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">hh hh.se hogskolan+i+halmstad halmstad+university</mdui:Keywords>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>hh.se</mdui:DomainHint>
+          <mdui:IPHint>194.47.0.0/20</mdui:IPHint>
+          <mdui:IPHint>194.47.0.16/21</mdui:IPHint>
+          <mdui:GeolocationHint>geo:56.6647,12.8779</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDHDCCAgSgAwIBAgIVANvNFOWJZe9T3CpX7Sk5ZKgztjMgMA0GCSqGSIb3DQEB
+BQUAMBcxFTATBgNVBAMTDHNpZ25vbi5oaC5zZTAeFw0wOTA5MTYwODM0MjZaFw0y
+OTA5MTYwODM0MjZaMBcxFTATBgNVBAMTDHNpZ25vbi5oaC5zZTCCASIwDQYJKoZI
+hvcNAQEBBQADggEPADCCAQoCggEBAIdi7+4jvkJyhmR/IHjVKV0TOJ1TBw5x8FXo
+VVDkZdixmiT/YVp6kfRsKL6yWlNKEm7X6kcrJ+xKUNYUi9n8p1uloS6tBhfG37pC
+Xt7fi7imSi882T4fUYzCR3cVAbe8k6L8UKIdWdNVGIkvXzgeBZh/qHCnvyjtF1Bd
+4mEUHh55KieKVmKCYD7TE4T14tE4xSBf7L9Dna4U9aM7Ne+xeHSW/rGGALtfZhIr
+DOZLZSBCIAzBhzwuDb2h7xYBrCBF7QEWInI8tkQPa/g/sS/5xH+nTGO0RAWY9EWu
+2V2HN3hp3/nX8smCSIKRyxWzLJ29htCrsljTLSvFVOstCU0NI/8CAwEAAaNfMF0w
+PAYDVR0RBDUwM4IMc2lnbm9uLmhoLnNlhiNodHRwczovL3NpZ25vbi5oaC5zZS9p
+ZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUQJ23SW9pFtWUbgw5WcI2qK7YSZAwDQYJ
+KoZIhvcNAQEFBQADggEBAIAl6LBd5IzC+1MxH293vgBeVnIJvRNAp0vn4BqyHgX0
+3i4lqzw/g8hj+va7kOfr1VidYoS3ur5YYnoVC7muILBy8uNeXGaRNeh7xRJHb+HF
+7eEjWvDrj2RQtaED3+1INj2bl5gR4vEt5VkWh6TVU40x4ea0V97Vm4ZO416b9L6I
+06Hp/H4L2oHEJUMdOfxhlipIXZeAxZ2lSHmGspfNRCybLAs/raVGBvq1/RSpRS+X
+vAXrKY9loLQYkufnJ3GlXmbn3eFOyxmA11Q9xTukB8qno9QI2KMxUH8N2cG0vYXB
+CXwK7XzaaZnKkk8K3Hgodpmh+2CIkt0nGwYXAFyb6RE=
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://signon.hh.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://signon.hh.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://signon.hh.se/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://signon.hh.se/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://signon.hh.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://signon.hh.se/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hh.se</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDHDCCAgSgAwIBAgIVANvNFOWJZe9T3CpX7Sk5ZKgztjMgMA0GCSqGSIb3DQEB
+BQUAMBcxFTATBgNVBAMTDHNpZ25vbi5oaC5zZTAeFw0wOTA5MTYwODM0MjZaFw0y
+OTA5MTYwODM0MjZaMBcxFTATBgNVBAMTDHNpZ25vbi5oaC5zZTCCASIwDQYJKoZI
+hvcNAQEBBQADggEPADCCAQoCggEBAIdi7+4jvkJyhmR/IHjVKV0TOJ1TBw5x8FXo
+VVDkZdixmiT/YVp6kfRsKL6yWlNKEm7X6kcrJ+xKUNYUi9n8p1uloS6tBhfG37pC
+Xt7fi7imSi882T4fUYzCR3cVAbe8k6L8UKIdWdNVGIkvXzgeBZh/qHCnvyjtF1Bd
+4mEUHh55KieKVmKCYD7TE4T14tE4xSBf7L9Dna4U9aM7Ne+xeHSW/rGGALtfZhIr
+DOZLZSBCIAzBhzwuDb2h7xYBrCBF7QEWInI8tkQPa/g/sS/5xH+nTGO0RAWY9EWu
+2V2HN3hp3/nX8smCSIKRyxWzLJ29htCrsljTLSvFVOstCU0NI/8CAwEAAaNfMF0w
+PAYDVR0RBDUwM4IMc2lnbm9uLmhoLnNlhiNodHRwczovL3NpZ25vbi5oaC5zZS9p
+ZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUQJ23SW9pFtWUbgw5WcI2qK7YSZAwDQYJ
+KoZIhvcNAQEFBQADggEBAIAl6LBd5IzC+1MxH293vgBeVnIJvRNAp0vn4BqyHgX0
+3i4lqzw/g8hj+va7kOfr1VidYoS3ur5YYnoVC7muILBy8uNeXGaRNeh7xRJHb+HF
+7eEjWvDrj2RQtaED3+1INj2bl5gR4vEt5VkWh6TVU40x4ea0V97Vm4ZO416b9L6I
+06Hp/H4L2oHEJUMdOfxhlipIXZeAxZ2lSHmGspfNRCybLAs/raVGBvq1/RSpRS+X
+vAXrKY9loLQYkufnJ3GlXmbn3eFOyxmA11Q9xTukB8qno9QI2KMxUH8N2cG0vYXB
+CXwK7XzaaZnKkk8K3Hgodpmh+2CIkt0nGwYXAFyb6RE=
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://signon.hh.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://signon.hh.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">HH</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sv">Högskolan i Halmstad</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Högskolan i Halmstad</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.hh.se</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:Company>Halmstad University</md:Company>
+      <md:SurName>Magnus Morén</md:SurName>
+      <md:EmailAddress>magnus.moren@hh.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 35 167383</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:Company>Halmstad University</md:Company>
+      <md:SurName>Magnus Morén</md:SurName>
+      <md:EmailAddress>magnus.moren@hh.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 35 167383</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>Halmstad University</md:Company>
+      <md:SurName>Helpdesk Högskloan i Halmstad</md:SurName>
+      <md:EmailAddress>helpdesk@hh.se</md:EmailAddress>
+      <md:TelephoneNumber>+35 167800</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

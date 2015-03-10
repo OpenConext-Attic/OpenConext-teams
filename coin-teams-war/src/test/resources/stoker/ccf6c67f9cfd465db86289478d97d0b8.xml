@@ -1,0 +1,60 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://x5-qa.bsp.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-10-23T09:48:29Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://x5-qa.bsp.ox.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate> 
+						MIIDETCCAfmgAwIBAgIJALT+QUXBSZeDMA0GCSqGSIb3DQEBBQUAMB0xGzAZBgNV
+						BAMTEng1LXFhLmJzcC5veC5hYy51azAeFw0xMjEwMTkwOTQwMTJaFw0yMjEwMTcw
+						OTQwMTJaMB0xGzAZBgNVBAMTEng1LXFhLmJzcC5veC5hYy51azCCASIwDQYJKoZI
+						hvcNAQEBBQADggEPADCCAQoCggEBAKEKyMazhRGGodfwZDljiQZOKgx73F7nJpR1
+						OotpgBlUw06aUI8ayaz38THfi3HeEcbqMrVWo/gO9l/hrbtqTzQ6pW39204BKoyv
+						aeiT3y7Zox8Dn6tjJUsOVFMVCy4hDLoJ577IdL3yX42zeGsbLkzvGJcJ2C4HsW1m
+						FXWFUv1fSKm76W/cFQF0HuJ1hCZ8DOcnpoAmokE0jPerGbRKWJewQ3+xaB7SNqp9
+						icNxIzOmnd4eFFxP/6veM3ckBF1bbWAOB1fQRBdGK24JQMIC9J/ibuwf/QTMzD2i
+						iBjVCIDnILrVdBbSLtVmKNMFZOK2sBiL7IYuXtuoIWf9RWh1zvECAwEAAaNUMFIw
+						MQYDVR0RBCowKIISeDUtcWEuYnNwLm94LmFjLnVrhhJ4NS1xYS5ic3Aub3guYWMu
+						dWswHQYDVR0OBBYEFMjXSu1rl1SQXLkzWctcqzz3VhapMA0GCSqGSIb3DQEBBQUA
+						A4IBAQAhPszsE9vpMD9xqO6tnXMzEDRHeubZQRfpUUq3Wu/YAGEnZkmA0dAtlvPX
+						V5QxXhK9IGLYrxLuwlOzgowb001uyvxxqhbTdAFmKB7wabWLnBg/8SJpDBp6sBMe
+						fa4OJ3NZ17FN/EkXtp9VDQO992x8OsFYwZcLrHxBaQqC9lcCskIm04b5AQUc8STU
+						MwNUAkof7SVjRHh6YDDJ1rm8GteKWMgzsoArLLRKtPpOXRHxKWwnbO2zrkK6cUO5
+						M3orN7xlXTBbSgM6UXtpTyXPXDf7GbwhN6q0dhHN0+YZY9mr0L2dq6Detym7fOVF
+						dOSjq/lxxyKOR4Ey9R9suqDKD1EB
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://x5-qa.bsp.ox.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://x5-qa.bsp.ox.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://x5-qa.bsp.ox.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://x5-qa.bsp.ox.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://x5-qa.bsp.ox.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://x5-qa.bsp.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://x5-qa.bsp.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://x5-qa.bsp.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://x5-qa.bsp.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://x5-qa.bsp.ox.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://x5-qa.bsp.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford - X5 QA Environment</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.admin.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Operations Team</md:GivenName>
+      <md:EmailAddress>mailto:ops-team@maillist.admin.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ben</md:GivenName>
+      <md:SurName>Malin</md:SurName>
+      <md:EmailAddress>mailto:ben.malin@it.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

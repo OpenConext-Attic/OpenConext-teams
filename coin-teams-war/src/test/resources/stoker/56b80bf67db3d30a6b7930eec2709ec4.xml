@@ -1,0 +1,61 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://myprouat.ncl.ac.uk/shibboleth/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-04-04T15:43:27Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://myprouat.ncl.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDEjCCAfqgAwIBAgIJAOBbm94gxem8MA0GCSqGSIb3DQEBBQUAMCQxIjAgBgNV
+						BAMTGW15cHJvdWF0LmNhbXB1cy5uY2wuYWMudWswHhcNMTEwNjE3MDc0ODAyWhcN
+						MjEwNjE0MDc0ODAyWjAkMSIwIAYDVQQDExlteXByb3VhdC5jYW1wdXMubmNsLmFj
+						LnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtcxfiZwTqO4LsD9i
+						HlyP3DOmMaQtdOzJfdvyZfw21tBoTR+RQJwt1XbtoF53mCL01zpFm/Q02KxyejxG
+						SuPPPiNeWKhIfa1v9KSPlTfTZbsV3+YH9jAc26Cx6kKlHkFs6iHOl4THPRkCDgk3
+						piwASXrCgMMi5TJ8AJihFydi4cY97hMQBu9nWNCHHRGxKE4VKTfX0m8ryt7KdM8X
+						DkihFN/t133QEpX/ov1CsouqgZ5ubmigi64Loh0/DhUoW7ZyukloxaRnBdpirv8M
+						8WQPf27AbmjQ/F15XhymgDRo7J/zRJBeWJJdV5uooZ0fylwI4ASdH7GECVg2vmKP
+						CBVEnQIDAQABo0cwRTAkBgNVHREEHTAbghlteXByb3VhdC5jYW1wdXMubmNsLmFj
+						LnVrMB0GA1UdDgQWBBSVJtuw6MgibG4jGnMS4tj9XTYm7DANBgkqhkiG9w0BAQUF
+						AAOCAQEADAwn//d7BSHmtSkcWUHb3smWqJ5OinROvbBOFI+Pc73eh28Oj1KgI9Ak
+						UpSejdvIiYL660yPgNDG3iP/dU9RAD/anNze5gtutW8KlPODOoCkL1Y/P6QBNL8w
+						kjF2az2uZJ8kEfTQ604wIG5lVsNYmik9T0WMrWTjm5cmVMrtRDmsqvFoEcjiZPEA
+						m1KT0aKkzVra5fPlcwx+TV2wFakjef8UAo/uiDRrbmj0+nVeecKENWOnjEy9TcMw
+						qOrVHKk9nqyxSaRyGX8lZoYBNF5BxA84Rac8HoqSa6u7OQxs3TQlgOmPh6p6d/aG
+						xV1kLmf5sTXfSyLaTn14ctbLn2y/bQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://myprouat.ncl.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://myprouat.ncl.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://myprouat.ncl.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://myprouat.ncl.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://myprouat.ncl.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://myprouat.ncl.ac.uk/Shibboleth.sso/SAML/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://myprouat.ncl.ac.uk/Shibboleth.sso/SAML/Artifact" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://myprouat.ncl.ac.uk/Shibboleth.sso/SAML2/POST" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://myprouat.ncl.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://myprouat.ncl.ac.uk/Shibboleth.sso/SAML2/Artifact" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://myprouat.ncl.ac.uk/Shibboleth.sso/SAML2/ECP" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Newcastle upon Tyne</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Newcastle University: User Acceptance Projects Server</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ncl.ac.uk/iss/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Franks</md:SurName>
+      <md:EmailAddress>mailto:chris.franks@ncl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Franks</md:SurName>
+      <md:EmailAddress>mailto:chris.franks@ncl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

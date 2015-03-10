@@ -1,0 +1,60 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.protectnetwork.org/protectnetwork-idp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">idp.protectnetwork.org</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEMDCCAxigAwIBAgIJALJxC01MGf/hMA0GCSqGSIb3DQEBBQUAMG0xCzAJBgNV
+						BAYTAlVTMQ4wDAYDVQQIEwVUZXhhczEPMA0GA1UEBxMGQXVzdGluMRcwFQYDVQQK
+						Ew5Qcm90ZWN0TmV0d29yazEkMCIGA1UEAxMbdGNhcy1pZHAucHJvdGVjdG5ldHdv
+						cmsub3JnMB4XDTExMDcyMTE2MzMxN1oXDTIxMDcxODE2MzMxN1owbTELMAkGA1UE
+						BhMCVVMxDjAMBgNVBAgTBVRleGFzMQ8wDQYDVQQHEwZBdXN0aW4xFzAVBgNVBAoT
+						DlByb3RlY3ROZXR3b3JrMSQwIgYDVQQDExt0Y2FzLWlkcC5wcm90ZWN0bmV0d29y
+						ay5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDWh2R4Tus8Thwl
+						4Fnlmz6QrwL/imYN5di4q0gmWMJ03oBfIGireuZKfiI1FXeBsAq2p5XKZRQvWyKX
+						J1z2Z+FbG1Og5s6bZSzIjq7bGac0FPtJ+0vgIy74RKJZDZNR2rzzlW2WCIe1zHUh
+						bF0K1RVJZz8nbMDQ+H2Zf74Gi4dXwgQnLCkkPV9ocinv3bq6Iq0H/ySgHGdmazzv
+						vSW8C1Ny2WDfEqCWUkR9AKnTjyww3/f0PgHKuuvSKs6KArC00rD+v2hE+PT4M0oa
+						TqSIbM5uu6f+Xfu10EQVG7O7Wmj2aAN0/D8/+Eeeh/8Se6XX81S7h/dNRrQh7yKM
+						6WIp2pPPAgMBAAGjgdIwgc8wHQYDVR0OBBYEFKWOH8Lch5mEhcxZR+E1w8nvx6Hl
+						MIGfBgNVHSMEgZcwgZSAFKWOH8Lch5mEhcxZR+E1w8nvx6HloXGkbzBtMQswCQYD
+						VQQGEwJVUzEOMAwGA1UECBMFVGV4YXMxDzANBgNVBAcTBkF1c3RpbjEXMBUGA1UE
+						ChMOUHJvdGVjdE5ldHdvcmsxJDAiBgNVBAMTG3RjYXMtaWRwLnByb3RlY3RuZXR3
+						b3JrLm9yZ4IJALJxC01MGf/hMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQAD
+						ggEBAACHlDYkgEzbaCatnF1IYcvy5j/T7dpOlvww+vJSK9Al3BlOmESHrEIS46XO
+						9vfk/PgNUM3oYG5prW+azSUJVDfJspSzH0d8IFCI95UlItC9Ivmxpuo1ZcH60fpI
+						M4Kb8fLeOfmsbpVZsxj8tSRByARlK4tzHf2+rLOn7jZRTsPcoxrxYIyesbbshhDy
+						v2ZE+NoOehZXaAYgZkB3PE0s6Ph+pUYIRSZ7bud1YNlx9QkUoYuwgR+hX895l19Z
+						fouPZ1KljFoiTY8iwjRUUNV2Lx2hZUsDHj/4Ea23TY+fc/7OSS4K0BIO4LmUQo1Z
+						qg057Ao66R7RAwvB3jNS9ydAiNM=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.protectnetwork.org/protectnetwork-idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.protectnetwork.org/protectnetwork-idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.protectnetwork.org/protectnetwork-idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.protectnetwork.org/protectnetwork-idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">9Star Research, Inc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">ProtectNetwork</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.protectnetwork.org/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Tech Support</md:GivenName>
+      <md:EmailAddress>mailto:support@protectnetwork.org</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Tech Support</md:GivenName>
+      <md:EmailAddress>mailto:support@protectnetwork.org</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

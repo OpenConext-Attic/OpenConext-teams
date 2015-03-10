@@ -1,0 +1,112 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.we-learn.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2009-03-12T16:34:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">we-learn.com</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIErTCCA5WgAwIBAgIQPfNF+vhuBDz3tc7vBY3ePzANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDUxNDAwMDAwMFoXDTE1MDUxNDIzNTk1OVowgYcxCzAJBgNV
+						BAYTAkdCMRUwEwYDVQQIEwxXYXJ3aWNrc2hpcmUxEDAOBgNVBAcTB1dhcndpY2sx
+						JDAiBgNVBAoTG1dhcndpY2tzaGlyZSBDb3VudHkgQ291bmNpbDEOMAwGA1UECxMF
+						SUNURFMxGTAXBgNVBAMTEGlkcC53ZS1sZWFybi5jb20wggEiMA0GCSqGSIb3DQEB
+						AQUAA4IBDwAwggEKAoIBAQDBg+F2y3Re0AFf+p9H/+sLvIiezAHp5QOUUk9EnEiG
+						uj0zXCgNPMAgEBaAYx+hkvEaNAK5ZkTAQ0uIjWxD1ZAtCeAMkMQjT+ZzG2hzdpT+
+						4dzDWafGgPxUuPQvWcGdH2+FNWJoe8XEOuDd0Q1wf+VcEXwz48FAxGtMZKISl7CR
+						i0224S4k+KJKxYoly5W3uhgIH3ZfQFTCVJWX2VeOhZKrKxvIAS0gUOpHXn8Ed1fW
+						9CHAER7GQC81AiklSl+keu0Ov1LBQcH/0VByx4+Ch4UrTcBZ7O+fvi3rcEVwW/NG
+						lwTJvQE8+HHB+DsfIswmnGN+r1mGK4HUQM5Acf6XpUN/AgMBAAGjggFjMIIBXzAf
+						BgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAdBgNVHQ4EFgQUsnrSL2/v
+						6oll+wlyNf5jeMl3cj4wDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYD
+						VR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBgGA1UdIAQRMA8wDQYLKwYBBAGy
+						MQECAh0wOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9y
+						Zy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilo
+						dHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEF
+						BQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwGwYDVR0RBBQwEoIQaWRw
+						LndlLWxlYXJuLmNvbTANBgkqhkiG9w0BAQUFAAOCAQEAvIKAIexo574j5vf8AGxJ
+						hP0yHCLZ/km5IPdbik7nrLl4pRefcHzLyPGOFG6s8Jts0uxAWp564BZ0PU1IdII3
+						Y/u+Xbaj5WigfOOwijmGQK6vlhe8Nr09mKTrw1hfG+KGztRVrPb7csHDyjlhfZ/9
+						EpI0E8MIs///tWYpbFSti6tfP6hGxAZRH34kmN3F2Gx16gdq8yk8/JRt7rPfWZVo
+						8iElsad0A0mPtTrQfVAnZy/g3A0nGKSXZWoMp1GpRW0Ag7ySjSDHKs88BvoL25ZD
+						UOmr1OQRBFPIxb/r1PrEqdauCy1AuSNvaWLro7UvCWNYC4WBVlOIJ3Js218Y1ufb
+						EA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.we-learn.com:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.we-learn.com:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.we-learn.com/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.we-learn.com/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.we-learn.com/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.we-learn.com/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">we-learn.com</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIErTCCA5WgAwIBAgIQPfNF+vhuBDz3tc7vBY3ePzANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDUxNDAwMDAwMFoXDTE1MDUxNDIzNTk1OVowgYcxCzAJBgNV
+						BAYTAkdCMRUwEwYDVQQIEwxXYXJ3aWNrc2hpcmUxEDAOBgNVBAcTB1dhcndpY2sx
+						JDAiBgNVBAoTG1dhcndpY2tzaGlyZSBDb3VudHkgQ291bmNpbDEOMAwGA1UECxMF
+						SUNURFMxGTAXBgNVBAMTEGlkcC53ZS1sZWFybi5jb20wggEiMA0GCSqGSIb3DQEB
+						AQUAA4IBDwAwggEKAoIBAQDBg+F2y3Re0AFf+p9H/+sLvIiezAHp5QOUUk9EnEiG
+						uj0zXCgNPMAgEBaAYx+hkvEaNAK5ZkTAQ0uIjWxD1ZAtCeAMkMQjT+ZzG2hzdpT+
+						4dzDWafGgPxUuPQvWcGdH2+FNWJoe8XEOuDd0Q1wf+VcEXwz48FAxGtMZKISl7CR
+						i0224S4k+KJKxYoly5W3uhgIH3ZfQFTCVJWX2VeOhZKrKxvIAS0gUOpHXn8Ed1fW
+						9CHAER7GQC81AiklSl+keu0Ov1LBQcH/0VByx4+Ch4UrTcBZ7O+fvi3rcEVwW/NG
+						lwTJvQE8+HHB+DsfIswmnGN+r1mGK4HUQM5Acf6XpUN/AgMBAAGjggFjMIIBXzAf
+						BgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAdBgNVHQ4EFgQUsnrSL2/v
+						6oll+wlyNf5jeMl3cj4wDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYD
+						VR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBgGA1UdIAQRMA8wDQYLKwYBBAGy
+						MQECAh0wOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9y
+						Zy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilo
+						dHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEF
+						BQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwGwYDVR0RBBQwEoIQaWRw
+						LndlLWxlYXJuLmNvbTANBgkqhkiG9w0BAQUFAAOCAQEAvIKAIexo574j5vf8AGxJ
+						hP0yHCLZ/km5IPdbik7nrLl4pRefcHzLyPGOFG6s8Jts0uxAWp564BZ0PU1IdII3
+						Y/u+Xbaj5WigfOOwijmGQK6vlhe8Nr09mKTrw1hfG+KGztRVrPb7csHDyjlhfZ/9
+						EpI0E8MIs///tWYpbFSti6tfP6hGxAZRH34kmN3F2Gx16gdq8yk8/JRt7rPfWZVo
+						8iElsad0A0mPtTrQfVAnZy/g3A0nGKSXZWoMp1GpRW0Ag7ySjSDHKs88BvoL25ZD
+						UOmr1OQRBFPIxb/r1PrEqdauCy1AuSNvaWLro7UvCWNYC4WBVlOIJ3Js218Y1ufb
+						EA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.we-learn.com:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.we-learn.com:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Warwickshire County Council</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Warwickshire e-Learning Community</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.warwickshire.gov.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Muhammad</md:GivenName>
+      <md:SurName>Sikander</md:SurName>
+      <md:EmailAddress>mailto:Sikander.m@we-learn.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Muhammad</md:GivenName>
+      <md:SurName>Sikander</md:SurName>
+      <md:EmailAddress>mailto:Sikander.m@we-learn.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

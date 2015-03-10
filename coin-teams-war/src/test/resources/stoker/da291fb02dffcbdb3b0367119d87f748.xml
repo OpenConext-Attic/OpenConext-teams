@@ -1,36 +1,31 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="uk001769" entityID="https://sp.edina.ac.uk/shibboleth/kbplus">
-	
-	<Extensions>
-
-
-		<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-03-27T15:54:52Z">
-			<mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
-		</mdrpi:RegistrationInfo>
-
-	</Extensions>
-	<SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
-		<Extensions>
-			<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-				<mdui:DisplayName xml:lang="en">Knowledge Base+</mdui:DisplayName>
-				<mdui:Description xml:lang="en">Knowledge Base+</mdui:Description>
-				<mdui:Logo height="64" width="318">https://vsp2.edina.ac.uk/public/images/splogos/kbplus.png</mdui:Logo>
-			</mdui:UIInfo>
-			<init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/Login"/>
-			<init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/UKDA"/>
-			<init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/WAYF/EDINASchools"/>
-			<init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/WAYF/UKFederation"/>
-			<init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/WAYF/UKall"/>
-
-			<init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/Login"/>
-			<init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/UKDA"/>
-			<init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/WAYF/EDINASchools"/>
-			<init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/WAYF/UKFederation"/>
-			<init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/WAYF/UKall"/>
-		</Extensions>
-		<KeyDescriptor>
-			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-				<ds:X509Data>
-					<ds:X509Certificate>
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sp.edina.ac.uk/shibboleth/kbplus">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-03-27T15:54:52Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Knowledge Base+</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Knowledge Base+</mdui:Description>
+          <mdui:Logo height="64" width="318">https://vsp2.edina.ac.uk/public/images/splogos/kbplus.png</mdui:Logo>
+        </mdui:UIInfo>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/Login"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/UKDA"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/WAYF/EDINASchools"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/WAYF/UKFederation"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/WAYF/UKall"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/Login"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/UKDA"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/WAYF/EDINASchools"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/WAYF/UKFederation"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/WAYF/UKall"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 						MIIESDCCAzCgAwIBAgIJAKrBnZO7TvNTMA0GCSqGSIb3DQEBBQUAMIGkMQswCQYD
 						VQQGEwJHQjERMA8GA1UECBMIU2NvdGxhbmQxEjAQBgNVBAcTCUVkaW5idXJnaDEk
 						MCIGA1UEChMbVGhlIFVuaXZlcnNpdHkgb2YgRWRpbmJ1cmdoMQ4wDAYDVQQLEwVF
@@ -55,77 +50,67 @@
 						xzZ/lWUqrLDZYSo5LXQad3yNfhwi4dMJ5PRuAuTH1akdwlVf4AIeIQDm3QBKJIhj
 						TOGrFRiCdlp4cIQwN66UelzUH2KjlI/iQXYLbq5uUHN/EI47I/E0gpnYr5E=
 					</ds:X509Certificate>
-				</ds:X509Data>
-			</ds:KeyInfo>
-		</KeyDescriptor>
-		<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/Artifact/SOAP" index="1"/>
-		<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/Artifact/SOAP" index="2"/>
-		<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/Artifact/SOAP" index="3"/>
-
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/SLO/Artifact"/>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/SLO/POST"/>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/SLO/Redirect"/>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/SLO/SOAP"/>
-
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/SLO/Artifact"/>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/SLO/POST"/>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/SLO/Redirect"/>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/SLO/SOAP"/>
-
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/SLO/Artifact"/>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/SLO/POST"/>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/SLO/Redirect"/>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/SLO/SOAP"/>
-
-		<ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/NIM/Artifact"/>
-		<ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/NIM/POST"/>
-		<ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/NIM/Redirect"/>
-		<ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/NIM/SOAP"/>
-
-		<ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/NIM/Artifact"/>
-		<ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/NIM/POST"/>
-		<ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/NIM/Redirect"/>
-		<ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/NIM/SOAP"/>
-
-		<ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/NIM/Artifact"/>
-		<ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/NIM/POST"/>
-		<ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/NIM/Redirect"/>
-		<ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/NIM/SOAP"/>
-
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/SAML/Artifact" index="6"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/SAML/POST" index="7"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/Artifact" index="8"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/ECP" index="9"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/POST" index="10"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/POST-SimpleSign" index="11"/>
-
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/SAML/Artifact" index="12"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/SAML/POST" index="13"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/Artifact" index="14"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/ECP" index="15"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/POST" index="16"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/POST-SimpleSign" index="17"/>
-
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/SAML/Artifact" index="18"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/SAML/POST" index="19"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/Artifact" index="20"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/ECP" index="21"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/POST" index="22"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/POST-SimpleSign" index="23"/>
-	</SPSSODescriptor>
-	<Organization>
-		<OrganizationName xml:lang="en">University of Edinburgh</OrganizationName>
-		<OrganizationDisplayName xml:lang="en">EDINA Knowledge Base+</OrganizationDisplayName>
-		<OrganizationURL xml:lang="en">http://www.jisc-collections.ac.uk/</OrganizationURL>
-	</Organization>
-	<ContactPerson contactType="support">
-		<GivenName>EDINA Helpdesk</GivenName>
-		<EmailAddress>mailto:edina@ed.ac.uk</EmailAddress>
-	</ContactPerson>
-	<ContactPerson contactType="technical">
-		<GivenName>Ben</GivenName>
-		<SurName>Soares</SurName>
-		<EmailAddress>mailto:ben.soares@ed.ac.uk</EmailAddress>
-	</ContactPerson>
-
-</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/Artifact/SOAP" index="2"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/Artifact/SOAP" index="3"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/SLO/Artifact"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/SLO/Artifact"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/SLO/Artifact"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/SLO/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/NIM/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/NIM/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/NIM/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/NIM/SOAP"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/SAML/POST" index="7"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/Artifact" index="8"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/ECP" index="9"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/POST" index="10"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://vsp2.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/POST-SimpleSign" index="11"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/SAML/Artifact" index="12"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/SAML/POST" index="13"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/Artifact" index="14"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/ECP" index="15"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/POST" index="16"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://vsp5.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/POST-SimpleSign" index="17"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/SAML/Artifact" index="18"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/SAML/POST" index="19"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/Artifact" index="20"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/ECP" index="21"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/POST" index="22"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://auth.edina.ac.uk/kbplus/Shibboleth.sso/SAML2/POST-SimpleSign" index="23"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Edinburgh</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">EDINA Knowledge Base+</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.jisc-collections.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>EDINA Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:edina@ed.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ben</md:GivenName>
+      <md:SurName>Soares</md:SurName>
+      <md:EmailAddress>mailto:ben.soares@ed.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

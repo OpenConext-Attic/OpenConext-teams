@@ -1,0 +1,54 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://login.justis.com">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEADCCAuigAwIBAgIJAOUEkaPJ2Bd5MA0GCSqGSIb3DQEBBQUAMIGAMQswCQYD
+						VQQGEwJHQjEPMA0GA1UECAwGTG9uZG9uMQ8wDQYDVQQHDAZMb25kb24xHjAcBgNV
+						BAoMFUp1c3RpcyBQdWJsaXNoaW5nIEx0ZDEUMBIGA1UECwwLRGV2ZWxvcG1lbnQx
+						GTAXBgNVBAMMEGxvZ2luLmp1c3Rpcy5jb20wHhcNMTEwNzE4MTQ1MTMzWhcNMjEw
+						NzE1MTQ1MTMzWjCBgDELMAkGA1UEBhMCR0IxDzANBgNVBAgMBkxvbmRvbjEPMA0G
+						A1UEBwwGTG9uZG9uMR4wHAYDVQQKDBVKdXN0aXMgUHVibGlzaGluZyBMdGQxFDAS
+						BgNVBAsMC0RldmVsb3BtZW50MRkwFwYDVQQDDBBsb2dpbi5qdXN0aXMuY29tMIIB
+						IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3w8g9C9ESGQ0H2JeatthhPcG
+						Ev3dywh7L27cbXmFL5yB8trjZRo6BfREpv4FRSgWlboRh62N/CQLHP6eF3gngSjR
+						aO3ERVm8KNKHmXXrhn4jP4EZYIFjXkO3MYYML4zdzgLWi2s9xbjN+ehQz/Hnvr9d
+						w0n9pSMhWTyW4R0Hprgdf/KhssKKTIILXFgbzGrMTvATtCUbWhbY0eKOlrzVwgxZ
+						Ttt+1twitnAtG7L88X78NcwE49rKbMRFLcnLmXFF0nb71d2srGBwMDHJ4SagIRcR
+						ZZH/pjICbkuB0JzFUjnYYv7OGnHyxbSU6irjXB4Ci433KxArlBKtLS4w5agHKQID
+						AQABo3sweTAJBgNVHRMEAjAAMCwGCWCGSAGG+EIBDQQfFh1PcGVuU1NMIEdlbmVy
+						YXRlZCBDZXJ0aWZpY2F0ZTAdBgNVHQ4EFgQU2ZuXN7VAgmrTrBEbRUT6AI3pPmsw
+						HwYDVR0jBBgwFoAU2ZuXN7VAgmrTrBEbRUT6AI3pPmswDQYJKoZIhvcNAQEFBQAD
+						ggEBAIyTpXAbDuMXIX49higmZ25epvKjkmgBcmMZnGayDUKwUD8PkzXt8g0BzywD
+						seFZvib6KXOGSV2vxvKnhvwMacmpwFEXX90xyBdCt+DuLlpL6BmT9LdAANsdQHuC
+						qOiB5SbfVRjDmDwXwLFaWMzu9UN+JP763GBPpMTkk+riHTNyC/n8FO5UWYUwuTyU
+						/bY2QdSNZKtnrbGDlwWELTISsdCOz0ki4XRd0/WquIqcjfVTW+zGiQQuSIAWDx9Q
+						NIvd6OcCOBRPMOvpQ4W5ZAMlO7++IzhzP7s2kHgb6yXBWvzJQx8aK8C1aE2eBBJK
+						+Y+kE//yTUdY4YMzolvRCyf44z8=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://login.justis.com/shibboleth/post" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://login.justis.com/shibboleth/artifact" index="2"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Justis Publishing Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Justis Publishing</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.justispublishing.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:helpdesk@justis.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ravi</md:GivenName>
+      <md:SurName>Ganapathi</md:SurName>
+      <md:EmailAddress>mailto:ravi.ganapathi@justis.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

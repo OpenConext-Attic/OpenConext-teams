@@ -1,0 +1,80 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://bcm.sthughs.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-09-27T10:58:41Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://bcm.sthughs.ox.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDAzCCAeugAwIBAgIJAOxYXh87TIZfMA0GCSqGSIb3DQEBBQUAMB8xHTAbBgNV
+						BAMTFGJjbS5zdGh1Z2hzLm94LmFjLnVrMB4XDTEzMDkyMzExMDUyOVoXDTIzMDky
+						MTExMDUyOVowHzEdMBsGA1UEAxMUYmNtLnN0aHVnaHMub3guYWMudWswggEiMA0G
+						CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQD8L9og/HG4pFGOXIRVIV0vXGXfIEa1
+						r+f0+F9psIaNtSjnoaFoxU3h+shtdxnEKL7+owmsYK6TE4gNTbshr1DZ3R2eX61Q
+						IuKPAPTgPxR0iBxLjYdhHGS0POzsZq4RWMgRs8HugQnHs/VmQjHH0tPPdHC/vTNm
+						ZkVHWJvljVwjPDKwZ8s04G5SX6URa3JYsQq4p3Ak8p1Jdu87IeZ43xOXReTcrc7B
+						5dxgVWs4z9CJXIkwgAExb6MwzBiEFh6z5OJPT9UTC9crCr/ubOH37ag3VBW+qDRy
+						82Wkhzqy23pejRo/XjD5HoNwciaS3V5XtbrGk3aeqwIlpKMfXO8fBUBlAgMBAAGj
+						QjBAMB8GA1UdEQQYMBaCFGJjbS5zdGh1Z2hzLm94LmFjLnVrMB0GA1UdDgQWBBQF
+						24GC7un9VlxSwrqH68P+G2RDoDANBgkqhkiG9w0BAQUFAAOCAQEAEWPSCBEugRn4
+						6d1kDa+tmDuBNMTIaHBjOI5lMUJcUKzdkQGqpm5TqyXvSnyRBnWFrUCgkxEqiqhI
+						CqDYpxEL4ZqPJE6gDj0fySXZ3BWY9WYVXZwCtFfPtAKwLSDhm5AxVQwN86QZzMtC
+						P7XBcaY6RnWCSBSlKvCkwMmCfaBaocmaI6FtXLRnffeiL7otKn+0CRU7H8eNFM3f
+						d0+9B6OXPhOYZLCZdi+lohyJJAgC69eGxmgkvOS9f2wHtvlmzCsT9+GDJdhdwhco
+						sTFffODhZHy7jZWOfOG0p1fkP7HBWhYhkwk+H1mwbkAeaFrzg0x3usgftcWPkGxT
+						Juej92IuLA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://bcm.sthughs.ox.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://bcm.sthughs.ox.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://bcm.sthughs.ox.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://bcm.sthughs.ox.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://bcm.sthughs.ox.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://bcm.sthughs.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://bcm.sthughs.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://bcm.sthughs.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://bcm.sthughs.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://bcm.sthughs.ox.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://bcm.sthughs.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford, St Hugh's College NAC</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.st-hughs.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Ben</md:GivenName>
+      <md:SurName>Bridle</md:SurName>
+      <md:EmailAddress>mailto:it-services@st-hughs.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ben</md:GivenName>
+      <md:SurName>Bridle</md:SurName>
+      <md:EmailAddress>mailto:it-services@st-hughs.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,30 +1,26 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" entityID="https://idp.utorauth.utoronto.ca/shibboleth">
-
-<Extensions>
-<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.canarie.ca" registrationInstant="2013-05-23T00:00:00Z">
-<mdrpi:RegistrationPolicy xml:lang="en">
+<md:EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.utorauth.utoronto.ca/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.canarie.ca" registrationInstant="2013-05-23T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">
 http://www.canarie.ca/templates/services/docs/CAF_join_en.pdf
 </mdrpi:RegistrationPolicy>
-</mdrpi:RegistrationInfo>
-</Extensions>
-    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-
-        <Extensions>
-            <shibmd:Scope regexp="false">utoronto.ca</shibmd:Scope>
-            <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-                <mdui:DisplayName xml:lang="en">University of Toronto</mdui:DisplayName>
-                <mdui:InformationURL xml:lang="en">http://www.utoronto.ca/about-uoft.htm</mdui:InformationURL>
-            </mdui:UIInfo>
-            <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-                <mdui:DomainHint>utoronto.ca</mdui:DomainHint>
-            </mdui:DiscoHints>
-
-        </Extensions>
-
-        <KeyDescriptor>
-            <ds:KeyInfo>
-                <ds:X509Data>
-                    <ds:X509Certificate>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">utoronto.ca</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University of Toronto</mdui:DisplayName>
+          <mdui:InformationURL xml:lang="en">http://www.utoronto.ca/about-uoft.htm</mdui:InformationURL>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>utoronto.ca</mdui:DomainHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIDTDCCAjSgAwIBAgIVAKBtctYdDHOwvkS2Cae5mn6+SG12MA0GCSqGSIb3DQEB
 BQUAMCMxITAfBgNVBAMTGGlkcC51dG9yYXV0aC51dG9yb250by5jYTAeFw0xMDAy
 MTcwNDM2MzZaFw0zMDAyMTcwNDM2MzZaMCMxITAfBgNVBAMTGGlkcC51dG9yYXV0
@@ -44,30 +40,26 @@ v6q8Ut3UQ5EjnV5J+PTDePSSVhsauAqQgdXJk6e5D0Y6BOYQGKsncBvmmz3LRuEO
 JA6YHVtPjl1wNwGOMImUX4ZT0G0YAGrxx0VN7rU9RCGlLaasDFQCIuNrOOM94w6W
 x5P0oxvLtqiOA5Sbm0KW5p7Fpzig9Hm+7M5dxGJd0L0=
                     </ds:X509Certificate>
-                </ds:X509Data>
-            </ds:KeyInfo>
-        </KeyDescriptor>
-
-        <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.utorauth.utoronto.ca:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-        <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.utorauth.utoronto.ca:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-        <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-        <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.utorauth.utoronto.ca/idp/profile/Shibboleth/SSO"/>
-        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.utorauth.utoronto.ca/idp/profile/SAML2/POST/SSO"/>
-        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.utorauth.utoronto.ca/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.utorauth.utoronto.ca/idp/profile/SAML2/Redirect/SSO"/>
-    </IDPSSODescriptor>
-
-    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-
-        <Extensions>
-            <shibmd:Scope regexp="false">utoronto.ca</shibmd:Scope>
-        </Extensions>
-
-        <KeyDescriptor>
-            <ds:KeyInfo>
-                <ds:X509Data>
-                    <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.utorauth.utoronto.ca:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.utorauth.utoronto.ca:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.utorauth.utoronto.ca/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.utorauth.utoronto.ca/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.utorauth.utoronto.ca/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.utorauth.utoronto.ca/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">utoronto.ca</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIDTDCCAjSgAwIBAgIVAKBtctYdDHOwvkS2Cae5mn6+SG12MA0GCSqGSIb3DQEB
 BQUAMCMxITAfBgNVBAMTGGlkcC51dG9yYXV0aC51dG9yb250by5jYTAeFw0xMDAy
 MTcwNDM2MzZaFw0zMDAyMTcwNDM2MzZaMCMxITAfBgNVBAMTGGlkcC51dG9yYXV0
@@ -87,28 +79,22 @@ v6q8Ut3UQ5EjnV5J+PTDePSSVhsauAqQgdXJk6e5D0Y6BOYQGKsncBvmmz3LRuEO
 JA6YHVtPjl1wNwGOMImUX4ZT0G0YAGrxx0VN7rU9RCGlLaasDFQCIuNrOOM94w6W
 x5P0oxvLtqiOA5Sbm0KW5p7Fpzig9Hm+7M5dxGJd0L0=
                     </ds:X509Certificate>
-                </ds:X509Data>
-            </ds:KeyInfo>
-        </KeyDescriptor>
-
-        <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.utorauth.utoronto.ca:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-
-        <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.utorauth.utoronto.ca:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-
-        <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-
-    </AttributeAuthorityDescriptor>
-
-        <Organization>
-            <OrganizationName xml:lang="en">University of Toronto</OrganizationName>
-            <OrganizationDisplayName xml:lang="en">University of Toronto</OrganizationDisplayName>
-            <OrganizationURL xml:lang="en">http://www.utoronto.ca/</OrganizationURL>
-        </Organization>
-        <ContactPerson contactType="technical">
-            <GivenName>Mike</GivenName>
-            <SurName>Wiseman</SurName>
-            <EmailAddress>mike.wiseman@utoronto.ca</EmailAddress>
-        </ContactPerson>
-
-</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.utorauth.utoronto.ca:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.utorauth.utoronto.ca:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Toronto</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Toronto</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.utoronto.ca/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mike</md:GivenName>
+      <md:SurName>Wiseman</md:SurName>
+      <md:EmailAddress>mike.wiseman@utoronto.ca</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

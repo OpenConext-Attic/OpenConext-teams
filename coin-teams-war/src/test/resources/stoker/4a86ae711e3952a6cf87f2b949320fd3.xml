@@ -1,0 +1,82 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://athens.winchester.ac.uk/oala/metadata">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-07-08T13:59:39Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">winchester.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDXDCCAkSgAwIBAgIIQmqDispxGNswDQYJKoZIhvcNAQEFBQAwRTEhMB8GA1UE
+						CgwYVW5pdmVyc2l0eSBvZiBXaW5jaGVzdGVyMSAwHgYDVQQDDBdhdGhlbnMud2lu
+						Y2hlc3Rlci5hYy51azAeFw0xMzA3MDMxMDA5NTlaFw0yMzA3MDMxMDA5NTlaMEUx
+						ITAfBgNVBAoMGFVuaXZlcnNpdHkgb2YgV2luY2hlc3RlcjEgMB4GA1UEAwwXYXRo
+						ZW5zLndpbmNoZXN0ZXIuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+						AoIBAQCJ1jkVRgLTXubvfnTjrgldm0Lzg0A7LLkiBtcRhimvbf5ZWO69qaiPOi7U
+						ZqS2nI1OKErrQV8QImOv15sbYZesSqnErkOiitJbOvdGliwIR5x4njSrqA7d4heZ
+						G8dbYpEtJexNz1Lct4pzDxq7FP3uixX+CYuutrTsxCrrsO450zs0aVzM2qUEK9GZ
+						r144+6H4cA8AKQD0rB1uqv9aNDZljkWhkgMUoUCkjc1mXsmuSP+0DappKGBhIdRH
+						KBisDT4+d3QBvt7HaY9xi0bQllu05enGeA5PaPfIaZFOEXVA28bgrHcbDaa2Ccb9
+						xIpVaKsMGh/cK4JExZjTxdnGCvF5AgMBAAGjUDBOMB0GA1UdDgQWBBTZsfd42w9Y
+						1+pqgyYhGZqJp7Y2+jAfBgNVHSMEGDAWgBTZsfd42w9Y1+pqgyYhGZqJp7Y2+jAM
+						BgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQBjPCDp8APA44IqqaCxdxIe
+						+UqgLVMCRMSP2d4F5x99/OLOfSLLVqCZMVddqkwbgGi+/Q8Zw7NCcJw4QaY4nzO8
+						7UXTsACjlQz5fD+FdxjVGkfIc3aSRH8Ly83W5RveQdaTukhmaFdM1ndK0TqhMc7n
+						owepHnvJwak5PH6KyZ1FYNLhCfjh4xNuuwhmoh60XAweUWZzP9IfS2VxNNzBv3+5
+						fcaD4APnIG4TQqH263QTMpdv31bgHuYCs90L4+7ZjF90CCPxvhmEg0MYbdabCJOz
+						TQq4kHUbCj4NK67GjP305jurZGiOUQRqy3ma0TcwYkElPkKZj6hZEPvNfuRTp2V9
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDXDCCAkSgAwIBAgIIQmqDispxGNswDQYJKoZIhvcNAQEFBQAwRTEhMB8GA1UE
+						CgwYVW5pdmVyc2l0eSBvZiBXaW5jaGVzdGVyMSAwHgYDVQQDDBdhdGhlbnMud2lu
+						Y2hlc3Rlci5hYy51azAeFw0xMzA3MDMxMDA5NTlaFw0yMzA3MDMxMDA5NTlaMEUx
+						ITAfBgNVBAoMGFVuaXZlcnNpdHkgb2YgV2luY2hlc3RlcjEgMB4GA1UEAwwXYXRo
+						ZW5zLndpbmNoZXN0ZXIuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+						AoIBAQCJ1jkVRgLTXubvfnTjrgldm0Lzg0A7LLkiBtcRhimvbf5ZWO69qaiPOi7U
+						ZqS2nI1OKErrQV8QImOv15sbYZesSqnErkOiitJbOvdGliwIR5x4njSrqA7d4heZ
+						G8dbYpEtJexNz1Lct4pzDxq7FP3uixX+CYuutrTsxCrrsO450zs0aVzM2qUEK9GZ
+						r144+6H4cA8AKQD0rB1uqv9aNDZljkWhkgMUoUCkjc1mXsmuSP+0DappKGBhIdRH
+						KBisDT4+d3QBvt7HaY9xi0bQllu05enGeA5PaPfIaZFOEXVA28bgrHcbDaa2Ccb9
+						xIpVaKsMGh/cK4JExZjTxdnGCvF5AgMBAAGjUDBOMB0GA1UdDgQWBBTZsfd42w9Y
+						1+pqgyYhGZqJp7Y2+jAfBgNVHSMEGDAWgBTZsfd42w9Y1+pqgyYhGZqJp7Y2+jAM
+						BgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4IBAQBjPCDp8APA44IqqaCxdxIe
+						+UqgLVMCRMSP2d4F5x99/OLOfSLLVqCZMVddqkwbgGi+/Q8Zw7NCcJw4QaY4nzO8
+						7UXTsACjlQz5fD+FdxjVGkfIc3aSRH8Ly83W5RveQdaTukhmaFdM1ndK0TqhMc7n
+						owepHnvJwak5PH6KyZ1FYNLhCfjh4xNuuwhmoh60XAweUWZzP9IfS2VxNNzBv3+5
+						fcaD4APnIG4TQqH263QTMpdv31bgHuYCs90L4+7ZjF90CCPxvhmEg0MYbdabCJOz
+						TQq4kHUbCj4NK67GjP305jurZGiOUQRqy3ma0TcwYkElPkKZj6hZEPvNfuRTp2V9
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://athens.winchester.ac.uk/oala/sso"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://athens.winchester.ac.uk/oala/sso"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Winchester</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Winchester Pilot</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.winchester.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:Helpdesk@winchester.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:Helpdesk@winchester.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

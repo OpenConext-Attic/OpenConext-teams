@@ -1,0 +1,62 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://myimpact.ncl.ac.uk/shibboleth/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-11-06T11:13:02Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://myimpact.ncl.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDCTCCAfGgAwIBAgIJAN9Lr8DiEW2HMA0GCSqGSIb3DQEBBQUAMCExHzAdBgNV
+						BAMTFm1hbmEyLmNhbXB1cy5uY2wuYWMudWswHhcNMTMwNjE5MTYwMDU3WhcNMjMw
+						NjE3MTYwMDU3WjAhMR8wHQYDVQQDExZtYW5hMi5jYW1wdXMubmNsLmFjLnVrMIIB
+						IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo00q7293nhjlnVtkfq5Aj8K4
+						x/oSQYv+6Go6mIR4AiK8vnRrYy+IpFODjyaQnFlaw20925+G8HsfiQBbbH8bizaH
+						tuIr6RGscBhPnJL9u5kTYGrOlSIp7O46EQY4NlroEiIUb2vQDCz/BVFLvE+Q9Gi+
+						ur8kKWSo5sobrrFL2PFOa6VFAwGP/XERcVnv9syfVgfSfznM5SAXyxy+nRU/Dh2Z
+						/XuVGLzHFs9eH7/YirS1+Zvb967nlQX9rdYIIeUw7IEc0ajxYzxWkklBTY78uXqA
+						1++a6AWZ+0vv/3v0HdwAmtv3lhpd8gVFElKe3DfQT4RKnTvqOHZKweKjmZKnEwID
+						AQABo0QwQjAhBgNVHREEGjAYghZtYW5hMi5jYW1wdXMubmNsLmFjLnVrMB0GA1Ud
+						DgQWBBTfVDeLYd1pZGIrarVRAospzIJ3hjANBgkqhkiG9w0BAQUFAAOCAQEABh1l
+						yeVpPIF2H/TjZNStsqesiuE47wn7BNKrxHI+Z/MXgmj8g2CLXE4yTun98sHCZBvr
+						jUrC5Loao8m4ckdqPq6z8TtT6jngluoZBwOi1p+1rxTzNhjoA2ykI0ZZixsL2qq8
+						YQHLraIFMGKDYgOvz39PM8GxXlodlIP1ImF2OLkZOo8g3yHylGEMS4vk2Kf5ppSH
+						ZDNYgtGaZaKeUP3NXkEW45DptzCSeOMSxfy1tAYIHJTIGEvMf68uALJJjlZQwWqM
+						RwXtum9NPBuUOT5JVXKOtD5MwOEY9QqaRi9tAIAv9+ZgfNTuC+MRkmileT8B6mGv
+						KzKISKUo7I19U4sNcw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://myimpact.ncl.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://myimpact.ncl.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://myimpact.ncl.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://myimpact.ncl.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://myimpact.ncl.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://myimpact.ncl.ac.uk/Shibboleth.sso/SAML/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://myimpact.ncl.ac.uk/Shibboleth.sso/SAML/Artifact" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://myimpact.ncl.ac.uk/Shibboleth.sso/SAML2/POST" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://myimpact.ncl.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://myimpact.ncl.ac.uk/Shibboleth.sso/SAML2/Artifact" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://myimpact.ncl.ac.uk/Shibboleth.sso/SAML2/ECP" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Newcastle upon Tyne</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Newcastle upon Tyne</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ncl.ac.uk/iss/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:helpline@ncl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Franks</md:SurName>
+      <md:EmailAddress>mailto:chris.franks@ncl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

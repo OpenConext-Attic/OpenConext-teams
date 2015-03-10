@@ -1,0 +1,47 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://ieeexplore.ieee.org/shibboleth-sp">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIICuDCCAaCgAwIBAgIEUdwYxzANBgkqhkiG9w0BAQUFADAeMRwwGgYDVQQDExNpZWVleHBsb3Jl
+						LmllZWUub3JnMB4XDTEzMDcwOTE0MDU1OVoXDTE2MDcwODE0MDU1OVowHjEcMBoGA1UEAxMTaWVl
+						ZXhwbG9yZS5pZWVlLm9yZzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOA75zEbFib1
+						oKwcgYsUgZh/RGIYQKeVLG96sghJd0VvxeMKq0hgF7/jWjXPUqcHCTjNg50joOH4nAjlvRZ81Iw0
+						cKyMmnaucv8scBnBfUwQjfkVOyUW3IxizoH66RLVXJvq8knRbB+d25kLDcA0Wsby/RIMGkF5TJK5
+						Py6GBXF5VqH+E41ZvJNagkd2LiOc+oW9m/1df8MhcS02m1foWeJeax8GA4lyeGGTXCk3G3KO1PCz
+						wc3UZqsaM3l2golNWx3eRqWKVjEj59+IkChkHm7MHnerKoWq+1EG/VbNnkTNn1AzRmqtcmMuSte6
+						6aEyGsZ6UTPjOKNIDnBnKT1PRmUCAwEAATANBgkqhkiG9w0BAQUFAAOCAQEAD1f85Q5nzBzUOUIl
+						nftTsixhHhQOm6KNUxP6O2VGfbnkjikn972e3ypMtBxkloQTOyEti/qWw3tIvnadgKpQazkDGSMh
+						1RR6yJc2MWkuaah4rMET34XshUg7oQBRFThYrtX9g0yU3Sbriy2mRayz5+C51XF5U/lUKvepeBAQ
+						8T/5jnXGN2Acfi2r/QYSK8uPnnzuwPYlhTicyN2khwhBjokYXy/HEW1OjFe2VPmcKROPEwMkeNHD
+						ite5CXfTutjiX6Wlmy2iiCp09SzEy2Zfan4iMf8hgdD/8994EkEQSYluvKKl+tc0BwdpKxxuoNke
+						xhXvRxt/N3hR1GDsAZjQow==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://ieeexplore.ieee.org/Shibboleth/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://ieeexplore.ieee.org/Shibboleth/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://ieeexplore.ieee.org/Shibboleth/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://ieeexplore.ieee.org/Shibboleth/Shibboleth.sso/SAML/POST" index="4"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">The Institute of Electrical And Electronics Engineers, Incorporated</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">IEEE XploreDigital Library</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ieee.org/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Don</md:GivenName>
+      <md:SurName>Caldwell</md:SurName>
+      <md:EmailAddress>mailto:d.caldwell@ieee.org</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mehul</md:GivenName>
+      <md:SurName>Trivedi</md:SurName>
+      <md:EmailAddress>mailto:mh.trivedi@ieee.org</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

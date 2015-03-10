@@ -1,0 +1,61 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://copper-beech.oucs.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-10-10T10:35:12Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://copper-beech.oucs.ox.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDFTCCAf2gAwIBAgIJAO1i0mrAIB8GMA0GCSqGSIb3DQEBBQUAMCUxIzAhBgNV
+						BAMTGmNvcHBlci1iZWVjaC5vdWNzLm94LmFjLnVrMB4XDTEzMDMxMjEyMjE0MVoX
+						DTIzMDMxMDEyMjE0MVowJTEjMCEGA1UEAxMaY29wcGVyLWJlZWNoLm91Y3Mub3gu
+						YWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC19odZWKUryeOs
+						Qm5Jped89f7vdvCnl1+Es27CxXYioSRtqBWWWSCmv5ihxDmoTL+aGNdyjf/5m7Ad
+						YPzpp/eVvjPtcMN1tHo7L9B6vs/wArIp8mcFK57vfdA+LM8TzMz74OGLrGBuKe6w
+						8BRbfG6amdvJczbZ7PqMJWI4f/3YXGM6aCqHY2L0ZNZf/ZRedTIuDiurk1PH30AN
+						PAGilDLIYDakAT/HnRMzoFYDg/Qyom4YQGCF1yIyG4WJAgjhnSnibbVF6C6uNU2u
+						BcGbeF+ZLpTZe8T3NoGjZbnamqd8PmoUE/8Iv3ciPWnxpIfEL7hdQBjnYqyuM8s/
+						FyOA42uzAgMBAAGjSDBGMCUGA1UdEQQeMByCGmNvcHBlci1iZWVjaC5vdWNzLm94
+						LmFjLnVrMB0GA1UdDgQWBBQu40vUe6XSE9/jGWlX6HR6uNg2rjANBgkqhkiG9w0B
+						AQUFAAOCAQEAUrxhUkIk/kX4ALnAPV6GtwkMBoq7KMauyCaTyPDEf/VFziwhW8Ha
+						5g2gEVqD2XcTVjb1+IhJHcXcvS6PNbU4XeFDDA4b9Ozu3KZSXFkKzU+tUYcJ7HFk
+						WIzImdVpATRsc/rb871QSCsf3NsP9k0sQWCRaMZP96vic88ZiZLM4RnD62BsARMv
+						MTiOHIJJN6qRECJAXcw7BPa2Fbb+CJYMy1vG8+a2XKe/B52gmWbBwkCI8xAy9k9y
+						MFD+d0ccJvCT04vBA238bfgsEDGo9spUMatdRlvt0fAjS2mkiQM589o1EAwywWjN
+						oG3ArnRN398e8bBWJnR3ndIw5Z14f3I/KA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://copper-beech.oucs.ox.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://copper-beech.oucs.ox.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://copper-beech.oucs.ox.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://copper-beech.oucs.ox.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://copper-beech.oucs.ox.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://copper-beech.oucs.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://copper-beech.oucs.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://copper-beech.oucs.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://copper-beech.oucs.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://copper-beech.oucs.ox.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://copper-beech.oucs.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford, Test Shibboleth SP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.it.ox.ac.uk</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Systems Development and Support</md:GivenName>
+      <md:EmailAddress>mailto:sysdev@it.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Systems Development and Support</md:GivenName>
+      <md:EmailAddress>mailto:sysdev@it.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

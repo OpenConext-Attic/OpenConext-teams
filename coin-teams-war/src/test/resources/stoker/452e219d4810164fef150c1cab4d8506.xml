@@ -1,0 +1,61 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://adudeviis75.ncl.ac.uk/shibboleth/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-04-04T15:52:55Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://adudeviis75.ncl.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDGzCCAgOgAwIBAgIJAIBtWFIibWHtMA0GCSqGSIb3DQEBBQUAMCcxJTAjBgNV
+						BAMTHGFkdWRldmlpczc1LmNhbXB1cy5uY2wuYWMudWswHhcNMTEwODA4MTQxNDQx
+						WhcNMjEwODA1MTQxNDQxWjAnMSUwIwYDVQQDExxhZHVkZXZpaXM3NS5jYW1wdXMu
+						bmNsLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwo7ViZel
+						N5hMeVpWSIi/Y+LGs7IsRKUTYGrgQPKge5shCHXEaEnO2xULfkv02fAnUUVjgSnH
+						j0rqbxZaXk15klWT2rnBIKzZ/K23yTZZa2jnD5zWQBQk4Ic/UlDPi9R4rPqrjM3Y
+						qAVolS/iP8zxCjDuTfp4uxuwoLYu4g6DHV5bVD7hZcl7sbS73z3qcJAg8orqADTu
+						jRrLzst9lngAjCCW7V4L9vbyWdPkJvgnJZ1nr5oZM/yIt/P3+sBfql3RNXnRiN6Y
+						SBvqu2NWglkbd6vwpiCqDn1Ta8A0gWzoswZs0ktd7HMtRmqgIkytul0R6eXEKkrI
+						Dl+x+LRMoMfm1wIDAQABo0owSDAnBgNVHREEIDAeghxhZHVkZXZpaXM3NS5jYW1w
+						dXMubmNsLmFjLnVrMB0GA1UdDgQWBBSKlwMIim+dC+jlAmD3DDM7cja8rzANBgkq
+						hkiG9w0BAQUFAAOCAQEAFUgqMmXdg2VMzEphBGG8Scb+l5LTNf07zIDquEJsXSth
+						ZbghOC5Sx9nBneKWBTUWkWBLdkdBc4B962qaSkKkxJy/QyyNPzTnJdg4bEf2uzue
+						FxVJme4atDq8KMVrfippo1S4mCXdMFLogEqHyyen1OBBjtKH7DXAm9zHd9yiU7PH
+						GIzIrvFR98T3rOoTgGDE+bn+zHZDBMRLGLPiS/Q0AyoN+EoNYVhEqEPIFxNoDrDx
+						Ayhwjri7spY4DPdgt8RuntpqyYpct0ADNo8E8mXigPIxboCkyD9SpN9QqmR2SUns
+						G5oYq3D4daqsaYKj3KbEsw+sr6rfobahKST0hQfEgg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://adudeviis75.ncl.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://adudeviis75.ncl.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://adudeviis75.ncl.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adudeviis75.ncl.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://adudeviis75.ncl.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://adudeviis75.ncl.ac.uk/Shibboleth.sso/SAML/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://adudeviis75.ncl.ac.uk/Shibboleth.sso/SAML/Artifact" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://adudeviis75.ncl.ac.uk/Shibboleth.sso/SAML2/POST" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://adudeviis75.ncl.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://adudeviis75.ncl.ac.uk/Shibboleth.sso/SAML2/Artifact" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://adudeviis75.ncl.ac.uk/Shibboleth.sso/SAML2/ECP" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Newcastle upon Tyne</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Newcastle University: Dev IIS 7.5 Server</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ncl.ac.uk/iss/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Franks</md:SurName>
+      <md:EmailAddress>mailto:chris.franks@ncl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Franks</md:SurName>
+      <md:EmailAddress>mailto:chris.franks@ncl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

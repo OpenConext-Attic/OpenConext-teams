@@ -1,0 +1,70 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://pss-teamweb.ncl.ac.uk/shibboleth/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://pss-teamweb.ncl.ac.uk/Shibboleth.sso/shibboleth-idp/SSO"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://pss-teamweb.ncl.ac.uk/Shibboleth.sso/SSO"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://pss-teamweb.ncl.ac.uk/Shibboleth.sso/SPNEGO"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://pss-teamweb.ncl.ac.uk/Shibboleth.sso/Login"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://pss-teamweb.ncl.ac.uk/Shibboleth.sso/Login"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://pss-teamweb.ncl.ac.uk/Shibboleth.sso/DS"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://pss-teamweb.ncl.ac.uk/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIC6DCCAdCgAwIBAgIJAPeCWjj+fIPwMA0GCSqGSIb3DQEBBQUAMBYxFDASBgNV
+						BAMTC3Bzcy10ZWFtd2ViMB4XDTExMTEyODE2MTk0OFoXDTIxMTEyNTE2MTk0OFow
+						FjEUMBIGA1UEAxMLcHNzLXRlYW13ZWIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
+						ggEKAoIBAQDEU3sovq1miL61IwuXt0St5fI1KVM41Y/LV+rgi56r9uR9PeMrsjrJ
+						qshg7FCliZ19N4uaWpG01t++j6u0u2ozxqLLQC6B47C406eoOTHl0VYH1tV+7Uc1
+						EygAJ5K390qKWLlSdpYz2xJT2GkrUYycIG05tGi29GplPkVgly4VdWPVHa0L0uOm
+						aO08iGh1tpf6ayIMNkHHIWfq53QtGjxS+rJz9X0zG5W3BZ/XM+eASCC2bkum0DbZ
+						1xYxh3G2T8Il7MkrF2WMzxDM+CpUz9WuY5RsLaEA84dUlaftLQmQhkQw5cAYLty2
+						WLCZBK+NtyAdRL3gDp1Gx1dCn1lrLYoZAgMBAAGjOTA3MBYGA1UdEQQPMA2CC3Bz
+						cy10ZWFtd2ViMB0GA1UdDgQWBBRjNyIgrj/mqfqoBFkxqKWnPIDliDANBgkqhkiG
+						9w0BAQUFAAOCAQEARW5tnlcL4Qe4HfogRv32NVEhhikHIPQoQaFhKOWmwSzOnrt8
+						m4jogESc+1O6W37kD6KX4W+ligdfRChDMRqSnAvG27qAkNLv3fcitVsFMqEdNu+o
+						eZGSab5/BASxhe10Aze+vhqJpcs2RKu6aLEjlGew1qSnx43ZTcKF71CCfzcvxpKI
+						mgbr1HlBJy9+qeJxDNCGgoc4mUBXY/p52xD+jG36+EN5C5VJaJLGUPfGO99ZscPt
+						uc22Pj8QhuNVpbC0/BJRqE8zxQGRy+obxkMQFvlQQSQVdfuPqmLiq2c/yx7XvZtT
+						xe4uwBFHtKtggC8zPs4mWu7k93BlhXUXYKnfYQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://pss-teamweb.ncl.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://pss-teamweb.ncl.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://pss-teamweb.ncl.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://pss-teamweb.ncl.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://pss-teamweb.ncl.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://pss-teamweb.ncl.ac.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://pss-teamweb.ncl.ac.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://pss-teamweb.ncl.ac.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://pss-teamweb.ncl.ac.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://pss-teamweb.ncl.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://pss-teamweb.ncl.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://pss-teamweb.ncl.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://pss-teamweb.ncl.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://pss-teamweb.ncl.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://pss-teamweb.ncl.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Newcastle upon Tyne</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Newcastle upon Tyne: Professional Support Service SP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ncl.ac.uk/iss/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Franks</md:SurName>
+      <md:EmailAddress>mailto:chris.franks@ncl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Franks</md:SurName>
+      <md:EmailAddress>mailto:chris.franks@ncl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,19 +1,19 @@
-<md:EntityDescriptor xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idptoo.osu.cz/simplesaml/saml2/idp/metadata.php">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idptoo.osu.cz/simplesaml/saml2/idp/metadata.php">
     <md:Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.eduid.cz/" registrationInstant="2011-03-21T14:50:41Z">
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.eduid.cz/" registrationInstant="2011-03-21T14:50:41Z">
         <mdrpi:RegistrationPolicy xml:lang="en">http://www.eduid.cz/wiki/_media/en/eduid/policy/policy_eduid_en-1_1.pdf</mdrpi:RegistrationPolicy>
         <mdrpi:RegistrationPolicy xml:lang="cs">http://www.eduid.cz/wiki/_media/eduid/policy/policy_eduid_cz-1_1-3.pdf</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
-        <mdasrt:Attribute xmlns:mdasrt="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
-          <mdasrt:AttributeValue>http://eduid.cz/uri/idp-group/university</mdasrt:AttributeValue>
-        </mdasrt:Attribute>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://eduid.cz/uri/idp-group/university</saml:AttributeValue>
+        </saml:Attribute>
       </mdattr:EntityAttributes>
     </md:Extensions>
     <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
       <md:Extensions>
         <shibmd:Scope regexp="false">osu.cz</shibmd:Scope>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="cs">Ostravská univerzita v Ostravě</mdui:DisplayName>
           <mdui:DisplayName xml:lang="en">University of Ostrava</mdui:DisplayName>
           <mdui:DisplayName xml:lang="la">Universitas Ostraviensis</mdui:DisplayName>
@@ -23,21 +23,19 @@
           <mdui:InformationURL xml:lang="en">http://www.osu.eu/</mdui:InformationURL>
           <mdui:Logo height="40" width="133">https://idptoo.osu.cz/simplesaml/logo_ou.png</mdui:Logo>
         </mdui:UIInfo>
-        
         <eduidmd:RepublishRequest xmlns:eduidmd="http://eduid.cz/schema/metadata/1.0">
           <eduidmd:RepublishTarget>http://edugain.org/</eduidmd:RepublishTarget>
         </eduidmd:RepublishRequest>
-        
       </md:Extensions>
       <md:KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyInfo>
           <ds:X509Data>
             <ds:X509Certificate>MIIEaDCCA1CgAwIBAgIRAI1F3g4wcrtKG/uYYuJMfXcwDQYJKoZIhvcNAQEFBQAwNjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5BIFNTTCBDQTAeFw0xNDA4MDEwMDAwMDBaFw0xNzA3MzEyMzU5NTlaMDsxITAfBgNVBAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEWMBQGA1UEAxMNaWRwdG9vLm9zdS5jejCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL3OZmWlDARYP9Mgg7lgmVH4qq9ey+arCkDewU8g7ifafWWuacw2PiSQsNPZrmESPWqfEtIKEJl1rdTDAV+O4EjIHwWwWnvLix1p/czACfTWP/QPp6LRML31B6JroQhOPSslq+jR/lArOS2wgpJAsmhLDlGqViAxy8uuLpYsAU/9udUcYIQUz0KiOffo+7X4ZP1qLgwYonfmAkdvdRCw8ppNvjrWYOFokY8H/Y6wUr9EIiJOKK4Q35HbxCVYCXUFGhln+p5AjPh2Cbt92+ft4rnVnA3WDb8q36P7j5PrU0AZQSf44Pyg/1ZPirXsoFT+rqL17Jvtc94HPDpvYqGJ1E0CAwEAAaOCAWowggFmMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBRj1rUtaByWtaeKr02biN9KKRsfxTAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEwOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwGAYDVR0RBBEwD4INaWRwdG9vLm9zdS5jejANBgkqhkiG9w0BAQUFAAOCAQEAFaGTI0HjZqvUEWfXsKFKX9rSuT2MX/QHSi9Yd0Nr51cEFBZLYedMVp3UE4XPK868eB0j7zTO+lTvAerMcA6jeCebG4uD2TROMfSnVcfOYf16hQV4WfD8kzfCCGqCEC7CYeIXsTcfzoOxF61utkv/tBYGGSbzCfeNDHS3OnY/GuGnK18A1QC/XTA1yRTI4wIPpm0UgEqOmIGQB0WBkCjiHP04trTNb4LT+pLRvxnxu3BHGijpCE9tZDhFRAp1QlVAGYjEBoT434w0RlWs9eH7Q/ANMzPB705mUo+qMknrb+GbS2EaTdJF6oLOa31PI0prGi55RKJclcOGKjyOcB5/fw==</ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
       </md:KeyDescriptor>
       <md:KeyDescriptor use="encryption">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+        <ds:KeyInfo>
           <ds:X509Data>
             <ds:X509Certificate>MIIEaDCCA1CgAwIBAgIRAI1F3g4wcrtKG/uYYuJMfXcwDQYJKoZIhvcNAQEFBQAwNjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5BIFNTTCBDQTAeFw0xNDA4MDEwMDAwMDBaFw0xNzA3MzEyMzU5NTlaMDsxITAfBgNVBAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEWMBQGA1UEAxMNaWRwdG9vLm9zdS5jejCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL3OZmWlDARYP9Mgg7lgmVH4qq9ey+arCkDewU8g7ifafWWuacw2PiSQsNPZrmESPWqfEtIKEJl1rdTDAV+O4EjIHwWwWnvLix1p/czACfTWP/QPp6LRML31B6JroQhOPSslq+jR/lArOS2wgpJAsmhLDlGqViAxy8uuLpYsAU/9udUcYIQUz0KiOffo+7X4ZP1qLgwYonfmAkdvdRCw8ppNvjrWYOFokY8H/Y6wUr9EIiJOKK4Q35HbxCVYCXUFGhln+p5AjPh2Cbt92+ft4rnVnA3WDb8q36P7j5PrU0AZQSf44Pyg/1ZPirXsoFT+rqL17Jvtc94HPDpvYqGJ1E0CAwEAAaOCAWowggFmMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBRj1rUtaByWtaeKr02biN9KKRsfxTAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEwOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwGAYDVR0RBBEwD4INaWRwdG9vLm9zdS5jejANBgkqhkiG9w0BAQUFAAOCAQEAFaGTI0HjZqvUEWfXsKFKX9rSuT2MX/QHSi9Yd0Nr51cEFBZLYedMVp3UE4XPK868eB0j7zTO+lTvAerMcA6jeCebG4uD2TROMfSnVcfOYf16hQV4WfD8kzfCCGqCEC7CYeIXsTcfzoOxF61utkv/tBYGGSbzCfeNDHS3OnY/GuGnK18A1QC/XTA1yRTI4wIPpm0UgEqOmIGQB0WBkCjiHP04trTNb4LT+pLRvxnxu3BHGijpCE9tZDhFRAp1QlVAGYjEBoT434w0RlWs9eH7Q/ANMzPB705mUo+qMknrb+GbS2EaTdJF6oLOa31PI0prGi55RKJclcOGKjyOcB5/fw==</ds:X509Certificate>
           </ds:X509Data>
@@ -46,10 +44,8 @@
       <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idptoo.osu.cz/simplesaml/saml2/idp/ArtifactResolutionService.php" index="0"/>
       <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idptoo.osu.cz/simplesaml/saml2/idp/SingleLogoutService.php"/>
       <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idptoo.osu.cz/simplesaml/saml2/idp/SingleLogoutService.php"/>
-      
       <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
       <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
-      
       <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idptoo.osu.cz/simplesaml/saml2/idp/SSOService.php"/>
       <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idptoo.osu.cz/simplesaml/saml2/idp/SSOService.php"/>
     </md:IDPSSODescriptor>

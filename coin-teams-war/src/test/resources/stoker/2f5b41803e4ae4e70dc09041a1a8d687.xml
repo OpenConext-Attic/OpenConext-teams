@@ -1,0 +1,67 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://topdesk.bath.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-02-25T10:10:19Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://topdesk.bath.ac.uk/Shibboleth.sso/Login"/>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University of Bath: TopDesk</mdui:DisplayName>
+          <mdui:Description xml:lang="en">TopDesk Service Desk Service Management facility for problem submission and support</mdui:Description>
+          <mdui:Logo height="64" width="159">https://auth.bath.ac.uk/images/mdui-logo-trans.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDEjCCAfqgAwIBAgIJAN5QrRKGCEmMMA0GCSqGSIb3DQEBBQUAMCQxIjAgBgNV
+						BAMTGXBhbmFjZWEuY2FtcHVzLmJhdGguYWMudWswHhcNMTQwMjEwMTI1NTA5WhcN
+						MjQwMjA4MTI1NTA5WjAkMSIwIAYDVQQDExlwYW5hY2VhLmNhbXB1cy5iYXRoLmFj
+						LnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1jtCtknVQDfj1rUp
+						yC1ni1iw6gmg5JnWDZlH14IvmOd6QR2KcMmoi8lkGM35bGeNZcj3OaxNIA/djk9C
+						F4SI0IbEd++TkLzg17pD3ZJQ3Bt3rST4epdDEaPmXjBEmIMFoRcVlLS1nH4URy3s
+						AsTrJdaIsEJJRCVpzu08J9Y7G7Lada2h1S+DPnE94KDXTucKbh3xP5YkA6flQidD
+						1zwJbY+KKNqSFW/+vjPhR19xcxyjiO8Wq5Vo+LOugX5gr/30aegPz52J6pWUBTPz
+						yZMAj68vOqtE6Zyy9e7couwh+gOhlyTO3mTIgbGKbnDzky904AnoWg1oHds917Rw
+						k6NwTwIDAQABo0cwRTAkBgNVHREEHTAbghlwYW5hY2VhLmNhbXB1cy5iYXRoLmFj
+						LnVrMB0GA1UdDgQWBBQfl7jnvLvliJGVVM2kOi/XeSG4AjANBgkqhkiG9w0BAQUF
+						AAOCAQEAfszE8GhCifTJ5ns829wqfmIgEU+/+Sj1B8JMEkIwDLy9tk326iU3mLLS
+						lmWxRMz61r9AxcQPDL3CQEOFdR0oGPOgJEreKeJM4xuKsxHWpB7vVea5qSzFKVd0
+						0Kk5u+NrjbvwHdYJptMoyUnV5lFrxKANSBLX8INj2goKs+PCJQ+ejNrcBjkRyWkA
+						NlDAeabwzpKMrIhBlUaom6nPBZsxORqI1nkE0Nga7rrV76BXDSNJ9AnmXNRoBVQA
+						KbRKfzx3m5xJpUI2zRa4ixOMwzqAaYD6/SqNeaLKdzUzjVypOQSB4oYF/6rU+m66
+						qFMMOfKg7++8v5BKcO9HrVptqPcsuA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://topdesk.bath.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://topdesk.bath.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://topdesk.bath.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://topdesk.bath.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://topdesk.bath.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://topdesk.bath.ac.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://topdesk.bath.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://topdesk.bath.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://topdesk.bath.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://topdesk.bath.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://topdesk.bath.ac.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Bath</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Bath: TopDesk</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://topdesk.bath.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Webmaster</md:GivenName>
+      <md:EmailAddress>mailto:webmaster@bath.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Richard</md:GivenName>
+      <md:SurName>Phillips</md:SurName>
+      <md:EmailAddress>mailto:R.I.Phillips@bath.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

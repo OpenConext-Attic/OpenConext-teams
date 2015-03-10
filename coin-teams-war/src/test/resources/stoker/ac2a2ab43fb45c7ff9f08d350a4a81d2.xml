@@ -1,0 +1,61 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://blackboardtest.ncl.ac.uk/shibboleth/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-04-03T14:24:38Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://blackboardtest.ncl.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDGzCCAgOgAwIBAgIJAKhIyr2H1JGFMA0GCSqGSIb3DQEBBQUAMCcxJTAjBgNV
+						BAMTHGJiM3ZtZnJvbnQyLmNhbXB1cy5uY2wuYWMudWswHhcNMTIwMjEwMDkyOTI3
+						WhcNMjIwMjA3MDkyOTI3WjAnMSUwIwYDVQQDExxiYjN2bWZyb250Mi5jYW1wdXMu
+						bmNsLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoRlEdOVU
+						7onwi3O+Qxax4fak2EOTb7esN0tb60Wxx2fiNWMatmxdwpdnI5DYKGoiyt4eduyD
+						HRY1a4s4JrDN+zxvVJaX5pri1XeTtrHe3A7PeIWxCZk84eryBl58B8Bdj1diL2Xx
+						bVY3HdjXs0wibFL8c83NeyvxBLLTz51Nhmaboa4D+vrFEBI736InxbzX9jLtRMN8
+						lrP4MSQNXjhk7SjYmbAdZMX3bUIgGuIW2AVwMztwMxAH+XNt6FBZkMeRcNqQN0g9
+						wpDhLK3VZfkmnqDhZqTtAAXxn9B8E7W5652KdJh6I+06EKAFwyri4lrwbxxubfFu
+						nv9ExIv7eS5bAwIDAQABo0owSDAnBgNVHREEIDAeghxiYjN2bWZyb250Mi5jYW1w
+						dXMubmNsLmFjLnVrMB0GA1UdDgQWBBRYmBDxtyrlNTYLdoFl8E6M5wzLijANBgkq
+						hkiG9w0BAQUFAAOCAQEAn1ATNyj3aAVj4HltObKp90ovr7hAbBusCRw1NHw+9EY8
+						/xaFx0h2ecy50XFtOITxHQKzqIdRn1NV/R0SU/baN7jfl7hJlZCTT4zcAkg9HtKW
+						RfiZ93lctb180oOZVg/6kGxw8MNugy9wtTPilJOa9S17SHQURM96l3v4PBI32wu3
+						CMnnOkS2b5KOgx9jADf7/tz0adDp9d+8//KV/NJGSNRQF9dOcUqelfOl5suzkAk5
+						XDwuij6LN10FteNNT4p9XXVUB5f6mwFGW+InFxV2e/d3CUqzEujm7aA/r3rMqhun
+						ARuB1sigrSQWfpCXRKHGvM6tWGg+Xo5q3JbSAdiUYA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://blackboardtest.ncl.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://blackboardtest.ncl.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://blackboardtest.ncl.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://blackboardtest.ncl.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://blackboardtest.ncl.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://blackboardtest.ncl.ac.uk/Shibboleth.sso/SAML/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://blackboardtest.ncl.ac.uk/Shibboleth.sso/SAML/Artifact" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://blackboardtest.ncl.ac.uk/Shibboleth.sso/SAML2/POST" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://blackboardtest.ncl.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://blackboardtest.ncl.ac.uk/Shibboleth.sso/SAML2/Artifact" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://blackboardtest.ncl.ac.uk/Shibboleth.sso/SAML2/ECP" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Newcastle upon Tyne</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Newcastle upon Tyne: Blackboard test SP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ncl.ac.uk/iss/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Franks</md:SurName>
+      <md:EmailAddress>mailto:chris.franks@ncl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Franks</md:SurName>
+      <md:EmailAddress>mailto:chris.franks@ncl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

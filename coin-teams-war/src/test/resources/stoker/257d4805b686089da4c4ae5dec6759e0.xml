@@ -1,14 +1,14 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.lrz.de/idp/shibboleth">
-    <Extensions>
-      <mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://www.aai.dfn.de" registrationInstant="2009-05-27T12:36:25Z">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.lrz.de/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.aai.dfn.de" registrationInstant="2009-05-27T12:36:25Z">
         <mdrpi:RegistrationPolicy xml:lang="en">https://www.aai.dfn.de/en/join/</mdrpi:RegistrationPolicy>
         <mdrpi:RegistrationPolicy xml:lang="de">https://www.aai.dfn.de/teilnahme/</mdrpi:RegistrationPolicy>
       </mdrpi:RegistrationInfo>
-    </Extensions>
-    <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">lrz.de</saml1md:Scope>
-        <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">lrz.de</shibmd:Scope>
+        <mdui:UIInfo>
           <mdui:DisplayName xml:lang="de">Leibniz-Rechenzentrum (LRZ)</mdui:DisplayName>
           <mdui:DisplayName xml:lang="en">Leibniz Supercomputing Centre (LRZ)</mdui:DisplayName>
           <mdui:Description xml:lang="de">Der LRZ Identity Provider bedient Benutzer und Mitarbeiter des Leibniz-Rechenzentrums, insb. auch Supercomputing-Kunden</mdui:Description>
@@ -17,9 +17,9 @@
           <mdui:InformationURL xml:lang="de">http://www.lrz.de</mdui:InformationURL>
           <mdui:InformationURL xml:lang="en">http://www.lrz.de</mdui:InformationURL>
         </mdui:UIInfo>
-      </Extensions>
-      <KeyDescriptor use="encryption">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:Extensions>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
           <ds:KeyName>lrzidp.lrz.de</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=lrzidp.lrz.de,OU=Leibniz-Rechenzentrum,O=Bayerische Akademie der Wissenschaften,L=Garching b. Muenchen,ST=Bayern,C=DE</ds:X509SubjectName>
@@ -60,9 +60,9 @@ RXNKbj96BedS8e05bbrOSj9H7/qX5osIxDaY+rr6g3HF+2c=
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
           <ds:KeyName>lrzidp.lrz.de</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=lrzidp.lrz.de,OU=Leibniz-Rechenzentrum,O=Bayerische Akademie der Wissenschaften,L=Garching b. Muenchen,ST=Bayern,C=DE</ds:X509SubjectName>
@@ -103,22 +103,22 @@ RXNKbj96BedS8e05bbrOSj9H7/qX5osIxDaY+rr6g3HF+2c=
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.lrz.de:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-      <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.lrz.de:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
-      <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.lrz.de/idp/profile/Shibboleth/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.lrz.de/idp/profile/SAML2/POST/SSO"/>
-      <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.lrz.de/idp/profile/SAML2/Redirect/SSO"/>
-    </IDPSSODescriptor>
-    <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-      <Extensions>
-        <saml1md:Scope xmlns:saml1md="urn:mace:shibboleth:metadata:1.0" regexp="false">lrz.de</saml1md:Scope>
-      </Extensions>
-      <KeyDescriptor use="encryption">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.lrz.de:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.lrz.de:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.lrz.de/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.lrz.de/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.lrz.de/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">lrz.de</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
           <ds:KeyName>lrzidp.lrz.de</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=lrzidp.lrz.de,OU=Leibniz-Rechenzentrum,O=Bayerische Akademie der Wissenschaften,L=Garching b. Muenchen,ST=Bayern,C=DE</ds:X509SubjectName>
@@ -159,9 +159,9 @@ RXNKbj96BedS8e05bbrOSj9H7/qX5osIxDaY+rr6g3HF+2c=
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <KeyDescriptor use="signing">
-        <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
           <ds:KeyName>lrzidp.lrz.de</ds:KeyName>
           <ds:X509Data>
             <ds:X509SubjectName>CN=lrzidp.lrz.de,OU=Leibniz-Rechenzentrum,O=Bayerische Akademie der Wissenschaften,L=Garching b. Muenchen,ST=Bayern,C=DE</ds:X509SubjectName>
@@ -202,34 +202,34 @@ RXNKbj96BedS8e05bbrOSj9H7/qX5osIxDaY+rr6g3HF+2c=
 </ds:X509Certificate>
           </ds:X509Data>
         </ds:KeyInfo>
-      </KeyDescriptor>
-      <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.lrz.de:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-      <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.lrz.de:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-      <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
-      <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-    </AttributeAuthorityDescriptor>
-    <Organization>
-      <OrganizationName xml:lang="de">e38</OrganizationName>
-      <OrganizationName xml:lang="en">e38</OrganizationName>
-      <OrganizationDisplayName xml:lang="de">Leibniz-Rechenzentrum der Bayerischen Akademie der Wissenschaften</OrganizationDisplayName>
-      <OrganizationDisplayName xml:lang="en">Leibniz Supercomputing Centre (LRZ) of the Bavarian Academy of Sciences and Humanities</OrganizationDisplayName>
-      <OrganizationURL xml:lang="de">http://www.lrz.de</OrganizationURL>
-      <OrganizationURL xml:lang="en">http://www.lrz.de/english/</OrganizationURL>
-    </Organization>
-    <ContactPerson contactType="administrative">
-      <GivenName>Ralf</GivenName>
-      <SurName>Ebner</SurName>
-      <EmailAddress>mailto:shibboleth@lrz.de</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="technical">
-      <GivenName>Ralf</GivenName>
-      <SurName>Ebner</SurName>
-      <EmailAddress>mailto:shibboleth@lrz.de</EmailAddress>
-    </ContactPerson>
-    <ContactPerson contactType="support">
-      <GivenName>Ralf</GivenName>
-      <SurName>Ebner</SurName>
-      <EmailAddress>mailto:shibboleth@lrz.de</EmailAddress>
-    </ContactPerson>
-  </EntityDescriptor>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.lrz.de:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.lrz.de:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="de">e38</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">e38</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="de">Leibniz-Rechenzentrum der Bayerischen Akademie der Wissenschaften</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">Leibniz Supercomputing Centre (LRZ) of the Bavarian Academy of Sciences and Humanities</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="de">http://www.lrz.de</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.lrz.de/english/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Ralf</md:GivenName>
+      <md:SurName>Ebner</md:SurName>
+      <md:EmailAddress>mailto:shibboleth@lrz.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ralf</md:GivenName>
+      <md:SurName>Ebner</md:SurName>
+      <md:EmailAddress>mailto:shibboleth@lrz.de</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Ralf</md:GivenName>
+      <md:SurName>Ebner</md:SurName>
+      <md:EmailAddress>mailto:shibboleth@lrz.de</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

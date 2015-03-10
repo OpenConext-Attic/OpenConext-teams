@@ -1,54 +1,54 @@
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://hbidp.hb.se/idp/shibboleth">
-<md:Extensions>
-<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.swamid.se/">
-<mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
-</mdrpi:RegistrationInfo>
-</md:Extensions>
-  <IDPSSODescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-    <Extensions>
-      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">hb.se</shibmd:Scope>
-      <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-        <mdui:DisplayName xml:lang="sv">Högskolan i Borås</mdui:DisplayName>
-        <mdui:DisplayName xml:lang="en">University of Borås</mdui:DisplayName>
-        <mdui:Description xml:lang="sv">Identity Provider för anställda och studenter vid Högskolan i Borås.</mdui:Description>
-        <mdui:Description xml:lang="en">Identity Provider for employees and students at Borås University.</mdui:Description>
-        <mdui:InformationURL xml:lang="sv">http://www.hb.se/Om-hogskolan/</mdui:InformationURL>
-        <mdui:InformationURL xml:lang="en">https://www.hb.se/en/About-UB/</mdui:InformationURL>
-        <mdui:Logo height="90" width="350">https://www.hb.se//PageFiles/41206/HBloggaSwamid.gif</mdui:Logo>
-        <mdui:Logo height="90" width="350" xml:lang="sv">https://www.hb.se//PageFiles/41206/HBloggaSwamid.gif</mdui:Logo>
-        <mdui:Keywords xml:lang="sv">hb högskolan+i+borås hogskolan+i+boras textilhogskolan textilhögskolan bibliotekshogskolan bibliotekshögskolan university+of+borås textile+university+of+borås university+of+boras textile+university+of+boras boras+university+of+library+science borås+university+of+library+science</mdui:Keywords>
-        <mdui:Keywords xml:lang="en">hb högskolan+i+borås hogskolan+i+boras textilhogskolan textilhögskolan bibliotekshogskolan bibliotekshögskolan university+of+borås textile+university+of+borås university+of+boras textile+university+of+boras boras+university+of+library+science borås+university+of+library+science</mdui:Keywords>
-      </mdui:UIInfo>
-      <mdui:DiscoHints xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-        <mdui:DomainHint>hb.se</mdui:DomainHint>
-        <mdui:IPHint>193.10.168.0/24</mdui:IPHint>
-        <mdui:IPHint>193.10.169.0/24</mdui:IPHint>
-        <mdui:IPHint>193.10.170.0/24</mdui:IPHint>
-        <mdui:IPHint>193.10.171.0/24</mdui:IPHint>
-        <mdui:IPHint>193.10.172.0/24</mdui:IPHint>
-        <mdui:IPHint>193.10.173.0/24</mdui:IPHint>
-        <mdui:IPHint>193.10.174.0/24</mdui:IPHint>
-        <mdui:IPHint>193.10.175.0/24</mdui:IPHint>
-        <mdui:IPHint>193.10.245.0/24</mdui:IPHint>
-        <mdui:IPHint>193.10.246.0/24</mdui:IPHint>
-        <mdui:IPHint>193.10.247.0/24</mdui:IPHint>
-        <mdui:IPHint>193.11.64.0/24</mdui:IPHint>
-        <mdui:IPHint>193.11.65.0/24</mdui:IPHint>
-        <mdui:IPHint>193.11.66.0/24</mdui:IPHint>
-        <mdui:IPHint>193.11.67.0/24</mdui:IPHint>
-        <mdui:IPHint>193.11.68.0/24</mdui:IPHint>
-        <mdui:IPHint>193.11.69.0/24</mdui:IPHint>
-        <mdui:IPHint>193.11.70.0/24</mdui:IPHint>
-        <mdui:IPHint>193.11.71.0/24</mdui:IPHint>
-        <mdui:IPHint>193.11.72.0/24</mdui:IPHint>
-        <mdui:IPHint>193.11.73.0/24</mdui:IPHint>
-        <mdui:GeolocationHint>geo:57.724368,12.939918</mdui:GeolocationHint>
-      </mdui:DiscoHints>
-    </Extensions>
-    <KeyDescriptor>
-      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-        <ds:X509Data>
-          <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://hbidp.hb.se/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hb.se</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="sv">Högskolan i Borås</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="en">University of Borås</mdui:DisplayName>
+          <mdui:Description xml:lang="sv">Identity Provider för anställda och studenter vid Högskolan i Borås.</mdui:Description>
+          <mdui:Description xml:lang="en">Identity Provider for employees and students at Borås University.</mdui:Description>
+          <mdui:InformationURL xml:lang="sv">http://www.hb.se/Om-hogskolan/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="en">https://www.hb.se/en/About-UB/</mdui:InformationURL>
+          <mdui:Logo height="90" width="350">https://www.hb.se//PageFiles/41206/HBloggaSwamid.gif</mdui:Logo>
+          <mdui:Logo height="90" width="350" xml:lang="sv">https://www.hb.se//PageFiles/41206/HBloggaSwamid.gif</mdui:Logo>
+          <mdui:Keywords xml:lang="sv">hb högskolan+i+borås hogskolan+i+boras textilhogskolan textilhögskolan bibliotekshogskolan bibliotekshögskolan university+of+borås textile+university+of+borås university+of+boras textile+university+of+boras boras+university+of+library+science borås+university+of+library+science</mdui:Keywords>
+          <mdui:Keywords xml:lang="en">hb högskolan+i+borås hogskolan+i+boras textilhogskolan textilhögskolan bibliotekshogskolan bibliotekshögskolan university+of+borås textile+university+of+borås university+of+boras textile+university+of+boras boras+university+of+library+science borås+university+of+library+science</mdui:Keywords>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:DomainHint>hb.se</mdui:DomainHint>
+          <mdui:IPHint>193.10.168.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.169.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.170.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.171.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.172.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.173.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.174.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.175.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.245.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.246.0/24</mdui:IPHint>
+          <mdui:IPHint>193.10.247.0/24</mdui:IPHint>
+          <mdui:IPHint>193.11.64.0/24</mdui:IPHint>
+          <mdui:IPHint>193.11.65.0/24</mdui:IPHint>
+          <mdui:IPHint>193.11.66.0/24</mdui:IPHint>
+          <mdui:IPHint>193.11.67.0/24</mdui:IPHint>
+          <mdui:IPHint>193.11.68.0/24</mdui:IPHint>
+          <mdui:IPHint>193.11.69.0/24</mdui:IPHint>
+          <mdui:IPHint>193.11.70.0/24</mdui:IPHint>
+          <mdui:IPHint>193.11.71.0/24</mdui:IPHint>
+          <mdui:IPHint>193.11.72.0/24</mdui:IPHint>
+          <mdui:IPHint>193.11.73.0/24</mdui:IPHint>
+          <mdui:GeolocationHint>geo:57.724368,12.939918</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIEfjCCA2agAwIBAgIQQh0tAUo8tbGvjLhvMULUFjANBgkqhkiG9w0BAQUFADA2
 MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
 U1NMIENBMB4XDTA5MTAwMTAwMDAwMFoXDTEyMDkzMDIzNTk1OVowTjELMAkGA1UE
@@ -76,26 +76,26 @@ NtlzTU8oxWfErMa+Y2BMXWIALruQgeQrFxbO/k4RoPBHRvCul0uUsxak1IFtfT0x
 9Ks=
 
                     </ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </KeyDescriptor>
-    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://hbidp.hb.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-    <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://hbidp.hb.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-    <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://hbidp.hb.se/idp/profile/Shibboleth/SSO"/>
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://hbidp.hb.se/idp/profile/SAML2/POST/SSO"/>
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://hbidp.hb.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://hbidp.hb.se/idp/profile/SAML2/Redirect/SSO"/>
-  </IDPSSODescriptor>
-  <AttributeAuthorityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-    <Extensions>
-      <shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">hb.se</shibmd:Scope>
-    </Extensions>
-    <KeyDescriptor>
-      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-        <ds:X509Data>
-          <ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://hbidp.hb.se:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://hbidp.hb.se:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://hbidp.hb.se/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://hbidp.hb.se/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://hbidp.hb.se/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://hbidp.hb.se/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hb.se</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 MIIEfjCCA2agAwIBAgIQQh0tAUo8tbGvjLhvMULUFjANBgkqhkiG9w0BAQUFADA2
 MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
 U1NMIENBMB4XDTA5MTAwMTAwMDAwMFoXDTEyMDkzMDIzNTk1OVowTjELMAkGA1UE
@@ -123,40 +123,36 @@ NtlzTU8oxWfErMa+Y2BMXWIALruQgeQrFxbO/k4RoPBHRvCul0uUsxak1IFtfT0x
 9Ks=
 
                     </ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </KeyDescriptor>
-    <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://hbidp.hb.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-    <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://hbidp.hb.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-    <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-  </AttributeAuthorityDescriptor>
-  
-  
-  
-  
-<Organization xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
-    <OrganizationName xml:lang="en">HB</OrganizationName>
-    <OrganizationDisplayName xml:lang="sv">Högskolan i Borås</OrganizationDisplayName>
-    <OrganizationDisplayName xml:lang="en">University of Borås</OrganizationDisplayName>
-    <OrganizationURL xml:lang="en">http://www.hb.se</OrganizationURL>
-  </Organization>
-<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="administrative">
-    <Company>University of Borås</Company>
-    <SurName>IT-avdelningen</SurName>
-    <EmailAddress>it-avdelningen@hb.se</EmailAddress>
-    <TelephoneNumber>+46 33 435 4690</TelephoneNumber>
-  </ContactPerson>
-<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="technical">
-    <Company>University of Borås</Company>
-    <SurName>Per-Olof Axelsson</SurName>
-    <EmailAddress>Per-Olof.Axelsson@hb.se</EmailAddress>
-    <TelephoneNumber>+46 33 435 4697</TelephoneNumber>
-  </ContactPerson>
-<ContactPerson xmlns="urn:oasis:names:tc:SAML:2.0:metadata" contactType="support">
-    <Company>University of Borås</Company>
-    <SurName>IT-avdelningen</SurName>
-    <EmailAddress>it-avdelningen@hb.se</EmailAddress>
-    <TelephoneNumber>+46 33 435 4690</TelephoneNumber>
-  </ContactPerson>
-</md:EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://hbidp.hb.se:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://hbidp.hb.se:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">HB</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="sv">Högskolan i Borås</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">University of Borås</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.hb.se</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="administrative">
+      <md:Company>University of Borås</md:Company>
+      <md:SurName>IT-avdelningen</md:SurName>
+      <md:EmailAddress>it-avdelningen@hb.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 33 435 4690</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:Company>University of Borås</md:Company>
+      <md:SurName>Per-Olof Axelsson</md:SurName>
+      <md:EmailAddress>Per-Olof.Axelsson@hb.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 33 435 4697</md:TelephoneNumber>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:Company>University of Borås</md:Company>
+      <md:SurName>IT-avdelningen</md:SurName>
+      <md:EmailAddress>it-avdelningen@hb.se</md:EmailAddress>
+      <md:TelephoneNumber>+46 33 435 4690</md:TelephoneNumber>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

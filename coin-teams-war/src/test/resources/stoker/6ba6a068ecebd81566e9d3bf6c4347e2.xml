@@ -1,0 +1,53 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://daas-3.ords.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-11-20T09:58:15Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIID5TCCAs2gAwIBAgIJAKDMcgQyLRfOMA0GCSqGSIb3DQEBBQUAMIGIMQswCQYD
+						VQQGEwJHQjEUMBIGA1UECAwLT3hmb3Jkc2hpcmUxDzANBgNVBAcMBk94Zm9yZDEd
+						MBsGA1UECgwUVW5pdmVyc2l0eSBvZiBPeGZvcmQxFDASBgNVBAsMC0lUIFNlcnZp
+						Y2VzMR0wGwYDVQQDDBRkYWFzLTMub3Jkcy5veC5hYy51azAeFw0xMjExMTYxNTMx
+						MjFaFw0yMjExMTQxNTMxMjFaMIGIMQswCQYDVQQGEwJHQjEUMBIGA1UECAwLT3hm
+						b3Jkc2hpcmUxDzANBgNVBAcMBk94Zm9yZDEdMBsGA1UECgwUVW5pdmVyc2l0eSBv
+						ZiBPeGZvcmQxFDASBgNVBAsMC0lUIFNlcnZpY2VzMR0wGwYDVQQDDBRkYWFzLTMu
+						b3Jkcy5veC5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMCk
+						5uRy5YouucxaTM33GWigxLSfTnPr2RWSWdEbU1aY+EpDKvSXY5D21WdA+K8hBrqG
+						FLWnjGmEZxQw9BuIxeZp8rVtBC4orVZkg4vKVabvjSliujo+kEcZyYDd0qSRx+i5
+						UgC0YS5ON/usV7sX1OwnaQrOldomYiZlV7pWGtfA1NMByaKVQulM68nPGlYIcgwQ
+						Z3EKJmx6WLRelxBKoPGIsTvVSB3Tn12cB9wC9eWJmH58B9Dgf/3rlKhMXQtG2C7Q
+						dDm96lG8iWXOsRIKEAdKcXqVaaObEgZvm93RGTkMrzq0kyC+ytdKqnZDctHxyb+S
+						va1tbc7heeouRb2FfssCAwEAAaNQME4wHQYDVR0OBBYEFAMC9EwigBelHTlvrGUC
+						CThYmnxyMB8GA1UdIwQYMBaAFAMC9EwigBelHTlvrGUCCThYmnxyMAwGA1UdEwQF
+						MAMBAf8wDQYJKoZIhvcNAQEFBQADggEBAEayna/g9y/IwnDJkOn7frQLpBNe87lD
+						FCmfSQeSJ0YK3Un8nSURSwjLC6oGT0yfHSNow1IHDLNBkgHOsvbSd4GhBtbYaCw9
+						TF1SO4uloGQGjuADVdBIo/H7iuw9oF765kuBYVpB4x62bgEuhbIsDfNUIMKGbd4e
+						GmAaNsUBgf1h7zXSdc7HSMqI0YgAoH3YXeXHzRaFyFPd5He0ir1fOpZFc4obyVQY
+						EhSg4iIgVAaUkP75pgVsUgp2PM9Q0q8LG9Ke6XFnATaqGnTYg0zmGSvAE6QhsVT4
+						kKlXKwZxq5ey4wExwrSdx7XK16wJK7QoPpW6oBvJ6hjM8m7I8wrSVfs=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://daas-3.ords.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://daas-3.ords.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://daas-3.ords.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://daas-3.ords.ox.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Oxford Research Data Service daas-3</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ords.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Oxford Research Data Service</md:GivenName>
+      <md:EmailAddress>mailto:ords@it.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Oxford Research Data Service</md:GivenName>
+      <md:EmailAddress>mailto:ords@it.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,30 +1,26 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="uk001750" entityID="https://community.ja.net/shibboleth">
-	
-	<Extensions>
-
-
-		<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-02-14T17:37:40Z">
-			<mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
-		</mdrpi:RegistrationInfo>
-
-	</Extensions>
-	<SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
-		<Extensions>
-			<init:RequestInitiator xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://community.ja.net/Shibboleth.sso/Login"/>
-			<idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://community.ja.net/Shibboleth.sso/Login" index="1"/>
-			<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-				<mdui:DisplayName xml:lang="en">The Janet Community</mdui:DisplayName>
-				<mdui:Description xml:lang="en">The community driven, social business, support, and information website for Janet products and services.</mdui:Description>
-				<mdui:Logo height="227" width="500">https://community.ja.net/sites/all/themes/janetbootstrap/logo_500x227.png</mdui:Logo>
-				<mdui:Logo height="109" width="240">https://community.ja.net/sites/all/themes/janetbootstrap/logo_240x109.png</mdui:Logo>
-				<mdui:Logo height="45" width="100">https://community.ja.net/sites/all/themes/janetbootstrap/logo_100x45.png</mdui:Logo>
-				<mdui:Logo height="75" width="75">https://community.ja.net/sites/all/themes/janetbootstrap/logo_75x75.png</mdui:Logo>
-			</mdui:UIInfo>
-		</Extensions>
-		<KeyDescriptor>
-			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-				<ds:X509Data>
-					<ds:X509Certificate>
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://community.ja.net/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-02-14T17:37:40Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://community.ja.net/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://community.ja.net/Shibboleth.sso/Login" index="1"/>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">The Janet Community</mdui:DisplayName>
+          <mdui:Description xml:lang="en">The community driven, social business, support, and information website for Janet products and services.</mdui:Description>
+          <mdui:Logo height="227" width="500">https://community.ja.net/sites/all/themes/janetbootstrap/logo_500x227.png</mdui:Logo>
+          <mdui:Logo height="109" width="240">https://community.ja.net/sites/all/themes/janetbootstrap/logo_240x109.png</mdui:Logo>
+          <mdui:Logo height="45" width="100">https://community.ja.net/sites/all/themes/janetbootstrap/logo_100x45.png</mdui:Logo>
+          <mdui:Logo height="75" width="75">https://community.ja.net/sites/all/themes/janetbootstrap/logo_75x75.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 						MIIC9zCCAd+gAwIBAgIJAK3QNCbDRJQ8MA0GCSqGSIb3DQEBBQUAMBsxGTAXBgNV
 						BAMTEGNvbW11bml0eS5qYS5uZXQwHhcNMTIwMjEwMTEyMzUzWhcNMjIwMjA3MTEy
 						MzUzWjAbMRkwFwYDVQQDExBjb21tdW5pdHkuamEubmV0MIIBIjANBgkqhkiG9w0B
@@ -42,33 +38,32 @@
 						PuhVktg4i0oQ8Uk2GlzgvAClfrZqNSi48BTWrKX4GA5zgEhf8HcBaBQhr5q6ONZi
 						0B+wkoo8xl+IxAjKKhkoQxl+Bl9d/rxHOgvMGe/C+83bJ204rfCMdLgGzA==
 					</ds:X509Certificate>
-				</ds:X509Data>
-			</ds:KeyInfo>
-		</KeyDescriptor>
-		<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://community.ja.net/Shibboleth.sso/Artifact/SOAP" index="0"/>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://community.ja.net/Shibboleth.sso/SLO/SOAP"/>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://community.ja.net/Shibboleth.sso/SLO/Redirect"/>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://community.ja.net/Shibboleth.sso/SLO/POST"/>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://community.ja.net/Shibboleth.sso/SLO/Artifact"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://community.ja.net/Shibboleth.sso/SAML2/POST" index="0"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://community.ja.net/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://community.ja.net/Shibboleth.sso/SAML2/Artifact" index="2"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://community.ja.net/Shibboleth.sso/SAML2/ECP" index="3"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://community.ja.net/Shibboleth.sso/SAML/POST" index="4"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://community.ja.net/Shibboleth.sso/SAML/Artifact" index="5"/>
-	</SPSSODescriptor>
-	<Organization>
-		<OrganizationName xml:lang="en">JISC Collections and Janet Limited</OrganizationName>
-		<OrganizationDisplayName xml:lang="en">The Janet Community</OrganizationDisplayName>
-		<OrganizationURL xml:lang="en">http://www.ja.net/</OrganizationURL>
-	</Organization>
-	<ContactPerson contactType="support">
-		<GivenName>Login Helpdesk</GivenName>
-		<EmailAddress>mailto:web-submit@ja.net</EmailAddress>
-	</ContactPerson>
-	<ContactPerson contactType="technical">
-		<GivenName>Technical Support</GivenName>
-		<EmailAddress>mailto:web-submit@ja.net</EmailAddress>
-	</ContactPerson>
-
-</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://community.ja.net/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://community.ja.net/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://community.ja.net/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://community.ja.net/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://community.ja.net/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://community.ja.net/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://community.ja.net/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://community.ja.net/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://community.ja.net/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://community.ja.net/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://community.ja.net/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">JISC Collections and Janet Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">The Janet Community</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ja.net/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Login Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:web-submit@ja.net</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Technical Support</md:GivenName>
+      <md:EmailAddress>mailto:web-submit@ja.net</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

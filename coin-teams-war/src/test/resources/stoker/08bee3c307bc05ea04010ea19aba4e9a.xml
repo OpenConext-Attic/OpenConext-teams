@@ -1,0 +1,68 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.jordanpublishingcpd.co.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://www.jordanpublishingcpd.co.uk/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://www.jordanpublishingcpd.co.uk/Shibboleth.sso/Login" index="1"/>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Jordan Publishing / Family Law</mdui:DisplayName>
+          <mdui:Description xml:lang="en">For access to law reports, case law, commentary, precedents and legal and administrative changes.</mdui:Description>
+          <mdui:Logo height="64" width="252">https://www.jordanpublishingcpd.co.uk/jordanslogo.gif</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDYjCCAkoCCQCgLsM5xyLGGDANBgkqhkiG9w0BAQUFADBzMQswCQYDVQQGEwJH
+						QjEQMA4GA1UECBMHQnJpc3RvbDEQMA4GA1UEBxMHQnJpc3RvbDEYMBYGA1UEChMP
+						Sm9yZGFucyBMaW1pdGVkMSYwJAYDVQQDEx13d3cuam9yZGFucHVibGlzaGluZ2Nw
+						ZC5jby51azAeFw0xMTEwMTAwOTUzMDBaFw00MTEwMDIwOTUzMDBaMHMxCzAJBgNV
+						BAYTAkdCMRAwDgYDVQQIEwdCcmlzdG9sMRAwDgYDVQQHEwdCcmlzdG9sMRgwFgYD
+						VQQKEw9Kb3JkYW5zIExpbWl0ZWQxJjAkBgNVBAMTHXd3dy5qb3JkYW5wdWJsaXNo
+						aW5nY3BkLmNvLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuFsJ
+						DikTpQWue+TeFD7f/SxyB95/b4D1a/4L04NtzzauQ9G+IZmtzoVvIadkYNZEqBA6
+						gyYddDxQ2z74PO/NUY04xicrwMLsm51CZz6UpZcA/g3Plr0qCNKpQdR6xiZwbH5r
+						QPvNDVpR+k1tcI/ylmvH5XW/XOHqIpr1cWAINiBCs4YXNy26c0V/1iBApKRovTyY
+						Oy2ZqxDLzC1l4xe8AliI318JcIm6ObOk3Z8OjmtzKla58xtjswvQsLVyIlb/10eA
+						XZUUHBjhgl8ule7T9isYtJ250xcfYW37Px8eERxOyTuCi7NEkQGiniSEnzp9PP5P
+						Uf4sugluTP/MRvKkqQIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQBJ5V21s9XjpfI5
+						t+vb7eleCZOdrFOA0ON9l24CDTADuhakdFA473JgIvjGk2m/VbH5nLZDI26IRIuv
+						lm2G6eaE2FZrDCu/EScmm4G8UxuYWXXj2+grYeWJ/o9U5Zbm38a2j/z2guDCfaO2
+						+3DYYegalq7klPCuwdvN9lObF/8elD3NAx7sFgR0DAyZNF57ppejnrC3yVpyWizO
+						/0hdLckeOfpxUyal2UFB0H7hUqShfBJiJykMczpocFYRPEuOr+21Z89eoAQbplfM
+						ln8E55bf4eHw1k6Wb95K3VeDqwSznFWVXIkxEiWXCuKXxHd+J145S3YZe5ayeRvz
+						wdxJFa0Y
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.jordanpublishingcpd.co.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.jordanpublishingcpd.co.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.jordanpublishingcpd.co.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.jordanpublishingcpd.co.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.jordanpublishingcpd.co.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.jordanpublishingcpd.co.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www.jordanpublishingcpd.co.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.jordanpublishingcpd.co.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://www.jordanpublishingcpd.co.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.jordanpublishingcpd.co.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.jordanpublishingcpd.co.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Jordan Publishing Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Jordan Publishing / Family Law</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.jordanpublishing.co.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Simon</md:GivenName>
+      <md:SurName>Withers</md:SurName>
+      <md:EmailAddress>mailto:simon_withers@jordanpublishing.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Jordan Publishing technical support</md:GivenName>
+      <md:EmailAddress>mailto:electronic@jordanpublishing.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

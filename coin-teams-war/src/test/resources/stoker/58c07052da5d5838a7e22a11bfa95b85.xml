@@ -1,0 +1,49 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://journals.heacademy.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-04-19T12:00:00Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDPDCCAiSgAwIBAgIJAJOTTFp5kRupMA0GCSqGSIb3DQEBBQUAMCMxITAfBgNV
+						BAMTGGpvdXJuYWxzLmhlYWNhZGVteS5hYy51azAeFw0xMzAzMjgwMDI0MDlaFw0x
+						NjAzMjcwMDI0MDlaMCMxITAfBgNVBAMTGGpvdXJuYWxzLmhlYWNhZGVteS5hYy51
+						azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANOQ1INQ2UjzPpKIERLZ
+						T4ImAal+OGN8XMHm54PSKVdl6oMmXOQW/oshCsm+Wd768BHhfSgajkKJQ9cGLdKG
+						rQcPg0NeGlebSQxEAU5EymIbgJdyA03NSAK9C1iPdGkJ5+PNE88eKtQP/cVwa/QC
+						RymCnLroxKfquAVvf/iLiTJtx0oIuLS3PaVoqSrBrRU6vJOtim7xaWBaJVmvd0I1
+						FT+wgIkHtRRCi6O7ku31n1CfXuBenov/NLxOW1HpLHYqX9H+Mxt5XPjzs7vf3cIy
+						hE6c5NVtN9S2qNsXhHvZMB5JQcOk6JFv/K5yxElR0/W53KQN8pstmmXQrSjAliPa
+						8UUCAwEAAaNzMHEwUAYDVR0RBEkwR4IYam91cm5hbHMuaGVhY2FkZW15LmFjLnVr
+						hitodHRwczovL2pvdXJuYWxzLmhlYWNhZGVteS5hYy51ay9zaGliYm9sZXRoMB0G
+						A1UdDgQWBBRZYwKjd2FZxBTfe1YCf4Uciwsz9jANBgkqhkiG9w0BAQUFAAOCAQEA
+						bhkLgMPYt9MdLliyOC7frDpRExeYqYeGQ+LS5vnY9FwT3rAkIlutdaCbqZijh8Jl
+						9p8vRWcKJuGmYSHMxIrciHTmjSkNa/zYLsP3+QGLzre9MQfJZ5YiwMA9ym05xbon
+						hgCKylNLWd8lQIIf3joPFBOI5dgfey8dUxoIVk2e1x8YRv2OcNfpkGQkp1HyXs3T
+						lLhRoL+MLFM0aKaW18hNnV3Uuhj5OoBKJQCWbtJix2yrO2MUqUNORWsdExS69Hev
+						q88umX3v6Cwt6Ri/vzVQOj/4u5vQ6NY1evS6uEYxlnfneEICxZ1WRKqXdA1MWfO4
+						aaX1Y4N8Fbb80yxu7/QWIQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://journals.heacademy.ac.uk/action/samlACS" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://journals.heacademy.ac.uk/action/samlACS" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://journals.heacademy.ac.uk/action/samlACS" index="3"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Atypon Systems, Inc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">The Higher Education Academy</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://journals.heacademy.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>sso-support</md:GivenName>
+      <md:EmailAddress>mailto:sso-support@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>sso-tech</md:GivenName>
+      <md:EmailAddress>mailto:sso-tech@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

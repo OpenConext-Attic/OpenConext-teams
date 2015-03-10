@@ -1,0 +1,100 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://federation.citylit.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">citylit.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIID3zCCAsegAwIBAgIBATANBgkqhkiG9w0BAQUFADBYMRQwEgYDVQQKDAtJbnRl
+						cm5ldDJRSTEdMBsGA1UECwwUSW50ZXJuZXRRdWlja0luc3RhbGwxITAfBgNVBAMM
+						GGZlZGVyYXRpb24uY2l0eWxpdC5hYy51azAeFw0wODEwMDExNTI3MDFaFw0xODEw
+						MDExNTI3MDFaMFgxFDASBgNVBAoMC0ludGVybmV0MlFJMR0wGwYDVQQLDBRJbnRl
+						cm5ldFF1aWNrSW5zdGFsbDEhMB8GA1UEAwwYZmVkZXJhdGlvbi5jaXR5bGl0LmFj
+						LnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm8uZyZuCsmNPxwh5
+						wYzBQxH5Lm4k88NjijrPczsmMv6ytTktOryvUT53onCvV56Q/K9fNFp6n2oED1qT
+						GBFULXBjn2V05mXOcbxP10gbmVP3ik8K+uSfZWrG6Zhko2mCx+N1Ic9lvnjELAMZ
+						n4iX9/XJpnYyzHJTCJ+nhsG3q1wYftXblAm3UQn3kBpzjAKTWmAKEFnfLYt2hXQi
+						SJpTEMAMc7LF4x2Wn65D8Yy7ZUDv9D0gXvHCfLKaY9KP3nb5v9jxxOy2MY9myApV
+						1FBauyD5N4zh5CoiXa5Kc4ulsPpgl7rsJzVK40nDsSTBh5z4zhKFoLY2ed9D4u5m
+						N7gC2wIDAQABo4GzMIGwMB0GA1UdDgQWBBQt1uPa7g7op1dL4DqzM9jEUGbEjDCB
+						gAYDVR0jBHkwd4AULdbj2u4O6KdXS+A6szPYxFBmxIyhXKRaMFgxFDASBgNVBAoM
+						C0ludGVybmV0MlFJMR0wGwYDVQQLDBRJbnRlcm5ldFF1aWNrSW5zdGFsbDEhMB8G
+						A1UEAwwYZmVkZXJhdGlvbi5jaXR5bGl0LmFjLnVrggEBMAwGA1UdEwQFMAMBAf8w
+						DQYJKoZIhvcNAQEFBQADggEBAHUFXipOGkG4InAusODqfe1aUG+skCY9zzXTaIOP
+						kpXQ0Q5FifQiShE/b2vIp15lQG+qDE0kppyk5cBkdZkGAVb5K0aQIxcl9MiL67QX
+						h6iqlSpAgMU6u6L2/VWBeVjNmqcc9X88nXWDv4VAOJy4YIZVMn16bkeD40doSuQJ
+						S9ipahSI+KhN8a84nx+inBjh2W47rle5BYVjblu3eCKf3i4/W03r2jurW2+yEwlA
+						auQ7PwLXsxQpFa/sfc+gSM6AvKc88UT/q3sQHt8vzrr6i2yN6U7s5jbeJ8UhXYeA
+						EzP9054/ECA5LnVNOe+dKhGm84MWiC1ovYbuPx0vFQTzRJE=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://federation.citylit.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://federation.citylit.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://federation.citylit.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://federation.citylit.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://federation.citylit.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://federation.citylit.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">citylit.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIID3zCCAsegAwIBAgIBATANBgkqhkiG9w0BAQUFADBYMRQwEgYDVQQKDAtJbnRl
+						cm5ldDJRSTEdMBsGA1UECwwUSW50ZXJuZXRRdWlja0luc3RhbGwxITAfBgNVBAMM
+						GGZlZGVyYXRpb24uY2l0eWxpdC5hYy51azAeFw0wODEwMDExNTI3MDFaFw0xODEw
+						MDExNTI3MDFaMFgxFDASBgNVBAoMC0ludGVybmV0MlFJMR0wGwYDVQQLDBRJbnRl
+						cm5ldFF1aWNrSW5zdGFsbDEhMB8GA1UEAwwYZmVkZXJhdGlvbi5jaXR5bGl0LmFj
+						LnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAm8uZyZuCsmNPxwh5
+						wYzBQxH5Lm4k88NjijrPczsmMv6ytTktOryvUT53onCvV56Q/K9fNFp6n2oED1qT
+						GBFULXBjn2V05mXOcbxP10gbmVP3ik8K+uSfZWrG6Zhko2mCx+N1Ic9lvnjELAMZ
+						n4iX9/XJpnYyzHJTCJ+nhsG3q1wYftXblAm3UQn3kBpzjAKTWmAKEFnfLYt2hXQi
+						SJpTEMAMc7LF4x2Wn65D8Yy7ZUDv9D0gXvHCfLKaY9KP3nb5v9jxxOy2MY9myApV
+						1FBauyD5N4zh5CoiXa5Kc4ulsPpgl7rsJzVK40nDsSTBh5z4zhKFoLY2ed9D4u5m
+						N7gC2wIDAQABo4GzMIGwMB0GA1UdDgQWBBQt1uPa7g7op1dL4DqzM9jEUGbEjDCB
+						gAYDVR0jBHkwd4AULdbj2u4O6KdXS+A6szPYxFBmxIyhXKRaMFgxFDASBgNVBAoM
+						C0ludGVybmV0MlFJMR0wGwYDVQQLDBRJbnRlcm5ldFF1aWNrSW5zdGFsbDEhMB8G
+						A1UEAwwYZmVkZXJhdGlvbi5jaXR5bGl0LmFjLnVrggEBMAwGA1UdEwQFMAMBAf8w
+						DQYJKoZIhvcNAQEFBQADggEBAHUFXipOGkG4InAusODqfe1aUG+skCY9zzXTaIOP
+						kpXQ0Q5FifQiShE/b2vIp15lQG+qDE0kppyk5cBkdZkGAVb5K0aQIxcl9MiL67QX
+						h6iqlSpAgMU6u6L2/VWBeVjNmqcc9X88nXWDv4VAOJy4YIZVMn16bkeD40doSuQJ
+						S9ipahSI+KhN8a84nx+inBjh2W47rle5BYVjblu3eCKf3i4/W03r2jurW2+yEwlA
+						auQ7PwLXsxQpFa/sfc+gSM6AvKc88UT/q3sQHt8vzrr6i2yN6U7s5jbeJ8UhXYeA
+						EzP9054/ECA5LnVNOe+dKhGm84MWiC1ovYbuPx0vFQTzRJE=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://federation.citylit.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://federation.citylit.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">City Lit</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">City Lit</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.citylit.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Ratcliffe</md:GivenName>
+      <md:SurName>Cassell</md:SurName>
+      <md:EmailAddress>mailto:cliff.Cassell@citylit.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ratcliffe</md:GivenName>
+      <md:SurName>Cassell</md:SurName>
+      <md:EmailAddress>mailto:cliff.Cassell@citylit.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,62 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://booking.ictf.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-03-22T15:52:20Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://booking.ictf.ox.ac.uk/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://booking.ictf.ox.ac.uk/Shibboleth.sso/Login" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDBjCCAe6gAwIBAgIJAK/ba/SUiWe2MA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV
+						BAMTFWJvb2tpbmcuaWN0Zi5veC5hYy51azAeFw0xMzAzMjEwOTU3NDdaFw0yMzAz
+						MTkwOTU3NDdaMCAxHjAcBgNVBAMTFWJvb2tpbmcuaWN0Zi5veC5hYy51azCCASIw
+						DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAL/qxQYodiz2wlFTRKTunx1uXub3
+						aMGFCoCz+m7l9lGQdfA+C24PRxWi4StUGqQmMJa97t/WtYcCbr05Ba4Kwg5v4c7g
+						23YBXFVFrFBtZnohMQSg1IaZNkWK8MwQGJTxFD+2b/KHRkrcHGbjEgHgGM+MYtdb
+						kfWswHFR6HHKDV6zkAL+bK338bj/eCywT4hmhLx2iaI4BkkpQNtLZ3BkTVzC/Wxb
+						xZ+Dy6wAfIkv8RMWbHih0+juYDM4FVTzwcn5Q7+O3Lmf//RyQRdZW3Tm+yJoOT4V
+						0qWkqDidl8WUKwmc/oEbsWcMk0PsmZS8o93f59Rsxrjyn/uCcL6p8t2c72kCAwEA
+						AaNDMEEwIAYDVR0RBBkwF4IVYm9va2luZy5pY3RmLm94LmFjLnVrMB0GA1UdDgQW
+						BBS5EwhqH1HRiDM3x+20r1OE1uZBDjANBgkqhkiG9w0BAQUFAAOCAQEATmwjfTI3
+						9y/e3p4hR77va41wvVS9TOlLCP8eZb9Kz4VwYW1yivqo2XfuLMgjniQWLJrZDDIL
+						I0Z4D8CbN2Bu2fYK9NE7njsUhfbZUrhBd2Ec2XlL2ef8tI5XP8X+okXMRdcUmAG8
+						7J/DKbjByjYOAgZSR2h2YUrV4UmIb1+40ToFUd8DWVlUdNhtNxRecIZvlSd6HDP6
+						PKn+cVXHEvUHhshA/8+FFbOlbBf+lKNiDKMlCdpEngK16aizDRPSbO7rrDyaz7fB
+						t22YY+B+nypOCwam1z5qvpa4YUyp/zhwyjCVuubNP+IZnM2QCvP1PJaI6bffxSng
+						cP2sORZYpAmpdg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://booking.ictf.ox.ac.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://booking.ictf.ox.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://booking.ictf.ox.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://booking.ictf.ox.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://booking.ictf.ox.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://booking.ictf.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://booking.ictf.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://booking.ictf.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://booking.ictf.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://booking.ictf.ox.ac.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://booking.ictf.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford ICTF Conference Booking Website</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ictf.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Jim</md:GivenName>
+      <md:SurName>Leek</md:SurName>
+      <md:EmailAddress>mailto:jim.leek@eng.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Jim</md:GivenName>
+      <md:SurName>Leek</md:SurName>
+      <md:EmailAddress>mailto:jim.leek@eng.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

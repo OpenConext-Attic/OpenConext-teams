@@ -1,0 +1,108 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.bris.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2010-09-09T16:18:44Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">bris.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEajCCA1KgAwIBAgIRAK58g0TFSvrWrf+i3B/0gccwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xNDA1MTkwMDAwMDBaFw0xNzA1MTgyMzU5NTlaMDwxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEXMBUGA1UEAxMOaWRwLmJyaXMu
+						YWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCsU9+sdKHI8hN6
+						O0OD2LPvMjpWME5Pye8WlR6ZJ2UJ4+X2nPkOnfCw+78cY5GwOfByuR1z30htpwRy
+						ivp4aGJ1mNtDZK5fJrcgEqsbDkS0AlHf/CMBZngPMgFMatiM05ONJ6V4xkYuMrIL
+						BO3FXLtJyMNbBelKKs7qYeX63K/s5BlEQoeVM1++bNSBsGyw4Mpx8YjonDiQ9fv+
+						me8Bb3SQK0tLDzcec+MvDXxtgVhWaaDI0WxszQ9TIVSB5FAU6IFntMHVy1Eknxdw
+						xoH6LzbseyYceuOnDQFAj5PUo0qs7tyRENEILyWgXR1xWsWi5boAAvza6wl3wM1x
+						/WtHdRxTAgMBAAGjggFrMIIBZzAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fq
+						kOO57TAdBgNVHQ4EFgQU/U4kIhsi5ncjjLICKDibnBsElB8wDgYDVR0PAQH/BAQD
+						AgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMC
+						MCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQIBMDoGA1UdHwQzMDEw
+						L6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3Js
+						MG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2NydC50Y3MudGVy
+						ZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6Ly9vY3Nw
+						LnRjcy50ZXJlbmEub3JnMBkGA1UdEQQSMBCCDmlkcC5icmlzLmFjLnVrMA0GCSqG
+						SIb3DQEBBQUAA4IBAQAQOA3RamZqqYegVQ8ZUmSepYyUYGnirq0qg4qNeio/80B2
+						18KhebIEAXNEhqj7xK1WqzzPkxrnmZY3qkidLqDkZFmVFGanl4QCc87pfoflKiU9
+						FiRBNV9PQNmUYN+URc9i9OKxrwHTNB5Q1qHnjBzEQOuG2NJ55v5DJms17uQBV72w
+						oWtV70Y1TC8E7pYqXpJSzWvFnMSVElKyw6zpn1kd0W+OP0llHtGRemg5/P6qSKvu
+						JpL2t2gPy499sAmPsT8t5/KJ9hcyfuBz5/zKCvz4VDhJQlNQAZUvBqniB6ehpGvY
+						LJQ+rAYwvuUgVbbgVWd8IPOu0EF3HAPHneOeXKHt
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.bris.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.bris.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.bris.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.bris.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.bris.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.bris.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">bris.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEajCCA1KgAwIBAgIRAK58g0TFSvrWrf+i3B/0gccwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xNDA1MTkwMDAwMDBaFw0xNzA1MTgyMzU5NTlaMDwxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEXMBUGA1UEAxMOaWRwLmJyaXMu
+						YWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCsU9+sdKHI8hN6
+						O0OD2LPvMjpWME5Pye8WlR6ZJ2UJ4+X2nPkOnfCw+78cY5GwOfByuR1z30htpwRy
+						ivp4aGJ1mNtDZK5fJrcgEqsbDkS0AlHf/CMBZngPMgFMatiM05ONJ6V4xkYuMrIL
+						BO3FXLtJyMNbBelKKs7qYeX63K/s5BlEQoeVM1++bNSBsGyw4Mpx8YjonDiQ9fv+
+						me8Bb3SQK0tLDzcec+MvDXxtgVhWaaDI0WxszQ9TIVSB5FAU6IFntMHVy1Eknxdw
+						xoH6LzbseyYceuOnDQFAj5PUo0qs7tyRENEILyWgXR1xWsWi5boAAvza6wl3wM1x
+						/WtHdRxTAgMBAAGjggFrMIIBZzAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fq
+						kOO57TAdBgNVHQ4EFgQU/U4kIhsi5ncjjLICKDibnBsElB8wDgYDVR0PAQH/BAQD
+						AgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMC
+						MCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQIBMDoGA1UdHwQzMDEw
+						L6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3Js
+						MG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2NydC50Y3MudGVy
+						ZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6Ly9vY3Nw
+						LnRjcy50ZXJlbmEub3JnMBkGA1UdEQQSMBCCDmlkcC5icmlzLmFjLnVrMA0GCSqG
+						SIb3DQEBBQUAA4IBAQAQOA3RamZqqYegVQ8ZUmSepYyUYGnirq0qg4qNeio/80B2
+						18KhebIEAXNEhqj7xK1WqzzPkxrnmZY3qkidLqDkZFmVFGanl4QCc87pfoflKiU9
+						FiRBNV9PQNmUYN+URc9i9OKxrwHTNB5Q1qHnjBzEQOuG2NJ55v5DJms17uQBV72w
+						oWtV70Y1TC8E7pYqXpJSzWvFnMSVElKyw6zpn1kd0W+OP0llHtGRemg5/P6qSKvu
+						JpL2t2gPy499sAmPsT8t5/KJ9hcyfuBz5/zKCvz4VDhJQlNQAZUvBqniB6ehpGvY
+						LJQ+rAYwvuUgVbbgVWd8IPOu0EF3HAPHneOeXKHt
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.bris.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.bris.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Bristol</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Bristol</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.bristol.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Naveed</md:GivenName>
+      <md:SurName>Hashmi</md:SurName>
+      <md:EmailAddress>mailto:Naveed.Hashmi@bristol.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Naveed</md:GivenName>
+      <md:SurName>Hashmi</md:SurName>
+      <md:EmailAddress>mailto:Naveed.Hashmi@bristol.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

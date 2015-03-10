@@ -1,0 +1,62 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sp.silverchair.com/wk/staging/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-05-16T11:20:21Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://healthlibraryrc.silverchair.com/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDBjCCAe6gAwIBAgIJAMevnR9kOORGMA0GCSqGSIb3DQEBBQUAMCAxHjAcBgNV
+						BAMTFXNjbS1zdGFnd2ViMDEuc2lzLmxhbjAeFw0xNDA1MTUxNzIwMjlaFw0yNDA1
+						MTIxNzIwMjlaMCAxHjAcBgNVBAMTFXNjbS1zdGFnd2ViMDEuc2lzLmxhbjCCASIw
+						DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAPiwocVjrwzmPn0Cr4uChpY4RvIx
+						zz62Gh9dnF1/zua5d/gY2anhrElnCO5F6Jj+BhsDJYRNy+9haPKwC2RHMoGAfr3s
+						g3QxrXbXXZY08uZEBvxUYFRSCUtm+ngTl9GKiKSUKWGYyqxvoHuuauD/floFBO7q
+						6FJSHDi9JFHIG/7YLH1/ZEOa5I8gLjcSbk43Qn63/cOS6quSmxwAnN5vA2PD3Sq1
+						SmpJIcPn74iJq3mGs85x2fL2d1/+Qupnfg2RHrbbK4fWzWLYcHdHsOzbRqD9Snas
+						eyeHP7IUv7ZxAjpE4k4a6kcTz5Kr187pn9rWxvdD0og5jVLRja3jrrpeBF8CAwEA
+						AaNDMEEwIAYDVR0RBBkwF4IVc2NtLXN0YWd3ZWIwMS5zaXMubGFuMB0GA1UdDgQW
+						BBQSJAWZcP3bfORLZjWD5rEHlvAhmjANBgkqhkiG9w0BAQUFAAOCAQEAgb9W4Xhd
+						izqTKzFBzcEZOTtjzz5duTCIawQ7X8Fr2VLasq0CK32UexZ0J+6jtC1GzDwoRm8K
+						tTMgz/xkuOuO+2E3G21k7AjJXl1jLjkZJNf3c+6VNIEy07eoKC4db0b4Bu8puKpF
+						Tzzzfb+2YjNzT2VZIfLnr3G8ppZ/Ddz47lVLQhviNsbG6tNiAjqVmydXsPuBPGxn
+						JGxTGSwV8LI6E66sW7TqW08bJvBKzi9DVhStoijGFn5hNY8FjwuCp6HzJEGqq+8K
+						WnSLVcYQzC8qg3VspdG8bvvSCcdXs2bYtwpXmayRq43XbYPGGBQf/DSuCfKUHkuQ
+						h8TawBIeAal8WA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://healthlibraryrc.silverchair.com/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://healthlibraryrc.silverchair.com/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://healthlibraryrc.silverchair.com/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://healthlibraryrc.silverchair.com/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://healthlibraryrc.silverchair.com/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://healthlibraryrc.silverchair.com/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://healthlibraryrc.silverchair.com/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://healthlibraryrc.silverchair.com/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://healthlibraryrc.silverchair.com/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://healthlibraryrc.silverchair.com/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://healthlibraryrc.silverchair.com/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Silverchair Science + Communications, LLC</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Silverchair Staging:  Wolters Kluwer Health Library</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://healthlibraryrc.silverchair.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Shibboleth Admin</md:GivenName>
+      <md:EmailAddress>mailto:ShibbolethAdmin@silverchair.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Kevin</md:GivenName>
+      <md:SurName>Hirst</md:SurName>
+      <md:EmailAddress>mailto:khirst@silverchair.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

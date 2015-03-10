@@ -1,0 +1,74 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.audionetwork.nen.gov.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://www.audionetwork.nen.gov.uk/Shibboleth.sso/lgfl-uso"/>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://www.audionetwork.nen.gov.uk/Shibboleth.sso/swgfl-merlin"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEfjCCA2agAwIBAgIRAPknBmCnCjGeotNVf6CLdX8wDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzA0MTkwMDAwMDBaFw0xNjA0MTgyMzU5NTlaMEYxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEhMB8GA1UEAxMYYXVkaW9uZXR3
+						b3JrLmxnZmwub3JnLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA
+						z9k7esVlz6i3hdvNKkWxIeMt744FHvw4B2MwjVS3x/P79/daDwKaHP12SrT+NbLb
+						msujv8MiljxUYVSfJE/oSxtZNZPUi04xNpiBL6IKeCQoW4KWiSkyBy5PpuT5b0fP
+						zgK0sRGNlquoJZpOyCwan75WlFRQmhIeSd/pGfyzzic4xlOBlsxQEzjH3RIgUCEn
+						QSn4RHxCO0lG8qtoMO+W8UNS0DLJlByCxAlB7D5BpWNTKSfzwxQLjrk5wtxYFyTx
+						8Hg0FrtG48YJCrB7ojbdbq7k4wxImVqdF/3diQGS4GFDvAVj5YFlUpQjhKzXe07T
+						2V1xF60sd7Y6XVuj/pZ0bQIDAQABo4IBdTCCAXEwHwYDVR0jBBgwFoAUDL2TaAzz
+						3qujSWsrN1dH6pDjue0wHQYDVR0OBBYEFKu6x/xS9uGWbmtyeijYnV+tciEDMA4G
+						A1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMB
+						BggrBgEFBQcDAjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAECATA6
+						BgNVHR8EMzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVO
+						QVNTTENBLmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9j
+						cnQudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpo
+						dHRwOi8vb2NzcC50Y3MudGVyZW5hLm9yZzAjBgNVHREEHDAaghhhdWRpb25ldHdv
+						cmsubGdmbC5vcmcudWswDQYJKoZIhvcNAQEFBQADggEBABvf+bM1ua7K8UQtqK0Q
+						uBTxc+krTRg1Du680rxmFRdKRFtwkzCW+2bXFoMnZSLbS+sFbKUXe805GATZh6DI
+						5eMuAU2DCcMpqtgSkB0cxYYBUNIYElBDyEmiGOfUEJZR+Vr4CrUxnteHbl++mzoY
+						DXOwBM7YjzK/Fh7eIBEdexnxqrDMHf676j5oulzmQ/uvmeVq+r9iP8ei5vqrkvsa
+						KBJX1oimGt9bb+ZIH7D+Ck88dwh/JQOpJzllZDoLflm0UMatS53Rm6cwCuczQ3A6
+						W5eqaVcnOgT2hA6dDtraW94YH4POo7+eI2rc+XEzyviy/IzF5v9ICxAABWyePG1H
+						++0=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.audionetwork.nen.gov.uk/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.audionetwork.nen.gov.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.audionetwork.nen.gov.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.audionetwork.nen.gov.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.audionetwork.nen.gov.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.audionetwork.nen.gov.uk/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.audionetwork.nen.gov.uk/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.audionetwork.nen.gov.uk/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.audionetwork.nen.gov.uk/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.audionetwork.nen.gov.uk/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www.audionetwork.nen.gov.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.audionetwork.nen.gov.uk/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://www.audionetwork.nen.gov.uk/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.audionetwork.nen.gov.uk/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.audionetwork.nen.gov.uk/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">South West Grid for Learning Trust</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">South West Grid for Learning Trust: Audio Networks free audio resources for the NEN community</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.swgfl.org.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Phil</md:GivenName>
+      <md:SurName>Chapman</md:SurName>
+      <md:EmailAddress>mailto:phil@atomwide.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Phil</md:GivenName>
+      <md:SurName>Chapman</md:SurName>
+      <md:EmailAddress>mailto:phil@atomwide.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

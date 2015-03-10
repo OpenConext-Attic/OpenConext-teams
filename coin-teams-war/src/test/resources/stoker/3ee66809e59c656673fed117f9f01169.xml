@@ -1,0 +1,97 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://dlib-adidp.ucs.ed.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">The EDINA Development 'Music Studio' test SP</mdui:DisplayName>
+          <mdui:Description xml:lang="en"> This is a test SP. It is pretending to be a Music
+					studio and if it were a real one you would see lots of exciting verbiage here.</mdui:Description>
+          <mdui:Logo height="296" width="314">https://dlib-adidp.ucs.ed.ac.uk:442/studio/images/slogan-small.jpg</mdui:Logo>
+          <mdui:Logo height="58" width="110">https://dlib-adidp.ucs.ed.ac.uk:442/Images/edina-logo110x58.jpg</mdui:Logo>
+          <mdui:Logo height="16" width="16">https://dlib-adidp.ucs.ed.ac.uk:442/images/edina-16x16.png</mdui:Logo>
+        </mdui:UIInfo>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://dlib-adidp.ucs.ed.ac.uk:442/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDEjCCAfqgAwIBAgIJAOp8SWyvKcU8MA0GCSqGSIb3DQEBBQUAMCQxIjAgBgNV
+						BAMTGWRsaWItYWRpZHAuZWRpbmEuYWMuZWQudWswHhcNMTAwMTA4MTUwMzIyWhcN
+						MjAwMTA2MTUwMzIyWjAkMSIwIAYDVQQDExlkbGliLWFkaWRwLmVkaW5hLmFjLmVk
+						LnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq4MJyza/0LLunZfz
+						Qloxx+Lhuc17o+r6J3/lJQYKyDbDxA5I325cDTjO/uHWKZOMCvwJ2Ei+Vyo6amDU
+						MTGh3fkpnxuo49ZFtl3+m7/F8TqnxtLg9dC7MDgcbV0w7LOhMKAuW7YT/fHRgC1l
+						czXaiUCknsh2ZThg7nVxdyPpr06hzjW7GCnOeEyq9Ye7U7JiVIOF9v0PHtLDrEm9
+						0xR+cWM58mmk/DWublCdqlRDQMU9K6MJmNDwa54sIEl7uj8C991n18In/xPZVln3
+						+KpPbdiAOoZ4VquNg9UMgyoKmpjRsThNTzcw4z3clD5vQsFG4966kbf38AZ0/KMb
+						rgeN1wIDAQABo0cwRTAkBgNVHREEHTAbghlkbGliLWFkaWRwLmVkaW5hLmFjLmVk
+						LnVrMB0GA1UdDgQWBBRIF+Yh+lFwNDPMK7mU3bmoKmUsSjANBgkqhkiG9w0BAQUF
+						AAOCAQEAQPhbKEcjLNJkWri6phLQ3rf/gegyBfrObo6xdp051/r0ae38XHH8LnSo
+						3ittwFkFVFZ0OLJ4qj5V4UP0jxfRseAP+FYa3TxKHVFhSXKfEk01DWH1mBwus4K7
+						/jSVtxkdA4dmTeT9MDqyeshNOXxihOvWUrLaGew01DIFyIrtovTerU0wviLw+rcU
+						Ev39GsLAtk0xVUFmbP2jWJK6oY8TF99bMPDz/BIjmYFtQUiwBSxvgFgrrlhu2eoo
+						uQa45TasJ39hrEkVZcksB1AlaKnQBbE3AJFxFcnjal6K62WGCWhXRlK+Z6X+Hs9F
+						p1K0c9zlYflwJQRiinQLgUJ/UCNDJw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDEjCCAfqgAwIBAgIJAOp8SWyvKcU8MA0GCSqGSIb3DQEBBQUAMCQxIjAgBgNV
+						BAMTGWRsaWItYWRpZHAuZWRpbmEuYWMuZWQudWswHhcNMTAwMTA4MTUwMzIyWhcN
+						MjAwMTA2MTUwMzIyWjAkMSIwIAYDVQQDExlkbGliLWFkaWRwLmVkaW5hLmFjLmVk
+						LnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq4MJyza/0LLunZfz
+						Qloxx+Lhuc17o+r6J3/lJQYKyDbDxA5I325cDTjO/uHWKZOMCvwJ2Ei+Vyo6amDU
+						MTGh3fkpnxuo49ZFtl3+m7/F8TqnxtLg9dC7MDgcbV0w7LOhMKAuW7YT/fHRgC1l
+						czXaiUCknsh2ZThg7nVxdyPpr06hzjW7GCnOeEyq9Ye7U7JiVIOF9v0PHtLDrEm9
+						0xR+cWM58mmk/DWublCdqlRDQMU9K6MJmNDwa54sIEl7uj8C991n18In/xPZVln3
+						+KpPbdiAOoZ4VquNg9UMgyoKmpjRsThNTzcw4z3clD5vQsFG4966kbf38AZ0/KMb
+						rgeN1wIDAQABo0cwRTAkBgNVHREEHTAbghlkbGliLWFkaWRwLmVkaW5hLmFjLmVk
+						LnVrMB0GA1UdDgQWBBRIF+Yh+lFwNDPMK7mU3bmoKmUsSjANBgkqhkiG9w0BAQUF
+						AAOCAQEAQPhbKEcjLNJkWri6phLQ3rf/gegyBfrObo6xdp051/r0ae38XHH8LnSo
+						3ittwFkFVFZ0OLJ4qj5V4UP0jxfRseAP+FYa3TxKHVFhSXKfEk01DWH1mBwus4K7
+						/jSVtxkdA4dmTeT9MDqyeshNOXxihOvWUrLaGew01DIFyIrtovTerU0wviLw+rcU
+						Ev39GsLAtk0xVUFmbP2jWJK6oY8TF99bMPDz/BIjmYFtQUiwBSxvgFgrrlhu2eoo
+						uQa45TasJ39hrEkVZcksB1AlaKnQBbE3AJFxFcnjal6K62WGCWhXRlK+Z6X+Hs9F
+						p1K0c9zlYflwJQRiinQLgUJ/UCNDJw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://dlib-adidp.ucs.ed.ac.uk:442/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://dlib-adidp.ucs.ed.ac.uk:442/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://dlib-adidp.ucs.ed.ac.uk:442/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://dlib-adidp.ucs.ed.ac.uk:442/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://dlib-adidp.ucs.ed.ac.uk:442/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://dlib-adidp.ucs.ed.ac.uk:442/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://dlib-adidp.ucs.ed.ac.uk:442/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://dlib-adidp.ucs.ed.ac.uk:442/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://dlib-adidp.ucs.ed.ac.uk:442/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://dlib-adidp.ucs.ed.ac.uk:442/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://dlib-adidp.ucs.ed.ac.uk:442/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://dlib-adidp.ucs.ed.ac.uk:442/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://dlib-adidp.ucs.ed.ac.uk:442/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://dlib-adidp.ucs.ed.ac.uk:442/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Edinburgh</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">EDINA - Music Studio</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://edina.ac.uk/about/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Rod</md:GivenName>
+      <md:SurName>Widdowson</md:SurName>
+      <md:EmailAddress>mailto:idp-admin@steadingsoftware.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Rod</md:GivenName>
+      <md:SurName>Widdowson</md:SurName>
+      <md:EmailAddress>mailto:idp-admin@steadingsoftware.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

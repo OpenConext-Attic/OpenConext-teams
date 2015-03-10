@@ -1,24 +1,20 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="uk002418" entityID="https://test-bod-gui.geant.net/autobahn-gui">
-	
-	<Extensions>
-
-
-		<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-05-08T15:01:29Z">
-			<mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
-		</mdrpi:RegistrationInfo>
-
-	</Extensions>
-	<SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
-		<Extensions>
-			<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-				<mdui:DisplayName xml:lang="en">BoD Portal</mdui:DisplayName>
-				<mdui:Description xml:lang="en">A Portal that can be used to access the BoD service for requesting circuit reservations, tracking their status and for administrative operation</mdui:Description>
-			</mdui:UIInfo>
-		</Extensions>
-		<KeyDescriptor use="signing">
-			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-				<ds:X509Data>
-					<ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://test-bod-gui.geant.net/autobahn-gui">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-05-08T15:01:29Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">BoD Portal</mdui:DisplayName>
+          <mdui:Description xml:lang="en">A Portal that can be used to access the BoD service for requesting circuit reservations, tracking their status and for administrative operation</mdui:Description>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 						MIIDNjCCAh6gAwIBAgIJAPH4vrYKW5oVMA0GCSqGSIb3DQEBBQUAMCExHzAdBgNV
 						BAMTFnRlc3QtYm9kLWd1aS5nZWFudC5uZXQwHhcNMTQwNDExMTUxMDEyWhcNMTcw
 						NDExMTUxMDEyWjAhMR8wHQYDVQQDExZ0ZXN0LWJvZC1ndWkuZ2VhbnQubmV0MIIB
@@ -38,13 +34,13 @@
 						4XvylEUggQ7GT7X7IMNh4wh29P6NkOeY/5kGJBqt5TjecDECqYLSBalEXhaMO4h4
 						zpPvtpSGaL5QrQ==
 					</ds:X509Certificate>
-				</ds:X509Data>
-			</ds:KeyInfo>
-		</KeyDescriptor>
-		<KeyDescriptor use="encryption">
-			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-				<ds:X509Data>
-					<ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 						MIIDNjCCAh6gAwIBAgIJAPH4vrYKW5oVMA0GCSqGSIb3DQEBBQUAMCExHzAdBgNV
 						BAMTFnRlc3QtYm9kLWd1aS5nZWFudC5uZXQwHhcNMTQwNDExMTUxMDEyWhcNMTcw
 						NDExMTUxMDEyWjAhMR8wHQYDVQQDExZ0ZXN0LWJvZC1ndWkuZ2VhbnQubmV0MIIB
@@ -64,37 +60,36 @@
 						4XvylEUggQ7GT7X7IMNh4wh29P6NkOeY/5kGJBqt5TjecDECqYLSBalEXhaMO4h4
 						zpPvtpSGaL5QrQ==
 					</ds:X509Certificate>
-				</ds:X509Data>
-			</ds:KeyInfo>
-		</KeyDescriptor>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://test-bod-gui.geant.net/autobahn-gui/saml/LogoutServiceHTTPRedirect" ResponseLocation="https://test-bod-gui.geant.net/autobahn-gui/saml/LogoutServiceHTTPRedirectResponse"/>
-		<NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</NameIDFormat>
-		<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</NameIDFormat>
-		<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://test-bod-gui.geant.net/autobahn-gui/saml/SAMLAssertionConsumer" index="0" isDefault="true"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://test-bod-gui.geant.net/autobahn-gui/saml/SAMLAssertionConsumer" index="1"/>
-		<AttributeConsumingService index="1">
-			<ServiceName xml:lang="en">BoD Portal</ServiceName>
-			<ServiceDescription xml:lang="en">A Portal that can be used to access the BoD service for requesting circuit reservations, tracking their status and for administrative operation</ServiceDescription>
-			<RequestedAttribute FriendlyName="email" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-			<RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
-			<RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
-			<RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
-			<RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
-		</AttributeConsumingService>
-	</SPSSODescriptor>
-	<Organization>
-		<OrganizationName xml:lang="en">Delivery of Advanced Network Technology to Europe Limited</OrganizationName>
-		<OrganizationDisplayName xml:lang="en">DANTE</OrganizationDisplayName>
-		<OrganizationURL xml:lang="en">http://www.dante.net/</OrganizationURL>
-	</Organization>
-	<ContactPerson contactType="support">
-		<Company>DANTE IT Support</Company>
-		<EmailAddress>mailto:DANTEITSupport@dante.net</EmailAddress>
-	</ContactPerson>
-	<ContactPerson contactType="technical">
-		<Company>DANTE IT</Company>
-		<EmailAddress>mailto:it@dante.net</EmailAddress>
-	</ContactPerson>
-
-</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://test-bod-gui.geant.net/autobahn-gui/saml/LogoutServiceHTTPRedirect" ResponseLocation="https://test-bod-gui.geant.net/autobahn-gui/saml/LogoutServiceHTTPRedirectResponse"/>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://test-bod-gui.geant.net/autobahn-gui/saml/SAMLAssertionConsumer" index="0" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://test-bod-gui.geant.net/autobahn-gui/saml/SAMLAssertionConsumer" index="1"/>
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="en">BoD Portal</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">A Portal that can be used to access the BoD service for requesting circuit reservations, tracking their status and for administrative operation</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="email" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+        <md:RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="false"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Delivery of Advanced Network Technology to Europe Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">DANTE</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.dante.net/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:Company>DANTE IT Support</md:Company>
+      <md:EmailAddress>mailto:DANTEITSupport@dante.net</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:Company>DANTE IT</md:Company>
+      <md:EmailAddress>mailto:it@dante.net</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

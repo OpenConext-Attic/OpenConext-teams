@@ -1,0 +1,121 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.gla.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2007-09-19T15:05:41Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">gla.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University of Glasgow</mdui:DisplayName>
+          <mdui:Logo height="60" width="80">https://milngavie.cent.gla.ac.uk/UoG_colour_80x60.png</mdui:Logo>
+          <mdui:Logo height="16" width="16">https://milngavie.cent.gla.ac.uk/UoG_colour_16x16.png</mdui:Logo>
+        </mdui:UIInfo>
+        <mdui:DiscoHints>
+          <mdui:IPHint>130.209.0.0/16</mdui:IPHint>
+          <mdui:DomainHint>gla.ac.uk</mdui:DomainHint>
+          <mdui:GeolocationHint>geo:55.8719,4.2875</mdui:GeolocationHint>
+        </mdui:DiscoHints>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEuTCCA6GgAwIBAgIQf6QTvWph3N1ntBtVc3FgYjANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDgwNzAwMDAwMFoXDTE1MDgwNzIzNTk1OVowgYsxCzAJBgNV
+						BAYTAkdCMREwDwYDVQQIEwhTY290bGFuZDEQMA4GA1UEBxMHR2xhc2dvdzEeMBwG
+						A1UEChMVVW5pdmVyc2l0eSBvZiBHbGFzZ293MRQwEgYDVQQLEwtJVCBTZXJ2aWNl
+						czEhMB8GA1UEAxMYbWlsbmdhdmllLmNlbnQuZ2xhLmFjLnVrMIIBIjANBgkqhkiG
+						9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo7EF1FhY9tVrv5tS/HNOdKSeyi8Of0LKr0/N
+						KkZ7Llmi256nmuFA0SYZeUyItfe6KfUUlhKOYmI7RGr2HaBdkOZxRwxnR5e3V7nq
+						/F+vCkuzaOtOMuTKaxEcfefC3a+CX0k2j16njTwrSzgMuqpy8talH8bU8j1mqmr3
+						lH0doOnasOh2wNTWw1ntlZYLusWHv7qmbW/HlN0Xdn60PGhCVn4gtRzvHGQdujLX
+						zOfLILi2mpu3CCUeqDcaPntm52qsw/fAwEDLTUmc1wN87wxyyQ9VlKKOlLsqpxbQ
+						0urWkuKbjnUovUII6fvRDQXhdFt9fn0sDRGItPXfFtANqLUnHwIDAQABo4IBazCC
+						AWcwHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH6pDjue0wHQYDVR0OBBYEFMnj
+						I2WNS98sfinzx1Ew7oQmayQ7MA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAA
+						MB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAYBgNVHSAEETAPMA0GCysG
+						AQQBsjEBAgIdMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVu
+						YS5vcmcvVEVSRU5BU1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcw
+						AoYpaHR0cDovL2NydC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYI
+						KwYBBQUHMAGGGmh0dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMCMGA1UdEQQcMBqC
+						GG1pbG5nYXZpZS5jZW50LmdsYS5hYy51azANBgkqhkiG9w0BAQUFAAOCAQEAF3Gj
+						HKopp9Y3lDiOW9VY0H2yBH5483kuyDFkq21eFR1HcUsEE0Xe7fifZ8U6HXHrratZ
+						qwBj+kmq1qrGneuKJj1BmIKDnz2Qou+zYw4fpZPVaC/bT7UqMYpV3IlLYEQLYR7l
+						62yLQDWK9w8Wl2h/rHTtpW8RAuWWQ5rEfqY+lrwzk+edXZIJ0mSEdZpHBC25NBS1
+						ysIgaqaLjaSyKju0q5ilJaiDSxwDi84lYMAMH2eDxvOog2lVWBe011CQD+PWqiUJ
+						H/2xoBWLQ+/yyLmo2uU/FOvBu4LaD8viTEOr+ocl4+YjTXs0AdWVk70MV5CKVrcb
+						+GfitM++uUllfNx+cQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://milngavie.cent.gla.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://milngavie.cent.gla.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://milngavie.cent.gla.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://milngavie.cent.gla.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://milngavie.cent.gla.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://milngavie.cent.gla.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">gla.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEuTCCA6GgAwIBAgIQf6QTvWph3N1ntBtVc3FgYjANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDgwNzAwMDAwMFoXDTE1MDgwNzIzNTk1OVowgYsxCzAJBgNV
+						BAYTAkdCMREwDwYDVQQIEwhTY290bGFuZDEQMA4GA1UEBxMHR2xhc2dvdzEeMBwG
+						A1UEChMVVW5pdmVyc2l0eSBvZiBHbGFzZ293MRQwEgYDVQQLEwtJVCBTZXJ2aWNl
+						czEhMB8GA1UEAxMYbWlsbmdhdmllLmNlbnQuZ2xhLmFjLnVrMIIBIjANBgkqhkiG
+						9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo7EF1FhY9tVrv5tS/HNOdKSeyi8Of0LKr0/N
+						KkZ7Llmi256nmuFA0SYZeUyItfe6KfUUlhKOYmI7RGr2HaBdkOZxRwxnR5e3V7nq
+						/F+vCkuzaOtOMuTKaxEcfefC3a+CX0k2j16njTwrSzgMuqpy8talH8bU8j1mqmr3
+						lH0doOnasOh2wNTWw1ntlZYLusWHv7qmbW/HlN0Xdn60PGhCVn4gtRzvHGQdujLX
+						zOfLILi2mpu3CCUeqDcaPntm52qsw/fAwEDLTUmc1wN87wxyyQ9VlKKOlLsqpxbQ
+						0urWkuKbjnUovUII6fvRDQXhdFt9fn0sDRGItPXfFtANqLUnHwIDAQABo4IBazCC
+						AWcwHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsrN1dH6pDjue0wHQYDVR0OBBYEFMnj
+						I2WNS98sfinzx1Ew7oQmayQ7MA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAA
+						MB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAYBgNVHSAEETAPMA0GCysG
+						AQQBsjEBAgIdMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVu
+						YS5vcmcvVEVSRU5BU1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcw
+						AoYpaHR0cDovL2NydC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYI
+						KwYBBQUHMAGGGmh0dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMCMGA1UdEQQcMBqC
+						GG1pbG5nYXZpZS5jZW50LmdsYS5hYy51azANBgkqhkiG9w0BAQUFAAOCAQEAF3Gj
+						HKopp9Y3lDiOW9VY0H2yBH5483kuyDFkq21eFR1HcUsEE0Xe7fifZ8U6HXHrratZ
+						qwBj+kmq1qrGneuKJj1BmIKDnz2Qou+zYw4fpZPVaC/bT7UqMYpV3IlLYEQLYR7l
+						62yLQDWK9w8Wl2h/rHTtpW8RAuWWQ5rEfqY+lrwzk+edXZIJ0mSEdZpHBC25NBS1
+						ysIgaqaLjaSyKju0q5ilJaiDSxwDi84lYMAMH2eDxvOog2lVWBe011CQD+PWqiUJ
+						H/2xoBWLQ+/yyLmo2uU/FOvBu4LaD8viTEOr+ocl4+YjTXs0AdWVk70MV5CKVrcb
+						+GfitM++uUllfNx+cQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://milngavie.cent.gla.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://milngavie.cent.gla.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Glasgow</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Glasgow</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.gla.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>User Support</md:GivenName>
+      <md:EmailAddress>mailto:helpdesk@it.gla.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>David</md:GivenName>
+      <md:SurName>Anderson</md:SurName>
+      <md:EmailAddress>mailto:d.anderson@compserv.gla.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

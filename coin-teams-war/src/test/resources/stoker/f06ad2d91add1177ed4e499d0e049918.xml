@@ -1,0 +1,61 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://naxos.queens.ox.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2011-09-22T15:10:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://naxos.queens.ox.ac.uk/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDAzCCAeugAwIBAgIJAL977jDe7lTRMA0GCSqGSIb3DQEBBQUAMB8xHTAbBgNV
+						BAMTFGhvb3QucXVlZW5zLm94LmFjLnVrMB4XDTExMDkxOTE0MzgwNVoXDTIxMDkx
+						NjE0MzgwNVowHzEdMBsGA1UEAxMUaG9vdC5xdWVlbnMub3guYWMudWswggEiMA0G
+						CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCUf1Kw2V+k8E3SpgVw20dkkKaTgreb
+						cEaSH9iWBFQwX7kSmLRTgABVGVb80BK44pJ5ob0Fi0N5yC6ZftuAVst2p4CEVege
+						APdglPc5cY49vWQs6P12qaYUe9T/USrpJsWBC2h6Q4yfF4ZpKqZ+S6roCjx0RN+Z
+						Nt/E/v1YhBOWxzDS1XLFkIh7bmkZMXiwEQHIJ8eHvyAHaDPJ+FBEsQBgwFozHD5D
+						OBwCKfu9MC1XkzitnSK7VmKCTKQNMpCjKzHlvv/YAu3+Gpc1+IFZsmFvm3ClMUwO
+						bft0pv0h6LvlOpfsYHdK79DezjOFIC1ErI9GT3jtzq0XAAP7S6AtXwOXAgMBAAGj
+						QjBAMB8GA1UdEQQYMBaCFGhvb3QucXVlZW5zLm94LmFjLnVrMB0GA1UdDgQWBBSB
+						1rkdpl832bWJL72XQwzSvahSpDANBgkqhkiG9w0BAQUFAAOCAQEAReq3JOhtVKTQ
+						mtSaPD5CCtKYphLumrMiGEc3ANhlnxqbi3sjcGKemaj7vKt1XvpGiIYioMLa5Vhh
+						+48n4V4dwaCPYmwORCo/sQMdyQ5bUEAONX0kqsdY23fOLfdm8EBdNYEVWoVHgWPb
+						meJXz3xzYE+vlimyl5qbv1nVYZo/y8U5cclOUJ2mnrUILpTqaKlm6D94xMVtvJ0d
+						wPg715M2n27ESKdvOZHoH25/GASFleHihcIxhKTq2AFHr+G1OjzuSBS0/SZbkvub
+						pce4A1Yh2scVlAkDZTwf4fSnjM5RVNvhl8LGJvgDzWwJOYXIRYnSmkY93lliTvSz
+						aAJiV4ZfqQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://naxos.queens.ox.ac.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://naxos.queens.ox.ac.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://naxos.queens.ox.ac.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://naxos.queens.ox.ac.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://naxos.queens.ox.ac.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://naxos.queens.ox.ac.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://naxos.queens.ox.ac.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://naxos.queens.ox.ac.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://naxos.queens.ox.ac.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://naxos.queens.ox.ac.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://naxos.queens.ox.ac.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Oxford</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Oxford: The Queen's College Naxos Music Site</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.queens.ox.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Queen's College IT Support</md:GivenName>
+      <md:EmailAddress>mailto:it-support@queens.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Queen's College IT Support</md:GivenName>
+      <md:EmailAddress>mailto:it-support@queens.ox.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

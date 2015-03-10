@@ -1,23 +1,17 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="uk001384" entityID="https://qub.ac.uk/shibboleth">
-	
-	<Extensions>
-
-
-
-
-		<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-06-08T10:26:41Z">
-			<mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
-		</mdrpi:RegistrationInfo>
-
-	</Extensions>
-	<IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-		<Extensions>
-			<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">qub.ac.uk</shibmd:Scope>
-		</Extensions>
-		<KeyDescriptor>
-			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-				<ds:X509Data>
-					<ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://qub.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-06-08T10:26:41Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">qub.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 						MIIDKDCCAhCgAwIBAgIVAJycK9QeBfR7eEXzFTRCeXgxyljUMA0GCSqGSIb3DQEB
 						BQUAMBoxGDAWBgNVBAMTD3NoaWIzLnF1Yi5hYy51azAeFw0xMjAzMjcxMzE4NTha
 						Fw0zMjAzMjcxNDE4NThaMBoxGDAWBgNVBAMTD3NoaWIzLnF1Yi5hYy51azCCASIw
@@ -36,26 +30,26 @@
 						j5jG9uXwrdLwsmzHImL6Xc4K41lVaxXoZydYzmu6nougbKa+XdIRiRLqJDeId6ZA
 						iEW6gm81phqOuQXOIMVz4Qbd0M3RhcskYsYaZW08gG/vBOLNZEyqmtph6/0=
 					</ds:X509Certificate>
-				</ds:X509Data>
-			</ds:KeyInfo>
-		</KeyDescriptor>
-		<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib3.qub.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-		<ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib3.qub.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
-		<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-		<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-		<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shib3.qub.ac.uk/idp/profile/Shibboleth/SSO"/>
-		<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib3.qub.ac.uk/idp/profile/SAML2/POST/SSO"/>
-		<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib3.qub.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
-		<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib3.qub.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
-	</IDPSSODescriptor>
-	<AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-		<Extensions>
-			<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">qub.ac.uk</shibmd:Scope>
-		</Extensions>
-		<KeyDescriptor>
-			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-				<ds:X509Data>
-					<ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib3.qub.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib3.qub.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shib3.qub.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib3.qub.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib3.qub.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib3.qub.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">qub.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 						MIIDKDCCAhCgAwIBAgIVAJycK9QeBfR7eEXzFTRCeXgxyljUMA0GCSqGSIb3DQEB
 						BQUAMBoxGDAWBgNVBAMTD3NoaWIzLnF1Yi5hYy51azAeFw0xMjAzMjcxMzE4NTha
 						Fw0zMjAzMjcxNDE4NThaMBoxGDAWBgNVBAMTD3NoaWIzLnF1Yi5hYy51azCCASIw
@@ -74,28 +68,27 @@
 						j5jG9uXwrdLwsmzHImL6Xc4K41lVaxXoZydYzmu6nougbKa+XdIRiRLqJDeId6ZA
 						iEW6gm81phqOuQXOIMVz4Qbd0M3RhcskYsYaZW08gG/vBOLNZEyqmtph6/0=
 					</ds:X509Certificate>
-				</ds:X509Data>
-			</ds:KeyInfo>
-		</KeyDescriptor>
-		<AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib3.qub.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
-		<AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib3.qub.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
-		<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-		<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-	</AttributeAuthorityDescriptor>
-	<Organization>
-		<OrganizationName xml:lang="en">The Queen's University of Belfast</OrganizationName>
-		<OrganizationDisplayName xml:lang="en">Queen's University Belfast</OrganizationDisplayName>
-		<OrganizationURL xml:lang="en">http://www.qub.ac.uk/</OrganizationURL>
-	</Organization>
-	<ContactPerson contactType="support">
-		<GivenName>Karen</GivenName>
-		<SurName>Murphy</SurName>
-		<EmailAddress>mailto:eresources@qub.ac.uk</EmailAddress>
-	</ContactPerson>
-	<ContactPerson contactType="technical">
-		<GivenName>Karen</GivenName>
-		<SurName>Murphy</SurName>
-		<EmailAddress>mailto:k.l.murphy@qub.ac.uk</EmailAddress>
-	</ContactPerson>
-
-</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shib3.qub.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shib3.qub.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">The Queen's University of Belfast</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Queen's University Belfast</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.qub.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Karen</md:GivenName>
+      <md:SurName>Murphy</md:SurName>
+      <md:EmailAddress>mailto:eresources@qub.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Karen</md:GivenName>
+      <md:SurName>Murphy</md:SurName>
+      <md:EmailAddress>mailto:k.l.murphy@qub.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

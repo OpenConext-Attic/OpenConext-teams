@@ -1,0 +1,66 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sp.sketchengine.co.uk/entity">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-11-23T13:22:20Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://beta.sketchengine.co.uk/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://beta.sketchengine.co.uk/Shibboleth.sso/Login" index="1"/>
+        <mdui:UIInfo>
+          <mdui:Logo height="60" width="180">https://the.sketchengine.co.uk/media/img/sketch_engine_logo.png</mdui:Logo>
+          <mdui:DisplayName xml:lang="en">Sketch Engine</mdui:DisplayName>
+          <mdui:Description xml:lang="em">The Sketch Engine is a Corpus Query System allowing you
+					to research how words behave.</mdui:Description>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDDzCCAfegAwIBAgIJALdQBYI2gURnMA0GCSqGSIb3DQEBBQUAMCMxITAfBgNV
+						BAMTGHRvYWQxLnNrZXRjaGVuZ2luZS5jby51azAeFw0xMjAyMTYxMDA2NTRaFw0y
+						MjAyMTMxMDA2NTRaMCMxITAfBgNVBAMTGHRvYWQxLnNrZXRjaGVuZ2luZS5jby51
+						azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJj9g9mNJt+syu5Hypi1
+						O7ozROE636f82MkvcGq3O49jW+lXaXa0TrdI6ZyWQWQQffObnp+UTI8Dy8dJPeJK
+						q0yolm/V4RGnVz9sOYOT89vk1dYNmYTCkCEPvr28O9tnNrGVm+Y1GbMN/Ng1Hy1z
+						0+Jw83Igqu9kZAxBxT9buBJL+1yag+f8fqL0Xh4siHHRIS20jnNWzI0sZoH4JLXA
+						L/t9xQazOawCXDqgMwaybWCp2pi/GLkgktcXJFSOjivMnivwM6XUOr1RJ/7v5NXZ
+						TbQiIDxOw+ur3lJaPi/04eWBTzrmLZLB/CZ+8xgG+umkMZhTF/jQTFqA3i64IDBq
+						czsCAwEAAaNGMEQwIwYDVR0RBBwwGoIYdG9hZDEuc2tldGNoZW5naW5lLmNvLnVr
+						MB0GA1UdDgQWBBTNszRhd97yo6rn4dsxJ4CO8ooO3zANBgkqhkiG9w0BAQUFAAOC
+						AQEAZJVCs/BF3pLJxr/EgySFE0T8n2yjWRvgsrxms8dovhm7IClLWjVubK87iOao
+						EyrLhKF8nlh8xX9SJQ7UVCkeK7m1X3mjx5lByKtbr/3mG+SJqCkBrG2neolJ0GRi
+						cGEDCLN9HPVhKPPwlKh2TJ/jx/orZsBw2H6rZnwh9t5kspTzzvoQ4dfjg/B1EL6B
+						PPwBUVBmaVzBxX1ZWIS78lHNNgynmPpcGpuhoxUzFYnc/hLuN14QALUbuad+iXWN
+						R5xEvTb1qWIm+zCyONzG6xmjd18ox6m/YD6wTh2+7u0AhB+XA15AmvkfPdJyjdmg
+						bpeg/CjdpV3/Q6Imu6H2cEHjkw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://beta.sketchengine.co.uk/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://beta.sketchengine.co.uk/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://beta.sketchengine.co.uk/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://beta.sketchengine.co.uk/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://beta.sketchengine.co.uk/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://beta.sketchengine.co.uk/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://beta.sketchengine.co.uk/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://beta.sketchengine.co.uk/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://beta.sketchengine.co.uk/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://beta.sketchengine.co.uk/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://beta.sketchengine.co.uk/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Lexical Computing Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Sketch Engine</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.sketchengine.co.uk/?page=Website/Company</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Technical Support</md:GivenName>
+      <md:EmailAddress>mailto:support@sketchengine.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Technical Support</md:GivenName>
+      <md:EmailAddress>mailto:support@sketchengine.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,96 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://pleiades.lesoco.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-09-27T15:24:20Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">lesoco.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDQDCCAiigAwIBAgIVAKbHiecwCXwEW8jzRANDUcHw0nS3MA0GCSqGSIb3DQEB
+						BQUAMCAxHjAcBgNVBAMTFXBsZWlhZGVzLmxlc29jby5hYy51azAeFw0xMzA5MDQx
+						NDQ5MjBaFw0zMzA5MDQxNDQ5MjBaMCAxHjAcBgNVBAMTFXBsZWlhZGVzLmxlc29j
+						by5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAPujg+dd0hL+
+						ZJb26+crh6T4fcFpxBBdaKNGTF1LNu5esjitzTXrAnijQVB4y1P5lR/fmqO+ajmA
+						x3hoPL7UNgH7ID5fgyMLNzzox82qoByHejpswLKp+4Snvt7bhxo/6w97iKV1Sjh3
+						pRRtxoeRBq7uxnL8e5WFbr7Ew9MFGDlD07ytU1gLVXZCg8+zxUU+BJ6PwLKnvujE
+						hYdC+A+DDAcHWGF6BlQaDjH1CXmh66E9zCRJ6YSLvazKqcJiaGbOP9skQ0Rgo4Lu
+						Xq1qXbfHxKbBhTcQbqvjSnzuMLLKrX0mGWugn+sfk7cwIXNNgBs+JbI8AfNF7dTs
+						J6e9Qasq25UCAwEAAaNxMG8wTgYDVR0RBEcwRYIVcGxlaWFkZXMubGVzb2NvLmFj
+						LnVrhixodHRwczovL3BsZWlhZGVzLmxlc29jby5hYy51ay9pZHAvc2hpYmJvbGV0
+						aDAdBgNVHQ4EFgQUA1OBiJSoiADL+KSZEPRvSD86g0YwDQYJKoZIhvcNAQEFBQAD
+						ggEBAISZ2JQYw5QMKpAL5VZh0/noDgzh+zYZWjDwj8w4PmvFqi7ZXyu+jLUcwU8C
+						HCSmMn/ehuxZ2zR8I1qqFSbASBPTmAcYvoK4gEVyXHVEQVkwJNj0gG39UzYcymO6
+						if1dnoQNOpU/a0wIxjtN4XqBamWuDybeb5vzGtWUDFlHn8kBMeNQjK8OjdPwF91X
+						dHvlCj9Ab4Uvebf2faiFpEykRznumWXGzFmfqHyXlwXbomP/wBN56GbiWQUEc2+1
+						MlS0EzvvZ6OgubfsZWeevOMHj5lPtwQGVrxtssl9uWEeA7ca7ZJq8J57Bk6IJIwc
+						TtsUWjpvdWLpLWoB34gTflTw080=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://pleiades.lesoco.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://pleiades.lesoco.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://pleiades.lesoco.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://pleiades.lesoco.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://pleiades.lesoco.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://pleiades.lesoco.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">lesoco.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDQDCCAiigAwIBAgIVAKbHiecwCXwEW8jzRANDUcHw0nS3MA0GCSqGSIb3DQEB
+						BQUAMCAxHjAcBgNVBAMTFXBsZWlhZGVzLmxlc29jby5hYy51azAeFw0xMzA5MDQx
+						NDQ5MjBaFw0zMzA5MDQxNDQ5MjBaMCAxHjAcBgNVBAMTFXBsZWlhZGVzLmxlc29j
+						by5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAPujg+dd0hL+
+						ZJb26+crh6T4fcFpxBBdaKNGTF1LNu5esjitzTXrAnijQVB4y1P5lR/fmqO+ajmA
+						x3hoPL7UNgH7ID5fgyMLNzzox82qoByHejpswLKp+4Snvt7bhxo/6w97iKV1Sjh3
+						pRRtxoeRBq7uxnL8e5WFbr7Ew9MFGDlD07ytU1gLVXZCg8+zxUU+BJ6PwLKnvujE
+						hYdC+A+DDAcHWGF6BlQaDjH1CXmh66E9zCRJ6YSLvazKqcJiaGbOP9skQ0Rgo4Lu
+						Xq1qXbfHxKbBhTcQbqvjSnzuMLLKrX0mGWugn+sfk7cwIXNNgBs+JbI8AfNF7dTs
+						J6e9Qasq25UCAwEAAaNxMG8wTgYDVR0RBEcwRYIVcGxlaWFkZXMubGVzb2NvLmFj
+						LnVrhixodHRwczovL3BsZWlhZGVzLmxlc29jby5hYy51ay9pZHAvc2hpYmJvbGV0
+						aDAdBgNVHQ4EFgQUA1OBiJSoiADL+KSZEPRvSD86g0YwDQYJKoZIhvcNAQEFBQAD
+						ggEBAISZ2JQYw5QMKpAL5VZh0/noDgzh+zYZWjDwj8w4PmvFqi7ZXyu+jLUcwU8C
+						HCSmMn/ehuxZ2zR8I1qqFSbASBPTmAcYvoK4gEVyXHVEQVkwJNj0gG39UzYcymO6
+						if1dnoQNOpU/a0wIxjtN4XqBamWuDybeb5vzGtWUDFlHn8kBMeNQjK8OjdPwF91X
+						dHvlCj9Ab4Uvebf2faiFpEykRznumWXGzFmfqHyXlwXbomP/wBN56GbiWQUEc2+1
+						MlS0EzvvZ6OgubfsZWeevOMHj5lPtwQGVrxtssl9uWEeA7ca7ZJq8J57Bk6IJIwc
+						TtsUWjpvdWLpLWoB34gTflTw080=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://pleiades.lesoco.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://pleiades.lesoco.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">LeSoCo</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">LeSoCo</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.lesoco.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Dan</md:GivenName>
+      <md:SurName>Humphries</md:SurName>
+      <md:EmailAddress>mailto:dan.humphries@lesoco.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>John</md:GivenName>
+      <md:SurName>West</md:SurName>
+      <md:EmailAddress>mailto:John.West@lesoco.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

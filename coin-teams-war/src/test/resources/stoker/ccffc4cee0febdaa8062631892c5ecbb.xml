@@ -1,30 +1,30 @@
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://connect.sunet.se/shibboleth">
-  <md:Extensions>
-<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://www.swamid.se/">
-<mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
-</mdrpi:RegistrationInfo>
-    <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
-      <samla:Attribute xmlns:samla="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
-        <samla:AttributeValue>http://www.swamid.se/category/nren-service</samla:AttributeValue>
-        <samla:AttributeValue>http://www.swamid.se/category/research-and-education</samla:AttributeValue>
-        <samla:AttributeValue>http://refeds.org/category/research-and-scholarship</samla:AttributeValue>
-      </samla:Attribute>
-    </mdattr:EntityAttributes>
-  </md:Extensions>
-  <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://connect.sunet.se/shibboleth">
     <md:Extensions>
-      <DiscoveryResponse xmlns="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://connect.sunet.se/Shibboleth.sso/DS/ds.swamid.se" index="1"/>
-      <DiscoveryResponse xmlns="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://connect.sunet.se/Shibboleth.sso/DS/ds.sunet.se" index="2"/>
-      <DiscoveryResponse xmlns="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://connect.sunet.se/Shibboleth.sso/DS/nordu.net" index="3"/>
-      <DiscoveryResponse xmlns="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://connect.sunet.se/Shibboleth.sso/DS/kalmar2" index="4"/>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://www.swamid.se/category/nren-service</saml:AttributeValue>
+          <saml:AttributeValue>http://www.swamid.se/category/research-and-education</saml:AttributeValue>
+          <saml:AttributeValue>http://refeds.org/category/research-and-scholarship</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
     </md:Extensions>
-    <md:KeyDescriptor use="signing">
-      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-        <ds:KeyName>connect01.acp.sunet.se</ds:KeyName>
-        <ds:KeyName>https://connect.sunet.se/shibboleth</ds:KeyName>
-        <ds:X509Data>
-          <ds:X509SubjectName>CN=connect01.acp.sunet.se</ds:X509SubjectName>
-          <ds:X509Certificate>MIIDLjCCAhagAwIBAgIJALJTE8wpfDmAMA0GCSqGSIb3DQEBBQUAMCExHzAdBgNV
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <DiscoveryResponse xmlns="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://connect.sunet.se/Shibboleth.sso/DS/ds.swamid.se" index="1"/>
+        <DiscoveryResponse xmlns="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://connect.sunet.se/Shibboleth.sso/DS/ds.sunet.se" index="2"/>
+        <DiscoveryResponse xmlns="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://connect.sunet.se/Shibboleth.sso/DS/nordu.net" index="3"/>
+        <DiscoveryResponse xmlns="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://connect.sunet.se/Shibboleth.sso/DS/kalmar2" index="4"/>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:KeyName>connect01.acp.sunet.se</ds:KeyName>
+          <ds:KeyName>https://connect.sunet.se/shibboleth</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=connect01.acp.sunet.se</ds:X509SubjectName>
+            <ds:X509Certificate>MIIDLjCCAhagAwIBAgIJALJTE8wpfDmAMA0GCSqGSIb3DQEBBQUAMCExHzAdBgNV
 BAMTFmNvbm5lY3QwMS5hY3Auc3VuZXQuc2UwHhcNMDkwOTAyMTIwNTIwWhcNMTkw
 ODMxMTIwNTIwWjAhMR8wHQYDVQQDExZjb25uZWN0MDEuYWNwLnN1bmV0LnNlMIIB
 IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzaNMBLHGgzRrAHLQDUiM+xu6
@@ -43,16 +43,16 @@ d8hQaQgw5uujjjdkr/6u03kjO6rEZAySsiBPGcpBDXAbk4lnJVQltP0MBE4pu+es
 0oZu+lC7LltiBjJxdh/7SaqdLbn7G7cApwQKqXHVFITX9ncVMM04FtM9MzMc9d4y
 bUs=
 </ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </md:KeyDescriptor>
-    <md:KeyDescriptor use="encryption">
-      <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-        <ds:KeyName>connect01.acp.sunet.se</ds:KeyName>
-        <ds:KeyName>https://connect.sunet.se/shibboleth</ds:KeyName>
-        <ds:X509Data>
-          <ds:X509SubjectName>CN=connect01.acp.sunet.se</ds:X509SubjectName>
-          <ds:X509Certificate>MIIDLjCCAhagAwIBAgIJALJTE8wpfDmAMA0GCSqGSIb3DQEBBQUAMCExHzAdBgNV
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:KeyName>connect01.acp.sunet.se</ds:KeyName>
+          <ds:KeyName>https://connect.sunet.se/shibboleth</ds:KeyName>
+          <ds:X509Data>
+            <ds:X509SubjectName>CN=connect01.acp.sunet.se</ds:X509SubjectName>
+            <ds:X509Certificate>MIIDLjCCAhagAwIBAgIJALJTE8wpfDmAMA0GCSqGSIb3DQEBBQUAMCExHzAdBgNV
 BAMTFmNvbm5lY3QwMS5hY3Auc3VuZXQuc2UwHhcNMDkwOTAyMTIwNTIwWhcNMTkw
 ODMxMTIwNTIwWjAhMR8wHQYDVQQDExZjb25uZWN0MDEuYWNwLnN1bmV0LnNlMIIB
 IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzaNMBLHGgzRrAHLQDUiM+xu6
@@ -71,43 +71,41 @@ d8hQaQgw5uujjjdkr/6u03kjO6rEZAySsiBPGcpBDXAbk4lnJVQltP0MBE4pu+es
 0oZu+lC7LltiBjJxdh/7SaqdLbn7G7cApwQKqXHVFITX9ncVMM04FtM9MzMc9d4y
 bUs=
 </ds:X509Certificate>
-        </ds:X509Data>
-      </ds:KeyInfo>
-    </md:KeyDescriptor>
-    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://connect.sunet.se/Shibboleth.sso/SLO/SOAP"/>
-    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://connect.sunet.se/Shibboleth.sso/SLO/Redirect"/>
-    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://connect.sunet.se/Shibboleth.sso/SLO/POST"/>
-    <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://connect.sunet.se/Shibboleth.sso/SLO/Artifact"/>
-    <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://connect.sunet.se/Shibboleth.sso/NIM/SOAP"/>
-    <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://connect.sunet.se/Shibboleth.sso/NIM/Redirect"/>
-    <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://connect.sunet.se/Shibboleth.sso/NIM/POST"/>
-    <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://connect.sunet.se/Shibboleth.sso/NIM/Artifact"/>
-    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://connect.sunet.se/Shibboleth.sso/SAML2/POST" index="1"/>
-    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://connect.sunet.se/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
-    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://connect.sunet.se/Shibboleth.sso/SAML2/Artifact" index="3"/>
-    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://connect.sunet.se/Shibboleth.sso/SAML2/ECP" index="4"/>
-    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://connect.sunet.se/Shibboleth.sso/SAML/POST" index="5"/>
-    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://connect.sunet.se/Shibboleth.sso/SAML/Artifact" index="6"/>
-    <md:AttributeConsumingService index="0">
-      <md:ServiceName xml:lang="en">SUNET E-Meeting Service</md:ServiceName>
-      <md:ServiceDescription xml:lang="en">SUNET E-Meeting Service (Adobe Connect Pro)</md:ServiceDescription>
-      <md:RequestedAttribute Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-      <md:RequestedAttribute Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-      <md:RequestedAttribute Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-      <md:RequestedAttribute Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-      <md:RequestedAttribute Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-      <md:RequestedAttribute Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-    </md:AttributeConsumingService>
-  </md:SPSSODescriptor>
-  
-  
-<md:Organization>
-    <md:OrganizationName xml:lang="en">NORDUnet</md:OrganizationName>
-    <md:OrganizationDisplayName xml:lang="en">NORDUnet A/S</md:OrganizationDisplayName>
-    <md:OrganizationURL xml:lang="en">http://www.nordu.net</md:OrganizationURL>
-  </md:Organization>
-<md:ContactPerson contactType="technical">
-    <md:Company>NORDUnet NOC</md:Company>
-    <md:EmailAddress>noc@nordu.net</md:EmailAddress>
-  </md:ContactPerson>
-</md:EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://connect.sunet.se/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://connect.sunet.se/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://connect.sunet.se/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://connect.sunet.se/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://connect.sunet.se/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://connect.sunet.se/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://connect.sunet.se/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://connect.sunet.se/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://connect.sunet.se/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://connect.sunet.se/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://connect.sunet.se/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://connect.sunet.se/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://connect.sunet.se/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://connect.sunet.se/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="en">SUNET E-Meeting Service</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">SUNET E-Meeting Service (Adobe Connect Pro)</md:ServiceDescription>
+        <md:RequestedAttribute Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">NORDUnet</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">NORDUnet A/S</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.nordu.net</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:Company>NORDUnet NOC</md:Company>
+      <md:EmailAddress>noc@nordu.net</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,94 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://afbi-shib.ads.qub.ac.uk/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-04-08T14:20:53Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">afbi.qub.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDSDCCAjCgAwIBAgIVAOO+228Co5G8VjtIFdZLgr8NcmkNMA0GCSqGSIb3DQEB
+						BQUAMCIxIDAeBgNVBAMTF2FmYmktc2hpYi5hZHMucXViLmFjLnVrMB4XDTEzMDMy
+						NTEyMjIwN1oXDTMzMDMyNTEyMjIwN1owIjEgMB4GA1UEAxMXYWZiaS1zaGliLmFk
+						cy5xdWIuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC25Mj6
+						JDVixh+B5wf/GQ/FwqAoA5WDat5YscMWNpFNq5ZvXX3IT3kEzsWzK25KwXtUElGJ
+						TPz7+VVL/+HxRCSqgLvDeOMq4yD9AQjlB2uVuYMP9aTlFLrCUoi+JR0hjpE8Q5v6
+						0F2OldmMujRVNaJEmTjcuMWGitFk5pG1jTfGSZDXUFn3CFrr3e+xWRat6USHioD2
+						q7jLg5cmFE8JqViVRunGoYrJMC1W77RQ+R529HNt9K/F7ft7C4M+rkYteoAlx7yz
+						uPVaR0FsAK9xpr5q9y0aq2pKkaPUgEbeAjXTBuJNFIDnloCzAxWjLDXW/IB/LQco
+						6ha1LpRMU8vfGER7AgMBAAGjdTBzMFIGA1UdEQRLMEmCF2FmYmktc2hpYi5hZHMu
+						cXViLmFjLnVrhi5odHRwczovL2FmYmktc2hpYi5hZHMucXViLmFjLnVrL2lkcC9z
+						aGliYm9sZXRoMB0GA1UdDgQWBBR+s3QwBH9KnP1UtNj2hV45cz/8lTANBgkqhkiG
+						9w0BAQUFAAOCAQEAtdu9lrEo9NY77txEQh1y0NzjP/fZVR+PkTEMWx2vbqxZfvhm
+						wlnUukYbcRCcdxVpCxAsQpyaXHEDfdSsSjLFmEJ7R1fzWymOkh/xKUOT6svwm5pI
+						PLE1K5tN+cBVo0RsRr6++HRjtHLsot2okTPMf/zMoUBK6pEkrOEdFpQFbvNLe0hG
+						pgJIhPjBjj1lP3cVVS0lPsqZQvxftz8E6sQpUzR9Sy2iNplzFne8WCjEN+YKoVnj
+						6tgvslECEk1hDFH4JV4HTpuVHJFF/1uXVgKht2p1cUavGWBCNINZQpoxYS/IyUa+
+						DR5nSDGrbwRnkSsU2KYlDMvbuxf5eLC1ZwSeqw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://afbi-shib.ads.qub.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://afbi-shib.ads.qub.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://afbi-shib.ads.qub.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://afbi-shib.ads.qub.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://afbi-shib.ads.qub.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://afbi-shib.ads.qub.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">afbi.qub.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDSDCCAjCgAwIBAgIVAOO+228Co5G8VjtIFdZLgr8NcmkNMA0GCSqGSIb3DQEB
+						BQUAMCIxIDAeBgNVBAMTF2FmYmktc2hpYi5hZHMucXViLmFjLnVrMB4XDTEzMDMy
+						NTEyMjIwN1oXDTMzMDMyNTEyMjIwN1owIjEgMB4GA1UEAxMXYWZiaS1zaGliLmFk
+						cy5xdWIuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC25Mj6
+						JDVixh+B5wf/GQ/FwqAoA5WDat5YscMWNpFNq5ZvXX3IT3kEzsWzK25KwXtUElGJ
+						TPz7+VVL/+HxRCSqgLvDeOMq4yD9AQjlB2uVuYMP9aTlFLrCUoi+JR0hjpE8Q5v6
+						0F2OldmMujRVNaJEmTjcuMWGitFk5pG1jTfGSZDXUFn3CFrr3e+xWRat6USHioD2
+						q7jLg5cmFE8JqViVRunGoYrJMC1W77RQ+R529HNt9K/F7ft7C4M+rkYteoAlx7yz
+						uPVaR0FsAK9xpr5q9y0aq2pKkaPUgEbeAjXTBuJNFIDnloCzAxWjLDXW/IB/LQco
+						6ha1LpRMU8vfGER7AgMBAAGjdTBzMFIGA1UdEQRLMEmCF2FmYmktc2hpYi5hZHMu
+						cXViLmFjLnVrhi5odHRwczovL2FmYmktc2hpYi5hZHMucXViLmFjLnVrL2lkcC9z
+						aGliYm9sZXRoMB0GA1UdDgQWBBR+s3QwBH9KnP1UtNj2hV45cz/8lTANBgkqhkiG
+						9w0BAQUFAAOCAQEAtdu9lrEo9NY77txEQh1y0NzjP/fZVR+PkTEMWx2vbqxZfvhm
+						wlnUukYbcRCcdxVpCxAsQpyaXHEDfdSsSjLFmEJ7R1fzWymOkh/xKUOT6svwm5pI
+						PLE1K5tN+cBVo0RsRr6++HRjtHLsot2okTPMf/zMoUBK6pEkrOEdFpQFbvNLe0hG
+						pgJIhPjBjj1lP3cVVS0lPsqZQvxftz8E6sQpUzR9Sy2iNplzFne8WCjEN+YKoVnj
+						6tgvslECEk1hDFH4JV4HTpuVHJFF/1uXVgKht2p1cUavGWBCNINZQpoxYS/IyUa+
+						DR5nSDGrbwRnkSsU2KYlDMvbuxf5eLC1ZwSeqw==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://afbi-shib.ads.qub.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://afbi-shib.ads.qub.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">The Queen's University of Belfast</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">AFBI: Agri-Food Biosciences Institute</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.afbini.gov.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Karen</md:GivenName>
+      <md:SurName>Murphy</md:SurName>
+      <md:EmailAddress>mailto:eresources@qub.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Karen</md:GivenName>
+      <md:SurName>Murphy</md:SurName>
+      <md:EmailAddress>mailto:k.l.murphy@qub.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

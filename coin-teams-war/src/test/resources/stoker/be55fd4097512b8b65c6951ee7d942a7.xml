@@ -1,0 +1,112 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://wccidp.west-cheshire.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2009-07-09T14:52:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">west-cheshire.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEvTCCA6WgAwIBAgIRAOMjXtkA9D+adzV102mpa/QwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjA1MDEwMDAwMDBaFw0xNTA1MDEyMzU5NTlaMIGPMQswCQYD
+						VQQGEwJHQjERMA8GA1UECBMIQ2hlc2hpcmUxEDAOBgNVBAcTB0NoZXN0ZXIxHjAc
+						BgNVBAoTFVdlc3QgQ2hlc2hpcmUgQ29sbGVnZTEZMBcGA1UECxMQTmV0d29yayBT
+						ZXJ2aWNlczEgMB4GA1UEAxMXaWRwLndlc3QtY2hlc2hpcmUuYWMudWswggEiMA0G
+						CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDvfeZkgveP3uRVPJzfiuIkTzsfbu7c
+						+/C7LwZjMk/lXvWqKPuV9jugbh0I+FuUVCVYaJbI9lPyILxpPZfO4mo7HYq8cUn3
+						A00D8AvZYZqjREfer3PPcxLOcgKSmtrO/mx7huGlsqlAqAz7UHwQJ58/HB5Bh70e
+						ZVskMpWQlcBHflBLxvwg8cDEHGs0cwWLiUb3V4SIB80HpS+7UFhTX2nG1btxEnmG
+						wR9TD39J+VMrsxkr5WvRv7O1/C7FTPBJ1UDxRQiSwFnVWT5P5NbG2D4T34GR7NnE
+						HSQUR155Z567SE2SDXRHKNTcz6Qvo64Q4tye1xLBpPLvWRSc+ic1L1azAgMBAAGj
+						ggFqMIIBZjAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAdBgNVHQ4E
+						FgQUdrHKs7Btt/mw5oHrRinYB0VM2WEwDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB
+						/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBgGA1UdIAQRMA8w
+						DQYLKwYBBAGyMQECAh0wOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3Mu
+						dGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsG
+						AQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNy
+						dDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwIgYDVR0R
+						BBswGYIXaWRwLndlc3QtY2hlc2hpcmUuYWMudWswDQYJKoZIhvcNAQEFBQADggEB
+						AD/TU5WWbwg2IIyWbu7SUdVeWsnQWssDZBiip6AE3h6I/Rq2OigDvoRdn9ybhRfl
+						1U05NWI0/W76mYo3TUr+nxZju1MXXsvERs4F5RtlqePF1o2WRtQ+92DQaLRckb0f
+						JViRM+JWit4qnFMTWOLDk802pjba8mVBbnxWecHJM/6PIw4nESBNGqAg07r8g9jA
+						uxxgdS6uh84jCcFHakUMP+Zdy0T6wA0lC9sBDV7kj0EFuO5uijCtSAcftJ+naBNf
+						1dMExDLjkPc2Y4pPuiTJdu91yHOPMTAszTsD2yLn5sKCKt20nhlaMnLqBOS3nbJJ
+						3pLY0aKnOvHt3rHUc0qw/bg=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.west-cheshire.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.west-cheshire.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.west-cheshire.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.west-cheshire.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.west-cheshire.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.west-cheshire.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">west-cheshire.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEvTCCA6WgAwIBAgIRAOMjXtkA9D+adzV102mpa/QwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjA1MDEwMDAwMDBaFw0xNTA1MDEyMzU5NTlaMIGPMQswCQYD
+						VQQGEwJHQjERMA8GA1UECBMIQ2hlc2hpcmUxEDAOBgNVBAcTB0NoZXN0ZXIxHjAc
+						BgNVBAoTFVdlc3QgQ2hlc2hpcmUgQ29sbGVnZTEZMBcGA1UECxMQTmV0d29yayBT
+						ZXJ2aWNlczEgMB4GA1UEAxMXaWRwLndlc3QtY2hlc2hpcmUuYWMudWswggEiMA0G
+						CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDvfeZkgveP3uRVPJzfiuIkTzsfbu7c
+						+/C7LwZjMk/lXvWqKPuV9jugbh0I+FuUVCVYaJbI9lPyILxpPZfO4mo7HYq8cUn3
+						A00D8AvZYZqjREfer3PPcxLOcgKSmtrO/mx7huGlsqlAqAz7UHwQJ58/HB5Bh70e
+						ZVskMpWQlcBHflBLxvwg8cDEHGs0cwWLiUb3V4SIB80HpS+7UFhTX2nG1btxEnmG
+						wR9TD39J+VMrsxkr5WvRv7O1/C7FTPBJ1UDxRQiSwFnVWT5P5NbG2D4T34GR7NnE
+						HSQUR155Z567SE2SDXRHKNTcz6Qvo64Q4tye1xLBpPLvWRSc+ic1L1azAgMBAAGj
+						ggFqMIIBZjAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAdBgNVHQ4E
+						FgQUdrHKs7Btt/mw5oHrRinYB0VM2WEwDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB
+						/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBgGA1UdIAQRMA8w
+						DQYLKwYBBAGyMQECAh0wOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3Mu
+						dGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsG
+						AQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNy
+						dDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwIgYDVR0R
+						BBswGYIXaWRwLndlc3QtY2hlc2hpcmUuYWMudWswDQYJKoZIhvcNAQEFBQADggEB
+						AD/TU5WWbwg2IIyWbu7SUdVeWsnQWssDZBiip6AE3h6I/Rq2OigDvoRdn9ybhRfl
+						1U05NWI0/W76mYo3TUr+nxZju1MXXsvERs4F5RtlqePF1o2WRtQ+92DQaLRckb0f
+						JViRM+JWit4qnFMTWOLDk802pjba8mVBbnxWecHJM/6PIw4nESBNGqAg07r8g9jA
+						uxxgdS6uh84jCcFHakUMP+Zdy0T6wA0lC9sBDV7kj0EFuO5uijCtSAcftJ+naBNf
+						1dMExDLjkPc2Y4pPuiTJdu91yHOPMTAszTsD2yLn5sKCKt20nhlaMnLqBOS3nbJJ
+						3pLY0aKnOvHt3rHUc0qw/bg=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.west-cheshire.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.west-cheshire.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">West Cheshire College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">West Cheshire College (WCC)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.west-cheshire.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Steve</md:GivenName>
+      <md:SurName>Allmark</md:SurName>
+      <md:EmailAddress>mailto:sallmark@west-cheshire.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Steve</md:GivenName>
+      <md:SurName>Allmark</md:SurName>
+      <md:EmailAddress>mailto:sallmark@west-cheshire.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

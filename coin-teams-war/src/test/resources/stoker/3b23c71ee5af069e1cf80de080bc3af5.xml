@@ -1,0 +1,107 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp02.stfc.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2010-06-16T17:51:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">stfc.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEfDCCA2SgAwIBAgIRAN6xh7bD0R7q1gDhMLxcIlYwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzA0MjUwMDAwMDBaFw0xNjA0MjQyMzU5NTlaMEUxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEgMB4GA1UEAxMXc2hpYmJvbGV0
+						aDAyLnN0ZmMuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDT
+						WeVBatPe3EDc7RRhp3BVzhFBNYnHBAvE2ljHzw/D4Hz2I3sYk5Hlfh+VXqLf5Hkc
+						WzmxSnmAynFZwLyrrPXRfjnwBkRF3aJuM0SwnvqNWdmcgmfbd5xEVN+tH5bBQOxu
+						SY5Auz9dJzbguRBrRFFdwIPJTlAM1PHz51i65Tdm/dNLD00fOdkTw1iMl4L1Vwsi
+						e9D+aF4yHniyNIASvNaJoiJ1xe984QhtzDvupeJvzds9wSLordSugKDAB68rd8/E
+						BcIjW/ytel6/d5pGbMzit+i1V5IbZBvTomZnyQ1htHTfS/OIOYkAzr59Jx4gACOY
+						FV4EiKxApiUd4S7GVZYVAgMBAAGjggF0MIIBcDAfBgNVHSMEGDAWgBQMvZNoDPPe
+						q6NJays3V0fqkOO57TAdBgNVHQ4EFgQU8GrcLM9v5v84R07FK/hJrRcI+qYwDgYD
+						VR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEG
+						CCsGAQUFBwMCMCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQIBMDoG
+						A1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5B
+						U1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2Ny
+						dC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0
+						dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMCIGA1UdEQQbMBmCF3NoaWJib2xldGgw
+						Mi5zdGZjLmFjLnVrMA0GCSqGSIb3DQEBBQUAA4IBAQCZc15apbPz3pUGZ3oZSCm4
+						kD6wPjti31jgf3PrM2ivcFxZpblCoMWKPkUaKLZKDisijqgLe+M/E4wJdrQrZqPs
+						O8BdV3zvlJwjNXq5+PQ9lNxDb+TnCAXqaO2scXIvzDrNgsj1em02KbpCer3yaEdk
+						8U5MuTiT2/vG+51EGncgOU7jPaRVGol3mEjb+6NYT6EYF7m91Lm6I3TOFCljXQsO
+						12IuSq7E+X8aiweCuMNoT2pUGkTHAEIOybgnRBq0ZkEEC7PgwCjJdFFzZc0uynnu
+						gLABpiHA/T1LSEnntS51pxSjVFt2tn18LeFrLJMV3ZPNOC41kUPN+wb2MPZFfsET
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth02.stfc.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth02.stfc.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth02.stfc.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth02.stfc.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth02.stfc.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth02.stfc.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">stfc.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEfDCCA2SgAwIBAgIRAN6xh7bD0R7q1gDhMLxcIlYwDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMzA0MjUwMDAwMDBaFw0xNjA0MjQyMzU5NTlaMEUxITAfBgNV
+						BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEgMB4GA1UEAxMXc2hpYmJvbGV0
+						aDAyLnN0ZmMuYWMudWswggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDT
+						WeVBatPe3EDc7RRhp3BVzhFBNYnHBAvE2ljHzw/D4Hz2I3sYk5Hlfh+VXqLf5Hkc
+						WzmxSnmAynFZwLyrrPXRfjnwBkRF3aJuM0SwnvqNWdmcgmfbd5xEVN+tH5bBQOxu
+						SY5Auz9dJzbguRBrRFFdwIPJTlAM1PHz51i65Tdm/dNLD00fOdkTw1iMl4L1Vwsi
+						e9D+aF4yHniyNIASvNaJoiJ1xe984QhtzDvupeJvzds9wSLordSugKDAB68rd8/E
+						BcIjW/ytel6/d5pGbMzit+i1V5IbZBvTomZnyQ1htHTfS/OIOYkAzr59Jx4gACOY
+						FV4EiKxApiUd4S7GVZYVAgMBAAGjggF0MIIBcDAfBgNVHSMEGDAWgBQMvZNoDPPe
+						q6NJays3V0fqkOO57TAdBgNVHQ4EFgQU8GrcLM9v5v84R07FK/hJrRcI+qYwDgYD
+						VR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEG
+						CCsGAQUFBwMCMCIGA1UdIAQbMBkwDQYLKwYBBAGyMQECAh0wCAYGZ4EMAQIBMDoG
+						A1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5B
+						U1NMQ0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2Ny
+						dC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0
+						dHA6Ly9vY3NwLnRjcy50ZXJlbmEub3JnMCIGA1UdEQQbMBmCF3NoaWJib2xldGgw
+						Mi5zdGZjLmFjLnVrMA0GCSqGSIb3DQEBBQUAA4IBAQCZc15apbPz3pUGZ3oZSCm4
+						kD6wPjti31jgf3PrM2ivcFxZpblCoMWKPkUaKLZKDisijqgLe+M/E4wJdrQrZqPs
+						O8BdV3zvlJwjNXq5+PQ9lNxDb+TnCAXqaO2scXIvzDrNgsj1em02KbpCer3yaEdk
+						8U5MuTiT2/vG+51EGncgOU7jPaRVGol3mEjb+6NYT6EYF7m91Lm6I3TOFCljXQsO
+						12IuSq7E+X8aiweCuMNoT2pUGkTHAEIOybgnRBq0ZkEEC7PgwCjJdFFzZc0uynnu
+						gLABpiHA/T1LSEnntS51pxSjVFt2tn18LeFrLJMV3ZPNOC41kUPN+wb2MPZFfsET
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth02.stfc.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth02.stfc.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Science and Technology Facilities Council</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Science and Technology Facilities Council (2nd IdP)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.scitech.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>OBU Service Desk</md:GivenName>
+      <md:EmailAddress>mailto:obuservicedesk@rl.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Ali</md:GivenName>
+      <md:SurName>Akkas</md:SurName>
+      <md:EmailAddress>mailto:ali.akkas@stfc.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

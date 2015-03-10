@@ -1,0 +1,51 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://tandfqa.literatumonline.com/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDuzCCAqOgAwIBAgIJAMHQR7O3ueiuMA0GCSqGSIb3DQEBBQUAMIGcMQswCQYD
+						VQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEUMBIGA1UEBxMLU2FudGEgQ2xh
+						cmExHTAbBgNVBAoTFEF0eXBvbiBTeXN0ZW1zLCBJbmMuMR0wGwYDVQQLExRBdHlw
+						b24gU3lzdGVtcywgSW5jLjEkMCIGA1UEAxMbdGFuZGZxYS5saXRlcmF0dW1vbmxp
+						bmUuY29tMB4XDTExMDExMTAyMTY1N1oXDTIxMDEwODAyMTY1N1owgZwxCzAJBgNV
+						BAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRQwEgYDVQQHEwtTYW50YSBDbGFy
+						YTEdMBsGA1UEChMUQXR5cG9uIFN5c3RlbXMsIEluYy4xHTAbBgNVBAsTFEF0eXBv
+						biBTeXN0ZW1zLCBJbmMuMSQwIgYDVQQDExt0YW5kZnFhLmxpdGVyYXR1bW9ubGlu
+						ZS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDOBD7j8NuqrWMk
+						JlW2zoI0oX0d/cXeV1cEmMxipa8yHu9uDTh6TyUl1egCH5wBWFHykNzBgZHrSs3u
+						PsYrCuh5KJpyYgZLdR7J+1GBVvcZD6xI3Q1YThKecPT++KHzsICw9hou4XvPCG9c
+						dr4SK3lYi/ssll2fGNZrRPs9RMdwpxIKj+LfX54hJFBvUO0J3lggc1DUQU44q+aj
+						XkBgde81i6gvJWfsjK4KM0jVVjLqgywitSljIVjeWEANCmvlvUsUpuuG0+afX9j+
+						fo1TEgSh+7m1SDMwu+rGtWZBwnNp6qaZUc1+ZWldOJb7K3hnq1GArPS7DR0Psx83
+						2LvTHa+VAgMBAAEwDQYJKoZIhvcNAQEFBQADggEBAL2/D+HEiBZVK9izoHtO67Io
+						g0KFZMMeDwj3Uzld0RG1rtkhTGmnvA8Semi8L2mUG4HEzujFnMfUbersgPYxDeij
+						zu5yMh3CRevxFbSjs9V/JwQhRO7LCQd7DLDqDnNkZi2vta9aKbfo/kUVbqTs9LiA
+						Q3UH11fV2Cy+OYiLqguNcuRnYBWTg52ad3A1om3phG9bmkNVpAj5zDrS0eOfCtqM
+						A4/wnlK9QkVMrwlcNoFfp2dSzwyPj2GEgKTB0stV0aZcVLG9v+WHlfCISUbS5y+q
+						bPzVscyGQK1JIpmgZYrroJet/O319V7SNs0Dr2InezbnNUlephe1pUJ8zUvcgNE=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://tandfqa.literatumonline.com/action/samlACS" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://tandfqa.literatumonline.com/action/samlACS" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://tandfqa.literatumonline.com/action/samlACS" index="3"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Atypon Systems, Inc</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Atypon Systems: Atypon T and F QA</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.atypon.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>SSO-Support</md:GivenName>
+      <md:EmailAddress>mailto:SSO-Support@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>SSO-Tech</md:GivenName>
+      <md:EmailAddress>mailto:SSO-Tech@atypon.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

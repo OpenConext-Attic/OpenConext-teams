@@ -1,0 +1,88 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://athens.bruford.ac.uk/oala/metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">bruford.ac.uk</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">Rose Bruford College (Athens LA)</mdui:DisplayName>
+          <mdui:Logo height="60" width="60">https://portal.bruford.ac.uk/rbc_60x60.png</mdui:Logo>
+          <mdui:Logo height="16" width="16">https://portal.bruford.ac.uk/rbc_16x16.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDoDCCAoigAwIBAgIJAIDJCuAZQOZXMA0GCSqGSIb3DQEBBQUAMD4xHTAbBgNV
+						BAoTFFJvc2UgQnJ1Zm9yZCBDb2xsZWdlMR0wGwYDVQQDExRhdGhlbnMuYnJ1Zm9y
+						ZC5hYy51azAeFw0xMTA5MjIxNzA2MTJaFw0yMTA5MTkxNzA2MTJaMD4xHTAbBgNV
+						BAoTFFJvc2UgQnJ1Zm9yZCBDb2xsZWdlMR0wGwYDVQQDExRhdGhlbnMuYnJ1Zm9y
+						ZC5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMol/apZOolw
+						gLqjxKayFRsnsSRFqMVmJxLdF9ATD/tm90corctZskNCt+MvfiPN98J/he37mOUt
+						SuHxeGIyJgSDI+jj3/VVkIjJ+UMxnCTwhCMKnpio8ZEMKuBxbxkldCIg1M//ZOUc
+						geG/L1fTVUUAJZcVBTCOyRJ+S4UP6tnSlGp8nO1caceXR66pPlT+ziIKST3M1eRH
+						dEpChP9repElvXsqcUST2FExVNGxaD/QUAnCHHY0QhmQ0abKwex8fU/np+ufIWZ5
+						a8t4jbFoFJDB0VupAQfTPIs/ZPfYmVzk/vH4EBsXNfU39wtcnRTj9Xfkq/jq0QDH
+						u0LgIpxuRdECAwEAAaOBoDCBnTAdBgNVHQ4EFgQUz9x2Vi5uTDixbL7zYpiTVSry
+						9EowbgYDVR0jBGcwZYAUz9x2Vi5uTDixbL7zYpiTVSry9EqhQqRAMD4xHTAbBgNV
+						BAoTFFJvc2UgQnJ1Zm9yZCBDb2xsZWdlMR0wGwYDVQQDExRhdGhlbnMuYnJ1Zm9y
+						ZC5hYy51a4IJAIDJCuAZQOZXMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQAD
+						ggEBAK5mVgWfbhwy9qJ/qT0bVTemdAjkXQU1uEEmfJc+cLMJtBtMV8nSE0s9cf1Q
+						msT/W7VCMWQp5IOoYO+xDDj/EMVmJNxHEG/DMn0iOUzdatNXgtfXbMjB0sChgTcH
+						zqeg/kXgYSzQND40RRSB199nhy67qdtIF+aPJciCZ98u/xdPSL6kSPP7aPPLb1Wu
+						+C6sZ+kdkNWDGLKgxanWSM2HDVta5MSm0n4Iy9kvlktFUcjiauWxV9MR3G0/bg+K
+						/pqLuisfI0ssY3bi/CuLKBRAw8tabT34gYFnHPHxA7Cr9BBE1fUB/fA6q1utWatY
+						tPNj67Bibl7d1TeU5BxZmOxrQKU=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDoDCCAoigAwIBAgIJAIDJCuAZQOZXMA0GCSqGSIb3DQEBBQUAMD4xHTAbBgNV
+						BAoTFFJvc2UgQnJ1Zm9yZCBDb2xsZWdlMR0wGwYDVQQDExRhdGhlbnMuYnJ1Zm9y
+						ZC5hYy51azAeFw0xMTA5MjIxNzA2MTJaFw0yMTA5MTkxNzA2MTJaMD4xHTAbBgNV
+						BAoTFFJvc2UgQnJ1Zm9yZCBDb2xsZWdlMR0wGwYDVQQDExRhdGhlbnMuYnJ1Zm9y
+						ZC5hYy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMol/apZOolw
+						gLqjxKayFRsnsSRFqMVmJxLdF9ATD/tm90corctZskNCt+MvfiPN98J/he37mOUt
+						SuHxeGIyJgSDI+jj3/VVkIjJ+UMxnCTwhCMKnpio8ZEMKuBxbxkldCIg1M//ZOUc
+						geG/L1fTVUUAJZcVBTCOyRJ+S4UP6tnSlGp8nO1caceXR66pPlT+ziIKST3M1eRH
+						dEpChP9repElvXsqcUST2FExVNGxaD/QUAnCHHY0QhmQ0abKwex8fU/np+ufIWZ5
+						a8t4jbFoFJDB0VupAQfTPIs/ZPfYmVzk/vH4EBsXNfU39wtcnRTj9Xfkq/jq0QDH
+						u0LgIpxuRdECAwEAAaOBoDCBnTAdBgNVHQ4EFgQUz9x2Vi5uTDixbL7zYpiTVSry
+						9EowbgYDVR0jBGcwZYAUz9x2Vi5uTDixbL7zYpiTVSry9EqhQqRAMD4xHTAbBgNV
+						BAoTFFJvc2UgQnJ1Zm9yZCBDb2xsZWdlMR0wGwYDVQQDExRhdGhlbnMuYnJ1Zm9y
+						ZC5hYy51a4IJAIDJCuAZQOZXMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQAD
+						ggEBAK5mVgWfbhwy9qJ/qT0bVTemdAjkXQU1uEEmfJc+cLMJtBtMV8nSE0s9cf1Q
+						msT/W7VCMWQp5IOoYO+xDDj/EMVmJNxHEG/DMn0iOUzdatNXgtfXbMjB0sChgTcH
+						zqeg/kXgYSzQND40RRSB199nhy67qdtIF+aPJciCZ98u/xdPSL6kSPP7aPPLb1Wu
+						+C6sZ+kdkNWDGLKgxanWSM2HDVta5MSm0n4Iy9kvlktFUcjiauWxV9MR3G0/bg+K
+						/pqLuisfI0ssY3bi/CuLKBRAw8tabT34gYFnHPHxA7Cr9BBE1fUB/fA6q1utWatY
+						tPNj67Bibl7d1TeU5BxZmOxrQKU=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://athens.bruford.ac.uk/oala/sso"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://athens.bruford.ac.uk/oala/sso"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Rose Bruford College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Rose Bruford College (Athens LA)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.bruford.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Zoe</md:GivenName>
+      <md:SurName>Ellis</md:SurName>
+      <md:EmailAddress>mailto:Zoe.Ellis@bruford.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Marc</md:GivenName>
+      <md:SurName>Wilson</md:SurName>
+      <md:EmailAddress>mailto:marc.wilson@bruford.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

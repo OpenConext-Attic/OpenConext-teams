@@ -1,0 +1,112 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://www.jvcs.ja.net/shibboleth">
+    <md:Extensions>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha384"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#sha224"/>
+      <DigestMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha384"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2009/xmldsig11#dsa-sha256"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+      <SigningMethod xmlns="urn:oasis:names:tc:SAML:metadata:algsupport" Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-10-19T11:50:58Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://www.jvcs.ja.net/Shibboleth.sso/WAYF"/>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">v-scene</mdui:DisplayName>
+          <mdui:Description xml:lang="en">v-scene enables you to launch or schedule H323 and Desktop videoconferences, record, stream and add guests.</mdui:Description>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEoTCCA4mgAwIBAgIRAOQkbG3H7xylghDVHFZCEb4wDQYJKoZIhvcNAQEFBQAw
+						NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+						IFNTTCBDQTAeFw0xMjExMTMwMDAwMDBaFw0xNTExMTMyMzU5NTlaMHwxCzAJBgNV
+						BAYTAkdCMRQwEgYDVQQIEwtPeGZvcmRzaGlyZTEQMA4GA1UEBxMHQ2hpbHRvbjEc
+						MBoGA1UEChMTVGhlIEpOVCBBc3NvY2lhdGlvbjENMAsGA1UECxMESlZDUzEYMBYG
+						A1UEAxMPd3d3Lmp2Y3MuamEubmV0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+						CgKCAQEArDwlmcEvi4O4XtwsJ2xcF28iRgGonGFbVIMTJ6UFHDlLhjJXBOZzEJxu
+						FtzoxW2S83/qsJlmLVMwu/Zlf84+/H+SVK80JIkH49W8TvbjFPV84VjCCrRaKUSc
+						PQTswIpSpJNFNaYQWIKyX/mZYu/HaT9lMHr19RumNNx1bHHJheLnxgoQngku9BKR
+						cLDm5yu95+R6elbKA/Er6jtuQ96S0JnJAxxAojEqbM6tSHRcgJt5srmm3IAHhnAH
+						XKXbkRSzsQlXto2oNVFkfmiMVEO2KK2+4f9j6COTXxcuqs0+UwfwNO7IDX8KROih
+						0jOYhSrkcSku0khqFwXgpA3IP4VyLQIDAQABo4IBYjCCAV4wHwYDVR0jBBgwFoAU
+						DL2TaAzz3qujSWsrN1dH6pDjue0wHQYDVR0OBBYEFJPQAcWDAXWfuLg75mvRv3WS
+						r3BmMA4GA1UdDwEB/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsG
+						AQUFBwMBBggrBgEFBQcDAjAYBgNVHSAEETAPMA0GCysGAQQBsjEBAgIdMDoGA1Ud
+						HwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwudGNzLnRlcmVuYS5vcmcvVEVSRU5BU1NM
+						Q0EuY3JsMG0GCCsGAQUFBwEBBGEwXzA1BggrBgEFBQcwAoYpaHR0cDovL2NydC50
+						Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcnQwJgYIKwYBBQUHMAGGGmh0dHA6
+						Ly9vY3NwLnRjcy50ZXJlbmEub3JnMBoGA1UdEQQTMBGCD3d3dy5qdmNzLmphLm5l
+						dDANBgkqhkiG9w0BAQUFAAOCAQEAQ7H6wBrBIG3sl2tGThlycIwMhs+rQGfK3yA+
+						Q6aqTbWvbyGotl2fw64fsgbrQVJmDIFxZO8/MbnFADD+j7NVpXYVN6ZLTcCuIUgL
+						ErlHBCZzEf/ksSPit7BXOEh32I+IyI4oMexuE8UsF78p1i1KsM52KJ/aAEcp/cxo
+						YgI87EEm4p90UjuMJVoH/Ln02RLoTOobzzIMWks1/+da8GrsMaL/JP5q//6/boZe
+						lAW5NzjIVxak0+mkL9m/M3Ye7ciDPkI48KxUZ3/HU/vjuKpzlcrkZKZkiyqVh066
+						l3iQ7f3NCuwCg4Tz4RGKYusa1ZjKWwicFd/KcwGv18osrZH7xQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes192-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#tripledes-cbc"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2009/xmlenc11#rsa-oaep"/>
+        <md:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"/>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.jvcs.ja.net/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://v-scene.ja.net/Shibboleth.sso/Artifact/SOAP" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.jvcs.ja.net/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.jvcs.ja.net/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.jvcs.ja.net/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.jvcs.ja.net/Shibboleth.sso/SLO/Artifact"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://v-scene.ja.net/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://v-scene.ja.net/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://v-scene.ja.net/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://v-scene.ja.net/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://www.jvcs.ja.net/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://www.jvcs.ja.net/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.jvcs.ja.net/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.jvcs.ja.net/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://www.jvcs.ja.net/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://www.jvcs.ja.net/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://www.jvcs.ja.net/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://www.jvcs.ja.net/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://www.jvcs.ja.net/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://www.jvcs.ja.net/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://v-scene.ja.net/Shibboleth.sso/SAML2/POST" index="7"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://v-scene.ja.net/Shibboleth.sso/SAML2/POST-SimpleSign" index="8"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://v-scene.ja.net/Shibboleth.sso/SAML2/Artifact" index="9"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://v-scene.ja.net/Shibboleth.sso/SAML2/ECP" index="10"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://v-scene.ja.net/Shibboleth.sso/SAML/POST" index="11"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://v-scene.ja.net/Shibboleth.sso/SAML/Artifact" index="12"/>
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="en">v-scene</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">v-scene enables you to launch or schedule H323 and Desktop videoconferences, record, stream and add guests.</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:mace:dir:attribute-def:eduPersonTargetedID" NameFormat="urn:mace:shibboleth:1.0:attributeNamespace:uri"/>
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:mace:shibboleth:1.0:attributeNamespace:uri"/>
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">JISC Collections and Janet Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Janet Videoconference Booking Service (JVCS)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ja.net/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>JVCS</md:GivenName>
+      <md:SurName>v-scene@ja.net</md:SurName>
+      <md:EmailAddress>mailto:m.mcintosh@ed.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Paul</md:GivenName>
+      <md:SurName>Bonnett</md:SurName>
+      <md:EmailAddress>mailto:paul.bonnett@ja.net</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

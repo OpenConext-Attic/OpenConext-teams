@@ -1,0 +1,112 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth.edgehill.ac.uk/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2010-07-02T12:16:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">edgehill.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEwjCCA6qgAwIBAgIQWxPdS8jCDo8CQ9VCPed5HzANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDcyNjAwMDAwMFoXDTE1MDcyNjIzNTk1OVowgZMxCzAJBgNV
+						BAYTAkdCMRgwFgYDVQQIEw9XZXN0IExhbmNhc2hpcmUxETAPBgNVBAcTCE9ybXNr
+						aXJrMR0wGwYDVQQKExRFZGdlIEhpbGwgVW5pdmVyc2l0eTEUMBIGA1UECxMLSVQg
+						U2VydmljZXMxIjAgBgNVBAMTGXNoaWJib2xldGguZWRnZWhpbGwuYWMudWswggEi
+						MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCthQGEpUJ/yS9OfmAkx6OZg6Wh
+						FzM1cXm63rNtc2uZkd+ozCw3WtQKKyDRBr8Q7XbJr50fwKptdNJ3T0oWTIWLy38U
+						69KC8EwSAVy63DSWOhR4Quk+WzIc84XSfJWzQo3uFfJxx0N4K19ppIUP66oA8rII
+						9HsSSFfSDKkIARrCu+hvYv1qhIVsFRqF8REjrq5uh/Ono8MjMxshAPc6bGc5gZdu
+						d5NkvWy0vWUo472pkKBYnLShqI6+7gR5pIpoisasohleI6cYIW5SnSHv4OPILRRF
+						KLsjc5VKRyrcp51ZR61PD2ugifyHtY3t1fQMKzE8Xu10uegPvh8dP1ReHeDrAgMB
+						AAGjggFsMIIBaDAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAdBgNV
+						HQ4EFgQUa57IILbkKZWeXJJRgQDqoRdmZhcwDgYDVR0PAQH/BAQDAgWgMAwGA1Ud
+						EwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBgGA1UdIAQR
+						MA8wDQYLKwYBBAGyMQECAh0wOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50
+						Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUG
+						CCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENB
+						LmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwJAYD
+						VR0RBB0wG4IZc2hpYmJvbGV0aC5lZGdlaGlsbC5hYy51azANBgkqhkiG9w0BAQUF
+						AAOCAQEAJ1aYSHILz1s8FOUJ8CyMaY6SJ51sIDsUR/CzifMmTaYi/tWoTVO+GQWg
+						yZJnChdXnQPRXs2H24F7HXGERAlLVy52Iu1S3ki7QaAbHz2/RtVcclrhepZAgMAe
+						0MXVBU6ZQmx5GLXr54lmU9eZqttIAJF0Z4yQJUVWsJG/1Y9zhabO2xwqZGAZNvdR
+						un+tHnO3jqbRxuhvqKQRWH3hTxOQykP3HN8cMvy5zKhz/7Sc0Mub+1RRMo8aIx/V
+						xn4HkrUz5OwdKNj8DIn8uLlo3BCRPqo2J/ar4yAyNFbG0bBj20vNsgM8MxTWQg1o
+						NovUGgpJ3goRRkkfWFQ2MkKl4od7aQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.edgehill.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.edgehill.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.edgehill.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.edgehill.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.edgehill.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.edgehill.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">edgehill.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEwjCCA6qgAwIBAgIQWxPdS8jCDo8CQ9VCPed5HzANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTEyMDcyNjAwMDAwMFoXDTE1MDcyNjIzNTk1OVowgZMxCzAJBgNV
+						BAYTAkdCMRgwFgYDVQQIEw9XZXN0IExhbmNhc2hpcmUxETAPBgNVBAcTCE9ybXNr
+						aXJrMR0wGwYDVQQKExRFZGdlIEhpbGwgVW5pdmVyc2l0eTEUMBIGA1UECxMLSVQg
+						U2VydmljZXMxIjAgBgNVBAMTGXNoaWJib2xldGguZWRnZWhpbGwuYWMudWswggEi
+						MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCthQGEpUJ/yS9OfmAkx6OZg6Wh
+						FzM1cXm63rNtc2uZkd+ozCw3WtQKKyDRBr8Q7XbJr50fwKptdNJ3T0oWTIWLy38U
+						69KC8EwSAVy63DSWOhR4Quk+WzIc84XSfJWzQo3uFfJxx0N4K19ppIUP66oA8rII
+						9HsSSFfSDKkIARrCu+hvYv1qhIVsFRqF8REjrq5uh/Ono8MjMxshAPc6bGc5gZdu
+						d5NkvWy0vWUo472pkKBYnLShqI6+7gR5pIpoisasohleI6cYIW5SnSHv4OPILRRF
+						KLsjc5VKRyrcp51ZR61PD2ugifyHtY3t1fQMKzE8Xu10uegPvh8dP1ReHeDrAgMB
+						AAGjggFsMIIBaDAfBgNVHSMEGDAWgBQMvZNoDPPeq6NJays3V0fqkOO57TAdBgNV
+						HQ4EFgQUa57IILbkKZWeXJJRgQDqoRdmZhcwDgYDVR0PAQH/BAQDAgWgMAwGA1Ud
+						EwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBgGA1UdIAQR
+						MA8wDQYLKwYBBAGyMQECAh0wOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50
+						Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUG
+						CCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENB
+						LmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwJAYD
+						VR0RBB0wG4IZc2hpYmJvbGV0aC5lZGdlaGlsbC5hYy51azANBgkqhkiG9w0BAQUF
+						AAOCAQEAJ1aYSHILz1s8FOUJ8CyMaY6SJ51sIDsUR/CzifMmTaYi/tWoTVO+GQWg
+						yZJnChdXnQPRXs2H24F7HXGERAlLVy52Iu1S3ki7QaAbHz2/RtVcclrhepZAgMAe
+						0MXVBU6ZQmx5GLXr54lmU9eZqttIAJF0Z4yQJUVWsJG/1Y9zhabO2xwqZGAZNvdR
+						un+tHnO3jqbRxuhvqKQRWH3hTxOQykP3HN8cMvy5zKhz/7Sc0Mub+1RRMo8aIx/V
+						xn4HkrUz5OwdKNj8DIn8uLlo3BCRPqo2J/ar4yAyNFbG0bBj20vNsgM8MxTWQg1o
+						NovUGgpJ3goRRkkfWFQ2MkKl4od7aQ==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.edgehill.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.edgehill.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Edge Hill University</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Edge Hill University</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.edgehill.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Neil</md:GivenName>
+      <md:SurName>Malcolm</md:SurName>
+      <md:EmailAddress>mailto:neil.malcolm@edgehill.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Neil</md:GivenName>
+      <md:SurName>Malcolm</md:SurName>
+      <md:EmailAddress>mailto:neil.malcolm@edgehill.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

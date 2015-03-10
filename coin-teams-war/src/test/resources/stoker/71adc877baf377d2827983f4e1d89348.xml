@@ -1,0 +1,66 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://qa-sso.knewknovel.com/entry/uk_federation/Metadata">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-11-01T14:48:38Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://qa-sso.knewknovel.com/saml/module.php/saml/sp/discoresp.php" index="1"/>
+        <mdui:UIInfo>
+          <mdui:Description xml:lang="en">The Knovel website integrates technical reference information with analytical and search tools for engineers.</mdui:Description>
+          <mdui:DisplayName xml:lang="en">Knovel Corporation: PPhoenix QA-SSO</mdui:DisplayName>
+          <mdui:Logo height="115" width="350">https://qa-content.knewknovel.com/web/integration/ukfed/images/logo_350_115.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDyDCCArCgAwIBAgIJAJCNhx+kTAXdMA0GCSqGSIb3DQEBBQUAMGUxCzAJBgNV
+						BAYTAlVTMQswCQYDVQQIEwJOWTEMMAoGA1UEBxMDTllDMRswGQYDVQQKExJLbm92
+						ZWwgQ29ycG9yYXRpb24xHjAcBgNVBAMTFXFhLXNzby5rbmV3a25vdmVsLmNvbTAe
+						Fw0xNDA0MTQxMzEzMjVaFw0zNDA0MDkxMzEzMjVaMGUxCzAJBgNVBAYTAlVTMQsw
+						CQYDVQQIEwJOWTEMMAoGA1UEBxMDTllDMRswGQYDVQQKExJLbm92ZWwgQ29ycG9y
+						YXRpb24xHjAcBgNVBAMTFXFhLXNzby5rbmV3a25vdmVsLmNvbTCCASIwDQYJKoZI
+						hvcNAQEBBQADggEPADCCAQoCggEBAOQhGveEVeEN0I/ykyCiX8YKNvBr1iK2bikE
+						UQZ17yOXoJNASYu5l3yuZrUemJ3xHYEQhwD8Hnd5A6Q2yJqt1OYdm77F/wL5cx/X
+						JQ7re247Ef5XCos9jvuBWmOs3rtjz9Hv64uVY1L7t8B1UicJA+vTXmxCoD+J8/Wf
+						6gq0Q476E75nJUYq/5Tmrdp5qCS3Sn49Scxvtruhll0dbxj1NCooJNUF2wH0QZuI
+						m1WAAuDMN/CY4DCEd5SCyMGAHL3VoT7/y+dH+VPPbJ5Z1c6KGYqVpBfQ9Z2o+QRb
+						CykI7eQa9nHfw74+jpewna843xOsrIAg8S1TdPldKPTibaOOacECAwEAAaN7MHkw
+						CQYDVR0TBAIwADAsBglghkgBhvhCAQ0EHxYdT3BlblNTTCBHZW5lcmF0ZWQgQ2Vy
+						dGlmaWNhdGUwHQYDVR0OBBYEFFAEiQ09smJAJxIrIVt1ggD1uphuMB8GA1UdIwQY
+						MBaAFFAEiQ09smJAJxIrIVt1ggD1uphuMA0GCSqGSIb3DQEBBQUAA4IBAQBjh39R
+						2d0urMDY7xTtE7vAhUuEO0h+gM40FRR04r111KpGmOuFX9gx785aOuK0RcYPCttS
+						fT6CodNXybhQXgjQlq5SoN7FzVVnpeTpGk3tmQedItvfwTHUNPkPWPuCi1d36Rs6
+						wv6EWmsWCQN8IT8XAZuaZr7PxwJb3u94zp5UM6mh8Sxeb3fAKGdc1K0SZIrxCmq8
+						lC/2DFnuXxC5HzfoekMdC/b+ye1nuUAFCMOrTFiavilNMdakID5vMAAt2VMIplTw
+						L/HcJXiw+VosrzUtVGW/lzaKp0xiJVNt9j9GD6ZNGwTOw/+lx89a61syIy14/8vj
+						xYCCDxWspsyeX2go
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://qa-sso.knewknovel.com/saml/module.php/saml/sp/saml2-logout.php/default-sp"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://qa-sso.knewknovel.com/saml/module.php/saml/sp/saml2-acs.php/default-sp" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://qa-sso.knewknovel.com/saml/module.php/saml/sp/saml1-acs.php/default-sp" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://qa-sso.knewknovel.com/saml/module.php/saml/sp/saml2-acs.php/default-sp" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://qa-sso.knewknovel.com/saml/module.php/saml/sp/saml1-acs.php/default-sp/artifact" index="3"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Knovel Corporation</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Knovel Corporation: Phoenix QA-SSO</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.knovel.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Michael</md:GivenName>
+      <md:SurName>Crisler</md:SurName>
+      <md:EmailAddress>mailto:m.crisler@elsevier.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Johnny</md:GivenName>
+      <md:SurName>Cheung</md:SurName>
+      <md:EmailAddress>mailto:kops@knovel.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

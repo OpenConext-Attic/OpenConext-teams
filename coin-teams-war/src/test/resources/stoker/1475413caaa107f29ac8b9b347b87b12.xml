@@ -1,0 +1,108 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.beds.ac.uk/entity">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2008-05-08T18:08:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">beds.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEaTCCA1GgAwIBAgIQSzfaeKahBOK3I4on09FG0DANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTE0MDQwOTAwMDAwMFoXDTE3MDQwODIzNTk1OVowPDEhMB8GA1UE
+						CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRcwFQYDVQQDEw5pZHAuYmVkcy5h
+						Yy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKetA8/6veT4+GRV
+						uOGRULFxQkPXGXQ1V04ax3w9/xwgh60cCo/YnuVlcEjDkcSeXamwUp1lduMi8dRg
+						CHH0wfD4vni2iacjSnnfO9rSsLchaGJgvUpW+NO/Byh77rFVE4iWz7j/P2oMaxWJ
+						/mAxGcF/4SvrzSJpQ4Bvb3ERkT2IlOvS0RDJ2hpaFCH3QPSLbItg4zmg3gNigO/c
+						fJFiM0l5ej3j8A9TM7rnsQkqCRYvVQ4Hx0cCo0T0NfNIqpd4qe02itjS8KisLM5K
+						xWAAsKxu7vm8MNDBwbz1fdrtU2y95rvba27iU0wsGvXMOW7AuAKcVghw8Kj3RSRN
+						WjHQtzcCAwEAAaOCAWswggFnMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ
+						47ntMB0GA1UdDgQWBBT8n949CVd+XA8RY2eIr6uEvqJKTzAOBgNVHQ8BAf8EBAMC
+						BaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIw
+						IgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEwOgYDVR0fBDMwMTAv
+						oC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmww
+						bQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJl
+						bmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3Au
+						dGNzLnRlcmVuYS5vcmcwGQYDVR0RBBIwEIIOaWRwLmJlZHMuYWMudWswDQYJKoZI
+						hvcNAQEFBQADggEBAKV1I2UeqFfZJD9iJqVigp+RHtC4czWu83SSV9b/sNFlUp8U
+						MPrEiFQyrKePjkpXOV0nampl2sfH+tlleaPJE6HQkU0fYXlPakWFn6V/4E9zoTuH
+						ezaXF+x9paTlrcjj46VCA/Ioo/DG7O1fg+Al7/NAofrMcDwEtuEbFoXesj1cAbxL
+						AfI9EdCkiY/95rhoDk3F3B/NrdNPLsJwLw5R5kQpaVhSIEdiUaYZ50yLQzLtHLRF
+						8EYzIAss513al942nZiH4RfHtOKUs5waxCaLb7QPH4mKUe9IK/Pg444YJsrEgaAO
+						9QLVsNMkaE7Rl0xZfbp08NbjxGvR3pziJ0AFcS4=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.beds.ac.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.beds.ac.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shib1.beds.ac.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shib1.beds.ac.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shib1.beds.ac.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shib1.beds.ac.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">beds.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIEaTCCA1GgAwIBAgIQSzfaeKahBOK3I4on09FG0DANBgkqhkiG9w0BAQUFADA2
+						MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEg
+						U1NMIENBMB4XDTE0MDQwOTAwMDAwMFoXDTE3MDQwODIzNTk1OVowPDEhMB8GA1UE
+						CxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMRcwFQYDVQQDEw5pZHAuYmVkcy5h
+						Yy51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKetA8/6veT4+GRV
+						uOGRULFxQkPXGXQ1V04ax3w9/xwgh60cCo/YnuVlcEjDkcSeXamwUp1lduMi8dRg
+						CHH0wfD4vni2iacjSnnfO9rSsLchaGJgvUpW+NO/Byh77rFVE4iWz7j/P2oMaxWJ
+						/mAxGcF/4SvrzSJpQ4Bvb3ERkT2IlOvS0RDJ2hpaFCH3QPSLbItg4zmg3gNigO/c
+						fJFiM0l5ej3j8A9TM7rnsQkqCRYvVQ4Hx0cCo0T0NfNIqpd4qe02itjS8KisLM5K
+						xWAAsKxu7vm8MNDBwbz1fdrtU2y95rvba27iU0wsGvXMOW7AuAKcVghw8Kj3RSRN
+						WjHQtzcCAwEAAaOCAWswggFnMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ
+						47ntMB0GA1UdDgQWBBT8n949CVd+XA8RY2eIr6uEvqJKTzAOBgNVHQ8BAf8EBAMC
+						BaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIw
+						IgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEwOgYDVR0fBDMwMTAv
+						oC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmww
+						bQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJl
+						bmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3Au
+						dGNzLnRlcmVuYS5vcmcwGQYDVR0RBBIwEIIOaWRwLmJlZHMuYWMudWswDQYJKoZI
+						hvcNAQEFBQADggEBAKV1I2UeqFfZJD9iJqVigp+RHtC4czWu83SSV9b/sNFlUp8U
+						MPrEiFQyrKePjkpXOV0nampl2sfH+tlleaPJE6HQkU0fYXlPakWFn6V/4E9zoTuH
+						ezaXF+x9paTlrcjj46VCA/Ioo/DG7O1fg+Al7/NAofrMcDwEtuEbFoXesj1cAbxL
+						AfI9EdCkiY/95rhoDk3F3B/NrdNPLsJwLw5R5kQpaVhSIEdiUaYZ50yLQzLtHLRF
+						8EYzIAss513al942nZiH4RfHtOKUs5waxCaLb7QPH4mKUe9IK/Pg444YJsrEgaAO
+						9QLVsNMkaE7Rl0xZfbp08NbjxGvR3pziJ0AFcS4=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.beds.ac.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.beds.ac.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Bedfordshire</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Bedfordshire</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.beds.ac.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Paul</md:GivenName>
+      <md:SurName>Haysom</md:SurName>
+      <md:EmailAddress>mailto:paul.haysom@beds.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Paul</md:GivenName>
+      <md:SurName>Haysom</md:SurName>
+      <md:EmailAddress>mailto:paul.haysom@beds.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

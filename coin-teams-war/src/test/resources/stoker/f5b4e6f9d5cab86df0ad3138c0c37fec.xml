@@ -1,0 +1,99 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://shibboleth2sp.now.semcs.net/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-06-19T09:18:39Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://shibboleth2sp.now.semcs.net/Shibboleth.sso/Login"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://shibboleth2sp.now.semcs.net/Shibboleth.sso/Login" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDzjCCAzegAwIBAgIDEAB8MA0GCSqGSIb3DQEBBAUAMG8xCzAJBgNVBAYTAlVL
+						MQ8wDQYDVQQIEwZTdXNzZXgxETAPBgNVBAcTCEJyaWdodG9uMRIwEAYDVQQKEwlz
+						ZW1hbnRpY28xKDAmBgNVBAMTH3NlbWFudGljbyBDZXJ0aWZpY2F0ZSBBdXRob3Jp
+						dHkwHhcNMTMwMzI2MTYzODM1WhcNMTgwMzI1MTYzODM1WjBrMQswCQYDVQQGEwJV
+						SzEPMA0GA1UECBMGU3Vzc2V4MREwDwYDVQQHEwhCcmlnaHRvbjESMBAGA1UEChMJ
+						c2VtYW50aWNvMSQwIgYDVQQDExtzaGliYm9sZXRoMnNwLm5vdy5zZW1jcy5uZXQw
+						ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDspSMFisMgrFl7wbAzbd0d
+						7Mm2vqPTBIx9JUrInCeyptcCL6cYsmkZfD6L34Izf4lXxiFYSeZ9/arLvMrfHw6V
+						LHCY1c8Ujlldrf1jWXUlddjV/0jj2bHSpaSkd5Pv2DE+YPbQuWNgEO8LvveJRhsj
+						RjdlVb+kp/suP4rV0fE+mBtI0r+fg89NVt0ljGY/fG93jIXZOo+EoRTLQuZdB2p0
+						qs/LT/cvicGvD9nlYagx02iRpkRzdEaMd/8K3m9LlUdWAoTE8Pp/gRoDvtjC1b3s
+						zNw8bTlb6cnxaNnNkTVhcNVFJU93E+i/tofqdg5SXm1t5XQLBVRn7h+flMhz96dR
+						AgMBAAGjgfcwgfQwCQYDVR0TBAIwADAsBglghkgBhvhCAQ0EHxYdT3BlblNTTCBH
+						ZW5lcmF0ZWQgQ2VydGlmaWNhdGUwHQYDVR0OBBYEFGn2QrAsZmobkkf7vuZiAaeV
+						qBTIMIGZBgNVHSMEgZEwgY6AFAIbTpo38I1qaERGxh1E/rqyXr45oXOkcTBvMQsw
+						CQYDVQQGEwJVSzEPMA0GA1UECBMGU3Vzc2V4MREwDwYDVQQHEwhCcmlnaHRvbjES
+						MBAGA1UEChMJc2VtYW50aWNvMSgwJgYDVQQDEx9zZW1hbnRpY28gQ2VydGlmaWNh
+						dGUgQXV0aG9yaXR5ggEAMA0GCSqGSIb3DQEBBAUAA4GBAN99BJdWNmZf2n1X5eDs
+						nh+bjmiearQYMxtcGari4biwsLaxboTxWA3RdKAOSiu8mYM/eG9SoafdW5qTv87n
+						VvzqCHHHXeXOtizBpnolXO1ggqU5oY8lbIEdGeigfwDCyyKwefLkemv34QpzHWes
+						unAmGhPhZk/kNUUgSblqhFu7
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDzjCCAzegAwIBAgIDEAB8MA0GCSqGSIb3DQEBBAUAMG8xCzAJBgNVBAYTAlVL
+						MQ8wDQYDVQQIEwZTdXNzZXgxETAPBgNVBAcTCEJyaWdodG9uMRIwEAYDVQQKEwlz
+						ZW1hbnRpY28xKDAmBgNVBAMTH3NlbWFudGljbyBDZXJ0aWZpY2F0ZSBBdXRob3Jp
+						dHkwHhcNMTMwMzI2MTYzODM1WhcNMTgwMzI1MTYzODM1WjBrMQswCQYDVQQGEwJV
+						SzEPMA0GA1UECBMGU3Vzc2V4MREwDwYDVQQHEwhCcmlnaHRvbjESMBAGA1UEChMJ
+						c2VtYW50aWNvMSQwIgYDVQQDExtzaGliYm9sZXRoMnNwLm5vdy5zZW1jcy5uZXQw
+						ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDspSMFisMgrFl7wbAzbd0d
+						7Mm2vqPTBIx9JUrInCeyptcCL6cYsmkZfD6L34Izf4lXxiFYSeZ9/arLvMrfHw6V
+						LHCY1c8Ujlldrf1jWXUlddjV/0jj2bHSpaSkd5Pv2DE+YPbQuWNgEO8LvveJRhsj
+						RjdlVb+kp/suP4rV0fE+mBtI0r+fg89NVt0ljGY/fG93jIXZOo+EoRTLQuZdB2p0
+						qs/LT/cvicGvD9nlYagx02iRpkRzdEaMd/8K3m9LlUdWAoTE8Pp/gRoDvtjC1b3s
+						zNw8bTlb6cnxaNnNkTVhcNVFJU93E+i/tofqdg5SXm1t5XQLBVRn7h+flMhz96dR
+						AgMBAAGjgfcwgfQwCQYDVR0TBAIwADAsBglghkgBhvhCAQ0EHxYdT3BlblNTTCBH
+						ZW5lcmF0ZWQgQ2VydGlmaWNhdGUwHQYDVR0OBBYEFGn2QrAsZmobkkf7vuZiAaeV
+						qBTIMIGZBgNVHSMEgZEwgY6AFAIbTpo38I1qaERGxh1E/rqyXr45oXOkcTBvMQsw
+						CQYDVQQGEwJVSzEPMA0GA1UECBMGU3Vzc2V4MREwDwYDVQQHEwhCcmlnaHRvbjES
+						MBAGA1UEChMJc2VtYW50aWNvMSgwJgYDVQQDEx9zZW1hbnRpY28gQ2VydGlmaWNh
+						dGUgQXV0aG9yaXR5ggEAMA0GCSqGSIb3DQEBBAUAA4GBAN99BJdWNmZf2n1X5eDs
+						nh+bjmiearQYMxtcGari4biwsLaxboTxWA3RdKAOSiu8mYM/eG9SoafdW5qTv87n
+						VvzqCHHHXeXOtizBpnolXO1ggqU5oY8lbIEdGeigfwDCyyKwefLkemv34QpzHWes
+						unAmGhPhZk/kNUUgSblqhFu7
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth2sp.now.semcs.net/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth2sp.now.semcs.net/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth2sp.now.semcs.net/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth2sp.now.semcs.net/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibboleth2sp.now.semcs.net/Shibboleth.sso/SLO/Artifact"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth2sp.now.semcs.net/Shibboleth.sso/NIM/SOAP"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth2sp.now.semcs.net/Shibboleth.sso/NIM/Redirect"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth2sp.now.semcs.net/Shibboleth.sso/NIM/POST"/>
+      <md:ManageNameIDService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibboleth2sp.now.semcs.net/Shibboleth.sso/NIM/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth2sp.now.semcs.net/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth2sp.now.semcs.net/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://shibboleth2sp.now.semcs.net/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://shibboleth2sp.now.semcs.net/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://shibboleth2sp.now.semcs.net/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://shibboleth2sp.now.semcs.net/Shibboleth.sso/SAML/Artifact" index="6"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Semantico Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Semantico Limited: Now Publishers Shibboleth 2 SP</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.nowpublishers.com/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:info@nowpublishers.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Helpdesk</md:GivenName>
+      <md:EmailAddress>mailto:info@nowpublishers.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

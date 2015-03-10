@@ -1,25 +1,23 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.vet-alfort.fr/idp/shibboleth">
-			<Extensions>
-				<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-06-06T14:14:52Z">
-					<mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
-				</mdrpi:RegistrationInfo>
-			</Extensions>
-		<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
-			<Extensions>
-    				<shibmd:Scope xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" regexp="false">vet-alfort.fr</shibmd:Scope>
-    
-			    <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">  
-          		      <mdui:DisplayName xml:lang="en">National Veterinary School of Alfort</mdui:DisplayName>
-          		      <mdui:Description xml:lang="en">ENVA Students, Teachers and researchers and employees.</mdui:Description>
-          		      <mdui:DisplayName xml:lang="fr">Ecole Nationale Vétérinaire d'ALFORT</mdui:DisplayName>
-          		      <mdui:Description xml:lang="fr">Etudiants, Enseignants-Chercheur, Personnels de l'ENVA</mdui:Description>
-      			    </mdui:UIInfo>
-			</Extensions>
-				<KeyDescriptor use="signing">
-<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-					  
-					  <ds:X509Data>
-					    <ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.vet-alfort.fr/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://federation.renater.fr/" registrationInstant="2014-06-06T14:14:52Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://services.renater.fr/federation/en/metadata_registration_practice_statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">vet-alfort.fr</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">National Veterinary School of Alfort</mdui:DisplayName>
+          <mdui:Description xml:lang="en">ENVA Students, Teachers and researchers and employees.</mdui:Description>
+          <mdui:DisplayName xml:lang="fr">Ecole Nationale Vétérinaire d'ALFORT</mdui:DisplayName>
+          <mdui:Description xml:lang="fr">Etudiants, Enseignants-Chercheur, Personnels de l'ENVA</mdui:Description>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 					      MIIDMDCCAhigAwIBAgIVAO3N41irRpARAo+XP9yzoR89gA0sMA0GCSqGSIb3DQEB
 BQUAMBwxGjAYBgNVBAMTEWlkcC52ZXQtYWxmb3J0LmZyMB4XDTE0MDYwNjA4NDcz
 NVoXDTM0MDYwNjA4NDczNVowHDEaMBgGA1UEAxMRaWRwLnZldC1hbGZvcnQuZnIw
@@ -39,46 +37,22 @@ xQIiyDnuAGh+RL+tU4BzJZkfmyLDtgrN+jP1rlmBIph0JB3uV2zG0FuIboFlIkZP
 8juD6wsMppjhxFHr+jq4B9iUmMNMCgsg6gX60VF7JNvTuoB6iXE77dJ/a1o7SXlh
 95exag==
 					    </ds:X509Certificate>
-					  </ds:X509Data>
-					  
-					</ds:KeyInfo>
-				</KeyDescriptor>
-
-				
-			<NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
-			<NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
-
-			
-			<SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.vet-alfort.fr/idp/profile/SAML2/POST/SSO"/>
-	        
-	        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.vet-alfort.fr/idp/profile/SAML2/Redirect/SSO"/>
-	        
-	        
-			<SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.vet-alfort.fr/idp/profile/Shibboleth/SSO"/>
-			
-
-		</IDPSSODescriptor>
-		
-
-
-		<Organization>
-		
-			<OrganizationName xml:lang="en">Ecole Nationale Vétérinaire d'ALFORT</OrganizationName>
-			<OrganizationDisplayName xml:lang="en">Ecole Nationale Vétérinaire d'ALFORT</OrganizationDisplayName>
-			<OrganizationURL xml:lang="en">http://unknown.site.com</OrganizationURL>
-		
-		</Organization>
-
-			
-		    	
-			    <ContactPerson contactType="technical">
-				 <SurName>Hervé Battaglia</SurName>
-				 <EmailAddress>herve.battaglia@vet-alfort.fr</EmailAddress>
-		        </ContactPerson>
-			    	
-
-		    		
-
-				
-			
-	</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.vet-alfort.fr/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.vet-alfort.fr/idp/profile/SAML2/Redirect/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.vet-alfort.fr/idp/profile/Shibboleth/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Ecole Nationale Vétérinaire d'ALFORT</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Ecole Nationale Vétérinaire d'ALFORT</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://unknown.site.com</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Hervé Battaglia</md:SurName>
+      <md:EmailAddress>herve.battaglia@vet-alfort.fr</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

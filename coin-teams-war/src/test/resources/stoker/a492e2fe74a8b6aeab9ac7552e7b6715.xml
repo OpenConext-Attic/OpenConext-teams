@@ -1,0 +1,85 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="http://idp.rhul.ac.uk/oala">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-02-04T11:59:06Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:mace:shibboleth:1.0">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">rhul.ac.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDYDCCAkigAwIBAgIIS43HU8EXmhwwDQYJKoZIhvcNAQEFBQAwRzEsMCoGA1UE
+						CgwjUm95YWwgSG9sbG93YXkgVW5pdmVyc2l0eSBvZiBMb25kb24xFzAVBgNVBAMM
+						DmlkcC5yaHVsLmFjLnVrMB4XDTEyMTIxMjEyMjAyM1oXDTIyMTIxMjEyMjAyM1ow
+						RzEsMCoGA1UECgwjUm95YWwgSG9sbG93YXkgVW5pdmVyc2l0eSBvZiBMb25kb24x
+						FzAVBgNVBAMMDmlkcC5yaHVsLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+						MIIBCgKCAQEAg4Ij2g/JR+6L9D1i5KQ6tXIEIylJ4npmYfYnAOSkwIpePucRZxQv
+						Cmvn7/sX+zt/11/YF/mqio+tWwkytevh3Ou0FY0ZjDTqlFM+BldrQQ0bWM7SKnMn
+						XMp0AREzc4yhrKVbr5+a2Es3INJbK9Rt+r7fHIK+IfojwQCv8/myAQ+diaO1H62e
+						1KhXgKP1GDHg4NQwlPLq3xtJZJz90I1v6IJVnhw2jyq1gyyTjduMbQZkbzpF8vF1
+						OxZYR45DpW6kTXisIupvZelvFwsa2rDwNz5QKoDfUwnLFTOUIbQc0BLdP8nQZvG7
+						U7Lhqc6azsO2XxZksi6HqfjH0i0kHD3AowIDAQABo1AwTjAdBgNVHQ4EFgQUMFIh
+						i+huyWXzQnJrE+LUc9NSiXswHwYDVR0jBBgwFoAUMFIhi+huyWXzQnJrE+LUc9NS
+						iXswDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOCAQEAaf1YLiNdZY2hBK8w
+						xTfO1sR3XOc8y1fCIsQGCHX6uFm8tbWDX5N45mp7jDzMRwZndOXemkIl1ms35RRH
+						OBkTpsrsmD4DyLmPLVGkmQUMVXhmPsFFt+ePaTC8H1Gj5hcCXVWqRWxtGdfjHLsJ
+						psRHDoKZecU5yURn23K1BG6xfjy1evh7GBYu0sl8tbYuiF0/2w/uWR33sYyN4EpR
+						RZzA301WyNKyppCyHwdIX+8kx9gUy5pt4TWUezwtdVsG+hgFFwhg1GAj3iTnbDRI
+						LugYUaKfJyWtcrBUW24OQqf77hwQjtWox3tW9FXGMc3YvBGWFeKlJXMADaqtig1i
+						fRVknA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDYDCCAkigAwIBAgIIS43HU8EXmhwwDQYJKoZIhvcNAQEFBQAwRzEsMCoGA1UE
+						CgwjUm95YWwgSG9sbG93YXkgVW5pdmVyc2l0eSBvZiBMb25kb24xFzAVBgNVBAMM
+						DmlkcC5yaHVsLmFjLnVrMB4XDTEyMTIxMjEyMjAyM1oXDTIyMTIxMjEyMjAyM1ow
+						RzEsMCoGA1UECgwjUm95YWwgSG9sbG93YXkgVW5pdmVyc2l0eSBvZiBMb25kb24x
+						FzAVBgNVBAMMDmlkcC5yaHVsLmFjLnVrMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+						MIIBCgKCAQEAg4Ij2g/JR+6L9D1i5KQ6tXIEIylJ4npmYfYnAOSkwIpePucRZxQv
+						Cmvn7/sX+zt/11/YF/mqio+tWwkytevh3Ou0FY0ZjDTqlFM+BldrQQ0bWM7SKnMn
+						XMp0AREzc4yhrKVbr5+a2Es3INJbK9Rt+r7fHIK+IfojwQCv8/myAQ+diaO1H62e
+						1KhXgKP1GDHg4NQwlPLq3xtJZJz90I1v6IJVnhw2jyq1gyyTjduMbQZkbzpF8vF1
+						OxZYR45DpW6kTXisIupvZelvFwsa2rDwNz5QKoDfUwnLFTOUIbQc0BLdP8nQZvG7
+						U7Lhqc6azsO2XxZksi6HqfjH0i0kHD3AowIDAQABo1AwTjAdBgNVHQ4EFgQUMFIh
+						i+huyWXzQnJrE+LUc9NSiXswHwYDVR0jBBgwFoAUMFIhi+huyWXzQnJrE+LUc9NS
+						iXswDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOCAQEAaf1YLiNdZY2hBK8w
+						xTfO1sR3XOc8y1fCIsQGCHX6uFm8tbWDX5N45mp7jDzMRwZndOXemkIl1ms35RRH
+						OBkTpsrsmD4DyLmPLVGkmQUMVXhmPsFFt+ePaTC8H1Gj5hcCXVWqRWxtGdfjHLsJ
+						psRHDoKZecU5yURn23K1BG6xfjy1evh7GBYu0sl8tbYuiF0/2w/uWR33sYyN4EpR
+						RZzA301WyNKyppCyHwdIX+8kx9gUy5pt4TWUezwtdVsG+hgFFwhg1GAj3iTnbDRI
+						LugYUaKfJyWtcrBUW24OQqf77hwQjtWox3tW9FXGMc3YvBGWFeKlJXMADaqtig1i
+						fRVknA==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.rhul.ac.uk/oala/sso"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.rhul.ac.uk/oala/sso"/>
+    </md:IDPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Royal Holloway and Bedford New College</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Royal Holloway OALA</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.rhul.ac.uk</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Library Systems Team</md:GivenName>
+      <md:EmailAddress>mailto:libsysteam@rhul.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Peter</md:GivenName>
+      <md:SurName>Kiely</md:SurName>
+      <md:EmailAddress>mailto:Peter.Kiely@rhul.ac.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

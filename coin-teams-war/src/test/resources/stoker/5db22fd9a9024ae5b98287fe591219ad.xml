@@ -1,0 +1,60 @@
+<md:EntityDescriptor xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://sp.silverchair.com/accp/production/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-07-03T09:21:14Z"/>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://publications.chestnet.org/Shibboleth.sso/Login"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDDzCCAfegAwIBAgIJAM6qfAoL8z8tMA0GCSqGSIb3DQEBBQUAMCMxITAfBgNV
+						BAMTGHNjbTYtZDVwdm0td2ViMS5zY3NsLmludDAeFw0xMjA2MjYxNzQ2NDhaFw0y
+						MjA2MjQxNzQ2NDhaMCMxITAfBgNVBAMTGHNjbTYtZDVwdm0td2ViMS5zY3NsLmlu
+						dDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJ9CZk4YB3WUKTLvuW+B
+						cm42hphwMqoPawLn39vfw2PHuSOBKHuXLb8+h1Gnoq6WUID6cJuGmhPQ2Dal6byB
+						bsyW7psjPTC0RO3CL7kbTcZ6x0ieqp/HJjy9bpGnM7Uph0+vVfSqBVlLVaa2ztKB
+						+Q88LYalVV9qmPZ0a1+gZzzol6cnOMachgPujO5KC3KnWSBXuYKLJYyorPspHjvU
+						3E+oq5f2xd90SnH/TlX3PhODQRvqN/lCSh6hc9DqAIyqsr7uCe/80LKOdCfxeHKp
+						/Anv5CWl9CjMWg7A9UfF8OIV/vOgdZMTGTrp5jDuBc6joskvHwRcAjdTqEBRkjOG
+						VWsCAwEAAaNGMEQwIwYDVR0RBBwwGoIYc2NtNi1kNXB2bS13ZWIxLnNjc2wuaW50
+						MB0GA1UdDgQWBBTHG4J30/NZerp0VtZHwb1PCtCQdzANBgkqhkiG9w0BAQUFAAOC
+						AQEAdRr2MgwHUOwdeYeEHdsn9kK6kQp5tapHtsrLymJ/lMqIekac7sBcHqrSm7s4
+						MZFAQDL+kpipMslm40+Q6V/bM17nWp8FL1S8ujRED64NkTl2ianVOAbpTHQTCNds
+						Q0T7rHJH0o4B/RzjOOP7gfXd4BKaT7FnKzDlhvWc6NhBNotWdr/RUXvrU88eiHCd
+						QSF1TwC8AJQUu7iTXalcg3ETu7qMIE/yRp/DLd29kztdVPLkjpPaxqzW5tYAU9Wr
+						Dme3Upx+SwBPhVrpKbIfsHldCI9J0bRn99npxaboQO+IQiQDt6/VckxpoA8KHPJT
+						f2uosMUQ4B+r8+Je/nia0So1Zg==
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://publications.chestnet.org/Shibboleth.sso/Artifact/SOAP" index="0"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://publications.chestnet.org/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://publications.chestnet.org/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://publications.chestnet.org/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://publications.chestnet.org/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://publications.chestnet.org/Shibboleth.sso/SAML2/POST" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://publications.chestnet.org/Shibboleth.sso/SAML2/POST-SimpleSign" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://publications.chestnet.org/Shibboleth.sso/SAML2/Artifact" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://publications.chestnet.org/Shibboleth.sso/SAML2/ECP" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://publications.chestnet.org/Shibboleth.sso/SAML/POST" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://publications.chestnet.org/Shibboleth.sso/SAML/Artifact" index="5"/>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Silverchair Science + Communications, LLC</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Production: American College of Chest Physicians</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://publications.chestnet.org/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Shibboleth Admin</md:GivenName>
+      <md:EmailAddress>mailto:ShibbolethAdmin@silverchair.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Josh</md:GivenName>
+      <md:SurName>Laseter</md:SurName>
+      <md:EmailAddress>mailto:jlaseter@silverchair.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

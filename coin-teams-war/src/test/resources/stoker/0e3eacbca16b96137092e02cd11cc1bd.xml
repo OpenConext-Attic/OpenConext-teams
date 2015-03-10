@@ -1,0 +1,99 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://waesidp.overtsoftware.com/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2012-12-13T11:20:45Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">waesidp.overtsoftware.com</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDyjCCArICCQD98bKQTafbzTANBgkqhkiG9w0BAQUFADCBpjELMAkGA1UEBhMC
+						R0IxFzAVBgNVBAgMDldvcmNlc3RlcnNoaXJlMRYwFAYDVQQHDA1LaWRkZXJtaW5z
+						dGVyMSEwHwYDVQQKDBhPdmVydCBTb2Z0d2FyZSBTb2x1dGlvbnMxHzAdBgNVBAsM
+						Fk92ZXJ0IFNvZnR3YXJlIFN1cHBvcnQxIjAgBgNVBAMMGXdhZXNpZHAub3ZlcnRz
+						b2Z0d2FyZS5jb20wHhcNMTIxMTIyMTU1NjIwWhcNMzIxMTE3MTU1NjIwWjCBpjEL
+						MAkGA1UEBhMCR0IxFzAVBgNVBAgMDldvcmNlc3RlcnNoaXJlMRYwFAYDVQQHDA1L
+						aWRkZXJtaW5zdGVyMSEwHwYDVQQKDBhPdmVydCBTb2Z0d2FyZSBTb2x1dGlvbnMx
+						HzAdBgNVBAsMFk92ZXJ0IFNvZnR3YXJlIFN1cHBvcnQxIjAgBgNVBAMMGXdhZXNp
+						ZHAub3ZlcnRzb2Z0d2FyZS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+						AoIBAQClkFrULsiQp0TWymOLBVV75u6/fcE5LdDk6iRfSDbjM7c2vqMWhJZWS+y4
+						5Lj7RL70QChLlXkt0du9Fn5DtL4AAg7lE47ptMqy0Wt+PjwGn6AtqyL30d04xAr9
+						h5PigAhJttSknORSCObgrchpUs3vYUxM8vIrE61ButMh44bskPS36E31x/iON5gm
+						MSIipVKacJODKpyC9GgTFhSCpSjjFNiCuSm4QonZZruQKy2iNHql7IlxFRSGwbgp
+						/bpFcXhJc8OXhLTA89NPcLRqFGDWQrZsL8bqaGwWIMCtM0jTHkfldjv5/STOeLAP
+						U6zH1vB4mQbU5RG2sDlciWmiceEnAgMBAAEwDQYJKoZIhvcNAQEFBQADggEBAFCT
+						3svdpyrgEJhwqR3Sq7NxVCrAKjQ0vWt++uQspxNJu+f/6HIHIkOIHak0tv/16sOO
+						3hTmVM7WketQnITSgMKv8ZLJEQ7JXBYX+Rvgjr0UfkyhM7Ji218LGlc2Xk2uftqt
+						pgvVjwPB22aKsWPpwDtw9S5hrmFWoBTAvdTO+A8h25593+AQ9V+JsZtPlvO51TC+
+						5hY9jPMu4dCz7Zqfui9tHBsnfWEsIiFrPIL7RakAzCb+mcQHsu2Prehfdet2VUxG
+						9Q+aMQDCRW/kLjtZ7dJY3EHWBqS3XmOEpe5Aqam2UqMIAm71+fE8WiYXONAPoHVo
+						pbi+iii0U0z46JpkNW4=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://waesidp.overtsoftware.com:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://waesidp.overtsoftware.com:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://waesidp.overtsoftware.com/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://waesidp.overtsoftware.com/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://waesidp.overtsoftware.com/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://waesidp.overtsoftware.com/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">waesidp.overtsoftware.com</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDyjCCArICCQD98bKQTafbzTANBgkqhkiG9w0BAQUFADCBpjELMAkGA1UEBhMC
+						R0IxFzAVBgNVBAgMDldvcmNlc3RlcnNoaXJlMRYwFAYDVQQHDA1LaWRkZXJtaW5z
+						dGVyMSEwHwYDVQQKDBhPdmVydCBTb2Z0d2FyZSBTb2x1dGlvbnMxHzAdBgNVBAsM
+						Fk92ZXJ0IFNvZnR3YXJlIFN1cHBvcnQxIjAgBgNVBAMMGXdhZXNpZHAub3ZlcnRz
+						b2Z0d2FyZS5jb20wHhcNMTIxMTIyMTU1NjIwWhcNMzIxMTE3MTU1NjIwWjCBpjEL
+						MAkGA1UEBhMCR0IxFzAVBgNVBAgMDldvcmNlc3RlcnNoaXJlMRYwFAYDVQQHDA1L
+						aWRkZXJtaW5zdGVyMSEwHwYDVQQKDBhPdmVydCBTb2Z0d2FyZSBTb2x1dGlvbnMx
+						HzAdBgNVBAsMFk92ZXJ0IFNvZnR3YXJlIFN1cHBvcnQxIjAgBgNVBAMMGXdhZXNp
+						ZHAub3ZlcnRzb2Z0d2FyZS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+						AoIBAQClkFrULsiQp0TWymOLBVV75u6/fcE5LdDk6iRfSDbjM7c2vqMWhJZWS+y4
+						5Lj7RL70QChLlXkt0du9Fn5DtL4AAg7lE47ptMqy0Wt+PjwGn6AtqyL30d04xAr9
+						h5PigAhJttSknORSCObgrchpUs3vYUxM8vIrE61ButMh44bskPS36E31x/iON5gm
+						MSIipVKacJODKpyC9GgTFhSCpSjjFNiCuSm4QonZZruQKy2iNHql7IlxFRSGwbgp
+						/bpFcXhJc8OXhLTA89NPcLRqFGDWQrZsL8bqaGwWIMCtM0jTHkfldjv5/STOeLAP
+						U6zH1vB4mQbU5RG2sDlciWmiceEnAgMBAAEwDQYJKoZIhvcNAQEFBQADggEBAFCT
+						3svdpyrgEJhwqR3Sq7NxVCrAKjQ0vWt++uQspxNJu+f/6HIHIkOIHak0tv/16sOO
+						3hTmVM7WketQnITSgMKv8ZLJEQ7JXBYX+Rvgjr0UfkyhM7Ji218LGlc2Xk2uftqt
+						pgvVjwPB22aKsWPpwDtw9S5hrmFWoBTAvdTO+A8h25593+AQ9V+JsZtPlvO51TC+
+						5hY9jPMu4dCz7Zqfui9tHBsnfWEsIiFrPIL7RakAzCb+mcQHsu2Prehfdet2VUxG
+						9Q+aMQDCRW/kLjtZ7dJY3EHWBqS3XmOEpe5Aqam2UqMIAm71+fE8WiYXONAPoHVo
+						pbi+iii0U0z46JpkNW4=
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://waesidp.overtsoftware.com:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://waesidp.overtsoftware.com:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Overt Software Solutions Ltd</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Wolverhampton Adult Education Service</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.aes.wolverhampton.gov.uk/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Overt Software Solutions Ltd Support</md:GivenName>
+      <md:EmailAddress>mailto:support@overtsoftware.com</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Chris</md:GivenName>
+      <md:SurName>Andre</md:SurName>
+      <md:EmailAddress>mailto:support@overtsoftware.com</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,31 +1,27 @@
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="uk002439" entityID="https://educonf-directory.geant.net/simplesaml/module.php/saml/sp/metadata.php/eduCONF">
-	
-	<Extensions>
-
-
-		<mdrpi:RegistrationInfo xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-05-28T13:11:24Z">
-			<mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
-		</mdrpi:RegistrationInfo>
-
-		<mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
-			<saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
-				<saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
-			</saml:Attribute>
-		</mdattr:EntityAttributes>
-	</Extensions>
-	<SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
-		<Extensions>
-			<mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
-				<mdui:DisplayName xml:lang="en">eduCONF</mdui:DisplayName>
-				<mdui:Description xml:lang="en">eduCONF supports and facilitates the use and adoption of videoconferencing, simplifying the videoconference experience and reducing operational costs. It enables further integration of the NRENs’ videoconferencing services within a coherent service, reduces travel costs, environmental impact and increases the awareness of Partners’ videoconferencing services across Europe.</mdui:Description>
-				<mdui:PrivacyStatementURL xml:lang="en">https://educonf-directory.geant.net/privacy_policy.php</mdui:PrivacyStatementURL>
-				<mdui:Logo height="96" width="350" xml:lang="en">https://educonf-directory.geant.net/pic/eduCONF_logo.png</mdui:Logo>
-			</mdui:UIInfo>
-		</Extensions>
-		<KeyDescriptor use="signing">
-			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-				<ds:X509Data>
-					<ds:X509Certificate>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://educonf-directory.geant.net/simplesaml/module.php/saml/sp/metadata.php/eduCONF">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2014-05-28T13:11:24Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://ukfederation.org.uk/doc/mdrps-20130902</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">eduCONF</mdui:DisplayName>
+          <mdui:Description xml:lang="en">eduCONF supports and facilitates the use and adoption of videoconferencing, simplifying the videoconference experience and reducing operational costs. It enables further integration of the NRENs’ videoconferencing services within a coherent service, reduces travel costs, environmental impact and increases the awareness of Partners’ videoconferencing services across Europe.</mdui:Description>
+          <mdui:PrivacyStatementURL xml:lang="en">https://educonf-directory.geant.net/privacy_policy.php</mdui:PrivacyStatementURL>
+          <mdui:Logo height="96" width="350" xml:lang="en">https://educonf-directory.geant.net/pic/eduCONF_logo.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 						MIIECTCCAvGgAwIBAgIJAPAcrGLtMuPXMA0GCSqGSIb3DQEBBAUAMGAxCzAJBgNV
 						BAYTAlBMMRUwEwYDVQQIEwxXaWVsa29wb2xza2ExDzANBgNVBAcTBlBvem5hbjEN
 						MAsGA1UEChMEUFNOQzELMAkGA1UECxMCTkQxDTALBgNVBAMTBFBTTkMwHhcNMTQw
@@ -49,13 +45,13 @@
 						AXaXuUUk8l+3BWmYoCbsZdnN36DqXqsK1NLhCCl+VIYEvr62U0B4AWlLcCfyt4Dy
 						7eK+5ZFB6MaRVtCwdykxbQQXWNv60u8dwrbkTqk=
 					</ds:X509Certificate>
-				</ds:X509Data>
-			</ds:KeyInfo>
-		</KeyDescriptor>
-		<KeyDescriptor use="encryption">
-			<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-				<ds:X509Data>
-					<ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
 						MIIECTCCAvGgAwIBAgIJAPAcrGLtMuPXMA0GCSqGSIb3DQEBBAUAMGAxCzAJBgNV
 						BAYTAlBMMRUwEwYDVQQIEwxXaWVsa29wb2xza2ExDzANBgNVBAcTBlBvem5hbjEN
 						MAsGA1UEChMEUFNOQzELMAkGA1UECxMCTkQxDTALBgNVBAMTBFBTTkMwHhcNMTQw
@@ -79,38 +75,37 @@
 						AXaXuUUk8l+3BWmYoCbsZdnN36DqXqsK1NLhCCl+VIYEvr62U0B4AWlLcCfyt4Dy
 						7eK+5ZFB6MaRVtCwdykxbQQXWNv60u8dwrbkTqk=
 					</ds:X509Certificate>
-				</ds:X509Data>
-			</ds:KeyInfo>
-		</KeyDescriptor>
-		<SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://educonf-directory.geant.net/simplesaml/module.php/saml/sp/saml2-logout.php/eduCONF"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://educonf-directory.geant.net/simplesaml/module.php/saml/sp/saml2-acs.php/eduCONF" index="0"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://educonf-directory.geant.net/simplesaml/module.php/saml/sp/saml1-acs.php/eduCONF" index="1"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://educonf-directory.geant.net/simplesaml/module.php/saml/sp/saml2-acs.php/eduCONF" index="2"/>
-		<AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://educonf-directory.geant.net/simplesaml/module.php/saml/sp/saml1-acs.php/eduCONF/artifact" index="3"/>
-		<AttributeConsumingService index="0">
-			<ServiceName xml:lang="en">eduCONF</ServiceName>
-			<ServiceDescription xml:lang="en">eduCONF supports and facilitates the use and adoption of videoconferencing, simplifying the videoconference experience and reducing operational costs. It enables further integration of the NRENs’ videoconferencing services within a coherent service, reduces travel costs, environmental impact and increases the awareness of Partners’ videoconferencing services across Europe.</ServiceDescription>
-			<RequestedAttribute FriendlyName="email" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-			<RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-			<RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-			<RequestedAttribute FriendlyName="commonName" Name="urn:oid:2.5.4.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-			<RequestedAttribute FriendlyName="surname" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-			<RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-			<RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
-		</AttributeConsumingService>
-	</SPSSODescriptor>
-	<Organization>
-		<OrganizationName xml:lang="en">Delivery of Advanced Network Technology to Europe Limited</OrganizationName>
-		<OrganizationDisplayName xml:lang="en">GÉANT Intranet</OrganizationDisplayName>
-		<OrganizationURL xml:lang="en">http://www.geant.net/</OrganizationURL>
-	</Organization>
-	<ContactPerson contactType="support">
-		<GivenName>eduCONF</GivenName>
-		<EmailAddress>mailto:support@geant.net</EmailAddress>
-	</ContactPerson>
-	<ContactPerson contactType="technical">
-		<GivenName>eduCONF VC Team</GivenName>
-		<EmailAddress>mailto:educonf@geant.net</EmailAddress>
-	</ContactPerson>
-
-</EntityDescriptor>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://educonf-directory.geant.net/simplesaml/module.php/saml/sp/saml2-logout.php/eduCONF"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://educonf-directory.geant.net/simplesaml/module.php/saml/sp/saml2-acs.php/eduCONF" index="0"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://educonf-directory.geant.net/simplesaml/module.php/saml/sp/saml1-acs.php/eduCONF" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://educonf-directory.geant.net/simplesaml/module.php/saml/sp/saml2-acs.php/eduCONF" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://educonf-directory.geant.net/simplesaml/module.php/saml/sp/saml1-acs.php/eduCONF/artifact" index="3"/>
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="en">eduCONF</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">eduCONF supports and facilitates the use and adoption of videoconferencing, simplifying the videoconference experience and reducing operational costs. It enables further integration of the NRENs’ videoconferencing services within a coherent service, reduces travel costs, environmental impact and increases the awareness of Partners’ videoconferencing services across Europe.</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="email" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="commonName" Name="urn:oid:2.5.4.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="surname" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Delivery of Advanced Network Technology to Europe Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">GÉANT Intranet</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.geant.net/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>eduCONF</md:GivenName>
+      <md:EmailAddress>mailto:support@geant.net</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>eduCONF VC Team</md:GivenName>
+      <md:EmailAddress>mailto:educonf@geant.net</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

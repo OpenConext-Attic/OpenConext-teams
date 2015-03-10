@@ -1,0 +1,99 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.cambridgeimaging.co.uk/entity">
+    <md:Extensions>
+      <mdattr:EntityAttributes>
+        <saml:Attribute Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://refeds.org/category/hide-from-discovery</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+      <mdrpi:RegistrationInfo registrationAuthority="http://ukfederation.org.uk" registrationInstant="2013-03-22T14:39:45Z"/>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">cambridgeimaging.co.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDUzCCAjugAwIBAgIUFqyUnksKx2uVyCZeWl+JRq1o2rcwDQYJKoZIhvcNAQEF
+						BQAwJTEjMCEGA1UEAxMaaWRwLmNhbWJyaWRnZWltYWdpbmcuY28udWswHhcNMTMw
+						MjIxMTA0NDQ4WhcNMzMwMjIxMTA0NDQ4WjAlMSMwIQYDVQQDExppZHAuY2FtYnJp
+						ZGdlaW1hZ2luZy5jby51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+						AMoKTCTiBT2WdSJHckKjl5POvjT+j37fzENQRrdyTtU7OAI4EPZ4RXTC38K2hPFQ
+						09pK904bqaWP4y/Kvg7cXLJ7+//lJQZDFFO7TFKLsUJK086hkEsKrWUx9ykU4kFG
+						P2LdBxvYcZvtdthzfVtDrdmiJwVwgrCHmhqxX1ICGiz4oXC8FTRSGmgkBZesaD33
+						aItvb4WK78dpQdcCmaZkFFLGUsFcSTCLKwYVcTJeBJ5HSdOvBPJ8Kcvd6RUFbp5N
+						jBk68T4sfH1tsKHqnGHg+UK22WOtpGgIt8zT5pS2l17EJ2s3hz0snJF3c6Lh8eMO
+						nzpq+MFhVFQpV/ZOm920iZ0CAwEAAaN7MHkwWAYDVR0RBFEwT4IaaWRwLmNhbWJy
+						aWRnZWltYWdpbmcuY28udWuGMWh0dHBzOi8vaWRwLmNhbWJyaWRnZWltYWdpbmcu
+						Y28udWsvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFJcUHacY77LJTqyMRSqeZtkF
+						Dbr6MA0GCSqGSIb3DQEBBQUAA4IBAQAFXd/wFyF3UWF5q1NMFqCPPjyqk1jL60WO
+						E0NBCfM9VX24CgrL3QSYTLeVHKwJ/qGznh7/pbMhfAsPFAiX0vQyYTBeKeP1o2V/
+						Dq16b525gritaMhhPg+205Bf3MpD0oJWfM3YwDboC49bqN2/pe2l0QG5+hVp6YN9
+						Hem1W9OFrByZNezVqUxqtWzkShG9xUdsB2DlaRGkakzYz4NY4hAYcsNjQQ7DLXsx
+						jAAuZz8W5S4RMFM1Poe4uEhH5A8dUr31EBcsNTygQOyphzfB/UQmg+Zc4aoDJOqq
+						HNe8mt/HQOesfG/fANyKI7HUpXtIeIqRt/hbk8X+Dy3Dn+lxCmUW
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.cambridgeimaging.co.uk:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.cambridgeimaging.co.uk:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.cambridgeimaging.co.uk/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.cambridgeimaging.co.uk/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.cambridgeimaging.co.uk/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.cambridgeimaging.co.uk/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">cambridgeimaging.co.uk</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+						MIIDUzCCAjugAwIBAgIUFqyUnksKx2uVyCZeWl+JRq1o2rcwDQYJKoZIhvcNAQEF
+						BQAwJTEjMCEGA1UEAxMaaWRwLmNhbWJyaWRnZWltYWdpbmcuY28udWswHhcNMTMw
+						MjIxMTA0NDQ4WhcNMzMwMjIxMTA0NDQ4WjAlMSMwIQYDVQQDExppZHAuY2FtYnJp
+						ZGdlaW1hZ2luZy5jby51azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+						AMoKTCTiBT2WdSJHckKjl5POvjT+j37fzENQRrdyTtU7OAI4EPZ4RXTC38K2hPFQ
+						09pK904bqaWP4y/Kvg7cXLJ7+//lJQZDFFO7TFKLsUJK086hkEsKrWUx9ykU4kFG
+						P2LdBxvYcZvtdthzfVtDrdmiJwVwgrCHmhqxX1ICGiz4oXC8FTRSGmgkBZesaD33
+						aItvb4WK78dpQdcCmaZkFFLGUsFcSTCLKwYVcTJeBJ5HSdOvBPJ8Kcvd6RUFbp5N
+						jBk68T4sfH1tsKHqnGHg+UK22WOtpGgIt8zT5pS2l17EJ2s3hz0snJF3c6Lh8eMO
+						nzpq+MFhVFQpV/ZOm920iZ0CAwEAAaN7MHkwWAYDVR0RBFEwT4IaaWRwLmNhbWJy
+						aWRnZWltYWdpbmcuY28udWuGMWh0dHBzOi8vaWRwLmNhbWJyaWRnZWltYWdpbmcu
+						Y28udWsvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFJcUHacY77LJTqyMRSqeZtkF
+						Dbr6MA0GCSqGSIb3DQEBBQUAA4IBAQAFXd/wFyF3UWF5q1NMFqCPPjyqk1jL60WO
+						E0NBCfM9VX24CgrL3QSYTLeVHKwJ/qGznh7/pbMhfAsPFAiX0vQyYTBeKeP1o2V/
+						Dq16b525gritaMhhPg+205Bf3MpD0oJWfM3YwDboC49bqN2/pe2l0QG5+hVp6YN9
+						Hem1W9OFrByZNezVqUxqtWzkShG9xUdsB2DlaRGkakzYz4NY4hAYcsNjQQ7DLXsx
+						jAAuZz8W5S4RMFM1Poe4uEhH5A8dUr31EBcsNTygQOyphzfB/UQmg+Zc4aoDJOqq
+						HNe8mt/HQOesfG/fANyKI7HUpXtIeIqRt/hbk8X+Dy3Dn+lxCmUW
+					</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.cambridgeimaging.co.uk:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.cambridgeimaging.co.uk:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Cambridge Imaging Systems Limited</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Cambridge Imaging Systems (test only)</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://cambridgeimaging.co.uk/identity_provider</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Graham</md:GivenName>
+      <md:SurName>Hemington</md:SurName>
+      <md:EmailAddress>mailto:graham.hemington@cambridgeimaging.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Paul</md:GivenName>
+      <md:SurName>McConkey</md:SurName>
+      <md:EmailAddress>mailto:paul.mcconkey@cambridgeimaging.co.uk</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
