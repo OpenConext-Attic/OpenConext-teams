@@ -18,13 +18,13 @@
 
 <c:choose>
   <c:when test="${pageContext.response.locale.language eq 'nl'}">
-    |&nbsp;<a href="<c:url value="?lang=EN&${pageContext.request.queryString}"/>">EN</a>
+    |&nbsp;<a href="<c:url value="?lang=EN&"/><%= request.getQueryString() != null ? request.getQueryString().replaceAll("lang=[A-Z]{2}&", "") : "" %>">EN</a>
     &nbsp;|&nbsp;<span class="active">NL</span>
     &nbsp;|&nbsp;
   </c:when>
   <c:otherwise>
     |&nbsp;<span class="active">EN</span></a>
-    &nbsp;|&nbsp;<a href="<c:url value="?lang=NL&${pageContext.request.queryString}"/>">NL</a>
+    &nbsp;|&nbsp;<a href="<c:url value="?lang=NL&"/><%= request.getQueryString() != null ? request.getQueryString().replaceAll("lang=[A-Z]{2}&", "") : "" %>">NL</a>
     &nbsp;|&nbsp;
   </c:otherwise>
 </c:choose>
