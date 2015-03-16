@@ -88,7 +88,8 @@ public class AddAllowedServiceProvidersToTeamController {
     model.put("serviceProviders", new ServiceProviderOrderer("en", stoker.getEduGainServiceProviders()).ordered());
     model.put("teamId", teamId);
     model.put("view", view);
-    model.put("existingServiceProviders", new ServiceProviderOrderer("en", stoker.getEduGainServiceProviders(transform(teamsDao.forTeam(teamId), toSpEntityId))).ordered());
+    Collection<StokerEntry> eduGainServiceProviders = stoker.getEduGainServiceProviders(transform(teamsDao.forTeam(teamEnvironment.getGroupNameContext() + teamId), toSpEntityId));
+    model.put("existingServiceProviders", new ServiceProviderOrderer("en", eduGainServiceProviders).ordered());
     return new ModelAndView("add-allowed-serviceproviders", model);
   }
 
