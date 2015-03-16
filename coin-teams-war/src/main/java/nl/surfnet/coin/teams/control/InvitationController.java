@@ -113,8 +113,10 @@ public class InvitationController {
     modelMap.addAttribute("date", new Date(invitation.getTimestamp()));
     modelMap.addAttribute("groupzyEnabled", teamEnvironment.isGroupzyEnabled());
 
+    String groupNameContext = teamEnvironment.getGroupNameContext();
+
     if(teamEnvironment.isGroupzyEnabled()) {
-      Collection<TeamServiceProvider> serviceProviders = teamsDao.forTeam(teamId);
+      Collection<TeamServiceProvider> serviceProviders = teamsDao.forTeam(groupNameContext + teamId);
 
       Collection<StokerEntry> eduGainServiceProviders = stoker.getEduGainServiceProviders(Collections2.transform(serviceProviders, new Function<TeamServiceProvider, String>() {
         @Override
