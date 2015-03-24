@@ -19,8 +19,7 @@
  */
 package nl.surfnet.coin.teams.control;
 
-import nl.surfnet.coin.api.client.domain.Group20Entry;
-import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.Pager;
 import nl.surfnet.coin.teams.domain.Team;
@@ -46,8 +45,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-
-import static nl.surfnet.coin.teams.util.PersonUtil.getFirstEmail;
 
 /**
  * @author steinwelberg
@@ -94,7 +91,7 @@ public class HomeController {
       addTeams(query, person.getId(), display, modelMap, request);
     }
 
-    String email = getFirstEmail(person);
+    String email = person.getEmail();
     if (StringUtils.hasText(email)) {
       List<Invitation> invitations = teamInviteService.findPendingInvitationsByEmail(email);
       modelMap.addAttribute("myinvitations", !CollectionUtils.isEmpty(invitations));

@@ -16,14 +16,13 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
-import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.util.DuplicateTeamException;
 
 import java.util.*;
 
-import static nl.surfnet.coin.teams.util.PersonUtil.isGuest;
 
 /**
  * Mock implementation of {@link nl.surfnet.coin.teams.service.GrouperTeamService}
@@ -285,7 +284,7 @@ for (int teamId = 5; teamId < 50; teamId++) {
     if (m == null) {
       m = new Member(new HashSet<Role>(), person);
     }
-    m.setGuest(isGuest(person));
+    m.setGuest(person.isGuest());
     Team team = findTeam(teamId);
     team.addMembers(m);
   }

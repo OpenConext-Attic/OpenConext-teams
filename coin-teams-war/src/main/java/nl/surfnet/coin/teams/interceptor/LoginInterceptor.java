@@ -16,10 +16,9 @@
 
 package nl.surfnet.coin.teams.interceptor;
 
-import nl.surfnet.coin.api.client.OpenConextOAuthClient;
-import nl.surfnet.coin.api.client.domain.Person;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.MemberAttribute;
+import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.teams.service.MemberAttributeService;
 import nl.surfnet.coin.teams.util.AuditLog;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
@@ -38,8 +37,6 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
-import static nl.surfnet.coin.teams.util.PersonUtil.isGuest;
-
 /**
  * Intercepts calls to controllers to handle Single Sign On details from
  * Shibboleth and sets a Person object on the session when the user is logged
@@ -57,9 +54,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   public static final String TEAMS_COOKIE = "SURFconextTeams";
 
   @Autowired
-  private OpenConextOAuthClient apiClient;
-
-  @Autowired
   private TeamEnvironment teamEnvironment;
 
   @Autowired
@@ -74,23 +68,23 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
   @Override
   public boolean preHandle(HttpServletRequest request,
-      HttpServletResponse response, Object handler) throws Exception {
+                           HttpServletResponse response, Object handler) throws Exception {
 
     HttpSession session = request.getSession();
 
-    String remoteUser = getRemoteUser(request);
+    String nameId = request.getHeader("name-id");
 
     // Check session first:
     Person person = (Person) session.getAttribute(PERSON_SESSION_KEY);
-    if (person == null || !person.getId().equals(remoteUser)) {
+    if (person == null || !person.getId().equals(nameId)) {
 
-      if (StringUtils.hasText(remoteUser)) {
-        person = apiClient.getPerson(remoteUser, null);
+      if (StringUtils.hasText(nameId)) {
+        person = constructPerson(request);
         // Add person to session:
         session.setAttribute(PERSON_SESSION_KEY, person);
 
         if (person == null) {
-          String errorMessage = "Cannot find user: " + remoteUser;
+          String errorMessage = "Cannot find user: " + nameId;
           throw new ServletException(errorMessage);
         }
         AuditLog.log("Login by user {}", person.getId());
@@ -102,35 +96,35 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         // redirect him to the landing page.
         String url = getRequestedPart(request);
         String[] urlSplit = url.split("/");
-  
+
         String view = request.getParameter("view");
-  
+
         // Unprotect the items in bypass
         String urlPart = urlSplit[2];
-  
+
         logger.trace("Request for '{}'", request.getRequestURI());
         logger.trace("urlPart: '{}'", urlPart);
         logger.trace("view '{}'", view);
-  
+
         String queryString = request.getQueryString() != null ? "?" + request.getQueryString() : "";
-  
+
         if (LOGIN_BYPASS.contains(urlPart)) {
-            logger.trace("Bypassing {}", urlPart);
-            return super.preHandle(request, response, handler);
+          logger.trace("Bypassing {}", urlPart);
+          return super.preHandle(request, response, handler);
         } else if (GADGET.equals(view)
-                  || "acceptInvitation.shtml".equals(urlPart)
-                  || "detailteam.shtml".equals(urlPart)) {
-            logger.trace("Going to shibboleth");
-            response.sendRedirect("/Shibboleth.sso/Login?target="
-                    + request.getRequestURL()
-                    + URLEncoder.encode(queryString, "utf-8"));
-            return false;
-            // If user is requesting SURFteams for a VO redirect to Federation Login
+          || "acceptInvitation.shtml".equals(urlPart)
+          || "detailteam.shtml".equals(urlPart)) {
+          logger.trace("Going to shibboleth");
+          response.sendRedirect("/Shibboleth.sso/Login?target="
+            + request.getRequestURL()
+            + URLEncoder.encode(queryString, "utf-8"));
+          return false;
+          // If user is requesting SURFteams for a VO redirect to Federation Login
         } else {
           if (getTeamsCookie(request).contains("skipLanding")) {
             response.sendRedirect("/Shibboleth.sso/Login?target="
-                + request.getRequestURL()
-                + URLEncoder.encode(queryString, "utf-8"));
+              + request.getRequestURL()
+              + URLEncoder.encode(queryString, "utf-8"));
             return false;
           } else {
             // Send redirect to landingpage if gadget is not requested in app view.
@@ -144,15 +138,25 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     return super.preHandle(request, response, handler);
   }
 
+  private Person constructPerson(HttpServletRequest request) {
+    String id = request.getHeader("name-id");
+    String name = request.getHeader("uid");
+    String email = request.getHeader("Shib-InetOrgPerson-mail");
+    String schacHomeOrganization = request.getHeader("schacHomeOrganization");
+    String status = request.getHeader("coin-user-status");
+    String displayName = request.getHeader("displayName");
+    return new Person(id, name, email, schacHomeOrganization, status, displayName);
+  }
+
   private String getTeamsCookie(HttpServletRequest request) {
     String result = "";
     Cookie[] cookies = request.getCookies();
     if (null != cookies) {
       for (Cookie current : cookies) {
-       if (current.getName().equals(TEAMS_COOKIE)) {
-         result = current.getValue();
-         break;
-       }
+        if (current.getName().equals(TEAMS_COOKIE)) {
+          result = current.getValue();
+          break;
+        }
       }
     }
     return result;
@@ -161,39 +165,26 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   /**
    * Defines if the stored guest status matches the guest status from EngineBlock
    *
-   * @param session {@link javax.servlet.http.HttpSession}
-   * @param person  {@link nl.surfnet.coin.api.client.domain.Person}
    */
   void handleGuestStatus(HttpSession session, Person person) {
     Member member = new Member(null, person);
     final List<MemberAttribute> memberAttributes =
-            memberAttributeService.findAttributesForMemberId(member.getId());
+      memberAttributeService.findAttributesForMemberId(member.getId());
     member.setMemberAttributes(memberAttributes);
 
-    if (member.isGuest() != isGuest(person)) {
-      member.setGuest(isGuest(person));
+    if (member.isGuest() != person.isGuest()) {
+      member.setGuest(person.isGuest());
       memberAttributeService.saveOrUpdate(member.getMemberAttributes());
     }
 
     // Add the user status to the session
-    String userStatus = isGuest(person) ? STATUS_GUEST : STATUS_MEMBER;
+    String userStatus = person.isGuest() ? STATUS_GUEST : STATUS_MEMBER;
     session.setAttribute(USER_STATUS_SESSION_KEY, userStatus);
   }
 
-    /**
-   * Hook for subclasses to override the shibboleth default behaviour
-   *
-   * @param request
-   *          the httpRequest
-   * @return the String of the logged in user
-   */
-  protected String getRemoteUser(HttpServletRequest request) {
-    return request.getHeader("REMOTE_USER");
-  }
 
   /**
-   * @param teamEnvironment
-   *          the teamEnvironment to set
+   * @param teamEnvironment the teamEnvironment to set
    */
   public void setTeamEnvironment(TeamEnvironment teamEnvironment) {
     this.teamEnvironment = teamEnvironment;
@@ -224,7 +215,4 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     return bypass;
   }
 
-    public void setApiClient(final OpenConextOAuthClient apiClient) {
-        this.apiClient = apiClient;
-    }
 }

@@ -18,7 +18,7 @@ package nl.surfnet.coin.teams.control;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Collections2;
-import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.stoker.Stoker;
 import nl.surfnet.coin.stoker.StokerEntry;
 import nl.surfnet.coin.teams.domain.*;

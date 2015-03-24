@@ -18,7 +18,7 @@ package nl.surfnet.coin.teams.control;
 
 import freemarker.template.Configuration;
 import freemarker.template.TemplateException;
-import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.shared.service.MailService;
 import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;

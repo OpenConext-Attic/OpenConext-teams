@@ -20,7 +20,7 @@ import edu.internet2.middleware.grouperClient.api.*;
 import edu.internet2.middleware.grouperClient.ws.GcWebServiceError;
 import edu.internet2.middleware.grouperClient.ws.StemScope;
 import edu.internet2.middleware.grouperClient.ws.beans.*;
-import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.service.MemberAttributeService;

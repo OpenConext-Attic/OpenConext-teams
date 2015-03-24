@@ -17,7 +17,7 @@
 package nl.surfnet.coin.teams.control;
 
 import nl.surfnet.coin.api.client.domain.GroupMembersEntry;
-import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.teams.domain.ExternalGroupDetailWrapper;
 import nl.surfnet.coin.teams.domain.GroupProvider;
 import nl.surfnet.coin.teams.domain.Pager;

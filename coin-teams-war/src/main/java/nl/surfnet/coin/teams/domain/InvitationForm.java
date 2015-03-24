@@ -16,7 +16,7 @@
 
 package nl.surfnet.coin.teams.domain;
 
-import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.Person;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 

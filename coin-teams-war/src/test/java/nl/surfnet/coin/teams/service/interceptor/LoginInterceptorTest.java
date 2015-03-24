@@ -16,8 +16,6 @@
 
 package nl.surfnet.coin.teams.service.interceptor;
 
-import nl.surfnet.coin.api.client.OpenConextOAuthClient;
-import nl.surfnet.coin.api.client.domain.Person;
 import nl.surfnet.coin.teams.domain.MemberAttribute;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.MemberAttributeService;
@@ -27,10 +25,10 @@ import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
-import javax.servlet.ServletException;
 import java.util.ArrayList;
 
-import static junit.framework.Assert.*;
+import static junit.framework.Assert.assertFalse;
+import static junit.framework.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -41,26 +39,21 @@ public class LoginInterceptorTest {
 
   @Test
   public void testPreHandle() throws Exception {
-    String remoteUser = "urn:collab:person:surfnet.nl:hansz";
+    String id = "urn:collab:person:surfnet.nl:hansz";
 
     LoginInterceptor interceptor = new LoginInterceptor();
 
-    OpenConextOAuthClient apiClient = mock(OpenConextOAuthClient.class);
-    Person person = new Person();
-    person.setId(remoteUser);
-    when(apiClient.getPerson(remoteUser, null)).thenReturn(person);
     MemberAttributeService memberAttributeService =
-            mock(MemberAttributeService.class);
+      mock(MemberAttributeService.class);
     when(memberAttributeService.findAttributesForMemberId(
-            person.getId())).thenReturn(new ArrayList<MemberAttribute>());
+      id)).thenReturn(new ArrayList<MemberAttribute>());
     interceptor.setMemberAttributeService(memberAttributeService);
 
-    interceptor.setApiClient(apiClient);
     interceptor.setTeamEnvironment(new TeamEnvironment());
 
 
     MockHttpServletRequest request = new MockHttpServletRequest();
-    request.addHeader("REMOTE_USER", remoteUser);
+    request.addHeader("name-id", id);
     request.addHeader("coin-user-status", "member");
     MockHttpServletResponse response = new MockHttpServletResponse();
     boolean loggedIn = interceptor.preHandle(request, response, null);
@@ -74,22 +67,14 @@ public class LoginInterceptorTest {
 
     LoginInterceptor interceptor = new LoginInterceptor();
 
-    OpenConextOAuthClient apiClient = mock(OpenConextOAuthClient.class);
-    when(apiClient.getPerson(remoteUser, null)).thenReturn(null);
-    interceptor.setApiClient(apiClient);
-
     interceptor.setTeamEnvironment(new TeamEnvironment());
 
     MockHttpServletRequest request = new MockHttpServletRequest();
     request.addHeader("REMOTE_USER", remoteUser);
     request.addHeader("coin-user-status", "member");
     MockHttpServletResponse response = new MockHttpServletResponse();
-    boolean loggedIn = false;
-    try {
-      loggedIn = interceptor.preHandle(request, response, null);
-      fail("Unknown user " + remoteUser);
-    } catch (ServletException e) {
-      assertFalse(loggedIn);
-    }
+    boolean loggedIn = interceptor.preHandle(request, response, null);
+
+    assertFalse(loggedIn);
   }
 }

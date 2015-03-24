@@ -18,7 +18,8 @@ package nl.surfnet.coin.teams.control;
 
 import freemarker.template.Configuration;
 import freemarker.template.TemplateException;
-import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.Person;
+import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.shared.service.MailService;
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Member;
@@ -57,7 +58,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.*;
 
-import static nl.surfnet.coin.teams.util.PersonUtil.getFirstEmail;
 
 /**
  * {@link Controller} that handles the join team page of a logged in
@@ -215,7 +215,7 @@ public class JoinTeamController {
     Map<String, Object> templateVars = new HashMap<String, Object>();
     templateVars.put("requesterName", person.getDisplayName());
     // for unknown reasons Freemarker cannot call person.getEmail()
-    templateVars.put("requesterEmail", getFirstEmail(person));
+    templateVars.put("requesterEmail", person.getEmail());
     templateVars.put("team", team);
     templateVars.put("teamsURL", environment.getTeamsURL());
     templateVars.put("message", message);

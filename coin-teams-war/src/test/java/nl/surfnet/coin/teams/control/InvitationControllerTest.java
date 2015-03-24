@@ -16,9 +16,9 @@
 
 package nl.surfnet.coin.teams.control;
 
-import nl.surfnet.coin.api.client.domain.Email;
-import nl.surfnet.coin.api.client.domain.Person;
+
 import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.TeamInviteService;
@@ -55,9 +55,6 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
     getRequest().setParameter("id", invitationHash);
     Person person = getPersonFromSession();
-    Set<Email> emails = new HashSet<Email>();
-    emails.add(new Email("person1@example.com"));
-    person.setEmails(emails);
     getRequest().getSession().setAttribute(PERSON_SESSION_KEY, person);
 
     Team mockTeam = mock(Team.class);
@@ -122,7 +119,7 @@ public class InvitationControllerTest extends AbstractControllerTest {
   @Test
   public void testDoAcceptAdminAsGuest() throws Exception {
     Person person = getPersonFromSession();
-    person.setTags(Collections.singleton("guest"));
+    person.addTag("guest");
     getRequest().getSession().setAttribute(PERSON_SESSION_KEY, person);
 
     invitation.setIntendedRole(Role.Admin);

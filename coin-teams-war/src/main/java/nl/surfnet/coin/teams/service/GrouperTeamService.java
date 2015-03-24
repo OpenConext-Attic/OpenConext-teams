@@ -16,7 +16,7 @@
 
 package nl.surfnet.coin.teams.service;
 
-import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.util.DuplicateTeamException;
 

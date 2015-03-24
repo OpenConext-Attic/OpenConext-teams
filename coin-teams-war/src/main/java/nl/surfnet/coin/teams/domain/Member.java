@@ -16,7 +16,6 @@
 
 package nl.surfnet.coin.teams.domain;
 
-import nl.surfnet.coin.api.client.domain.Person;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -24,7 +23,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static nl.surfnet.coin.teams.util.PersonUtil.getFirstEmail;
 
 /**
  * A member of a {@link Team}
@@ -58,7 +56,7 @@ public class Member implements Serializable {
    * @param person {@link Person} that represents this member
    */
   public Member(Set<Role> roles, Person person) {
-    this(roles, person.getDisplayName(), person.getId(), getFirstEmail(person));
+    this(roles, person.getDisplayName(), person.getId(), person.getEmail());
   }
 
   /**
@@ -118,7 +116,7 @@ public class Member implements Serializable {
 
   /**
    * @return List of (custom) {@link MemberAttribute}'s,
-   *         can be empty but not {@literal null}
+   * can be empty but not {@literal null}
    */
   public List<MemberAttribute> getMemberAttributes() {
     if (memberAttributes == null) {
@@ -181,7 +179,7 @@ public class Member implements Serializable {
       }
     }
     MemberAttribute memberAttribute = new MemberAttribute(this.getId(),
-            MemberAttribute.ATTRIBUTE_GUEST, Boolean.toString(isGuest));
+      MemberAttribute.ATTRIBUTE_GUEST, Boolean.toString(isGuest));
     addMemberAttribute(memberAttribute);
   }
 

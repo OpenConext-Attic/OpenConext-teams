@@ -18,7 +18,7 @@ package nl.surfnet.coin.teams.control;
 
 import nl.surfnet.coin.api.client.domain.Group20;
 import nl.surfnet.coin.api.client.domain.Group20Entry;
-import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.service.ExternalGroupProviderProcessor;
 import nl.surfnet.coin.teams.service.GrouperTeamService;

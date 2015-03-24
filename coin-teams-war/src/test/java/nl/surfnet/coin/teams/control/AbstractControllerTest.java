@@ -19,7 +19,7 @@ package nl.surfnet.coin.teams.control;
 import ch.qos.logback.core.read.ListAppender;
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
-import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import org.junit.Before;

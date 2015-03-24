@@ -16,7 +16,7 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
-import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.shared.service.GenericServiceHibernateImpl;
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Team;

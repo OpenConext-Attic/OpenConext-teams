@@ -21,7 +21,7 @@ package nl.surfnet.coin.teams.control;
 
 import freemarker.template.Configuration;
 import nl.surfnet.coin.api.client.domain.Email;
-import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Team;

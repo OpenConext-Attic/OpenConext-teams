@@ -17,7 +17,7 @@
 package nl.surfnet.coin.teams.control;
 
 import nl.surfnet.coin.api.client.OpenConextOAuthClient;
-import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GrouperTeamService;

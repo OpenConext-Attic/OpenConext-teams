@@ -16,7 +16,7 @@
 
 package nl.surfnet.coin.teams.util;
 
-import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Role;
 import nl.surfnet.coin.teams.domain.Team;

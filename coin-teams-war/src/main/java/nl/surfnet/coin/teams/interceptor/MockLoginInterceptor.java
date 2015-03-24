@@ -16,18 +16,17 @@
 
 package nl.surfnet.coin.teams.interceptor;
 
-import nl.surfnet.coin.api.client.domain.Email;
-import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.Person;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.io.ClassPathResource;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 
 /**
  * Like the LoginInterceptor but gets the user id from the environment instead
@@ -35,53 +34,41 @@ import java.io.OutputStream;
  */
 public class MockLoginInterceptor extends LoginInterceptor {
   private static final Logger LOG = LoggerFactory.getLogger(MockLoginInterceptor.class);
-  private static final String MOCK_USER_ATTR = "mockUser"; 
-  
+  private static final String MOCK_USER_ATTR = "mockUser";
+
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
     //no login required for landingpage, css and js
     if (request.getRequestURI().contains("landingpage.shtml") ||
-        request.getRequestURI().contains(".js") ||
-        request.getRequestURI().contains(".css") ||
-        request.getRequestURI().contains(".png")) {
+      request.getRequestURI().contains(".js") ||
+      request.getRequestURI().contains(".css") ||
+      request.getRequestURI().contains(".png")) {
       return true;
     }
-    
+
     HttpSession session = request.getSession();
     if (null == session.getAttribute(PERSON_SESSION_KEY) &&
-        StringUtils.isBlank(request.getParameter(MOCK_USER_ATTR))) {
+      StringUtils.isBlank(request.getParameter(MOCK_USER_ATTR))) {
       sendLoginHtml(response);
       return false;
     } else if (null == session.getAttribute(PERSON_SESSION_KEY)) {
       //handle mock user
       String userId = request.getParameter(MOCK_USER_ATTR);
-      Person person = new Person();
-      person.setId(userId);
-      person.setDisplayName(userId);
-      Email email = new Email(userId+"@mockorg.org");
-      person.addEmail(email);
+      Person person = new Person(userId, userId, userId + "@mockorg.org", "mockorg.org", "member", userId);
       session.setAttribute(PERSON_SESSION_KEY, person);
-      
+
       //handle guest status
       session.setAttribute(USER_STATUS_SESSION_KEY,
-          getTeamEnvironment().getMockUserStatus());
+        getTeamEnvironment().getMockUserStatus());
     }
     return true;
   }
-  
+
   private void sendLoginHtml(HttpServletResponse response) {
-    
     try {
-      OutputStream out = response.getOutputStream();
-      InputStream in = getClass().getClassLoader().getResourceAsStream("mockLogin.html");
-      int read = 0;
-      byte[] buffer = new byte[1024];
-      while (in.available() > 0 && read >= 0) {
-        read = in.read(buffer);
-        out.write(buffer, 0, read);
-      }
+      IOUtils.copy(new ClassPathResource("mockLogin.html").getInputStream(), response.getOutputStream());
     } catch (IOException e) {
-      LOG.error("unable to serve the mocklogin html file!", e);
+      throw new RuntimeException("Unable to serve the mockLogin.html file", e);
     }
   }
 }
