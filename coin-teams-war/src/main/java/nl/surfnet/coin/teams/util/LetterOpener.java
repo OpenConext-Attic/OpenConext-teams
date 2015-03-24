@@ -2,7 +2,6 @@ package nl.surfnet.coin.teams.util;
 
 import nl.surfnet.coin.shared.service.MailService;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.mail.MailException;

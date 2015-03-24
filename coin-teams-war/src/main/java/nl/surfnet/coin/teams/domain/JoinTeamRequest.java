@@ -16,16 +16,14 @@
 
 package nl.surfnet.coin.teams.domain;
 
-import java.util.Date;
+import nl.surfnet.coin.shared.domain.DomainObject;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.Proxy;
-
-import nl.surfnet.coin.shared.domain.DomainObject;
+import java.util.Date;
 
 /**
  * Represents the request to join a team

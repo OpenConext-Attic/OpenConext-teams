@@ -16,17 +16,16 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
-import org.hibernate.criterion.Restrictions;
-import org.springframework.stereotype.Component;
-
 import nl.surfnet.coin.shared.service.GenericServiceHibernateImpl;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.MemberAttribute;
 import nl.surfnet.coin.teams.service.MemberAttributeService;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * Hibernate implementation for {@link MemberAttributeService}

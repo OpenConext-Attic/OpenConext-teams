@@ -18,11 +18,11 @@
  */
 package nl.surfnet.coin.teams.service;
 
-import java.util.List;
-
 import nl.surfnet.coin.api.client.domain.Group20Entry;
 import nl.surfnet.coin.teams.domain.ExternalGroupDetailWrapper;
 import nl.surfnet.coin.teams.domain.GroupProvider;
+
+import java.util.List;
 
 /**
  * All the communication and interaction with external group providers

@@ -16,21 +16,15 @@
 
 package nl.surfnet.coin.teams.util;
 
-import org.junit.Test;
-import org.springframework.mock.web.MockHttpServletRequest;
-
 import nl.surfnet.coin.teams.control.AbstractControllerTest;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
+import org.junit.Test;
+import org.springframework.mock.web.MockHttpServletRequest;
 
-import static org.easymock.EasyMock.createNiceMock;
-import static org.easymock.EasyMock.expect;
-import static org.easymock.EasyMock.replay;
-import static org.easymock.EasyMock.verify;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.easymock.EasyMock.*;
+import static org.junit.Assert.*;
 
 /**
  * Test for {@link ControllerUtilImpl}

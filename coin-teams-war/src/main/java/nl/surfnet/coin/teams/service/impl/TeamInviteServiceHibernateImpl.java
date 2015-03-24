@@ -16,19 +16,18 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
-import java.util.Date;
-import java.util.List;
-
+import nl.surfnet.coin.shared.service.GenericServiceHibernateImpl;
+import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.service.TeamInviteService;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
-import nl.surfnet.coin.shared.service.GenericServiceHibernateImpl;
-import nl.surfnet.coin.teams.domain.Invitation;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.service.TeamInviteService;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Hibernate implementation for {@link TeamInviteService}

@@ -19,9 +19,9 @@
  */
 package nl.surfnet.coin.teams.control;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author steinwelberg

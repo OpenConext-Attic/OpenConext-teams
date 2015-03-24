@@ -16,13 +16,13 @@
 
 package nl.surfnet.coin.teams.util;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import nl.surfnet.coin.api.client.domain.Group20;
 import nl.surfnet.coin.api.client.domain.Group20Entry;
 import nl.surfnet.coin.teams.domain.ExternalGroup;
 import nl.surfnet.coin.teams.domain.GroupProvider;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Util class for External Groups

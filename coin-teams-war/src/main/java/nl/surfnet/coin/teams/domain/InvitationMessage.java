@@ -16,19 +16,12 @@
 
 package nl.surfnet.coin.teams.domain;
 
-import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
+import nl.surfnet.coin.shared.domain.DomainObject;
 import org.hibernate.annotations.Index;
 import org.hibernate.annotations.Proxy;
 
-import nl.surfnet.coin.shared.domain.DomainObject;
+import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Message content of the sent invitation

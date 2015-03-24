@@ -16,12 +16,10 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
+import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.JoinTeamRequest;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.service.JoinTeamRequestService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +29,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import nl.surfnet.coin.api.client.domain.Person;
-import nl.surfnet.coin.teams.domain.JoinTeamRequest;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.service.JoinTeamRequestService;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  *Test for {@link JoinTeamRequestServiceHibernateImpl}

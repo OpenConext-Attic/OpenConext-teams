@@ -16,15 +16,14 @@
 
 package nl.surfnet.coin.teams.domain;
 
+import nl.surfnet.coin.shared.domain.DomainObject;
+import org.hibernate.annotations.Index;
+import org.hibernate.annotations.Proxy;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-
-import org.hibernate.annotations.Index;
-import org.hibernate.annotations.Proxy;
-
-import nl.surfnet.coin.shared.domain.DomainObject;
 
 /**
  * Custom attributes for a {@link Member} of a {@link Team}

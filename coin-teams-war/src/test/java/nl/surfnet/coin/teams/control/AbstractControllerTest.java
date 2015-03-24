@@ -16,23 +16,12 @@
 
 package nl.surfnet.coin.teams.control;
 
-import java.io.IOException;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
+import ch.qos.logback.core.read.ListAppender;
+import freemarker.template.Configuration;
+import freemarker.template.DefaultObjectWrapper;
 import nl.surfnet.coin.api.client.domain.Person;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.domain.Stem;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.domain.TeamResultWrapper;
+import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-
 import org.junit.Before;
 import org.mockito.internal.stubbing.answers.DoesNothing;
 import org.mockito.internal.stubbing.answers.Returns;
@@ -46,9 +35,14 @@ import org.springframework.ui.ModelMap;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.web.servlet.mvc.Controller;
 
-import ch.qos.logback.core.read.ListAppender;
-import freemarker.template.Configuration;
-import freemarker.template.DefaultObjectWrapper;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
 import static org.mockito.Mockito.mock;
 
 /**

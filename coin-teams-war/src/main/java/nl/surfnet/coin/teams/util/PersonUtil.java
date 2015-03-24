@@ -1,9 +1,9 @@
 package nl.surfnet.coin.teams.util;
 
-import java.util.Set;
-
 import nl.surfnet.coin.api.client.domain.Email;
 import nl.surfnet.coin.api.client.domain.Person;
+
+import java.util.Set;
 
 public class PersonUtil {
   public static boolean isGuest(final Person person) {

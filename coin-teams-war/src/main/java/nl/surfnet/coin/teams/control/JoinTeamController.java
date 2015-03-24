@@ -16,23 +16,8 @@
 
 package nl.surfnet.coin.teams.control;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
-import javax.servlet.http.HttpServletRequest;
-
+import freemarker.template.Configuration;
+import freemarker.template.TemplateException;
 import nl.surfnet.coin.api.client.domain.Person;
 import nl.surfnet.coin.shared.service.MailService;
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
@@ -45,7 +30,6 @@ import nl.surfnet.coin.teams.util.AuditLog;
 import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 import nl.surfnet.coin.teams.util.ViewUtil;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,8 +47,16 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
 
-import freemarker.template.Configuration;
-import freemarker.template.TemplateException;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.util.*;
+
 import static nl.surfnet.coin.teams.util.PersonUtil.getFirstEmail;
 
 /**

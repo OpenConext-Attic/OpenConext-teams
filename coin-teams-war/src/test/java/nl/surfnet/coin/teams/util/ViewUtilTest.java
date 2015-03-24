@@ -16,14 +16,14 @@
 
 package nl.surfnet.coin.teams.util;
 
-import static junit.framework.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import org.junit.Test;
+import org.springframework.ui.ModelMap;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.junit.Test;
-import org.springframework.ui.ModelMap;
+import static junit.framework.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * Test for {@link ViewUtil}

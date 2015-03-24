@@ -16,13 +16,12 @@
 
 package nl.surfnet.coin.teams.util;
 
+import nl.surfnet.coin.api.client.domain.Person;
+import nl.surfnet.coin.teams.domain.Team;
+
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServletRequest;
-
-import nl.surfnet.coin.api.client.domain.Person;
-
-import nl.surfnet.coin.teams.domain.Team;
 
 /**
  *

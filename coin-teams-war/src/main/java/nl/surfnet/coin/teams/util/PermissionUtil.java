@@ -19,9 +19,9 @@
  */
 package nl.surfnet.coin.teams.util;
 
-import javax.servlet.http.HttpServletRequest;
-
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author steinwelberg

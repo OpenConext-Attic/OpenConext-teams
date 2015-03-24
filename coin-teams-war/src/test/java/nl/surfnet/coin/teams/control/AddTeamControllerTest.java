@@ -19,15 +19,14 @@
  */
 package nl.surfnet.coin.teams.control;
 
-import org.junit.Test;
-import org.mockito.internal.stubbing.answers.Returns;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.web.bind.support.SimpleSessionStatus;
-
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.TokenUtil;
+import org.junit.Test;
+import org.mockito.internal.stubbing.answers.Returns;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.web.bind.support.SimpleSessionStatus;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;

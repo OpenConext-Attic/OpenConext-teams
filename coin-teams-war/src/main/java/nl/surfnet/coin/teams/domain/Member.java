@@ -16,13 +16,14 @@
 
 package nl.surfnet.coin.teams.domain;
 
+import nl.surfnet.coin.api.client.domain.Person;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import nl.surfnet.coin.api.client.domain.Person;
 import static nl.surfnet.coin.teams.util.PersonUtil.getFirstEmail;
 
 /**

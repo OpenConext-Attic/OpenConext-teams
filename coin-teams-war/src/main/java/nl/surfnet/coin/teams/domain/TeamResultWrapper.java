@@ -16,10 +16,10 @@
 
 package nl.surfnet.coin.teams.domain;
 
-import java.util.List;
-
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
+
+import java.util.List;
 
 /**
  * Result for a teams query

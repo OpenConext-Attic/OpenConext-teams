@@ -16,20 +16,19 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
-import java.util.List;
-
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
-import org.hibernate.criterion.SimpleExpression;
 import nl.surfnet.coin.api.client.domain.Person;
-import org.springframework.stereotype.Component;
-import org.springframework.util.CollectionUtils;
-
 import nl.surfnet.coin.shared.service.GenericServiceHibernateImpl;
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.JoinTeamRequestService;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.SimpleExpression;
+import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
+
+import java.util.List;
 
 /**
  * Hibernate implementation for {@link JoinTeamRequestService}

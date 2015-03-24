@@ -16,9 +16,6 @@
 
 package nl.surfnet.coin.teams.control;
 
-import java.util.Collections;
-import java.util.List;
-
 import nl.surfnet.coin.api.client.domain.Group20;
 import nl.surfnet.coin.api.client.domain.GroupMembersEntry;
 import nl.surfnet.coin.api.client.domain.Person;
@@ -27,11 +24,13 @@ import nl.surfnet.coin.teams.domain.ExternalGroupDetailWrapper;
 import nl.surfnet.coin.teams.domain.GroupProvider;
 import nl.surfnet.coin.teams.domain.GroupProviderType;
 import nl.surfnet.coin.teams.service.ExternalGroupProviderProcessor;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.ui.ModelMap;
+
+import java.util.Collections;
+import java.util.List;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;

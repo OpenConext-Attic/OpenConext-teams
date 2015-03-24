@@ -16,12 +16,12 @@
 
 package nl.surfnet.coin.teams.service;
 
-import java.util.Collection;
-import java.util.List;
-
 import nl.surfnet.coin.shared.service.GenericService;
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.MemberAttribute;
+
+import java.util.Collection;
+import java.util.List;
 
 /**
  * Interface to handle {@link MemberAttribute}'s

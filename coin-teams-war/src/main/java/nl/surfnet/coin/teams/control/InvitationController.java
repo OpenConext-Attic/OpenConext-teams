@@ -16,12 +16,6 @@
 
 package nl.surfnet.coin.teams.control;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.*;
-
-import javax.servlet.http.HttpServletRequest;
-
 import com.google.common.base.Function;
 import com.google.common.collect.Collections2;
 import nl.surfnet.coin.api.client.domain.Person;
@@ -33,7 +27,6 @@ import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.service.TeamInviteService;
 import nl.surfnet.coin.teams.service.TeamsDao;
 import nl.surfnet.coin.teams.util.*;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -44,6 +37,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.view.RedirectView;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.*;
 
 import static nl.surfnet.coin.teams.util.PersonUtil.getFirstEmail;
 import static nl.surfnet.coin.teams.util.PersonUtil.isGuest;

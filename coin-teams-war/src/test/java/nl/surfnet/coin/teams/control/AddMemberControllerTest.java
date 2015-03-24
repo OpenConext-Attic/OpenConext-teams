@@ -19,20 +19,16 @@
  */
 package nl.surfnet.coin.teams.control;
 
-import java.util.Locale;
-
+import ch.qos.logback.classic.spi.LoggingEvent;
+import ch.qos.logback.core.read.ListAppender;
+import freemarker.template.Configuration;
 import nl.surfnet.coin.api.client.domain.Person;
-import nl.surfnet.coin.teams.domain.Invitation;
-import nl.surfnet.coin.teams.domain.InvitationForm;
-import nl.surfnet.coin.teams.domain.InvitationMessage;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 import nl.surfnet.coin.teams.util.TokenUtil;
-
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
 import org.slf4j.Logger;
@@ -44,12 +40,9 @@ import org.springframework.validation.DirectFieldBindingResult;
 import org.springframework.web.bind.support.SimpleSessionStatus;
 import org.springframework.web.servlet.LocaleResolver;
 
-import ch.qos.logback.classic.spi.LoggingEvent;
-import ch.qos.logback.core.read.ListAppender;
-import freemarker.template.Configuration;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import java.util.Locale;
+
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 

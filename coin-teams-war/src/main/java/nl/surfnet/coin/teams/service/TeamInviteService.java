@@ -16,11 +16,11 @@
 
 package nl.surfnet.coin.teams.service;
 
-import java.util.List;
-
 import nl.surfnet.coin.shared.service.GenericService;
 import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.Team;
+
+import java.util.List;
 
 /**
  * Service to handle team {@link Invitation}'s

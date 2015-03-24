@@ -16,15 +16,14 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
+import nl.surfnet.coin.teams.domain.Invitation;
 import org.junit.Test;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import nl.surfnet.coin.teams.domain.Invitation;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Test for {@link InvitationValidator}

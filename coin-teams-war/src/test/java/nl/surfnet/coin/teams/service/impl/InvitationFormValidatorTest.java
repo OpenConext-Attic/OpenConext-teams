@@ -16,13 +16,12 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
+import nl.surfnet.coin.teams.domain.InvitationForm;
 import org.junit.Test;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.multipart.MultipartFile;
-
-import nl.surfnet.coin.teams.domain.InvitationForm;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

@@ -16,17 +16,6 @@
 
 package nl.surfnet.coin.teams.control;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import org.junit.Before;
-import org.junit.Test;
-import org.springframework.web.bind.support.SimpleSessionStatus;
-import org.springframework.web.servlet.view.RedirectView;
-
 import nl.surfnet.coin.api.client.domain.Email;
 import nl.surfnet.coin.api.client.domain.Person;
 import nl.surfnet.coin.teams.domain.Invitation;
@@ -35,6 +24,12 @@ import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.TeamInviteService;
 import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.TokenUtil;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.web.bind.support.SimpleSessionStatus;
+import org.springframework.web.servlet.view.RedirectView;
+
+import java.util.*;
 
 import static nl.surfnet.coin.teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
 import static org.junit.Assert.assertEquals;
