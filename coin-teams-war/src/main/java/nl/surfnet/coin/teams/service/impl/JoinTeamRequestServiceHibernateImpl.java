@@ -16,7 +16,6 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
-import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.shared.service.GenericServiceHibernateImpl;
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Team;
@@ -53,12 +52,13 @@ public class JoinTeamRequestServiceHibernateImpl
 
   /**
    * {@inheritDoc}
+   * @param teamId
    */
   @SuppressWarnings({"unchecked"})
   @Override
-  public List<JoinTeamRequest> findPendingRequests(Team team) {
+  public List<JoinTeamRequest> findPendingRequests(String teamId) {
     Criteria criteria = createCriteria();
-    criteria.add(Restrictions.eq("groupId", team.getId()));
+    criteria.add(Restrictions.eq("groupId", teamId));
     criteria.addOrder(Order.asc("personId"));
     return criteria.list();
   }
@@ -67,9 +67,9 @@ public class JoinTeamRequestServiceHibernateImpl
    * {@inheritDoc}
    */
   @Override
-  public JoinTeamRequest findPendingRequest(String personId, Team team) {
+  public JoinTeamRequest findPendingRequest(String personId, String teamId) {
     SimpleExpression personIdExp = Restrictions.eq("personId", personId);
-    SimpleExpression groupIdExp = Restrictions.eq("groupId", team.getId());
+    SimpleExpression groupIdExp = Restrictions.eq("groupId", teamId);
     List<JoinTeamRequest> list = findByCriteria(personIdExp, groupIdExp);
     return CollectionUtils.isEmpty(list) ? null : list.get(0);
   }

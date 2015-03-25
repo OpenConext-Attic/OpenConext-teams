@@ -16,26 +16,7 @@
 
 package nl.surfnet.coin.teams.control;
 
-import nl.surfnet.coin.api.client.domain.Group20;
-import nl.surfnet.coin.api.client.domain.GroupMembersEntry;
-import nl.surfnet.coin.teams.domain.Person;
-import nl.surfnet.coin.teams.domain.ConversionRule;
-import nl.surfnet.coin.teams.domain.ExternalGroupDetailWrapper;
-import nl.surfnet.coin.teams.domain.GroupProvider;
-import nl.surfnet.coin.teams.domain.GroupProviderType;
-import nl.surfnet.coin.teams.service.ExternalGroupProviderProcessor;
 import org.junit.Before;
-import org.junit.Test;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.ui.ModelMap;
-
-import java.util.Collections;
-import java.util.List;
-
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 /**
  * Tests for {@link ExternalGroupController}
@@ -50,45 +31,5 @@ public class ExternalGroupControllerTest extends AbstractControllerTest {
 
   }
 
-  @Test
-  public void testGroupDetail() throws Exception {
-    final MockHttpServletRequest request = getRequest();
-    final ModelMap modelMap = getModelMap();
 
-    final String groupId = "urn:collab:group:hz.nl:HZG-1042";
-    final GroupProvider groupProvider = getGroupProvider();
-
-    Group20 group20 = new Group20();
-    group20.setTitle("HZG-1042 Test Group");
-    group20.setId(groupId);
-
-    ExternalGroupProviderProcessor processor = mock(ExternalGroupProviderProcessor.class);
-
-    List<GroupProvider> groupProviders = Collections.<GroupProvider>singletonList(groupProvider);
-    when(processor.getAllGroupProviders()).thenReturn(groupProviders);
-
-    when(processor.getGroupDetails("member-1",groupId,groupProviders,"hz",0,10)).thenReturn(new ExternalGroupDetailWrapper(group20, new GroupMembersEntry(Collections.<Person>singletonList(new Person()) )));
-    when(processor.getGroupProviderByStringIdentifier("hz",groupProviders)).thenReturn(groupProvider);
-
-    autoWireMock(controller, processor, ExternalGroupProviderProcessor.class);
-    String view = controller.groupDetail(groupId,"hz", 0, request, modelMap);
-
-    assertEquals(groupId, modelMap.get("groupId"));
-    assertEquals("external-groupdetail", view);
-    assertEquals(groupProvider, modelMap.get("groupProvider"));
-    assertTrue(modelMap.containsKey("groupMembersEntry"));
-    assertEquals(group20, modelMap.get("group20"));
-
-  }
-
-  private GroupProvider getGroupProvider() {
-    GroupProvider groupProvider = new GroupProvider(4L, "hz", "HZ", GroupProviderType.OAUTH_THREELEGGED.getStringValue());
-    ConversionRule groupDecorator = new ConversionRule();
-    groupDecorator.setPropertyName("id");
-    groupDecorator.setSearchPattern("urn:collab:group:hz.nl:(.+)");
-    groupDecorator.setReplaceWith("$1");
-    groupProvider.addGroupDecorator(groupDecorator);
-    return groupProvider;
-  }
- 
 }

@@ -191,7 +191,7 @@ public class DetailTeamController {
 
   private List<Person> getRequesters(Team team) {
     List<JoinTeamRequest> pendingRequests = joinTeamRequestService
-      .findPendingRequests(team);
+      .findPendingRequests(team.getId());
     List<Person> requestingPersons = new ArrayList<Person>(
       pendingRequests.size());
     for (JoinTeamRequest joinTeamRequest : pendingRequests) {
@@ -490,7 +490,7 @@ public class DetailTeamController {
     }
 
     JoinTeamRequest pendingRequest = joinTeamRequestService.findPendingRequest(
-      memberId, team);
+      memberId, team.getId());
 
     Person loggedInPerson = (Person) request.getSession().getAttribute(
       LoginInterceptor.PERSON_SESSION_KEY);

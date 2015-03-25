@@ -57,7 +57,7 @@ public class JoinTeamRequest extends DomainObject {
    * Avoid to call this in the code.
    */
   public JoinTeamRequest() {
-    this(null, null);
+    this(null, null, null, null);
   }
 
   /**
@@ -66,10 +66,12 @@ public class JoinTeamRequest extends DomainObject {
    * @param personId id of the {@link Person}
    * @param groupId  id of the {@link Team}
    */
-  public JoinTeamRequest(String personId, String groupId) {
+  public JoinTeamRequest(String personId, String groupId, String email, String displayName) {
     super();
     this.setPersonId(personId);
     this.setGroupId(groupId);
+    this.email=email;
+    this.displayName=displayName;
     this.setTimestamp(new Date().getTime());
   }
 

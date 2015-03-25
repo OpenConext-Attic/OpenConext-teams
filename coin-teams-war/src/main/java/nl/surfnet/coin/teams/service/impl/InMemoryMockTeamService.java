@@ -16,7 +16,6 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
-import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.util.DuplicateTeamException;
@@ -26,12 +25,11 @@ import java.util.*;
 
 /**
  * Mock implementation of {@link nl.surfnet.coin.teams.service.GrouperTeamService}
- * 
  */
 public class InMemoryMockTeamService implements GrouperTeamService {
 
   private Map<String, Team> teams = new HashMap<String, Team>();
-  
+
   /**
    * Constructor
    */
@@ -67,39 +65,39 @@ public class InMemoryMockTeamService implements GrouperTeamService {
     roles3.add(Role.Member);
 
     Member member1 = new Member(roles3, "member1-name", "member1",
-        "member1@surfnet.nl");
+      "member1@surfnet.nl");
     Member member2 = new Member(roles2, "member2-name", "member-2",
-        "member2@surfnet.nl");
+      "member2@surfnet.nl");
     Member member3 = new Member(roles1, "member3-name", "member-3",
-        "member3@surfnet.nl");
+      "member3@surfnet.nl");
     Member member4 = new Member(roles1, "member4-name", "member-4",
-        "member4@surfnet.nl");
+      "member4@surfnet.nl");
     member4.setGuest(true);
     Member member5 = new Member(roles1, "member5-name", "member-5",
-        "member5@surfnet.nl");
+      "member5@surfnet.nl");
     Member member6 = new Member(roles1, "member6-name", "member-6",
-        "member6@surfnet.nl");
+      "member6@surfnet.nl");
     Member member7 = new Member(roles1, "member7-name", "member-7",
-        "member7@surfnet.nl");
+      "member7@surfnet.nl");
 
     team1.addMembers(member1.copy(), member2.copy(), member3.copy());
     team2.addMembers(member3.copy(), member4.copy(), member5.copy());
     team3.addMembers(member5.copy(), member6.copy(), member7.copy());
     team4.addMembers(member1.copy(), member2.copy(), member4.copy());
-    
-    List<Member> dummyMembers = new ArrayList<Member>();
-  for (int memberId = 10; memberId < 110; memberId++) {
-  Member dummyMember = new Member(roles1, "member" + memberId + "-name",
-          "member-" + memberId, "member" + memberId + "@surfnet.nl");
-  dummyMembers.add(dummyMember);
-}
 
-for (int teamId = 5; teamId < 50; teamId++) {
-  Team newTeam = new Team("test-team-" + teamId,
-          "test-team-" + teamId + "-name", "description-" + teamId, true);
-  newTeam.addMembers(dummyMembers.toArray(new Member[dummyMembers.size()]));
-  teams.put(newTeam.getId(), newTeam);
-}
+    List<Member> dummyMembers = new ArrayList<Member>();
+    for (int memberId = 10; memberId < 110; memberId++) {
+      Member dummyMember = new Member(roles1, "member" + memberId + "-name",
+        "member-" + memberId, "member" + memberId + "@surfnet.nl");
+      dummyMembers.add(dummyMember);
+    }
+
+    for (int teamId = 5; teamId < 50; teamId++) {
+      Team newTeam = new Team("test-team-" + teamId,
+        "test-team-" + teamId + "-name", "description-" + teamId, true);
+      newTeam.addMembers(dummyMembers.toArray(new Member[dummyMembers.size()]));
+      teams.put(newTeam.getId(), newTeam);
+    }
   }
 
   private Team findTeam(String teamId) {
@@ -128,11 +126,11 @@ for (int teamId = 5; teamId < 50; teamId++) {
   @Override
   public String addTeam(String teamId, String displayName,
                         String teamDescription, String stemName)
-          throws DuplicateTeamException {
+    throws DuplicateTeamException {
     Team team = new Team(teamId, displayName, teamDescription);
     if (teams.containsKey(teamId)) {
       throw new DuplicateTeamException("There is already a team with id '"
-              + teamId + "'");
+        + teamId + "'");
     }
     teams.put(team.getId(), team);
     return team.getId();
@@ -215,7 +213,7 @@ for (int teamId = 5; teamId < 50; teamId++) {
    */
   @Override
   public List<Stem> findStemsByMember(String personId) {
-      return new ArrayList<Stem>();
+    return new ArrayList<Stem>();
   }
 
   /**
@@ -241,12 +239,12 @@ for (int teamId = 5; teamId < 50; teamId++) {
   @Override
   public boolean addMemberRole(String teamId, String memberId, Role role, String actAsUserId) {
     Member member = findMember(teamId, memberId);
-    
+
     if (role.equals(Role.Admin) && !member.getRoles().contains(Role.Manager)) {
       member.addRole(Role.Manager);
     }
     member.addRole(role);
-    
+
     return true;
   }
 
@@ -257,7 +255,7 @@ for (int teamId = 5; teamId < 50; teamId++) {
   public boolean removeMemberRole(String teamId, String memberId, Role role, String actAsUserId) {
     Member member = findMember(teamId, memberId);
     member.removeRole(role);
-    
+
     return true;
   }
 
@@ -279,7 +277,7 @@ for (int teamId = 5; teamId < 50; teamId++) {
           m = member.copy();
           break;
         }
-      }  
+      }
     }
     if (m == null) {
       m = new Member(new HashSet<Role>(), person);
@@ -307,13 +305,13 @@ for (int teamId = 5; teamId < 50; teamId++) {
   public Set<Member> findAdmins(Team team) {
     Set<Member> result = new HashSet<Member>();
     List<Member> members = team.getMembers();
-    
+
     for (Member member : members) {
       if (member.getRoles().contains(Role.Admin)) {
         result.add(member);
       }
     }
-    
+
     return result;
   }
 

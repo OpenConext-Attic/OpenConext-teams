@@ -92,6 +92,7 @@ public class HomeController {
     }
 
     List<ExternalGroup> groups = vootClient.groups(person.getId());
+    request.getSession().setAttribute(LoginInterceptor.EXTERNAL_GROUPS_SESSION_KEY, groups);
     Map<String, ExternalGroupProvider> groupProviders = new HashMap<String, ExternalGroupProvider>();
     for (ExternalGroup group: groups) {
       groupProviders.put(group.getGroupProviderIdentifier(), group.getGroupProvider());
@@ -102,7 +103,7 @@ public class HomeController {
     }
 
     // Add the external group providers to the ModelMap for the navigation
-    modelMap.addAttribute("groupProviders", groupProviders);
+    modelMap.addAttribute("groupProviders", groupProviders.values());
 
     modelMap.addAttribute("appversion", environment.getVersion());
     ViewUtil.addViewToModelMap(request, modelMap);

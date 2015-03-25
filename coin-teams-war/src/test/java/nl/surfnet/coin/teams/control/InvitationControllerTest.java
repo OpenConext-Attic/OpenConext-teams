@@ -29,7 +29,8 @@ import org.junit.Test;
 import org.springframework.web.bind.support.SimpleSessionStatus;
 import org.springframework.web.servlet.view.RedirectView;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import static nl.surfnet.coin.teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
 import static org.junit.Assert.assertEquals;
@@ -60,7 +61,7 @@ public class InvitationControllerTest extends AbstractControllerTest {
     Team mockTeam = mock(Team.class);
     when(mockTeam.getId()).thenReturn("team-1");
 
-    invitation = new Invitation("person1@example.com", "team-1");
+    invitation = new Invitation(person.getEmail(), "team-1");
 
     TeamInviteService teamInviteService = mock(TeamInviteService.class);
     when(teamInviteService.findInvitationByInviteId(invitationHash)).thenReturn(invitation);

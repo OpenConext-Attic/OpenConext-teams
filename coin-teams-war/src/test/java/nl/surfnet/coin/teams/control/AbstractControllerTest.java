@@ -19,7 +19,6 @@ package nl.surfnet.coin.teams.control;
 import ch.qos.logback.core.read.ListAppender;
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
-import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import org.junit.Before;
@@ -68,11 +67,11 @@ public abstract class AbstractControllerTest {
   }
 
   private void doAutoWireRemainingResources(Object target, Field[] fields)
-          throws IllegalAccessException {
+    throws IllegalAccessException {
     for (Field field : fields) {
       ReflectionUtils.makeAccessible(field);
       if (field.getAnnotation(Autowired.class) != null
-              && field.get(target) == null) {
+        && field.get(target) == null) {
         field.set(target, mock(field.getType(), new DoesNothing()));
       }
     }
@@ -116,9 +115,11 @@ public abstract class AbstractControllerTest {
   }
 
   protected Person getPerson1() {
-    Person person = new Person();
-    person.setId("member-1");
-    return person;
+    return getPerson("member-1");
+  }
+
+  protected Person getPerson(String id) {
+    return new Person(id, "name", "email", "example.org", "admin", "John Doe");
   }
 
   protected List<Stem> getStems() {
@@ -172,7 +173,7 @@ public abstract class AbstractControllerTest {
    */
   @SuppressWarnings("unchecked")
   protected void autoWireMock(Object target, Answer answer, Class interfaceClass)
-          throws Exception {
+    throws Exception {
     Object mock = mock(interfaceClass, answer);
     autoWireMock(target, mock, interfaceClass);
   }
@@ -184,12 +185,12 @@ public abstract class AbstractControllerTest {
    */
   @SuppressWarnings("unchecked")
   protected void autoWireMock(Object target, Object mock, Class interfaceClass)
-          throws Exception {
+    throws Exception {
     boolean found = doAutoWireMock(target, mock, interfaceClass, target
-            .getClass().getDeclaredFields());
+      .getClass().getDeclaredFields());
     if (!found) {
       doAutoWireMock(target, mock, interfaceClass, target.getClass()
-              .getSuperclass().getDeclaredFields());
+        .getSuperclass().getDeclaredFields());
     }
   }
 
@@ -215,8 +216,7 @@ public abstract class AbstractControllerTest {
   private void setUpSession(HttpServletRequest request) {
     HttpSession session = request.getSession(true);
 
-    Person person = new Person();
-    person.setId("member-1");
+    Person person = getPerson1();
     session.setAttribute(LoginInterceptor.PERSON_SESSION_KEY, person);
     session.setAttribute(LoginInterceptor.USER_STATUS_SESSION_KEY, "member");
 
@@ -246,6 +246,7 @@ public abstract class AbstractControllerTest {
 
   /**
    * Get the Logback appender that is used for audit logging.
+   *
    * @return
    */
   protected ListAppender getAuditLogAppender() {

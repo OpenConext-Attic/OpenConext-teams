@@ -20,10 +20,9 @@
 package nl.surfnet.coin.teams.control;
 
 import freemarker.template.Configuration;
-import nl.surfnet.coin.api.client.domain.Email;
-import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
@@ -94,12 +93,7 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
   public void testJoinTeamHappyFlow() throws Exception {
     MockHttpServletRequest request = getRequest();
 
-    Person requester = new Person();
-    requester.setId("urn:collab:person:com.example:john.doe");
-    requester.setDisplayName("John Doe");
-    Set<Email> emails = new HashSet<Email>();
-    emails.add(new Email("john.doe@example.com"));
-    requester.setEmails(emails);
+    Person requester = new Person("urn:collab:person:com.example:john.doe", "name", "john.doe@example.com", "example.org", "admin", "John Doe");
     request.getSession().setAttribute(LoginInterceptor.PERSON_SESSION_KEY, requester);
 
     TeamEnvironment environment = new TeamEnvironment();
@@ -118,7 +112,7 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
     when(localeResolver.resolveLocale(request)).thenReturn(Locale.ENGLISH);
     autoWireMock(joinTeamController, localeResolver, LocaleResolver.class);
 
-    JoinTeamRequest joinTeamRequest = new JoinTeamRequest("ID2345", "team-2");
+    JoinTeamRequest joinTeamRequest = new JoinTeamRequest("ID2345", "team-2", "email", "John Doe");
     joinTeamRequest.setMessage("Hello,\ncan I please join this team?");
 
     Configuration freemarkerConfiguration = getFreemarkerConfig();
@@ -141,7 +135,7 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
 
     joinTeamController.joinTeam(getModelMap(), null, request);
   }
-    
+
   @Test(expected = IllegalStateException.class)
   public void testJoinPrivateTeam() throws Exception {
     MockHttpServletRequest request = getRequest();
@@ -152,7 +146,7 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
     GrouperTeamService mockGrouperTeamService = mock(GrouperTeamService.class);
     autoWireMock(joinTeamController, mockGrouperTeamService, GrouperTeamService.class);
 
-    JoinTeamRequest joinTeamRequest = new JoinTeamRequest("ID2345", "team-2");
+    JoinTeamRequest joinTeamRequest = new JoinTeamRequest("ID2345", "team-2", "email", "John Doe");
 
     autoWireMock(joinTeamController, new Returns(mockPrivateTeam), ControllerUtil.class);
     autoWireRemainingResources(joinTeamController);
@@ -162,11 +156,7 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
 
   @Test
   public void testComposeJoinRequestMailMessage_html() throws Exception {
-    Person requester = getPerson1();
-    requester.setDisplayName("Humble User");
-    Set<Email> emails = new HashSet<Email>();
-    emails.add(new Email("humble.user@example.com"));
-    requester.setEmails(emails);
+    Person requester = new Person("member-1", "name", "humble.user@example.com", "example.org", "admin", "Humble User");
 
     Configuration freemarkerConfiguration = getFreemarkerConfig();
     autoWireMock(joinTeamController, freemarkerConfiguration, Configuration.class);
@@ -179,21 +169,16 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
     final String body = joinTeamController.composeJoinRequestMailMessage(mockPrivateTeam, requester, message, Locale.ENGLISH, "html");
 
     assertNotNull(body);
-//    log.debug(body);
 
     assertTrue(body.contains("Humble User (humble.user@example.com) would like to join team <strong>Team 2</strong>."));
     assertTrue(body.contains("<strong>Personal message from Humble User:</strong><br /> \"Hello admin,<br /><br />" +
-        "can I join this team please?<br /><br />Regards,<br />Humble User\""));
+      "can I join this team please?<br /><br />Regards,<br />Humble User\""));
 
   }
 
   @Test
   public void testComposeJoinRequestMailMessage_text() throws Exception {
-    Person requester = getPerson1();
-    requester.setDisplayName("Humble User");
-    Set<Email> emails = new HashSet<Email>();
-    emails.add(new Email("humble.user@example.com"));
-    requester.setEmails(emails);
+    Person requester = new Person("member-1", "name", "humble.user@example.com", "example.org", "admin", "Humble User");
 
     Configuration freemarkerConfiguration = getFreemarkerConfig();
     autoWireMock(joinTeamController, freemarkerConfiguration, Configuration.class);
@@ -206,9 +191,9 @@ public class JoinTeamControllerTest extends AbstractControllerTest {
     final String body = joinTeamController.composeJoinRequestMailMessage(mockPrivateTeam, requester, message, Locale.ENGLISH, "plaintext");
 
     assertNotNull(body);
-//    log.debug(body);
+
     assertTrue(body.contains("Humble User (humble.user@example.com) would like to join team *Team 2*."));
     assertTrue(body.contains("*Personal message from Humble User:*" + System.getProperty("line.separator") + "\"" +
-        message + "\""));
+      message + "\""));
   }
 }

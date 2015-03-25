@@ -31,11 +31,11 @@
     <c:if test="${displayExternalTeams ne false}">
       <c:forEach items="${groupProviders}" var="groupProvider">
         <spring:url value="/home.shtml" var="groupProviderUrl">
-          <spring:param name="groupProviderId" value="${groupProvider.id}"/>
+          <spring:param name="groupProviderId" value="${groupProvider.identifier}"/>
           <spring:param name="teams" value="externalGroups"/>
           <spring:param name="view" value="${view}"/>
         </spring:url>
-        <li class="middle"><a href="<c:out value="${groupProviderUrl}"/>" class="btn-all-teams <c:if test="${groupProviderId eq groupProvider.id}"> selected</c:if>"><c:out value="${groupProvider.name}"/></a></li>
+        <li class="middle"><a href="<c:out value="${groupProviderUrl}"/>" class="btn-all-teams <c:if test="${groupProviderId eq groupProvider.identifier}"> selected</c:if>"><c:out value="${groupProvider.name}"/></a></li>
       </c:forEach>
     </c:if>
 
@@ -129,7 +129,7 @@
             </spring:url>
             <tr>
               <td>
-                <c:out value="${externalGroup.title}"/>
+                <c:out value="${externalGroup.name}"/>
               </td>
               <td><c:out value="${externalGroup.description}"/></td>
             </tr>

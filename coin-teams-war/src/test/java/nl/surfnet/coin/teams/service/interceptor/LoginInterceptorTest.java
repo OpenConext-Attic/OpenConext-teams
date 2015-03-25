@@ -61,20 +61,4 @@ public class LoginInterceptorTest {
     Assert.assertNotNull(request.getSession().getAttribute("person"));
   }
 
-  @Test
-  public void testLoginFail() throws Exception {
-    String remoteUser = "urn:collab:person:surfnet.nl:hansz";
-
-    LoginInterceptor interceptor = new LoginInterceptor();
-
-    interceptor.setTeamEnvironment(new TeamEnvironment());
-
-    MockHttpServletRequest request = new MockHttpServletRequest();
-    request.addHeader("REMOTE_USER", remoteUser);
-    request.addHeader("coin-user-status", "member");
-    MockHttpServletResponse response = new MockHttpServletResponse();
-    boolean loggedIn = interceptor.preHandle(request, response, null);
-
-    assertFalse(loggedIn);
-  }
 }

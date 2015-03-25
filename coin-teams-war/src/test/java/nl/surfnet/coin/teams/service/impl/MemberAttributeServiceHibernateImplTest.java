@@ -45,7 +45,7 @@ import static junit.framework.Assert.*;
     "classpath:coin-shared-context.xml"})
 @TransactionConfiguration(transactionManager = "teamTransactionManager", defaultRollback = true)
 @Transactional
-@ActiveProfiles("openconext")
+@ActiveProfiles({"openconext","dev"})
 public class MemberAttributeServiceHibernateImplTest {
   
   @Autowired

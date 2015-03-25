@@ -27,6 +27,10 @@
   <context:component-scan base-package="nl.surfnet.coin.teams">
   </context:component-scan>
 
+  <bean id="propertyResolver"
+        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="location" value="classpath:coin-teams.properties"/>
+  </bean>
 
   <bean id="teamEnvironmentBase" class="nl.surfnet.coin.teams.util.TeamEnvironment" abstract="true">
     <property name="mockUserStatus" value="${mock-user-status}"/>
@@ -76,14 +80,6 @@
     <!--Check every 15 minutes -->
     <property name="idleConnectionTestPeriod" value="15"/>
     <property name="maxIdleTime" value="15"/>
-  </bean>
-
-  <bean id="ebJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-    <constructor-arg ref="ebDataSource"/>
-  </bean>
-
-  <bean id="groupProviderService" class="nl.surfnet.coin.teams.service.impl.GroupProviderServiceSQLImpl">
-    <constructor-arg ref="ebJdbcTemplate"/>
   </bean>
 
   <bean id="teamDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
@@ -162,12 +158,22 @@
     <property name="templateLoaderPath" value="classpath:/ftl/"/>
   </bean>
 
+
   <beans profile="production">
     <import resource="classpath:coin-shared-context.xml"/>
+    <bean id="vootClient" class="nl.surfnet.coin.teams.service.impl.VootClientImpl">
+      <constructor-arg index="0" value="${voot.accessTokenUri}"/>
+      <constructor-arg index="1" value="${voot.clientId}"/>
+      <constructor-arg index="2" value="${voot.clientSecret}"/>
+      <constructor-arg index="3" value="${voot.scopes}"/>
+      <constructor-arg index="4" value="${voot.serviceUrl}"/>
+    </bean>
   </beans>
 
+
   <beans profile="dev">
-    <bean id="mailSender" class="nl.surfnet.coin.teams.util.LetterOpener" />
+    <bean id="mailSender" class="nl.surfnet.coin.teams.util.LetterOpener"/>
+    <bean id="vootClientMock" class="nl.surfnet.coin.teams.service.impl.VootClientMock"/>
   </beans>
 
   <beans profile="openconext">

@@ -115,9 +115,9 @@ public class JoinTeamController {
 
     modelMap.addAttribute("team", team);
     JoinTeamRequest joinTeamRequest =
-        joinTeamRequestService.findPendingRequest(person, team);
+        joinTeamRequestService.findPendingRequest(person.getId(), team.getId());
     if (joinTeamRequest == null) {
-      joinTeamRequest = new JoinTeamRequest(person.getId(), team.getId());
+      joinTeamRequest = new JoinTeamRequest(person.getId(), team.getId(), person.getEmail(), person.getDisplayName());
     }
 
     modelMap.addAttribute(JOIN_TEAM_REQUEST, joinTeamRequest);

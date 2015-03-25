@@ -64,7 +64,7 @@ public class EditTeamControllerTest extends AbstractControllerTest {
     GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
     when(grouperTeamService.findTeamById("team-1")).thenReturn(mockTeam);
     when(grouperTeamService.findMember("team-1", "member-1")).thenReturn(
-            mockAdminMember);
+      mockAdminMember);
     autoWireMock(editTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireMock(editTeamController, new Returns(true), ControllerUtil.class);
     editTeamController.start(getModelMap(), request);
@@ -100,7 +100,7 @@ public class EditTeamControllerTest extends AbstractControllerTest {
     GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
     when(grouperTeamService.findTeamById("team-1")).thenReturn(mockTeam);
     when(grouperTeamService.findMember("team-1", "member-1")).thenReturn(
-            mockAdminMember);
+      mockAdminMember);
     autoWireMock(editTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireMock(editTeamController, new Returns(true), ControllerUtil.class);
     autoWireRemainingResources(editTeamController);
@@ -108,7 +108,6 @@ public class EditTeamControllerTest extends AbstractControllerTest {
     RedirectView result = editTeamController.editTeam(getModelMap(), request, token, token, new SimpleSessionStatus());
 
     assertEquals("detailteam.shtml?team=team-1&view=app", result.getUrl());
-
 
 
     assertEquals("An audit event should be appended to audit log", 1, auditAppender.list.size());
@@ -129,7 +128,7 @@ public class EditTeamControllerTest extends AbstractControllerTest {
     GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
     when(grouperTeamService.findTeamById("team-1")).thenReturn(mockTeam);
     when(grouperTeamService.findMember("team-1", "member-1")).thenReturn(
-            mockMember);
+      mockMember);
     autoWireMock(editTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireMock(editTeamController, new Returns(false), ControllerUtil.class);
     autoWireRemainingResources(editTeamController);
@@ -150,7 +149,7 @@ public class EditTeamControllerTest extends AbstractControllerTest {
     GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
     when(grouperTeamService.findTeamById("team-1")).thenReturn(null);
     when(grouperTeamService.findMember("team-1", "member-1")).thenReturn(
-            mockAdminMember);
+      mockAdminMember);
     autoWireMock(editTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireMock(editTeamController, new Returns(true), ControllerUtil.class);
     autoWireRemainingResources(editTeamController);

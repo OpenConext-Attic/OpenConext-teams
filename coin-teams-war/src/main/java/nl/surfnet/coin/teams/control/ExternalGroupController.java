@@ -16,13 +16,10 @@
 
 package nl.surfnet.coin.teams.control;
 
-import nl.surfnet.coin.api.client.domain.GroupMembersEntry;
+import nl.surfnet.coin.teams.domain.ExternalGroup;
 import nl.surfnet.coin.teams.domain.Person;
-import nl.surfnet.coin.teams.domain.ExternalGroupDetailWrapper;
-import nl.surfnet.coin.teams.domain.GroupProvider;
-import nl.surfnet.coin.teams.domain.Pager;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.ExternalGroupProviderProcessor;
+import nl.surfnet.coin.teams.service.VootClient;
 import nl.surfnet.coin.teams.util.ViewUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,31 +38,25 @@ import java.util.List;
 public class ExternalGroupController {
 
   private static final int PAGESIZE = 10;
-  
+
   @Autowired
-  private ExternalGroupProviderProcessor processor;
+  private VootClient vootClient;
 
   @RequestMapping("/groupdetail.shtml")
-  public String groupDetail(@RequestParam String groupId,
-        @RequestParam String externalGroupProviderIdentifier,
-        @RequestParam(defaultValue = "0", required = false)
-        int offset, HttpServletRequest request, ModelMap modelMap) {
+  public String groupDetail(@RequestParam String groupId, HttpServletRequest request, ModelMap modelMap) {
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
-    List<GroupProvider> allGroupProviders = processor.getAllGroupProviders();
-    modelMap.addAttribute("groupId", groupId);
+    List<ExternalGroup> groups = (List<ExternalGroup>) request.getSession().getAttribute(LoginInterceptor.EXTERNAL_GROUPS_SESSION_KEY);
 
-    ExternalGroupDetailWrapper groupDetails = processor.getGroupDetails(person.getId(), groupId, allGroupProviders,
-        externalGroupProviderIdentifier, offset, PAGESIZE);
-    GroupProvider groupProvider = processor.getGroupProviderByStringIdentifier(externalGroupProviderIdentifier, allGroupProviders);
-    modelMap.addAttribute("groupProvider", groupProvider);
-    modelMap.addAttribute("group20", groupDetails.getGroup20());
-    GroupMembersEntry groupMembersEntry = groupDetails.getGroupMembersEntry();
-    modelMap.addAttribute("groupMembersEntry", groupMembersEntry);
-    if (groupMembersEntry != null && groupMembersEntry.getEntry().size() <= PAGESIZE) {
-      Pager pager = new Pager(groupMembersEntry.getTotalResults(), offset, PAGESIZE);
-      modelMap.addAttribute("pager", pager);
+    for (ExternalGroup externalGroup: groups) {
+      if (externalGroup.getIdentifier().equals(groupId)) {
+        modelMap.addAttribute("groupProvider", externalGroup.getGroupProvider());
+        modelMap.addAttribute("externalGroup", externalGroup);
+        break;
+      }
     }
+
     ViewUtil.addViewToModelMap(request, modelMap);
+
     return "external-groupdetail";
   }
 }

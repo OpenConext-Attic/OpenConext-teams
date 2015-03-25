@@ -46,6 +46,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
   private static final String GADGET = "gadget";
   public static final String PERSON_SESSION_KEY = "person";
+  public static final String EXTERNAL_GROUPS_SESSION_KEY = "externalGroupsSessionKey";
   public static final String USER_STATUS_SESSION_KEY = "userStatus";
   private static final List<String> LOGIN_BYPASS = createLoginBypass();
   private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
@@ -83,15 +84,11 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         // Add person to session:
         session.setAttribute(PERSON_SESSION_KEY, person);
 
-        if (person == null) {
-          String errorMessage = "Cannot find user: " + nameId;
-          throw new ServletException(errorMessage);
-        }
         AuditLog.log("Login by user {}", person.getId());
         handleGuestStatus(session, person);
 
       } else {
-        // User is not logged in, and REMOTE_USER header is empty.
+        // User is not logged in, and name-id header is empty.
         // Check whether the user is requesting the landing page, if not
         // redirect him to the landing page.
         String url = getRequestedPart(request);

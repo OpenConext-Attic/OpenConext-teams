@@ -43,49 +43,23 @@ import static org.mockito.Mockito.when;
     "classpath:coin-shared-context.xml"})
 @TransactionConfiguration(transactionManager = "teamTransactionManager", defaultRollback = true)
 @Transactional
-@ActiveProfiles("openconext")
+@ActiveProfiles({"openconext","dev"})
 public class JoinTeamRequestServiceHibernateImplTest {
 
   @Autowired
   private JoinTeamRequestService joinTeamRequestService;
 
   @Test
-  public void testEmptyDb() throws Exception {
-    Person mockPerson = mock(Person.class);
-    when(mockPerson.getId()).thenReturn("person-1");
-    Team mockTeam = mock(Team.class);
-    when(mockTeam.getId()).thenReturn("team-1");
-
-    assertEquals("No pending requests", 0, joinTeamRequestService.findPendingRequests(mockTeam).size());
-    assertNull(joinTeamRequestService.findPendingRequest(mockPerson, mockTeam));
-  }
-
-  @Test
   public void testFindPendingRequests() throws Exception {
-    Person mockPerson = mock(Person.class);
-    when(mockPerson.getId()).thenReturn("person-1");
-    Person mockPerson2 = mock(Person.class);
-    when(mockPerson2.getId()).thenReturn("person-2");
-    Team mockTeam = mock(Team.class);
-    when(mockTeam.getId()).thenReturn("team-1");
+    String group1 = "group1";
+    String person1 = "person1";
+    assertTrue(joinTeamRequestService.findPendingRequests(group1).isEmpty());
+    assertNull(joinTeamRequestService.findPendingRequest(person1, group1));
 
+    joinTeamRequestService.saveOrUpdate(new JoinTeamRequest(person1, group1, "email", "John Doe"));
+    joinTeamRequestService.saveOrUpdate(new JoinTeamRequest(person1, group1, "email", "John Doe"));
 
-    JoinTeamRequest joinTeamRequest = new JoinTeamRequest();
-    joinTeamRequest.setPersonId(mockPerson.getId());
-    joinTeamRequest.setGroupId(mockTeam.getId());
-    joinTeamRequest.setTimestamp(123456789L);
-
-    JoinTeamRequest joinTeamRequest2 = new JoinTeamRequest();
-    joinTeamRequest2.setPersonId(mockPerson2.getId());
-    joinTeamRequest2.setGroupId(mockTeam.getId());
-    joinTeamRequest2.setTimestamp(123456790L);
-
-    assertEquals("No pending requests", 0, joinTeamRequestService.findPendingRequests(mockTeam).size());
-
-    joinTeamRequestService.saveOrUpdate(joinTeamRequest);
-    joinTeamRequestService.saveOrUpdate(joinTeamRequest2);
-
-    assertEquals(2, joinTeamRequestService.findPendingRequests(mockTeam).size());
-    assertNotNull(joinTeamRequestService.findPendingRequest(mockPerson2, mockTeam));
+    assertEquals(2, joinTeamRequestService.findPendingRequests(group1).size());
+    assertNotNull(joinTeamRequestService.findPendingRequest(person1, group1));
   }
 }

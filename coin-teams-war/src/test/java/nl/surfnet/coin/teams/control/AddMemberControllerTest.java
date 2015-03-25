@@ -22,7 +22,6 @@ package nl.surfnet.coin.teams.control;
 import ch.qos.logback.classic.spi.LoggingEvent;
 import ch.qos.logback.core.read.ListAppender;
 import freemarker.template.Configuration;
-import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
@@ -172,7 +171,6 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     MockHttpServletRequest request = getRequest();
     Team team1 = getTeam1();
     Person person = getPerson1();
-    person.setDisplayName("Member 1");
     request.getSession().setAttribute(LoginInterceptor.PERSON_SESSION_KEY, person);
 
     // request team
@@ -208,12 +206,12 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     autoWireRemainingResources(addMemberController);
 
     String result = addMemberController.addMembersToTeam(token,
-            form,
-            new DirectFieldBindingResult(form, "invitationForm"),
-            request,
-            token,
-            new SimpleSessionStatus(),
-            getModelMap());
+      form,
+      new DirectFieldBindingResult(form, "invitationForm"),
+      request,
+      token,
+      new SimpleSessionStatus(),
+      getModelMap());
 
     assertEquals("redirect:detailteam.shtml?team=" + team1.getId() + "&view=app", result);
 
@@ -255,7 +253,7 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     autoWireRemainingResources(addMemberController);
 
     addMemberController.addMembersToTeam(token, form, new DirectFieldBindingResult(form, "invitationForm"), request,
-        token, new SimpleSessionStatus(), getModelMap());
+      token, new SimpleSessionStatus(), getModelMap());
   }
 
   @Test(expected = RuntimeException.class)
@@ -287,12 +285,12 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     autoWireRemainingResources(addMemberController);
 
     addMemberController.addMembersToTeam(token,
-            form,
-            new DirectFieldBindingResult(form, "invitationForm"),
-            request,
-            token,
-            new SimpleSessionStatus(),
-            getModelMap());
+      form,
+      new DirectFieldBindingResult(form, "invitationForm"),
+      request,
+      token,
+      new SimpleSessionStatus(),
+      getModelMap());
   }
 
   @Test
@@ -310,19 +308,18 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     when(teamService.findTeamById(getTeam1().getId())).thenReturn(getTeam1());
     autoWireMock(addMemberController, teamService, GrouperTeamService.class);
 
-    Invitation invitation= new Invitation("johndoe@example.com", getTeam1().getId());
+    Invitation invitation = new Invitation("johndoe@example.com", getTeam1().getId());
     InvitationMessage message = new InvitationMessage("Hello John,\n\nplease join my team", getPerson1().getId());
     invitation.addInvitationMessage(message);
 
     Person inviter = getPerson1();
-    inviter.setDisplayName("Member One");
 
     String msg = addMemberController.composeInvitationMailMessage(invitation, inviter, Locale.ENGLISH, "html");
 
     assertNotNull(msg);
-//    log.debug(msg);
-    assertTrue(msg.contains("You have been invited by Member One to join team <strong>Team 1</strong>."));
-    assertTrue(msg.contains("<strong>Personal message from Member One:</strong><br /> \"Hello John,<br /><br />please join my team\""));
+    log.debug(msg);
+    assertTrue(msg.contains("You have been invited by John Doe to join team <strong>Team 1</strong>."));
+    assertTrue(msg.contains("<strong>Personal message from John Doe:</strong><br /> \"Hello John,<br /><br />please join my team\""));
   }
 
   @Test
@@ -340,20 +337,19 @@ public class AddMemberControllerTest extends AbstractControllerTest {
     when(teamService.findTeamById(getTeam1().getId())).thenReturn(getTeam1());
     autoWireMock(addMemberController, teamService, GrouperTeamService.class);
 
-    Invitation invitation= new Invitation("johndoe@example.com", getTeam1().getId());
+    Invitation invitation = new Invitation("johndoe@example.com", getTeam1().getId());
     InvitationMessage message = new InvitationMessage("Hello John,\n\nplease join my team", getPerson1().getId());
     invitation.addInvitationMessage(message);
 
     Person inviter = getPerson1();
-    inviter.setDisplayName("Member One");
 
     String msg = addMemberController.composeInvitationMailMessage(invitation, inviter, Locale.ENGLISH, "plaintext");
 
     assertNotNull(msg);
 //    log.debug(msg);
-    assertTrue(msg.contains("You have been invited by Member One to join team *Team 1*."));
-    assertTrue(msg.contains("*Personal message from Member One:*" + System.getProperty("line.separator") + "\"Hello " +
-        "John,\n\nplease join my team\""));
+    assertTrue(msg.contains("You have been invited by John Doe to join team *Team 1*."));
+    assertTrue(msg.contains("*Personal message from John Doe:*" + System.getProperty("line.separator") + "\"Hello " +
+      "John,\n\nplease join my team\""));
   }
 
 }

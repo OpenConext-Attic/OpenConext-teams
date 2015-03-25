@@ -1,48 +1,48 @@
 package nl.surfnet.coin.teams.service.impl;
 
 import nl.surfnet.coin.teams.domain.ExternalGroup;
+import nl.surfnet.coin.teams.domain.ExternalGroupProvider;
 import nl.surfnet.coin.teams.service.VootClient;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
-import org.springframework.security.oauth2.client.token.grant.code.AuthorizationCodeResourceDetails;
-import org.springframework.web.client.RestOperations;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
 public class VootClientImpl implements VootClient {
 
-  @Value("${voot.accessTokenUri}")
   private String accessTokenUri;
 
-  @Value("${voot.clientId}")
   private String clientId;
 
-  @Value("${voot.clientSecret}")
   private String clientSecret;
 
-  @Value("${voot.redirectUri}")
-  private String redirectUri;
-
-  @Value("${voot.scopes}")
   private String spaceDelimitedScopes;
 
-  @Value("${voot.serviceUrl}")
   private String serviceUrl;
 
-  private RestOperations vootService;
+  private OAuth2RestTemplate vootService;
 
-  public VootClientImpl() {
+  public VootClientImpl(String accessTokenUri, String clientId, String clientSecret, String spaceDelimitedScopes, String serviceUrl) {
+    this.accessTokenUri = accessTokenUri;
+    this.clientId = clientId;
+    this.clientSecret = clientSecret;
+    this.spaceDelimitedScopes = spaceDelimitedScopes;
+    this.serviceUrl = serviceUrl;
     vootService = new OAuth2RestTemplate(vootConfiguration());
   }
 
   public List<ExternalGroup> groups(String userId) {
-    List forObject = vootService.getForObject(serviceUrl + "/internal/external-groups/{userId}", List.class, userId);
-    return Collections.emptyList();
+    List<Map<String, Object>> maps = vootService.getForObject(serviceUrl + "/internal/external-groups/{userId}", List.class, userId);
+    List<ExternalGroup> groups = new ArrayList<ExternalGroup>();
+    for (Map<String, Object> map : maps) {
+      String sourceId = (String) map.get("sourceID");
+      groups.add(new ExternalGroup((String) map.get("id"), (String) map.get("displayName"), (String) map.get("description"), new ExternalGroupProvider(sourceId, sourceId)));
+    }
+    return groups;
   }
 
   private OAuth2ProtectedResourceDetails vootConfiguration() {

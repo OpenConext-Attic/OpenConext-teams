@@ -42,7 +42,7 @@ import static org.junit.Assert.*;
         "classpath:coin-shared-context.xml"})
 @TransactionConfiguration(transactionManager = "teamTransactionManager", defaultRollback = true)
 @Transactional
-@ActiveProfiles("openconext")
+@ActiveProfiles({ "openconext","dev" })
 public class TeamInviteServiceHibernateImplTest {
 
   private String email;

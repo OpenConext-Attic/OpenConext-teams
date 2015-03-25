@@ -64,7 +64,7 @@ public class AddTeamControllerTest extends AbstractControllerTest {
     when(grouperTeamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
     when(grouperTeamService.findTeamById(team1.getId())).thenReturn(team1);
     when(grouperTeamService.addTeam(team1.getName(), team1.getName(), team1.getDescription(),
-        team1.getStem().getId())).thenReturn(team1.getId());
+      team1.getStem().getId())).thenReturn(team1.getId());
 
     autoWireMock(addTeamController, new Returns(true), ControllerUtil.class);
     autoWireMock(addTeamController, grouperTeamService, GrouperTeamService.class);
@@ -83,7 +83,7 @@ public class AddTeamControllerTest extends AbstractControllerTest {
 
     GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
     when(grouperTeamService.addTeam(team.getName(), team.getName(), team.getDescription(),
-        null)).thenReturn(team.getId());
+      null)).thenReturn(team.getId());
 
     autoWireMock(addTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireRemainingResources(addTeamController);
@@ -107,7 +107,7 @@ public class AddTeamControllerTest extends AbstractControllerTest {
     when(grouperTeamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
     when(grouperTeamService.findTeamById(team1.getId())).thenReturn(team1);
     when(grouperTeamService.addTeam(team1.getName(), team1.getName(), team1.getDescription(),
-        team1.getStem().getId())).thenReturn(team1.getId());
+      team1.getStem().getId())).thenReturn(team1.getId());
 
     autoWireMock(addTeamController, new Returns(true), ControllerUtil.class);
     autoWireMock(addTeamController, grouperTeamService, GrouperTeamService.class);
@@ -133,7 +133,7 @@ public class AddTeamControllerTest extends AbstractControllerTest {
     when(grouperTeamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
     when(grouperTeamService.findTeamById(team1.getId())).thenReturn(team1);
     when(grouperTeamService.addTeam(team1.getName(), team1.getName(), team1.getDescription(),
-        team1.getStem().getId())).thenReturn(team1.getId());
+      team1.getStem().getId())).thenReturn(team1.getId());
 
     autoWireMock(addTeamController, new Returns(false), ControllerUtil.class);
     autoWireMock(addTeamController, grouperTeamService, GrouperTeamService.class);

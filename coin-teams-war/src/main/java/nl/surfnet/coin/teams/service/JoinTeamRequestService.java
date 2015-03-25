@@ -16,7 +16,6 @@
 
 package nl.surfnet.coin.teams.service;
 
-import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.shared.service.GenericService;
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.domain.Team;
@@ -31,18 +30,18 @@ public interface JoinTeamRequestService extends GenericService<JoinTeamRequest> 
   /**
    * Searches for pending {@link JoinTeamRequest}'s in the database
    *
-   * @param team {@link Team}
+   * @param teamId {@link nl.surfnet.coin.teams.domain.Team}
    * @return List of JoinTeamRequest, can be empty, not null
    */
-  List<JoinTeamRequest> findPendingRequests(Team team);
+  List<JoinTeamRequest> findPendingRequests(String teamId);
 
   /**
    * Searches for the pending {@link JoinTeamRequest}
    *
    * @param personId  who wants to join
-   * @param team   the {@link Team} he wants to join
+   * @param teamId   the team he wants to join
    * @return {@link JoinTeamRequest} if there is any,
    *         otherwise {@literal null}
    */
-  JoinTeamRequest findPendingRequest(String personId, Team team);
+  JoinTeamRequest findPendingRequest(String personId, String teamId);
 }
