@@ -67,10 +67,10 @@ public class JoinTeamRequestServiceHibernateImpl
    * {@inheritDoc}
    */
   @Override
-  public JoinTeamRequest findPendingRequest(Person person, Team team) {
-    SimpleExpression personId = Restrictions.eq("personId", person.getId());
-    SimpleExpression groupId = Restrictions.eq("groupId", team.getId());
-    List<JoinTeamRequest> list = findByCriteria(personId, groupId);
+  public JoinTeamRequest findPendingRequest(String personId, Team team) {
+    SimpleExpression personIdExp = Restrictions.eq("personId", personId);
+    SimpleExpression groupIdExp = Restrictions.eq("groupId", team.getId());
+    List<JoinTeamRequest> list = findByCriteria(personIdExp, groupIdExp);
     return CollectionUtils.isEmpty(list) ? null : list.get(0);
   }
 }

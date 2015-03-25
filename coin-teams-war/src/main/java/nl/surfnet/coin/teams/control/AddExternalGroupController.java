@@ -16,23 +16,22 @@
 
 package nl.surfnet.coin.teams.control;
 
-import nl.surfnet.coin.api.client.domain.Group20Entry;
 import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.teams.domain.ExternalGroup;
-import nl.surfnet.coin.teams.domain.GroupProvider;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.domain.TeamExternalGroup;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.ExternalGroupProviderProcessor;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.service.TeamExternalGroupDao;
+import nl.surfnet.coin.teams.service.VootClient;
 import nl.surfnet.coin.teams.util.*;
-import org.apache.commons.collections.CollectionUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.view.RedirectView;
@@ -50,7 +49,7 @@ import java.util.*;
 public class AddExternalGroupController {
 
   @Autowired
-  private ExternalGroupProviderProcessor processor;
+  private VootClient vootClient;
 
   private static final String EXTERNAL_GROUPS_SESSION_KEY = "externalGroups";
 
@@ -121,7 +120,7 @@ public class AddExternalGroupController {
   /**
    * Gets a List of {@link ExternalGroup}'s the person is a member of. First
    * tries to get the list from the session. If this returns nothing, the groups
-   * are retrieved from the external {@link GroupProvider}.
+   * are retrieved from the VootService.
    * 
    * @param personId
    *          unique identifier of a person
@@ -133,28 +132,10 @@ public class AddExternalGroupController {
   private List<ExternalGroup> getExternalGroups(String personId, HttpServletRequest request) {
     List<ExternalGroup> externalGroups = (List<ExternalGroup>) request.getSession().getAttribute(
         EXTERNAL_GROUPS_SESSION_KEY);
-    if (CollectionUtils.isNotEmpty(externalGroups)) {
+    if (!CollectionUtils.isEmpty(externalGroups)) {
       return externalGroups;
     }
-    externalGroups = new ArrayList<ExternalGroup>();
-    
-    List<GroupProvider> allGroupProviders = processor.getAllGroupProviders();
-
-    List<GroupProvider> groupProviders = processor.getGroupProvidersForUser(personId, allGroupProviders);
-
-    for (GroupProvider groupProvider : groupProviders) {
-      try {
-        final Group20Entry entry = processor.getExternalGroupsForGroupProviderId(groupProvider, personId, 0, Integer.MAX_VALUE);
-        if (entry == null) {
-          continue;
-        }
-        externalGroups.addAll(ExternalGroupUtil.convertToExternalGroups(groupProvider, entry));
-      } catch (RuntimeException e) {
-        LOG.info("Failed to retrieve external groups for user " + personId + " and provider " + groupProvider.getIdentifier(), e);
-      }
-      
-    }
-    return externalGroups;
+    return vootClient.groups(personId);
   }
 
   /**

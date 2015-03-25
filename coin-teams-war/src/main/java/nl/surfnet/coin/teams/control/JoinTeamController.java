@@ -150,6 +150,8 @@ public class JoinTeamController {
         localeResolver.resolveLocale(request));
 
     joinTeamRequest.setTimestamp(new Date().getTime());
+    joinTeamRequest.setDisplayName(person.getDisplayName());
+    joinTeamRequest.setEmail(person.getEmail());
     joinTeamRequestService.saveOrUpdate(joinTeamRequest);
     AuditLog.log("User {} requested to join team {}", joinTeamRequest.getPersonId(), team.getId());
     return new RedirectView("home.shtml?teams=my&view="

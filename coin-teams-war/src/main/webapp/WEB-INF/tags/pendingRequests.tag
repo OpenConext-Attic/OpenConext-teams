@@ -30,25 +30,9 @@
     </thead>
     <tbody>
     <c:forEach var="pending" items="${pendingRequests}">
-      <%-- Ugly hack to either call nl.surfnet.coin.teams.domain.Person#getEmail first.
-      Doesn't always work, so then try nl.surfnet.coin.teams.domain.Person#get("emails") --%>
-      <c:catch>
-        <c:if test="${not empty pending.email}">
-          <c:set var="email" value="${pending.email}"/>
-        </c:if>
-      </c:catch>
-      <c:if test="${empty email}">
-        <c:catch>
-          <c:if test="${fn:length(pending.emails)>0}">
-            <c:set var="email" value="${pending.emails[0].value}"/>
-          </c:if>
-        </c:catch>
-      </c:if>
       <tr>
         <td><c:out value="${pending.displayName}"/></td>
-        <td>
-          <c:out value="${email}"/>
-        </td>
+        <td><c:out value="${pending.email}"/></td>
         <td>
           <form name="deleteRequestForm" action="dodeleterequest.shtml" method="POST">
             <input type="hidden" name="token" value="<c:out value="${tokencheck}"/>"/>

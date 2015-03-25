@@ -18,15 +18,11 @@ package nl.surfnet.coin.teams.control;
 
 import freemarker.template.Configuration;
 import freemarker.template.TemplateException;
-import nl.surfnet.coin.api.client.OpenConextOAuthClient;
-import nl.surfnet.coin.api.client.domain.Email;
-import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.shared.service.MailService;
 import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.*;
 import nl.surfnet.coin.teams.util.*;
-import org.json.JSONException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +40,6 @@ import org.springframework.web.servlet.view.RedirectView;
 import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
@@ -57,16 +52,16 @@ import java.util.*;
 
 /**
  * @author steinwelberg
- * 
+ *         <p/>
  *         {@link Controller} that handles the detail team page of a logged in
  *         user.
  */
 @Controller
-@SessionAttributes({ TokenUtil.TOKENCHECK })
+@SessionAttributes({TokenUtil.TOKENCHECK})
 public class DetailTeamController {
 
-    public static final Address[] EMPTY_ADDRESSES = new Address[0];
-    private Logger log = LoggerFactory.getLogger(DetailTeamController.class);
+  public static final Address[] EMPTY_ADDRESSES = new Address[0];
+  private Logger log = LoggerFactory.getLogger(DetailTeamController.class);
 
   // private static final String MANAGER = "1";
   private static final String ADMIN = "0";
@@ -79,7 +74,7 @@ public class DetailTeamController {
   private static final int PAGESIZE = 10;
 
   @Autowired
-  private OpenConextOAuthClient apiClient;
+  private VootClient vootClient;
 
   @Autowired
   private GrouperTeamService grouperTeamService;
@@ -92,9 +87,6 @@ public class DetailTeamController {
 
   @Autowired
   private TeamExternalGroupDao teamExternalGroupDao;
-
-  @Autowired
-  private GroupProviderService groupProviderService;
 
   @Autowired
   private TeamEnvironment teamEnvironment;
@@ -116,10 +108,10 @@ public class DetailTeamController {
 
   @RequestMapping("/detailteam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request, @RequestParam("team") String teamId)
-      throws IOException {
+    throws IOException {
 
     Person person = (Person) request.getSession().getAttribute(
-        LoginInterceptor.PERSON_SESSION_KEY);
+      LoginInterceptor.PERSON_SESSION_KEY);
     String personId = person.getId();
     if (!StringUtils.hasText(teamId)) {
       throw new IllegalArgumentException("Missing parameter for team");
@@ -147,7 +139,7 @@ public class DetailTeamController {
     modelMap.addAttribute("onlyAdmin", onlyAdmin);
 
     modelMap.addAttribute("invitations",
-        teamInviteService.findInvitationsForTeamExcludeAccepted(team));
+      teamInviteService.findInvitationsForTeamExcludeAccepted(team));
 
     int offset = getOffset(request);
     Pager membersPager = new Pager(team.getMembers().size(), offset, PAGESIZE);
@@ -159,10 +151,10 @@ public class DetailTeamController {
     modelMap.addAttribute("memberRole", Role.Member);
     modelMap.addAttribute("noRole", Role.None);
     modelMap.addAttribute(TokenUtil.TOKENCHECK,
-        TokenUtil.generateSessionToken());
+      TokenUtil.generateSessionToken());
 
     modelMap
-        .addAttribute("maxInvitations", teamEnvironment.getMaxInvitations());
+      .addAttribute("maxInvitations", teamEnvironment.getMaxInvitations());
 
     ViewUtil.addViewToModelMap(request, modelMap);
 
@@ -178,7 +170,7 @@ public class DetailTeamController {
       modelMap.addAttribute(ROLE_PARAM, Role.None);
     }
     if (!Role.None.equals(modelMap.get(ROLE_PARAM))) {
-      addLinkedExternalGroupsToModelMap(teamId, modelMap);
+      addLinkedExternalGroupsToModelMap(person.getId(), teamId , modelMap);
     }
     modelMap.addAttribute("groupzyEnabled", teamEnvironment.isGroupzyEnabled());
     return "detailteam";
@@ -199,28 +191,22 @@ public class DetailTeamController {
 
   private List<Person> getRequesters(Team team) {
     List<JoinTeamRequest> pendingRequests = joinTeamRequestService
-        .findPendingRequests(team);
+      .findPendingRequests(team);
     List<Person> requestingPersons = new ArrayList<Person>(
-        pendingRequests.size());
+      pendingRequests.size());
     for (JoinTeamRequest joinTeamRequest : pendingRequests) {
-      String personId = joinTeamRequest.getPersonId();
-      /**
-       * In order to avoid a security exception in OpenSocial we need to ask the
-       * question to the teampersonservice as memberId and not as the currently
-       * logged-in user
-       */
-      requestingPersons.add(apiClient.getPerson(personId, null));
+      requestingPersons.add(new Person(joinTeamRequest.getPersonId(), null, joinTeamRequest.getEmail(), null, null, joinTeamRequest.getDisplayName()));
     }
     return requestingPersons;
   }
 
-  private void addLinkedExternalGroupsToModelMap(String teamId, ModelMap modelMap) {
+  private void addLinkedExternalGroupsToModelMap(String personId, String teamId, ModelMap modelMap) {
     final List<TeamExternalGroup> teamExternalGroups = teamExternalGroupDao.getByTeamIdentifier(teamId);
     if (!teamExternalGroups.isEmpty()) {
-      final List<GroupProvider> groupProviders = groupProviderService.getAllGroupProviders();
-      Map<String, GroupProvider> groupProviderMap = new HashMap<String, GroupProvider>();
-      for (GroupProvider gp : groupProviders) {
-        groupProviderMap.put(gp.getIdentifier(), gp);
+      List<ExternalGroup> groups = vootClient.groups(personId);
+      Map<String, ExternalGroupProvider> groupProviderMap = new HashMap<String, ExternalGroupProvider>();
+      for (ExternalGroup group : groups) {
+        groupProviderMap.put(group.getGroupProviderIdentifier(), group.getGroupProvider());
       }
       modelMap.addAttribute("groupProviderMap", groupProviderMap);
       modelMap.addAttribute("teamExternalGroups", teamExternalGroups);
@@ -230,11 +216,11 @@ public class DetailTeamController {
 
   @RequestMapping(value = "/doleaveteam.shtml", method = RequestMethod.POST)
   public RedirectView leaveTeam(ModelMap modelMap, HttpServletRequest request,
-      @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-      @RequestParam() String token, @RequestParam("team") String teamId, SessionStatus status)
-      throws UnsupportedEncodingException {
+                                @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+                                @RequestParam() String token, @RequestParam("team") String teamId, SessionStatus status)
+    throws UnsupportedEncodingException {
     Person person = (Person) request.getSession().getAttribute(
-        LoginInterceptor.PERSON_SESSION_KEY);
+      LoginInterceptor.PERSON_SESSION_KEY);
     String personId = person.getId();
     Team team = null;
 
@@ -254,9 +240,9 @@ public class DetailTeamController {
     if (admins.size() == 1 && adminsArray[0].getId().equals(personId)) {
       status.setComplete();
       return new RedirectView("detailteam.shtml?team="
-          + URLEncoder.encode(teamId, UTF_8) + "&view="
-          + ViewUtil.getView(request) + "&mes=" + ADMIN_LEAVE_TEAM, false,
-          true, false);
+        + URLEncoder.encode(teamId, UTF_8) + "&view="
+        + ViewUtil.getView(request) + "&mes=" + ADMIN_LEAVE_TEAM, false,
+        true, false);
     }
 
     // Leave the team
@@ -266,14 +252,14 @@ public class DetailTeamController {
     status.setComplete();
     modelMap.clear();
     return new RedirectView("home.shtml?teams=my&view="
-        + ViewUtil.getView(request));
+      + ViewUtil.getView(request));
   }
 
   @RequestMapping(value = "/dodeleteteam.shtml", method = RequestMethod.POST)
   public RedirectView deleteTeam(ModelMap modelMap, HttpServletRequest request,
-      @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-      @RequestParam() String token, @RequestParam("team") String teamId, SessionStatus status)
-      throws UnsupportedEncodingException {
+                                 @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+                                 @RequestParam() String token, @RequestParam("team") String teamId, SessionStatus status)
+    throws UnsupportedEncodingException {
     TokenUtil.checkTokens(sessionToken, token, status);
 
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
@@ -303,27 +289,27 @@ public class DetailTeamController {
 
       status.setComplete();
       return new RedirectView("home.shtml?teams=my&view="
-          + ViewUtil.getView(request), false, true, false);
+        + ViewUtil.getView(request), false, true, false);
     }
 
     status.setComplete();
     modelMap.clear();
     return new RedirectView("detailteam.shtml?team="
-        + URLEncoder.encode(teamId, UTF_8) + "&view="
-        + ViewUtil.getView(request));
+      + URLEncoder.encode(teamId, UTF_8) + "&view="
+      + ViewUtil.getView(request));
   }
 
   @RequestMapping(value = "/dodeletemember.shtml", method = RequestMethod.GET)
   public RedirectView deleteMember(ModelMap modelMap,
-      HttpServletRequest request,
-      @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-      @RequestParam() String token, @RequestParam("team") String teamId, SessionStatus status)
-      throws UnsupportedEncodingException {
+                                   HttpServletRequest request,
+                                   @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+                                   @RequestParam() String token, @RequestParam("team") String teamId, SessionStatus status)
+    throws UnsupportedEncodingException {
     TokenUtil.checkTokens(sessionToken, token, status);
     String personId = URLDecoder.decode(request.getParameter(MEMBER_PARAM),
-        UTF_8);
+      UTF_8);
     Person ownerPerson = (Person) request.getSession().getAttribute(
-        LoginInterceptor.PERSON_SESSION_KEY);
+      LoginInterceptor.PERSON_SESSION_KEY);
     String ownerId = ownerPerson.getId();
 
     if (!StringUtils.hasText(teamId) || !StringUtils.hasText(personId)) {
@@ -350,12 +336,12 @@ public class DetailTeamController {
       status.setComplete();
       modelMap.clear();
       return new RedirectView("detailteam.shtml?team="
-          + URLEncoder.encode(teamId, UTF_8) + "&view="
-          + ViewUtil.getView(request));
+        + URLEncoder.encode(teamId, UTF_8) + "&view="
+        + ViewUtil.getView(request));
       // if the owner is manager and the member is not an admin he can delete
       // the member
     } else if (owner.getRoles().contains(Role.Manager)
-        && !member.getRoles().contains(Role.Admin) && !personId.equals(ownerId)) {
+      && !member.getRoles().contains(Role.Admin) && !personId.equals(ownerId)) {
       // Delete the member
       grouperTeamService.deleteMember(teamId, personId);
       AuditLog.log("Manager user {} deleted user {} from team {}", ownerId, personId, teamId);
@@ -363,23 +349,22 @@ public class DetailTeamController {
       status.setComplete();
       modelMap.clear();
       return new RedirectView("detailteam.shtml?team="
-          + URLEncoder.encode(teamId, UTF_8) + "&view="
-          + ViewUtil.getView(request));
+        + URLEncoder.encode(teamId, UTF_8) + "&view="
+        + ViewUtil.getView(request));
     }
 
     status.setComplete();
     modelMap.clear();
     return new RedirectView("detailteam.shtml?team="
-        + URLEncoder.encode(teamId, UTF_8) + "&mes="
-        + NOT_AUTHORIZED_DELETE_MEMBER + "&view=" + ViewUtil.getView(request));
+      + URLEncoder.encode(teamId, UTF_8) + "&mes="
+      + NOT_AUTHORIZED_DELETE_MEMBER + "&view=" + ViewUtil.getView(request));
   }
 
   @RequestMapping(value = "/doaddremoverole.shtml", method = RequestMethod.POST)
   public RedirectView addOrRemoveRole(ModelMap modelMap,
-      HttpServletRequest request,
-      @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-      @RequestParam() String token, SessionStatus status) throws IOException,
-      JSONException {
+                                      HttpServletRequest request,
+                                      @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+                                      @RequestParam() String token, SessionStatus status) throws IOException {
     TokenUtil.checkTokens(sessionToken, token, status);
     String teamId = request.getParameter("teamId");
     String memberId = request.getParameter("memberId");
@@ -390,19 +375,19 @@ public class DetailTeamController {
       status.setComplete();
       modelMap.clear();
       return new RedirectView("home.shtml?teams=my" + "&view="
-          + ViewUtil.getView(request));
+        + ViewUtil.getView(request));
     }
     if (!StringUtils.hasText(memberId) || !StringUtils.hasText(roleString)
-        || !validAction(action)) {
+      || !validAction(action)) {
       status.setComplete();
       modelMap.clear();
       return new RedirectView("detailteam.shtml?team="
-          + URLEncoder.encode(teamId, UTF_8) + "&view="
-          + ViewUtil.getView(request) + "&mes=no.role.action" + "&offset="
-          + offset);
+        + URLEncoder.encode(teamId, UTF_8) + "&view="
+        + ViewUtil.getView(request) + "&mes=no.role.action" + "&offset="
+        + offset);
     }
     Person person = (Person) request.getSession().getAttribute(
-        LoginInterceptor.PERSON_SESSION_KEY);
+      LoginInterceptor.PERSON_SESSION_KEY);
 
     String message;
     if (action.equalsIgnoreCase("remove")) {
@@ -412,7 +397,7 @@ public class DetailTeamController {
         status.setComplete();
         modelMap.clear();
         return new RedirectView("home.shtml?teams=my" + "&view="
-            + ViewUtil.getView(request));
+          + ViewUtil.getView(request));
       }
       message = removeRole(teamId, memberId, roleString, team, person.getId());
     } else {
@@ -422,13 +407,13 @@ public class DetailTeamController {
     status.setComplete();
     modelMap.clear();
     return new RedirectView("detailteam.shtml?team="
-        + URLEncoder.encode(teamId, UTF_8) + "&view="
-        + ViewUtil.getView(request) + "&mes=" + message + "&offset=" + offset);
+      + URLEncoder.encode(teamId, UTF_8) + "&view="
+      + ViewUtil.getView(request) + "&mes=" + message + "&offset=" + offset);
   }
 
   private boolean validAction(String action) {
     return StringUtils.hasText(action)
-        && (action.equalsIgnoreCase("remove") || action.equalsIgnoreCase("add"));
+      && (action.equalsIgnoreCase("remove") || action.equalsIgnoreCase("add"));
   }
 
   private String removeRole(String teamId,
@@ -465,31 +450,31 @@ public class DetailTeamController {
 
   @RequestMapping(value = "/dodeleterequest.shtml", method = RequestMethod.POST)
   public RedirectView deleteRequest(HttpServletRequest request,
-      ModelMap modelMap,
-      @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-      @RequestParam() String token, @RequestParam("team") String teamId, SessionStatus status)
-      throws UnsupportedEncodingException {
+                                    ModelMap modelMap,
+                                    @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+                                    @RequestParam() String token, @RequestParam("team") String teamId, SessionStatus status)
+    throws UnsupportedEncodingException {
     return doHandleJoinRequest(modelMap, request, sessionToken, token, teamId, status,
-        false);
+      false);
   }
 
   @RequestMapping(value = "/doapproverequest.shtml", method = RequestMethod.POST)
   public RedirectView approveRequest(HttpServletRequest request,
-      ModelMap modelMap,
-      @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-      @RequestParam() String token, @RequestParam("team") String teamId, SessionStatus status)
-      throws UnsupportedEncodingException {
+                                     ModelMap modelMap,
+                                     @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+                                     @RequestParam() String token, @RequestParam("team") String teamId, SessionStatus status)
+    throws UnsupportedEncodingException {
     return doHandleJoinRequest(modelMap, request, sessionToken, token, teamId, status,
-        true);
+      true);
   }
 
   private RedirectView doHandleJoinRequest(ModelMap modelMap,
-      HttpServletRequest request, String sessionToken, String token, String teamId,
-      SessionStatus status, boolean approve)
-      throws UnsupportedEncodingException {
+                                           HttpServletRequest request, String sessionToken, String token, String teamId,
+                                           SessionStatus status, boolean approve)
+    throws UnsupportedEncodingException {
     TokenUtil.checkTokens(sessionToken, token, status);
     String memberId = URLDecoder.decode(request.getParameter(MEMBER_PARAM),
-        UTF_8);
+      UTF_8);
 
     if (!StringUtils.hasText(teamId) || !StringUtils.hasText(memberId)) {
       status.setComplete();
@@ -504,32 +489,19 @@ public class DetailTeamController {
       throw new RuntimeException("Cannot find team with id " + teamId);
     }
 
-    /**
-     * In order to avoid a security exception in OpenSocial we need to ask the
-     * question to the teampersonservice as memberId and not as the currently
-     * logged-in user
-     */
-    Person personToAddAsMember = apiClient.getPerson(memberId, null);
-    if (personToAddAsMember == null) {
-      status.setComplete();
-      modelMap.clear();
-      throw new RuntimeException("Cannot retrieve Person data for id "
-          + memberId);
-    }
-
     JoinTeamRequest pendingRequest = joinTeamRequestService.findPendingRequest(
-        personToAddAsMember, team);
+      memberId, team);
 
     Person loggedInPerson = (Person) request.getSession().getAttribute(
-        LoginInterceptor.PERSON_SESSION_KEY);
+      LoginInterceptor.PERSON_SESSION_KEY);
 
     // Check if there is an invitation for this approval request
     if (pendingRequest == null) {
       status.setComplete();
       modelMap.clear();
       throw new RuntimeException("Member (" + loggedInPerson.getId()
-          + ") is trying to add a member " + "(" + personToAddAsMember.getId()
-          + ") without a membership request");
+        + ") is trying to add a member " + "(" + memberId
+        + ") without a membership request");
     }
 
     // Check if the user has the correct privileges
@@ -537,11 +509,11 @@ public class DetailTeamController {
       status.setComplete();
       modelMap.clear();
       return new RedirectView("detailteam.shtml?team="
-          + URLEncoder.encode(teamId, UTF_8)
-          + "&mes=error.NotAuthorizedForAction" + "&view="
-          + ViewUtil.getView(request));
+        + URLEncoder.encode(teamId, UTF_8)
+        + "&mes=error.NotAuthorizedForAction" + "&view="
+        + ViewUtil.getView(request));
     }
-
+    Person personToAddAsMember = new Person(pendingRequest.getPersonId(),null, pendingRequest.getEmail(), null, null, pendingRequest.getDisplayName());
     if (approve) {
       grouperTeamService.addMember(teamId, personToAddAsMember);
       grouperTeamService.addMemberRole(teamId, memberId, Role.Member, teamEnvironment.getGrouperPowerUser());
@@ -563,8 +535,8 @@ public class DetailTeamController {
     status.setComplete();
     modelMap.clear();
     return new RedirectView("detailteam.shtml?team="
-        + URLEncoder.encode(teamId, UTF_8) + "&view="
-        + ViewUtil.getView(request));
+      + URLEncoder.encode(teamId, UTF_8) + "&view="
+      + ViewUtil.getView(request));
   }
 
   /**
@@ -578,7 +550,7 @@ public class DetailTeamController {
   private void sendDeclineMail(final Person memberToAdd, final Team team,
                                final Locale locale) {
     final String subject = messageSource.getMessage("request.mail.declined.subject",
-        null, locale);
+      null, locale);
     final String html = composeDeclineMailMessage(team, locale, "html");
     final String plainText = composeDeclineMailMessage(team, locale, "plaintext");
 
@@ -587,7 +559,7 @@ public class DetailTeamController {
         mimeMessage.addHeader("Precedence", "bulk");
 
         mimeMessage.setFrom(new InternetAddress(teamEnvironment.getSystemEmail()));
-        mimeMessage.setRecipients(Message.RecipientType.TO, convertEmailAdresses(memberToAdd.getEmails()));
+        mimeMessage.setRecipients(Message.RecipientType.TO, new Address[]{new InternetAddress(memberToAdd.getEmail())});
         mimeMessage.setSubject(subject);
 
         MimeMultipart rootMixedMultipart = controllerUtil.getMimeMultipartMessageBody(plainText, html);
@@ -610,7 +582,7 @@ public class DetailTeamController {
 
     try {
       return FreeMarkerTemplateUtils.processTemplateIntoString(
-          freemarkerConfiguration.getTemplate(templateName, locale), templateVars
+        freemarkerConfiguration.getTemplate(templateName, locale), templateVars
       );
     } catch (IOException e) {
       throw new RuntimeException("Failed to create decline join request mail", e);
@@ -628,9 +600,9 @@ public class DetailTeamController {
    * @param locale      {@link Locale}
    */
   private void sendAcceptMail(final Person memberToAdd, final Team team,
-                               final Locale locale) {
+                              final Locale locale) {
     final String subject = messageSource.getMessage("request.mail.accepted.subject",
-        null, locale);
+      null, locale);
     final String html = composeAcceptMailMessage(team, locale, "html");
     final String plainText = composeAcceptMailMessage(team, locale, "plaintext");
 
@@ -639,7 +611,7 @@ public class DetailTeamController {
         mimeMessage.addHeader("Precedence", "bulk");
 
         mimeMessage.setFrom(new InternetAddress(teamEnvironment.getSystemEmail()));
-        mimeMessage.setRecipients(Message.RecipientType.TO, convertEmailAdresses(memberToAdd.getEmails()));
+        mimeMessage.setRecipients(Message.RecipientType.TO, new Address[]{new InternetAddress(memberToAdd.getEmail())});
         mimeMessage.setSubject(subject);
 
         MimeMultipart rootMixedMultipart = controllerUtil.getMimeMultipartMessageBody(plainText, html);
@@ -650,19 +622,8 @@ public class DetailTeamController {
     mailService.sendAsync(preparator);
   }
 
-    private Address[] convertEmailAdresses(final Set<Email> emails) {
-        List<Address> addresses  = new ArrayList<Address>();
-        for (Email email : emails) {
-            try {
-                addresses.add(new InternetAddress(email.getValue()));
-            } catch (AddressException e) {
-                log.warn("Invalid email addres, {}", email.getValue());
-            }
-        }
-        return addresses.toArray(EMPTY_ADDRESSES);
-    }
 
-    String composeAcceptMailMessage(final Team team, final Locale locale, final String variant) {
+  String composeAcceptMailMessage(final Team team, final Locale locale, final String variant) {
     String templateName;
     if ("plaintext".equals(variant)) {
       templateName = "joinrequest-acceptmail-plaintext.ftl";
@@ -674,7 +635,7 @@ public class DetailTeamController {
 
     try {
       return FreeMarkerTemplateUtils.processTemplateIntoString(
-          freemarkerConfiguration.getTemplate(templateName, locale), templateVars
+        freemarkerConfiguration.getTemplate(templateName, locale), templateVars
       );
     } catch (IOException e) {
       throw new RuntimeException("Failed to create accept join request mail", e);

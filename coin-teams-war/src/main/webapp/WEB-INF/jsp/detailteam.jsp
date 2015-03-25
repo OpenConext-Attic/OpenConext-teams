@@ -94,10 +94,10 @@
             <c:if test="${role eq adminRole}"><td><a href="${deleteexternalgroup}" class="RemoveExternalGroup delete"><spring:message
                 code="jsp.detailteam.RemoveExternalGroupFromTeam"/></a></td></c:if>
             <td>
-              <c:set var="groupProvider" target="nl.surfnet.coin.teams.domain.GroupProvider"
+              <c:set var="groupProvider" target="nl.surfnet.coin.teams.domain.ExternalGroupProvider"
                      value="${groupProviderMap[teg.externalGroup.groupProviderIdentifier]}"/>
-              <c:if test="${not empty groupProvider and not empty groupProvider.logoUrl}">
-              <img src="<c:out value="${groupProvider.logoUrl}"/>" alt="" height="15px"/>
+              <c:if test="${not empty groupProvider and not empty groupProvider.name}">
+              <p><c:out value="${groupProvider.name}"/></p>
               </c:if>
             </td>
             <td><c:out value="${teg.externalGroup.name}"/></td>

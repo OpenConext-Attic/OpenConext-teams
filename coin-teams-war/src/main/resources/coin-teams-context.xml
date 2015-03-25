@@ -25,16 +25,8 @@
   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
   <context:component-scan base-package="nl.surfnet.coin.teams">
-    <context:exclude-filter type="regex" expression="nl\.surfnet\.coin\.teams\.service\.impl\.ApiGrouperDaoImpl"/>
   </context:component-scan>
 
-
-  <bean id="apiClient" class="nl.surfnet.coin.api.client.OpenConextOAuthClientImpl">
-    <property name="endpointBaseUrl" value="${api-location}"/>
-    <property name="consumerKey" value="${oauth-key}"/>
-    <property name="consumerSecret" value="${oauth-secret}"/>
-    <property name="version" value="v10a"/>
-  </bean>
 
   <bean id="teamEnvironmentBase" class="nl.surfnet.coin.teams.util.TeamEnvironment" abstract="true">
     <property name="mockUserStatus" value="${mock-user-status}"/>
@@ -45,7 +37,6 @@
     <property name="oauthSecret" value="${oauth-secret}"/>
     <property name="appId" value="${appId}"/>
     <property name="teamsURL" value="${teamsURL}"/>
-    <property name="openSocialUrl" value="${coin-container-url}"/>
     <property name="systemEmail" value="${systemEmail}"/>
     <property name="maxUploadSize" value="${form.maxuploadsize}"/>
     <property name="maxInvitations" value="${maxInvitations}"/>

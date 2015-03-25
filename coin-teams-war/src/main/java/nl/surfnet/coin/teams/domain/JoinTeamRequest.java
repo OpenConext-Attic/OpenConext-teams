@@ -43,6 +43,12 @@ public class JoinTeamRequest extends DomainObject {
   @Column(name = "uuid", nullable = false)
   private String personId;
 
+  @Column(name = "email", nullable = false)
+  private String email;
+
+  @Column(name = "display_name", nullable = false)
+  private String displayName;
+
   @Lob
   private String message;
 
@@ -57,7 +63,7 @@ public class JoinTeamRequest extends DomainObject {
   /**
    * Constructor with required fields
    *
-   * @param personId id of the {@link nl.surfnet.coin.api.client.domain.Person}
+   * @param personId id of the {@link Person}
    * @param groupId  id of the {@link Team}
    */
   public JoinTeamRequest(String personId, String groupId) {
@@ -107,6 +113,22 @@ public class JoinTeamRequest extends DomainObject {
    */
   public void setPersonId(String personId) {
     this.personId = personId;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
+
+  public String getDisplayName() {
+    return displayName;
+  }
+
+  public void setDisplayName(String displayName) {
+    this.displayName = displayName;
   }
 
   /**

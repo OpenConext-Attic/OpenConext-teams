@@ -43,8 +43,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.*;
 
-import static nl.surfnet.coin.teams.util.PersonUtil.getFirstEmail;
-import static nl.surfnet.coin.teams.util.PersonUtil.isGuest;
 
 /**
  * {@link Controller} that handles the accept/decline of an Invitation
@@ -165,7 +163,7 @@ public class InvitationController {
     grouperTeamService.addMember(teamId, person);
 
     Role intendedRole = invitation.getIntendedRole();
-    if (isGuest(person) && Role.Admin.equals(intendedRole)) {
+    if (person.isGuest() && Role.Admin.equals(intendedRole)) {
       // cannot make a guest Admin
       invitation.setIntendedRole(Role.Manager);
     }
@@ -288,7 +286,7 @@ public class InvitationController {
   public String myInvitations(ModelMap modelMap, HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(
             LoginInterceptor.PERSON_SESSION_KEY);
-    String email = getFirstEmail(person);
+    String email = person.getEmail();
     if (!StringUtils.hasText(email)) {
       throw new IllegalArgumentException("Your profile does not contain an email address");
     }

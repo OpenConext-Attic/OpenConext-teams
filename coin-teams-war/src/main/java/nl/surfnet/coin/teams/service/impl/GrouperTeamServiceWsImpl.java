@@ -34,8 +34,6 @@ import org.springframework.util.StringUtils;
 
 import java.util.*;
 
-import static nl.surfnet.coin.teams.util.PersonUtil.isGuest;
-
 /**
  * {@link nl.surfnet.coin.teams.service.GrouperTeamService} using Grouper LDAP as persistent store
  * 
@@ -474,8 +472,8 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
     addMember.addSubjectId(person.getId());
     addMember.execute();
     Member member = findMember(teamId, person.getId());
-    if (member.isGuest() != isGuest(person)) {
-      member.setGuest(isGuest(person));
+    if (member.isGuest() != person.isGuest()) {
+      member.setGuest(person.isGuest());
       memberAttributeService.saveOrUpdate(member.getMemberAttributes());
     }
   }

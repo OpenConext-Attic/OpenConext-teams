@@ -28,7 +28,6 @@ public class TeamEnvironment {
   private String oauthSecret;
   private String appId;
   private String teamsURL;
-  private String openSocialUrl;
   private String systemEmail;
   private String groupNameContext;
   private boolean groupzyEnabled;
@@ -157,20 +156,6 @@ public class TeamEnvironment {
    */
   public String getTeamsURL() {
     return teamsURL;
-  }
-
-  /**
-   * @return the openSocialUrl
-   */
-  public String getOpenSocialUrl() {
-    return openSocialUrl;
-  }
-
-  /**
-   * @param openSocialUrl the openSocialUrl to set
-   */
-  public void setOpenSocialUrl(String openSocialUrl) {
-    this.openSocialUrl = openSocialUrl;
   }
 
   /**

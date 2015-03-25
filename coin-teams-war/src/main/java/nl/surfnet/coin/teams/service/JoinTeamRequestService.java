@@ -39,10 +39,10 @@ public interface JoinTeamRequestService extends GenericService<JoinTeamRequest> 
   /**
    * Searches for the pending {@link JoinTeamRequest}
    *
-   * @param person {@link Person} who wants to join
+   * @param personId  who wants to join
    * @param team   the {@link Team} he wants to join
    * @return {@link JoinTeamRequest} if there is any,
    *         otherwise {@literal null}
    */
-  JoinTeamRequest findPendingRequest(Person person, Team team);
+  JoinTeamRequest findPendingRequest(String personId, Team team);
 }

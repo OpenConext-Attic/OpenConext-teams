@@ -19,15 +19,11 @@
  */
 package nl.surfnet.coin.teams.control;
 
-import nl.surfnet.coin.teams.domain.Person;
-import nl.surfnet.coin.teams.domain.Invitation;
-import nl.surfnet.coin.teams.domain.Pager;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.domain.TeamResultWrapper;
+import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.ExternalGroupProviderProcessor;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.service.TeamInviteService;
+import nl.surfnet.coin.teams.service.VootClient;
 import nl.surfnet.coin.teams.util.TeamEnvironment;
 import nl.surfnet.coin.teams.util.ViewUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,9 +38,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.LocaleResolver;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 /**
  * @author steinwelberg
@@ -70,15 +64,15 @@ public class HomeController {
   private TeamEnvironment environment;
 
   @Autowired
-  private ExternalGroupProviderProcessor processor;
+  private VootClient vootClient;
 
   private static final int PAGESIZE = 10;
 
   @RequestMapping("/home.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request,
-      @RequestParam(required = false, defaultValue = "my") String teams,
-      @RequestParam(required = false) String teamSearch,
-      @RequestParam(required = false) Long groupProviderId) {
+                      @RequestParam(required = false, defaultValue = "my") String teams,
+                      @RequestParam(required = false) String teamSearch,
+                      @RequestParam(required = false) String groupProviderId) {
 
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
     String display = teams;
@@ -97,12 +91,14 @@ public class HomeController {
       modelMap.addAttribute("myinvitations", !CollectionUtils.isEmpty(invitations));
     }
 
-    List<GroupProvider> allGroupProviders = processor.getAllGroupProviders();
-
-    List<GroupProvider> groupProviders = processor.getGroupProvidersForUser(person.getId(), allGroupProviders);
+    List<ExternalGroup> groups = vootClient.groups(person.getId());
+    Map<String, ExternalGroupProvider> groupProviders = new HashMap<String, ExternalGroupProvider>();
+    for (ExternalGroup group: groups) {
+      groupProviders.put(group.getGroupProviderIdentifier(), group.getGroupProvider());
+    }
 
     if (groupProviderId != null) {
-      addExternalGroupsToModelMap(modelMap, getOffset(request), groupProviderId, person, allGroupProviders);
+      addExternalGroupsToModelMap(modelMap, getOffset(request), groupProviderId, groupProviders, groups);
     }
 
     // Add the external group providers to the ModelMap for the navigation
@@ -114,22 +110,24 @@ public class HomeController {
     return "home";
   }
 
-  private void addExternalGroupsToModelMap(ModelMap modelMap, int offset, Long groupProviderId, Person person,
-      List<GroupProvider> allGroupProviders) {
-    GroupProvider groupProvider = processor.getGroupProviderByLongIdentifier(groupProviderId, allGroupProviders);
-    modelMap.addAttribute("externalGroupProvider", groupProvider);
-
-    Group20Entry group20Entry = processor.getExternalGroupsForGroupProviderId(groupProvider, person.getId(), offset,
-        PAGESIZE);
-    modelMap.addAttribute("group20Entry", group20Entry);
-    if (group20Entry != null && group20Entry.getEntry().size() <= PAGESIZE) {
-      Pager pager = new Pager(group20Entry.getTotalResults(), offset, PAGESIZE);
+  private void addExternalGroupsToModelMap(ModelMap modelMap, int offset, String groupProviderId,
+                                           Map<String, ExternalGroupProvider> groupProviders, List<ExternalGroup> groups ) {
+    modelMap.addAttribute("externalGroupProvider", groupProviders.get(groupProviderId));
+    List<ExternalGroup> filteredGroups = new ArrayList<ExternalGroup>();
+    for (ExternalGroup group: groups) {
+      if (group.getGroupProviderIdentifier().equals(groupProviderId)) {
+        filteredGroups.add(group);
+      }
+    }
+    modelMap.addAttribute("externalGroups", filteredGroups);
+    if (filteredGroups.size() >= PAGESIZE) {
+      Pager pager = new Pager(filteredGroups.size(), offset, PAGESIZE);
       modelMap.addAttribute("pager", pager);
     }
   }
 
   private void addTeams(String query, final String person, final String display, ModelMap modelMap,
-      HttpServletRequest request) {
+                        HttpServletRequest request) {
 
     Locale locale = localeResolver.resolveLocale(request);
 
@@ -149,18 +147,17 @@ public class HomeController {
         resultWrapper = grouperTeamService.findPublicTeams(person, query);
       } else {
         resultWrapper = new TeamResultWrapper(new ArrayList<Team>(), 0, 0, 1);
-//        resultWrapper = grouperTeamService.findAllTeams(person, offset, PAGESIZE);
       }
       modelMap.addAttribute("display", "all");
       // else always display my teams
     } else {
-    modelMap.addAttribute("hasMultipleSources", grouperTeamService.findStemsByMember(person).size() > 1);
-    if (StringUtils.hasText(query)) {
-      resultWrapper = grouperTeamService.findTeamsByMember(person, query, offset, PAGESIZE);
-    } else {
-      resultWrapper = grouperTeamService.findAllTeamsByMember(person, offset, PAGESIZE);
-    }
-    modelMap.addAttribute("display", "my");
+      modelMap.addAttribute("hasMultipleSources", grouperTeamService.findStemsByMember(person).size() > 1);
+      if (StringUtils.hasText(query)) {
+        resultWrapper = grouperTeamService.findTeamsByMember(person, query, offset, PAGESIZE);
+      } else {
+        resultWrapper = grouperTeamService.findAllTeamsByMember(person, offset, PAGESIZE);
+      }
+      modelMap.addAttribute("display", "my");
     }
 
     List<Team> teams = resultWrapper.getTeams();
