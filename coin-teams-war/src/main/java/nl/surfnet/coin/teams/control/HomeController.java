@@ -114,6 +114,7 @@ public class HomeController {
   private void addExternalGroupsToModelMap(ModelMap modelMap, int offset, String groupProviderId,
                                            Map<String, ExternalGroupProvider> groupProviders, List<ExternalGroup> groups ) {
     modelMap.addAttribute("externalGroupProvider", groupProviders.get(groupProviderId));
+    modelMap.addAtt
     List<ExternalGroup> filteredGroups = new ArrayList<ExternalGroup>();
     for (ExternalGroup group: groups) {
       if (group.getGroupProviderIdentifier().equals(groupProviderId)) {

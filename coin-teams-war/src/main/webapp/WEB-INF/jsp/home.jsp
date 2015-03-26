@@ -125,7 +125,7 @@
           <c:forEach items="${externalGroups}" var="externalGroup">
             <spring:url value="/externalgroups/groupdetail.shtml" var="detailUrl">
               <spring:param name="groupId" value="${externalGroup.identifier}"/>
-              <spring:param name="externalGroupProviderIdentifier" value="${externalGroupProvider.identifier}"/>
+              <spring:param name="externalGroupProviderIdentifier" value="${externalGroup.groupProviderIdentifier}"/>
             </spring:url>
             <tr>
               <td>
