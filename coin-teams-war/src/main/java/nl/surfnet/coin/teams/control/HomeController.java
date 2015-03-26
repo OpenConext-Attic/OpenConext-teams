@@ -90,9 +90,11 @@ public class HomeController {
       List<Invitation> invitations = teamInviteService.findPendingInvitationsByEmail(email);
       modelMap.addAttribute("myinvitations", !CollectionUtils.isEmpty(invitations));
     }
-
-    List<ExternalGroup> groups = vootClient.groups(person.getId());
-    request.getSession().setAttribute(LoginInterceptor.EXTERNAL_GROUPS_SESSION_KEY, groups);
+    List<ExternalGroup> groups = (List<ExternalGroup>) request.getSession().getAttribute(LoginInterceptor.EXTERNAL_GROUPS_SESSION_KEY);
+    if (groups == null) {
+      groups = vootClient.groups(person.getId());
+      request.getSession().setAttribute(LoginInterceptor.EXTERNAL_GROUPS_SESSION_KEY, groups);
+    }
     Map<String, ExternalGroupProvider> groupProviders = new HashMap<String, ExternalGroupProvider>();
     for (ExternalGroup group: groups) {
       groupProviders.put(group.getGroupProviderIdentifier(), group.getGroupProvider());
@@ -114,18 +116,18 @@ public class HomeController {
   private void addExternalGroupsToModelMap(ModelMap modelMap, int offset, String groupProviderId,
                                            Map<String, ExternalGroupProvider> groupProviders, List<ExternalGroup> groups ) {
     modelMap.addAttribute("externalGroupProvider", groupProviders.get(groupProviderId));
-    modelMap.addAtt
     List<ExternalGroup> filteredGroups = new ArrayList<ExternalGroup>();
     for (ExternalGroup group: groups) {
       if (group.getGroupProviderIdentifier().equals(groupProviderId)) {
         filteredGroups.add(group);
       }
     }
-    modelMap.addAttribute("externalGroups", filteredGroups);
     if (filteredGroups.size() >= PAGESIZE) {
       Pager pager = new Pager(filteredGroups.size(), offset, PAGESIZE);
       modelMap.addAttribute("pager", pager);
+      filteredGroups = filteredGroups.subList(offset, offset + PAGESIZE);
     }
+    modelMap.addAttribute("externalGroups", filteredGroups);
   }
 
   private void addTeams(String query, final String person, final String display, ModelMap modelMap,

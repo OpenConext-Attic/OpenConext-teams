@@ -31,7 +31,7 @@
         <c:if test="${not empty display}"><c:param name="teams" value="${display}"/></c:if>
         <c:if test="${not empty team}"><c:param name="team" value="${team.id}"/></c:if>
         <c:if test="${not empty groupId}"><c:param name="groupId" value="${groupId}"/></c:if>
-        <c:if test="${not empty param.externalGroupProviderIdentifier}"><c:param name="externalGroupProviderIdentifier" value="${param.externalGroupProviderIdentifier}"/></c:if>
+        <c:if test="${not empty externalGroupProvider}"><c:param name="groupProviderId" value="${externalGroupProvider.identifier}"/></c:if>
       </c:url>
       <li><a href="<c:out value="${first}"/>" class="page first"><spring:message code="jsp.general.First"/></a></li>
     </c:if>
@@ -45,7 +45,7 @@
         <c:if test="${not empty display}"><c:param name="teams" value="${display}"/></c:if>
         <c:if test="${not empty team}"><c:param name="team" value="${team.id}"/></c:if>
         <c:if test="${not empty groupId}"><c:param name="groupId" value="${groupId}"/></c:if>
-        <c:if test="${not empty param.externalGroupProviderIdentifier}"><c:param name="externalGroupProviderIdentifier" value="${param.externalGroupProviderIdentifier}"/></c:if>
+        <c:if test="${not empty externalGroupProvider}"><c:param name="groupProviderId" value="${externalGroupProvider.identifier}"/></c:if>
       </c:url>
       <li><a href="<c:out value="${prev}"/>" class="page prev"><spring:message code="jsp.general.Previous"/></a></li>
     </c:if>
@@ -60,7 +60,7 @@
           <c:if test="${not empty display}"><c:param name="teams" value="${display}"/></c:if>
           <c:if test="${not empty team}"><c:param name="team" value="${team.id}"/></c:if>
           <c:if test="${not empty groupId}"><c:param name="groupId" value="${groupId}"/></c:if>
-          <c:if test="${not empty param.externalGroupProviderIdentifier}"><c:param name="externalGroupProviderIdentifier" value="${param.externalGroupProviderIdentifier}"/></c:if>
+          <c:if test="${not empty externalGroupProvider}"><c:param name="groupProviderId" value="${externalGroupProvider.identifier}"/></c:if>
         </c:url>
         <c:choose>
           <c:when test="${page.currentPage eq true}">
@@ -85,7 +85,7 @@
         <c:if test="${not empty display}"><c:param name="teams" value="${display}"/></c:if>
         <c:if test="${not empty team}"><c:param name="team" value="${team.id}"/></c:if>
         <c:if test="${not empty groupId}"><c:param name="groupId" value="${groupId}"/></c:if>
-        <c:if test="${not empty param.externalGroupProviderIdentifier}"><c:param name="externalGroupProviderIdentifier" value="${param.externalGroupProviderIdentifier}"/></c:if>
+        <c:if test="${not empty externalGroupProvider}"><c:param name="groupProviderId" value="${externalGroupProvider.identifier}"/></c:if>
       </c:url>
       <li><a href="<c:out value="${next}"/>" class="page next"><spring:message code="jsp.general.Next"/></a></li>
     </c:if>
@@ -99,7 +99,7 @@
         <c:if test="${not empty display}"><c:param name="teams" value="${display}"/></c:if>
         <c:if test="${not empty team}"><c:param name="team" value="${team.id}"/></c:if>
         <c:if test="${not empty groupId}"><c:param name="groupId" value="${groupId}"/></c:if>
-        <c:if test="${not empty param.externalGroupProviderIdentifier}"><c:param name="externalGroupProviderIdentifier" value="${param.externalGroupProviderIdentifier}"/></c:if>
+        <c:if test="${not empty externalGroupProvider}"><c:param name="groupProviderId" value="${externalGroupProvider.identifier}"/></c:if>
       </c:url>
       <li><a href="<c:out value="${last}"/>" class="page last"><spring:message code="jsp.general.Last"/></a></li>
     </c:if>
