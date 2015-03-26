@@ -36,9 +36,7 @@
       <tr class="odd">
         <td>E-mailaddress</td>
         <td>
-          <c:forEach var="email" items="${sessionScope.person.emails}">
-            <c:out value="${email.value}"/>&nbsp;
-          </c:forEach>
+            <c:out value="${sessionScope.person.email}"/>&nbsp;
         </td>
       </tr>
     </table>
