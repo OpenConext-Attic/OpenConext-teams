@@ -1,5 +1,0 @@
-CREATE TABLE `scim_events` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `event` LONGTEXT
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
