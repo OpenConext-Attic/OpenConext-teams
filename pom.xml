@@ -63,43 +63,6 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>org.mortbay.jetty</groupId>
-        <artifactId>jetty-maven-plugin</artifactId>
-        <version>8.0.4.v20111024</version>
-        <configuration>
-          <webAppConfig>
-            <contextPath>/teams</contextPath>
-            <extraClasspath>${basedir}/src/test/resources/</extraClasspath>
-            <defaultsDescriptor>${basedir}/src/test/resources/jettywebdefault.xml</defaultsDescriptor>
-          </webAppConfig>
-          <connectors>
-            <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-              <port>8060</port>
-              <host>0.0.0.0</host>
-            </connector>
-          </connectors>
-          <stopKey>stopteam</stopKey>
-          <stopPort>9060</stopPort>
-          <reload>manual</reload>
-          <useTestClasspath>true</useTestClasspath>
-          <systemProperties>
-            <systemProperty>
-              <name>spring.profiles.active</name>
-              <value>${spring.profiles.active}</value>
-            </systemProperty>
-          </systemProperties>
-
-        </configuration>
-        <dependencies>
-          <dependency>
-            <groupId>org.surfnet.coin</groupId>
-            <artifactId>coin-master-test-dependencies</artifactId>
-            <version>${coin-master.test-dependencies.version}</version>
-            <type>pom</type>
-          </dependency>
-        </dependencies>
-      </plugin>
-      <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
         <version>1.7</version>
         <executions>
