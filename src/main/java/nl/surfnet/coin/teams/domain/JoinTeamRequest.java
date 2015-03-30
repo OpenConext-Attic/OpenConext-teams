@@ -16,14 +16,14 @@
 
 package nl.surfnet.coin.teams.domain;
 
-import nl.surfnet.coin.shared.domain.DomainObject;
-import org.hibernate.annotations.Proxy;
-
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
 import javax.persistence.Table;
-import java.util.Date;
+
+import org.hibernate.annotations.Proxy;
+
 
 /**
  * Represents the request to join a team
@@ -70,8 +70,8 @@ public class JoinTeamRequest extends DomainObject {
     super();
     this.setPersonId(personId);
     this.setGroupId(groupId);
-    this.email=email;
-    this.displayName=displayName;
+    this.email = email;
+    this.displayName = displayName;
     this.setTimestamp(new Date().getTime());
   }
 

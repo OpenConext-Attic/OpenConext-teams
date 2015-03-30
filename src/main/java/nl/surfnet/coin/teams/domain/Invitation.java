@@ -16,18 +16,25 @@
 
 package nl.surfnet.coin.teams.domain;
 
-import nl.surfnet.coin.shared.domain.DomainObject;
-import nl.surfnet.coin.teams.util.InvitationGenerator;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import org.hibernate.annotations.Proxy;
 import org.hibernate.annotations.Sort;
 import org.hibernate.annotations.SortType;
 import org.springframework.util.CollectionUtils;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import nl.surfnet.coin.teams.util.InvitationGenerator;
 
 @SuppressWarnings("serial")
 @Entity
@@ -64,7 +71,7 @@ public class Invitation extends DomainObject {
   private Role intendedRole;
 
   private static final long TWO_WEEKS = 14L * 24L * 60L * 60L * 1000L;
-  
+
 
   /**
    * Constructor Hibernate needs when fetching results from the db.
@@ -209,7 +216,7 @@ public class Invitation extends DomainObject {
     copy.addAll(invitationMessages);
     Collections.reverse(copy);
     return copy;
-}
+  }
 
   public long getExpireTime() {
     return timestamp + TWO_WEEKS;

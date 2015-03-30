@@ -16,13 +16,25 @@
 
 package nl.surfnet.coin.teams.control;
 
-import freemarker.template.Configuration;
-import freemarker.template.TemplateException;
-import nl.surfnet.coin.shared.service.MailService;
-import nl.surfnet.coin.teams.domain.*;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.*;
-import nl.surfnet.coin.teams.util.*;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+import javax.mail.Address;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,23 +44,39 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
 
-import javax.mail.Address;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
-import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.util.*;
+import freemarker.template.Configuration;
+import freemarker.template.TemplateException;
+import nl.surfnet.coin.teams.domain.ExternalGroup;
+import nl.surfnet.coin.teams.domain.ExternalGroupProvider;
+import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.JoinTeamRequest;
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Pager;
+import nl.surfnet.coin.teams.domain.Person;
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.domain.TeamExternalGroup;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.JoinTeamRequestService;
+import nl.surfnet.coin.teams.service.TeamExternalGroupDao;
+import nl.surfnet.coin.teams.service.TeamInviteService;
+import nl.surfnet.coin.teams.service.VootClient;
+import nl.surfnet.coin.teams.service.mail.MailService;
+import nl.surfnet.coin.teams.util.AuditLog;
+import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
+import nl.surfnet.coin.teams.util.TokenUtil;
+import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * @author steinwelberg
@@ -170,7 +198,7 @@ public class DetailTeamController {
       modelMap.addAttribute(ROLE_PARAM, Role.None);
     }
     if (!Role.None.equals(modelMap.get(ROLE_PARAM))) {
-      addLinkedExternalGroupsToModelMap(person.getId(), teamId , modelMap);
+      addLinkedExternalGroupsToModelMap(person.getId(), teamId, modelMap);
     }
     modelMap.addAttribute("groupzyEnabled", teamEnvironment.isGroupzyEnabled());
     return "detailteam";
@@ -513,7 +541,7 @@ public class DetailTeamController {
         + "&mes=error.NotAuthorizedForAction" + "&view="
         + ViewUtil.getView(request));
     }
-    Person personToAddAsMember = new Person(pendingRequest.getPersonId(),null, pendingRequest.getEmail(), null, null, pendingRequest.getDisplayName());
+    Person personToAddAsMember = new Person(pendingRequest.getPersonId(), null, pendingRequest.getEmail(), null, null, pendingRequest.getDisplayName());
     if (approve) {
       grouperTeamService.addMember(teamId, personToAddAsMember);
       grouperTeamService.addMemberRole(teamId, memberId, Role.Member, teamEnvironment.getGrouperPowerUser());

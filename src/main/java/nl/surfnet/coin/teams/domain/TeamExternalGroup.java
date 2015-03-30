@@ -16,7 +16,6 @@
 
 package nl.surfnet.coin.teams.domain;
 
-import nl.surfnet.coin.shared.domain.DomainObject;
 
 /**
  * The link between a team (SURFConext) and external groups from the universities.

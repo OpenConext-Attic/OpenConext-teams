@@ -15,14 +15,25 @@ See the NOTICE file
 
 [Maven 3](http://maven.apache.org) is needed to build and run this project.
 
-To build:
+To build, first setup your local db:
 
-    mvn clean install
+Connect to your local mysql database: `mysql -uroot`
+
+Execute the following:
+
+```sql
+CREATE DATABASE teams DEFAULT CHARACTER SET utf8;
+create user 'teams'@'localhost' identified by 'teams';
+grant all on teams.* to 'teams'@'localhost';
+
+```
+
+# Start the app
 
 To run locally:
 
-    cd coin-teams-war
-    mvn jetty:run
+`mvn spring-boot:run -Drun.jvmArguments="-Dspring.profiles.active=dev"`
+
 
 To run locally with LetterOpener enabled:
 LetterOpener will open the e-mails send out in your browser and will log the content in the console.

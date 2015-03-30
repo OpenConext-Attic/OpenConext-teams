@@ -16,11 +16,12 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
-import nl.surfnet.coin.teams.domain.InvitationForm;
-import org.hibernate.validator.constraints.impl.EmailValidator;
+import org.hibernate.validator.internal.constraintvalidators.EmailValidator;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
+
+import nl.surfnet.coin.teams.domain.InvitationForm;
 
 /**
  * Validates {@link InvitationForm}

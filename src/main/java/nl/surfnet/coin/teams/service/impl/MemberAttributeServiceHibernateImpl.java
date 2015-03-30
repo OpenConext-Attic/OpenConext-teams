@@ -16,24 +16,25 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
-import nl.surfnet.coin.shared.service.GenericServiceHibernateImpl;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.MemberAttribute;
-import nl.surfnet.coin.teams.service.MemberAttributeService;
-import org.hibernate.criterion.Restrictions;
-import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Component;
+
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.MemberAttribute;
+import nl.surfnet.coin.teams.service.MemberAttributeService;
+import nl.surfnet.coin.teams.service.impl.deprecated.GenericServiceHibernateImpl;
 
 /**
  * Hibernate implementation for {@link MemberAttributeService}
  */
 @Component("memberAttributeService")
 public class MemberAttributeServiceHibernateImpl
-        extends GenericServiceHibernateImpl<MemberAttribute>
-        implements MemberAttributeService {
+  extends GenericServiceHibernateImpl<MemberAttribute>
+  implements MemberAttributeService {
 
   public MemberAttributeServiceHibernateImpl() {
     super(MemberAttribute.class);

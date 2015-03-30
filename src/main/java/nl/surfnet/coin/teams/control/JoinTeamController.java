@@ -16,21 +16,22 @@
 
 package nl.surfnet.coin.teams.control;
 
-import freemarker.template.Configuration;
-import freemarker.template.TemplateException;
-import nl.surfnet.coin.teams.domain.Person;
-import nl.surfnet.coin.teams.domain.Person;
-import nl.surfnet.coin.shared.service.MailService;
-import nl.surfnet.coin.teams.domain.JoinTeamRequest;
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.GrouperTeamService;
-import nl.surfnet.coin.teams.service.JoinTeamRequestService;
-import nl.surfnet.coin.teams.util.AuditLog;
-import nl.surfnet.coin.teams.util.ControllerUtil;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
-import nl.surfnet.coin.teams.util.ViewUtil;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,15 +49,20 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
 
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
-import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
-import java.util.*;
+import freemarker.template.Configuration;
+import freemarker.template.TemplateException;
+import nl.surfnet.coin.teams.domain.JoinTeamRequest;
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Person;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.JoinTeamRequestService;
+import nl.surfnet.coin.teams.service.mail.MailService;
+import nl.surfnet.coin.teams.util.AuditLog;
+import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
+import nl.surfnet.coin.teams.util.ViewUtil;
 
 
 /**
@@ -110,12 +116,12 @@ public class JoinTeamController {
       throw new RuntimeException("Cannot find team for parameter 'team'");
     }
     Person person = (Person) request.getSession().getAttribute(
-        LoginInterceptor.PERSON_SESSION_KEY);
+      LoginInterceptor.PERSON_SESSION_KEY);
 
 
     modelMap.addAttribute("team", team);
     JoinTeamRequest joinTeamRequest =
-        joinTeamRequestService.findPendingRequest(person.getId(), team.getId());
+      joinTeamRequestService.findPendingRequest(person.getId(), team.getId());
     if (joinTeamRequest == null) {
       joinTeamRequest = new JoinTeamRequest(person.getId(), team.getId(), person.getEmail(), person.getDisplayName());
     }
@@ -131,7 +137,7 @@ public class JoinTeamController {
   public RedirectView joinTeam(ModelMap modelMap,
                                @ModelAttribute(JOIN_TEAM_REQUEST) JoinTeamRequest joinTeamRequest,
                                HttpServletRequest request)
-      throws IOException {
+    throws IOException {
 
     ViewUtil.addViewToModelMap(request, modelMap);
 
@@ -142,12 +148,12 @@ public class JoinTeamController {
     }
 
     Person person = (Person) request.getSession().getAttribute(
-        LoginInterceptor.PERSON_SESSION_KEY);
+      LoginInterceptor.PERSON_SESSION_KEY);
 
     String message = joinTeamRequest.getMessage();
     // First send mail, then optionally create record in db
     sendJoinTeamMessage(team, person, message,
-        localeResolver.resolveLocale(request));
+      localeResolver.resolveLocale(request));
 
     joinTeamRequest.setTimestamp(new Date().getTime());
     joinTeamRequest.setDisplayName(person.getDisplayName());
@@ -155,21 +161,21 @@ public class JoinTeamController {
     joinTeamRequestService.saveOrUpdate(joinTeamRequest);
     AuditLog.log("User {} requested to join team {}", joinTeamRequest.getPersonId(), team.getId());
     return new RedirectView("home.shtml?teams=my&view="
-        + ViewUtil.getView(request));
+      + ViewUtil.getView(request));
   }
 
   private void sendJoinTeamMessage(final Team team, final Person person,
                                    final String message, final Locale locale)
-      throws IllegalStateException, IOException {
+    throws IllegalStateException, IOException {
 
     Object[] subjectValues = {team.getName()};
     final String subject = messageSource.getMessage(REQUEST_MEMBERSHIP_SUBJECT,
-        subjectValues, locale);
+      subjectValues, locale);
 
     final Set<Member> admins = grouperTeamService.findAdmins(team);
     if (CollectionUtils.isEmpty(admins)) {
       throw new RuntimeException("Team '" + team.getName()
-          + "' has no admins to mail invites");
+        + "' has no admins to mail invites");
     }
 
     final String html = composeJoinRequestMailMessage(team, person, message, locale, "html");
@@ -185,7 +191,7 @@ public class JoinTeamController {
     }
     if (bcc.isEmpty()) {
       throw new RuntimeException("Team '" + team.getName()
-                + "' has no admins with valid email addresses to mail invites");
+        + "' has no admins with valid email addresses to mail invites");
     }
 
     MimeMessagePreparator preparator = new MimeMessagePreparator() {
@@ -224,7 +230,7 @@ public class JoinTeamController {
 
     try {
       return FreeMarkerTemplateUtils.processTemplateIntoString(
-          freemarkerConfiguration.getTemplate(templateName, locale), templateVars
+        freemarkerConfiguration.getTemplate(templateName, locale), templateVars
       );
     } catch (IOException e) {
       throw new RuntimeException("Failed to create invitation mail", e);

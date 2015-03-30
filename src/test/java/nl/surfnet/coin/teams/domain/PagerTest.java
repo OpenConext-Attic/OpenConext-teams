@@ -16,13 +16,13 @@
 
 package nl.surfnet.coin.teams.domain;
 
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertNull;
+import org.junit.Test;
 
 /**
  * test for {@link Pager}

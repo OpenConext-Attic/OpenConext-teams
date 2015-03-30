@@ -16,10 +16,13 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
-import nl.surfnet.coin.teams.domain.Member;
-import nl.surfnet.coin.teams.domain.MemberAttribute;
-import nl.surfnet.coin.teams.domain.Role;
-import nl.surfnet.coin.teams.service.MemberAttributeService;
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,25 +32,24 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.MemberAttribute;
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.service.MemberAttributeService;
 
-import static junit.framework.Assert.*;
 
 /**
  * Test for {@link MemberAttributeServiceHibernateImpl}
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:coin-teams-context.xml",
-    "classpath:coin-teams-properties-context.xml",
-    "classpath:coin-shared-context.xml"})
+@ContextConfiguration(locations = {"classpath:coin-teams-context.xml",
+  "classpath:coin-teams-properties-context.xml",
+  "classpath:coin-shared-context.xml"})
 @TransactionConfiguration(transactionManager = "teamTransactionManager", defaultRollback = true)
 @Transactional
-@ActiveProfiles({"openconext","dev"})
+@ActiveProfiles({"openconext", "dev"})
 public class MemberAttributeServiceHibernateImplTest {
-  
+
   @Autowired
   MemberAttributeService memberAttributeService;
 
@@ -58,17 +60,17 @@ public class MemberAttributeServiceHibernateImplTest {
 
     Member member1 = new Member(roleSet, "Member One", "member-1", "member1@example.com");
     MemberAttribute member1GuestAttr = new MemberAttribute(member1.getId(),
-            MemberAttribute.ATTRIBUTE_GUEST, "true");
+      MemberAttribute.ATTRIBUTE_GUEST, "true");
     member1.addMemberAttribute(member1GuestAttr);
     MemberAttribute member1DummyAttr = new MemberAttribute(member1.getId(),
-            "dummyname", "dummyvalue");
+      "dummyname", "dummyvalue");
     member1.addMemberAttribute(member1DummyAttr);
     memberAttributeService.saveOrUpdate(member1.getMemberAttributes());
     assertTrue(member1.isGuest());
 
     Member member2 = new Member(roleSet, "Member Two", "member-2", "member1@example.com");
     MemberAttribute member2DummyAttr = new MemberAttribute(member2.getId(),
-            "dummyname", "dummyvalue");
+      "dummyname", "dummyvalue");
     member2.addMemberAttribute(member2DummyAttr);
     memberAttributeService.saveOrUpdate(member2.getMemberAttributes());
     assertFalse(member2.isGuest());
@@ -77,7 +79,7 @@ public class MemberAttributeServiceHibernateImplTest {
     members.add(member1);
     members.add(member2);
     List<MemberAttribute> memberAttributeList =
-            memberAttributeService.findAttributesForMembers(members);
+      memberAttributeService.findAttributesForMembers(members);
     assertEquals(3, memberAttributeList.size());
 
   }

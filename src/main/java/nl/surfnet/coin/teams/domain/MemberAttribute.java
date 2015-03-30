@@ -16,14 +16,14 @@
 
 package nl.surfnet.coin.teams.domain;
 
-import nl.surfnet.coin.shared.domain.DomainObject;
-import org.hibernate.annotations.Index;
-import org.hibernate.annotations.Proxy;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+
+import org.hibernate.annotations.Index;
+import org.hibernate.annotations.Proxy;
+
 
 /**
  * Custom attributes for a {@link Member} of a {@link Team}
@@ -33,7 +33,7 @@ import javax.persistence.UniqueConstraint;
 @SuppressWarnings({"serial", "UnusedDeclaration"})
 @Entity
 @Table(name = "member_attributes",
-        uniqueConstraints = @UniqueConstraint(columnNames = {"member_id", "attribute_name"}))
+  uniqueConstraints = @UniqueConstraint(columnNames = {"member_id", "attribute_name"}))
 @Proxy(lazy = false)
 public class MemberAttribute extends DomainObject {
 

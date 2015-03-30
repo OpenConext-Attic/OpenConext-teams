@@ -16,17 +16,21 @@
 
 package nl.surfnet.coin.teams.control;
 
-import freemarker.template.Configuration;
-import freemarker.template.TemplateException;
-import nl.surfnet.coin.teams.domain.Person;
-import nl.surfnet.coin.shared.service.MailService;
-import nl.surfnet.coin.teams.domain.*;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.GrouperTeamService;
-import nl.surfnet.coin.teams.service.TeamInviteService;
-import nl.surfnet.coin.teams.service.impl.InvitationFormValidator;
-import nl.surfnet.coin.teams.service.impl.InvitationValidator;
-import nl.surfnet.coin.teams.util.*;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -38,26 +42,35 @@ import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.Validator;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
 
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
-import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
+import freemarker.template.Configuration;
+import freemarker.template.TemplateException;
+import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.InvitationForm;
+import nl.surfnet.coin.teams.domain.InvitationMessage;
+import nl.surfnet.coin.teams.domain.Person;
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.TeamInviteService;
+import nl.surfnet.coin.teams.service.impl.InvitationFormValidator;
+import nl.surfnet.coin.teams.service.impl.InvitationValidator;
+import nl.surfnet.coin.teams.service.mail.MailService;
+import nl.surfnet.coin.teams.util.AuditLog;
+import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.TeamEnvironment;
+import nl.surfnet.coin.teams.util.TokenUtil;
+import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * {@link Controller} that handles the add member page of a logged in
@@ -105,12 +118,12 @@ public class AddMemberController {
   @RequestMapping("/addmember.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(
-        LoginInterceptor.PERSON_SESSION_KEY);
+      LoginInterceptor.PERSON_SESSION_KEY);
     Team team = controllerUtil.getTeam(request);
 
     if (!controllerUtil.hasUserAdministrativePrivileges(person, team.getId())) {
       throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct " +
-          "privileges to add (a) member(s)");
+        "privileges to add (a) member(s)");
     }
 
     modelMap.addAttribute(TokenUtil.TOKENCHECK, TokenUtil.generateSessionToken());
@@ -137,7 +150,7 @@ public class AddMemberController {
       roles = new Role[]{Role.Member};
     } else {
       throw new RuntimeException("User " + person.getId() +
-          " has not enough privileges to invite others in team " + teamId);
+        " has not enough privileges to invite others in team " + teamId);
     }
     modelMap.addAttribute("roles", roles);
   }
@@ -151,15 +164,15 @@ public class AddMemberController {
    * @throws UnsupportedEncodingException if {@link #UTF_8} is not supported
    */
   @RequestMapping(value = "/doaddmember.shtml", method = RequestMethod.POST,
-      params = "cancelAddMember")
+    params = "cancelAddMember")
   public RedirectView cancelAddMembers(@ModelAttribute("invitationForm") InvitationForm form,
                                        HttpServletRequest request,
                                        SessionStatus status)
-      throws UnsupportedEncodingException {
+    throws UnsupportedEncodingException {
     status.setComplete();
     return new RedirectView("detailteam.shtml?team="
-        + URLEncoder.encode(form.getTeamId(), UTF_8) + "&view="
-        + ViewUtil.getView(request), false, true, false);
+      + URLEncoder.encode(form.getTeamId(), UTF_8) + "&view="
+      + ViewUtil.getView(request), false, true, false);
   }
 
   /**
@@ -170,8 +183,8 @@ public class AddMemberController {
    * @param request  {@link javax.servlet.http.HttpServletRequest}
    * @param modelMap {@link org.springframework.ui.ModelMap}
    * @return the name of the form if something is wrong
-   *         before handling the invitation,
-   *         otherwise a redirect to the detailteam url
+   * before handling the invitation,
+   * otherwise a redirect to the detailteam url
    * @throws IOException if something goes wrong handling the invitation
    */
   @RequestMapping(value = "/doaddmember.shtml", method = RequestMethod.POST)
@@ -180,17 +193,17 @@ public class AddMemberController {
                                  BindingResult result, HttpServletRequest request,
                                  @RequestParam() String token, SessionStatus status,
                                  ModelMap modelMap)
-      throws IOException {
+    throws IOException {
     TokenUtil.checkTokens(sessionToken, token, status);
     Person person = (Person) request.getSession().getAttribute(
-        LoginInterceptor.PERSON_SESSION_KEY);
+      LoginInterceptor.PERSON_SESSION_KEY);
     addNewMemberRolesToModelMap(person, form.getTeamId(), modelMap);
 
     final boolean isAdminOrManager = controllerUtil.hasUserAdministrativePrivileges(person, request.getParameter(TEAM_PARAM));
     if (!isAdminOrManager) {
       status.setComplete();
       throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct " +
-          "privileges to add (a) member(s)");
+        "privileges to add (a) member(s)");
     }
     final boolean isAdmin = controllerUtil.hasUserAdminPrivileges(person, request.getParameter(TEAM_PARAM));
     // if a non admin tries to add a role admin or manager -> make invitation for member
@@ -221,8 +234,8 @@ public class AddMemberController {
     status.setComplete();
     modelMap.clear();
     return "redirect:detailteam.shtml?team="
-        + URLEncoder.encode(form.getTeamId(), UTF_8) + "&view="
-        + ViewUtil.getView(request);
+      + URLEncoder.encode(form.getTeamId(), UTF_8) + "&view="
+      + ViewUtil.getView(request);
   }
 
   @RequestMapping(value = "/doResendInvitation.shtml", method = RequestMethod.POST)
@@ -233,7 +246,7 @@ public class AddMemberController {
                                    @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
                                    @RequestParam() String token,
                                    SessionStatus status)
-      throws UnsupportedEncodingException {
+    throws UnsupportedEncodingException {
     TokenUtil.checkTokens(sessionToken, token, status);
     Validator validator = new InvitationValidator();
     validator.validate(invitation, result);
@@ -243,16 +256,16 @@ public class AddMemberController {
       return "resendinvitation";
     }
     Person person = (Person) request.getSession().getAttribute(
-        LoginInterceptor.PERSON_SESSION_KEY);
+      LoginInterceptor.PERSON_SESSION_KEY);
 
     if (!controllerUtil.hasUserAdministrativePrivileges(person, invitation.getTeamId())) {
       status.setComplete();
       modelMap.clear();
       throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct " +
-          "privileges to resend an invitation");
+        "privileges to resend an invitation");
     }
     InvitationMessage invitationMessage =
-        new InvitationMessage(messageText, person.getId());
+      new InvitationMessage(messageText, person.getId());
     invitation.addInvitationMessage(invitationMessage);
     invitation.setTimestamp(new Date().getTime());
     teamInviteService.saveOrUpdate(invitation);
@@ -263,13 +276,13 @@ public class AddMemberController {
     Object[] messageValuesSubject = {team.getName()};
 
     String subject = messageSource.getMessage(INVITE_SEND_INVITE_SUBJECT,
-        messageValuesSubject, locale);
+      messageValuesSubject, locale);
     sendInvitationByMail(invitation, subject, person, locale);
     status.setComplete();
     modelMap.clear();
     return "redirect:detailteam.shtml?team="
-        + URLEncoder.encode(teamId, UTF_8) + "&view="
-        + ViewUtil.getView(request);
+      + URLEncoder.encode(teamId, UTF_8) + "&view="
+      + ViewUtil.getView(request);
   }
 
   /**
@@ -308,7 +321,7 @@ public class AddMemberController {
 
     Object[] messageValuesSubject = {team.getName()};
     String subject = messageSource.getMessage(INVITE_SEND_INVITE_SUBJECT,
-        messageValuesSubject, locale);
+      messageValuesSubject, locale);
 
     // Add an activity for every member that has been invited to the team.
     for (InternetAddress email : emails) {
@@ -383,7 +396,7 @@ public class AddMemberController {
 
     try {
       return FreeMarkerTemplateUtils.processTemplateIntoString(
-          freemarkerConfiguration.getTemplate(templateName, locale), templateVars
+        freemarkerConfiguration.getTemplate(templateName, locale), templateVars
       );
     } catch (IOException e) {
       throw new RuntimeException("Failed to create invitation mail", e);

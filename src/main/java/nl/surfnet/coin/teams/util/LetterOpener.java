@@ -1,6 +1,16 @@
 package nl.surfnet.coin.teams.util;
 
-import nl.surfnet.coin.shared.service.MailService;
+import java.io.File;
+import java.io.IOException;
+import java.util.Properties;
+import javax.mail.BodyPart;
+import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.Part;
+import javax.mail.Session;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,12 +18,7 @@ import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 
-import javax.mail.*;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
-import java.io.File;
-import java.io.IOException;
-import java.util.Properties;
+import nl.surfnet.coin.teams.service.mail.MailService;
 
 public class LetterOpener implements MailService {
 

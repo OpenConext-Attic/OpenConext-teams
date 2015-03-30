@@ -16,8 +16,6 @@
 
 package nl.surfnet.coin.teams.domain;
 
-import nl.surfnet.coin.shared.domain.DomainObject;
-
 /**
  * Metadata of an external group stored in the SURFteams database. We have this redundant storage to show
  * the metadata to SURFteam member who are not a member of the external group.
@@ -87,7 +85,7 @@ public class ExternalGroup extends DomainObject {
 
   /**
    * @return long description of the group
-   *         {@literal This is the group that contains all students from the University}
+   * {@literal This is the group that contains all students from the University}
    */
   public String getDescription() {
     return description;

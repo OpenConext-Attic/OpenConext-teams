@@ -16,12 +16,16 @@
 
 package nl.surfnet.coin.teams.domain;
 
-import nl.surfnet.coin.shared.domain.DomainObject;
+import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import org.hibernate.annotations.Index;
 import org.hibernate.annotations.Proxy;
-
-import javax.persistence.*;
-import java.util.Date;
 
 /**
  * Message content of the sent invitation
@@ -30,7 +34,7 @@ import java.util.Date;
 @Entity
 @Table(name = "invitation_message")
 @Proxy(lazy = false)
-public class InvitationMessage extends DomainObject implements Comparable<InvitationMessage>{
+public class InvitationMessage extends DomainObject implements Comparable<InvitationMessage> {
 
   @ManyToOne
   @JoinColumn(name = "invitation_id", nullable = false)

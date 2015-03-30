@@ -16,11 +16,11 @@
 
 package nl.surfnet.coin.teams.service;
 
-import nl.surfnet.coin.shared.service.GenericService;
+import java.util.List;
+
 import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.Team;
-
-import java.util.List;
+import nl.surfnet.coin.teams.service.impl.deprecated.GenericService;
 
 /**
  * Service to handle team {@link Invitation}'s
@@ -47,12 +47,12 @@ public interface TeamInviteService extends GenericService<Invitation> {
   Invitation findInvitationByInviteId(String invitationId);
 
   /**
-     * Searches for an {@link Invitation} by its generated hash
-     * (which is sent to the invitee). irrespective of their expiration date.
-     *
-     * @param invitationId String that was sent to the invitee
-     * @return {@link Invitation} if found, otherwise {@literal null}
-     */
+   * Searches for an {@link Invitation} by its generated hash
+   * (which is sent to the invitee). irrespective of their expiration date.
+   *
+   * @param invitationId String that was sent to the invitee
+   * @return {@link Invitation} if found, otherwise {@literal null}
+   */
   Invitation findAllInvitationById(String invitationId);
 
   /**

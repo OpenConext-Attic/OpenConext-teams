@@ -16,26 +16,27 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
-import nl.surfnet.coin.shared.service.GenericServiceHibernateImpl;
-import nl.surfnet.coin.teams.domain.Invitation;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.service.TeamInviteService;
+import java.util.Date;
+import java.util.List;
+
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
-import java.util.Date;
-import java.util.List;
+import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.service.TeamInviteService;
+import nl.surfnet.coin.teams.service.impl.deprecated.GenericServiceHibernateImpl;
 
 /**
  * Hibernate implementation for {@link TeamInviteService}
  */
 @Component("teamInviteService")
 public class TeamInviteServiceHibernateImpl
-        extends GenericServiceHibernateImpl<Invitation>
-        implements TeamInviteService {
+  extends GenericServiceHibernateImpl<Invitation>
+  implements TeamInviteService {
 
   private static final long TWO_WEEKS = 14L * 24L * 60L * 60L * 1000L;
   private static final long THIRTY_DAYS = 30L * 24L * 60L * 60L * 1000L;
@@ -62,10 +63,10 @@ public class TeamInviteServiceHibernateImpl
   @Override
   public Invitation findOpenInvitation(String email, Team team) {
     List<Invitation> invitations = findByCriteria(
-        Restrictions.eq("email", email),
-        Restrictions.eq("teamId", team.getId()),
-        Restrictions.eq("accepted", false),
-        Restrictions.eq("declined", false)
+      Restrictions.eq("email", email),
+      Restrictions.eq("teamId", team.getId()),
+      Restrictions.eq("accepted", false),
+      Restrictions.eq("declined", false)
     );
     return CollectionUtils.isEmpty(invitations) ? null : invitations.get(0);
   }
@@ -78,21 +79,21 @@ public class TeamInviteServiceHibernateImpl
     cleanupExpiredInvitations();
     long twoWeeksAgo = (new Date().getTime()) - TWO_WEEKS;
     List<Invitation> invitations = findByCriteria(
-            Restrictions.eq("invitationHash", invitationId),
-            Restrictions.ge("timestamp", twoWeeksAgo));
+      Restrictions.eq("invitationHash", invitationId),
+      Restrictions.ge("timestamp", twoWeeksAgo));
     return CollectionUtils.isEmpty(invitations) ? null : invitations.get(0);
   }
 
   /**
    * {@inheritDoc}
-  */
+   */
   @Override
   public Invitation findAllInvitationById(final String invitationId) {
     cleanupExpiredInvitations();
     List<Invitation> invitations = findByCriteria(
-            Restrictions.eq("invitationHash", invitationId));
+      Restrictions.eq("invitationHash", invitationId));
     return CollectionUtils.isEmpty(invitations) ? null : invitations.get(0);
-    }
+  }
 
   /**
    * {@inheritDoc}
@@ -127,9 +128,9 @@ public class TeamInviteServiceHibernateImpl
   public List<Invitation> findPendingInvitationsByEmail(String email) {
     cleanupExpiredInvitations();
     return findByCriteria(
-        Restrictions.eq("email", email),
-        Restrictions.ne("declined", true),
-        Restrictions.ne("accepted", true)
+      Restrictions.eq("email", email),
+      Restrictions.ne("declined", true),
+      Restrictions.ne("accepted", true)
     );
   }
 
@@ -140,7 +141,7 @@ public class TeamInviteServiceHibernateImpl
   public void cleanupExpiredInvitations() {
     long thirtyDaysAgo = (new Date().getTime()) - THIRTY_DAYS;
     List<Invitation> invitations = findByCriteria(
-            Restrictions.lt("timestamp", thirtyDaysAgo));
+      Restrictions.lt("timestamp", thirtyDaysAgo));
     for (Invitation invitation : invitations) {
       delete(invitation);
     }
