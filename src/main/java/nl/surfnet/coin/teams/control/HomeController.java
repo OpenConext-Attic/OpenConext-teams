@@ -79,7 +79,7 @@ public class HomeController {
 
   private static final int PAGESIZE = 10;
 
-  @RequestMapping("/home.shtml")
+  @RequestMapping(value = {"/", "/home.shtml"})
   public String start(ModelMap modelMap, HttpServletRequest request,
                       @RequestParam(required = false, defaultValue = "my") String teams,
                       @RequestParam(required = false) String teamSearch,
