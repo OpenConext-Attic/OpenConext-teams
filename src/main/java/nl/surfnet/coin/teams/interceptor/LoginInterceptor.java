@@ -21,14 +21,13 @@ import nl.surfnet.coin.teams.domain.MemberAttribute;
 import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.teams.service.MemberAttributeService;
 import nl.surfnet.coin.teams.util.AuditLog;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -54,8 +53,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   private static final String STATUS_MEMBER = "member";
   public static final String TEAMS_COOKIE = "SURFconextTeams";
 
-  @Autowired
-  private TeamEnvironment teamEnvironment;
+  @Value("${teamsURL}")
+  private String teamsUrl;
 
   @Autowired
   private MemberAttributeService memberAttributeService;
@@ -126,7 +125,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
           } else {
             // Send redirect to landingpage if gadget is not requested in app view.
             logger.trace("Redirect to landingpage");
-            response.sendRedirect(teamEnvironment.getTeamsURL() + "/landingpage.shtml");
+            response.sendRedirect(teamsUrl + "/landingpage.shtml");
             return false;
           }
         }
@@ -177,21 +176,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     // Add the user status to the session
     String userStatus = person.isGuest() ? STATUS_GUEST : STATUS_MEMBER;
     session.setAttribute(USER_STATUS_SESSION_KEY, userStatus);
-  }
-
-
-  /**
-   * @param teamEnvironment the teamEnvironment to set
-   */
-  public void setTeamEnvironment(TeamEnvironment teamEnvironment) {
-    this.teamEnvironment = teamEnvironment;
-  }
-
-  /**
-   * @return the teamEnvironment
-   */
-  protected TeamEnvironment getTeamEnvironment() {
-    return teamEnvironment;
   }
 
   public void setMemberAttributeService(MemberAttributeService memberAttributeService) {

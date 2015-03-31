@@ -1,16 +1,17 @@
 package nl.surfnet.coin.teams.service.impl;
 
-import nl.surfnet.coin.teams.domain.ExternalGroup;
-import nl.surfnet.coin.teams.domain.ExternalGroupProvider;
-import nl.surfnet.coin.teams.service.VootClient;
-import org.springframework.security.oauth2.client.OAuth2RestTemplate;
-import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
-import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+
+import org.springframework.security.oauth2.client.OAuth2RestTemplate;
+import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
+import org.springframework.security.oauth2.client.token.grant.client.ClientCredentialsResourceDetails;
+
+import nl.surfnet.coin.teams.domain.ExternalGroup;
+import nl.surfnet.coin.teams.domain.ExternalGroupProvider;
+import nl.surfnet.coin.teams.service.VootClient;
 
 public class VootClientImpl implements VootClient {
 
@@ -36,8 +37,9 @@ public class VootClientImpl implements VootClient {
   }
 
   public List<ExternalGroup> groups(String userId) {
+    @SuppressWarnings("unchecked")
     List<Map<String, Object>> maps = vootService.getForObject(serviceUrl + "/internal/external-groups/{userId}", List.class, userId);
-    List<ExternalGroup> groups = new ArrayList<ExternalGroup>();
+    List<ExternalGroup> groups = new ArrayList<>();
     for (Map<String, Object> map : maps) {
       String sourceId = (String) map.get("sourceID");
       groups.add(new ExternalGroup((String) map.get("id"), (String) map.get("displayName"), (String) map.get("description"), new ExternalGroupProvider(sourceId, sourceId)));

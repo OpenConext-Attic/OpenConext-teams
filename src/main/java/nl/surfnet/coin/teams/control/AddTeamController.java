@@ -16,14 +16,18 @@
 
 package nl.surfnet.coin.teams.control;
 
+import nl.surfnet.coin.teams.Application;
 import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.teams.domain.*;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.service.GrouperTeamService;
 import nl.surfnet.coin.teams.service.TeamInviteService;
 import nl.surfnet.coin.teams.util.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
@@ -37,6 +41,7 @@ import java.beans.PropertyEditorSupport;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -59,7 +64,7 @@ public class AddTeamController {
   private LocaleResolver localeResolver;
 
   @Autowired
-  private TeamEnvironment environment;
+  private Environment environment;
 
   @Autowired
   private ControllerUtil controllerUtil;
@@ -69,6 +74,12 @@ public class AddTeamController {
 
   @Autowired
   private TeamInviteService teamInviteService;
+
+  @Value("${defaultStemName}")
+  private String defaultStemName;
+
+  @Value("${grouperPowerUser}")
+  private String grouperPowerUser;
 
   @InitBinder
   protected void initBinder(ServletRequestDataBinder binder) throws Exception {
@@ -133,7 +144,7 @@ public class AddTeamController {
     if (team.getStem() != null && !isPersonUsingAllowedStem(personId, team.getStem().getId())) {
       throw new RuntimeException("User is not allowed to add a team!");
     }
-    String stemId = team.getStem() != null ? team.getStem().getId() : environment.getDefaultStemName();
+    String stemId = team.getStem() != null ? team.getStem().getId() : defaultStemName;
     // (Ab)using a Team bean, do not use for actual storage
     String teamName = team.getName();
     // Form not completely filled in.
@@ -165,11 +176,11 @@ public class AddTeamController {
     grouperTeamService.addMember(teamId, person);
 
     // Give him the right permissions, add as the super user
-    grouperTeamService.addMemberRole(teamId, personId, Role.Admin, environment.getGrouperPowerUser());
+    grouperTeamService.addMemberRole(teamId, personId, Role.Admin, grouperPowerUser);
 
     status.setComplete();
     modelMap.clear();
-    if (environment.isGroupzyEnabled()) {
+    if (environment.acceptsProfiles(Application.GROUPZY_PROFILE_NAME)) {
       return String.format("redirect:/teams/%s/service-providers.shtml?view=", teamId, ViewUtil.getView(request));
     } else {
       return "redirect:detailteam.shtml?team="
@@ -216,7 +227,7 @@ public class AddTeamController {
     // Now check if the stem has a members group and the user is actually in that members group
     for (Stem stem : allUsersStems) {
       // Always add the default stem
-      if (stem.getId().equalsIgnoreCase(environment.getDefaultStemName())) {
+      if (stem.getId().equalsIgnoreCase(defaultStemName)) {
         stems.add(stem);
       }
       // Find the members team for the stem and check if the current person is member of that team

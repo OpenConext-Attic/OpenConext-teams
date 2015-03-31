@@ -26,6 +26,14 @@ CREATE DATABASE teams DEFAULT CHARACTER SET utf8;
 create user 'teams'@'localhost' identified by 'teams';
 grant all on teams.* to 'teams'@'localhost';
 
+CREATE DATABASE eb DEFAULT CHARACTER SET utf8;
+create user 'eb'@'localhost' identified by 'eb';
+grant all on eb.* to 'eb'@'localhost';
+
+CREATE DATABASE groupzy DEFAULT CHARACTER SET utf8;
+create user 'groupzy'@'localhost' identified by 'groupzy';
+grant all on groupzy.* to 'groupzy'@'localhost';
+
 ```
 
 # Start the app

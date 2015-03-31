@@ -19,45 +19,53 @@ package nl.surfnet.coin.teams.service.impl;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 
-import org.hibernate.criterion.Restrictions;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.MemberAttribute;
 import nl.surfnet.coin.teams.service.MemberAttributeService;
-import nl.surfnet.coin.teams.service.impl.deprecated.GenericServiceHibernateImpl;
 
-/**
- * Hibernate implementation for {@link MemberAttributeService}
- */
-@Component("memberAttributeService")
-public class MemberAttributeServiceHibernateImpl
-  extends GenericServiceHibernateImpl<MemberAttribute>
-  implements MemberAttributeService {
+@Transactional
+@Service
+public class MemberAttributeServiceHibernateImpl implements MemberAttributeService {
 
-  public MemberAttributeServiceHibernateImpl() {
-    super(MemberAttribute.class);
+  private final EntityManager entityManager;
+
+  @Autowired
+  public MemberAttributeServiceHibernateImpl(EntityManager entityManager) {
+    this.entityManager = entityManager;
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public List<MemberAttribute> findAttributesForMembers(Collection<Member> members) {
-    List<String> memberIds = new ArrayList<String>();
+    List<String> memberIds = new ArrayList<>();
     for (Member member : members) {
       memberIds.add(member.getId());
     }
-    return findByCriteria(Restrictions.in("memberId", memberIds));
+    String jpaQl = "select ma from MemberAttribute ma where ma.memberId in :memberIds";
+    final TypedQuery<MemberAttribute> q = entityManager.createQuery(jpaQl, MemberAttribute.class);
+    q.setParameter("memberIds", memberIds);
+    return q.getResultList();
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public List<MemberAttribute> findAttributesForMemberId(String memberId) {
-    return findByCriteria(Restrictions.eq("memberId", memberId));
+    String jpaQl = "select ma from MemberAttribute ma where ma.memberId = :memberId";
+    final TypedQuery<MemberAttribute> q = entityManager.createQuery(jpaQl, MemberAttribute.class);
+    q.setParameter("memberId", memberId);
+    return q.getResultList();
+  }
+
+  @Override
+  public void saveOrUpdate(List<MemberAttribute> memberAttributes) {
+    for (MemberAttribute memberAttribute : memberAttributes) {
+      entityManager.persist(memberAttribute);
+    }
   }
 
 }

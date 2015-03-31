@@ -42,9 +42,7 @@ import nl.surfnet.coin.teams.service.MemberAttributeService;
  * Test for {@link MemberAttributeServiceHibernateImpl}
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:coin-teams-context.xml",
-  "classpath:coin-teams-properties-context.xml",
-  "classpath:coin-shared-context.xml"})
+@ContextConfiguration(locations = {"classpath:applicationContext.xml"})
 @TransactionConfiguration(transactionManager = "teamTransactionManager", defaultRollback = true)
 @Transactional
 @ActiveProfiles({"openconext", "dev"})

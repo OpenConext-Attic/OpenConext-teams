@@ -20,12 +20,8 @@ import java.util.List;
 
 import nl.surfnet.coin.teams.domain.Invitation;
 import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.service.impl.deprecated.GenericService;
 
-/**
- * Service to handle team {@link Invitation}'s
- */
-public interface TeamInviteService extends GenericService<Invitation> {
+public interface TeamInviteService {
 
   /**
    * Searches for an {@link Invitation} by email address and team.
@@ -83,4 +79,8 @@ public interface TeamInviteService extends GenericService<Invitation> {
    * Cleans up expired {@link Invitation}'s
    */
   void cleanupExpiredInvitations();
+
+  void delete(Invitation invitation);
+
+  void saveOrUpdate(Invitation invitation);
 }

@@ -35,6 +35,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Controller;
@@ -61,7 +62,6 @@ import nl.surfnet.coin.teams.service.JoinTeamRequestService;
 import nl.surfnet.coin.teams.service.mail.MailService;
 import nl.surfnet.coin.teams.util.AuditLog;
 import nl.surfnet.coin.teams.util.ControllerUtil;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
 import nl.surfnet.coin.teams.util.ViewUtil;
 
 
@@ -94,13 +94,16 @@ public class JoinTeamController {
   private MailService mailService;
 
   @Autowired
-  private TeamEnvironment environment;
-
-  @Autowired
   private ControllerUtil controllerUtil;
 
   @Autowired
   private Configuration freemarkerConfiguration;
+
+  @Value("${teamsURL}")
+  private String teamsUrl;
+
+  @Value("${systemEmail}")
+  private String systemEmail;
 
   @RequestMapping("/jointeam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request) {
@@ -198,7 +201,7 @@ public class JoinTeamController {
       public void prepare(MimeMessage mimeMessage) throws MessagingException {
         mimeMessage.addHeader("Precedence", "bulk");
 
-        mimeMessage.setFrom(new InternetAddress(environment.getSystemEmail()));
+        mimeMessage.setFrom(new InternetAddress(systemEmail));
         mimeMessage.setRecipients(Message.RecipientType.BCC, bcc.toArray(new InternetAddress[bcc.size()]));
         mimeMessage.setSubject(subject);
 
@@ -225,7 +228,7 @@ public class JoinTeamController {
     // for unknown reasons Freemarker cannot call person.getEmail()
     templateVars.put("requesterEmail", person.getEmail());
     templateVars.put("team", team);
-    templateVars.put("teamsURL", environment.getTeamsURL());
+    templateVars.put("teamsURL", teamsUrl);
     templateVars.put("message", message);
 
     try {
@@ -239,12 +242,4 @@ public class JoinTeamController {
     }
   }
 
-  /**
-   * Setter for {@link TeamEnvironment} in case {@link @Autowired} is not used
-   *
-   * @param environment TeamEnvironment to set
-   */
-  void setTeamEnvironment(TeamEnvironment environment) {
-    this.environment = environment;
-  }
 }

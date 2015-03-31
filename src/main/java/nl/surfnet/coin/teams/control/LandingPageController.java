@@ -15,43 +15,42 @@
  */
 
 /**
- * 
+ *
  */
 package nl.surfnet.coin.teams.control;
-
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
-import nl.surfnet.coin.teams.util.ViewUtil;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.util.ViewUtil;
+
 /**
  * @author steinwelberg
- * 
  */
 @Controller
 public class LandingPageController {
 
-  @Autowired
-  private TeamEnvironment teamEnvironment;
+  @Value("${teamsURL}")
+  private String teamsUrl;
 
-  @RequestMapping(value="/landingpage.shtml", method=RequestMethod.GET)
+  @RequestMapping(value = "/landingpage.shtml", method = RequestMethod.GET)
   public String start(ModelMap modelMap, HttpServletRequest request) {
     ViewUtil.addViewToModelMap(request, modelMap);
 
-    modelMap.addAttribute("environment", teamEnvironment);
+    modelMap.addAttribute("teamsUrl", teamsUrl);
 
     return "landingpage";
   }
-  
-  @RequestMapping(value="/landingpage.shtml", method=RequestMethod.POST)
+
+  @RequestMapping(value = "/landingpage.shtml", method = RequestMethod.POST)
   public void storeCookie(HttpServletResponse response) {
     Cookie cookie = new Cookie(LoginInterceptor.TEAMS_COOKIE, "skipLanding=true");
     cookie.setMaxAge(Integer.MAX_VALUE);

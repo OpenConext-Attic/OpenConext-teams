@@ -16,9 +16,7 @@
 
 package nl.surfnet.coin.teams.service.impl;
 
-import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
-import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.service.JoinTeamRequestService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,16 +29,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 /**
  *Test for {@link JoinTeamRequestServiceHibernateImpl}
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
-    "classpath:coin-teams-context.xml",
-    "classpath:coin-teams-properties-context.xml",
-    "classpath:coin-shared-context.xml"})
+  "classpath:applicationContext.xml"})
 @TransactionConfiguration(transactionManager = "teamTransactionManager", defaultRollback = true)
 @Transactional
 @ActiveProfiles({"openconext","dev"})

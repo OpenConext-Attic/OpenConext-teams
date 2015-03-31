@@ -19,12 +19,11 @@ package nl.surfnet.coin.teams.service;
 import java.util.List;
 
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
-import nl.surfnet.coin.teams.service.impl.deprecated.GenericService;
 
 /**
  * Interface to handle {@link JoinTeamRequest} CRUD operations
  */
-public interface JoinTeamRequestService extends GenericService<JoinTeamRequest> {
+public interface JoinTeamRequestService {
 
   /**
    * Searches for pending {@link JoinTeamRequest}'s in the database
@@ -43,4 +42,8 @@ public interface JoinTeamRequestService extends GenericService<JoinTeamRequest> 
    * otherwise {@literal null}
    */
   JoinTeamRequest findPendingRequest(String personId, String teamId);
+
+  void delete(JoinTeamRequest pendingRequest);
+
+  void saveOrUpdate(JoinTeamRequest joinTeamRequest);
 }

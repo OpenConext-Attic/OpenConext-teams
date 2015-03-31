@@ -16,18 +16,18 @@
 
 package nl.surfnet.coin.teams.control;
 
-import com.google.common.base.Function;
-import com.google.common.collect.Collections2;
-import nl.surfnet.coin.teams.domain.Person;
-import nl.surfnet.coin.stoker.Stoker;
-import nl.surfnet.coin.stoker.StokerEntry;
-import nl.surfnet.coin.teams.domain.*;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.GrouperTeamService;
-import nl.surfnet.coin.teams.service.TeamInviteService;
-import nl.surfnet.coin.teams.service.TeamsDao;
-import nl.surfnet.coin.teams.util.*;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
@@ -38,24 +38,38 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.view.RedirectView;
 
-import javax.servlet.http.HttpServletRequest;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.*;
+import com.google.common.base.Function;
+import com.google.common.collect.Collections2;
+
+import nl.surfnet.coin.stoker.Stoker;
+import nl.surfnet.coin.stoker.StokerEntry;
+import nl.surfnet.coin.teams.Application;
+import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.InvitationMessage;
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Person;
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.domain.TeamServiceProvider;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.TeamInviteService;
+import nl.surfnet.coin.teams.service.TeamsDao;
+import nl.surfnet.coin.teams.util.AuditLog;
+import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.TokenUtil;
+import nl.surfnet.coin.teams.util.ViewUtil;
 
 
 /**
  * {@link Controller} that handles the accept/decline of an Invitation
  */
 @Controller
-@SessionAttributes({ "invitation", TokenUtil.TOKENCHECK })
+@SessionAttributes({"invitation", TokenUtil.TOKENCHECK})
 public class InvitationController {
 
   @Autowired
   private TeamInviteService teamInviteService;
-
-  @Autowired
-  private TeamEnvironment teamEnvironment;
 
   @Autowired
   private GrouperTeamService grouperTeamService;
@@ -69,15 +83,22 @@ public class InvitationController {
   @Autowired(required = false)
   private Stoker stoker;
 
+  @Value("grouperPowerUser")
+  private String grouperPowerUser;
+
+  @Value("group-name-context")
+  private String groupNameContext;
+
+  @Autowired
+  private Environment environment;
+
   /**
    * RequestMapping to show the accept invitation page.
    *
    * @param modelMap {@link ModelMap}
-   * @param request
-   *          {@link HttpServletRequest}
+   * @param request  {@link HttpServletRequest}
    * @return accept invitation page
-   * @throws UnsupportedEncodingException
-   *           if the server does not support utf-8
+   * @throws UnsupportedEncodingException if the server does not support utf-8
    */
   @RequestMapping(value = "/acceptInvitation.shtml")
   public String accept(ModelMap modelMap, HttpServletRequest request) throws UnsupportedEncodingException {
@@ -94,7 +115,7 @@ public class InvitationController {
       modelMap.addAttribute("action", "accepted");
       String teamId = invitation.getTeamId();
       String teamUrl = "detailteam.shtml?team=" + URLEncoder.encode(teamId, "utf-8")
-              + "&view=" + ViewUtil.getView(request);
+        + "&view=" + ViewUtil.getView(request);
       modelMap.addAttribute("teamUrl", teamUrl);
       return "invitationexception";
     }
@@ -107,11 +128,9 @@ public class InvitationController {
     modelMap.addAttribute("invitation", invitation);
     modelMap.addAttribute("team", team);
     modelMap.addAttribute("date", new Date(invitation.getTimestamp()));
-    modelMap.addAttribute("groupzyEnabled", teamEnvironment.isGroupzyEnabled());
+    modelMap.addAttribute("groupzyEnabled", environment.acceptsProfiles(Application.GROUPZY_PROFILE_NAME));
 
-    String groupNameContext = teamEnvironment.getGroupNameContext();
-
-    if(teamEnvironment.isGroupzyEnabled()) {
+    if (environment.acceptsProfiles(Application.GROUPZY_PROFILE_NAME)) {
       Collection<TeamServiceProvider> serviceProviders = teamsDao.forTeam(groupNameContext + teamId);
 
       Collection<StokerEntry> eduGainServiceProviders = stoker.getEduGainServiceProviders(Collections2.transform(serviceProviders, new Function<TeamServiceProvider, String>() {
@@ -130,22 +149,20 @@ public class InvitationController {
    * RequestMapping to accept an invitation. If everything is okay, it redirects
    * to your new team detail view.
    *
-   * @param request
-   *          {@link HttpServletRequest}
+   * @param request {@link HttpServletRequest}
    * @return detail view of your new team
-   * @throws UnsupportedEncodingException
-   *           if the server does not support utf-8
+   * @throws UnsupportedEncodingException if the server does not support utf-8
    */
   @RequestMapping(value = "/doAcceptInvitation.shtml")
   public RedirectView doAccept(HttpServletRequest request)
-      throws UnsupportedEncodingException {
+    throws UnsupportedEncodingException {
     Person person = (Person) request.getSession().getAttribute(
-        LoginInterceptor.PERSON_SESSION_KEY);
+      LoginInterceptor.PERSON_SESSION_KEY);
 
     Invitation invitation = getInvitationByRequest(request);
     if (invitation == null) {
       throw new IllegalArgumentException(
-          "Cannot find your invitation. Invitations expire after 14 days.");
+        "Cannot find your invitation. Invitations expire after 14 days.");
     }
     if (invitation.isDeclined()) {
       throw new RuntimeException("Invitation is Declined");
@@ -168,14 +185,14 @@ public class InvitationController {
       invitation.setIntendedRole(Role.Manager);
     }
     intendedRole = invitation.getIntendedRole();
-    grouperTeamService.addMemberRole(teamId, memberId, intendedRole, teamEnvironment.getGrouperPowerUser());
+    grouperTeamService.addMemberRole(teamId, memberId, intendedRole, grouperPowerUser);
     AuditLog.log("User {} accepted invitation for team {} with intended role {}", person.getId(), teamId, intendedRole);
     invitation.setAccepted(true);
     teamInviteService.saveOrUpdate(invitation);
 
     return new RedirectView("detailteam.shtml?team="
-        + URLEncoder.encode(teamId, "utf-8") + "&view="
-        + ViewUtil.getView(request));
+      + URLEncoder.encode(teamId, "utf-8") + "&view="
+      + ViewUtil.getView(request));
   }
 
   /**
@@ -183,8 +200,7 @@ public class InvitationController {
    * This URL is bypassed in {@link LoginInterceptor}
    *
    * @param modelMap {@link ModelMap}
-   * @param request
-   *          {@link HttpServletRequest}
+   * @param request  {@link HttpServletRequest}
    * @return view for decline result
    */
   @RequestMapping(value = "/declineInvitation.shtml")
@@ -212,12 +228,9 @@ public class InvitationController {
   /**
    * RequestMapping to delete an invitation as admin
    *
-   *
-   * @param request
-   *          {@link javax.servlet.http.HttpServletRequest}
+   * @param request {@link javax.servlet.http.HttpServletRequest}
    * @return redirect to detailteam if everything is okay
-   * @throws UnsupportedEncodingException
-   *           in the rare condition utf-8 is not supported
+   * @throws UnsupportedEncodingException in the rare condition utf-8 is not supported
    */
   @RequestMapping(value = "/deleteInvitation.shtml")
   public RedirectView deleteInvitation(HttpServletRequest request,
@@ -225,10 +238,10 @@ public class InvitationController {
                                        @RequestParam() String token,
                                        SessionStatus status,
                                        ModelMap modelMap)
-          throws UnsupportedEncodingException {
+    throws UnsupportedEncodingException {
     TokenUtil.checkTokens(sessionToken, token, status);
     Person person = (Person) request.getSession().getAttribute(
-        LoginInterceptor.PERSON_SESSION_KEY);
+      LoginInterceptor.PERSON_SESSION_KEY);
 
     if (person == null) {
       status.setComplete();
@@ -249,18 +262,18 @@ public class InvitationController {
     status.setComplete();
     modelMap.clear();
     return new RedirectView("detailteam.shtml?team="
-        + URLEncoder.encode(teamId, "utf-8") + "&view="
-        + ViewUtil.getView(request));
+      + URLEncoder.encode(teamId, "utf-8") + "&view="
+      + ViewUtil.getView(request));
   }
 
   @RequestMapping("/resendInvitation.shtml")
   public String resendInvitation(ModelMap modelMap, HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(
-            LoginInterceptor.PERSON_SESSION_KEY);
+      LoginInterceptor.PERSON_SESSION_KEY);
     Invitation invitation = getAllInvitationByRequest(request);
-        if (invitation == null) {
+    if (invitation == null) {
       throw new IllegalArgumentException(
-          "Cannot find the invitation. Invitations expire after 14 days.");
+        "Cannot find the invitation. Invitations expire after 14 days.");
     }
 
     Member member = grouperTeamService.findMember(invitation.getTeamId(), person.getId());
@@ -282,10 +295,11 @@ public class InvitationController {
     ViewUtil.addViewToModelMap(request, modelMap);
     return "resendinvitation";
   }
+
   @RequestMapping("/myinvitations.shtml")
   public String myInvitations(ModelMap modelMap, HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(
-            LoginInterceptor.PERSON_SESSION_KEY);
+      LoginInterceptor.PERSON_SESSION_KEY);
     String email = person.getEmail();
     if (!StringUtils.hasText(email)) {
       throw new IllegalArgumentException("Your profile does not contain an email address");
@@ -293,9 +307,9 @@ public class InvitationController {
     List<Invitation> invitations = teamInviteService.findPendingInvitationsByEmail(email);
     modelMap.addAttribute("invitations", invitations);
     List<Team> invitedTeams = new ArrayList<Team>();
-    for(Invitation invitation : invitations) {
+    for (Invitation invitation : invitations) {
       Team team = controllerUtil.getTeamById(invitation.getTeamId());
-      if(team != null) {
+      if (team != null) {
         invitedTeams.add(team);
       }
     }
@@ -309,7 +323,7 @@ public class InvitationController {
 
     if (!StringUtils.hasText(invitationId)) {
       throw new IllegalArgumentException(
-          "Missing parameter to identify the invitation");
+        "Missing parameter to identify the invitation");
     }
 
     return teamInviteService.findInvitationByInviteId(invitationId);
@@ -320,7 +334,7 @@ public class InvitationController {
 
     if (!StringUtils.hasText(invitationId)) {
       throw new IllegalArgumentException(
-          "Missing parameter to identify the invitation");
+        "Missing parameter to identify the invitation");
     }
 
     return teamInviteService.findAllInvitationById(invitationId);

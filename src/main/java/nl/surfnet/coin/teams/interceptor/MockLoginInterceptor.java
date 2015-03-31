@@ -21,6 +21,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 
 import javax.servlet.http.HttpServletRequest;
@@ -35,6 +36,9 @@ import java.io.IOException;
 public class MockLoginInterceptor extends LoginInterceptor {
   private static final Logger LOG = LoggerFactory.getLogger(MockLoginInterceptor.class);
   private static final String MOCK_USER_ATTR = "mockUser";
+
+  @Autowired
+  private String mockUserStatus;
 
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -58,8 +62,7 @@ public class MockLoginInterceptor extends LoginInterceptor {
       session.setAttribute(PERSON_SESSION_KEY, person);
 
       //handle guest status
-      session.setAttribute(USER_STATUS_SESSION_KEY,
-        getTeamEnvironment().getMockUserStatus());
+      session.setAttribute(USER_STATUS_SESSION_KEY, "member");
     }
     return true;
   }

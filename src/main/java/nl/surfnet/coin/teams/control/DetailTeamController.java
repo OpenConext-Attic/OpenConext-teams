@@ -38,7 +38,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
+import org.springframework.core.env.Environment;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -55,6 +57,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import freemarker.template.Configuration;
 import freemarker.template.TemplateException;
+import nl.surfnet.coin.teams.Application;
 import nl.surfnet.coin.teams.domain.ExternalGroup;
 import nl.surfnet.coin.teams.domain.ExternalGroupProvider;
 import nl.surfnet.coin.teams.domain.Invitation;
@@ -74,7 +77,6 @@ import nl.surfnet.coin.teams.service.VootClient;
 import nl.surfnet.coin.teams.service.mail.MailService;
 import nl.surfnet.coin.teams.util.AuditLog;
 import nl.surfnet.coin.teams.util.ControllerUtil;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
 import nl.surfnet.coin.teams.util.TokenUtil;
 import nl.surfnet.coin.teams.util.ViewUtil;
 
@@ -117,9 +119,6 @@ public class DetailTeamController {
   private TeamExternalGroupDao teamExternalGroupDao;
 
   @Autowired
-  private TeamEnvironment teamEnvironment;
-
-  @Autowired
   private LocaleResolver localeResolver;
 
   @Autowired
@@ -133,6 +132,18 @@ public class DetailTeamController {
 
   @Autowired
   private Configuration freemarkerConfiguration;
+
+  @Value("${grouperPowerUser}")
+  private String grouperPowerUser;
+
+  @Value("${systemEmail}")
+  private String systemEmail;
+
+  @Value("${maxInvitations}")
+  private Integer maxInvitations;
+
+  @Autowired
+  private Environment environment;
 
   @RequestMapping("/detailteam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request, @RequestParam("team") String teamId)
@@ -182,7 +193,7 @@ public class DetailTeamController {
       TokenUtil.generateSessionToken());
 
     modelMap
-      .addAttribute("maxInvitations", teamEnvironment.getMaxInvitations());
+      .addAttribute("maxInvitations", maxInvitations);
 
     ViewUtil.addViewToModelMap(request, modelMap);
 
@@ -200,7 +211,7 @@ public class DetailTeamController {
     if (!Role.None.equals(modelMap.get(ROLE_PARAM))) {
       addLinkedExternalGroupsToModelMap(person.getId(), teamId, modelMap);
     }
-    modelMap.addAttribute("groupzyEnabled", teamEnvironment.isGroupzyEnabled());
+    modelMap.addAttribute("groupzyEnabled", environment.acceptsProfiles(Application.GROUPZY_PROFILE_NAME));
     return "detailteam";
   }
 
@@ -544,7 +555,7 @@ public class DetailTeamController {
     Person personToAddAsMember = new Person(pendingRequest.getPersonId(), null, pendingRequest.getEmail(), null, null, pendingRequest.getDisplayName());
     if (approve) {
       grouperTeamService.addMember(teamId, personToAddAsMember);
-      grouperTeamService.addMemberRole(teamId, memberId, Role.Member, teamEnvironment.getGrouperPowerUser());
+      grouperTeamService.addMemberRole(teamId, memberId, Role.Member, grouperPowerUser);
       AuditLog.log("User {} approved join-team-request of user {} in team {}", loggedInPerson.getId(), personToAddAsMember.getId(), teamId);
     }
 
@@ -586,7 +597,7 @@ public class DetailTeamController {
       public void prepare(MimeMessage mimeMessage) throws MessagingException {
         mimeMessage.addHeader("Precedence", "bulk");
 
-        mimeMessage.setFrom(new InternetAddress(teamEnvironment.getSystemEmail()));
+        mimeMessage.setFrom(new InternetAddress(systemEmail));
         mimeMessage.setRecipients(Message.RecipientType.TO, new Address[]{new InternetAddress(memberToAdd.getEmail())});
         mimeMessage.setSubject(subject);
 
@@ -638,7 +649,7 @@ public class DetailTeamController {
       public void prepare(MimeMessage mimeMessage) throws MessagingException {
         mimeMessage.addHeader("Precedence", "bulk");
 
-        mimeMessage.setFrom(new InternetAddress(teamEnvironment.getSystemEmail()));
+        mimeMessage.setFrom(new InternetAddress(systemEmail));
         mimeMessage.setRecipients(Message.RecipientType.TO, new Address[]{new InternetAddress(memberToAdd.getEmail())});
         mimeMessage.setSubject(subject);
 

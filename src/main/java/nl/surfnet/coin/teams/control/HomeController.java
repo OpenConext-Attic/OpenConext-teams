@@ -19,14 +19,15 @@
  */
 package nl.surfnet.coin.teams.control;
 
-import nl.surfnet.coin.teams.domain.*;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.GrouperTeamService;
-import nl.surfnet.coin.teams.service.TeamInviteService;
-import nl.surfnet.coin.teams.service.VootClient;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
-import nl.surfnet.coin.teams.util.ViewUtil;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -37,8 +38,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.LocaleResolver;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.*;
+import nl.surfnet.coin.teams.domain.ExternalGroup;
+import nl.surfnet.coin.teams.domain.ExternalGroupProvider;
+import nl.surfnet.coin.teams.domain.Invitation;
+import nl.surfnet.coin.teams.domain.Pager;
+import nl.surfnet.coin.teams.domain.Person;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.domain.TeamResultWrapper;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.TeamInviteService;
+import nl.surfnet.coin.teams.service.VootClient;
+import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * @author steinwelberg
@@ -60,8 +71,8 @@ public class HomeController {
   @Autowired
   private TeamInviteService teamInviteService;
 
-  @Autowired
-  private TeamEnvironment environment;
+  @Value("${app.version}")
+  private String version;
 
   @Autowired
   private VootClient vootClient;
@@ -96,7 +107,7 @@ public class HomeController {
       request.getSession().setAttribute(LoginInterceptor.EXTERNAL_GROUPS_SESSION_KEY, groups);
     }
     Map<String, ExternalGroupProvider> groupProviders = new HashMap<String, ExternalGroupProvider>();
-    for (ExternalGroup group: groups) {
+    for (ExternalGroup group : groups) {
       groupProviders.put(group.getGroupProviderIdentifier(), group.getGroupProvider());
     }
 
@@ -107,17 +118,17 @@ public class HomeController {
     // Add the external group providers to the ModelMap for the navigation
     modelMap.addAttribute("groupProviders", groupProviders.values());
 
-    modelMap.addAttribute("appversion", environment.getVersion());
+    modelMap.addAttribute("appversion", version);
     ViewUtil.addViewToModelMap(request, modelMap);
 
     return "home";
   }
 
   private void addExternalGroupsToModelMap(ModelMap modelMap, int offset, String groupProviderId,
-                                           Map<String, ExternalGroupProvider> groupProviders, List<ExternalGroup> groups ) {
+                                           Map<String, ExternalGroupProvider> groupProviders, List<ExternalGroup> groups) {
     modelMap.addAttribute("externalGroupProvider", groupProviders.get(groupProviderId));
     List<ExternalGroup> filteredGroups = new ArrayList<ExternalGroup>();
-    for (ExternalGroup group: groups) {
+    for (ExternalGroup group : groups) {
       if (group.getGroupProviderIdentifier().equals(groupProviderId)) {
         filteredGroups.add(group);
       }
@@ -192,10 +203,6 @@ public class HomeController {
       }
     }
     return offset;
-  }
-
-  void setTeamEnvironment(TeamEnvironment teamEnvironment) {
-    this.environment = teamEnvironment;
   }
 
 }

@@ -17,61 +17,55 @@
 package nl.surfnet.coin.teams.service.impl;
 
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
-import org.hibernate.criterion.SimpleExpression;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import nl.surfnet.coin.teams.domain.JoinTeamRequest;
 import nl.surfnet.coin.teams.service.JoinTeamRequestService;
-import nl.surfnet.coin.teams.service.impl.deprecated.GenericServiceHibernateImpl;
 
-/**
- * Hibernate implementation for {@link JoinTeamRequestService}
- */
-@Component("joinTeamRequestService")
-public class JoinTeamRequestServiceHibernateImpl
-  extends GenericServiceHibernateImpl<JoinTeamRequest>
-  implements JoinTeamRequestService {
+@Service("joinTeamRequestService")
+@Transactional
+public class JoinTeamRequestServiceHibernateImpl implements JoinTeamRequestService {
 
-  public JoinTeamRequestServiceHibernateImpl() {
-    super(JoinTeamRequest.class);
+  private final EntityManager entityManager;
+
+  @Autowired
+  public JoinTeamRequestServiceHibernateImpl(EntityManager entityManager) {
+    this.entityManager = entityManager;
   }
 
-  /**
-   * Constructor
-   *
-   * @param type the clazz
-   */
-  public JoinTeamRequestServiceHibernateImpl(Class<JoinTeamRequest> type) {
-    super(type);
-  }
-
-  /**
-   * {@inheritDoc}
-   *
-   * @param teamId
-   */
-  @SuppressWarnings({"unchecked"})
   @Override
   public List<JoinTeamRequest> findPendingRequests(String teamId) {
-    Criteria criteria = createCriteria();
-    criteria.add(Restrictions.eq("groupId", teamId));
-    criteria.addOrder(Order.asc("personId"));
-    return criteria.list();
+    String jpaQl = "select jtr from JoinTeamRequest jtr where jtr.groupId = :groupId ORDER BY jtr.personId ASC";
+    final TypedQuery<JoinTeamRequest> q = entityManager.createQuery(jpaQl, JoinTeamRequest.class);
+    q.setParameter("groupId", teamId);
+    return q.getResultList();
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public JoinTeamRequest findPendingRequest(String personId, String teamId) {
-    SimpleExpression personIdExp = Restrictions.eq("personId", personId);
-    SimpleExpression groupIdExp = Restrictions.eq("groupId", teamId);
-    List<JoinTeamRequest> list = findByCriteria(personIdExp, groupIdExp);
-    return CollectionUtils.isEmpty(list) ? null : list.get(0);
+    String jpaQl = "select jtr from JoinTeamRequest jtr where jtr.groupId = :groupId and jtr.personId=:personId ORDER BY jtr.personId ASC";
+    final TypedQuery<JoinTeamRequest> q = entityManager.createQuery(jpaQl, JoinTeamRequest.class);
+    q.setParameter("groupId", teamId);
+    q.setParameter("personId", personId);
+
+    final List<JoinTeamRequest> resultList = q.getResultList();
+    // TODO looks pretty buggy to me but this is what the original impl also did...
+    return CollectionUtils.isEmpty(resultList) ? null : resultList.get(0);
+  }
+
+  @Override
+  public void delete(JoinTeamRequest request) {
+    entityManager.remove(request);
+  }
+
+  @Override
+  public void saveOrUpdate(JoinTeamRequest joinTeamRequest) {
+    entityManager.persist(joinTeamRequest);
   }
 }

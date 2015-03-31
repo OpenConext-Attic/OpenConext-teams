@@ -33,6 +33,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Controller;
@@ -68,7 +69,6 @@ import nl.surfnet.coin.teams.service.impl.InvitationValidator;
 import nl.surfnet.coin.teams.service.mail.MailService;
 import nl.surfnet.coin.teams.util.AuditLog;
 import nl.surfnet.coin.teams.util.ControllerUtil;
-import nl.surfnet.coin.teams.util.TeamEnvironment;
 import nl.surfnet.coin.teams.util.TokenUtil;
 import nl.surfnet.coin.teams.util.ViewUtil;
 
@@ -100,13 +100,16 @@ public class AddMemberController {
   private MailService mailService;
 
   @Autowired
-  private TeamEnvironment environment;
-
-  @Autowired
   private ControllerUtil controllerUtil;
 
   @Autowired
   private Configuration freemarkerConfiguration;
+
+  @Value("${teamsURL}")
+  private String teamsUrl;
+
+  @Value("${systemEmail}")
+  private String systemEmail;
 
   /**
    * Shows form to invite others to your {@link Team}
@@ -367,7 +370,7 @@ public class AddMemberController {
       public void prepare(MimeMessage mimeMessage) throws MessagingException {
         mimeMessage.addHeader("Precedence", "bulk");
         mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(invitation.getEmail()));
-        mimeMessage.setFrom(new InternetAddress(environment.getSystemEmail()));
+        mimeMessage.setFrom(new InternetAddress(systemEmail));
         mimeMessage.setSubject(subject);
 
         MimeMultipart rootMixedMultipart = controllerUtil.getMimeMultipartMessageBody(plainText, html);
@@ -392,26 +395,14 @@ public class AddMemberController {
     templateVars.put("inviter", inviter);
     final Team team = grouperTeamService.findTeamById(invitation.getTeamId());
     templateVars.put("team", team);
-    templateVars.put("teamsURL", environment.getTeamsURL());
+    templateVars.put("teamsURL", teamsUrl);
 
     try {
       return FreeMarkerTemplateUtils.processTemplateIntoString(
         freemarkerConfiguration.getTemplate(templateName, locale), templateVars
       );
-    } catch (IOException e) {
-      throw new RuntimeException("Failed to create invitation mail", e);
-    } catch (TemplateException e) {
+    } catch (IOException | TemplateException e) {
       throw new RuntimeException("Failed to create invitation mail", e);
     }
-  }
-
-
-  /**
-   * Method to set the TeamEnvironment in case {@link @Autowired} is not used
-   *
-   * @param environment {@link TeamEnvironment} to set
-   */
-  void setTeamEnvironment(TeamEnvironment environment) {
-    this.environment = environment;
   }
 }

@@ -21,26 +21,12 @@ import java.util.List;
 
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.MemberAttribute;
-import nl.surfnet.coin.teams.service.impl.deprecated.GenericService;
 
-/**
- * Interface to handle {@link MemberAttribute}'s
- */
-public interface MemberAttributeService extends GenericService<MemberAttribute> {
+public interface MemberAttributeService {
 
-  /**
-   * Finds the {@link MemberAttribute}'s for the given {@link Member}'s
-   *
-   * @param members Collection of Member's
-   * @return List of MemberAttribute's, can be empty
-   */
   List<MemberAttribute> findAttributesForMembers(Collection<Member> members);
 
-  /**
-   * Finds the {@link MemberAttribute}'s for the given member id
-   *
-   * @param memberId unique identifier of the member
-   * @return List of MemberAttribute's, can be empty
-   */
   List<MemberAttribute> findAttributesForMemberId(String memberId);
+
+  void saveOrUpdate(List<MemberAttribute> memberAttributes);
 }
