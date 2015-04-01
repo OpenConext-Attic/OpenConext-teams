@@ -40,13 +40,13 @@ public class LoginInterceptorTest {
   public void testPreHandle() throws Exception {
     String id = "urn:collab:person:surfnet.nl:hansz";
 
-    LoginInterceptor interceptor = new LoginInterceptor();
+
 
     MemberAttributeService memberAttributeService =
       mock(MemberAttributeService.class);
     when(memberAttributeService.findAttributesForMemberId(
       id)).thenReturn(new ArrayList<MemberAttribute>());
-    interceptor.setMemberAttributeService(memberAttributeService);
+    LoginInterceptor interceptor = new LoginInterceptor("foo", memberAttributeService);
 
 
     MockHttpServletRequest request = new MockHttpServletRequest();

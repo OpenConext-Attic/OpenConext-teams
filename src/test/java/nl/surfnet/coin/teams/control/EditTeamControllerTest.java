@@ -86,9 +86,6 @@ public class EditTeamControllerTest extends AbstractControllerTest {
   @Test
   public void testEditTeamHappyFlow() throws Exception {
 
-    ListAppender auditAppender = getAuditLogAppender();
-    auditAppender.list.clear();
-
     MockHttpServletRequest request = getRequest();
     String token = TokenUtil.generateSessionToken();
     // Add the teamId, team name, description & token
@@ -109,10 +106,6 @@ public class EditTeamControllerTest extends AbstractControllerTest {
 
     assertEquals("detailteam.shtml?team=team-1&view=app", result.getUrl());
 
-
-    assertEquals("An audit event should be appended to audit log", 1, auditAppender.list.size());
-    LoggingEvent auditEvent = (LoggingEvent) auditAppender.list.get(0);
-    assertTrue("Audit event should contain old team name", auditEvent.getFormattedMessage().contains("Team 1"));
   }
 
   @Test(expected = RuntimeException.class)
