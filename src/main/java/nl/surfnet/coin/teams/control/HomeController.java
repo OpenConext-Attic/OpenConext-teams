@@ -89,14 +89,12 @@ public class HomeController {
 
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
     Preconditions.checkNotNull(person, "No user set. Is shibboleth configured correctly?");
-    String display = teams;
-    String query = teamSearch;
     modelMap.addAttribute("groupProviderId", groupProviderId);
 
-    if ("externalGroups".equals(display)) {
-      modelMap.addAttribute("display", display);
+    if ("externalGroups".equals(teams)) {
+      modelMap.addAttribute("display", teams);
     } else {
-      addTeams(query, person.getId(), display, modelMap, request);
+      addTeams(teamSearch, person.getId(), teams, modelMap, request);
     }
 
     String email = person.getEmail();
@@ -109,7 +107,7 @@ public class HomeController {
       groups = vootClient.groups(person.getId());
       request.getSession().setAttribute(LoginInterceptor.EXTERNAL_GROUPS_SESSION_KEY, groups);
     }
-    Map<String, ExternalGroupProvider> groupProviders = new HashMap<String, ExternalGroupProvider>();
+    Map<String, ExternalGroupProvider> groupProviders = new HashMap<>();
     for (ExternalGroup group : groups) {
       groupProviders.put(group.getGroupProviderIdentifier(), group.getGroupProvider());
     }
@@ -130,7 +128,7 @@ public class HomeController {
   private void addExternalGroupsToModelMap(ModelMap modelMap, int offset, String groupProviderId,
                                            Map<String, ExternalGroupProvider> groupProviders, List<ExternalGroup> groups) {
     modelMap.addAttribute("externalGroupProvider", groupProviders.get(groupProviderId));
-    List<ExternalGroup> filteredGroups = new ArrayList<ExternalGroup>();
+    List<ExternalGroup> filteredGroups = new ArrayList<>();
     for (ExternalGroup group : groups) {
       if (group.getGroupProviderIdentifier().equals(groupProviderId)) {
         filteredGroups.add(group);
