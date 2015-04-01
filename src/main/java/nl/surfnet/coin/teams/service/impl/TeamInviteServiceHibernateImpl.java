@@ -46,7 +46,7 @@ public class TeamInviteServiceHibernateImpl implements TeamInviteService {
 
   @Override
   public Invitation findOpenInvitation(String email, Team team) {
-    String jpaQl = "select i from Invitations i where i.email = :email and i.teamId = :teamId and i.accepted = false and i.declined = false";
+    String jpaQl = "select i from Invitation i where i.email = :email and i.teamId = :teamId and i.accepted = false and i.declined = false";
     final TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);
     q.setParameter("email", email);
     q.setParameter("teamId", team.getId());
@@ -58,7 +58,7 @@ public class TeamInviteServiceHibernateImpl implements TeamInviteService {
   @Override
   public Invitation findInvitationByInviteId(String invitationId) {
     cleanupExpiredInvitations();
-    String jpaQl = "select i from Invitations i where i.invitationHash = :invitationId and i.timestamp >= :twoWeeksAgo";
+    String jpaQl = "select i from Invitation i where i.invitationHash = :invitationId and i.timestamp >= :twoWeeksAgo";
     final TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);
     q.setParameter("invitationId", invitationId);
     q.setParameter("twoWeeksAgo", (new Date().getTime()) - TWO_WEEKS);
@@ -69,7 +69,7 @@ public class TeamInviteServiceHibernateImpl implements TeamInviteService {
   @Override
   public Invitation findAllInvitationById(final String invitationId) {
     cleanupExpiredInvitations();
-    String jpaQl = "select i from Invitations i where i.invitationHash = :invitationId";
+    String jpaQl = "select i from Invitation i where i.invitationHash = :invitationId";
     final TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);
     q.setParameter("invitationId", invitationId);
     final List<Invitation> resultList = q.getResultList();
@@ -80,7 +80,7 @@ public class TeamInviteServiceHibernateImpl implements TeamInviteService {
   @Override
   public List<Invitation> findAllInvitationsForTeam(Team team) {
     cleanupExpiredInvitations();
-    String jpaQl = "select distinct i from Invitations i where i.teamId = :teamId order by i.email asc";
+    String jpaQl = "select distinct i from Invitation i where i.teamId = :teamId order by i.email asc";
     final TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);
     q.setParameter("teamId", team.getId());
     return q.getResultList();
@@ -90,7 +90,7 @@ public class TeamInviteServiceHibernateImpl implements TeamInviteService {
   @Override
   public List<Invitation> findInvitationsForTeamExcludeAccepted(Team team) {
     cleanupExpiredInvitations();
-    String jpaQl = "select distinct i from Invitations i where i.teamId = :teamId and i.accepted = false order by i.email asc";
+    String jpaQl = "select distinct i from Invitation i where i.teamId = :teamId and i.accepted = false order by i.email asc";
     final TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);
     q.setParameter("teamId", team.getId());
     return q.getResultList();
@@ -100,7 +100,7 @@ public class TeamInviteServiceHibernateImpl implements TeamInviteService {
   @Override
   public List<Invitation> findPendingInvitationsByEmail(String email) {
     cleanupExpiredInvitations();
-    String jpaQl = "select i from Invitations i where i.email = :email and i.accepted = true and i.declined = true";
+    String jpaQl = "select i from Invitation i where i.email = :email and i.accepted = true and i.declined = true";
     final TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);
     q.setParameter("email", email);
     return q.getResultList();
@@ -109,7 +109,7 @@ public class TeamInviteServiceHibernateImpl implements TeamInviteService {
   @Override
   public void cleanupExpiredInvitations() {
 
-    String jpaQl = "select i from Invitations i where i.timestamp >= :thirtyDaysAgo";
+    String jpaQl = "select i from Invitation i where i.timestamp >= :thirtyDaysAgo";
     final TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);
     q.setParameter("thirtyDaysAgo", (new Date().getTime()) - THIRTY_DAYS);
     final List<Invitation> resultList = q.getResultList();
