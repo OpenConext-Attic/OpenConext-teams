@@ -99,7 +99,7 @@ public class AddAllowedServiceProvidersToTeamController {
     return new ModelAndView("add-allowed-serviceproviders", model);
   }
 
-  @RequestMapping(value = "/service-providers.json", method = RequestMethod.GET, produces = "json")
+  @RequestMapping(value = "/service-providers.json", method = RequestMethod.GET, produces = "application/json")
   @ResponseBody
   public Collection<StokerEntry> serviceProviders() {
     return new ServiceProviderOrderer("en", stoker.getEduGainServiceProviders()).ordered();
@@ -122,7 +122,4 @@ public class AddAllowedServiceProvidersToTeamController {
       + ViewUtil.getView(view);
   }
 
-  public void setStoker(Stoker stoker) {
-    this.stoker = stoker;
-  }
 }

@@ -34,7 +34,20 @@ CREATE DATABASE groupzy DEFAULT CHARACTER SET utf8;
 create user 'groupzy'@'localhost' identified by 'groupzy';
 grant all on groupzy.* to 'groupzy'@'localhost';
 
+USE groupzy;
+DROP TABLE IF EXISTS service_provider_group;
+
+CREATE TABLE service_provider_group (
+  id           BIGINT(20) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  sp_entity_id VARCHAR(1024) NOT NULL,
+  team_id      VARCHAR(1024) NOT NULL,
+  created_at   DATETIME      NOT NULL,
+  updated_at   DATETIME
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 ```
+
+The groupzy schema is not managed by this application, therefore we don't let Flyway manage it.
 
 # Start the app
 

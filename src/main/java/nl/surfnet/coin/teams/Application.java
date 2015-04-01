@@ -157,9 +157,6 @@ public class Application extends SpringBootServletInitializer {
     @Autowired
     private ResourceLoader resourceLoader;
 
-    @Value("${teams.groupzy.group_provider_acl_db.migrations.folder}")
-    String flywayMigrationsPath;
-
     @Bean(name = "groupzyDataSource")
     @ConfigurationProperties(prefix = "datasource.groupzy")
     public DataSource groupzyDataSource() {
@@ -176,16 +173,9 @@ public class Application extends SpringBootServletInitializer {
 
     @Autowired
     @Bean
-    public JdbcServiceProviderTeamDao teamsDao() {
-      return new JdbcServiceProviderTeamDao(groupzyDataSource());
+    public JdbcServiceProviderTeamDao teamsDao(@Qualifier("groupzyDataSource") DataSource groupzyDataSource) {
+      return new JdbcServiceProviderTeamDao(groupzyDataSource);
     }
 
-    @PostConstruct
-    public void groupzyFlyway() {
-      Flyway flyway = new Flyway();
-      flyway.setDataSource(groupzyDataSource());
-      flyway.setLocations(flywayMigrationsPath);
-      flyway.migrate();
-    }
   }
 }
