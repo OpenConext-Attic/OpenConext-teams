@@ -71,12 +71,6 @@ public class Application extends SpringBootServletInitializer {
     return DataSourceBuilder.create().build();
   }
 
-  @Bean(name = "ebDataSource")
-  @ConfigurationProperties(prefix = "datasource.eb")
-  public DataSource ebDatasource() {
-    return DataSourceBuilder.create().build();
-  }
-
   @Bean(name = "teamsJdbcTemplate")
   @Autowired
   public JdbcTemplate teamsJdbcTemplate(@Qualifier("teamsDataSource") DataSource dataSource) {
