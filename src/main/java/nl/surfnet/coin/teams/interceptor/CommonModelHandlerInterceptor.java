@@ -3,8 +3,6 @@ package nl.surfnet.coin.teams.interceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -14,8 +12,7 @@ public class CommonModelHandlerInterceptor extends HandlerInterceptorAdapter {
   public static final String RPC_RELAY_URL = "shindigHost";
   private final String shindigHost;
 
-  @Autowired
-  public CommonModelHandlerInterceptor(@Value("${shindigHost}") String shindigHost) {
+  public CommonModelHandlerInterceptor(String shindigHost) {
     this.shindigHost = shindigHost;
   }
 

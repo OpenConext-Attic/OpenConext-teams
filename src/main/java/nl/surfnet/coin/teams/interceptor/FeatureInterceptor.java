@@ -16,20 +16,27 @@
 
 package nl.surfnet.coin.teams.interceptor;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * Interceptor to enable/disable (new) features
  */
 public class FeatureInterceptor extends HandlerInterceptorAdapter {
-  private boolean displayExternalTeams;
-  private boolean displayExternalTeamMembers;
-  private boolean displayAddExternalGroupToTeam;
+
+  private final boolean displayExternalTeams;
+  private final boolean displayExternalTeamMembers;
+  private final boolean displayAddExternalGroupToTeam;
+
+  public FeatureInterceptor(boolean displayExternalTeams, boolean displayExternalTeamMembers, boolean displayAddExternalGroupToTeam) {
+    this.displayExternalTeams = displayExternalTeams;
+    this.displayExternalTeamMembers = displayExternalTeamMembers;
+    this.displayAddExternalGroupToTeam = displayAddExternalGroupToTeam;
+  }
 
   @Override
   public void postHandle(HttpServletRequest request, HttpServletResponse response,
@@ -43,16 +50,4 @@ public class FeatureInterceptor extends HandlerInterceptorAdapter {
     super.postHandle(request, response, handler, modelAndView);
   }
 
-
-  public void setDisplayExternalTeams(boolean displayExternalTeams) {
-    this.displayExternalTeams = displayExternalTeams;
-  }
-
-  public void setDisplayExternalTeamMembers(boolean displayExternalTeamMembers) {
-    this.displayExternalTeamMembers = displayExternalTeamMembers;
-  }
-
-  public void setDisplayAddExternalGroupToTeam(boolean displayAddExternalGroupToTeam) {
-    this.displayAddExternalGroupToTeam = displayAddExternalGroupToTeam;
-  }
 }

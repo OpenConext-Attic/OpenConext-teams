@@ -38,6 +38,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.LocaleResolver;
 
+import com.google.common.base.Preconditions;
+
 import nl.surfnet.coin.teams.domain.ExternalGroup;
 import nl.surfnet.coin.teams.domain.ExternalGroupProvider;
 import nl.surfnet.coin.teams.domain.Invitation;
@@ -86,6 +88,7 @@ public class HomeController {
                       @RequestParam(required = false) String groupProviderId) {
 
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
+    Preconditions.checkNotNull(person, "No user set. Is shibboleth configured correctly?");
     String display = teams;
     String query = teamSearch;
     modelMap.addAttribute("groupProviderId", groupProviderId);

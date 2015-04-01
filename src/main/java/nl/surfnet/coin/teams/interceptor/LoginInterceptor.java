@@ -16,25 +16,24 @@
 
 package nl.surfnet.coin.teams.interceptor;
 
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.util.StringUtils;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
 import nl.surfnet.coin.teams.domain.Member;
 import nl.surfnet.coin.teams.domain.MemberAttribute;
 import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.teams.service.MemberAttributeService;
 import nl.surfnet.coin.teams.util.AuditLog;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.util.StringUtils;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Intercepts calls to controllers to handle Single Sign On details from
@@ -53,15 +52,18 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   private static final String STATUS_MEMBER = "member";
   public static final String TEAMS_COOKIE = "SURFconextTeams";
 
-  @Value("${teamsURL}")
-  private String teamsUrl;
+  private final String teamsUrl;
 
-  @Autowired
-  private MemberAttributeService memberAttributeService;
+  private final MemberAttributeService memberAttributeService;
+
+  public LoginInterceptor(String teamsUrl, MemberAttributeService memberAttributeService) {
+    this.teamsUrl = teamsUrl;
+    this.memberAttributeService = memberAttributeService;
+  }
 
   /*
-   * Return the part of the path of the request
-   */
+     * Return the part of the path of the request
+     */
   private String getRequestedPart(HttpServletRequest request) {
     return request.getRequestURI();
   }
@@ -178,15 +180,11 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     session.setAttribute(USER_STATUS_SESSION_KEY, userStatus);
   }
 
-  public void setMemberAttributeService(MemberAttributeService memberAttributeService) {
-    this.memberAttributeService = memberAttributeService;
-  }
-
   /**
    * @return {@link List} of url parts to bypass authentication
    */
   private static List<String> createLoginBypass() {
-    List<String> bypass = new ArrayList<String>();
+    List<String> bypass = new ArrayList<>();
     bypass.add("landingpage.shtml");
     bypass.add("js");
     bypass.add("css");
