@@ -98,7 +98,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         String view = request.getParameter("view");
 
         // Unprotect the items in bypass
-        String urlPart = urlSplit[2];
+        // TODO hans this is a bug
+        String urlPart = urlSplit[1];
 
         logger.trace("Request for '{}'", request.getRequestURI());
         logger.trace("urlPart: '{}'", urlPart);
