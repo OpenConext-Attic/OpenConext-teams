@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 public class SpringMvcConfiguration extends WebMvcConfigurerAdapter {
@@ -19,5 +20,10 @@ public class SpringMvcConfiguration extends WebMvcConfigurerAdapter {
     for (HandlerInterceptor handlerInterceptor : handlerInterceptors) {
       registry.addInterceptor(handlerInterceptor);
     }
+  }
+
+  @Override
+  public void configureViewResolvers(ViewResolverRegistry registry) {
+    registry.jsp("/WEB-INF/jsp/", ".jsp");
   }
 }

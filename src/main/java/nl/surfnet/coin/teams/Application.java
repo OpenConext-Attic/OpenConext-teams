@@ -27,6 +27,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import nl.surfnet.coin.stoker.Stoker;
@@ -48,7 +49,7 @@ import nl.surfnet.coin.teams.util.LetterOpener;
 import nl.surfnet.coin.teams.util.SpringMvcConfiguration;
 
 @SpringBootApplication
-@EnableAutoConfiguration(exclude = { org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration.class })
+@EnableAutoConfiguration(exclude = {org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration.class})
 public class Application extends SpringBootServletInitializer {
 
   public static final String DEV_PROFILE_NAME = "dev";
@@ -136,14 +137,21 @@ public class Application extends SpringBootServletInitializer {
     @Value("${displayAddExternalGroupToTeam}") final Boolean displayAddExternalGroupToTeam
   ) {
     List<HandlerInterceptor> interceptors = new ArrayList<>();
+
+
     interceptors.add(new CommonModelHandlerInterceptor(shindigHost));
     interceptors.add(new FeatureInterceptor(displayExternalTeams, displayExternalTeamMembers, displayAddExternalGroupToTeam));
 
+    final LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
+    localeChangeInterceptor.setParamName("lang");
+    interceptors.add(localeChangeInterceptor);
+
     if (environment.acceptsProfiles(DEV_PROFILE_NAME)) {
-      interceptors.add(new MockLoginInterceptor());
+      interceptors.add(new MockLoginInterceptor(teamsURL, memberAttributeService));
     } else {
       interceptors.add(new LoginInterceptor(teamsURL, memberAttributeService));
     }
+
     return new SpringMvcConfiguration(interceptors);
   }
 

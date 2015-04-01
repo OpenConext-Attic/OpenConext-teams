@@ -24,18 +24,21 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import nl.surfnet.coin.teams.domain.Person;
+import nl.surfnet.coin.teams.service.MemberAttributeService;
 
 /**
  * Like the LoginInterceptor but gets the user id from the environment instead
  * of Shibboleth.
  */
-public class MockLoginInterceptor extends HandlerInterceptorAdapter {
-
+public class MockLoginInterceptor extends LoginInterceptor {
   private static final String MOCK_USER_ATTR = "mockUser";
-  private static final String MOCK_MEMBER_STATUS = "member";
+  private static final String MOCK_USER_STATUS = "member";
+
+  public MockLoginInterceptor(String teamsUrl, MemberAttributeService memberAttributeService) {
+    super(teamsUrl, memberAttributeService);
+  }
 
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -48,18 +51,18 @@ public class MockLoginInterceptor extends HandlerInterceptorAdapter {
     }
 
     HttpSession session = request.getSession();
-    if (null == session.getAttribute(LoginInterceptor.PERSON_SESSION_KEY) &&
+    if (null == session.getAttribute(PERSON_SESSION_KEY) &&
       StringUtils.isBlank(request.getParameter(MOCK_USER_ATTR))) {
       sendLoginHtml(response);
       return false;
-    } else if (null == session.getAttribute(LoginInterceptor.PERSON_SESSION_KEY)) {
+    } else if (null == session.getAttribute(PERSON_SESSION_KEY)) {
       //handle mock user
       String userId = request.getParameter(MOCK_USER_ATTR);
       Person person = new Person(userId, userId, userId + "@mockorg.org", "mockorg.org", "member", userId);
-      session.setAttribute(LoginInterceptor.PERSON_SESSION_KEY, person);
+      session.setAttribute(PERSON_SESSION_KEY, person);
 
       //handle guest status
-      session.setAttribute(LoginInterceptor.USER_STATUS_SESSION_KEY, MOCK_MEMBER_STATUS);
+      session.setAttribute(USER_STATUS_SESSION_KEY, MOCK_USER_STATUS);
     }
     return true;
   }
