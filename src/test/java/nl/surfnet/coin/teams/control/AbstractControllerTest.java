@@ -16,33 +16,32 @@
 
 package nl.surfnet.coin.teams.control;
 
-import ch.qos.logback.core.read.ListAppender;
-import freemarker.template.Configuration;
-import freemarker.template.DefaultObjectWrapper;
-import nl.surfnet.coin.teams.domain.*;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import static org.mockito.Mockito.mock;
+
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.junit.Before;
 import org.mockito.internal.stubbing.answers.DoesNothing;
 import org.mockito.internal.stubbing.answers.Returns;
 import org.mockito.stubbing.Answer;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.web.servlet.mvc.Controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-
-import static org.mockito.Mockito.mock;
+import nl.surfnet.coin.teams.domain.Member;
+import nl.surfnet.coin.teams.domain.Person;
+import nl.surfnet.coin.teams.domain.Role;
+import nl.surfnet.coin.teams.domain.Stem;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.domain.TeamResultWrapper;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 
 /**
  * Base class for testing {@link Controller} instances
@@ -153,20 +152,6 @@ public abstract class AbstractControllerTest {
   }
 
   /**
-   * Creates Freemarker {@link Configuration} that loads the template from the classpath folder {@literal ftl}
-   *
-   * @return Freemarker Configuration
-   * @throws IOException when this folder cannot be found
-   */
-  protected Configuration getFreemarkerConfig() throws IOException {
-    Configuration freemarkerConfiguration = new Configuration();
-    Resource templateDir = new ClassPathResource("/ftl/");
-    freemarkerConfiguration.setDirectoryForTemplateLoading(templateDir.getFile());
-    freemarkerConfiguration.setObjectWrapper(new DefaultObjectWrapper());
-    return freemarkerConfiguration;
-  }
-
-  /**
    * @param target         the controller
    * @param answer         the answer to return on method invocations
    * @param interfaceClass the class to mock
@@ -243,15 +228,5 @@ public abstract class AbstractControllerTest {
     return modelMap;
   }
 
-
-  /**
-   * Get the Logback appender that is used for audit logging.
-   *
-   * @return
-   */
-  protected ListAppender getAuditLogAppender() {
-    // We know that logback logs auditing events to a listappender by this name
-    return (ListAppender) ((ch.qos.logback.classic.Logger) LoggerFactory.getLogger("nl.surfnet.coin.teams.audit")).getAppender("list");
-  }
 
 }
