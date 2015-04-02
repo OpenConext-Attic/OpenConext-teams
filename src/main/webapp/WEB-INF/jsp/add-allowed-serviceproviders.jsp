@@ -34,7 +34,7 @@
         <input type="text" id="search-service-providers" name="search-service-providers" size="50px;">
       </div>
       <div class="team-container" id="selected-service-providers-container">
-        <form action="<c:url value='/teams/${teamId}/service-providers.shtml'/>" method="post">
+        <form action="<c:url value='/${teamId}/service-providers.shtml'/>" method="post">
           <input type="hidden" name="view" value="<c:out value="${view}"/>">
           <input type="hidden" name="team" value="<c:out value="${teamId}"/>">
           <ul id="selected-service-providers">

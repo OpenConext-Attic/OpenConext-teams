@@ -88,7 +88,7 @@ public class AddAllowedServiceProvidersToTeamController {
   @Autowired
   private TeamsDao teamsDao;
 
-  @RequestMapping(value = "/teams/{id}/service-providers.shtml", method = RequestMethod.GET)
+  @RequestMapping(value = "/{id}/service-providers.shtml", method = RequestMethod.GET)
   public ModelAndView get(@PathVariable("id") String teamId, @RequestParam(value = "view", required = false) String view) {
     ModelMap model = new ModelMap();
     model.put("serviceProviders", new ServiceProviderOrderer("en", stoker.getEduGainServiceProviders()).ordered());
@@ -105,7 +105,7 @@ public class AddAllowedServiceProvidersToTeamController {
     return new ServiceProviderOrderer("en", stoker.getEduGainServiceProviders()).ordered();
   }
 
-  @RequestMapping(value = "/teams/{id}/service-providers.shtml", method = RequestMethod.POST)
+  @RequestMapping(value = "/{id}/service-providers.shtml", method = RequestMethod.POST)
   public String post(@PathVariable("id") String teamId, @RequestParam(value = "view", required = false) String view, @RequestParam("services[]") List<String> services) throws UnsupportedEncodingException {
 
     Collection<String> spEntityIds = filter(services, emptyStrings);
