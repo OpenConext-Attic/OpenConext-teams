@@ -155,7 +155,7 @@ public class DetailTeamController {
     if (!StringUtils.hasText(teamId)) {
       throw new IllegalArgumentException("Missing parameter for team");
     }
-    Set<Role> roles = new HashSet<Role>();
+    Set<Role> roles = new HashSet<>();
     String message = request.getParameter("mes");
 
     Team team = grouperTeamService.findTeamById(teamId);
