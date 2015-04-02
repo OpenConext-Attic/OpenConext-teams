@@ -114,14 +114,14 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
           || "acceptInvitation.shtml".equals(urlPart)
           || "detailteam.shtml".equals(urlPart)) {
           logger.trace("Going to shibboleth");
-          response.sendRedirect("/Shibboleth.sso/Login?target="
+          response.sendRedirect(teamsUrl +"/Shibboleth.sso/Login?target="
             + request.getRequestURL()
             + URLEncoder.encode(queryString, "utf-8"));
           return false;
           // If user is requesting SURFteams for a VO redirect to Federation Login
         } else {
           if (getTeamsCookie(request).contains("skipLanding")) {
-            response.sendRedirect("/Shibboleth.sso/Login?target="
+            response.sendRedirect(teamsUrl +"/Shibboleth.sso/Login?target="
               + request.getRequestURL()
               + URLEncoder.encode(queryString, "utf-8"));
             return false;
