@@ -129,7 +129,6 @@ public class Application extends SpringBootServletInitializer {
     @Value("${displayAddExternalGroupToTeam}") final Boolean displayAddExternalGroupToTeam
   ) {
     List<HandlerInterceptor> interceptors = new ArrayList<>();
-
     interceptors.add(new FeatureInterceptor(displayExternalTeams, displayExternalTeamMembers, displayAddExternalGroupToTeam));
 
     final LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
