@@ -31,7 +31,6 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import nl.surfnet.coin.stoker.Stoker;
-import nl.surfnet.coin.teams.interceptor.CommonModelHandlerInterceptor;
 import nl.surfnet.coin.teams.interceptor.FeatureInterceptor;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
 import nl.surfnet.coin.teams.interceptor.MockLoginInterceptor;
@@ -125,15 +124,12 @@ public class Application extends SpringBootServletInitializer {
   public WebMvcConfigurerAdapter webMvcConfigurerAdapter(
     Environment environment, MemberAttributeService memberAttributeService,
     @Value("${teamsURL}") final String teamsURL,
-    @Value("${shindigHost}") final String shindigHost,
     @Value("${displayExternalTeams}") final Boolean displayExternalTeams,
     @Value("${displayExternalTeamMembers}") final Boolean displayExternalTeamMembers,
     @Value("${displayAddExternalGroupToTeam}") final Boolean displayAddExternalGroupToTeam
   ) {
     List<HandlerInterceptor> interceptors = new ArrayList<>();
 
-
-    interceptors.add(new CommonModelHandlerInterceptor(shindigHost));
     interceptors.add(new FeatureInterceptor(displayExternalTeams, displayExternalTeamMembers, displayAddExternalGroupToTeam));
 
     final LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();

@@ -109,38 +109,5 @@
   <script type="text/javascript" src="<c:url value="/js/lib/jquery-ui.1.11.1.min.js"/>"></script>
   <script type="text/javascript" src="<c:url value="/js/lib/typeahead.0.10.5.js"/>"></script>
   <script type="text/javascript" src="<c:url value="/js/coin-teams.js?v=20150223"/>"></script>
-  <%--
-    We need the view parameter in the search result, which is now Ajax, we use this JavaScipt variable for it
-   --%>
-   <script language="JavaScript">
-     var view = '<c:out value="${view}"/>';
-   </script>
-  
-  <c:if test='${view eq "gadget"}'>
-    <script src="<c:out value="${shindigHost}" />/gadgets/js/rpc.js"></script>
-     <script type="text/javascript">
-       $(window).load(function () {
-         function setheight_callback() {
-           return false;
-         }
-
-         function getURLParameter(name) {
-           name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-           var regexS = "[\\?&]"+name+"=([^&#]*)";
-           var regex = new RegExp( regexS );
-           var results = regex.exec(window.location.href);
-           if (results == null)
-             return "";
-           else
-             return unescape(results[1]);
-         }
-
-         gadgets.rpc.setAuthToken('..', getURLParameter('rpctoken'));
-         gadgets.rpc.setRelayUrl('..', '<c:out value="${shindigHost}" />/container/rpc_relay.html');
-         gadgets.rpc.call('..', 'setheight', setheight_callback, $(document.body).outerHeight(true));
-       });
-     </script>
-  </c:if>
-
 </body>
 </html>
