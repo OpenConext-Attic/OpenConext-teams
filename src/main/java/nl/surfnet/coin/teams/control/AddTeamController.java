@@ -181,7 +181,7 @@ public class AddTeamController {
     status.setComplete();
     modelMap.clear();
     if (environment.acceptsProfiles(Application.GROUPZY_PROFILE_NAME)) {
-      return String.format("redirect:/teams/%s/service-providers.shtml?view=", teamId, ViewUtil.getView(request));
+      return String.format("redirect:/%s/service-providers.shtml?view=", teamId, ViewUtil.getView(request));
     } else {
       return "redirect:detailteam.shtml?team="
         + URLEncoder.encode(teamId, "utf-8") + "&view="
