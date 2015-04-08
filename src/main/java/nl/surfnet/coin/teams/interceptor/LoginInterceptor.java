@@ -42,7 +42,6 @@ import nl.surfnet.coin.teams.util.AuditLog;
  */
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
-  private static final String GADGET = "gadget";
   public static final String PERSON_SESSION_KEY = "person";
   public static final String EXTERNAL_GROUPS_SESSION_KEY = "externalGroupsSessionKey";
   public static final String USER_STATUS_SESSION_KEY = "userStatus";
@@ -110,18 +109,9 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         if (LOGIN_BYPASS.contains(urlPart)) {
           logger.trace("Bypassing {}", urlPart);
           return super.preHandle(request, response, handler);
-        } else if (GADGET.equals(view)
-          || "acceptInvitation.shtml".equals(urlPart)
-          || "detailteam.shtml".equals(urlPart)) {
-          logger.trace("Going to shibboleth");
-          response.sendRedirect(teamsUrl +"/Shibboleth.sso/Login?target="
-            + request.getRequestURL()
-            + URLEncoder.encode(queryString, "utf-8"));
-          return false;
-          // If user is requesting SURFteams for a VO redirect to Federation Login
         } else {
           if (getTeamsCookie(request).contains("skipLanding")) {
-            response.sendRedirect(teamsUrl +"/Shibboleth.sso/Login?target="
+            response.sendRedirect(teamsUrl + "/Shibboleth.sso/Login?target="
               + request.getRequestURL()
               + URLEncoder.encode(queryString, "utf-8"));
             return false;
@@ -163,7 +153,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
   /**
    * Defines if the stored guest status matches the guest status from EngineBlock
-   *
    */
   void handleGuestStatus(HttpSession session, Person person) {
     Member member = new Member(null, person);
