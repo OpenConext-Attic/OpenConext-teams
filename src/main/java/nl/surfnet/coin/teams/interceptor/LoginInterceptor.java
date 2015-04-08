@@ -60,13 +60,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     this.memberAttributeService = memberAttributeService;
   }
 
-  /*
-     * Return the part of the path of the request
-     */
-  private String getRequestedPart(HttpServletRequest request) {
-    return request.getRequestURI();
-  }
-
   @Override
   public boolean preHandle(HttpServletRequest request,
                            HttpServletResponse response, Object handler) throws Exception {
@@ -91,14 +84,12 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         // User is not logged in, and name-id header is empty.
         // Check whether the user is requesting the landing page, if not
         // redirect him to the landing page.
-        String url = getRequestedPart(request);
+        String url = request.getRequestURI();
         String[] urlSplit = url.split("/");
 
         String view = request.getParameter("view");
 
-        // Unprotect the items in bypass
-        // TODO hans this is a bug
-        String urlPart = urlSplit[1];
+        String urlPart = urlSplit.length < 1 ? "/" : urlSplit[1];
 
         logger.trace("Request for '{}'", request.getRequestURI());
         logger.trace("urlPart: '{}'", urlPart);
