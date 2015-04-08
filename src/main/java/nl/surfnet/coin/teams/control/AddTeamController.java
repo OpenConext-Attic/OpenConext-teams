@@ -35,6 +35,7 @@ import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.beans.PropertyEditorSupport;
@@ -183,10 +184,7 @@ public class AddTeamController {
     if (environment.acceptsProfiles(Application.GROUPZY_PROFILE_NAME)) {
       return String.format("redirect:/%s/service-providers.shtml?view=", teamId, ViewUtil.getView(request));
     } else {
-      return "redirect:detailteam.shtml?team="
-        + URLEncoder.encode(teamId, "utf-8") + "&view="
-        + ViewUtil.getView(request);
-
+      return "redirect:detailteam.shtml?team=" + teamId + "&view=" + ViewUtil.getView(request);
     }
 
   }
