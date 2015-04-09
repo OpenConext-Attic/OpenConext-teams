@@ -26,6 +26,8 @@ import java.util.Locale;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
@@ -61,6 +63,8 @@ import nl.surfnet.coin.teams.util.ViewUtil;
 @Controller
 public class HomeController {
 
+  private static final Logger LOG = LoggerFactory.getLogger(HomeController.class);
+
   @Autowired
   private MessageSource messageSource;
 
@@ -86,17 +90,18 @@ public class HomeController {
                       @RequestParam(required = false, defaultValue = "my") String teams,
                       @RequestParam(required = false) String teamSearch,
                       @RequestParam(required = false) String groupProviderId) {
+    long start = System.currentTimeMillis();
 
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
     Preconditions.checkNotNull(person, "No user set. Is shibboleth configured correctly?");
     modelMap.addAttribute("groupProviderId", groupProviderId);
-
+    LOG.debug("Elapsed before lots of https-invocations to grouper: {} ms", System.currentTimeMillis() - start);
     if ("externalGroups".equals(teams)) {
       modelMap.addAttribute("display", teams);
     } else {
       addTeams(teamSearch, person.getId(), teams, modelMap, request);
     }
-
+    LOG.debug("Elapsed after fetching teams: {} ms", System.currentTimeMillis() - start);
     String email = person.getEmail();
     if (StringUtils.hasText(email)) {
       List<Invitation> invitations = teamInviteService.findPendingInvitationsByEmail(email);
@@ -107,10 +112,13 @@ public class HomeController {
       groups = vootClient.groups(person.getId());
       request.getSession().setAttribute(LoginInterceptor.EXTERNAL_GROUPS_SESSION_KEY, groups);
     }
+
+    LOG.debug("Elapsed after calling voot: {} ms", System.currentTimeMillis() - start);
     Map<String, ExternalGroupProvider> groupProviders = new HashMap<>();
     for (ExternalGroup group : groups) {
       groupProviders.put(group.getGroupProviderIdentifier(), group.getGroupProvider());
     }
+    LOG.debug("Elapsed after groupProviders: {} ms", System.currentTimeMillis() - start);
 
     if (groupProviderId != null) {
       addExternalGroupsToModelMap(modelMap, getOffset(request), groupProviderId, groupProviders, groups);
@@ -121,7 +129,7 @@ public class HomeController {
 
     modelMap.addAttribute("appversion", version);
     ViewUtil.addViewToModelMap(request, modelMap);
-
+    LOG.debug("Elapsed just before calling jsp: {} ms", System.currentTimeMillis() - start);
     return "home";
   }
 
