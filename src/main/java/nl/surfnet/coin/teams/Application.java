@@ -52,6 +52,7 @@ import nl.surfnet.coin.teams.util.SpringMvcConfiguration;
 public class Application extends SpringBootServletInitializer {
 
   public static final String DEV_PROFILE_NAME = "dev";
+  public static final String REAL_GROUPER_PROFILE_NAME = "realGrouper";
   public static final String GROUPZY_PROFILE_NAME = "groupzy";
 
   @Override
@@ -94,7 +95,7 @@ public class Application extends SpringBootServletInitializer {
   public GrouperTeamService grouperTeamService(Environment environment, MemberAttributeService memberAttributeService,
                                                @Value("${defaultStemName}") String defaultStemName,
                                                @Value("${grouperPowerUser}") String grouperPowerUser) {
-    if (environment.acceptsProfiles(DEV_PROFILE_NAME)) {
+    if (environment.acceptsProfiles(DEV_PROFILE_NAME) && !environment.acceptsProfiles(REAL_GROUPER_PROFILE_NAME)) {
       return new InMemoryMockTeamService();
     }
     return new GrouperTeamServiceWsImpl(memberAttributeService, defaultStemName, grouperPowerUser);
