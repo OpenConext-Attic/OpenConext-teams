@@ -389,7 +389,7 @@ public class AddMemberController {
     } else {
       templateName = "invitationmail.ftl";
     }
-    Map<String, Object> templateVars = new HashMap<String, Object>();
+    Map<String, Object> templateVars = new HashMap<>();
 
     templateVars.put("invitation", invitation);
     templateVars.put("inviter", inviter);
