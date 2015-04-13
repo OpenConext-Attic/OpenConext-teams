@@ -16,24 +16,51 @@
 
 package nl.surfnet.coin.teams.control;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpServletRequest;
+import com.google.common.base.Charsets;
+import com.google.common.collect.ImmutableList;
+import com.google.common.io.Resources;
 
-/**
- * @author steinwelberg
- * 
- * {@link Controller} that handles the javascript of a user.
- */
 @Controller
 public class JSController {
 
-  @RequestMapping("/js/coin-teams.js")
-  public String js(ModelMap modelMap, HttpServletRequest request) {
-    
-    return "js";
+  private static final String JS_BASEPATH = "js/coin-teams/";
+  private static final List<String> SCRIPTS = ImmutableList.of("jquery/plugins.js", "init.js", "core.js", "sandbox.js",
+    "modules/home.js", "modules/teamoverview.js", "modules/addteam.js", "modules/editteam.js", "modules/jointeam.js",
+    "modules/addmember.js", "modules/acceptinvitation.js", "modules/detailteam.js", "modules/addallowedserviceproviders.js"
+  );
+
+  private String jsToSend;
+
+  public JSController() {
+
+    StringBuffer stringBuffer = new StringBuffer();
+    SCRIPTS.forEach(script -> {
+      URL url = Resources.getResource(JS_BASEPATH + script);
+      String text = null;
+      try {
+        text = Resources.toString(url, Charsets.UTF_8);
+      } catch (IOException e) {
+        throw new RuntimeException(e);
+      }
+      stringBuffer.append(text);
+    });
+    jsToSend = stringBuffer.toString();
+  }
+
+
+  @RequestMapping(value = "/js/coin-teams.js")
+  public void js(HttpServletResponse response) throws IOException {
+    response.setContentType("application/javascript");
+    response.getWriter().println(jsToSend);
+
   }
 
 }
