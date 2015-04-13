@@ -55,11 +55,6 @@ import nl.surfnet.coin.teams.service.TeamInviteService;
 import nl.surfnet.coin.teams.service.VootClient;
 import nl.surfnet.coin.teams.util.ViewUtil;
 
-/**
- * @author steinwelberg
- *         <p/>
- *         {@link Controller} that handles the home page of a logged in user.
- */
 @Controller
 public class HomeController {
 
@@ -115,9 +110,8 @@ public class HomeController {
 
     LOG.debug("Elapsed after calling voot: {} ms", System.currentTimeMillis() - start);
     Map<String, ExternalGroupProvider> groupProviders = new HashMap<>();
-    for (ExternalGroup group : groups) {
-      groupProviders.put(group.getGroupProviderIdentifier(), group.getGroupProvider());
-    }
+    groups.forEach(group -> groupProviders.put(group.getGroupProviderIdentifier(), group.getGroupProvider()));
+
     LOG.debug("Elapsed after groupProviders: {} ms", System.currentTimeMillis() - start);
 
     if (groupProviderId != null) {

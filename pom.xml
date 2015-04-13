@@ -20,7 +20,6 @@
   <name>coin-teams-war</name>
   <description>OpenConext Teams WAR</description>
   <properties>
-    <spring.profiles.active>openconext,production</spring.profiles.active>
     <grouper.version>2.1.5</grouper.version>
     <freemarker.version>2.3.22</freemarker.version>
     <httpclient.version>4.2.2</httpclient.version>
@@ -31,6 +30,7 @@
     <easymock.version>2.5.2</easymock.version>
     <commons-lang.version>2.6</commons-lang.version>
     <commons-fileupload.version>1.2.2</commons-fileupload.version>
+    <java.version>1.8</java.version>
   </properties>
   <scm>
     <connection>scm:git:git@github.com:OpenConext/OpenConext-teams.git</connection>
@@ -185,17 +185,7 @@
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
 
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.3</version>
-        <configuration>
-          <showDeprecation>true</showDeprecation>
-          <showWarnings>true</showWarnings>
-          <source>1.7</source>
-          <target>1.7</target>
-        </configuration>
-      </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
