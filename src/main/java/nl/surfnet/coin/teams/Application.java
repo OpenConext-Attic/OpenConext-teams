@@ -1,5 +1,6 @@
 package nl.surfnet.coin.teams;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -11,7 +12,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
+import org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
@@ -21,6 +24,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
+import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -48,7 +52,7 @@ import nl.surfnet.coin.teams.util.LetterOpener;
 import nl.surfnet.coin.teams.util.SpringMvcConfiguration;
 
 @SpringBootApplication
-@EnableAutoConfiguration(exclude = {org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration.class})
+@EnableAutoConfiguration(exclude = {SecurityAutoConfiguration.class, FreeMarkerAutoConfiguration.class})
 public class Application extends SpringBootServletInitializer {
 
   public static final String DEV_PROFILE_NAME = "dev";
@@ -118,6 +122,17 @@ public class Application extends SpringBootServletInitializer {
       mailService.setMailSender(mailSender);
       return mailService;
     }
+  }
+
+  @Bean
+  @Autowired
+  public freemarker.template.Configuration freemarkerConfiguration(ResourceLoader resourceLoader) throws IOException {
+    final freemarker.template.Configuration configuration = new freemarker.template.Configuration(freemarker.template.Configuration.VERSION_2_3_0);
+
+    final Resource resource = resourceLoader.getResource("classpath:/mailTemplates");
+    configuration.setDirectoryForTemplateLoading(resource.getFile());
+
+    return configuration;
   }
 
   @Bean
