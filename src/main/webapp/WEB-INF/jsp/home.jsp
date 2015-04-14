@@ -1,3 +1,9 @@
+<%@page import="org.slf4j.Logger"%>
+<%
+  Logger LOG = (Logger) request.getAttribute("logger");
+  long start = (long) request.getAttribute("startTime");
+  LOG.debug("Elapsed when starting jsp-render: {} ms", System.currentTimeMillis() - start);
+%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
@@ -18,7 +24,6 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   --%>
-
 <teams:genericpage>
 <!-- Version <c:out value='${appversion}' /> -->
 <%-- = Header --%>
@@ -38,7 +43,6 @@
         <li class="middle"><a href="<c:out value="${groupProviderUrl}"/>" class="btn-all-teams <c:if test="${groupProviderId eq groupProvider.identifier}"> selected</c:if>"><c:out value="${groupProvider.name}"/></a></li>
       </c:forEach>
     </c:if>
-
     <c:choose>
       <c:when test="${myinvitations eq true}">
         <li class="middle"><a class="btn-all-teams<c:if test='${display eq "all"}'> selected</c:if>" href="<c:out value="${allTeamsUrl}"/>"><spring:message code='jsp.home.AllTeams' /></a></li>
@@ -49,6 +53,8 @@
       </c:otherwise>
     </c:choose>
   </ul>
+
+
 
   <c:if test="${display ne 'externalGroups'}">
   <c:url value="/home.shtml" var="searchUrl"><c:param name="teams" value="${display}" /><c:param name="view" value="${view}" /></c:url>
@@ -77,6 +83,9 @@
     <c:url value="/addteam.shtml" var="addTeamUrl"><c:param name="view" value="${view}" /></c:url>
     <p class="add"><a class="button" href="${addTeamUrl}"><spring:message code='jsp.home.AddTeam' /></a></p>
   </c:if>
+  <%--
+    LOG.debug("Elapsed before paginated list: {} ms", System.currentTimeMillis() - start);
+  --%>
   <teams:paginate baseUrl="home.shtml" pager="${pager}"/>
   <div class="team-table-wrapper">
     <table class="team-table">
@@ -166,6 +175,10 @@
   </div>
 <%-- / Content --%>
 </div>
+
 </teams:genericpage>
 
+<%
+  LOG.debug("Elapsed after footer: {} ms", System.currentTimeMillis() - start);
+%>
 

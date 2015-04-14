@@ -124,6 +124,8 @@ public class HomeController {
     modelMap.addAttribute("appversion", version);
     ViewUtil.addViewToModelMap(request, modelMap);
     LOG.debug("Elapsed just before calling jsp: {} ms", System.currentTimeMillis() - start);
+    modelMap.addAttribute("startTime", start);
+    modelMap.addAttribute("logger", LOG);
     return "home";
   }
 
