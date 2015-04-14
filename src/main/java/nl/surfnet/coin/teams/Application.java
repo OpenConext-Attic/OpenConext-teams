@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Locale;
 import javax.sql.DataSource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -56,6 +58,8 @@ import nl.surfnet.coin.teams.util.SpringMvcConfiguration;
 @EnableAutoConfiguration(exclude = {SecurityAutoConfiguration.class, FreeMarkerAutoConfiguration.class})
 public class Application extends SpringBootServletInitializer {
 
+  private static final Logger LOG = LoggerFactory.getLogger(Application.class);
+
   public static final String DEV_PROFILE_NAME = "dev";
   public static final String REAL_GROUPER_PROFILE_NAME = "realGrouper";
   public static final String GROUPZY_PROFILE_NAME = "groupzy";
@@ -90,6 +94,7 @@ public class Application extends SpringBootServletInitializer {
                                @Value("${voot.scopes}") String scopes,
                                @Value("${voot.serviceUrl}") String serviceUrl) {
     if (environment.acceptsProfiles(DEV_PROFILE_NAME)) {
+      LOG.debug("Using mock vootclient");
       return new VootClientMock();
     }
     return new VootClientImpl(accessTokenUri, clientId, clientSecret, scopes, serviceUrl);
@@ -101,6 +106,7 @@ public class Application extends SpringBootServletInitializer {
                                                @Value("${defaultStemName}") String defaultStemName,
                                                @Value("${grouperPowerUser}") String grouperPowerUser) {
     if (environment.acceptsProfiles(DEV_PROFILE_NAME) && !environment.acceptsProfiles(REAL_GROUPER_PROFILE_NAME)) {
+      LOG.debug("Using mock grouper service");
       return new InMemoryMockTeamService();
     }
     return new GrouperTeamServiceWsImpl(memberAttributeService, defaultStemName, grouperPowerUser);
@@ -151,6 +157,7 @@ public class Application extends SpringBootServletInitializer {
     interceptors.add(localeChangeInterceptor);
 
     if (environment.acceptsProfiles(DEV_PROFILE_NAME)) {
+      LOG.debug("Using mock shibboleth");
       interceptors.add(new MockLoginInterceptor(teamsURL, memberAttributeService));
     } else {
       interceptors.add(new LoginInterceptor(teamsURL, memberAttributeService));
