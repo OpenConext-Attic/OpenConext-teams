@@ -24,16 +24,17 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.env.Environment;
-import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
+import freemarker.template.TemplateException;
 import nl.surfnet.coin.stoker.Stoker;
 import nl.surfnet.coin.teams.interceptor.FeatureInterceptor;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
@@ -125,13 +126,11 @@ public class Application extends SpringBootServletInitializer {
   }
 
   @Bean
-  @Autowired
-  public freemarker.template.Configuration freemarkerConfiguration(ResourceLoader resourceLoader) throws IOException {
-    final freemarker.template.Configuration configuration = new freemarker.template.Configuration(freemarker.template.Configuration.VERSION_2_3_0);
+  public freemarker.template.Configuration freemarkerConfiguration() throws TemplateException, IOException {
+    FreeMarkerConfigurationFactoryBean freeMarkerConfigurationFactoryBean = new FreeMarkerConfigurationFactoryBean();
+    freeMarkerConfigurationFactoryBean.setTemplateLoaderPath("classpath:/mailTemplates/");
 
-    final Resource resource = resourceLoader.getResource("classpath:/mailTemplates");
-    configuration.setDirectoryForTemplateLoading(resource.getFile());
-
+    final freemarker.template.Configuration configuration = freeMarkerConfigurationFactoryBean.createConfiguration();
     return configuration;
   }
 
