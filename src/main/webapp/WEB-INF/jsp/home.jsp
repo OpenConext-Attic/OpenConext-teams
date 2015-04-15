@@ -1,9 +1,3 @@
-<%@page import="org.slf4j.Logger"%>
-<%
-  Logger LOG = (Logger) request.getAttribute("logger");
-  long start = (long) request.getAttribute("startTime");
-  LOG.debug("Elapsed when starting jsp-render: {} ms", System.currentTimeMillis() - start);
-%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
@@ -177,8 +171,4 @@
 </div>
 
 </teams:genericpage>
-
-<%
-  LOG.debug("Elapsed after footer: {} ms", System.currentTimeMillis() - start);
-%>
 

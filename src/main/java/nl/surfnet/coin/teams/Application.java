@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Locale;
 import javax.sql.DataSource;
 
+import org.apache.catalina.Container;
+import org.apache.catalina.Wrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,9 @@ import org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfigura
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
+import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
+import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
@@ -162,10 +167,35 @@ public class Application extends SpringBootServletInitializer {
     } else {
       interceptors.add(new LoginInterceptor(teamsURL, memberAttributeService));
     }
-
     return new SpringMvcConfiguration(interceptors);
   }
 
+
+  /**
+   * Required because of https://github.com/spring-projects/spring-boot/issues/2825
+   * As the issue says, probably can be removed as of Spring-Boot 1.3.0
+   */
+  @Bean
+  public EmbeddedServletContainerCustomizer servletContainerCustomizer() {
+    return new EmbeddedServletContainerCustomizer() {
+
+      @Override
+      public void customize(ConfigurableEmbeddedServletContainer container) {
+        if (container instanceof TomcatEmbeddedServletContainerFactory) {
+          customizeTomcat((TomcatEmbeddedServletContainerFactory) container);
+        }
+      }
+
+      private void customizeTomcat(TomcatEmbeddedServletContainerFactory tomcatFactory) {
+        tomcatFactory.addContextCustomizers(context -> {
+          Container jsp = context.findChild("jsp");
+          if (jsp instanceof Wrapper) {
+            ((Wrapper) jsp).addInitParameter("development", "false");
+          }
+        });
+      }
+    };
+  }
 
   @Configuration
   @Profile("groupzy")
