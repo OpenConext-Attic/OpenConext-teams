@@ -14,26 +14,26 @@
  * limitations under the License.
  */
 
+/**
+ *
+ */
 package nl.surfnet.coin.teams.control;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.junit.Test;
 
-import javax.servlet.http.HttpServletRequest;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author steinwelberg
- * 
- * {@link Controller} that handles the javascript of a user.
  */
-@Controller
-public class JSController {
+public class JSControllerTest extends AbstractControllerTest {
 
-  @RequestMapping("/js/coin-teams.js")
-  public String js(ModelMap modelMap, HttpServletRequest request) {
-    
-    return "js";
+  private JSController jsController = new JSController();
+
+  @Test
+  public void testJS() {
+    String result = jsController.js(getModelMap(), getRequest());
+    assertEquals("js", result);
   }
 
 }
