@@ -101,7 +101,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
           if (getTeamsCookie(request).contains("skipLanding")) {
             response.sendRedirect(teamsUrl + "/Shibboleth.sso/Login?target="
               + request.getRequestURL()
-              + request.getQueryString());
+              + request.getQueryString() != null ? "?" + request.getQueryString() : "");
             return false;
           } else {
             // Send redirect to landingpage if gadget is not requested in app view.
