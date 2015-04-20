@@ -38,7 +38,7 @@ public class AddAllowedServiceProvidersToTeamController {
 
   private final static Log logger = LogFactory.getLog(AddAllowedServiceProvidersToTeamController.class);
 
-  @Value("group-name-context")
+  @Value("${group-name-context}")
   private String groupNameContext;
 
   private final static Function<TeamServiceProvider, String> toSpEntityId = new Function<TeamServiceProvider, String>() {

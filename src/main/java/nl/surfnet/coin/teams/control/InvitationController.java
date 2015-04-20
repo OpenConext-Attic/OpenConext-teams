@@ -82,10 +82,10 @@ public class InvitationController {
   @Autowired(required = false)
   private Stoker stoker;
 
-  @Value("grouperPowerUser")
+  @Value("${grouperPowerUser}")
   private String grouperPowerUser;
 
-  @Value("group-name-context")
+  @Value("${group-name-context}")
   private String groupNameContext;
 
   @Autowired

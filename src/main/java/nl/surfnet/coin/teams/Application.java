@@ -114,6 +114,7 @@ public class Application extends SpringBootServletInitializer {
       LOG.debug("Using mock grouper service");
       return new InMemoryMockTeamService();
     }
+    LOG.debug("Grouper-integration using defaultStem {} and powerUser: {}", defaultStemName, grouperPowerUser);
     return new GrouperTeamServiceWsImpl(memberAttributeService, defaultStemName, grouperPowerUser);
   }
 

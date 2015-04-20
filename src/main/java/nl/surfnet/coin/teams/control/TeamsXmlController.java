@@ -32,7 +32,7 @@ public class TeamsXmlController {
   @Value("${teamsURL}")
   private String teamsUrl;
 
-  @Value("group-name-context")
+  @Value("${group-name-context}")
   private String groupNameContext;
 
   @RequestMapping("/teams.xml")
