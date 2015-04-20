@@ -16,6 +16,21 @@
 
 package nl.surfnet.coin.teams.control;
 
+import java.io.UnsupportedEncodingException;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.view.RedirectView;
+
 import nl.surfnet.coin.teams.domain.Person;
 import nl.surfnet.coin.teams.domain.Team;
 import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
@@ -24,21 +39,10 @@ import nl.surfnet.coin.teams.util.AuditLog;
 import nl.surfnet.coin.teams.util.ControllerUtil;
 import nl.surfnet.coin.teams.util.TokenUtil;
 import nl.surfnet.coin.teams.util.ViewUtil;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.support.SessionStatus;
-import org.springframework.web.servlet.view.RedirectView;
-
-import javax.servlet.http.HttpServletRequest;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 
 /**
  * @author steinwelberg
- *         <p/>
+ *         <p>
  *         {@link Controller} that handles the edit team page of a logged in
  *         user.
  */
@@ -55,13 +59,13 @@ public class EditTeamController {
   @RequestMapping("/editteam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(
-            LoginInterceptor.PERSON_SESSION_KEY);
+      LoginInterceptor.PERSON_SESSION_KEY);
     Team team = getTeam(request);
 
     // Check if a user has the privileges to edit the team
     if (!controllerUtil.hasUserAdminPrivileges(person, team.getId())) {
       throw new RuntimeException("Member (" + person.getId() + ") does not have the correct privileges to edit team " +
-              "(" + team.getName() + ")");
+        "(" + team.getName() + ")");
     }
 
     modelMap.addAttribute("team", team);
@@ -77,12 +81,12 @@ public class EditTeamController {
                                @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
                                @RequestParam() String token,
                                SessionStatus status)
-          throws UnsupportedEncodingException {
+    throws UnsupportedEncodingException {
     // Check if the token is valid
     TokenUtil.checkTokens(sessionToken, token, status);
 
     Person person = (Person) request.getSession().getAttribute(
-            LoginInterceptor.PERSON_SESSION_KEY);
+      LoginInterceptor.PERSON_SESSION_KEY);
     String teamId = request.getParameter("team");
     String teamDescription = request.getParameter("description");
 
@@ -92,12 +96,12 @@ public class EditTeamController {
     // Check if a user has the privileges to edit the team
     if (!controllerUtil.hasUserAdminPrivileges(person, team.getId())) {
       throw new RuntimeException("Member (" + person.getId() + ") does not have the correct privileges to edit team " +
-              "(" + team.getName() + ")");
+        "(" + team.getName() + ")");
     }
 
     // If viewablilityStatus is set this means that the team should be public
     boolean viewable = StringUtils.hasText(request
-            .getParameter("viewabilityStatus"));
+      .getParameter("viewabilityStatus"));
 
     // Update the team info
     grouperTeamService.updateTeam(teamId, teamName, teamDescription, person.getId());
@@ -110,8 +114,8 @@ public class EditTeamController {
     status.setComplete();
     modelMap.clear();
     return new RedirectView("detailteam.shtml?team="
-            + URLEncoder.encode(teamId, "utf-8") + "&view="
-            + ViewUtil.getView(request));
+      + teamId + "&view="
+      + ViewUtil.getView(request));
   }
 
   private Team getTeam(HttpServletRequest request) {

@@ -18,7 +18,6 @@ package nl.surfnet.coin.teams.control;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
@@ -174,7 +173,7 @@ public class AddMemberController {
     throws UnsupportedEncodingException {
     status.setComplete();
     return new RedirectView("detailteam.shtml?team="
-      + URLEncoder.encode(form.getTeamId(), UTF_8) + "&view="
+      + form.getTeamId() + "&view="
       + ViewUtil.getView(request), false, true, false);
   }
 
@@ -237,7 +236,7 @@ public class AddMemberController {
     status.setComplete();
     modelMap.clear();
     return "redirect:detailteam.shtml?team="
-      + URLEncoder.encode(form.getTeamId(), UTF_8) + "&view="
+      + form.getTeamId() + "&view="
       + ViewUtil.getView(request);
   }
 
@@ -284,7 +283,7 @@ public class AddMemberController {
     status.setComplete();
     modelMap.clear();
     return "redirect:detailteam.shtml?team="
-      + URLEncoder.encode(teamId, UTF_8) + "&view="
+      + teamId + "&view="
       + ViewUtil.getView(request);
   }
 

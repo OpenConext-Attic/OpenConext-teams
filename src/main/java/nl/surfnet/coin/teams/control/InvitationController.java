@@ -17,7 +17,6 @@
 package nl.surfnet.coin.teams.control;
 
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -98,7 +97,6 @@ public class InvitationController {
    * @param modelMap {@link ModelMap}
    * @param request  {@link HttpServletRequest}
    * @return accept invitation page
-   * @throws UnsupportedEncodingException if the server does not support utf-8
    */
   @RequestMapping(value = "/acceptInvitation.shtml")
   public String accept(ModelMap modelMap, HttpServletRequest request) throws UnsupportedEncodingException {
@@ -114,7 +112,7 @@ public class InvitationController {
     if (invitation.isAccepted()) {
       modelMap.addAttribute("action", "accepted");
       String teamId = invitation.getTeamId();
-      String teamUrl = "detailteam.shtml?team=" + URLEncoder.encode(teamId, "utf-8")
+      String teamUrl = "detailteam.shtml?team=" + teamId
         + "&view=" + ViewUtil.getView(request);
       modelMap.addAttribute("teamUrl", teamUrl);
       return "invitationexception";
@@ -191,7 +189,7 @@ public class InvitationController {
     teamInviteService.saveOrUpdate(invitation);
 
     return new RedirectView("detailteam.shtml?team="
-      + URLEncoder.encode(teamId, "utf-8") + "&view="
+      + teamId + "&view="
       + ViewUtil.getView(request));
   }
 
@@ -262,7 +260,7 @@ public class InvitationController {
     status.setComplete();
     modelMap.clear();
     return new RedirectView("detailteam.shtml?team="
-      + URLEncoder.encode(teamId, "utf-8") + "&view="
+      + teamId + "&view="
       + ViewUtil.getView(request));
   }
 

@@ -16,15 +16,14 @@
 
 package nl.surfnet.coin.teams.control;
 
-import nl.surfnet.coin.teams.domain.Person;
-import nl.surfnet.coin.teams.domain.ExternalGroup;
-import nl.surfnet.coin.teams.domain.Team;
-import nl.surfnet.coin.teams.domain.TeamExternalGroup;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.GrouperTeamService;
-import nl.surfnet.coin.teams.service.TeamExternalGroupDao;
-import nl.surfnet.coin.teams.service.VootClient;
-import nl.surfnet.coin.teams.util.*;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,20 +31,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.view.RedirectView;
 
-import javax.servlet.http.HttpServletRequest;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.*;
+import nl.surfnet.coin.teams.domain.ExternalGroup;
+import nl.surfnet.coin.teams.domain.Person;
+import nl.surfnet.coin.teams.domain.Team;
+import nl.surfnet.coin.teams.domain.TeamExternalGroup;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.GrouperTeamService;
+import nl.surfnet.coin.teams.service.TeamExternalGroupDao;
+import nl.surfnet.coin.teams.service.VootClient;
+import nl.surfnet.coin.teams.util.AuditLog;
+import nl.surfnet.coin.teams.util.ControllerUtil;
+import nl.surfnet.coin.teams.util.TokenUtil;
+import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * Controller to add an external group to a SURFteam
  */
 @Controller
-@SessionAttributes({ "team", TokenUtil.TOKENCHECK })
+@SessionAttributes({"team", TokenUtil.TOKENCHECK})
 public class AddExternalGroupController {
 
   @Autowired
@@ -68,12 +79,12 @@ public class AddExternalGroupController {
 
   @RequestMapping(value = "/addexternalgroup.shtml")
   public String showAddExternalGroupsForm(@RequestParam
-  String teamId, ModelMap modelMap, HttpServletRequest request) {
+                                          String teamId, ModelMap modelMap, HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
     String personId = person.getId();
     if (!controllerUtil.hasUserAdministrativePrivileges(person, teamId)) {
       throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct "
-          + "privileges to add external groups");
+        + "privileges to add external groups");
     }
     modelMap.addAttribute(TokenUtil.TOKENCHECK, TokenUtil.generateSessionToken());
 
@@ -90,22 +101,22 @@ public class AddExternalGroupController {
 
   @RequestMapping(value = "/deleteexternalgroup.shtml")
   public RedirectView deleteTeamExternalGroupLink(
-      @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-      @RequestParam String teamId,
-      @RequestParam String groupIdentifier,
-      @RequestParam String token,
-      ModelMap modelMap, SessionStatus status, HttpServletRequest request)
-      throws UnsupportedEncodingException {
+    @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+    @RequestParam String teamId,
+    @RequestParam String groupIdentifier,
+    @RequestParam String token,
+    ModelMap modelMap, SessionStatus status, HttpServletRequest request)
+    throws UnsupportedEncodingException {
     TokenUtil.checkTokens(sessionToken, token, status);
 
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
     if (!controllerUtil.hasUserAdminPrivileges(person, teamId)) {
       throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct "
-          + "privileges to remove external groups");
+        + "privileges to remove external groups");
     }
 
     TeamExternalGroup teamExternalGroup = teamExternalGroupDao.getByTeamIdentifierAndExternalGroupIdentifier(teamId,
-        groupIdentifier);
+      groupIdentifier);
     if (teamExternalGroup != null) {
       teamExternalGroupDao.delete(teamExternalGroup);
       AuditLog.log("User {} deleted external group from team {}: {}", person.getId(), teamId, teamExternalGroup.getExternalGroup());
@@ -113,25 +124,23 @@ public class AddExternalGroupController {
 
     status.setComplete();
     modelMap.clear();
-    return new RedirectView("detailteam.shtml?team=" + URLEncoder.encode(teamId, UTF_8) + "&view="
-        + ViewUtil.getView(request), false, true, false);
+    return new RedirectView("detailteam.shtml?team=" + teamId + "&view="
+      + ViewUtil.getView(request), false, true, false);
   }
 
   /**
    * Gets a List of {@link ExternalGroup}'s the person is a member of. First
    * tries to get the list from the session. If this returns nothing, the groups
    * are retrieved from the VootService.
-   * 
-   * @param personId
-   *          unique identifier of a person
-   * @param request
-   *          current {@link HttpServletRequest}
+   *
+   * @param personId unique identifier of a person
+   * @param request  current {@link HttpServletRequest}
    * @return List of {@link ExternalGroup}'s, may be empty
    */
   @SuppressWarnings("unchecked")
   private List<ExternalGroup> getExternalGroups(String personId, HttpServletRequest request) {
     List<ExternalGroup> externalGroups = (List<ExternalGroup>) request.getSession().getAttribute(
-        EXTERNAL_GROUPS_SESSION_KEY);
+      EXTERNAL_GROUPS_SESSION_KEY);
     if (!CollectionUtils.isEmpty(externalGroups)) {
       return externalGroups;
     }
@@ -142,13 +151,11 @@ public class AddExternalGroupController {
    * Iterates over a List of {@link ExternalGroup}'s and removes the
    * ExternalGroup's from the list that have already a link to the SURFteam
    * {@link Team}
-   * 
-   * @param team
-   *          SURFteam
-   * @param externalGroups
-   *          List of {@link ExternalGroup}'s
+   *
+   * @param team           SURFteam
+   * @param externalGroups List of {@link ExternalGroup}'s
    * @return List of ExternalGroups that are not yet linked to the Team, may be
-   *         empty
+   * empty
    */
   private List<ExternalGroup> filterLinkedExternalGroups(Team team, List<ExternalGroup> externalGroups) {
     if (externalGroups.isEmpty()) {
@@ -175,27 +182,27 @@ public class AddExternalGroupController {
 
   @RequestMapping(value = "/doaddexternalgroup.shtml", method = RequestMethod.POST)
   public RedirectView addExternalGroups(@ModelAttribute(TokenUtil.TOKENCHECK)
-  String sessionToken, @ModelAttribute("team")
-  Team team, @RequestParam
-  String token, ModelMap modelMap, SessionStatus status, HttpServletRequest request)
-      throws UnsupportedEncodingException {
+                                        String sessionToken, @ModelAttribute("team")
+                                        Team team, @RequestParam
+                                        String token, ModelMap modelMap, SessionStatus status, HttpServletRequest request)
+    throws UnsupportedEncodingException {
 
     TokenUtil.checkTokens(sessionToken, token, status);
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
     String personId = person.getId();
     if (!controllerUtil.hasUserAdministrativePrivileges(person, team.getId())) {
       throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct "
-          + "privileges to add external groups");
+        + "privileges to add external groups");
     }
 
     final List<ExternalGroup> myExternalGroups = getExternalGroups(personId, request);
-    Map<String, ExternalGroup> map = new HashMap<String, ExternalGroup>();
+    Map<String, ExternalGroup> map = new HashMap<>();
     for (ExternalGroup e : myExternalGroups) {
       map.put(e.getIdentifier(), e);
     }
     final String[] chosenGroups = request.getParameterValues(EXTERNAL_GROUPS_SESSION_KEY);
 
-    List<TeamExternalGroup> teamExternalGroups = new ArrayList<TeamExternalGroup>();
+    List<TeamExternalGroup> teamExternalGroups = new ArrayList<>();
     for (String identifier : chosenGroups) {
       TeamExternalGroup t = new TeamExternalGroup();
       t.setGrouperTeamId(team.getId());
@@ -210,6 +217,6 @@ public class AddExternalGroupController {
     status.setComplete();
     modelMap.clear();
     return new RedirectView("detailteam.shtml?team=" + URLEncoder.encode(team.getId(), UTF_8) + "&view="
-        + ViewUtil.getView(request), false, true, false);
+      + ViewUtil.getView(request), false, true, false);
   }
 }

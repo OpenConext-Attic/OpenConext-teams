@@ -4,7 +4,6 @@ import static com.google.common.collect.Collections2.filter;
 import static com.google.common.collect.Collections2.transform;
 
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.Collection;
 import java.util.List;
 
@@ -118,7 +117,7 @@ public class AddAllowedServiceProvidersToTeamController {
     String uniqueTeamId = groupNameContext + teamId;
     teamsDao.persist(uniqueTeamId, spEntityIds);
     return "redirect:/detailteam.shtml?team="
-      + URLEncoder.encode(teamId, "utf-8") + "&view="
+      + teamId + "&view="
       + ViewUtil.getView(view);
   }
 

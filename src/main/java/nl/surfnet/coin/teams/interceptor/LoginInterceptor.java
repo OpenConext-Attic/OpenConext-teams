@@ -16,7 +16,6 @@
 
 package nl.surfnet.coin.teams.interceptor;
 
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.Cookie;
@@ -95,8 +94,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         logger.trace("urlPart: '{}'", urlPart);
         logger.trace("view '{}'", view);
 
-        String queryString = request.getQueryString() != null ? "?" + request.getQueryString() : "";
-
         if (LOGIN_BYPASS.contains(urlPart)) {
           logger.trace("Bypassing {}", urlPart);
           return super.preHandle(request, response, handler);
@@ -104,7 +101,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
           if (getTeamsCookie(request).contains("skipLanding")) {
             response.sendRedirect(teamsUrl + "/Shibboleth.sso/Login?target="
               + request.getRequestURL()
-              + URLEncoder.encode(queryString, "utf-8"));
+              + request.getQueryString());
             return false;
           } else {
             // Send redirect to landingpage if gadget is not requested in app view.

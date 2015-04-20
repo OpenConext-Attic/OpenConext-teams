@@ -19,7 +19,6 @@ package nl.surfnet.coin.teams.control;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -82,7 +81,7 @@ import nl.surfnet.coin.teams.util.ViewUtil;
 
 /**
  * @author steinwelberg
- *         <p/>
+ *         <p>
  *         {@link Controller} that handles the detail team page of a logged in
  *         user.
  */
@@ -279,7 +278,7 @@ public class DetailTeamController {
     if (admins.size() == 1 && adminsArray[0].getId().equals(personId)) {
       status.setComplete();
       return new RedirectView("detailteam.shtml?team="
-        + URLEncoder.encode(teamId, UTF_8) + "&view="
+        + teamId + "&view="
         + ViewUtil.getView(request) + "&mes=" + ADMIN_LEAVE_TEAM, false,
         true, false);
     }
@@ -334,7 +333,7 @@ public class DetailTeamController {
     status.setComplete();
     modelMap.clear();
     return new RedirectView("detailteam.shtml?team="
-      + URLEncoder.encode(teamId, UTF_8) + "&view="
+      + teamId + "&view="
       + ViewUtil.getView(request));
   }
 
@@ -375,7 +374,7 @@ public class DetailTeamController {
       status.setComplete();
       modelMap.clear();
       return new RedirectView("detailteam.shtml?team="
-        + URLEncoder.encode(teamId, UTF_8) + "&view="
+        + teamId + "&view="
         + ViewUtil.getView(request));
       // if the owner is manager and the member is not an admin he can delete
       // the member
@@ -388,14 +387,14 @@ public class DetailTeamController {
       status.setComplete();
       modelMap.clear();
       return new RedirectView("detailteam.shtml?team="
-        + URLEncoder.encode(teamId, UTF_8) + "&view="
+        + teamId + "&view="
         + ViewUtil.getView(request));
     }
 
     status.setComplete();
     modelMap.clear();
     return new RedirectView("detailteam.shtml?team="
-      + URLEncoder.encode(teamId, UTF_8) + "&mes="
+      + teamId + "&mes="
       + NOT_AUTHORIZED_DELETE_MEMBER + "&view=" + ViewUtil.getView(request));
   }
 
@@ -420,8 +419,9 @@ public class DetailTeamController {
       || !validAction(action)) {
       status.setComplete();
       modelMap.clear();
-      return new RedirectView("detailteam.shtml?team="
-        + URLEncoder.encode(teamId, UTF_8) + "&view="
+
+      return new RedirectView("detailteam.shtml?team={teamId}&view={view}&mes=no.role.action&offset={offset}"
+        + teamId + "&view="
         + ViewUtil.getView(request) + "&mes=no.role.action" + "&offset="
         + offset);
     }
@@ -446,7 +446,7 @@ public class DetailTeamController {
     status.setComplete();
     modelMap.clear();
     return new RedirectView("detailteam.shtml?team="
-      + URLEncoder.encode(teamId, UTF_8) + "&view="
+      + teamId + "&view="
       + ViewUtil.getView(request) + "&mes=" + message + "&offset=" + offset);
   }
 
@@ -548,7 +548,7 @@ public class DetailTeamController {
       status.setComplete();
       modelMap.clear();
       return new RedirectView("detailteam.shtml?team="
-        + URLEncoder.encode(teamId, UTF_8)
+        + teamId
         + "&mes=error.NotAuthorizedForAction" + "&view="
         + ViewUtil.getView(request));
     }
@@ -574,7 +574,7 @@ public class DetailTeamController {
     status.setComplete();
     modelMap.clear();
     return new RedirectView("detailteam.shtml?team="
-      + URLEncoder.encode(teamId, UTF_8) + "&view="
+      + teamId + "&view="
       + ViewUtil.getView(request));
   }
 
