@@ -16,7 +16,7 @@
 
 package nl.surfnet.coin.teams.interceptor;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -44,7 +44,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   public static final String PERSON_SESSION_KEY = "person";
   public static final String EXTERNAL_GROUPS_SESSION_KEY = "externalGroupsSessionKey";
   public static final String USER_STATUS_SESSION_KEY = "userStatus";
-  private static final List<String> LOGIN_BYPASS = createLoginBypass();
+  private static final List<String> LOGIN_BYPASS = Arrays.asList("landingpage.shtml", "js", "css", "media", "teams.xml", "declineInvitation.shtml");
   private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
   private static final String STATUS_GUEST = "guest";
   private static final String STATUS_MEMBER = "member";
@@ -156,20 +156,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     // Add the user status to the session
     String userStatus = person.isGuest() ? STATUS_GUEST : STATUS_MEMBER;
     session.setAttribute(USER_STATUS_SESSION_KEY, userStatus);
-  }
-
-  /**
-   * @return {@link List} of url parts to bypass authentication
-   */
-  private static List<String> createLoginBypass() {
-    List<String> bypass = new ArrayList<>();
-    bypass.add("landingpage.shtml");
-    bypass.add("js");
-    bypass.add("css");
-    bypass.add("media");
-    bypass.add("teams.xml");
-    bypass.add("declineInvitation.shtml");
-    return bypass;
   }
 
 }
