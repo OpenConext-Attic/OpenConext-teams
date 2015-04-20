@@ -109,7 +109,7 @@ public class TeamInviteServiceHibernateImpl implements TeamInviteService {
   @Override
   public void cleanupExpiredInvitations() {
 
-    String jpaQl = "select i from Invitation i where i.timestamp >= :thirtyDaysAgo";
+    String jpaQl = "select i from Invitation i where i.timestamp <= :thirtyDaysAgo";
     final TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);
     q.setParameter("thirtyDaysAgo", (new Date().getTime()) - THIRTY_DAYS);
     final List<Invitation> resultList = q.getResultList();
