@@ -45,6 +45,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   public static final String EXTERNAL_GROUPS_SESSION_KEY = "externalGroupsSessionKey";
   public static final String USER_STATUS_SESSION_KEY = "userStatus";
   private static final List<String> LOGIN_BYPASS = Arrays.asList("landingpage.shtml", "js", "css", "media", "teams.xml", "declineInvitation.shtml");
+  private static final List<String> LANDING_BYPASS = Arrays.asList("acceptInvitation.shtml");
+
   private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
   private static final String STATUS_GUEST = "guest";
   private static final String STATUS_MEMBER = "member";
@@ -90,22 +92,23 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
         String urlPart = urlSplit.length < 1 ? "/" : urlSplit[1];
 
-        logger.trace("Request for '{}'", request.getRequestURI());
-        logger.trace("urlPart: '{}'", urlPart);
-        logger.trace("view '{}'", view);
+        logger.debug("Request for '{}'", request.getRequestURI());
+        logger.debug("urlPart: '{}'", urlPart);
+        logger.debug("view '{}'", view);
 
         if (LOGIN_BYPASS.contains(urlPart)) {
-          logger.trace("Bypassing {}", urlPart);
+          logger.debug("Bypassing {}", urlPart);
           return super.preHandle(request, response, handler);
         } else {
-          if (getTeamsCookie(request).contains("skipLanding")) {
+          if (getTeamsCookie(request).contains("skipLanding") || LANDING_BYPASS.contains(urlPart)) {
+            String queryString = request.getQueryString() != null ? "?" + request.getQueryString() : "";
             response.sendRedirect(teamsUrl + "/Shibboleth.sso/Login?target="
               + request.getRequestURL()
-              + request.getQueryString() != null ? "?" + request.getQueryString() : "");
+              + queryString);
             return false;
           } else {
             // Send redirect to landingpage if gadget is not requested in app view.
-            logger.trace("Redirect to landingpage");
+            logger.debug("Redirect to landingpage");
             response.sendRedirect(teamsUrl + "/landingpage.shtml");
             return false;
           }
