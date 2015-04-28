@@ -30,6 +30,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
+import org.springframework.core.Ordered;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -40,6 +41,7 @@ import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import freemarker.template.TemplateException;
 import nl.surfnet.coin.stoker.Stoker;
@@ -196,6 +198,22 @@ public class Application extends SpringBootServletInitializer {
         });
       }
     };
+  }
+
+  /**
+   * Can be removed as soon as https://github.com/spring-projects/spring-boot/issues/2893 is solved.
+   * @param prefix
+   * @param suffix
+   * @return
+   */
+  @Bean
+  @Autowired
+  public InternalResourceViewResolver viewResolver(@Value("${spring.view.prefix:}") String prefix, @Value("${spring.view.suffix:}") String suffix) {
+    final InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
+    internalResourceViewResolver.setOrder(Ordered.HIGHEST_PRECEDENCE);
+    internalResourceViewResolver.setPrefix(prefix);
+    internalResourceViewResolver.setSuffix(suffix);
+    return internalResourceViewResolver;
   }
 
   @Configuration
