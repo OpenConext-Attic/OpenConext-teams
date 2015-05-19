@@ -41,7 +41,7 @@
           </div>
 
           <div id="Content">
-            <p>Your organization did not provide all required information in order to teams to function correctly. Not provided information:</p>
+            <p>Your organization did not provide all required information in order for teams to function correctly. Not provided information:</p>
             <ul>
             <c:forEach var="samlAttribute" items="${notProvidedSamlAttributes}" varStatus="index">
               <li><c:out value="${samlAttribute}"/></li>
