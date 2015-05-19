@@ -16,8 +16,10 @@
 
 package nl.surfnet.coin.teams.interceptor;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -51,6 +53,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   private static final String STATUS_GUEST = "guest";
   private static final String STATUS_MEMBER = "member";
   public static final String TEAMS_COOKIE = "SURFconextTeams";
+  public static final String NOT_PROVIDED_SAML_ATTRIBUTES_SHTML = "/NotProvidedSamlAttributes.shtml";
 
   private final String teamsUrl;
 
@@ -65,6 +68,9 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   public boolean preHandle(HttpServletRequest request,
                            HttpServletResponse response, Object handler) throws Exception {
 
+    if (request.getRequestURI().endsWith(NOT_PROVIDED_SAML_ATTRIBUTES_SHTML)) {
+      return super.preHandle(request, response, handler);
+    }
     HttpSession session = request.getSession();
 
     String nameId = request.getHeader("name-id");
@@ -74,7 +80,14 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     if (person == null || !person.getId().equals(nameId)) {
 
       if (StringUtils.hasText(nameId)) {
-        person = constructPerson(request);
+        Optional<Person> optionalPerson = constructPerson(request);
+        if (optionalPerson.isPresent()) {
+          person = optionalPerson.get();
+        }
+        else {
+          response.sendRedirect(teamsUrl + NOT_PROVIDED_SAML_ATTRIBUTES_SHTML);
+          return false;
+        }
         // Add person to session:
         session.setAttribute(PERSON_SESSION_KEY, person);
 
@@ -118,14 +131,31 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     return super.preHandle(request, response, handler);
   }
 
-  private Person constructPerson(HttpServletRequest request) {
+  private Optional<Person> constructPerson(HttpServletRequest request) {
+    List<String> notProvidedSamlAttributes = new ArrayList<>();
+
     String id = request.getHeader("name-id");
+    addNotProvidedSamlAttributes(id, notProvidedSamlAttributes,"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified" );
+
     String name = request.getHeader("uid");
+    addNotProvidedSamlAttributes(name, notProvidedSamlAttributes,"urn:mace:dir:attribute-def:uid" );
+
     String email = request.getHeader("Shib-InetOrgPerson-mail");
+    addNotProvidedSamlAttributes(email, notProvidedSamlAttributes,"urn:mace:dir:attribute-def:mail" );
+
     String schacHomeOrganization = request.getHeader("schacHomeOrganization");
     String status = request.getHeader("coin-user-status");
     String displayName = request.getHeader("displayName");
-    return new Person(id, name, email, schacHomeOrganization, status, displayName);
+    if (!notProvidedSamlAttributes.isEmpty()) {
+      request.getSession(true).setAttribute("notProvidedSamlAttributes", notProvidedSamlAttributes);
+    }
+    return notProvidedSamlAttributes.isEmpty() ? Optional.of(new Person(id, name, email, schacHomeOrganization, status, displayName)) : Optional.empty();
+  }
+
+  private void addNotProvidedSamlAttributes(String requiredSamlAttribute, List<String> notProvidedSamlAttributes, String attributeName) {
+    if (!StringUtils.hasText(requiredSamlAttribute)) {
+      notProvidedSamlAttributes.add(attributeName);
+    }
   }
 
   private String getTeamsCookie(HttpServletRequest request) {

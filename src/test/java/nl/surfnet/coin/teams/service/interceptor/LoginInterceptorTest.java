@@ -16,46 +16,64 @@
 
 package nl.surfnet.coin.teams.service.interceptor;
 
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-
-import java.util.ArrayList;
-
+import nl.surfnet.coin.teams.domain.MemberAttribute;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.MemberAttributeService;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
-import nl.surfnet.coin.teams.domain.MemberAttribute;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.MemberAttributeService;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * Test for {@link LoginInterceptor}
  */
 public class LoginInterceptorTest {
 
-  @Test
-  public void testPreHandle() throws Exception {
-    String id = "urn:collab:person:surfnet.nl:hansz";
+  private String id = "urn:collab:person:surfnet.nl:hansz";
+  private MockHttpServletRequest request;
+  private MockHttpServletResponse response;
+  private LoginInterceptor interceptor;
 
-
-
+  @Before
+  public void before() throws Exception {
+    request = new MockHttpServletRequest();
+    response = new MockHttpServletResponse();
     MemberAttributeService memberAttributeService =
       mock(MemberAttributeService.class);
     when(memberAttributeService.findAttributesForMemberId(
       id)).thenReturn(new ArrayList<MemberAttribute>());
-    LoginInterceptor interceptor = new LoginInterceptor("foo", memberAttributeService);
+    interceptor = new LoginInterceptor("foo", memberAttributeService);
+  }
 
-
-    MockHttpServletRequest request = new MockHttpServletRequest();
+  @Test
+  public void testPreHandleHappyFlow() throws Exception {
     request.addHeader("name-id", id);
     request.addHeader("coin-user-status", "member");
-    MockHttpServletResponse response = new MockHttpServletResponse();
+    request.addHeader("uid", "John Doe");
+    request.addHeader("Shib-InetOrgPerson-mail", "john@example.com");
+
     boolean loggedIn = interceptor.preHandle(request, response, null);
     assertTrue(loggedIn);
     Assert.assertNotNull(request.getSession().getAttribute("person"));
   }
 
+  @Test
+  public void testPreHandleRequiredSamlAttributeMissing() throws Exception {
+    request.addHeader("name-id", id);
+    boolean loggedIn = interceptor.preHandle(request, response, null);
+    assertFalse(loggedIn);
+    List<String> notProvidedSamlAttributes = (List<String>) request.getSession().getAttribute("notProvidedSamlAttributes");
+    assertEquals(Arrays.asList("urn:mace:dir:attribute-def:uid", "urn:mace:dir:attribute-def:mail"), notProvidedSamlAttributes);
+  }
 }
