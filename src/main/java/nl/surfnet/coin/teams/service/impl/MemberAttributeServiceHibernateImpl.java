@@ -64,7 +64,11 @@ public class MemberAttributeServiceHibernateImpl implements MemberAttributeServi
   @Override
   public void saveOrUpdate(List<MemberAttribute> memberAttributes) {
     for (MemberAttribute memberAttribute : memberAttributes) {
-      entityManager.persist(memberAttribute);
+      if (memberAttribute.getId() == null) {
+        entityManager.persist(memberAttribute);
+      } else {
+        entityManager.merge(memberAttribute);
+      }
     }
   }
 

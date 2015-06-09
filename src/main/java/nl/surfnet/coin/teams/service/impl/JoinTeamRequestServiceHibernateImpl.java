@@ -66,6 +66,10 @@ public class JoinTeamRequestServiceHibernateImpl implements JoinTeamRequestServi
 
   @Override
   public void saveOrUpdate(JoinTeamRequest joinTeamRequest) {
-    entityManager.persist(joinTeamRequest);
+    if (joinTeamRequest.getId() == null) {
+      entityManager.persist(joinTeamRequest);
+    } else {
+      entityManager.merge(joinTeamRequest);
+    }
   }
 }

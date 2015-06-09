@@ -125,7 +125,10 @@ public class TeamInviteServiceHibernateImpl implements TeamInviteService {
 
   @Override
   public void saveOrUpdate(Invitation invitation) {
-    entityManager.persist(invitation);
+    if (invitation.getId() == null) {
+      entityManager.persist(invitation);
+    } else {
+      entityManager.merge(invitation);
+    }
   }
-
 }
