@@ -16,24 +16,22 @@
 
 package nl.surfnet.coin.teams.service.interceptor;
 
-import nl.surfnet.coin.teams.domain.MemberAttribute;
-import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
-import nl.surfnet.coin.teams.service.MemberAttributeService;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import nl.surfnet.coin.teams.interceptor.LoginInterceptor;
+import nl.surfnet.coin.teams.service.MemberAttributeService;
 
 /**
  * Test for {@link LoginInterceptor}
@@ -52,7 +50,7 @@ public class LoginInterceptorTest {
     MemberAttributeService memberAttributeService =
       mock(MemberAttributeService.class);
     when(memberAttributeService.findAttributesForMemberId(
-      id)).thenReturn(new ArrayList<MemberAttribute>());
+      id)).thenReturn(new ArrayList<>());
     interceptor = new LoginInterceptor("foo", memberAttributeService);
   }
 
@@ -73,7 +71,10 @@ public class LoginInterceptorTest {
     request.addHeader("name-id", id);
     boolean loggedIn = interceptor.preHandle(request, response, null);
     assertFalse(loggedIn);
+
+    @SuppressWarnings("unchecked")
     List<String> notProvidedSamlAttributes = (List<String>) request.getSession().getAttribute("notProvidedSamlAttributes");
+
     assertEquals(Arrays.asList("urn:mace:dir:attribute-def:uid", "urn:mace:dir:attribute-def:mail"), notProvidedSamlAttributes);
   }
 }
