@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ attribute name="baseUrl" required="true" description="base url for the paging" %>
 <%@ attribute name="pager" required="true" description="Pager object"
-             type="nl.surfnet.coin.teams.domain.Pager" %>
+             type="teams.domain.Pager" %>
 <%--
   Copyright 2012 SURFnet bv, The Netherlands
 

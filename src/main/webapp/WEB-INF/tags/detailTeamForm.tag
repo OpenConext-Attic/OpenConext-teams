@@ -19,9 +19,6 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   --%>
-<%--@elvariable id="role" type="nl.surfnet.coin.teams.domain.Role"--%>
-<%--@elvariable id="adminRole" type="nl.surfnet.coin.teams.domain.Role.Admin"--%>
-<%--@elvariable id="managerRole" type="nl.surfnet.coin.teams.domain.Role.Manager"--%>
 <div class="pagination-wrapper">
   <teams:paginate baseUrl="detailteam.shtml" pager="${pager}"/>
 </div>
@@ -117,7 +114,6 @@
       </tbody>
     </table>
     </div>
-  <%--@elvariable id="invitations" type="java.util.List<nl.surfnet.coin.teams.domain.Invitation>"--%>
   <c:if test="${pager.offset eq 0 and fn:length(invitations) > 0  and (role eq adminRole or role eq managerRole)}">
     <br class="clear"/>
 

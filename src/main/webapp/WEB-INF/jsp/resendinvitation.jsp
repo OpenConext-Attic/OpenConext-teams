@@ -43,7 +43,6 @@
       </p>
       <p class="label-field-wrapper">
         <form:label path="intendedRole"><spring:message code="jsp.addmember.Role"/></form:label>
-          <%--@elvariable id="roles" type="nl.surfnet.coin.teams.domain.Role"--%>
         <form:select path="intendedRole" items="${roles}"/>
       </p>
       <p class="label-field-wrapper">

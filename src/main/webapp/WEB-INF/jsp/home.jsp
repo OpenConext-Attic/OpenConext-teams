@@ -99,7 +99,6 @@
       </thead>
       <tbody>
       <c:choose>
-        <%--@elvariable id="teams" type="java.util.List<nl.surfnet.coin.teams.domain.Team>"--%>
         <c:when test="${fn:length(teams) > 0 }">
           <c:forEach items="${teams}" var="team">
             <tr>

@@ -35,7 +35,6 @@
     </div>
       <%-- = Content --%>
     <div id="Content">
-        <%--@elvariable id="externalGroups" type="java.util.List<nl.surfnet.coin.teams.domain.ExternalGroup>"--%>
       <c:choose>
         <c:when test="${fn:length(sessionScope.externalGroups)==0}">
           <p><spring:message code="jsp.addexternalgroup.NoGroups"/></p>
