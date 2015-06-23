@@ -72,9 +72,6 @@ public class HomeController {
   @Autowired
   private TeamInviteService teamInviteService;
 
-  @Value("${app.version}")
-  private String version;
-
   @Autowired
   private VootClient vootClient;
 
@@ -114,7 +111,6 @@ public class HomeController {
     // Add the external group providers to the ModelMap for the navigation
     modelMap.addAttribute("groupProviders", groupProviders.values());
 
-    modelMap.addAttribute("appversion", version);
     ViewUtil.addViewToModelMap(request, modelMap);
     modelMap.addAttribute("logger", LOG);
     return "home";

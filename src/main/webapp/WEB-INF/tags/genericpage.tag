@@ -16,10 +16,12 @@
 
 <!DOCTYPE html>
 <%@ tag language="java" pageEncoding="UTF-8"%>
+
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib tagdir="/WEB-INF/tags" prefix="teams"%>
 <%@ attribute name="pageTitle" required="false" description="Optional page title" %>
+
 <html>
 <head>
   <meta charset="UTF-8"/>
@@ -32,10 +34,10 @@
       <title><spring:message code="jsp.general.Title" /></title>
     </c:otherwise>
   </c:choose>
-
-  <link rel="stylesheet" href="<c:url value="/css/teams.css?v=20131111" />">
+  <jsp:useBean id="current" class="java.util.Date" />
+  <link rel="stylesheet" href="<c:url value="/css/teams.css?v=${commitId}" />">
   <c:if test="${view ne 'gadget'}">
-    <link rel="stylesheet" href="<c:url value="/css/app.css?v=20131111" />">
+    <link rel="stylesheet" href="<c:url value="/css/app.css?v=${commitId}" />">
   </c:if>
   <c:url context="/Shibboleth.sso" value="/Login" var="loginUrl"><c:param name="target" value="${environment.teamsURL}/" /></c:url>
 </head>
@@ -108,7 +110,7 @@
   <script type="text/javascript" src="<c:url value="/js/lib/jquery.validate.min.js"/>"></script>
   <script type="text/javascript" src="<c:url value="/js/lib/jquery-ui.1.11.1.min.js"/>"></script>
   <script type="text/javascript" src="<c:url value="/js/lib/typeahead.0.10.5.js"/>"></script>
-  <script type="text/javascript" src="<c:url value="/js/coin-teams.js?v=20150223"/>"></script>
+  <script type="text/javascript" src="<c:url value="/js/coin-teams.js?v=${commitId}"/>"></script>
   <%--
     We need the view parameter in the search result, which is now Ajax, we use this JavaScipt variable for it
    --%>

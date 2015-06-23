@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Properties;
 import javax.sql.DataSource;
 
 import org.apache.catalina.Container;
@@ -156,10 +157,16 @@ public class Application extends SpringBootServletInitializer {
     @Value("${teamsURL}") final String teamsURL,
     @Value("${displayExternalTeams}") final Boolean displayExternalTeams,
     @Value("${displayExternalTeamMembers}") final Boolean displayExternalTeamMembers,
-    @Value("${displayAddExternalGroupToTeam}") final Boolean displayAddExternalGroupToTeam
-  ) {
+    @Value("${displayAddExternalGroupToTeam}") final Boolean displayAddExternalGroupToTeam,
+    ResourceLoader resourceLoader
+  ) throws Exception {
     List<HandlerInterceptor> interceptors = new ArrayList<>();
-    interceptors.add(new FeatureInterceptor(displayExternalTeams, displayExternalTeamMembers, displayAddExternalGroupToTeam));
+
+    final Properties gitProperties = new Properties();
+    gitProperties.load(resourceLoader.getResource("classpath:git.properties").getInputStream());
+    final String commitId = gitProperties.getProperty("git.commit.id");
+
+    interceptors.add(new FeatureInterceptor(displayExternalTeams, displayExternalTeamMembers, displayAddExternalGroupToTeam, commitId));
 
     final LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
     localeChangeInterceptor.setParamName("lang");
@@ -203,6 +210,7 @@ public class Application extends SpringBootServletInitializer {
 
   /**
    * Can be removed as soon as https://github.com/spring-projects/spring-boot/issues/2893 is solved.
+   *
    * @param prefix
    * @param suffix
    * @return

@@ -19,7 +19,6 @@
   limitations under the License.
   --%>
 <teams:genericpage>
-<!-- Version <c:out value='${appversion}' /> -->
 <%-- = Header --%>
 <div id="Header">
   <ul class="team-actions">
