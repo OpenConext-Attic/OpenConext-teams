@@ -95,7 +95,7 @@
           </p>
 
           <p lang="en">
-            This service is powered by <a href="http://www.surfconext.nl" style="color:#0088CC;">SURFconext</a> - brought
+            This service is powered by <a href="https://www.surfconext.nl" style="color:#0088CC;">SURFconext</a> - brought
             to you by SURFnet
           </p>
         </div>

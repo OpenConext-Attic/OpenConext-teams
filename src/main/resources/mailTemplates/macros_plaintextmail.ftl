@@ -21,5 +21,5 @@ limitations under the License.
 Consult the manual for specific information on SURFconext Teams: https://wiki.surfnet.nl/display/conextsupport/SURFconext+teams
 or contact SURFconext Teams support at help@surfconext.nl.
 
-This service is powered by SURFconext http://www.surfconext.nl/ - brought to you by SURFnet
+This service is powered by SURFconext https://www.surfconext.nl/ - brought to you by SURFnet
 [/#macro]
