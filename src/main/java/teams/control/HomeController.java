@@ -149,7 +149,6 @@ public class HomeController {
     TeamResultWrapper resultWrapper;
     // Display all teams when the person is empty or when display equals "all"
     if ("all".equals(display) || !StringUtils.hasText(person)) {
-      modelMap.addAttribute("hasMultipleSources", true);
       if (StringUtils.hasText(query)) {
         resultWrapper = grouperTeamService.findPublicTeams(person, query);
       } else {
@@ -158,7 +157,6 @@ public class HomeController {
       modelMap.addAttribute("display", "all");
       // else always display my teams
     } else {
-      modelMap.addAttribute("hasMultipleSources", grouperTeamService.findStemsByMember(person).size() > 1);
       if (StringUtils.hasText(query)) {
         resultWrapper = grouperTeamService.findTeamsByMember(person, query, offset, PAGESIZE);
       } else {
