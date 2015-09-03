@@ -7,6 +7,7 @@ import java.util.Locale;
 import java.util.Properties;
 import javax.sql.DataSource;
 
+import com.googlecode.flyway.core.Flyway;
 import org.apache.catalina.Container;
 import org.apache.catalina.Wrapper;
 import org.slf4j.Logger;
@@ -94,6 +95,17 @@ public class Application extends SpringBootServletInitializer {
   public JdbcTemplate teamsJdbcTemplate(@Qualifier("teamsDataSource") DataSource dataSource) {
     return new JdbcTemplate(dataSource);
   }
+
+  @Bean
+  @Autowired
+  public Flyway flyway(@Qualifier("teamsDataSource") DataSource dataSource) {
+    Flyway fl = new Flyway();
+    fl.setDataSource(dataSource);
+    fl.setLocations("db/migration.mysql");
+    fl.migrate();
+    return fl;
+  }
+
 
   @Bean
   @Autowired
