@@ -179,7 +179,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
     // Add the user status to the session
     String userStatus = isGuest(person) ? STATUS_GUEST : STATUS_MEMBER;
-    session.setAttribute(USER_STATUS_SESSION_KEY, userStatus);
+    //On request by SURFnet everyone is a member as there is a bug in EngineBlock which does not set the member-of
+    session.setAttribute(USER_STATUS_SESSION_KEY, STATUS_MEMBER);//userStatus);
   }
 
     /**
