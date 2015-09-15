@@ -32,12 +32,14 @@ public class FeatureInterceptor extends HandlerInterceptorAdapter {
   private final boolean displayExternalTeamMembers;
   private final boolean displayAddExternalGroupToTeam;
   private final String commitId;
+  private final String applicationVersion;
 
-  public FeatureInterceptor(boolean displayExternalTeams, boolean displayExternalTeamMembers, boolean displayAddExternalGroupToTeam, String commitId) {
+  public FeatureInterceptor(boolean displayExternalTeams, boolean displayExternalTeamMembers, boolean displayAddExternalGroupToTeam, String commitId, String applicationVersion) {
     this.displayExternalTeams = displayExternalTeams;
     this.displayExternalTeamMembers = displayExternalTeamMembers;
     this.displayAddExternalGroupToTeam = displayAddExternalGroupToTeam;
     this.commitId = commitId;
+    this.applicationVersion = applicationVersion;
   }
 
   @Override
@@ -46,6 +48,7 @@ public class FeatureInterceptor extends HandlerInterceptorAdapter {
     if (modelAndView != null) {
       ModelMap map = modelAndView.getModelMap();
       map.addAttribute("commitId", commitId);
+      map.addAttribute("applicationVersion", applicationVersion);
       map.addAttribute("displayExternalTeams", displayExternalTeams);
       map.addAttribute("displayExternalTeamMembers", displayExternalTeamMembers);
       map.addAttribute("displayAddExternalGroupToTeam", displayAddExternalGroupToTeam);

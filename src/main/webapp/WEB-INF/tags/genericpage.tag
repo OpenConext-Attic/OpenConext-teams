@@ -36,6 +36,7 @@
   </c:choose>
   <jsp:useBean id="current" class="java.util.Date" />
   <link rel="stylesheet" href="<c:url value="/css/teams.css?v=${commitId}" />">
+  <!-- applicationVersion ${applicationVersion} -->
   <c:if test="${view ne 'gadget'}">
     <link rel="stylesheet" href="<c:url value="/css/app.css?v=${commitId}" />">
   </c:if>

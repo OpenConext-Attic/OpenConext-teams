@@ -119,8 +119,9 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
   @Test
   public void testDoAcceptAdminAsGuest() throws Exception {
-    Person person = getPersonFromSession();
-    person.addTag("guest");
+    Person fromSession = getPersonFromSession();
+    Person person = new Person(fromSession.getId(),fromSession.getName(),fromSession.getEmail(),fromSession.getSchacHomeOrganization(),"guest", fromSession.getDisplayName());
+
     getRequest().getSession().setAttribute(PERSON_SESSION_KEY, person);
 
     invitation.setIntendedRole(Role.Admin);

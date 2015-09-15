@@ -149,6 +149,7 @@ public class Application extends SpringBootServletInitializer {
     @Value("${displayExternalTeams}") final Boolean displayExternalTeams,
     @Value("${displayExternalTeamMembers}") final Boolean displayExternalTeamMembers,
     @Value("${displayAddExternalGroupToTeam}") final Boolean displayAddExternalGroupToTeam,
+    @Value("${application.version}") final String applicationVersion,
     ResourceLoader resourceLoader
   ) throws Exception {
     List<HandlerInterceptor> interceptors = new ArrayList<>();
@@ -157,7 +158,7 @@ public class Application extends SpringBootServletInitializer {
     gitProperties.load(resourceLoader.getResource("classpath:git.properties").getInputStream());
     final String commitId = gitProperties.getProperty("git.commit.id");
 
-    interceptors.add(new FeatureInterceptor(displayExternalTeams, displayExternalTeamMembers, displayAddExternalGroupToTeam, commitId));
+    interceptors.add(new FeatureInterceptor(displayExternalTeams, displayExternalTeamMembers, displayAddExternalGroupToTeam, commitId, applicationVersion));
 
     final LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
     localeChangeInterceptor.setParamName("lang");
