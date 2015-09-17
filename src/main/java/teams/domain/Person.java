@@ -43,7 +43,7 @@ public class Person implements Serializable {
   }
 
   public boolean isGuest() {
-    return "guest".equalsIgnoreCase(voot_membership_role);
+    return !"urn:collab:org:surf.nl".equalsIgnoreCase(voot_membership_role);
   }
 
   @Override

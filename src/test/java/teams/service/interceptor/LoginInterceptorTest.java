@@ -16,22 +16,23 @@
 
 package teams.service.interceptor;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.mock.web.MockHttpServletResponse;
+import teams.domain.MemberAttribute;
+import teams.domain.Person;
+import teams.interceptor.LoginInterceptor;
+import teams.service.MemberAttributeService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.mock.web.MockHttpServletResponse;
-
-import teams.interceptor.LoginInterceptor;
-import teams.service.MemberAttributeService;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+import static teams.domain.MemberAttribute.*;
+import static teams.interceptor.LoginInterceptor.*;
 
 /**
  * Test for {@link LoginInterceptor}
@@ -42,12 +43,13 @@ public class LoginInterceptorTest {
   private MockHttpServletRequest request;
   private MockHttpServletResponse response;
   private LoginInterceptor interceptor;
+  private MemberAttributeService memberAttributeService;
 
   @Before
   public void before() throws Exception {
     request = new MockHttpServletRequest();
     response = new MockHttpServletResponse();
-    MemberAttributeService memberAttributeService =
+    memberAttributeService =
       mock(MemberAttributeService.class);
     when(memberAttributeService.findAttributesForMemberId(
       id)).thenReturn(new ArrayList<>());
@@ -57,13 +59,15 @@ public class LoginInterceptorTest {
   @Test
   public void testPreHandleHappyFlow() throws Exception {
     request.addHeader("name-id", id);
-    request.addHeader("coin-user-status", "member");
+    request.addHeader("is-member-of", "urn:collab:org:surf.nl");
     request.addHeader("uid", "John Doe");
     request.addHeader("Shib-InetOrgPerson-mail", "john@example.com");
 
     boolean loggedIn = interceptor.preHandle(request, response, null);
     assertTrue(loggedIn);
-    Assert.assertNotNull(request.getSession().getAttribute("person"));
+    Person person = (Person) request.getSession().getAttribute("person");
+    assertNotNull(person);
+    assertFalse(person.isGuest());
   }
 
   @Test
@@ -77,4 +81,30 @@ public class LoginInterceptorTest {
 
     assertEquals(Arrays.asList("urn:mace:dir:attribute-def:uid", "urn:mace:dir:attribute-def:mail"), notProvidedSamlAttributes);
   }
+
+  @Test
+  public void testHandleGuestStatus() throws Exception {
+    doTestHandleGuestStatus(true, false);
+    doTestHandleGuestStatus(true, true);
+    doTestHandleGuestStatus(false, false);
+    doTestHandleGuestStatus(false, true);
+  }
+
+  private void doTestHandleGuestStatus(boolean preMemberIsGuest, boolean personIsGuest) {
+    reset(memberAttributeService);
+    MemberAttribute memberAttribute = new MemberAttribute(id, ATTRIBUTE_GUEST, String.valueOf(preMemberIsGuest));
+    when(memberAttributeService.findAttributesForMemberId(
+      id)).thenReturn(Arrays.asList(memberAttribute));
+
+    interceptor.handleGuestStatus(request.getSession(true), new Person(id, "name", "email", "schacHome", personIsGuest ? null : "urn:collab:org:surf.nl", "displayName"));
+
+    if (preMemberIsGuest != personIsGuest) {
+      verify(memberAttributeService).saveOrUpdate(Arrays.asList(new MemberAttribute(id,ATTRIBUTE_GUEST, String.valueOf(personIsGuest))));
+    }
+
+    assertEquals(String.valueOf(personIsGuest), memberAttribute.getAttributeValue());
+    assertEquals(personIsGuest ? STATUS_GUEST : STATUS_MEMBER, request.getSession().getAttribute(USER_STATUS_SESSION_KEY));
+  }
+
+
 }

@@ -34,7 +34,7 @@ import teams.service.MemberAttributeService;
  */
 public class MockLoginInterceptor extends LoginInterceptor {
   private static final String MOCK_USER_ATTR = "mockUser";
-  private static final String MOCK_USER_STATUS = "member";
+  private static final String MOCK_USER_STATUS = "guest";//"member";
 
   public MockLoginInterceptor(String teamsUrl, MemberAttributeService memberAttributeService) {
     super(teamsUrl, memberAttributeService);

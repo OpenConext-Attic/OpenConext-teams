@@ -21,6 +21,8 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.hibernate.annotations.Index;
 import org.hibernate.annotations.Proxy;
 
@@ -98,5 +100,29 @@ public class MemberAttribute extends DomainObject {
 
   public void setAttributeValue(String attributeValue) {
     this.attributeValue = attributeValue;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+
+    if (o == null || getClass() != o.getClass()) return false;
+
+    MemberAttribute that = (MemberAttribute) o;
+
+    return new EqualsBuilder()
+      .append(getMemberId(), that.getMemberId())
+      .append(getAttributeName(), that.getAttributeName())
+      .append(getAttributeValue(), that.getAttributeValue())
+      .isEquals();
+  }
+
+  @Override
+  public int hashCode() {
+    return new HashCodeBuilder(17, 37)
+      .append(getMemberId())
+      .append(getAttributeName())
+      .append(getAttributeValue())
+      .toHashCode();
   }
 }

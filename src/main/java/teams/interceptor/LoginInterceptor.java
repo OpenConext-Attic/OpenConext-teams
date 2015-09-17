@@ -50,8 +50,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   private static final List<String> LANDING_BYPASS = Arrays.asList("acceptInvitation.shtml");
 
   private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
-  private static final String STATUS_GUEST = "guest";
-  private static final String STATUS_MEMBER = "member";
+  public static final String STATUS_GUEST = "guest";
+  public static final String STATUS_MEMBER = "member";
   public static final String TEAMS_COOKIE = "SURFconextTeams";
   public static final String NOT_PROVIDED_SAML_ATTRIBUTES_SHTML = "/NotProvidedSamlAttributes.shtml";
 
@@ -144,7 +144,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     addNotProvidedSamlAttributes(email, notProvidedSamlAttributes,"urn:mace:dir:attribute-def:mail" );
 
     String schacHomeOrganization = request.getHeader("schacHomeOrganization");
-    String status = request.getHeader("coin-user-status");
+    String status = request.getHeader("is-member-of");
     String displayName = request.getHeader("displayName");
     if (!notProvidedSamlAttributes.isEmpty()) {
       request.getSession(true).setAttribute("notProvidedSamlAttributes", notProvidedSamlAttributes);
@@ -175,7 +175,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   /**
    * Defines if the stored guest status matches the guest status from EngineBlock
    */
-  void handleGuestStatus(HttpSession session, Person person) {
+  public void handleGuestStatus(HttpSession session, Person person) {
     Member member = new Member(null, person);
     final List<MemberAttribute> memberAttributes =
       memberAttributeService.findAttributesForMemberId(member.getId());
