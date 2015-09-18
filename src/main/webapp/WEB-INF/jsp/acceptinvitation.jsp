@@ -34,7 +34,7 @@
         <td><c:out value="${sessionScope.person.id}"/></td>
       </tr>
       <tr class="odd">
-        <td>E-mailaddress</td>
+        <td><spring:message code="jsp.acceptinvitation.EmailAddress"/></td>
         <td>
             <c:out value="${sessionScope.person.email}"/>&nbsp;
         </td>
