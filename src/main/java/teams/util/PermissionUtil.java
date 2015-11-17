@@ -13,29 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-/**
- * 
- */
 package teams.util;
 
 import teams.interceptor.LoginInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
 
-/**
- * @author steinwelberg
- * 
- */
 public final class PermissionUtil {
 
   private PermissionUtil() {
-    
   }
 
   public static boolean isGuest(HttpServletRequest request) {
-
-    // Check if user is guest
     String userStatus = (String) request
         .getSession().getAttribute(LoginInterceptor.USER_STATUS_SESSION_KEY);
     return (userStatus == null || "guest".equals(userStatus));

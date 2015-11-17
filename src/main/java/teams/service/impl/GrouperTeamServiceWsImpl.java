@@ -22,6 +22,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -161,8 +162,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
     GcGetGrouperPrivilegesLite privileges = new GcGetGrouperPrivilegesLite();
     privileges.assignActAsSubject(getActAsSubject(powerUser));
     privileges.assignGroupName(teamId);
-    WsGrouperPrivilegeResult[] privilegeResults = privileges.execute()
-      .getPrivilegeResults();
+    WsGrouperPrivilegeResult[] privilegeResults = privileges.execute().getPrivilegeResults();
     return privilegeResults;
   }
 
@@ -225,15 +225,13 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
    *                be enriched with attributes
    */
   private void assignAttributesToMembers(Map<String, Member> members) {
-    final List<MemberAttribute> attributesForMembers = memberAttributeService
-      .findAttributesForMembers(members.values());
+    List<MemberAttribute> attributesForMembers = memberAttributeService.findAttributesForMembers(members.values());
     for (MemberAttribute memberAttribute : attributesForMembers) {
       Member member = members.get(memberAttribute.getMemberId());
       if (member != null) { // if db is not cleaned up
         member.addMemberAttribute(memberAttribute);
       }
     }
-
   }
 
   /**
@@ -243,15 +241,10 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
    * @param privilegeResults array of {@link WsGrouperPrivilegeResult}'s
    * @return Set of {@link Role}'s for this Member
    */
-  private Set<Role> getRolesForMember(final String memberId,
-                                      final WsGrouperPrivilegeResult[] privilegeResults) {
-    Set<Role> roles = new HashSet<Role>();
-    final List<WsGrouperPrivilegeResult> memberPrivs = getPrivilegeResultsForMember(
-      memberId, privilegeResults);
-    for (WsGrouperPrivilegeResult priv : memberPrivs) {
-      roles.add(getRole(priv.getPrivilegeName()));
-    }
-    return roles;
+  private Set<Role> getRolesForMember(final String memberId, final WsGrouperPrivilegeResult[] privilegeResults) {
+    return getPrivilegeResultsForMember(memberId, privilegeResults).stream()
+        .map(priv -> getRole(priv.getPrivilegeName()))
+        .collect(Collectors.toSet());
   }
 
   /**
@@ -318,10 +311,8 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
     try {
       groupSave.execute();
     } catch (GcWebServiceError e) {
-      WsGroupSaveResults results = (WsGroupSaveResults) e
-        .getContainerResponseObject();
-      String resultCode = results.getResults()[0].getResultMetadata()
-        .getResultCode();
+      WsGroupSaveResults results = (WsGroupSaveResults) e.getContainerResponseObject();
+      String resultCode = results.getResults()[0].getResultMetadata().getResultCode();
       if (resultCode.equals("GROUP_ALREADY_EXISTS")) {
         throw new DuplicateTeamException("Team already exists: " + teamId);
       }

@@ -6,7 +6,7 @@ import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 
-public class MockMailService implements MailService{
+public class MockMailService implements MailService {
 
   private static final Logger logger = LoggerFactory.getLogger(MockMailService.class);
 

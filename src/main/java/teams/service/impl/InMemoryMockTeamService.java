@@ -37,11 +37,7 @@ public class InMemoryMockTeamService implements GrouperTeamService {
     initData();
   }
 
-  /*
-   * Add some dummy data
-   */
   private void initData() {
-
     Team team1 = new Team("test-team-1", "test-team-1-name", null, false);
     Team team2 = new Team("test-team-2", "test-team-2-name", "description-2", false);
     Team team3 = new Team("test-team-3", "test-team-3-name", "description-3", true);
@@ -64,21 +60,14 @@ public class InMemoryMockTeamService implements GrouperTeamService {
     roles3.add(Role.Manager);
     roles3.add(Role.Member);
 
-    Member member1 = new Member(roles3, "member1-name", "member1",
-      "member1@surfnet.nl");
-    Member member2 = new Member(roles2, "member2-name", "member-2",
-      "member2@surfnet.nl");
-    Member member3 = new Member(roles1, "member3-name", "member-3",
-      "member3@surfnet.nl");
-    Member member4 = new Member(roles1, "member4-name", "member-4",
-      "member4@surfnet.nl");
+    Member member1 = new Member(roles3, "member1-name", "member1", "member1@surfnet.nl");
+    Member member2 = new Member(roles2, "member2-name", "member-2", "member2@surfnet.nl");
+    Member member3 = new Member(roles1, "member3-name", "member-3", "member3@surfnet.nl");
+    Member member4 = new Member(roles1, "member4-name", "member-4", "member4@surfnet.nl");
     member4.setGuest(true);
-    Member member5 = new Member(roles1, "member5-name", "member-5",
-      "member5@surfnet.nl");
-    Member member6 = new Member(roles1, "member6-name", "member-6",
-      "member6@surfnet.nl");
-    Member member7 = new Member(roles1, "member7-name", "member-7",
-      "member7@surfnet.nl");
+    Member member5 = new Member(roles1, "member5-name", "member-5", "member5@surfnet.nl");
+    Member member6 = new Member(roles1, "member6-name", "member-6", "member6@surfnet.nl");
+    Member member7 = new Member(roles1, "member7-name", "member-7", "member7@surfnet.nl");
 
     team1.addMembers(member1.copy(), member2.copy(), member3.copy());
     team2.addMembers(member3.copy(), member4.copy(), member5.copy());

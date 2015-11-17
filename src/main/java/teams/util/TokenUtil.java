@@ -20,9 +20,6 @@ import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.web.bind.support.SessionStatus;
 
-/**
- *
- */
 public final class TokenUtil {
 
   private static final int TOKEN_LENGTH = 256;

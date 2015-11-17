@@ -2,7 +2,8 @@ package teams.control;
 
 import static com.google.common.collect.Collections2.filter;
 import static com.google.common.collect.Collections2.transform;
-import static teams.util.ViewUtil.encodeViewParameters;
+import static java.util.Comparator.comparing;
+import static teams.util.ViewUtil.escapeViewParameters;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Collection;
@@ -23,8 +24,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.google.common.base.Function;
-import com.google.common.base.Predicate;
 import com.google.common.collect.Ordering;
 
 import nl.surfnet.coin.stoker.Stoker;
@@ -42,38 +41,13 @@ public class AddAllowedServiceProvidersToTeamController {
   @Value("${group-name-context}")
   private String groupNameContext;
 
-  private final static Function<TeamServiceProvider, String> toSpEntityId = new Function<TeamServiceProvider, String>() {
-    @Override
-    public String apply(TeamServiceProvider input) {
-      return input.getSpEntityId();
-    }
-  };
-  private final static Predicate<String> emptyStrings = new Predicate<String>() {
-    @Override
-    public boolean apply(String input) {
-      return StringUtils.hasText(input);
-    }
-  };
-
   private static class ServiceProviderOrderer {
-    private final String language;
+
+    private final static Ordering<StokerEntry> byDisplayNameEn = Ordering.from(comparing(StokerEntry::getDisplayNameEn));
+
     private final Collection<StokerEntry> serviceProviders;
 
-    private final static Ordering<StokerEntry> byDisplayNameNl = new Ordering<StokerEntry>() {
-      @Override
-      public int compare(StokerEntry left, StokerEntry right) {
-        return left.getDisplayNameNl().compareTo(right.getDisplayNameNl());
-      }
-    };
-    private final static Ordering<StokerEntry> byDisplayNameEn = new Ordering<StokerEntry>() {
-      @Override
-      public int compare(StokerEntry left, StokerEntry right) {
-        return left.getDisplayNameEn().compareTo(right.getDisplayNameEn());
-      }
-    };
-
-    private ServiceProviderOrderer(String language, Collection<StokerEntry> serviceProviders) {
-      this.language = language;
+    private ServiceProviderOrderer(Collection<StokerEntry> serviceProviders) {
       this.serviceProviders = serviceProviders;
     }
 
@@ -91,30 +65,29 @@ public class AddAllowedServiceProvidersToTeamController {
   @RequestMapping(value = "/{id}/service-providers.shtml", method = RequestMethod.GET)
   public ModelAndView get(@PathVariable("id") String teamId, @RequestParam(value = "view", required = false) String view) {
     ModelMap model = new ModelMap();
-    model.put("serviceProviders", new ServiceProviderOrderer("en", stoker.getEduGainServiceProviders()).ordered());
+    model.put("serviceProviders", new ServiceProviderOrderer(stoker.getEduGainServiceProviders()).ordered());
     model.put("teamId", teamId);
     model.put("view", view);
-    Collection<StokerEntry> eduGainServiceProviders = stoker.getEduGainServiceProviders(transform(teamsDao.forTeam(groupNameContext + teamId), toSpEntityId));
-    model.put("existingServiceProviders", new ServiceProviderOrderer("en", eduGainServiceProviders).ordered());
+    Collection<StokerEntry> eduGainServiceProviders = stoker.getEduGainServiceProviders(transform(teamsDao.forTeam(groupNameContext + teamId), TeamServiceProvider::getSpEntityId));
+    model.put("existingServiceProviders", new ServiceProviderOrderer(eduGainServiceProviders).ordered());
+
     return new ModelAndView("add-allowed-serviceproviders", model);
   }
 
   @RequestMapping(value = "/service-providers.json", method = RequestMethod.GET, produces = "application/json")
   @ResponseBody
   public Collection<StokerEntry> serviceProviders() {
-    return new ServiceProviderOrderer("en", stoker.getEduGainServiceProviders()).ordered();
+    return new ServiceProviderOrderer(stoker.getEduGainServiceProviders()).ordered();
   }
 
   @RequestMapping(value = "/{id}/service-providers.shtml", method = RequestMethod.POST)
   public String post(@PathVariable("id") String teamId, @RequestParam(value = "view", required = false) String view, @RequestParam("services[]") List<String> services) throws UnsupportedEncodingException {
-
-    Collection<String> spEntityIds = filter(services, emptyStrings);
+    Collection<String> spEntityIds = filter(services, StringUtils::hasText);
     if (logger.isDebugEnabled()) {
       logger.debug("Adding the following spEntityIds " + spEntityIds);
     }
-    /*
-     * We need the teamId pre-fixed with the group name context as this is what API uses when filtering
-     */
+
+    // We need the teamId pre-fixed with the group name context as this is what API uses when filtering
     String uniqueTeamId = groupNameContext + teamId;
     teamsDao.persist(uniqueTeamId, spEntityIds);
 

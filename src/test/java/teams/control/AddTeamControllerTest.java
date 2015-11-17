@@ -30,9 +30,6 @@ import teams.service.GrouperTeamService;
 import teams.util.ControllerUtil;
 import teams.util.TokenUtil;
 
-/**
- * @author steinwelberg
- */
 public class AddTeamControllerTest extends AbstractControllerTest {
 
   private AddTeamController addTeamController = new AddTeamController();
@@ -43,6 +40,7 @@ public class AddTeamControllerTest extends AbstractControllerTest {
 
     autoWireMock(addTeamController, new Returns(getStems()), GrouperTeamService.class);
     autoWireRemainingResources(addTeamController);
+
     String result = addTeamController.start(getModelMap(), request);
 
     assertEquals("addteam", result);

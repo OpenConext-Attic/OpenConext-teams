@@ -32,9 +32,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import teams.interceptor.LoginInterceptor;
 import teams.util.ViewUtil;
 
-/**
- * @author steinwelberg
- */
 @Controller
 public class LandingPageController {
 

@@ -190,13 +190,14 @@ public class AddMemberController {
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
     addNewMemberRolesToModelMap(person, form.getTeamId(), modelMap);
 
-    final boolean isAdminOrManager = controllerUtil.hasUserAdministrativePrivileges(person, request.getParameter(TEAM_PARAM));
+    boolean isAdminOrManager = controllerUtil.hasUserAdministrativePrivileges(person, request.getParameter(TEAM_PARAM));
     if (!isAdminOrManager) {
       status.setComplete();
       throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct " +
         "privileges to add (a) member(s)");
     }
-    final boolean isAdmin = controllerUtil.hasUserAdminPrivileges(person, request.getParameter(TEAM_PARAM));
+
+    boolean isAdmin = controllerUtil.hasUserAdminPrivileges(person, request.getParameter(TEAM_PARAM));
     // if a non admin tries to add a role admin or manager -> make invitation for member
     if (!(isAdmin || Role.Member.equals(form.getIntendedRole()))) {
       form.setIntendedRole(Role.Member);

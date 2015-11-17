@@ -126,7 +126,7 @@ public class Application extends SpringBootServletInitializer {
     if (environment.acceptsProfiles(DEV_PROFILE_NAME)) {
       return new LetterOpener();
     } else {
-      final MailServiceImpl mailService = new MailServiceImpl();
+      MailServiceImpl mailService = new MailServiceImpl();
       mailService.setMailSender(mailSender);
       return mailService;
     }
@@ -137,7 +137,8 @@ public class Application extends SpringBootServletInitializer {
     FreeMarkerConfigurationFactoryBean freeMarkerConfigurationFactoryBean = new FreeMarkerConfigurationFactoryBean();
     freeMarkerConfigurationFactoryBean.setTemplateLoaderPath("classpath:/mailTemplates/");
 
-    final freemarker.template.Configuration configuration = freeMarkerConfigurationFactoryBean.createConfiguration();
+    freemarker.template.Configuration configuration = freeMarkerConfigurationFactoryBean.createConfiguration();
+
     return configuration;
   }
 
@@ -150,17 +151,14 @@ public class Application extends SpringBootServletInitializer {
     @Value("${displayExternalTeamMembers}") final Boolean displayExternalTeamMembers,
     @Value("${displayAddExternalGroupToTeam}") final Boolean displayAddExternalGroupToTeam,
     @Value("${application.version}") final String applicationVersion,
-    ResourceLoader resourceLoader
-  ) throws Exception {
+    ResourceLoader resourceLoader) throws Exception {
+
     List<HandlerInterceptor> interceptors = new ArrayList<>();
 
-    final Properties gitProperties = new Properties();
-    gitProperties.load(resourceLoader.getResource("classpath:git.properties").getInputStream());
-    final String commitId = gitProperties.getProperty("git.commit.id");
-
+    String commitId = gitCommitId(resourceLoader);
     interceptors.add(new FeatureInterceptor(displayExternalTeams, displayExternalTeamMembers, displayAddExternalGroupToTeam, commitId, applicationVersion));
 
-    final LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
+    LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
     localeChangeInterceptor.setParamName("lang");
     interceptors.add(localeChangeInterceptor);
 
@@ -173,6 +171,11 @@ public class Application extends SpringBootServletInitializer {
     return new SpringMvcConfiguration(interceptors);
   }
 
+  private String gitCommitId(ResourceLoader resourceLoader) throws IOException {
+    Properties gitProperties = new Properties();
+    gitProperties.load(resourceLoader.getResource("classpath:git.properties").getInputStream());
+    return gitProperties.getProperty("git.commit.id");
+  }
 
   /**
    * Required because of https://github.com/spring-projects/spring-boot/issues/2825
@@ -202,10 +205,6 @@ public class Application extends SpringBootServletInitializer {
 
   /**
    * Can be removed as soon as https://github.com/spring-projects/spring-boot/issues/2893 is solved.
-   *
-   * @param prefix
-   * @param suffix
-   * @return
    */
   @Bean
   @Autowired

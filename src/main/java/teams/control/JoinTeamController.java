@@ -120,13 +120,11 @@ public class JoinTeamController {
     if (team == null) {
       throw new RuntimeException("Cannot find team for parameter 'team'");
     }
-    Person person = (Person) request.getSession().getAttribute(
-      LoginInterceptor.PERSON_SESSION_KEY);
+    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
 
 
     modelMap.addAttribute("team", team);
-    JoinTeamRequest joinTeamRequest =
-      joinTeamRequestService.findPendingRequest(person.getId(), team.getId());
+    JoinTeamRequest joinTeamRequest = joinTeamRequestService.findPendingRequest(person.getId(), team.getId());
     if (joinTeamRequest == null) {
       joinTeamRequest = new JoinTeamRequest(person.getId(), team.getId(), person.getEmail(), person.getDisplayName());
     }
@@ -152,13 +150,11 @@ public class JoinTeamController {
       throw new IllegalStateException("The team you requested to join is private.");
     }
 
-    Person person = (Person) request.getSession().getAttribute(
-      LoginInterceptor.PERSON_SESSION_KEY);
+    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
 
     String message = joinTeamRequest.getMessage();
     // First send mail, then optionally create record in db
-    sendJoinTeamMessage(team, person, message,
-      localeResolver.resolveLocale(request));
+    sendJoinTeamMessage(team, person, message, localeResolver.resolveLocale(request));
 
     joinTeamRequest.setTimestamp(new Date().getTime());
     joinTeamRequest.setDisplayName(person.getDisplayName());
@@ -170,17 +166,13 @@ public class JoinTeamController {
   }
 
   private void sendJoinTeamMessage(final Team team, final Person person,
-                                   final String message, final Locale locale)
-    throws IllegalStateException, IOException {
-
+                                   final String message, final Locale locale) throws IOException {
     Object[] subjectValues = {team.getName()};
-    final String subject = messageSource.getMessage(REQUEST_MEMBERSHIP_SUBJECT,
-      subjectValues, locale);
+    final String subject = messageSource.getMessage(REQUEST_MEMBERSHIP_SUBJECT, subjectValues, locale);
 
     final Set<Member> admins = grouperTeamService.findAdmins(team);
     if (CollectionUtils.isEmpty(admins)) {
-      throw new RuntimeException("Team '" + team.getName()
-        + "' has no admins to mail invites");
+      throw new RuntimeException("Team '" + team.getName() + "' has no admins to mail invites");
     }
 
     final String html = composeJoinRequestMailMessage(team, person, message, locale, "html");
@@ -195,8 +187,7 @@ public class JoinTeamController {
       }
     }
     if (bcc.isEmpty()) {
-      throw new RuntimeException("Team '" + team.getName()
-        + "' has no admins with valid email addresses to mail invites");
+      throw new RuntimeException("Team '" + team.getName() + "' has no admins with valid email addresses to mail invites");
     }
 
     MimeMessagePreparator preparator = new MimeMessagePreparator() {
@@ -213,7 +204,6 @@ public class JoinTeamController {
     };
 
     mailService.sendAsync(preparator);
-
   }
 
   String composeJoinRequestMailMessage(final Team team, final Person person,

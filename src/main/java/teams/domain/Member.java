@@ -27,6 +27,7 @@ import java.util.Set;
 /**
  * A member of a {@link Team}
  */
+@SuppressWarnings("serial")
 public class Member implements Serializable {
 
   private Set<Role> roles;

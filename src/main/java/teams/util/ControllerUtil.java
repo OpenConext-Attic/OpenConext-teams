@@ -23,9 +23,6 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServletRequest;
 
-/**
- *
- */
 public interface ControllerUtil {
 
   /**

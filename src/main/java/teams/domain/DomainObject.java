@@ -16,11 +16,6 @@ import javax.persistence.MappedSuperclass;
 @Deprecated // Copied this in from the infamous coin-shared only to be removed ASAP.
 public abstract class DomainObject implements Serializable {
 
-  /*
-   * (non-Javadoc)
-   *
-   * @see java.lang.Object#hashCode()
-   */
   @Override
   public int hashCode() {
     return (id == null) ? super.hashCode() : id.hashCode();
@@ -33,11 +28,6 @@ public abstract class DomainObject implements Serializable {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
 
-  /*
-   * (non-Javadoc)
-   *
-   * @see java.lang.Object#equals(java.lang.Object)
-   */
   @Override
   public boolean equals(Object other) {
     if (this == other) {
@@ -73,11 +63,6 @@ public abstract class DomainObject implements Serializable {
     this.id = id;
   }
 
-  /*
-   * (non-Javadoc)
-   *
-   * @see java.lang.Object#toString()
-   */
   @Override
   public String toString() {
     return getClass() + "(id='" + id + "')";

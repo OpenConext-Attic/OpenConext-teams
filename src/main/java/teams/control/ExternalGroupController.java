@@ -16,19 +16,18 @@
 
 package teams.control;
 
-import teams.domain.ExternalGroup;
-import teams.domain.Person;
-import teams.interceptor.LoginInterceptor;
-import teams.service.VootClient;
-import teams.util.ViewUtil;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.List;
+import teams.domain.ExternalGroup;
+import teams.interceptor.LoginInterceptor;
+import teams.util.ViewUtil;
 
 /**
  * Controller for external teams
@@ -37,17 +36,11 @@ import java.util.List;
 @RequestMapping("/externalgroups/*")
 public class ExternalGroupController {
 
-  private static final int PAGESIZE = 10;
-
-  @Autowired
-  private VootClient vootClient;
-
   @RequestMapping("/groupdetail.shtml")
   public String groupDetail(@RequestParam String groupId, HttpServletRequest request, ModelMap modelMap) {
-    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
     List<ExternalGroup> groups = (List<ExternalGroup>) request.getSession().getAttribute(LoginInterceptor.EXTERNAL_GROUPS_SESSION_KEY);
 
-    for (ExternalGroup externalGroup: groups) {
+    for (ExternalGroup externalGroup : groups) {
       if (externalGroup.getIdentifier().equals(groupId)) {
         modelMap.addAttribute("groupProvider", externalGroup.getGroupProvider());
         modelMap.addAttribute("externalGroup", externalGroup);

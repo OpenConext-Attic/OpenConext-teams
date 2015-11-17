@@ -61,8 +61,7 @@ import teams.util.TokenUtil;
 import teams.util.ViewUtil;
 
 /**
- * {@link Controller} that handles the add team page of a logged in
- * user.
+ * {@link Controller} that handles the add team page of a logged in user.
  */
 @Controller
 @SessionAttributes({"team", TokenUtil.TOKENCHECK})
@@ -110,14 +109,11 @@ public class AddTeamController {
   public String start(ModelMap modelMap, HttpServletRequest request) {
     ViewUtil.addViewToModelMap(request, modelMap);
 
-    // Check if the user has permission
     if (PermissionUtil.isGuest(request)) {
-      //throw new RuntimeException("User is not allowed to view add team page");
       return "redirect:home.shtml";
     }
 
-    Person person = (Person) request.getSession().getAttribute(
-      LoginInterceptor.PERSON_SESSION_KEY);
+    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
 
     Team team = new Team();
     team.setViewable(true);
@@ -160,7 +156,6 @@ public class AddTeamController {
     String stemId = team.getStem() != null ? team.getStem().getId() : defaultStemName;
     // (Ab)using a Team bean, do not use for actual storage
     String teamName = team.getName();
-    // Form not completely filled in.
     if (!StringUtils.hasText(teamName)) {
       modelMap.addAttribute("nameerror", "empty");
       return "addteam";
@@ -209,14 +204,12 @@ public class AddTeamController {
     teamInviteService.saveOrUpdate(invitation);
     Object[] messageValuesSubject = {teamName};
 
-    String subject = messageSource.getMessage(AddMemberController.INVITE_SEND_INVITE_SUBJECT,
-      messageValuesSubject, locale);
+    String subject = messageSource.getMessage(AddMemberController.INVITE_SEND_INVITE_SUBJECT, messageValuesSubject, locale);
 
     addMemberController.sendInvitationByMail(invitation, subject, inviter, locale);
     AuditLog.log("Sent invitation and saved to database: team: {}, inviter: {}, hash: {}, email: {}, role: {}",
       teamId, inviter.getId(), invitation.getInvitationHash(), admin2, invitation.getIntendedRole());
   }
-
 
   private List<Stem> getStemsForMember(String personId) {
     List<Stem> allUsersStems = grouperTeamService.findStemsByMember(personId);
@@ -248,14 +241,7 @@ public class AddTeamController {
   }
 
   private boolean isPersonUsingAllowedStem(String personId, String stemId) {
-    List<Stem> allowedStems = getStemsForMember(personId);
-    boolean isAllowed = false;
-
-    for (Stem allowedStem : allowedStems) {
-      if (allowedStem.getId().equalsIgnoreCase(stemId)) {
-        isAllowed = true;
-      }
-    }
-    return isAllowed;
+    return getStemsForMember(personId).stream()
+        .anyMatch(allowedStem -> allowedStem.getId().equalsIgnoreCase(stemId));
   }
 }

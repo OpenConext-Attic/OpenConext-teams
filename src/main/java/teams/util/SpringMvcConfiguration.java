@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 public class SpringMvcConfiguration extends WebMvcConfigurerAdapter {

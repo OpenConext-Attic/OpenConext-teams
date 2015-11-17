@@ -132,9 +132,7 @@ public class HomeController {
     modelMap.addAttribute("externalGroups", filteredGroups);
   }
 
-  private void addTeams(String query, final String person, final String display, ModelMap modelMap,
-                        HttpServletRequest request) {
-
+  private void addTeams(String query, final String person, final String display, ModelMap modelMap, HttpServletRequest request) {
     Locale locale = localeResolver.resolveLocale(request);
 
     if (messageSource.getMessage("jsp.home.SearchTeam", null, locale).equals(query)) {
@@ -174,8 +172,7 @@ public class HomeController {
 
   @RequestMapping("/findPublicTeams.json")
   @ResponseBody
-  public TeamResultWrapper findTeams(HttpServletRequest request,
-                                     @RequestParam(required = false) String teamSearch) {
+  public TeamResultWrapper findTeams(HttpServletRequest request, @RequestParam(required = false) String teamSearch) {
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
 
     return grouperTeamService.findPublicTeams(person.getId(), teamSearch);

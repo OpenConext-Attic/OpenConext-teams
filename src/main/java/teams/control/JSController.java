@@ -23,8 +23,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author steinwelberg
- * 
  * {@link Controller} that handles the javascript of a user.
  */
 @Controller
@@ -32,7 +30,6 @@ public class JSController {
 
   @RequestMapping("/js/coin-teams.js")
   public String js(ModelMap modelMap, HttpServletRequest request) {
-    
     return "js";
   }
 

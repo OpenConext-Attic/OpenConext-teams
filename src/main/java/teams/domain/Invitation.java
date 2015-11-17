@@ -31,6 +31,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Proxy;
 import org.hibernate.annotations.Sort;
+import org.hibernate.annotations.SortNatural;
 import org.hibernate.annotations.SortType;
 import org.springframework.util.CollectionUtils;
 
@@ -63,7 +64,7 @@ public class Invitation extends DomainObject {
   private boolean accepted;
 
   @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "invitation")
-  @Sort(type = SortType.NATURAL)
+  @SortNatural
   private List<InvitationMessage> invitationMessages;
 
   @Enumerated(EnumType.STRING)
@@ -88,7 +89,6 @@ public class Invitation extends DomainObject {
    * @param teamId id of the team the person will join
    */
   public Invitation(String email, String teamId) {
-    super();
     this.setEmail(email);
     this.setTeamId(teamId);
     this.setInvitationHash();

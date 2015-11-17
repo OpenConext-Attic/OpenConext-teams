@@ -57,7 +57,6 @@ public class InvitationMessage extends DomainObject implements Comparable<Invita
   }
 
   public InvitationMessage(final String message, final String inviter) {
-    super();
     this.message = message;
     this.inviter = inviter;
     this.setTimestamp(new Date().getTime());

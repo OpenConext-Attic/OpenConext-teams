@@ -16,6 +16,7 @@
 
 package teams.control;
 
+import static java.util.stream.Collectors.toList;
 import static teams.util.ViewUtil.escapeViewParameters;
 
 import java.io.UnsupportedEncodingException;
@@ -24,6 +25,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,9 +40,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.view.RedirectView;
-
-import com.google.common.base.Function;
-import com.google.common.collect.Collections2;
 
 import nl.surfnet.coin.stoker.Stoker;
 import nl.surfnet.coin.stoker.StokerEntry;
@@ -134,12 +133,8 @@ public class InvitationController {
     if (environment.acceptsProfiles(Application.GROUPZY_PROFILE_NAME)) {
       Collection<TeamServiceProvider> serviceProviders = teamsDao.forTeam(groupNameContext + teamId);
 
-      Collection<StokerEntry> eduGainServiceProviders = stoker.getEduGainServiceProviders(Collections2.transform(serviceProviders, new Function<TeamServiceProvider, String>() {
-        @Override
-        public String apply(TeamServiceProvider input) {
-          return input.getSpEntityId();
-        }
-      }));
+      Collection<StokerEntry> eduGainServiceProviders = stoker.getEduGainServiceProviders(
+          serviceProviders.stream().map(TeamServiceProvider::getSpEntityId).collect(toList()));
       modelMap.addAttribute("serviceProviders", eduGainServiceProviders);
     }
     ViewUtil.addViewToModelMap(request, modelMap);
@@ -300,7 +295,7 @@ public class InvitationController {
     }
     List<Invitation> invitations = teamInviteService.findPendingInvitationsByEmail(email);
     modelMap.addAttribute("invitations", invitations);
-    List<Team> invitedTeams = new ArrayList<Team>();
+    List<Team> invitedTeams = new ArrayList<>();
     for (Invitation invitation : invitations) {
       Team team = controllerUtil.getTeamById(invitation.getTeamId());
       if (team != null) {

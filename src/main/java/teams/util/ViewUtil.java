@@ -49,17 +49,11 @@ public final class ViewUtil {
    * @return the name of the view
    */
   public static String getView(HttpServletRequest request) {
-    String view = request.getParameter(VIEW);
-
-    return getView(view);
+    return getView(request.getParameter(VIEW));
   }
 
   public static String getView(String view) {
-    if (!"gadget".equals(view)) {
-      view = "app";
-    }
-
-    return view;
+    return "gadget".equals(view) ? view : "app";
   }
 
   public static String escapeViewParameters(String viewTemplate, Object... args) {
