@@ -14,23 +14,21 @@
  * limitations under the License.
  */
 
-/**
- *
- */
 package teams.control;
 
-import teams.domain.Team;
-import teams.service.GrouperTeamService;
-import teams.util.ControllerUtil;
-import teams.util.TokenUtil;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.web.bind.support.SimpleSessionStatus;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import teams.domain.Team;
+import teams.service.GrouperTeamService;
+import teams.util.ControllerUtil;
+import teams.util.TokenUtil;
 
 /**
  * @author steinwelberg
@@ -142,5 +140,25 @@ public class AddTeamControllerTest extends AbstractControllerTest {
     String view = addTeamController.addTeam(getModelMap(), team1, request, token, token, new SimpleSessionStatus());
 
     assertEquals("redirect:detailteam.shtml?team=" + team1.getId() + "&view=app", view);
+  }
+
+  @Test
+  public void ampersandInTeamIdShouldGetUrlEscaped() throws Exception {
+    MockHttpServletRequest request = getRequest();
+    String token = TokenUtil.generateSessionToken();
+    Team team = new Team("Henk & Truus", "name", "description");
+    request.setParameter("team", team.getId());
+    request.setParameter("teamName", team.getName());
+    request.setParameter("description", team.getDescription());
+
+    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
+    when(grouperTeamService.addTeam(team.getName(), team.getName(), team.getDescription(), null)).thenReturn(team.getId());
+
+    autoWireMock(addTeamController, grouperTeamService, GrouperTeamService.class);
+    autoWireRemainingResources(addTeamController);
+
+    String view = addTeamController.addTeam(getModelMap(), team, request, token, token, new SimpleSessionStatus());
+
+    assertEquals("redirect:detailteam.shtml?team=Henk+%26+Truus&view=app", view);
   }
 }

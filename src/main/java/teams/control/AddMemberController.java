@@ -16,8 +16,9 @@
 
 package teams.control;
 
+import static teams.util.ViewUtil.escapeViewParameters;
+
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
@@ -80,7 +81,6 @@ import teams.util.ViewUtil;
 public class AddMemberController {
   protected static final String INVITE_SEND_INVITE_SUBJECT = "invite.SendInviteSubject";
 
-  private static final String UTF_8 = "utf-8";
   private static final String TEAM_PARAM = "team";
 
   @Autowired
@@ -119,8 +119,7 @@ public class AddMemberController {
    */
   @RequestMapping("/addmember.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request) {
-    Person person = (Person) request.getSession().getAttribute(
-      LoginInterceptor.PERSON_SESSION_KEY);
+    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
     Team team = controllerUtil.getTeam(request);
 
     if (!controllerUtil.hasUserAdministrativePrivileges(person, team.getId())) {
@@ -134,8 +133,6 @@ public class AddMemberController {
     form.setTeamId(team.getId());
     form.setInviter(person);
 
-    Locale locale = localeResolver.resolveLocale(request);
-    Object[] messageParams = {person.getDisplayName(), team.getName()};
     modelMap.addAttribute("invitationForm", form);
     addNewMemberRolesToModelMap(person, team.getId(), modelMap);
     ViewUtil.addViewToModelMap(request, modelMap);
@@ -144,15 +141,13 @@ public class AddMemberController {
   }
 
   private void addNewMemberRolesToModelMap(Person person, String teamId, ModelMap modelMap) {
-
     Role[] roles;
     if (controllerUtil.hasUserAdminPrivileges(person, teamId)) {
       roles = new Role[]{Role.Admin, Role.Manager, Role.Member};
     } else if (controllerUtil.hasUserAdministrativePrivileges(person, teamId)) {
       roles = new Role[]{Role.Member};
     } else {
-      throw new RuntimeException("User " + person.getId() +
-        " has not enough privileges to invite others in team " + teamId);
+      throw new RuntimeException("User " + person.getId() + " has not enough privileges to invite others in team " + teamId);
     }
     modelMap.addAttribute("roles", roles);
   }
@@ -163,18 +158,14 @@ public class AddMemberController {
    * @param form    {@link InvitationForm}
    * @param request {@link HttpServletRequest}
    * @return {@link RedirectView} to detail page of the team
-   * @throws UnsupportedEncodingException if {@link #UTF_8} is not supported
    */
-  @RequestMapping(value = "/doaddmember.shtml", method = RequestMethod.POST,
-    params = "cancelAddMember")
+  @RequestMapping(value = "/doaddmember.shtml", method = RequestMethod.POST, params = "cancelAddMember")
   public RedirectView cancelAddMembers(@ModelAttribute("invitationForm") InvitationForm form,
                                        HttpServletRequest request,
-                                       SessionStatus status)
-    throws UnsupportedEncodingException {
+                                       SessionStatus status) {
     status.setComplete();
-    return new RedirectView("detailteam.shtml?team="
-      + form.getTeamId() + "&view="
-      + ViewUtil.getView(request), false, true, false);
+
+    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&view=%s", form.getTeamId(), ViewUtil.getView(request)), false, true, false);
   }
 
   /**
@@ -194,11 +185,9 @@ public class AddMemberController {
                                  @ModelAttribute("invitationForm") InvitationForm form,
                                  BindingResult result, HttpServletRequest request,
                                  @RequestParam() String token, SessionStatus status,
-                                 ModelMap modelMap)
-    throws IOException {
+                                 ModelMap modelMap) throws IOException {
     TokenUtil.checkTokens(sessionToken, token, status);
-    Person person = (Person) request.getSession().getAttribute(
-      LoginInterceptor.PERSON_SESSION_KEY);
+    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
     addNewMemberRolesToModelMap(person, form.getTeamId(), modelMap);
 
     final boolean isAdminOrManager = controllerUtil.hasUserAdministrativePrivileges(person, request.getParameter(TEAM_PARAM));
@@ -235,9 +224,8 @@ public class AddMemberController {
 
     status.setComplete();
     modelMap.clear();
-    return "redirect:detailteam.shtml?team="
-      + form.getTeamId() + "&view="
-      + ViewUtil.getView(request);
+
+    return escapeViewParameters("redirect:detailteam.shtml?team=%s&view=%s", form.getTeamId(), ViewUtil.getView(request));
   }
 
   @RequestMapping(value = "/doResendInvitation.shtml", method = RequestMethod.POST)
@@ -247,8 +235,7 @@ public class AddMemberController {
                                    HttpServletRequest request,
                                    @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
                                    @RequestParam() String token,
-                                   SessionStatus status)
-    throws UnsupportedEncodingException {
+                                   SessionStatus status) {
     TokenUtil.checkTokens(sessionToken, token, status);
     Validator validator = new InvitationValidator();
     validator.validate(invitation, result);
@@ -257,8 +244,7 @@ public class AddMemberController {
       modelMap.addAttribute("messageText", messageText);
       return "resendinvitation";
     }
-    Person person = (Person) request.getSession().getAttribute(
-      LoginInterceptor.PERSON_SESSION_KEY);
+    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
 
     if (!controllerUtil.hasUserAdministrativePrivileges(person, invitation.getTeamId())) {
       status.setComplete();
@@ -266,8 +252,7 @@ public class AddMemberController {
       throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct " +
         "privileges to resend an invitation");
     }
-    InvitationMessage invitationMessage =
-      new InvitationMessage(messageText, person.getId());
+    InvitationMessage invitationMessage = new InvitationMessage(messageText, person.getId());
     invitation.addInvitationMessage(invitationMessage);
     invitation.setTimestamp(new Date().getTime());
     teamInviteService.saveOrUpdate(invitation);
@@ -277,14 +262,12 @@ public class AddMemberController {
     Team team = grouperTeamService.findTeamById(teamId);
     Object[] messageValuesSubject = {team.getName()};
 
-    String subject = messageSource.getMessage(INVITE_SEND_INVITE_SUBJECT,
-      messageValuesSubject, locale);
+    String subject = messageSource.getMessage(INVITE_SEND_INVITE_SUBJECT, messageValuesSubject, locale);
     sendInvitationByMail(invitation, subject, person, locale);
     status.setComplete();
     modelMap.clear();
-    return "redirect:detailteam.shtml?team="
-      + teamId + "&view="
-      + ViewUtil.getView(request);
+
+    return escapeViewParameters("redirect:detailteam.shtml?team=%s&view=%s", teamId, ViewUtil.getView(request));
   }
 
   /**

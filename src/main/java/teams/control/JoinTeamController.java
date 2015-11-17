@@ -16,6 +16,8 @@
 
 package teams.control;
 
+import static teams.util.ViewUtil.escapeViewParameters;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -163,8 +165,8 @@ public class JoinTeamController {
     joinTeamRequest.setEmail(person.getEmail());
     joinTeamRequestService.saveOrUpdate(joinTeamRequest);
     AuditLog.log("User {} requested to join team {}", joinTeamRequest.getPersonId(), team.getId());
-    return new RedirectView("home.shtml?teams=my&view="
-      + ViewUtil.getView(request));
+
+    return new RedirectView(escapeViewParameters("home.shtml?teams=my&view=%s", ViewUtil.getView(request)));
   }
 
   private void sendJoinTeamMessage(final Team team, final Person person,

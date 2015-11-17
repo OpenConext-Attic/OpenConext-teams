@@ -2,6 +2,7 @@ package teams.control;
 
 import static com.google.common.collect.Collections2.filter;
 import static com.google.common.collect.Collections2.transform;
+import static teams.util.ViewUtil.encodeViewParameters;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Collection;
@@ -116,9 +117,8 @@ public class AddAllowedServiceProvidersToTeamController {
      */
     String uniqueTeamId = groupNameContext + teamId;
     teamsDao.persist(uniqueTeamId, spEntityIds);
-    return "redirect:/detailteam.shtml?team="
-      + teamId + "&view="
-      + ViewUtil.getView(view);
+
+    return escapeViewParameters("redirect:/detailteam.shtml?team=%s&view=%s", teamId, ViewUtil.getView(view));
   }
 
 }

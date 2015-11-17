@@ -13,12 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package teams.util;
 
-import org.springframework.ui.ModelMap;
+import static com.google.common.net.UrlEscapers.urlFormParameterEscaper;
+
+import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.ui.ModelMap;
 
 /**
  * Util class to define which view should be used (gadget or app)
@@ -27,7 +30,6 @@ public final class ViewUtil {
   private static final String VIEW = "view";
 
   private ViewUtil() {
-
   }
 
   /**
@@ -36,8 +38,7 @@ public final class ViewUtil {
    * @param request  current {@link HttpServletRequest}
    * @param modelMap {@link ModelMap} on which the view name is added
    */
-  public static void addViewToModelMap(HttpServletRequest request,
-                                             ModelMap modelMap) {
+  public static void addViewToModelMap(HttpServletRequest request, ModelMap modelMap) {
     modelMap.addAttribute(VIEW, getView(request));
   }
 
@@ -59,5 +60,13 @@ public final class ViewUtil {
     }
 
     return view;
+  }
+
+  public static String escapeViewParameters(String viewTemplate, Object... args) {
+    Object[] escapedArgs = Arrays.stream(args)
+        .map(arg -> arg instanceof String ? urlFormParameterEscaper().escape((String) arg) : arg)
+        .toArray(Object[]::new);
+
+    return String.format(viewTemplate, escapedArgs);
   }
 }

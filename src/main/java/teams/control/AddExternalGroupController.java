@@ -13,11 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package teams.control;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import static teams.util.ViewUtil.escapeViewParameters;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -25,8 +24,6 @@ import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -59,10 +56,10 @@ import teams.util.ViewUtil;
 @SessionAttributes({"team", TokenUtil.TOKENCHECK})
 public class AddExternalGroupController {
 
+  private static final String EXTERNAL_GROUPS_SESSION_KEY = "externalGroups";
+
   @Autowired
   private VootClient vootClient;
-
-  private static final String EXTERNAL_GROUPS_SESSION_KEY = "externalGroups";
 
   @Autowired
   private GrouperTeamService teamService;
@@ -73,13 +70,9 @@ public class AddExternalGroupController {
   @Autowired
   private ControllerUtil controllerUtil;
 
-  private static final Logger LOG = LoggerFactory.getLogger(AddExternalGroupController.class);
-
-  private static final String UTF_8 = "utf-8";
-
   @RequestMapping(value = "/addexternalgroup.shtml")
-  public String showAddExternalGroupsForm(@RequestParam
-                                          String teamId, ModelMap modelMap, HttpServletRequest request) {
+  public String showAddExternalGroupsForm(@RequestParam String teamId, ModelMap modelMap, HttpServletRequest request) {
+
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
     String personId = person.getId();
     if (!controllerUtil.hasUserAdministrativePrivileges(person, teamId)) {
@@ -96,6 +89,7 @@ public class AddExternalGroupController {
     request.getSession().setAttribute(EXTERNAL_GROUPS_SESSION_KEY, myExternalGroups);
     modelMap.addAttribute("team", team);
     ViewUtil.addViewToModelMap(request, modelMap);
+
     return "addexternalgroup";
   }
 
@@ -105,8 +99,8 @@ public class AddExternalGroupController {
     @RequestParam String teamId,
     @RequestParam String groupIdentifier,
     @RequestParam String token,
-    ModelMap modelMap, SessionStatus status, HttpServletRequest request)
-    throws UnsupportedEncodingException {
+    ModelMap modelMap, SessionStatus status, HttpServletRequest request) {
+
     TokenUtil.checkTokens(sessionToken, token, status);
 
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
@@ -115,8 +109,7 @@ public class AddExternalGroupController {
         + "privileges to remove external groups");
     }
 
-    TeamExternalGroup teamExternalGroup = teamExternalGroupDao.getByTeamIdentifierAndExternalGroupIdentifier(teamId,
-      groupIdentifier);
+    TeamExternalGroup teamExternalGroup = teamExternalGroupDao.getByTeamIdentifierAndExternalGroupIdentifier(teamId, groupIdentifier);
     if (teamExternalGroup != null) {
       teamExternalGroupDao.delete(teamExternalGroup);
       AuditLog.log("User {} deleted external group from team {}: {}", person.getId(), teamId, teamExternalGroup.getExternalGroup());
@@ -124,8 +117,8 @@ public class AddExternalGroupController {
 
     status.setComplete();
     modelMap.clear();
-    return new RedirectView("detailteam.shtml?team=" + teamId + "&view="
-      + ViewUtil.getView(request), false, true, false);
+
+    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&view=%s", teamId, ViewUtil.getView(request)), false, true, false);
   }
 
   /**
@@ -139,8 +132,7 @@ public class AddExternalGroupController {
    */
   @SuppressWarnings("unchecked")
   private List<ExternalGroup> getExternalGroups(String personId, HttpServletRequest request) {
-    List<ExternalGroup> externalGroups = (List<ExternalGroup>) request.getSession().getAttribute(
-      EXTERNAL_GROUPS_SESSION_KEY);
+    List<ExternalGroup> externalGroups = (List<ExternalGroup>) request.getSession().getAttribute(EXTERNAL_GROUPS_SESSION_KEY);
     if (!CollectionUtils.isEmpty(externalGroups)) {
       return externalGroups;
     }
@@ -154,8 +146,7 @@ public class AddExternalGroupController {
    *
    * @param team           SURFteam
    * @param externalGroups List of {@link ExternalGroup}'s
-   * @return List of ExternalGroups that are not yet linked to the Team, may be
-   * empty
+   * @return List of ExternalGroups that are not yet linked to the Team, may be empty
    */
   private List<ExternalGroup> filterLinkedExternalGroups(Team team, List<ExternalGroup> externalGroups) {
     if (externalGroups.isEmpty()) {
@@ -177,6 +168,7 @@ public class AddExternalGroupController {
         }
       }
     }
+
     return filteredGroups;
   }
 
@@ -184,8 +176,7 @@ public class AddExternalGroupController {
   public RedirectView addExternalGroups(@ModelAttribute(TokenUtil.TOKENCHECK)
                                         String sessionToken, @ModelAttribute("team")
                                         Team team, @RequestParam
-                                        String token, ModelMap modelMap, SessionStatus status, HttpServletRequest request)
-    throws UnsupportedEncodingException {
+                                        String token, ModelMap modelMap, SessionStatus status, HttpServletRequest request) {
 
     TokenUtil.checkTokens(sessionToken, token, status);
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
@@ -216,7 +207,7 @@ public class AddExternalGroupController {
     request.getSession().removeAttribute(EXTERNAL_GROUPS_SESSION_KEY);
     status.setComplete();
     modelMap.clear();
-    return new RedirectView("detailteam.shtml?team=" + URLEncoder.encode(team.getId(), UTF_8) + "&view="
-      + ViewUtil.getView(request), false, true, false);
+
+    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&view=%s", team.getId(), ViewUtil.getView(request)), false, true, false);
   }
 }

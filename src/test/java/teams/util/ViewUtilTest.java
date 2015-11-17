@@ -16,7 +16,9 @@
 
 package teams.util;
 
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -25,10 +27,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.junit.Test;
 import org.springframework.ui.ModelMap;
 
-/**
- * Test for {@link ViewUtil}
- */
 public class ViewUtilTest {
+
   @Test
   public void testAddViewToModelMap() throws Exception {
     HttpServletRequest request = mock(HttpServletRequest.class);
@@ -60,6 +60,13 @@ public class ViewUtilTest {
 
     when(request.getParameter("view")).thenReturn("app");
     assertEquals("app", ViewUtil.getView(request));
+  }
 
+
+  @Test
+  public void escapeViewParameters_should_escape_ampersand() {
+    String view = ViewUtil.escapeViewParameters("test=%s&count=%d", "Bassie & Adriaan", 5);
+
+    assertThat(view, is("test=Bassie+%26+Adriaan&count=5"));
   }
 }

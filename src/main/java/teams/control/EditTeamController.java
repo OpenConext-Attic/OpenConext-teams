@@ -16,7 +16,10 @@
 
 package teams.control;
 
+import static teams.util.ViewUtil.escapeViewParameters;
+
 import java.io.UnsupportedEncodingException;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,10 +44,7 @@ import teams.util.TokenUtil;
 import teams.util.ViewUtil;
 
 /**
- * @author steinwelberg
- *         <p>
- *         {@link Controller} that handles the edit team page of a logged in
- *         user.
+ * {@link Controller} that handles the edit team page of a logged in user.
  */
 @Controller
 @SessionAttributes({TokenUtil.TOKENCHECK})
@@ -58,8 +58,7 @@ public class EditTeamController {
 
   @RequestMapping("/editteam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request) {
-    Person person = (Person) request.getSession().getAttribute(
-      LoginInterceptor.PERSON_SESSION_KEY);
+    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
     Team team = getTeam(request);
 
     // Check if a user has the privileges to edit the team
@@ -80,13 +79,10 @@ public class EditTeamController {
                                HttpServletRequest request,
                                @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
                                @RequestParam() String token,
-                               SessionStatus status)
-    throws UnsupportedEncodingException {
-    // Check if the token is valid
+                               SessionStatus status) {
     TokenUtil.checkTokens(sessionToken, token, status);
 
-    Person person = (Person) request.getSession().getAttribute(
-      LoginInterceptor.PERSON_SESSION_KEY);
+    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
     String teamId = request.getParameter("team");
     String teamDescription = request.getParameter("description");
 
@@ -100,8 +96,7 @@ public class EditTeamController {
     }
 
     // If viewablilityStatus is set this means that the team should be public
-    boolean viewable = StringUtils.hasText(request
-      .getParameter("viewabilityStatus"));
+    boolean viewable = StringUtils.hasText(request.getParameter("viewabilityStatus"));
 
     // Update the team info
     grouperTeamService.updateTeam(teamId, teamName, teamDescription, person.getId());
@@ -113,9 +108,8 @@ public class EditTeamController {
 
     status.setComplete();
     modelMap.clear();
-    return new RedirectView("detailteam.shtml?team="
-      + teamId + "&view="
-      + ViewUtil.getView(request));
+
+    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&view=%s", teamId, ViewUtil.getView(request)));
   }
 
   private Team getTeam(HttpServletRequest request) {

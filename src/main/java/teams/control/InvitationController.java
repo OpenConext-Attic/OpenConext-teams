@@ -16,6 +16,8 @@
 
 package teams.control;
 
+import static teams.util.ViewUtil.escapeViewParameters;
+
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -112,11 +114,12 @@ public class InvitationController {
     if (invitation.isAccepted()) {
       modelMap.addAttribute("action", "accepted");
       String teamId = invitation.getTeamId();
-      String teamUrl = "detailteam.shtml?team=" + teamId
-        + "&view=" + ViewUtil.getView(request);
+      String teamUrl = escapeViewParameters("detailteam.shtml?team=%s&view=%s", teamId, ViewUtil.getView(request));
       modelMap.addAttribute("teamUrl", teamUrl);
+
       return "invitationexception";
     }
+
     String teamId = invitation.getTeamId();
     if (!StringUtils.hasText(teamId)) {
       throw new RuntimeException("Invalid invitation");
@@ -140,6 +143,7 @@ public class InvitationController {
       modelMap.addAttribute("serviceProviders", eduGainServiceProviders);
     }
     ViewUtil.addViewToModelMap(request, modelMap);
+
     return "acceptinvitation";
   }
 
@@ -152,10 +156,8 @@ public class InvitationController {
    * @throws UnsupportedEncodingException if the server does not support utf-8
    */
   @RequestMapping(value = "/doAcceptInvitation.shtml")
-  public RedirectView doAccept(HttpServletRequest request)
-    throws UnsupportedEncodingException {
-    Person person = (Person) request.getSession().getAttribute(
-      LoginInterceptor.PERSON_SESSION_KEY);
+  public RedirectView doAccept(HttpServletRequest request) {
+    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
 
     Invitation invitation = getInvitationByRequest(request);
     if (invitation == null) {
@@ -188,9 +190,7 @@ public class InvitationController {
     invitation.setAccepted(true);
     teamInviteService.saveOrUpdate(invitation);
 
-    return new RedirectView("detailteam.shtml?team="
-      + teamId + "&view="
-      + ViewUtil.getView(request));
+    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&view=%s", teamId, ViewUtil.getView(request)));
   }
 
   /**
@@ -202,12 +202,10 @@ public class InvitationController {
    * @return view for decline result
    */
   @RequestMapping(value = "/declineInvitation.shtml")
-  public String decline(ModelMap modelMap,
-                        HttpServletRequest request) {
+  public String decline(ModelMap modelMap, HttpServletRequest request) {
     String viewTemplate = "invitationdeclined";
 
-    Person person = (Person) request.getSession().getAttribute(
-      LoginInterceptor.PERSON_SESSION_KEY);
+    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
 
     Invitation invitation = getInvitationByRequest(request);
 
@@ -220,6 +218,7 @@ public class InvitationController {
     teamInviteService.saveOrUpdate(invitation);
     AuditLog.log("User {} declined invitation for team {} with intended role {}", person.getId(), invitation.getTeamId(), invitation.getIntendedRole());
     ViewUtil.addViewToModelMap(request, modelMap);
+
     return viewTemplate;
   }
 
@@ -235,16 +234,15 @@ public class InvitationController {
                                        @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
                                        @RequestParam() String token,
                                        SessionStatus status,
-                                       ModelMap modelMap)
-    throws UnsupportedEncodingException {
+                                       ModelMap modelMap) {
     TokenUtil.checkTokens(sessionToken, token, status);
-    Person person = (Person) request.getSession().getAttribute(
-      LoginInterceptor.PERSON_SESSION_KEY);
+    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
 
     if (person == null) {
       status.setComplete();
       return new RedirectView("landingpage.shtml");
     }
+
     Invitation invitation = getAllInvitationByRequest(request);
     String teamId = invitation.getTeamId();
 
@@ -253,21 +251,19 @@ public class InvitationController {
         "privileges to delete (a) member(s)");
     }
 
-
     teamInviteService.delete(invitation);
-    AuditLog.log("User {} deleted invitation for email {} for team {} with intended role {}", person.getId(), invitation.getEmail(), invitation.getTeamId(), invitation.getIntendedRole());
+    AuditLog.log(
+        "User {} deleted invitation for email {} for team {} with intended role {}",
+        person.getId(), invitation.getEmail(), invitation.getTeamId(), invitation.getIntendedRole());
 
     status.setComplete();
     modelMap.clear();
-    return new RedirectView("detailteam.shtml?team="
-      + teamId + "&view="
-      + ViewUtil.getView(request));
+    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&view=%s", teamId, ViewUtil.getView(request)));
   }
 
   @RequestMapping("/resendInvitation.shtml")
   public String resendInvitation(ModelMap modelMap, HttpServletRequest request) {
-    Person person = (Person) request.getSession().getAttribute(
-      LoginInterceptor.PERSON_SESSION_KEY);
+    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
     Invitation invitation = getAllInvitationByRequest(request);
     if (invitation == null) {
       throw new IllegalArgumentException(
@@ -291,13 +287,13 @@ public class InvitationController {
       modelMap.addAttribute("messageText", invitationMessage.getMessage());
     }
     ViewUtil.addViewToModelMap(request, modelMap);
+
     return "resendinvitation";
   }
 
   @RequestMapping("/myinvitations.shtml")
   public String myInvitations(ModelMap modelMap, HttpServletRequest request) {
-    Person person = (Person) request.getSession().getAttribute(
-      LoginInterceptor.PERSON_SESSION_KEY);
+    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
     String email = person.getEmail();
     if (!StringUtils.hasText(email)) {
       throw new IllegalArgumentException("Your profile does not contain an email address");
@@ -313,6 +309,7 @@ public class InvitationController {
     }
     modelMap.addAttribute("teams", invitedTeams);
     ViewUtil.addViewToModelMap(request, modelMap);
+
     return "myinvitations";
   }
 
@@ -320,8 +317,7 @@ public class InvitationController {
     String invitationId = request.getParameter("id");
 
     if (!StringUtils.hasText(invitationId)) {
-      throw new IllegalArgumentException(
-        "Missing parameter to identify the invitation");
+      throw new IllegalArgumentException("Missing parameter to identify the invitation");
     }
 
     return teamInviteService.findInvitationByInviteId(invitationId);
@@ -331,8 +327,7 @@ public class InvitationController {
     String invitationId = request.getParameter("id");
 
     if (!StringUtils.hasText(invitationId)) {
-      throw new IllegalArgumentException(
-        "Missing parameter to identify the invitation");
+      throw new IllegalArgumentException("Missing parameter to identify the invitation");
     }
 
     return teamInviteService.findAllInvitationById(invitationId);
