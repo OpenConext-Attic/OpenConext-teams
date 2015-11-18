@@ -55,10 +55,8 @@
                   <input type="checkbox" name="externalGroups" id="externalGroups${loop.index}"
                          value="<c:out value="${externalGroup.identifier}"/>"/>
                   <label for="externalGroups${loop.index}" class="external-group">
-                    <c:if test="${not empty externalGroup.groupProvider and not empty externalGroup.groupProvider.logoUrl}">
-                      <img src="<c:out value="${externalGroup.groupProvider.logoUrl}"/>" alt="" height="20px"/>
-                    </c:if>
-                    <c:out value="${externalGroup.name}"/></label>
+                    <c:out value="${externalGroup.name}"/>
+                  </label>
                 </li>
               </c:forEach>
             </ul>
