@@ -39,6 +39,7 @@
       <p class="label-field-wrapper">
         <label for="TeamName"><spring:message code='jsp.general.TeamName' /></label>
         <form:input path="name" id="TeamName" cssClass="required" cssErrorClass="error" required="required"/>
+        <span class="inputinfo"><spring:message code="jsp.addteam.teamName.info"/></span>
         <c:choose>
           <c:when test="${nameerror eq 'empty'}">
             <label for="TeamName" class="error"><spring:message code="jsp.error.Field.Required"/></label>
