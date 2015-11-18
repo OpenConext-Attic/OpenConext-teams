@@ -99,13 +99,13 @@ public class ControllerUtilImpl implements ControllerUtil {
 
   @Override
   public MimeMultipart getMimeMultipartMessageBody(String plainText, String html) throws MessagingException {
-    MimeMultipart multiPart = new MimeMultipart("alternative");
     MimeBodyPart textPart = new MimeBodyPart();
     textPart.setText(plainText, "utf-8");
 
     MimeBodyPart htmlPart = new MimeBodyPart();
     htmlPart.setContent(html, "text/html; charset=utf-8");
 
+    MimeMultipart multiPart = new MimeMultipart("alternative");
     multiPart.addBodyPart(textPart); // least important
     multiPart.addBodyPart(htmlPart); // most important
     return multiPart;

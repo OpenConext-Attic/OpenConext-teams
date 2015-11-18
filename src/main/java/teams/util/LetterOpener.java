@@ -1,9 +1,13 @@
 package teams.util;
 
+import static com.google.common.html.HtmlEscapers.htmlEscaper;
+
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Properties;
-import javax.mail.BodyPart;
+import java.util.regex.Pattern;
+
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
 import javax.mail.Part;
@@ -11,9 +15,9 @@ import javax.mail.Session;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import com.google.common.base.Throwables;
+
 import org.apache.commons.io.FileUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.MimeMessagePreparator;
@@ -22,25 +26,42 @@ import teams.service.mail.MailService;
 
 public class LetterOpener implements MailService {
 
-  private static final Logger log = LoggerFactory.getLogger(LetterOpener.class);
-
   @Override
   public void sendAsync(MimeMessagePreparator preparator) throws MailException {
-
     try {
       MimeMessage mimeMessage = new MimeMessage(Session.getDefaultInstance(new Properties()));
       preparator.prepare(mimeMessage);
+
+      String page = "<!DOCTYPE html><html>" +
+          "<head>" +
+          "<style type=\"text/css\">" +
+          "iframe { border: 0; width: 100%; height: 800px; }" +
+          "pre { white-space: pre-wrap; }" +
+          "</style>" +
+          "</head>" +
+          "<body><dl>" +
+          "<dt>to:</dt><dd>" + htmlEscaper().escape(Arrays.toString(mimeMessage.getAllRecipients())) + "</dd>" +
+          "<dt>from:</dt><dd>" + htmlEscaper().escape(Arrays.toString(mimeMessage.getFrom())) + "</dd>" +
+          "<dt>subject:</dt><dd>" + htmlEscaper().escape(mimeMessage.getSubject()) + "</dd>" +
+          "<dt>content:</dt><dd>";
+
       MimeMultipart m = (MimeMultipart) mimeMessage.getContent();
       for (int i = 0; i < m.getCount(); i++) {
-        BodyPart bodyPart = m.getBodyPart(i);
-        String text = getText(bodyPart);
-        openInBrowser(text);
+        String text = getText(m.getBodyPart(i));
+
+        if (text.matches("(?s)\\s<html>.*")) { // somehow content type is not text/html
+            page += "<iframe srcdoc=\"" + text.replace("\"", "&quot;") + "\"></iframe>";
+        } else {
+            page += "<pre>" + text + "</pre>";
+        }
       }
 
-    } catch (Exception e) {
-      throw new RuntimeException(e);
-    }
+      page += "</dd></dl></body></html>";
 
+      openInBrowser(page);
+    } catch (Exception e) {
+      throw Throwables.propagate(e);
+    }
   }
 
   private void openInBrowser(String text) throws IOException {
@@ -51,9 +72,6 @@ public class LetterOpener implements MailService {
       Runtime runtime = Runtime.getRuntime();
       runtime.exec("open " + tempFile.getAbsolutePath());
     }
-    log.info("*************************** CONTENTS EMAIL ***************************");
-    log.info(text);
-    log.info("**********************************************************************");
   }
 
   /**
