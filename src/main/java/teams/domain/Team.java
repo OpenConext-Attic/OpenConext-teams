@@ -22,26 +22,25 @@ import org.apache.commons.lang.builder.ToStringStyle;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-/**
- * Team
- */
+import com.google.common.collect.Lists;
+
 @SuppressWarnings("serial")
 public class Team implements Serializable {
   private String id;
   private String name;
   private String description;
-  private List<Member> members = new ArrayList<Member>();
+  private List<Member> members = new ArrayList<>();
   private Role viewerRole;
   private boolean viewable;
   private int numberOfMembers;
   private Stem stem;
 
   public Team() {
-    super();
   }
 
   /**
@@ -51,11 +50,10 @@ public class Team implements Serializable {
    * @param members     {@link List} of {@link Member}'s
    */
   public Team(String id, String name, String description, List<Member> members) {
-    super();
     this.id = id;
     this.name = name;
     this.description = description;
-    this.members = members;
+    this.members = Lists.newArrayList(members);
   }
 
   /**
@@ -89,7 +87,7 @@ public class Team implements Serializable {
    * @param description extra description
    */
   public Team(String id, String name, String description) {
-    this(id, name, description, new ArrayList<Member>());
+    this(id, name, description, new ArrayList<>());
   }
 
   /**
@@ -99,7 +97,7 @@ public class Team implements Serializable {
    * @param viewable    if {@literal false} then it's a private team
    */
   public Team(String id, String name, String description, boolean viewable) {
-    this(id, name, description, new ArrayList<Member>());
+    this(id, name, description, new ArrayList<>());
     this.viewable = viewable;
   }
 
@@ -173,9 +171,7 @@ public class Team implements Serializable {
    * @param member varag of {@link Member}
    */
   public void removeMembers(Member... member) {
-    for (int i = 0; i < member.length; i++) {
-      members.remove(member[i]);
-    }
+    members.removeAll(Arrays.asList(member));
   }
 
   /**

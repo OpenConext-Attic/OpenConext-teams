@@ -23,12 +23,13 @@ import static teams.util.ViewUtil.escapeViewParameters;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+
 import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -141,26 +142,21 @@ public class DetailTeamController {
 
   @RequestMapping("/detailteam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request, @RequestParam("team") String teamId) throws IOException {
-    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
-
-    String personId = person.getId();
     if (!StringUtils.hasText(teamId)) {
       throw new IllegalArgumentException("Missing parameter for team");
     }
-    Set<Role> roles = new HashSet<>();
-    String message = request.getParameter("mes");
+
+    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
 
     Team team = grouperTeamService.findTeamById(teamId);
 
-    List<Member> members = team.getMembers();
+    Set<Role> roles = team.getMembers().stream()
+        .filter(m -> m.getId().equals(person.getId()))
+        .findFirst()
+        .map(Member::getRoles)
+        .orElse(Collections.emptySet());
 
-    // Iterate over the members to get the roles for the logged in user.
-    for (Member member : members) {
-      if (member.getId().equals(personId)) {
-        roles = member.getRoles();
-      }
-    }
-
+    String message = request.getParameter("mes");
     if (StringUtils.hasText(message)) {
       modelMap.addAttribute("message", message);
     }

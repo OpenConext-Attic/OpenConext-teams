@@ -93,9 +93,6 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
     this.powerUser = powerUser;
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public Team findTeamById(String teamId) {
     GcFindGroups findGroups = new GcFindGroups();
@@ -109,8 +106,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
       throw new RuntimeException("No team found with Id('" + teamId + "')");
     }
     WsGroup wsGroup = groupResults[0];
-    WsGrouperPrivilegeResult[] privilegeResults = getGroupPrivileges(wsGroup
-      .getName());
+    WsGrouperPrivilegeResult[] privilegeResults = getGroupPrivileges(wsGroup.getName());
 
     // Add the stem to the group
     int lastColonIndex = wsGroup.getName().lastIndexOf(":");
@@ -498,42 +494,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
     }
   }
 
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public Member findMember(String teamId, String memberId) {
-    Team team = findTeamById(teamId);
-    List<Member> members = team.getMembers();
-
-    for (Member member : members) {
-      if (member.getId().equals(memberId)) {
-        return member;
-      }
-    }
-    throw new RuntimeException("Member(memberId='" + memberId + "') is not a member of the given team");
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public Set<Member> findAdmins(Team team) {
-    Set<Member> result = new HashSet<Member>();
-    List<Member> members = team.getMembers();
-
-    for (Member member : members) {
-      Set<Role> roles = member.getRoles();
-      if (!CollectionUtils.isEmpty(roles) && roles.contains(Role.Admin)) {
-        result.add(member);
-      }
-    }
-
-    return result;
-  }
-
-  private boolean getVisibilityGroup(String teamId,
-                                     WsGrouperPrivilegeResult[] privilegeResults) {
+  private boolean getVisibilityGroup(String teamId, WsGrouperPrivilegeResult[] privilegeResults) {
     for (WsGrouperPrivilegeResult privilege : privilegeResults) {
       if (privilege.getWsGroup().getName().equals(teamId)
         && privilege.getPrivilegeName().equals("view")
@@ -547,9 +508,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
   }
 
   @Override
-  public TeamResultWrapper findPublicTeams(String personId,
-                                           String partOfGroupname) {
-
+  public TeamResultWrapper findPublicTeams(String personId, String partOfGroupname) {
     // FIXME: exclude teams from etc stem
     try {
       long start = System.currentTimeMillis();
@@ -621,7 +580,6 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
   public int pagenumber(int offset, int pageSize) {
     return (int) Math.floor(offset / pageSize) + 1;
   }
-
 
   @Override
   public TeamResultWrapper findTeamsByMember(String personId, String partOfGroupname, int offset, int pageSize) {
@@ -722,6 +680,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
 
   private TeamResultWrapper buildTeamResultWrapper(WsGetGroupsResults results, int offset, int pageSize, String userId, int totalCount, boolean addMemberCountAndRoles) {
     List<Team> teams = new ArrayList<>();
+
     if (results.getResults() != null && results.getResults().length > 0) {
       for (WsGetGroupsResult wsGetGroupsResult : results.getResults()) {
         if (wsGetGroupsResult.getWsGroups() != null && wsGetGroupsResult.getWsGroups().length > 0) {

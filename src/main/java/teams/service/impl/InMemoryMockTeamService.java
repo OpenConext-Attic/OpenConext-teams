@@ -21,7 +21,9 @@ import teams.service.GrouperTeamService;
 import teams.util.DuplicateTeamException;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
+import com.google.common.collect.ImmutableSet;
 
 /**
  * Mock implementation of {@link nl.surfnet.coin.teams.service.GrouperTeamService}
@@ -30,9 +32,6 @@ public class InMemoryMockTeamService implements GrouperTeamService {
 
   private Map<String, Team> teams = new HashMap<String, Team>();
 
-  /**
-   * Constructor
-   */
   public InMemoryMockTeamService() {
     initData();
   }
@@ -48,17 +47,9 @@ public class InMemoryMockTeamService implements GrouperTeamService {
     teams.put(team3.getId(), team3);
     teams.put(team4.getId(), team4);
 
-    Set<Role> roles1 = new HashSet<Role>();
-    roles1.add(Role.Member);
-
-    Set<Role> roles2 = new HashSet<Role>();
-    roles2.add(Role.Manager);
-    roles2.add(Role.Member);
-
-    Set<Role> roles3 = new HashSet<Role>();
-    roles3.add(Role.Admin);
-    roles3.add(Role.Manager);
-    roles3.add(Role.Member);
+    Set<Role> roles1 = ImmutableSet.of(Role.Member);
+    Set<Role> roles2 = ImmutableSet.of(Role.Manager, Role.Member);
+    Set<Role> roles3 = ImmutableSet.of(Role.Admin, Role.Manager, Role.Member);
 
     Member member1 = new Member(roles3, "member1-name", "member1", "member1@surfnet.nl");
     Member member2 = new Member(roles2, "member2-name", "member-2", "member2@surfnet.nl");
@@ -89,56 +80,24 @@ public class InMemoryMockTeamService implements GrouperTeamService {
     }
   }
 
-  private Team findTeam(String teamId) {
-    Team team = teams.get(teamId);
-    if (team == null) {
-      throw new RuntimeException("Team(id='" + teamId + "') does not exist");
-    }
-    return team;
-  }
-
   @Override
-  public Member findMember(String teamId, String memberId) {
-    Team team = findTeam(teamId);
-    List<Member> members = team.getMembers();
-    for (Member member : members) {
-      if (member.getId().equals(memberId)) {
-        return member;
-      }
-    }
-    throw new RuntimeException("Member(id='" + memberId + "') does not exist");
-  }
-
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public String addTeam(String teamId, String displayName,
-                        String teamDescription, String stemName)
-    throws DuplicateTeamException {
+  public String addTeam(String teamId, String displayName, String teamDescription, String stemName) throws DuplicateTeamException {
     String fqTeamId = stemName + ":" + teamId;
     Team team = new Team(fqTeamId, displayName, teamDescription);
     if (teams.containsKey(teamId)) {
-      throw new DuplicateTeamException("There is already a team with id '"
-        + teamId + "'");
+      throw new DuplicateTeamException("There is already a team with id '" + teamId + "'");
     }
     teams.put(team.getId(), team);
     return team.getId();
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public void deleteMember(String teamId, String memberId) {
-    Team team = findTeam(teamId);
+    Team team = findTeamById(teamId);
     Member member = findMember(teamId, memberId);
     team.removeMembers(member);
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public void deleteTeam(String teamId) {
     teams.remove(teamId);
@@ -146,8 +105,8 @@ public class InMemoryMockTeamService implements GrouperTeamService {
 
   @Override
   public TeamResultWrapper findPublicTeams(String personId, String partOfGroupname) {
-    List<Team> teamList = new ArrayList<Team>(teams.values());
-    List<Team> matches = new ArrayList<Team>();
+    List<Team> teamList = new ArrayList<>(teams.values());
+    List<Team> matches = new ArrayList<>();
     for (Team team : teamList) {
       if (team.isViewable() && team.getName().contains(partOfGroupname)) {
         matches.add(team);
@@ -198,34 +157,23 @@ public class InMemoryMockTeamService implements GrouperTeamService {
     return new TeamResultWrapper(limitedList, matches.size(), offset, pageSize);
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public List<Stem> findStemsByMember(String personId) {
-    return new ArrayList<Stem>();
+    return new ArrayList<>();
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public Team findTeamById(String teamId) {
-    return findTeam(teamId);
+    return Optional.ofNullable(teams.get(teamId))
+        .orElseThrow(() -> new RuntimeException("Team(id='" + teamId + "') does not exist"));
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public void setVisibilityGroup(String teamId, boolean viewable) {
-    Team team = findTeam(teamId);
+    Team team = findTeamById(teamId);
     team.setViewable(viewable);
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public boolean addMemberRole(String teamId, String memberId, Role role, String actAsUserId) {
     Member member = findMember(teamId, memberId);
@@ -233,25 +181,16 @@ public class InMemoryMockTeamService implements GrouperTeamService {
     if (role.equals(Role.Admin) && !member.getRoles().contains(Role.Manager)) {
       member.addRole(Role.Manager);
     }
-    member.addRole(role);
 
-    return true;
+    return member.addRole(role);
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public boolean removeMemberRole(String teamId, String memberId, Role role, String actAsUserId) {
     Member member = findMember(teamId, memberId);
-    member.removeRole(role);
-
-    return true;
+    return member.removeRole(role);
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public void addMember(String teamId, Person person) {
     // just find the member (in some other team), copy and add to team
@@ -273,13 +212,10 @@ public class InMemoryMockTeamService implements GrouperTeamService {
       m = new Member(new HashSet<Role>(), person);
     }
     m.setGuest(person.isGuest());
-    Team team = findTeam(teamId);
+    Team team = findTeamById(teamId);
     team.addMembers(m);
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public void updateTeam(String teamId, String displayName,
                          String teamDescription, String actAsSubject) {
@@ -288,26 +224,6 @@ public class InMemoryMockTeamService implements GrouperTeamService {
     team.setDescription(teamDescription);
   }
 
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public Set<Member> findAdmins(Team team) {
-    Set<Member> result = new HashSet<Member>();
-    List<Member> members = team.getMembers();
-
-    for (Member member : members) {
-      if (member.getRoles().contains(Role.Admin)) {
-        result.add(member);
-      }
-    }
-
-    return result;
-  }
-
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public Stem findStem(String stemId) {
     return null;

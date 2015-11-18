@@ -132,7 +132,6 @@ public class InvitationController {
 
     if (environment.acceptsProfiles(Application.GROUPZY_PROFILE_NAME)) {
       Collection<TeamServiceProvider> serviceProviders = teamsDao.forTeam(groupNameContext + teamId);
-
       Collection<StokerEntry> eduGainServiceProviders = stoker.getEduGainServiceProviders(
           serviceProviders.stream().map(TeamServiceProvider::getSpEntityId).collect(toList()));
       modelMap.addAttribute("serviceProviders", eduGainServiceProviders);
@@ -156,8 +155,7 @@ public class InvitationController {
 
     Invitation invitation = getInvitationByRequest(request);
     if (invitation == null) {
-      throw new IllegalArgumentException(
-        "Cannot find your invitation. Invitations expire after 14 days.");
+      throw new IllegalArgumentException("Cannot find your invitation. Invitations expire after 14 days.");
     }
     if (invitation.isDeclined()) {
       throw new RuntimeException("Invitation is Declined");

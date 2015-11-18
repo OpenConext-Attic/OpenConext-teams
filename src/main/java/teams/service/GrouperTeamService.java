@@ -16,12 +16,19 @@
 
 package teams.service;
 
-import teams.domain.Person;
-import teams.domain.*;
-import teams.util.DuplicateTeamException;
+import static java.util.stream.Collectors.toSet;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
+
+import teams.domain.Member;
+import teams.domain.Person;
+import teams.domain.Role;
+import teams.domain.Stem;
+import teams.domain.Team;
+import teams.domain.TeamResultWrapper;
+import teams.util.DuplicateTeamException;
 
 /**
  * Main interface for dealing with Teams
@@ -30,7 +37,7 @@ public interface GrouperTeamService {
 
   /**
    * Find {@link Team} by id
-   * 
+   *
    * @param teamId
    *          unique identifier for a {@link Team}
    * @return Team with all members
@@ -40,7 +47,7 @@ public interface GrouperTeamService {
   /**
    * Add a {@link Team}. Note that the teamId is altered if not compliant to the
    * rules for correct id's.
-   * 
+   *
    * @param teamId
    *          the teamId
    * @param displayName
@@ -53,8 +60,7 @@ public interface GrouperTeamService {
    * @throws DuplicateTeamException
    *           when a team with with the given teamId already exists.
    */
-  String addTeam(String teamId, String displayName, String teamDescription,
-      String stemName) throws DuplicateTeamException;
+  String addTeam(String teamId, String displayName, String teamDescription, String stemName) throws DuplicateTeamException;
 
   /**
    * Update a {@link Team}
@@ -69,7 +75,7 @@ public interface GrouperTeamService {
 
   /**
    * Delete a {@link Team}
-   * 
+   *
    * @param teamId
    *          the unique identifier
    */
@@ -77,7 +83,7 @@ public interface GrouperTeamService {
 
   /**
    * Delete a Member from a {@link Team}
-   * 
+   *
    * @param teamId
    *          the unique identifier for a {@link Team}
    * @param personId
@@ -87,7 +93,7 @@ public interface GrouperTeamService {
 
   /**
    * Update the {@link Team} to be (not) visible
-   * 
+   *
    * @param teamId
    *          unique identifier for a {@link Team}
    * @param viewable
@@ -110,12 +116,11 @@ public interface GrouperTeamService {
    * @return boolean true if the {@link Role} has been successfully added false
    *         if the {@link Role} has not been added
    */
-  boolean addMemberRole(String teamId, String memberId, Role role,
-                        String actAsUserId);
+  boolean addMemberRole(String teamId, String memberId, Role role, String actAsUserId);
 
   /**
    * Remove {@link Role} to a {@link Team}
-   * 
+   *
    * @param teamId
    *          the unique identifier of a {@link nl.surfnet.coin.teams.domain.Team}
    * @param memberId
@@ -128,12 +133,11 @@ public interface GrouperTeamService {
    * @return boolean true if the {@link Role} has been successfully added false
    *         if the {@link Role} has not been added
    */
-  boolean removeMemberRole(String teamId, String memberId, Role role,
-                           String actAsUserId);
+  boolean removeMemberRole(String teamId, String memberId, Role role, String actAsUserId);
 
   /**
    * Adds a person to the team
-   * 
+   *
    * @param teamId
    *          the unique identifier of the
    *          {@link nl.surfnet.coin.teams.domain.Team}
@@ -144,7 +148,7 @@ public interface GrouperTeamService {
 
   /**
    * Tries to find a Member in a Team
-   * 
+   *
    * @param teamId
    *          the unique identifier of the {@link Team}
    * @param memberId
@@ -152,16 +156,26 @@ public interface GrouperTeamService {
    * @return {@link Member} or {@literal null} if the Team does not contain a
    *         Member by the memberId
    */
-  Member findMember(String teamId, String memberId);
+  default Member findMember(String teamId, String memberId) {
+    Optional<Member> member = findTeamById(teamId).getMembers().stream()
+        .filter(m -> m.getId().equals(memberId))
+        .findFirst();
+
+    return member.orElseThrow(() -> new RuntimeException("Member(id='" + memberId + "') is not a member of the team"));
+  }
 
   /**
    * Returns a Set of {@link Member}'s that have the admin role for this team
-   * 
+   *
    * @param team
    *          {@link Team}
    * @return Set of {@link Member}'s with admin role, can be empty
    */
-  Set<Member> findAdmins(Team team);
+  default Set<Member> findAdmins(Team team) {
+    return team.getMembers().stream()
+        .filter(m -> m.getRoles().contains(Role.Admin))
+        .collect(toSet());
+  }
 
   Stem findStem(String stemId);
 
@@ -169,16 +183,13 @@ public interface GrouperTeamService {
    * Return all teams using a specific stem with a name like, , without the
    * teams being private except if the personId is a member of the private team
    *
-   *
-   *
    * @param personId
    *          the logged in person
    * @param partOfGroupname
    *          part of group name
    * @return teams including the number of total records
    */
-  TeamResultWrapper findPublicTeams(String personId,
-                                    String partOfGroupname);
+  TeamResultWrapper findPublicTeams(String personId, String partOfGroupname);
 
   /**
    * Return all teams using a specific stem where the personId is a member
@@ -192,8 +203,7 @@ public interface GrouperTeamService {
    *          the maximum result size
    * @return teams including the number of total records
    */
-  TeamResultWrapper findAllTeamsByMember(String personId, int offset,
-                                         int pageSize);
+  TeamResultWrapper findAllTeamsByMember(String personId, int offset, int pageSize);
 
   /**
    * Return all teams using a specific stem with a name like where the personId is a member
@@ -209,8 +219,7 @@ public interface GrouperTeamService {
    *          the maximum result size
    * @return teams including the number of total records
    */
-  TeamResultWrapper findTeamsByMember(String personId,
-                                      String partOfGroupname, int offset, int pageSize);
+  TeamResultWrapper findTeamsByMember(String personId, String partOfGroupname, int offset, int pageSize);
 
   /**
    * Return all stems for a person

@@ -81,13 +81,11 @@ public class Application extends SpringBootServletInitializer {
   }
 
   @Bean(name = "teamsJdbcTemplate")
-  @Autowired
   public JdbcTemplate teamsJdbcTemplate(@Qualifier("teamsDataSource") DataSource dataSource) {
     return new JdbcTemplate(dataSource);
   }
 
   @Bean
-  @Autowired
   public VootClient vootClient(Environment environment, @Value("${voot.accessTokenUri}") String accessTokenUri,
                                @Value("${voot.clientId}") String clientId,
                                @Value("${voot.clientSecret}") String clientSecret,
@@ -101,7 +99,6 @@ public class Application extends SpringBootServletInitializer {
   }
 
   @Bean
-  @Autowired
   public GrouperTeamService grouperTeamService(Environment environment, MemberAttributeService memberAttributeService,
                                                @Value("${defaultStemName}") String defaultStemName,
                                                @Value("${grouperPowerUser}") String grouperPowerUser) {
@@ -121,7 +118,6 @@ public class Application extends SpringBootServletInitializer {
   }
 
   @Bean
-  @Autowired
   public MailService mailService(Environment environment, JavaMailSender mailSender) {
     if (environment.acceptsProfiles(DEV_PROFILE_NAME)) {
       return new LetterOpener();
@@ -143,7 +139,6 @@ public class Application extends SpringBootServletInitializer {
   }
 
   @Bean
-  @Autowired
   public WebMvcConfigurerAdapter webMvcConfigurerAdapter(
     Environment environment, MemberAttributeService memberAttributeService,
     @Value("${teamsURL}") final String teamsURL,
@@ -207,7 +202,6 @@ public class Application extends SpringBootServletInitializer {
    * Can be removed as soon as https://github.com/spring-projects/spring-boot/issues/2893 is solved.
    */
   @Bean
-  @Autowired
   public InternalResourceViewResolver viewResolver(@Value("${spring.view.prefix:}") String prefix, @Value("${spring.view.suffix:}") String suffix) {
     final InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
     internalResourceViewResolver.setOrder(Ordered.HIGHEST_PRECEDENCE);
