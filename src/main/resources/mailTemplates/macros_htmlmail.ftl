@@ -79,8 +79,6 @@
       </style>
       <div
           style="max-width:960px;border-radius:4px 4px 4px 4px;margin-bottom:0 ;margin-left:auto;margin-right:auto;margin-top:0 ;padding-bottom:1%;padding-left:1%;padding-right:1%;padding-top:1%;border-style:solid;border-width:1px;border-color:#D8DADC;">
-        <img src="https://static.surfconext.nl/media/surfconext.png" width="63" height="40"
-            alt="SURFconext logo" align="right"/>
 
         <h1 style="mso-line-height-rule:exactly;line-height:33px;font-weight:normal;font-size:28px;margin-top:0;">
           SURFconext Teams</h1>
