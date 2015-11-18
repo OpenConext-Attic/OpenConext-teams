@@ -20,7 +20,7 @@
   limitations under the License.
   --%>
 
-<c:set var="pageTitle"><c:out value="${team.name}" /> (<c:out value="${team.stem.name}" />)</c:set>
+<c:set var="pageTitle"><c:out value="${team.name}" /></c:set>
 <teams:genericpage pageTitle="${pageTitle}">
 <c:if test="${fn:length(message) > 0}"><div id="__notifyBar" class="hide"><spring:message code='${message}' /></div></c:if>
 <c:if test="${role eq adminRole}">
@@ -38,24 +38,30 @@
 
     <c:if test="${role eq adminRole or role eq managerRole}">
       <c:if test="${displayAddExternalGroupToTeam eq true}">
-        <p class="add">
+        <div class="add">
           <c:url value="/addexternalgroup.shtml" var="addexternalgroupUrl"><c:param name="teamId" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
           <a class="button" href="<c:out value="${addexternalgroupUrl}"/>"><spring:message code="jsp.addexternalgroup.Title"/></a>
-        </p>
+        </div>
       </c:if>
-      <p class="add">
+      <div class="add">
         <c:url value="/addmember.shtml" var="addmemberUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
         <a class="button" href="<c:out value="${addmemberUrl}"/>"><spring:message code='jsp.addmember.Title' /></a>
-      </p>
+      </div>
       <c:if test="${groupzyEnabled}">
-        <p class="add">
+        <div class="add">
           <c:url value="/${team.id}/service-providers.shtml" var="editserviceproviders"><c:param name="view" value="${view}" /></c:url>
           <a class="button" href="<c:out value="${editserviceproviders}"/>"><spring:message code='jsp.addallowedserviceproviders.edit' /></a>
-        </p>
+        </div>
       </c:if>
     </c:if>
 
     <br class="clear" />
+
+    <p>
+      <spring:message code="jsp.detailteam.UniqueId" />:
+      <spring:eval expression="@environment.getProperty('group-name-context')" /><c:out value="${team.id}"/>
+    </p>
+
   <%-- / Header --%>
   </div>
   <%-- = Content --%>
@@ -65,7 +71,7 @@
       <c:out value="${team.descriptionAsHtml}" default="${noDescription}" escapeXml="false"/>
     </p>
 
-    <c:if test="${fn:length(teamExternalGroups)>0}">
+    <c:if test="${fn:length(teamExternalGroups) > 0}">
       <h2><spring:message code="jsp.detailteam.InstitutionalGroups"/></h2>
       <div class="team-table-wrapper">
         <table class="team-table">
