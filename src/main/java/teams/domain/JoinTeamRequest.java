@@ -67,7 +67,6 @@ public class JoinTeamRequest extends DomainObject {
    * @param groupId  id of the {@link Team}
    */
   public JoinTeamRequest(String personId, String groupId, String email, String displayName) {
-    super();
     this.setPersonId(personId);
     this.setGroupId(groupId);
     this.email = email;

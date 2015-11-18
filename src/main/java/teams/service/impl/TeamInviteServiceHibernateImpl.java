@@ -76,7 +76,6 @@ public class TeamInviteServiceHibernateImpl implements TeamInviteService {
     return CollectionUtils.isEmpty(resultList) ? null : resultList.get(0);
   }
 
-  @SuppressWarnings({"unchecked"})
   @Override
   public List<Invitation> findAllInvitationsForTeam(Team team) {
     cleanupExpiredInvitations();
@@ -86,7 +85,6 @@ public class TeamInviteServiceHibernateImpl implements TeamInviteService {
     return q.getResultList();
   }
 
-  @SuppressWarnings("unchecked")
   @Override
   public List<Invitation> findInvitationsForTeamExcludeAccepted(Team team) {
     cleanupExpiredInvitations();
@@ -94,7 +92,6 @@ public class TeamInviteServiceHibernateImpl implements TeamInviteService {
     final TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);
     q.setParameter("teamId", team.getId());
     return q.getResultList();
-
   }
 
   @Override
@@ -108,7 +105,6 @@ public class TeamInviteServiceHibernateImpl implements TeamInviteService {
 
   @Override
   public void cleanupExpiredInvitations() {
-
     String jpaQl = "select i from Invitation i where i.timestamp <= :thirtyDaysAgo";
     final TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);
     q.setParameter("thirtyDaysAgo", (new Date().getTime()) - THIRTY_DAYS);

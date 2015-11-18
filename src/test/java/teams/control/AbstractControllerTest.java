@@ -168,7 +168,6 @@ public abstract class AbstractControllerTest {
    * @param mock           the mock Object to return on method invocations
    * @param interfaceClass the class to mock
    */
-  @SuppressWarnings("unchecked")
   protected void autoWireMock(Object target, Object mock, Class interfaceClass)
     throws Exception {
     boolean found = doAutoWireMock(target, mock, interfaceClass, target
@@ -214,19 +213,12 @@ public abstract class AbstractControllerTest {
     setUpSession(request);
   }
 
-  /**
-   * @return the request
-   */
   protected MockHttpServletRequest getRequest() {
     return request;
   }
 
-  /**
-   * @return the modelMap
-   */
   protected ModelMap getModelMap() {
     return modelMap;
   }
-
 
 }

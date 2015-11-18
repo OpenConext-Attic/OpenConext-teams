@@ -1,9 +1,8 @@
 package teams.domain;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
+@SuppressWarnings("serial")
 public class Person implements Serializable {
 
   private final String id;
@@ -62,7 +61,5 @@ public class Person implements Serializable {
   public int hashCode() {
     return id != null ? id.hashCode() : 0;
   }
-
-
 
 }

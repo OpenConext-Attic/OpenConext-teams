@@ -19,12 +19,12 @@ package teams.domain;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Index;
 import org.hibernate.annotations.Proxy;
 
 /**
@@ -32,7 +32,7 @@ import org.hibernate.annotations.Proxy;
  */
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "invitation_message")
+@Table(name = "invitation_message", indexes = { @Index(name = "messagetimestamp", columnList="timestamp") })
 @Proxy(lazy = false)
 public class InvitationMessage extends DomainObject implements Comparable<InvitationMessage> {
 
@@ -44,7 +44,6 @@ public class InvitationMessage extends DomainObject implements Comparable<Invita
   private String message;
 
   @Column(nullable = false)
-  @Index(name = "messagetimestamp")
   private long timestamp;
 
   private String inviter;

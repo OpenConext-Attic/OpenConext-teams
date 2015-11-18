@@ -13,23 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package teams.util;
 
-import teams.domain.Person;
-import teams.domain.Member;
-import teams.domain.Role;
-import teams.domain.Team;
-import teams.service.GrouperTeamService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
+import static com.google.common.base.Preconditions.checkArgument;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
+
+import teams.domain.Member;
+import teams.domain.Person;
+import teams.domain.Role;
+import teams.domain.Team;
+import teams.service.GrouperTeamService;
 
 /**
  * This class includes methods that are often used by controllers
@@ -48,8 +49,7 @@ public class ControllerUtilImpl implements ControllerUtil {
    * @throws RuntimeException if the team cannot be found
    */
   public Team getTeam(HttpServletRequest request) {
-    String teamId = request.getParameter("team");
-    return getTeamById(teamId);
+    return getTeamById(request.getParameter("team"));
   }
 
   /**
@@ -60,14 +60,9 @@ public class ControllerUtilImpl implements ControllerUtil {
    * @throws RuntimeException if the team cannot be found
    */
   public Team getTeamById(String teamId) {
-    Team team = null;
-    if (StringUtils.hasText(teamId)) {
-      team = grouperTeamService.findTeamById(teamId);
-    }
-    if (team == null) {
-      throw new RuntimeException("Team (" + teamId + ") not found");
-    }
-    return team;
+    checkArgument(StringUtils.hasText(teamId));
+
+    return grouperTeamService.findTeamById(teamId);
   }
 
   /**
@@ -98,19 +93,8 @@ public class ControllerUtilImpl implements ControllerUtil {
     return member != null && (member.getRoles().contains(Role.Admin));
   }
 
-  /**
-   * {@inheritDoc}
-   */
   public boolean isPersonMemberOfTeam(String personId, Team team) {
-    List<Member> members = team.getMembers();
-    boolean isMember = false;
-
-    for (Member member : members) {
-      if (member.getId().equals(personId)) {
-        isMember = true;
-      }
-    }
-    return isMember;
+    return team.getMembers().stream().anyMatch(m -> m.getId().equals(personId));
   }
 
   @Override

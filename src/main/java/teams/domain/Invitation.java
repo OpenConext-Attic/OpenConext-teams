@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package teams.domain;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,9 +30,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Proxy;
-import org.hibernate.annotations.Sort;
 import org.hibernate.annotations.SortNatural;
-import org.hibernate.annotations.SortType;
 import org.springframework.util.CollectionUtils;
 
 import teams.util.InvitationGenerator;
@@ -42,6 +40,8 @@ import teams.util.InvitationGenerator;
 @Table(name = "invitations")
 @Proxy(lazy = false)
 public class Invitation extends DomainObject {
+
+  private static final long TWO_WEEKS = 14L * 24L * 60L * 60L * 1000L;
 
   @Column(name = "group_id", nullable = false)
   private String teamId;
@@ -55,11 +55,9 @@ public class Invitation extends DomainObject {
   @Column(name = "invitation_uiid", nullable = false)
   private String invitationHash;
 
-  // 0 or 1
   @Column(name = "denied")
   private boolean declined;
 
-  // 0 or 1
   @Column(name = "accepted")
   private boolean accepted;
 
@@ -70,9 +68,6 @@ public class Invitation extends DomainObject {
   @Enumerated(EnumType.STRING)
   @Column(name = "intended_role", nullable = true)
   private Role intendedRole;
-
-  private static final long TWO_WEEKS = 14L * 24L * 60L * 60L * 1000L;
-
 
   /**
    * Constructor Hibernate needs when fetching results from the db.
@@ -93,7 +88,7 @@ public class Invitation extends DomainObject {
     this.setTeamId(teamId);
     this.setInvitationHash();
     this.setTimestamp(new Date().getTime());
-    this.setInvitationMessages(new ArrayList<InvitationMessage>());
+    this.setInvitationMessages(new ArrayList<>());
   }
 
   /**

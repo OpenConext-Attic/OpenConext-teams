@@ -13,9 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package teams.domain;
-
 
 /**
  * The link between a team (SURFConext) and external groups from the universities.
@@ -36,6 +34,7 @@ package teams.domain;
  * ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
  * </pre>
  */
+@SuppressWarnings("serial")
 public class TeamExternalGroup extends DomainObject {
 
   private String grouperTeamId;

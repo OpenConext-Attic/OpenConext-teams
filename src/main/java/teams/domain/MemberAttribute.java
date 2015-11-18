@@ -13,33 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package teams.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
-import org.hibernate.annotations.Index;
 import org.hibernate.annotations.Proxy;
-
 
 /**
  * Custom attributes for a {@link Member} of a {@link Team}
  * <p/>
  * This saves extra OpenSocial calls when querying lists in Grouper
  */
-@SuppressWarnings({"serial", "UnusedDeclaration"})
+@SuppressWarnings({"serial"})
 @Entity
 @Table(name = "member_attributes",
-  uniqueConstraints = @UniqueConstraint(columnNames = {"member_id", "attribute_name"}))
+  indexes = { @Index(name="member_attribute", columnList="member_id, attribute_name", unique = true) })
 @Proxy(lazy = false)
 public class MemberAttribute extends DomainObject {
 
-  @Index(name = "member_attribute", columnNames = {"member_id", "attribute_name"})
   @Column(name = "member_id", nullable = false)
   private String memberId;
 
@@ -72,7 +68,6 @@ public class MemberAttribute extends DomainObject {
    * @param attributeValue value of the custom attribute
    */
   public MemberAttribute(String memberId, String attributeName, String attributeValue) {
-    super();
     this.memberId = memberId;
     this.attributeName = attributeName;
     this.attributeValue = attributeValue;

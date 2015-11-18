@@ -141,8 +141,9 @@ public class AddTeamController {
     String personId = person.getId();
 
     String admin2 = request.getParameter("admin2");
-    modelMap.addAttribute("admin2", admin2);
     String admin2Message = request.getParameter("admin2message");
+
+    modelMap.addAttribute("admin2", admin2);
     modelMap.addAttribute("admin2message", admin2Message);
 
     if (PermissionUtil.isGuest(request)) {

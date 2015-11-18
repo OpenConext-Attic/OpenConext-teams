@@ -16,31 +16,35 @@
 
 package teams.control;
 
-import teams.domain.*;
-import teams.interceptor.LoginInterceptor;
-import teams.service.GrouperTeamService;
-import teams.service.JoinTeamRequestService;
-import teams.service.TeamExternalGroupDao;
-import teams.service.TeamInviteService;
-import teams.util.ControllerUtil;
-import teams.util.TokenUtil;
-import org.junit.Test;
-import org.mockito.internal.stubbing.answers.Returns;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.mock.web.MockHttpSession;
-import org.springframework.web.bind.support.SimpleSessionStatus;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.ServletRequestAttributes;
-import org.springframework.web.servlet.view.RedirectView;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import org.junit.Test;
+import org.mockito.internal.stubbing.answers.Returns;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.web.bind.support.SimpleSessionStatus;
+import org.springframework.web.servlet.view.RedirectView;
+
+import teams.domain.Invitation;
+import teams.domain.JoinTeamRequest;
+import teams.domain.Member;
+import teams.domain.Role;
+import teams.domain.Team;
+import teams.domain.TeamExternalGroup;
+import teams.service.GrouperTeamService;
+import teams.service.JoinTeamRequestService;
+import teams.service.TeamExternalGroupDao;
+import teams.service.TeamInviteService;
+import teams.util.ControllerUtil;
+import teams.util.TokenUtil;
 
 /**
  * Tests for {@link DetailTeamController}
@@ -53,14 +57,14 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
   public void testStartNotMember() throws Exception {
     MockHttpServletRequest request = getRequest();
 
-    HashSet<Role> roles = new HashSet<Role>();
+    HashSet<Role> roles = new HashSet<>();
     roles.add(Role.Member);
 
     HashSet<Member> admins = new HashSet<Member>();
-    admins.add(new Member(new HashSet<Role>(), "Jane Doe", "member-2",
+    admins.add(new Member(new HashSet<>(), "Jane Doe", "member-2",
       "jane@doe.com"));
 
-    List<Member> members = new ArrayList<Member>();
+    List<Member> members = new ArrayList<>();
     members.add(new Member(roles, "Jane Doe", "member-2", "jane@doe.com"));
 
     Team mockTeam = new Team("team-1", "Team 1", "team description", members);
@@ -557,17 +561,4 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     assertEquals("home.shtml?teams=my&view=app", view.getUrl());
   }
 
-  @Override
-  public void setup() throws Exception {
-    super.setup();
-  }
-
-  private RequestAttributes getRequestAttributes() {
-    MockHttpServletRequest request = new MockHttpServletRequest();
-    MockHttpSession session = new MockHttpSession();
-    Person person = new Person("test", "name", "email@example.org", "example.org", "admin", "Test");
-    session.setAttribute(LoginInterceptor.PERSON_SESSION_KEY, person);
-    request.setSession(session);
-    return new ServletRequestAttributes(request);
-  }
 }

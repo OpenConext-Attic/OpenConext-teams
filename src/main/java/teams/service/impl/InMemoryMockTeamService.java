@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package teams.service.impl;
 
 import teams.domain.*;
@@ -21,7 +20,6 @@ import teams.service.GrouperTeamService;
 import teams.util.DuplicateTeamException;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 import com.google.common.collect.ImmutableSet;
 

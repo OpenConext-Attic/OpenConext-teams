@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package teams.service.impl;
 
 import org.hibernate.validator.internal.constraintvalidators.EmailValidator;
@@ -29,17 +28,11 @@ import teams.domain.Invitation;
 public class InvitationValidator implements Validator {
   private static final EmailValidator EMAIL_VALIDATOR = new EmailValidator();
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public boolean supports(Class<?> clazz) {
     return clazz.isAssignableFrom(Invitation.class);
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public void validate(Object target, Errors errors) {
     Invitation invitation = (Invitation) target;

@@ -22,7 +22,8 @@ public class GrouperTestIntegration {
     filter.setQueryFilterType("FIND_BY_GROUP_NAME_APPROXIMATE");
     filter.setGroupName("%");
     String personId = "urn:collab:person:example.com:admin";
-    WsFindGroupsResults results = new GcFindGroups()
+
+    new GcFindGroups()
             .assignQueryFilter(filter)
             .assignIncludeGroupDetail(false)
             .assignActAsSubject(new WsSubjectLookup(personId, null, null))
@@ -42,10 +43,10 @@ public class GrouperTestIntegration {
             .assignActAsSubject(new WsSubjectLookup("urn:collab:person:example.com:somuser", "", ""))
             .assignIncludeGroupDetail(false)
             .execute();
-    System.out.println(results.getGroupResults()[0].getName());
-    System.out.println(results.getGroupResults()[1].getName());
+
     assertEquals(2, results.getGroupResults().length);
   }
+
   @Test
   public void getPublicGroupsForUserFiltered() {
     WsQueryFilter filter = new WsQueryFilter();
@@ -78,22 +79,12 @@ public class GrouperTestIntegration {
             .assignPageSize(10)
             .assignScope("%nog%")
             .execute();
+
     assertEquals(5, results.getResults()[0].getWsGroups().length);
-    System.out.println(results.getResults()[0].getWsGroups()[0].getDisplayExtension());
   }
 
   @Test
   public void privs() {
-    System.out.println(" select gf.name as fieldname, " +
-            "gg.name as groupname from grouper_memberships gms, "
-            + "grouper_groups gg, grouper_fields gf, "
-            + " grouper_stems gs, grouper_members gm where "
-            + " gms.field_id = gf.id and  gms.owner_group_id = gg.id and "
-            + " gms.member_id = gm.id "
-            + " and gm.subject_id = ?  "
-            + " and gg.parent_stem = gs.id "
-            + " and gs.name != 'etc' "
-            + " and (gf.name = 'admins' or gf.name = 'updaters') order by gg.name ");
     String groupName = "nl:surfnet:diensten:archimate_cursisten";
     String userId = "urn:collab:person:surfnet.nl:niels";
     WsGetGrouperPrivilegesLiteResult privilegesResults = new GcGetGrouperPrivilegesLite()
@@ -112,7 +103,6 @@ public class GrouperTestIntegration {
               privResult.getRevokable(),
               privResult.getOwnerSubject().getSourceId(),
               privResult.getWsStem()
-//              privResult.g
       );
     }
   }

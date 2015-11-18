@@ -15,14 +15,16 @@
  */
 package teams.domain;
 
-import edu.internet2.middleware.grouperClient.ws.beans.WsGrouperPrivilegeResult;
+import static java.util.Arrays.stream;
 
-import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
+
+import edu.internet2.middleware.grouperClient.ws.beans.WsGrouperPrivilegeResult;
 
 /**
  * The Role of a {@link Member} in a {@link Team}
- * 
+ *
  */
 public enum Role {
     Admin, Member, Manager, None;
@@ -48,23 +50,22 @@ public enum Role {
       return Member;
     }
 
-    Set<String> privilegeNames = new HashSet<>();
-    for (WsGrouperPrivilegeResult priv : wsPrivilegeResults) {
-      // Exclude privileges that were inherited through special group memberships (etc:sysadminwhatever...)
-      if (priv.getOwnerSubject() != null
-              && priv.getOwnerSubject().getSourceId() != null
-              && priv.getOwnerSubject().getSourceId().equals("g:isa")) {
-        continue;
-      }
-      privilegeNames.add(priv.getPrivilegeName());
-    }
+    // Exclude privileges that were inherited through special group memberships (etc:sysadminwhatever...)
+    Set<String> privilegeNames = stream(wsPrivilegeResults)
+        .filter(priv -> priv.getOwnerSubject() == null
+              || priv.getOwnerSubject().getSourceId() == null
+              || !priv.getOwnerSubject().getSourceId().equals("g:isa"))
+        .map(WsGrouperPrivilegeResult::getPrivilegeName)
+        .collect(Collectors.toSet());
 
     if (privilegeNames.contains("admin")) {
       return Admin;
     }
+
     if (privilegeNames.contains("update")) {
       return Manager;
     }
+
     return Member;
   }
 }

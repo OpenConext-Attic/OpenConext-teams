@@ -35,14 +35,12 @@ package teams.domain;
  * ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8
  * </pre>
  */
+@SuppressWarnings("serial")
 public class ExternalGroup extends DomainObject {
 
   private String identifier;
-
   private String name;
-
   private String description;
-
   private String groupProviderIdentifier;
 
   /**

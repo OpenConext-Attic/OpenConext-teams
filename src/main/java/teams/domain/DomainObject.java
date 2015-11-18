@@ -10,23 +10,26 @@ import javax.persistence.MappedSuperclass;
 /**
  * Base domain object
  */
-
 @SuppressWarnings("serial")
 @MappedSuperclass
-@Deprecated // Copied this in from the infamous coin-shared only to be removed ASAP.
 public abstract class DomainObject implements Serializable {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   @Override
   public int hashCode() {
     return (id == null) ? super.hashCode() : id.hashCode();
   }
-
-  /**
-   * The id.
-   */
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
 
   @Override
   public boolean equals(Object other) {
@@ -46,21 +49,6 @@ public abstract class DomainObject implements Serializable {
       return false;
     }
     return id.equals(domainObject.id);
-  }
-
-  /**
-   * @return the id
-   */
-  public Long getId() {
-    return id;
-  }
-
-  /**
-   * @param id
-   *          the id to set
-   */
-  public void setId(Long id) {
-    this.id = id;
   }
 
   @Override
