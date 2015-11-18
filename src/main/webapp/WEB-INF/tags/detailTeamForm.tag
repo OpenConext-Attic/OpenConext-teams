@@ -87,7 +87,7 @@
                 </c:if>
               </td>
             </c:if>
-            <td><c:out value="${member.name}"/></td>
+            <td><span title="<c:out value='${member.id}'/>"><c:out value="${member.name}" /></span></td>
             <td><c:out value="${member.email}"/></td>
             <td>
               <c:set var="checked"><c:if
