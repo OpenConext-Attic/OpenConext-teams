@@ -24,7 +24,7 @@ import org.slf4j.LoggerFactory;
  */
 public class AuditLog {
 
-  private static final Logger LOG = LoggerFactory.getLogger("nl.surfnet.coin.teams.audit");
+  private static final Logger LOG = LoggerFactory.getLogger("teams.audit");
 
   /**
    * Same interface as SLF4J's logging methods
