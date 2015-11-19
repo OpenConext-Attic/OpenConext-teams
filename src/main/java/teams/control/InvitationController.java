@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -101,11 +102,14 @@ public class InvitationController {
    */
   @RequestMapping(value = "/acceptInvitation.shtml")
   public String accept(ModelMap modelMap, HttpServletRequest request) throws UnsupportedEncodingException {
-    Invitation invitation = getInvitationByRequest(request);
-    if (invitation == null) {
+    Optional<Invitation> invitationO = getInvitationByRequest(request);
+    if (!invitationO.isPresent()) {
       modelMap.addAttribute("action", "missing");
       return "invitationexception";
     }
+
+    Invitation invitation = invitationO.get();
+
     if (invitation.isDeclined()) {
       modelMap.addAttribute("action", "declined");
       return "invitationexception";
@@ -153,10 +157,9 @@ public class InvitationController {
   public RedirectView doAccept(HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
 
-    Invitation invitation = getInvitationByRequest(request);
-    if (invitation == null) {
-      throw new IllegalArgumentException("Cannot find your invitation. Invitations expire after 14 days.");
-    }
+    Invitation invitation = getInvitationByRequest(request)
+        .orElseThrow(() -> new IllegalArgumentException("Cannot find your invitation. Invitations expire after 14 days."));
+
     if (invitation.isDeclined()) {
       throw new RuntimeException("Invitation is Declined");
     }
@@ -200,12 +203,14 @@ public class InvitationController {
 
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
 
-    Invitation invitation = getInvitationByRequest(request);
+    Optional<Invitation> invitationO = getInvitationByRequest(request);
 
-    if (invitation == null) {
+    if (!invitationO.isPresent()) {
       // even if we can't find the invitation, we'll display success!
       return viewTemplate;
     }
+
+    Invitation invitation = invitationO.get();
 
     invitation.setDeclined(true);
     teamInviteService.saveOrUpdate(invitation);
@@ -236,7 +241,8 @@ public class InvitationController {
       return new RedirectView("landingpage.shtml");
     }
 
-    Invitation invitation = getAllInvitationByRequest(request);
+    Invitation invitation = getAllInvitationByRequest(request).orElseThrow(IllegalArgumentException::new);
+
     String teamId = invitation.getTeamId();
 
     if (!controllerUtil.hasUserAdministrativePrivileges(person, teamId)) {
@@ -257,11 +263,8 @@ public class InvitationController {
   @RequestMapping("/resendInvitation.shtml")
   public String resendInvitation(ModelMap modelMap, HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
-    Invitation invitation = getAllInvitationByRequest(request);
-    if (invitation == null) {
-      throw new IllegalArgumentException(
-        "Cannot find the invitation. Invitations expire after 14 days.");
-    }
+    Invitation invitation = getAllInvitationByRequest(request)
+        .orElseThrow(() -> new IllegalArgumentException("Cannot find the invitation. Invitations expire after 14 days."));
 
     Member member = grouperTeamService.findMember(invitation.getTeamId(), person.getId());
     if (member == null) {
@@ -306,7 +309,7 @@ public class InvitationController {
     return "myinvitations";
   }
 
-  private Invitation getInvitationByRequest(HttpServletRequest request) {
+  private Optional<Invitation> getInvitationByRequest(HttpServletRequest request) {
     String invitationId = request.getParameter("id");
 
     if (!StringUtils.hasText(invitationId)) {
@@ -316,7 +319,7 @@ public class InvitationController {
     return teamInviteService.findInvitationByInviteId(invitationId);
   }
 
-  private Invitation getAllInvitationByRequest(HttpServletRequest request) {
+  private Optional<Invitation> getAllInvitationByRequest(HttpServletRequest request) {
     String invitationId = request.getParameter("id");
 
     if (!StringUtils.hasText(invitationId)) {

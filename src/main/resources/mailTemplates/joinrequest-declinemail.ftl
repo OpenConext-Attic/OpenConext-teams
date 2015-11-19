@@ -16,7 +16,7 @@
   --]
 [#-- Mail to send when the request to join a team has been declined --]
 [#import "macros_htmlmail.ftl" as macros_htmlmail/]
-[@macros_htmlmail.mailheader/]
+[@macros_htmlmail.mailheader "SURFconext Teams"/]
 <p lang="en">
   Your <strong>request</strong> to join team ${team.name?html} has been <strong>declined</strong> by the
   administrator of the team.

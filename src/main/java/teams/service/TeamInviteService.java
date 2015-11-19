@@ -17,6 +17,7 @@
 package teams.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import teams.domain.Invitation;
 import teams.domain.Team;
@@ -31,7 +32,7 @@ public interface TeamInviteService {
    * @param team  {@link Team}
    * @return {@link Invitation} or {@literal null}
    */
-  Invitation findOpenInvitation(String email, Team team);
+  Optional<Invitation> findOpenInvitation(String email, Team team);
 
   /**
    * Searches for an {@link Invitation} by its generated hash
@@ -40,7 +41,7 @@ public interface TeamInviteService {
    * @param invitationId String that was sent to the invitee
    * @return {@link Invitation} if found, otherwise {@literal null}
    */
-  Invitation findInvitationByInviteId(String invitationId);
+  Optional<Invitation> findInvitationByInviteId(String invitationId);
 
   /**
    * Searches for an {@link Invitation} by its generated hash
@@ -49,7 +50,7 @@ public interface TeamInviteService {
    * @param invitationId String that was sent to the invitee
    * @return {@link Invitation} if found, otherwise {@literal null}
    */
-  Invitation findAllInvitationById(String invitationId);
+  Optional<Invitation> findAllInvitationById(String invitationId);
 
   /**
    * Searches for {@link Invitation}'s for a {@link Team}.

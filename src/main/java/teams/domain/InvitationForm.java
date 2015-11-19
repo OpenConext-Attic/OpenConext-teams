@@ -13,16 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package teams.domain;
 
 import teams.domain.Person;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import com.google.common.base.MoreObjects;
+
+import org.apache.commons.io.IOUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-/**
-  Bean for the invitation form
- */
 public class InvitationForm {
 
   private String emails;
@@ -31,9 +34,16 @@ public class InvitationForm {
   private MultipartFile csvFile;
   private Person inviter;
   private Role intendedRole = Role.Member;
+  private Language language;
 
   public String getEmails() {
     return emails;
+  }
+
+  public char[] getCsvFileEmails() throws IOException {
+    try (InputStream inputStream = csvFile.getInputStream()) {
+      return IOUtils.toCharArray(inputStream);
+    }
   }
 
   public void setEmails(String emails) {
@@ -83,4 +93,18 @@ public class InvitationForm {
   public void setIntendedRole(Role intendedRole) {
     this.intendedRole = intendedRole;
   }
+
+  public Language getLanguage() {
+    return language;
+  }
+
+  public void setLanguage(Language language) {
+    this.language = language;
+  }
+
+  @Override
+  public String toString() {
+    return MoreObjects.toStringHelper(this).add("teamId", teamId).toString();
+  }
+
 }

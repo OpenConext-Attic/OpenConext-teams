@@ -1,7 +1,13 @@
 package teams;
 
-import freemarker.template.TemplateException;
-import nl.surfnet.coin.stoker.Stoker;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Properties;
+
+import javax.sql.DataSource;
+
 import org.apache.catalina.Container;
 import org.apache.catalina.Wrapper;
 import org.slf4j.Logger;
@@ -22,7 +28,11 @@ import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomi
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.Ordered;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ResourceLoader;
@@ -35,24 +45,24 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import freemarker.template.TemplateException;
+import nl.surfnet.coin.stoker.Stoker;
 import teams.interceptor.FeatureInterceptor;
 import teams.interceptor.LoginInterceptor;
 import teams.interceptor.MockLoginInterceptor;
 import teams.service.GrouperTeamService;
 import teams.service.MemberAttributeService;
 import teams.service.VootClient;
-import teams.service.impl.*;
+import teams.service.impl.GrouperTeamServiceWsImpl;
+import teams.service.impl.InMemoryMockTeamService;
+import teams.service.impl.JdbcServiceProviderTeamDao;
+import teams.service.impl.VootClientImpl;
+import teams.service.impl.VootClientMock;
 import teams.service.mail.MailService;
 import teams.service.mail.MailServiceImpl;
 import teams.util.LetterOpener;
 import teams.util.SpringMvcConfiguration;
-
-import javax.sql.DataSource;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Properties;
 
 @SpringBootApplication
 @EnableAutoConfiguration(exclude = {SecurityAutoConfiguration.class, FreeMarkerAutoConfiguration.class, ManagementSecurityAutoConfiguration.class})
@@ -112,7 +122,7 @@ public class Application extends SpringBootServletInitializer {
 
   @Bean
   public LocaleResolver localeResolver() {
-    final SessionLocaleResolver localeResolver = new SessionLocaleResolver();
+    SessionLocaleResolver localeResolver = new SessionLocaleResolver();
     localeResolver.setDefaultLocale(new Locale("en_EN"));
     return localeResolver;
   }
@@ -130,10 +140,11 @@ public class Application extends SpringBootServletInitializer {
 
   @Bean
   public freemarker.template.Configuration freemarkerConfiguration() throws TemplateException, IOException {
-    FreeMarkerConfigurationFactoryBean freeMarkerConfigurationFactoryBean = new FreeMarkerConfigurationFactoryBean();
-    freeMarkerConfigurationFactoryBean.setTemplateLoaderPath("classpath:/mailTemplates/");
+    FreeMarkerConfigurationFactoryBean fmConfigurationFactory = new FreeMarkerConfigurationFactoryBean();
+    fmConfigurationFactory.setTemplateLoaderPaths("classpath:/mailTemplates/");
 
-    freemarker.template.Configuration configuration = freeMarkerConfigurationFactoryBean.createConfiguration();
+    freemarker.template.Configuration configuration = fmConfigurationFactory.createConfiguration();
+    configuration.setIncompatibleImprovements(freemarker.template.Configuration.VERSION_2_3_23);
 
     return configuration;
   }

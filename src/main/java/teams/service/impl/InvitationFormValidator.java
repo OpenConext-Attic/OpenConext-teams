@@ -30,17 +30,12 @@ public class InvitationFormValidator implements Validator {
 
   private static final EmailValidator EMAIL_VALIDATOR = new EmailValidator();
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public boolean supports(Class<?> clazz) {
     return clazz.isAssignableFrom(InvitationForm.class);
   }
 
   /**
-   * {@inheritDoc}
-   * <p/>
    * Fails if both the input field for manual email address input is empty and there is no
    * csv file with content
    */
@@ -52,14 +47,13 @@ public class InvitationFormValidator implements Validator {
       String[] emails = form.getEmails().split(",");
       for (String email : emails) {
         if (!EMAIL_VALIDATOR.isValid(email.trim(), null)) {
-          errors.rejectValue("emails", "error.wrongFormattedEmailList");
+          errors.rejectValue("emails", "error.WrongFormattedEmailList");
           break;
         }
-
       }
     }
 
-    if (form.hasCsvFile() && form.getCsvFile().getSize() == 0) {
+    if (form.hasCsvFile() && form.getCsvFile().isEmpty()) {
       errors.rejectValue("csvFile", "invite.errors.EmptyCSV");
     }
 

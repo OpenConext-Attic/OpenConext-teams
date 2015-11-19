@@ -31,6 +31,7 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
 import static org.junit.Assert.assertEquals;
@@ -64,8 +65,8 @@ public class InvitationControllerTest extends AbstractControllerTest {
     invitation = new Invitation(person.getEmail(), "team-1");
 
     TeamInviteService teamInviteService = mock(TeamInviteService.class);
-    when(teamInviteService.findInvitationByInviteId(invitationHash)).thenReturn(invitation);
-    when(teamInviteService.findAllInvitationById(invitationHash)).thenReturn(invitation);
+    when(teamInviteService.findInvitationByInviteId(invitationHash)).thenReturn(Optional.of(invitation));
+    when(teamInviteService.findAllInvitationById(invitationHash)).thenReturn(Optional.of(invitation));
     List<Invitation> pendingInvitations = new ArrayList<Invitation>(1);
     pendingInvitations.add(invitation);
     when(teamInviteService.findPendingInvitationsByEmail(

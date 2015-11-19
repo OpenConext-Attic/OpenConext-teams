@@ -17,7 +17,7 @@
 
 [#-- Macros for HTML mails --]
 
-[#macro mailheader]
+[#macro mailheader title]
 [#-- In head: Generate more than 1109 spaces for iOS devices, but no more than 250 chars at a time --]
 <html>
 <head><title></title>
@@ -81,7 +81,7 @@
           style="max-width:960px;border-radius:4px 4px 4px 4px;margin-bottom:0 ;margin-left:auto;margin-right:auto;margin-top:0 ;padding-bottom:1%;padding-left:1%;padding-right:1%;padding-top:1%;border-style:solid;border-width:1px;border-color:#D8DADC;">
 
         <h1 style="mso-line-height-rule:exactly;line-height:33px;font-weight:normal;font-size:28px;margin-top:0;">
-          SURFconext Teams</h1>
+          ${title}</h1>
 
 [/#macro]
 

@@ -16,6 +16,7 @@
   --]
 
 [#import "macros_htmlmail.ftl" as macros_htmlmail/]
+[#import "i18n.ftl" as i18n/]
 [#--
 Template variables:
 Invitation invitation
@@ -23,24 +24,34 @@ Person inviter
 Team team
 String teamsURL
  --]
-[@macros_htmlmail.mailheader/]
-        <p lang="en">
-          You have been invited by ${inviter.displayName?html} to join team <strong>${team.name?html}</strong>.
+
+[#assign title][@i18n.messageArgs "mail.invitation.header", [inviter.displayName?html] /][/#assign]
+[@macros_htmlmail.mailheader title/]
+        <p>
+          [@i18n.messageArgs "mail.invitation.invitedBy", [inviter.displayName?html, team.name?html]/]
         </p>
 
         [#if invitation.latestInvitationMessage?has_content && invitation.latestInvitationMessage.message?has_content]
         <p>
           [#assign msg]${invitation.latestInvitationMessage.message?html}[/#assign]
-          <strong>Personal message from ${inviter.displayName?html}:</strong><br /> "${msg?replace("\n","<br />")}"
+          [@i18n.messageArgs "mail.invitation.personalMessage", [inviter.displayName?html, msg?replace("\n","<br />")]/]
         </p>
         [/#if]
 
         [#if team.description?has_content]
         [#assign description]${team.description?html}[/#assign]
         <p>
-          <strong>Team description:</strong><br /> "${description?replace("\n","<br />")}"
+          [@i18n.messageArgs "mail.invitation.teamDescription", [description?replace("\n","<br />")]/]
         </p>
         [/#if]
+
+        <p>
+          [@i18n.message "mail.invitation.accepting"/]
+        </p>
+
+        <p>
+          [@i18n.message "mail.invitation.expire"/]
+        </p>
 
         [#assign acceptUrl]${teamsURL}/acceptInvitation.shtml?id=${invitation.invitationHash}[/#assign]
         [#assign declineUrl]${teamsURL}/declineInvitation.shtml?id=${invitation.invitationHash}[/#assign]
@@ -48,17 +59,29 @@ String teamsURL
           <tr>
             <td bgcolor="#EDFFDE" style="mso-line-height-rule:exactly;line-height:18px;font-size:13px;font-family:Arial, sans-serif;border-radius:4px 4px 4px 4px;color:#489406;border-style:solid;border-width:1px;border-color:#489406;"
                 align="center" width="50%">
-                <span lang="en"><a href="${acceptUrl}" style="color:#0088CC;">Login to accept this invitation</a></span>
-                <br/><span lang="nl"><a href="${acceptUrl}" style="color:#0088CC;">Inloggen om de uitnodiging te accepteren</a></span>
+                <span><a href="${acceptUrl}" style="color:#0088CC;">[@i18n.message "mail.invitation.accept"/]</a></span>
             </td>
             <td style="color:#333333;mso-line-height-rule:exactly;line-height:18px;font-size:13px;font-family:Arial, sans-serif;"
                 align="center" width="50%">
-                <span lang="en"><a href="${declineUrl}" style="color:#0088CC;">Decline this invitation</a></span>
-                <br/><span lang="nl"><a href="${declineUrl}" style="color:#0088CC;">De uitnodiging afwijzen</a></span>
+                <span><a href="${declineUrl}" style="color:#0088CC;">[@i18n.message "mail.invitation.decline"/]</a></span>
             </td>
           </tr>
         </table>
-        <p lang="en">
-          This invitation automatically expires after 14 days.
+
+        <p>
+          [@i18n.messageArgs "mail.invitation.needHelp", [inviter.displayName?html, inviter.email?html]/]
         </p>
-[@macros_htmlmail.mailfooter/]
+
+        <p>
+          [@i18n.message "mail.invitation.otherQuestions"/]
+        </p>
+
+        <p>
+          [@i18n.message "mail.invitation.powerdBy"/]
+        </p>
+        </div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -13,9 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package teams.control;
 
+import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
+import static teams.util.TokenUtil.TOKENCHECK;
+import static teams.util.TokenUtil.checkTokens;
 import static teams.util.ViewUtil.escapeViewParameters;
 
 import java.io.IOException;
@@ -23,15 +25,13 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+
 import javax.mail.Message;
-import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
@@ -41,23 +41,22 @@ import org.springframework.ui.ModelMap;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
-import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
 
 import freemarker.template.Configuration;
+import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import teams.domain.Invitation;
 import teams.domain.InvitationForm;
 import teams.domain.InvitationMessage;
+import teams.domain.Language;
 import teams.domain.Person;
 import teams.domain.Role;
 import teams.domain.Team;
@@ -73,8 +72,7 @@ import teams.util.TokenUtil;
 import teams.util.ViewUtil;
 
 /**
- * {@link Controller} that handles the add member page of a logged in
- * user.
+ * {@link Controller} that handles the add member page of a logged in user.
  */
 @Controller
 @SessionAttributes({"invitationForm", "invitation", TokenUtil.TOKENCHECK})
@@ -82,6 +80,8 @@ public class AddMemberController {
   protected static final String INVITE_SEND_INVITE_SUBJECT = "invite.SendInviteSubject";
 
   private static final String TEAM_PARAM = "team";
+  private static final String LANGUAGES_PARAM = "languages";
+  private static final String ROLES_PARAM = "roles";
 
   @Autowired
   private GrouperTeamService grouperTeamService;
@@ -123,33 +123,34 @@ public class AddMemberController {
     Team team = controllerUtil.getTeam(request);
 
     if (!controllerUtil.hasUserAdministrativePrivileges(person, team.getId())) {
-      throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct " +
-        "privileges to add (a) member(s)");
+      throw new RuntimeException(String.format(
+          "Requester (%s) is not member or does not have the correct privileges to add (a) member(s)", person.getId()));
     }
 
-    modelMap.addAttribute(TokenUtil.TOKENCHECK, TokenUtil.generateSessionToken());
-    modelMap.addAttribute(TEAM_PARAM, team);
     InvitationForm form = new InvitationForm();
     form.setTeamId(team.getId());
     form.setInviter(person);
+    form.setLanguage(Language.find(localeResolver.resolveLocale(request)).orElse(Language.English));
 
+    modelMap.addAttribute(TOKENCHECK, TokenUtil.generateSessionToken());
+    modelMap.addAttribute(TEAM_PARAM, team);
     modelMap.addAttribute("invitationForm", form);
-    addNewMemberRolesToModelMap(person, team.getId(), modelMap);
+    modelMap.addAttribute(ROLES_PARAM, newMemberRoles(person, team.getId()));
+    modelMap.addAttribute(LANGUAGES_PARAM, Language.values());
+
     ViewUtil.addViewToModelMap(request, modelMap);
 
     return "addmember";
   }
 
-  private void addNewMemberRolesToModelMap(Person person, String teamId, ModelMap modelMap) {
-    Role[] roles;
+  private Role[] newMemberRoles(Person person, String teamId) {
     if (controllerUtil.hasUserAdminPrivileges(person, teamId)) {
-      roles = new Role[]{Role.Admin, Role.Manager, Role.Member};
+      return new Role[]{ Role.Admin, Role.Manager, Role.Member };
     } else if (controllerUtil.hasUserAdministrativePrivileges(person, teamId)) {
-      roles = new Role[]{Role.Member};
-    } else {
-      throw new RuntimeException("User " + person.getId() + " has not enough privileges to invite others in team " + teamId);
+      return new Role[]{ Role.Member };
     }
-    modelMap.addAttribute("roles", roles);
+
+    throw new RuntimeException(String.format("User %s has not enough privileges to invite others in team %s", person.getId(), teamId));
   }
 
   /**
@@ -181,46 +182,38 @@ public class AddMemberController {
    * @throws IOException if something goes wrong handling the invitation
    */
   @RequestMapping(value = "/doaddmember.shtml", method = RequestMethod.POST)
-  public String addMembersToTeam(@ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+  public String addMembersToTeam(@ModelAttribute(TOKENCHECK) String sessionToken,
                                  @ModelAttribute("invitationForm") InvitationForm form,
                                  BindingResult result, HttpServletRequest request,
-                                 @RequestParam() String token, SessionStatus status,
+                                 @RequestParam String token, SessionStatus status,
                                  ModelMap modelMap) throws IOException {
-    TokenUtil.checkTokens(sessionToken, token, status);
-    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
-    addNewMemberRolesToModelMap(person, form.getTeamId(), modelMap);
 
-    boolean isAdminOrManager = controllerUtil.hasUserAdministrativePrivileges(person, request.getParameter(TEAM_PARAM));
-    if (!isAdminOrManager) {
-      status.setComplete();
-      throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct " +
-        "privileges to add (a) member(s)");
-    }
+    Person person = (Person) request.getSession().getAttribute(PERSON_SESSION_KEY);
+    String teamId = request.getParameter(TEAM_PARAM);
 
-    boolean isAdmin = controllerUtil.hasUserAdminPrivileges(person, request.getParameter(TEAM_PARAM));
-    // if a non admin tries to add a role admin or manager -> make invitation for member
-    if (!(isAdmin || Role.Member.equals(form.getIntendedRole()))) {
-      form.setIntendedRole(Role.Member);
+    checkTokens(sessionToken, token, status);
+    checkIfUserIsAdminOrManager(person, teamId, status);
+    correctRoleIfNeeded(person, form, teamId);
+
+    new InvitationFormValidator().validate(form, result);
+
+    InternetAddress[] emails = null;
+    try {
+      emails = getAllEmailAddresses(form);
+    } catch (AddressException e) {
+      result.rejectValue("emails", "error.WrongFormattedEmailList");
     }
-    Validator validator = new InvitationFormValidator();
-    validator.validate(form, result);
 
     if (result.hasErrors()) {
+      modelMap.addAttribute(ROLES_PARAM, newMemberRoles(person, form.getTeamId()));
+      modelMap.addAttribute(LANGUAGES_PARAM, Language.values());
       modelMap.addAttribute(TEAM_PARAM, controllerUtil.getTeamById(form.getTeamId()));
+
       return "addmember";
     }
 
-    // Parse the email addresses to see whether they are valid
-    InternetAddress[] emails;
-    try {
-      emails = InternetAddress.parse(getAllEmailAddresses(form));
-    } catch (AddressException e) {
-      result.addError(new FieldError("invitationForm", "emails", "error.wrongFormattedEmailList"));
-      return "addmember";
-    }
+    doInviteMembers(emails, form);
 
-    Locale locale = localeResolver.resolveLocale(request);
-    doInviteMembers(emails, form, locale);
     AuditLog.log("User {} sent invitations for team {}, with role {} to addresses: {}", person.getId(), form.getTeamId(), form.getIntendedRole(), emails);
 
     status.setComplete();
@@ -229,29 +222,48 @@ public class AddMemberController {
     return escapeViewParameters("redirect:detailteam.shtml?team=%s&view=%s", form.getTeamId(), ViewUtil.getView(request));
   }
 
+  // if a non admin tries to add a role admin or manager -> make invitation for member
+  private void correctRoleIfNeeded(Person person, InvitationForm form, String teamId) {
+    boolean isAdmin = controllerUtil.hasUserAdminPrivileges(person, teamId);
+    if (!(isAdmin || Role.Member.equals(form.getIntendedRole()))) {
+      form.setIntendedRole(Role.Member);
+    }
+  }
+
+  private void checkIfUserIsAdminOrManager(Person person, String teamId, SessionStatus status) {
+    if (controllerUtil.hasUserAdministrativePrivileges(person, teamId)) {
+      return;
+    }
+
+    status.setComplete();
+    throw new RuntimeException(
+        String.format("Requester (%s) is not member or does not have the correct privileges to add (a) member(s)", person.getId()));
+  }
+
   @RequestMapping(value = "/doResendInvitation.shtml", method = RequestMethod.POST)
   public String doResendInvitation(ModelMap modelMap,
                                    @ModelAttribute("invitation") Invitation invitation,
                                    BindingResult result,
                                    HttpServletRequest request,
-                                   @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+                                   @ModelAttribute(TOKENCHECK) String sessionToken,
                                    @RequestParam() String token,
                                    SessionStatus status) {
     TokenUtil.checkTokens(sessionToken, token, status);
-    Validator validator = new InvitationValidator();
-    validator.validate(invitation, result);
+
+    new InvitationValidator().validate(invitation, result);
+
     String messageText = request.getParameter("messageText");
     if (result.hasErrors()) {
       modelMap.addAttribute("messageText", messageText);
       return "resendinvitation";
     }
-    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
+    Person person = (Person) request.getSession().getAttribute(PERSON_SESSION_KEY);
 
     if (!controllerUtil.hasUserAdministrativePrivileges(person, invitation.getTeamId())) {
       status.setComplete();
       modelMap.clear();
-      throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct " +
-        "privileges to resend an invitation");
+      throw new RuntimeException(
+          String.format("Requester (%s) is not member or does not have the correct privileges to resend an invitation", person.getId()));
     }
     InvitationMessage invitationMessage = new InvitationMessage(messageText, person.getId());
     invitation.addInvitationMessage(invitationMessage);
@@ -277,15 +289,15 @@ public class AddMemberController {
    * @param form {@link InvitationForm}
    * @return String with the emails
    * @throws IOException if the CSV file cannot be read
+   * @throws AddressException if contains invalid email addresses
    */
-  private String getAllEmailAddresses(InvitationForm form) throws IOException {
+  private InternetAddress[] getAllEmailAddresses(InvitationForm form) throws IOException, AddressException {
     StringBuilder sb = new StringBuilder();
 
-    MultipartFile csvFile = form.getCsvFile();
     String emailString = form.getEmails();
     boolean appendEmails = StringUtils.hasText(emailString);
     if (form.hasCsvFile()) {
-      sb.append(IOUtils.toCharArray(csvFile.getInputStream()));
+      sb.append(form.getCsvFileEmails());
       if (appendEmails) {
         sb.append(',');
       }
@@ -294,96 +306,72 @@ public class AddMemberController {
       sb.append(emailString);
     }
 
-    return sb.toString();
+    return InternetAddress.parse(sb.toString());
   }
 
-  private void doInviteMembers(final InternetAddress[] emails,
-                               final InvitationForm form,
-                               final Locale locale) {
-    // Send the invitation
-    String teamId = form.getTeamId();
-    Team team = controllerUtil.getTeamById(teamId);
+  private void doInviteMembers(final InternetAddress[] emails, final InvitationForm form) {
+    Team team = controllerUtil.getTeamById(form.getTeamId());
     String inviterPersonId = form.getInviter().getId();
 
-    Object[] messageValuesSubject = {team.getName()};
-    String subject = messageSource.getMessage(INVITE_SEND_INVITE_SUBJECT,
-      messageValuesSubject, locale);
+    String subject = messageSource.getMessage(INVITE_SEND_INVITE_SUBJECT, new Object[] {team.getName()}, form.getLanguage().locale());
 
-    // Add an activity for every member that has been invited to the team.
     for (InternetAddress email : emails) {
       String emailAddress = email.getAddress();
 
-      Invitation invitation = teamInviteService.findOpenInvitation(emailAddress, team);
-      boolean newInvitation = (invitation == null);
+      Invitation invitation = teamInviteService.findOpenInvitation(emailAddress, team)
+          .orElse(new Invitation(emailAddress, team.getId()));
 
-      if (newInvitation) {
-        invitation = new Invitation(emailAddress, teamId);
-      } else if (invitation.isDeclined()) {
+      if (invitation.isDeclined()) {
         continue;
       }
+
       InvitationMessage invitationMessage = new InvitationMessage(form.getMessage(), inviterPersonId);
       invitation.addInvitationMessage(invitationMessage);
       invitation.setTimestamp(new Date().getTime());
       invitation.setIntendedRole(form.getIntendedRole());
+
       teamInviteService.saveOrUpdate(invitation);
-      sendInvitationByMail(invitation, subject, form.getInviter(), locale);
+
+      sendInvitationByMail(invitation, subject, form.getInviter(), form.getLanguage().locale());
 
       AuditLog.log("Sent invitation and saved to database: team: {}, inviter: {}, email: {}, role: {}, hash: {}",
-        teamId, inviterPersonId, emailAddress, form.getIntendedRole(), invitation.getInvitationHash());
+        team.getId(), inviterPersonId, emailAddress, form.getIntendedRole(), invitation.getInvitationHash());
     }
   }
 
-  /**
-   * Sends an email based on the {@link Invitation}
-   *
-   * @param invitation {@link Invitation} that contains the necessary data
-   * @param subject    of the email
-   * @param inviter    {@link Person} who sends the invitation
-   * @param locale     {@link Locale} for the mail
-   */
-  protected void sendInvitationByMail(final Invitation invitation,
-                                      final String subject,
-                                      final Person inviter,
-                                      final Locale locale) {
+  protected void sendInvitationByMail(Invitation invitation, String subject, Person inviter, Locale locale) {
+    String html = composeInvitationMailMessage(invitation, inviter, locale, "html");
+    String plainText = composeInvitationMailMessage(invitation, inviter, locale, "plaintext");
 
-    final String html = composeInvitationMailMessage(invitation, inviter, locale, "html");
-    final String plainText = composeInvitationMailMessage(invitation, inviter, locale, "plaintext");
+    MimeMessagePreparator preparator = mimeMessage -> {
+      mimeMessage.addHeader("Precedence", "bulk");
+      mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(invitation.getEmail()));
+      mimeMessage.setFrom(new InternetAddress(systemEmail));
+      mimeMessage.setSubject(subject);
 
-    MimeMessagePreparator preparator = new MimeMessagePreparator() {
-      public void prepare(MimeMessage mimeMessage) throws MessagingException {
-        mimeMessage.addHeader("Precedence", "bulk");
-        mimeMessage.setRecipient(Message.RecipientType.TO, new InternetAddress(invitation.getEmail()));
-        mimeMessage.setFrom(new InternetAddress(systemEmail));
-        mimeMessage.setSubject(subject);
-
-        MimeMultipart rootMixedMultipart = controllerUtil.getMimeMultipartMessageBody(plainText, html);
-        mimeMessage.setContent(rootMixedMultipart);
-      }
+      MimeMultipart rootMixedMultipart = controllerUtil.getMimeMultipartMessageBody(plainText, html);
+      mimeMessage.setContent(rootMixedMultipart);
     };
 
     mailService.sendAsync(preparator);
   }
 
+  private String composeInvitationMailMessage(Invitation invitation, Person inviter, Locale locale, String variant) {
+    String templateName = "plaintext".equals(variant) ? "invitationmail-plaintext.ftl" : "invitationmail.ftl";
 
-  String composeInvitationMailMessage(Invitation invitation, Person inviter, Locale locale, String variant) {
-    String templateName;
-    if ("plaintext".equals(variant)) {
-      templateName = "invitationmail-plaintext.ftl";
-    } else {
-      templateName = "invitationmail.ftl";
-    }
+    Team team = grouperTeamService.findTeamById(invitation.getTeamId());
+
     Map<String, Object> templateVars = new HashMap<>();
-
     templateVars.put("invitation", invitation);
     templateVars.put("inviter", inviter);
-    final Team team = grouperTeamService.findTeamById(invitation.getTeamId());
     templateVars.put("team", team);
     templateVars.put("teamsURL", teamsUrl);
+    templateVars.put("messages", messageSource);
+    templateVars.put("locale", locale);
 
     try {
-      return FreeMarkerTemplateUtils.processTemplateIntoString(
-        freemarkerConfiguration.getTemplate(templateName, locale), templateVars
-      );
+      Template template = freemarkerConfiguration.getTemplate(templateName, locale);
+      return FreeMarkerTemplateUtils.processTemplateIntoString(template, templateVars);
     } catch (IOException | TemplateException e) {
       throw new RuntimeException("Failed to create invitation mail", e);
     }

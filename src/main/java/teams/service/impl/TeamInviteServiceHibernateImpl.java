@@ -13,18 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package teams.service.impl;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
+
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
 import teams.domain.Invitation;
 import teams.domain.Team;
@@ -45,43 +45,49 @@ public class TeamInviteServiceHibernateImpl implements TeamInviteService {
   }
 
   @Override
-  public Invitation findOpenInvitation(String email, Team team) {
+  public Optional<Invitation> findOpenInvitation(String email, Team team) {
     String jpaQl = "select i from Invitation i where i.email = :email and i.teamId = :teamId and i.accepted = false and i.declined = false";
-    final TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);
+    TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);
     q.setParameter("email", email);
     q.setParameter("teamId", team.getId());
-    final List<Invitation> resultList = q.getResultList();
 
-    return CollectionUtils.isEmpty(resultList) ? null : resultList.get(0);
+    List<Invitation> resultList = q.getResultList();
+
+    return resultList.isEmpty() ? Optional.empty() : Optional.of(resultList.get(0));
   }
 
   @Override
-  public Invitation findInvitationByInviteId(String invitationId) {
+  public Optional<Invitation> findInvitationByInviteId(String invitationId) {
     cleanupExpiredInvitations();
     String jpaQl = "select i from Invitation i where i.invitationHash = :invitationId and i.timestamp >= :twoWeeksAgo";
-    final TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);
+    TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);
     q.setParameter("invitationId", invitationId);
     q.setParameter("twoWeeksAgo", (new Date().getTime()) - TWO_WEEKS);
-    final List<Invitation> resultList = q.getResultList();
-    return CollectionUtils.isEmpty(resultList) ? null : resultList.get(0);
+
+    List<Invitation> resultList = q.getResultList();
+
+    return resultList.isEmpty() ? Optional.empty() : Optional.of(resultList.get(0));
   }
 
   @Override
-  public Invitation findAllInvitationById(final String invitationId) {
+  public Optional<Invitation> findAllInvitationById(final String invitationId) {
     cleanupExpiredInvitations();
     String jpaQl = "select i from Invitation i where i.invitationHash = :invitationId";
-    final TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);
+    TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);
     q.setParameter("invitationId", invitationId);
-    final List<Invitation> resultList = q.getResultList();
-    return CollectionUtils.isEmpty(resultList) ? null : resultList.get(0);
+
+    List<Invitation> resultList = q.getResultList();
+
+    return resultList.isEmpty() ? Optional.empty(): Optional.of(resultList.get(0));
   }
 
   @Override
   public List<Invitation> findAllInvitationsForTeam(Team team) {
     cleanupExpiredInvitations();
     String jpaQl = "select distinct i from Invitation i where i.teamId = :teamId order by i.email asc";
-    final TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);
+    TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);
     q.setParameter("teamId", team.getId());
+
     return q.getResultList();
   }
 
@@ -89,8 +95,9 @@ public class TeamInviteServiceHibernateImpl implements TeamInviteService {
   public List<Invitation> findInvitationsForTeamExcludeAccepted(Team team) {
     cleanupExpiredInvitations();
     String jpaQl = "select distinct i from Invitation i where i.teamId = :teamId and i.accepted = false order by i.email asc";
-    final TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);
+    TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);
     q.setParameter("teamId", team.getId());
+
     return q.getResultList();
   }
 
@@ -98,8 +105,9 @@ public class TeamInviteServiceHibernateImpl implements TeamInviteService {
   public List<Invitation> findPendingInvitationsByEmail(String email) {
     cleanupExpiredInvitations();
     String jpaQl = "select i from Invitation i where i.email = :email and i.accepted = true and i.declined = true";
-    final TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);
+    TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);
     q.setParameter("email", email);
+
     return q.getResultList();
   }
 

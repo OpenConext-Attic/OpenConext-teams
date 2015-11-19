@@ -63,6 +63,10 @@
         </p>
       </c:if>
       <p class="label-field-wrapper">
+        <form:label path="language"><spring:message code="jsp.addmember.Language"/></form:label>
+        <form:select path="language" items="${languages}"/>
+      </p>
+      <p class="label-field-wrapper">
         <form:label path="message"><spring:message code='jsp.addmember.Message.label' /></form:label>
         <form:textarea path="message" cols="5" rows="4"/>
       </p>

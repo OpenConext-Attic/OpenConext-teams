@@ -26,7 +26,7 @@ Team team
 String teamsURL
 String message
  --]
-[@macros_htmlmail.mailheader/]
+[@macros_htmlmail.mailheader "SURFconext Teams"/]
         <p lang="en">
           ${requesterName?html} (${requesterEmail?html}) would like to join team <strong>${team.name?html}</strong>.
         </p>
