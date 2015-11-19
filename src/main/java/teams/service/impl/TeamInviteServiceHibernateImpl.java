@@ -15,6 +15,8 @@
  */
 package teams.service.impl;
 
+import static com.google.common.base.Preconditions.checkArgument;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -25,6 +27,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import teams.domain.Invitation;
 import teams.domain.Team;
@@ -71,6 +74,8 @@ public class TeamInviteServiceHibernateImpl implements TeamInviteService {
 
   @Override
   public Optional<Invitation> findAllInvitationById(final String invitationId) {
+    checkArgument(StringUtils.hasText(invitationId));
+
     cleanupExpiredInvitations();
     String jpaQl = "select i from Invitation i where i.invitationHash = :invitationId";
     TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);

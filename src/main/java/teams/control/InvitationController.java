@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package teams.control;
 
 import static java.util.stream.Collectors.toList;
@@ -25,7 +24,6 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -46,8 +44,6 @@ import nl.surfnet.coin.stoker.Stoker;
 import nl.surfnet.coin.stoker.StokerEntry;
 import teams.Application;
 import teams.domain.Invitation;
-import teams.domain.InvitationMessage;
-import teams.domain.Member;
 import teams.domain.Person;
 import teams.domain.Role;
 import teams.domain.Team;
@@ -60,7 +56,6 @@ import teams.util.AuditLog;
 import teams.util.ControllerUtil;
 import teams.util.TokenUtil;
 import teams.util.ViewUtil;
-
 
 /**
  * {@link Controller} that handles the accept/decline of an Invitation
@@ -260,33 +255,6 @@ public class InvitationController {
     return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&view=%s", teamId, ViewUtil.getView(request)));
   }
 
-  @RequestMapping("/resendInvitation.shtml")
-  public String resendInvitation(ModelMap modelMap, HttpServletRequest request) {
-    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
-    Invitation invitation = getAllInvitationByRequest(request)
-        .orElseThrow(() -> new IllegalArgumentException("Cannot find the invitation. Invitations expire after 14 days."));
-
-    Member member = grouperTeamService.findMember(invitation.getTeamId(), person.getId());
-    if (member == null) {
-      throw new SecurityException("You are not a member of this team");
-    }
-    Set<Role> roles = member.getRoles();
-    if (!(roles.contains(Role.Admin) || roles.contains(Role.Manager))) {
-      throw new SecurityException("You have insufficient rights to perform this action.");
-    }
-
-    modelMap.addAttribute("invitation", invitation);
-    Role[] inviteRoles = {Role.Member, Role.Manager, Role.Admin};
-    modelMap.addAttribute("roles", inviteRoles);
-    InvitationMessage invitationMessage = invitation.getLatestInvitationMessage();
-    if (invitationMessage != null) {
-      modelMap.addAttribute("messageText", invitationMessage.getMessage());
-    }
-    ViewUtil.addViewToModelMap(request, modelMap);
-
-    return "resendinvitation";
-  }
-
   @RequestMapping("/myinvitations.shtml")
   public String myInvitations(ModelMap modelMap, HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
@@ -320,13 +288,7 @@ public class InvitationController {
   }
 
   private Optional<Invitation> getAllInvitationByRequest(HttpServletRequest request) {
-    String invitationId = request.getParameter("id");
-
-    if (!StringUtils.hasText(invitationId)) {
-      throw new IllegalArgumentException("Missing parameter to identify the invitation");
-    }
-
-    return teamInviteService.findAllInvitationById(invitationId);
+    return teamInviteService.findAllInvitationById(request.getParameter("id"));
   }
 
 }

@@ -15,6 +15,8 @@
  */
 package teams.control;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
 import static teams.util.TokenUtil.TOKENCHECK;
 import static teams.util.TokenUtil.checkTokens;
@@ -23,7 +25,6 @@ import static teams.util.ViewUtil.escapeViewParameters;
 import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 import javax.mail.Message;
@@ -31,6 +32,8 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServletRequest;
+
+import com.google.common.base.Throwables;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -82,6 +85,7 @@ public class AddMemberController {
   private static final String TEAM_PARAM = "team";
   private static final String LANGUAGES_PARAM = "languages";
   private static final String ROLES_PARAM = "roles";
+  private static final String INVITATION_PARAM = "invitation";
 
   @Autowired
   private GrouperTeamService grouperTeamService;
@@ -117,8 +121,8 @@ public class AddMemberController {
    * @param request  {@link HttpServletRequest}
    * @return name of the add member form
    */
-  @RequestMapping("/addmember.shtml")
-  public String start(ModelMap modelMap, HttpServletRequest request) {
+  @RequestMapping(value = "/addmember.shtml", method = GET)
+  public String addMembersToTeam(ModelMap modelMap, HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
     Team team = controllerUtil.getTeam(request);
 
@@ -160,7 +164,7 @@ public class AddMemberController {
    * @param request {@link HttpServletRequest}
    * @return {@link RedirectView} to detail page of the team
    */
-  @RequestMapping(value = "/doaddmember.shtml", method = RequestMethod.POST, params = "cancelAddMember")
+  @RequestMapping(value = "/doaddmember.shtml", method = POST, params = "cancelAddMember")
   public RedirectView cancelAddMembers(@ModelAttribute("invitationForm") InvitationForm form,
                                        HttpServletRequest request,
                                        SessionStatus status) {
@@ -169,20 +173,8 @@ public class AddMemberController {
     return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&view=%s", form.getTeamId(), ViewUtil.getView(request)), false, true, false);
   }
 
-  /**
-   * Called after submitting the add members form
-   *
-   * @param form     {@link nl.surfnet.coin.teams.domain.InvitationForm} from the session
-   * @param result   {@link org.springframework.validation.BindingResult}
-   * @param request  {@link javax.servlet.http.HttpServletRequest}
-   * @param modelMap {@link org.springframework.ui.ModelMap}
-   * @return the name of the form if something is wrong
-   * before handling the invitation,
-   * otherwise a redirect to the detailteam url
-   * @throws IOException if something goes wrong handling the invitation
-   */
-  @RequestMapping(value = "/doaddmember.shtml", method = RequestMethod.POST)
-  public String addMembersToTeam(@ModelAttribute(TOKENCHECK) String sessionToken,
+  @RequestMapping(value = "/doaddmember.shtml", method = POST)
+  public String doAddMembersToTeam(@ModelAttribute(TOKENCHECK) String sessionToken,
                                  @ModelAttribute("invitationForm") InvitationForm form,
                                  BindingResult result, HttpServletRequest request,
                                  @RequestParam String token, SessionStatus status,
@@ -231,13 +223,42 @@ public class AddMemberController {
   }
 
   private void checkIfUserIsAdminOrManager(Person person, String teamId, SessionStatus status) {
+    try {
+      checkIfUserIsAdminOrManager(person, teamId);
+    } catch (Exception e) {
+      status.setComplete();
+      Throwables.propagate(e);
+    }
+  }
+
+  private void checkIfUserIsAdminOrManager(Person person, String teamId) {
     if (controllerUtil.hasUserAdministrativePrivileges(person, teamId)) {
       return;
     }
 
-    status.setComplete();
     throw new RuntimeException(
         String.format("Requester (%s) is not member or does not have the correct privileges to add (a) member(s)", person.getId()));
+  }
+
+  @RequestMapping(value = "/resendInvitation.shtml", method = GET)
+  public String resendInvitation(ModelMap modelMap, HttpServletRequest request) {
+    Person person = (Person) request.getSession().getAttribute(PERSON_SESSION_KEY);
+
+    Invitation invitation = teamInviteService.findAllInvitationById(request.getParameter("id"))
+        .orElseThrow(() -> new IllegalArgumentException("Cannot find the invitation. Invitations expire after 14 days."));
+
+    checkIfUserIsAdminOrManager(person, invitation.getTeamId());
+
+    modelMap.addAttribute(INVITATION_PARAM, invitation);
+    modelMap.addAttribute(ROLES_PARAM, new Role[] {Role.Member, Role.Manager, Role.Admin});
+    modelMap.addAttribute(LANGUAGES_PARAM, Language.values());
+
+    invitation.getLatestInvitationMessage()
+        .ifPresent(msg -> modelMap.addAttribute("messageText", msg.getMessage()));
+
+    ViewUtil.addViewToModelMap(request, modelMap);
+
+    return "resendinvitation";
   }
 
   @RequestMapping(value = "/doResendInvitation.shtml", method = RequestMethod.POST)
@@ -248,11 +269,13 @@ public class AddMemberController {
                                    @ModelAttribute(TOKENCHECK) String sessionToken,
                                    @RequestParam() String token,
                                    SessionStatus status) {
-    TokenUtil.checkTokens(sessionToken, token, status);
+
+    checkTokens(sessionToken, token, status);
 
     new InvitationValidator().validate(invitation, result);
 
     String messageText = request.getParameter("messageText");
+
     if (result.hasErrors()) {
       modelMap.addAttribute("messageText", messageText);
       return "resendinvitation";
@@ -262,25 +285,24 @@ public class AddMemberController {
     if (!controllerUtil.hasUserAdministrativePrivileges(person, invitation.getTeamId())) {
       status.setComplete();
       modelMap.clear();
-      throw new RuntimeException(
-          String.format("Requester (%s) is not member or does not have the correct privileges to resend an invitation", person.getId()));
+      throw new RuntimeException(String.format(
+          "Requester (%s) is not member or does not have the correct privileges to resend an invitation", person.getId()));
     }
+
     InvitationMessage invitationMessage = new InvitationMessage(messageText, person.getId());
     invitation.addInvitationMessage(invitationMessage);
     invitation.setTimestamp(new Date().getTime());
     teamInviteService.saveOrUpdate(invitation);
 
-    Locale locale = localeResolver.resolveLocale(request);
-    String teamId = invitation.getTeamId();
-    Team team = grouperTeamService.findTeamById(teamId);
-    Object[] messageValuesSubject = {team.getName()};
+    Team team = controllerUtil.getTeamById(invitation.getTeamId());
 
-    String subject = messageSource.getMessage(INVITE_SEND_INVITE_SUBJECT, messageValuesSubject, locale);
-    sendInvitationByMail(invitation, subject, person, locale);
+    String subject = messageSource.getMessage(INVITE_SEND_INVITE_SUBJECT, new Object[] {team.getName()}, invitation.getLanguage().locale());
+    sendInvitationByMail(invitation, subject, person);
+
     status.setComplete();
     modelMap.clear();
 
-    return escapeViewParameters("redirect:detailteam.shtml?team=%s&view=%s", teamId, ViewUtil.getView(request));
+    return escapeViewParameters("redirect:detailteam.shtml?team=%s&view=%s", invitation.getTeamId(), ViewUtil.getView(request));
   }
 
   /**
@@ -309,7 +331,7 @@ public class AddMemberController {
     return InternetAddress.parse(sb.toString());
   }
 
-  private void doInviteMembers(final InternetAddress[] emails, final InvitationForm form) {
+  private void doInviteMembers(InternetAddress[] emails, InvitationForm form) {
     Team team = controllerUtil.getTeamById(form.getTeamId());
     String inviterPersonId = form.getInviter().getId();
 
@@ -329,19 +351,20 @@ public class AddMemberController {
       invitation.addInvitationMessage(invitationMessage);
       invitation.setTimestamp(new Date().getTime());
       invitation.setIntendedRole(form.getIntendedRole());
+      invitation.setLanguage(form.getLanguage());
 
       teamInviteService.saveOrUpdate(invitation);
 
-      sendInvitationByMail(invitation, subject, form.getInviter(), form.getLanguage().locale());
+      sendInvitationByMail(invitation, subject, form.getInviter());
 
       AuditLog.log("Sent invitation and saved to database: team: {}, inviter: {}, email: {}, role: {}, hash: {}",
         team.getId(), inviterPersonId, emailAddress, form.getIntendedRole(), invitation.getInvitationHash());
     }
   }
 
-  protected void sendInvitationByMail(Invitation invitation, String subject, Person inviter, Locale locale) {
-    String html = composeInvitationMailMessage(invitation, inviter, locale, "html");
-    String plainText = composeInvitationMailMessage(invitation, inviter, locale, "plaintext");
+  protected void sendInvitationByMail(Invitation invitation, String subject, Person inviter) {
+    String html = composeInvitationMailMessage(invitation, inviter, "html");
+    String plainText = composeInvitationMailMessage(invitation, inviter, "plaintext");
 
     MimeMessagePreparator preparator = mimeMessage -> {
       mimeMessage.addHeader("Precedence", "bulk");
@@ -356,7 +379,7 @@ public class AddMemberController {
     mailService.sendAsync(preparator);
   }
 
-  private String composeInvitationMailMessage(Invitation invitation, Person inviter, Locale locale, String variant) {
+  private String composeInvitationMailMessage(Invitation invitation, Person inviter, String variant) {
     String templateName = "plaintext".equals(variant) ? "invitationmail-plaintext.ftl" : "invitationmail.ftl";
 
     Team team = grouperTeamService.findTeamById(invitation.getTeamId());
@@ -367,10 +390,10 @@ public class AddMemberController {
     templateVars.put("team", team);
     templateVars.put("teamsURL", teamsUrl);
     templateVars.put("messages", messageSource);
-    templateVars.put("locale", locale);
+    templateVars.put("locale", invitation.getLanguage().locale());
 
     try {
-      Template template = freemarkerConfiguration.getTemplate(templateName, locale);
+      Template template = freemarkerConfiguration.getTemplate(templateName, invitation.getLanguage().locale());
       return FreeMarkerTemplateUtils.processTemplateIntoString(template, templateVars);
     } catch (IOException | TemplateException e) {
       throw new RuntimeException("Failed to create invitation mail", e);

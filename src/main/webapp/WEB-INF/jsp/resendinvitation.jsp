@@ -46,6 +46,10 @@
         <form:select path="intendedRole" items="${roles}"/>
       </p>
       <p class="label-field-wrapper">
+        <form:label path="language"><spring:message code="jsp.addmember.Language"/></form:label>
+        <form:select path="language" items="${languages}"/>
+      </p>
+      <p class="label-field-wrapper">
         <label for="messageText"><spring:message code='jsp.addmember.Message.label' /></label>
         <textarea id="messageText" name="messageText" rows="4" cols="5"><c:out value="${messageText}"/></textarea>
       </p>

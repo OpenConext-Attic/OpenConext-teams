@@ -29,9 +29,9 @@ String teamsURL
 
 You have been invited by ${inviter.displayName?html} to join team *${team.name?html}*.
 
-[#if invitation.latestInvitationMessage?has_content && invitation.latestInvitationMessage.message?has_content]
+[#if invitation.latestInvitationMessage.present && invitation.latestInvitationMessage.get().message?has_content]
 *Personal message from ${inviter.displayName?html}:*
-"${invitation.latestInvitationMessage.message?html}"[/#if]
+"${invitation.latestInvitationMessage.get().message?html}"[/#if]
 
 [#if team.description?has_content]
 *Team description:*

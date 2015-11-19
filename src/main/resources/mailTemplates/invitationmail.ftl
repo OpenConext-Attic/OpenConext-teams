@@ -31,9 +31,9 @@ String teamsURL
           [@i18n.messageArgs "mail.invitation.invitedBy", [inviter.displayName?html, team.name?html]/]
         </p>
 
-        [#if invitation.latestInvitationMessage?has_content && invitation.latestInvitationMessage.message?has_content]
+        [#if invitation.latestInvitationMessage.present && invitation.latestInvitationMessage.get().message?has_content]
         <p>
-          [#assign msg]${invitation.latestInvitationMessage.message?html}[/#assign]
+          [#assign msg]${invitation.latestInvitationMessage.get().message?html}[/#assign]
           [@i18n.messageArgs "mail.invitation.personalMessage", [inviter.displayName?html, msg?replace("\n","<br />")]/]
         </p>
         [/#if]

@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -68,6 +69,9 @@ public class Invitation extends DomainObject {
   @Enumerated(EnumType.STRING)
   @Column(name = "intended_role", nullable = true)
   private Role intendedRole;
+
+  @Enumerated(EnumType.STRING)
+  private Language language = Language.English;
 
   /**
    * Constructor Hibernate needs when fetching results from the db.
@@ -186,6 +190,14 @@ public class Invitation extends DomainObject {
     this.invitationMessages = invitationMessages;
   }
 
+  public Language getLanguage() {
+    return language;
+  }
+
+  public void setLanguage(Language language) {
+    this.language = language;
+  }
+
   /**
    * Adds one {@link InvitationMessage} to this Invitation
    *
@@ -196,18 +208,15 @@ public class Invitation extends DomainObject {
     this.invitationMessages.add(invitationMessage);
   }
 
-  /**
-   * @return latest {@link InvitationMessage} or {@literal null} if none is set
-   */
-  public InvitationMessage getLatestInvitationMessage() {
+  public Optional<InvitationMessage> getLatestInvitationMessage() {
     if (CollectionUtils.isEmpty(invitationMessages)) {
-      return null;
+      return Optional.empty();
     }
-    return invitationMessages.get(invitationMessages.size() - 1);
+    return Optional.of(invitationMessages.get(invitationMessages.size() - 1));
   }
 
   public List<InvitationMessage> getInvitationMessagesReversed() {
-    List<InvitationMessage> copy = new ArrayList<InvitationMessage>(invitationMessages.size());
+    List<InvitationMessage> copy = new ArrayList<>(invitationMessages.size());
     copy.addAll(invitationMessages);
     Collections.reverse(copy);
     return copy;

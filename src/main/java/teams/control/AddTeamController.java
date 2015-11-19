@@ -16,6 +16,10 @@
 
 package teams.control;
 
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
+import static teams.util.TokenUtil.TOKENCHECK;
+import static teams.util.TokenUtil.checkTokens;
 import static teams.util.ViewUtil.escapeViewParameters;
 
 import java.beans.PropertyEditorSupport;
@@ -113,7 +117,7 @@ public class AddTeamController {
       return "redirect:home.shtml";
     }
 
-    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
+    Person person = (Person) request.getSession().getAttribute(PERSON_SESSION_KEY);
 
     Team team = new Team();
     team.setViewable(true);
@@ -126,18 +130,19 @@ public class AddTeamController {
     return "addteam";
   }
 
-  @RequestMapping(value = "/doaddteam.shtml", method = RequestMethod.POST)
+  @RequestMapping(value = "/doaddteam.shtml", method = POST)
   public String addTeam(ModelMap modelMap,
                         @ModelAttribute("team") Team team,
                         HttpServletRequest request,
-                        @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+                        @ModelAttribute(TOKENCHECK) String sessionToken,
                         @RequestParam() String token,
                         SessionStatus status) throws IOException {
 
-    TokenUtil.checkTokens(sessionToken, token, status);
+    checkTokens(sessionToken, token, status);
+
     ViewUtil.addViewToModelMap(request, modelMap);
 
-    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
+    Person person = (Person) request.getSession().getAttribute(PERSON_SESSION_KEY);
     String personId = person.getId();
 
     String admin2 = request.getParameter("admin2");
@@ -203,11 +208,9 @@ public class AddTeamController {
 
     invitation.addInvitationMessage(message);
     teamInviteService.saveOrUpdate(invitation);
-    Object[] messageValuesSubject = {teamName};
+    String subject = messageSource.getMessage(AddMemberController.INVITE_SEND_INVITE_SUBJECT, new Object[] {teamName}, locale);
 
-    String subject = messageSource.getMessage(AddMemberController.INVITE_SEND_INVITE_SUBJECT, messageValuesSubject, locale);
-
-    addMemberController.sendInvitationByMail(invitation, subject, inviter, locale);
+    addMemberController.sendInvitationByMail(invitation, subject, inviter);
     AuditLog.log("Sent invitation and saved to database: team: {}, inviter: {}, hash: {}, email: {}, role: {}",
       teamId, inviter.getId(), invitation.getInvitationHash(), admin2, invitation.getIntendedRole());
   }
