@@ -17,6 +17,8 @@
 package teams.interceptor;
 
 import java.io.IOException;
+import java.io.InputStream;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -42,7 +44,7 @@ public class MockLoginInterceptor extends LoginInterceptor {
 
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-    //no login required for landingpage, css and js
+    // no login required for landingpage, css and js
     if (request.getRequestURI().contains("landingpage.shtml") ||
       request.getRequestURI().contains(".js") ||
       request.getRequestURI().contains(".css") ||
@@ -68,8 +70,10 @@ public class MockLoginInterceptor extends LoginInterceptor {
   }
 
   private void sendLoginHtml(HttpServletResponse response) {
-    try {
-      IOUtils.copy(new ClassPathResource("mockLogin.html").getInputStream(), response.getOutputStream());
+    try (InputStream loginPage = new ClassPathResource("mockLogin.html").getInputStream()) {
+      response.setContentType("text/html");
+      IOUtils.copy(loginPage, response.getOutputStream());
+      response.flushBuffer();
     } catch (IOException e) {
       throw new RuntimeException("Unable to serve the mockLogin.html file", e);
     }

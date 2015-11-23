@@ -38,8 +38,7 @@ import teams.util.AuditLog;
 
 /**
  * Intercepts calls to controllers to handle Single Sign On details from
- * Shibboleth and sets a Person object on the session when the user is logged
- * in.
+ * Shibboleth and sets a Person object on the session when the user is logged in.
  */
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
@@ -65,9 +64,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   }
 
   @Override
-  public boolean preHandle(HttpServletRequest request,
-                           HttpServletResponse response, Object handler) throws Exception {
-
+  public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
     if (request.getRequestURI().endsWith(NOT_PROVIDED_SAML_ATTRIBUTES_SHTML)) {
       return super.preHandle(request, response, handler);
     }
@@ -93,7 +90,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
         AuditLog.log("Login by user {}", person.getId());
         handleGuestStatus(session, person);
-
       } else {
         // User is not logged in, and name-id header is empty.
         // Check whether the user is requesting the landing page, if not
@@ -112,22 +108,21 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         if (LOGIN_BYPASS.contains(urlPart)) {
           logger.debug("Bypassing {}", urlPart);
           return super.preHandle(request, response, handler);
-        } else {
-          if (getTeamsCookie(request).contains("skipLanding") || LANDING_BYPASS.contains(urlPart)) {
-            String queryString = request.getQueryString() != null ? "?" + request.getQueryString() : "";
-            response.sendRedirect(teamsUrl + "/Shibboleth.sso/Login?target="
+        } else if (getTeamsCookie(request).contains("skipLanding") || LANDING_BYPASS.contains(urlPart)) {
+          String queryString = request.getQueryString() != null ? "?" + request.getQueryString() : "";
+          response.sendRedirect(teamsUrl + "/Shibboleth.sso/Login?target="
               + request.getRequestURL()
               + queryString);
-            return false;
-          } else {
-            // Send redirect to landingpage if gadget is not requested in app view.
-            logger.debug("Redirect to landingpage");
-            response.sendRedirect(teamsUrl + "/landingpage.shtml");
-            return false;
-          }
+          return false;
+        } else {
+          // Send redirect to landingpage if gadget is not requested in app view.
+          logger.debug("Redirect to landingpage");
+          response.sendRedirect(teamsUrl + "/landingpage.shtml");
+          return false;
         }
       }
     }
+
     return super.preHandle(request, response, handler);
   }
 
@@ -177,8 +172,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
    */
   public void handleGuestStatus(HttpSession session, Person person) {
     Member member = new Member(null, person);
-    final List<MemberAttribute> memberAttributes =
-      memberAttributeService.findAttributesForMemberId(member.getId());
+    List<MemberAttribute> memberAttributes = memberAttributeService.findAttributesForMemberId(member.getId());
     member.setMemberAttributes(memberAttributes);
 
     if (member.isGuest() != person.isGuest()) {

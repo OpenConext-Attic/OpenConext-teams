@@ -19,6 +19,10 @@
  */
 package teams.control;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+import static teams.interceptor.LoginInterceptor.EXTERNAL_GROUPS_SESSION_KEY;
+import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -39,8 +43,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.LocaleResolver;
 
-import com.google.common.base.Preconditions;
-
 import teams.domain.ExternalGroup;
 import teams.domain.ExternalGroupProvider;
 import teams.domain.Invitation;
@@ -58,6 +60,7 @@ import teams.util.ViewUtil;
 public class HomeController {
 
   private static final Logger LOG = LoggerFactory.getLogger(HomeController.class);
+  private static final int PAGESIZE = 10;
 
   @Autowired
   private MessageSource messageSource;
@@ -74,15 +77,15 @@ public class HomeController {
   @Autowired
   private VootClient vootClient;
 
-  private static final int PAGESIZE = 10;
-
   @RequestMapping(value = {"/", "/home.shtml"})
   public String start(ModelMap modelMap, HttpServletRequest request,
                       @RequestParam(required = false, defaultValue = "my") String teams,
                       @RequestParam(required = false) String teamSearch,
                       @RequestParam(required = false) String groupProviderId) {
-    Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
-    Preconditions.checkNotNull(person, "No user set. Is shibboleth configured correctly?");
+    Person person = (Person) request.getSession().getAttribute(PERSON_SESSION_KEY);
+
+    checkNotNull(person, "No user set. Is shibboleth configured correctly?");
+
     modelMap.addAttribute("groupProviderId", groupProviderId);
     if ("externalGroups".equals(teams)) {
       modelMap.addAttribute("display", teams);
@@ -94,10 +97,11 @@ public class HomeController {
       List<Invitation> invitations = teamInviteService.findPendingInvitationsByEmail(email);
       modelMap.addAttribute("myinvitations", !CollectionUtils.isEmpty(invitations));
     }
-    List<ExternalGroup> groups = (List<ExternalGroup>) request.getSession().getAttribute(LoginInterceptor.EXTERNAL_GROUPS_SESSION_KEY);
+    @SuppressWarnings("unchecked")
+    List<ExternalGroup> groups = (List<ExternalGroup>) request.getSession().getAttribute(EXTERNAL_GROUPS_SESSION_KEY);
     if (groups == null) {
       groups = vootClient.groups(person.getId());
-      request.getSession().setAttribute(LoginInterceptor.EXTERNAL_GROUPS_SESSION_KEY, groups);
+      request.getSession().setAttribute(EXTERNAL_GROUPS_SESSION_KEY, groups);
     }
 
     Map<String, ExternalGroupProvider> groupProviders = new HashMap<>();

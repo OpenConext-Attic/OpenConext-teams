@@ -15,7 +15,7 @@
  */
 package teams.util;
 
-import teams.interceptor.LoginInterceptor;
+import static teams.interceptor.LoginInterceptor.USER_STATUS_SESSION_KEY;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -25,9 +25,8 @@ public final class PermissionUtil {
   }
 
   public static boolean isGuest(HttpServletRequest request) {
-    String userStatus = (String) request
-        .getSession().getAttribute(LoginInterceptor.USER_STATUS_SESSION_KEY);
-    return (userStatus == null || "guest".equals(userStatus));
+    String userStatus = (String) request.getSession().getAttribute(USER_STATUS_SESSION_KEY);
+    return userStatus == null || "guest".equals(userStatus);
   }
 
 }

@@ -152,11 +152,11 @@ public class Application extends SpringBootServletInitializer {
   @Bean
   public WebMvcConfigurerAdapter webMvcConfigurerAdapter(
     Environment environment, MemberAttributeService memberAttributeService,
-    @Value("${teamsURL}") final String teamsURL,
-    @Value("${displayExternalTeams}") final Boolean displayExternalTeams,
-    @Value("${displayExternalTeamMembers}") final Boolean displayExternalTeamMembers,
-    @Value("${displayAddExternalGroupToTeam}") final Boolean displayAddExternalGroupToTeam,
-    @Value("${application.version}") final String applicationVersion,
+    @Value("${teamsURL}") String teamsURL,
+    @Value("${displayExternalTeams}") Boolean displayExternalTeams,
+    @Value("${displayExternalTeamMembers}") Boolean displayExternalTeamMembers,
+    @Value("${displayAddExternalGroupToTeam}") Boolean displayAddExternalGroupToTeam,
+    @Value("${application.version}") String applicationVersion,
     ResourceLoader resourceLoader) throws Exception {
 
     List<HandlerInterceptor> interceptors = new ArrayList<>();

@@ -38,15 +38,16 @@ public class ExternalGroupController {
 
   @RequestMapping("/groupdetail.shtml")
   public String groupDetail(@RequestParam String groupId, HttpServletRequest request, ModelMap modelMap) {
+    @SuppressWarnings("unchecked")
     List<ExternalGroup> groups = (List<ExternalGroup>) request.getSession().getAttribute(LoginInterceptor.EXTERNAL_GROUPS_SESSION_KEY);
 
-    for (ExternalGroup externalGroup : groups) {
-      if (externalGroup.getIdentifier().equals(groupId)) {
-        modelMap.addAttribute("groupProvider", externalGroup.getGroupProvider());
-        modelMap.addAttribute("externalGroup", externalGroup);
-        break;
-      }
-    }
+    groups.stream()
+      .filter(eg -> eg.getIdentifier().equals(groupId))
+      .findFirst()
+      .ifPresent(eg -> {
+        modelMap.addAttribute("groupProvider", eg.getGroupProvider());
+        modelMap.addAttribute("externalGroup", eg);
+      });
 
     ViewUtil.addViewToModelMap(request, modelMap);
 

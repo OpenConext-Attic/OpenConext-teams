@@ -77,7 +77,7 @@ public abstract class AbstractControllerTest {
   }
 
   protected TeamResultWrapper getMyTeams() {
-    List<Team> teams = new ArrayList<Team>();
+    List<Team> teams = new ArrayList<>();
     Team team1 = new Team("team-1", "Team 1", "Description team 1");
     Team team2 = new Team("team-2", "Team 2", "Description team 2");
     Team team3 = new Team("team-3", "Team 3", "Description team 3");
@@ -88,7 +88,7 @@ public abstract class AbstractControllerTest {
   }
 
   protected TeamResultWrapper getAllTeams() {
-    List<Team> teams = new ArrayList<Team>();
+    List<Team> teams = new ArrayList<>();
     Team team1 = new Team("team-1", "Team 1", "Description team 1");
     Team team2 = new Team("team-2", "Team 2", "Description team 2");
     Team team3 = new Team("team-3", "Team 3", "Description team 3");
@@ -124,14 +124,14 @@ public abstract class AbstractControllerTest {
   protected List<Stem> getStems() {
     Stem stem1 = new Stem("stem-1", "stem 1", "stem description");
     Stem stem2 = new Stem("stem-2", "stem 2", "stem description");
-    List<Stem> stems = new ArrayList<Stem>();
+    List<Stem> stems = new ArrayList<>();
     stems.add(stem1);
     stems.add(stem2);
     return stems;
   }
 
   protected Member getAdministrativeMember() {
-    HashSet<Role> roles = new HashSet<Role>();
+    HashSet<Role> roles = new HashSet<>();
     roles.add(Role.Manager);
     roles.add(Role.Member);
     roles.add(Role.Admin);
@@ -157,8 +157,7 @@ public abstract class AbstractControllerTest {
    * @param interfaceClass the class to mock
    */
   @SuppressWarnings("unchecked")
-  protected void autoWireMock(Object target, Answer answer, Class interfaceClass)
-    throws Exception {
+  protected void autoWireMock(Object target, Answer answer, Class interfaceClass) throws Exception {
     Object mock = mock(interfaceClass, answer);
     autoWireMock(target, mock, interfaceClass);
   }
@@ -168,13 +167,10 @@ public abstract class AbstractControllerTest {
    * @param mock           the mock Object to return on method invocations
    * @param interfaceClass the class to mock
    */
-  protected void autoWireMock(Object target, Object mock, Class interfaceClass)
-    throws Exception {
-    boolean found = doAutoWireMock(target, mock, interfaceClass, target
-      .getClass().getDeclaredFields());
+  protected void autoWireMock(Object target, Object mock, Class interfaceClass) throws Exception {
+    boolean found = doAutoWireMock(target, mock, interfaceClass, target.getClass().getDeclaredFields());
     if (!found) {
-      doAutoWireMock(target, mock, interfaceClass, target.getClass()
-        .getSuperclass().getDeclaredFields());
+      doAutoWireMock(target, mock, interfaceClass, target.getClass().getSuperclass().getDeclaredFields());
     }
   }
 
