@@ -80,8 +80,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         Optional<Person> optionalPerson = constructPerson(request);
         if (optionalPerson.isPresent()) {
           person = optionalPerson.get();
-        }
-        else {
+        } else {
           response.sendRedirect(teamsUrl + NOT_PROVIDED_SAML_ATTRIBUTES_SHTML);
           return false;
         }
@@ -154,17 +153,12 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   }
 
   private String getTeamsCookie(HttpServletRequest request) {
-    String result = "";
-    Cookie[] cookies = request.getCookies();
-    if (null != cookies) {
-      for (Cookie current : cookies) {
-        if (current.getName().equals(TEAMS_COOKIE)) {
-          result = current.getValue();
-          break;
-        }
-      }
-    }
-    return result;
+    return Optional.ofNullable(request.getCookies()).flatMap(cookies -> Arrays.stream(cookies)
+      .filter(c -> c.getName().equals(TEAMS_COOKIE))
+      .map(Cookie::getValue)
+      .findFirst()
+    ).orElse("");
+
   }
 
   /**

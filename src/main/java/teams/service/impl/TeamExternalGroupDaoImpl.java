@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package teams.service.impl;
 
 import java.sql.ResultSet;
@@ -28,7 +27,6 @@ import javax.annotation.Resource;
 
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
@@ -61,18 +59,14 @@ public class TeamExternalGroupDaoImpl implements TeamExternalGroupDao {
 
     try {
       return this.jdbcTemplate.queryForObject("SELECT * FROM external_groups AS eg WHERE eg.identifier = ?",
-        args, new RowMapper<ExternalGroup>() {
-          @Override
-          public ExternalGroup mapRow(ResultSet rs, int rowNum) throws SQLException {
-
-            final ExternalGroup e = new ExternalGroup();
-            e.setId(rs.getLong("id"));
-            e.setIdentifier(rs.getString(IDENTIFIER));
-            e.setDescription(rs.getString(DESCRIPTION));
-            e.setName(rs.getString(NAME));
-            e.setGroupProviderIdentifier(rs.getString(GROUP_PROVIDER));
-            return e;
-          }
+        args, (rs, rowNum) -> {
+          ExternalGroup e = new ExternalGroup();
+          e.setId(rs.getLong("id"));
+          e.setIdentifier(rs.getString(IDENTIFIER));
+          e.setDescription(rs.getString(DESCRIPTION));
+          e.setName(rs.getString(NAME));
+          e.setGroupProviderIdentifier(rs.getString(GROUP_PROVIDER));
+          return e;
         });
     } catch (EmptyResultDataAccessException er) {
       return null;
@@ -89,12 +83,7 @@ public class TeamExternalGroupDaoImpl implements TeamExternalGroupDao {
         "          INNER JOIN external_groups AS eg " +
         "          ON teg.external_groups_id = eg.id " +
         "          WHERE teg.grouper_team_id = ? ";
-      return this.jdbcTemplate.query(s, args, new RowMapper<TeamExternalGroup>() {
-        @Override
-        public TeamExternalGroup mapRow(ResultSet rs, int rowNum) throws SQLException {
-          return mapRowToTeamExternalGroup(rs);
-        }
-      });
+      return this.jdbcTemplate.query(s, args, (rs, rowNum) -> mapRowToTeamExternalGroup(rs));
     } catch (EmptyResultDataAccessException er) {
       return null;
     }
@@ -110,12 +99,7 @@ public class TeamExternalGroupDaoImpl implements TeamExternalGroupDao {
         "          INNER JOIN external_groups AS eg " +
         "          ON teg.external_groups_id = eg.id " +
         "          WHERE eg.identifier = ? ";
-      return this.jdbcTemplate.query(s, args, new RowMapper<TeamExternalGroup>() {
-        @Override
-        public TeamExternalGroup mapRow(ResultSet rs, int rowNum) throws SQLException {
-          return mapRowToTeamExternalGroup(rs);
-        }
-      });
+      return this.jdbcTemplate.query(s, args, (rs, rowNum) -> mapRowToTeamExternalGroup(rs));
     } catch (EmptyResultDataAccessException er) {
       return new ArrayList<TeamExternalGroup>();
     }
@@ -130,12 +114,7 @@ public class TeamExternalGroupDaoImpl implements TeamExternalGroupDao {
       "          ON teg.external_groups_id = eg.id " +
       "          WHERE teg.grouper_team_id = ? AND eg.identifier = ?";
     try {
-      return this.jdbcTemplate.queryForObject(s, args, new RowMapper<TeamExternalGroup>() {
-        @Override
-        public TeamExternalGroup mapRow(ResultSet rs, int rowNum) throws SQLException {
-          return mapRowToTeamExternalGroup(rs);
-        }
-      });
+      return jdbcTemplate.queryForObject(s, args, (rs, rowNum) -> this.mapRowToTeamExternalGroup(rs));
     } catch (EmptyResultDataAccessException er) {
       return null;
     }
@@ -196,7 +175,7 @@ public class TeamExternalGroupDaoImpl implements TeamExternalGroupDao {
   @Override
   public void delete(TeamExternalGroup teamExternalGroup) {
     Object[] args = {teamExternalGroup.getId()};
-    final int deleted = this.jdbcTemplate.update("DELETE FROM team_external_groups WHERE id = ?;", args);
+    int deleted = jdbcTemplate.update("DELETE FROM team_external_groups WHERE id = ?;", args);
 
     if (deleted == 0) {
       return;
@@ -204,16 +183,15 @@ public class TeamExternalGroupDaoImpl implements TeamExternalGroupDao {
 
     args[0] = teamExternalGroup.getExternalGroup().getId();
 
-    final int linksToExternalGroup = this.jdbcTemplate.queryForInt(
-      "SELECT COUNT(id) FROM team_external_groups WHERE external_groups_id = ?;", args);
+    int linksToExternalGroup = jdbcTemplate.queryForObject(
+        "SELECT COUNT(id) FROM team_external_groups WHERE external_groups_id = ?;",
+        Integer.class,
+        args);
     if (linksToExternalGroup == 0) {
-      this.jdbcTemplate.update("DELETE FROM external_groups WHERE id = ?;", args);
+      jdbcTemplate.update("DELETE FROM external_groups WHERE id = ?;", args);
     }
   }
 
-  /* (non-Javadoc)
-   * @see nl.surfnet.coin.teams.service.TeamExternalGroupDao#getByExternalGroupIdentifiers(java.util.List)
-   */
   @Override
   public List<TeamExternalGroup> getByExternalGroupIdentifiers(Collection<String> identifiers) {
     try {
@@ -225,14 +203,9 @@ public class TeamExternalGroupDaoImpl implements TeamExternalGroupDao {
         "INNER JOIN external_groups AS eg " +
         "ON teg.external_groups_id = eg.id " +
         "WHERE eg.identifier in (:identifiers) ";
-      return template.query(s, params, new RowMapper<TeamExternalGroup>() {
-        @Override
-        public TeamExternalGroup mapRow(ResultSet rs, int rowNum) throws SQLException {
-          return mapRowToTeamExternalGroup(rs);
-        }
-      });
+      return template.query(s, params, (rs, rowNum) -> mapRowToTeamExternalGroup(rs));
     } catch (EmptyResultDataAccessException er) {
-      return new ArrayList<TeamExternalGroup>();
+      return new ArrayList<>();
     }
   }
 }
