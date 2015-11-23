@@ -13,10 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package teams.control;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import static teams.control.AddMemberController.INVITE_SEND_INVITE_SUBJECT;
 import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
 import static teams.util.TokenUtil.TOKENCHECK;
 import static teams.util.TokenUtil.checkTokens;
@@ -24,24 +25,25 @@ import static teams.util.ViewUtil.escapeViewParameters;
 
 import java.beans.PropertyEditorSupport;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
+import java.util.stream.Collectors;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
+import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
@@ -50,11 +52,10 @@ import org.springframework.web.servlet.LocaleResolver;
 import teams.Application;
 import teams.domain.Invitation;
 import teams.domain.InvitationMessage;
+import teams.domain.Language;
 import teams.domain.Person;
 import teams.domain.Role;
 import teams.domain.Stem;
-import teams.domain.Team;
-import teams.interceptor.LoginInterceptor;
 import teams.service.GrouperTeamService;
 import teams.service.TeamInviteService;
 import teams.util.AuditLog;
@@ -68,7 +69,7 @@ import teams.util.ViewUtil;
  * {@link Controller} that handles the add team page of a logged in user.
  */
 @Controller
-@SessionAttributes({"team", TokenUtil.TOKENCHECK})
+@SessionAttributes({TokenUtil.TOKENCHECK})
 public class AddTeamController {
 
   @Autowired
@@ -109,85 +110,68 @@ public class AddTeamController {
     });
   }
 
-  @RequestMapping("/addteam.shtml")
-  public String start(ModelMap modelMap, HttpServletRequest request) {
-    ViewUtil.addViewToModelMap(request, modelMap);
-
+  @RequestMapping(value = "/addteam.shtml", method = GET)
+  public String addTeam(Model model, HttpServletRequest request) {
     if (PermissionUtil.isGuest(request)) {
       return "redirect:home.shtml";
     }
 
     Person person = (Person) request.getSession().getAttribute(PERSON_SESSION_KEY);
 
-    Team team = new Team();
-    team.setViewable(true);
-    List<Stem> stems = getStemsForMember(person.getId());
-    modelMap.addAttribute("hasMultipleStems", stems.size() > 1);
-    modelMap.addAttribute("stems", stems);
-    modelMap.addAttribute("team", team);
-    modelMap.addAttribute(TokenUtil.TOKENCHECK, TokenUtil.generateSessionToken());
+    List<Stem> stems = getStemsForMember(person);
+
+    AddTeamCommand command = new AddTeamCommand();
+    command.setAdmin2Language(Language.find(localeResolver.resolveLocale(request)).orElse(Language.English));
+
+    model.addAttribute("hasMultipleStems", stems.size() > 1);
+    model.addAttribute("stems", stems);
+    model.addAttribute(TOKENCHECK, TokenUtil.generateSessionToken());
+    model.addAttribute("addTeamCommand", command);
 
     return "addteam";
   }
 
   @RequestMapping(value = "/doaddteam.shtml", method = POST)
-  public String addTeam(ModelMap modelMap,
-                        @ModelAttribute("team") Team team,
-                        HttpServletRequest request,
-                        @ModelAttribute(TOKENCHECK) String sessionToken,
-                        @RequestParam() String token,
-                        SessionStatus status) throws IOException {
-
-    checkTokens(sessionToken, token, status);
-
-    ViewUtil.addViewToModelMap(request, modelMap);
+  public String doAddTeam(
+      @RequestParam String token,
+      @ModelAttribute(TOKENCHECK) String sessionToken,
+      @Valid @ModelAttribute AddTeamCommand addTeamCommand,
+      BindingResult bindingResult,
+      Model model,
+      HttpServletRequest request, SessionStatus status) throws IOException {
 
     Person person = (Person) request.getSession().getAttribute(PERSON_SESSION_KEY);
-    String personId = person.getId();
 
-    String admin2 = request.getParameter("admin2");
-    String admin2Message = request.getParameter("admin2message");
+    checkTokens(sessionToken, token, status);
+    checkNotGuest(request);
+    checkAllowedStem(addTeamCommand.getStem(), person);
 
-    modelMap.addAttribute("admin2", admin2);
-    modelMap.addAttribute("admin2message", admin2Message);
-
-    if (PermissionUtil.isGuest(request)) {
-      throw new RuntimeException("User is not allowed to add a team!");
-    }
-    // Check if the user is not requesting the wrong stem.
-    if (team.getStem() != null && !isPersonUsingAllowedStem(personId, team.getStem().getId())) {
-      throw new RuntimeException("User is not allowed to add a team!");
-    }
-
-    String stemId = team.getStem() != null ? team.getStem().getId() : defaultStemName;
-    // (Ab)using a Team bean, do not use for actual storage
-    String teamName = team.getName();
-    if (!StringUtils.hasText(teamName)) {
-      modelMap.addAttribute("nameerror", "empty");
+    if (bindingResult.hasErrors()) {
       return "addteam";
     }
-    // Colons conflict with the stem name
-    teamName = teamName.replace(":", "");
 
-    String teamDescription = team.getDescription();
+    String stemId = addTeamCommand.getStem() != null ? addTeamCommand.getStem().getId() : defaultStemName;
+    String teamName = addTeamCommand.getTeamName().replace(":", "");
+    String teamDescription = addTeamCommand.getTeamDescription();
 
     String teamId;
     try {
       teamId = grouperTeamService.addTeam(teamName, teamName, teamDescription, stemId);
-      AuditLog.log("User {} added team (name: {}, id: {}) with stem {}", personId, teamName, teamId, stemId);
-      final Locale locale = localeResolver.resolveLocale(request);
-      inviteAdmin(teamId, person, admin2, teamName, admin2Message, locale);
+
+      AuditLog.log("User {} added team (name: {}, id: {}) with stem {}", person.getId(), teamName, teamId, stemId);
+
+      inviteAdmin(addTeamCommand, teamName, teamId, person);
     } catch (DuplicateTeamException e) {
-      modelMap.addAttribute("nameerror", "duplicate");
+      model.addAttribute("nameerror", "duplicate");
       return "addteam";
     }
 
-    grouperTeamService.setVisibilityGroup(teamId, team.isViewable());
+    grouperTeamService.setVisibilityGroup(teamId, addTeamCommand.isViewable());
     grouperTeamService.addMember(teamId, person);
-    grouperTeamService.addMemberRole(teamId, personId, Role.Admin, grouperPowerUser);
+    grouperTeamService.addMemberRole(teamId, person.getId(), Role.Admin, grouperPowerUser);
 
     status.setComplete();
-    modelMap.clear();
+
     if (environment.acceptsProfiles(Application.GROUPZY_PROFILE_NAME)) {
       return escapeViewParameters("redirect:/%s/service-providers.shtml?view=", teamId);
     } else {
@@ -195,57 +179,58 @@ public class AddTeamController {
     }
   }
 
-  private void inviteAdmin(final String teamId, final Person inviter, final String admin2, final String teamName,
-                           final String messageBody, final Locale locale) {
-    if (!StringUtils.hasText(admin2) || !admin2.contains("@")) {
+  @ModelAttribute("languages")
+  public Language[] languages() {
+    return Language.values();
+  }
+
+  @ModelAttribute(ViewUtil.VIEW)
+  public String view(HttpServletRequest request) {
+    return ViewUtil.getView(request);
+  }
+
+  private void checkAllowedStem(Stem stem, Person person) {
+    if (stem != null && !isPersonUsingAllowedStem(person, stem.getId())) {
+      throw new RuntimeException("User is not allowed to add a team!");
+    }
+  }
+
+  private void checkNotGuest(HttpServletRequest request) {
+    if (PermissionUtil.isGuest(request)) {
+      throw new RuntimeException("User is not allowed to add a team!");
+    }
+  }
+
+  private void inviteAdmin(AddTeamCommand command, String teamName, String teamId, Person inviter) {
+    if (!StringUtils.hasText(command.getAdmin2Email()) || !command.getAdmin2Email().contains("@")) {
       return;
     }
-    Invitation invitation = new Invitation(admin2, teamId);
+
+    Invitation invitation = new Invitation(command.getAdmin2Email(), teamId);
     invitation.setIntendedRole(Role.Admin);
     invitation.setTimestamp(new Date().getTime());
+    invitation.setLanguage(command.getAdmin2Language());
 
-    InvitationMessage message = new InvitationMessage(messageBody, inviter.getDisplayName());
+    InvitationMessage message = new InvitationMessage(command.getAdmin2Message(), inviter.getDisplayName());
 
     invitation.addInvitationMessage(message);
     teamInviteService.saveOrUpdate(invitation);
-    String subject = messageSource.getMessage(AddMemberController.INVITE_SEND_INVITE_SUBJECT, new Object[] {teamName}, locale);
+    String subject = messageSource.getMessage(INVITE_SEND_INVITE_SUBJECT, new Object[] {command.getTeamName()}, command.getAdmin2Language().locale());
 
     addMemberController.sendInvitationByMail(invitation, subject, inviter);
+
     AuditLog.log("Sent invitation and saved to database: team: {}, inviter: {}, hash: {}, email: {}, role: {}",
-      teamId, inviter.getId(), invitation.getInvitationHash(), admin2, invitation.getIntendedRole());
+      teamId, inviter.getId(), invitation.getInvitationHash(), command.getAdmin2Email(), invitation.getIntendedRole());
   }
 
-  private List<Stem> getStemsForMember(String personId) {
-    List<Stem> allUsersStems = grouperTeamService.findStemsByMember(personId);
-    List<Stem> stems = new ArrayList<>();
-
-    if (allUsersStems.isEmpty()) {
-      return allUsersStems;
-    }
-
-    // Now check if the stem has a members group and the user is actually in that members group
-    for (Stem stem : allUsersStems) {
-      // Always add the default stem
-      if (stem.getId().equalsIgnoreCase(defaultStemName)) {
-        stems.add(stem);
-      }
-      // Find the members team for the stem and check if the current person is member of that team
-      String teamId = stem.getId() + ":" + "members";
-      try {
-        Team team = grouperTeamService.findTeamById(teamId);
-
-        if (controllerUtil.isPersonMemberOfTeam(personId, team)) {
-          stems.add(stem);
-        }
-      } catch (RuntimeException e) {
-        // do nothing
-      }
-    }
-    return stems;
+  private List<Stem> getStemsForMember(Person person) {
+    return grouperTeamService.findStemsByMember(person.getId()).stream()
+        .filter(stem -> stem.getId().equalsIgnoreCase(defaultStemName) || controllerUtil.isPersonMemberOfTeam(person, grouperTeamService.findTeamById(stem.getId() + ":" + "members")))
+        .collect(Collectors.toList());
   }
 
-  private boolean isPersonUsingAllowedStem(String personId, String stemId) {
-    return getStemsForMember(personId).stream()
+  private boolean isPersonUsingAllowedStem(Person person, String stemId) {
+    return getStemsForMember(person).stream()
         .anyMatch(allowedStem -> allowedStem.getId().equalsIgnoreCase(stemId));
   }
 }

@@ -33,12 +33,12 @@
   <%-- = Content --%>
   <div id="Content">
     <c:url value="/doaddteam.shtml" var="doAddTeamUrl"><c:param name="view" value="${view}" /></c:url>
-    <form:form id="AddTeamForm" action="${doAddTeamUrl}" method="post" commandName="team">
+    <form:form id="AddTeamForm" action="${doAddTeamUrl}" method="post" commandName="addTeamCommand">
       <input type="hidden" name="token" value="<c:out value='${tokencheck}'/>"/>
       <input type="hidden" name="view" value="<c:out value='${view}' />" />
       <p class="label-field-wrapper">
         <label for="TeamName"><spring:message code='jsp.general.TeamName' /></label>
-        <form:input path="name" id="TeamName" cssClass="required" cssErrorClass="error" required="required"/>
+        <form:input path="teamName" id="TeamName" cssClass="required" cssErrorClass="error" required="required"/>
         <span class="inputinfo"><spring:message code="jsp.addteam.teamName.info"/></span>
         <c:choose>
           <c:when test="${nameerror eq 'empty'}">
@@ -52,7 +52,7 @@
       </p>
       <p class="label-field-wrapper">
         <label for="TeamDescription"><spring:message code='jsp.general.Description' /></label>
-        <form:textarea path="description" id="TeamDescription" cssClass="withinfo"/>
+        <form:textarea path="teamDescription" id="TeamDescription" cssClass="withinfo"/>
         <br>
         <span class="consent-wrapper">&nbsp;</span>
         <span class="textareainfo"><spring:message code="jsp.addteam.description.info"/></span>
@@ -78,13 +78,18 @@
       <p class="label-field-wrapper">
         <label for="admin2"><spring:message code="jsp.addteam.admin2"/></label>
         <spring:message code="jsp.addteam.admin2.placeholder" var="admin2Placeholder"/>
-        <input type="email" id="admin2" name="admin2" placeholder="${admin2Placeholder}" value="<c:out value="${admin2}"/>" />
+        <form:input type="email" path="admin2Email" id="admin2" placeholder="${admin2Placeholder}" cssErrorClass="error" />
         <span class="inputinfo"><spring:message code="jsp.addteam.admin2.info"/></span>
+      </p>
+
+      <p class="label-field-wrapper" id="admin2languagecontainer">
+        <label for="admin2language"><spring:message code="jsp.addmember.Language"/></label>
+        <form:select path="admin2Language" items="${languages}" id="admin2language"/>
       </p>
 
       <p class="label-field-wrapper" id="admin2messagecontainer">
         <label for="admin2message"><spring:message code='jsp.addmember.Message.label'/></label>
-        <textarea id="admin2message" name="admin2message" cols="5" rows="4"><c:out value="${admin2message}"/></textarea>
+        <form:textarea path="admin2Message" cols="5" rows="4" id="admin2message" />
       </p>
       <p class="label-field-wrapper">
         <span class="consent-wrapper">&nbsp;</span>

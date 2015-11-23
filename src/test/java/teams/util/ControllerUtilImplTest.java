@@ -18,6 +18,7 @@ package teams.util;
 
 import teams.control.AbstractControllerTest;
 import teams.domain.Member;
+import teams.domain.Person;
 import teams.domain.Team;
 import teams.service.GrouperTeamService;
 import org.junit.Test;
@@ -99,17 +100,19 @@ public class ControllerUtilImplTest extends AbstractControllerTest {
     Member member = getMember();
     team.addMembers(member);
 
-    boolean result = controllerUtil.isPersonMemberOfTeam(member.getId(), team);
+    boolean result = controllerUtil.isPersonMemberOfTeam(getPerson(member.getId()), team);
+
     assertTrue(result);
   }
 
   @Test
   public void isPersonMemberOfTeamIsNotMemberTest() {
     Team team = getTeam1();
-    Member member = new Member(null, "member-2", "member-2", "member-2@example.com");
+
+    Person person = new Person(null, "name", "email", "org", "vootrole", "displayName");
     team.addMembers(getMember());
 
-    boolean result = controllerUtil.isPersonMemberOfTeam(member.getId(), team);
+    boolean result = controllerUtil.isPersonMemberOfTeam(person, team);
     assertFalse(result);
   }
 

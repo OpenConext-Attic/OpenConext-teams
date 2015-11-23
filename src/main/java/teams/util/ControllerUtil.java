@@ -64,11 +64,11 @@ public interface ControllerUtil {
   /**
    * Check if a {@link Person} is member of the given {@link Team}
    *
-   * @param personId {@link String} the person identifier
+   * @param person {@link Person} the person
    * @param team   {@link Team} the team
    * @return {@literal true} if the user is member of the team, {@literal false} if the user isn't member
    */
-  public boolean isPersonMemberOfTeam(String personId, Team team);
+  public boolean isPersonMemberOfTeam(Person person, Team team);
 
   /**
    * Makes {@link MimeMultipart} with a plain text and html version of the mail

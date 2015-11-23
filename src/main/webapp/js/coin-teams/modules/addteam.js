@@ -18,8 +18,14 @@ COIN.MODULES.Addteam = function (sandbox) {
   // Public interface
   var module = {
     init:function () {
-      var admin2messageContainer = $('#admin2messagecontainer');
-      admin2messageContainer.addClass('hide');
+      var admin2MessageContainer = $('#admin2messagecontainer');
+      var admin2LanguageContainer = $('#admin2languagecontainer');
+
+      if ($('#admin2').val() === '') {
+        admin2MessageContainer.addClass('hide');
+        admin2LanguageContainer.addClass('hide');
+      }
+
       // Clicked [ Cancel ]
       $(document).on("click", 'input[name=cancelCreateTeam]', function (e) {
         e.preventDefault();
@@ -34,8 +40,11 @@ COIN.MODULES.Addteam = function (sandbox) {
 
       $(document).on("focus", 'input[id=admin2]', function (e) {
         e.preventDefault();
-        if (admin2messageContainer.hasClass('hide')) {
-          admin2messageContainer.removeClass('hide');
+        if (admin2MessageContainer.hasClass('hide')) {
+          admin2MessageContainer.removeClass('hide');
+        }
+        if (admin2LanguageContainer.hasClass('hide')) {
+          admin2LanguageContainer.removeClass('hide');
         }
       });
 
@@ -43,7 +52,6 @@ COIN.MODULES.Addteam = function (sandbox) {
     },
 
     destroy:function () {
-
     }
   };
 

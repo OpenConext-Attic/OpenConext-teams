@@ -93,8 +93,8 @@ public class ControllerUtilImpl implements ControllerUtil {
     return member != null && (member.getRoles().contains(Role.Admin));
   }
 
-  public boolean isPersonMemberOfTeam(String personId, Team team) {
-    return team.getMembers().stream().anyMatch(m -> m.getId().equals(personId));
+  public boolean isPersonMemberOfTeam(Person person, Team team) {
+    return team.getMembers().stream().anyMatch(m -> m.getId().equals(person.getId()));
   }
 
   @Override

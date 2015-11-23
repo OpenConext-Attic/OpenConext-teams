@@ -15,147 +15,187 @@
  */
 package teams.control;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
+import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
+import static teams.control.AddMemberController.INVITE_SEND_INVITE_SUBJECT;
+import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
+import static teams.interceptor.LoginInterceptor.USER_STATUS_SESSION_KEY;
+import static teams.util.TokenUtil.TOKENCHECK;
+
+import java.util.Locale;
+
+import javax.servlet.http.HttpServletRequest;
+
+import com.google.common.collect.ImmutableList;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.hamcrest.Matchers.hasProperty;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import org.junit.Before;
 import org.junit.Test;
-import org.mockito.internal.stubbing.answers.Returns;
-import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.web.bind.support.SimpleSessionStatus;
+import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.context.MessageSource;
+import org.springframework.core.env.Environment;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.web.servlet.LocaleResolver;
 
+import teams.Application;
+import teams.domain.Invitation;
+import teams.domain.Language;
+import teams.domain.Person;
+import teams.domain.Role;
+import teams.domain.Stem;
 import teams.domain.Team;
+import teams.interceptor.LoginInterceptor;
 import teams.service.GrouperTeamService;
+import teams.service.TeamInviteService;
 import teams.util.ControllerUtil;
 import teams.util.TokenUtil;
 
-public class AddTeamControllerTest extends AbstractControllerTest {
+@RunWith(MockitoJUnitRunner.class)
+public class AddTeamControllerTest {
 
-  private AddTeamController addTeamController = new AddTeamController();
+  @InjectMocks
+  private AddTeamController subject;
 
-  @Test
-  public void testStart() throws Exception {
-    MockHttpServletRequest request = getRequest();
+  @Mock private GrouperTeamService grouperTeamServiceMock;
+  @Mock private LocaleResolver localeResolverMock;
+  @Mock private Environment environment;
+  @Mock private ControllerUtil controllerUtil;
+  @Mock private TeamInviteService teamInviteServiceMock;
+  @Mock private AddMemberController addMemberControllerMock;
+  @Mock private MessageSource messageSourceMock;
 
-    autoWireMock(addTeamController, new Returns(getStems()), GrouperTeamService.class);
-    autoWireRemainingResources(addTeamController);
+  private MockMvc mockMvc;
 
-    String result = addTeamController.start(getModelMap(), request);
+  private final Person person = new Person("id", "name", "email", "organization", "voot_role", "displayName");
+  private final String dummyToken = TokenUtil.generateSessionToken();
 
-    assertEquals("addteam", result);
+  @Before
+  public void setup() {
+    mockMvc = standaloneSetup(subject).build();
   }
 
   @Test
-  public void testAddTeamHappyFlow() throws Exception {
-    MockHttpServletRequest request = getRequest();
-    String token = TokenUtil.generateSessionToken();
-    Team team1 = getTeam1();
-    // request team
-    request.setParameter("team", team1.getId());
-    request.setParameter("teamName", team1.getName());
-    request.setParameter("description", team1.getDescription());
+  public void addTeamForm() throws Exception {
+    when(localeResolverMock.resolveLocale(any(HttpServletRequest.class))).thenReturn(Locale.ENGLISH);
 
-    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
-    when(grouperTeamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
-    when(grouperTeamService.findTeamById(team1.getId())).thenReturn(team1);
-    when(grouperTeamService.addTeam(team1.getName(), team1.getName(), team1.getDescription(),
-      team1.getStem().getId())).thenReturn(team1.getId());
-
-    autoWireMock(addTeamController, new Returns(true), ControllerUtil.class);
-    autoWireMock(addTeamController, grouperTeamService, GrouperTeamService.class);
-    autoWireRemainingResources(addTeamController);
-
-    String view = addTeamController.addTeam(getModelMap(), team1, request, token, token, new SimpleSessionStatus());
-
-    assertEquals("redirect:detailteam.shtml?team=" + team1.getId() + "&view=app", view);
+    mockMvc.perform(get("/addteam.shtml")
+        .sessionAttr(USER_STATUS_SESSION_KEY, "member")
+        .sessionAttr(LoginInterceptor.PERSON_SESSION_KEY, person))
+      .andExpect(model().attributeExists("languages"))
+      .andExpect(model().attribute("addTeamCommand", hasProperty("admin2Language", is(Language.English))))
+      .andExpect(view().name("addteam"));
   }
 
   @Test
-  public void testFailToAddTeamWithEmptyName() throws Exception {
-    MockHttpServletRequest request = getRequest();
-    String token = TokenUtil.generateSessionToken();
-    Team team = getTeam1();
+  public void addTeamHappyFlow() throws Exception {
+    when(environment.acceptsProfiles(Application.GROUPZY_PROFILE_NAME)).thenReturn(false);
+    when(grouperTeamServiceMock.addTeam("name", "name", "description", null)).thenReturn("teamid");
 
-    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
-    when(grouperTeamService.addTeam(team.getName(), team.getName(), team.getDescription(),
-      null)).thenReturn(team.getId());
+    mockMvc.perform(post("/doaddteam.shtml")
+        .sessionAttr(PERSON_SESSION_KEY, person)
+        .sessionAttr(USER_STATUS_SESSION_KEY, "member")
+        .sessionAttr(TOKENCHECK, dummyToken)
+        .param("token", dummyToken)
+        .param("teamDescription", "description")
+        .param("viewable", "true")
+        .param("teamName", "name"))
+      .andExpect(view().name("redirect:detailteam.shtml?team=teamid&view=app"));
 
-    autoWireMock(addTeamController, grouperTeamService, GrouperTeamService.class);
-    autoWireRemainingResources(addTeamController);
-
-    String view = addTeamController.addTeam(getModelMap(), new Team(team.getId(), null, team.getDescription()), request, token, token, new SimpleSessionStatus());
-    assertEquals("addteam", view);
+    verify(grouperTeamServiceMock).setVisibilityGroup("teamid", true);
+    verify(grouperTeamServiceMock).addMember("teamid", person);
+    verify(grouperTeamServiceMock).addMemberRole("teamid", person.getId(), Role.Admin, null);
   }
 
   @Test
-  public void testAddTeamWithDifferentStem() throws Exception {
-    MockHttpServletRequest request = getRequest();
-    String token = TokenUtil.generateSessionToken();
-    Team team1 = getTeam1();
-    // request team
-    request.setParameter("team", team1.getId());
-    request.setParameter("teamName", team1.getName());
-    request.setParameter("description", team1.getDescription());
-    request.setParameter("stem", team1.getStem().getId());
+  public void failToAddTeamWithEmptyName() throws Exception {
+    when(environment.acceptsProfiles(Application.GROUPZY_PROFILE_NAME)).thenReturn(false);
+    when(grouperTeamServiceMock.addTeam("name", "name", "description", null)).thenReturn("teamid");
 
-    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
-    when(grouperTeamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
-    when(grouperTeamService.findTeamById(team1.getId())).thenReturn(team1);
-    when(grouperTeamService.addTeam(team1.getName(), team1.getName(), team1.getDescription(),
-      team1.getStem().getId())).thenReturn(team1.getId());
-
-    autoWireMock(addTeamController, new Returns(true), ControllerUtil.class);
-    autoWireMock(addTeamController, grouperTeamService, GrouperTeamService.class);
-    autoWireRemainingResources(addTeamController);
-
-    String view = addTeamController.addTeam(getModelMap(), team1, request, token, token, new SimpleSessionStatus());
-
-    assertEquals("redirect:detailteam.shtml?team=" + team1.getId() + "&view=app", view);
+    mockMvc.perform(post("/doaddteam.shtml")
+        .sessionAttr(PERSON_SESSION_KEY, person)
+        .sessionAttr(USER_STATUS_SESSION_KEY, "member")
+        .sessionAttr(TOKENCHECK, dummyToken)
+        .param("token", dummyToken)
+        .param("teamDescription", "description")
+        .param("teamName", ""))
+      .andExpect(view().name("addteam"))
+      .andExpect(model().attributeHasFieldErrors("addTeamCommand", "teamName"));
   }
 
-  @Test(expected = RuntimeException.class)
-  public void testFailToAddTeamWithWrongStem() throws Exception {
-    MockHttpServletRequest request = getRequest();
-    String token = TokenUtil.generateSessionToken();
-    Team team1 = getTeam1();
-    // request team
-    request.setParameter("team", team1.getId());
-    request.setParameter("teamName", team1.getName());
-    request.setParameter("description", team1.getDescription());
-    request.setParameter("stem", "non-existing-stem");
+  @Test
+  public void addTeamWithStem() throws Exception {
+    Team team = new Team("teamId", "teamName", "teamDescription");
+    Team teamStem = new Team("stemId:members", "", "");
+    Stem stem = new Stem("stemId", "stemName", "stemDescription");
 
-    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
-    when(grouperTeamService.findStemsByMember(getMember().getId())).thenReturn(getStems());
-    when(grouperTeamService.findTeamById(team1.getId())).thenReturn(team1);
-    when(grouperTeamService.addTeam(team1.getName(), team1.getName(), team1.getDescription(),
-      team1.getStem().getId())).thenReturn(team1.getId());
+    when(grouperTeamServiceMock.findStemsByMember(person.getId())).thenReturn(ImmutableList.of(stem));
+    when(grouperTeamServiceMock.findTeamById("teamId")).thenReturn(team);
+    when(grouperTeamServiceMock.findTeamById("stemId:members")).thenReturn(teamStem);
+    when(controllerUtil.isPersonMemberOfTeam(person, teamStem)).thenReturn(true);
 
-    autoWireMock(addTeamController, new Returns(false), ControllerUtil.class);
-    autoWireMock(addTeamController, grouperTeamService, GrouperTeamService.class);
-    autoWireRemainingResources(addTeamController);
+    when(grouperTeamServiceMock.addTeam("name", "name", "description", "stemId")).thenReturn("created");
 
-    String view = addTeamController.addTeam(getModelMap(), team1, request, token, token, new SimpleSessionStatus());
-
-    assertEquals("redirect:detailteam.shtml?team=" + team1.getId() + "&view=app", view);
+    mockMvc.perform(post("/doaddteam.shtml")
+        .sessionAttr(PERSON_SESSION_KEY, person)
+        .sessionAttr(USER_STATUS_SESSION_KEY, "member")
+        .sessionAttr(TOKENCHECK, dummyToken)
+        .param("token", dummyToken)
+        .param("teamDescription", "description")
+        .param("teamName", "name")
+        .param("stem", "stemId"))
+    .andExpect(view().name("redirect:detailteam.shtml?team=created&view=app"));
   }
 
   @Test
   public void ampersandInTeamIdShouldGetUrlEscaped() throws Exception {
-    MockHttpServletRequest request = getRequest();
-    String token = TokenUtil.generateSessionToken();
-    Team team = new Team("Henk & Truus", "name", "description");
-    request.setParameter("team", team.getId());
-    request.setParameter("teamName", team.getName());
-    request.setParameter("description", team.getDescription());
+    when(environment.acceptsProfiles(Application.GROUPZY_PROFILE_NAME)).thenReturn(false);
+    when(grouperTeamServiceMock.addTeam("name", "name", "description", null)).thenReturn("Henk & Truus");
 
-    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
-    when(grouperTeamService.addTeam(team.getName(), team.getName(), team.getDescription(), null)).thenReturn(team.getId());
+    mockMvc.perform(post("/doaddteam.shtml")
+        .sessionAttr(PERSON_SESSION_KEY, person)
+        .sessionAttr(USER_STATUS_SESSION_KEY, "member")
+        .sessionAttr(TOKENCHECK, dummyToken)
+        .param("token", dummyToken)
+        .param("teamDescription", "description")
+        .param("teamName", "name"))
+      .andExpect(view().name("redirect:detailteam.shtml?team=Henk+%26+Truus&view=app"));
+  }
 
-    autoWireMock(addTeamController, grouperTeamService, GrouperTeamService.class);
-    autoWireRemainingResources(addTeamController);
 
-    String view = addTeamController.addTeam(getModelMap(), team, request, token, token, new SimpleSessionStatus());
+  @Test
+  public void addTeamWithSecondAdminShouldSendAnEmailWithCorrectLocale() throws Exception {
+    when(environment.acceptsProfiles(Application.GROUPZY_PROFILE_NAME)).thenReturn(false);
+    when(grouperTeamServiceMock.addTeam("name", "name", "description", null)).thenReturn("created");
+    when(messageSourceMock.getMessage(INVITE_SEND_INVITE_SUBJECT, new Object[] {"name"}, Locale.forLanguageTag("nl"))).thenReturn("subject");
 
-    assertEquals("redirect:detailteam.shtml?team=Henk+%26+Truus&view=app", view);
+    mockMvc.perform(post("/doaddteam.shtml")
+        .sessionAttr(PERSON_SESSION_KEY, person)
+        .sessionAttr(USER_STATUS_SESSION_KEY, "member")
+        .sessionAttr(TOKENCHECK, dummyToken)
+        .param("token", dummyToken)
+        .param("teamDescription", "description")
+        .param("teamName", "name")
+        .param("admin2Email", "henk@example.com")
+        .param("admin2Language", "Dutch")
+        .param("admin2Message", "message"))
+      .andExpect(view().name("redirect:detailteam.shtml?team=created&view=app"));
+
+    ArgumentCaptor<Invitation> invitationCaptor = ArgumentCaptor.forClass(Invitation.class);
+    verify(teamInviteServiceMock).saveOrUpdate(invitationCaptor.capture());
+    verify(addMemberControllerMock).sendInvitationByMail(invitationCaptor.getValue(), "subject", person);
+
+    assertThat(invitationCaptor.getValue().getEmail(), is("henk@example.com"));
+    assertThat(invitationCaptor.getValue().getLanguage(), is(Language.Dutch));
   }
 }

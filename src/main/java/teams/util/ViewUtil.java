@@ -27,7 +27,7 @@ import org.springframework.ui.ModelMap;
  * Util class to define which view should be used (gadget or app)
  */
 public final class ViewUtil {
-  private static final String VIEW = "view";
+  public static final String VIEW = "view";
 
   private ViewUtil() {
   }
