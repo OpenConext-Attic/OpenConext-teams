@@ -82,7 +82,7 @@ public class InMemoryMockTeamService implements GrouperTeamService {
   public String addTeam(String teamId, String displayName, String teamDescription, String stemName) throws DuplicateTeamException {
     String fqTeamId = stemName + ":" + teamId;
     Team team = new Team(fqTeamId, displayName, teamDescription);
-    if (teams.containsKey(teamId)) {
+    if (teams.containsKey(team.getId())) {
       throw new DuplicateTeamException("There is already a team with id '" + teamId + "'");
     }
     teams.put(team.getId(), team);
