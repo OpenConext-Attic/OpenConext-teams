@@ -162,7 +162,7 @@ public class AddTeamController {
 
       inviteAdmin(addTeamCommand, teamName, teamId, person);
     } catch (DuplicateTeamException e) {
-      model.addAttribute("nameerror", "duplicate");
+      bindingResult.rejectValue("teamName", "jsp.addteam.error.duplicate");
       return "addteam";
     }
 
@@ -202,7 +202,7 @@ public class AddTeamController {
   }
 
   private void inviteAdmin(AddTeamCommand command, String teamName, String teamId, Person inviter) {
-    if (!StringUtils.hasText(command.getAdmin2Email()) || !command.getAdmin2Email().contains("@")) {
+    if (!StringUtils.hasText(command.getAdmin2Email())) {
       return;
     }
 

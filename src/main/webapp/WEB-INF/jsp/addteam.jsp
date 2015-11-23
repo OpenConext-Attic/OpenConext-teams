@@ -38,17 +38,9 @@
       <input type="hidden" name="view" value="<c:out value='${view}' />" />
       <p class="label-field-wrapper">
         <label for="TeamName"><spring:message code='jsp.general.TeamName' /></label>
-        <form:input path="teamName" id="TeamName" cssClass="required" cssErrorClass="error" required="required"/>
+        <form:input path="teamName" id="TeamName" cssClass="required" cssErrorClass="error" />
+        <form:errors path="teamName" cssClass="error" />
         <span class="inputinfo"><spring:message code="jsp.addteam.teamName.info"/></span>
-        <c:choose>
-          <c:when test="${nameerror eq 'empty'}">
-            <label for="TeamName" class="error"><spring:message code="jsp.error.Field.Required"/></label>
-          </c:when>
-          <c:when test="${nameerror eq 'duplicate'}">
-            <label for="TeamName" class="error"><spring:message code="jsp.addteam.error.duplicate"/></label>
-          </c:when>
-        </c:choose>
-
       </p>
       <p class="label-field-wrapper">
         <label for="TeamDescription"><spring:message code='jsp.general.Description' /></label>
@@ -79,6 +71,7 @@
         <label for="admin2"><spring:message code="jsp.addteam.admin2"/></label>
         <spring:message code="jsp.addteam.admin2.placeholder" var="admin2Placeholder"/>
         <form:input type="email" path="admin2Email" id="admin2" placeholder="${admin2Placeholder}" cssErrorClass="error" />
+        <form:errors path="admin2Email" cssClass="error" />
         <span class="inputinfo"><spring:message code="jsp.addteam.admin2.info"/></span>
       </p>
 
