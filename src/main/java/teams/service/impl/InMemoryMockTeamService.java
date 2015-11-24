@@ -24,7 +24,7 @@ import java.util.*;
 import com.google.common.collect.ImmutableSet;
 
 /**
- * Mock implementation of {@link nl.surfnet.coin.teams.service.GrouperTeamService}
+ * Mock implementation of {@link teams.service.GrouperTeamService}
  */
 public class InMemoryMockTeamService implements GrouperTeamService {
 

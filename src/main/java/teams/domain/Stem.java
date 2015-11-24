@@ -29,7 +29,7 @@ public class Stem implements Serializable {
   /**
    * Get the Stem identifier
    *
-   * @return {@link} String the stem Identifier
+   * @return String the stem Identifier
    */
   public String getId() {
     return id;

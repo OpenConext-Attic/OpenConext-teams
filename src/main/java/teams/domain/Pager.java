@@ -44,7 +44,7 @@ public class Pager {
   }
 
   /**
-   * @return {@link nl.surfnet.coin.teams.domain.Page} in paging that is the first possible page
+   * @return {@link teams.domain.Page} in paging that is the first possible page
    *         or {@literal null} if no such navigation item is needed (first page is current)
    */
   public Page getFirstPage() {
@@ -55,7 +55,7 @@ public class Pager {
   }
 
   /**
-   * @return {@link nl.surfnet.coin.teams.domain.Page} in paging that goes to the previous page
+   * @return {@link teams.domain.Page} in paging that goes to the previous page
    *         or {@literal null} if no such item is needed (first page is current)
    */
   public Page getPreviousPage() {
@@ -67,7 +67,7 @@ public class Pager {
   }
 
   /**
-   * @return {@link nl.surfnet.coin.teams.domain.Page} in paging that goes to the next page
+   * @return {@link teams.domain.Page} in paging that goes to the next page
    *         or {@literal null} if no such item is needed (last page is current)
    */
   public Page getNextPage() {
@@ -79,7 +79,7 @@ public class Pager {
   }
 
   /**
-   * @return {@link nl.surfnet.coin.teams.domain.Page} in paging that goes to the last possible page
+   * @return {@link teams.domain.Page} in paging that goes to the last possible page
    *         or {@literal null} if no such item is needed (last page is current)
    */
   public Page getLastPage() {
@@ -100,7 +100,7 @@ public class Pager {
    * </ul>
    * If there is at most 1 page, an empty list is returned.
    *
-   * @return List of {@link nl.surfnet.coin.teams.domain.Page}'s that should be visible (sliding pager),
+   * @return List of {@link teams.domain.Page}'s that should be visible (sliding pager),
    *         can be empty
    */
   public List<Page> getVisiblePages() {

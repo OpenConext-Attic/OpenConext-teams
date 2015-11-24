@@ -156,8 +156,6 @@ public class Member implements Serializable {
 
   /**
    * Sets the value that indicates if the Member has guest status
-   *
-   * @param isGuest {@link}
    */
   public void setGuest(boolean isGuest) {
     for (MemberAttribute memberAttribute : getMemberAttributes()) {

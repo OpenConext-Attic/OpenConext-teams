@@ -30,7 +30,7 @@ public interface ControllerUtil {
    * Get the team from the {@link javax.servlet.http.HttpServletRequest} request.
    *
    * @param request the {@link javax.servlet.http.HttpServletRequest}
-   * @return The {@link nl.surfnet.coin.teams.domain.Team} team
+   * @return The {@link teams.domain.Team} team
    * @throws RuntimeException if the team cannot be found
    */
   Team getTeam(HttpServletRequest request);
@@ -47,7 +47,7 @@ public interface ControllerUtil {
   /**
    * Checks if the current user has administrative privileges (whether he is admin OR manager) for a given team.
    *
-   * @param person {@link nl.surfnet.coin.teams.domain.Person}
+   * @param person {@link teams.domain.Person}
    * @param teamId {@link String} the team Id for which the person's privileges are checked
    * @return {@link boolean} <code>true/code> if the user is admin AND/OR manager <code>false</code> if the user isn't
    */

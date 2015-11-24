@@ -28,7 +28,7 @@ public interface JoinTeamRequestService {
   /**
    * Searches for pending {@link JoinTeamRequest}'s in the database
    *
-   * @param teamId {@link nl.surfnet.coin.teams.domain.Team}
+   * @param teamId {@link teams.domain.Team}
    * @return List of JoinTeamRequest, can be empty, not null
    */
   List<JoinTeamRequest> findPendingRequests(String teamId);

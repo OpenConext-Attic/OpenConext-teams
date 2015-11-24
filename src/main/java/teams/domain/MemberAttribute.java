@@ -54,7 +54,7 @@ public class MemberAttribute extends DomainObject {
   /**
    * Constructor necessary for Hibernate. Avoid using it.
    *
-   * @deprecated use {@link MemberAttribute(String, String, String)}
+   * @deprecated use {@link #MemberAttribute(String, String, String)}
    */
   public MemberAttribute() {
     this(null, null, null);

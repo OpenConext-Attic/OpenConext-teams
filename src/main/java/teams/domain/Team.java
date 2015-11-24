@@ -105,7 +105,7 @@ public class Team implements Serializable {
    * @param id          {@link String the identifier of the team}
    * @param name        {@link String} the name of the team
    * @param description {@link String} the description of the team
-   * @param stem        {@link nl.surfnet.coin.teams.domain.Stem} the stem that this team belongs to
+   * @param stem        {@link teams.domain.Stem} the stem that this team belongs to
    * @param viewable    if {@literal false} then it's a private team
    */
   public Team(String id, String name, String description, Stem stem, boolean viewable) {

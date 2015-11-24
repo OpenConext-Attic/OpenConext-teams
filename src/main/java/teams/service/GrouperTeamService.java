@@ -65,9 +65,9 @@ public interface GrouperTeamService {
   /**
    * Update a {@link Team}
    *
-   * @param teamId          the id of a {@link nl.surfnet.coin.teams.domain.Team}
+   * @param teamId          the id of a {@link teams.domain.Team}
    * @param displayName     the new displayName
-   * @param teamDescription the new description of the {@link nl.surfnet.coin.teams.domain.Team}
+   * @param teamDescription the new description of the {@link teams.domain.Team}
    * @param actAsSubject    the unique identifier that performs the request in Grouper. Can be the power user
    *                        or the memberId
    */
@@ -105,11 +105,11 @@ public interface GrouperTeamService {
    * Add {@link Role} to a {@link Team}
    *
    * @param teamId
-   *          the unique identifier of a {@link nl.surfnet.coin.teams.domain.Team}
+   *          the unique identifier of a {@link teams.domain.Team}
    * @param memberId
-   *          the unique identifier of a {@link nl.surfnet.coin.teams.domain.Member}
+   *          the unique identifier of a {@link teams.domain.Member}
    * @param role
-   *          the {@link nl.surfnet.coin.teams.domain.Role} to be added
+   *          the {@link teams.domain.Role} to be added
    * @param actAsUserId
    *          the unique identifier that performs the request in Grouper. Can be the power user
    *          or the memberId
@@ -122,11 +122,11 @@ public interface GrouperTeamService {
    * Remove {@link Role} to a {@link Team}
    *
    * @param teamId
-   *          the unique identifier of a {@link nl.surfnet.coin.teams.domain.Team}
+   *          the unique identifier of a {@link teams.domain.Team}
    * @param memberId
-   *          the unique identifier of a {@link nl.surfnet.coin.teams.domain.Member}
+   *          the unique identifier of a {@link teams.domain.Member}
    * @param role
-   *          the {@link nl.surfnet.coin.teams.domain.Role} to be removed
+   *          the {@link teams.domain.Role} to be removed
    * @param actAsUserId
    *          the unique identifier that performs the request in Grouper. Can be the power user
    *          of the memberId
@@ -140,9 +140,9 @@ public interface GrouperTeamService {
    *
    * @param teamId
    *          the unique identifier of the
-   *          {@link nl.surfnet.coin.teams.domain.Team}
+   *          {@link teams.domain.Team}
    * @param person
-   *          {@link Person} to add as Member to the Team
+   *          {@link teams.domain.Person} to add as Member to the Team
    */
   void addMember(String teamId, Person person);
 
