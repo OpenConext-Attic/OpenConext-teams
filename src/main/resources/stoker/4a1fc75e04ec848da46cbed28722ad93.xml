@@ -1,0 +1,113 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.ifpb.edu.br/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">IFPB - Instituto Federal da Paraiba</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">IFPB - Instituto Federal da Paraiba</mdui:DisplayName>
+          <mdui:Description xml:lang="en">IFPB - Instituto Federal da Paraiba</mdui:Description>
+          <mdui:Description xml:lang="pt-br">IFPB - Instituto Federal da Paraiba</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ifpb.edu.br</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ifpb.edu.br</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIID5DCCAswCAQAwDQYJKoZIhvcNAQEFBQAwgbcxLDAqBgNVBAoTI0lGUEIgLSBJ
+bnN0aXR1dG8gRmVkZXJhbCBkYSBQYXJhaWJhMQwwCgYDVQQLEwNEVEkxKjAoBgkq
+hkiG9w0BCQEWG2pvc2UuY2F2YWxjYW50aUBpZnBiLmVkdS5icjEUMBIGA1UEBxML
+Sm9hbyBQZXNzb2ExEDAOBgNVBAgTB1BhcmFpYmExCzAJBgNVBAYTAkJSMRgwFgYD
+VQQDEw9pZHAuaWZwYi5lZHUuYnIwHhcNMTQwNDIzMjAzMzE0WhcNMTkwNDIyMjAz
+MzE0WjCBtzEsMCoGA1UEChMjSUZQQiAtIEluc3RpdHV0byBGZWRlcmFsIGRhIFBh
+cmFpYmExDDAKBgNVBAsTA0RUSTEqMCgGCSqGSIb3DQEJARYbam9zZS5jYXZhbGNh
+bnRpQGlmcGIuZWR1LmJyMRQwEgYDVQQHEwtKb2FvIFBlc3NvYTEQMA4GA1UECBMH
+UGFyYWliYTELMAkGA1UEBhMCQlIxGDAWBgNVBAMTD2lkcC5pZnBiLmVkdS5icjCC
+ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANZ5IlaQxWRUtbccktlNZQQB
+AWQi/f86zxT/f8ilpR8Lmss8W3TG3/U5L4MoscHCEQfOfBgAoQqxHsj8V1VDoL8B
+NfR6XAFqeWfKf8B8wcbX8CnNY9FZbgs2g1z2xsNQuAbFYunxUe3Y5A1xwH0aD04g
+8E4ubcEnLisB3an5zK/dWbGdBjUSuNADzgqbhftpFjZFPDi8DYezjYYxHUX5MNv6
+lb5/uQ7JjTWT3QssD0qG6pgNNANpQA8Jl2IWGb1qnNtjb9UbUPwYF2R6k4oXBFo+
+I2XW2cMUFvowftOpiNP/IrAAKIX0BGWuEtjL4VHoKvOtNwnikGw1DQYtUUvxNvkC
+AwEAATANBgkqhkiG9w0BAQUFAAOCAQEAZhN6yFJijeBhyIU+td6IXlEQ9hNJ4CJd
+GXb/jpnyYj5DOYSBKE/0mQd4zPoME7Xc9+Zz8FErWxephrvNVm8sSNmWjKqGJpCt
+vAjhJhL48QkjqgGWQJq0kVyHEfuwFbva3mH22I1oRrsnw44paMVHOrNtcEkf2NL2
+aDYQL1qLooSFjrvndyvfEIlxa+QJP8D9pgD3GLtiyPt4WWcUb4SmXrVc1RpFZSyU
+tVN4EFbgvRCPqHc+GX/5vjxJwTl7tFO9Jqa0C5i/4mRhqW5wRqd7I35KTJTimc/b
+kCPbbyEGhzyWdtZGIWPGqY+fZw8Z6WcAOOr25/JEw/veCHLskaV6GA==
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ifpb.edu.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ifpb.edu.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.ifpb.edu.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ifpb.edu.br/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ifpb.edu.br/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ifpb.edu.br/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIID5DCCAswCAQAwDQYJKoZIhvcNAQEFBQAwgbcxLDAqBgNVBAoTI0lGUEIgLSBJ
+bnN0aXR1dG8gRmVkZXJhbCBkYSBQYXJhaWJhMQwwCgYDVQQLEwNEVEkxKjAoBgkq
+hkiG9w0BCQEWG2pvc2UuY2F2YWxjYW50aUBpZnBiLmVkdS5icjEUMBIGA1UEBxML
+Sm9hbyBQZXNzb2ExEDAOBgNVBAgTB1BhcmFpYmExCzAJBgNVBAYTAkJSMRgwFgYD
+VQQDEw9pZHAuaWZwYi5lZHUuYnIwHhcNMTQwNDIzMjAzMzE0WhcNMTkwNDIyMjAz
+MzE0WjCBtzEsMCoGA1UEChMjSUZQQiAtIEluc3RpdHV0byBGZWRlcmFsIGRhIFBh
+cmFpYmExDDAKBgNVBAsTA0RUSTEqMCgGCSqGSIb3DQEJARYbam9zZS5jYXZhbGNh
+bnRpQGlmcGIuZWR1LmJyMRQwEgYDVQQHEwtKb2FvIFBlc3NvYTEQMA4GA1UECBMH
+UGFyYWliYTELMAkGA1UEBhMCQlIxGDAWBgNVBAMTD2lkcC5pZnBiLmVkdS5icjCC
+ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANZ5IlaQxWRUtbccktlNZQQB
+AWQi/f86zxT/f8ilpR8Lmss8W3TG3/U5L4MoscHCEQfOfBgAoQqxHsj8V1VDoL8B
+NfR6XAFqeWfKf8B8wcbX8CnNY9FZbgs2g1z2xsNQuAbFYunxUe3Y5A1xwH0aD04g
+8E4ubcEnLisB3an5zK/dWbGdBjUSuNADzgqbhftpFjZFPDi8DYezjYYxHUX5MNv6
+lb5/uQ7JjTWT3QssD0qG6pgNNANpQA8Jl2IWGb1qnNtjb9UbUPwYF2R6k4oXBFo+
+I2XW2cMUFvowftOpiNP/IrAAKIX0BGWuEtjL4VHoKvOtNwnikGw1DQYtUUvxNvkC
+AwEAATANBgkqhkiG9w0BAQUFAAOCAQEAZhN6yFJijeBhyIU+td6IXlEQ9hNJ4CJd
+GXb/jpnyYj5DOYSBKE/0mQd4zPoME7Xc9+Zz8FErWxephrvNVm8sSNmWjKqGJpCt
+vAjhJhL48QkjqgGWQJq0kVyHEfuwFbva3mH22I1oRrsnw44paMVHOrNtcEkf2NL2
+aDYQL1qLooSFjrvndyvfEIlxa+QJP8D9pgD3GLtiyPt4WWcUb4SmXrVc1RpFZSyU
+tVN4EFbgvRCPqHc+GX/5vjxJwTl7tFO9Jqa0C5i/4mRhqW5wRqd7I35KTJTimc/b
+kCPbbyEGhzyWdtZGIWPGqY+fZw8Z6WcAOOr25/JEw/veCHLskaV6GA==
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ifpb.edu.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ifpb.edu.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">IFPB - Instituto Federal da Paraiba</md:OrganizationName>
+      <md:OrganizationName xml:lang="pt-br">IFPB - Instituto Federal da Paraiba</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">IFPB - Instituto Federal da Paraiba</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pt-br">IFPB - Instituto Federal da Paraiba</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ifpb.edu.br</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="pt-br">http://www.ifpb.edu.br</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Jose Hermano Cavalcanti Filho</md:SurName>
+      <md:EmailAddress>jose.cavalcanti@ifpb.edu.br</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

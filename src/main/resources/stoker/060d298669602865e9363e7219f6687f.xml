@@ -1,0 +1,103 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://cafe.pucminas.br/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">pucminas.br</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">PUCMINAS - Pontificia Universidade Catolica de Minas Gerais</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">PUCMINAS - Pontificia Universidade Catolica de Minas Gerais</mdui:DisplayName>
+          <mdui:Description xml:lang="en">PUCMINAS - Pontificia Universidade Catolica de Minas Gerais</mdui:Description>
+          <mdui:Description xml:lang="pt-br">PUCMINAS - Pontificia Universidade Catolica de Minas Gerais</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.pucminas.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.pucminas.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIC7DCCAdQCAQAwDQYJKoZIhvcNAQEFBQAwPDESMBAGA1UECxMJUFVDIE1pbmFz
+MQswCQYDVQQGEwJCUjEZMBcGA1UEAxMQY2FmZS5wdWNtaW5hcy5icjAeFw0xNDA4
+MDExNzI5MzVaFw0xNzA3MzExNzI5MzVaMDwxEjAQBgNVBAsTCVBVQyBNaW5hczEL
+MAkGA1UEBhMCQlIxGTAXBgNVBAMTEGNhZmUucHVjbWluYXMuYnIwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwbRSZhSFejHJ757yOpWBXE63J1mukrT3E
+1LaOkUfCDgJgNSOpQDxvT3FgBv9LCRRY+X+z+vRAoT6ab7C+WS8Nuk4UzddO2sqJ
+VedwmDew2yvdaUCPSQ6VZwSca53rsWPYo1gbsz1p+RZMpHe/qoixw3Q2aAsNpx8w
+cBrdR0NUoA1Ud4sRyEd7585VIj7X3dkY/ae+QtbJx+dadjWw+EX4Ry3Ep8dvImMm
+fgOVOuunnKXLop5tRCeIJl6Oi6jQhYtOZld/FXTWufkcO0H+KLmA/gfoWaGN8scy
+XEhXQRMii8brZ/S2IXYCsQvBBgqvgsbT7a2u4C6iP7R8E7fiQeoPAgMBAAEwDQYJ
+KoZIhvcNAQEFBQADggEBAGCmcvJ2ABwJPHZmxZxs/g51NPBgVuIthLckq7GPOv+i
+WwqVIwVoca9PqdUEc2AdG5J7ceQwU2COrq9DLumJAdsJuh/AvnjeF1XBUDGKXR3a
+SD624LId5gwTm4SZzyozjFoZG/WRzbEp3QXoZ0UgzzEFSZsd0K3Mu83qhyJRkNzG
+XhYRvX8ydDIygfAtw6+kMa4v+4Ak5usVOP2BD17H11TEU/Dw3I3LAk0aLwici1/o
+UUBMSFKVKhgKv5eBJYcujVACXvdM8XAxAnIwocuj/0uOVh0BwpEp4xqSTYtV7v/l
+ABmiz2DXLugHeiOCiOTKAhg8YLcH/wknW7uULQGn+O0=
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.pucminas.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.pucminas.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafe.pucminas.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafe.pucminas.br/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafe.pucminas.br/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafe.pucminas.br/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">pucminas.br</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIC7DCCAdQCAQAwDQYJKoZIhvcNAQEFBQAwPDESMBAGA1UECxMJUFVDIE1pbmFz
+MQswCQYDVQQGEwJCUjEZMBcGA1UEAxMQY2FmZS5wdWNtaW5hcy5icjAeFw0xNDA4
+MDExNzI5MzVaFw0xNzA3MzExNzI5MzVaMDwxEjAQBgNVBAsTCVBVQyBNaW5hczEL
+MAkGA1UEBhMCQlIxGTAXBgNVBAMTEGNhZmUucHVjbWluYXMuYnIwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwbRSZhSFejHJ757yOpWBXE63J1mukrT3E
+1LaOkUfCDgJgNSOpQDxvT3FgBv9LCRRY+X+z+vRAoT6ab7C+WS8Nuk4UzddO2sqJ
+VedwmDew2yvdaUCPSQ6VZwSca53rsWPYo1gbsz1p+RZMpHe/qoixw3Q2aAsNpx8w
+cBrdR0NUoA1Ud4sRyEd7585VIj7X3dkY/ae+QtbJx+dadjWw+EX4Ry3Ep8dvImMm
+fgOVOuunnKXLop5tRCeIJl6Oi6jQhYtOZld/FXTWufkcO0H+KLmA/gfoWaGN8scy
+XEhXQRMii8brZ/S2IXYCsQvBBgqvgsbT7a2u4C6iP7R8E7fiQeoPAgMBAAEwDQYJ
+KoZIhvcNAQEFBQADggEBAGCmcvJ2ABwJPHZmxZxs/g51NPBgVuIthLckq7GPOv+i
+WwqVIwVoca9PqdUEc2AdG5J7ceQwU2COrq9DLumJAdsJuh/AvnjeF1XBUDGKXR3a
+SD624LId5gwTm4SZzyozjFoZG/WRzbEp3QXoZ0UgzzEFSZsd0K3Mu83qhyJRkNzG
+XhYRvX8ydDIygfAtw6+kMa4v+4Ak5usVOP2BD17H11TEU/Dw3I3LAk0aLwici1/o
+UUBMSFKVKhgKv5eBJYcujVACXvdM8XAxAnIwocuj/0uOVh0BwpEp4xqSTYtV7v/l
+ABmiz2DXLugHeiOCiOTKAhg8YLcH/wknW7uULQGn+O0=
+		
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.pucminas.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.pucminas.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">PUCMINAS - Pontificia Universidade Catolica de Minas Gerais</md:OrganizationName>
+      <md:OrganizationName xml:lang="pt-br">PUCMINAS - Pontificia Universidade Catolica de Minas Gerais</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">PUCMINAS - Pontificia Universidade Catolica de Minas Gerais</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pt-br">PUCMINAS - Pontificia Universidade Catolica de Minas Gerais</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.pucminas.br/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="pt-br">http://www.pucminas.br/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Jose Teixeira Horta Junior</md:SurName>
+      <md:EmailAddress>noc@pucminas.br</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

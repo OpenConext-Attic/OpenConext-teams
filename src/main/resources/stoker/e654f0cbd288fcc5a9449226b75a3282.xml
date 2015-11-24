@@ -1,0 +1,116 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idem.ced.inaf.it/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.idem.garr.it/" registrationInstant="2011-03-22T15:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.idem.garr.it/idem-metadata-registration-practice-statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">inaf.it</shibmd:Scope>
+        <shibmd:Scope regexp="false">ira.inaf.it</shibmd:Scope>
+        <shibmd:Scope regexp="false">iasfbo.inaf.it</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">National Institute for Astrophysics - INAF</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="it">Istituto Nazionale di Astrofisica - INAF</mdui:DisplayName>
+          <mdui:Description xml:lang="en">National Institute for Astrophysics - INAF</mdui:Description>
+          <mdui:Description xml:lang="it">Istituto Nazionale di Astrofisica - INAF</mdui:Description>
+          <mdui:InformationURL xml:lang="it">https://www.ced.inaf.it/idem-info</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="it">https://www.ced.inaf.it/idem-info/idp-privacy.html</mdui:PrivacyStatementURL>
+          <mdui:Logo height="60" width="60" xml:lang="it">https://idem.ced.inaf.it/LogoINAF60.png</mdui:Logo>
+          <mdui:Logo height="100" width="100" xml:lang="it">https://idem.ced.inaf.it/LogoINAF100.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDKzCCAhOgAwIBAgIUC8sYEfq/qhT3iv/2z9PwJsH/ZLgwDQYJKoZIhvcNAQEF
+BQAwGzEZMBcGA1UEAxMQaWRlbS5jZWQuaW5hZi5pdDAeFw0xMDEwMDgxMzExNTFa
+Fw0zMDEwMDgxMzExNTFaMBsxGTAXBgNVBAMTEGlkZW0uY2VkLmluYWYuaXQwggEi
+MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCEbHJhnfBE+5sri7Pw8QW6xscD
+2mDzd9WaDDzQMBVXljRzjxZ81/DeqFnwVdMFdZHM+ipUFGIUlmc21AtC+6rrSvDu
+LeYL/5F7JRu9LxAT7GRrQS3dkJkDC3QzGC3BW9SQO8hoXir2QqE5bwkTBy0F8V/F
+eDq8c9cPFd1HlnO7D2K7An3OMI/hkZWOx41e0Vdsr1nUTcnLnLeZ/JXRMfFO8mD6
+rTCLq0XWZA2oRUd1QKeINLk8ERZqfp9MYh0pjfFFlFyFuWKafQtPV1lb+BKua4kn
+cFCn6QS7BpyAb6UGy84ag2Qk/2JumjZqzxfJ+L7mbuogOO+gt+JNuiZbsA2DAgMB
+AAGjZzBlMEQGA1UdEQQ9MDuCEGlkZW0uY2VkLmluYWYuaXSGJ2h0dHBzOi8vaWRl
+bS5jZWQuaW5hZi5pdC9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUypTVjZYa6twi
+vL+dwAqyQszxAZ4wDQYJKoZIhvcNAQEFBQADggEBAEiu9EK1DdBA6V8ZuszZnYLs
+3v983CaxOcMYv8rgAUavlI+hGa/1MPCDgmNsMHjfOvG3aBelwkCK302u+veFwQRa
+je20+UOa2xpYLGaZ8HTEU0qEEip4VHoWHBxLCdfIlBhf5sziVpWdZCwF968QHoFX
+E2fGE0imJGT9OzsZ54C/426VfH8SyiWeQjDkKGPfju5l/DtSKO4p74p2Ak8tTTDp
+V8mh1c6bJCaBrl4PCK/jZeIs+czIeWW5QvizGnIgDlBzXzaXHpkn66jLhzzO3cHs
+S7SNwUd0JmQ3xk5iZ/fzodAp/nzAOXGdcESNdtkrvaOKuVdg112uD1XR/rA4Jmw=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idem.ced.inaf.it:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idem.ced.inaf.it:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idem.ced.inaf.it/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idem.ced.inaf.it/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idem.ced.inaf.it/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idem.ced.inaf.it/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">inaf.it</shibmd:Scope>
+        <shibmd:Scope regexp="false">ira.inaf.it</shibmd:Scope>
+        <shibmd:Scope regexp="false">iasfbo.inaf.it</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDKzCCAhOgAwIBAgIUC8sYEfq/qhT3iv/2z9PwJsH/ZLgwDQYJKoZIhvcNAQEF
+BQAwGzEZMBcGA1UEAxMQaWRlbS5jZWQuaW5hZi5pdDAeFw0xMDEwMDgxMzExNTFa
+Fw0zMDEwMDgxMzExNTFaMBsxGTAXBgNVBAMTEGlkZW0uY2VkLmluYWYuaXQwggEi
+MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCEbHJhnfBE+5sri7Pw8QW6xscD
+2mDzd9WaDDzQMBVXljRzjxZ81/DeqFnwVdMFdZHM+ipUFGIUlmc21AtC+6rrSvDu
+LeYL/5F7JRu9LxAT7GRrQS3dkJkDC3QzGC3BW9SQO8hoXir2QqE5bwkTBy0F8V/F
+eDq8c9cPFd1HlnO7D2K7An3OMI/hkZWOx41e0Vdsr1nUTcnLnLeZ/JXRMfFO8mD6
+rTCLq0XWZA2oRUd1QKeINLk8ERZqfp9MYh0pjfFFlFyFuWKafQtPV1lb+BKua4kn
+cFCn6QS7BpyAb6UGy84ag2Qk/2JumjZqzxfJ+L7mbuogOO+gt+JNuiZbsA2DAgMB
+AAGjZzBlMEQGA1UdEQQ9MDuCEGlkZW0uY2VkLmluYWYuaXSGJ2h0dHBzOi8vaWRl
+bS5jZWQuaW5hZi5pdC9pZHAvc2hpYmJvbGV0aDAdBgNVHQ4EFgQUypTVjZYa6twi
+vL+dwAqyQszxAZ4wDQYJKoZIhvcNAQEFBQADggEBAEiu9EK1DdBA6V8ZuszZnYLs
+3v983CaxOcMYv8rgAUavlI+hGa/1MPCDgmNsMHjfOvG3aBelwkCK302u+veFwQRa
+je20+UOa2xpYLGaZ8HTEU0qEEip4VHoWHBxLCdfIlBhf5sziVpWdZCwF968QHoFX
+E2fGE0imJGT9OzsZ54C/426VfH8SyiWeQjDkKGPfju5l/DtSKO4p74p2Ak8tTTDp
+V8mh1c6bJCaBrl4PCK/jZeIs+czIeWW5QvizGnIgDlBzXzaXHpkn66jLhzzO3cHs
+S7SNwUd0JmQ3xk5iZ/fzodAp/nzAOXGdcESNdtkrvaOKuVdg112uD1XR/rA4Jmw=
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idem.ced.inaf.it:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idem.ced.inaf.it:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="it">Istituto Nazionale di Astrofisica (INAF)</md:OrganizationName>
+      <md:OrganizationName xml:lang="en">National Institute for Astrophysics (INAF)</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="it">Istituto Nazionale di Astrofisica - INAF</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="en">National Institute for Astrophysics - INAF</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="it">https://www.inaf.it/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="en">http://www.inaf.it/en</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Mauro</md:GivenName>
+      <md:SurName>Nanni</md:SurName>
+      <md:EmailAddress>mailto:m.nanni@ira.inaf.it</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Franco</md:GivenName>
+      <md:SurName>Tinarelli</md:SurName>
+      <md:EmailAddress>mailto:f.tinarelli@ira.inaf.it</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>mailto:inaf-idem@ced.inaf.it</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

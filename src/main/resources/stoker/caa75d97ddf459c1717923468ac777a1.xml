@@ -1,0 +1,101 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.inpa.gov.br/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">gov.br</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">INPA - Instituto Nacional de Pesquisas da Amazonia</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">INPA - Instituto Nacional de Pesquisas da Amazonia</mdui:DisplayName>
+          <mdui:Description xml:lang="en">INPA - Instituto Nacional de Pesquisas da Amazonia</mdui:Description>
+          <mdui:Description xml:lang="pt-br">INPA - Instituto Nacional de Pesquisas da Amazonia</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.inpa.gov.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.inpa.gov.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIICxjCCAa4CAQAwDQYJKoZIhvcNAQEFBQAwKTEMMAoGA1UECxMDTk9DMQswCQYD
+VQQGEwJCUjEMMAoGA1UEAxMDaWRwMB4XDTE0MDgxNTE5NDYwMFoXDTE5MDgxNDE5
+NDYwMFowKTEMMAoGA1UECxMDTk9DMQswCQYDVQQGEwJCUjEMMAoGA1UEAxMDaWRw
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtmFjhQdUJQNQl5+DE1ad
+963h0KuRMRcDjxpGUZpmQOUySdMG8E5NwVY/rTJHvDKPU8+/l2S1vOholz6KR1Lt
+9sAjJSDUJvIeL8T8enkQ+m8TNLWsO5gh+1Bpqy7vAHiUwADwMBXPnM/18tVZ5GFN
+ep5pvHUcNhl2JE1gIg1B1+727ESjdhsuNr7yKdGNnytItcUJmmSYGctv8FyTr7t5
+mtlIfxXVIlL3cn6xGUFr0DqTGyZ9/3iANzqtaHiDEeYCTK0MklxYHZqK5bAakg54
+4+Xt/EPjKKV0ZQrxc8HaGn23b8HVfSY900VPxhS3shuY6egViMYNdB1HnFeZUuEH
+bwIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQCCvZP2uemjlVCQvdFM8COTBI897wuc
+kaKwEj6FLjJAOQ3N3jiKPmcJAK7Ok9NrS5o+OAP2uVONy79rtTyiO6CxYYih5wps
+K8G+dDdYP7WRY6mOsbYU50lTj5kWLs1mGeSaxHR81Flb5G8gNArRiXstIkMhGFrm
+Qa8XtmimqZEmX9iciwjb6vgYzhGKuvxPTsUmX85/lggF8iot3I8OICsUJKtQgyPL
+8/JGoy5GXB3Lx5F69PqY6Z0VRbQ0lK/IVFBlfbovtCdj7RlpDnql3gSeZOLofVa0
+g0fW/6Q/Do6teontpCMnf0O2NOTc3335DHolEG1xpntjeUP8QipEGJeN
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.inpa.gov.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.inpa.gov.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.inpa.gov.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.inpa.gov.br/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.inpa.gov.br/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.inpa.gov.br/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">gov.br</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIICxjCCAa4CAQAwDQYJKoZIhvcNAQEFBQAwKTEMMAoGA1UECxMDTk9DMQswCQYD
+VQQGEwJCUjEMMAoGA1UEAxMDaWRwMB4XDTE0MDgxNTE5NDYwMFoXDTE5MDgxNDE5
+NDYwMFowKTEMMAoGA1UECxMDTk9DMQswCQYDVQQGEwJCUjEMMAoGA1UEAxMDaWRw
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtmFjhQdUJQNQl5+DE1ad
+963h0KuRMRcDjxpGUZpmQOUySdMG8E5NwVY/rTJHvDKPU8+/l2S1vOholz6KR1Lt
+9sAjJSDUJvIeL8T8enkQ+m8TNLWsO5gh+1Bpqy7vAHiUwADwMBXPnM/18tVZ5GFN
+ep5pvHUcNhl2JE1gIg1B1+727ESjdhsuNr7yKdGNnytItcUJmmSYGctv8FyTr7t5
+mtlIfxXVIlL3cn6xGUFr0DqTGyZ9/3iANzqtaHiDEeYCTK0MklxYHZqK5bAakg54
+4+Xt/EPjKKV0ZQrxc8HaGn23b8HVfSY900VPxhS3shuY6egViMYNdB1HnFeZUuEH
+bwIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQCCvZP2uemjlVCQvdFM8COTBI897wuc
+kaKwEj6FLjJAOQ3N3jiKPmcJAK7Ok9NrS5o+OAP2uVONy79rtTyiO6CxYYih5wps
+K8G+dDdYP7WRY6mOsbYU50lTj5kWLs1mGeSaxHR81Flb5G8gNArRiXstIkMhGFrm
+Qa8XtmimqZEmX9iciwjb6vgYzhGKuvxPTsUmX85/lggF8iot3I8OICsUJKtQgyPL
+8/JGoy5GXB3Lx5F69PqY6Z0VRbQ0lK/IVFBlfbovtCdj7RlpDnql3gSeZOLofVa0
+g0fW/6Q/Do6teontpCMnf0O2NOTc3335DHolEG1xpntjeUP8QipEGJeN
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.inpa.gov.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.inpa.gov.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">INPA - Instituto Nacional de Pesquisas da Amazonia</md:OrganizationName>
+      <md:OrganizationName xml:lang="pt-br">INPA - Instituto Nacional de Pesquisas da Amazonia</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">INPA - Instituto Nacional de Pesquisas da Amazonia</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pt-br">INPA - Instituto Nacional de Pesquisas da Amazonia</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.inpa.gov.br/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="pt-br">http://www.inpa.gov.br/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Paulo Henrique Cardoso Maia</md:SurName>
+      <md:EmailAddress>paulo.maia@inpa.gov.br</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

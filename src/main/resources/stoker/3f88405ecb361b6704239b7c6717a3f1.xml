@@ -1,0 +1,105 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.canarie.ca/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.canarie.ca" registrationInstant="2012-08-28T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">
+http://www.canarie.ca/templates/services/docs/CAF_join_en.pdf
+</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">canarie.ca</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">CANARIE </mdui:DisplayName>
+          <mdui:DisplayName xml:lang="fr">CANARIE</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Canadaâs Advanced Research and Innovation Network</mdui:Description>
+          <mdui:Description xml:lang="fr">Le réseau évolué de recherche et d'innovation du Canada</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.canarie.ca/en/about/aboutus</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="fr">http://www.canarie.ca/fr/a-propos/quinoussommes</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDJDCCAgygAwIBAgIVAJ3fH1HeYIxXxMXYbZ/Bx85j/JgKMA0GCSqGSIb3DQEB
+BQUAMBkxFzAVBgNVBAMTDmlkcC5jYW5hcmllLmNhMB4XDTExMDcwNjE0MzUxMloX
+DTMxMDcwNjE0MzUxMlowGTEXMBUGA1UEAxMOaWRwLmNhbmFyaWUuY2EwggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCcmyqTo01QVuqHI/ZXAdYP+iX6NjP2
+topfFsR4y8TVYFN4vMvb5ZSFWPPjJ8T3O2epI8Hy9q4FWyPn1Pa/CZoFi1EMhu7b
+QJpOmLzeX6FOvf1X/5De2JnWv7JWMpUMeVqupe2YeCtoaXfViHOB9pW0go2zr6R8
+ajvQKxNX46V/o1ND6YwnlKRNsh4hn46cPtl/DNeKYFz4Uj6OHBRSfMHTZCWVENJB
+ife66AS7X5hC6o7o2Sd5VHr0TgY+ZeKrl3/33war+RIGXr6cRW9iA9yEeW0Oi13Q
+3hkjPT7MNkvNJjWpERR7aBogQ3z5Id8Ygl+WASbyfoiXNCHPa3USAaynAgMBAAGj
+YzBhMEAGA1UdEQQ5MDeCDmlkcC5jYW5hcmllLmNhhiVodHRwczovL2lkcC5jYW5h
+cmllLmNhL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRDEuTlL5Y/HfiEJ/wzCfCz
+otFdxjANBgkqhkiG9w0BAQUFAAOCAQEAD6WiCAdkGjA7Bza59pnn+/z5/Jhwn7Mf
++WS0WAPz686nIxYjblMBjIVITedkAFvwnEBn0Rs+XNXrc90uRFCNFf4VfSP9NLEf
+7cTPNxHiGt6TqOju2Rg6OBmNwRqAtFNqKG7VeKgoiZ4FcRVU2AdQ8fYnxxtwO4xJ
+8Md//Yp0lGQzj2FpSU7dnbVRGWAEE3g1Ghjrwe9Aj6e6lunZNaIdTZ6Yvnsa5qly
+DngkPipfHlmi56QMo9Iqa3nEKaCv2ykKzTIIUdgDI/M8sHXgitp5tFrAK8f96iBu
+zwZrSXVMnjQppB7E2l48gea/BPyFP4FBlxeN8E6aIXH09uN+HbcohQ==
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.canarie.ca:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.canarie.ca:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.canarie.ca/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.canarie.ca/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.canarie.ca/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.canarie.ca/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">canarie.ca</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDJDCCAgygAwIBAgIVAJ3fH1HeYIxXxMXYbZ/Bx85j/JgKMA0GCSqGSIb3DQEB
+BQUAMBkxFzAVBgNVBAMTDmlkcC5jYW5hcmllLmNhMB4XDTExMDcwNjE0MzUxMloX
+DTMxMDcwNjE0MzUxMlowGTEXMBUGA1UEAxMOaWRwLmNhbmFyaWUuY2EwggEiMA0G
+CSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCcmyqTo01QVuqHI/ZXAdYP+iX6NjP2
+topfFsR4y8TVYFN4vMvb5ZSFWPPjJ8T3O2epI8Hy9q4FWyPn1Pa/CZoFi1EMhu7b
+QJpOmLzeX6FOvf1X/5De2JnWv7JWMpUMeVqupe2YeCtoaXfViHOB9pW0go2zr6R8
+ajvQKxNX46V/o1ND6YwnlKRNsh4hn46cPtl/DNeKYFz4Uj6OHBRSfMHTZCWVENJB
+ife66AS7X5hC6o7o2Sd5VHr0TgY+ZeKrl3/33war+RIGXr6cRW9iA9yEeW0Oi13Q
+3hkjPT7MNkvNJjWpERR7aBogQ3z5Id8Ygl+WASbyfoiXNCHPa3USAaynAgMBAAGj
+YzBhMEAGA1UdEQQ5MDeCDmlkcC5jYW5hcmllLmNhhiVodHRwczovL2lkcC5jYW5h
+cmllLmNhL2lkcC9zaGliYm9sZXRoMB0GA1UdDgQWBBRDEuTlL5Y/HfiEJ/wzCfCz
+otFdxjANBgkqhkiG9w0BAQUFAAOCAQEAD6WiCAdkGjA7Bza59pnn+/z5/Jhwn7Mf
++WS0WAPz686nIxYjblMBjIVITedkAFvwnEBn0Rs+XNXrc90uRFCNFf4VfSP9NLEf
+7cTPNxHiGt6TqOju2Rg6OBmNwRqAtFNqKG7VeKgoiZ4FcRVU2AdQ8fYnxxtwO4xJ
+8Md//Yp0lGQzj2FpSU7dnbVRGWAEE3g1Ghjrwe9Aj6e6lunZNaIdTZ6Yvnsa5qly
+DngkPipfHlmi56QMo9Iqa3nEKaCv2ykKzTIIUdgDI/M8sHXgitp5tFrAK8f96iBu
+zwZrSXVMnjQppB7E2l48gea/BPyFP4FBlxeN8E6aIXH09uN+HbcohQ==
+
+                    </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.canarie.ca:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.canarie.ca:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">CANARIE</md:OrganizationName>
+      <md:OrganizationName xml:lang="fr">CANARIE </md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Canada's Advanced Research and Innovation Network</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="fr">Le réseau évolué de recherche et d'innovation du Canada</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.canarie.ca/en/about/aboutus</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="fr">http://www.canarie.ca/fr/a-propos/quinoussommes</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Network Operations Center</md:SurName>
+      <md:EmailAddress>noc@canarie.ca</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

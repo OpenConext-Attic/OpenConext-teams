@@ -1,0 +1,112 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+                     entityID="https://idpcafe.ifsc.edu.br/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ifsc.edu.br</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">IFSC - Instituto Federal de Santa Catarina</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">IFSC - Instituto Federal de Santa Catarina</mdui:DisplayName>
+          <mdui:Description xml:lang="en">IFSC - Instituto Federal de Santa Catarina</mdui:Description>
+          <mdui:Description xml:lang="pt-br">IFSC - Instituto Federal de Santa Catarina</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ifsc.edu.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ifsc.edu.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIDqDCCApACAQAwDQYJKoZIhvcNAQEFBQAwgZkxLDAqBgNVBAoTI0luc3RpdHV0
+byBGZWRlcmFsIGRlIFNhbnRhIENhdGFyaW5hMQ0wCwYDVQQLEwREVElDMRYwFAYD
+VQQHEw1GbG9yaWFub3BvbGlzMRcwFQYDVQQIEw5TYW50YSBDYXRhcmluYTELMAkG
+A1UEBhMCQlIxHDAaBgNVBAMTE2lkcGNhZmUuaWZzYy5lZHUuYnIwHhcNMTQwNDEx
+MTg1ODA4WhcNMTcwNDEwMTg1ODA4WjCBmTEsMCoGA1UEChMjSW5zdGl0dXRvIEZl
+ZGVyYWwgZGUgU2FudGEgQ2F0YXJpbmExDTALBgNVBAsTBERUSUMxFjAUBgNVBAcT
+DUZsb3JpYW5vcG9saXMxFzAVBgNVBAgTDlNhbnRhIENhdGFyaW5hMQswCQYDVQQG
+EwJCUjEcMBoGA1UEAxMTaWRwY2FmZS5pZnNjLmVkdS5icjCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAN9zndckjBha7MXIXo7pc8deKLY8l4j2LLmbN/PE
+DDirotT2nuxdk0zGBKCpB3ZxHTN83MjBSGLQ205com7jbuFxzAgTFyB8GKJU3E4L
+7htHjpbNhbI7j9VLjbHcEZJeilEj+jViGUjgH1G7QO1GIpIPEakOzSOMWfvsl54E
+VgjK0PEBB4CUqGKHl1Rxu8D9jKLzD3TiciAWqSdwRFpyhfed7xqj4AHA49Sljpbr
+TOttEQ7RxmNEXApvMzTTyVJSeBae9+jcNKypp7VTB5YZcI4YI9HkE599xiNjK19q
+XrHrTu9RAg/21yTrmGOJRPdJtjRbc6skG1+cDMhbSezCInkCAwEAATANBgkqhkiG
+9w0BAQUFAAOCAQEAc/Sgpg8yWTUBY45Yp1Rs4yY3r3kLlK771TdEIVK6uQbLIwzo
+/cidWUp9F7HoJSlT478Z1kpGVDw/nqX9HVKXVcwaGdpae2zq6SBVSmGuwx6WkI0+
+fHw5DsGkY5CuMXIDRGW3G8uhO2dVIqSUaju1W8UCCrZbcWCWQJHPtDe7zGRgtuQV
++uFs8FxtcQnLGOe0GmT48n9jW0ylQYrG5nbQ7jd0XQSGFMvuWj0tvM+i4q4XefHW
+iqG4LoRUqbCxPpagxpe/lKP1z8DQo0sWH/nfCuDYrSIvMV2PdMwIJqFVahF/QH6w
++PpKrPXPFokR6cpvUAZYVpFuacTUNza0Knpicg==
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idpcafe.ifsc.edu.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idpcafe.ifsc.edu.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idpcafe.ifsc.edu.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idpcafe.ifsc.edu.br/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idpcafe.ifsc.edu.br/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idpcafe.ifsc.edu.br/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIDqDCCApACAQAwDQYJKoZIhvcNAQEFBQAwgZkxLDAqBgNVBAoTI0luc3RpdHV0
+byBGZWRlcmFsIGRlIFNhbnRhIENhdGFyaW5hMQ0wCwYDVQQLEwREVElDMRYwFAYD
+VQQHEw1GbG9yaWFub3BvbGlzMRcwFQYDVQQIEw5TYW50YSBDYXRhcmluYTELMAkG
+A1UEBhMCQlIxHDAaBgNVBAMTE2lkcGNhZmUuaWZzYy5lZHUuYnIwHhcNMTQwNDEx
+MTg1ODA4WhcNMTcwNDEwMTg1ODA4WjCBmTEsMCoGA1UEChMjSW5zdGl0dXRvIEZl
+ZGVyYWwgZGUgU2FudGEgQ2F0YXJpbmExDTALBgNVBAsTBERUSUMxFjAUBgNVBAcT
+DUZsb3JpYW5vcG9saXMxFzAVBgNVBAgTDlNhbnRhIENhdGFyaW5hMQswCQYDVQQG
+EwJCUjEcMBoGA1UEAxMTaWRwY2FmZS5pZnNjLmVkdS5icjCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAN9zndckjBha7MXIXo7pc8deKLY8l4j2LLmbN/PE
+DDirotT2nuxdk0zGBKCpB3ZxHTN83MjBSGLQ205com7jbuFxzAgTFyB8GKJU3E4L
+7htHjpbNhbI7j9VLjbHcEZJeilEj+jViGUjgH1G7QO1GIpIPEakOzSOMWfvsl54E
+VgjK0PEBB4CUqGKHl1Rxu8D9jKLzD3TiciAWqSdwRFpyhfed7xqj4AHA49Sljpbr
+TOttEQ7RxmNEXApvMzTTyVJSeBae9+jcNKypp7VTB5YZcI4YI9HkE599xiNjK19q
+XrHrTu9RAg/21yTrmGOJRPdJtjRbc6skG1+cDMhbSezCInkCAwEAATANBgkqhkiG
+9w0BAQUFAAOCAQEAc/Sgpg8yWTUBY45Yp1Rs4yY3r3kLlK771TdEIVK6uQbLIwzo
+/cidWUp9F7HoJSlT478Z1kpGVDw/nqX9HVKXVcwaGdpae2zq6SBVSmGuwx6WkI0+
+fHw5DsGkY5CuMXIDRGW3G8uhO2dVIqSUaju1W8UCCrZbcWCWQJHPtDe7zGRgtuQV
++uFs8FxtcQnLGOe0GmT48n9jW0ylQYrG5nbQ7jd0XQSGFMvuWj0tvM+i4q4XefHW
+iqG4LoRUqbCxPpagxpe/lKP1z8DQo0sWH/nfCuDYrSIvMV2PdMwIJqFVahF/QH6w
++PpKrPXPFokR6cpvUAZYVpFuacTUNza0Knpicg==
+	    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idpcafe.ifsc.edu.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idpcafe.ifsc.edu.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">IFSC - Instituto Federal de Santa Catarina</md:OrganizationName>
+      <md:OrganizationName xml:lang="pt-br">IFSC - Instituto Federal de Santa Catarina</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">IFSC - Instituto Federal de Santa Catarina</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pt-br">IFSC - Instituto Federal de Santa Catarina</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ifsc.edu.br/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="pt-br">http://www.ifsc.edu.br/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Diretoria de TIC - IFSC</md:SurName>
+      <md:EmailAddress>suporte.reitoria@ifsc.edu.br</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

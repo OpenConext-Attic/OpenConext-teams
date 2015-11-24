@@ -1,0 +1,85 @@
+<md:EntityDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+                     entityID="http://test-adfs.geant.net/adfs/services/trust"
+                     xsi:schemaLocation="urn:oasis:names:tc:SAML:2.0:metadata saml-schema-metadata-2.0.xsd   http://www.w3.org/2000/09/xmldsig# xmldsig-core-schema.xsd">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.swamid.se/">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.swamid.se/download/18.248ad5af12aa8136533800012293/SWAMID+Metadata+Registration+Practice+Statement-20110714.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">GÉANT Intranet Test Instance</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Provides access to GÉANT project documents and internas. Test instance.</mdui:Description>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEcjCCA1qgAwIBAgIHFoCBhVY+iTANBgkqhkiG9w0BAQsFADA3MQswCQYDVQQG
+EwJERTEPMA0GA1UEChMGZWR1UEtJMRcwFQYDVQQDEw5lZHVQS0kgVGVzdCBDQTAe
+Fw0xMzEwMTgwOTQ4MzdaFw0xODEwMTcwOTQ4MzdaMG0xCzAJBgNVBAYTAkRFMTEw
+LwYDVQQKEyhUaGlzIGlzIGEgVGVzdCBhbmQgRGVtbyBDZXJ0aWZpY2F0ZSBvbmx5
+MQ0wCwYDVQQLEwRUZXN0MRwwGgYDVQQDExN0ZXN0LWFkZnMuZ2VhbnQubmV0MIIB
+IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1ZgGj3cbCZgNNTCY0P2g8jov
+74KFsNXtaPPM0vNT+RlmdfmqLVNFkCz90HHx+1ZFF98YYF3kNqvtipEYhv8AplU+
+j/UR9I6rPTEvHtM2BFrCv3fvsvLitkcYQVi4NDjI8Qzv4ugVGzfeC3vlPPOwNdsA
+wLsKrIKG5QbnDkgaJMuIKorsUD0QBOb/bema0x77jXWyo7Zsrz3EWE6x9VreBLde
+4bzWdvig79oYBCvYbzckS77qweOY4oDB2oxF96wf0UlyC26u40cyGBkWuwke3DX+
+mypM86il05F5gxbMq0iOt1e+rv4ewqzyLdCEEyrG1Iez9qYIZTqiKoCKCZNlcQID
+AQABo4IBSzCCAUcwCQYDVR0TBAIwADALBgNVHQ8EBAMCBeAwHQYDVR0lBBYwFAYI
+KwYBBQUHAwIGCCsGAQUFBwMBMB0GA1UdDgQWBBRsZ/2CP8ljz4lbwswK7TlU+wvn
+uTAfBgNVHSMEGDAWgBSod7exoyNlktqfxGUUmz5e7PjKIDAtBgNVHREEJjAkghN0
+ZXN0LWFkZnMuZ2VhbnQubmV0gQ1zeXNAZ2VhbnQubmV0MEcGA1UdHwRAMD4wPKA6
+oDiGNmh0dHA6Ly9jZHAuZWR1cGtpLm9yZy9lZHVwa2ktdGVzdC1jYS9wdWIvY3Js
+L2NhY3JsLmNybDBWBggrBgEFBQcBAQRKMEgwRgYIKwYBBQUHMAKGOmh0dHA6Ly9j
+ZHAuZWR1cGtpLm9yZy9lZHVwa2ktdGVzdC1jYS9wdWIvY2FjZXJ0L2NhY2VydC5j
+cnQwDQYJKoZIhvcNAQELBQADggEBAEgQ/IltN/cqHX76ne//6A3sHGdPmc37aIwF
+8x+9d7XrKMp/OPuU7B+rrIAw0NTh8lI6jtjksSJ+ONnTvMmNChpbyGt/MoCpzN96
+43SCBG69g9p65YQRbsjbk+F29ddyxbNMGMRRHmU3y/5PuaKT/kxwhI2qdG8jYos7
+OVRy4URr0xxsk41aMJbyW8G9g8TmHMUwY+SwfvYXziQ4Jf67MMMf4a8c2ywZJXTz
+8Yu/S/of6N7uF5SXxIAsTqBWPsFm5Fs9MbAjqH5+itfgPbvh2OsigzD5yODRBfDV
++i8UK1ae+ilwPcADJEuc04gZiy3dz1a4rhRmDg+bleNBtH2J/JQ=
+          </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://test-adfs.geant.net/adfs/ls/" index="0" isDefault="true"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://test-adfs.geant.net/adfs/ls/" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://test-adfs.geant.net/adfs/ls/" index="2"/>
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="en">GÉANT Intranet Test Instance</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">Provides access to GÉANT project documents and internas.</md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="email" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="eduPersonAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="surname" Name="urn:oid:2.5.4.4" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="givenName" Name="urn:oid:2.5.4.42" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="displayName" Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+        <md:RequestedAttribute FriendlyName="commonName" Name="urn:oid:2.5.4.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">geant.net</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">GÉANT</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.geant.net/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>eduGAIN</md:GivenName>
+      <md:SurName>Integration</md:SurName>
+      <md:EmailAddress>mailto:edugain-integration@geant.net</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>eduGAIN</md:GivenName>
+      <md:SurName>Operation</md:SurName>
+      <md:EmailAddress>mailto:edugain-ot@geant.net</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

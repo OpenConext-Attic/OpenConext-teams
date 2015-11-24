@@ -1,0 +1,116 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+                     entityID="https://encecafe.ibge.gov.br/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">gov.br</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">ENCE(IBGE) - Escola Nacional de Ciencias Estatisticas</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">ENCE(IBGE) - Escola Nacional de Ciencias Estatisticas</mdui:DisplayName>
+          <mdui:Description xml:lang="en">ENCE(IBGE) - Escola Nacional de Ciencias Estatisticas</mdui:Description>
+          <mdui:Description xml:lang="pt-br">ENCE(IBGE) - Escola Nacional de Ciencias Estatisticas</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ence.ibge.gov.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ence.ibge.gov.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIEGjCCAwICAQAwDQYJKoZIhvcNAQEFBQAwgdIxODA2BgNVBAoTL0VOQ0UgLSBF
+U0NPTEEgTkFDSU9OQUwgREUgQ0lFTkNJQVMgRVNUQVRJU1RJQ0FTMQ4wDAYDVQQL
+EwVDT1RFTDEoMCYGCSqGSIb3DQEJARYZc3Vwb3J0ZS5jb3RlbEBpYmdlLmdvdi5i
+cjEXMBUGA1UEBxMOUklPIERFIEpBTkVJUk8xFzAVBgNVBAgTDlJJTyBERSBKQU5F
+SVJPMQswCQYDVQQGEwJCUjEdMBsGA1UEAxMURU5DRUNBRkUuSUJHRS5HT1YuQlIw
+HhcNMTQwNDE3MTQ1OTQzWhcNMTkwNDE2MTQ1OTQzWjCB0jE4MDYGA1UEChMvRU5D
+RSAtIEVTQ09MQSBOQUNJT05BTCBERSBDSUVOQ0lBUyBFU1RBVElTVElDQVMxDjAM
+BgNVBAsTBUNPVEVMMSgwJgYJKoZIhvcNAQkBFhlzdXBvcnRlLmNvdGVsQGliZ2Uu
+Z292LmJyMRcwFQYDVQQHEw5SSU8gREUgSkFORUlSTzEXMBUGA1UECBMOUklPIERF
+IEpBTkVJUk8xCzAJBgNVBAYTAkJSMR0wGwYDVQQDExRFTkNFQ0FGRS5JQkdFLkdP
+Vi5CUjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKcKBwOhT6Gr6FgQ
+4uSzluNmpMlM/vrmI0pqYr8QI8V1lYQnr4ezAdoUNXlaJx2CMCDUPFi47uIRhlXy
+Gh8OZi4WwAEprrIToui2a0Mv6y+JgD/RR4+pm6JggjIlJjijLDjU5VYxoM3TsVQ4
+Vk6RYx81pPhUgnckZ3IV4A5pNtLzxdsEwkPpnoCNFlsKEAVUkMfTAQokQji0aWwc
+iAwAp+dl045oNY1xRiJ4tCZk7VE/Dm7WoddSxAceYJtbUxvH+oE1xD0ZOW3ts7sj
+E4s1W4Eai1femBRrv19dWTXtPG2RWw6I6bYYLQetAvs1kRSqKrJHiHbVBzZ9InpC
+F/vS8tcCAwEAATANBgkqhkiG9w0BAQUFAAOCAQEAC78+ABZ2uxuYLkTI3uPi5Wtc
+/HN58FWUyPq+l8/6RrSDI6/uPJ0g490/j5U3L4B4LdjSs3y9kq4sDQ44MSglLcWS
+3WeHhEDiIwWEYy8ZQkEtQfvAxXMkmEfCBaS57dwwzNNaj7CWpo8OBQrsjjboK9tM
+ohbLi2e2DPJtdWztwGYxjAl/b5f2gQVLYgAuoDFs6NEk8wqjuH3fyjs5BrHigzJD
+y/CFOm3UyxZuE6AXLTDxqEzCzdHDAtZP8tK/32zu7Kv7pCP6OI6RdVphaLOxKn7X
+xG6lNFUhNi72Kxw/UnI9yYKJzYkw2v8rC6VfbJ4UOyenQeR27aELT9w3tGOOYg==
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://encecafe.ibge.gov.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://encecafe.ibge.gov.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://encecafe.ibge.gov.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://encecafe.ibge.gov.br/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://encecafe.ibge.gov.br/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://encecafe.ibge.gov.br/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">gov.br</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIEGjCCAwICAQAwDQYJKoZIhvcNAQEFBQAwgdIxODA2BgNVBAoTL0VOQ0UgLSBF
+U0NPTEEgTkFDSU9OQUwgREUgQ0lFTkNJQVMgRVNUQVRJU1RJQ0FTMQ4wDAYDVQQL
+EwVDT1RFTDEoMCYGCSqGSIb3DQEJARYZc3Vwb3J0ZS5jb3RlbEBpYmdlLmdvdi5i
+cjEXMBUGA1UEBxMOUklPIERFIEpBTkVJUk8xFzAVBgNVBAgTDlJJTyBERSBKQU5F
+SVJPMQswCQYDVQQGEwJCUjEdMBsGA1UEAxMURU5DRUNBRkUuSUJHRS5HT1YuQlIw
+HhcNMTQwNDE3MTQ1OTQzWhcNMTkwNDE2MTQ1OTQzWjCB0jE4MDYGA1UEChMvRU5D
+RSAtIEVTQ09MQSBOQUNJT05BTCBERSBDSUVOQ0lBUyBFU1RBVElTVElDQVMxDjAM
+BgNVBAsTBUNPVEVMMSgwJgYJKoZIhvcNAQkBFhlzdXBvcnRlLmNvdGVsQGliZ2Uu
+Z292LmJyMRcwFQYDVQQHEw5SSU8gREUgSkFORUlSTzEXMBUGA1UECBMOUklPIERF
+IEpBTkVJUk8xCzAJBgNVBAYTAkJSMR0wGwYDVQQDExRFTkNFQ0FGRS5JQkdFLkdP
+Vi5CUjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKcKBwOhT6Gr6FgQ
+4uSzluNmpMlM/vrmI0pqYr8QI8V1lYQnr4ezAdoUNXlaJx2CMCDUPFi47uIRhlXy
+Gh8OZi4WwAEprrIToui2a0Mv6y+JgD/RR4+pm6JggjIlJjijLDjU5VYxoM3TsVQ4
+Vk6RYx81pPhUgnckZ3IV4A5pNtLzxdsEwkPpnoCNFlsKEAVUkMfTAQokQji0aWwc
+iAwAp+dl045oNY1xRiJ4tCZk7VE/Dm7WoddSxAceYJtbUxvH+oE1xD0ZOW3ts7sj
+E4s1W4Eai1femBRrv19dWTXtPG2RWw6I6bYYLQetAvs1kRSqKrJHiHbVBzZ9InpC
+F/vS8tcCAwEAATANBgkqhkiG9w0BAQUFAAOCAQEAC78+ABZ2uxuYLkTI3uPi5Wtc
+/HN58FWUyPq+l8/6RrSDI6/uPJ0g490/j5U3L4B4LdjSs3y9kq4sDQ44MSglLcWS
+3WeHhEDiIwWEYy8ZQkEtQfvAxXMkmEfCBaS57dwwzNNaj7CWpo8OBQrsjjboK9tM
+ohbLi2e2DPJtdWztwGYxjAl/b5f2gQVLYgAuoDFs6NEk8wqjuH3fyjs5BrHigzJD
+y/CFOm3UyxZuE6AXLTDxqEzCzdHDAtZP8tK/32zu7Kv7pCP6OI6RdVphaLOxKn7X
+xG6lNFUhNi72Kxw/UnI9yYKJzYkw2v8rC6VfbJ4UOyenQeR27aELT9w3tGOOYg==
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://encecafe.ibge.gov.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://encecafe.ibge.gov.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">ENCE(IBGE) - Escola Nacional de Ciencias Estatisticas)</md:OrganizationName>
+      <md:OrganizationName xml:lang="pt-br">ENCE(IBGE) - Escola Nacional de Ciencias Estatisticas)</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">ENCE(IBGE) - Escola Nacional de Ciencias Estatisticas</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pt-br">ENCE(IBGE) - Escola Nacional de Ciencias Estatisticas</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ence.ibge.gov.br/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="pt-br">http://www.ence.ibge.gov.br/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Mendonca</md:SurName>
+      <md:EmailAddress>mauro.mendonca@ibge.gov.br</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

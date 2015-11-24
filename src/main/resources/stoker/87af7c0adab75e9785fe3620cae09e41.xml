@@ -1,0 +1,111 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://cafe.uesb.br/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">UESB - Universidade Estadual do Sudoeste da Bahia</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">UESB - Universidade Estadual do Sudoeste da Bahia</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UESB - Universidade Estadual do Sudoeste da Bahia</mdui:Description>
+          <mdui:Description xml:lang="pt-br">UESB - Universidade Estadual do Sudoeste da Bahia</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.uesb.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.uesb.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIDoDCCAogCAQAwDQYJKoZIhvcNAQEFBQAwgZUxDTALBgNVBAoTBFVFU0IxDzAN
+BgNVBAsTBlVJTkZPUjEjMCEGCSqGSIb3DQEJARYUbGVvbmFyZG9AdWVzYi5lZHUu
+YnIxHTAbBgNVBAcTFFZpdG9yaWEgZGEgQ29ucXVpc3RhMQswCQYDVQQIEwJCQTEL
+MAkGA1UEBhMCQlIxFTATBgNVBAMTDGNhZmUudWVzYi5icjAeFw0xMzA5MjAxODIz
+MjFaFw0xNjA5MTkxODIzMjFaMIGVMQ0wCwYDVQQKEwRVRVNCMQ8wDQYDVQQLEwZV
+SU5GT1IxIzAhBgkqhkiG9w0BCQEWFGxlb25hcmRvQHVlc2IuZWR1LmJyMR0wGwYD
+VQQHExRWaXRvcmlhIGRhIENvbnF1aXN0YTELMAkGA1UECBMCQkExCzAJBgNVBAYT
+AkJSMRUwEwYDVQQDEwxjYWZlLnVlc2IuYnIwggEiMA0GCSqGSIb3DQEBAQUAA4IB
+DwAwggEKAoIBAQDX5Qd680PTIaF0ZaDfpTfPIdAIp+ydojMhCd34S3idsFGwSKiJ
+NnfOn65iPMJFynxfQuqoo9wWnPAcS22fudOTuqdwf6NFl3sUM6fXh1UmQn2pyHxe
+UrJCwViQDV6ZplF0Uw3ABnYew3gZfUk/34NR8kkB2NdBs6jp7PD+nWn9fPLNd23p
+thdpumkzbkkzRM9SweDmFbbCwJcrn0JR2H1xtUlqT/Aq9Vb8BT3JD44mZypxKU4d
+jI2/Kr9ZqaidQTcOqloiBoT1Az/fKmd1xXDDH8VFJvCGOSaXyWdEPR5kazOTLYyL
+QAq5KdWcpqU23keAklg0tw41kt1Wl1E+rb9fAgMBAAEwDQYJKoZIhvcNAQEFBQAD
+ggEBAE0BAVExopeUKLY/yXZhQ+rw6uYi+JY64Y3w2qp3o4TKqgN9j5ziZge76fWL
+4zMh7PO1TsZLnlWPcP4oP1OQNc4EiiiNGgLT4DfNU3NtpFFhVCKU5v3JUcw/ZHGj
+J4diZ6Rb6Q2TCcBJV02Gz7p6U6nhXE0blVlyqWuZ4GZWg2PSTHgaG2JzHUHC+wzf
+7OaEuX3loT+wlm2Jq2ebDBlm+Yoth1pwE+puOluSk23P6aa71SkQjxb4pEv9sx8A
+W8Xj75F/MRL9CKazIOsUVwMSJnhDgZCDc/XxD29lBYLycFS5AJiCngmO+nYI61bv
+f+RldW1MxS+H81kufj7Rum74V4I=
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.uesb.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.uesb.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafe.uesb.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafe.uesb.br/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafe.uesb.br/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafe.uesb.br/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIDoDCCAogCAQAwDQYJKoZIhvcNAQEFBQAwgZUxDTALBgNVBAoTBFVFU0IxDzAN
+BgNVBAsTBlVJTkZPUjEjMCEGCSqGSIb3DQEJARYUbGVvbmFyZG9AdWVzYi5lZHUu
+YnIxHTAbBgNVBAcTFFZpdG9yaWEgZGEgQ29ucXVpc3RhMQswCQYDVQQIEwJCQTEL
+MAkGA1UEBhMCQlIxFTATBgNVBAMTDGNhZmUudWVzYi5icjAeFw0xMzA5MjAxODIz
+MjFaFw0xNjA5MTkxODIzMjFaMIGVMQ0wCwYDVQQKEwRVRVNCMQ8wDQYDVQQLEwZV
+SU5GT1IxIzAhBgkqhkiG9w0BCQEWFGxlb25hcmRvQHVlc2IuZWR1LmJyMR0wGwYD
+VQQHExRWaXRvcmlhIGRhIENvbnF1aXN0YTELMAkGA1UECBMCQkExCzAJBgNVBAYT
+AkJSMRUwEwYDVQQDEwxjYWZlLnVlc2IuYnIwggEiMA0GCSqGSIb3DQEBAQUAA4IB
+DwAwggEKAoIBAQDX5Qd680PTIaF0ZaDfpTfPIdAIp+ydojMhCd34S3idsFGwSKiJ
+NnfOn65iPMJFynxfQuqoo9wWnPAcS22fudOTuqdwf6NFl3sUM6fXh1UmQn2pyHxe
+UrJCwViQDV6ZplF0Uw3ABnYew3gZfUk/34NR8kkB2NdBs6jp7PD+nWn9fPLNd23p
+thdpumkzbkkzRM9SweDmFbbCwJcrn0JR2H1xtUlqT/Aq9Vb8BT3JD44mZypxKU4d
+jI2/Kr9ZqaidQTcOqloiBoT1Az/fKmd1xXDDH8VFJvCGOSaXyWdEPR5kazOTLYyL
+QAq5KdWcpqU23keAklg0tw41kt1Wl1E+rb9fAgMBAAEwDQYJKoZIhvcNAQEFBQAD
+ggEBAE0BAVExopeUKLY/yXZhQ+rw6uYi+JY64Y3w2qp3o4TKqgN9j5ziZge76fWL
+4zMh7PO1TsZLnlWPcP4oP1OQNc4EiiiNGgLT4DfNU3NtpFFhVCKU5v3JUcw/ZHGj
+J4diZ6Rb6Q2TCcBJV02Gz7p6U6nhXE0blVlyqWuZ4GZWg2PSTHgaG2JzHUHC+wzf
+7OaEuX3loT+wlm2Jq2ebDBlm+Yoth1pwE+puOluSk23P6aa71SkQjxb4pEv9sx8A
+W8Xj75F/MRL9CKazIOsUVwMSJnhDgZCDc/XxD29lBYLycFS5AJiCngmO+nYI61bv
+f+RldW1MxS+H81kufj7Rum74V4I=
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.uesb.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.uesb.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">UESB - Universidade Estadual do Sudoeste da Bahia</md:OrganizationName>
+      <md:OrganizationName xml:lang="pt-br">UESB - Universidade Estadual do Sudoeste da Bahia</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">UESB - Universidade Estadual do Sudoeste da Bahia</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pt-br">UESB - Universidade Estadual do Sudoeste da Bahia</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.uesb.br/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="pt-br">http://www.uesb.br/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Leonardo</md:SurName>
+      <md:EmailAddress>leonardo@uesb.edu.br</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

@@ -1,0 +1,114 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+                     entityID="https://shibboleth.ifpr.edu.br/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">IFPR - Instituto Federal do Parana</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">IFPR - Instituto Federal do Parana</mdui:DisplayName>
+          <mdui:Description xml:lang="en">IFPR - Instituto Federal do Parana</mdui:Description>
+          <mdui:Description xml:lang="pt-br">IFPR - Instituto Federal do Parana</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ifpr.edu.br</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ifpr.edu.br</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIID2DCCAsACAQAwDQYJKoZIhvcNAQEFBQAwgbExKzApBgNVBAoTIklGUFIgLSBJ
+bnN0aXR1dG8gRmVkZXJhbCBkbyBQYXJhbmExDTALBgNVBAsTBERUSUMxITAfBgkq
+hkiG9w0BCQEWEmNpbmZyYUBpZnByLmVkdS5icjERMA8GA1UEBxMIQ3VyaXRpYmEx
+DzANBgNVBAgTBlBhcmFuYTELMAkGA1UEBhMCQlIxHzAdBgNVBAMTFnNoaWJib2xl
+dGguaWZwci5lZHUuYnIwHhcNMTQwNDIyMTgyMTAyWhcNMTcwNDIxMTgyMTAyWjCB
+sTErMCkGA1UEChMiSUZQUiAtIEluc3RpdHV0byBGZWRlcmFsIGRvIFBhcmFuYTEN
+MAsGA1UECxMERFRJQzEhMB8GCSqGSIb3DQEJARYSY2luZnJhQGlmcHIuZWR1LmJy
+MREwDwYDVQQHEwhDdXJpdGliYTEPMA0GA1UECBMGUGFyYW5hMQswCQYDVQQGEwJC
+UjEfMB0GA1UEAxMWc2hpYmJvbGV0aC5pZnByLmVkdS5icjCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAL+QMvkPnIAOTQOZTKrQeyHwl1GsqdR5m7+7XhQl
+7GKYJbNwcszmZ755m7uOtz7lmBiI0ZGe77tvcExGPh9lbQiu2IGNLfA2hEtJ4FOA
+RfAATUN6HNtLEEGFxBoG94+E46FdhNVOWUUIlaPVuu9rWbEnY4+rleHEFQ4qveY6
+l1lan5To0CEd4AZEox20EDvtASKR0V+rsgGTGfX7PRnmLFLmbaOj8DkAaYrLdsvC
+l4cA/KspTuSeFO/JSGaZMwZzUlw9znB7KK1oBIas4HQq4JdgqN02mP32E1zYJwm8
+0i/jqijkPrq8vNh97L8itIKB3Z+MEMUc2mimLfbBHu/BrP8CAwEAATANBgkqhkiG
+9w0BAQUFAAOCAQEAUE5Wp5u744Ur0FMDBRSKpsG0mfgBhneFPE5BnLyjKaNKe9wL
+oWvmERcRMKMfXCthEdL7xRjg3PyaCHanuR2KtqiGrKNMtLtBewhqLBoygasNUfeE
+CIjCG+f57fEsd+cqTidaq5uJn3mcKIy/f3cBEesjRvGsTEQQIjrd6pxKqqKNdMPc
+0s9J+ykM0ZPdWusS+IIStc5WEuS3ZrvkwqgInZxvpAobYBxfFIdZeW1pAudK8YHw
+kHoWX9q1+fm3k/1z+W3MvDdC6+WAqEJKWHyMqVQwnzHbwk6Q2jlzQOH9D9n31L6H
+aNQDToC/YZpWymJvQafzCi1CmvvqS5M497IndQ==
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.ifpr.edu.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.ifpr.edu.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.ifpr.edu.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.ifpr.edu.br/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.ifpr.edu.br/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.ifpr.edu.br/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIID2DCCAsACAQAwDQYJKoZIhvcNAQEFBQAwgbExKzApBgNVBAoTIklGUFIgLSBJ
+bnN0aXR1dG8gRmVkZXJhbCBkbyBQYXJhbmExDTALBgNVBAsTBERUSUMxITAfBgkq
+hkiG9w0BCQEWEmNpbmZyYUBpZnByLmVkdS5icjERMA8GA1UEBxMIQ3VyaXRpYmEx
+DzANBgNVBAgTBlBhcmFuYTELMAkGA1UEBhMCQlIxHzAdBgNVBAMTFnNoaWJib2xl
+dGguaWZwci5lZHUuYnIwHhcNMTQwNDIyMTgyMTAyWhcNMTcwNDIxMTgyMTAyWjCB
+sTErMCkGA1UEChMiSUZQUiAtIEluc3RpdHV0byBGZWRlcmFsIGRvIFBhcmFuYTEN
+MAsGA1UECxMERFRJQzEhMB8GCSqGSIb3DQEJARYSY2luZnJhQGlmcHIuZWR1LmJy
+MREwDwYDVQQHEwhDdXJpdGliYTEPMA0GA1UECBMGUGFyYW5hMQswCQYDVQQGEwJC
+UjEfMB0GA1UEAxMWc2hpYmJvbGV0aC5pZnByLmVkdS5icjCCASIwDQYJKoZIhvcN
+AQEBBQADggEPADCCAQoCggEBAL+QMvkPnIAOTQOZTKrQeyHwl1GsqdR5m7+7XhQl
+7GKYJbNwcszmZ755m7uOtz7lmBiI0ZGe77tvcExGPh9lbQiu2IGNLfA2hEtJ4FOA
+RfAATUN6HNtLEEGFxBoG94+E46FdhNVOWUUIlaPVuu9rWbEnY4+rleHEFQ4qveY6
+l1lan5To0CEd4AZEox20EDvtASKR0V+rsgGTGfX7PRnmLFLmbaOj8DkAaYrLdsvC
+l4cA/KspTuSeFO/JSGaZMwZzUlw9znB7KK1oBIas4HQq4JdgqN02mP32E1zYJwm8
+0i/jqijkPrq8vNh97L8itIKB3Z+MEMUc2mimLfbBHu/BrP8CAwEAATANBgkqhkiG
+9w0BAQUFAAOCAQEAUE5Wp5u744Ur0FMDBRSKpsG0mfgBhneFPE5BnLyjKaNKe9wL
+oWvmERcRMKMfXCthEdL7xRjg3PyaCHanuR2KtqiGrKNMtLtBewhqLBoygasNUfeE
+CIjCG+f57fEsd+cqTidaq5uJn3mcKIy/f3cBEesjRvGsTEQQIjrd6pxKqqKNdMPc
+0s9J+ykM0ZPdWusS+IIStc5WEuS3ZrvkwqgInZxvpAobYBxfFIdZeW1pAudK8YHw
+kHoWX9q1+fm3k/1z+W3MvDdC6+WAqEJKWHyMqVQwnzHbwk6Q2jlzQOH9D9n31L6H
+aNQDToC/YZpWymJvQafzCi1CmvvqS5M497IndQ==
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.ifpr.edu.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.ifpr.edu.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">IFPR - Instituto Federal do Parana</md:OrganizationName>
+      <md:OrganizationName xml:lang="pt-br">IFPR - Instituto Federal do Parana</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">IFPR - Instituto Federal do Parana</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pt-br">IFPR - Instituto Federal do Parana</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ifpr.edu.br</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="pt-br">http://www.ifpr.edu.br</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Jefferson</md:SurName>
+      <md:EmailAddress>cinfra@ifpr.edu.br</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

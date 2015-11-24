@@ -1,0 +1,113 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://cafe.ufra.edu.br/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">UFRA - Universidade  Federal Rural da Amazonia</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">UFRA - Universidade  Federal Rural da Amazonia</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UFRA - Universidade  Federal Rural da Amazonia</mdui:Description>
+          <mdui:Description xml:lang="pt-br">UFRA - Universidade  Federal Rural da Amazonia</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ufra.edu.br</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ufra.edu.br</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIID3jCCAsYCAQAwDQYJKoZIhvcNAQEFBQAwgbQxODA2BgNVBAoUL1VGUkEgLSBV
+bml2ZXJzaWRhZGUgIEZlZGVyYWwgUnVyYWwgZGEgQW1hesO0bmlhMQ0wCwYDVQQL
+EwREU0lUMSAwHgYJKoZIhvcNAQkBFhFhZG1pbkB1ZnJhLmVkdS5icjEPMA0GA1UE
+BxQGQmVsw6ltMQ4wDAYDVQQIFAVQYXLDoTELMAkGA1UEBhMCQlIxGTAXBgNVBAMT
+EGNhZmUudWZyYS5lZHUuYnIwHhcNMTQwNTAyMTk1MDEzWhcNMTcwNTAxMTk1MDEz
+WjCBtDE4MDYGA1UEChQvVUZSQSAtIFVuaXZlcnNpZGFkZSAgRmVkZXJhbCBSdXJh
+bCBkYSBBbWF6w7RuaWExDTALBgNVBAsTBERTSVQxIDAeBgkqhkiG9w0BCQEWEWFk
+bWluQHVmcmEuZWR1LmJyMQ8wDQYDVQQHFAZCZWzDqW0xDjAMBgNVBAgUBVBhcsOh
+MQswCQYDVQQGEwJCUjEZMBcGA1UEAxMQY2FmZS51ZnJhLmVkdS5icjCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBAMDVPqQ0G2bqZ/6smSUXSXB+th/U25PH
+OQG7iM6MURKF8d9KSn7ZHagmMwhz+HqUyEJCYvHqy2q+uVQY3V8mQm0u27edFGwA
+sou14eWzswMIWb1dg2WYoto6nVG0t0qcazhKBQbXlsKh2lZeT00ZtAz7WeG0t9QJ
+zxQxXFdHpiBlc10Mcr2/Zd3aCDeZI6RpwcQvieR077bcr5JktYuVOSlUdrVpQsiO
+hJFlW6hNN35xranD/bhJ173ZiKnr1v8KiPSE1xoe/Lhwe9kYOvrD5yg8UFy6c4Wb
+sAow+RzjMkqnO84NbRh/CDaCfGDaxWqNELxh14FBWql0EgGqQooPpU0CAwEAATAN
+BgkqhkiG9w0BAQUFAAOCAQEAtfE2fyL0C7xtbLJj/sQBAF0u/hmWSBCWjXjk+SET
+8ePbEIoHqrU8fu8sC7E9ixxSRpM71PZWAGpjaQD/pyJ0+3LDwPkVHTMz0pr917sN
+MtFr1T2LBAWC2FqPqulfaSxOc9AXstEldQuCp7ybMnqfuNXvBdQSp59kI64E3tt8
+zEnRgfjLnrfJG5/JNuDturpl6Oe2dE/SpPfstuJmNiM+twnpQpzOeTy7cyzV+SAp
+3u2CPoRhQiGaU87rID1OGhuCVaFnwLhatJ57eciDz88mxFLFxpRPsONJuIJqaCU9
+QUYJSI9AcSx1WqcLuKp3O1uujnxU6X43oDXEsST7Hq4Ewg==
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.ufra.edu.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.ufra.edu.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafe.ufra.edu.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafe.ufra.edu.br/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafe.ufra.edu.br/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafe.ufra.edu.br/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIID3jCCAsYCAQAwDQYJKoZIhvcNAQEFBQAwgbQxODA2BgNVBAoUL1VGUkEgLSBV
+bml2ZXJzaWRhZGUgIEZlZGVyYWwgUnVyYWwgZGEgQW1hesO0bmlhMQ0wCwYDVQQL
+EwREU0lUMSAwHgYJKoZIhvcNAQkBFhFhZG1pbkB1ZnJhLmVkdS5icjEPMA0GA1UE
+BxQGQmVsw6ltMQ4wDAYDVQQIFAVQYXLDoTELMAkGA1UEBhMCQlIxGTAXBgNVBAMT
+EGNhZmUudWZyYS5lZHUuYnIwHhcNMTQwNTAyMTk1MDEzWhcNMTcwNTAxMTk1MDEz
+WjCBtDE4MDYGA1UEChQvVUZSQSAtIFVuaXZlcnNpZGFkZSAgRmVkZXJhbCBSdXJh
+bCBkYSBBbWF6w7RuaWExDTALBgNVBAsTBERTSVQxIDAeBgkqhkiG9w0BCQEWEWFk
+bWluQHVmcmEuZWR1LmJyMQ8wDQYDVQQHFAZCZWzDqW0xDjAMBgNVBAgUBVBhcsOh
+MQswCQYDVQQGEwJCUjEZMBcGA1UEAxMQY2FmZS51ZnJhLmVkdS5icjCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBAMDVPqQ0G2bqZ/6smSUXSXB+th/U25PH
+OQG7iM6MURKF8d9KSn7ZHagmMwhz+HqUyEJCYvHqy2q+uVQY3V8mQm0u27edFGwA
+sou14eWzswMIWb1dg2WYoto6nVG0t0qcazhKBQbXlsKh2lZeT00ZtAz7WeG0t9QJ
+zxQxXFdHpiBlc10Mcr2/Zd3aCDeZI6RpwcQvieR077bcr5JktYuVOSlUdrVpQsiO
+hJFlW6hNN35xranD/bhJ173ZiKnr1v8KiPSE1xoe/Lhwe9kYOvrD5yg8UFy6c4Wb
+sAow+RzjMkqnO84NbRh/CDaCfGDaxWqNELxh14FBWql0EgGqQooPpU0CAwEAATAN
+BgkqhkiG9w0BAQUFAAOCAQEAtfE2fyL0C7xtbLJj/sQBAF0u/hmWSBCWjXjk+SET
+8ePbEIoHqrU8fu8sC7E9ixxSRpM71PZWAGpjaQD/pyJ0+3LDwPkVHTMz0pr917sN
+MtFr1T2LBAWC2FqPqulfaSxOc9AXstEldQuCp7ybMnqfuNXvBdQSp59kI64E3tt8
+zEnRgfjLnrfJG5/JNuDturpl6Oe2dE/SpPfstuJmNiM+twnpQpzOeTy7cyzV+SAp
+3u2CPoRhQiGaU87rID1OGhuCVaFnwLhatJ57eciDz88mxFLFxpRPsONJuIJqaCU9
+QUYJSI9AcSx1WqcLuKp3O1uujnxU6X43oDXEsST7Hq4Ewg==
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.ufra.edu.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.ufra.edu.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">UFRA - Universidade  Federal Rural da Amazonia</md:OrganizationName>
+      <md:OrganizationName xml:lang="pt-br">UFRA - Universidade  Federal Rural da Amazonia</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">UFRA - Universidade  Federal Rural da Amazonia</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pt-br">UFRA - Universidade  Federal Rural da Amazonia</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ufra.edu.br</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="pt-br">http://www.ufra.edu.br</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Joaquim de Jesus Soares</md:SurName>
+      <md:EmailAddress>admin@ufra.edu.br</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

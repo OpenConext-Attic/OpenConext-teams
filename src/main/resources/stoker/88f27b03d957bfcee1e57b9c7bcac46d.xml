@@ -1,0 +1,109 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://cafe.ufpa.br/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ufpa.br</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">UFPA - Universidade Federal do Para</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">UFPA - Universidade Federal do Para</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UFPA - Universidade Federal do Para</mdui:Description>
+          <mdui:Description xml:lang="pt-br">UFPA - Universidade Federal do Para</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ufpa.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ufpa.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIDcDCCAlgCAQAwDQYJKoZIhvcNAQEFBQAwfjENMAsGA1UEChMEVUZQQTENMAsG
+A1UECxMEQ1RJQzEbMBkGCSqGSIb3DQEJARYMY3RpY0B1ZnBhLmJyMQ4wDAYDVQQH
+EwVCRUxFTTENMAsGA1UECBMEUEFSQTELMAkGA1UEBhMCQlIxFTATBgNVBAMTDGNh
+ZmUudWZwYS5icjAeFw0xNDExMDYxNDEzMzZaFw0xOTExMDUxNDEzMzZaMH4xDTAL
+BgNVBAoTBFVGUEExDTALBgNVBAsTBENUSUMxGzAZBgkqhkiG9w0BCQEWDGN0aWNA
+dWZwYS5icjEOMAwGA1UEBxMFQkVMRU0xDTALBgNVBAgTBFBBUkExCzAJBgNVBAYT
+AkJSMRUwEwYDVQQDEwxjYWZlLnVmcGEuYnIwggEiMA0GCSqGSIb3DQEBAQUAA4IB
+DwAwggEKAoIBAQC9YBhCGCvghJfWlbqNqPAes/VvzKs2G7FQMPeeI0rvzgn6Dzyd
+wsexq07Cj1adg4lR80t/0lcQl2gfahCJMOlTcYMNvmeNhsxsq2VwsOI73mRmedlk
+jIPHPu8fpE69FV4nldafKWRSLfcVkWzMSB48BeM7NQQjC0MYwbaAfRSi49fq/cPo
+25kOXGI8a78fpTkCINthiC6fbicq9ztjNq8ni6WnNvde+zM+VKxgefk3OD+i8du9
+dAR2GzwPz7Qy547kUjen/6TrN1dYJt/sQ6+3MnEabD9YsMrlrg5zUoGuhYzaZRp9
+Ptjmo3OSUGCd6EIIAL89MJV9N2y1EFls2it5AgMBAAEwDQYJKoZIhvcNAQEFBQAD
+ggEBADjRSj+Wn2mBFAy4zYySVRu4C/hoSsO0954xKdrC6MUpWpz1E2R5CVps3dla
+CLZfsN8lAQuXsesz6tIWg3s/S/gxPcfDmyqpk/3QfQyRwFoBI0+vaolLJKuNRfUg
+TxuvnSG9eNxT+gVi4jVGq/VFMCqhNPXJPtIwLi+fFD3hDpf5kbGd0RxE55qgAvVk
+DyX8GBnEN1DrO9/fx9eVMtL4XZqhmi8+N7xzrR/ENvinmOcoBP+/MJBJbKXVogrk
+q+cyRSqYY5v1CHb8m6yXbvjEK/8d7eBqOk3DsqQDQqbAVvUwucunh1X4KE6c7/HR
+JgmG8SX7B3mxxMyusl3faqQlYgk=
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.ufpa.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.ufpa.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafe.ufpa.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafe.ufpa.br/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafe.ufpa.br/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafe.ufpa.br/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ufpa.br</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIDcDCCAlgCAQAwDQYJKoZIhvcNAQEFBQAwfjENMAsGA1UEChMEVUZQQTENMAsG
+A1UECxMEQ1RJQzEbMBkGCSqGSIb3DQEJARYMY3RpY0B1ZnBhLmJyMQ4wDAYDVQQH
+EwVCRUxFTTENMAsGA1UECBMEUEFSQTELMAkGA1UEBhMCQlIxFTATBgNVBAMTDGNh
+ZmUudWZwYS5icjAeFw0xNDExMDYxNDEzMzZaFw0xOTExMDUxNDEzMzZaMH4xDTAL
+BgNVBAoTBFVGUEExDTALBgNVBAsTBENUSUMxGzAZBgkqhkiG9w0BCQEWDGN0aWNA
+dWZwYS5icjEOMAwGA1UEBxMFQkVMRU0xDTALBgNVBAgTBFBBUkExCzAJBgNVBAYT
+AkJSMRUwEwYDVQQDEwxjYWZlLnVmcGEuYnIwggEiMA0GCSqGSIb3DQEBAQUAA4IB
+DwAwggEKAoIBAQC9YBhCGCvghJfWlbqNqPAes/VvzKs2G7FQMPeeI0rvzgn6Dzyd
+wsexq07Cj1adg4lR80t/0lcQl2gfahCJMOlTcYMNvmeNhsxsq2VwsOI73mRmedlk
+jIPHPu8fpE69FV4nldafKWRSLfcVkWzMSB48BeM7NQQjC0MYwbaAfRSi49fq/cPo
+25kOXGI8a78fpTkCINthiC6fbicq9ztjNq8ni6WnNvde+zM+VKxgefk3OD+i8du9
+dAR2GzwPz7Qy547kUjen/6TrN1dYJt/sQ6+3MnEabD9YsMrlrg5zUoGuhYzaZRp9
+Ptjmo3OSUGCd6EIIAL89MJV9N2y1EFls2it5AgMBAAEwDQYJKoZIhvcNAQEFBQAD
+ggEBADjRSj+Wn2mBFAy4zYySVRu4C/hoSsO0954xKdrC6MUpWpz1E2R5CVps3dla
+CLZfsN8lAQuXsesz6tIWg3s/S/gxPcfDmyqpk/3QfQyRwFoBI0+vaolLJKuNRfUg
+TxuvnSG9eNxT+gVi4jVGq/VFMCqhNPXJPtIwLi+fFD3hDpf5kbGd0RxE55qgAvVk
+DyX8GBnEN1DrO9/fx9eVMtL4XZqhmi8+N7xzrR/ENvinmOcoBP+/MJBJbKXVogrk
+q+cyRSqYY5v1CHb8m6yXbvjEK/8d7eBqOk3DsqQDQqbAVvUwucunh1X4KE6c7/HR
+JgmG8SX7B3mxxMyusl3faqQlYgk=
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.ufpa.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.ufpa.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">UFPA - Universidade Federal do Para</md:OrganizationName>
+      <md:OrganizationName xml:lang="pt-br">UFPA - Universidade Federal do Para</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">UFPA - Universidade Federal do Para</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pt-br">UFPA - Universidade Federal do Para</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ufpa.br/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="pt-br">http://www.ufpa.br/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Hugo Pereira Kuribayashi</md:SurName>
+      <md:EmailAddress>hugok@ufpa.br</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

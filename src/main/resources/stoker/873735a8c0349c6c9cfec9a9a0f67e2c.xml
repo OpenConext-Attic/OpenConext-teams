@@ -1,0 +1,109 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+                     entityID="https://shibidp.cca.unipd.it/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.idem.garr.it/" registrationInstant="2009-12-31T15:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.idem.garr.it/idem-metadata-registration-practice-statement</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">unipd.it</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University of Padova</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="it">Università degli Studi di Padova</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Identity Provider for users affiliated to the University of Padova</mdui:Description>
+          <mdui:Description xml:lang="it">Identity provider per gli utenti dell'Università degli Studi di Padova</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.unipd.it/en/idem</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="it">http://www.unipd.it/idem</mdui:InformationURL>
+          <mdui:PrivacyStatementURL xml:lang="en">http://www.unipd.it/en/idem</mdui:PrivacyStatementURL>
+          <mdui:PrivacyStatementURL xml:lang="it">http://www.unipd.it/idem</mdui:PrivacyStatementURL>
+          <mdui:Logo height="16" width="16" xml:lang="en">https://bandi.didattica.unipd.it/logo-unipd16x16.png</mdui:Logo>
+          <mdui:Logo height="16" width="16" xml:lang="it">https://bandi.didattica.unipd.it/logo-unipd16x16.png</mdui:Logo>
+          <mdui:Logo height="60" width="80" xml:lang="en">https://bandi.didattica.unipd.it/logo-unipd80x60.png</mdui:Logo>
+          <mdui:Logo height="60" width="80" xml:lang="it">https://bandi.didattica.unipd.it/logo-unipd80x60.png</mdui:Logo>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDOzCCAiOgAwIBAgIUTSdt0Dt8swpFu9qJLBfnEV09alwwDQYJKoZIhvcNAQEF
+BQAwHzEdMBsGA1UEAxMUc2hpYmlkcC5jY2EudW5pcGQuaXQwHhcNMTAxMjI5MTgz
+NjIyWhcNMzAxMjI5MTgzNjIyWjAfMR0wGwYDVQQDExRzaGliaWRwLmNjYS51bmlw
+ZC5pdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJMiK2A2ZC6vp69H
+sIR2wqYEMMkDfhs91u1UhDibfc1kT3LZEPN42L6B95s1TZb6+f1M5YDCmDzmHrlA
+YkFbK/yW2jSHXuTR+dSP071d+Xa+00qrokGotUYyqstfqOjiAhVyC4vDVwDgAPj3
+1K9wCjrZcazt3NZC6mPD9XJBQ1YJ6sDvk6y+UVQfeHoKKrAC9MSoFMRwoLI9izIq
+7NbqOLV9pDjV4GvspxJs00krQiATzoYblatuR4xtSHcSpmYFqD6VCTosKwISLqKA
+erlsKlyfKSBF7xuan+lgzJLSLWvvhj+Bv0oRfOJnQEsP1vjG/s9J8RQPee/HdmjQ
+kKiHOF0CAwEAAaNvMG0wTAYDVR0RBEUwQ4IUc2hpYmlkcC5jY2EudW5pcGQuaXSG
+K2h0dHBzOi8vc2hpYmlkcC5jY2EudW5pcGQuaXQvaWRwL3NoaWJib2xldGgwHQYD
+VR0OBBYEFGYTCKzj5155S2lqpPV5/6I1jePjMA0GCSqGSIb3DQEBBQUAA4IBAQAM
+OKvcKfl2rMZS1ivnvOcDNNwgXEaa27Vre4D6PxMhR4dM3UvdS+qP2pL6M2guI95K
+HSR4VUoHXw4Hnq5Hk9yyCBp38xmPs7AefGcbYvgf3nx75CEtXE9jDG35tL9lgted
+d1Ksu3uT3jxKcPTVqdNWnTB7N2TYoWJhbGOmC1US4iMzp5UEGrvdZUvcZI+6/VsG
+d/CKd1tzg3Io4xevtARfgavjvQ5VDbyGdzMg9GD3h5zNsTDDqEjFyylYlay7cUCe
+48QsT4K0vJexMVAd/xf3jNCQmcFmgmE/pgq+4636NURxTV39x3TxwjQv6Wa57zml
+G+DXFhqRaj5xn2FulnFc
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibidp.cca.unipd.it:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibidp.cca.unipd.it:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibidp.cca.unipd.it/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibidp.cca.unipd.it/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibidp.cca.unipd.it/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibidp.cca.unipd.it/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">unipd.it</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIDOzCCAiOgAwIBAgIUTSdt0Dt8swpFu9qJLBfnEV09alwwDQYJKoZIhvcNAQEF
+BQAwHzEdMBsGA1UEAxMUc2hpYmlkcC5jY2EudW5pcGQuaXQwHhcNMTAxMjI5MTgz
+NjIyWhcNMzAxMjI5MTgzNjIyWjAfMR0wGwYDVQQDExRzaGliaWRwLmNjYS51bmlw
+ZC5pdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJMiK2A2ZC6vp69H
+sIR2wqYEMMkDfhs91u1UhDibfc1kT3LZEPN42L6B95s1TZb6+f1M5YDCmDzmHrlA
+YkFbK/yW2jSHXuTR+dSP071d+Xa+00qrokGotUYyqstfqOjiAhVyC4vDVwDgAPj3
+1K9wCjrZcazt3NZC6mPD9XJBQ1YJ6sDvk6y+UVQfeHoKKrAC9MSoFMRwoLI9izIq
+7NbqOLV9pDjV4GvspxJs00krQiATzoYblatuR4xtSHcSpmYFqD6VCTosKwISLqKA
+erlsKlyfKSBF7xuan+lgzJLSLWvvhj+Bv0oRfOJnQEsP1vjG/s9J8RQPee/HdmjQ
+kKiHOF0CAwEAAaNvMG0wTAYDVR0RBEUwQ4IUc2hpYmlkcC5jY2EudW5pcGQuaXSG
+K2h0dHBzOi8vc2hpYmlkcC5jY2EudW5pcGQuaXQvaWRwL3NoaWJib2xldGgwHQYD
+VR0OBBYEFGYTCKzj5155S2lqpPV5/6I1jePjMA0GCSqGSIb3DQEBBQUAA4IBAQAM
+OKvcKfl2rMZS1ivnvOcDNNwgXEaa27Vre4D6PxMhR4dM3UvdS+qP2pL6M2guI95K
+HSR4VUoHXw4Hnq5Hk9yyCBp38xmPs7AefGcbYvgf3nx75CEtXE9jDG35tL9lgted
+d1Ksu3uT3jxKcPTVqdNWnTB7N2TYoWJhbGOmC1US4iMzp5UEGrvdZUvcZI+6/VsG
+d/CKd1tzg3Io4xevtARfgavjvQ5VDbyGdzMg9GD3h5zNsTDDqEjFyylYlay7cUCe
+48QsT4K0vJexMVAd/xf3jNCQmcFmgmE/pgq+4636NURxTV39x3TxwjQv6Wa57zml
+G+DXFhqRaj5xn2FulnFc
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibidp.cca.unipd.it:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibidp.cca.unipd.it:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Padova</md:OrganizationName>
+      <md:OrganizationName xml:lang="it">Università degli Studi di Padova</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Padova</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="it">Università di Padova</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.unipd.it/en/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="it">http://www.unipd.it/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:EmailAddress>mailto:supporto.sso@unipd.it</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

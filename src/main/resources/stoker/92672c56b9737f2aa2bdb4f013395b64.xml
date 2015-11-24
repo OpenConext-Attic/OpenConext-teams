@@ -1,0 +1,113 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://cafe.ifpa.edu.br/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">IFPA - Instituto Federal do Para</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">IFPA - Instituto Federal do Para</mdui:DisplayName>
+          <mdui:Description xml:lang="en">IFPA - Instituto Federal do Para</mdui:Description>
+          <mdui:Description xml:lang="pt-br">IFPA - Instituto Federal do Para</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ifpa.edu.br</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ifpa.edu.br</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIDyDCCArACAQAwDQYJKoZIhvcNAQEFBQAwgakxIzAhBgNVBAoUGkluc3RpdHV0
+byBGZWRlcmFsIGRvIFBhcsOhMQwwCgYDVQQLEwNEVEkxKzApBgkqhkiG9w0BCQEW
+HGFuZGVyc29uLmFsbWVpZGFAaWZwYS5lZHUuYnIxDzANBgNVBAcUBkJlbMOpbTEO
+MAwGA1UECBQFUGFyw6ExCzAJBgNVBAYTAkJSMRkwFwYDVQQDExBjYWZlLmlmcGEu
+ZWR1LmJyMB4XDTE0MDQwOTE4MzkxN1oXDTE5MDQwODE4MzkxN1owgakxIzAhBgNV
+BAoUGkluc3RpdHV0byBGZWRlcmFsIGRvIFBhcsOhMQwwCgYDVQQLEwNEVEkxKzAp
+BgkqhkiG9w0BCQEWHGFuZGVyc29uLmFsbWVpZGFAaWZwYS5lZHUuYnIxDzANBgNV
+BAcUBkJlbMOpbTEOMAwGA1UECBQFUGFyw6ExCzAJBgNVBAYTAkJSMRkwFwYDVQQD
+ExBjYWZlLmlmcGEuZWR1LmJyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+AQEAuHQSNZdfuckLdr/4W1qtvMa3cS/lKPM3tSZY1UVTLH+KPn76aBWk+zOd92C+
+UgdL+WtJn8qdpX7a16SGfTLwwWtlKJdiC7AxTkPHv6v4HnVBYXBep/re7Yt7ztO3
+4D/6jgj99HMfbz8jtfl2RV6m+rFupKth8gU9hTcaVTtBKUc5Lx+SSYk5Ik3jjOXJ
+s3I/aluVe47GIuJcZAErB/8aCDlUkChGRF4262nzW92xqK5dmXbqd76uVNG5U5dV
+hhc1KlBaZD3kuinuMVlOqBRQoHU4HzDAGWbQ9Jguf6M/cSSQEVtGQp3ZIl6s+YK5
+Zgxdsxs56Sx5qcLQx+0GhRkpdQIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQCtxGdM
+SOa6Hj20lqQ04V855D6JVI5kbVoOjlBZ1UlxeO8BoD3535GhnGE2Ajik7MXfYYYF
+ByZEG/WX8TjiL1jVYNQS/XdrXbz/38XJM2O3q32G1eZ0AhtQEpAEYSN/owrFolbq
+hJx+tdKdIJ3hatboJsrZHX60LcvMz76lXtjb10GVj4g7Kpix7l13mOQgPZl4Ard3
+l7joZ5SsO3GzjI5ZNLiKafLrjpPqHMA1NdJ/OkaIiMuGqAC50ob3iXE87pfvQ7iZ
+Tsz8wWmk1P302VHoBrUz2NJmrpmvd2jCoMXmTdDfn3nKw/U0Is+nIgn1HnvHzgOQ
+IGfcjJxQ/HcjSANz
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.ifpa.edu.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.ifpa.edu.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafe.ifpa.edu.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafe.ifpa.edu.br/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafe.ifpa.edu.br/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafe.ifpa.edu.br/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIDyDCCArACAQAwDQYJKoZIhvcNAQEFBQAwgakxIzAhBgNVBAoUGkluc3RpdHV0
+byBGZWRlcmFsIGRvIFBhcsOhMQwwCgYDVQQLEwNEVEkxKzApBgkqhkiG9w0BCQEW
+HGFuZGVyc29uLmFsbWVpZGFAaWZwYS5lZHUuYnIxDzANBgNVBAcUBkJlbMOpbTEO
+MAwGA1UECBQFUGFyw6ExCzAJBgNVBAYTAkJSMRkwFwYDVQQDExBjYWZlLmlmcGEu
+ZWR1LmJyMB4XDTE0MDQwOTE4MzkxN1oXDTE5MDQwODE4MzkxN1owgakxIzAhBgNV
+BAoUGkluc3RpdHV0byBGZWRlcmFsIGRvIFBhcsOhMQwwCgYDVQQLEwNEVEkxKzAp
+BgkqhkiG9w0BCQEWHGFuZGVyc29uLmFsbWVpZGFAaWZwYS5lZHUuYnIxDzANBgNV
+BAcUBkJlbMOpbTEOMAwGA1UECBQFUGFyw6ExCzAJBgNVBAYTAkJSMRkwFwYDVQQD
+ExBjYWZlLmlmcGEuZWR1LmJyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+AQEAuHQSNZdfuckLdr/4W1qtvMa3cS/lKPM3tSZY1UVTLH+KPn76aBWk+zOd92C+
+UgdL+WtJn8qdpX7a16SGfTLwwWtlKJdiC7AxTkPHv6v4HnVBYXBep/re7Yt7ztO3
+4D/6jgj99HMfbz8jtfl2RV6m+rFupKth8gU9hTcaVTtBKUc5Lx+SSYk5Ik3jjOXJ
+s3I/aluVe47GIuJcZAErB/8aCDlUkChGRF4262nzW92xqK5dmXbqd76uVNG5U5dV
+hhc1KlBaZD3kuinuMVlOqBRQoHU4HzDAGWbQ9Jguf6M/cSSQEVtGQp3ZIl6s+YK5
+Zgxdsxs56Sx5qcLQx+0GhRkpdQIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQCtxGdM
+SOa6Hj20lqQ04V855D6JVI5kbVoOjlBZ1UlxeO8BoD3535GhnGE2Ajik7MXfYYYF
+ByZEG/WX8TjiL1jVYNQS/XdrXbz/38XJM2O3q32G1eZ0AhtQEpAEYSN/owrFolbq
+hJx+tdKdIJ3hatboJsrZHX60LcvMz76lXtjb10GVj4g7Kpix7l13mOQgPZl4Ard3
+l7joZ5SsO3GzjI5ZNLiKafLrjpPqHMA1NdJ/OkaIiMuGqAC50ob3iXE87pfvQ7iZ
+Tsz8wWmk1P302VHoBrUz2NJmrpmvd2jCoMXmTdDfn3nKw/U0Is+nIgn1HnvHzgOQ
+IGfcjJxQ/HcjSANz
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.ifpa.edu.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.ifpa.edu.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">IFPA - Instituto Federal do Para</md:OrganizationName>
+      <md:OrganizationName xml:lang="pt-br">IFPA - Instituto Federal do Para</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">IFPA - Instituto Federal do Para</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pt-br">IFPA - Instituto Federal do Para</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ifpa.edu.br</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="pt-br">http://www.ifpa.edu.br</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Anderson Almeida</md:SurName>
+      <md:EmailAddress>anderson.almeida@ifpa.edu.br</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

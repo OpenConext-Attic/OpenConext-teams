@@ -1,1 +1,0 @@
-ALTER TABLE invitations ADD COLUMN accepted BOOLEAN NOT NULL AFTER denied;

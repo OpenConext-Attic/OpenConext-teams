@@ -1,0 +1,113 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://cafe.ufal.br/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ufal.br</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">UFAL - Universidade Federal de Alagoas</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">UFAL - Universidade Federal de Alagoas</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UFAL - Universidade Federal de Alagoas</mdui:Description>
+          <mdui:Description xml:lang="pt-br">UFAL - Universidade Federal de Alagoas</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ufal.br</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ufal.br</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIDyDCCArACAQAwDQYJKoZIhvcNAQEFBQAwgakxLzAtBgNVBAoTJlVGQUwgLSBV
+bml2ZXJzaWRhZGUgRmVkZXJhbCBkZSBBbGFnb2FzMQwwCgYDVQQLEwNOVEkxIDAe
+BgkqhkiG9w0BCQEWEWRpb2dvQG50aS51ZmFsLmJyMRAwDgYDVQQHFAdNYWNlacOz
+MRAwDgYDVQQIEwdBbGFnb2FzMQswCQYDVQQGEwJCUjEVMBMGA1UEAxMMY2FmZS51
+ZmFsLmJyMB4XDTE0MTAwNjIwNTEzOVoXDTE3MTAwNTIwNTEzOVowgakxLzAtBgNV
+BAoTJlVGQUwgLSBVbml2ZXJzaWRhZGUgRmVkZXJhbCBkZSBBbGFnb2FzMQwwCgYD
+VQQLEwNOVEkxIDAeBgkqhkiG9w0BCQEWEWRpb2dvQG50aS51ZmFsLmJyMRAwDgYD
+VQQHFAdNYWNlacOzMRAwDgYDVQQIEwdBbGFnb2FzMQswCQYDVQQGEwJCUjEVMBMG
+A1UEAxMMY2FmZS51ZmFsLmJyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+AQEAvwzH1otQwbdbx7uHECItOI3sAiO9DWNc9mzRRyNrY0t7Xx7xoiblHagjDM/9
+I+pxiJ33ETOdGyr0PGgbZCPccUdUz6Zif5j6g9ioTIg2GUBaH8xU0rJdZF2A3eLn
+Z3s8CzCtYK7gHJhiFfhKWUAyWVCV6wZS46+Iu1Y2g4j3/WnSJA4/65UEtQ40UDFT
+YJclb8X4RHcBXlE39T6RcSUDQWFdEsxunpc3twR5M7adK2oZ4ekQr3zIA64bEahy
+T2XuKNTOuEKtkFG1oRFG1dkhfO5IcYDOCAjd6IPaq0l4r3pqBDSxilriVsb2hLUW
+dKtsnDDdpvhWasb7oqMQTW8/NQIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQB0poIt
+L7OtIong6o5UdfsFQ/+Pw3LnIPsRXL39191AsSs8PMuVyDd32ngRLjij5fbeWNl6
+WxFh/OfVJJEzLlWylm8NhTQvxQZVLHKni1szVOYOMM7yFVzOoWrTB3eMD8ujJFs1
+1gG6NFum+liNs8R5b2HVgD4eUzK3Z1E1GPTztbA3MzApmmgZ4egDP+BGVZVcmGZv
+BWhIsbMNn/8HHvCtuhefamMfhoqm128bRzWvOcFvXVvv12Bd8hQqvKvI8ukvbfyq
+FqecVU8Rc3XGPdRjnSmC57zvq4iLH4ZJJFJNW2I06mnu2PdBzGe0GcrhsgjijQOI
+PvRE/EdtraBT9cvB
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.ufal.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.ufal.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafe.ufal.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafe.ufal.br/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafe.ufal.br/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafe.ufal.br/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ufal.br</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIDyDCCArACAQAwDQYJKoZIhvcNAQEFBQAwgakxLzAtBgNVBAoTJlVGQUwgLSBV
+bml2ZXJzaWRhZGUgRmVkZXJhbCBkZSBBbGFnb2FzMQwwCgYDVQQLEwNOVEkxIDAe
+BgkqhkiG9w0BCQEWEWRpb2dvQG50aS51ZmFsLmJyMRAwDgYDVQQHFAdNYWNlacOz
+MRAwDgYDVQQIEwdBbGFnb2FzMQswCQYDVQQGEwJCUjEVMBMGA1UEAxMMY2FmZS51
+ZmFsLmJyMB4XDTE0MTAwNjIwNTEzOVoXDTE3MTAwNTIwNTEzOVowgakxLzAtBgNV
+BAoTJlVGQUwgLSBVbml2ZXJzaWRhZGUgRmVkZXJhbCBkZSBBbGFnb2FzMQwwCgYD
+VQQLEwNOVEkxIDAeBgkqhkiG9w0BCQEWEWRpb2dvQG50aS51ZmFsLmJyMRAwDgYD
+VQQHFAdNYWNlacOzMRAwDgYDVQQIEwdBbGFnb2FzMQswCQYDVQQGEwJCUjEVMBMG
+A1UEAxMMY2FmZS51ZmFsLmJyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKC
+AQEAvwzH1otQwbdbx7uHECItOI3sAiO9DWNc9mzRRyNrY0t7Xx7xoiblHagjDM/9
+I+pxiJ33ETOdGyr0PGgbZCPccUdUz6Zif5j6g9ioTIg2GUBaH8xU0rJdZF2A3eLn
+Z3s8CzCtYK7gHJhiFfhKWUAyWVCV6wZS46+Iu1Y2g4j3/WnSJA4/65UEtQ40UDFT
+YJclb8X4RHcBXlE39T6RcSUDQWFdEsxunpc3twR5M7adK2oZ4ekQr3zIA64bEahy
+T2XuKNTOuEKtkFG1oRFG1dkhfO5IcYDOCAjd6IPaq0l4r3pqBDSxilriVsb2hLUW
+dKtsnDDdpvhWasb7oqMQTW8/NQIDAQABMA0GCSqGSIb3DQEBBQUAA4IBAQB0poIt
+L7OtIong6o5UdfsFQ/+Pw3LnIPsRXL39191AsSs8PMuVyDd32ngRLjij5fbeWNl6
+WxFh/OfVJJEzLlWylm8NhTQvxQZVLHKni1szVOYOMM7yFVzOoWrTB3eMD8ujJFs1
+1gG6NFum+liNs8R5b2HVgD4eUzK3Z1E1GPTztbA3MzApmmgZ4egDP+BGVZVcmGZv
+BWhIsbMNn/8HHvCtuhefamMfhoqm128bRzWvOcFvXVvv12Bd8hQqvKvI8ukvbfyq
+FqecVU8Rc3XGPdRjnSmC57zvq4iLH4ZJJFJNW2I06mnu2PdBzGe0GcrhsgjijQOI
+PvRE/EdtraBT9cvB
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.ufal.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.ufal.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">UFAL - Universidade Federal de Alagoas</md:OrganizationName>
+      <md:OrganizationName xml:lang="pt-br">UFAL - Universidade Federal de Alagoas</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">UFAL - Universidade Federal de Alagoas</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pt-br">UFAL - Universidade Federal de Alagoas</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ufal.br</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="pt-br">http://www.ufal.br</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Diogo Cabral de Almeida</md:SurName>
+      <md:EmailAddress>diogo@nti.ufal.br</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

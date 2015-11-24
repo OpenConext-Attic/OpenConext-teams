@@ -1,0 +1,105 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+                     entityID="https://shibboleth.reitoria.unesp.br/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">unesp.br</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">UNESP - Univ Estadual Paulista</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">UNESP - Univ Estadual Paulista</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UNESP - Univ Estadual Paulista</mdui:Description>
+          <mdui:Description xml:lang="pt-br">UNESP - Univ Estadual Paulista</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.unesp.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.unesp.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIC3DCCAcQCAQAwDQYJKoZIhvcNAQEFBQAwNDELMAkGA1UEBhMCQlIxJTAjBgNV
+BAMTHHNoaWJib2xldGgucmVpdG9yaWEudW5lc3AuYnIwHhcNMTIxMjEyMTcxOTU4
+WhcNMTUxMjEyMTcxOTU4WjA0MQswCQYDVQQGEwJCUjElMCMGA1UEAxMcc2hpYmJv
+bGV0aC5yZWl0b3JpYS51bmVzcC5icjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+AQoCggEBALJ+enDXKwvFOCJ3Ybg6BK+bGi1qY9P2bIvFwo6pJnzMsR0+Pl3pZbux
+Gur2ri3HajOlwc5QnxfSq9fSY8PLiBPo/eA/oeYUuPMnu8Kwn/DtUeNGvSLgQ+k3
+Z4X5Qx12yOTwDZGnHHiaPCctEezundMVLQZmh8deHpH7fsL/m9ONsUNtoVrmabHA
+AR6WbqkKgX2lfP7Lkcu0zO2+mdNDn/S1oELavFwpVpDg+yyCdoBfu/AANYqu2a6g
+ahRcABWog2Ut6smft/UYtODRb8tLEfduguEevnjnE9/Wam33SID6yKXYA5EIoS9H
+kgxftMVSMNKaqO/zMMPELRNxX0AMc3sCAwEAATANBgkqhkiG9w0BAQUFAAOCAQEA
+g2sJmqBNctEPp6EJUOoSUmh5YtsceUfijawWod/96uyNCH2i4DRAmwdrnzndqydn
+mq4lDmZKvSx3o344ciEpQvGzFS6xCUv6PWuB1VkNg8pkNh+z9iVs9Nw/kMhhsuFL
+KvTghGHEMAwB1QNTLy3j/5wEHhlIraYPhU4/j5n59V/1gXcCKF2+zOJtFcUdglfT
+jU2sFACtrH4ArVNIa9GmxGF3uX2I+Kx1YVAehqNj138hozBi4jroEyxwNzSZio7G
+HN95D4pUaaZibMzS41kSxI+tN2N/iUX+lgvB4SSjbtSuQzniq+BsumzHKy4yUpXH
+RnwM1gukVruuY/989uMLdw==
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.reitoria.unesp.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.reitoria.unesp.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://shibboleth.reitoria.unesp.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://shibboleth.reitoria.unesp.br/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://shibboleth.reitoria.unesp.br/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://shibboleth.reitoria.unesp.br/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">unesp.br</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIC3DCCAcQCAQAwDQYJKoZIhvcNAQEFBQAwNDELMAkGA1UEBhMCQlIxJTAjBgNV
+BAMTHHNoaWJib2xldGgucmVpdG9yaWEudW5lc3AuYnIwHhcNMTIxMjEyMTcxOTU4
+WhcNMTUxMjEyMTcxOTU4WjA0MQswCQYDVQQGEwJCUjElMCMGA1UEAxMcc2hpYmJv
+bGV0aC5yZWl0b3JpYS51bmVzcC5icjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+AQoCggEBALJ+enDXKwvFOCJ3Ybg6BK+bGi1qY9P2bIvFwo6pJnzMsR0+Pl3pZbux
+Gur2ri3HajOlwc5QnxfSq9fSY8PLiBPo/eA/oeYUuPMnu8Kwn/DtUeNGvSLgQ+k3
+Z4X5Qx12yOTwDZGnHHiaPCctEezundMVLQZmh8deHpH7fsL/m9ONsUNtoVrmabHA
+AR6WbqkKgX2lfP7Lkcu0zO2+mdNDn/S1oELavFwpVpDg+yyCdoBfu/AANYqu2a6g
+ahRcABWog2Ut6smft/UYtODRb8tLEfduguEevnjnE9/Wam33SID6yKXYA5EIoS9H
+kgxftMVSMNKaqO/zMMPELRNxX0AMc3sCAwEAATANBgkqhkiG9w0BAQUFAAOCAQEA
+g2sJmqBNctEPp6EJUOoSUmh5YtsceUfijawWod/96uyNCH2i4DRAmwdrnzndqydn
+mq4lDmZKvSx3o344ciEpQvGzFS6xCUv6PWuB1VkNg8pkNh+z9iVs9Nw/kMhhsuFL
+KvTghGHEMAwB1QNTLy3j/5wEHhlIraYPhU4/j5n59V/1gXcCKF2+zOJtFcUdglfT
+jU2sFACtrH4ArVNIa9GmxGF3uX2I+Kx1YVAehqNj138hozBi4jroEyxwNzSZio7G
+HN95D4pUaaZibMzS41kSxI+tN2N/iUX+lgvB4SSjbtSuQzniq+BsumzHKy4yUpXH
+RnwM1gukVruuY/989uMLdw==
+
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://shibboleth.reitoria.unesp.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://shibboleth.reitoria.unesp.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">UNESP - Univ Estadual Paulista</md:OrganizationName>
+      <md:OrganizationName xml:lang="pt-br">UNESP - Univ Estadual Paulista</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">UNESP - Univ Estadual Paulista</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pt-br">UNESP - Univ Estadual Paulista</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.unesp.br/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="pt-br">http://www.unesp.br/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Carlos Coletti</md:SurName>
+      <md:EmailAddress>grc@unesp.br</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

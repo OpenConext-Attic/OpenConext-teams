@@ -15,14 +15,42 @@ See the NOTICE file
 
 [Maven 3](http://maven.apache.org) is needed to build and run this project.
 
-To build:
+To build, first setup your local db:
 
-    mvn clean install
+Connect to your local mysql database: `mysql -uroot`
+
+Execute the following:
+
+```sql
+CREATE DATABASE teams DEFAULT CHARACTER SET utf8;
+create user 'teams'@'localhost' identified by 'teams';
+grant all on teams.* to 'teams'@'localhost';
+
+CREATE DATABASE groupzy DEFAULT CHARACTER SET utf8;
+create user 'groupzy'@'localhost' identified by 'groupzy';
+grant all on groupzy.* to 'groupzy'@'localhost';
+
+USE groupzy;
+DROP TABLE IF EXISTS service_provider_group;
+
+CREATE TABLE service_provider_group (
+  id           BIGINT(20) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  sp_entity_id VARCHAR(1024) NOT NULL,
+  team_id      VARCHAR(1024) NOT NULL,
+  created_at   DATETIME      NOT NULL,
+  updated_at   DATETIME
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+```
+
+The groupzy schema is not managed by this application, therefore we don't let Flyway manage it.
+
+# Start the app
 
 To run locally:
 
-    cd coin-teams-war
-    mvn jetty:run
+`mvn spring-boot:run -Drun.jvmArguments="-Dspring.profiles.active=dev"`
+
 
 To run locally with LetterOpener enabled:
 LetterOpener will open the e-mails send out in your browser and will log the content in the console.

@@ -1,0 +1,119 @@
+<md:EntityDescriptor xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol"
+                     xmlns:init="urn:oasis:names:tc:SAML:profiles:SSO:request-init"
+                     xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+                     entityID="https://gisela-gw.ct.infn.it/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.idem.garr.it/" registrationInstant="2011-11-30T15:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">https://www.idem.garr.it/idem-metadata-registration-practice-statement
+                </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:1.0:protocol">
+      <md:Extensions>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">GISELA Science Gateway</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="it">GISELA Science Gateway</mdui:DisplayName>
+          <mdui:Description xml:lang="en">
+                        This service provides information for Grid users, Application developers and
+                        Grid site administrators. It is mainly devoted to the people involved in the
+                        GISELA project but many pages are of general interest
+                    </mdui:Description>
+          <mdui:Description xml:lang="it">
+                        Questo servizio fornisce informazioni per utenti Grid, sviluppatori ed amministratori
+                        di siti Grid. Esso è principalmente indirizzato alle persone coinvolte nel progetto europeo
+                        GISELA ma molte informazioni sono di interesse generale
+                    </mdui:Description>
+        </mdui:UIInfo>
+        <init:RequestInitiator Binding="urn:oasis:names:tc:SAML:profiles:SSO:request-init" Location="https://gisela-gw.ct.infn.it/Shibboleth.sso/DS"/>
+        <idpdisc:DiscoveryResponse Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://gisela-gw.ct.infn.it/Shibboleth.sso/DS" index="1"/>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIFhDCCBGygAwIBAgIRAOyXU1f6GS689kEaSDAhQPYwDQYJKoZIhvcNAQEFBQAw
+NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+IFNTTCBDQTAeFw0xNDA1MTkwMDAwMDBaFw0xNzA1MTgyMzU5NTlaMEAxITAfBgNV
+BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEbMBkGA1UEAxMSbGlmZXJheS5j
+dC5pbmZuLml0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApizyvtMI
+uoSnnz/fvk7lcXwoDUk11NVAlg5w4zh01YKNvy5SzBu0eRIzRos/ALs4CwmxrmCv
+3JQPA4xxItxVd8x9Q+YElQteEcX+mWXXW5LI5XE3xhPzkdFeQrhkinAK2JreSn6E
+TQk8YO1rOxW3qCpKeYZ2VQF3grAU/JRWbvLF+r2j4zE27n+RzBxnYeZ9rtJ/67gU
+7t1S39DRDTyKit7dJIYl50n9g3atWGALb56QoVnlR+RPRxVI9EFd2hEXfrxWXGdt
+F2v6YIMSAAM5l2/SlEmhQSSkmQ4zXcmPrzC6pte9NWoPOTsQnCnocwMJ16aXsnQy
+BxaoywMtq8NsdwIDAQABo4ICgTCCAn0wHwYDVR0jBBgwFoAUDL2TaAzz3qujSWsr
+N1dH6pDjue0wHQYDVR0OBBYEFCy5dq76F94vaAuznAys6UmGxySTMA4GA1UdDwEB
+/wQEAwIFoDAMBgNVHRMBAf8EAjAAMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEF
+BQcDAjAiBgNVHSAEGzAZMA0GCysGAQQBsjEBAgIdMAgGBmeBDAECATA6BgNVHR8E
+MzAxMC+gLaArhilodHRwOi8vY3JsLnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENB
+LmNybDBtBggrBgEFBQcBAQRhMF8wNQYIKwYBBQUHMAKGKWh0dHA6Ly9jcnQudGNz
+LnRlcmVuYS5vcmcvVEVSRU5BU1NMQ0EuY3J0MCYGCCsGAQUFBzABhhpodHRwOi8v
+b2NzcC50Y3MudGVyZW5hLm9yZzCCAS0GA1UdEQSCASQwggEgghJsaWZlcmF5LmN0
+LmluZm4uaXSCGWFwcGxpY2F0aW9ucy5ldS1kZWNpZGUuZXWCGWFwcGxpY2F0aW9u
+cy5ldW1lZGdyaWQuZXWCEGdpbGRhLmN0LmluZm4uaXSCFGdpc2VsYS1ndy5jdC5p
+bmZuLml0gg1ndy5jdC5pbmZuLml0ghNnd2VhdGhlci5jdC5pbmZuLml0ghBnd2xp
+Yi5jdC5pbmZuLml0gh9pbmRpY2F0ZS1ndy5jb25zb3J6aW8tY29tZXRhLml0ghFy
+aWNldmkuY3QuaW5mbi5pdIIUdmlyYWxncmlkLmN0LmluZm4uaXSCFHd3dy5jaGFp
+bi1wcm9qZWN0LmV1ghZ3d3cuc3BlY2lhbC1wcm9qZWN0Lml0MA0GCSqGSIb3DQEB
+BQUAA4IBAQCEZIHNNQPD5WkGSlUhCN/BRSharmQ6dT0NiwjQNmRODCpVqBgwVZY0
+VUlAobHaF186QXeiNYge8ZYSpYY2VhBa4znL7IjFODE3FsaJNseKgsyNFqKR8xNO
+nsOCM//SN9N79hwH8yAxLhGyxbnInpOhE6rEkbhtowTjqhDq26cGGlH8JTTPuYvY
+JhgPGGkxo1286x1nuN4ELKvwZ7RF+YTH/WPOIBMNi+ee+vxrIhWbU6iy97f7k4PA
+2e35ZQ6gutnmX2v/ybFWh0ruO4zszYKiMo+zGyLvYmIpV/+Mjs26KbqqrBOS1jjN
+W3MiH8HMxzzYHExNCvzrAgN1TfB+SCiB
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://gisela-gw.ct.infn.it/Shibboleth.sso/Artifact/SOAP" index="1"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://gisela-gw.ct.infn.it/Shibboleth.sso/SLO/SOAP"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://gisela-gw.ct.infn.it/Shibboleth.sso/SLO/Redirect"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://gisela-gw.ct.infn.it/Shibboleth.sso/SLO/POST"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://gisela-gw.ct.infn.it/Shibboleth.sso/SLO/Artifact"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://gisela-gw.ct.infn.it/Shibboleth.sso/SAML2/POST" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://gisela-gw.ct.infn.it/Shibboleth.sso/SAML2/POST-SimpleSign" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://gisela-gw.ct.infn.it/Shibboleth.sso/SAML2/Artifact" index="3"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:PAOS" Location="https://gisela-gw.ct.infn.it/Shibboleth.sso/SAML2/ECP" index="4"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://gisela-gw.ct.infn.it/Shibboleth.sso/SAML/POST" index="5"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://gisela-gw.ct.infn.it/Shibboleth.sso/SAML/Artifact" index="6"/>
+      <md:AttributeConsumingService index="1">
+        <md:ServiceName xml:lang="en">GISELA Science Gateway</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">This service provides information for Grid users, Application developers and
+                    Grid site administrators. It is mainly devoted to the people involved in the
+                    GISELA project but many pages are of general interest
+                </md:ServiceDescription>
+        <md:RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">INFN - the National Institute of Nuclear Physics. Catania division</md:OrganizationName>
+      <md:OrganizationName xml:lang="it">INFN - Istituto Nazionale di Fisica Nucleare. Sezione di Catania</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">INFN Catania</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="it">INFN Catania</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ct.infn.it/en/home</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="it">http://www.ct.infn.it/it/home</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Marco</md:GivenName>
+      <md:SurName>Fargetta</md:SurName>
+      <md:EmailAddress>mailto:marco.fargetta@ct.infn.it</md:EmailAddress>
+      <md:EmailAddress>mailto:credentials-admin@ct.infn.it</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Riccardo</md:GivenName>
+      <md:SurName>Rotondo</md:SurName>
+      <md:EmailAddress>mailto:riccardo.rotondo@ct.infn.it</md:EmailAddress>
+      <md:EmailAddress>mailto:credentials-admin@ct.infn.it</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="support">
+      <md:GivenName>Diego</md:GivenName>
+      <md:SurName>Scardaci</md:SurName>
+      <md:EmailAddress>mailto:diego.scardaci@ct.infn.it</md:EmailAddress>
+    </md:ContactPerson>
+    <md:ContactPerson contactType="administrative">
+      <md:GivenName>Roberto</md:GivenName>
+      <md:SurName>Barbera</md:SurName>
+      <md:EmailAddress>mailto:roberto.barbera@ct.infn.it</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

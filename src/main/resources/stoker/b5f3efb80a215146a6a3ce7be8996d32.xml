@@ -1,0 +1,41 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="http://sts.ait.dtu.dk/adfs/services/trust">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="https://www.wayf.dk">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://wayf.dk/images/stories/WAYF-filer/metadataregistrationpracticestatementwayf.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:KeyDescriptor use="signing">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEezCCA2OgAwIBAgIQbFP2zBUPa2qKmnvEij297DANBgkqhkiG9w0BAQUFADA2MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEgU1NMIENBMB4XDTEzMTAyMzAwMDAwMFoXDTE2MTAyMjIzNTk1OVowRTEhMB8GA1UECxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMSAwHgYDVQQDExd0b2tlbnNpZ25pbmcuYWl0LmR0dS5kazCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALqAUfbI6hct5ZYP3tNyUHAo+D+U0cVqZqCTJDfQWpO6+tSCRgmHY9Teu1pOR8Ddw/OdVI7R3lmTmWOWUuJHr4DDrAEQyvhmDklCDB78tbzBbbF514C5gyoagh1xAXn5bv9IPg4ByBCyi3Gbuwy4fBvpneVnpInaleRwNhWuxsPZWbpnHyaYBhjzTyA6U33cWXMdxZKXtPPgqPZvCfcsWagnzU90LgdCsumrulkTI0AZnLPzmYBH0ZpYUKVkIvbba53N5s96VJ7zbCCWrsnRQ42seGi1TQRpbPVd6jlegUvQJ2J/M4dtpMBjr3siWT/b9AN7IpnN5hcp9ZYl+ju/B38CAwEAAaOCAXQwggFwMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBQjNdOyedlmcPWRhMy3I9+igVdZWDAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEwOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwIgYDVR0RBBswGYIXdG9rZW5zaWduaW5nLmFpdC5kdHUuZGswDQYJKoZIhvcNAQEFBQADggEBAH3nPUupxXENBOof3REi6WHldSXIc59DkUw1Rng81XYh39A7SaHkGxGz1WYVKIzYNlzmhsDSl3JfluaWwpdNcpMh3VklKa453zM7He8u3jpSC+5sez0LSmWV/TRY0q3rASSNRMcDetGwm5/tgKCzX28cNvrqm2xAjrnNS2/BQlrSi4txHlxBxL39r6zkZ10h7ED6NO9F+ShCIcCZZMIwYeXOQqDY6pR4qJ7SI09O74RkSHF+Pdd7lNyRzZiFoM77yI0Aot0XxQqMKD7otqiNuKObpJ4OrC90pzrEOufKPmEe9tkHExlcpALfCv2UaFCsVZc0YHymIFgcXKvYX4Y3gTY=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:KeyDescriptor use="encryption">
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIEezCCA2OgAwIBAgIQbFP2zBUPa2qKmnvEij297DANBgkqhkiG9w0BAQUFADA2MQswCQYDVQQGEwJOTDEPMA0GA1UEChMGVEVSRU5BMRYwFAYDVQQDEw1URVJFTkEgU1NMIENBMB4XDTEzMTAyMzAwMDAwMFoXDTE2MTAyMjIzNTk1OVowRTEhMB8GA1UECxMYRG9tYWluIENvbnRyb2wgVmFsaWRhdGVkMSAwHgYDVQQDExd0b2tlbnNpZ25pbmcuYWl0LmR0dS5kazCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALqAUfbI6hct5ZYP3tNyUHAo+D+U0cVqZqCTJDfQWpO6+tSCRgmHY9Teu1pOR8Ddw/OdVI7R3lmTmWOWUuJHr4DDrAEQyvhmDklCDB78tbzBbbF514C5gyoagh1xAXn5bv9IPg4ByBCyi3Gbuwy4fBvpneVnpInaleRwNhWuxsPZWbpnHyaYBhjzTyA6U33cWXMdxZKXtPPgqPZvCfcsWagnzU90LgdCsumrulkTI0AZnLPzmYBH0ZpYUKVkIvbba53N5s96VJ7zbCCWrsnRQ42seGi1TQRpbPVd6jlegUvQJ2J/M4dtpMBjr3siWT/b9AN7IpnN5hcp9ZYl+ju/B38CAwEAAaOCAXQwggFwMB8GA1UdIwQYMBaAFAy9k2gM896ro0lrKzdXR+qQ47ntMB0GA1UdDgQWBBQjNdOyedlmcPWRhMy3I9+igVdZWDAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEwOgYDVR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFTU0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0cDovL29jc3AudGNzLnRlcmVuYS5vcmcwIgYDVR0RBBswGYIXdG9rZW5zaWduaW5nLmFpdC5kdHUuZGswDQYJKoZIhvcNAQEFBQADggEBAH3nPUupxXENBOof3REi6WHldSXIc59DkUw1Rng81XYh39A7SaHkGxGz1WYVKIzYNlzmhsDSl3JfluaWwpdNcpMh3VklKa453zM7He8u3jpSC+5sez0LSmWV/TRY0q3rASSNRMcDetGwm5/tgKCzX28cNvrqm2xAjrnNS2/BQlrSi4txHlxBxL39r6zkZ10h7ED6NO9F+ShCIcCZZMIwYeXOQqDY6pR4qJ7SI09O74RkSHF+Pdd7lNyRzZiFoM77yI0Aot0XxQqMKD7otqiNuKObpJ4OrC90pzrEOufKPmEe9tkHExlcpALfCv2UaFCsVZc0YHymIFgcXKvYX4Y3gTY=</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sts.ait.dtu.dk/adfs/ls/"/>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://sts.ait.dtu.dk/adfs/ls/" index="2"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://sts.ait.dtu.dk/adfs/ls/" index="1"/>
+      <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sts.ait.dtu.dk/adfs/ls/" index="0"/>
+      <md:AttributeConsumingService index="0">
+        <md:ServiceName xml:lang="en">Share DTU</md:ServiceName>
+        <md:ServiceName xml:lang="da">Share DTU</md:ServiceName>
+        <md:ServiceDescription xml:lang="en">to provide employees from WAYF-connected organisations personalised access to collaboration sites enabled by DTU employees</md:ServiceDescription>
+        <md:ServiceDescription xml:lang="da">at give ansatte fra WAYF-tilsluttede institutioner personlig adgang til samarbejdssites oprettet af DTU-ansatte</md:ServiceDescription>
+        <md:RequestedAttribute Name="sn"/>
+        <md:RequestedAttribute Name="organizationName"/>
+        <md:RequestedAttribute Name="gn"/>
+        <md:RequestedAttribute Name="eduPersonPrincipalName"/>
+        <md:RequestedAttribute Name="mail"/>
+        <md:RequestedAttribute Name="cn"/>
+      </md:AttributeConsumingService>
+    </md:SPSSODescriptor>
+  </md:EntityDescriptor>

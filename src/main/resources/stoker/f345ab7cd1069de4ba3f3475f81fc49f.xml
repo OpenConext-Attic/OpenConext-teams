@@ -1,0 +1,100 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+                     entityID="https://cafe-gateway.ifce.edu.br/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">IFCE - Instituto Federal de Educacao do Ceara</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">IFCE - Instituto Federal de Educacao do Ceara</mdui:DisplayName>
+          <mdui:Description xml:lang="en">IFCE - Instituto Federal de Educacao do Ceara</mdui:Description>
+          <mdui:Description xml:lang="pt-br">IFCE - Instituto Federal de Educacao do Ceara</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ifce.edu.br</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ifce.edu.br</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIICjjCCAXYCAQAwDQYJKoZIhvcNAQEFBQAwDTELMAkGA1UEBhMCQlIwHhcNMTQw
+NDIzMTQxMTM1WhcNMTkwNDIyMTQxMTM1WjANMQswCQYDVQQGEwJCUjCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBAMG0Ale+E+Hc6LXUIYFAyexypOGse0ZA
+iHv8A1m2SoiVpP/AuxZjHeZ8tgYB2g9wEV7sBVtRzcWPpfDnMEnwV0ycZLq1ud85
+anRUWHCXgqjgBOJPC5SNfur9b+c+z68csotN67l/4KhThVlX1bDSKsgb9sBzlHdx
+lmjPqPt4nPQG3f3eg+A+zVVoTbciDR+MM0aaoww0oFspsBxsSOzmwTO8y5SWh0Zt
+DN50/KIeZqdmLR/bNg0VIHieyKggu0df7583pofwhq/khw85kayRWOZRlK2DPqM4
+lkWYFa9hwi7SjViGte4iFBm5QyU9ROxtr1BrRruVh1gvRiQ21JEqYh0CAwEAATAN
+BgkqhkiG9w0BAQUFAAOCAQEAgAWYi5wzaShN4+xW6GKvJB95rStAKuVBMNbvOaW+
+VvokC6np6tH3c6DmJS4Nk2ko8JvW46JKE7FDJ33yhdbg7DNFE8d9jTj1afNL99p8
+RnKzPbbDSpF86ZMV/CcGW3gKf/EpRr3M7g7Q+1bP5IBgF1wlxaP6hge0FbmKOML/
+cSsmJF5QDRLxFl+wUr9NYd05jJwNn87GVqad1+05/vnafFOk3c8k0ZD1BrCpX6eZ
+F/cL2jO5urN3UFVa2NBuec51EbyHkL8vkzLdUf3pGTP/aDDHiUofaXC1MA2+xo1o
+WKF3ut56xBKMt3NdUfAXqqOu8wRUZYIwpU2ZpT8Cn4Y7Yw==
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe-gateway.ifce.edu.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe-gateway.ifce.edu.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafe-gateway.ifce.edu.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafe-gateway.ifce.edu.br/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafe-gateway.ifce.edu.br/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafe-gateway.ifce.edu.br/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIICjjCCAXYCAQAwDQYJKoZIhvcNAQEFBQAwDTELMAkGA1UEBhMCQlIwHhcNMTQw
+NDIzMTQxMTM1WhcNMTkwNDIyMTQxMTM1WjANMQswCQYDVQQGEwJCUjCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBAMG0Ale+E+Hc6LXUIYFAyexypOGse0ZA
+iHv8A1m2SoiVpP/AuxZjHeZ8tgYB2g9wEV7sBVtRzcWPpfDnMEnwV0ycZLq1ud85
+anRUWHCXgqjgBOJPC5SNfur9b+c+z68csotN67l/4KhThVlX1bDSKsgb9sBzlHdx
+lmjPqPt4nPQG3f3eg+A+zVVoTbciDR+MM0aaoww0oFspsBxsSOzmwTO8y5SWh0Zt
+DN50/KIeZqdmLR/bNg0VIHieyKggu0df7583pofwhq/khw85kayRWOZRlK2DPqM4
+lkWYFa9hwi7SjViGte4iFBm5QyU9ROxtr1BrRruVh1gvRiQ21JEqYh0CAwEAATAN
+BgkqhkiG9w0BAQUFAAOCAQEAgAWYi5wzaShN4+xW6GKvJB95rStAKuVBMNbvOaW+
+VvokC6np6tH3c6DmJS4Nk2ko8JvW46JKE7FDJ33yhdbg7DNFE8d9jTj1afNL99p8
+RnKzPbbDSpF86ZMV/CcGW3gKf/EpRr3M7g7Q+1bP5IBgF1wlxaP6hge0FbmKOML/
+cSsmJF5QDRLxFl+wUr9NYd05jJwNn87GVqad1+05/vnafFOk3c8k0ZD1BrCpX6eZ
+F/cL2jO5urN3UFVa2NBuec51EbyHkL8vkzLdUf3pGTP/aDDHiUofaXC1MA2+xo1o
+WKF3ut56xBKMt3NdUfAXqqOu8wRUZYIwpU2ZpT8Cn4Y7Yw==
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe-gateway.ifce.edu.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe-gateway.ifce.edu.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">IFCE - Instituto Federal de Educacao do Ceara</md:OrganizationName>
+      <md:OrganizationName xml:lang="pt-br">IFCE - Instituto Federal de Educacao do Ceara</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">IFCE - Instituto Federal de Educacao do Ceara</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pt-br">IFCE - Instituto Federal de Educacao do Ceara</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ifce.edu.br</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="pt-br">http://www.ifce.edu.br</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Jessyca</md:SurName>
+      <md:EmailAddress>jessyca@ifce.edu.br</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

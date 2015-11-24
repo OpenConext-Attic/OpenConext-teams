@@ -1,0 +1,103 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://Shibboleth.uem.br/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uem.br</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">UEM - Universidade Estadual de Maringa</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">UEM - Universidade Estadual de Maringa</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UEM - Universidade Estadual de Maringa</mdui:Description>
+          <mdui:Description xml:lang="pt-br">UEM - Universidade Estadual de Maringa</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.uem.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.uem.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIC4jCCAcoCAQAwDQYJKoZIhvcNAQEFBQAwNzEMMAoGA1UECxMDTlBEMQswCQYD
+VQQGEwJCUjEaMBgGA1UEAxMRU2hpYmJvbGV0aC51ZW0uYnIwHhcNMTQwNDE1MTQx
+NTIwWhcNMTkwNDE0MTQxNTIwWjA3MQwwCgYDVQQLEwNOUEQxCzAJBgNVBAYTAkJS
+MRowGAYDVQQDExFTaGliYm9sZXRoLnVlbS5icjCCASIwDQYJKoZIhvcNAQEBBQAD
+ggEPADCCAQoCggEBALs/KHnZekrQFrHtk9e+vVMklEe0+7HfSu34nJHP7vOpQTZR
+KwpRnisPoSwBkeY4JcbgUa2/gSskUTSf4EBWvrfaUs5NATXc0l5VOT7T2vXrUye0
+Ua1LsAroWH2/yEB2gvs8THrtp+UZ1uAYJkoIxcc9ydZ7LKUpSuv/LrCAjHaiwD6q
+jNMSFYm+UUpt6tzAWBuHfoJng92JId0qelSGIT7WjjOPlyE/iA+gXZd1/k4FFS8V
+dxAcNYLlP8uqVjVR9RsHRjOphdxvvNg8r9210k2z8XH698EOKmunuVMkcFaBIevO
+pc6rhoGj/ldt9J8F5skvx2l9qwezMOXwgJyf/UsCAwEAATANBgkqhkiG9w0BAQUF
+AAOCAQEApYQmpGfiWbaWLXUYvh30t5YUPqvnPcNfz70mdUhm4zIDBzHIRZeBHg2L
+95GqLFmCdQnHXcVVVADx/w1FXOQk14l3tmukOCRGHga0Ut6DPvAcJSVcTAfUh03U
+mFETv9XACNN6qWfV0f6kUWU3O64runCgTATOHFNkT+wOusx8pIIwdXudj47+KbZS
+g1si2gBE4K06TiA8DygDCIaqS7roCrsGc1iY1FWop03y91TABSH9EzU25dgAW9Q2
+rFO4M7HOkAEzzTLR7/3eE3fLOv6xTGnASwz3rYbhA/SfJZE/v/Ld6PUhBY1a+WO1
+TZVYQfUodulLy5CH0QkSH1Focl6MuA==
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://Shibboleth.uem.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://Shibboleth.uem.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://Shibboleth.uem.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://Shibboleth.uem.br/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://Shibboleth.uem.br/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://Shibboleth.uem.br/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uem.br</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIC4jCCAcoCAQAwDQYJKoZIhvcNAQEFBQAwNzEMMAoGA1UECxMDTlBEMQswCQYD
+VQQGEwJCUjEaMBgGA1UEAxMRU2hpYmJvbGV0aC51ZW0uYnIwHhcNMTQwNDE1MTQx
+NTIwWhcNMTkwNDE0MTQxNTIwWjA3MQwwCgYDVQQLEwNOUEQxCzAJBgNVBAYTAkJS
+MRowGAYDVQQDExFTaGliYm9sZXRoLnVlbS5icjCCASIwDQYJKoZIhvcNAQEBBQAD
+ggEPADCCAQoCggEBALs/KHnZekrQFrHtk9e+vVMklEe0+7HfSu34nJHP7vOpQTZR
+KwpRnisPoSwBkeY4JcbgUa2/gSskUTSf4EBWvrfaUs5NATXc0l5VOT7T2vXrUye0
+Ua1LsAroWH2/yEB2gvs8THrtp+UZ1uAYJkoIxcc9ydZ7LKUpSuv/LrCAjHaiwD6q
+jNMSFYm+UUpt6tzAWBuHfoJng92JId0qelSGIT7WjjOPlyE/iA+gXZd1/k4FFS8V
+dxAcNYLlP8uqVjVR9RsHRjOphdxvvNg8r9210k2z8XH698EOKmunuVMkcFaBIevO
+pc6rhoGj/ldt9J8F5skvx2l9qwezMOXwgJyf/UsCAwEAATANBgkqhkiG9w0BAQUF
+AAOCAQEApYQmpGfiWbaWLXUYvh30t5YUPqvnPcNfz70mdUhm4zIDBzHIRZeBHg2L
+95GqLFmCdQnHXcVVVADx/w1FXOQk14l3tmukOCRGHga0Ut6DPvAcJSVcTAfUh03U
+mFETv9XACNN6qWfV0f6kUWU3O64runCgTATOHFNkT+wOusx8pIIwdXudj47+KbZS
+g1si2gBE4K06TiA8DygDCIaqS7roCrsGc1iY1FWop03y91TABSH9EzU25dgAW9Q2
+rFO4M7HOkAEzzTLR7/3eE3fLOv6xTGnASwz3rYbhA/SfJZE/v/Ld6PUhBY1a+WO1
+TZVYQfUodulLy5CH0QkSH1Focl6MuA==
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://Shibboleth.uem.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://Shibboleth.uem.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">UEM - Universidade Estadual de Maringa</md:OrganizationName>
+      <md:OrganizationName xml:lang="pt-br">UEM - Universidade Estadual de Maringa</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">UEM - Universidade Estadual de Maringa</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pt-br">UEM - Universidade Estadual de Maringa</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.uem.br/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="pt-br">http://www.uem.br/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Helcio do Prado</md:SurName>
+      <md:EmailAddress>helcio@uem.br</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

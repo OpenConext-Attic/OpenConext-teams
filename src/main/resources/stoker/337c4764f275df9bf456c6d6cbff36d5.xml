@@ -1,0 +1,113 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://cafe.ufop.br/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ufop.br</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">UFOP - Universidade Federal de Ouro Preto</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">UFOP - Universidade Federal de Ouro Preto</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UFOP - Universidade Federal de Ouro Preto</mdui:Description>
+          <mdui:Description xml:lang="pt-br">UFOP - Universidade Federal de Ouro Preto</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ufop.br</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ufop.br</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIDxjCCAq4CAQAwDQYJKoZIhvcNAQEFBQAwgagxKzApBgNVBAoTIlVuaXZlcnNp
+ZGFkZSBGZWRlcmFsIGRlIE91cm8gUHJldG8xDDAKBgNVBAsTA05USTEbMBkGCSqG
+SIb3DQEJARYMY2FmZUB1Zm9wLmJyMRMwEQYDVQQHEwpPdXJvIFByZXRvMRUwEwYD
+VQQIEwxNaW5hcyBHZXJhaXMxCzAJBgNVBAYTAkJSMRUwEwYDVQQDEwxjYWZlLnVm
+b3AuYnIwHhcNMTQwNzE1MTgzMjAwWhcNMTcwNzE0MTgzMjAwWjCBqDErMCkGA1UE
+ChMiVW5pdmVyc2lkYWRlIEZlZGVyYWwgZGUgT3VybyBQcmV0bzEMMAoGA1UECxMD
+TlRJMRswGQYJKoZIhvcNAQkBFgxjYWZlQHVmb3AuYnIxEzARBgNVBAcTCk91cm8g
+UHJldG8xFTATBgNVBAgTDE1pbmFzIEdlcmFpczELMAkGA1UEBhMCQlIxFTATBgNV
+BAMTDGNhZmUudWZvcC5icjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+AJ8tn2QtCdQheOm0AeLjxH+NHHvU+hboU5XLY3FOaO4esNLWPm3ekToB/QKM7kK2
+JXUlx6iaqC57hOq3zQgwRBDiq9NJidn57BLyxTcbxu9j/2+gyQPmOPgynrxHGN9Y
+8z1WtuVWlTXZ9XmFKYvPvtch/FYAA9+dvCc4/42V6DaosCXzGyiSLRDk4A9mOTaU
+i/juNLFuYbFN7lKTjFiK75Z8xonEvsQ/4QDUPDt5WREuDqKU7JgGwv0Rwkn/h1YR
+9n1SvINCKLpLnRtOk0Ts4RsdiPRKx4Q/G6GmsjuQSTHkEpqVbvZsindPWvFeDAj7
+pPv2sGYa7TUxh4cEcFN37F8CAwEAATANBgkqhkiG9w0BAQUFAAOCAQEAdeSNmRaI
+55vnAf58XCUuOU60fYasvHysDTjbymaWiJjZ8St7QcgkspVrGcK0CzTltuquGck6
+Jy+t/sQOBU1h+qfWzbCDgHS7/vVFIa42yLzPBeibyVFeSaJU1xUXR+h3DxiEaHrK
+zPzQtr3obCWYOxj5tZF9G+QfDX4qRCHkF4EvYAsOMHr43Ic/Co9d4p+GV/O6QvMg
+0IdYi/CRmGBkMfaySFvMMgIgBSm5q+PZmwguZjBGn0FkaNWF4FYusfCLswUxifIA
+oY4ZtXsMxilW39DT5joXhgfwtd6JMxzzkXkmv+JBPxSj1+Xt4Ayuz13PFd1ylV++
+vL4JpRO/Msu6Zw==
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.ufop.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.ufop.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafe.ufop.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafe.ufop.br/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafe.ufop.br/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafe.ufop.br/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ufop.br</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIDxjCCAq4CAQAwDQYJKoZIhvcNAQEFBQAwgagxKzApBgNVBAoTIlVuaXZlcnNp
+ZGFkZSBGZWRlcmFsIGRlIE91cm8gUHJldG8xDDAKBgNVBAsTA05USTEbMBkGCSqG
+SIb3DQEJARYMY2FmZUB1Zm9wLmJyMRMwEQYDVQQHEwpPdXJvIFByZXRvMRUwEwYD
+VQQIEwxNaW5hcyBHZXJhaXMxCzAJBgNVBAYTAkJSMRUwEwYDVQQDEwxjYWZlLnVm
+b3AuYnIwHhcNMTQwNzE1MTgzMjAwWhcNMTcwNzE0MTgzMjAwWjCBqDErMCkGA1UE
+ChMiVW5pdmVyc2lkYWRlIEZlZGVyYWwgZGUgT3VybyBQcmV0bzEMMAoGA1UECxMD
+TlRJMRswGQYJKoZIhvcNAQkBFgxjYWZlQHVmb3AuYnIxEzARBgNVBAcTCk91cm8g
+UHJldG8xFTATBgNVBAgTDE1pbmFzIEdlcmFpczELMAkGA1UEBhMCQlIxFTATBgNV
+BAMTDGNhZmUudWZvcC5icjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+AJ8tn2QtCdQheOm0AeLjxH+NHHvU+hboU5XLY3FOaO4esNLWPm3ekToB/QKM7kK2
+JXUlx6iaqC57hOq3zQgwRBDiq9NJidn57BLyxTcbxu9j/2+gyQPmOPgynrxHGN9Y
+8z1WtuVWlTXZ9XmFKYvPvtch/FYAA9+dvCc4/42V6DaosCXzGyiSLRDk4A9mOTaU
+i/juNLFuYbFN7lKTjFiK75Z8xonEvsQ/4QDUPDt5WREuDqKU7JgGwv0Rwkn/h1YR
+9n1SvINCKLpLnRtOk0Ts4RsdiPRKx4Q/G6GmsjuQSTHkEpqVbvZsindPWvFeDAj7
+pPv2sGYa7TUxh4cEcFN37F8CAwEAATANBgkqhkiG9w0BAQUFAAOCAQEAdeSNmRaI
+55vnAf58XCUuOU60fYasvHysDTjbymaWiJjZ8St7QcgkspVrGcK0CzTltuquGck6
+Jy+t/sQOBU1h+qfWzbCDgHS7/vVFIa42yLzPBeibyVFeSaJU1xUXR+h3DxiEaHrK
+zPzQtr3obCWYOxj5tZF9G+QfDX4qRCHkF4EvYAsOMHr43Ic/Co9d4p+GV/O6QvMg
+0IdYi/CRmGBkMfaySFvMMgIgBSm5q+PZmwguZjBGn0FkaNWF4FYusfCLswUxifIA
+oY4ZtXsMxilW39DT5joXhgfwtd6JMxzzkXkmv+JBPxSj1+Xt4Ayuz13PFd1ylV++
+vL4JpRO/Msu6Zw==
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe.ufop.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe.ufop.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">UFOP - Universidade Federal de Ouro Preto</md:OrganizationName>
+      <md:OrganizationName xml:lang="pt-br">UFOP - Universidade Federal de Ouro Preto</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">UFOP - Universidade Federal de Ouro Preto</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pt-br">UFOP - Universidade Federal de Ouro Preto</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ufop.br</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="pt-br">http://www.ufop.br</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Daniel Magalhaes Bicalho</md:SurName>
+      <md:EmailAddress>daniel.bicalho@nti.ufop.br</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

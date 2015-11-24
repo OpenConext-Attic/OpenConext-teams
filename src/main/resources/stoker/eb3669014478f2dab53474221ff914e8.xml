@@ -1,0 +1,114 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+                     entityID="https://idp.ifsudestemg.edu.br/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">IFSudesteMG - Instituto Federal do Sudeste de Minas Gerais</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">IFSudesteMG - Instituto Federal do Sudeste de Minas Gerais</mdui:DisplayName>
+          <mdui:Description xml:lang="en">IFSudesteMG - Instituto Federal do Sudeste de Minas Gerais</mdui:Description>
+          <mdui:Description xml:lang="pt-br">IFSudesteMG - Instituto Federal do Sudeste de Minas Gerais</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ifsudestemg.edu.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ifsudestemg.edu.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIID3jCCAsYCAQIwDQYJKoZIhvcNAQEFBQAwgbQxFjAUBgNVBAoTDUlGIFN1ZGVz
+dGUgTUcxFzAVBgNVBAsTDlBST0RJL0RHVEkvQ1JJMSUwIwYJKoZIhvcNAQkBFhZj
+cmlAaWZzdWRlc3RlbWcuZWR1LmJyMRUwEwYDVQQHEwxKdWl6IGRlIEZvcmExFTAT
+BgNVBAgTDE1pbmFzIEdlcmFpczELMAkGA1UEBhMCQlIxHzAdBgNVBAMTFmlkcC5p
+ZnN1ZGVzdGVtZy5lZHUuYnIwHhcNMTQwNTI2MTkzNjM4WhcNMTcwNTI1MTkzNjM4
+WjCBtDEWMBQGA1UEChMNSUYgU3VkZXN0ZSBNRzEXMBUGA1UECxMOUFJPREkvREdU
+SS9DUkkxJTAjBgkqhkiG9w0BCQEWFmNyaUBpZnN1ZGVzdGVtZy5lZHUuYnIxFTAT
+BgNVBAcTDEp1aXogZGUgRm9yYTEVMBMGA1UECBMMTWluYXMgR2VyYWlzMQswCQYD
+VQQGEwJCUjEfMB0GA1UEAxMWaWRwLmlmc3VkZXN0ZW1nLmVkdS5icjCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBAMEoOjQZlyUQUe1L4itiQULFj/VW1LhW
+nUTS1MuWbER1HiWpuT6UJFMY+0q0d/tQ0RPXQakkvpWPC1yxR7iknXgg9oxjSb9T
+9WjLPbdvQCMPFCVe/aBgwUZ9RdLsETcuHagJ+ebD7QB1NnVhco9/rE398YHT+5X7
+OZkFuqOSKaEw7+79Jt5Vc4w6Tc6fPzrCAaT7G7YuXKRq0I8WV3xJClz0OwHZymz8
+eEBB7F/E0kr61/XRQjf3i4+F6pad8UT6FkmWbEvfFr54OtvqaPKL9tZWPnncrg4r
+Shw2qieG3AqcXO2jIGC3Iyk/TSS6lQQHYv1v5ELst87SQ8tSwuO8Yp8CAwEAATAN
+BgkqhkiG9w0BAQUFAAOCAQEAXmh5aRLYZn3vwyFcDKhR2i1SmaDMlJnN73ubJ8Pk
+3gwuyPcj/XdpLSFsCSKNeM2BAljp5D8i93+j9RjR/GvKA4pchq4DdVrw/45gcW57
+bnC1Dux/0kfBgZLy8GUg612ZdWm0F2kttOI/kDWmlWOFERcqmja0LM4cwzs+byj8
+Wum6NyNsy/5XSVhTMA7xUcypbrU/d7S9I2ik9Kope2e4Oihu5GX1YvtapIOzZ2EQ
+0yyvP5Y629IcqIzAMqR5tcYK9dMl2fmFQBhwdGciJKxQaAdyQkKvrXfSkuV/mi0V
+NPp10MrDZ1q+QBfffi16WobvmUBWgpE7UqgwTmJztWx7yA==
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ifsudestemg.edu.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ifsudestemg.edu.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.ifsudestemg.edu.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.ifsudestemg.edu.br/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.ifsudestemg.edu.br/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.ifsudestemg.edu.br/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">edu.br</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIID3jCCAsYCAQIwDQYJKoZIhvcNAQEFBQAwgbQxFjAUBgNVBAoTDUlGIFN1ZGVz
+dGUgTUcxFzAVBgNVBAsTDlBST0RJL0RHVEkvQ1JJMSUwIwYJKoZIhvcNAQkBFhZj
+cmlAaWZzdWRlc3RlbWcuZWR1LmJyMRUwEwYDVQQHEwxKdWl6IGRlIEZvcmExFTAT
+BgNVBAgTDE1pbmFzIEdlcmFpczELMAkGA1UEBhMCQlIxHzAdBgNVBAMTFmlkcC5p
+ZnN1ZGVzdGVtZy5lZHUuYnIwHhcNMTQwNTI2MTkzNjM4WhcNMTcwNTI1MTkzNjM4
+WjCBtDEWMBQGA1UEChMNSUYgU3VkZXN0ZSBNRzEXMBUGA1UECxMOUFJPREkvREdU
+SS9DUkkxJTAjBgkqhkiG9w0BCQEWFmNyaUBpZnN1ZGVzdGVtZy5lZHUuYnIxFTAT
+BgNVBAcTDEp1aXogZGUgRm9yYTEVMBMGA1UECBMMTWluYXMgR2VyYWlzMQswCQYD
+VQQGEwJCUjEfMB0GA1UEAxMWaWRwLmlmc3VkZXN0ZW1nLmVkdS5icjCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBAMEoOjQZlyUQUe1L4itiQULFj/VW1LhW
+nUTS1MuWbER1HiWpuT6UJFMY+0q0d/tQ0RPXQakkvpWPC1yxR7iknXgg9oxjSb9T
+9WjLPbdvQCMPFCVe/aBgwUZ9RdLsETcuHagJ+ebD7QB1NnVhco9/rE398YHT+5X7
+OZkFuqOSKaEw7+79Jt5Vc4w6Tc6fPzrCAaT7G7YuXKRq0I8WV3xJClz0OwHZymz8
+eEBB7F/E0kr61/XRQjf3i4+F6pad8UT6FkmWbEvfFr54OtvqaPKL9tZWPnncrg4r
+Shw2qieG3AqcXO2jIGC3Iyk/TSS6lQQHYv1v5ELst87SQ8tSwuO8Yp8CAwEAATAN
+BgkqhkiG9w0BAQUFAAOCAQEAXmh5aRLYZn3vwyFcDKhR2i1SmaDMlJnN73ubJ8Pk
+3gwuyPcj/XdpLSFsCSKNeM2BAljp5D8i93+j9RjR/GvKA4pchq4DdVrw/45gcW57
+bnC1Dux/0kfBgZLy8GUg612ZdWm0F2kttOI/kDWmlWOFERcqmja0LM4cwzs+byj8
+Wum6NyNsy/5XSVhTMA7xUcypbrU/d7S9I2ik9Kope2e4Oihu5GX1YvtapIOzZ2EQ
+0yyvP5Y629IcqIzAMqR5tcYK9dMl2fmFQBhwdGciJKxQaAdyQkKvrXfSkuV/mi0V
+NPp10MrDZ1q+QBfffi16WobvmUBWgpE7UqgwTmJztWx7yA==
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.ifsudestemg.edu.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.ifsudestemg.edu.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">IF Sudeste MG - Instituto Federal de Educacao, Ciencia e Tecnologia do Sudeste de Minas Gerais</md:OrganizationName>
+      <md:OrganizationName xml:lang="pt-br">IF Sudeste MG - Instituto Federal de Educacao, Ciencia e Tecnologia do Sudeste de Minas Gerais</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">IFSudesteMG - Instituto Federal do Sudeste de Minas Gerais</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pt-br">IFSudesteMG - Instituto Federal do Sudeste de Minas Gerais</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ifsudestemg.edu.br/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="pt-br">http://www.ifsudestemg.edu.br/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Elder Marcelino</md:SurName>
+      <md:EmailAddress>elder.marcelino@ifsudestemg.edu.br</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

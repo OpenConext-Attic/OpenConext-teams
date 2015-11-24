@@ -1,0 +1,108 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+                     entityID="https://idp.hainaut-promsoc.be/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://federation.belnet.be/" registrationInstant="2012-03-27T12:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://federation.belnet.be/files/Belnet-metadata-registration-practice-statement.txt</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hainaut-promsoc.be</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEejCCA2KgAwIBAgIRAOJDreYdfwftYXxuTiaSgikwDQYJKoZIhvcNAQEFBQAw
+NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+IFNTTCBDQTAeFw0xNDA1MTcwMDAwMDBaFw0xNzA1MTYyMzU5NTlaMEQxITAfBgNV
+BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEfMB0GA1UEAxMWaWRwLmhhaW5h
+dXQtcHJvbXNvYy5iZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALaj
+3QToxwLfTZdKn1LyscWG0WEFxqm4szedeTdv+Z0GN7vzAFkCJ5uIN0TMsS0pI7Bk
+DpgweMIgIjyAic13ibFgdPDK97duAhfqAGMlgxRvYeil42X6kCNC5OaUPszuXU8t
+HBLW2ZTpptKpqud5X0hNijbAghLZDmn7Eb+rQT8+4zQdZJwV4ApYjNT65oTWTmHX
+xj+LI65fYOyTPGW30rYtX9m7TJUoR1GNsaOzhTlulE0wFiXQMct8qWpRA43tnnPJ
+h+LSBtS5tqZeEd7NP0V2FM1FMkpghrDewy1Truj0+WniTcBZJTtnYUbzsImNZIg6
+OCNqkxNKtIkzLLX9h7kCAwEAAaOCAXMwggFvMB8GA1UdIwQYMBaAFAy9k2gM896r
+o0lrKzdXR+qQ47ntMB0GA1UdDgQWBBTsFp6mcbFldk8J8qcZ6VgvqL4y0DAOBgNV
+HQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYI
+KwYBBQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEwOgYD
+VR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFT
+U0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0
+LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0
+cDovL29jc3AudGNzLnRlcmVuYS5vcmcwIQYDVR0RBBowGIIWaWRwLmhhaW5hdXQt
+cHJvbXNvYy5iZTANBgkqhkiG9w0BAQUFAAOCAQEAqWXIoIBh/n3Qd92KOkrtLD0O
+MCPdoOlIe+WfzPfEFEre1QcGNIiywbTH5zR7n0GttMvopttilSIEH4JePV9uiX5m
+DdcGukEMCCtMTaahMeXTSiS9v1RE2FGe9tx1zblHOkpI9V43pWLb9zk3hitGWqN4
+Zce+zsOUf6D8xfDHAReHt5RaWtfSmlHENVix51e5kQ8Q5WAkABvSSVEvOtB1Lqlp
+Ce+uSCFKDpGchEC4Wmfb3W3ka1Vi5Q5ARUNvsjPO02XSbXYJ0bTGFUnJcOKytFBp
+HQh46e9lb2vBUoh87RleCYdNpkZRu92tzeY/iD7AHvyiap1fKXUg2tle+ahF2A==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.hainaut-promsoc.be:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.hainaut-promsoc.be:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.hainaut-promsoc.be/idp/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.hainaut-promsoc.be/idp/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.hainaut-promsoc.be:8443/idp/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.hainaut-promsoc.be/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.hainaut-promsoc.be/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.hainaut-promsoc.be/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.hainaut-promsoc.be/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">hainaut-promsoc.be</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+MIIEejCCA2KgAwIBAgIRAOJDreYdfwftYXxuTiaSgikwDQYJKoZIhvcNAQEFBQAw
+NjELMAkGA1UEBhMCTkwxDzANBgNVBAoTBlRFUkVOQTEWMBQGA1UEAxMNVEVSRU5B
+IFNTTCBDQTAeFw0xNDA1MTcwMDAwMDBaFw0xNzA1MTYyMzU5NTlaMEQxITAfBgNV
+BAsTGERvbWFpbiBDb250cm9sIFZhbGlkYXRlZDEfMB0GA1UEAxMWaWRwLmhhaW5h
+dXQtcHJvbXNvYy5iZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALaj
+3QToxwLfTZdKn1LyscWG0WEFxqm4szedeTdv+Z0GN7vzAFkCJ5uIN0TMsS0pI7Bk
+DpgweMIgIjyAic13ibFgdPDK97duAhfqAGMlgxRvYeil42X6kCNC5OaUPszuXU8t
+HBLW2ZTpptKpqud5X0hNijbAghLZDmn7Eb+rQT8+4zQdZJwV4ApYjNT65oTWTmHX
+xj+LI65fYOyTPGW30rYtX9m7TJUoR1GNsaOzhTlulE0wFiXQMct8qWpRA43tnnPJ
+h+LSBtS5tqZeEd7NP0V2FM1FMkpghrDewy1Truj0+WniTcBZJTtnYUbzsImNZIg6
+OCNqkxNKtIkzLLX9h7kCAwEAAaOCAXMwggFvMB8GA1UdIwQYMBaAFAy9k2gM896r
+o0lrKzdXR+qQ47ntMB0GA1UdDgQWBBTsFp6mcbFldk8J8qcZ6VgvqL4y0DAOBgNV
+HQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUEFjAUBggrBgEFBQcDAQYI
+KwYBBQUHAwIwIgYDVR0gBBswGTANBgsrBgEEAbIxAQICHTAIBgZngQwBAgEwOgYD
+VR0fBDMwMTAvoC2gK4YpaHR0cDovL2NybC50Y3MudGVyZW5hLm9yZy9URVJFTkFT
+U0xDQS5jcmwwbQYIKwYBBQUHAQEEYTBfMDUGCCsGAQUFBzAChilodHRwOi8vY3J0
+LnRjcy50ZXJlbmEub3JnL1RFUkVOQVNTTENBLmNydDAmBggrBgEFBQcwAYYaaHR0
+cDovL29jc3AudGNzLnRlcmVuYS5vcmcwIQYDVR0RBBowGIIWaWRwLmhhaW5hdXQt
+cHJvbXNvYy5iZTANBgkqhkiG9w0BAQUFAAOCAQEAqWXIoIBh/n3Qd92KOkrtLD0O
+MCPdoOlIe+WfzPfEFEre1QcGNIiywbTH5zR7n0GttMvopttilSIEH4JePV9uiX5m
+DdcGukEMCCtMTaahMeXTSiS9v1RE2FGe9tx1zblHOkpI9V43pWLb9zk3hitGWqN4
+Zce+zsOUf6D8xfDHAReHt5RaWtfSmlHENVix51e5kQ8Q5WAkABvSSVEvOtB1Lqlp
+Ce+uSCFKDpGchEC4Wmfb3W3ka1Vi5Q5ARUNvsjPO02XSbXYJ0bTGFUnJcOKytFBp
+HQh46e9lb2vBUoh87RleCYdNpkZRu92tzeY/iD7AHvyiap1fKXUg2tle+ahF2A==
+</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.hainaut-promsoc.be:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.hainaut-promsoc.be:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">Enseignement de Promotion Sociale de la Province de Hainaut</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">Hainaut-PromSoc</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.hainaut-promsoc.be</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Technical Support</md:GivenName>
+      <md:SurName>Technical Support</md:SurName>
+      <md:EmailAddress>webmaster@hainaut-promsoc.be</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

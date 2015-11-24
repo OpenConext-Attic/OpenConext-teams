@@ -1,0 +1,111 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://cafe1.ufes.br/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ufes.br</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">UFES - Universidade Federal do Espirito Santo</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">UFES - Universidade Federal do Espirito Santo</mdui:DisplayName>
+          <mdui:Description xml:lang="en">UFES - Universidade Federal do Espirito Santo</mdui:Description>
+          <mdui:Description xml:lang="pt-br">UFES - Universidade Federal do Espirito Santo</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.ufes.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.ufes.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIDpDCCAowCAQAwDQYJKoZIhvcNAQEFBQAwgZcxDTALBgNVBAoTBFVGRVMxDDAK
+BgNVBAsTA05QRDEnMCUGCSqGSIb3DQEJARYYaW5mcmEtbnBkQGdydXBvcy51ZmVz
+LmJyMRAwDgYDVQQHEwdWaXRvcmlhMRgwFgYDVQQIFA9Fc3DDrXJpdG8gU2FudG8x
+CzAJBgNVBAYTAkJSMRYwFAYDVQQDEw1jYWZlMS51ZmVzLmJyMB4XDTE0MDYwNjE2
+MzcxNloXDTE5MDYwNTE2MzcxNlowgZcxDTALBgNVBAoTBFVGRVMxDDAKBgNVBAsT
+A05QRDEnMCUGCSqGSIb3DQEJARYYaW5mcmEtbnBkQGdydXBvcy51ZmVzLmJyMRAw
+DgYDVQQHEwdWaXRvcmlhMRgwFgYDVQQIFA9Fc3DDrXJpdG8gU2FudG8xCzAJBgNV
+BAYTAkJSMRYwFAYDVQQDEw1jYWZlMS51ZmVzLmJyMIIBIjANBgkqhkiG9w0BAQEF
+AAOCAQ8AMIIBCgKCAQEA3L9QbE4UFs3lk6ICYFIG1N7VOFFDrh410wfABV8SFQEQ
+dUVcpLE+MBQuUNrSl76op/xOJui5pHaisCS49QkXrXBHONUc9EXuSfPxIzhPtwVE
+F1fetagySEPOg6ZeoysY2qSFgl3eHy6AhdFiyCRtbX/THAJCt/UoB8vSJkGU4DfH
+JbGNxjpvhVNh11HFfVuYg4e+W+W8jfmApksXq5yx66cnlSM9N2UXiX7DV4QEiaaB
+QM6FjUzKIu1q1MER67wekTY6t3UCa2+V1AvPCMH0OddsvVupFHk5usmVSdDHolKI
+B5E4KWmgpWpfVcTyMr2U1d/F2n5Yxq87LNgwNsalLwIDAQABMA0GCSqGSIb3DQEB
+BQUAA4IBAQBwLgsV4H4JvYOYtmHnaRqo6g2zmdO3bYT3XQ8BnUUH2xmm2mKQg9FA
+vuGK3Cg4q1GHQdZncFwAfPElXlf4t1a3pQxY9Ngosx8ksJluVbYa+M3TIGx6AH4o
+1fO8GLWExqFIJT23dBO/DwZe2cGh/Q4Eds72DKckX6QfT+7Nv/jUtXXjCbeXgbwJ
+dSjY0/TMh5yN5NHCwIuTtGpOf+X48vK298k2zH9MG3uuEP3JJT4kFu5Hog/Gpfhl
+sPyxikyiJUi3kdknbyfSpxw7RffbGfIqdB9tXapoJ0/QwG8d8bApWGekB90nD4WM
+KhLLqANoAKrZfLUN/lkAJIA9zXnzo7oR
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe1.ufes.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe1.ufes.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://cafe1.ufes.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://cafe1.ufes.br/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://cafe1.ufes.br/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://cafe1.ufes.br/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">ufes.br</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIDpDCCAowCAQAwDQYJKoZIhvcNAQEFBQAwgZcxDTALBgNVBAoTBFVGRVMxDDAK
+BgNVBAsTA05QRDEnMCUGCSqGSIb3DQEJARYYaW5mcmEtbnBkQGdydXBvcy51ZmVz
+LmJyMRAwDgYDVQQHEwdWaXRvcmlhMRgwFgYDVQQIFA9Fc3DDrXJpdG8gU2FudG8x
+CzAJBgNVBAYTAkJSMRYwFAYDVQQDEw1jYWZlMS51ZmVzLmJyMB4XDTE0MDYwNjE2
+MzcxNloXDTE5MDYwNTE2MzcxNlowgZcxDTALBgNVBAoTBFVGRVMxDDAKBgNVBAsT
+A05QRDEnMCUGCSqGSIb3DQEJARYYaW5mcmEtbnBkQGdydXBvcy51ZmVzLmJyMRAw
+DgYDVQQHEwdWaXRvcmlhMRgwFgYDVQQIFA9Fc3DDrXJpdG8gU2FudG8xCzAJBgNV
+BAYTAkJSMRYwFAYDVQQDEw1jYWZlMS51ZmVzLmJyMIIBIjANBgkqhkiG9w0BAQEF
+AAOCAQ8AMIIBCgKCAQEA3L9QbE4UFs3lk6ICYFIG1N7VOFFDrh410wfABV8SFQEQ
+dUVcpLE+MBQuUNrSl76op/xOJui5pHaisCS49QkXrXBHONUc9EXuSfPxIzhPtwVE
+F1fetagySEPOg6ZeoysY2qSFgl3eHy6AhdFiyCRtbX/THAJCt/UoB8vSJkGU4DfH
+JbGNxjpvhVNh11HFfVuYg4e+W+W8jfmApksXq5yx66cnlSM9N2UXiX7DV4QEiaaB
+QM6FjUzKIu1q1MER67wekTY6t3UCa2+V1AvPCMH0OddsvVupFHk5usmVSdDHolKI
+B5E4KWmgpWpfVcTyMr2U1d/F2n5Yxq87LNgwNsalLwIDAQABMA0GCSqGSIb3DQEB
+BQUAA4IBAQBwLgsV4H4JvYOYtmHnaRqo6g2zmdO3bYT3XQ8BnUUH2xmm2mKQg9FA
+vuGK3Cg4q1GHQdZncFwAfPElXlf4t1a3pQxY9Ngosx8ksJluVbYa+M3TIGx6AH4o
+1fO8GLWExqFIJT23dBO/DwZe2cGh/Q4Eds72DKckX6QfT+7Nv/jUtXXjCbeXgbwJ
+dSjY0/TMh5yN5NHCwIuTtGpOf+X48vK298k2zH9MG3uuEP3JJT4kFu5Hog/Gpfhl
+sPyxikyiJUi3kdknbyfSpxw7RffbGfIqdB9tXapoJ0/QwG8d8bApWGekB90nD4WM
+KhLLqANoAKrZfLUN/lkAJIA9zXnzo7oR
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://cafe1.ufes.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://cafe1.ufes.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">UFES - Universidade Federal do Espirito Santo</md:OrganizationName>
+      <md:OrganizationName xml:lang="pt-br">UFES - Universidade Federal do Espirito Santo</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">UFES - Universidade Federal do Espirito Santo</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pt-br">UFES - Universidade Federal do Espirito Santo</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.ufes.br/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="pt-br">http://www.ufes.br/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Renan Manola</md:SurName>
+      <md:EmailAddress>renan.manola@ufes.br</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

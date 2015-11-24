@@ -1,1 +1,0 @@
-ALTER TABLE invitations DROP COLUMN accepted;

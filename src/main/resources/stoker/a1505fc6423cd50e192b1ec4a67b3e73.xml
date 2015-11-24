@@ -1,0 +1,103 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp1.uwaterloo.ca/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://www.canarie.ca" registrationInstant="2014-06-19T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="en">http://www.canarie.ca/templates/services/docs/CAF_join_en.pdf</mdrpi:RegistrationPolicy>
+        <mdrpi:RegistrationPolicy xml:lang="fr">http://www.canarie.ca/templates/services/docs/CAF_join_fr.pdf</mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uwaterloo.ca</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University of Waterloo</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Students, employees and other University of Waterloo account holders</mdui:Description>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDLzCCAhegAwIBAgIUbKz7iorE+LiL1mldU1jseivAaTkwDQYJKoZIhvcNAQEF
+BQAwHDEaMBgGA1UEAxMRaWRwMS51d2F0ZXJsb28uY2EwHhcNMTQwNjE4MTMxMTQ5
+WhcNMzQwNjE4MTMxMTQ5WjAcMRowGAYDVQQDExFpZHAxLnV3YXRlcmxvby5jYTCC
+ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJLtTKyNTqUzgIoJaZs1s3UJ
+0jPSIy18S8yVyOEhGaa2MT6kd3ik1tZ3O3iFNm59oNU/IU7km+O8Lq364GME0lCD
+KEobEaH2Tcs55Hk2a9rSmpZ/9+MAW9W/UJVb7Y/T1+jpQxVB4KTVULGqleO4wwJZ
+nhRbzNFuQgSW12msKV4d0ClKct5ui2UlkCXLrC6MFOEsKoGawpm5StKSnbTzLD4K
+3B6LdSc3WQWzX8zSHwSbe0PLbH2MD1Ns37YNNFv5uDhiYeh7E9zYfqd1LmUufmK2
+3daof43rjDRi+3Ybzx44GDMp1bMp7c7Q9W2HmnrZDY0fiyeLTXURDPGbsUgENFMC
+AwEAAaNpMGcwRgYDVR0RBD8wPYIRaWRwMS51d2F0ZXJsb28uY2GGKGh0dHBzOi8v
+aWRwMS51d2F0ZXJsb28uY2EvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFHQQAyUs
+uhk9N8P6qen7W7J4k4itMA0GCSqGSIb3DQEBBQUAA4IBAQCMwr7R/xOhdI8OQlc8
+tp6gnIsUSBD6uwcXGVfjg07i/NTtfWTRG3cn8SvV5KcmxqNTQxkkhXyE92RMw88O
+OQM220jmY4fQx63af0OjtXTUYxIOK0Cg0FXMylloHdRyVqp2wbJqbclYL3IWoNRN
+nbyTdmEBxrUjKsAgJl9F4mS06iuOyBUMmcLxqPRQCNuPm7CJECTmYfUiaEKh5Keo
+4f7W4J1Jx1wcvieUsbcMRx258MXiQ+tqYvPVTAuNsFOZ3YcOUHjXTTueSLyzDVb8
+YXl9jLkki1wDKTSv8RDcUDjBWf0rITaf13Q08dKsI2gUp786n2QO9fXaKKgxSM+n
+7zvx</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp1.uwaterloo.ca/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp1.uwaterloo.ca/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp1.uwaterloo.ca/idp/profile/SAML2/Redirect/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp1.uwaterloo.ca/idp/profile/SAML2/POST/SLO"/>
+      <md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp1.uwaterloo.ca/idp/profile/SAML2/SOAP/SLO"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp1.uwaterloo.ca/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp1.uwaterloo.ca/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp1.uwaterloo.ca/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp1.uwaterloo.ca/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">uwaterloo.ca</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">University of Waterloo</mdui:DisplayName>
+          <mdui:Description xml:lang="en">Students, employees and other University of Waterloo account holders</mdui:Description>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>MIIDLzCCAhegAwIBAgIUbKz7iorE+LiL1mldU1jseivAaTkwDQYJKoZIhvcNAQEF
+BQAwHDEaMBgGA1UEAxMRaWRwMS51d2F0ZXJsb28uY2EwHhcNMTQwNjE4MTMxMTQ5
+WhcNMzQwNjE4MTMxMTQ5WjAcMRowGAYDVQQDExFpZHAxLnV3YXRlcmxvby5jYTCC
+ASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJLtTKyNTqUzgIoJaZs1s3UJ
+0jPSIy18S8yVyOEhGaa2MT6kd3ik1tZ3O3iFNm59oNU/IU7km+O8Lq364GME0lCD
+KEobEaH2Tcs55Hk2a9rSmpZ/9+MAW9W/UJVb7Y/T1+jpQxVB4KTVULGqleO4wwJZ
+nhRbzNFuQgSW12msKV4d0ClKct5ui2UlkCXLrC6MFOEsKoGawpm5StKSnbTzLD4K
+3B6LdSc3WQWzX8zSHwSbe0PLbH2MD1Ns37YNNFv5uDhiYeh7E9zYfqd1LmUufmK2
+3daof43rjDRi+3Ybzx44GDMp1bMp7c7Q9W2HmnrZDY0fiyeLTXURDPGbsUgENFMC
+AwEAAaNpMGcwRgYDVR0RBD8wPYIRaWRwMS51d2F0ZXJsb28uY2GGKGh0dHBzOi8v
+aWRwMS51d2F0ZXJsb28uY2EvaWRwL3NoaWJib2xldGgwHQYDVR0OBBYEFHQQAyUs
+uhk9N8P6qen7W7J4k4itMA0GCSqGSIb3DQEBBQUAA4IBAQCMwr7R/xOhdI8OQlc8
+tp6gnIsUSBD6uwcXGVfjg07i/NTtfWTRG3cn8SvV5KcmxqNTQxkkhXyE92RMw88O
+OQM220jmY4fQx63af0OjtXTUYxIOK0Cg0FXMylloHdRyVqp2wbJqbclYL3IWoNRN
+nbyTdmEBxrUjKsAgJl9F4mS06iuOyBUMmcLxqPRQCNuPm7CJECTmYfUiaEKh5Keo
+4f7W4J1Jx1wcvieUsbcMRx258MXiQ+tqYvPVTAuNsFOZ3YcOUHjXTTueSLyzDVb8
+YXl9jLkki1wDKTSv8RDcUDjBWf0rITaf13Q08dKsI2gUp786n2QO9fXaKKgxSM+n
+7zvx</ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp1.uwaterloo.ca/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp1.uwaterloo.ca/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">University of Waterloo</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">University of Waterloo</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.uwaterloo.ca</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:GivenName>Sean</md:GivenName>
+      <md:SurName>Mason</md:SurName>
+      <md:EmailAddress>watiam@uwaterloo.ca</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>

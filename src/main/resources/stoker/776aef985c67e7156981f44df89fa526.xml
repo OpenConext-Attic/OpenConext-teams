@@ -1,0 +1,145 @@
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:mdrpi="urn:oasis:names:tc:SAML:metadata:rpi"
+                     xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui"
+                     xmlns:ds="http://www.w3.org/2000/09/xmldsig#" entityID="https://idp.capes.gov.br/idp/shibboleth">
+    <md:Extensions>
+      <mdrpi:RegistrationInfo registrationAuthority="http://cafe.rnp.br" registrationInstant="2010-01-01T00:00:00Z">
+        <mdrpi:RegistrationPolicy xml:lang="pt-br">
+                                http://www.rnp.br/_arquivo/servicos/Politica_CAFe_IDP_final.pdf
+                              </mdrpi:RegistrationPolicy>
+      </mdrpi:RegistrationInfo>
+    </md:Extensions>
+    <md:IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">gov.br</shibmd:Scope>
+        <mdui:UIInfo>
+          <mdui:DisplayName xml:lang="en">CAPES - Coordenacao de Aperfeicoamento de Pessoal de Nivel Superior</mdui:DisplayName>
+          <mdui:DisplayName xml:lang="pt-br">CAPES - Coordenacao de Aperfeicoamento de Pessoal de Nivel Superior</mdui:DisplayName>
+          <mdui:Description xml:lang="en">CAPES - Coordenacao de Aperfeicoamento de Pessoal de Nivel Superior</mdui:Description>
+          <mdui:Description xml:lang="pt-br">CAPES - Coordenacao de Aperfeicoamento de Pessoal de Nivel Superior</mdui:Description>
+          <mdui:InformationURL xml:lang="en">http://www.capes.gov.br/</mdui:InformationURL>
+          <mdui:InformationURL xml:lang="pt-br">http://www.capes.gov.br/</mdui:InformationURL>
+        </mdui:UIInfo>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+    MIIG2TCCBcGgAwIBAgIDAX73MA0GCSqGSIb3DQEBBQUAMIGMMQswCQYDVQQGEwJJ
+TDEWMBQGA1UEChMNU3RhcnRDb20gTHRkLjErMCkGA1UECxMiU2VjdXJlIERpZ2l0
+YWwgQ2VydGlmaWNhdGUgU2lnbmluZzE4MDYGA1UEAxMvU3RhcnRDb20gQ2xhc3Mg
+MiBQcmltYXJ5IEludGVybWVkaWF0ZSBTZXJ2ZXIgQ0EwHhcNMTMwNzA4MDUwMDI1
+WhcNMTUwNzA4MTg0NTAyWjCB3zEZMBcGA1UEDRMQWkZUQ0YwM1cybTk4eFRFOTEL
+MAkGA1UEBhMCQlIxGTAXBgNVBAgTEERpc3RyaXRvIEZlZGVyYWwxETAPBgNVBAcU
+CEJyYXPtbGlhMUQwQgYDVQQKFDtDb29yZGVuYefjbyBkZSBBcGVyZmVp529hbWVu
+dG8gZGUgUGVzc29hbCBkZSBO7XZlbCBTdXBlcmlvcjEZMBcGA1UEAxMQaWRwLmNh
+cGVzLmdvdi5icjEmMCQGCSqGSIb3DQEJARYXaG9zdG1hc3RlckBjYXBlcy5nb3Yu
+YnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDAj3RA1SawXYZGlYDg
+NH5QSDR9ciTBLW7bknhlxAhxLILCbGBLu667A9id8A5eQYwZSzrf5kN9GPoSzvkD
+IGvXn6Ke4fmA7gcBv6t9CYJMbPQteHYwJHneMX1hPcKdE/CqR+01R72GCDFCA6xt
+U0aMnpT1kcpMVuQC3LP2GZJUImFIIaH3YeQkLejgFGheyBAq6PnO/yXR7zdJY8rL
+HzOYDxER2xUXVXozHEyjoi47VSglNcnQnrOzYUZiVmTfk+o1r8PGREex0JMDn+ik
+hEeTr4zzSMst5QHsARLom5vyD4OwnNyJo9kJELHKDMUTW8iu6FCmjNMT/FcKCy3W
+N6a/AgMBAAGjggLtMIIC6TAJBgNVHRMEAjAAMAsGA1UdDwQEAwIDqDAdBgNVHSUE
+FjAUBggrBgEFBQcDAgYIKwYBBQUHAwEwHQYDVR0OBBYEFPZEJt0d5X8oAnIEBSoy
+1PfJlikuMB8GA1UdIwQYMBaAFBHbI0X9VMxqcW+EigPXvvcBLyaGMCkGA1UdEQQi
+MCCCEGlkcC5jYXBlcy5nb3YuYnKCDGNhcGVzLmdvdi5icjCCAVYGA1UdIASCAU0w
+ggFJMAgGBmeBDAECAjCCATsGCysGAQQBgbU3AQIDMIIBKjAuBggrBgEFBQcCARYi
+aHR0cDovL3d3dy5zdGFydHNzbC5jb20vcG9saWN5LnBkZjCB9wYIKwYBBQUHAgIw
+geowJxYgU3RhcnRDb20gQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkwAwIBARqBvlRo
+aXMgY2VydGlmaWNhdGUgd2FzIGlzc3VlZCBhY2NvcmRpbmcgdG8gdGhlIENsYXNz
+IDIgVmFsaWRhdGlvbiByZXF1aXJlbWVudHMgb2YgdGhlIFN0YXJ0Q29tIENBIHBv
+bGljeSwgcmVsaWFuY2Ugb25seSBmb3IgdGhlIGludGVuZGVkIHB1cnBvc2UgaW4g
+Y29tcGxpYW5jZSBvZiB0aGUgcmVseWluZyBwYXJ0eSBvYmxpZ2F0aW9ucy4wNQYD
+VR0fBC4wLDAqoCigJoYkaHR0cDovL2NybC5zdGFydHNzbC5jb20vY3J0Mi1jcmwu
+Y3JsMIGOBggrBgEFBQcBAQSBgTB/MDkGCCsGAQUFBzABhi1odHRwOi8vb2NzcC5z
+dGFydHNzbC5jb20vc3ViL2NsYXNzMi9zZXJ2ZXIvY2EwQgYIKwYBBQUHMAKGNmh0
+dHA6Ly9haWEuc3RhcnRzc2wuY29tL2NlcnRzL3N1Yi5jbGFzczIuc2VydmVyLmNh
+LmNydDAjBgNVHRIEHDAahhhodHRwOi8vd3d3LnN0YXJ0c3NsLmNvbS8wDQYJKoZI
+hvcNAQEFBQADggEBABj1dE12jEodgbQi96WwcBnlyh8awDTBKNJK9IDqVoeZvrWy
+LwuTxcMYhIqqdZ3swxY0se2xJOLUyrs9R5P6z1hRr3Ey3kkyZYUYZ4d0TTouA8Av
++MDd/ruXV0DyarkYF+u1evTDcm/hKT9Vp5eqa7iaA8hDK9jFL8OKUprHcmvqy19N
+DjZEt+NigC71L/ssIag3gK1KtjHuIdDRYnc5u2ysCGa282zYO/0u2AA+pFehclYw
+nK56c5pDTUjPkC8FdHv5CneaSpEKD5idpN/VuNhRTYXwA4kt31b7JZfGtQ7o22QW
+inybujlVIVrVxtaJ34R7yirxKZ/Y6VFxLKKuiYw=
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.capes.gov.br:8443/idp/profile/SAML2/SOAP/ArtifactResolution" index="2"/>
+      <md:ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.capes.gov.br:8443/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://idp.capes.gov.br/idp/profile/SAML2/POST-SimpleSign/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.capes.gov.br/idp/profile/SAML2/POST/SSO"/>
+      <md:SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://idp.capes.gov.br/idp/profile/Shibboleth/SSO"/>
+      <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://idp.capes.gov.br/idp/profile/SAML2/Redirect/SSO"/>
+    </md:IDPSSODescriptor>
+    <md:AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+      <md:Extensions>
+        <shibmd:Scope regexp="false">gov.br</shibmd:Scope>
+      </md:Extensions>
+      <md:KeyDescriptor>
+        <ds:KeyInfo>
+          <ds:X509Data>
+            <ds:X509Certificate>
+      
+MIIG2TCCBcGgAwIBAgIDAX73MA0GCSqGSIb3DQEBBQUAMIGMMQswCQYDVQQGEwJJ
+TDEWMBQGA1UEChMNU3RhcnRDb20gTHRkLjErMCkGA1UECxMiU2VjdXJlIERpZ2l0
+YWwgQ2VydGlmaWNhdGUgU2lnbmluZzE4MDYGA1UEAxMvU3RhcnRDb20gQ2xhc3Mg
+MiBQcmltYXJ5IEludGVybWVkaWF0ZSBTZXJ2ZXIgQ0EwHhcNMTMwNzA4MDUwMDI1
+WhcNMTUwNzA4MTg0NTAyWjCB3zEZMBcGA1UEDRMQWkZUQ0YwM1cybTk4eFRFOTEL
+MAkGA1UEBhMCQlIxGTAXBgNVBAgTEERpc3RyaXRvIEZlZGVyYWwxETAPBgNVBAcU
+CEJyYXPtbGlhMUQwQgYDVQQKFDtDb29yZGVuYefjbyBkZSBBcGVyZmVp529hbWVu
+dG8gZGUgUGVzc29hbCBkZSBO7XZlbCBTdXBlcmlvcjEZMBcGA1UEAxMQaWRwLmNh
+cGVzLmdvdi5icjEmMCQGCSqGSIb3DQEJARYXaG9zdG1hc3RlckBjYXBlcy5nb3Yu
+YnIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDAj3RA1SawXYZGlYDg
+NH5QSDR9ciTBLW7bknhlxAhxLILCbGBLu667A9id8A5eQYwZSzrf5kN9GPoSzvkD
+IGvXn6Ke4fmA7gcBv6t9CYJMbPQteHYwJHneMX1hPcKdE/CqR+01R72GCDFCA6xt
+U0aMnpT1kcpMVuQC3LP2GZJUImFIIaH3YeQkLejgFGheyBAq6PnO/yXR7zdJY8rL
+HzOYDxER2xUXVXozHEyjoi47VSglNcnQnrOzYUZiVmTfk+o1r8PGREex0JMDn+ik
+hEeTr4zzSMst5QHsARLom5vyD4OwnNyJo9kJELHKDMUTW8iu6FCmjNMT/FcKCy3W
+N6a/AgMBAAGjggLtMIIC6TAJBgNVHRMEAjAAMAsGA1UdDwQEAwIDqDAdBgNVHSUE
+FjAUBggrBgEFBQcDAgYIKwYBBQUHAwEwHQYDVR0OBBYEFPZEJt0d5X8oAnIEBSoy
+1PfJlikuMB8GA1UdIwQYMBaAFBHbI0X9VMxqcW+EigPXvvcBLyaGMCkGA1UdEQQi
+MCCCEGlkcC5jYXBlcy5nb3YuYnKCDGNhcGVzLmdvdi5icjCCAVYGA1UdIASCAU0w
+ggFJMAgGBmeBDAECAjCCATsGCysGAQQBgbU3AQIDMIIBKjAuBggrBgEFBQcCARYi
+aHR0cDovL3d3dy5zdGFydHNzbC5jb20vcG9saWN5LnBkZjCB9wYIKwYBBQUHAgIw
+geowJxYgU3RhcnRDb20gQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkwAwIBARqBvlRo
+aXMgY2VydGlmaWNhdGUgd2FzIGlzc3VlZCBhY2NvcmRpbmcgdG8gdGhlIENsYXNz
+IDIgVmFsaWRhdGlvbiByZXF1aXJlbWVudHMgb2YgdGhlIFN0YXJ0Q29tIENBIHBv
+bGljeSwgcmVsaWFuY2Ugb25seSBmb3IgdGhlIGludGVuZGVkIHB1cnBvc2UgaW4g
+Y29tcGxpYW5jZSBvZiB0aGUgcmVseWluZyBwYXJ0eSBvYmxpZ2F0aW9ucy4wNQYD
+VR0fBC4wLDAqoCigJoYkaHR0cDovL2NybC5zdGFydHNzbC5jb20vY3J0Mi1jcmwu
+Y3JsMIGOBggrBgEFBQcBAQSBgTB/MDkGCCsGAQUFBzABhi1odHRwOi8vb2NzcC5z
+dGFydHNzbC5jb20vc3ViL2NsYXNzMi9zZXJ2ZXIvY2EwQgYIKwYBBQUHMAKGNmh0
+dHA6Ly9haWEuc3RhcnRzc2wuY29tL2NlcnRzL3N1Yi5jbGFzczIuc2VydmVyLmNh
+LmNydDAjBgNVHRIEHDAahhhodHRwOi8vd3d3LnN0YXJ0c3NsLmNvbS8wDQYJKoZI
+hvcNAQEFBQADggEBABj1dE12jEodgbQi96WwcBnlyh8awDTBKNJK9IDqVoeZvrWy
+LwuTxcMYhIqqdZ3swxY0se2xJOLUyrs9R5P6z1hRr3Ey3kkyZYUYZ4d0TTouA8Av
++MDd/ruXV0DyarkYF+u1evTDcm/hKT9Vp5eqa7iaA8hDK9jFL8OKUprHcmvqy19N
+DjZEt+NigC71L/ssIag3gK1KtjHuIdDRYnc5u2ysCGa282zYO/0u2AA+pFehclYw
+nK56c5pDTUjPkC8FdHv5CneaSpEKD5idpN/VuNhRTYXwA4kt31b7JZfGtQ7o22QW
+inybujlVIVrVxtaJ34R7yirxKZ/Y6VFxLKKuiYw=
+                    
+            </ds:X509Certificate>
+          </ds:X509Data>
+        </ds:KeyInfo>
+      </md:KeyDescriptor>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://idp.capes.gov.br:8443/idp/profile/SAML2/SOAP/AttributeQuery"/>
+      <md:AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://idp.capes.gov.br:8443/idp/profile/SAML1/SOAP/AttributeQuery"/>
+      <md:NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</md:NameIDFormat>
+      <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</md:NameIDFormat>
+    </md:AttributeAuthorityDescriptor>
+    <md:Organization>
+      <md:OrganizationName xml:lang="en">CAPES - Coordenacao de Aperfeicoamento de Pessoal de Nivel Superior</md:OrganizationName>
+      <md:OrganizationName xml:lang="pt-br">CAPES - Coordenacao de Aperfeicoamento de Pessoal de Nivel Superior</md:OrganizationName>
+      <md:OrganizationDisplayName xml:lang="en">CAPES - Coordenacao de Aperfeicoamento de Pessoal de Nivel Superior</md:OrganizationDisplayName>
+      <md:OrganizationDisplayName xml:lang="pt-br">CAPES - Coordenacao de Aperfeicoamento de Pessoal de Nivel Superior</md:OrganizationDisplayName>
+      <md:OrganizationURL xml:lang="en">http://www.capes.gov.br/</md:OrganizationURL>
+      <md:OrganizationURL xml:lang="pt-br">http://www.capes.gov.br/</md:OrganizationURL>
+    </md:Organization>
+    <md:ContactPerson contactType="technical">
+      <md:SurName>Marcio Jesus</md:SurName>
+      <md:EmailAddress>marcio.jesus@capes.rnp.br</md:EmailAddress>
+    </md:ContactPerson>
+  </md:EntityDescriptor>
