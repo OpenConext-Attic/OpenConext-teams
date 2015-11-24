@@ -27,6 +27,7 @@ import java.beans.PropertyEditorSupport;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
@@ -47,7 +48,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
-import org.springframework.web.servlet.LocaleResolver;
 
 import teams.Application;
 import teams.domain.Invitation;
@@ -69,7 +69,7 @@ import teams.util.ViewUtil;
  * {@link Controller} that handles the add team page of a logged in user.
  */
 @Controller
-@SessionAttributes({TokenUtil.TOKENCHECK})
+@SessionAttributes(TokenUtil.TOKENCHECK)
 public class AddTeamController {
 
   @Autowired
@@ -79,16 +79,10 @@ public class AddTeamController {
   private MessageSource messageSource;
 
   @Autowired
-  private LocaleResolver localeResolver;
-
-  @Autowired
   private Environment environment;
 
   @Autowired
   private ControllerUtil controllerUtil;
-
-  @Autowired
-  private AddMemberController addMemberController;
 
   @Autowired
   private TeamInviteService teamInviteService;
@@ -111,7 +105,7 @@ public class AddTeamController {
   }
 
   @RequestMapping(value = "/addteam.shtml", method = GET)
-  public String addTeam(Model model, HttpServletRequest request) {
+  public String addTeam(Model model, Locale locale, HttpServletRequest request) {
     if (PermissionUtil.isGuest(request)) {
       return "redirect:home.shtml";
     }
@@ -121,7 +115,7 @@ public class AddTeamController {
     List<Stem> stems = getStemsForMember(person);
 
     AddTeamCommand command = new AddTeamCommand();
-    command.setAdmin2Language(Language.find(localeResolver.resolveLocale(request)).orElse(Language.English));
+    command.setAdmin2Language(Language.find(locale).orElse(Language.English));
 
     model.addAttribute("hasMultipleStems", stems.size() > 1);
     model.addAttribute("stems", stems);
@@ -217,7 +211,7 @@ public class AddTeamController {
     teamInviteService.saveOrUpdate(invitation);
     String subject = messageSource.getMessage(INVITE_SEND_INVITE_SUBJECT, new Object[] {command.getTeamName()}, command.getAdmin2Language().locale());
 
-    addMemberController.sendInvitationByMail(invitation, subject, inviter);
+    controllerUtil.sendInvitationMail(invitation, subject, inviter);
 
     AuditLog.log("Sent invitation and saved to database: team: {}, inviter: {}, hash: {}, email: {}, role: {}",
       teamId, inviter.getId(), invitation.getInvitationHash(), command.getAdmin2Email(), invitation.getIntendedRole());

@@ -23,8 +23,6 @@ import static teams.util.TokenUtil.TOKENCHECK;
 
 import java.util.Locale;
 
-import javax.servlet.http.HttpServletRequest;
-
 import com.google.common.collect.ImmutableList;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -32,7 +30,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -46,7 +43,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.context.MessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.web.servlet.LocaleResolver;
 
 import teams.Application;
 import teams.domain.Invitation;
@@ -55,7 +51,6 @@ import teams.domain.Person;
 import teams.domain.Role;
 import teams.domain.Stem;
 import teams.domain.Team;
-import teams.interceptor.LoginInterceptor;
 import teams.service.GrouperTeamService;
 import teams.service.TeamInviteService;
 import teams.util.ControllerUtil;
@@ -68,11 +63,9 @@ public class AddTeamControllerTest {
   private AddTeamController subject;
 
   @Mock private GrouperTeamService grouperTeamServiceMock;
-  @Mock private LocaleResolver localeResolverMock;
   @Mock private Environment environment;
   @Mock private ControllerUtil controllerUtil;
   @Mock private TeamInviteService teamInviteServiceMock;
-  @Mock private AddMemberController addMemberControllerMock;
   @Mock private MessageSource messageSourceMock;
 
   private MockMvc mockMvc;
@@ -87,11 +80,9 @@ public class AddTeamControllerTest {
 
   @Test
   public void addTeamForm() throws Exception {
-    when(localeResolverMock.resolveLocale(any(HttpServletRequest.class))).thenReturn(Locale.ENGLISH);
-
     mockMvc.perform(get("/addteam.shtml")
         .sessionAttr(USER_STATUS_SESSION_KEY, "member")
-        .sessionAttr(LoginInterceptor.PERSON_SESSION_KEY, person))
+        .sessionAttr(PERSON_SESSION_KEY, person))
       .andExpect(model().attributeExists("languages"))
       .andExpect(model().attribute("addTeamCommand", hasProperty("admin2Language", is(Language.English))))
       .andExpect(view().name("addteam"));
@@ -193,7 +184,7 @@ public class AddTeamControllerTest {
 
     ArgumentCaptor<Invitation> invitationCaptor = ArgumentCaptor.forClass(Invitation.class);
     verify(teamInviteServiceMock).saveOrUpdate(invitationCaptor.capture());
-    verify(addMemberControllerMock).sendInvitationByMail(invitationCaptor.getValue(), "subject", person);
+    verify(controllerUtil).sendInvitationMail(invitationCaptor.getValue(), "subject", person);
 
     assertThat(invitationCaptor.getValue().getEmail(), is("henk@example.com"));
     assertThat(invitationCaptor.getValue().getLanguage(), is(Language.Dutch));

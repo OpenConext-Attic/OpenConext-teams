@@ -13,15 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-package teams.service.impl;
+package teams.control;
 
 import org.hibernate.validator.internal.constraintvalidators.EmailValidator;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
-
-import teams.domain.InvitationForm;
 
 /**
  * Validates {@link InvitationForm}
@@ -57,7 +54,7 @@ public class InvitationFormValidator implements Validator {
       errors.rejectValue("csvFile", "invite.errors.EmptyCSV");
     }
 
-    if (!(StringUtils.hasText(form.getEmails())) && (!form.hasCsvFile())) {
+    if (!StringUtils.hasText(form.getEmails()) && !form.hasCsvFile()) {
       errors.rejectValue("emails", "invite.errors.NoEmailAddresses");
     }
 

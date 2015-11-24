@@ -101,11 +101,11 @@ COIN.MODULES.Detailteam = function(sandbox) {
       });
 
       // Clicked [ Cancel ]
-      $(document).on("click", 'input[name=cancelAddMember]', function(e) {
-          e.preventDefault();
-      var view = $('input[name=view]').val();
-      var teamName = $('input[name=team]').val();
-      sandbox.redirectBrowserTo('detailteam.shtml?team=' + teamName + '&view=' + view);
+      $(document).on("click", 'input[name=cancelAddMember], .close a', function(e) {
+        e.preventDefault();
+        var view = $('input[name=view]').val();
+        var teamId = $('input[name=teamId]').val();
+        sandbox.redirectBrowserTo('detailteam.shtml?team=' + escape(teamId) + '&view=' + view);
       });
 
       // Clicked [ Decline ]

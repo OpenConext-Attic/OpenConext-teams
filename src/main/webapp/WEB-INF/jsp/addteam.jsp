@@ -38,8 +38,8 @@
       <input type="hidden" name="view" value="<c:out value='${view}' />" />
       <p class="label-field-wrapper">
         <label for="TeamName"><spring:message code='jsp.general.TeamName' /></label>
-        <form:input path="teamName" id="TeamName" cssClass="required" cssErrorClass="error" />
-        <form:errors path="teamName" cssClass="error" />
+        <form:input path="teamName" id="TeamName" cssClass="required" cssErrorClass="error" required="required" />
+        <form:errors path="teamName" cssClass="error" element="label" />
         <span class="inputinfo"><spring:message code="jsp.addteam.teamName.info"/></span>
       </p>
       <p class="label-field-wrapper">
@@ -71,7 +71,7 @@
         <label for="admin2"><spring:message code="jsp.addteam.admin2"/></label>
         <spring:message code="jsp.addteam.admin2.placeholder" var="admin2Placeholder"/>
         <form:input type="email" path="admin2Email" id="admin2" placeholder="${admin2Placeholder}" cssErrorClass="error" />
-        <form:errors path="admin2Email" cssClass="error" />
+        <form:errors path="admin2Email" cssClass="error" element="label" />
         <span class="inputinfo"><spring:message code="jsp.addteam.admin2.info"/></span>
       </p>
 

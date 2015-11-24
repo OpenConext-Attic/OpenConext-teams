@@ -32,11 +32,12 @@
   </div>
   <%-- = Content --%>
   <div id="Content">
-    <form:form action="doResendInvitation.shtml" commandName="invitation" method="post">
+    <form:form action="doResendInvitation.shtml" commandName="resendInvitationCommand" method="post">
       <p class="label-field-wrapper">
         <input type="hidden" name="token" value="<c:out value='${tokencheck}'/>"/>
         <input type="hidden" name="view" value="<c:out value='${view}' />" />
-        <input type="hidden" name="team" value="<c:out value='${invitation.teamId}' />" />
+        <form:hidden path="teamId" />
+        <form:hidden path="invitationId" />
         <form:label path="email"><spring:message code ="jsp.general.Email"/></form:label>
         <form:input path="email" cssErrorClass="error"/>
         <form:errors path="email" cssClass="error" element="label"/>
@@ -51,7 +52,7 @@
       </p>
       <p class="label-field-wrapper">
         <label for="messageText"><spring:message code='jsp.addmember.Message.label' /></label>
-        <textarea id="messageText" name="messageText" rows="4" cols="5"><c:out value="${messageText}"/></textarea>
+        <form:textarea id="messageText" path="messageText" rows="4" cols="5"/>
       </p>
       <p class="submit-wrapper">
         <input class="button" type="submit" name="addMember" value="<spring:message code='jsp.addmember.Submit' />" />

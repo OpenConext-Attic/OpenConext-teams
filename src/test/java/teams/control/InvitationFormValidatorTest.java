@@ -14,14 +14,16 @@
  * limitations under the License.
  */
 
-package teams.service.impl;
+package teams.control;
 
-import teams.domain.InvitationForm;
 import org.junit.Test;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.multipart.MultipartFile;
+
+import teams.control.InvitationForm;
+import teams.control.InvitationFormValidator;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

@@ -28,10 +28,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -41,7 +40,6 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.LocaleResolver;
 
 import teams.domain.ExternalGroup;
 import teams.domain.ExternalGroupProvider;
@@ -59,14 +57,10 @@ import teams.util.ViewUtil;
 @Controller
 public class HomeController {
 
-  private static final Logger LOG = LoggerFactory.getLogger(HomeController.class);
   private static final int PAGESIZE = 10;
 
   @Autowired
   private MessageSource messageSource;
-
-  @Autowired
-  private LocaleResolver localeResolver;
 
   @Autowired
   private GrouperTeamService grouperTeamService;
@@ -79,6 +73,7 @@ public class HomeController {
 
   @RequestMapping(value = {"/", "/home.shtml"})
   public String start(ModelMap modelMap, HttpServletRequest request,
+                      Locale locale,
                       @RequestParam(required = false, defaultValue = "my") String teams,
                       @RequestParam(required = false) String teamSearch,
                       @RequestParam(required = false) String groupProviderId) {
@@ -90,7 +85,7 @@ public class HomeController {
     if ("externalGroups".equals(teams)) {
       modelMap.addAttribute("display", teams);
     } else {
-      addTeams(teamSearch, person.getId(), teams, modelMap, request);
+      addTeams(teamSearch, person.getId(), teams, modelMap, locale, request);
     }
     String email = person.getEmail();
     if (StringUtils.hasText(email)) {
@@ -115,7 +110,7 @@ public class HomeController {
     modelMap.addAttribute("groupProviders", groupProviders.values());
 
     ViewUtil.addViewToModelMap(request, modelMap);
-    modelMap.addAttribute("logger", LOG);
+
     return "home";
   }
 
@@ -136,9 +131,7 @@ public class HomeController {
     modelMap.addAttribute("externalGroups", filteredGroups);
   }
 
-  private void addTeams(String query, final String person, final String display, ModelMap modelMap, HttpServletRequest request) {
-    Locale locale = localeResolver.resolveLocale(request);
-
+  private void addTeams(String query, String person, String display, ModelMap modelMap, Locale locale, HttpServletRequest request) {
     if (messageSource.getMessage("jsp.home.SearchTeam", null, locale).equals(query)) {
       query = null;
     }

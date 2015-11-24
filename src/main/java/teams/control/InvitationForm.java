@@ -13,9 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package teams.domain;
+package teams.control;
 
-import teams.domain.Person;
+import teams.domain.Language;
+import teams.domain.Role;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,7 +33,6 @@ public class InvitationForm {
   private String message;
   private String teamId;
   private MultipartFile csvFile;
-  private Person inviter;
   private Role intendedRole = Role.Member;
   private Language language;
 
@@ -72,14 +72,6 @@ public class InvitationForm {
 
   public void setCsvFile(MultipartFile csvFile) {
     this.csvFile = csvFile;
-  }
-
-  public Person getInviter() {
-    return inviter;
-  }
-
-  public void setInviter(Person inviter) {
-    this.inviter = inviter;
   }
 
   public boolean hasCsvFile() {

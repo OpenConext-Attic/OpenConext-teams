@@ -18,8 +18,7 @@ COIN.MODULES.Jointeam = function(sandbox) {
   // Public interface
   var module = {
     init: function() {
-      // Clicked [ Cancel ]
-      $(document).on("click", 'input[name=cancelJoinTeam]', function(e) {
+      $(document).on("click", 'input[name=cancelJoinTeam],.close a', function(e) {
         e.preventDefault();
         var teamId = $('input[name=team]').val();
         var view = $('input[name=view]').val();
