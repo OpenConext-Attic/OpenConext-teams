@@ -26,7 +26,6 @@ public interface TeamInviteService {
 
   /**
    * Searches for an {@link Invitation} by email address and team.
-   * May check for expiration.
    *
    * @param email address to send invitation to
    * @param team  {@link Team}
@@ -36,21 +35,12 @@ public interface TeamInviteService {
 
   /**
    * Searches for an {@link Invitation} by its generated hash
-   * (which is sent to the invitee). May check for expiration.
+   * (which is sent to the invitee).
    *
    * @param invitationId String that was sent to the invitee
    * @return {@link Invitation} if found, otherwise {@literal null}
    */
   Optional<Invitation> findInvitationByInviteId(String invitationId);
-
-  /**
-   * Searches for an {@link Invitation} by its generated hash
-   * (which is sent to the invitee). irrespective of their expiration date.
-   *
-   * @param invitationId String that was sent to the invitee
-   * @return {@link Invitation} if found, otherwise {@literal null}
-   */
-  Optional<Invitation> findAllInvitationById(String invitationId);
 
   /**
    * Searches for {@link Invitation}'s for a {@link Team}.
@@ -76,12 +66,9 @@ public interface TeamInviteService {
    */
   List<Invitation> findPendingInvitationsByEmail(String email);
 
-  /**
-   * Cleans up expired {@link Invitation}'s
-   */
-  void cleanupExpiredInvitations();
-
   void delete(Invitation invitation);
 
   void saveOrUpdate(Invitation invitation);
+
+  void cleanupExpiredInvitationsJob();
 }

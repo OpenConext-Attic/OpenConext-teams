@@ -225,7 +225,8 @@ public class InvitationController {
   @RequestMapping(value = "/deleteInvitation.shtml")
   public RedirectView deleteInvitation(HttpServletRequest request,
                                        @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-                                       @RequestParam() String token,
+                                       @RequestParam String token,
+                                       @RequestParam String id,
                                        SessionStatus status,
                                        ModelMap modelMap) {
     TokenUtil.checkTokens(sessionToken, token, status);
@@ -236,7 +237,7 @@ public class InvitationController {
       return new RedirectView("landingpage.shtml");
     }
 
-    Invitation invitation = getAllInvitationByRequest(request).orElseThrow(IllegalArgumentException::new);
+    Invitation invitation = teamInviteService.findInvitationByInviteId(id).orElseThrow(IllegalArgumentException::new);
 
     String teamId = invitation.getTeamId();
 
@@ -285,10 +286,6 @@ public class InvitationController {
     }
 
     return teamInviteService.findInvitationByInviteId(invitationId);
-  }
-
-  private Optional<Invitation> getAllInvitationByRequest(HttpServletRequest request) {
-    return teamInviteService.findAllInvitationById(request.getParameter("id"));
   }
 
 }

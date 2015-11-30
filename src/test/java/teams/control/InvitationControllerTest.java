@@ -15,6 +15,22 @@
  */
 package teams.control;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.google.common.collect.ImmutableList;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.web.bind.support.SimpleSessionStatus;
+import org.springframework.web.servlet.view.RedirectView;
+
 import teams.domain.Invitation;
 import teams.domain.Person;
 import teams.domain.Role;
@@ -22,20 +38,6 @@ import teams.domain.Team;
 import teams.service.TeamInviteService;
 import teams.util.ControllerUtil;
 import teams.util.TokenUtil;
-import org.junit.Before;
-import org.junit.Test;
-import org.springframework.web.bind.support.SimpleSessionStatus;
-import org.springframework.web.servlet.view.RedirectView;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
-import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 /**
  * Test for {@link InvitationController}
@@ -51,24 +53,20 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
     controller = new InvitationController();
 
-    String invitationHash = "0b733d119c3705ae4fc284203f1ee8ec";
+    Person person = getPersonFromSession();
+    invitation = new Invitation(person.getEmail(), "team-1");
+
+    String invitationHash = invitation.getInvitationHash();
 
     getRequest().setParameter("id", invitationHash);
-    Person person = getPersonFromSession();
     getRequest().getSession().setAttribute(PERSON_SESSION_KEY, person);
 
     Team mockTeam = mock(Team.class);
     when(mockTeam.getId()).thenReturn("team-1");
 
-    invitation = new Invitation(person.getEmail(), "team-1");
-
     TeamInviteService teamInviteService = mock(TeamInviteService.class);
     when(teamInviteService.findInvitationByInviteId(invitationHash)).thenReturn(Optional.of(invitation));
-    when(teamInviteService.findAllInvitationById(invitationHash)).thenReturn(Optional.of(invitation));
-    List<Invitation> pendingInvitations = new ArrayList<Invitation>(1);
-    pendingInvitations.add(invitation);
-    when(teamInviteService.findPendingInvitationsByEmail(
-      invitation.getEmail())).thenReturn(pendingInvitations);
+    when(teamInviteService.findPendingInvitationsByEmail(invitation.getEmail())).thenReturn(ImmutableList.of(invitation));
 
     autoWireMock(controller, teamInviteService, TeamInviteService.class);
 
@@ -143,23 +141,23 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
   @Test
   public void testDeleteAsAnAdmin() throws Exception {
-
     when(controllerUtil.hasUserAdministrativePrivileges(getPersonFromSession(), invitation.getTeamId())).thenReturn(true);
 
     String token = TokenUtil.generateSessionToken();
-    RedirectView view = controller.deleteInvitation(getRequest(), token, token, new SimpleSessionStatus(), getModelMap());
+
+    RedirectView view = controller.deleteInvitation(getRequest(), token, token, invitation.getInvitationHash(), new SimpleSessionStatus(), getModelMap());
 
     String redirectUrl = "detailteam.shtml?team=team-1&view=app";
+
     assertEquals(redirectUrl, view.getUrl());
   }
 
   @Test(expected = RuntimeException.class)
   public void testCannotDeleteWhenNoAdminPrivileges() throws Exception {
-
     when(controllerUtil.hasUserAdministrativePrivileges(getPersonFromSession(), invitation.getTeamId())).thenReturn(false);
 
     String token = TokenUtil.generateSessionToken();
-    controller.deleteInvitation(getRequest(), token, token, new SimpleSessionStatus(), getModelMap());
+    controller.deleteInvitation(getRequest(), token, token, invitation.getInvitationHash(), new SimpleSessionStatus(), getModelMap());
   }
 
   @Test

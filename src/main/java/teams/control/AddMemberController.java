@@ -170,7 +170,7 @@ public class AddMemberController {
   public String resendInvitation(@RequestParam("id") String invitationId, Model model, HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(PERSON_SESSION_KEY);
 
-    Invitation invitation = teamInviteService.findAllInvitationById(invitationId)
+    Invitation invitation = teamInviteService.findInvitationByInviteId(invitationId)
         .orElseThrow(() -> new IllegalArgumentException("Cannot find the invitation. Invitations expire after 14 days."));
 
     checkIfUserIsAdminOrManager(person, invitation.getTeamId());

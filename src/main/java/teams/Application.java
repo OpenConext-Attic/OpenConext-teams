@@ -38,6 +38,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.LocaleResolver;
@@ -65,6 +66,7 @@ import teams.util.LetterOpener;
 import teams.util.SpringMvcConfiguration;
 
 @SpringBootApplication
+@EnableScheduling
 @EnableAutoConfiguration(exclude = {SecurityAutoConfiguration.class, FreeMarkerAutoConfiguration.class, ManagementSecurityAutoConfiguration.class})
 public class Application extends SpringBootServletInitializer {
 
