@@ -12,6 +12,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
+import static teams.control.AddMemberController.INVITATION_FORM_PARAM;
 import static teams.control.AddMemberController.INVITE_SEND_INVITE_SUBJECT;
 import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
 import static teams.util.TokenUtil.TOKENCHECK;
@@ -70,7 +71,7 @@ public class AddMemberControllerTest {
     mockMvc.perform(get("/addmember.shtml")
         .sessionAttr(PERSON_SESSION_KEY, person))
       .andExpect(model().attributeExists("languages"))
-      .andExpect(model().attribute("invitationForm", hasProperty("language", is(Language.English))))
+      .andExpect(model().attribute(INVITATION_FORM_PARAM, hasProperty("language", is(Language.English))))
       .andExpect(view().name("addmember"));
   }
 
@@ -85,7 +86,7 @@ public class AddMemberControllerTest {
         .sessionAttr(TOKENCHECK, dummyToken)
         .param("teamId", team.getId())
         .param("token", dummyToken))
-      .andExpect(model().attributeHasFieldErrors("invitationForm", "emails"))
+      .andExpect(model().attributeHasFieldErrors(INVITATION_FORM_PARAM, "emails"))
       .andExpect(view().name("addmember"));
   }
 
@@ -111,5 +112,20 @@ public class AddMemberControllerTest {
 
     verify(controllerUtilMock).sendInvitationMail(invitationCaptor.capture(), eq("subject"), eq(person));
     assertThat(invitationCaptor.getValue().getEmail(), is("john@example.com"));
+  }
+
+  @Test
+  public void resendAnInvitationForm() throws Exception {
+    Invitation invitation = new Invitation("john@example.com", "teamId");
+
+    when(teamInviteServiceMock.findInvitationByInviteId("invitationId")).thenReturn(Optional.of(invitation));
+    when(controllerUtilMock.hasUserAdministrativePrivileges(person, "teamId")).thenReturn(true);
+
+    mockMvc.perform(get("/resendInvitation.shtml")
+        .sessionAttr(PERSON_SESSION_KEY, person)
+        .param("id", "invitationId"))
+    .andExpect(model().attributeExists(AddMemberController.ROLES_PARAM))
+    .andExpect(model().attributeExists(AddMemberController.RESEND_INVITATION_COMMAND_PARAM))
+    .andExpect(view().name("resendinvitation"));
   }
 }

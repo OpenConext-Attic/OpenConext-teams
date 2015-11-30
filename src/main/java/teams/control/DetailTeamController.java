@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package teams.control;
 
+import static com.google.common.base.Preconditions.checkArgument;
 import static java.net.URLDecoder.decode;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static teams.util.ViewUtil.escapeViewParameters;
@@ -35,6 +35,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.MessageSource;
+import org.springframework.context.NoSuchMessageException;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -74,7 +76,7 @@ import teams.util.ViewUtil;
  * {@link Controller} that handles the detail team page of a logged in user.
  */
 @Controller
-@SessionAttributes({TokenUtil.TOKENCHECK})
+@SessionAttributes(TokenUtil.TOKENCHECK)
 public class DetailTeamController {
 
   public static final Address[] EMPTY_ADDRESSES = new Address[0];
@@ -108,6 +110,9 @@ public class DetailTeamController {
   @Autowired
   private ControllerUtil controllerUtil;
 
+  @Autowired
+  private MessageSource messageSource;
+
   @Value("${grouperPowerUser}")
   private String grouperPowerUser;
 
@@ -118,10 +123,12 @@ public class DetailTeamController {
   private Environment environment;
 
   @RequestMapping("/detailteam.shtml")
-  public String start(ModelMap modelMap, HttpServletRequest request, @RequestParam("team") String teamId) throws IOException {
-    if (!StringUtils.hasText(teamId)) {
-      throw new IllegalArgumentException("Missing parameter for team");
-    }
+  public String detailTeam(ModelMap modelMap, HttpServletRequest request,
+      Locale locale,
+      @RequestParam("team") String teamId,
+      @RequestParam(value = "mes", required = false) String message) throws IOException {
+
+    checkArgument(StringUtils.hasText(teamId), "Missing parameter for team");
 
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
 
@@ -133,8 +140,7 @@ public class DetailTeamController {
         .map(Member::getRoles)
         .orElse(Collections.emptySet());
 
-    String message = request.getParameter("mes");
-    if (StringUtils.hasText(message)) {
+    if (StringUtils.hasText(message) && messageExists(message, locale)) {
       modelMap.addAttribute("message", message);
     }
 
@@ -145,8 +151,7 @@ public class DetailTeamController {
     modelMap.addAttribute("invitations", teamInviteService.findInvitationsForTeamExcludeAccepted(team));
 
     int offset = getOffset(request);
-    Pager membersPager = new Pager(team.getMembers().size(), offset, PAGESIZE);
-    modelMap.addAttribute("pager", membersPager);
+    modelMap.addAttribute("pager", new Pager(team.getMembers().size(), offset, PAGESIZE));
 
     modelMap.addAttribute("team", team);
     modelMap.addAttribute("adminRole", Role.Admin);
@@ -170,12 +175,23 @@ public class DetailTeamController {
     } else {
       modelMap.addAttribute(ROLE_PARAM, Role.None);
     }
+
     if (!Role.None.equals(modelMap.get(ROLE_PARAM))) {
       addLinkedExternalGroupsToModelMap(person.getId(), teamId, modelMap);
     }
+
     modelMap.addAttribute("groupzyEnabled", environment.acceptsProfiles(Application.GROUPZY_PROFILE_NAME));
 
     return "detailteam";
+  }
+
+  private boolean messageExists(String message, Locale locale) {
+    try {
+      messageSource.getMessage(message, new Object[] {}, locale);
+      return true;
+    } catch (NoSuchMessageException e) {
+      return false;
+    }
   }
 
   private int getOffset(HttpServletRequest request) {

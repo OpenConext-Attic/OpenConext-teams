@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package teams.control;
 
 import static org.junit.Assert.assertEquals;
@@ -26,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 
 import org.junit.Test;
 import org.mockito.internal.stubbing.answers.Returns;
@@ -33,12 +33,10 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.web.bind.support.SimpleSessionStatus;
 import org.springframework.web.servlet.view.RedirectView;
 
-import teams.domain.Invitation;
 import teams.domain.JoinTeamRequest;
 import teams.domain.Member;
 import teams.domain.Role;
 import teams.domain.Team;
-import teams.domain.TeamExternalGroup;
 import teams.service.GrouperTeamService;
 import teams.service.JoinTeamRequestService;
 import teams.service.TeamExternalGroupDao;
@@ -46,212 +44,198 @@ import teams.service.TeamInviteService;
 import teams.util.ControllerUtil;
 import teams.util.TokenUtil;
 
-/**
- * Tests for {@link DetailTeamController}
- */
 public class DetailTeamControllerTest extends AbstractControllerTest {
 
   private DetailTeamController detailTeamController = new DetailTeamController();
 
   @Test
-  public void testStartNotMember() throws Exception {
-    MockHttpServletRequest request = getRequest();
-
-    HashSet<Role> roles = new HashSet<>();
-    roles.add(Role.Member);
-
-    HashSet<Member> admins = new HashSet<Member>();
-    admins.add(new Member(new HashSet<>(), "Jane Doe", "member-2",
-      "jane@doe.com"));
-
-    List<Member> members = new ArrayList<>();
-    members.add(new Member(roles, "Jane Doe", "member-2", "jane@doe.com"));
-
-    Team mockTeam = new Team("team-1", "Team 1", "team description", members);
-
-    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
-    when(grouperTeamService.findTeamById("team-1")).thenReturn(mockTeam);
-    when(grouperTeamService.findAdmins(mockTeam)).thenReturn(admins);
-
-    autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
-    autoWireRemainingResources(detailTeamController);
-
-    String result = detailTeamController.start(getModelMap(), request, "team-1");
-
-    Team team = (Team) getModelMap().get("team");
-
-    Member member = team.getMembers().get(0);
-
-    assertEquals("team-1", team.getId());
-    assertEquals("Team 1", team.getName());
-    assertEquals("team description", team.getDescription());
-
-    assertEquals(1, team.getMembers().size());
-    assertEquals("Jane Doe", member.getName());
-    assertEquals("jane@doe.com", member.getEmail());
-    assertEquals("member-2", member.getId());
-    assertTrue(member.getRoles().contains(Role.Member));
-    assertFalse(member.getRoles().contains(Role.Admin));
-    assertFalse(member.getRoles().contains(Role.Manager));
-    assertEquals("detailteam", result);
-  }
-
-  @Test
-  public void testStartMember() throws Exception {
-    MockHttpServletRequest request = getRequest();
-
-    HashSet<Role> roles = new HashSet<Role>();
-    roles.add(Role.Member);
-
-    HashSet<Member> admins = new HashSet<Member>();
-    admins.add(new Member(new HashSet<Role>(), "Jane Doe", "member-2",
-      "jane@doe.com"));
-
-    List<Member> members = new ArrayList<Member>();
-    members.add(new Member(roles, "John Doe", "member-1", "john@doe.com"));
-    members.add(new Member(roles, "Jane Doe", "member-2", "jane@doe.com"));
-
-    Team mockTeam = new Team("team-1", "Team 1", "team description", members);
-
-    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
-    when(grouperTeamService.findTeamById("team-1")).thenReturn(mockTeam);
-    when(grouperTeamService.findAdmins(mockTeam)).thenReturn(admins);
-
-    JoinTeamRequestService joinTeamRequestService = mock(JoinTeamRequestService.class);
-    when(joinTeamRequestService.findPendingRequests(mockTeam.getId())).thenReturn(
-      Collections.<JoinTeamRequest>emptyList());
-
-    TeamExternalGroupDao teamExternalGroupDao = mock(TeamExternalGroupDao.class);
-    when(teamExternalGroupDao.getByTeamIdentifier("team-1")).thenReturn(new ArrayList<TeamExternalGroup>());
-
-    autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
-    autoWireMock(detailTeamController, joinTeamRequestService,
-      JoinTeamRequestService.class);
-    autoWireMock(detailTeamController, teamExternalGroupDao, TeamExternalGroupDao.class);
-    autoWireRemainingResources(detailTeamController);
-
-    String result = detailTeamController.start(getModelMap(), request, "team-1");
-
-    Team team = (Team) getModelMap().get("team");
-
-    assertEquals("team-1", team.getId());
-    assertEquals("Team 1", team.getName());
-    assertEquals("team description", team.getDescription());
-    assertEquals("detailteam", result);
-  }
+    public void testDetailTeamNotMember() throws Exception {
+      MockHttpServletRequest request = getRequest();
+  
+      HashSet<Role> roles = new HashSet<>();
+      roles.add(Role.Member);
+  
+      HashSet<Member> admins = new HashSet<>();
+      admins.add(new Member(new HashSet<>(), "Jane Doe", "member-2", "jane@doe.com"));
+  
+      List<Member> members = new ArrayList<>();
+      members.add(new Member(roles, "Jane Doe", "member-2", "jane@doe.com"));
+  
+      Team mockTeam = new Team("team-1", "Team 1", "team description", members);
+  
+      GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
+      when(grouperTeamService.findTeamById("team-1")).thenReturn(mockTeam);
+      when(grouperTeamService.findAdmins(mockTeam)).thenReturn(admins);
+  
+      autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
+      autoWireRemainingResources(detailTeamController);
+  
+      String result = detailTeamController.detailTeam(getModelMap(), request, Locale.ENGLISH, "team-1", "");
+  
+      Team team = (Team) getModelMap().get("team");
+  
+      Member member = team.getMembers().get(0);
+  
+      assertEquals("team-1", team.getId());
+      assertEquals("Team 1", team.getName());
+      assertEquals("team description", team.getDescription());
+  
+      assertEquals(1, team.getMembers().size());
+      assertEquals("Jane Doe", member.getName());
+      assertEquals("jane@doe.com", member.getEmail());
+      assertEquals("member-2", member.getId());
+      assertTrue(member.getRoles().contains(Role.Member));
+      assertFalse(member.getRoles().contains(Role.Admin));
+      assertFalse(member.getRoles().contains(Role.Manager));
+      assertEquals("detailteam", result);
+    }
 
   @Test
-  public void testStartManager() throws Exception {
-    MockHttpServletRequest request = getRequest();
-
-    HashSet<Role> roles = new HashSet<Role>();
-    roles.add(Role.Manager);
-    roles.add(Role.Member);
-
-    HashSet<Member> admins = new HashSet<Member>();
-    admins.add(new Member(new HashSet<Role>(), "Jane Doe", "member-2",
-      "jane@doe.com"));
-
-    List<Member> members = new ArrayList<Member>();
-    members.add(new Member(roles, "John Doe", "member-1", "john@doe.com"));
-    members.add(new Member(roles, "Jane Doe", "member-2", "jane@doe.com"));
-
-    Team mockTeam = new Team("team-1", "Team 1", "team description", members);
-
-    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
-    when(grouperTeamService.findTeamById("team-1")).thenReturn(mockTeam);
-    when(grouperTeamService.findAdmins(mockTeam)).thenReturn(admins);
-
-    JoinTeamRequestService joinTeamRequestService = mock(JoinTeamRequestService.class);
-    when(joinTeamRequestService.findPendingRequests(mockTeam.getId())).thenReturn(
-      Collections.<JoinTeamRequest>emptyList());
-
-    TeamExternalGroupDao teamExternalGroupDao = mock(TeamExternalGroupDao.class);
-    when(teamExternalGroupDao.getByTeamIdentifier("team-1")).thenReturn(new ArrayList<TeamExternalGroup>());
-
-    autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
-    autoWireMock(detailTeamController, joinTeamRequestService,
-      JoinTeamRequestService.class);
-    autoWireMock(detailTeamController, teamExternalGroupDao, TeamExternalGroupDao.class);
-
-    autoWireRemainingResources(detailTeamController);
-
-    String result = detailTeamController.start(getModelMap(), request, "team-1");
-
-    Team team = (Team) getModelMap().get("team");
-
-    assertEquals("team-1", team.getId());
-    assertEquals("Team 1", team.getName());
-    assertEquals("team description", team.getDescription());
-    assertEquals("detailteam", result);
-  }
+    public void testDetailTeamMember() throws Exception {
+      MockHttpServletRequest request = getRequest();
+  
+      HashSet<Role> roles = new HashSet<>();
+      roles.add(Role.Member);
+  
+      HashSet<Member> admins = new HashSet<>();
+      admins.add(new Member(new HashSet<>(), "Jane Doe", "member-2", "jane@doe.com"));
+  
+      List<Member> members = new ArrayList<>();
+      members.add(new Member(roles, "John Doe", "member-1", "john@doe.com"));
+      members.add(new Member(roles, "Jane Doe", "member-2", "jane@doe.com"));
+  
+      Team mockTeam = new Team("team-1", "Team 1", "team description", members);
+  
+      GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
+      when(grouperTeamService.findTeamById("team-1")).thenReturn(mockTeam);
+      when(grouperTeamService.findAdmins(mockTeam)).thenReturn(admins);
+  
+      JoinTeamRequestService joinTeamRequestService = mock(JoinTeamRequestService.class);
+      when(joinTeamRequestService.findPendingRequests(mockTeam.getId())).thenReturn(
+        Collections.<JoinTeamRequest>emptyList());
+  
+      TeamExternalGroupDao teamExternalGroupDao = mock(TeamExternalGroupDao.class);
+      when(teamExternalGroupDao.getByTeamIdentifier("team-1")).thenReturn(new ArrayList<>());
+  
+      autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
+      autoWireMock(detailTeamController, joinTeamRequestService, JoinTeamRequestService.class);
+      autoWireMock(detailTeamController, teamExternalGroupDao, TeamExternalGroupDao.class);
+      autoWireRemainingResources(detailTeamController);
+  
+      String result = detailTeamController.detailTeam(getModelMap(), request, Locale.ENGLISH, "team-1", "");
+  
+      Team team = (Team) getModelMap().get("team");
+  
+      assertEquals("team-1", team.getId());
+      assertEquals("Team 1", team.getName());
+      assertEquals("team description", team.getDescription());
+      assertEquals("detailteam", result);
+    }
 
   @Test
-  public void testStartAdmin() throws Exception {
-    MockHttpServletRequest request = getRequest();
+    public void testDetailTeamManager() throws Exception {
+      MockHttpServletRequest request = getRequest();
+  
+      HashSet<Role> roles = new HashSet<>();
+      roles.add(Role.Manager);
+      roles.add(Role.Member);
+  
+      HashSet<Member> admins = new HashSet<>();
+      admins.add(new Member(new HashSet<>(), "Jane Doe", "member-2", "jane@doe.com"));
+  
+      List<Member> members = new ArrayList<>();
+      members.add(new Member(roles, "John Doe", "member-1", "john@doe.com"));
+      members.add(new Member(roles, "Jane Doe", "member-2", "jane@doe.com"));
+  
+      Team mockTeam = new Team("team-1", "Team 1", "team description", members);
+  
+      GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
+      when(grouperTeamService.findTeamById("team-1")).thenReturn(mockTeam);
+      when(grouperTeamService.findAdmins(mockTeam)).thenReturn(admins);
+  
+      JoinTeamRequestService joinTeamRequestService = mock(JoinTeamRequestService.class);
+      when(joinTeamRequestService.findPendingRequests(mockTeam.getId())).thenReturn(Collections.emptyList());
+  
+      TeamExternalGroupDao teamExternalGroupDao = mock(TeamExternalGroupDao.class);
+      when(teamExternalGroupDao.getByTeamIdentifier("team-1")).thenReturn(new ArrayList<>());
+  
+      autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
+      autoWireMock(detailTeamController, joinTeamRequestService, JoinTeamRequestService.class);
+      autoWireMock(detailTeamController, teamExternalGroupDao, TeamExternalGroupDao.class);
+  
+      autoWireRemainingResources(detailTeamController);
+  
+      String result = detailTeamController.detailTeam(getModelMap(), request, Locale.ENGLISH, "team-1", "");
+  
+      Team team = (Team) getModelMap().get("team");
+  
+      assertEquals("team-1", team.getId());
+      assertEquals("Team 1", team.getName());
+      assertEquals("team description", team.getDescription());
+      assertEquals("detailteam", result);
+    }
 
-    HashSet<Role> roles = new HashSet<Role>();
-    roles.add(Role.Manager);
-    roles.add(Role.Member);
-    roles.add(Role.Admin);
-
-    HashSet<Member> admins = new HashSet<Member>();
-    admins.add(new Member(new HashSet<Role>(), "Jane Doe", "member-2",
-      "jane@doe.com"));
-
-    List<Member> members = new ArrayList<Member>();
-    members.add(new Member(roles, "John Doe", "member-1", "john@doe.com"));
-    members.add(new Member(roles, "Jane Doe", "member-2", "jane@doe.com"));
-
-    Team mockTeam = new Team("team-1", "Team 1", "team description", members);
-
-    GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
-    when(grouperTeamService.findTeamById("team-1")).thenReturn(mockTeam);
-    when(grouperTeamService.findAdmins(mockTeam)).thenReturn(admins);
-
-    JoinTeamRequestService joinTeamRequestService = mock(JoinTeamRequestService.class);
-    when(joinTeamRequestService.findPendingRequests(mockTeam.getId())).thenReturn(
-      Collections.<JoinTeamRequest>emptyList());
-
-    TeamExternalGroupDao teamExternalGroupDao = mock(TeamExternalGroupDao.class);
-    when(teamExternalGroupDao.getByTeamIdentifier("team-1")).thenReturn(new ArrayList<TeamExternalGroup>());
-
-    autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
-    autoWireMock(detailTeamController, joinTeamRequestService,
-      JoinTeamRequestService.class);
-    autoWireMock(detailTeamController, teamExternalGroupDao, TeamExternalGroupDao.class);
-
-    autoWireRemainingResources(detailTeamController);
-
-    String result = detailTeamController.start(getModelMap(), request, "team-1");
-
-    Team team = (Team) getModelMap().get("team");
-    boolean onlyAdmin = (Boolean) getModelMap().get("onlyAdmin");
-
-    assertEquals("team-1", team.getId());
-    assertEquals("Team 1", team.getName());
-    assertEquals("team description", team.getDescription());
-    assertTrue(onlyAdmin);
-    assertEquals("detailteam", result);
-  }
+  @Test
+    public void testDetailTeamAdmin() throws Exception {
+      MockHttpServletRequest request = getRequest();
+  
+      HashSet<Role> roles = new HashSet<Role>();
+      roles.add(Role.Manager);
+      roles.add(Role.Member);
+      roles.add(Role.Admin);
+  
+      HashSet<Member> admins = new HashSet<>();
+      admins.add(new Member(new HashSet<>(), "Jane Doe", "member-2", "jane@doe.com"));
+  
+      List<Member> members = new ArrayList<>();
+      members.add(new Member(roles, "John Doe", "member-1", "john@doe.com"));
+      members.add(new Member(roles, "Jane Doe", "member-2", "jane@doe.com"));
+  
+      Team mockTeam = new Team("team-1", "Team 1", "team description", members);
+  
+      GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
+      when(grouperTeamService.findTeamById("team-1")).thenReturn(mockTeam);
+      when(grouperTeamService.findAdmins(mockTeam)).thenReturn(admins);
+  
+      JoinTeamRequestService joinTeamRequestService = mock(JoinTeamRequestService.class);
+      when(joinTeamRequestService.findPendingRequests(mockTeam.getId())).thenReturn(Collections.emptyList());
+  
+      TeamExternalGroupDao teamExternalGroupDao = mock(TeamExternalGroupDao.class);
+      when(teamExternalGroupDao.getByTeamIdentifier("team-1")).thenReturn(new ArrayList<>());
+  
+      autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
+      autoWireMock(detailTeamController, joinTeamRequestService, JoinTeamRequestService.class);
+      autoWireMock(detailTeamController, teamExternalGroupDao, TeamExternalGroupDao.class);
+  
+      autoWireRemainingResources(detailTeamController);
+  
+      String result = detailTeamController.detailTeam(getModelMap(), request, Locale.ENGLISH, "team-1", "");
+  
+      Team team = (Team) getModelMap().get("team");
+      boolean onlyAdmin = (Boolean) getModelMap().get("onlyAdmin");
+  
+      assertEquals("team-1", team.getId());
+      assertEquals("Team 1", team.getName());
+      assertEquals("team description", team.getDescription());
+      assertTrue(onlyAdmin);
+      assertEquals("detailteam", result);
+    }
 
   @Test
   public void testLeaveTeamHappyFlow() throws Exception {
     MockHttpServletRequest request = getRequest();
     String token = TokenUtil.generateSessionToken();
 
-    HashSet<Role> roles = new HashSet<Role>();
+    HashSet<Role> roles = new HashSet<>();
     roles.add(Role.Manager);
     roles.add(Role.Member);
     roles.add(Role.Admin);
 
-    HashSet<Member> admins = new HashSet<Member>();
-    admins.add(new Member(new HashSet<Role>(), "Jane Doe", "member-2",
-      "jane@doe.com"));
-    admins.add(new Member(new HashSet<Role>(), "John Doe", "member-1",
-      "john@doe.com"));
+    HashSet<Member> admins = new HashSet<>();
+    admins.add(new Member(new HashSet<>(), "Jane Doe", "member-2", "jane@doe.com"));
+    admins.add(new Member(new HashSet<>(), "John Doe", "member-1", "john@doe.com"));
 
-    List<Member> members = new ArrayList<Member>();
+    List<Member> members = new ArrayList<>();
     members.add(new Member(roles, "John Doe", "member-1", "john@doe.com"));
     members.add(new Member(roles, "Jane Doe", "member-2", "jane@doe.com"));
 
@@ -275,16 +259,16 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     MockHttpServletRequest request = getRequest();
     String token = TokenUtil.generateSessionToken();
 
-    HashSet<Role> roles = new HashSet<Role>();
+    HashSet<Role> roles = new HashSet<>();
     roles.add(Role.Manager);
     roles.add(Role.Member);
     roles.add(Role.Admin);
 
-    HashSet<Member> admins = new HashSet<Member>();
-    admins.add(new Member(new HashSet<Role>(), "John Doe", "member-1",
+    HashSet<Member> admins = new HashSet<>();
+    admins.add(new Member(new HashSet<>(), "John Doe", "member-1",
       "john@doe.com"));
 
-    List<Member> members = new ArrayList<Member>();
+    List<Member> members = new ArrayList<>();
     members.add(new Member(roles, "John Doe", "member-1", "john@doe.com"));
     members.add(new Member(roles, "Jane Doe", "member-2", "jane@doe.com"));
 
@@ -297,8 +281,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireRemainingResources(detailTeamController);
 
-    RedirectView result = detailTeamController
-      .leaveTeam(getModelMap(), request, token, token, "team-1", new SimpleSessionStatus());
+    RedirectView result = detailTeamController.leaveTeam(getModelMap(), request, token, token, "team-1", new SimpleSessionStatus());
 
     assertEquals(
       "detailteam.shtml?team=team-1&view=app&mes=error.AdminCannotLeaveTeam",
@@ -310,7 +293,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     MockHttpServletRequest request = getRequest();
     String token = TokenUtil.generateSessionToken();
 
-    HashSet<Role> roles = new HashSet<Role>();
+    HashSet<Role> roles = new HashSet<>();
     roles.add(Role.Manager);
     roles.add(Role.Member);
     roles.add(Role.Admin);
@@ -321,7 +304,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     team.setName("team-1");
 
     TeamInviteService teamInviteService = mock(TeamInviteService.class);
-    when(teamInviteService.findAllInvitationsForTeam(team)).thenReturn(Collections.<Invitation>emptyList());
+    when(teamInviteService.findAllInvitationsForTeam(team)).thenReturn(Collections.emptyList());
 
     autoWireMock(detailTeamController, teamInviteService, TeamInviteService.class);
 
@@ -332,7 +315,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
 
     TeamExternalGroupDao teamExternalGroupDao = mock(TeamExternalGroupDao.class);
-    when(teamExternalGroupDao.getByTeamIdentifier("team-1")).thenReturn(Collections.<TeamExternalGroup>emptyList());
+    when(teamExternalGroupDao.getByTeamIdentifier("team-1")).thenReturn(Collections.emptyList());
     autoWireMock(detailTeamController, teamExternalGroupDao, TeamExternalGroupDao.class);
 
     autoWireRemainingResources(detailTeamController);
@@ -348,7 +331,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     MockHttpServletRequest request = getRequest();
     String token = TokenUtil.generateSessionToken();
 
-    HashSet<Role> roles = new HashSet<Role>();
+    HashSet<Role> roles = new HashSet<>();
     roles.add(Role.Member);
 
     Member member = new Member(roles, "John Doe", "member-1", "john@doe.com");
@@ -423,8 +406,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
     Member member = getMember();
     when(grouperTeamService.findMember("team-1", "member-1")).thenReturn(member);
-    when(grouperTeamService.addMemberRole("team-1", "member-1", Role.Manager, "member-1"))
-      .thenReturn(true);
+    when(grouperTeamService.addMemberRole("team-1", "member-1", Role.Manager, "member-1")).thenReturn(true);
     autoWireMock(detailTeamController, new Returns(true), ControllerUtil.class);
     autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireRemainingResources(detailTeamController);
@@ -452,8 +434,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
     Member member = getMember();
     when(grouperTeamService.findMember("team-1", "member-1")).thenReturn(member);
-    when(grouperTeamService.addMemberRole("team-1", "member-1", Role.Manager, "member-1"))
-      .thenReturn(false);
+    when(grouperTeamService.addMemberRole("team-1", "member-1", Role.Manager, "member-1")).thenReturn(false);
     autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);
     autoWireMock(detailTeamController, new Returns(false), ControllerUtil.class);
 
@@ -473,16 +454,15 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     request.addParameter("roleId", "1");
     request.addParameter("doAction", "remove");
 
-    HashSet<Role> roles = new HashSet<Role>();
+    HashSet<Role> roles = new HashSet<>();
     roles.add(Role.Member);
     roles.add(Role.Manager);
     roles.add(Role.Admin);
 
-    HashSet<Member> admins = new HashSet<Member>();
-    admins.add(new Member(new HashSet<Role>(), "Jane Doe", "member-2",
-      "jane@doe.com"));
+    HashSet<Member> admins = new HashSet<>();
+    admins.add(new Member(new HashSet<>(), "Jane Doe", "member-2", "jane@doe.com"));
 
-    List<Member> members = new ArrayList<Member>();
+    List<Member> members = new ArrayList<>();
     members.add(new Member(roles, "Jane Doe", "member-2", "jane@doe.com"));
 
     Team mockTeam = new Team("team-1", "Team 1", "team description", members);
@@ -521,11 +501,10 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     roles.add(Role.Manager);
     roles.add(Role.Admin);
 
-    HashSet<Member> admins = new HashSet<Member>();
-    admins.add(new Member(new HashSet<Role>(), "Jane Doe", "member-2",
-      "jane@doe.com"));
+    HashSet<Member> admins = new HashSet<>();
+    admins.add(new Member(new HashSet<>(), "Jane Doe", "member-2", "jane@doe.com"));
 
-    List<Member> members = new ArrayList<Member>();
+    List<Member> members = new ArrayList<>();
     members.add(new Member(roles, "Jane Doe", "member-2", "jane@doe.com"));
 
     Team mockTeam = new Team("team-1", "Team 1", "team description", members);
@@ -533,8 +512,7 @@ public class DetailTeamControllerTest extends AbstractControllerTest {
     GrouperTeamService grouperTeamService = mock(GrouperTeamService.class);
     when(grouperTeamService.findTeamById("team-1")).thenReturn(mockTeam);
     when(grouperTeamService.findAdmins(mockTeam)).thenReturn(admins);
-    when(grouperTeamService.removeMemberRole("team-1", "member-1", Role.Admin, "member-1"))
-      .thenReturn(false);
+    when(grouperTeamService.removeMemberRole("team-1", "member-1", Role.Admin, "member-1")).thenReturn(false);
 
     autoWireMock(detailTeamController, new Returns(true), ControllerUtil.class);
     autoWireMock(detailTeamController, grouperTeamService, GrouperTeamService.class);

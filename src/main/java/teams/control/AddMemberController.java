@@ -68,7 +68,9 @@ import teams.util.ViewUtil;
 public class AddMemberController {
   protected static final String INVITE_SEND_INVITE_SUBJECT = "invite.SendInviteSubject";
 
-  private static final String ROLES_PARAM = "roles";
+  protected static final String ROLES_PARAM = "roles";
+  protected static final String INVITATION_FORM_PARAM = "invitationForm";
+  protected static final String RESEND_INVITATION_COMMAND_PARAM = "resendInvitationCommand";
 
   @Autowired
   private TeamInviteService teamInviteService;
@@ -94,7 +96,7 @@ public class AddMemberController {
     form.setLanguage(Language.find(locale).orElse(Language.English));
 
     model.addAttribute(TOKENCHECK, TokenUtil.generateSessionToken());
-    model.addAttribute("invitationForm", form);
+    model.addAttribute(INVITATION_FORM_PARAM, form);
     model.addAttribute(ROLES_PARAM, newMemberRoles(person, team.getId()));
 
     return "addmember";
@@ -114,7 +116,7 @@ public class AddMemberController {
    * In case someone clicks the cancel button
    */
   @RequestMapping(value = "/doaddmember.shtml", method = POST, params = "cancelAddMember")
-  public RedirectView cancelAddMembers(@ModelAttribute("invitationForm") InvitationForm form,
+  public RedirectView cancelAddMembers(@ModelAttribute InvitationForm form,
                                        HttpServletRequest request,
                                        SessionStatus status) {
     status.setComplete();
@@ -124,7 +126,7 @@ public class AddMemberController {
 
   @RequestMapping(value = "/doaddmember.shtml", method = POST)
   public String doAddMembersToTeam(@ModelAttribute(TOKENCHECK) String sessionToken, @RequestParam String token,
-                                 @ModelAttribute("invitationForm") InvitationForm form, BindingResult result,
+                                 @ModelAttribute InvitationForm form, BindingResult result,
                                  HttpServletRequest request, SessionStatus status,
                                  Model model) throws IOException {
 
@@ -178,7 +180,7 @@ public class AddMemberController {
     ResendInvitationCommand command = new ResendInvitationCommand(invitation);
     invitation.getLatestInvitationMessage().ifPresent(msg -> command.setMessageText(msg.getMessage()));
 
-    model.addAttribute("resendInvitationCommand", command);
+    model.addAttribute(RESEND_INVITATION_COMMAND_PARAM, command);
     model.addAttribute(ROLES_PARAM, new Role[] {Role.Member, Role.Manager, Role.Admin});
 
     return "resendinvitation";
