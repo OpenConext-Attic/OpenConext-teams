@@ -1,3 +1,7 @@
+# Teams
+
+[![Build Status](https://travis-ci.org/OpenConext/OpenConext-teams.svg)](https://travis-ci.org/OpenConext/OpenConext-teams)
+
 ## License
 
 See the LICENSE file
