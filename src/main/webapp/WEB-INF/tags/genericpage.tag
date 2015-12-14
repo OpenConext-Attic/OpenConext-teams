@@ -28,7 +28,7 @@
   <meta content="width=device-width,initial-scale=0.5" name="viewport"/>
   <c:choose>
     <c:when test="${not empty pageTitle}">
-      <title><c:out value="${pageTitle} - "/><spring:message code="jsp.general.Title" /></title>
+      <title><c:out value="${pageTitle} - " escapeXml="false"/><spring:message code="jsp.general.Title" /></title>
     </c:when>
     <c:otherwise>
       <title><spring:message code="jsp.general.Title" /></title>
