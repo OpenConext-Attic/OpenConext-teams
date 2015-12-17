@@ -29,27 +29,16 @@
 <!-- / Content -->
 </div>
 <script>
-  /* AJAX call to retrieve a cookie */
-	function requestCookie() {
-		console.log('requesting cookie from teams');
-		$.ajax({
-			  type: 'POST',
-			  data: "",
-			  success: success,
-			  dataType: "text/html",
-			  async:false
-			});
-		return true;
-	}
-	
-	/* nothing to do here */
-	function success() {
-		console.log("received reply");
-	}
-	
-	/* focus the login button */
-	$(function() {
-		$("#loginbutton").focus();
-	});
+  function requestCookie() {
+    console.log('requesting.. cookie from teams');
+    $.ajax({
+      type: 'POST',
+      data: '',
+      async: false
+    }).done(function() {
+      console.log("received reply");
+    });
+    return true;
+  }
 </script>
 </teams:genericpage>
