@@ -20,6 +20,7 @@ import teams.service.GrouperTeamService;
 import teams.util.DuplicateTeamException;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import com.google.common.collect.ImmutableSet;
 
@@ -65,14 +66,12 @@ public class InMemoryMockTeamService implements GrouperTeamService {
 
     List<Member> dummyMembers = new ArrayList<Member>();
     for (int memberId = 10; memberId < 110; memberId++) {
-      Member dummyMember = new Member(roles1, "member" + memberId + "-name",
-        "member-" + memberId, "member" + memberId + "@surfnet.nl");
+      Member dummyMember = new Member(roles1, "member" + memberId + "-name", "member-" + memberId, "member" + memberId + "@surfnet.nl");
       dummyMembers.add(dummyMember);
     }
 
     for (int teamId = 5; teamId < 50; teamId++) {
-      Team newTeam = new Team("test-team-" + teamId,
-        "test-team-" + teamId + "-name", "description-" + teamId, true);
+      Team newTeam = new Team("test-team-" + teamId, "test-team-" + teamId + "-name", "description-" + teamId, true);
       newTeam.addMembers(dummyMembers.toArray(new Member[dummyMembers.size()]));
       teams.put(newTeam.getId(), newTeam);
     }
@@ -102,23 +101,20 @@ public class InMemoryMockTeamService implements GrouperTeamService {
   }
 
   @Override
-  public TeamResultWrapper findPublicTeams(String personId, String partOfGroupname) {
-    List<Team> teamList = new ArrayList<>(teams.values());
-    List<Team> matches = new ArrayList<>();
-    for (Team team : teamList) {
-      if (team.isViewable() && team.getName().contains(partOfGroupname)) {
-        matches.add(team);
-      }
-    }
+  public List<Team> findPublicTeams(String personId, String partOfGroupname) {
+    List<Team> matches = teams.values().stream()
+        .filter(team -> team.isViewable() && team.getName().contains(partOfGroupname))
+        .collect(Collectors.toList());
 
-    return new TeamResultWrapper(matches, matches.size(), 0, 1000);
+    return matches;
   }
 
   @Override
   public TeamResultWrapper findAllTeamsByMember(String personId, int offset, int pageSize) {
-    List<Team> teamList = new ArrayList<Team>(teams.values());
-    List<Team> matches = new ArrayList<Team>();
-    List<Team> limitedList = new ArrayList<Team>();
+    List<Team> teamList = new ArrayList<>(teams.values());
+    List<Team> matches = new ArrayList<>();
+    List<Team> limitedList = new ArrayList<>();
+
     for (Team team : teamList) {
       List<Member> members = team.getMembers();
       for (Member member : members) {
@@ -135,9 +131,9 @@ public class InMemoryMockTeamService implements GrouperTeamService {
 
   @Override
   public TeamResultWrapper findTeamsByMember(String personId, String partOfGroupname, int offset, int pageSize) {
-    List<Team> teamList = new ArrayList<Team>(teams.values());
-    List<Team> matches = new ArrayList<Team>();
-    List<Team> limitedList = new ArrayList<Team>();
+    List<Team> teamList = new ArrayList<>(teams.values());
+    List<Team> matches = new ArrayList<>();
+    List<Team> limitedList = new ArrayList<>();
     for (Team team : teamList) {
       if (!(team.isViewable() && team.getName().contains(partOfGroupname))) {
         continue;
@@ -192,7 +188,7 @@ public class InMemoryMockTeamService implements GrouperTeamService {
   @Override
   public void addMember(String teamId, Person person) {
     // just find the member (in some other team), copy and add to team
-    List<Team> allTeams = findPublicTeams("", "").getTeams();
+    List<Team> allTeams = findPublicTeams("", "");
     Member m = null;
     for (Team team : allTeams) {
       if (m != null) {
@@ -215,8 +211,7 @@ public class InMemoryMockTeamService implements GrouperTeamService {
   }
 
   @Override
-  public void updateTeam(String teamId, String displayName,
-                         String teamDescription, String actAsSubject) {
+  public void updateTeam(String teamId, String displayName, String teamDescription, String actAsSubject) {
     Team team = findTeamById(teamId);
     team.setName(displayName);
     team.setDescription(teamDescription);

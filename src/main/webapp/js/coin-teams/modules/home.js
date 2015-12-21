@@ -20,36 +20,31 @@ COIN.MODULES.Home = function(sandbox) {
   var teamsTableSelector = "table.team-table";
   var teamsSearchResultSelector = "table.team-search-result";
 
-	// Public interface
-	var module = {
-		init: function() {
-	      // Handle search queries
-	      $("form#searchTeamsForm").submit(function(e) {
-	        library.showSearchThrobbler();
-	        $.post("findPublicTeams.json",
-	          $(searchInputSelector).parents('form:first').serialize(),
-	          function(data) {
-	            library.displaySearchResults(data);
-	            library.hideSearchThrobbler();
-	          }
-	          );
-	
-	        // do not trigger regular post
-	        return false;
-	      });
-	      
-	      // by default hide the table for search result
-	      $(teamsSearchResultSelector).hide();
-		},
+  var module = {
+    init: function() {
+      // Handle search queries
+      $("form#searchTeamsForm").submit(function(e) {
+        e.preventDefault();
+        library.showSearchThrobbler();
+        $.post("findPublicTeams.json",
+          $(searchInputSelector).parents('form:first').serialize(),
+          function(data) {
+            library.displaySearchResults(data);
+            library.hideSearchThrobbler();
+          }
+        );
+      });
 
-		destroy: function() {
+      // by default hide the table for search result
+      $(teamsSearchResultSelector).hide();
+    },
 
-		}
-	};
+    destroy: function() {
+    }
+  };
 
-	// Private library (through closure)
-	var library = {
-	
+  // Private library (through closure)
+  var library = {
     showSearchThrobbler: function() {
       $(teamsTableSelector).hide();
       $(teamsSearchResultSelector).hide();
@@ -60,27 +55,33 @@ COIN.MODULES.Home = function(sandbox) {
         .attr("style", "display:block; margin: auto; padding: 75px 0 100px 0")
       .insertAfter($(teamsTableSelector));
     },
+
     hideSearchThrobbler: function() {
       $("img#searchThrobbler").remove();
       $(teamsSearchResultSelector).show();
     },
 
-    displaySearchResults: function(results) {
-       // remove previous search result
-       $(teamsSearchResultSelector + " tbody tr").remove();
-       $(results["teams"]).each(function() {
-          $(teamsSearchResultSelector).append("<tr class='odd'><td><a href=\"detailteam.shtml?view="+view+"&team=" + encodeURIComponent(this['id']) + "\">" + library.htmlEncode(this['name']) + "</a></td><td>" + library.htmlEncode((this['description'] || "")) + "</td></tr>");
-       });
-     },
-    htmlEncode: function(value){
-    if (value) {
-      return $('<div />').text(value).html();
-    } else {
-      return '';
-    }
-  }
-	};
+    clearResults: function() {
+      $(teamsSearchResultSelector + " tbody tr").remove();
+      $(".pagination").remove();
+    },
 
-	// Return the public interface
-	return module;
+    displaySearchResults: function(results) {
+      this.clearResults();
+      $(results["teams"]).each(function(i) {
+        $(teamsSearchResultSelector).append("<tr><td><a href=\"detailteam.shtml?view="+view+"&team=" + encodeURIComponent(this['id']) + "\">" + library.htmlEncode(this['name']) + "</a></td><td>" + library.htmlEncode((this['description'] || "")) + "</td></tr>");
+        sandbox.fixTableLayout($(teamsSearchResultSelector));
+      });
+    },
+
+    htmlEncode: function(value) {
+      if (value) {
+        return $('<div />').text(value).html();
+      } else {
+        return '';
+      }
+    }
+  };
+
+  return module;
 };

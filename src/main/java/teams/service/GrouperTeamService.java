@@ -189,7 +189,7 @@ public interface GrouperTeamService {
    *          part of group name
    * @return teams including the number of total records
    */
-  TeamResultWrapper findPublicTeams(String personId, String partOfGroupname);
+  List<Team> findPublicTeams(String personId, String partOfGroupname);
 
   /**
    * Return all teams using a specific stem where the personId is a member

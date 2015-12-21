@@ -20,6 +20,7 @@
 package teams.control;
 
 import static com.google.common.base.Preconditions.checkNotNull;
+import static java.util.stream.Collectors.toList;
 import static teams.interceptor.LoginInterceptor.EXTERNAL_GROUPS_SESSION_KEY;
 import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
 
@@ -117,17 +118,17 @@ public class HomeController {
   private void addExternalGroupsToModelMap(ModelMap modelMap, int offset, String groupProviderId,
                                            Map<String, ExternalGroupProvider> groupProviders, List<ExternalGroup> groups) {
     modelMap.addAttribute("externalGroupProvider", groupProviders.get(groupProviderId));
-    List<ExternalGroup> filteredGroups = new ArrayList<>();
-    for (ExternalGroup group : groups) {
-      if (group.getGroupProviderIdentifier().equals(groupProviderId)) {
-        filteredGroups.add(group);
-      }
-    }
+
+    List<ExternalGroup> filteredGroups = groups.stream()
+        .filter(group -> group.getGroupProviderIdentifier().equals(groupProviderId))
+        .collect(toList());
+
     if (filteredGroups.size() >= PAGESIZE) {
       Pager pager = new Pager(filteredGroups.size(), offset, PAGESIZE);
       modelMap.addAttribute("pager", pager);
       filteredGroups = filteredGroups.subList(offset, offset + PAGESIZE);
     }
+
     modelMap.addAttribute("externalGroups", filteredGroups);
   }
 
@@ -144,9 +145,10 @@ public class HomeController {
     // Display all teams when the person is empty or when display equals "all"
     if ("all".equals(display) || !StringUtils.hasText(person)) {
       if (StringUtils.hasText(query)) {
-        resultWrapper = grouperTeamService.findPublicTeams(person, query);
+        List<Team> matchingTeams = grouperTeamService.findPublicTeams(person, query);
+        resultWrapper = new TeamResultWrapper(matchingTeams, matchingTeams.size(), 0, 1000);
       } else {
-        resultWrapper = new TeamResultWrapper(new ArrayList<Team>(), 0, 0, 1);
+        resultWrapper = new TeamResultWrapper(new ArrayList<>(), 0, 0, 1);
       }
       modelMap.addAttribute("display", "all");
       // else always display my teams
@@ -172,7 +174,9 @@ public class HomeController {
   public TeamResultWrapper findTeams(HttpServletRequest request, @RequestParam(required = false) String teamSearch) {
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
 
-    return grouperTeamService.findPublicTeams(person.getId(), teamSearch);
+    List<Team> matchedTeams = grouperTeamService.findPublicTeams(person.getId(), teamSearch);
+
+    return new TeamResultWrapper(matchedTeams, matchedTeams.size(), 0, PAGESIZE);
   }
 
   private int getOffset(HttpServletRequest request) {

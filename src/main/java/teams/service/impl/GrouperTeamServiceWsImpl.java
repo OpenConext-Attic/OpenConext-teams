@@ -13,10 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package teams.service.impl;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -268,9 +271,6 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
     return result;
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public String addTeam(String teamId, String displayName, String teamDescription, String stemName) throws DuplicateTeamException {
     if (!StringUtils.hasText(teamId)) {
@@ -477,10 +477,9 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
   }
 
   @Override
-  public TeamResultWrapper findPublicTeams(String personId, String partOfGroupname) {
+  public List<Team> findPublicTeams(String personId, String partOfGroupname) {
     // FIXME: exclude teams from etc stem
     try {
-      long start = System.currentTimeMillis();
       WsQueryFilter filter = new WsQueryFilter();
       filter.setGroupName(defaultStemName + ":%" + partOfGroupname + "%");
       filter.setQueryFilterType("FIND_BY_GROUP_NAME_APPROXIMATE");
@@ -490,13 +489,13 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
         .assignActAsSubject(getActAsSubject(personId))
         .assignIncludeGroupDetail(false)
         .execute();
-      long end = System.currentTimeMillis();
-      LOG.trace("findTeams: {} ms", end - start);
 
-      return buildTeamResultWrapper(results, 0, 1000, personId, false);
+      return Arrays.stream(results.getGroupResults())
+          .map(g -> buildTeam(g, personId, false))
+          .collect(toList());
     } catch (GcWebServiceError e) {
       LOG.debug("Could not get teams by member {}. Perhaps no groups for this user? Will return empty list. Exception msg: {}", personId, e.getMessage());
-      return new TeamResultWrapper(new ArrayList<Team>(), 0, 0, 1000);
+      return Collections.emptyList();
     }
   }
 
@@ -530,6 +529,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
         .execute();
       long end2 = System.currentTimeMillis();
       LOG.trace("findAllTeamsByMember, count: {} ms", end2 - start2);
+
       int totalCount = (totalCountResults.getResults() != null
         && totalCountResults.getResults().length > 0
         && totalCountResults.getResults()[0].getWsGroups() != null)
@@ -601,16 +601,6 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
       }
     }
     return stems;
-  }
-
-  private TeamResultWrapper buildTeamResultWrapper(WsFindGroupsResults results, int offset, int pageSize, String userId, boolean addMemberCountAndRoles) {
-    List<Team> teams = new ArrayList<>();
-    if (results.getGroupResults() != null && results.getGroupResults().length > 0) {
-      for (WsGroup group : results.getGroupResults()) {
-        teams.add(buildTeam(group, userId, addMemberCountAndRoles));
-      }
-    }
-    return new TeamResultWrapper(teams, teams.size(), offset, pageSize);
   }
 
   private Team buildTeam(WsGroup group, String userId, boolean addMemberCountAndRoles) {
