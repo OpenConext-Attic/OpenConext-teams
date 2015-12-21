@@ -23,23 +23,20 @@ import java.util.List;
  * Utility class for paging
  */
 public class Pager {
-  private int totalCount;
+  private long totalCount;
   private int offset;
   private int pageSize;
 
   private static final int MAX_VISIBLE = 5;
   private static final int PAGES_BEFORE = 2; // Math.ceil(MAX_VISIBLE/2)
 
-  public Pager(int totalCount, int offset, int pageSize) {
+  public Pager(long totalCount, int offset, int pageSize) {
     this.totalCount = totalCount;
     this.offset = offset;
     this.pageSize = pageSize;
   }
 
-  /**
-   * @return the totalCount
-   */
-  public int getTotalCount() {
+  public long getTotalCount() {
     return totalCount;
   }
 

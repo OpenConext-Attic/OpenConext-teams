@@ -156,9 +156,8 @@ public abstract class AbstractControllerTest {
    * @param answer         the answer to return on method invocations
    * @param interfaceClass the class to mock
    */
-  @SuppressWarnings("unchecked")
-  protected void autoWireMock(Object target, Answer answer, Class interfaceClass) throws Exception {
-    Object mock = mock(interfaceClass, answer);
+  protected <T> void autoWireMock(Object target, Answer<?> answer, Class<T> interfaceClass) throws Exception {
+    T mock = mock(interfaceClass, answer);
     autoWireMock(target, mock, interfaceClass);
   }
 
@@ -167,15 +166,14 @@ public abstract class AbstractControllerTest {
    * @param mock           the mock Object to return on method invocations
    * @param interfaceClass the class to mock
    */
-  protected void autoWireMock(Object target, Object mock, Class interfaceClass) throws Exception {
+  protected void autoWireMock(Object target, Object mock, Class<?> interfaceClass) throws Exception {
     boolean found = doAutoWireMock(target, mock, interfaceClass, target.getClass().getDeclaredFields());
     if (!found) {
       doAutoWireMock(target, mock, interfaceClass, target.getClass().getSuperclass().getDeclaredFields());
     }
   }
 
-  private boolean doAutoWireMock(Object target, Object mock,
-                                 Class interfaceClass, Field[] fields) throws IllegalAccessException {
+  private boolean doAutoWireMock(Object target, Object mock, Class<?> interfaceClass, Field[] fields) throws IllegalAccessException {
     boolean found = false;
     for (Field field : fields) {
       if (field.getType().equals(interfaceClass)) {

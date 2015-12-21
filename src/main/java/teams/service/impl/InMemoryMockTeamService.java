@@ -15,14 +15,27 @@
  */
 package teams.service.impl;
 
-import teams.domain.*;
-import teams.service.GrouperTeamService;
-import teams.util.DuplicateTeamException;
+import static java.util.stream.Collectors.toList;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.function.Predicate;
 
 import com.google.common.collect.ImmutableSet;
+
+import teams.domain.Member;
+import teams.domain.Person;
+import teams.domain.Role;
+import teams.domain.Stem;
+import teams.domain.Team;
+import teams.domain.TeamResultWrapper;
+import teams.service.GrouperTeamService;
+import teams.util.DuplicateTeamException;
 
 /**
  * Mock implementation of {@link teams.service.GrouperTeamService}
@@ -104,51 +117,31 @@ public class InMemoryMockTeamService implements GrouperTeamService {
   public List<Team> findPublicTeams(String personId, String partOfGroupname) {
     List<Team> matches = teams.values().stream()
         .filter(team -> team.isViewable() && team.getName().contains(partOfGroupname))
-        .collect(Collectors.toList());
+        .collect(toList());
 
     return matches;
   }
 
   @Override
   public TeamResultWrapper findAllTeamsByMember(String personId, int offset, int pageSize) {
-    List<Team> teamList = new ArrayList<>(teams.values());
-    List<Team> matches = new ArrayList<>();
-    List<Team> limitedList = new ArrayList<>();
-
-    for (Team team : teamList) {
-      List<Member> members = team.getMembers();
-      for (Member member : members) {
-        if (personId.equals(member.getId())) {
-          matches.add(team);
-        }
-      }
-    }
-    for (int i = offset; i < matches.size() && i < offset + pageSize; i++) {
-      limitedList.add(matches.get(i));
-    }
-    return new TeamResultWrapper(limitedList, matches.size(), offset, pageSize);
+    return findTeams(offset, pageSize, team -> team.getMembers().stream().anyMatch(member -> personId.equals(member.getId())));
   }
 
   @Override
   public TeamResultWrapper findTeamsByMember(String personId, String partOfGroupname, int offset, int pageSize) {
-    List<Team> teamList = new ArrayList<>(teams.values());
-    List<Team> matches = new ArrayList<>();
-    List<Team> limitedList = new ArrayList<>();
-    for (Team team : teamList) {
+    return findTeams(offset, pageSize, team -> {
       if (!(team.isViewable() && team.getName().contains(partOfGroupname))) {
-        continue;
+        return false;
       }
-      List<Member> members = team.getMembers();
-      for (Member member : members) {
-        if (personId.equals(member.getId())) {
-          matches.add(team);
-        }
-      }
-    }
-    for (int i = offset; i < matches.size() && i < offset + pageSize; i++) {
-      limitedList.add(matches.get(i));
-    }
-    return new TeamResultWrapper(limitedList, matches.size(), offset, pageSize);
+      return team.getMembers().stream().anyMatch(member -> personId.equals(member.getId()));
+    });
+  }
+
+  private TeamResultWrapper findTeams(int offset, int pageSize, Predicate<Team> predicate) {
+    List<Team> matches = teams.values().stream().filter(predicate).collect(toList());
+    List<Team> limitedMatches = matches.stream().skip(offset).limit(pageSize).collect(toList());
+
+    return new TeamResultWrapper(limitedMatches, matches.size(), offset, pageSize);
   }
 
   @Override
@@ -203,7 +196,7 @@ public class InMemoryMockTeamService implements GrouperTeamService {
       }
     }
     if (m == null) {
-      m = new Member(new HashSet<Role>(), person);
+      m = new Member(new HashSet<>(), person);
     }
     m.setGuest(person.isGuest());
     Team team = findTeamById(teamId);
@@ -221,5 +214,4 @@ public class InMemoryMockTeamService implements GrouperTeamService {
   public Stem findStem(String stemId) {
     return null;
   }
-
 }

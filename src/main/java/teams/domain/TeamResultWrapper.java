@@ -27,12 +27,12 @@ import java.util.List;
 public class TeamResultWrapper {
 
   private List<Team> teams;
-  private int totalCount;
+  private long totalCount;
   private int offset;
   private int pageSize;
   private Pager pager;
 
-  public TeamResultWrapper(List<Team> teams, int totalCount, int offset, int pageSize) {
+  public TeamResultWrapper(List<Team> teams, long totalCount, int offset, int pageSize) {
     super();
     this.teams = teams;
     this.totalCount = totalCount;
@@ -61,7 +61,7 @@ public class TeamResultWrapper {
     return pageSize;
   }
 
-  public int getTotalCount() {
+  public long getTotalCount() {
     return totalCount;
   }
 
