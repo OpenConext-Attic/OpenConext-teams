@@ -1,6 +1,7 @@
 # Teams
 
 [![Build Status](https://travis-ci.org/OpenConext/OpenConext-teams.svg)](https://travis-ci.org/OpenConext/OpenConext-teams)
+[![codecov.io](https://codecov.io/github/OpenConext/OpenConext-teams/coverage.svg)](https://codecov.io/github/OpenConext/OpenConext-teams)
 
 ## License
 
