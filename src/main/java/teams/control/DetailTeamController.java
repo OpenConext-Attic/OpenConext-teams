@@ -267,8 +267,7 @@ public class DetailTeamController {
   @RequestMapping(value = "/dodeleteteam.shtml", method = RequestMethod.POST)
   public RedirectView deleteTeam(ModelMap modelMap, HttpServletRequest request,
                                  @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-                                 @RequestParam() String token, @RequestParam("team") String teamId, SessionStatus status)
-    throws UnsupportedEncodingException {
+                                 @RequestParam String token, @RequestParam("team") String teamId, SessionStatus status) throws UnsupportedEncodingException {
     TokenUtil.checkTokens(sessionToken, token, status);
 
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
@@ -293,6 +292,7 @@ public class DetailTeamController {
         teamExternalGroupDao.delete(teamExternalGroup);
       }
       grouperTeamService.deleteTeam(teamId);
+
       AuditLog.log("User {} deleted team {}", personId, teamId);
 
       status.setComplete();
@@ -309,7 +309,7 @@ public class DetailTeamController {
   public RedirectView deleteMember(ModelMap modelMap,
                                    HttpServletRequest request,
                                    @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
-                                   @RequestParam() String token, @RequestParam("team") String teamId, SessionStatus status) throws UnsupportedEncodingException {
+                                   @RequestParam String token, @RequestParam("team") String teamId, SessionStatus status) throws UnsupportedEncodingException {
     TokenUtil.checkTokens(sessionToken, token, status);
     String personId = decode(request.getParameter(MEMBER_PARAM), UTF_8.name());
     Person ownerPerson = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);

@@ -74,18 +74,14 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
 
   private static final Logger LOG = LoggerFactory.getLogger(GrouperTeamServiceWsImpl.class);
 
+  private static final String[] FORBIDDEN_CHARS = new String[]{"<", ">", "/", "\\", "*", ":", ",", "%"};
+
   private final MemberAttributeService memberAttributeService;
 
   private final String defaultStemName;
-
   private final String powerUser;
 
-
-  private static final String[] FORBIDDEN_CHARS = new String[]{"<", ">", "/",
-    "\\", "*", ":", ",", "%"};
-
-  public GrouperTeamServiceWsImpl(MemberAttributeService memberAttributeService,
-                                  String defaultStemName, String powerUser) {
+  public GrouperTeamServiceWsImpl(MemberAttributeService memberAttributeService, String defaultStemName, String powerUser) {
     this.memberAttributeService = memberAttributeService;
     this.defaultStemName = defaultStemName;
     this.powerUser = powerUser;
@@ -93,16 +89,19 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
 
   @Override
   public Team findTeamById(String teamId) {
-    GcFindGroups findGroups = new GcFindGroups();
     WsSubjectLookup actAsSubject = getActAsSubject(powerUser);
+
+    GcFindGroups findGroups = new GcFindGroups();
     findGroups.assignActAsSubject(actAsSubject);
     findGroups.assignIncludeGroupDetail(Boolean.TRUE);
     findGroups.addGroupName(teamId);
-    WsFindGroupsResults findResults = findGroups.execute();
-    WsGroup[] groupResults = findResults.getGroupResults();
+
+    WsGroup[] groupResults = findGroups.execute().getGroupResults();
+
     if (groupResults == null || groupResults.length == 0) {
       throw new RuntimeException("No team found with Id('" + teamId + "')");
     }
+
     WsGroup wsGroup = groupResults[0];
     WsGrouperPrivilegeResult[] privilegeResults = getGroupPrivileges(wsGroup.getName());
 
@@ -116,7 +115,6 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
       privilegeResults), stem, getVisibilityGroup(wsGroup.getName(),
       privilegeResults));
   }
-
 
   @Override
   public Stem findStem(String stemId) {
@@ -168,16 +166,14 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
    * @param privilegeResults query result from Grouper as array
    * @return List of Member's, can be empty
    */
-  private List<Member> getMembers(final String teamId,
-                                  final WsGrouperPrivilegeResult[] privilegeResults) {
+  private List<Member> getMembers(final String teamId, final WsGrouperPrivilegeResult[] privilegeResults) {
     List<Member> members = new ArrayList<Member>();
     if (privilegeResults == null) {
       return members;
     }
 
     WsGetMembersResult[] getMembers = getMemberDataFromWs(teamId);
-    if (getMembers == null || getMembers.length == 0
-      || getMembers[0].getWsSubjects() == null) {
+    if (getMembers == null || getMembers.length == 0 || getMembers[0].getWsSubjects() == null) {
       return members;
     }
 
@@ -235,7 +231,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
    * @param privilegeResults array of {@link WsGrouperPrivilegeResult}'s
    * @return Set of {@link Role}'s for this Member
    */
-  private Set<Role> getRolesForMember(final String memberId, final WsGrouperPrivilegeResult[] privilegeResults) {
+  private Set<Role> getRolesForMember(String memberId, WsGrouperPrivilegeResult[] privilegeResults) {
     return getPrivilegeResultsForMember(memberId, privilegeResults).stream()
         .map(priv -> getRole(priv.getPrivilegeName()))
         .collect(Collectors.toSet());
@@ -263,7 +259,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
    */
   private List<WsGrouperPrivilegeResult> getPrivilegeResultsForMember(
     String memberId, WsGrouperPrivilegeResult[] privilegeResults) {
-    List<WsGrouperPrivilegeResult> result = new ArrayList<WsGrouperPrivilegeResult>();
+    List<WsGrouperPrivilegeResult> result = new ArrayList<>();
     for (WsGrouperPrivilegeResult privilege : privilegeResults) {
       if (privilege.getOwnerSubject().getId().equals(memberId)) {
         result.add(privilege);
@@ -276,8 +272,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
    * {@inheritDoc}
    */
   @Override
-  public String addTeam(String teamId, String displayName,
-                        String teamDescription, String stemName) throws DuplicateTeamException {
+  public String addTeam(String teamId, String displayName, String teamDescription, String stemName) throws DuplicateTeamException {
     if (!StringUtils.hasText(teamId)) {
       throw new IllegalArgumentException("teamId is not optional");
     }
@@ -314,12 +309,8 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
     return teamId;
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public void deleteMember(String teamId, String personId) {
-
     Member member = findMember(teamId, personId);
 
     if (member.getRoles() != null) {
@@ -335,9 +326,6 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
     deleteMember.execute();
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public void deleteTeam(String teamId) {
     GcGroupDelete groupDelete = new GcGroupDelete();
@@ -347,12 +335,8 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
     groupDelete.execute();
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
-  public void updateTeam(String teamId, String displayName,
-                         String teamDescription, String actAsSubject) {
+  public void updateTeam(String teamId, String displayName, String teamDescription, String actAsSubject) {
     GcGroupSave groupSave = new GcGroupSave();
     groupSave.assignActAsSubject(getActAsSubject(actAsSubject));
     WsGroupToSave group = new WsGroupToSave();
@@ -367,12 +351,8 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
     group.setWsGroupLookup(wsGroupLookup);
     groupSave.addGroupToSave(group);
     groupSave.execute();
-
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public void setVisibilityGroup(String teamId, boolean viewable) {
     GcAssignGrouperPrivilegesLite assignPrivilege = new GcAssignGrouperPrivilegesLite();
@@ -389,9 +369,6 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
     assignPrivilege.execute();
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public boolean addMemberRole(String teamId, String memberId, Role role,
                                String actAsUserId) {
@@ -434,9 +411,6 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
     return result.getResultMetadata().getResultCode().equals("SUCCESS");
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public boolean removeMemberRole(String teamId, String memberId, Role role,
                                   String actAsUserId) {
@@ -475,9 +449,6 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
       : false;
   }
 
-  /**
-   * {@inheritDoc}
-   */
   @Override
   public void addMember(String teamId, Person person) {
     GcAddMember addMember = new GcAddMember();
