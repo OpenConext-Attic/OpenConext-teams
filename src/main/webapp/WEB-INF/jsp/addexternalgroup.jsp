@@ -28,7 +28,7 @@
     <div id="Header">
       <h1>${pageTitle}</h1>
       <c:url value="/detailteam.shtml" var="closeUrl">
-        <c:param name="team" value="${team.id}"/><c:param name="view" value="${view}"/>
+        <c:param name="team" value="${teamId}"/><c:param name="view" value="${view}"/>
       </c:url>
       <p class="close"><a href="<c:out value="${closeUrl}"/>"><spring:message code='jsp.general.CloseForm'/></a></p>
         <%-- / Header --%>
@@ -47,7 +47,8 @@
           <form action="${actionUrl}" method="post">
             <p class="label-field-wrapper">
               <input type="hidden" name="token" value="<c:out value='${tokencheck}'/>"/>
-              <input type="hidden" name="view" value="<c:out value='${view}' />"/>
+              <input type="hidden" name="view" value="<c:out value='${view}' />" />
+              <input type="hidden" name="teamId" value="<c:out value='${teamId}' />" />
             </p>
             <ul class="label-field-wrapper nobullets">
               <c:forEach var="externalGroup" items="${sessionScope.externalGroups}" varStatus="loop">
@@ -69,7 +70,6 @@
 
         </c:otherwise>
       </c:choose>
-
 
       <div class="clear"></div>
         <%-- / Content --%>

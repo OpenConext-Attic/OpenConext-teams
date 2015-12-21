@@ -15,17 +15,26 @@
  */
 package teams.control;
 
+import static java.util.stream.Collectors.toList;
+import static teams.util.TokenUtil.TOKENCHECK;
+import static teams.util.TokenUtil.checkTokens;
 import static teams.util.ViewUtil.escapeViewParameters;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import com.google.common.base.Joiner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -49,11 +58,8 @@ import teams.util.ControllerUtil;
 import teams.util.TokenUtil;
 import teams.util.ViewUtil;
 
-/**
- * Controller to add an external group to a SURFteam
- */
 @Controller
-@SessionAttributes({"team", TokenUtil.TOKENCHECK})
+@SessionAttributes(TOKENCHECK)
 public class AddExternalGroupController {
 
   private static final String EXTERNAL_GROUPS_SESSION_KEY = "externalGroups";
@@ -71,43 +77,37 @@ public class AddExternalGroupController {
   private ControllerUtil controllerUtil;
 
   @RequestMapping(value = "/addexternalgroup.shtml")
-  public String showAddExternalGroupsForm(@RequestParam String teamId, ModelMap modelMap, HttpServletRequest request) {
-
+  public String showAddExternalGroupsForm(@RequestParam String teamId, Model model, HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
+
+    checkUserHasAdministrativePrivileges(person, teamId);
+
+    Team team = teamService.findTeamById(teamId);
+
     String personId = person.getId();
-    if (!controllerUtil.hasUserAdministrativePrivileges(person, teamId)) {
-      throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct "
-        + "privileges to add external groups");
-    }
-    modelMap.addAttribute(TokenUtil.TOKENCHECK, TokenUtil.generateSessionToken());
-
-    final Team team = teamService.findTeamById(teamId);
-    modelMap.addAttribute("team", team);
-
-    List<ExternalGroup> myExternalGroups = getExternalGroups(personId, request);
+    List<ExternalGroup> myExternalGroups = getExternalGroups(personId, request.getSession());
     myExternalGroups = filterLinkedExternalGroups(team, myExternalGroups);
     request.getSession().setAttribute(EXTERNAL_GROUPS_SESSION_KEY, myExternalGroups);
-    modelMap.addAttribute("team", team);
-    ViewUtil.addViewToModelMap(request, modelMap);
+
+    model.addAttribute(TOKENCHECK, TokenUtil.generateSessionToken());
+    model.addAttribute("teamId", team.getId());
+    model.addAttribute("team", team);
 
     return "addexternalgroup";
   }
 
   @RequestMapping(value = "/deleteexternalgroup.shtml")
   public RedirectView deleteTeamExternalGroupLink(
-    @ModelAttribute(TokenUtil.TOKENCHECK) String sessionToken,
+    @ModelAttribute(TOKENCHECK) String sessionToken,
     @RequestParam String teamId,
     @RequestParam String groupIdentifier,
     @RequestParam String token,
     ModelMap modelMap, SessionStatus status, HttpServletRequest request) {
 
-    TokenUtil.checkTokens(sessionToken, token, status);
-
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
-    if (!controllerUtil.hasUserAdminPrivileges(person, teamId)) {
-      throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct "
-        + "privileges to remove external groups");
-    }
+
+    checkTokens(sessionToken, token, status);
+    checkUserIsAdmin(person, teamId);
 
     TeamExternalGroup teamExternalGroup = teamExternalGroupDao.getByTeamIdentifierAndExternalGroupIdentifier(teamId, groupIdentifier);
     if (teamExternalGroup != null) {
@@ -121,93 +121,82 @@ public class AddExternalGroupController {
     return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&view=%s", teamId, ViewUtil.getView(request)), false, true, false);
   }
 
-  /**
+  /*
    * Gets a List of {@link ExternalGroup}'s the person is a member of. First
-   * tries to get the list from the session. If this returns nothing, the groups
-   * are retrieved from the VootService.
-   *
-   * @param personId unique identifier of a person
-   * @param request  current {@link HttpServletRequest}
-   * @return List of {@link ExternalGroup}'s, may be empty
+   * tries to get the list from the session. If this returns nothing, the groups are retrieved from the VootService.
    */
   @SuppressWarnings("unchecked")
-  private List<ExternalGroup> getExternalGroups(String personId, HttpServletRequest request) {
-    List<ExternalGroup> externalGroups = (List<ExternalGroup>) request.getSession().getAttribute(EXTERNAL_GROUPS_SESSION_KEY);
+  private List<ExternalGroup> getExternalGroups(String personId, HttpSession session) {
+    List<ExternalGroup> externalGroups = (List<ExternalGroup>) session.getAttribute(EXTERNAL_GROUPS_SESSION_KEY);
     if (!CollectionUtils.isEmpty(externalGroups)) {
       return externalGroups;
     }
     return vootClient.groups(personId);
   }
 
-  /**
-   * Iterates over a List of {@link ExternalGroup}'s and removes the
-   * ExternalGroup's from the list that have already a link to the SURFteam
-   * {@link Team}
-   *
-   * @param team           SURFteam
-   * @param externalGroups List of {@link ExternalGroup}'s
-   * @return List of ExternalGroups that are not yet linked to the Team, may be empty
-   */
   private List<ExternalGroup> filterLinkedExternalGroups(Team team, List<ExternalGroup> externalGroups) {
     if (externalGroups.isEmpty()) {
       return externalGroups;
     }
-    List<ExternalGroup> filteredGroups = externalGroups;
 
-    final List<TeamExternalGroup> byTeamIdentifier = teamExternalGroupDao.getByTeamIdentifier(team.getId());
-    if (byTeamIdentifier.isEmpty()) {
-      return filteredGroups;
-    }
+    List<String> existingLinkedGroups = teamExternalGroupDao.getByTeamIdentifier(team.getId()).stream()
+        .map(teg -> teg.getExternalGroup().getIdentifier())
+        .collect(toList());
 
-    Iterator<ExternalGroup> iterator = filteredGroups.iterator();
-    while (iterator.hasNext()) {
-      ExternalGroup myNext = iterator.next();
-      for (TeamExternalGroup teg : byTeamIdentifier) {
-        if (myNext.getIdentifier().equals(teg.getExternalGroup().getIdentifier())) {
-          iterator.remove();
-        }
-      }
-    }
-
-    return filteredGroups;
+    return externalGroups.stream()
+        .filter(externalGroup -> !existingLinkedGroups.contains(externalGroup.getIdentifier()))
+        .collect(toList());
   }
 
   @RequestMapping(value = "/doaddexternalgroup.shtml", method = RequestMethod.POST)
-  public RedirectView addExternalGroups(@ModelAttribute(TokenUtil.TOKENCHECK)
-                                        String sessionToken, @ModelAttribute("team")
-                                        Team team, @RequestParam
-                                        String token, ModelMap modelMap, SessionStatus status, HttpServletRequest request) {
+  public RedirectView addExternalGroups(@ModelAttribute(TOKENCHECK) String sessionToken,
+                                        @ModelAttribute("teamId") String teamId,
+                                        @RequestParam String token,
+                                        ModelMap modelMap, SessionStatus status, HttpServletRequest request) {
 
-    TokenUtil.checkTokens(sessionToken, token, status);
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
+
+    checkTokens(sessionToken, token, status);
+    checkUserHasAdministrativePrivileges(person, teamId);
+
     String personId = person.getId();
-    if (!controllerUtil.hasUserAdministrativePrivileges(person, team.getId())) {
-      throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct "
-        + "privileges to add external groups");
-    }
 
-    final List<ExternalGroup> myExternalGroups = getExternalGroups(personId, request);
-    Map<String, ExternalGroup> map = new HashMap<>();
-    for (ExternalGroup e : myExternalGroups) {
-      map.put(e.getIdentifier(), e);
-    }
-    final String[] chosenGroups = request.getParameterValues(EXTERNAL_GROUPS_SESSION_KEY);
+    Map<String, ExternalGroup> externalGroupMap = getExternalGroups(personId, request.getSession()).stream()
+        .collect(Collectors.toMap(ExternalGroup::getIdentifier, Function.identity()));
 
-    List<TeamExternalGroup> teamExternalGroups = new ArrayList<>();
-    for (String identifier : chosenGroups) {
-      TeamExternalGroup t = new TeamExternalGroup();
-      t.setGrouperTeamId(team.getId());
-      ExternalGroup externalGroup = map.get(identifier);
-      t.setExternalGroup(externalGroup);
-      teamExternalGroups.add(t);
-      teamExternalGroupDao.saveOrUpdate(t);
-      AuditLog.log("User {} added external group to team {}: {}", personId, team, externalGroup);
-    }
+    List<TeamExternalGroup> teamExternalGroups = Arrays.stream(request.getParameterValues(EXTERNAL_GROUPS_SESSION_KEY))
+        .map(identifier -> {
+          TeamExternalGroup t = new TeamExternalGroup();
+          t.setGrouperTeamId(teamId);
+          t.setExternalGroup(externalGroupMap.get(identifier));
+          return t;
+        }).collect(toList());
+
+    teamExternalGroups.forEach(teamExternalGroupDao::saveOrUpdate);
+    teamExternalGroups.forEach(eg -> AuditLog.log("User {} added external group to team {}: {}", personId, teamId, eg));
 
     request.getSession().removeAttribute(EXTERNAL_GROUPS_SESSION_KEY);
     status.setComplete();
     modelMap.clear();
 
-    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&view=%s", team.getId(), ViewUtil.getView(request)), false, true, false);
+    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&view=%s", teamId, ViewUtil.getView(request)), false, true, false);
   }
+
+  @ModelAttribute(ViewUtil.VIEW)
+  public String view(HttpServletRequest request) {
+    return ViewUtil.getView(request);
+  }
+
+  private void checkUserHasAdministrativePrivileges(Person person, String teamId) {
+    if (!controllerUtil.hasUserAdministrativePrivileges(person, teamId)) {
+      throw new RuntimeException(String.format("Requester (%s) is not member or does not have the correct privileges", person.getId()));
+    }
+  }
+
+  private void checkUserIsAdmin(Person person, String teamId) {
+    if (!controllerUtil.hasUserAdminPrivileges(person, teamId)) {
+      throw new RuntimeException(String.format("Requester (%s) is not member or does not have the correct privileges", person.getId()));
+    }
+  }
+
 }
