@@ -35,42 +35,40 @@
     </div>
       <%-- = Content --%>
     <div id="Content">
-      <c:choose>
-        <c:when test="${fn:length(sessionScope.externalGroups)==0}">
-          <p><spring:message code="jsp.addexternalgroup.NoGroups"/></p>
-        </c:when>
-        <c:otherwise>
-          <p><spring:message code="jsp.addexternalgroup.TeamsYouCanAdd" arguments="${team.name}"
-                             htmlEscape="true"/></p>
+      <form action="${actionUrl}" method="post">
+        <p class="label-field-wrapper">
+          <input type="hidden" name="token" value="<c:out value='${tokencheck}'/>"/>
+          <input type="hidden" name="view" value="<c:out value='${view}' />" />
+          <input type="hidden" name="teamId" value="<c:out value='${teamId}' />" />
+        </p>
+        <c:choose>
+          <c:when test="${fn:length(sessionScope.externalGroups) == 0}">
+            <p><spring:message code="jsp.addexternalgroup.NoGroups"/></p>
+          </c:when>
+          <c:otherwise>
+            <p><spring:message code="jsp.addexternalgroup.TeamsYouCanAdd" arguments="${team.name}"
+                               htmlEscape="true"/></p>
 
-          <c:url value="/doaddexternalgroup.shtml" var="actionUrl"/>
-          <form action="${actionUrl}" method="post">
-            <p class="label-field-wrapper">
-              <input type="hidden" name="token" value="<c:out value='${tokencheck}'/>"/>
-              <input type="hidden" name="view" value="<c:out value='${view}' />" />
-              <input type="hidden" name="teamId" value="<c:out value='${teamId}' />" />
-            </p>
-            <ul class="label-field-wrapper nobullets">
-              <c:forEach var="externalGroup" items="${sessionScope.externalGroups}" varStatus="loop">
-                <li>
-                  <input type="checkbox" name="externalGroups" id="externalGroups${loop.index}"
-                         value="<c:out value="${externalGroup.identifier}"/>"/>
-                  <label for="externalGroups${loop.index}" class="external-group">
-                    <c:out value="${externalGroup.name}"/>
-                  </label>
-                </li>
-              </c:forEach>
-            </ul>
+            <c:url value="/doaddexternalgroup.shtml" var="actionUrl"/>
+              <ul class="label-field-wrapper nobullets">
+                <c:forEach var="externalGroup" items="${sessionScope.externalGroups}" varStatus="loop">
+                  <li>
+                    <input type="checkbox" name="externalGroups" id="externalGroups${loop.index}"
+                           value="<c:out value="${externalGroup.identifier}"/>"/>
+                    <label for="externalGroups${loop.index}" class="external-group">
+                      <c:out value="${externalGroup.name}"/>
+                    </label>
+                  </li>
+                </c:forEach>
+              </ul>
 
-            <p class="submit-wrapper">
-              <input class="button" type="submit" name="addMember"
-                     value="<spring:message code='jsp.addexternalgroup.Submit' />"/>
-            </p>
-          </form>
-
-        </c:otherwise>
-      </c:choose>
-
+              <p class="submit-wrapper">
+                <input class="button" type="submit" name="addMember"
+                       value="<spring:message code='jsp.addexternalgroup.Submit' />"/>
+              </p>
+          </c:otherwise>
+        </c:choose>
+      </form>
       <div class="clear"></div>
         <%-- / Content --%>
     </div>
