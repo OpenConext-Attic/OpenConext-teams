@@ -59,7 +59,7 @@ import teams.util.ViewUtil;
 @SessionAttributes(TOKENCHECK)
 public class AddExternalGroupController {
 
-  private static final String EXTERNAL_GROUPS_SESSION_KEY = "externalGroups";
+  protected static final String EXTERNAL_GROUPS_SESSION_KEY = "externalGroups";
 
   @Autowired
   private VootClient vootClient;
@@ -81,9 +81,7 @@ public class AddExternalGroupController {
 
     Team team = teamService.findTeamById(teamId);
 
-    String personId = person.getId();
-    List<ExternalGroup> myExternalGroups = getExternalGroups(personId, request.getSession());
-    myExternalGroups = filterLinkedExternalGroups(team, myExternalGroups);
+    List<ExternalGroup> myExternalGroups = filterLinkedExternalGroups(team, getExternalGroups(person.getId(), request.getSession()));
     request.getSession().setAttribute(EXTERNAL_GROUPS_SESSION_KEY, myExternalGroups);
 
     model.addAttribute(TOKENCHECK, TokenUtil.generateSessionToken());
