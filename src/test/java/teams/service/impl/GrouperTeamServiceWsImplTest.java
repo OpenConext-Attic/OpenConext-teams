@@ -7,6 +7,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static com.google.common.net.HttpHeaders.CONTENT_TYPE;
 import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
@@ -22,7 +23,9 @@ import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import org.junit.Rule;
 import org.junit.Test;
 
+import teams.domain.Role;
 import teams.domain.Team;
+import teams.domain.TeamResultWrapper;
 
 public class GrouperTeamServiceWsImplTest {
 
@@ -33,24 +36,46 @@ public class GrouperTeamServiceWsImplTest {
 
   @Test
   public void findPublicTeamsWithNoResultsShouldGiveEmptyList() throws Exception {
-    stubFor(post(urlEqualTo("/grouper-ws/servicesRest/VERSION/groups"))
-        .withHeader(CONTENT_TYPE, equalTo("text/xml; charset=UTF-8"))
-        .willReturn(okResponse("empty_find_groups_response.xml")));
+    stubGrouper("groups", "empty_find_groups_response.xml");
 
-      List<Team> publicTeams = subject.findPublicTeams("person::id", "groupname::part");
+    List<Team> publicTeams = subject.findPublicTeams("person::id", "groupname::part");
 
-      assertTrue(publicTeams.isEmpty());
+    assertTrue(publicTeams.isEmpty());
   }
 
   @Test
   public void findPublicTeamsWithResultsShouldGiveATeam() throws Exception {
-    stubFor(post(urlEqualTo("/grouper-ws/servicesRest/VERSION/groups"))
+    stubGrouper("groups", "non_empty_find_groups_response.xml");
+
+    List<Team> publicTeams = subject.findPublicTeams("person::id", "groupname::part");
+
+    assertThat(publicTeams, hasSize(1));
+  }
+
+  @Test
+  public void findTeamsByMemberGivesResults() throws Exception {
+    stubGrouper("subjects", "non_empty_get_groups_response.xml");
+    stubGrouper("memberships", "non_empty_get_memberships_response.xml");
+    stubGrouper("grouperPrivileges", "non_empty_get_grouper_privileges_response.xml");
+
+    TeamResultWrapper resultWrapper = subject.findTeamsByMember("person::id", "groupname::part", 0, 10);
+
+    assertThat(resultWrapper.getOffset(), is(0));
+    assertThat(resultWrapper.getPageSize(), is(10));
+    assertThat(resultWrapper.getTeams(), hasSize((int) resultWrapper.getTotalCount()));
+
+    Team team = resultWrapper.getTeams().get(0);
+
+    assertThat(team.getId(), is("groupname"));
+    assertThat(team.getName(), is("displayExtension"));
+    assertThat(team.getNumberOfMembers(), is(2));
+    assertThat(team.getViewerRole(), is(Role.Admin));
+  }
+
+  private void stubGrouper(String requestSuffix, String responseFile) throws IOException, URISyntaxException {
+    stubFor(post(urlEqualTo("/grouper-ws/servicesRest/VERSION/" + requestSuffix))
         .withHeader(CONTENT_TYPE, equalTo("text/xml; charset=UTF-8"))
-        .willReturn(okResponse("non_empty_find_groups_response.xml")));
-
-      List<Team> publicTeams = subject.findPublicTeams("person::id", "groupname::part");
-
-      assertThat(publicTeams, hasSize(1));
+        .willReturn(okResponse(responseFile)));
   }
 
   private ResponseDefinitionBuilder okResponse(String filename) throws IOException, URISyntaxException {

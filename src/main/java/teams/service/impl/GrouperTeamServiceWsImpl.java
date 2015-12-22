@@ -26,7 +26,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.slf4j.Logger;
@@ -508,7 +507,6 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
   public TeamResultWrapper findAllTeamsByMember(String personId, int offset, int pageSize) {
     // FIXME: exclude teams from etc stem
     try {
-      long start = System.currentTimeMillis();
       WsGetGroupsResults results = new GcGetGroups()
         .assignActAsSubject(getActAsSubject(powerUser))
         .addSubjectId(personId)
@@ -519,11 +517,8 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
         .assignWsStemLookup(new WsStemLookup(defaultStemName, null))
         .assignStemScope(StemScope.ALL_IN_SUBTREE)
         .execute();
-      long end = System.currentTimeMillis();
-      LOG.trace("findAllTeamsByMember: {} ms", end - start);
 
       // Get total count
-      long start2 = System.currentTimeMillis();
       WsGetGroupsResults totalCountResults = new GcGetGroups()
         .assignActAsSubject(getActAsSubject(powerUser))
         .addSubjectId(personId)
@@ -532,8 +527,6 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
         .assignWsStemLookup(new WsStemLookup(defaultStemName, null))
         .assignStemScope(StemScope.ALL_IN_SUBTREE)
         .execute();
-      long end2 = System.currentTimeMillis();
-      LOG.trace("findAllTeamsByMember, count: {} ms", end2 - start2);
 
       int totalCount = (totalCountResults.getResults() != null
         && totalCountResults.getResults().length > 0
@@ -544,7 +537,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
       return buildTeamResultWrapper(results, offset, pageSize, personId, totalCount, true);
     } catch (GcWebServiceError e) {
       LOG.debug("Could not get all teams by member {}. Perhaps no groups for this user? Will return empty list. Exception msg: {}", personId, e.getMessage());
-      return new TeamResultWrapper(new ArrayList<Team>(), 0, offset, pageSize);
+      return new TeamResultWrapper(Collections.emptyList(), 0, offset, pageSize);
     }
   }
 
@@ -612,7 +605,6 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
     Team team = new Team(group.getName(), group.getDisplayExtension(), group.getDescription());
 
     if (addMemberCountAndRoles) {
-      long start = System.currentTimeMillis();
       // Query and add all member numbers
       WsGetMembershipsResults results = new GcGetMemberships()
         .addGroupName(group.getName())
@@ -624,9 +616,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
       if (results.getWsMemberships() != null) {
         team.setNumberOfMembers(results.getWsMemberships().length);
       }
-      long end = System.currentTimeMillis();
 
-      long start2 = System.currentTimeMillis();
       // Query and add roles for current user
       WsGetGrouperPrivilegesLiteResult privilegesResults = new GcGetGrouperPrivilegesLite()
         .assignSubjectLookup(new WsSubjectLookup(userId, null, null))
@@ -635,8 +625,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
         .assignIncludeGroupDetail(false)
         .assignIncludeSubjectDetail(false)
         .execute();
-      long end2 = System.currentTimeMillis();
-      LOG.trace("buildTeam : {} ms, {} ms", end - start, end2 - start2);
+
       team.setViewerRole(Role.fromGrouperPrivileges(privilegesResults.getPrivilegeResults()));
     }
     return team;
