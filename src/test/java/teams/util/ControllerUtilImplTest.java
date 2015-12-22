@@ -16,88 +16,66 @@
 
 package teams.util;
 
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.when;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.mock.web.MockHttpServletRequest;
+
 import teams.control.AbstractControllerTest;
 import teams.domain.Member;
 import teams.domain.Person;
 import teams.domain.Team;
 import teams.service.GrouperTeamService;
-import org.junit.Test;
-import org.springframework.mock.web.MockHttpServletRequest;
 
-import static org.easymock.EasyMock.*;
-import static org.junit.Assert.*;
-
-/**
- * Test for {@link ControllerUtilImpl}
- */
+@RunWith(MockitoJUnitRunner.class)
 public class ControllerUtilImplTest extends AbstractControllerTest {
 
-  private ControllerUtil controllerUtil = new ControllerUtilImpl();
+  @InjectMocks
+  private ControllerUtilImpl controllerUtil;
+
+  @Mock
+  private GrouperTeamService grouperTeamServiceMock;
 
   @Test
   public void getTeamTest() throws Exception {
-
     MockHttpServletRequest request = getRequestWithTeam(getTeam1().getId());
 
-    GrouperTeamService grouperTeamService = createNiceMock(GrouperTeamService.class);
-    expect(grouperTeamService.findTeamById(getTeam1().getId())).andReturn(getTeam1());
-    replay(grouperTeamService);
-
-    autoWireMock(controllerUtil, grouperTeamService, GrouperTeamService.class);
-    autoWireRemainingResources(controllerUtil);
+    when(grouperTeamServiceMock.findTeamById(getTeam1().getId())).thenReturn(getTeam1());
 
     Team team = controllerUtil.getTeam(request);
-    verify(grouperTeamService);
 
     assertEquals(getTeam1().getId(), team.getId());
     assertEquals(getTeam1().getName(), team.getName());
     assertEquals(getTeam1().getDescription(), team.getDescription());
   }
 
-  @Test(expected = RuntimeException.class)
-  public void getTeamNonExistingTest() throws Exception {
-    MockHttpServletRequest request = getRequestWithTeam(getTeam1().getId());
-
-    GrouperTeamService grouperTeamService = createNiceMock(GrouperTeamService.class);
-    expect(grouperTeamService.findTeamById(getTeam1().getId())).andReturn(null);
-    replay(grouperTeamService);
-
-    controllerUtil.getTeam(request);
-    verify(grouperTeamService);
-  }
-
   @Test
   public void hasUserAdministrativePrivilegesTest() throws Exception {
-    GrouperTeamService grouperTeamService = createNiceMock(GrouperTeamService.class);
-    expect(grouperTeamService.findMember(getTeam1().getId(), getPerson1().getId())).andReturn(getAdministrativeMember());
-    replay(grouperTeamService);
-
-    autoWireMock(controllerUtil, grouperTeamService, GrouperTeamService.class);
-    autoWireRemainingResources(controllerUtil);
+    when(grouperTeamServiceMock.findMember(getTeam1().getId(), getPerson1().getId())).thenReturn(getAdministrativeMember());
 
     boolean hasPrivileges = controllerUtil.hasUserAdministrativePrivileges(getPerson1(), getTeam1().getId());
-    verify(grouperTeamService);
+
     assertTrue(hasPrivileges);
   }
 
   @Test
   public void hasUserAdministrativePrivilegesWithoutPrivilegesTest() throws Exception {
-    GrouperTeamService grouperTeamService = createNiceMock(GrouperTeamService.class);
-    expect(grouperTeamService.findMember(getTeam1().getId(), getPerson1().getId())).andReturn(getMember());
-    replay(grouperTeamService);
-
-    autoWireMock(controllerUtil, grouperTeamService, GrouperTeamService.class);
-    autoWireRemainingResources(controllerUtil);
+    when(grouperTeamServiceMock.findMember(getTeam1().getId(), getPerson1().getId())).thenReturn(getMember());
 
     boolean hasPrivileges = controllerUtil.hasUserAdministrativePrivileges(getPerson1(), getTeam1().getId());
-    verify(grouperTeamService);
+
     assertFalse(hasPrivileges);
   }
 
   @Test
   public void isPersonMemberOfTeamIsMemberTest() {
-    Team team = getTeam1();
     Member member = getMember();
+    Team team = getTeam1();
     team.addMembers(member);
 
     boolean result = controllerUtil.isPersonMemberOfTeam(getPerson(member.getId()), team);
@@ -107,9 +85,9 @@ public class ControllerUtilImplTest extends AbstractControllerTest {
 
   @Test
   public void isPersonMemberOfTeamIsNotMemberTest() {
-    Team team = getTeam1();
-
     Person person = new Person(null, "name", "email", "org", "vootrole", "displayName");
+
+    Team team = getTeam1();
     team.addMembers(getMember());
 
     boolean result = controllerUtil.isPersonMemberOfTeam(person, team);
