@@ -16,6 +16,7 @@
 package teams.service.impl;
 
 import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toSet;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,8 +24,10 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -237,7 +240,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
   private Set<Role> getRolesForMember(String memberId, WsGrouperPrivilegeResult[] privilegeResults) {
     return getPrivilegeResultsForMember(memberId, privilegeResults).stream()
         .map(priv -> getRole(priv.getPrivilegeName()))
-        .collect(Collectors.toSet());
+        .collect(toSet());
   }
 
   /**
@@ -490,11 +493,13 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
         .assignIncludeGroupDetail(false)
         .execute();
 
-      return Arrays.stream(results.getGroupResults())
+      return Optional.ofNullable(results.getGroupResults())
+          .map(Arrays::stream)
+          .orElse(Stream.empty())
           .map(g -> buildTeam(g, personId, false))
           .collect(toList());
     } catch (GcWebServiceError e) {
-      LOG.debug("Could not get teams by member {}. Perhaps no groups for this user? Will return empty list. Exception msg: {}", personId, e.getMessage());
+      LOG.warn("Could not get teams by member {}. Perhaps no groups for this user? Will return empty list. Exception msg: {}", personId, e.getMessage());
       return Collections.emptyList();
     }
   }
