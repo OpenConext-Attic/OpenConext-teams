@@ -8,6 +8,8 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
+import com.tapstream.rollbar.RollbarFilter;
+
 import org.apache.catalina.Container;
 import org.apache.catalina.Wrapper;
 import org.slf4j.Logger;
@@ -223,32 +225,9 @@ public class Application extends SpringBootServletInitializer {
     return internalResourceViewResolver;
   }
 
-  @Configuration
-  @Profile("groupzy")
-  public static class GroupzyConfiguration {
-
-    @Autowired
-    private ResourceLoader resourceLoader;
-
-    @Bean(name = "groupzyDataSource")
-    @ConfigurationProperties(prefix = "datasource.groupzy")
-    public DataSource groupzyDataSource() {
-      return DataSourceBuilder.create().build();
-    }
-
-    @Autowired
-    @Bean
-    @Lazy
-    public Stoker stoker(@Value("${teams.groupzy.stoker.file}") String metaDataFileLocation,
-                         @Value("${teams.groupzy.stoker.folder}") String detailDataFolder) throws Exception {
-      return new Stoker(resourceLoader.getResource(metaDataFileLocation), resourceLoader.getResource(detailDataFolder));
-    }
-
-    @Autowired
-    @Bean
-    public JdbcServiceProviderTeamDao teamsDao(@Qualifier("groupzyDataSource") DataSource groupzyDataSource) {
-      return new JdbcServiceProviderTeamDao(groupzyDataSource);
-    }
-
+  @Bean
+  public RollbarFilter rollbarFilter() {
+    return new RollbarFilter();
   }
+
 }
