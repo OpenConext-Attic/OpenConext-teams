@@ -15,18 +15,19 @@
  */
 package teams.domain;
 
+import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.FetchType.EAGER;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -62,7 +63,7 @@ public class Invitation extends DomainObject {
   @Column(name = "accepted")
   private boolean accepted;
 
-  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "invitation")
+  @OneToMany(cascade = ALL, fetch = EAGER, mappedBy = "invitation")
   @SortNatural
   private List<InvitationMessage> invitationMessages;
 

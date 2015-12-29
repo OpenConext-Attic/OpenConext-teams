@@ -70,5 +70,5 @@ public interface TeamInviteService {
 
   void saveOrUpdate(Invitation invitation);
 
-  void cleanupExpiredInvitationsJob();
+  void cleanupExpiredInvitations();
 }

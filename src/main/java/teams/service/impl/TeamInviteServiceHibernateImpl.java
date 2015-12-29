@@ -22,13 +22,13 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.EntityManager;
+import javax.persistence.OptimisticLockException;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import teams.domain.Invitation;
@@ -36,7 +36,6 @@ import teams.domain.Team;
 import teams.service.TeamInviteService;
 
 @Service
-@Transactional
 public class TeamInviteServiceHibernateImpl implements TeamInviteService {
 
   private static final Logger LOG = LoggerFactory.getLogger(TeamInviteServiceHibernateImpl.class);
@@ -99,11 +98,13 @@ public class TeamInviteServiceHibernateImpl implements TeamInviteService {
   }
 
   @Override
+  @Transactional
   public void delete(Invitation invitation) {
     entityManager.remove(invitation);
   }
 
   @Override
+  @Transactional
   public void saveOrUpdate(Invitation invitation) {
     if (invitation.getId() == null) {
       entityManager.persist(invitation);
@@ -113,16 +114,15 @@ public class TeamInviteServiceHibernateImpl implements TeamInviteService {
   }
 
   @Override
-  @Scheduled(cron = "0 50 23 * * *") // every day at 23:50
-  public void cleanupExpiredInvitationsJob() {
-    String jpaQl = "select i from Invitation i where i.timestamp <= :expireInterval";
-    TypedQuery<Invitation> q = entityManager.createQuery(jpaQl, Invitation.class);
-    q.setParameter("expireInterval", new Date().getTime() - TWO_WEEKS);
+  @Transactional(dontRollbackOn = OptimisticLockException.class)
+  public void cleanupExpiredInvitations() {
+    List<Invitation> invitations = entityManager
+        .createQuery("select i from Invitation i where i.timestamp <= :expireInterval", Invitation.class)
+        .setParameter("expireInterval", new Date().getTime() - TWO_WEEKS)
+        .getResultList();
 
-    List<Invitation> results = q.getResultList();
+    invitations.forEach(entityManager::remove);
 
-    LOG.info("Deleting {} expired invitations", results.size());
-
-    results.stream().forEach(this::delete);
+    LOG.info("Deleted {} expired invitations", invitations.size());
   }
 }
