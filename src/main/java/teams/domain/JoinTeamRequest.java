@@ -33,7 +33,7 @@ import org.hibernate.annotations.Proxy;
 @Proxy(lazy = false)
 public class JoinTeamRequest extends DomainObject {
 
-  @Column(name = "group_id", nullable = false)
+  @Column(nullable = false)
   private String groupId;
 
   @Column(nullable = false)
@@ -42,21 +42,16 @@ public class JoinTeamRequest extends DomainObject {
   @Column(name = "uuid", nullable = false)
   private String personId;
 
-  @Column(name = "email", nullable = false)
+  @Column
   private String email;
 
-  @Column(name = "display_name", nullable = false)
+  @Column
   private String displayName;
 
   @Lob
   private String message;
 
-  /**
-   * Necessary constructor for Hibernate.
-   * Avoid to call this in the code.
-   */
   public JoinTeamRequest() {
-    this(null, null, null, null);
   }
 
   /**
