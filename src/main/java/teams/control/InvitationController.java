@@ -16,6 +16,7 @@
 package teams.control;
 
 import static java.util.stream.Collectors.toList;
+import static teams.util.TokenUtil.checkTokens;
 import static teams.util.ViewUtil.escapeViewParameters;
 
 import java.io.UnsupportedEncodingException;
@@ -229,7 +230,8 @@ public class InvitationController {
                                        @RequestParam String id,
                                        SessionStatus status,
                                        ModelMap modelMap) {
-    TokenUtil.checkTokens(sessionToken, token, status);
+    checkTokens(sessionToken, token, status);
+
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
 
     if (person == null) {

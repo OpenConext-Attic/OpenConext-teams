@@ -1,6 +1,7 @@
 package teams.service.impl;
 
-import java.util.ArrayList;
+import static java.util.stream.Collectors.toList;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -43,12 +44,11 @@ public class VootClientImpl implements VootClient {
   public List<ExternalGroup> groups(String userId) {
     @SuppressWarnings("unchecked")
     List<Map<String, Object>> maps = vootService.getForObject(serviceUrl + "/internal/external-groups/{userId}", List.class, userId);
-    List<ExternalGroup> groups = new ArrayList<>();
-    for (Map<String, Object> map : maps) {
+
+    return maps.stream().map(map -> {
       String sourceId = (String) map.get("sourceID");
-      groups.add(new ExternalGroup((String) map.get("id"), (String) map.get("displayName"), (String) map.get("description"), new ExternalGroupProvider(sourceId, sourceId)));
-    }
-    return groups;
+      return new ExternalGroup((String) map.get("id"), (String) map.get("displayName"), (String) map.get("description"), new ExternalGroupProvider(sourceId, sourceId));
+    }).collect(toList());
   }
 
   private OAuth2ProtectedResourceDetails vootConfiguration() {

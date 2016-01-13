@@ -108,7 +108,7 @@ public class Member implements Serializable {
    */
   public List<MemberAttribute> getMemberAttributes() {
     if (memberAttributes == null) {
-      memberAttributes = new ArrayList<MemberAttribute>();
+      memberAttributes = new ArrayList<>();
     }
     return memberAttributes;
   }

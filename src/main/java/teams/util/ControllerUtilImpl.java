@@ -16,6 +16,7 @@
 package teams.util;
 
 import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Strings.isNullOrEmpty;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,9 +32,10 @@ import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServletRequest;
+
+import com.google.common.base.Strings;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -194,41 +196,32 @@ public class ControllerUtilImpl implements ControllerUtil {
   }
 
   @Override
-  public void sendAcceptMail(final Person memberToAdd, final Team team, final Locale locale) {
-    final String subject = messageSource.getMessage("request.mail.accepted.subject", null, locale);
-    final String html = composeAcceptMailMessage(team, locale, "html");
-    final String plainText = composeAcceptMailMessage(team, locale, "plaintext");
+  public void sendAcceptMail(Person memberToAdd, Team team, Locale locale) {
+    String subject = messageSource.getMessage("request.mail.accepted.subject", null, locale);
+    String html = composeAcceptMailMessage(team, locale, "html");
+    String plainText = composeAcceptMailMessage(team, locale, "plaintext");
 
-    MimeMessagePreparator preparator = new MimeMessagePreparator() {
-      public void prepare(MimeMessage mimeMessage) throws MessagingException {
-        mimeMessage.addHeader("Precedence", "bulk");
+    MimeMessagePreparator preparator = mimeMessage -> {
+      mimeMessage.addHeader("Precedence", "bulk");
 
-        mimeMessage.setFrom(new InternetAddress(systemEmail));
-        mimeMessage.setRecipients(Message.RecipientType.TO, new Address[]{new InternetAddress(memberToAdd.getEmail())});
-        mimeMessage.setSubject(subject);
+      mimeMessage.setFrom(new InternetAddress(systemEmail));
+      mimeMessage.setRecipients(Message.RecipientType.TO, new Address[]{new InternetAddress(memberToAdd.getEmail())});
+      mimeMessage.setSubject(subject);
 
-        MimeMultipart rootMixedMultipart = getMimeMultipartMessageBody(plainText, html);
-        mimeMessage.setContent(rootMixedMultipart);
-      }
+      MimeMultipart rootMixedMultipart = getMimeMultipartMessageBody(plainText, html);
+      mimeMessage.setContent(rootMixedMultipart);
     };
 
     mailService.sendAsync(preparator);
   }
 
-  private String composeAcceptMailMessage(final Team team, final Locale locale, final String variant) {
-    String templateName;
-    if ("plaintext".equals(variant)) {
-      templateName = "joinrequest-acceptmail-plaintext.ftl";
-    } else {
-      templateName = "joinrequest-acceptmail.ftl";
-    }
-    Map<String, Object> templateVars = new HashMap<String, Object>();
+  private String composeAcceptMailMessage(Team team, Locale locale, String variant) {
+    String templateName = "plaintext".equals(variant) ? "joinrequest-acceptmail-plaintext.ftl" : "joinrequest-acceptmail.ftl";
+    Map<String, Object> templateVars = new HashMap<>();
     templateVars.put("team", team);
 
     try {
-      return FreeMarkerTemplateUtils.processTemplateIntoString(
-        freemarkerConfiguration.getTemplate(templateName, locale), templateVars
-      );
+      return FreeMarkerTemplateUtils.processTemplateIntoString(freemarkerConfiguration.getTemplate(templateName, locale), templateVars);
     } catch (IOException e) {
       throw new RuntimeException("Failed to create accept join request mail", e);
     } catch (TemplateException e) {
@@ -237,41 +230,34 @@ public class ControllerUtilImpl implements ControllerUtil {
   }
 
   @Override
-  public void sendDeclineMail(final Person memberToAdd, final Team team, final Locale locale) {
-    final String subject = messageSource.getMessage("request.mail.declined.subject", null, locale);
-    final String html = composeDeclineMailMessage(team, locale, "html");
-    final String plainText = composeDeclineMailMessage(team, locale, "plaintext");
+  public void sendDeclineMail(Person memberToAdd, Team team, Locale locale) {
+    checkArgument(!isNullOrEmpty(memberToAdd.getEmail()));
 
-    MimeMessagePreparator preparator = new MimeMessagePreparator() {
-      public void prepare(MimeMessage mimeMessage) throws MessagingException {
+    String subject = messageSource.getMessage("request.mail.declined.subject", null, locale);
+    String html = composeDeclineMailMessage(team, locale, "html");
+    String plainText = composeDeclineMailMessage(team, locale, "plaintext");
+
+    MimeMessagePreparator preparator = mimeMessage -> {
         mimeMessage.addHeader("Precedence", "bulk");
 
         mimeMessage.setFrom(new InternetAddress(systemEmail));
-        mimeMessage.setRecipients(Message.RecipientType.TO, new Address[]{new InternetAddress(memberToAdd.getEmail())});
+        mimeMessage.setRecipients(Message.RecipientType.TO, new Address[] { new InternetAddress(memberToAdd.getEmail()) } );
         mimeMessage.setSubject(subject);
 
         MimeMultipart rootMixedMultipart = getMimeMultipartMessageBody(plainText, html);
         mimeMessage.setContent(rootMixedMultipart);
-      }
     };
 
     mailService.sendAsync(preparator);
   }
 
-  private String composeDeclineMailMessage(final Team team, final Locale locale, final String variant) {
-    String templateName;
-    if ("plaintext".equals(variant)) {
-      templateName = "joinrequest-declinemail-plaintext.ftl";
-    } else {
-      templateName = "joinrequest-declinemail.ftl";
-    }
-    Map<String, Object> templateVars = new HashMap<String, Object>();
+  private String composeDeclineMailMessage(Team team, Locale locale, String variant) {
+    String templateName = "plaintext".equals(variant) ? "joinrequest-declinemail-plaintext.ftl" : "joinrequest-declinemail.ftl";
+    Map<String, Object> templateVars = new HashMap<>();
     templateVars.put("team", team);
 
     try {
-      return FreeMarkerTemplateUtils.processTemplateIntoString(
-        freemarkerConfiguration.getTemplate(templateName, locale), templateVars
-      );
+      return FreeMarkerTemplateUtils.processTemplateIntoString(freemarkerConfiguration.getTemplate(templateName, locale), templateVars);
     } catch (IOException e) {
       throw new RuntimeException("Failed to create decline join request mail", e);
     } catch (TemplateException e) {
@@ -282,17 +268,17 @@ public class ControllerUtilImpl implements ControllerUtil {
   @Override
   public void sendJoinTeamMail(Team team, Person person, String message, Locale locale) {
     Object[] subjectValues = {team.getName()};
-    final String subject = messageSource.getMessage(REQUEST_MEMBERSHIP_SUBJECT, subjectValues, locale);
+    String subject = messageSource.getMessage(REQUEST_MEMBERSHIP_SUBJECT, subjectValues, locale);
 
-    final Set<Member> admins = grouperTeamService.findAdmins(team);
+    Set<Member> admins = grouperTeamService.findAdmins(team);
     if (CollectionUtils.isEmpty(admins)) {
       throw new RuntimeException("Team '" + team.getName() + "' has no admins to mail invites");
     }
 
-    final String html = composeJoinRequestMailMessage(team, person, message, locale, "html");
-    final String plainText = composeJoinRequestMailMessage(team, person, message, locale, "plaintext");
+    String html = composeJoinRequestMailMessage(team, person, message, locale, "html");
+    String plainText = composeJoinRequestMailMessage(team, person, message, locale, "plaintext");
 
-    final List<InternetAddress> bcc = new ArrayList<>();
+    List<InternetAddress> bcc = new ArrayList<>();
     for (Member admin : admins) {
       try {
         bcc.add(new InternetAddress(admin.getEmail()));
@@ -304,30 +290,23 @@ public class ControllerUtilImpl implements ControllerUtil {
       throw new RuntimeException("Team '" + team.getName() + "' has no admins with valid email addresses to mail invites");
     }
 
-    MimeMessagePreparator preparator = new MimeMessagePreparator() {
-      public void prepare(MimeMessage mimeMessage) throws MessagingException {
-        mimeMessage.addHeader("Precedence", "bulk");
+    MimeMessagePreparator preparator = mimeMessage -> {
+      mimeMessage.addHeader("Precedence", "bulk");
 
-        mimeMessage.setFrom(new InternetAddress(systemEmail));
-        mimeMessage.setRecipients(Message.RecipientType.BCC, bcc.toArray(new InternetAddress[bcc.size()]));
-        mimeMessage.setSubject(subject);
+      mimeMessage.setFrom(new InternetAddress(systemEmail));
+      mimeMessage.setRecipients(Message.RecipientType.BCC, bcc.toArray(new InternetAddress[bcc.size()]));
+      mimeMessage.setSubject(subject);
 
-        MimeMultipart rootMixedMultipart = getMimeMultipartMessageBody(plainText, html);
-        mimeMessage.setContent(rootMixedMultipart);
-      }
+      MimeMultipart rootMixedMultipart = getMimeMultipartMessageBody(plainText, html);
+      mimeMessage.setContent(rootMixedMultipart);
     };
 
     mailService.sendAsync(preparator);
   }
 
   private String composeJoinRequestMailMessage(Team team, Person person, String message, Locale locale, String variant) {
-    String templateName;
-    if ("plaintext".equals(variant)) {
-      templateName = "joinrequestmail-plaintext.ftl";
-    } else {
-      templateName = "joinrequestmail.ftl";
-    }
-    Map<String, Object> templateVars = new HashMap<String, Object>();
+    String templateName = "plaintext".equals(variant) ? "joinrequestmail-plaintext.ftl" : "joinrequestmail.ftl";
+    Map<String, Object> templateVars = new HashMap<>();
     templateVars.put("requesterName", person.getDisplayName());
     // for unknown reasons Freemarker cannot call person.getEmail()
     templateVars.put("requesterEmail", person.getEmail());
@@ -336,9 +315,7 @@ public class ControllerUtilImpl implements ControllerUtil {
     templateVars.put("message", message);
 
     try {
-      return FreeMarkerTemplateUtils.processTemplateIntoString(
-        freemarkerConfiguration.getTemplate(templateName, locale), templateVars
-      );
+      return FreeMarkerTemplateUtils.processTemplateIntoString(freemarkerConfiguration.getTemplate(templateName, locale), templateVars);
     } catch (IOException e) {
       throw new RuntimeException("Failed to create invitation mail", e);
     } catch (TemplateException e) {

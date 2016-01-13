@@ -13,12 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package teams.service.impl;
 
 import java.util.List;
+
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,20 +41,21 @@ public class JoinTeamRequestServiceHibernateImpl implements JoinTeamRequestServi
   @Override
   public List<JoinTeamRequest> findPendingRequests(String teamId) {
     String jpaQl = "select jtr from JoinTeamRequest jtr where jtr.groupId = :groupId ORDER BY jtr.personId ASC";
-    final TypedQuery<JoinTeamRequest> q = entityManager.createQuery(jpaQl, JoinTeamRequest.class);
-    q.setParameter("groupId", teamId);
-    return q.getResultList();
+
+    return entityManager.createQuery(jpaQl, JoinTeamRequest.class)
+     .setParameter("groupId", teamId)
+     .getResultList();
   }
 
   @Override
   public JoinTeamRequest findPendingRequest(String personId, String teamId) {
-    String jpaQl = "select jtr from JoinTeamRequest jtr where jtr.groupId = :groupId and jtr.personId=:personId ORDER BY jtr.personId ASC";
-    final TypedQuery<JoinTeamRequest> q = entityManager.createQuery(jpaQl, JoinTeamRequest.class);
-    q.setParameter("groupId", teamId);
-    q.setParameter("personId", personId);
+    String jpaQl = "select jtr from JoinTeamRequest jtr where jtr.groupId = :groupId and jtr.personId = :personId ORDER BY jtr.personId ASC";
 
-    final List<JoinTeamRequest> resultList = q.getResultList();
-    // TODO looks pretty buggy to me but this is what the original impl also did...
+    List<JoinTeamRequest> resultList = entityManager.createQuery(jpaQl, JoinTeamRequest.class)
+        .setParameter("groupId", teamId)
+        .setParameter("personId", personId)
+        .getResultList();
+
     return CollectionUtils.isEmpty(resultList) ? null : resultList.get(0);
   }
 

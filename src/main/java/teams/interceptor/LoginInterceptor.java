@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package teams.interceptor;
 
 import java.util.ArrayList;
@@ -42,13 +41,14 @@ import teams.util.AuditLog;
  */
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 
+  private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
+
   public static final String PERSON_SESSION_KEY = "person";
   public static final String EXTERNAL_GROUPS_SESSION_KEY = "externalGroupsSessionKey";
   public static final String USER_STATUS_SESSION_KEY = "userStatus";
   private static final List<String> LOGIN_BYPASS = Arrays.asList("landingpage.shtml", "js", "css", "media", "teams.xml", "declineInvitation.shtml");
   private static final List<String> LANDING_BYPASS = Arrays.asList("acceptInvitation.shtml");
 
-  private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
   public static final String STATUS_GUEST = "guest";
   public static final String STATUS_MEMBER = "member";
   public static final String TEAMS_COOKIE = "SURFconextTeams";
@@ -129,13 +129,13 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     List<String> notProvidedSamlAttributes = new ArrayList<>();
 
     String id = request.getHeader("name-id");
-    addNotProvidedSamlAttributes(id, notProvidedSamlAttributes,"urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified" );
+    addNotProvidedSamlAttributes(id, notProvidedSamlAttributes, "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified" );
 
     String name = request.getHeader("uid");
-    addNotProvidedSamlAttributes(name, notProvidedSamlAttributes,"urn:mace:dir:attribute-def:uid" );
+    addNotProvidedSamlAttributes(name, notProvidedSamlAttributes, "urn:mace:dir:attribute-def:uid" );
 
     String email = request.getHeader("Shib-InetOrgPerson-mail");
-    addNotProvidedSamlAttributes(email, notProvidedSamlAttributes,"urn:mace:dir:attribute-def:mail" );
+    addNotProvidedSamlAttributes(email, notProvidedSamlAttributes, "urn:mace:dir:attribute-def:mail" );
 
     String schacHomeOrganization = request.getHeader("schacHomeOrganization");
     String status = request.getHeader("is-member-of");
@@ -158,7 +158,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
       .map(Cookie::getValue)
       .findFirst()
     ).orElse("");
-
   }
 
   /**

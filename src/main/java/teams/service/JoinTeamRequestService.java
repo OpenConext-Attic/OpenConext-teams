@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package teams.service;
 
 import java.util.List;
@@ -38,8 +37,7 @@ public interface JoinTeamRequestService {
    *
    * @param personId who wants to join
    * @param teamId   the team he wants to join
-   * @return {@link JoinTeamRequest} if there is any,
-   * otherwise {@literal null}
+   * @return {@link JoinTeamRequest} if there is any, otherwise {@literal null}
    */
   JoinTeamRequest findPendingRequest(String personId, String teamId);
 

@@ -447,8 +447,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
       // Grouper converts every exception to RuntimeException
       return false;
     }
-    return result.getResultMetadata().getResultCode().equals("SUCCESS") ? true
-      : false;
+    return result.getResultMetadata().getResultCode().equals("SUCCESS");
   }
 
   @Override

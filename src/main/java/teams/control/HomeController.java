@@ -21,11 +21,11 @@ package teams.control;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toMap;
 import static teams.interceptor.LoginInterceptor.EXTERNAL_GROUPS_SESSION_KEY;
 import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -58,7 +58,7 @@ import teams.util.ViewUtil;
 @Controller
 public class HomeController {
 
-  private static final int PAGESIZE = 10;
+  protected static final int PAGESIZE = 10;
 
   @Autowired
   private MessageSource messageSource;
@@ -93,21 +93,14 @@ public class HomeController {
       List<Invitation> invitations = teamInviteService.findPendingInvitationsByEmail(email);
       modelMap.addAttribute("myinvitations", !CollectionUtils.isEmpty(invitations));
     }
-    @SuppressWarnings("unchecked")
-    List<ExternalGroup> groups = (List<ExternalGroup>) request.getSession().getAttribute(EXTERNAL_GROUPS_SESSION_KEY);
-    if (groups == null) {
-      groups = vootClient.groups(person.getId());
-      request.getSession().setAttribute(EXTERNAL_GROUPS_SESSION_KEY, groups);
-    }
 
-    Map<String, ExternalGroupProvider> groupProviders = new HashMap<>();
-    groups.forEach(group -> groupProviders.put(group.getGroupProviderIdentifier(), group.getGroupProvider()));
+    List<ExternalGroup> externalGroups = getExternalGroups(person, request);
+    Map<String, ExternalGroupProvider> groupProviders = externalGroups.stream().collect(toMap(ExternalGroup::getGroupProviderIdentifier, ExternalGroup::getGroupProvider, (eg1, eg2) -> eg1));
 
     if (groupProviderId != null) {
-      addExternalGroupsToModelMap(modelMap, getOffset(request), groupProviderId, groupProviders, groups);
+      addExternalGroupsToModelMap(modelMap, getOffset(request), groupProviders.get(groupProviderId), externalGroups);
     }
 
-    // Add the external group providers to the ModelMap for the navigation
     modelMap.addAttribute("groupProviders", groupProviders.values());
 
     ViewUtil.addViewToModelMap(request, modelMap);
@@ -115,12 +108,22 @@ public class HomeController {
     return "home";
   }
 
-  private void addExternalGroupsToModelMap(ModelMap modelMap, int offset, String groupProviderId,
-                                           Map<String, ExternalGroupProvider> groupProviders, List<ExternalGroup> groups) {
-    modelMap.addAttribute("externalGroupProvider", groupProviders.get(groupProviderId));
+  private List<ExternalGroup> getExternalGroups(Person person, HttpServletRequest request) {
+    @SuppressWarnings("unchecked")
+    List<ExternalGroup> groups = (List<ExternalGroup>) request.getSession().getAttribute(EXTERNAL_GROUPS_SESSION_KEY);
+    if (groups == null) {
+      groups = vootClient.groups(person.getId());
+      request.getSession().setAttribute(EXTERNAL_GROUPS_SESSION_KEY, groups);
+    }
+
+    return groups;
+  }
+
+  private void addExternalGroupsToModelMap(ModelMap modelMap, int offset, ExternalGroupProvider externalGroupProvider, List<ExternalGroup> groups) {
+    modelMap.addAttribute("externalGroupProvider", externalGroupProvider);
 
     List<ExternalGroup> filteredGroups = groups.stream()
-        .filter(group -> group.getGroupProviderIdentifier().equals(groupProviderId))
+        .filter(group -> group.getGroupProviderIdentifier().equals(externalGroupProvider.getIdentifier()))
         .collect(toList());
 
     if (filteredGroups.size() >= PAGESIZE) {

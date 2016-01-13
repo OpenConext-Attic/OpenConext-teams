@@ -15,6 +15,7 @@
  */
 package teams.control;
 
+import static com.google.common.base.Preconditions.checkArgument;
 import static teams.util.ViewUtil.escapeViewParameters;
 
 import java.io.IOException;
@@ -43,7 +44,6 @@ import teams.util.AuditLog;
 import teams.util.ControllerUtil;
 import teams.util.ViewUtil;
 
-
 /**
  * {@link Controller} that handles the join team page of a logged in
  * user.
@@ -69,23 +69,22 @@ public class JoinTeamController {
   @RequestMapping("/jointeam.shtml")
   public String start(ModelMap modelMap, HttpServletRequest request) {
     String teamId = request.getParameter("team");
-    Team team = null;
 
-    if (StringUtils.hasText(teamId)) {
-      team = grouperTeamService.findTeamById(teamId);
-    }
+    checkArgument(StringUtils.hasText(teamId));
+
+    Team team = grouperTeamService.findTeamById(teamId);
 
     if (team == null) {
       throw new RuntimeException("Cannot find team for parameter 'team'");
     }
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
 
-    modelMap.addAttribute("team", team);
     JoinTeamRequest joinTeamRequest = joinTeamRequestService.findPendingRequest(person.getId(), team.getId());
     if (joinTeamRequest == null) {
       joinTeamRequest = new JoinTeamRequest(person.getId(), team.getId(), person.getEmail(), person.getDisplayName());
     }
 
+    modelMap.addAttribute("team", team);
     modelMap.addAttribute(JOIN_TEAM_REQUEST, joinTeamRequest);
 
     ViewUtil.addViewToModelMap(request, modelMap);
@@ -108,13 +107,14 @@ public class JoinTeamController {
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
 
     String message = joinTeamRequest.getMessage();
-    // First send mail, then optionally create record in db
+
     controllerUtil.sendJoinTeamMail(team, person, message, localeResolver.resolveLocale(request));
 
     joinTeamRequest.setTimestamp(new Date().getTime());
     joinTeamRequest.setDisplayName(person.getDisplayName());
     joinTeamRequest.setEmail(person.getEmail());
     joinTeamRequestService.saveOrUpdate(joinTeamRequest);
+
     AuditLog.log("User {} requested to join team {}", joinTeamRequest.getPersonId(), team.getId());
 
     return new RedirectView(escapeViewParameters("home.shtml?teams=my&view=%s", ViewUtil.getView(request)));
