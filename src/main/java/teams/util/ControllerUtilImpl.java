@@ -35,8 +35,6 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMultipart;
 import javax.servlet.http.HttpServletRequest;
 
-import com.google.common.base.Strings;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

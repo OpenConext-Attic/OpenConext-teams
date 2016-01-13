@@ -2,6 +2,8 @@ package teams.domain;
 
 import java.io.Serializable;
 
+import com.google.common.base.MoreObjects;
+
 @SuppressWarnings("serial")
 public class Person implements Serializable {
 
@@ -60,6 +62,14 @@ public class Person implements Serializable {
   @Override
   public int hashCode() {
     return id != null ? id.hashCode() : 0;
+  }
+
+  @Override
+  public String toString() {
+    return MoreObjects.toStringHelper(Person.class)
+        .add("id", id)
+        .add("name", name)
+        .add("email", email).toString();
   }
 
 }

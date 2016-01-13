@@ -21,13 +21,9 @@ public class VootClientImpl implements VootClient {
   private static final Logger LOG = LoggerFactory.getLogger(VootClientImpl.class);
 
   private String accessTokenUri;
-
   private String clientId;
-
   private String clientSecret;
-
   private String spaceDelimitedScopes;
-
   private String serviceUrl;
 
   private OAuth2RestTemplate vootService;
