@@ -15,6 +15,7 @@
  */
 package teams.interceptor;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -109,9 +110,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
           return super.preHandle(request, response, handler);
         } else if (getTeamsCookie(request).contains("skipLanding") || LANDING_BYPASS.contains(urlPart)) {
           String queryString = request.getQueryString() != null ? "?" + request.getQueryString() : "";
-          response.sendRedirect(teamsUrl + "/Shibboleth.sso/Login?target="
-              + request.getRequestURL()
-              + queryString);
+          String target = URLEncoder.encode(request.getRequestURL() + queryString, "UTF-8");
+          response.sendRedirect(teamsUrl + "/Shibboleth.sso/Login?target=" + target);
           return false;
         } else {
           // Send redirect to landingpage if gadget is not requested in app view.
