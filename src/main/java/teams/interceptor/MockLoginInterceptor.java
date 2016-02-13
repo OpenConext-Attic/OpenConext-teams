@@ -36,7 +36,7 @@ import teams.service.MemberAttributeService;
  */
 public class MockLoginInterceptor extends LoginInterceptor {
   private static final String MOCK_USER_ATTR = "mockUser";
-  private static final String MOCK_USER_STATUS = "guest";//"member";
+  private static final String MOCK_USER_STATUS = "member";//"guest";
 
   public MockLoginInterceptor(String teamsUrl, MemberAttributeService memberAttributeService) {
     super(teamsUrl, memberAttributeService);
@@ -60,7 +60,7 @@ public class MockLoginInterceptor extends LoginInterceptor {
     } else if (null == session.getAttribute(PERSON_SESSION_KEY)) {
       //handle mock user
       String userId = request.getParameter(MOCK_USER_ATTR);
-      Person person = new Person(userId, userId, userId + "@mockorg.org", "mockorg.org", "member", userId);
+      Person person = new Person(userId, userId, userId + "@mockorg.org", "mockorg.org", "urn:collab:org:surf.nl", userId);
       session.setAttribute(PERSON_SESSION_KEY, person);
 
       //handle guest status

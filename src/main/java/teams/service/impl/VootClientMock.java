@@ -12,7 +12,7 @@ public class VootClientMock implements VootClient {
   @Override
   public List<ExternalGroup> groups(String userId) {
     List<ExternalGroup> groups = new ArrayList<>();
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 11; i++) {
       groups.add(createExternalGroup("name" + i));
     }
     return groups;

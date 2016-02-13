@@ -129,7 +129,8 @@ public class HomeController {
     if (filteredGroups.size() >= PAGESIZE) {
       Pager pager = new Pager(filteredGroups.size(), offset, PAGESIZE);
       modelMap.addAttribute("pager", pager);
-      filteredGroups = filteredGroups.subList(offset, offset + PAGESIZE);
+      int toIndex = offset + PAGESIZE <= filteredGroups.size() ? offset + PAGESIZE : filteredGroups.size();
+      filteredGroups = filteredGroups.subList(offset, toIndex);
     }
 
     modelMap.addAttribute("externalGroups", filteredGroups);
