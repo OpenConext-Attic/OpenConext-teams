@@ -38,7 +38,7 @@ public class LandingPageController {
   @Value("${teamsURL}")
   private String teamsUrl;
 
-  @RequestMapping(value = "/landingpage.shtml", method = RequestMethod.GET)
+  @RequestMapping(value = "/landingpage.shtml", method = {RequestMethod.HEAD, RequestMethod.GET})
   public String start(ModelMap modelMap, HttpServletRequest request) {
     ViewUtil.addViewToModelMap(request, modelMap);
 
