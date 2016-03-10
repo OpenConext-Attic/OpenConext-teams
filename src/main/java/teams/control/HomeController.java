@@ -13,10 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-/**
- *
- */
 package teams.control;
 
 import org.springframework.beans.factory.annotation.Autowired;

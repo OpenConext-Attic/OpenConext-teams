@@ -19,6 +19,8 @@ package teams.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.common.base.MoreObjects;
+
 /**
  * Utility class for paging
  */
@@ -159,5 +161,41 @@ public class Pager {
    */
   public int getPageSize() {
     return pageSize;
+  }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + offset;
+    result = prime * result + pageSize;
+    result = prime * result + (int) (totalCount ^ (totalCount >>> 32));
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    Pager other = (Pager) obj;
+    if (offset != other.offset)
+      return false;
+    if (pageSize != other.pageSize)
+      return false;
+    if (totalCount != other.totalCount)
+      return false;
+    return true;
+  }
+
+  @Override
+  public String toString() {
+    return MoreObjects.toStringHelper(Pager.class)
+        .add("totalCount", totalCount)
+        .add("offset", offset)
+        .add("pageSize", pageSize).toString();
   }
 }
