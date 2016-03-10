@@ -30,40 +30,6 @@ import org.springframework.ui.ModelMap;
 public class ViewUtilTest {
 
   @Test
-  public void testAddViewToModelMap() throws Exception {
-    HttpServletRequest request = mock(HttpServletRequest.class);
-
-    ModelMap modelMap = new ModelMap();
-
-    when(request.getParameter("view")).thenReturn(null);
-    ViewUtil.addViewToModelMap(request, modelMap);
-    assertEquals("app", modelMap.get("view"));
-
-    when(request.getParameter("view")).thenReturn("gadget");
-    ViewUtil.addViewToModelMap(request, modelMap);
-    assertEquals("gadget", modelMap.get("view"));
-
-    when(request.getParameter("view")).thenReturn("app");
-    ViewUtil.addViewToModelMap(request, modelMap);
-    assertEquals("app", modelMap.get("view"));
-  }
-
-  @Test
-  public void testGetView() throws Exception {
-    HttpServletRequest request = mock(HttpServletRequest.class);
-
-    when(request.getParameter("view")).thenReturn(null);
-    assertEquals("app", ViewUtil.getView(request));
-
-    when(request.getParameter("view")).thenReturn("gadget");
-    assertEquals("gadget", ViewUtil.getView(request));
-
-    when(request.getParameter("view")).thenReturn("app");
-    assertEquals("app", ViewUtil.getView(request));
-  }
-
-
-  @Test
   public void escapeViewParameters_should_escape_ampersand() {
     String view = ViewUtil.escapeViewParameters("test=%s&count=%d", "Bassie & Adriaan", 5);
 

@@ -15,22 +15,13 @@
  */
 package teams.control;
 
-import static teams.util.ViewUtil.escapeViewParameters;
-
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.view.RedirectView;
-
 import teams.domain.Person;
 import teams.domain.Team;
 import teams.interceptor.LoginInterceptor;
@@ -38,7 +29,10 @@ import teams.service.GrouperTeamService;
 import teams.util.AuditLog;
 import teams.util.ControllerUtil;
 import teams.util.TokenUtil;
-import teams.util.ViewUtil;
+
+import javax.servlet.http.HttpServletRequest;
+
+import static teams.util.ViewUtil.escapeViewParameters;
 
 /**
  * {@link Controller} that handles the edit team page of a logged in user.
@@ -66,7 +60,6 @@ public class EditTeamController {
 
     modelMap.addAttribute("team", team);
     modelMap.addAttribute(TokenUtil.TOKENCHECK, TokenUtil.generateSessionToken());
-    ViewUtil.addViewToModelMap(request, modelMap);
 
     return "editteam";
   }
@@ -106,7 +99,7 @@ public class EditTeamController {
     status.setComplete();
     modelMap.clear();
 
-    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&view=%s", teamId, ViewUtil.getView(request)));
+    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s", teamId));
   }
 
   private Team getTeam(HttpServletRequest request) {

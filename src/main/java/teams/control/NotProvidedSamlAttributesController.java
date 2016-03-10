@@ -19,7 +19,6 @@
  */
 package teams.control;
 
-import teams.util.ViewUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -36,8 +35,6 @@ public class NotProvidedSamlAttributesController {
 
   @RequestMapping(value = "/NotProvidedSamlAttributes.shtml", method = RequestMethod.GET)
   public String start(ModelMap modelMap, HttpServletRequest request) {
-    ViewUtil.addViewToModelMap(request, modelMap);
-
     modelMap.addAttribute("teamsUrl", teamsUrl);
 
     return "not-provided-saml-attribute";

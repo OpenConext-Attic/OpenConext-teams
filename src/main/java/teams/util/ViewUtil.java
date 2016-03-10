@@ -24,36 +24,11 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.ui.ModelMap;
 
 /**
- * Util class to define which view should be used (gadget or app)
+ * Util class to escape view parameters
  */
 public final class ViewUtil {
-  public static final String VIEW = "view";
 
   private ViewUtil() {
-  }
-
-  /**
-   * Defines which view must be presented and adds it to the ModelMap
-   *
-   * @param request  current {@link HttpServletRequest}
-   * @param modelMap {@link ModelMap} on which the view name is added
-   */
-  public static void addViewToModelMap(HttpServletRequest request, ModelMap modelMap) {
-    modelMap.addAttribute(VIEW, getView(request));
-  }
-
-  /**
-   * Defines which view must be presented
-   *
-   * @param request current {@link HttpServletRequest}
-   * @return the name of the view
-   */
-  public static String getView(HttpServletRequest request) {
-    return getView(request.getParameter(VIEW));
-  }
-
-  public static String getView(String view) {
-    return "gadget".equals(view) ? view : "app";
   }
 
   public static String escapeViewParameters(String viewTemplate, Object... args) {

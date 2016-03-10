@@ -15,24 +15,6 @@
  */
 package teams.control;
 
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
-import static teams.control.AddMemberController.INVITE_SEND_INVITE_SUBJECT;
-import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
-import static teams.util.TokenUtil.TOKENCHECK;
-import static teams.util.TokenUtil.checkTokens;
-import static teams.util.ViewUtil.escapeViewParameters;
-
-import java.beans.PropertyEditorSupport;
-import java.io.IOException;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.stream.Collectors;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
@@ -42,28 +24,30 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.ServletRequestDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
-
 import teams.Application;
-import teams.domain.Invitation;
-import teams.domain.InvitationMessage;
-import teams.domain.Language;
-import teams.domain.Person;
-import teams.domain.Role;
-import teams.domain.Stem;
+import teams.domain.*;
 import teams.service.GrouperTeamService;
 import teams.service.TeamInviteService;
-import teams.util.AuditLog;
-import teams.util.ControllerUtil;
-import teams.util.DuplicateTeamException;
-import teams.util.PermissionUtil;
-import teams.util.TokenUtil;
-import teams.util.ViewUtil;
+import teams.util.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+import java.beans.PropertyEditorSupport;
+import java.io.IOException;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
+
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import static teams.control.AddMemberController.INVITE_SEND_INVITE_SUBJECT;
+import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
+import static teams.util.TokenUtil.TOKENCHECK;
+import static teams.util.TokenUtil.checkTokens;
+import static teams.util.ViewUtil.escapeViewParameters;
 
 /**
  * {@link Controller} that handles the add team page of a logged in user.
@@ -167,20 +151,15 @@ public class AddTeamController {
     status.setComplete();
 
     if (environment.acceptsProfiles(Application.GROUPZY_PROFILE_NAME)) {
-      return escapeViewParameters("redirect:/%s/service-providers.shtml?view=", teamId);
+      return escapeViewParameters("redirect:/%s/service-providers.shtml", teamId);
     } else {
-      return escapeViewParameters("redirect:detailteam.shtml?team=%s&view=%s", teamId, ViewUtil.getView(request));
+      return escapeViewParameters("redirect:detailteam.shtml?team=%s", teamId);
     }
   }
 
   @ModelAttribute("languages")
   public Language[] languages() {
     return Language.values();
-  }
-
-  @ModelAttribute(ViewUtil.VIEW)
-  public String view(HttpServletRequest request) {
-    return ViewUtil.getView(request);
   }
 
   private void checkAllowedStem(Stem stem, Person person) {

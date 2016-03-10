@@ -39,17 +39,17 @@
     <c:if test="${role eq adminRole or role eq managerRole}">
       <c:if test="${displayAddExternalGroupToTeam eq true}">
         <div class="add">
-          <c:url value="/addexternalgroup.shtml" var="addexternalgroupUrl"><c:param name="teamId" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
+          <c:url value="/addexternalgroup.shtml" var="addexternalgroupUrl"><c:param name="teamId" value="${team.id}" /></c:url>
           <a class="button" href="<c:out value="${addexternalgroupUrl}"/>"><spring:message code="jsp.addexternalgroup.Title"/></a>
         </div>
       </c:if>
       <div class="add">
-        <c:url value="/addmember.shtml" var="addmemberUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
+        <c:url value="/addmember.shtml" var="addmemberUrl"><c:param name="team" value="${team.id}" /></c:url>
         <a class="button" href="<c:out value="${addmemberUrl}"/>"><spring:message code='jsp.addmember.Title' /></a>
       </div>
       <c:if test="${groupzyEnabled}">
         <div class="add">
-          <c:url value="/${team.id}/service-providers.shtml" var="editserviceproviders"><c:param name="view" value="${view}" /></c:url>
+          <c:url value="/${team.id}/service-providers.shtml" var="editserviceproviders"></c:url>
           <a class="button" href="<c:out value="${editserviceproviders}"/>"><spring:message code='jsp.addallowedserviceproviders.edit' /></a>
         </div>
       </c:if>
@@ -93,7 +93,6 @@
               <c:param name="teamId" value="${team.id}"/>
               <c:param name="groupIdentifier" value="${teg.externalGroup.identifier}"/>
               <c:param name="token" value="${tokencheck}"/>
-              <c:param name="view" value="${view}"/>
             </c:url>
             <c:if test="${role eq adminRole}"><td><a href="${deleteexternalgroup}" class="RemoveExternalGroup delete"><spring:message
                 code="jsp.detailteam.RemoveExternalGroupFromTeam"/></a></td></c:if>
@@ -126,8 +125,7 @@
       </c:when>
       <c:otherwise>
         <p class="more">
-          <c:url value="/jointeam.shtml" var="joinUrl"><c:param name="team" value="${team.id}"/>
-            <c:param name="view" value="${view}"/></c:url>
+          <c:url value="/jointeam.shtml" var="joinUrl"><c:param name="team" value="${team.id}"/></c:url>
           <a class="button" href="<c:out value="${joinUrl}"/>"><spring:message code='jsp.detailteam.Join'/></a>
         </p>
         <div class="clear" ></div>

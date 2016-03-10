@@ -26,7 +26,7 @@
   <%-- = Header --%>
   <div id="Header">
     <h1>${pageTitle}</h1>
-    <c:url value="/home.shtml" var="closeUrl"><c:param name="teams" value="my" /><c:param name="view" value="${view}" /></c:url>
+    <c:url value="/home.shtml" var="closeUrl"><c:param name="teams" value="my" /></c:url>
     <p class="close"><a href="<c:out value="${closeUrl}"/>"><spring:message code='jsp.general.CloseForm' /></a></p>
   <%-- / Header --%>
   </div>
@@ -35,11 +35,10 @@
     <div>
       <spring:message code="invite.introduction" htmlEscape="false"/>
     </div>
-    <c:url value="/doaddmember.shtml" var="doAddMemberUrl"><c:param name="view" value="${view}" /></c:url>
+    <c:url value="/doaddmember.shtml" var="doAddMemberUrl"></c:url>
     <form:form action="${doAddMemberUrl}" commandName="invitationForm" method="post" enctype="multipart/form-data">
       <p class="label-field-wrapper">
         <input type="hidden" name="token" value="<c:out value='${tokencheck}'/>"/>
-        <input type="hidden" name="view" value="<c:out value='${view}' />" />
         <form:hidden path="teamId" />
         <form:label path="emails" for="MemberEmail"><spring:message code='jsp.general.Email' /></form:label>
         <c:set var="emailsPlaceholder"><spring:message code='jsp.addmember.Email.placeholder' /></c:set>

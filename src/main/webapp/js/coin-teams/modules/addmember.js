@@ -25,8 +25,7 @@ COIN.MODULES.Addmember = function(sandbox) {
       $(document).on("click", 'input[name=cancelAddMember],.close a', function(e) {
         e.preventDefault();
         var team = $('input[name=teamId]').val();
-        var view = $('input[name=view]').val();
-        sandbox.redirectBrowserTo('detailteam.shtml?team=' + escape(team) + '&view=' + view);
+        sandbox.redirectBrowserTo('detailteam.shtml?team=' + encodeURIComponent(team));
       });
 
       var fileUploadBox = $('#fileUploadBox');

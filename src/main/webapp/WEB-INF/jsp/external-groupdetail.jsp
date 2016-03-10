@@ -31,7 +31,6 @@
     <c:url value="/home.shtml" var="backUrl" >
       <c:param name="teams" value="externalGroups" />
       <c:param name="groupProviderId" value="${groupProvider.identifier}"/>
-      <c:param name="view" value="${view}" />
     </c:url>
     <p class="${backClass}"><a href="<c:out value="${backUrl}"/>">&lt; <spring:message code='jsp.detailteam.Back' /></a></p>
 

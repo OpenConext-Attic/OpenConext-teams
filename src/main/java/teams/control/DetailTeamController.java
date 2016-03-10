@@ -15,30 +15,7 @@
  */
 package teams.control;
 
-import static java.net.URLDecoder.decode;
-import static java.nio.charset.StandardCharsets.UTF_8;
-import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
-import static teams.util.TokenUtil.TOKENCHECK;
-import static teams.util.TokenUtil.checkTokens;
-import static teams.util.TokenUtil.generateSessionToken;
-import static teams.util.ViewUtil.escapeViewParameters;
-
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
-
-import javax.mail.Address;
-import javax.servlet.http.HttpServletRequest;
-
 import com.google.common.base.Strings;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,36 +26,31 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
-
 import teams.Application;
-import teams.domain.ExternalGroup;
-import teams.domain.ExternalGroupProvider;
-import teams.domain.Invitation;
-import teams.domain.JoinTeamRequest;
-import teams.domain.Member;
-import teams.domain.Pager;
-import teams.domain.Person;
-import teams.domain.Role;
-import teams.domain.Team;
-import teams.domain.TeamExternalGroup;
+import teams.domain.*;
 import teams.interceptor.LoginInterceptor;
-import teams.service.GrouperTeamService;
-import teams.service.JoinTeamRequestService;
-import teams.service.TeamExternalGroupDao;
-import teams.service.TeamInviteService;
-import teams.service.VootClient;
+import teams.service.*;
 import teams.util.AuditLog;
 import teams.util.ControllerUtil;
 import teams.util.TokenUtil;
 import teams.util.ViewUtil;
+
+import javax.mail.Address;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.*;
+import java.util.stream.Collectors;
+
+import static java.net.URLDecoder.decode;
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
+import static teams.util.TokenUtil.*;
+import static teams.util.ViewUtil.escapeViewParameters;
 
 /**
  * {@link Controller} that handles the detail team page of a logged in user.
@@ -171,8 +143,6 @@ public class DetailTeamController {
 
     modelMap.addAttribute("maxInvitations", maxInvitations);
 
-    ViewUtil.addViewToModelMap(request, modelMap);
-
     if (roles.contains(Role.Admin)) {
       modelMap.addAttribute(PENDING_REQUESTS_PARAM, getRequesters(team));
       modelMap.addAttribute(ROLE_PARAM, Role.Admin);
@@ -254,7 +224,7 @@ public class DetailTeamController {
 
     if (admins.size() == 1 && admins.iterator().next().getId().equals(personId)) {
       status.setComplete();
-      return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&view=%s&mes=%s", teamId, ViewUtil.getView(request), ADMIN_LEAVE_TEAM), false, true, false);
+      return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&mes=%s", teamId, ADMIN_LEAVE_TEAM), false, true, false);
     }
 
     grouperTeamService.deleteMember(teamId, personId);
@@ -262,7 +232,7 @@ public class DetailTeamController {
 
     endingRequest.run();
 
-    return new RedirectView("home.shtml?teams=my&view=" + ViewUtil.getView(request));
+    return new RedirectView("home.shtml?teams=my");
   }
 
   @RequestMapping(value = "/dodeleteteam.shtml", method = RequestMethod.POST)
@@ -299,12 +269,12 @@ public class DetailTeamController {
 
       status.setComplete();
 
-      return new RedirectView("home.shtml?teams=my&view=" + ViewUtil.getView(request), false, true, false);
+      return new RedirectView("home.shtml?teams=my", false, true, false);
     }
 
     endingRequest.run();
 
-    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&view=%s", teamId, ViewUtil.getView(request)));
+    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s", teamId));
   }
 
   @RequestMapping(value = "/dodeletemember.shtml", method = RequestMethod.GET)
@@ -340,7 +310,7 @@ public class DetailTeamController {
       status.setComplete();
       modelMap.clear();
 
-      return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&view=%s", teamId, ViewUtil.getView(request)));
+      return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s", teamId));
 
       // if the owner is manager and the member is not an admin he can delete the member
     } else if (owner.getRoles().contains(Role.Manager) && !member.getRoles().contains(Role.Admin) && !personId.equals(ownerId)) {
@@ -350,13 +320,13 @@ public class DetailTeamController {
       status.setComplete();
       modelMap.clear();
 
-      return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&view=%s", teamId, ViewUtil.getView(request)));
+      return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s", teamId));
     }
 
     status.setComplete();
     modelMap.clear();
 
-    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&mes=%s&view=%s", teamId, NOT_AUTHORIZED_DELETE_MEMBER, ViewUtil.getView(request)));
+    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&mes=%s", teamId, NOT_AUTHORIZED_DELETE_MEMBER));
   }
 
   @RequestMapping(value = "/doaddremoverole.shtml", method = RequestMethod.POST)
@@ -374,15 +344,13 @@ public class DetailTeamController {
     if (!StringUtils.hasText(teamId)) {
       status.setComplete();
       modelMap.clear();
-      return new RedirectView("home.shtml?teams=my&view=" + ViewUtil.getView(request));
+      return new RedirectView("home.shtml?teams=my");
     }
 
     if (!StringUtils.hasText(memberId) || !StringUtils.hasText(roleString) || !validAction(action)) {
       status.setComplete();
       modelMap.clear();
-
-      return new RedirectView("detailteam.shtml?team={teamId}&view={view}&mes=no.role.action&offset={offset}"
-        + teamId + "&view=" + ViewUtil.getView(request) + "&mes=no.role.action&offset=" + offset);
+      return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&mes=no.role.action&offset=%s", teamId, offset));
     }
 
     Person person = (Person) request.getSession().getAttribute(PERSON_SESSION_KEY);
@@ -394,7 +362,7 @@ public class DetailTeamController {
       if (team == null) {
         status.setComplete();
         modelMap.clear();
-        return new RedirectView("home.shtml?teams=my&view=" + ViewUtil.getView(request));
+        return new RedirectView("home.shtml?teams=my");
       }
       message = removeRole(teamId, memberId, roleString, team, person.getId());
     } else {
@@ -404,7 +372,7 @@ public class DetailTeamController {
     status.setComplete();
     modelMap.clear();
 
-    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&view=%s&mes=%s&offset=%d", teamId, ViewUtil.getView(request), message, offset));
+    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&mes=%s&offset=%d", teamId, message, offset));
   }
 
   private boolean validAction(String action) {
@@ -475,7 +443,7 @@ public class DetailTeamController {
     if (!controllerUtil.hasUserAdministrativePrivileges(loggedInPerson, teamId)) {
       endingRequest.run();
 
-      return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&mes=error.NotAuthorizedForAction&view=%s", teamId, ViewUtil.getView(request)));
+      return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&mes=error.NotAuthorizedForAction", teamId));
     }
 
     Person requester = new Person(pendingRequest.getPersonId(), null, pendingRequest.getEmail(), null, null, pendingRequest.getDisplayName());
@@ -494,7 +462,7 @@ public class DetailTeamController {
 
     endingRequest.run();
 
-    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&view=%s", teamId, ViewUtil.getView(request)));
+    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s", teamId));
   }
 
 

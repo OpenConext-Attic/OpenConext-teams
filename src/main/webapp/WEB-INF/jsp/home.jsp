@@ -22,16 +22,15 @@
 <%-- = Header --%>
 <div id="Header">
   <ul class="team-actions">
-    <c:url value="/home.shtml" var="myTeamsUrl"><c:param name="teams" value="my" /><c:param name="view" value="${view}" /></c:url>
-    <c:url value="/home.shtml" var="allTeamsUrl"><c:param name="teams" value="all" /><c:param name="view" value="${view}" /></c:url>
-    <c:url value="/myinvitations.shtml" var="myInvitationsUrl"><c:param name="view" value="${view}"/></c:url>
+    <c:url value="/home.shtml" var="myTeamsUrl"><c:param name="teams" value="my" /></c:url>
+    <c:url value="/home.shtml" var="allTeamsUrl"><c:param name="teams" value="all" /></c:url>
+    <c:url value="/myinvitations.shtml" var="myInvitationsUrl"></c:url>
     <li class="first"><a class="btn-my-teams<c:if test='${display eq "my"}'> selected</c:if>" href="<c:out value="${myTeamsUrl}"/>"><spring:message code='jsp.home.MyTeams' /></a></li>
     <c:if test="${displayExternalTeams ne false}">
       <c:forEach items="${groupProviders}" var="groupProvider">
         <spring:url value="/home.shtml" var="groupProviderUrl">
           <spring:param name="groupProviderId" value="${groupProvider.identifier}"/>
           <spring:param name="teams" value="externalGroups"/>
-          <spring:param name="view" value="${view}"/>
         </spring:url>
         <li class="middle"><a href="<c:out value="${groupProviderUrl}"/>" class="btn-all-teams <c:if test="${groupProviderId eq groupProvider.identifier}"> selected</c:if>"><c:out value="${groupProvider.name}"/></a></li>
       </c:forEach>
@@ -50,7 +49,7 @@
 
 
   <c:if test="${display ne 'externalGroups'}">
-  <c:url value="/home.shtml" var="searchUrl"><c:param name="teams" value="${display}" /><c:param name="view" value="${view}" /></c:url>
+  <c:url value="/home.shtml" var="searchUrl"><c:param name="teams" value="${display}" /></c:url>
     <form action="<c:out value='${searchUrl}' />" method="post" id="searchTeamsForm">
       <fieldset class="search-fieldset team-search">
         <c:choose>
@@ -58,7 +57,7 @@
             <input class="text search-query" type="text" name="teamSearch" placeholder="<spring:message code='jsp.home.SearchTeam' />"  />
           </c:when>
           <c:otherwise>
-            <c:url value="/home.shtml" var="viewAllUrl"><c:param name="teams" value="${display}" /><c:param name="view" value="${view}" /></c:url>
+            <c:url value="/home.shtml" var="viewAllUrl"><c:param name="teams" value="${display}" /></c:url>
             <span class="view-all"><a href="${viewAllUrl}"><spring:message code='jsp.home.ViewAll' /></a></span>
             <input class="text search-query" type="text" name="teamSearch" placeholder="<spring:message code='jsp.home.SearchTeam' />"value="<c:out value='${query}' />" />
           </c:otherwise>
@@ -73,7 +72,7 @@
 <%-- = Content --%>
 <div id="Content"<c:if test="${display eq 'externalGroups'}"> class="home-external-groups"</c:if>>
   <c:if test='${sessionScope.userStatus ne "guest" and display ne "externalGroups"}'>
-    <c:url value="/addteam.shtml" var="addTeamUrl"><c:param name="view" value="${view}" /></c:url>
+    <c:url value="/addteam.shtml" var="addTeamUrl"></c:url>
     <p class="add"><a class="button" href="${addTeamUrl}"><spring:message code='jsp.home.AddTeam' /></a></p>
   </c:if>
   <%--
@@ -101,7 +100,7 @@
         <c:when test="${fn:length(teams) > 0 }">
           <c:forEach items="${teams}" var="team">
             <tr>
-              <c:url value="/detailteam.shtml" var="detailUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
+              <c:url value="/detailteam.shtml" var="detailUrl"><c:param name="team" value="${team.id}" /></c:url>
               <c:choose>
                 <c:when test="${display eq 'my'}">
                   <td><a href="<c:out value="${detailUrl}"/>"><c:out value="${team.name}" /></a>

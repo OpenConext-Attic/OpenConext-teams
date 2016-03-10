@@ -15,33 +15,14 @@
  */
 package teams.control;
 
-import static java.util.stream.Collectors.toList;
-import static teams.util.TokenUtil.TOKENCHECK;
-import static teams.util.TokenUtil.checkTokens;
-import static teams.util.ViewUtil.escapeViewParameters;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.view.RedirectView;
-
 import teams.domain.ExternalGroup;
 import teams.domain.Person;
 import teams.domain.Team;
@@ -53,7 +34,19 @@ import teams.service.VootClient;
 import teams.util.AuditLog;
 import teams.util.ControllerUtil;
 import teams.util.TokenUtil;
-import teams.util.ViewUtil;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
+import static teams.util.TokenUtil.TOKENCHECK;
+import static teams.util.TokenUtil.checkTokens;
+import static teams.util.ViewUtil.escapeViewParameters;
 
 @Controller
 @SessionAttributes(TOKENCHECK)
@@ -113,7 +106,7 @@ public class AddExternalGroupController {
     status.setComplete();
     modelMap.clear();
 
-    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&view=%s", teamId, ViewUtil.getView(request)), false, true, false);
+    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s", teamId), false, true, false);
   }
 
   /*
@@ -174,12 +167,7 @@ public class AddExternalGroupController {
     status.setComplete();
     modelMap.clear();
 
-    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&view=%s", teamId, ViewUtil.getView(request)), false, true, false);
-  }
-
-  @ModelAttribute(ViewUtil.VIEW)
-  public String view(HttpServletRequest request) {
-    return ViewUtil.getView(request);
+    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s", teamId), false, true, false);
   }
 
   private void checkUserHasAdministrativePrivileges(Person person, String teamId) {

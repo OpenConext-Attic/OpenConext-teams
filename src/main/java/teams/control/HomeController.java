@@ -19,19 +19,6 @@
  */
 package teams.control;
 
-import static com.google.common.base.Preconditions.checkNotNull;
-import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toMap;
-import static teams.interceptor.LoginInterceptor.EXTERNAL_GROUPS_SESSION_KEY;
-import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -41,19 +28,23 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import teams.domain.ExternalGroup;
-import teams.domain.ExternalGroupProvider;
-import teams.domain.Invitation;
-import teams.domain.Pager;
-import teams.domain.Person;
-import teams.domain.Team;
-import teams.domain.TeamResultWrapper;
+import teams.domain.*;
 import teams.interceptor.LoginInterceptor;
 import teams.service.GrouperTeamService;
 import teams.service.TeamInviteService;
 import teams.service.VootClient;
-import teams.util.ViewUtil;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
+import static com.google.common.base.Preconditions.checkNotNull;
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toMap;
+import static teams.interceptor.LoginInterceptor.EXTERNAL_GROUPS_SESSION_KEY;
+import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
 
 @Controller
 public class HomeController {
@@ -102,8 +93,6 @@ public class HomeController {
     }
 
     modelMap.addAttribute("groupProviders", groupProviders.values());
-
-    ViewUtil.addViewToModelMap(request, modelMap);
 
     return "home";
   }

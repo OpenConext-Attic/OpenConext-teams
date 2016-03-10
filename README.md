@@ -83,3 +83,9 @@ by [Stoker](https://github.com/OpenConext/OpenConext-Stoker)
         teams.groupzy.jdbc.user=selfregistration
         teams.groupzy.jdbc.password={DB_PASSWORD}
 
+The application defaults to the stem defined in application.properties:
+
+```
+#the stem name to find all groups
+defaultStemName=nl:surfnet:diensten
+```

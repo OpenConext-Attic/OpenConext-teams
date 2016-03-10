@@ -15,14 +15,6 @@
  */
 package teams.control;
 
-import static teams.interceptor.LoginInterceptor.EXTERNAL_GROUPS_SESSION_KEY;
-import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
-
-import java.util.List;
-import java.util.Optional;
-
-import javax.servlet.http.HttpServletRequest;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,11 +22,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import teams.domain.ExternalGroup;
 import teams.domain.Person;
 import teams.service.VootClient;
-import teams.util.ViewUtil;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+import java.util.Optional;
+
+import static teams.interceptor.LoginInterceptor.EXTERNAL_GROUPS_SESSION_KEY;
+import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
 
 @Controller
 @RequestMapping("/externalgroups/*")
@@ -61,8 +58,6 @@ public class ExternalGroupController {
         modelMap.addAttribute("groupProvider", eg.getGroupProvider());
         modelMap.addAttribute("externalGroup", eg);
       });
-
-    ViewUtil.addViewToModelMap(request, modelMap);
 
     return "external-groupdetail";
   }

@@ -26,7 +26,6 @@
     <%-- First --%>
     <c:if test="${not empty pager.firstPage}">
       <c:url value="${baseUrl}" var="first">
-        <c:param name="view" value="${view}"/>
         <c:if test="${not empty query}"><c:param name="teamSearch" value="${query}"/></c:if>
         <c:if test="${not empty display}"><c:param name="teams" value="${display}"/></c:if>
         <c:if test="${not empty team}"><c:param name="team" value="${team.id}"/></c:if>
@@ -39,7 +38,6 @@
     <%-- Previous --%>
     <c:if test="${not empty pager.previousPage}">
       <c:url value="${baseUrl}" var="prev">
-        <c:param name="view" value="${view}"/>
         <c:param name="offset" value="${pager.previousPage.offset}"/>
         <c:if test="${not empty query}"><c:param name="teamSearch" value="${query}"/></c:if>
         <c:if test="${not empty display}"><c:param name="teams" value="${display}"/></c:if>
@@ -54,7 +52,6 @@
     <c:forEach items="${pager.visiblePages}" var="page" varStatus="loop">
       <li>
         <c:url value="${baseUrl}" var="pageUrl">
-          <c:param name="view" value="${view}"/>
           <c:param name="offset" value="${page.offset}"/>
           <c:if test="${not empty query}"><c:param name="teamSearch" value="${query}"/></c:if>
           <c:if test="${not empty display}"><c:param name="teams" value="${display}"/></c:if>
@@ -79,7 +76,6 @@
     <%-- Next page --%>
     <c:if test="${not empty pager.nextPage}">
       <c:url value="${baseUrl}" var="next">
-        <c:param name="view" value="${view}"/>
         <c:param name="offset" value="${pager.nextPage.offset}"/>
         <c:if test="${not empty query}"><c:param name="teamSearch" value="${query}"/></c:if>
         <c:if test="${not empty display}"><c:param name="teams" value="${display}"/></c:if>
@@ -93,7 +89,6 @@
     <%-- Last page --%>
     <c:if test="${not empty pager.lastPage}">
       <c:url value="${baseUrl}" var="last">
-        <c:param name="view" value="${view}"/>
         <c:param name="offset" value="${pager.lastPage.offset}"/>
         <c:if test="${not empty query}"><c:param name="teamSearch" value="${query}"/></c:if>
         <c:if test="${not empty display}"><c:param name="teams" value="${display}"/></c:if>

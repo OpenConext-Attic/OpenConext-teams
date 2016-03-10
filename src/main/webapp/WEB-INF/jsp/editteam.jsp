@@ -25,18 +25,17 @@
   <!-- = Header -->
   <div id="Header">
     <h1>${pageTitle}</h1>
-    <c:url value="home.shtml" var="closeUrl"><c:param name="teams" value="my" /><c:param name="view" value="${view}" /></c:url>
+    <c:url value="home.shtml" var="closeUrl"><c:param name="teams" value="my" /></c:url>
     <p class="close"><a href="${closeUrl}"><spring:message code='jsp.general.CloseForm' /></a></p>
   <!-- / Header -->
   </div>
   <!-- = Content -->
   <div id="Content">
-    <c:url value="doeditteam.shtml" var="doEditTeamUrl"><c:param name="view" value="${view}" /></c:url>
+    <c:url value="doeditteam.shtml" var="doEditTeamUrl"></c:url>
     <form id="EditTeamForm" action="<c:out value='${doEditTeamUrl}' />" method="post">
       <p class="label-field-wrapper">
         <input type="hidden" name="token" value="<c:out value="${tokencheck}"/>"/>
         <input type="hidden" name="team" value="<c:out value='${team.id}' />" />
-        <input type="hidden" name="view" value="<c:out value='${view}' />" />
         <label for="TeamName"><spring:message code='jsp.general.TeamName' /></label>
         <input id="TeamName" type="text" name="teamName" value="<c:out value="${team.name}" />" disabled="disabled" readonly="readonly" class="required" />
       </p>

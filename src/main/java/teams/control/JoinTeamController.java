@@ -15,14 +15,6 @@
  */
 package teams.control;
 
-import static com.google.common.base.Preconditions.checkArgument;
-import static teams.util.ViewUtil.escapeViewParameters;
-
-import java.io.IOException;
-import java.util.Date;
-
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -33,7 +25,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
-
 import teams.domain.JoinTeamRequest;
 import teams.domain.Person;
 import teams.domain.Team;
@@ -42,7 +33,13 @@ import teams.service.GrouperTeamService;
 import teams.service.JoinTeamRequestService;
 import teams.util.AuditLog;
 import teams.util.ControllerUtil;
-import teams.util.ViewUtil;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.util.Date;
+
+import static com.google.common.base.Preconditions.checkArgument;
+import static teams.util.ViewUtil.escapeViewParameters;
 
 /**
  * {@link Controller} that handles the join team page of a logged in
@@ -87,8 +84,6 @@ public class JoinTeamController {
     modelMap.addAttribute("team", team);
     modelMap.addAttribute(JOIN_TEAM_REQUEST, joinTeamRequest);
 
-    ViewUtil.addViewToModelMap(request, modelMap);
-
     return "jointeam";
   }
 
@@ -96,8 +91,6 @@ public class JoinTeamController {
   public RedirectView joinTeam(ModelMap modelMap,
                                @ModelAttribute(JOIN_TEAM_REQUEST) JoinTeamRequest joinTeamRequest,
                                HttpServletRequest request) throws IOException {
-    ViewUtil.addViewToModelMap(request, modelMap);
-
     Team team = controllerUtil.getTeamById(joinTeamRequest.getGroupId());
 
     if (!team.isViewable()) {
@@ -117,7 +110,7 @@ public class JoinTeamController {
 
     AuditLog.log("User {} requested to join team {}", joinTeamRequest.getPersonId(), team.getId());
 
-    return new RedirectView(escapeViewParameters("home.shtml?teams=my&view=%s", ViewUtil.getView(request)));
+    return new RedirectView(escapeViewParameters("home.shtml?teams=my"));
   }
 
 }

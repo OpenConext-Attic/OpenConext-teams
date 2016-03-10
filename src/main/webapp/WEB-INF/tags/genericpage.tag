@@ -37,23 +37,18 @@
   <jsp:useBean id="current" class="java.util.Date" />
   <link rel="stylesheet" href="<c:url value="/css/teams.css?v=${commitId}" />">
   <!-- applicationVersion ${applicationVersion} -->
-  <c:if test="${view ne 'gadget'}">
-    <link rel="stylesheet" href="<c:url value="/css/app.css?v=${commitId}" />">
-  </c:if>
+  <link rel="stylesheet" href="<c:url value="/css/app.css?v=${commitId}" />">
   <c:url context="/Shibboleth.sso" value="/Login" var="loginUrl"><c:param name="target" value="${environment.teamsURL}/" /></c:url>
 </head>
 <body>
   <div class="wrapper">
-    <c:if test='${view ne "gadget"}'>
       <!--  = Header -->
       <div class="header">
         <a href="<c:url value="/home.shtml"/>"><img class="logo" src="<c:url value="/media/surf-conext-logo.png"/>" alt="SURFnet logo" /></a>
       </div>
       <!-- / Header -->
-    </c:if>
     <div class="component">
-    <c:choose>
-      <c:when test='${view ne "gadget" && empty sessionScope.person}'>
+      <c:if test='${empty sessionScope.person}'>
         <div class="component-title-bar">
           <h2 class="component-title right">
             <teams:language />
@@ -62,21 +57,16 @@
           </h2>
           <h2 class="component-title"><spring:message code="jsp.general.Title" /></h2>
         </div>
-      </c:when>
-      <c:when test='${view ne "gadget"}'>
-        <div class="component-title-bar">
-          <h2 class="component-title right">
-            <spring:message code="jsp.general.Welcome"/>&nbsp;<c:out value="${sessionScope.person.displayName}" />
-            <teams:language />
-            <a href="https://wiki.surfnet.nl/display/conextsupport/SURFconext+teams" target="_blank"><spring:message code="jsp.general.Help" /></a>
-            &nbsp;|&nbsp;<a href="/Shibboleth.sso/Logout?target=/teams"><spring:message code="jsp.general.Logout"/></a>
-          </h2>
-          <h2 class="component-title"><spring:message code="jsp.general.Title" /></h2>
-        </div>
-      </c:when>
-    </c:choose>
-    <c:if test='${view ne "gadget"}'>
-    </c:if>
+      </c:if>
+      <div class="component-title-bar">
+        <h2 class="component-title right">
+          <spring:message code="jsp.general.Welcome"/>&nbsp;<c:out value="${sessionScope.person.displayName}" />
+          <teams:language />
+          <a href="https://wiki.surfnet.nl/display/conextsupport/SURFconext+teams" target="_blank"><spring:message code="jsp.general.Help" /></a>
+          &nbsp;|&nbsp;<a href="/Shibboleth.sso/Logout?target=/teams"><spring:message code="jsp.general.Logout"/></a>
+        </h2>
+        <h2 class="component-title"><spring:message code="jsp.general.Title" /></h2>
+      </div>
       <div class="component-content" id="PageContainer">
 
           <!-- = Main -->
@@ -87,13 +77,11 @@
 
       </div>
     </div>
-    <c:if test='${view ne "gadget"}'>
-      <!--  = Footer -->
-      <div class="footer" id="Footer">
-        <span><spring:message code="jsp.general.surfnet.Name" /></span>&nbsp;|&nbsp;</span><span><a href="mailto:help@surfconext.nl">help@surfconext.nl</a></span>&nbsp;|&nbsp;<span><a href="<spring:message code="jsp.general.TermsOfUse.url" />" target="_blank"><spring:message code="jsp.general.TermsOfUse" /></a></span>
-      </div>
-      <!-- / Footer -->
-    </c:if>
+    <!--  = Footer -->
+    <div class="footer" id="Footer">
+      <span><spring:message code="jsp.general.surfnet.Name" /></span>&nbsp;|&nbsp;</span><span><a href="mailto:help@surfconext.nl">help@surfconext.nl</a></span>&nbsp;|&nbsp;<span><a href="<spring:message code="jsp.general.TermsOfUse.url" />" target="_blank"><spring:message code="jsp.general.TermsOfUse" /></a></span>
+    </div>
+    <!-- / Footer -->
 
     <!-- = LeaveTeamDialog -->
     <div id="LeaveTeamDialog" class="hide" title="<spring:message code='jsp.dialog.leaveteam.Title' />">
@@ -112,12 +100,5 @@
   <script type="text/javascript" src="<c:url value="/js/lib/jquery-ui.1.11.1.min.js"/>"></script>
   <script type="text/javascript" src="<c:url value="/js/lib/typeahead.0.10.5.js"/>"></script>
   <script type="text/javascript" src="<c:url value="/js/coin-teams.js?v=${commitId}"/>"></script>
-  <%--
-    We need the view parameter in the search result, which is now Ajax, we use this JavaScipt variable for it
-   --%>
-   <script language="JavaScript">
-     var view = '<c:out value="${view}"/>';
-   </script>
-  
 </body>
 </html>

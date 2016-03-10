@@ -38,7 +38,6 @@
             <input type="hidden" name="token" value="<c:out value="${tokencheck}"/>"/>
             <input type="hidden" name="team" value="<c:out value="${team.id}"/>"/>
             <input type="hidden" name="member" value="<c:out value="${pending.id}"/>"/>
-            <input type="hidden" name="view" value="<c:out value="${view}"/>"/>
           </form>
           <a href="#" class="deny-join-request"><spring:message code="jsp.detailteam.DenyJoinRequest"/></a>
         </td>
@@ -47,7 +46,6 @@
             <input type="hidden" name="token" value="<c:out value="${tokencheck}"/>"/>
             <input type="hidden" name="team" value="<c:out value="${team.id}"/>"/>
             <input type="hidden" name="member" value="<c:out value="${pending.id}"/>"/>
-            <input type="hidden" name="view" value="<c:out value="${view}"/>"/>
           </form>
           <a href="#" class="approve-join-request"><spring:message code="jsp.detailteam.AcceptJoinRequest"/></a>
         </td>

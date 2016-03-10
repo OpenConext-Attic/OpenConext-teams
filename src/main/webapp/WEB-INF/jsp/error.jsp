@@ -18,42 +18,24 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ page isErrorPage="true" %>
 
-  <%
-    String view = request.getParameter("view");
-  %>
 <html>
 <head>
   <title>SURFconext Teams</title>
   <link rel="stylesheet" href="<c:url value="/css/teams.css"/>">
-  <% if (!"gadget".equals(view)) { %>
   <link rel="stylesheet" href="<c:url value="/css/app.css"/>">
-  <% } %>
 </head>
 <body>
 <div class="wrapper">
   <%--  = Header --%>
-  <%
-    if(!("gadget".equals(view))) {
-  %>
   <div class="header">
     <a href="home.shtml"><img class="logo" src="<c:url value="/media/surf-conext-logo.png"/>" alt="SURFconext logo"/></a>
   </div>
-  <%
-    }
-  %>
   <%-- / Header --%>
     <div class="component">
 
-      <%-- if not gadget --%>
-      <%
-        if(!("gadget".equals(view))) {
-      %>
-        <div class="component-title-bar">
-          <h2 class="component-title">Error</h2>
-        </div>
-      <%
-        }
-      %>
+      <div class="component-title-bar">
+        <h2 class="component-title">Error</h2>
+      </div>
 
       <div class="component-content" id="PageContainer">
 
@@ -65,7 +47,7 @@
 
           <div id="Content">
             <p>Something went wrong. Please try to reload the page or go back to
-              <c:url value="/home.shtml" var="homeUrl"><c:param name="teams" value="my" /><c:param name="view"><c:out value="<%=view%>"/></c:param></c:url>
+              <c:url value="/home.shtml" var="homeUrl"><c:param name="teams" value="my" /></c:url>
               <a href="${homeUrl}">SURFconext Teams</a></p>
           </div>
 
@@ -74,17 +56,10 @@
       </div>
     </div>
 
-  <%
-    if (!("gadget".equals(view))) {
-  %>
-
   <%--  = Footer --%>
   <div class="footer" id="Footer">
     <span>SURFnet</span>&nbsp;|&nbsp;</span><span><a href="mailto:help@surfconext.nl">help@surfconext.nl</a></span>&nbsp;|&nbsp;<span><a href="https://wiki.surfnet.nl/display/conextsupport/Terms+of+Service+%28EN%29" target="_blank">Terms of Service</a></span>
   </div>
-  <%
-    }
-  %>
   <%-- / Footer --%>
 </div>
 </body>

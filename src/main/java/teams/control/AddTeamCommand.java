@@ -2,7 +2,6 @@ package teams.control;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
-
 import teams.domain.Language;
 import teams.domain.Stem;
 

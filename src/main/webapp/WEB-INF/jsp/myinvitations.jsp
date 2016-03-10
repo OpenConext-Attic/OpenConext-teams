@@ -22,8 +22,7 @@
 <c:set var="pageTitle"><spring:message code="jsp.home.MyInvitations"/></c:set>
 <teams:genericpage pageTitle="${pageTitle}">
   <div id="header">
-    <c:url value="home.shtml" var="backUrl"><c:param name="teams" value="my"/><c:param name="view"
-                                                                                       value="${view}"/></c:url>
+    <c:url value="home.shtml" var="backUrl"><c:param name="teams" value="my"/></c:url>
     <p class="back"><a href="${backUrl}">&lt; <spring:message code='jsp.home.MyTeams'/></a></p>
     <br class="clear"/>
     <h1>${pageTitle}</h1>
@@ -54,8 +53,8 @@
                   </c:if>
                 </c:forEach>
               </td>
-              <td><a href="<c:out value="acceptInvitation.shtml?id=${invitation.invitationHash}&view=${view}"/>"><spring:message code="jsp.acceptinvitation.Accept"/></a></td>
-              <td><a href="<c:out value="declineInvitation.shtml?id=${invitation.invitationHash}&view=${view}"/>"><spring:message code="jsp.declineinvitation.Decline"/></a></td>
+              <td><a href="<c:out value="acceptInvitation.shtml?id=${invitation.invitationHash}"/>"><spring:message code="jsp.acceptinvitation.Accept"/></a></td>
+              <td><a href="<c:out value="declineInvitation.shtml?id=${invitation.invitationHash}"/>"><spring:message code="jsp.declineinvitation.Decline"/></a></td>
             </tr>
           </c:forEach>
           </tbody>

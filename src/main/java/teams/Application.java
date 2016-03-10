@@ -1,15 +1,7 @@
 package teams;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Properties;
-
-import javax.sql.DataSource;
-
 import com.tapstream.rollbar.RollbarFilter;
-
+import freemarker.template.TemplateException;
 import org.apache.catalina.Container;
 import org.apache.catalina.Wrapper;
 import org.slf4j.Logger;
@@ -17,7 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.actuate.autoconfigure.ManagementSecurityAutoConfiguration;
+import org.springframework.boot.actuate.autoconfigure.MetricFilterAutoConfiguration;
+import org.springframework.boot.actuate.autoconfigure.TraceWebFilterAutoConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration;
@@ -44,8 +37,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-
-import freemarker.template.TemplateException;
 import teams.interceptor.FeatureInterceptor;
 import teams.interceptor.LoginInterceptor;
 import teams.interceptor.MockLoginInterceptor;
@@ -61,9 +52,16 @@ import teams.service.mail.MailServiceImpl;
 import teams.util.LetterOpener;
 import teams.util.SpringMvcConfiguration;
 
+import javax.sql.DataSource;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Properties;
+
 @SpringBootApplication
 @EnableScheduling
-@EnableAutoConfiguration(exclude = {SecurityAutoConfiguration.class, FreeMarkerAutoConfiguration.class, ManagementSecurityAutoConfiguration.class})
+@EnableAutoConfiguration(exclude = {SecurityAutoConfiguration.class, FreeMarkerAutoConfiguration.class, TraceWebFilterAutoConfiguration.class, MetricFilterAutoConfiguration.class})
 public class Application extends SpringBootServletInitializer {
 
   private static final Logger LOG = LoggerFactory.getLogger(Application.class);

@@ -28,20 +28,18 @@
     <c:set var="backClass">back</c:set>
   </c:otherwise>
 </c:choose>
-<c:url value="/home.shtml" var="backUrl" ><c:param name="teams" value="${teamsTab}" /><c:param name="view" value="${view}" /></c:url>
+<c:url value="/home.shtml" var="backUrl" ><c:param name="teams" value="${teamsTab}" /></c:url>
 <p class="${backClass}"><a href="<c:out value="${backUrl}"/>">&lt; <spring:message code='jsp.detailteam.Back' /></a></p>
 
 <form id="DeleteTeamForm" action="dodeleteteam.shtml" method="POST">
   <input type="hidden" name="token" value="<c:out value="${tokencheck}"/>"/>
   <input type="hidden" name="team" value="<c:out value="${team.id}"/>"/>
-  <input type="hidden" name="view" value="<c:out value="${view}"/>"/>
 </form>
 <form id="LeaveTeamForm" action="doleaveteam.shtml" method="POST">
   <input type="hidden" name="token" value="<c:out value="${tokencheck}"/>"/>
   <input type="hidden" name="team" value="<c:out value="${team.id}"/>"/>
-  <input type="hidden" name="view" value="<c:out value="${view}"/>"/>
 </form>
-<c:url value="/editteam.shtml" var="editUrl"><c:param name="team" value="${team.id}" /><c:param name="view" value="${view}" /></c:url>
+<c:url value="/editteam.shtml" var="editUrl"><c:param name="team" value="${team.id}" /></c:url>
 
 <c:choose>
   <c:when test="${role eq adminRole}">

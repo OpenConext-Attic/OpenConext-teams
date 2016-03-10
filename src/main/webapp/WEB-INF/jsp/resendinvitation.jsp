@@ -26,7 +26,7 @@
   <%-- = Header --%>
   <div id="Header">
     <h1>${pageTitle}</h1>
-    <c:url value="/detailteam.shtml" var="closeUrl"><c:param name="team" value="${invitation.teamId}" /><c:param name="view" value="${view}" /></c:url>
+    <c:url value="/detailteam.shtml" var="closeUrl"><c:param name="team" value="${invitation.teamId}" /></c:url>
     <p class="close"><a href="${closeUrl}"><spring:message code='jsp.general.CloseForm' /></a></p>
   <%-- / Header --%>
   </div>
@@ -35,7 +35,6 @@
     <form:form action="doResendInvitation.shtml" commandName="resendInvitationCommand" method="post">
       <p class="label-field-wrapper">
         <input type="hidden" name="token" value="<c:out value='${tokencheck}'/>"/>
-        <input type="hidden" name="view" value="<c:out value='${view}' />" />
         <form:hidden path="teamId" />
         <form:hidden path="invitationId" />
         <form:label path="email"><spring:message code ="jsp.general.Email"/></form:label>

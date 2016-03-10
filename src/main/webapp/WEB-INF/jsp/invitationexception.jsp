@@ -21,7 +21,7 @@
 <c:set var="pageTitle"><spring:message code='jsp.acceptinvitation.Title' /></c:set>
 <teams:genericpage pageTitle="${pageTitle}">
   <div id="Header">
-    <c:url value="home.shtml" var="backUrl" ><c:param name="teams" value="all" /><c:param name="view" value="app" /></c:url>
+    <c:url value="home.shtml" var="backUrl" ><c:param name="teams" value="all" /></c:url>
     <p class="back"><a href="${backUrl}">&lt; <spring:message code='jsp.home.AllTeams' /></a></p>
     <h1>${pageTitle}</h1>
   </div>

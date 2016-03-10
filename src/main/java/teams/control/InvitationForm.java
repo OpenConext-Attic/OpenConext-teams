@@ -15,17 +15,15 @@
  */
 package teams.control;
 
+import com.google.common.base.MoreObjects;
+import org.apache.commons.io.IOUtils;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 import teams.domain.Language;
 import teams.domain.Role;
 
 import java.io.IOException;
 import java.io.InputStream;
-
-import com.google.common.base.MoreObjects;
-
-import org.apache.commons.io.IOUtils;
-import org.springframework.util.StringUtils;
-import org.springframework.web.multipart.MultipartFile;
 
 public class InvitationForm {
 

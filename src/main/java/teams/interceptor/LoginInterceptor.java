@@ -97,13 +97,10 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         String url = request.getRequestURI();
         String[] urlSplit = url.split("/");
 
-        String view = request.getParameter("view");
-
         String urlPart = urlSplit.length < 1 ? "/" : urlSplit[1];
 
         logger.debug("Request for '{}'", request.getRequestURI());
         logger.debug("urlPart: '{}'", urlPart);
-        logger.debug("view '{}'", view);
 
         if (LOGIN_BYPASS.contains(urlPart)) {
           logger.debug("Bypassing {}", urlPart);
@@ -114,7 +111,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
           response.sendRedirect(teamsUrl + "/Shibboleth.sso/Login?target=" + target);
           return false;
         } else {
-          // Send redirect to landingpage if gadget is not requested in app view.
           logger.debug("Redirect to landingpage");
           response.sendRedirect(teamsUrl + "/landingpage.shtml");
           return false;

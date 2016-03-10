@@ -69,7 +69,7 @@ COIN.MODULES.Home = function(sandbox) {
     displaySearchResults: function(results) {
       this.clearResults();
       $(results["teams"]).each(function(i) {
-        $(teamsSearchResultSelector).append("<tr><td><a href=\"detailteam.shtml?view="+view+"&team=" + encodeURIComponent(this['id']) + "\">" + library.htmlEncode(this['name']) + "</a></td><td>" + library.htmlEncode((this['description'] || "")) + "</td></tr>");
+        $(teamsSearchResultSelector).append("<tr><td><a href=\"detailteam.shtml?team=" + encodeURIComponent(this['id']) + "\">" + library.htmlEncode(this['name']) + "</a></td><td>" + library.htmlEncode((this['description'] || "")) + "</td></tr>");
         sandbox.fixTableLayout($(teamsSearchResultSelector));
       });
     },

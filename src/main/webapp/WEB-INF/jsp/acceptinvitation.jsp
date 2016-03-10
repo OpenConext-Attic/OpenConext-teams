@@ -68,7 +68,6 @@
 
     <form action="doAcceptInvitation.shtml" id="AcceptInvitationForm">
       <fieldset>
-        <input type="hidden" name="view" value="${view}"/>
         <input type="hidden" name="id" value="<c:out value="${invitation.invitationHash}"/>">
 
         <p class="label-field-wrapper">

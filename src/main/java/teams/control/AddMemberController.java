@@ -15,50 +15,37 @@
  */
 package teams.control;
 
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
-import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
-import static teams.util.TokenUtil.TOKENCHECK;
-import static teams.util.TokenUtil.checkTokens;
-import static teams.util.ViewUtil.escapeViewParameters;
-
-import java.io.IOException;
-import java.util.Date;
-import java.util.Locale;
-
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
-
 import com.google.common.base.Throwables;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.view.RedirectView;
-
-import teams.domain.Invitation;
-import teams.domain.InvitationMessage;
-import teams.domain.Language;
-import teams.domain.Person;
-import teams.domain.Role;
-import teams.domain.Team;
+import teams.domain.*;
 import teams.interceptor.LoginInterceptor;
 import teams.service.TeamInviteService;
 import teams.util.AuditLog;
 import teams.util.ControllerUtil;
 import teams.util.TokenUtil;
-import teams.util.ViewUtil;
+
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+import java.io.IOException;
+import java.util.Date;
+import java.util.Locale;
+
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
+import static teams.util.TokenUtil.TOKENCHECK;
+import static teams.util.TokenUtil.checkTokens;
+import static teams.util.ViewUtil.escapeViewParameters;
 
 /**
  * {@link Controller} that handles the add member page of a logged in user.
@@ -121,7 +108,7 @@ public class AddMemberController {
                                        SessionStatus status) {
     status.setComplete();
 
-    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&view=%s", form.getTeamId(), ViewUtil.getView(request)), false, true, false);
+    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s", form.getTeamId()), false, true, false);
   }
 
   @RequestMapping(value = "/doaddmember.shtml", method = POST)
@@ -157,7 +144,7 @@ public class AddMemberController {
 
     status.setComplete();
 
-    return escapeViewParameters("redirect:detailteam.shtml?team=%s&view=%s", form.getTeamId(), ViewUtil.getView(request));
+    return escapeViewParameters("redirect:detailteam.shtml?team=%s", form.getTeamId());
   }
 
   // if a non admin tries to add a role admin or manager -> make invitation for member
@@ -218,7 +205,7 @@ public class AddMemberController {
 
     status.setComplete();
 
-    return escapeViewParameters("redirect:detailteam.shtml?team=%s&view=%s", invitation.getTeamId(), ViewUtil.getView(request));
+    return escapeViewParameters("redirect:detailteam.shtml?team=%s", invitation.getTeamId());
   }
 
   /**
@@ -311,8 +298,4 @@ public class AddMemberController {
     return Language.values();
   }
 
-  @ModelAttribute(ViewUtil.VIEW)
-  public String view(HttpServletRequest request) {
-    return ViewUtil.getView(request);
-  }
 }

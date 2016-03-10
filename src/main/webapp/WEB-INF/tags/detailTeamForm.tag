@@ -27,7 +27,6 @@
 <form id="detailForm" action="doaddremoverole.shtml" method="post">
   <input type="hidden" name="token" value="<c:out value='${tokencheck}'/>"/>
   <input type="hidden" name="teamId" value="<c:out value='${team.id}' />"/>
-  <input type="hidden" name="view" value="<c:out value='${view}' />"/>
   <input type="hidden" name="offset" value="<c:out value='${pager.offset}' />"/>
   <input type="hidden" name="roleId" id="roleId"/>
   <input type="hidden" name="memberId" id="memberId"/>
@@ -79,7 +78,6 @@
                     <c:param name="team" value="${team.id}"/>
                     <c:param name="member" value="${member.id}"/>
                     <c:param name="token" value="${tokencheck}"/>
-                    <c:param name="view" value="${view}"/>
                   </c:url>
                   <a href="<c:out value='${dodeletemember}'/>" class="delete DeleteMember" title="<spring:message code="jsp.detailteam.RemoveMemberFromTeam"/>">
                     <spring:message code="jsp.detailteam.RemoveMemberFromTeam"/>
@@ -137,7 +135,6 @@
             <c:url var="dodeleteinvite" value="/deleteInvitation.shtml">
               <c:param name="token" value="${tokencheck}"/>
               <c:param name="id" value="${invite.invitationHash}"/>
-              <c:param name="view" value="${view}"/>
             </c:url>
             <td><a href="<c:out value='${dodeleteinvite}'/>" class="delete" title="<spring:message code="jsp.detailteam.Delete"/>">
               <spring:message code="jsp.detailteam.Delete"/>
@@ -151,7 +148,6 @@
                 <c:otherwise>
                   <spring:message code='jsp.detailteam.InvitationPending' arguments="${invite.intendedRole}"/>
                   <c:url var="resendUrl" value="/resendInvitation.shtml">
-                    <c:param name="view" value="${view}"/>
                     <c:param name="id" value="${invite.invitationHash}"/>
                   </c:url>
                   <c:if test="${maxInvitations > fn:length(invite.invitationMessages)}">

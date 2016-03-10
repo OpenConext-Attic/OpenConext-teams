@@ -15,19 +15,8 @@
  */
 package teams.control;
 
-import static java.util.stream.Collectors.toList;
-import static teams.util.TokenUtil.checkTokens;
-import static teams.util.ViewUtil.escapeViewParameters;
-
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
-
-import javax.servlet.http.HttpServletRequest;
-
+import nl.surfnet.coin.stoker.Stoker;
+import nl.surfnet.coin.stoker.StokerEntry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -40,15 +29,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.view.RedirectView;
-
-import nl.surfnet.coin.stoker.Stoker;
-import nl.surfnet.coin.stoker.StokerEntry;
 import teams.Application;
-import teams.domain.Invitation;
-import teams.domain.Person;
-import teams.domain.Role;
-import teams.domain.Team;
-import teams.domain.TeamServiceProvider;
+import teams.domain.*;
 import teams.interceptor.LoginInterceptor;
 import teams.service.GrouperTeamService;
 import teams.service.TeamInviteService;
@@ -56,7 +38,14 @@ import teams.service.TeamsDao;
 import teams.util.AuditLog;
 import teams.util.ControllerUtil;
 import teams.util.TokenUtil;
-import teams.util.ViewUtil;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
+import java.util.*;
+
+import static java.util.stream.Collectors.toList;
+import static teams.util.TokenUtil.checkTokens;
+import static teams.util.ViewUtil.escapeViewParameters;
 
 /**
  * {@link Controller} that handles the accept/decline of an Invitation
@@ -113,7 +102,7 @@ public class InvitationController {
     if (invitation.isAccepted()) {
       modelMap.addAttribute("action", "accepted");
       String teamId = invitation.getTeamId();
-      String teamUrl = escapeViewParameters("detailteam.shtml?team=%s&view=%s", teamId, ViewUtil.getView(request));
+      String teamUrl = escapeViewParameters("detailteam.shtml?team=%s", teamId);
       modelMap.addAttribute("teamUrl", teamUrl);
 
       return "invitationexception";
@@ -136,8 +125,6 @@ public class InvitationController {
           serviceProviders.stream().map(TeamServiceProvider::getSpEntityId).collect(toList()));
       modelMap.addAttribute("serviceProviders", eduGainServiceProviders);
     }
-    ViewUtil.addViewToModelMap(request, modelMap);
-
     return "acceptinvitation";
   }
 
@@ -182,7 +169,7 @@ public class InvitationController {
     invitation.setAccepted(true);
     teamInviteService.saveOrUpdate(invitation);
 
-    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&view=%s", teamId, ViewUtil.getView(request)));
+    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s", teamId));
   }
 
   /**
@@ -211,7 +198,6 @@ public class InvitationController {
     invitation.setDeclined(true);
     teamInviteService.saveOrUpdate(invitation);
     AuditLog.log("User {} declined invitation for team {} with intended role {}", person.getId(), invitation.getTeamId(), invitation.getIntendedRole());
-    ViewUtil.addViewToModelMap(request, modelMap);
 
     return viewTemplate;
   }
@@ -255,7 +241,7 @@ public class InvitationController {
 
     status.setComplete();
     modelMap.clear();
-    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&view=%s", teamId, ViewUtil.getView(request)));
+    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s", teamId));
   }
 
   @RequestMapping("/myinvitations.shtml")
@@ -275,8 +261,6 @@ public class InvitationController {
       }
     }
     modelMap.addAttribute("teams", invitedTeams);
-    ViewUtil.addViewToModelMap(request, modelMap);
-
     return "myinvitations";
   }
 

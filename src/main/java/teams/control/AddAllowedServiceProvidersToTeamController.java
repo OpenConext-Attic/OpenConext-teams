@@ -1,14 +1,8 @@
 package teams.control;
 
-import static com.google.common.collect.Collections2.filter;
-import static com.google.common.collect.Collections2.transform;
-import static java.util.Comparator.comparing;
-import static teams.util.ViewUtil.escapeViewParameters;
-
-import java.io.UnsupportedEncodingException;
-import java.util.Collection;
-import java.util.List;
-
+import com.google.common.collect.Ordering;
+import nl.surfnet.coin.stoker.Stoker;
+import nl.surfnet.coin.stoker.StokerEntry;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,20 +11,19 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.google.common.collect.Ordering;
-
-import nl.surfnet.coin.stoker.Stoker;
-import nl.surfnet.coin.stoker.StokerEntry;
 import teams.domain.TeamServiceProvider;
 import teams.service.TeamsDao;
-import teams.util.ViewUtil;
+
+import java.io.UnsupportedEncodingException;
+import java.util.Collection;
+import java.util.List;
+
+import static com.google.common.collect.Collections2.filter;
+import static com.google.common.collect.Collections2.transform;
+import static java.util.Comparator.comparing;
+import static teams.util.ViewUtil.escapeViewParameters;
 
 @Controller
 @Profile("groupzy")
@@ -63,11 +56,10 @@ public class AddAllowedServiceProvidersToTeamController {
   private TeamsDao teamsDao;
 
   @RequestMapping(value = "/{id}/service-providers.shtml", method = RequestMethod.GET)
-  public ModelAndView get(@PathVariable("id") String teamId, @RequestParam(value = "view", required = false) String view) {
+  public ModelAndView get(@PathVariable("id") String teamId) {
     ModelMap model = new ModelMap();
     model.put("serviceProviders", new ServiceProviderOrderer(stoker.getEduGainServiceProviders()).ordered());
     model.put("teamId", teamId);
-    model.put("view", view);
     Collection<StokerEntry> eduGainServiceProviders = stoker.getEduGainServiceProviders(transform(teamsDao.forTeam(groupNameContext + teamId), TeamServiceProvider::getSpEntityId));
     model.put("existingServiceProviders", new ServiceProviderOrderer(eduGainServiceProviders).ordered());
 
@@ -81,7 +73,7 @@ public class AddAllowedServiceProvidersToTeamController {
   }
 
   @RequestMapping(value = "/{id}/service-providers.shtml", method = RequestMethod.POST)
-  public String post(@PathVariable("id") String teamId, @RequestParam(value = "view", required = false) String view, @RequestParam("services[]") List<String> services) throws UnsupportedEncodingException {
+  public String post(@PathVariable("id") String teamId, @RequestParam("services[]") List<String> services) throws UnsupportedEncodingException {
     Collection<String> spEntityIds = filter(services, StringUtils::hasText);
     if (logger.isDebugEnabled()) {
       logger.debug("Adding the following spEntityIds " + spEntityIds);
@@ -91,7 +83,7 @@ public class AddAllowedServiceProvidersToTeamController {
     String uniqueTeamId = groupNameContext + teamId;
     teamsDao.persist(uniqueTeamId, spEntityIds);
 
-    return escapeViewParameters("redirect:/detailteam.shtml?team=%s&view=%s", teamId, ViewUtil.getView(view));
+    return escapeViewParameters("redirect:/detailteam.shtml?team=%s", teamId);
   }
 
 }

@@ -26,16 +26,15 @@
   <%-- = Header --%>
   <div id="Header">
     <h1>${pageTitle}</h1>
-    <c:url value="/home.shtml" var="closeUrl"><c:param name="teams" value="my" /><c:param name="view" value="${view}" /></c:url>
+    <c:url value="/home.shtml" var="closeUrl"><c:param name="teams" value="my" /></c:url>
     <p class="close"><a href="${closeUrl}"><spring:message code='jsp.general.CloseForm' /></a></p>
   <%-- / Header --%>
   </div>
   <%-- = Content --%>
   <div id="Content">
-    <c:url value="/doaddteam.shtml" var="doAddTeamUrl"><c:param name="view" value="${view}" /></c:url>
+    <c:url value="/doaddteam.shtml" var="doAddTeamUrl"></c:url>
     <form:form id="AddTeamForm" action="${doAddTeamUrl}" method="post" commandName="addTeamCommand">
       <input type="hidden" name="token" value="<c:out value='${tokencheck}'/>"/>
-      <input type="hidden" name="view" value="<c:out value='${view}' />" />
       <p class="label-field-wrapper">
         <label for="TeamName"><spring:message code='jsp.general.TeamName' /></label>
         <form:input path="teamName" id="TeamName" cssClass="required" cssErrorClass="error" required="required" />

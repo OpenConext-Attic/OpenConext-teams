@@ -29,8 +29,7 @@ COIN.MODULES.Addteam = function (sandbox) {
       // Clicked [ Cancel ]
       $(document).on("click", 'input[name=cancelCreateTeam]', function (e) {
         e.preventDefault();
-        var view = $('input[name=view]').val();
-        sandbox.redirectBrowserTo('home.shtml?teams=my&view=' + view);
+        sandbox.redirectBrowserTo('home.shtml?teams=my');
       });
 
       // Clicked [ Consent ]

@@ -26,7 +26,7 @@
   <%-- = Header --%>
   <div id="Header">
     <h1>${pageTitle}</h1>
-    <c:url value="home.shtml" var="closeUrl"><c:param name="teams" value="all" /><c:param name="view" value="${view}" /></c:url>
+    <c:url value="home.shtml" var="closeUrl"><c:param name="teams" value="all" /></c:url>
     <p class="close"><a href="<c:out value="${closeUrl}"/>"><spring:message code='jsp.general.CloseForm' /></a></p>
   <%-- / Header --%>
   </div>
@@ -35,7 +35,6 @@
     <form:form id="JoinTeamForm" method="post" commandName="joinTeamRequest" action="dojointeam.shtml">
       <p class="label-field-wrapper">
         <input type="hidden" name="team" value="<c:out value='${joinTeamRequest.groupId}' />" />
-        <input type="hidden" name="view" value="<c:out value='${view}' />" />
         <form:label path="message"><spring:message code='jsp.jointeam.Message.label' /></form:label>
         <form:textarea path="message" rows="4" cols="5"/>
       </p>
