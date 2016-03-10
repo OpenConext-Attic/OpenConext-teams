@@ -106,7 +106,7 @@ public class AddMemberControllerTest {
         .param("emails", "john@example.com")
         .param("language", "Dutch")
         .param("token", dummyToken))
-      .andExpect(view().name("redirect:detailteam.shtml?team=teamId&view=app"));
+      .andExpect(view().name("redirect:detailteam.shtml?team=teamId"));
 
     ArgumentCaptor<Invitation> invitationCaptor = ArgumentCaptor.forClass(Invitation.class);
 

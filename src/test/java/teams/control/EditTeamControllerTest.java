@@ -102,7 +102,7 @@ public class EditTeamControllerTest extends AbstractControllerTest {
 
     RedirectView result = editTeamController.editTeam(getModelMap(), request, token, token, new SimpleSessionStatus());
 
-    assertEquals("detailteam.shtml?team=team-1&view=app", result.getUrl());
+    assertEquals("detailteam.shtml?team=team-1", result.getUrl());
 
   }
 

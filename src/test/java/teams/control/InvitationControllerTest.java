@@ -98,7 +98,7 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
     assertTrue("Accepted invitation", invitation.isAccepted());
 
-    String redirectUrl = "detailteam.shtml?team=team-1&view=app";
+    String redirectUrl = "detailteam.shtml?team=team-1";
     assertEquals(redirectUrl, view.getUrl());
   }
 
@@ -110,7 +110,7 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
     assertEquals(invitation.getIntendedRole(), Role.Admin);
 
-    String redirectUrl = "detailteam.shtml?team=team-1&view=app";
+    String redirectUrl = "detailteam.shtml?team=team-1";
     assertEquals(redirectUrl, view.getUrl());
   }
 
@@ -128,7 +128,7 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
     assertEquals(Role.Manager, invitation.getIntendedRole());
 
-    String redirectUrl = "detailteam.shtml?team=team-1&view=app";
+    String redirectUrl = "detailteam.shtml?team=team-1";
     assertEquals(redirectUrl, view.getUrl());
   }
 
@@ -147,7 +147,7 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
     RedirectView view = controller.deleteInvitation(getRequest(), token, token, invitation.getInvitationHash(), new SimpleSessionStatus(), getModelMap());
 
-    String redirectUrl = "detailteam.shtml?team=team-1&view=app";
+    String redirectUrl = "detailteam.shtml?team=team-1";
 
     assertEquals(redirectUrl, view.getUrl());
   }

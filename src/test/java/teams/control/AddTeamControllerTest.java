@@ -101,7 +101,7 @@ public class AddTeamControllerTest {
         .param("teamDescription", "description")
         .param("viewable", "true")
         .param("teamName", "name"))
-      .andExpect(view().name("redirect:detailteam.shtml?team=teamid&view=app"));
+      .andExpect(view().name("redirect:detailteam.shtml?team=teamid"));
 
     verify(grouperTeamServiceMock).setVisibilityGroup("teamid", true);
     verify(grouperTeamServiceMock).addMember("teamid", person);
@@ -145,7 +145,7 @@ public class AddTeamControllerTest {
         .param("teamDescription", "description")
         .param("teamName", "name")
         .param("stem", "stemId"))
-    .andExpect(view().name("redirect:detailteam.shtml?team=created&view=app"));
+    .andExpect(view().name("redirect:detailteam.shtml?team=created"));
   }
 
   @Test
@@ -160,7 +160,7 @@ public class AddTeamControllerTest {
         .param("token", dummyToken)
         .param("teamDescription", "description")
         .param("teamName", "name"))
-      .andExpect(view().name("redirect:detailteam.shtml?team=Henk+%26+Truus&view=app"));
+      .andExpect(view().name("redirect:detailteam.shtml?team=Henk+%26+Truus"));
   }
 
 
@@ -180,7 +180,7 @@ public class AddTeamControllerTest {
         .param("admin2Email", "henk@example.com")
         .param("admin2Language", "Dutch")
         .param("admin2Message", "message"))
-      .andExpect(view().name("redirect:detailteam.shtml?team=created&view=app"));
+      .andExpect(view().name("redirect:detailteam.shtml?team=created"));
 
     ArgumentCaptor<Invitation> invitationCaptor = ArgumentCaptor.forClass(Invitation.class);
     verify(teamInviteServiceMock).saveOrUpdate(invitationCaptor.capture());

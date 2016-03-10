@@ -15,7 +15,7 @@
  */
 package teams.control;
 
-import org.hibernate.validator.internal.constraintvalidators.EmailValidator;
+import org.hibernate.validator.internal.constraintvalidators.hv.EmailValidator;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;

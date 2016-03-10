@@ -186,7 +186,7 @@ public class DetailTeamControllerTest {
         .param("team", "teamId")
         .sessionAttr(TOKENCHECK, dummyToken)
         .sessionAttr(PERSON_SESSION_KEY, person))
-      .andExpect(redirectedUrl("home.shtml?teams=my&view=app"));
+      .andExpect(redirectedUrl("home.shtml?teams=my"));
 
     verify(grouperTeamServiceMock).deleteMember("teamId", "id");
   }
@@ -206,7 +206,7 @@ public class DetailTeamControllerTest {
         .param("team", "teamId")
         .sessionAttr(TOKENCHECK, dummyToken)
         .sessionAttr(PERSON_SESSION_KEY, person))
-      .andExpect(redirectedUrl("detailteam.shtml?team=teamId&view=app&mes=error.AdminCannotLeaveTeam"));
+      .andExpect(redirectedUrl("detailteam.shtml?team=teamId&mes=error.AdminCannotLeaveTeam"));
 
     verify(grouperTeamServiceMock, never()).deleteMember("teamId", "id");
   }
@@ -230,7 +230,7 @@ public class DetailTeamControllerTest {
         .param("team", "teamId")
         .sessionAttr(TOKENCHECK, dummyToken)
         .sessionAttr(PERSON_SESSION_KEY, person))
-      .andExpect(redirectedUrl("home.shtml?teams=my&view=app"));
+      .andExpect(redirectedUrl("home.shtml?teams=my"));
 
     verify(teamInviteServiceMock).delete(invitation);
     verify(teamExternalGroupDaoMock).delete(externalGroup);
@@ -252,7 +252,7 @@ public class DetailTeamControllerTest {
         .param("team", "teamId")
         .sessionAttr(TOKENCHECK, dummyToken)
         .sessionAttr(PERSON_SESSION_KEY, person))
-      .andExpect(redirectedUrl("detailteam.shtml?team=teamId&view=app"));
+      .andExpect(redirectedUrl("detailteam.shtml?team=teamId"));
 
     verify(grouperTeamServiceMock, never()).deleteTeam("teamId");
   }
@@ -274,7 +274,7 @@ public class DetailTeamControllerTest {
         .param(MEMBER_PARAM, "memberId")
         .sessionAttr(TOKENCHECK, dummyToken)
         .sessionAttr(PERSON_SESSION_KEY, person))
-      .andExpect(redirectedUrl("detailteam.shtml?team=teamId&view=app"));
+      .andExpect(redirectedUrl("detailteam.shtml?team=teamId"));
 
     verify(grouperTeamServiceMock).deleteMember("teamId", "memberId");
   }
@@ -296,7 +296,7 @@ public class DetailTeamControllerTest {
         .param(MEMBER_PARAM, "memberId")
         .sessionAttr(TOKENCHECK, dummyToken)
         .sessionAttr(PERSON_SESSION_KEY, person))
-      .andExpect(redirectedUrl("detailteam.shtml?team=teamId&mes=error.NotAuthorizedToDeleteMember&view=app"));
+      .andExpect(redirectedUrl("detailteam.shtml?team=teamId&mes=error.NotAuthorizedToDeleteMember"));
 
     verify(grouperTeamServiceMock, never()).deleteMember("teamId", "memberId");
   }
@@ -318,7 +318,7 @@ public class DetailTeamControllerTest {
         .param(MEMBER_PARAM, "memberId")
         .sessionAttr(TOKENCHECK, dummyToken)
         .sessionAttr(PERSON_SESSION_KEY, person))
-      .andExpect(redirectedUrl("detailteam.shtml?team=teamId&mes=error.NotAuthorizedToDeleteMember&view=app"));
+      .andExpect(redirectedUrl("detailteam.shtml?team=teamId&mes=error.NotAuthorizedToDeleteMember"));
 
     verify(grouperTeamServiceMock, never()).deleteMember("teamId", "memberId");
   }
@@ -341,7 +341,7 @@ public class DetailTeamControllerTest {
         .param("doAction", "add")
         .sessionAttr(TOKENCHECK, dummyToken)
         .sessionAttr(PERSON_SESSION_KEY, person))
-      .andExpect(redirectedUrl("detailteam.shtml?team=teamId&view=app&mes=role.added&offset=0"));
+      .andExpect(redirectedUrl("detailteam.shtml?team=teamId&mes=role.added&offset=0"));
   }
 
   @Test
@@ -362,7 +362,7 @@ public class DetailTeamControllerTest {
         .param("doAction", "add")
         .sessionAttr(TOKENCHECK, dummyToken)
         .sessionAttr(PERSON_SESSION_KEY, person))
-      .andExpect(redirectedUrl("detailteam.shtml?team=teamId&view=app&mes=no.role.added&offset=0"));
+      .andExpect(redirectedUrl("detailteam.shtml?team=teamId&mes=no.role.added&offset=0"));
   }
 
   @Test
@@ -383,7 +383,7 @@ public class DetailTeamControllerTest {
         .param("doAction", "remove")
         .sessionAttr(TOKENCHECK, dummyToken)
         .sessionAttr(PERSON_SESSION_KEY, person))
-      .andExpect(redirectedUrl("detailteam.shtml?team=teamId&view=app&mes=role.removed&offset=0"));
+      .andExpect(redirectedUrl("detailteam.shtml?team=teamId&mes=role.removed&offset=0"));
   }
 
   @Test
@@ -405,7 +405,7 @@ public class DetailTeamControllerTest {
         .param("doAction", "remove")
         .sessionAttr(TOKENCHECK, dummyToken)
         .sessionAttr(PERSON_SESSION_KEY, person))
-      .andExpect(redirectedUrl("detailteam.shtml?team=teamId&view=app&mes=no.role.added.admin.status&offset=0"));
+      .andExpect(redirectedUrl("detailteam.shtml?team=teamId&mes=no.role.added.admin.status&offset=0"));
   }
 
   @Test
@@ -418,7 +418,7 @@ public class DetailTeamControllerTest {
         .param("doAction", "remove")
         .sessionAttr(TOKENCHECK, dummyToken)
         .sessionAttr(PERSON_SESSION_KEY, person))
-      .andExpect(redirectedUrl("home.shtml?teams=my&view=app"));
+      .andExpect(redirectedUrl("home.shtml?teams=my"));
   }
 
   @Test
@@ -440,7 +440,7 @@ public class DetailTeamControllerTest {
         .param(MEMBER_PARAM, "member")
         .sessionAttr(TOKENCHECK, dummyToken)
         .sessionAttr(PERSON_SESSION_KEY, person))
-      .andExpect(redirectedUrl("detailteam.shtml?team=teamId&view=app"));
+      .andExpect(redirectedUrl("detailteam.shtml?team=teamId"));
 
     verify(controllerUtilMock).sendDeclineMail(new Person("member", "", "email", "", "", ""), team, Locale.ENGLISH);
   }
@@ -464,7 +464,7 @@ public class DetailTeamControllerTest {
         .param(MEMBER_PARAM, "member")
         .sessionAttr(TOKENCHECK, dummyToken)
         .sessionAttr(PERSON_SESSION_KEY, person))
-      .andExpect(redirectedUrl("detailteam.shtml?team=teamId&view=app"));
+      .andExpect(redirectedUrl("detailteam.shtml?team=teamId"));
 
     verify(controllerUtilMock, never()).sendDeclineMail(person, team, Locale.ENGLISH);
   }
