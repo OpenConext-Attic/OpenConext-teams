@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.actuate.autoconfigure.ManagementWebSecurityAutoConfiguration;
 import org.springframework.boot.actuate.autoconfigure.MetricFilterAutoConfiguration;
 import org.springframework.boot.actuate.autoconfigure.TraceWebFilterAutoConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -31,6 +32,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
+import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -61,7 +63,12 @@ import java.util.Properties;
 
 @SpringBootApplication
 @EnableScheduling
-@EnableAutoConfiguration(exclude = {SecurityAutoConfiguration.class, FreeMarkerAutoConfiguration.class, TraceWebFilterAutoConfiguration.class, MetricFilterAutoConfiguration.class})
+@EnableAutoConfiguration(exclude = {
+  SecurityAutoConfiguration.class,
+  ManagementWebSecurityAutoConfiguration.class,
+  FreeMarkerAutoConfiguration.class,
+  TraceWebFilterAutoConfiguration.class,
+  MetricFilterAutoConfiguration.class})
 public class Application extends SpringBootServletInitializer {
 
   private static final Logger LOG = LoggerFactory.getLogger(Application.class);
@@ -119,7 +126,7 @@ public class Application extends SpringBootServletInitializer {
   @Bean
   public LocaleResolver localeResolver() {
     SessionLocaleResolver localeResolver = new SessionLocaleResolver();
-    localeResolver.setDefaultLocale(new Locale("en_EN"));
+    localeResolver.setDefaultLocale(StringUtils.parseLocaleString("EN"));
     return localeResolver;
   }
 
@@ -209,7 +216,7 @@ public class Application extends SpringBootServletInitializer {
    * Can be removed as soon as https://github.com/spring-projects/spring-boot/issues/2893 is solved.
    */
   @Bean
-  public InternalResourceViewResolver viewResolver(@Value("${spring.view.prefix:}") String prefix, @Value("${spring.view.suffix:}") String suffix) {
+  public InternalResourceViewResolver viewResolver(@Value("${spring.mvc.view.prefix:}") String prefix, @Value("${spring.mvc.view.suffix:}") String suffix) {
     final InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
     internalResourceViewResolver.setOrder(Ordered.HIGHEST_PRECEDENCE);
     internalResourceViewResolver.setPrefix(prefix);
