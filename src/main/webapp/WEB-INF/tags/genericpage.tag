@@ -58,15 +58,17 @@
           <h2 class="component-title"><spring:message code="jsp.general.Title" /></h2>
         </div>
       </c:if>
-      <div class="component-title-bar">
-        <h2 class="component-title right">
-          <spring:message code="jsp.general.Welcome"/>&nbsp;<c:out value="${sessionScope.person.displayName}" />
-          <teams:language />
-          <a href="https://wiki.surfnet.nl/display/conextsupport/SURFconext+teams" target="_blank"><spring:message code="jsp.general.Help" /></a>
-          &nbsp;|&nbsp;<a href="/Shibboleth.sso/Logout?target=/teams"><spring:message code="jsp.general.Logout"/></a>
-        </h2>
-        <h2 class="component-title"><spring:message code="jsp.general.Title" /></h2>
-      </div>
+      <c:if test='${not empty sessionScope.person}'>
+        <div class="component-title-bar">
+          <h2 class="component-title right">
+            <spring:message code="jsp.general.Welcome"/>&nbsp;<c:out value="${sessionScope.person.displayName}" />
+            <teams:language />
+            <a href="https://wiki.surfnet.nl/display/conextsupport/SURFconext+teams" target="_blank"><spring:message code="jsp.general.Help" /></a>
+            &nbsp;|&nbsp;<a href="/Shibboleth.sso/Logout?target=/teams"><spring:message code="jsp.general.Logout"/></a>
+          </h2>
+          <h2 class="component-title"><spring:message code="jsp.general.Title" /></h2>
+        </div>
+      </c:if>
       <div class="component-content" id="PageContainer">
 
           <!-- = Main -->
