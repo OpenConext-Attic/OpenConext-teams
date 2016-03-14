@@ -1,6 +1,5 @@
 package teams;
 
-import com.tapstream.rollbar.RollbarFilter;
 import freemarker.template.TemplateException;
 import org.apache.catalina.Container;
 import org.apache.catalina.Wrapper;
@@ -222,11 +221,6 @@ public class Application extends SpringBootServletInitializer {
     internalResourceViewResolver.setPrefix(prefix);
     internalResourceViewResolver.setSuffix(suffix);
     return internalResourceViewResolver;
-  }
-
-  @Bean
-  public RollbarFilter rollbarFilter() {
-    return new RollbarFilter();
   }
 
 }
