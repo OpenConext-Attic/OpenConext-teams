@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 import teams.Application;
 import teams.domain.*;
@@ -88,25 +89,10 @@ public class InvitationController {
   @RequestMapping(value = "/acceptInvitation.shtml")
   public String accept(ModelMap modelMap, HttpServletRequest request) throws UnsupportedEncodingException {
     Optional<Invitation> invitationO = getInvitationByRequest(request);
-    if (!invitationO.isPresent()) {
-      modelMap.addAttribute("action", "missing");
+    if (redirectToInvitationErrorPage(invitationO, modelMap)) {
       return "invitationexception";
     }
-
     Invitation invitation = invitationO.get();
-
-    if (invitation.isDeclined()) {
-      modelMap.addAttribute("action", "declined");
-      return "invitationexception";
-    }
-    if (invitation.isAccepted()) {
-      modelMap.addAttribute("action", "accepted");
-      String teamId = invitation.getTeamId();
-      String teamUrl = escapeViewParameters("detailteam.shtml?team=%s", teamId);
-      modelMap.addAttribute("teamUrl", teamUrl);
-
-      return "invitationexception";
-    }
 
     String teamId = invitation.getTeamId();
     if (!StringUtils.hasText(teamId)) {
@@ -128,6 +114,30 @@ public class InvitationController {
     return "acceptinvitation";
   }
 
+  private boolean redirectToInvitationErrorPage(Optional<Invitation> invitationO, ModelMap modelMap) {
+    if (!invitationO.isPresent()) {
+      modelMap.addAttribute("action", "missing");
+      return true;
+    }
+
+    Invitation invitation = invitationO.get();
+
+    if (invitation.isDeclined()) {
+      modelMap.addAttribute("action", "declined");
+      return true;
+    }
+    if (invitation.isAccepted()) {
+      modelMap.addAttribute("action", "accepted");
+      String teamId = invitation.getTeamId();
+      String teamUrl = escapeViewParameters("detailteam.shtml?team=%s", teamId);
+      modelMap.addAttribute("teamUrl", teamUrl);
+
+      return true;
+    }
+
+    return false;
+  }
+
   /**
    * RequestMapping to accept an invitation. If everything is okay, it redirects
    * to your new team detail view.
@@ -137,18 +147,15 @@ public class InvitationController {
    * @throws UnsupportedEncodingException if the server does not support utf-8
    */
   @RequestMapping(value = "/doAcceptInvitation.shtml")
-  public RedirectView doAccept(HttpServletRequest request) {
+  public ModelAndView doAccept(ModelMap modelMap, HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
 
-    Invitation invitation = getInvitationByRequest(request)
-        .orElseThrow(() -> new IllegalArgumentException("Cannot find your invitation. Invitations expire after 14 days."));
+    Optional<Invitation> invitationO = getInvitationByRequest(request);
+    if (redirectToInvitationErrorPage(invitationO, modelMap)) {
+      return new ModelAndView("invitationexception", modelMap);
+    }
+    Invitation invitation = invitationO.get();
 
-    if (invitation.isDeclined()) {
-      throw new RuntimeException("Invitation is Declined");
-    }
-    if (invitation.isAccepted()) {
-      throw new IllegalStateException("Invitation is already Accepted");
-    }
     String teamId = invitation.getTeamId();
     if (!StringUtils.hasText(teamId)) {
       throw new RuntimeException("Invalid invitation");
@@ -169,7 +176,7 @@ public class InvitationController {
     invitation.setAccepted(true);
     teamInviteService.saveOrUpdate(invitation);
 
-    return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s", teamId));
+    return new ModelAndView(new RedirectView(escapeViewParameters("detailteam.shtml?team=%s", teamId)), Collections.emptyMap());
   }
 
   /**

@@ -28,7 +28,9 @@ import com.google.common.collect.ImmutableList;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.support.SimpleSessionStatus;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import teams.domain.Invitation;
@@ -94,24 +96,24 @@ public class InvitationControllerTest extends AbstractControllerTest {
   @Test
   public void testDoAccept() throws Exception {
 
-    RedirectView view = controller.doAccept(getRequest());
+    ModelAndView modelAndView = controller.doAccept(new ModelMap(), getRequest());
 
     assertTrue("Accepted invitation", invitation.isAccepted());
 
     String redirectUrl = "detailteam.shtml?team=team-1";
-    assertEquals(redirectUrl, view.getUrl());
+    assertEquals(redirectUrl, ((RedirectView)modelAndView.getView()).getUrl());
   }
 
   @Test
   public void testDoAcceptAdmin() throws Exception {
-    RedirectView view = controller.doAccept(getRequest());
+    ModelAndView modelAndView = controller.doAccept(new ModelMap(), getRequest());
     invitation.setIntendedRole(Role.Admin);
     assertTrue("Accepted invitation", invitation.isAccepted());
 
     assertEquals(invitation.getIntendedRole(), Role.Admin);
 
     String redirectUrl = "detailteam.shtml?team=team-1";
-    assertEquals(redirectUrl, view.getUrl());
+    assertEquals(redirectUrl, ((RedirectView)modelAndView.getView()).getUrl());
   }
 
   @Test
@@ -123,20 +125,21 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
     invitation.setIntendedRole(Role.Admin);
 
-    RedirectView view = controller.doAccept(getRequest());
+    ModelAndView modelAndView = controller.doAccept(new ModelMap(), getRequest());
     assertTrue("Accepted invitation", invitation.isAccepted());
 
     assertEquals(Role.Manager, invitation.getIntendedRole());
 
     String redirectUrl = "detailteam.shtml?team=team-1";
-    assertEquals(redirectUrl, view.getUrl());
+    assertEquals(redirectUrl, ((RedirectView)modelAndView.getView()).getUrl());
   }
 
-  @Test(expected = IllegalStateException.class)
+  @Test
   public void testDoAcceptTwice() throws Exception {
-    controller.doAccept(getRequest());
+    controller.doAccept(new ModelMap(), getRequest());
     assertTrue("Accepted invitation", invitation.isAccepted());
-    controller.doAccept(getRequest());
+    ModelAndView modelAndView = controller.doAccept(new ModelMap(), getRequest());
+    assertEquals("invitationexception", modelAndView.getViewName());
   }
 
   @Test
