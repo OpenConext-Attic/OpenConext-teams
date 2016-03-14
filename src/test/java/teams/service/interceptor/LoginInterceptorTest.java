@@ -23,12 +23,15 @@ import org.springframework.mock.web.MockHttpServletResponse;
 import teams.domain.MemberAttribute;
 import teams.domain.Person;
 import teams.interceptor.LoginInterceptor;
+import teams.provision.MockUserDetailsManager;
 import teams.service.MemberAttributeService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
+import static java.util.Collections.singletonList;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 import static teams.domain.MemberAttribute.*;
@@ -53,7 +56,7 @@ public class LoginInterceptorTest {
       mock(MemberAttributeService.class);
     when(memberAttributeService.findAttributesForMemberId(
       id)).thenReturn(new ArrayList<>());
-    interceptor = new LoginInterceptor("foo", memberAttributeService);
+    interceptor = new LoginInterceptor("foo", memberAttributeService, new MockUserDetailsManager());
   }
 
   @Test
@@ -94,12 +97,12 @@ public class LoginInterceptorTest {
     reset(memberAttributeService);
     MemberAttribute memberAttribute = new MemberAttribute(id, ATTRIBUTE_GUEST, String.valueOf(preMemberIsGuest));
     when(memberAttributeService.findAttributesForMemberId(
-      id)).thenReturn(Arrays.asList(memberAttribute));
+      id)).thenReturn(singletonList(memberAttribute));
 
     interceptor.handleGuestStatus(request.getSession(true), new Person(id, "name", "email", "schacHome", personIsGuest ? null : "urn:collab:org:surf.nl", "displayName"));
 
     if (preMemberIsGuest != personIsGuest) {
-      verify(memberAttributeService).saveOrUpdate(Arrays.asList(new MemberAttribute(id,ATTRIBUTE_GUEST, String.valueOf(personIsGuest))));
+      verify(memberAttributeService).saveOrUpdate(singletonList(new MemberAttribute(id, ATTRIBUTE_GUEST, String.valueOf(personIsGuest))));
     }
 
     assertEquals(String.valueOf(personIsGuest), memberAttribute.getAttributeValue());

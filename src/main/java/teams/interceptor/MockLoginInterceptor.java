@@ -28,6 +28,8 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.core.io.ClassPathResource;
 
 import teams.domain.Person;
+import teams.provision.MockUserDetailsManager;
+import teams.provision.UserDetailsManager;
 import teams.service.MemberAttributeService;
 
 /**
@@ -39,7 +41,7 @@ public class MockLoginInterceptor extends LoginInterceptor {
   private static final String MOCK_USER_STATUS = "member";//"guest";
 
   public MockLoginInterceptor(String teamsUrl, MemberAttributeService memberAttributeService) {
-    super(teamsUrl, memberAttributeService);
+    super(teamsUrl, memberAttributeService, new MockUserDetailsManager());
   }
 
   @Override
