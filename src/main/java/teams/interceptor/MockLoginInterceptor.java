@@ -41,7 +41,7 @@ public class MockLoginInterceptor extends LoginInterceptor {
   private static final String MOCK_USER_STATUS = "member";//"guest";
 
   public MockLoginInterceptor(String teamsUrl, MemberAttributeService memberAttributeService) {
-    super(teamsUrl, memberAttributeService, new MockUserDetailsManager());
+    super(teamsUrl, memberAttributeService, new MockUserDetailsManager(), true);
   }
 
   @Override

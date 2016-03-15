@@ -18,12 +18,14 @@ package teams.control;
 import com.google.common.base.Throwables;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
 import teams.domain.*;
 import teams.interceptor.LoginInterceptor;
@@ -295,7 +297,12 @@ public class AddMemberController {
 
   @ModelAttribute("languages")
   public Language[] languages() {
-    return Language.values();
+    Locale locale = LocaleContextHolder.getLocale();
+    if (locale.toString().equals("en")) {
+      return Language.enLanguages();
+    } else {
+      return Language.nlLanguages();
+    }
   }
 
 }

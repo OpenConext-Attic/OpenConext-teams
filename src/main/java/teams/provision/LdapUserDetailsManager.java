@@ -33,7 +33,7 @@ public class LdapUserDetailsManager implements UserDetailsManager {
 
     LOG.debug("LDAP query {}", encode);
 
-    //we have provided the ldapOPerations with a base so here we need an empty String
+    //we have provided the ldapOperations with a base so here we need an empty String
     List<String> persons = ldapOperations.search("", encode,
       (AttributesMapper<String>) attributes -> (String) attributes.get("collabpersonid").get());
 
@@ -43,10 +43,18 @@ public class LdapUserDetailsManager implements UserDetailsManager {
 
   @Override
   public void createPerson(Person person) {
+    String organization = person.getSchacHomeOrganization();
+    if (!existingOrganisation(organization)) {
+      createOrganisation(organization);
+    }
+
     Attributes userAttributes = new BasicAttributes();
     userAttributes.put("collabpersonid", person.getId());
     userAttributes.put("cn", person.getDisplayName());
+    userAttributes.put("sn", person.getDisplayName());
     userAttributes.put("mail", person.getEmail());
+    userAttributes.put("uid", person.getName());
+    userAttributes.put("o", organization);
 
     BasicAttribute classAttribute = new BasicAttribute("objectclass");
     classAttribute.add("collabPerson");
@@ -55,11 +63,47 @@ public class LdapUserDetailsManager implements UserDetailsManager {
 
     userAttributes.put(classAttribute);
 
-    String dn = String.format("uid=%s,o=%s", person.getName(), person.getSchacHomeOrganization());
+    String dn = String.format("uid=%s,o=%s", person.getName(), organization);
 
     LOG.debug("LDAP bind {} for {}", userAttributes, dn);
 
     ldapOperations.bind(dn, null, userAttributes);
+  }
+
+  protected boolean existingOrganisation(String organization) {
+    AndFilter filter = new AndFilter()
+      .and(new EqualsFilter("objectclass", "organization"))
+      .and(new EqualsFilter("objectclass", "top"))
+      .and(new EqualsFilter("o", organization));
+
+    String encode = filter.encode();
+
+    LOG.debug("LDAP query {}", encode);
+
+    //we have provided the ldapOperations with a base so here we need an empty String
+    List<String> organisations = ldapOperations.search("", encode,
+      (AttributesMapper<String>) attributes -> (String) attributes.get("o").get());
+
+
+    //Object lookup = ldapOperations.lookup(String.format("o=%s", organization));
+    return !organisations.isEmpty();
+  }
+
+  private void createOrganisation(String organization) {
+    Attributes organisationAttributes = new BasicAttributes();
+    organisationAttributes.put("o", organization);
+
+    BasicAttribute classAttribute = new BasicAttribute("objectclass");
+    classAttribute.add("organization");
+    classAttribute.add("top");
+
+    organisationAttributes.put(classAttribute);
+
+    String dn = String.format("o=%s", organization);
+
+    LOG.debug("LDAP bind {} for {}", organisationAttributes, dn);
+
+    ldapOperations.bind(dn, null, organisationAttributes);
   }
 
 }

@@ -183,6 +183,7 @@ public class Application extends SpringBootServletInitializer {
     @Value("${displayExternalTeamMembers}") Boolean displayExternalTeamMembers,
     @Value("${displayAddExternalGroupToTeam}") Boolean displayAddExternalGroupToTeam,
     @Value("${application.version}") String applicationVersion,
+    @Value("${provision.users}") boolean provisionUsers,
     ResourceLoader resourceLoader) throws Exception {
 
     List<HandlerInterceptor> interceptors = new ArrayList<>();
@@ -198,7 +199,7 @@ public class Application extends SpringBootServletInitializer {
       LOG.debug("Using mock shibboleth");
       interceptors.add(new MockLoginInterceptor(teamsURL, memberAttributeService));
     } else {
-      interceptors.add(new LoginInterceptor(teamsURL, memberAttributeService, userDetailsManager));
+      interceptors.add(new LoginInterceptor(teamsURL, memberAttributeService, userDetailsManager, provisionUsers));
     }
     return new SpringMvcConfiguration(interceptors);
   }

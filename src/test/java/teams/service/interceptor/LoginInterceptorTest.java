@@ -56,7 +56,7 @@ public class LoginInterceptorTest {
       mock(MemberAttributeService.class);
     when(memberAttributeService.findAttributesForMemberId(
       id)).thenReturn(new ArrayList<>());
-    interceptor = new LoginInterceptor("foo", memberAttributeService, new MockUserDetailsManager());
+    interceptor = new LoginInterceptor("foo", memberAttributeService, new MockUserDetailsManager(), true);
   }
 
   @Test

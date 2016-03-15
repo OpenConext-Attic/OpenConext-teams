@@ -60,11 +60,13 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
   private final MemberAttributeService memberAttributeService;
   private final UserDetailsManager userDetailsManager;
+  private final boolean provisionUsers;
 
-  public LoginInterceptor(String teamsUrl, MemberAttributeService memberAttributeService, UserDetailsManager userDetailsManager) {
+  public LoginInterceptor(String teamsUrl, MemberAttributeService memberAttributeService, UserDetailsManager userDetailsManager, boolean provisionUsers) {
     this.teamsUrl = teamsUrl;
     this.memberAttributeService = memberAttributeService;
     this.userDetailsManager = userDetailsManager;
+    this.provisionUsers = provisionUsers;
   }
 
   @Override
@@ -84,7 +86,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         Optional<Person> optionalPerson = constructPerson(request);
         if (optionalPerson.isPresent()) {
           person = optionalPerson.get();
-          if (!userDetailsManager.existingPerson(person.getId())) {
+          if (this.provisionUsers && !userDetailsManager.existingPerson(person.getId())) {
             userDetailsManager.createPerson(person);
           }
         } else {
