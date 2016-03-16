@@ -31,13 +31,13 @@ public class LdapUserDetailsManager implements UserDetailsManager {
 
     String encode = filter.encode();
 
-    LOG.debug("LDAP query {}", encode);
+    LOG.info("LDAP query {}", encode);
 
     //we have provided the ldapOperations with a base so here we need an empty String
     List<String> persons = ldapOperations.search("", encode,
       (AttributesMapper<String>) attributes -> (String) attributes.get("collabpersonid").get());
 
-    LOG.debug("LDAP query result {}", persons);
+    LOG.info("LDAP query result {}", persons);
     return !persons.isEmpty();
   }
 
@@ -58,6 +58,7 @@ public class LdapUserDetailsManager implements UserDetailsManager {
 
     BasicAttribute classAttribute = new BasicAttribute("objectclass");
     classAttribute.add("collabPerson");
+    classAttribute.add("inetOrgPerson");
     classAttribute.add("person");
     classAttribute.add("top");
 
@@ -65,7 +66,7 @@ public class LdapUserDetailsManager implements UserDetailsManager {
 
     String dn = String.format("uid=%s,o=%s", person.getName(), organization);
 
-    LOG.debug("LDAP bind {} for {}", userAttributes, dn);
+    LOG.info("LDAP bind {} for {}", userAttributes, dn);
 
     ldapOperations.bind(dn, null, userAttributes);
   }
@@ -78,7 +79,7 @@ public class LdapUserDetailsManager implements UserDetailsManager {
 
     String encode = filter.encode();
 
-    LOG.debug("LDAP query {}", encode);
+    LOG.info("LDAP query {}", encode);
 
     //we have provided the ldapOperations with a base so here we need an empty String
     List<String> organisations = ldapOperations.search("", encode,
@@ -101,7 +102,7 @@ public class LdapUserDetailsManager implements UserDetailsManager {
 
     String dn = String.format("o=%s", organization);
 
-    LOG.debug("LDAP bind {} for {}", organisationAttributes, dn);
+    LOG.info("LDAP bind {} for {}", organisationAttributes, dn);
 
     ldapOperations.bind(dn, null, organisationAttributes);
   }
