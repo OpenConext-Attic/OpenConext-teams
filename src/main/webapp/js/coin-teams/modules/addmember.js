@@ -18,11 +18,14 @@ COIN.MODULES.Addmember = function(sandbox) {
   // Public interface
   var module = {
     init: function() {
+
+      var addMemberSubmitted
+
       sandbox.addPlaceholderSupport();
 
       // Clicked [ Cancel ]
 
-      $(document).on("click", 'input[name=cancelAddMember],.close a', function(e) {
+      $(document).on('click', 'input[name=cancelAddMember],.close a', function(e) {
         e.preventDefault();
         var teamId = $('input[name=teamId]').val();
         if (teamId) {
@@ -31,6 +34,15 @@ COIN.MODULES.Addmember = function(sandbox) {
           sandbox.redirectBrowserTo('home.shtml?teams=my');
         }
       });
+
+      $('input[name=addMember]').one('click', function(e1){
+          $('input[name=addMember]').on('click', function(e2){
+            e2.preventDefault();
+          });
+        $(".loader").toggle();
+        $("form#addMemberForm").submit();
+      });
+
 
       var fileUploadBox = $('#fileUploadBox');
       var fileUploader = fileUploadBox.find('input[type=file]');
@@ -59,10 +71,10 @@ COIN.MODULES.Addmember = function(sandbox) {
   // Private library (through closure)
   var library = {
     isVeryOldMsie: function() {
-      return ($.browser.msie && $.browser.version.slice(0, 1) <= 7);
+      return ($.browser && $.browser.msie && $.browser.version.slice(0, 1) <= 7);
     },
     isMsie: function() {
-      return ($.browser.msie === true);
+      return ($.browser && $.browser.msie === true);
     },
     clickBrowseButton: function(parentContainer, fileUploader) {
       $(document).on("click", '#fileUploadBox label, #fileUploadBox i', function(e) {
@@ -73,7 +85,7 @@ COIN.MODULES.Addmember = function(sandbox) {
       });
     },
     showFileNameToUpload: function(parentContainer, fileUploader) {
-      var event = $.browser.msie ? 'blur' : 'change';
+      var event = ($.browser && $.browser.msie) ? 'blur' : 'change';
       $(document).on(event, fileUploader, function(e) {
         var fileNameTag = parentContainer.find('i');
         // some browsers add C:\fakepath\ before the file name to obfuscate the file system location

@@ -41,6 +41,9 @@
   <c:url context="/Shibboleth.sso" value="/Login" var="loginUrl"><c:param name="target" value="${environment.teamsURL}/" /></c:url>
 </head>
 <body>
+  <div class="loader">
+    <img src="media/ajax-loader.gif">
+  </div>
   <div class="wrapper">
       <!--  = Header -->
       <div class="header">
