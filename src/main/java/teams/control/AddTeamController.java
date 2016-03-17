@@ -18,6 +18,7 @@ package teams.control;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -159,7 +160,12 @@ public class AddTeamController {
 
   @ModelAttribute("languages")
   public Language[] languages() {
-    return Language.values();
+    Locale locale = LocaleContextHolder.getLocale();
+    if (locale.toString().equals("en")) {
+      return Language.enLanguages();
+    } else {
+      return Language.nlLanguages();
+    }
   }
 
   private void checkAllowedStem(Stem stem, Person person) {

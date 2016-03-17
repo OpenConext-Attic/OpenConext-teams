@@ -15,7 +15,7 @@
   </parent>
   <groupId>org.surfnet.coin</groupId>
   <artifactId>coin-teams-war</artifactId>
-  <version>4.2.9</version>
+  <version>4.2.10-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>coin-teams-war</name>
   <description>OpenConext Teams WAR</description>
@@ -24,6 +24,7 @@
     <spring-security-oauth2.version>2.0.9.RELEASE</spring-security-oauth2.version>
     <guava.version>19.0</guava.version>
     <commons-lang.version>2.6</commons-lang.version>
+    <spring-ldap.version>2.0.4.RELEASE</spring-ldap.version>
     <java.version>1.8</java.version>
   </properties>
   <scm>
@@ -119,6 +120,11 @@
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
       <version>${guava.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.ldap</groupId>
+      <artifactId>spring-ldap-core</artifactId>
+      <version>${spring-ldap.version}</version>
     </dependency>
     <dependency>
       <groupId>mysql</groupId>

@@ -5,6 +5,7 @@ import org.apache.catalina.Container;
 import org.apache.catalina.Wrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -28,6 +29,8 @@ import org.springframework.core.Ordered;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.ldap.core.LdapTemplate;
+import org.springframework.ldap.core.support.LdapContextSource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
@@ -41,6 +44,8 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import teams.interceptor.FeatureInterceptor;
 import teams.interceptor.LoginInterceptor;
 import teams.interceptor.MockLoginInterceptor;
+import teams.provision.LdapUserDetailsManager;
+import teams.provision.UserDetailsManager;
 import teams.service.GrouperTeamService;
 import teams.service.MemberAttributeService;
 import teams.service.VootClient;
@@ -98,7 +103,23 @@ public class Application extends SpringBootServletInitializer {
   }
 
   @Bean
-  public VootClient vootClient(Environment environment, @Value("${voot.accessTokenUri}") String accessTokenUri,
+  public UserDetailsManager userDetailsManager(@Value("${ldap.url}") String url,
+                                               @Value("${ldap.base}") String base,
+                                               @Value("${ldap.userDn}") String userDn,
+                                               @Value("${ldap.password}") String password) {
+    LdapContextSource contextSource = new LdapContextSource();
+    contextSource.setUrl(url);
+    contextSource.setBase(base);
+    contextSource.setUserDn(userDn);
+    contextSource.setPassword(password);
+    contextSource.afterPropertiesSet();
+
+    return new LdapUserDetailsManager(new LdapTemplate(contextSource));
+  }
+
+  @Bean
+  public VootClient vootClient(Environment environment,
+                               @Value("${voot.accessTokenUri}") String accessTokenUri,
                                @Value("${voot.clientId}") String clientId,
                                @Value("${voot.clientSecret}") String clientSecret,
                                @Value("${voot.scopes}") String scopes,
@@ -151,14 +172,18 @@ public class Application extends SpringBootServletInitializer {
     return configuration;
   }
 
+  @Autowired
   @Bean
   public WebMvcConfigurerAdapter webMvcConfigurerAdapter(
-    Environment environment, MemberAttributeService memberAttributeService,
+    Environment environment,
+    MemberAttributeService memberAttributeService,
+    UserDetailsManager userDetailsManager,
     @Value("${teamsURL}") String teamsURL,
     @Value("${displayExternalTeams}") Boolean displayExternalTeams,
     @Value("${displayExternalTeamMembers}") Boolean displayExternalTeamMembers,
     @Value("${displayAddExternalGroupToTeam}") Boolean displayAddExternalGroupToTeam,
     @Value("${application.version}") String applicationVersion,
+    @Value("${provision.users}") boolean provisionUsers,
     ResourceLoader resourceLoader) throws Exception {
 
     List<HandlerInterceptor> interceptors = new ArrayList<>();
@@ -174,7 +199,7 @@ public class Application extends SpringBootServletInitializer {
       LOG.debug("Using mock shibboleth");
       interceptors.add(new MockLoginInterceptor(teamsURL, memberAttributeService));
     } else {
-      interceptors.add(new LoginInterceptor(teamsURL, memberAttributeService));
+      interceptors.add(new LoginInterceptor(teamsURL, memberAttributeService, userDetailsManager, provisionUsers));
     }
     return new SpringMvcConfiguration(interceptors);
   }

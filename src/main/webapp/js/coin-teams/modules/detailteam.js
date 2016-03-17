@@ -104,7 +104,11 @@ COIN.MODULES.Detailteam = function(sandbox) {
       $(document).on("click", 'input[name=cancelAddMember], .close a', function(e) {
         e.preventDefault();
         var teamId = $('input[name=teamId]').val();
-        sandbox.redirectBrowserTo('detailteam.shtml?team=' + encodeURIComponent(teamId));
+        if (teamId) {
+          sandbox.redirectBrowserTo('detailteam.shtml?team=' + encodeURIComponent(teamId));
+        } else {
+          sandbox.redirectBrowserTo('home.shtml?teams=my');
+        }
       });
 
       // Clicked [ Decline ]

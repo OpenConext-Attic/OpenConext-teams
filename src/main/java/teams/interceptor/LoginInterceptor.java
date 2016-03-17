@@ -33,6 +33,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import teams.domain.Member;
 import teams.domain.MemberAttribute;
 import teams.domain.Person;
+import teams.provision.UserDetailsManager;
 import teams.service.MemberAttributeService;
 import teams.util.AuditLog;
 
@@ -58,10 +59,14 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   private final String teamsUrl;
 
   private final MemberAttributeService memberAttributeService;
+  private final UserDetailsManager userDetailsManager;
+  private final boolean provisionUsers;
 
-  public LoginInterceptor(String teamsUrl, MemberAttributeService memberAttributeService) {
+  public LoginInterceptor(String teamsUrl, MemberAttributeService memberAttributeService, UserDetailsManager userDetailsManager, boolean provisionUsers) {
     this.teamsUrl = teamsUrl;
     this.memberAttributeService = memberAttributeService;
+    this.userDetailsManager = userDetailsManager;
+    this.provisionUsers = provisionUsers;
   }
 
   @Override
@@ -81,6 +86,9 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         Optional<Person> optionalPerson = constructPerson(request);
         if (optionalPerson.isPresent()) {
           person = optionalPerson.get();
+          if (this.provisionUsers && !userDetailsManager.existingPerson(person.getId())) {
+            userDetailsManager.createPerson(person);
+          }
         } else {
           response.sendRedirect(teamsUrl + NOT_PROVIDED_SAML_ATTRIBUTES_SHTML);
           return false;
