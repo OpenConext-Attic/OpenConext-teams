@@ -120,11 +120,6 @@ public class AddMemberController {
                                  @ModelAttribute InvitationForm form, BindingResult result,
                                  HttpServletRequest request, SessionStatus status,
                                  Model model) throws IOException {
-    try {
-      Thread.sleep(5000);
-    } catch (InterruptedException e) {
-      throw new RuntimeException(e);
-    }
     Person person = (Person) request.getSession().getAttribute(PERSON_SESSION_KEY);
 
     checkTokens(sessionToken, token, status);
