@@ -84,12 +84,12 @@ public interface GrouperTeamService {
   /**
    * Delete a Member from a {@link Team}
    *
-   * @param teamId
-   *          the unique identifier for a {@link Team}
+   * @param team
+   *          the {@link Team}
    * @param personId
    *          the unique identifier for a {@link Member}
    */
-  void deleteMember(String teamId, String personId);
+  void deleteMember(Team team, String personId);
 
   /**
    * Update the {@link Team} to be (not) visible
@@ -104,8 +104,8 @@ public interface GrouperTeamService {
   /**
    * Add {@link Role} to a {@link Team}
    *
-   * @param teamId
-   *          the unique identifier of a {@link teams.domain.Team}
+   * @param team
+   *          the {@link teams.domain.Team}
    * @param memberId
    *          the unique identifier of a {@link teams.domain.Member}
    * @param role
@@ -116,13 +116,13 @@ public interface GrouperTeamService {
    * @return boolean true if the {@link Role} has been successfully added false
    *         if the {@link Role} has not been added
    */
-  boolean addMemberRole(String teamId, String memberId, Role role, String actAsUserId);
+  boolean addMemberRole(Team team, String memberId, Role role, String actAsUserId);
 
   /**
    * Remove {@link Role} to a {@link Team}
    *
-   * @param teamId
-   *          the unique identifier of a {@link teams.domain.Team}
+   * @param team
+   *          the {@link teams.domain.Team}
    * @param memberId
    *          the unique identifier of a {@link teams.domain.Member}
    * @param role
@@ -133,33 +133,32 @@ public interface GrouperTeamService {
    * @return boolean true if the {@link Role} has been successfully added false
    *         if the {@link Role} has not been added
    */
-  boolean removeMemberRole(String teamId, String memberId, Role role, String actAsUserId);
+  boolean removeMemberRole(Team team, String memberId, Role role, String actAsUserId);
 
   /**
    * Adds a person to the team
    *
-   * @param teamId
-   *          the unique identifier of the
-   *          {@link teams.domain.Team}
+   * @param team
+   *          the {@link teams.domain.Team}
    * @param person
    *          {@link teams.domain.Person} to add as Member to the Team
    */
-  void addMember(String teamId, Person person);
+  void addMember(Team team, Person person);
 
   /**
    * Tries to find a Member in a Team
    *
-   * @param teamId
-   *          the unique identifier of the {@link Team}
+   * @param team
+   *          the {@link Team}
    * @param memberId
    *          the unique identifier of a {@link Member}
    * @return {@link Member} or {@literal null} if the Team does not contain a
    *         Member by the memberId
    */
-  default Member findMember(String teamId, String memberId) {
-    Optional<Member> member = findTeamById(teamId).getMembers().stream()
-        .filter(m -> m.getId().equals(memberId))
-        .findFirst();
+  default Member findMember(Team team, String memberId) {
+    Optional<Member> member = team.getMembers().stream()
+      .filter(m -> m.getId().equals(memberId))
+      .findFirst();
 
     return member.orElseThrow(() -> new RuntimeException("Member(id='" + memberId + "') is not a member of the team"));
   }

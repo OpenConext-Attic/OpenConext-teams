@@ -70,9 +70,9 @@ public class AddExternalGroupController {
   public String showAddExternalGroupsForm(@RequestParam String teamId, Model model, HttpServletRequest request) {
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
 
-    checkUserHasAdministrativePrivileges(person, teamId);
-
     Team team = teamService.findTeamById(teamId);
+
+    checkUserHasAdministrativePrivileges(person, team);
 
     List<ExternalGroup> myExternalGroups = filterLinkedExternalGroups(team, getExternalGroups(person.getId(), request.getSession()));
     request.getSession().setAttribute(EXTERNAL_GROUPS_SESSION_KEY, myExternalGroups);
@@ -95,7 +95,8 @@ public class AddExternalGroupController {
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
 
     checkTokens(sessionToken, token, status);
-    checkUserIsAdmin(person, teamId);
+    Team team = controllerUtil.getTeamById(teamId);
+    checkUserIsAdmin(person, team);
 
     TeamExternalGroup teamExternalGroup = teamExternalGroupDao.getByTeamIdentifierAndExternalGroupIdentifier(teamId, groupIdentifier);
     if (teamExternalGroup != null) {
@@ -145,7 +146,8 @@ public class AddExternalGroupController {
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
 
     checkTokens(sessionToken, token, status);
-    checkUserHasAdministrativePrivileges(person, teamId);
+    Team team = controllerUtil.getTeamById(teamId);
+    checkUserHasAdministrativePrivileges(person, team);
 
     String personId = person.getId();
 
@@ -170,14 +172,14 @@ public class AddExternalGroupController {
     return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s", teamId), false, true, false);
   }
 
-  private void checkUserHasAdministrativePrivileges(Person person, String teamId) {
-    if (!controllerUtil.hasUserAdministrativePrivileges(person, teamId)) {
+  private void checkUserHasAdministrativePrivileges(Person person, Team team) {
+    if (!controllerUtil.hasUserAdministrativePrivileges(person, team)) {
       throw new RuntimeException(String.format("Requester (%s) is not member or does not have the correct privileges", person.getId()));
     }
   }
 
-  private void checkUserIsAdmin(Person person, String teamId) {
-    if (!controllerUtil.hasUserAdminPrivileges(person, teamId)) {
+  private void checkUserIsAdmin(Person person, Team team) {
+    if (!controllerUtil.hasUserAdminPrivileges(person, team)) {
       throw new RuntimeException(String.format("Requester (%s) is not member or does not have the correct privileges", person.getId()));
     }
   }

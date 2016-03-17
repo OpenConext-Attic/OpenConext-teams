@@ -43,6 +43,10 @@ public class Team implements Serializable {
   public Team() {
   }
 
+  public Team(String id) {
+    this.id = id;
+  }
+
   /**
    * @param id          of the team
    * @param name        of the team

@@ -37,9 +37,7 @@ import teams.service.*;
 import teams.util.AuditLog;
 import teams.util.ControllerUtil;
 import teams.util.TokenUtil;
-import teams.util.ViewUtil;
 
-import javax.mail.Address;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -60,8 +58,6 @@ import static teams.util.ViewUtil.escapeViewParameters;
 public class DetailTeamController {
 
   private static final Logger LOG = LoggerFactory.getLogger(DetailTeamController.class);
-
-  public static final Address[] EMPTY_ADDRESSES = new Address[0];
 
   private static final String ADMIN = "0";
   private static final String ADMIN_LEAVE_TEAM = "error.AdminCannotLeaveTeam";
@@ -227,7 +223,7 @@ public class DetailTeamController {
       return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&mes=%s", teamId, ADMIN_LEAVE_TEAM), false, true, false);
     }
 
-    grouperTeamService.deleteMember(teamId, personId);
+    grouperTeamService.deleteMember(team, personId);
     AuditLog.log("User {} left team {}", personId, teamId);
 
     endingRequest.run();
@@ -251,10 +247,11 @@ public class DetailTeamController {
 
     validateArgument(teamId, endingRequest);
 
-    Member member = grouperTeamService.findMember(teamId, personId);
+    Team team = grouperTeamService.findTeamById(teamId);
+
+    Member member = grouperTeamService.findMember(team, personId);
     if (member.getRoles().contains(Role.Admin)) {
       // Delete the team
-      Team team = grouperTeamService.findTeamById(teamId);
       List<Invitation> invitationsForTeam = teamInviteService.findAllInvitationsForTeam(team);
       for (Invitation invitation : invitationsForTeam) {
         teamInviteService.delete(invitation);
@@ -293,10 +290,10 @@ public class DetailTeamController {
       modelMap.clear();
       throw new RuntimeException("Parameter error.");
     }
-
+    Team team = grouperTeamService.findTeamById(teamId);
     // fetch the logged in member
-    Member owner = grouperTeamService.findMember(teamId, ownerId);
-    Member member = grouperTeamService.findMember(teamId, personId);
+    Member owner = grouperTeamService.findMember(team, ownerId);
+    Member member = grouperTeamService.findMember(team, personId);
 
     // Check whether the owner is admin and thus is granted to delete the
     // member.
@@ -304,7 +301,7 @@ public class DetailTeamController {
     // This should not be possible, a logged in user should click the resign
     // from team button.
     if (owner.getRoles().contains(Role.Admin) && !personId.equals(ownerId)) {
-      grouperTeamService.deleteMember(teamId, personId);
+      grouperTeamService.deleteMember(team, personId);
       AuditLog.log("Admin user {} deleted user {} from team {}", ownerId, personId, teamId);
 
       status.setComplete();
@@ -314,7 +311,7 @@ public class DetailTeamController {
 
       // if the owner is manager and the member is not an admin he can delete the member
     } else if (owner.getRoles().contains(Role.Manager) && !member.getRoles().contains(Role.Admin) && !personId.equals(ownerId)) {
-      grouperTeamService.deleteMember(teamId, personId);
+      grouperTeamService.deleteMember(team, personId);
       AuditLog.log("Manager user {} deleted user {} from team {}", ownerId, personId, teamId);
 
       status.setComplete();
@@ -354,19 +351,18 @@ public class DetailTeamController {
     }
 
     Person person = (Person) request.getSession().getAttribute(PERSON_SESSION_KEY);
-
+    Team team = grouperTeamService.findTeamById(teamId);
+    if (team == null) {
+      status.setComplete();
+      modelMap.clear();
+      return new RedirectView("home.shtml?teams=my");
+    }
     String message;
     if (action.equalsIgnoreCase("remove")) {
-      Team team = grouperTeamService.findTeamById(teamId);
       // is the team null? return error
-      if (team == null) {
-        status.setComplete();
-        modelMap.clear();
-        return new RedirectView("home.shtml?teams=my");
-      }
-      message = removeRole(teamId, memberId, roleString, team, person.getId());
+      message = removeRole(team, memberId, roleString, person.getId());
     } else {
-      message = addRole(teamId, memberId, roleString, person.getId());
+      message = addRole(team, memberId, roleString, person.getId());
     }
 
     status.setComplete();
@@ -379,30 +375,30 @@ public class DetailTeamController {
     return StringUtils.hasText(action) && (action.equalsIgnoreCase("remove") || action.equalsIgnoreCase("add"));
   }
 
-  private String removeRole(String teamId, String memberId, String roleString, Team team, String loggedInUserId) {
+  private String removeRole(Team team, String memberId, String roleString, String loggedInUserId) {
     // The role admin can only be removed if there are more then one admins in a team.
     if (roleString.equals(ADMIN) && grouperTeamService.findAdmins(team).size() == 1) {
       return "no.role.added.admin.status";
     }
     Role role = roleString.equals(ADMIN) ? Role.Admin : Role.Manager;
-    if (grouperTeamService.removeMemberRole(teamId, memberId, role, loggedInUserId)) {
-      AuditLog.log("User {} removed role {} from user {} in team {}", loggedInUserId, role, memberId, teamId);
+    if (grouperTeamService.removeMemberRole(team, memberId, role, loggedInUserId)) {
+      AuditLog.log("User {} removed role {} from user {} in team {}", loggedInUserId, role, memberId, team.getId());
       return "role.removed";
     } else {
       return "no.role.removed";
     }
   }
 
-  private String addRole(String teamId, String memberId, String roleString, String loggedInUserId) {
+  private String addRole(Team team, String memberId, String roleString, String loggedInUserId) {
     Role role = roleString.equals(ADMIN) ? Role.Admin : Role.Manager;
-    Member other = grouperTeamService.findMember(teamId, memberId);
+    Member other = grouperTeamService.findMember(team, memberId);
     // Guests may not become admin
     if (other.isGuest() && role == Role.Admin) {
       return "no.role.added.guest.status";
     }
 
-    if (grouperTeamService.addMemberRole(teamId, memberId, role, loggedInUserId)) {
-      AuditLog.log("User {} added role {} to user {} in team {}", loggedInUserId, role, memberId, teamId);
+    if (grouperTeamService.addMemberRole(team, memberId, role, loggedInUserId)) {
+      AuditLog.log("User {} added role {} to user {} in team {}", loggedInUserId, role, memberId, team.getId());
       return "role.added";
     } else {
       return "no.role.added";
@@ -440,7 +436,7 @@ public class DetailTeamController {
     Person loggedInPerson = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
 
     // Check if the user has the correct privileges
-    if (!controllerUtil.hasUserAdministrativePrivileges(loggedInPerson, teamId)) {
+    if (!controllerUtil.hasUserAdministrativePrivileges(loggedInPerson, team)) {
       endingRequest.run();
 
       return new RedirectView(escapeViewParameters("detailteam.shtml?team=%s&mes=error.NotAuthorizedForAction", teamId));
@@ -449,8 +445,8 @@ public class DetailTeamController {
     Person requester = new Person(pendingRequest.getPersonId(), null, pendingRequest.getEmail(), null, null, pendingRequest.getDisplayName());
 
     if (approve) {
-      grouperTeamService.addMember(teamId, requester);
-      grouperTeamService.addMemberRole(teamId, memberId, Role.Member, grouperPowerUser);
+      grouperTeamService.addMember(team, requester);
+      grouperTeamService.addMemberRole(team, memberId, Role.Member, grouperPowerUser);
       AuditLog.log("User {} approved join-team-request of user {} in team {}", loggedInPerson.getId(), requester.getId(), teamId);
     }
 

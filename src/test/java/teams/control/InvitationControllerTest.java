@@ -47,6 +47,7 @@ import teams.util.TokenUtil;
 public class InvitationControllerTest extends AbstractControllerTest {
   private InvitationController controller;
   private Invitation invitation;
+  private Team team;
   private ControllerUtil controllerUtil;
 
   @Before
@@ -57,6 +58,7 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
     Person person = getPersonFromSession();
     invitation = new Invitation(person.getEmail(), "team-1");
+    team = new Team(invitation.getTeamId());
 
     String invitationHash = invitation.getInvitationHash();
 
@@ -144,7 +146,8 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
   @Test
   public void testDeleteAsAnAdmin() throws Exception {
-    when(controllerUtil.hasUserAdministrativePrivileges(getPersonFromSession(), invitation.getTeamId())).thenReturn(true);
+    when(controllerUtil.getTeamById(team.getId())).thenReturn(team);
+    when(controllerUtil.hasUserAdministrativePrivileges(getPersonFromSession(), team)).thenReturn(true);
 
     String token = TokenUtil.generateSessionToken();
 
@@ -157,7 +160,7 @@ public class InvitationControllerTest extends AbstractControllerTest {
 
   @Test(expected = RuntimeException.class)
   public void testCannotDeleteWhenNoAdminPrivileges() throws Exception {
-    when(controllerUtil.hasUserAdministrativePrivileges(getPersonFromSession(), invitation.getTeamId())).thenReturn(false);
+    when(controllerUtil.hasUserAdministrativePrivileges(getPersonFromSession(), team)).thenReturn(false);
 
     String token = TokenUtil.generateSessionToken();
     controller.deleteInvitation(getRequest(), token, token, invitation.getInvitationHash(), new SimpleSessionStatus(), getModelMap());

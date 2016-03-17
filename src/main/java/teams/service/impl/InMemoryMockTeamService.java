@@ -42,7 +42,7 @@ import teams.util.DuplicateTeamException;
  */
 public class InMemoryMockTeamService implements GrouperTeamService {
 
-  private Map<String, Team> teams = new HashMap<String, Team>();
+  private Map<String, Team> teams = new HashMap<>();
 
   public InMemoryMockTeamService() {
     initData();
@@ -77,7 +77,7 @@ public class InMemoryMockTeamService implements GrouperTeamService {
     team3.addMembers(member5.copy(), member6.copy(), member7.copy());
     team4.addMembers(member1.copy(), member2.copy(), member4.copy());
 
-    List<Member> dummyMembers = new ArrayList<Member>();
+    List<Member> dummyMembers = new ArrayList<>();
     for (int memberId = 10; memberId < 110; memberId++) {
       Member dummyMember = new Member(roles1, "member" + memberId + "-name", "member-" + memberId, "member" + memberId + "@surfnet.nl");
       dummyMembers.add(dummyMember);
@@ -102,9 +102,8 @@ public class InMemoryMockTeamService implements GrouperTeamService {
   }
 
   @Override
-  public void deleteMember(String teamId, String memberId) {
-    Team team = findTeamById(teamId);
-    Member member = findMember(teamId, memberId);
+  public void deleteMember(Team team, String memberId) {
+    Member member = findMember(team, memberId);
     team.removeMembers(member);
   }
 
@@ -115,11 +114,10 @@ public class InMemoryMockTeamService implements GrouperTeamService {
 
   @Override
   public List<Team> findPublicTeams(String personId, String partOfGroupname) {
-    List<Team> matches = teams.values().stream()
+    return teams.values().stream()
         .filter(team -> team.isViewable() && team.getName().contains(partOfGroupname))
         .collect(toList());
 
-    return matches;
   }
 
   @Override
@@ -162,8 +160,8 @@ public class InMemoryMockTeamService implements GrouperTeamService {
   }
 
   @Override
-  public boolean addMemberRole(String teamId, String memberId, Role role, String actAsUserId) {
-    Member member = findMember(teamId, memberId);
+  public boolean addMemberRole(Team team, String memberId, Role role, String actAsUserId) {
+    Member member = findMember(team, memberId);
 
     if (role.equals(Role.Admin) && !member.getRoles().contains(Role.Manager)) {
       member.addRole(Role.Manager);
@@ -173,21 +171,21 @@ public class InMemoryMockTeamService implements GrouperTeamService {
   }
 
   @Override
-  public boolean removeMemberRole(String teamId, String memberId, Role role, String actAsUserId) {
-    Member member = findMember(teamId, memberId);
+  public boolean removeMemberRole(Team team, String memberId, Role role, String actAsUserId) {
+    Member member = findMember(team, memberId);
     return member.removeRole(role);
   }
 
   @Override
-  public void addMember(String teamId, Person person) {
+  public void addMember(Team team, Person person) {
     // just find the member (in some other team), copy and add to team
     List<Team> allTeams = findPublicTeams("", "");
     Member m = null;
-    for (Team team : allTeams) {
+    for (Team t : allTeams) {
       if (m != null) {
         break;
       }
-      List<Member> members = team.getMembers();
+      List<Member> members = t.getMembers();
       for (Member member : members) {
         if (member.getId().equals(person.getId())) {
           m = member.copy();
@@ -199,7 +197,6 @@ public class InMemoryMockTeamService implements GrouperTeamService {
       m = new Member(new HashSet<>(), person);
     }
     m.setGuest(person.isGuest());
-    Team team = findTeamById(teamId);
     team.addMembers(m);
   }
 

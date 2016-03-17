@@ -159,8 +159,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
     GcGetGrouperPrivilegesLite privileges = new GcGetGrouperPrivilegesLite();
     privileges.assignActAsSubject(getActAsSubject(powerUser));
     privileges.assignGroupName(teamId);
-    WsGrouperPrivilegeResult[] privilegeResults = privileges.execute().getPrivilegeResults();
-    return privilegeResults;
+    return privileges.execute().getPrivilegeResults();
   }
 
   /**
@@ -172,7 +171,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
    * @return List of Member's, can be empty
    */
   private List<Member> getMembers(final String teamId, final WsGrouperPrivilegeResult[] privilegeResults) {
-    List<Member> members = new ArrayList<Member>();
+    List<Member> members = new ArrayList<>();
     if (privilegeResults == null) {
       return members;
     }
@@ -183,7 +182,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
     }
 
     final WsSubject[] subjects = getMembers[0].getWsSubjects();
-    Map<String, Member> memberMap = new HashMap<String, Member>();
+    Map<String, Member> memberMap = new HashMap<>();
     for (WsSubject wsSubject : subjects) {
       final String id = wsSubject.getId();
       final String mail = wsSubject.getAttributeValue(0);
@@ -216,7 +215,7 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
    * Gets the SURFnet attributes for a member (from the db) and adds them to the
    * Member object
    *
-   * @param members Map of {@link nl.surfnet.coin.teams.domain.Member}'s that need to
+   * @param members Map of members that need to
    *                be enriched with attributes
    */
   private void assignAttributesToMembers(Map<String, Member> members) {
@@ -312,19 +311,19 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
   }
 
   @Override
-  public void deleteMember(String teamId, String personId) {
-    Member member = findMember(teamId, personId);
+  public void deleteMember(Team team, String personId) {
+    Member member = findMember(team, personId);
 
     if (member.getRoles() != null) {
       for (Role role : member.getRoles()) {
-        removeMemberRole(teamId, personId, role, powerUser);
+        removeMemberRole(team, personId, role, powerUser);
       }
     }
 
     GcDeleteMember deleteMember = new GcDeleteMember();
     deleteMember.addSubjectId(personId);
     deleteMember.assignActAsSubject(getActAsSubject(powerUser));
-    deleteMember.assignGroupName(teamId);
+    deleteMember.assignGroupName(team.getId());
     deleteMember.execute();
   }
 
@@ -372,11 +371,11 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
   }
 
   @Override
-  public boolean addMemberRole(String teamId, String memberId, Role role,
+  public boolean addMemberRole(Team team, String memberId, Role role,
                                String actAsUserId) {
     GcAssignGrouperPrivileges assignPrivilege = new GcAssignGrouperPrivileges();
     assignPrivilege.assignActAsSubject(getActAsSubject(actAsUserId));
-    assignPrivilege.assignGroupLookup(new WsGroupLookup(teamId, null));
+    assignPrivilege.assignGroupLookup(new WsGroupLookup(team.getId(), null));
     WsSubjectLookup subject = new WsSubjectLookup();
     subject.setSubjectId(memberId);
     assignPrivilege.addSubjectLookup(subject);
@@ -414,11 +413,11 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
   }
 
   @Override
-  public boolean removeMemberRole(String teamId, String memberId, Role role,
+  public boolean removeMemberRole(Team team, String memberId, Role role,
                                   String actAsUserId) {
     GcAssignGrouperPrivileges assignPrivilege = new GcAssignGrouperPrivileges();
     assignPrivilege.assignActAsSubject(getActAsSubject(actAsUserId));
-    assignPrivilege.assignGroupLookup(new WsGroupLookup(teamId, null));
+    assignPrivilege.assignGroupLookup(new WsGroupLookup(team.getId(), null));
     WsSubjectLookup subject = new WsSubjectLookup();
     subject.setSubjectId(memberId);
     assignPrivilege.addSubjectLookup(subject);
@@ -451,13 +450,13 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
   }
 
   @Override
-  public void addMember(String teamId, Person person) {
+  public void addMember(Team team, Person person) {
     GcAddMember addMember = new GcAddMember();
     addMember.assignActAsSubject(getActAsSubject(powerUser));
-    addMember.assignGroupName(teamId);
+    addMember.assignGroupName(team.getId());
     addMember.addSubjectId(person.getId());
     addMember.execute();
-    Member member = findMember(teamId, person.getId());
+    Member member = findMember(team, person.getId());
     if (member.isGuest() != person.isGuest()) {
       member.setGuest(person.isGuest());
       memberAttributeService.saveOrUpdate(member.getMemberAttributes());

@@ -90,8 +90,11 @@ public class AddTeamControllerTest {
 
   @Test
   public void addTeamHappyFlow() throws Exception {
+    Team expectedTeam = new Team("teamid");
+
     when(environment.acceptsProfiles(Application.GROUPZY_PROFILE_NAME)).thenReturn(false);
     when(grouperTeamServiceMock.addTeam("name", "name", "description", null)).thenReturn("teamid");
+    when(grouperTeamServiceMock.findTeamById(expectedTeam.getId())).thenReturn(expectedTeam);
 
     mockMvc.perform(post("/doaddteam.shtml")
         .sessionAttr(PERSON_SESSION_KEY, person)
@@ -104,8 +107,8 @@ public class AddTeamControllerTest {
       .andExpect(view().name("redirect:detailteam.shtml?team=teamid"));
 
     verify(grouperTeamServiceMock).setVisibilityGroup("teamid", true);
-    verify(grouperTeamServiceMock).addMember("teamid", person);
-    verify(grouperTeamServiceMock).addMemberRole("teamid", person.getId(), Role.Admin, null);
+    verify(grouperTeamServiceMock).addMember(expectedTeam, person);
+    verify(grouperTeamServiceMock).addMemberRole(expectedTeam, person.getId(), Role.Admin, null);
   }
 
   @Test

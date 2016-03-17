@@ -56,18 +56,18 @@ public class ControllerUtilImplTest extends AbstractControllerTest {
 
   @Test
   public void hasUserAdministrativePrivilegesTest() throws Exception {
-    when(grouperTeamServiceMock.findMember(getTeam1().getId(), getPerson1().getId())).thenReturn(getAdministrativeMember());
+    when(grouperTeamServiceMock.findMember(getTeam1(), getPerson1().getId())).thenReturn(getAdministrativeMember());
 
-    boolean hasPrivileges = controllerUtil.hasUserAdministrativePrivileges(getPerson1(), getTeam1().getId());
+    boolean hasPrivileges = controllerUtil.hasUserAdministrativePrivileges(getPerson1(), getTeam1());
 
     assertTrue(hasPrivileges);
   }
 
   @Test
   public void hasUserAdministrativePrivilegesWithoutPrivilegesTest() throws Exception {
-    when(grouperTeamServiceMock.findMember(getTeam1().getId(), getPerson1().getId())).thenReturn(getMember());
+    when(grouperTeamServiceMock.findMember(getTeam1(), getPerson1().getId())).thenReturn(getMember());
 
-    boolean hasPrivileges = controllerUtil.hasUserAdministrativePrivileges(getPerson1(), getTeam1().getId());
+    boolean hasPrivileges = controllerUtil.hasUserAdministrativePrivileges(getPerson1(), getTeam1());
 
     assertFalse(hasPrivileges);
   }

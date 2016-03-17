@@ -48,19 +48,19 @@ public interface ControllerUtil {
    * Checks if the current user has administrative privileges (whether he is admin OR manager) for a given team.
    *
    * @param person {@link teams.domain.Person}
-   * @param teamId {@link String} the team Id for which the person's privileges are checked
+   * @param team {@link teams.domain.Team} the team for which the person's privileges are checked
    * @return {@link boolean} <code>true/code> if the user is admin AND/OR manager <code>false</code> if the user isn't
    */
-  boolean hasUserAdministrativePrivileges(Person person, String teamId);
+  boolean hasUserAdministrativePrivileges(Person person, Team team);
 
   /**
    * Checks if the current user has admin privileges for a given team.
    *
    * @param person {@link Person}
-   * @param teamId {@link String} the team Id for which the person's privileges are checked
+   * @param team {@link teams.domain.Team} the team for which the person's privileges are checked
    * @return {@link boolean} <code>true/code> if the user is admin AND/OR manager <code>false</code> if the user isn't
    */
-  boolean hasUserAdminPrivileges(Person person, String teamId);
+  boolean hasUserAdminPrivileges(Person person, Team team);
 
   /**
    * Check if a {@link Person} is member of the given {@link Team}

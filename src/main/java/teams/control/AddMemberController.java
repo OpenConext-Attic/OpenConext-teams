@@ -29,6 +29,7 @@ import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.view.RedirectView;
 import teams.domain.*;
 import teams.interceptor.LoginInterceptor;
+import teams.service.GrouperTeamService;
 import teams.service.TeamInviteService;
 import teams.util.AuditLog;
 import teams.util.ControllerUtil;
@@ -41,6 +42,7 @@ import javax.validation.Valid;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Optional;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -78,7 +80,7 @@ public class AddMemberController {
     Person person = (Person) request.getSession().getAttribute(LoginInterceptor.PERSON_SESSION_KEY);
     Team team = controllerUtil.getTeam(request);
 
-    checkUserHasAdministrativePrivileges(person, team.getId());
+    checkUserHasAdministrativePrivileges(person, team, Optional.empty());
 
     InvitationForm form = new InvitationForm();
     form.setTeamId(team.getId());
@@ -86,19 +88,19 @@ public class AddMemberController {
 
     model.addAttribute(TOKENCHECK, TokenUtil.generateSessionToken());
     model.addAttribute(INVITATION_FORM_PARAM, form);
-    model.addAttribute(ROLES_PARAM, newMemberRoles(person, team.getId()));
+    model.addAttribute(ROLES_PARAM, newMemberRoles(person, team));
 
     return "addmember";
   }
 
-  private Role[] newMemberRoles(Person person, String teamId) {
-    if (controllerUtil.hasUserAdminPrivileges(person, teamId)) {
+  private Role[] newMemberRoles(Person person, Team team) {
+    if (controllerUtil.hasUserAdminPrivileges(person, team)) {
       return new Role[]{ Role.Admin, Role.Manager, Role.Member };
-    } else if (controllerUtil.hasUserAdministrativePrivileges(person, teamId)) {
+    } else if (controllerUtil.hasUserAdministrativePrivileges(person, team)) {
       return new Role[]{ Role.Member };
     }
 
-    throw new RuntimeException(String.format("User %s has not enough privileges to invite others in team %s", person.getId(), teamId));
+    throw new RuntimeException(String.format("User %s has not enough privileges to invite others in team %s", person.getId(), team.getId()));
   }
 
   /**
@@ -122,8 +124,12 @@ public class AddMemberController {
     Person person = (Person) request.getSession().getAttribute(PERSON_SESSION_KEY);
 
     checkTokens(sessionToken, token, status);
-    checkIfUserIsAdminOrManager(person, form.getTeamId(), status);
-    correctRoleIfNeeded(person, form, form.getTeamId());
+
+    String teamId = form.getTeamId();
+    Team team = controllerUtil.getTeamById(teamId);
+
+    checkUserHasAdministrativePrivileges(person, team, Optional.of(status));
+    correctRoleIfNeeded(person, form, team);
 
     new InvitationFormValidator().validate(form, result);
 
@@ -135,23 +141,23 @@ public class AddMemberController {
     }
 
     if (result.hasErrors()) {
-      model.addAttribute(ROLES_PARAM, newMemberRoles(person, form.getTeamId()));
+      model.addAttribute(ROLES_PARAM, newMemberRoles(person, team));
 
       return "addmember";
     }
 
     doInviteMembers(person, emails, form);
 
-    AuditLog.log("User {} sent invitations for team {}, with role {} to addresses: {}", person.getId(), form.getTeamId(), form.getIntendedRole(), emails);
+    AuditLog.log("User {} sent invitations for team {}, with role {} to addresses: {}", person.getId(), teamId, form.getIntendedRole(), emails);
 
     status.setComplete();
 
-    return escapeViewParameters("redirect:detailteam.shtml?team=%s", form.getTeamId());
+    return escapeViewParameters("redirect:detailteam.shtml?team=%s", teamId);
   }
 
   // if a non admin tries to add a role admin or manager -> make invitation for member
-  private void correctRoleIfNeeded(Person person, InvitationForm form, String teamId) {
-    boolean isAdmin = controllerUtil.hasUserAdminPrivileges(person, teamId);
+  private void correctRoleIfNeeded(Person person, InvitationForm form, Team team) {
+    boolean isAdmin = controllerUtil.hasUserAdminPrivileges(person, team);
     if (!(isAdmin || Role.Member.equals(form.getIntendedRole()))) {
       form.setIntendedRole(Role.Member);
     }
@@ -163,8 +169,6 @@ public class AddMemberController {
 
     Invitation invitation = teamInviteService.findInvitationByInviteId(invitationId)
         .orElseThrow(() -> new IllegalArgumentException("Cannot find the invitation. Invitations expire after 14 days."));
-
-    checkIfUserIsAdminOrManager(person, invitation.getTeamId());
 
     ResendInvitationCommand command = new ResendInvitationCommand(invitation);
     invitation.getLatestInvitationMessage().ifPresent(msg -> command.setMessageText(msg.getMessage()));
@@ -180,27 +184,26 @@ public class AddMemberController {
                                    @Valid @ModelAttribute ResendInvitationCommand command, BindingResult result,
                                    @ModelAttribute(TOKENCHECK) String sessionToken, @RequestParam String token,
                                    HttpServletRequest request, SessionStatus status) {
-    Person person = (Person) request.getSession().getAttribute(PERSON_SESSION_KEY);
-
-    checkTokens(sessionToken, token, status);
-    checkUserHasAdministrativePrivileges(person, command.getTeamId(), status);
-
     if (result.hasErrors()) {
       model.addAttribute(ROLES_PARAM, new Role[] {Role.Member, Role.Manager, Role.Admin});
       return "resendinvitation";
     }
 
+    Person person = (Person) request.getSession().getAttribute(PERSON_SESSION_KEY);
+    checkTokens(sessionToken, token, status);
+
     InvitationMessage invitationMessage = new InvitationMessage(command.getMessageText(), person.getId());
 
     Invitation invitation = teamInviteService.findInvitationByInviteId(command.getInvitationId())
-        .orElseThrow(() -> new IllegalArgumentException("Cannot find the invitation. Invitations expire after 14 days."));
+      .orElseThrow(() -> new IllegalArgumentException("Cannot find the invitation. Invitations expire after 14 days."));
+    Team team = controllerUtil.getTeamById(invitation.getTeamId());
 
     command.apply(invitation);
     invitation.addInvitationMessage(invitationMessage);
     invitation.setTimestamp(new Date().getTime());
     teamInviteService.saveOrUpdate(invitation);
 
-    Team team = controllerUtil.getTeamById(invitation.getTeamId());
+    checkUserHasAdministrativePrivileges(person, team, Optional.of(status));
 
     String subject = messageSource.getMessage(INVITE_SEND_INVITE_SUBJECT, new Object[] {team.getName()}, invitation.getLanguage().locale());
     controllerUtil.sendInvitationMail(invitation, subject, person);
@@ -261,37 +264,13 @@ public class AddMemberController {
     }
   }
 
-  private void checkIfUserIsAdminOrManager(Person person, String teamId, SessionStatus status) {
-    try {
-      checkIfUserIsAdminOrManager(person, teamId);
-    } catch (Exception e) {
-      status.setComplete();
-      Throwables.propagate(e);
-    }
-  }
-
-  private void checkIfUserIsAdminOrManager(Person person, String teamId) {
-    if (controllerUtil.hasUserAdministrativePrivileges(person, teamId)) {
-      return;
-    }
-
-    throw new RuntimeException(
-        String.format("Requester (%s) is not member or does not have the correct privileges to add (a) member(s)", person.getId()));
-  }
-
-  private void checkUserHasAdministrativePrivileges(Person person, String teamId) {
-    if (!controllerUtil.hasUserAdministrativePrivileges(person, teamId)) {
+  private void checkUserHasAdministrativePrivileges(Person person, Team team, Optional<SessionStatus> status) {
+    if (!controllerUtil.hasUserAdministrativePrivileges(person, team)) {
+      if (status.isPresent()) {
+        status.get().setComplete();
+      }
       throw new RuntimeException(String.format(
-          "Requester (%s) is not member or does not have the correct privileges to add (a) member(s)", person.getId()));
-    }
-  }
-
-  private void checkUserHasAdministrativePrivileges(Person person, String teamId, SessionStatus status) {
-    try {
-      checkUserHasAdministrativePrivileges(person, teamId);
-    } catch (Exception e) {
-      status.setComplete();
-      Throwables.propagate(e);
+        "Requester (%s) is not member or does not have the correct privileges to add (a) member(s)", person.getId()));
     }
   }
 

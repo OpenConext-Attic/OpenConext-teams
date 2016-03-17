@@ -93,9 +93,12 @@ public class DetailTeamControllerTest {
 
   private MockMvc mockMvc;
 
+  private Team team;
+
   @Before
-  public void setup() {
+  public void before() {
     mockMvc = standaloneSetup(subject).build();
+    team = new Team("teamId");
   }
 
   @Test
@@ -188,7 +191,7 @@ public class DetailTeamControllerTest {
         .sessionAttr(PERSON_SESSION_KEY, person))
       .andExpect(redirectedUrl("home.shtml?teams=my"));
 
-    verify(grouperTeamServiceMock).deleteMember("teamId", "id");
+    verify(grouperTeamServiceMock).deleteMember(team, "id");
   }
 
   @Test
@@ -208,7 +211,7 @@ public class DetailTeamControllerTest {
         .sessionAttr(PERSON_SESSION_KEY, person))
       .andExpect(redirectedUrl("detailteam.shtml?team=teamId&mes=error.AdminCannotLeaveTeam"));
 
-    verify(grouperTeamServiceMock, never()).deleteMember("teamId", "id");
+    verify(grouperTeamServiceMock, never()).deleteMember(team, "id");
   }
 
   @Test
@@ -221,7 +224,7 @@ public class DetailTeamControllerTest {
     TeamExternalGroup externalGroup= new TeamExternalGroup();
 
     when(grouperTeamServiceMock.findTeamById("teamId")).thenReturn(team);
-    when(grouperTeamServiceMock.findMember("teamId", "id")).thenReturn(member);
+    when(grouperTeamServiceMock.findMember(team, "id")).thenReturn(member);
     when(teamInviteServiceMock.findAllInvitationsForTeam(team)).thenReturn(ImmutableList.of(invitation));
     when(teamExternalGroupDaoMock.getByTeamIdentifier("teamId")).thenReturn(ImmutableList.of(externalGroup));
 
@@ -245,7 +248,7 @@ public class DetailTeamControllerTest {
     Team team = new Team("teamId", "Team 1", "team description", ImmutableList.of(member));
 
     when(grouperTeamServiceMock.findTeamById("teamId")).thenReturn(team);
-    when(grouperTeamServiceMock.findMember("teamId", "id")).thenReturn(member);
+    when(grouperTeamServiceMock.findMember(team, "id")).thenReturn(member);
 
     mockMvc.perform(post("/dodeleteteam.shtml")
         .param("token", dummyToken)
@@ -265,8 +268,9 @@ public class DetailTeamControllerTest {
     Person person2 = new Person("id", "name", "email", "organization", "voot_role", "displayName");
     Member memberToRemove = new Member(ImmutableSet.of(Role.Member), person2);
 
-    when(grouperTeamServiceMock.findMember("teamId", "id")).thenReturn(member);
-    when(grouperTeamServiceMock.findMember("teamId", "memberId")).thenReturn(memberToRemove);
+    when(grouperTeamServiceMock.findTeamById(team.getId())).thenReturn(team);
+    when(grouperTeamServiceMock.findMember(team, "id")).thenReturn(member);
+    when(grouperTeamServiceMock.findMember(team, "memberId")).thenReturn(memberToRemove);
 
     mockMvc.perform(get("/dodeletemember.shtml")
         .param("token", dummyToken)
@@ -276,7 +280,7 @@ public class DetailTeamControllerTest {
         .sessionAttr(PERSON_SESSION_KEY, person))
       .andExpect(redirectedUrl("detailteam.shtml?team=teamId"));
 
-    verify(grouperTeamServiceMock).deleteMember("teamId", "memberId");
+    verify(grouperTeamServiceMock).deleteMember(team, "memberId");
   }
 
   @Test
@@ -287,8 +291,9 @@ public class DetailTeamControllerTest {
     Person person2 = new Person("id", "name", "email", "organization", "voot_role", "displayName");
     Member memberToRemove = new Member(ImmutableSet.of(Role.Member), person2);
 
-    when(grouperTeamServiceMock.findMember("teamId", "id")).thenReturn(member);
-    when(grouperTeamServiceMock.findMember("teamId", "memberId")).thenReturn(memberToRemove);
+    when(grouperTeamServiceMock.findTeamById(team.getId())).thenReturn(team);
+    when(grouperTeamServiceMock.findMember(team, "id")).thenReturn(member);
+    when(grouperTeamServiceMock.findMember(team, "memberId")).thenReturn(memberToRemove);
 
     mockMvc.perform(get("/dodeletemember.shtml")
         .param("token", dummyToken)
@@ -298,7 +303,7 @@ public class DetailTeamControllerTest {
         .sessionAttr(PERSON_SESSION_KEY, person))
       .andExpect(redirectedUrl("detailteam.shtml?team=teamId&mes=error.NotAuthorizedToDeleteMember"));
 
-    verify(grouperTeamServiceMock, never()).deleteMember("teamId", "memberId");
+    verify(grouperTeamServiceMock, never()).deleteMember(team, "memberId");
   }
 
   @Test
@@ -309,8 +314,9 @@ public class DetailTeamControllerTest {
     Person person2 = new Person("id", "name", "email", "organization", "voot_role", "displayName");
     Member memberToRemove = new Member(ImmutableSet.of(Role.Admin), person2);
 
-    when(grouperTeamServiceMock.findMember("teamId", "id")).thenReturn(member);
-    when(grouperTeamServiceMock.findMember("teamId", "memberId")).thenReturn(memberToRemove);
+    when(grouperTeamServiceMock.findTeamById(team.getId())).thenReturn(team);
+    when(grouperTeamServiceMock.findMember(team, "id")).thenReturn(member);
+    when(grouperTeamServiceMock.findMember(team, "memberId")).thenReturn(memberToRemove);
 
     mockMvc.perform(get("/dodeletemember.shtml")
         .param("token", dummyToken)
@@ -320,7 +326,7 @@ public class DetailTeamControllerTest {
         .sessionAttr(PERSON_SESSION_KEY, person))
       .andExpect(redirectedUrl("detailteam.shtml?team=teamId&mes=error.NotAuthorizedToDeleteMember"));
 
-    verify(grouperTeamServiceMock, never()).deleteMember("teamId", "memberId");
+    verify(grouperTeamServiceMock, never()).deleteMember(team, "memberId");
   }
 
   @Test
@@ -330,8 +336,9 @@ public class DetailTeamControllerTest {
     Person personToAddRole = new Person("personId", "name", "email", "organization", "voot_role", "displayName");
     Member memberToAddRole = new Member(ImmutableSet.of(Role.Member), personToAddRole);
 
-    when(grouperTeamServiceMock.findMember("teamId", "personId")).thenReturn(memberToAddRole);
-    when(grouperTeamServiceMock.addMemberRole("teamId", "personId", Role.Manager, "id")).thenReturn(true);
+    when(grouperTeamServiceMock.findTeamById(team.getId())).thenReturn(team);
+    when(grouperTeamServiceMock.findMember(team, "personId")).thenReturn(memberToAddRole);
+    when(grouperTeamServiceMock.addMemberRole(team, "personId", Role.Manager, "id")).thenReturn(true);
 
     mockMvc.perform(post("/doaddremoverole.shtml")
         .param("token", dummyToken)
@@ -351,8 +358,9 @@ public class DetailTeamControllerTest {
     Person personToAddRole = new Person("personId", "name", "email", "organization", "voot_role", "displayName");
     Member memberToAddRole = new Member(ImmutableSet.of(Role.Member), personToAddRole);
 
-    when(grouperTeamServiceMock.findMember("teamId", "personId")).thenReturn(memberToAddRole);
-    when(grouperTeamServiceMock.addMemberRole("teamId", "personId", Role.Manager, "id")).thenReturn(false);
+    when(grouperTeamServiceMock.findTeamById(team.getId())).thenReturn(team);
+    when(grouperTeamServiceMock.findMember(team, "personId")).thenReturn(memberToAddRole);
+    when(grouperTeamServiceMock.addMemberRole(team, "personId", Role.Manager, "id")).thenReturn(false);
 
     mockMvc.perform(post("/doaddremoverole.shtml")
         .param("token", dummyToken)
@@ -373,7 +381,7 @@ public class DetailTeamControllerTest {
     Team team = new Team("teamId", "Team 1", "team description", ImmutableList.of(member));
 
     when(grouperTeamServiceMock.findTeamById("teamId")).thenReturn(team);
-    when(grouperTeamServiceMock.removeMemberRole("teamId", "personId", Role.Manager, "id")).thenReturn(true);
+    when(grouperTeamServiceMock.removeMemberRole(team, "personId", Role.Manager, "id")).thenReturn(true);
 
     mockMvc.perform(post("/doaddremoverole.shtml")
         .param("token", dummyToken)
@@ -394,7 +402,7 @@ public class DetailTeamControllerTest {
     Team team = new Team("teamId", "Team 1", "team description", ImmutableList.of(member));
 
     when(grouperTeamServiceMock.findTeamById("teamId")).thenReturn(team);
-    when(grouperTeamServiceMock.removeMemberRole("teamId", "personId", Role.Manager, "id")).thenReturn(true);
+    when(grouperTeamServiceMock.removeMemberRole(team, "personId", Role.Manager, "id")).thenReturn(true);
     when(grouperTeamServiceMock.findAdmins(team)).thenReturn(ImmutableSet.of(member));
 
     mockMvc.perform(post("/doaddremoverole.shtml")
@@ -431,7 +439,7 @@ public class DetailTeamControllerTest {
 
     when(grouperTeamServiceMock.findTeamById("teamId")).thenReturn(team);
     when(joinTeamRequestServiceMock.findPendingRequest("member", "teamId")).thenReturn(joinRequest);
-    when(controllerUtilMock.hasUserAdministrativePrivileges(person, "teamId")).thenReturn(true);
+    when(controllerUtilMock.hasUserAdministrativePrivileges(person, team)).thenReturn(true);
     when(localeResolverMock.resolveLocale(any(HttpServletRequest.class))).thenReturn(Locale.ENGLISH);
 
     mockMvc.perform(post("/dodeleterequest.shtml")
@@ -455,7 +463,7 @@ public class DetailTeamControllerTest {
 
     when(grouperTeamServiceMock.findTeamById("teamId")).thenReturn(team);
     when(joinTeamRequestServiceMock.findPendingRequest("member", "teamId")).thenReturn(joinRequest);
-    when(controllerUtilMock.hasUserAdministrativePrivileges(person, "teamId")).thenReturn(true);
+    when(controllerUtilMock.hasUserAdministrativePrivileges(person, team)).thenReturn(true);
     when(localeResolverMock.resolveLocale(any(HttpServletRequest.class))).thenReturn(Locale.ENGLISH);
 
     mockMvc.perform(post("/dodeleterequest.shtml")

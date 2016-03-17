@@ -64,7 +64,7 @@ public class AddExternalGroupControllerTest {
     Team team = new Team("team::id", "teamName", "teamDescription");
 
     when(teamServiceMock.findTeamById("team::id")).thenReturn(team);
-    when(controllerUtilMock.hasUserAdministrativePrivileges(person, "team::id")).thenReturn(true);
+    when(controllerUtilMock.hasUserAdministrativePrivileges(person, team)).thenReturn(true);
     when(vootClientMock.groups("id")).thenReturn(Collections.emptyList());
 
     mockMvc.perform(get("/addexternalgroup.shtml")
@@ -85,7 +85,7 @@ public class AddExternalGroupControllerTest {
     teamExternalGroup.setExternalGroup(externalGroupOne);
 
     when(teamServiceMock.findTeamById("team::id")).thenReturn(team);
-    when(controllerUtilMock.hasUserAdministrativePrivileges(person, "team::id")).thenReturn(true);
+    when(controllerUtilMock.hasUserAdministrativePrivileges(person, team)).thenReturn(true);
     when(vootClientMock.groups("id")).thenReturn(ImmutableList.of(externalGroupOne, externalGroupTwo));
     when(teamExternalGroupDaoMock.getByTeamIdentifier("team::id")).thenReturn(ImmutableList.of(teamExternalGroup));
 

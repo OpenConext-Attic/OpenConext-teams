@@ -160,10 +160,10 @@ public class InvitationController {
     if (!StringUtils.hasText(teamId)) {
       throw new RuntimeException("Invalid invitation");
     }
-    controllerUtil.getTeamById(teamId);
+    Team team = controllerUtil.getTeamById(teamId);
 
     String memberId = person.getId();
-    grouperTeamService.addMember(teamId, person);
+    grouperTeamService.addMember(team, person);
 
     Role intendedRole = invitation.getIntendedRole();
     if (person.isGuest() && Role.Admin.equals(intendedRole)) {
@@ -171,7 +171,7 @@ public class InvitationController {
       invitation.setIntendedRole(Role.Manager);
     }
     intendedRole = invitation.getIntendedRole();
-    grouperTeamService.addMemberRole(teamId, memberId, intendedRole, grouperPowerUser);
+    grouperTeamService.addMemberRole(team, memberId, intendedRole, grouperPowerUser);
     AuditLog.log("User {} accepted invitation for team {} with intended role {}", person.getId(), teamId, intendedRole);
     invitation.setAccepted(true);
     teamInviteService.saveOrUpdate(invitation);
@@ -235,8 +235,9 @@ public class InvitationController {
     Invitation invitation = teamInviteService.findInvitationByInviteId(id).orElseThrow(IllegalArgumentException::new);
 
     String teamId = invitation.getTeamId();
+    Team team = controllerUtil.getTeamById(teamId);
 
-    if (!controllerUtil.hasUserAdministrativePrivileges(person, teamId)) {
+    if (!controllerUtil.hasUserAdministrativePrivileges(person, team)) {
       throw new RuntimeException("Requester (" + person.getId() + ") is not member or does not have the correct " +
         "privileges to delete (a) member(s)");
     }

@@ -66,7 +66,7 @@ public class AddMemberControllerTest {
     Team team = new Team("teamId", "teamName", "teamDescription");
 
     when(controllerUtilMock.getTeam(any())).thenReturn(team);
-    when(controllerUtilMock.hasUserAdministrativePrivileges(person, team.getId())).thenReturn(true);
+    when(controllerUtilMock.hasUserAdministrativePrivileges(person, team)).thenReturn(true);
 
     mockMvc.perform(get("/addmember.shtml")
         .sessionAttr(PERSON_SESSION_KEY, person))
@@ -79,7 +79,8 @@ public class AddMemberControllerTest {
   public void redirectToFromWhenEmailIsMissing() throws Exception {
     Team team = new Team("teamId", "teamName", "teamDescription");
 
-    when(controllerUtilMock.hasUserAdministrativePrivileges(person, team.getId())).thenReturn(true);
+    when(controllerUtilMock.getTeamById(team.getId())).thenReturn(team);
+    when(controllerUtilMock.hasUserAdministrativePrivileges(person, team)).thenReturn(true);
 
     mockMvc.perform(post("/doaddmember.shtml")
         .sessionAttr(PERSON_SESSION_KEY, person)
@@ -94,7 +95,7 @@ public class AddMemberControllerTest {
   public void addAMemberToATeam() throws Exception {
     Team team = new Team("teamId", "teamName", "teamDescription");
 
-    when(controllerUtilMock.hasUserAdministrativePrivileges(person, team.getId())).thenReturn(true);
+    when(controllerUtilMock.hasUserAdministrativePrivileges(person, team)).thenReturn(true);
     when(controllerUtilMock.getTeamById(team.getId())).thenReturn(team);
     when(messageSourceMock.getMessage(eq(INVITE_SEND_INVITE_SUBJECT), any(), eq(Locale.forLanguageTag("nl")))).thenReturn("subject");
     when(teamInviteServiceMock.findOpenInvitation("john@example.com", team)).thenReturn(Optional.empty());
@@ -119,7 +120,7 @@ public class AddMemberControllerTest {
     Invitation invitation = new Invitation("john@example.com", "teamId");
 
     when(teamInviteServiceMock.findInvitationByInviteId("invitationId")).thenReturn(Optional.of(invitation));
-    when(controllerUtilMock.hasUserAdministrativePrivileges(person, "teamId")).thenReturn(true);
+    when(controllerUtilMock.hasUserAdministrativePrivileges(person, new Team("teamId"))).thenReturn(true);
 
     mockMvc.perform(get("/resendInvitation.shtml")
         .sessionAttr(PERSON_SESSION_KEY, person)

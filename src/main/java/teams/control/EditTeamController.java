@@ -53,7 +53,7 @@ public class EditTeamController {
     Team team = getTeam(request);
 
     // Check if a user has the privileges to edit the team
-    if (!controllerUtil.hasUserAdminPrivileges(person, team.getId())) {
+    if (!controllerUtil.hasUserAdminPrivileges(person, team)) {
       throw new RuntimeException("Member (" + person.getId() + ") does not have the correct privileges to edit team " +
         "(" + team.getName() + ")");
     }
@@ -80,7 +80,7 @@ public class EditTeamController {
     String teamName = team.getName(); // the name does not change on edit
 
     // Check if a user has the privileges to edit the team
-    if (!controllerUtil.hasUserAdminPrivileges(person, team.getId())) {
+    if (!controllerUtil.hasUserAdminPrivileges(person, team)) {
       throw new RuntimeException("Member (" + person.getId() + ") does not have the correct privileges to edit team " +
         "(" + team.getName() + ")");
     }

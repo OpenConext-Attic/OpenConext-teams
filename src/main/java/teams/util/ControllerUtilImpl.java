@@ -109,31 +109,19 @@ public class ControllerUtilImpl implements ControllerUtil {
     return grouperTeamService.findTeamById(teamId);
   }
 
-  /**
-   * Checks if the current user has administrative privileges (whether he is admin OR manager) for a given team.
-   *
-   * @param person {@link Person}
-   * @param teamId {@link String} the team Id for which the person's privileges are checked
-   * @return {@link boolean} <code>true/code> if the user is admin AND/OR manager <code>false</code> if the user isn't
-   */
-  public boolean hasUserAdministrativePrivileges(Person person, String teamId) {
+  @Override
+  public boolean hasUserAdministrativePrivileges(Person person, Team team) {
     // Check if the requester is member of the team AND
     // Check if the requester has the role admin or manager, so he is allowed to invite new members.
-    Member member = grouperTeamService.findMember(teamId, person.getId());
+    Member member = grouperTeamService.findMember(team, person.getId());
     return member != null && (member.getRoles().contains(Role.Admin) || member.getRoles().contains(Role.Manager));
   }
 
-  /**
-   * Checks if the current user has admin privileges for a given team.
-   *
-   * @param person {@link Person}
-   * @param teamId {@link String} the team Id for which the person's privileges are checked
-   * @return {@link boolean} <code>true/code> if the user is admin AND/OR manager <code>false</code> if the user isn't
-   */
-  public boolean hasUserAdminPrivileges(Person person, String teamId) {
+  @Override
+  public boolean hasUserAdminPrivileges(Person person, Team team) {
     // Check if the requester is member of the team AND
     // Check if the requester has the role admin or manager, so he is allowed to invite new members.
-    Member member = grouperTeamService.findMember(teamId, person.getId());
+    Member member = grouperTeamService.findMember(team, person.getId());
     return member != null && (member.getRoles().contains(Role.Admin));
   }
 

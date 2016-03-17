@@ -139,15 +139,16 @@ public class AddTeamController {
 
       AuditLog.log("User {} added team (name: {}, id: {}) with stem {}", person.getId(), teamName, teamId, stemId);
 
-      inviteAdmin(addTeamCommand, teamName, teamId, person);
+      inviteAdmin(addTeamCommand, teamId, person);
     } catch (DuplicateTeamException e) {
       bindingResult.rejectValue("teamName", "jsp.addteam.error.duplicate");
       return "addteam";
     }
+    Team team = grouperTeamService.findTeamById(teamId);
 
     grouperTeamService.setVisibilityGroup(teamId, addTeamCommand.isViewable());
-    grouperTeamService.addMember(teamId, person);
-    grouperTeamService.addMemberRole(teamId, person.getId(), Role.Admin, grouperPowerUser);
+    grouperTeamService.addMember(team, person);
+    grouperTeamService.addMemberRole(team, person.getId(), Role.Admin, grouperPowerUser);
 
     status.setComplete();
 
@@ -180,7 +181,7 @@ public class AddTeamController {
     }
   }
 
-  private void inviteAdmin(AddTeamCommand command, String teamName, String teamId, Person inviter) {
+  private void inviteAdmin(AddTeamCommand command, String teamId, Person inviter) {
     if (!StringUtils.hasText(command.getAdmin2Email())) {
       return;
     }
