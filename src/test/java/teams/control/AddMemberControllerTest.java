@@ -111,7 +111,7 @@ public class AddMemberControllerTest {
 
     ArgumentCaptor<Invitation> invitationCaptor = ArgumentCaptor.forClass(Invitation.class);
 
-    verify(controllerUtilMock).sendInvitationMail(invitationCaptor.capture(), eq("subject"), eq(person));
+    verify(controllerUtilMock).sendInvitationMail(any(Team.class), invitationCaptor.capture(), eq("subject"), eq(person));
     assertThat(invitationCaptor.getValue().getEmail(), is("john@example.com"));
   }
 

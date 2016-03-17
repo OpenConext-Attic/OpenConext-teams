@@ -143,9 +143,9 @@ public class ControllerUtilImpl implements ControllerUtil {
   }
 
   @Override
-  public void sendInvitationMail(Invitation invitation, String subject, Person inviter) {
-    String html = composeInvitationMailMessage(invitation, inviter, "html");
-    String plainText = composeInvitationMailMessage(invitation, inviter, "plaintext");
+  public void sendInvitationMail(Team team, Invitation invitation, String subject, Person inviter) {
+    String html = composeInvitationMailMessage(team, invitation, inviter, "html");
+    String plainText = composeInvitationMailMessage(team, invitation, inviter, "plaintext");
 
     MimeMessagePreparator preparator = mimeMessage -> {
       mimeMessage.addHeader("Precedence", "bulk");
@@ -156,14 +156,11 @@ public class ControllerUtilImpl implements ControllerUtil {
       MimeMultipart rootMixedMultipart = getMimeMultipartMessageBody(plainText, html);
       mimeMessage.setContent(rootMixedMultipart);
     };
-
     mailService.sendAsync(preparator);
   }
 
-  private String composeInvitationMailMessage(Invitation invitation, Person inviter, String variant) {
+  private String composeInvitationMailMessage(Team team, Invitation invitation, Person inviter, String variant) {
     String templateName = "plaintext".equals(variant) ? "invitationmail-plaintext.ftl" : "invitationmail.ftl";
-
-    Team team = grouperTeamService.findTeamById(invitation.getTeamId());
 
     Map<String, Object> templateVars = new HashMap<>();
     templateVars.put("invitation", invitation);

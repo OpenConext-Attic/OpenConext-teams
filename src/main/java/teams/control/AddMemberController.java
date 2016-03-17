@@ -16,6 +16,8 @@
 package teams.control;
 
 import com.google.common.base.Throwables;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -57,6 +59,8 @@ import static teams.util.ViewUtil.escapeViewParameters;
 @Controller
 @SessionAttributes(TokenUtil.TOKENCHECK)
 public class AddMemberController {
+  private static final Logger LOG = LoggerFactory.getLogger(AddMemberController.class);
+
   protected static final String INVITE_SEND_INVITE_SUBJECT = "invite.SendInviteSubject";
 
   protected static final String ROLES_PARAM = "roles";
@@ -123,7 +127,6 @@ public class AddMemberController {
     Person person = (Person) request.getSession().getAttribute(PERSON_SESSION_KEY);
 
     checkTokens(sessionToken, token, status);
-
     String teamId = form.getTeamId();
     Team team = controllerUtil.getTeamById(teamId);
 
@@ -144,13 +147,10 @@ public class AddMemberController {
 
       return "addmember";
     }
-
-    doInviteMembers(person, emails, form);
-
+    doInviteMembers(team, person, emails, form);
     AuditLog.log("User {} sent invitations for team {}, with role {} to addresses: {}", person.getId(), teamId, form.getIntendedRole(), emails);
 
     status.setComplete();
-
     return escapeViewParameters("redirect:detailteam.shtml?team=%s", teamId);
   }
 
@@ -205,7 +205,7 @@ public class AddMemberController {
     checkUserHasAdministrativePrivileges(person, team, Optional.of(status));
 
     String subject = messageSource.getMessage(INVITE_SEND_INVITE_SUBJECT, new Object[] {team.getName()}, invitation.getLanguage().locale());
-    controllerUtil.sendInvitationMail(invitation, subject, person);
+    controllerUtil.sendInvitationMail(team, invitation, subject, person);
 
     status.setComplete();
 
@@ -233,9 +233,7 @@ public class AddMemberController {
     return InternetAddress.parse(sb.toString());
   }
 
-  private void doInviteMembers(Person inviter, InternetAddress[] emails, InvitationForm form) {
-    Team team = controllerUtil.getTeamById(form.getTeamId());
-
+  private void doInviteMembers(Team team, Person inviter, InternetAddress[] emails, InvitationForm form) {
     String subject = messageSource.getMessage(INVITE_SEND_INVITE_SUBJECT, new Object[] {team.getName()}, form.getLanguage().locale());
 
     for (InternetAddress email : emails) {
@@ -255,9 +253,7 @@ public class AddMemberController {
       invitation.setLanguage(form.getLanguage());
 
       teamInviteService.saveOrUpdate(invitation);
-
-      controllerUtil.sendInvitationMail(invitation, subject, inviter);
-
+      controllerUtil.sendInvitationMail(team, invitation, subject, inviter);
       AuditLog.log("Sent invitation and saved to database: team: {}, inviter: {}, email: {}, role: {}, hash: {}",
         team.getId(), inviter.getId(), emailAddress, form.getIntendedRole(), invitation.getInvitationHash());
     }

@@ -171,6 +171,8 @@ public class AddTeamControllerTest {
   public void addTeamWithSecondAdminShouldSendAnEmailWithCorrectLocale() throws Exception {
     when(environment.acceptsProfiles(Application.GROUPZY_PROFILE_NAME)).thenReturn(false);
     when(grouperTeamServiceMock.addTeam("name", "name", "description", null)).thenReturn("created");
+    when(grouperTeamServiceMock.findTeamById("created")).thenReturn(new Team("created"));
+
     when(messageSourceMock.getMessage(INVITE_SEND_INVITE_SUBJECT, new Object[] {"name"}, Locale.forLanguageTag("nl"))).thenReturn("subject");
 
     mockMvc.perform(post("/doaddteam.shtml")
@@ -187,7 +189,7 @@ public class AddTeamControllerTest {
 
     ArgumentCaptor<Invitation> invitationCaptor = ArgumentCaptor.forClass(Invitation.class);
     verify(teamInviteServiceMock).saveOrUpdate(invitationCaptor.capture());
-    verify(controllerUtil).sendInvitationMail(invitationCaptor.getValue(), "subject", person);
+    verify(controllerUtil).sendInvitationMail(new Team("created"), invitationCaptor.getValue(), "subject", person);
 
     assertThat(invitationCaptor.getValue().getEmail(), is("henk@example.com"));
     assertThat(invitationCaptor.getValue().getLanguage(), is(Language.Dutch));

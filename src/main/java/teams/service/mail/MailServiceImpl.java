@@ -7,6 +7,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.scheduling.annotation.Async;
 
+//we don't provide feedback, so why have bad UX for waiting on mails
 public class MailServiceImpl implements MailService {
 
   @Autowired
@@ -14,12 +15,12 @@ public class MailServiceImpl implements MailService {
 
   @Async
   public void sendAsync(MimeMessagePreparator preparator) throws MailException {
-    mailSender.send(preparator);
+    new Thread(() -> mailSender.send(preparator)).start();
   }
 
   @Async
   public void sendAsync(SimpleMailMessage msg) throws MailException {
-    mailSender.send(msg);
+    new Thread(() -> mailSender.send(msg)).start();
   }
 
   public void setMailSender(JavaMailSender mailSender) {

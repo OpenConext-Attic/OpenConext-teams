@@ -138,13 +138,13 @@ public class AddTeamController {
       teamId = grouperTeamService.addTeam(teamName, teamName, teamDescription, stemId);
 
       AuditLog.log("User {} added team (name: {}, id: {}) with stem {}", person.getId(), teamName, teamId, stemId);
-
-      inviteAdmin(addTeamCommand, teamId, person);
     } catch (DuplicateTeamException e) {
       bindingResult.rejectValue("teamName", "jsp.addteam.error.duplicate");
       return "addteam";
     }
     Team team = grouperTeamService.findTeamById(teamId);
+
+    inviteAdmin(team, addTeamCommand, teamId, person);
 
     grouperTeamService.setVisibilityGroup(teamId, addTeamCommand.isViewable());
     grouperTeamService.addMember(team, person);
@@ -181,7 +181,7 @@ public class AddTeamController {
     }
   }
 
-  private void inviteAdmin(AddTeamCommand command, String teamId, Person inviter) {
+  private void inviteAdmin(Team team, AddTeamCommand command, String teamId, Person inviter) {
     if (!StringUtils.hasText(command.getAdmin2Email())) {
       return;
     }
@@ -197,7 +197,7 @@ public class AddTeamController {
     teamInviteService.saveOrUpdate(invitation);
     String subject = messageSource.getMessage(INVITE_SEND_INVITE_SUBJECT, new Object[] {command.getTeamName()}, command.getAdmin2Language().locale());
 
-    controllerUtil.sendInvitationMail(invitation, subject, inviter);
+    controllerUtil.sendInvitationMail(team, invitation, subject, inviter);
 
     AuditLog.log("Sent invitation and saved to database: team: {}, inviter: {}, hash: {}, email: {}, role: {}",
       teamId, inviter.getId(), invitation.getInvitationHash(), command.getAdmin2Email(), invitation.getIntendedRole());

@@ -71,7 +71,7 @@ public interface ControllerUtil {
    */
   boolean isPersonMemberOfTeam(Person person, Team team);
 
-  void sendInvitationMail(Invitation invitation, String subject, Person inviter);
+  void sendInvitationMail(Team team, Invitation invitation, String subject, Person inviter);
 
   void sendDeclineMail(Person memberToAdd, Team team, Locale locale);
 
