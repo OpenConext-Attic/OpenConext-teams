@@ -237,8 +237,8 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
    */
   private Set<Role> getRolesForMember(String memberId, WsGrouperPrivilegeResult[] privilegeResults) {
     return getPrivilegeResultsForMember(memberId, privilegeResults).stream()
-        .map(priv -> getRole(priv.getPrivilegeName()))
-        .collect(toSet());
+      .map(priv -> getRole(priv.getPrivilegeName()))
+      .collect(toSet());
   }
 
   /**
@@ -456,7 +456,11 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
     addMember.assignGroupName(team.getId());
     addMember.addSubjectId(person.getId());
     addMember.execute();
-    Member member = findMember(team, person.getId());
+
+    Member member = new Member(null, person);
+    List<MemberAttribute> memberAttributes = memberAttributeService.findAttributesForMemberId(member.getId());
+    member.setMemberAttributes(memberAttributes);
+
     if (member.isGuest() != person.isGuest()) {
       member.setGuest(person.isGuest());
       memberAttributeService.saveOrUpdate(member.getMemberAttributes());
@@ -491,10 +495,10 @@ public class GrouperTeamServiceWsImpl implements GrouperTeamService {
         .execute();
 
       return Optional.ofNullable(results.getGroupResults())
-          .map(Arrays::stream)
-          .orElse(Stream.empty())
-          .map(g -> buildTeam(g, personId, false))
-          .collect(toList());
+        .map(Arrays::stream)
+        .orElse(Stream.empty())
+        .map(g -> buildTeam(g, personId, false))
+        .collect(toList());
     } catch (GcWebServiceError e) {
       LOG.warn("Could not get teams by member {}. Perhaps no groups for this user? Will return empty list. Exception msg: {}", personId, e.getMessage());
       return Collections.emptyList();
