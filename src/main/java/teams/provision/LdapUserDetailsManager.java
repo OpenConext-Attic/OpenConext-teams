@@ -85,8 +85,6 @@ public class LdapUserDetailsManager implements UserDetailsManager {
     List<String> organisations = ldapOperations.search("", encode,
       (AttributesMapper<String>) attributes -> (String) attributes.get("o").get());
 
-
-    //Object lookup = ldapOperations.lookup(String.format("o=%s", organization));
     return !organisations.isEmpty();
   }
 
