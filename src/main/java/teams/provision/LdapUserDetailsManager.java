@@ -65,12 +65,11 @@ public class LdapUserDetailsManager implements UserDetailsManager {
 
     userAttributes.put(classAttribute);
 
-    String dn = String.format("uid=%s,o=%s", person.getName(), organization);
-    String encodedDn = LdapEncoder.nameEncode(dn);
+    String dn = String.format("uid=%s,o=%s", LdapEncoder.nameEncode(person.getName()), LdapEncoder.nameEncode(organization));
 
-    LOG.info("LDAP bind {} for {}", userAttributes, encodedDn);
+    LOG.info("LDAP bind {} for {}", userAttributes, dn);
 
-    ldapOperations.bind(encodedDn, null, userAttributes);
+    ldapOperations.bind(dn, null, userAttributes);
   }
 
   protected boolean existingOrganisation(String organization) {
