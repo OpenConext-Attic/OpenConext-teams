@@ -6,6 +6,7 @@ import org.springframework.ldap.core.AttributesMapper;
 import org.springframework.ldap.core.LdapOperations;
 import org.springframework.ldap.filter.AndFilter;
 import org.springframework.ldap.filter.EqualsFilter;
+import org.springframework.ldap.support.LdapEncoder;
 import teams.domain.Person;
 
 import javax.naming.directory.Attributes;
@@ -65,10 +66,11 @@ public class LdapUserDetailsManager implements UserDetailsManager {
     userAttributes.put(classAttribute);
 
     String dn = String.format("uid=%s,o=%s", person.getName(), organization);
+    String encodedDn = LdapEncoder.nameEncode(dn);
 
-    LOG.info("LDAP bind {} for {}", userAttributes, dn);
+    LOG.info("LDAP bind {} for {}", userAttributes, encodedDn);
 
-    ldapOperations.bind(dn, null, userAttributes);
+    ldapOperations.bind(encodedDn, null, userAttributes);
   }
 
   protected boolean existingOrganisation(String organization) {
