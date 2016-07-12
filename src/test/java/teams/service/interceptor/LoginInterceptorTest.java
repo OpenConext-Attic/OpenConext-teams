@@ -87,7 +87,7 @@ public class LoginInterceptorTest {
       "urn:mace:dir:attribute-def:uid",
       "urn:mace:dir:attribute-def:mail",
       "urn:mace:terena.org:attribute-def:schacHomeOrganization",
-      "urn:mace:dir:attribute-def:cn"),
+      "urn:mace:dir:attribute-def:displayName"),
       notProvidedSamlAttributes);
   }
 
