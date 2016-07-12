@@ -27,14 +27,13 @@ import teams.provision.MockUserDetailsManager;
 import teams.service.MemberAttributeService;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
+import static java.util.Arrays.asList;
 import static java.util.Collections.singletonList;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
-import static teams.domain.MemberAttribute.*;
+import static teams.domain.MemberAttribute.ATTRIBUTE_GUEST;
 import static teams.interceptor.LoginInterceptor.*;
 
 /**
@@ -65,6 +64,8 @@ public class LoginInterceptorTest {
     request.addHeader("is-member-of", "urn:collab:org:surf.nl");
     request.addHeader("uid", "John Doe");
     request.addHeader("Shib-InetOrgPerson-mail", "john@example.com");
+    request.addHeader("schacHomeOrganization", "example.com");
+    request.addHeader("displayName", "John Doe");
 
     boolean loggedIn = interceptor.preHandle(request, response, null);
     assertTrue(loggedIn);
@@ -82,7 +83,12 @@ public class LoginInterceptorTest {
     @SuppressWarnings("unchecked")
     List<String> notProvidedSamlAttributes = (List<String>) request.getSession().getAttribute("notProvidedSamlAttributes");
 
-    assertEquals(Arrays.asList("urn:mace:dir:attribute-def:uid", "urn:mace:dir:attribute-def:mail"), notProvidedSamlAttributes);
+    assertEquals(asList(
+      "urn:mace:dir:attribute-def:uid",
+      "urn:mace:dir:attribute-def:mail",
+      "urn:mace:terena.org:attribute-def:schacHomeOrganization",
+      "urn:mace:dir:attribute-def:cn"),
+      notProvidedSamlAttributes);
   }
 
   @Test

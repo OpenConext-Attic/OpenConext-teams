@@ -142,8 +142,13 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     addNotProvidedSamlAttributes(email, notProvidedSamlAttributes, "urn:mace:dir:attribute-def:mail" );
 
     String schacHomeOrganization = request.getHeader("schacHomeOrganization");
-    String status = request.getHeader("is-member-of");
+    addNotProvidedSamlAttributes(schacHomeOrganization, notProvidedSamlAttributes, "urn:mace:terena.org:attribute-def:schacHomeOrganization" );
+
     String displayName = request.getHeader("displayName");
+    addNotProvidedSamlAttributes(displayName, notProvidedSamlAttributes, "urn:mace:dir:attribute-def:cn" );
+
+    String status = request.getHeader("is-member-of");
+
     if (!notProvidedSamlAttributes.isEmpty()) {
       request.getSession(true).setAttribute("notProvidedSamlAttributes", notProvidedSamlAttributes);
     }
