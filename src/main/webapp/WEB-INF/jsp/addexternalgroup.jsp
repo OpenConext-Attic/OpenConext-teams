@@ -35,7 +35,7 @@
     </div>
       <%-- = Content --%>
     <div id="Content">
-      <form action="${actionUrl}" method="post">
+      <form action="/doaddexternalgroup.shtml" method="post">
         <p class="label-field-wrapper">
           <input type="hidden" name="token" value="<c:out value='${tokencheck}'/>"/>
           <input type="hidden" name="teamId" value="<c:out value='${teamId}' />" />
@@ -48,7 +48,6 @@
             <p><spring:message code="jsp.addexternalgroup.TeamsYouCanAdd" arguments="${team.name}"
                                htmlEscape="true"/></p>
 
-            <c:url value="/doaddexternalgroup.shtml" var="actionUrl"/>
               <ul class="label-field-wrapper nobullets">
                 <c:forEach var="externalGroup" items="${sessionScope.externalGroups}" varStatus="loop">
                   <li>

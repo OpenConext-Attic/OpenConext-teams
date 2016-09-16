@@ -129,12 +129,12 @@ public class AddExternalGroupController {
     }
 
     List<String> existingLinkedGroups = teamExternalGroupDao.getByTeamIdentifier(team.getId()).stream()
-        .map(teg -> teg.getExternalGroup().getIdentifier())
-        .collect(toList());
+      .map(teg -> teg.getExternalGroup().getIdentifier())
+      .collect(toList());
 
     return externalGroups.stream()
-        .filter(externalGroup -> !existingLinkedGroups.contains(externalGroup.getIdentifier()))
-        .collect(toList());
+      .filter(externalGroup -> !existingLinkedGroups.contains(externalGroup.getIdentifier()))
+      .collect(toList());
   }
 
   @RequestMapping(value = "/doaddexternalgroup.shtml", method = RequestMethod.POST)
@@ -152,15 +152,15 @@ public class AddExternalGroupController {
     String personId = person.getId();
 
     Map<String, ExternalGroup> externalGroupMap = getExternalGroups(personId, request.getSession()).stream()
-        .collect(Collectors.toMap(ExternalGroup::getIdentifier, Function.identity()));
+      .collect(Collectors.toMap(ExternalGroup::getIdentifier, Function.identity()));
 
     List<TeamExternalGroup> teamExternalGroups = Arrays.stream(request.getParameterValues(EXTERNAL_GROUPS_SESSION_KEY))
-        .map(identifier -> {
-          TeamExternalGroup t = new TeamExternalGroup();
-          t.setGrouperTeamId(teamId);
-          t.setExternalGroup(externalGroupMap.get(identifier));
-          return t;
-        }).collect(toList());
+      .map(identifier -> {
+        TeamExternalGroup t = new TeamExternalGroup();
+        t.setGrouperTeamId(teamId);
+        t.setExternalGroup(externalGroupMap.get(identifier));
+        return t;
+      }).collect(toList());
 
     teamExternalGroups.forEach(teamExternalGroupDao::saveOrUpdate);
     teamExternalGroups.forEach(eg -> AuditLog.log("User {} added external group to team {}: {}", personId, teamId, eg));
