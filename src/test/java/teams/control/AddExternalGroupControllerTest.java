@@ -1,19 +1,6 @@
 package teams.control;
 
-import static org.hamcrest.Matchers.contains;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
-import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
-import static teams.control.AddExternalGroupController.EXTERNAL_GROUPS_SESSION_KEY;
-import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
-
-import java.util.Collections;
-
 import com.google.common.collect.ImmutableList;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,16 +8,21 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.test.web.servlet.MockMvc;
-
-import teams.domain.ExternalGroup;
-import teams.domain.ExternalGroupProvider;
-import teams.domain.Person;
-import teams.domain.Team;
-import teams.domain.TeamExternalGroup;
+import teams.domain.*;
 import teams.service.GrouperTeamService;
 import teams.service.TeamExternalGroupDao;
 import teams.service.VootClient;
 import teams.util.ControllerUtil;
+
+import java.util.Collections;
+
+import static org.hamcrest.Matchers.contains;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
+import static teams.control.AddExternalGroupController.EXTERNAL_GROUPS_SESSION_KEY;
+import static teams.interceptor.LoginInterceptor.PERSON_SESSION_KEY;
 
 @RunWith(MockitoJUnitRunner.class)
 public class AddExternalGroupControllerTest {
@@ -94,4 +86,5 @@ public class AddExternalGroupControllerTest {
         .sessionAttr(PERSON_SESSION_KEY, person))
       .andExpect(request().sessionAttribute(EXTERNAL_GROUPS_SESSION_KEY, contains(externalGroupTwo)));
   }
+
 }
