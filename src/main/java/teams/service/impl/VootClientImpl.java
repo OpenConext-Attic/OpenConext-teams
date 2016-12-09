@@ -43,7 +43,7 @@ public class VootClientImpl implements VootClient {
 
     return maps.stream().map(map -> {
       String sourceId = (String) map.get("sourceID");
-      return new ExternalGroup((String) map.get("id"), (String) map.get("displayName"), (String) map.get("description"), new ExternalGroupProvider(sourceId, sourceId));
+      return new ExternalGroup(map.get("id").toString(), (String) map.get("displayName"), (String) map.get("description"), new ExternalGroupProvider(sourceId, sourceId));
     }).collect(toList());
   }
 

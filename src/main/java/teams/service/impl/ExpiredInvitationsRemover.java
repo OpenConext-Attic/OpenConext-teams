@@ -3,6 +3,7 @@ package teams.service.impl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.ConcurrencyFailureException;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -17,10 +18,16 @@ public class ExpiredInvitationsRemover {
   @Autowired
   private TeamInviteService teamInviteService;
 
+  @Value("${teamsCronJobResponsible}")
+  private boolean teamsCronJobResponsible;
+
   @Scheduled(cron = "0 50 23 * * *") // every day at 23:50
   public void removeExpiredInvitations() {
     try {
-      teamInviteService.cleanupExpiredInvitations();
+      if (teamsCronJobResponsible) {
+        teamInviteService.cleanupExpiredInvitations();
+      }
+
     } catch (ConcurrencyFailureException e) {
       LOG.info("Failed to remove expired invitations other server instance has won");
     }
