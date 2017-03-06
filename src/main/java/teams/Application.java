@@ -1,8 +1,6 @@
 package teams;
 
 import freemarker.template.TemplateException;
-import org.apache.catalina.Container;
-import org.apache.catalina.Wrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +16,8 @@ import org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfigura
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
-import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
-import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.web.SpringBootServletInitializer;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.Ordered;
@@ -62,7 +57,6 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Properties;
 
 @SpringBootApplication
@@ -211,33 +205,7 @@ public class Application extends SpringBootServletInitializer {
   }
 
   /**
-   * Required because of https://github.com/spring-projects/spring-boot/issues/2825
-   * As the issue says, probably can be removed as of Spring-Boot 1.3.0
-   */
-  @Bean
-  public EmbeddedServletContainerCustomizer servletContainerCustomizer() {
-    return new EmbeddedServletContainerCustomizer() {
-
-      @Override
-      public void customize(ConfigurableEmbeddedServletContainer container) {
-        if (container instanceof TomcatEmbeddedServletContainerFactory) {
-          customizeTomcat((TomcatEmbeddedServletContainerFactory) container);
-        }
-      }
-
-      private void customizeTomcat(TomcatEmbeddedServletContainerFactory tomcatFactory) {
-        tomcatFactory.addContextCustomizers(context -> {
-          Container jsp = context.findChild("jsp");
-          if (jsp instanceof Wrapper) {
-            ((Wrapper) jsp).addInitParameter("development", "false");
-          }
-        });
-      }
-    };
-  }
-
-  /**
-   * Can be removed as soon as https://github.com/spring-projects/spring-boot/issues/2893 is solved.
+   * See https://github.com/spring-projects/spring-boot/issues/2893. This is a JSP limitation as the issue is closed as won't-fix
    */
   @Bean
   public InternalResourceViewResolver viewResolver(@Value("${spring.mvc.view.prefix:}") String prefix, @Value("${spring.mvc.view.suffix:}") String suffix) {
