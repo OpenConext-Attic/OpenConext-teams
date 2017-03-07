@@ -50,7 +50,8 @@ public class MockLoginInterceptor extends LoginInterceptor {
     if (request.getRequestURI().contains("landingpage.shtml") ||
       request.getRequestURI().contains(".js") ||
       request.getRequestURI().contains(".css") ||
-      request.getRequestURI().contains(".png")) {
+      request.getRequestURI().contains(".png") ||
+    request.getRequestURI().contains("migrate") ) {
       return true;
     }
 

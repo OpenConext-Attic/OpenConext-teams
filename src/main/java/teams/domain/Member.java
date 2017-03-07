@@ -35,6 +35,9 @@ public class Member implements Serializable {
   private String email;
   private List<MemberAttribute> memberAttributes;
 
+  public Member() {
+  }
+
   /**
    * @param roles Set of {@link Role}'s for this member
    * @param name  full name
@@ -195,5 +198,21 @@ public class Member implements Serializable {
       return false;
     }
     return true;
+  }
+
+  public void setRoles(Set<Role> roles) {
+    this.roles = roles;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
   }
 }

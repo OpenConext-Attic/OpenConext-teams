@@ -7,12 +7,20 @@ import org.springframework.ldap.core.LdapOperations;
 import org.springframework.ldap.filter.AndFilter;
 import org.springframework.ldap.filter.EqualsFilter;
 import org.springframework.ldap.support.LdapEncoder;
+import teams.domain.Member;
 import teams.domain.Person;
 
+import javax.naming.NamingException;
+import javax.naming.directory.Attribute;
 import javax.naming.directory.Attributes;
 import javax.naming.directory.BasicAttribute;
 import javax.naming.directory.BasicAttributes;
+import java.time.Instant;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 public class LdapUserDetailsManager implements UserDetailsManager {
 
@@ -26,6 +34,11 @@ public class LdapUserDetailsManager implements UserDetailsManager {
 
   @Override
   public boolean existingPerson(String urn) {
+    List<String> personIds = persons(urn, attributes -> this.safeGetAttribute(attributes,"collabpersonid"));
+    return !personIds.isEmpty();
+  }
+
+  private <T> List<T> persons(String urn, AttributesMapper<T> attributesMapper) {
     AndFilter filter = new AndFilter()
       .and(new EqualsFilter("objectclass", "collabPerson"))
       .and(new EqualsFilter("collabpersonid", urn));
@@ -35,11 +48,11 @@ public class LdapUserDetailsManager implements UserDetailsManager {
     LOG.info("LDAP query {}", encode);
 
     //we have provided the ldapOperations with a base so here we need an empty String
-    List<String> persons = ldapOperations.search("", encode,
-      (AttributesMapper<String>) attributes -> (String) attributes.get("collabpersonid").get());
+    List<T> results = ldapOperations.search("", encode,
+      attributesMapper);
 
-    LOG.info("LDAP query result {}", persons);
-    return !persons.isEmpty();
+    LOG.info("LDAP query result {}", results);
+    return results;
   }
 
   @Override
@@ -70,6 +83,17 @@ public class LdapUserDetailsManager implements UserDetailsManager {
     LOG.info("LDAP bind {} for {}", userAttributes, dn);
 
     ldapOperations.bind(dn, null, userAttributes);
+  }
+
+  @Override
+  public Optional<teams.migration.Person> findPersonById(String urn) {
+    List<teams.migration.Person> persons = persons(urn, attributes -> {
+      String mail = this.safeGetAttribute(attributes, "mail");
+      String cn = this.safeGetAttribute(attributes, "cn");
+      String isGuest = this.safeGetAttribute(attributes, "collabpersonisguest");
+      return new teams.migration.Person(urn, cn, mail, "TRUE".equals(isGuest));
+    });
+    return persons.stream().findFirst();
   }
 
   protected boolean existingOrganisation(String organization) {
@@ -104,6 +128,11 @@ public class LdapUserDetailsManager implements UserDetailsManager {
     LOG.info("LDAP bind {} for {}", organisationAttributes, dn);
 
     ldapOperations.bind(dn, null, organisationAttributes);
+  }
+
+  private String safeGetAttribute(Attributes attributes, String name) throws NamingException {
+    Attribute attribute = attributes.get(name);
+    return attribute == null ? null : (String) attribute.get();
   }
 
 }

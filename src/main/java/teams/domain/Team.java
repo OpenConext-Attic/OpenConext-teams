@@ -29,13 +29,19 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
+import javax.persistence.Transient;
+
 @SuppressWarnings("serial")
 public class Team implements Serializable {
+
   private String id;
   private String name;
   private String description;
   private List<Member> members = new ArrayList<>();
+
+  @Transient
   private Role viewerRole;
+
   private boolean viewable;
   private int numberOfMembers;
   private Stem stem;
@@ -298,5 +304,13 @@ public class Team implements Serializable {
    */
   public void setNumberOfMembers(int numberOfMembers) {
     this.numberOfMembers = numberOfMembers;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public void setMembers(List<Member> members) {
+    this.members = members;
   }
 }

@@ -48,7 +48,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   public static final String PERSON_SESSION_KEY = "person";
   public static final String EXTERNAL_GROUPS_SESSION_KEY = "externalGroupsSessionKey";
   public static final String USER_STATUS_SESSION_KEY = "userStatus";
-  private static final List<String> LOGIN_BYPASS = Arrays.asList("landingpage.shtml", "js", "css", "media", "teams.xml", "declineInvitation.shtml");
+  private static final List<String> LOGIN_BYPASS = Arrays.asList("landingpage.shtml", "js", "css", "media", "teams.xml", "declineInvitation.shtml", "migrate");
   private static final List<String> LANDING_BYPASS = Arrays.asList("acceptInvitation.shtml");
 
   public static final String STATUS_GUEST = "guest";
