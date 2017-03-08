@@ -27,11 +27,11 @@ ALTER TABLE persons
   ADD UNIQUE INDEX persons_urn_unique (urn);
 
 CREATE TABLE memberships (
+  id        MEDIUMINT    NOT NULL AUTO_INCREMENT PRIMARY KEY,
   role      VARCHAR(255) NOT NULL,
   team_id   MEDIUMINT    NOT NULL,
   person_id MEDIUMINT    NOT NULL,
   created   TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (team_id, person_id),
   FOREIGN KEY (team_id) REFERENCES teams (id)
     ON DELETE CASCADE,
   FOREIGN KEY (person_id) REFERENCES persons (id)
@@ -39,3 +39,5 @@ CREATE TABLE memberships (
 )
   ENGINE = InnoDB;
 
+ALTER TABLE memberships
+  ADD UNIQUE INDEX person_team_unique (team_id, person_id);

@@ -9,19 +9,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import teams.Application;
 import teams.provision.UserDetailsManager;
 import teams.repository.PersonRepository;
 import teams.repository.TeamRepository;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
-import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 
 @RestController
@@ -68,7 +64,6 @@ public class MigrationService {
     persons.forEach(this::addDetails);
 
     personRepository.save(persons);
-
     teamRepository.save(teams);
 
     return ResponseEntity.ok().build();
