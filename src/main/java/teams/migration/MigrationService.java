@@ -49,9 +49,9 @@ public class MigrationService {
   }
 
   @GetMapping("migrate")
-  public ResponseEntity.BodyBuilder migrate(@RequestParam(name = "key") String key) {
+  public ResponseEntity migrate(@RequestParam(name = "key") String key) {
     if (!secretKey.equals(key)) {
-      return ResponseEntity.status(HttpStatus.FORBIDDEN);
+      return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
     //idempotent
     teamRepository.deleteAll();
@@ -72,9 +72,13 @@ public class MigrationService {
     List<Membership> one = teams.stream().map(team -> team.getMemberships()).flatMap(Set::stream).collect(toList());
     Set<Membership> two = teams.stream().map(team -> team.getMemberships()).flatMap(Set::stream).collect(toSet());
 
-    teamRepository.save(teams);
+    teams.forEach(team -> {
+      System.out.println("Saving team "+team.getName());
+      teamRepository.save(team);
+    });
+    //teamRepository.save(teams);
 
-    return ResponseEntity.ok();
+    return ResponseEntity.ok().build();
   }
 
   private void addDetails(Person person) {

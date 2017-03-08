@@ -61,6 +61,10 @@ To run with groupzy feature enabled:
     cd coin-teams-war
     mvn spring-boot:run -Drun.jvmArguments="-Dspring.profiles.active=groupzy,dev"
 
+To enable debugging:
+
+`export MAVEN_OPTS="-Xmx1024m -Xdebug -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n"`
+
 # Other
 
 * Set the property ```teams.groupzy.stoker.file``` in ```coin-teams.properties``` to the location of the index file produced

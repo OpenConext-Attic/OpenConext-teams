@@ -46,7 +46,7 @@ public class JdbcMigrationDao {
     }
 
     Optional<Membership> membershipOptional = team.getMemberships().stream()
-      .filter(membership -> membership.getPerson().getId().equals(subjectId))
+      .filter(membership -> membership.getPerson().getUrn().equals(subjectId))
       .findFirst();
 
     Role role = getRole(rs.getString("fieldname"));
@@ -59,14 +59,19 @@ public class JdbcMigrationDao {
     } else {
       Membership membership = new Membership();
       membership.setRole(role);
-
-      Person person = persons.getOrDefault(subjectId, new Person(subjectId));
+      Person person;
+      if (persons.containsKey(subjectId)) {
+        person = persons.get(subjectId);
+      } else {
+        person = new Person(subjectId);
+        persons.put(subjectId, person);
+      }
       membership.setPerson(person);
       membership.setTeam(team);
       team.getMemberships().add(membership);
     }
 
-    teams.put(team.getId(), team);
+    teams.put(team.getUrn(), team);
   }
 
   private Role getRole(String privilegeName) {
