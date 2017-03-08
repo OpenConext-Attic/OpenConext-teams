@@ -69,14 +69,7 @@ public class MigrationService {
 
     personRepository.save(persons);
 
-    List<Membership> one = teams.stream().map(team -> team.getMemberships()).flatMap(Set::stream).collect(toList());
-    Set<Membership> two = teams.stream().map(team -> team.getMemberships()).flatMap(Set::stream).collect(toSet());
-
-    teams.forEach(team -> {
-      System.out.println("Saving team "+team.getName());
-      teamRepository.save(team);
-    });
-    //teamRepository.save(teams);
+    teamRepository.save(teams);
 
     return ResponseEntity.ok().build();
   }
