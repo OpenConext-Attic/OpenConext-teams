@@ -10,6 +10,7 @@ import org.hibernate.annotations.Formula;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -47,7 +48,7 @@ public class Team {
   @Formula("(select count(*) from memberships m where m.team_id = id)")
   private int membershipCount;
 
-  @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
   private Set<Membership> memberships = new HashSet<>();
 
   public Team(String urn, String name, String description) {

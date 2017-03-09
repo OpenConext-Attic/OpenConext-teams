@@ -57,8 +57,6 @@ public class JdbcMigrationDao {
         membership.setRole(role);
       }
     } else {
-      Membership membership = new Membership();
-      membership.setRole(role);
       Person person;
       if (persons.containsKey(subjectId)) {
         person = persons.get(subjectId);
@@ -66,8 +64,7 @@ public class JdbcMigrationDao {
         person = new Person(subjectId);
         persons.put(subjectId, person);
       }
-      membership.setPerson(person);
-      membership.setTeam(team);
+      Membership membership = new Membership(role, team, person);
       team.getMemberships().add(membership);
     }
 

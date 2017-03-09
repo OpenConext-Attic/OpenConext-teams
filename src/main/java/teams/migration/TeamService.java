@@ -36,7 +36,7 @@ public class TeamService implements GrouperTeamService {
   private Set<Role> managerRoles = new HashSet<>(asList(Role.Manager, Role.Member));
   private Set<Role> memberRoles = new HashSet<>(asList(Role.Member));
 
-  private Pattern forbiddenChars = Pattern.compile(Pattern.quote("<>/\\*:,% "));
+  private Pattern forbiddenChars = Pattern.compile(String.format("[%s]", Pattern.quote("<>/\\*:,% ")));
 
   private TeamRepository teamRepository;
   private PersonRepository personRepository;
@@ -82,8 +82,9 @@ public class TeamService implements GrouperTeamService {
 
   @Override
   public void deleteMember(Team team, String personId) {
-    teams.migration.Person person = findPersonByUrn(personId);
-    personRepository.delete(person);
+    //The interface naming is not correct, we only delete the membership. we never delete provisioned persons
+    Membership membership = findMembershipByTeamUrnAndPersonUrn(team.getId(), personId);
+    membershipRepository.delete(membership);
   }
 
   @Override
@@ -143,24 +144,24 @@ public class TeamService implements GrouperTeamService {
 
   @Override
   public List<Team> findPublicTeams(String personId, String partOfGroupname) {
-    return teamRepository.findByNameContainingIgnoreCaseOrderByNameAsc(partOfGroupname)
-      .filter(team -> !team.isViewable() && !team.getMemberships().stream().anyMatch(membership -> membership.getPerson().getUrn().equals(personId)))
+    return teamRepository.findByNameContainingIgnoreCaseOrderByNameAsc(partOfGroupname).stream()
+      .filter(team -> team.isViewable() || team.getMemberships().stream().anyMatch(membership -> membership.getUrnPerson().equals(personId)))
       .map(team -> this.convertTeam(team, false, Optional.empty()))
       .collect(Collectors.toList());
   }
 
   @Override
   public TeamResultWrapper findAllTeamsByMember(String personId, int offset, int pageSize) {
-    Page<teams.migration.Team> page = teamRepository.findByMembershipsPersonUrnOrderByNameAsc(personId, new PageRequest(offset, pageSize));
-    List<Team> teams = page.getContent().stream().map(team -> this.convertTeam(team, true, Optional.of(personId)))
+    Page<teams.migration.Team> page = teamRepository.findByMembershipsUrnPersonOrderByNameAsc(personId, new PageRequest(offset, pageSize));
+    List<Team> teams = page.getContent().stream().map(team -> this.convertTeam(team, false, Optional.of(personId)))
       .collect(Collectors.toList());
     return new TeamResultWrapper(teams, page.getTotalElements(), offset, pageSize);
   }
 
   @Override
   public TeamResultWrapper findTeamsByMember(String personId, String partOfGroupname, int offset, int pageSize) {
-    Page<teams.migration.Team> page = teamRepository.findByNameContainingIgnoreCaseAndMembershipsPersonUrnOrderByNameAsc(partOfGroupname, personId, new PageRequest(offset, pageSize));
-    List<Team> teams = page.getContent().stream().map(team -> this.convertTeam(team, true, Optional.of(personId)))
+    Page<teams.migration.Team> page = teamRepository.findByNameContainingIgnoreCaseAndMembershipsUrnPersonOrderByNameAsc(partOfGroupname, personId, new PageRequest(offset, pageSize));
+    List<Team> teams = page.getContent().stream().map(team -> this.convertTeam(team, false, Optional.of(personId)))
       .collect(Collectors.toList());
     return new TeamResultWrapper(teams, page.getTotalElements(), offset, pageSize);
   }
@@ -171,11 +172,14 @@ public class TeamService implements GrouperTeamService {
   }
 
   private Member convertMembershipToMember(Membership membership) {
-    return new Member(
+    teams.migration.Person person = membership.getPerson();
+    Member member = new Member(
       convertRoles(membership.getRole()),
-      membership.getPerson().getName(),
-      membership.getPerson().getUrn(),
-      membership.getPerson().getEmail());
+      person.getName(),
+      person.getUrn(),
+      person.getEmail());
+    member.setGuest(person.isGuest());
+    return member;
   }
 
   private Team convertTeam(teams.migration.Team team, boolean includeMembership, Optional<String> personUrnOptional) {
@@ -188,9 +192,9 @@ public class TeamService implements GrouperTeamService {
         Collections.emptyList(),
       team.isViewable(),
       team.getMembershipCount());
-    if (includeMembership && personUrnOptional.isPresent()) {
+    if (personUrnOptional.isPresent()) {
       String personUrn = personUrnOptional.get();
-      teams.migration.Role role = team.getMemberships().stream().filter(membership -> membership.getPerson().getUrn().equals(personUrn))
+      teams.migration.Role role = team.getMemberships().stream().filter(membership -> membership.getUrnPerson().equals(personUrn))
         .findFirst()
         .map(Membership::getRole)
         .orElseThrow(() -> new IllegalArgumentException(String.format("Team %s does not contain member %s", team, personUrn)));
@@ -223,7 +227,7 @@ public class TeamService implements GrouperTeamService {
   }
 
   private Role convertRole(teams.migration.Role role) {
-    return Role.valueOf(WordUtils.capitalize(role.name().toUpperCase()));
+    return Role.valueOf(WordUtils.capitalize(role.name().toLowerCase()));
   }
 
   private Set<Role> convertRoles(teams.migration.Role role) {

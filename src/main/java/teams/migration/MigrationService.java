@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import teams.provision.UserDetailsManager;
+import teams.repository.MembershipRepository;
 import teams.repository.PersonRepository;
 import teams.repository.TeamRepository;
 
@@ -26,6 +27,7 @@ public class MigrationService {
   private static final Logger LOG = LoggerFactory.getLogger(MigrationService.class);
 
   private final JdbcMigrationDao migrationDao;
+  private final MembershipRepository membershipRepository;
   private final TeamRepository teamRepository;
   private final PersonRepository personRepository;
   private final UserDetailsManager userDetailsManager;
@@ -35,11 +37,13 @@ public class MigrationService {
   public MigrationService(JdbcMigrationDao migrationDao,
                           TeamRepository teamRepository,
                           PersonRepository personRepository,
+                          MembershipRepository membershipRepository,
                           UserDetailsManager userDetailsManager,
                           @Value("${migration.secret_key}") String secretKey) {
     this.migrationDao = migrationDao;
     this.teamRepository = teamRepository;
     this.personRepository = personRepository;
+    this.membershipRepository = membershipRepository;
     this.userDetailsManager = userDetailsManager;
     this.secretKey = secretKey;
   }
@@ -50,6 +54,7 @@ public class MigrationService {
       return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
     //idempotent
+    membershipRepository.deleteAll();
     teamRepository.deleteAll();
     personRepository.deleteAll();
 

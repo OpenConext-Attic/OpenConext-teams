@@ -1,7 +1,6 @@
 package teams.migration;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,13 +16,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import java.io.Serializable;
 import java.time.Instant;
 
 @Entity(name = "memberships")
 @Getter
 @Setter
-@EqualsAndHashCode(of = {"person", "team"})
+@EqualsAndHashCode(of = {"urnPerson", "team"})
 @ToString
 @NoArgsConstructor
 public class Membership {
@@ -43,14 +41,17 @@ public class Membership {
   @JoinColumn(name = "person_id")
   private Person person;
 
+  @Column(name = "urn_person")
+  private String urnPerson;
+
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "team_id")
-  @JsonIgnore
   private Team team;
 
   public Membership(Role role, Team team, Person person) {
     this.role = role;
     this.team = team;
     this.person = person;
+    this.urnPerson = person.getUrn();
   }
 }
