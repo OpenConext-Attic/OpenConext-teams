@@ -1,20 +1,24 @@
 package teams.migration;
 
+import org.apache.commons.lang.WordUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
 import teams.domain.Member;
 import teams.domain.Person;
 import teams.domain.Role;
 import teams.domain.Stem;
 import teams.domain.Team;
 import teams.domain.TeamResultWrapper;
+import teams.repository.MembershipRepository;
 import teams.repository.PersonRepository;
 import teams.repository.TeamRepository;
 import teams.service.GrouperTeamService;
 import teams.util.DuplicateTeamException;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -36,13 +40,15 @@ public class TeamService implements GrouperTeamService {
 
   private TeamRepository teamRepository;
   private PersonRepository personRepository;
+  private MembershipRepository membershipRepository;
   private String defaultStemName;
 
   @Autowired
   public TeamService(TeamRepository teamRepository, PersonRepository personRepository,
-                     @Value("${defaultStemName}") String defaultStemName) {
+                     MembershipRepository membershipRepository, @Value("${defaultStemName}") String defaultStemName) {
     this.teamRepository = teamRepository;
     this.personRepository = personRepository;
+    this.membershipRepository = membershipRepository;
     this.defaultStemName = defaultStemName;
   }
 
@@ -50,20 +56,7 @@ public class TeamService implements GrouperTeamService {
   @Override
   public teams.domain.Team findTeamById(String teamId) {
     teams.migration.Team team = findTeamByUrn(teamId);
-    team.getMemberships().forEach(Membership::getPerson);
-    return new Team(
-      team.getUrn(),
-      team.getName(),
-      team.getDescription(),
-      team.getMemberships()
-        .stream()
-        .map(membership -> new Member(
-          roleConversion(membership.getRole()),
-          membership.getPerson().getName(),
-          membership.getPerson().getUrn(),
-          membership.getPerson().getEmail()))
-        .collect(Collectors.toList()),
-      team.isViewable());
+    return convertTeam(team, true, Optional.empty());
   }
 
   @Override
@@ -103,82 +96,137 @@ public class TeamService implements GrouperTeamService {
   @Override
   public boolean addMemberRole(Team team, String memberId, Role role, String actAsUserId) {
     //This is a promotion. Prerequisite - legacy - is that the person is already a member
-    teams.migration.Team teamByUrn = findTeamByUrn(team.getId());
-    teams.migration.Person personByUrn = findPersonByUrn(memberId);
-    teamByUrn.getMemberships().add(new Membership(
-      teams.migration.Role.valueOf(role.name().toUpperCase()), teamByUrn, findPersonByUrn(memberId)
-    ));
-    //teamRepository.save()
+    Membership membership = findMembershipByTeamUrnAndPersonUrn(team.getId(), memberId);
+    membership.setRole(convertRole(role));
+    membershipRepository.save(membership);
     return true;
   }
 
   @Override
   public boolean removeMemberRole(Team team, String memberId, Role role, String actAsUserId) {
-    return false;
+    //This is a degradation. Prerequisite - legacy - is that the person is already a member
+    Membership membership = findMembershipByTeamUrnAndPersonUrn(team.getId(), memberId);
+    teams.migration.Role roleToBeRemoved = convertRole(role);
+    teams.migration.Role newRole = roleToBeRemoved == teams.migration.Role.ADMIN ? teams.migration.Role.MANAGER : teams.migration.Role.MEMBER;
+    membership.setRole(newRole);
+    membershipRepository.save(membership);
+    return true;
   }
 
   @Override
   public void addMember(Team team, Person person) {
-
+    teams.migration.Team membershipTeam = findTeamByUrn(team.getId());
+    teams.migration.Person membershipPerson = findPersonByUrn(person.getId());
+    Membership membership = new Membership(teams.migration.Role.MEMBER, membershipTeam, membershipPerson);
+    membershipRepository.save(membership);
   }
 
   @Override
   public Member findMember(Team team, String memberId) {
-    return null;
+    Membership membership = findMembershipByTeamUrnAndPersonUrn(team.getId(), memberId);
+    return convertMembershipToMember(membership);
   }
 
   @Override
   public Set<Member> findAdmins(Team team) {
-    return null;
+    return findTeamByUrn(team.getId()).getMemberships()
+      .stream()
+      .filter(membership -> membership.getRole().equals(teams.migration.Role.ADMIN))
+      .map(this::convertMembershipToMember)
+      .collect(Collectors.toSet());
   }
 
   @Override
   public Stem findStem(String stemId) {
-    return null;
+    return new Stem(stemId, null, null);
   }
 
   @Override
   public List<Team> findPublicTeams(String personId, String partOfGroupname) {
-    return null;
+    return teamRepository.findByNameContainingIgnoreCaseOrderByNameAsc(partOfGroupname)
+      .filter(team -> !team.isViewable() && !team.getMemberships().stream().anyMatch(membership -> membership.getPerson().getUrn().equals(personId)))
+      .map(team -> this.convertTeam(team, false, Optional.empty()))
+      .collect(Collectors.toList());
   }
 
   @Override
   public TeamResultWrapper findAllTeamsByMember(String personId, int offset, int pageSize) {
-    return null;
+    Page<teams.migration.Team> page = teamRepository.findByMembershipsPersonUrnOrderByNameAsc(personId, new PageRequest(offset, pageSize));
+    List<Team> teams = page.getContent().stream().map(team -> this.convertTeam(team, true, Optional.of(personId)))
+      .collect(Collectors.toList());
+    return new TeamResultWrapper(teams, page.getTotalElements(), offset, pageSize);
   }
 
   @Override
   public TeamResultWrapper findTeamsByMember(String personId, String partOfGroupname, int offset, int pageSize) {
-    return null;
+    Page<teams.migration.Team> page = teamRepository.findByNameContainingIgnoreCaseAndMembershipsPersonUrnOrderByNameAsc(partOfGroupname, personId, new PageRequest(offset, pageSize));
+    List<Team> teams = page.getContent().stream().map(team -> this.convertTeam(team, true, Optional.of(personId)))
+      .collect(Collectors.toList());
+    return new TeamResultWrapper(teams, page.getTotalElements(), offset, pageSize);
   }
 
   @Override
   public List<Stem> findStemsByMember(String personId) {
-    return null;
+    return Collections.singletonList(new Stem(defaultStemName, null, null));
+  }
+
+  private Member convertMembershipToMember(Membership membership) {
+    return new Member(
+      convertRoles(membership.getRole()),
+      membership.getPerson().getName(),
+      membership.getPerson().getUrn(),
+      membership.getPerson().getEmail());
+  }
+
+  private Team convertTeam(teams.migration.Team team, boolean includeMembership, Optional<String> personUrnOptional) {
+    Team result = new Team(
+      team.getUrn(),
+      team.getName(),
+      team.getDescription(),
+      includeMembership ?
+        team.getMemberships().stream().map(this::convertMembershipToMember).collect(Collectors.toList()) :
+        Collections.emptyList(),
+      team.isViewable(),
+      team.getMembershipCount());
+    if (includeMembership && personUrnOptional.isPresent()) {
+      String personUrn = personUrnOptional.get();
+      teams.migration.Role role = team.getMemberships().stream().filter(membership -> membership.getPerson().getUrn().equals(personUrn))
+        .findFirst()
+        .map(Membership::getRole)
+        .orElseThrow(() -> new IllegalArgumentException(String.format("Team %s does not contain member %s", team, personUrn)));
+      result.setViewerRole(convertRole(role));
+    }
+    return result;
   }
 
   private teams.migration.Team findTeamByUrn(String teamId) {
     Optional<teams.migration.Team> teamOptional = teamRepository.findByUrn(teamId);
-    return teamOptional.orElseThrow(teamDoesNotExist(teamId));
+    return teamOptional.orElseThrow(doesNotExist("Team", teamId));
   }
 
   private teams.migration.Person findPersonByUrn(String personId) {
     Optional<teams.migration.Person> personOptional = personRepository.findByUrn(personId);
-    return personOptional.orElseThrow(teamDoesNotExist(personId));
+    return personOptional.orElseThrow(doesNotExist("Person", personId));
   }
 
-  private Supplier<IllegalArgumentException> teamDoesNotExist(String teamId) {
-    return doesNotExist("Team", teamId);
+  private Membership findMembershipByTeamUrnAndPersonUrn(String teamUrn, String personUrn) {
+    Optional<Membership> membershipOptional = membershipRepository.findByTeamUrnAndPersonUrn(teamUrn, personUrn);
+    return membershipOptional.orElseThrow(doesNotExist("Membership", teamUrn + " - " + personUrn));
   }
-
-  private Supplier<IllegalArgumentException> personDoesNotExist(String personId) {
-    return doesNotExist("Person", personId);  }
 
   private Supplier<IllegalArgumentException> doesNotExist(String entity, String id) {
-    return () -> new IllegalArgumentException(String.format("%s %s does not exist",entity,id));
+    return () -> new IllegalArgumentException(String.format("%s %s does not exist", entity, id));
   }
 
-  private Set<Role> roleConversion(teams.migration.Role role) {
+  private teams.migration.Role convertRole(Role role) {
+    return teams.migration.Role.valueOf(role.name().toUpperCase());
+  }
+
+  private Role convertRole(teams.migration.Role role) {
+    return Role.valueOf(WordUtils.capitalize(role.name().toUpperCase()));
+  }
+
+  private Set<Role> convertRoles(teams.migration.Role role) {
     switch (role) {
       case ADMIN:
         return adminRoles;

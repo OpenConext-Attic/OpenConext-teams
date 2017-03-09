@@ -1,7 +1,11 @@
 language: java
 jdk:
   - oraclejdk8
+services:
+  - mysql
 before_install:
   - pip install --user codecov
+before_script:
+  - mysql -e "create database IF NOT EXISTS teams; grant all on teams.* to 'root';SET GLOBAL TRANSACTION ISOLATION LEVEL SERIALIZABLE;" -uroot
 after_success:
   - codecov

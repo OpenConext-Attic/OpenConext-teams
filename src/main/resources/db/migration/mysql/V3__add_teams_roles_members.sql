@@ -1,6 +1,6 @@
 CREATE TABLE teams (
   id          MEDIUMINT    NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  urn         VARCHAR(255) NOT NULL,
+  urn         VARCHAR(255) NOT NULL UNIQUE,
   name        VARCHAR(255) NOT NULL,
   description TEXT,
   viewable    BOOLEAN,
@@ -8,23 +8,15 @@ CREATE TABLE teams (
 )
   ENGINE = InnoDB;
 
-ALTER TABLE teams
-  ADD UNIQUE INDEX teams_urn_unique (urn);
-
 CREATE TABLE persons (
   id      MEDIUMINT    NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  urn     VARCHAR(255) NOT NULL,
+  urn     VARCHAR(255) NOT NULL UNIQUE,
   name    VARCHAR(255) NOT NULL,
-  email   VARCHAR(255) NOT NULL,
+  email   VARCHAR(255) NOT NULL UNIQUE,
   guest   BOOLEAN,
   created TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP
 )
   ENGINE = InnoDB;
-
-ALTER TABLE persons
-  ADD UNIQUE INDEX persons_email_unique (email);
-ALTER TABLE persons
-  ADD UNIQUE INDEX persons_urn_unique (urn);
 
 CREATE TABLE memberships (
   id        MEDIUMINT    NOT NULL AUTO_INCREMENT PRIMARY KEY,

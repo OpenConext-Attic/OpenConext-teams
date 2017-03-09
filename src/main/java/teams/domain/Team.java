@@ -78,6 +78,12 @@ public class Team implements Serializable {
     this.viewable = viewable;
   }
 
+  public Team(String id, String name, String description, List<Member> members, boolean viewable, int numberOfMembers) {
+    this(id, name, description, members);
+    this.viewable = viewable;
+    this.numberOfMembers = numberOfMembers;
+  }
+
   /**
    * @param id          of the team
    * @param name        of the team

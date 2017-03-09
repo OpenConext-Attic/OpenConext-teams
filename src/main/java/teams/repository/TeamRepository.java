@@ -1,5 +1,7 @@
 package teams.repository;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import teams.migration.Team;
@@ -13,4 +15,7 @@ public interface TeamRepository extends PagingAndSortingRepository<Team, Long> {
 
     Optional<Team> findByUrn(String urn);
 
+    Page<Team> findByMembershipsPersonUrnOrderByNameAsc(String personUrn, Pageable pageable);
+
+    Page<Team> findByNameContainingIgnoreCaseAndMembershipsPersonUrnOrderByNameAsc(String name, String personUrn, Pageable pageable);
 }
