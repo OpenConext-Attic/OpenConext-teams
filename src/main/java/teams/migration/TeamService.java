@@ -82,8 +82,9 @@ public class TeamService implements GrouperTeamService {
 
   @Override
   public void deleteMember(Team team, String personId) {
-    teams.migration.Person person = findPersonByUrn(personId);
-    personRepository.delete(person);
+    //The interface naming is not correct, we only delete the membership. we never delete provisioned persons
+    Membership membership = findMembershipByTeamUrnAndPersonUrn(team.getId(), personId);
+    membershipRepository.delete(membership);
   }
 
   @Override
@@ -172,11 +173,13 @@ public class TeamService implements GrouperTeamService {
 
   private Member convertMembershipToMember(Membership membership) {
     teams.migration.Person person = membership.getPerson();
-    return new Member(
+    Member member = new Member(
       convertRoles(membership.getRole()),
       person.getName(),
       person.getUrn(),
       person.getEmail());
+    member.setGuest(person.isGuest());
+    return member;
   }
 
   private Team convertTeam(teams.migration.Team team, boolean includeMembership, Optional<String> personUrnOptional) {
