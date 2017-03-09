@@ -41,11 +41,8 @@ import teams.interceptor.LoginInterceptor;
 import teams.interceptor.MockLoginInterceptor;
 import teams.provision.LdapUserDetailsManager;
 import teams.provision.UserDetailsManager;
-import teams.service.GrouperTeamService;
 import teams.service.MemberAttributeService;
 import teams.service.VootClient;
-import teams.service.impl.GrouperTeamServiceWsImpl;
-import teams.service.impl.InMemoryMockTeamService;
 import teams.service.impl.VootClientImpl;
 import teams.service.impl.VootClientMock;
 import teams.service.mail.MailService;
@@ -72,7 +69,6 @@ public class Application extends SpringBootServletInitializer {
   private static final Logger LOG = LoggerFactory.getLogger(Application.class);
 
   public static final String DEV_PROFILE_NAME = "dev";
-  public static final String REAL_GROUPER_PROFILE_NAME = "realGrouper";
   public static final String GROUPZY_PROFILE_NAME = "groupzy";
 
   @Override
@@ -123,18 +119,6 @@ public class Application extends SpringBootServletInitializer {
       return new VootClientMock();
     }
     return new VootClientImpl(accessTokenUri, clientId, clientSecret, scopes, serviceUrl);
-  }
-
-  @Bean
-  public GrouperTeamService grouperTeamService(Environment environment, MemberAttributeService memberAttributeService,
-                                               @Value("${defaultStemName}") String defaultStemName,
-                                               @Value("${grouperPowerUser}") String grouperPowerUser) {
-    if (environment.acceptsProfiles(DEV_PROFILE_NAME) && !environment.acceptsProfiles(REAL_GROUPER_PROFILE_NAME)) {
-      LOG.debug("Using mock grouper service");
-      return new InMemoryMockTeamService();
-    }
-    LOG.debug("Grouper-integration using defaultStem {} and powerUser: {}", defaultStemName, grouperPowerUser);
-    return new GrouperTeamServiceWsImpl(memberAttributeService, defaultStemName, grouperPowerUser);
   }
 
   @Bean

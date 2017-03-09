@@ -15,57 +15,10 @@
  */
 package teams.domain;
 
-import static java.util.Arrays.stream;
-
-import java.util.Set;
-import java.util.stream.Collectors;
-
-import edu.internet2.middleware.grouperClient.ws.beans.WsGrouperPrivilegeResult;
-
 /**
  * The Role of a {@link Member} in a {@link Team}
  *
  */
 public enum Role {
     Admin, Member, Manager, None;
-
-  /**
-   * Get the Teams role, by the set of privileges as returned by Grouper WS
-   *
-   * Grouper UI explains:
-   * <pre>
-   * MEMBER: Entity is a member of this group
-   * OPTOUT: Entity may choose to leave this group
-   * OPTIN: Entity may choose to join this group
-   * VIEW: Entity may see that this group exists
-   * READ: Entity may see the membership list for this group
-   * UPDATE: Entity may modify the membership of this group
-   * ADMIN: Entity may modify group attributes, delete this group, or assign any privilege to any entity
-   * </pre>
-   * @param wsPrivilegeResults the Grouper WS results from getGrouperPrivileges
-   * @return teams Role
-   */
-  public static Role fromGrouperPrivileges(WsGrouperPrivilegeResult[] wsPrivilegeResults) {
-    if (wsPrivilegeResults == null || wsPrivilegeResults.length == 0) {
-      return Member;
-    }
-
-    // Exclude privileges that were inherited through special group memberships (etc:sysadminwhatever...)
-    Set<String> privilegeNames = stream(wsPrivilegeResults)
-        .filter(priv -> priv.getOwnerSubject() == null
-              || priv.getOwnerSubject().getSourceId() == null
-              || !priv.getOwnerSubject().getSourceId().equals("g:isa"))
-        .map(WsGrouperPrivilegeResult::getPrivilegeName)
-        .collect(Collectors.toSet());
-
-    if (privilegeNames.contains("admin")) {
-      return Admin;
-    }
-
-    if (privilegeNames.contains("update")) {
-      return Manager;
-    }
-
-    return Member;
-  }
 }
