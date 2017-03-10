@@ -13,12 +13,15 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedAttributeNode;
+import javax.persistence.NamedEntityGraph;
 import javax.persistence.OneToMany;
 import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity(name = "teams")
+@NamedEntityGraph(name = "Team.memberships", attributeNodes = @NamedAttributeNode("memberships"))
 @Getter
 @Setter
 @NoArgsConstructor
@@ -48,7 +51,7 @@ public class Team {
   @Formula("(select count(*) from memberships m where m.team_id = id)")
   private int membershipCount;
 
-  @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+  @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
   private Set<Membership> memberships = new HashSet<>();
 
   public Team(String urn, String name, String description) {
