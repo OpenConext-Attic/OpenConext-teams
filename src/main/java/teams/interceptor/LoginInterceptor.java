@@ -34,6 +34,7 @@ import teams.domain.Member;
 import teams.domain.MemberAttribute;
 import teams.domain.Person;
 import teams.provision.UserDetailsManager;
+import teams.repository.PersonRepository;
 import teams.service.MemberAttributeService;
 import teams.util.AuditLog;
 
@@ -57,16 +58,11 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   public static final String NOT_PROVIDED_SAML_ATTRIBUTES_SHTML = "/NotProvidedSamlAttributes.shtml";
 
   private final String teamsUrl;
+  private final PersonRepository personRepository;
 
-  private final MemberAttributeService memberAttributeService;
-  private final UserDetailsManager userDetailsManager;
-  private final boolean provisionUsers;
-
-  public LoginInterceptor(String teamsUrl, MemberAttributeService memberAttributeService, UserDetailsManager userDetailsManager, boolean provisionUsers) {
-    this.teamsUrl = teamsUrl;
-    this.memberAttributeService = memberAttributeService;
-    this.userDetailsManager = userDetailsManager;
-    this.provisionUsers = provisionUsers;
+  public LoginInterceptor(String teamsURL, PersonRepository personRepository) {
+    this.teamsUrl = teamsURL;
+    this.personRepository = personRepository;
   }
 
   @Override
@@ -83,11 +79,18 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     if (person == null || !person.getId().equals(nameId)) {
 
       if (StringUtils.hasText(nameId)) {
-        Optional<Person> optionalPerson = constructPerson(request);
-        if (optionalPerson.isPresent()) {
-          person = optionalPerson.get();
-          if (this.provisionUsers && !userDetailsManager.existingPerson(person.getId())) {
-            userDetailsManager.createPerson(person);
+        Optional<Person> optionalPersonFromHeaders = constructPerson(request);
+        if (optionalPersonFromHeaders.isPresent()) {
+          person = optionalPersonFromHeaders.get();
+          Optional<teams.migration.Person> optionalPersonFromDatabase = personRepository.findByUrn(person.getId());
+          if (optionalPersonFromDatabase.isPresent()) {
+            teams.migration.Person personFromDatabase = optionalPersonFromDatabase.get();
+            if (person.isGuest() != personFromDatabase.isGuest()) {
+              personFromDatabase.setGuest(person.isGuest());
+              personRepository.save(personFromDatabase);
+            }
+          } else {
+            personRepository.save(new teams.migration.Person(person.getId(),person.getName(), person.getEmail(), person.isGuest()));
           }
         } else {
           response.sendRedirect(teamsUrl + NOT_PROVIDED_SAML_ATTRIBUTES_SHTML);
@@ -97,7 +100,10 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         session.setAttribute(PERSON_SESSION_KEY, person);
 
         AuditLog.log("Login by user {}", person.getId());
-        handleGuestStatus(session, person);
+
+        String userStatus = person.isGuest() ? STATUS_GUEST : STATUS_MEMBER;
+        session.setAttribute(USER_STATUS_SESSION_KEY, userStatus);
+
       } else {
         // User is not logged in, and name-id header is empty.
         // Check whether the user is requesting the landing page, if not
@@ -167,24 +173,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
       .map(Cookie::getValue)
       .findFirst()
     ).orElse("");
-  }
-
-  /**
-   * Defines if the stored guest status matches the guest status from EngineBlock
-   */
-  public void handleGuestStatus(HttpSession session, Person person) {
-    Member member = new Member(null, person);
-    List<MemberAttribute> memberAttributes = memberAttributeService.findAttributesForMemberId(member.getId());
-    member.setMemberAttributes(memberAttributes);
-
-    if (member.isGuest() != person.isGuest()) {
-      member.setGuest(person.isGuest());
-      memberAttributeService.saveOrUpdate(member.getMemberAttributes());
-    }
-
-    // Add the user status to the session
-    String userStatus = person.isGuest() ? STATUS_GUEST : STATUS_MEMBER;
-    session.setAttribute(USER_STATUS_SESSION_KEY, userStatus);
   }
 
 }

@@ -7,9 +7,9 @@ import java.util.Optional;
 
 public interface UserDetailsManager {
 
-  boolean existingPerson(String urn);
-
-  void createPerson(Person person);
+//  boolean existingPerson(String urn);
+//
+//  void createPerson(Person person);
 
   Optional<teams.migration.Person> findPersonById(String urn);
 

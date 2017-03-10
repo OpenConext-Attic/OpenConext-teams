@@ -135,7 +135,7 @@ public class HomeController {
     if ("all".equals(display) || !StringUtils.hasText(person)) {
       if (StringUtils.hasText(query)) {
         List<Team> matchingTeams = grouperTeamService.findPublicTeams(person, query);
-        resultWrapper = new TeamResultWrapper(matchingTeams, matchingTeams.size(), 0, 1000);
+        resultWrapper = new TeamResultWrapper(matchingTeams, matchingTeams.size(), 0, Integer.MAX_VALUE);
       } else {
         resultWrapper = new TeamResultWrapper(new ArrayList<>(), 0, 0, 1);
       }

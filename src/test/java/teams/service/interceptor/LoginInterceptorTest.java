@@ -24,10 +24,12 @@ import teams.domain.MemberAttribute;
 import teams.domain.Person;
 import teams.interceptor.LoginInterceptor;
 import teams.provision.MockUserDetailsManager;
+import teams.repository.PersonRepository;
 import teams.service.MemberAttributeService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.singletonList;
@@ -45,17 +47,16 @@ public class LoginInterceptorTest {
   private MockHttpServletRequest request;
   private MockHttpServletResponse response;
   private LoginInterceptor interceptor;
-  private MemberAttributeService memberAttributeService;
+  private PersonRepository personRepository;
 
   @Before
   public void before() throws Exception {
     request = new MockHttpServletRequest();
     response = new MockHttpServletResponse();
-    memberAttributeService =
-      mock(MemberAttributeService.class);
-    when(memberAttributeService.findAttributesForMemberId(
-      id)).thenReturn(new ArrayList<>());
-    interceptor = new LoginInterceptor("foo", memberAttributeService, new MockUserDetailsManager(), true);
+    personRepository =
+      mock(PersonRepository.class);
+    when(personRepository.findByUrn(anyString())).thenReturn(Optional.empty());
+    interceptor = new LoginInterceptor("foo", personRepository);
   }
 
   @Test
@@ -89,30 +90,6 @@ public class LoginInterceptorTest {
       "urn:mace:terena.org:attribute-def:schacHomeOrganization",
       "urn:mace:dir:attribute-def:displayName"),
       notProvidedSamlAttributes);
-  }
-
-  @Test
-  public void testHandleGuestStatus() throws Exception {
-    doTestHandleGuestStatus(true, false);
-    doTestHandleGuestStatus(true, true);
-    doTestHandleGuestStatus(false, false);
-    doTestHandleGuestStatus(false, true);
-  }
-
-  private void doTestHandleGuestStatus(boolean preMemberIsGuest, boolean personIsGuest) {
-    reset(memberAttributeService);
-    MemberAttribute memberAttribute = new MemberAttribute(id, ATTRIBUTE_GUEST, String.valueOf(preMemberIsGuest));
-    when(memberAttributeService.findAttributesForMemberId(
-      id)).thenReturn(singletonList(memberAttribute));
-
-    interceptor.handleGuestStatus(request.getSession(true), new Person(id, "name", "email", "schacHome", personIsGuest ? null : "urn:collab:org:surf.nl", "displayName"));
-
-    if (preMemberIsGuest != personIsGuest) {
-      verify(memberAttributeService).saveOrUpdate(singletonList(new MemberAttribute(id, ATTRIBUTE_GUEST, String.valueOf(personIsGuest))));
-    }
-
-    assertEquals(String.valueOf(personIsGuest), memberAttribute.getAttributeValue());
-    assertEquals(personIsGuest ? STATUS_GUEST : STATUS_MEMBER, request.getSession().getAttribute(USER_STATUS_SESSION_KEY));
   }
 
 

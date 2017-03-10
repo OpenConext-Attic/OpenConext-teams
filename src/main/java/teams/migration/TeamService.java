@@ -144,15 +144,23 @@ public class TeamService implements GrouperTeamService {
 
   @Override
   public List<Team> findPublicTeams(String personId, String partOfGroupname) {
+    List<String> loggedInPersonTeamNames = teamRepository.
+      findByNameContainingIgnoreCaseAndMembershipsUrnPersonOrderByNameAsc(partOfGroupname, personId, new PageRequest(0, Integer.MAX_VALUE))
+      .getContent()
+      .stream()
+      .map(teams.migration.Team::getUrn)
+      .collect(Collectors.toList());
+
     return teamRepository.findByNameContainingIgnoreCaseOrderByNameAsc(partOfGroupname).stream()
-      .filter(team -> team.isViewable() || team.getMemberships().stream().anyMatch(membership -> membership.getUrnPerson().equals(personId)))
+      .filter(team -> team.isViewable() || loggedInPersonTeamNames.contains(team.getUrn()))
       .map(team -> this.convertTeam(team, false, Optional.empty()))
       .collect(Collectors.toList());
   }
 
   @Override
   public TeamResultWrapper findAllTeamsByMember(String personId, int offset, int pageSize) {
-    Page<teams.migration.Team> page = teamRepository.findByMembershipsUrnPersonOrderByNameAsc(personId, new PageRequest(offset, pageSize));
+    int calculatedPage = offset / pageSize;
+    Page<teams.migration.Team> page = teamRepository.findByMembershipsUrnPersonOrderByNameAsc(personId, new PageRequest(calculatedPage, pageSize));
     List<Team> teams = page.getContent().stream().map(team -> this.convertTeam(team, false, Optional.of(personId)))
       .collect(Collectors.toList());
     return new TeamResultWrapper(teams, page.getTotalElements(), offset, pageSize);

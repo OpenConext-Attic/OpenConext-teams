@@ -41,6 +41,7 @@ import teams.interceptor.LoginInterceptor;
 import teams.interceptor.MockLoginInterceptor;
 import teams.provision.LdapUserDetailsManager;
 import teams.provision.UserDetailsManager;
+import teams.repository.PersonRepository;
 import teams.service.MemberAttributeService;
 import teams.service.VootClient;
 import teams.service.impl.VootClientImpl;
@@ -154,14 +155,12 @@ public class Application extends SpringBootServletInitializer {
   @Bean
   public WebMvcConfigurerAdapter webMvcConfigurerAdapter(
     Environment environment,
-    MemberAttributeService memberAttributeService,
-    UserDetailsManager userDetailsManager,
+    PersonRepository personRepository,
     @Value("${teamsURL}") String teamsURL,
     @Value("${displayExternalTeams}") Boolean displayExternalTeams,
     @Value("${displayExternalTeamMembers}") Boolean displayExternalTeamMembers,
     @Value("${displayAddExternalGroupToTeam}") Boolean displayAddExternalGroupToTeam,
     @Value("${application.version}") String applicationVersion,
-    @Value("${provision.users}") boolean provisionUsers,
     ResourceLoader resourceLoader) throws Exception {
 
     List<HandlerInterceptor> interceptors = new ArrayList<>();
@@ -175,9 +174,9 @@ public class Application extends SpringBootServletInitializer {
 
     if (environment.acceptsProfiles(DEV_PROFILE_NAME)) {
       LOG.debug("Using mock shibboleth");
-      interceptors.add(new MockLoginInterceptor(teamsURL, memberAttributeService));
+      interceptors.add(new MockLoginInterceptor(teamsURL, personRepository));
     } else {
-      interceptors.add(new LoginInterceptor(teamsURL, memberAttributeService, userDetailsManager, provisionUsers));
+      interceptors.add(new LoginInterceptor(teamsURL, personRepository));
     }
     return new SpringMvcConfiguration(interceptors);
   }
