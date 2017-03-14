@@ -53,23 +53,40 @@ public class MigrationService {
     if (!secretKey.equals(key)) {
       return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
     }
+    long start = System.currentTimeMillis();
+    LOG.info("Starting migration");
     //idempotent
     membershipRepository.deleteAll();
     teamRepository.deleteAll();
     personRepository.deleteAll();
 
+    long startDao = System.currentTimeMillis();
+    LOG.info("migrationDao.findAllTeamsAndMemberships starting ");
+
     //all non-persistent teams fully populated with memberships and persons
     Collection<Team> teams = migrationDao.findAllTeamsAndMemberships();
+
+    LOG.info("migrationDao.findAllTeamsAndMemberships ended in {} ms", System.currentTimeMillis() - startDao);
 
     Set<Person> persons = teams.stream().map(team -> team.getMemberships().stream().map(membership -> membership.getPerson()))
       .flatMap(Function.identity())
       .collect(toSet());
 
     //now fetch all the details from the LDAP and enrich the person references
+    long startLdap = System.currentTimeMillis();
+    LOG.info("migrationDao.addingLdapDetails starting ");
+
     persons.forEach(this::addDetails);
+
+    LOG.info("migrationDao.addingLdapDetails ended in {} ms", System.currentTimeMillis() - startLdap);
+
+    long startDatabase = System.currentTimeMillis();
+    LOG.info("migrationDao.saving all persons and teams starting ");
 
     personRepository.save(persons);
     teamRepository.save(teams);
+
+    LOG.info("migrationDao.saving all persons and teams ended in {} ms", System.currentTimeMillis() - startDatabase);
 
     return ResponseEntity.ok().build();
   }
