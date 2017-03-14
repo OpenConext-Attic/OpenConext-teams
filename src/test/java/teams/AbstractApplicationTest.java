@@ -1,7 +1,10 @@
 package teams;
 
+import io.restassured.RestAssured;
+import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
@@ -33,5 +36,10 @@ public abstract class AbstractApplicationTest {
 
   @LocalServerPort
   private int serverPort;
+
+  @Before
+  public void before() throws Exception {
+    RestAssured.port = serverPort;
+  }
 
 }

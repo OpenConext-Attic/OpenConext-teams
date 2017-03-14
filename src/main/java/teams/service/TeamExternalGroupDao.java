@@ -28,29 +28,12 @@ import teams.domain.TeamExternalGroup;
 public interface TeamExternalGroupDao {
 
   /**
-   * Gets an {@link ExternalGroup} by its SURFconext identifier (urn:collab:groups:univ.nl:nl.univ.mygroup) from the
-   * local store
+   * Gets a List of links between a SURFteam and external groups by the identifier(s) of the SURFteam
    *
-   * @param identifier unique identifier of the external group within the SURFconext platform
-   * @return {@link ExternalGroup} that is stored, or {@literal null} if not present
-   */
-  ExternalGroup getExternalGroupByIdentifier(String identifier);
-
-  /**
-   * Gets a List of links between a SURFteam and external groups by the identifier of the SURFteam
-   *
-   * @param identifier unique identifier of the SURFteam
+   * @param identifiers unique identifiers of the SURFteams
    * @return List of {@link TeamExternalGroup}, can be empty
    */
-  List<TeamExternalGroup> getByTeamIdentifier(String identifier);
-
-  /**
-   * Gets a List of links between a SURFteam and external groups by the identifier of the external group
-   *
-   * @param identifier id of the external group
-   * @return List of {@link TeamExternalGroup}, can be empty
-   */
-  List<TeamExternalGroup> getByExternalGroupIdentifier(String identifier);
+  List<TeamExternalGroup> getByTeamIdentifier(String... identifiers);
 
   /**
    * Gets a List of links between a SURFteam and external groups by the identifiers of the external groups

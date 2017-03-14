@@ -18,6 +18,7 @@ package teams.service.impl;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -54,54 +55,20 @@ public class TeamExternalGroupDaoImpl implements TeamExternalGroupDao {
   }
 
   @Override
-  public ExternalGroup getExternalGroupByIdentifier(String identifier) {
-    Object[] args = {identifier};
-
-    try {
-      return this.jdbcTemplate.queryForObject("SELECT * FROM external_groups AS eg WHERE eg.identifier = ?",
-        args, (rs, rowNum) -> {
-          ExternalGroup e = new ExternalGroup();
-          e.setId(rs.getLong("id"));
-          e.setIdentifier(rs.getString(IDENTIFIER));
-          e.setDescription(rs.getString(DESCRIPTION));
-          e.setName(rs.getString(NAME));
-          e.setGroupProviderIdentifier(rs.getString(GROUP_PROVIDER));
-          return e;
-        });
-    } catch (EmptyResultDataAccessException er) {
-      return null;
-    }
-  }
-
-  @Override
-  public List<TeamExternalGroup> getByTeamIdentifier(String identifier) {
-    Object[] args = {identifier};
+  public List<TeamExternalGroup> getByTeamIdentifier(String... identifiers) {
+    NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(this.jdbcTemplate);
+    Map<String, Object> params = new HashMap<>();
+    params.put("identifiers", Arrays.asList(identifiers));
 
     try {
       String s = "SELECT teg.id AS teg_id, teg.grouper_team_id, eg.id AS eg_id, eg.identifier, eg.name, eg.description, eg.group_provider " +
         "          FROM team_external_groups AS teg " +
         "          INNER JOIN external_groups AS eg " +
         "          ON teg.external_groups_id = eg.id " +
-        "          WHERE teg.grouper_team_id = ? ";
-      return this.jdbcTemplate.query(s, args, (rs, rowNum) -> mapRowToTeamExternalGroup(rs));
+        "          WHERE teg.grouper_team_id in (:identifiers)";
+      return template.query(s, params, (rs, rowNum) -> mapRowToTeamExternalGroup(rs));
     } catch (EmptyResultDataAccessException er) {
       return null;
-    }
-  }
-
-  @Override
-  public List<TeamExternalGroup> getByExternalGroupIdentifier(String identifier) {
-    Object[] args = {identifier};
-
-    try {
-      String s = "SELECT teg.id AS teg_id, teg.grouper_team_id, eg.id AS eg_id, eg.identifier, eg.name, eg.description, eg.group_provider " +
-        "          FROM team_external_groups AS teg " +
-        "          INNER JOIN external_groups AS eg " +
-        "          ON teg.external_groups_id = eg.id " +
-        "          WHERE eg.identifier = ? ";
-      return this.jdbcTemplate.query(s, args, (rs, rowNum) -> mapRowToTeamExternalGroup(rs));
-    } catch (EmptyResultDataAccessException er) {
-      return new ArrayList<TeamExternalGroup>();
     }
   }
 
@@ -208,4 +175,24 @@ public class TeamExternalGroupDaoImpl implements TeamExternalGroupDao {
       return new ArrayList<>();
     }
   }
+
+  private ExternalGroup getExternalGroupByIdentifier(String identifier) {
+    Object[] args = {identifier};
+
+    try {
+      return this.jdbcTemplate.queryForObject("SELECT * FROM external_groups AS eg WHERE eg.identifier = ?",
+        args, (rs, rowNum) -> {
+          ExternalGroup e = new ExternalGroup();
+          e.setId(rs.getLong("id"));
+          e.setIdentifier(rs.getString(IDENTIFIER));
+          e.setDescription(rs.getString(DESCRIPTION));
+          e.setName(rs.getString(NAME));
+          e.setGroupProviderIdentifier(rs.getString(GROUP_PROVIDER));
+          return e;
+        });
+    } catch (EmptyResultDataAccessException er) {
+      return null;
+    }
+  }
+
 }

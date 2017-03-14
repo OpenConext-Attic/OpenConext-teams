@@ -15,6 +15,8 @@ public interface TeamRepository extends PagingAndSortingRepository<Team, Long> {
 
     List<Team> findByNameContainingIgnoreCaseOrderByNameAsc(String name);
 
+    List<Team> findByUrnIn(List<String> urns);
+
     @EntityGraph(value = "Team.memberships", type = EntityGraph.EntityGraphType.LOAD)
     Optional<Team> findByUrn(String urn);
 

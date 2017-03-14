@@ -42,10 +42,6 @@ public class Person {
   @Column
   private Instant created;
 
-//  @OneToMany(mappedBy = "person")
-//  @JsonIgnore
-//  private Set<Membership> memberships = new HashSet<>();
-
   @Column
   private boolean guest;
 

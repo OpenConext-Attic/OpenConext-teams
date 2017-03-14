@@ -22,6 +22,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.Ordered;
 import org.springframework.core.env.Environment;
+import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.ldap.core.LdapTemplate;
@@ -39,6 +40,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import teams.interceptor.FeatureInterceptor;
 import teams.interceptor.LoginInterceptor;
 import teams.interceptor.MockLoginInterceptor;
+import teams.interceptor.VootApiSecurityFilter;
 import teams.provision.LdapUserDetailsManager;
 import teams.provision.UserDetailsManager;
 import teams.repository.PersonRepository;
@@ -161,11 +163,13 @@ public class Application extends SpringBootServletInitializer {
     @Value("${displayExternalTeamMembers}") Boolean displayExternalTeamMembers,
     @Value("${displayAddExternalGroupToTeam}") Boolean displayAddExternalGroupToTeam,
     @Value("${application.version}") String applicationVersion,
+    @Value("${voot.api.user}") String vootApiUser,
+    @Value("${voot.api.password}") String vootApiPassword,
     ResourceLoader resourceLoader) throws Exception {
 
     List<HandlerInterceptor> interceptors = new ArrayList<>();
 
-    String commitId = gitCommitId(resourceLoader);
+    String commitId = gitCommitId(resourceLoader, environment);
     interceptors.add(new FeatureInterceptor(displayExternalTeams, displayExternalTeamMembers, displayAddExternalGroupToTeam, commitId, applicationVersion));
 
     LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
@@ -178,12 +182,17 @@ public class Application extends SpringBootServletInitializer {
     } else {
       interceptors.add(new LoginInterceptor(teamsURL, personRepository));
     }
+    interceptors.add(new VootApiSecurityFilter(vootApiUser, vootApiPassword));
     return new SpringMvcConfiguration(interceptors);
   }
 
-  private String gitCommitId(ResourceLoader resourceLoader) throws IOException {
+  private String gitCommitId(ResourceLoader resourceLoader, Environment environment) throws IOException {
     Properties gitProperties = new Properties();
-    gitProperties.load(resourceLoader.getResource("classpath:git.properties").getInputStream());
+    Resource resource = resourceLoader.getResource("classpath:git.properties");
+    if (!resource.exists() && environment.acceptsProfiles(DEV_PROFILE_NAME)) {
+      return "unknown";
+    }
+    gitProperties.load(resource.getInputStream());
     return gitProperties.getProperty("git.commit.id");
   }
 

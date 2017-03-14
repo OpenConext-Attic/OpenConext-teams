@@ -56,6 +56,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
   public static final String STATUS_MEMBER = "member";
   public static final String TEAMS_COOKIE = "SURFconextTeams";
   public static final String NOT_PROVIDED_SAML_ATTRIBUTES_SHTML = "/NotProvidedSamlAttributes.shtml";
+  public static final String API_VOOT_URL = "api/voot";
 
   private final String teamsUrl;
   private final PersonRepository personRepository;
@@ -116,7 +117,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
         logger.debug("Request for '{}'", request.getRequestURI());
         logger.debug("urlPart: '{}'", urlPart);
 
-        if (LOGIN_BYPASS.contains(urlPart)) {
+        if (LOGIN_BYPASS.contains(urlPart) || isApiCall(request.getRequestURI())) {
           logger.debug("Bypassing {}", urlPart);
           return super.preHandle(request, response, handler);
         } else if (getTeamsCookie(request).contains("skipLanding") || LANDING_BYPASS.contains(urlPart)) {
@@ -133,6 +134,10 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     }
 
     return super.preHandle(request, response, handler);
+  }
+
+  protected boolean isApiCall(String requestURI) {
+    return requestURI.contains(API_VOOT_URL);
   }
 
   private Optional<Person> constructPerson(HttpServletRequest request) {

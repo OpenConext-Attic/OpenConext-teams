@@ -55,11 +55,14 @@ public class MockLoginInterceptor extends LoginInterceptor {
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
     // no login required for landingpage, css and js
-    if (request.getRequestURI().contains("landingpage.shtml") ||
-      request.getRequestURI().contains(".js") ||
-      request.getRequestURI().contains(".css") ||
-      request.getRequestURI().contains(".png") ||
-      request.getRequestURI().contains("migrate")) {
+    String requestURI = request.getRequestURI();
+    if (requestURI.contains("landingpage.shtml") ||
+      requestURI.contains(".js") ||
+      requestURI.contains(".css") ||
+      requestURI.contains(".png") ||
+      requestURI.contains("migrate") ||
+      requestURI.contains("error") ||
+      super.isApiCall(requestURI)) {
       return true;
     }
 

@@ -17,6 +17,7 @@ import teams.repository.PersonRepository;
 import teams.repository.TeamRepository;
 import teams.service.GrouperTeamService;
 import teams.util.DuplicateTeamException;
+import teams.voot.ResourceNotFoundException;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -205,7 +206,7 @@ public class TeamService implements GrouperTeamService {
       teams.migration.Role role = team.getMemberships().stream().filter(membership -> membership.getUrnPerson().equals(personUrn))
         .findFirst()
         .map(Membership::getRole)
-        .orElseThrow(() -> new IllegalArgumentException(String.format("Team %s does not contain member %s", team, personUrn)));
+        .orElseThrow(() -> new ResourceNotFoundException(String.format("Team %s does not contain member %s", team, personUrn)));
       result.setViewerRole(convertRole(role));
     }
     return result;
@@ -226,8 +227,8 @@ public class TeamService implements GrouperTeamService {
     return membershipOptional.orElseThrow(doesNotExist("Membership", teamUrn + " - " + personUrn));
   }
 
-  private Supplier<IllegalArgumentException> doesNotExist(String entity, String id) {
-    return () -> new IllegalArgumentException(String.format("%s %s does not exist", entity, id));
+  private Supplier<ResourceNotFoundException> doesNotExist(String entity, String id) {
+    return () -> new ResourceNotFoundException(String.format("%s %s does not exist", entity, id));
   }
 
   private teams.migration.Role convertRole(Role role) {
@@ -247,7 +248,7 @@ public class TeamService implements GrouperTeamService {
       case MEMBER:
         return memberRoles;
       default:
-        throw new IllegalArgumentException("Non existent role " + role);
+        throw new ResourceNotFoundException("Non existent role " + role);
     }
   }
 
