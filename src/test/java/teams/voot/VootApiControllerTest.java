@@ -31,32 +31,32 @@ public class VootApiControllerTest extends AbstractApplicationTest {
 
   @Test
   public void linkedLocalTeamsGroup() throws Exception {
-    String[] params = {"externalGroupIds","urn:collab:group:example.org:name1,urn:collab:group:example.org:name2"};
+    String[] params = {"externalGroupIds", "urn:collab:group:example.org:name1,urn:collab:group:example.org:name2"};
     start("linked-locals", Optional.of(params))
       .body("size()", equalTo(2))
-      .body("displayName", hasItems("riders","giants"));
+      .body("displayName", hasItems("riders", "giants"));
   }
 
   @Test
   public void linkedExternalGroupIds() throws Exception {
-    String[] params = {"teamId","nl:surfnet:diensten:riders"};
+    String[] params = {"teamId", "nl:surfnet:diensten:riders"};
     start("linked-externals", Optional.of(params))
       .body("size()", equalTo(2))
-      .body("", hasItems("urn:collab:group:example.org:name1","urn:collab:group:example.org:name2"));
+      .body("", hasItems("urn:collab:group:example.org:name1", "urn:collab:group:example.org:name2"));
   }
 
   @Test
   public void getMembers() throws Exception {
     start("members/nl:surfnet:diensten:giants")
       .body("size()", equalTo(4))
-      .body("name", hasItems("Tracey Doe","Mary Doe","John Doe","William Doe"));
+      .body("name", hasItems("Tracey Doe", "Mary Doe", "John Doe", "William Doe"));
   }
 
   @Test
   public void getAllGroups() throws Exception {
     start("groups")
       .body("size()", equalTo(3))
-      .body("displayName", hasItems("riders","giants","gliders"));
+      .body("displayName", hasItems("riders", "giants", "gliders"));
   }
 
   private ValidatableResponse start(String path) {
