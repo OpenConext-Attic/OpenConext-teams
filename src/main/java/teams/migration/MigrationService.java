@@ -66,11 +66,13 @@ public class MigrationService {
     //all non-persistent teams fully populated with memberships and persons
     Collection<Team> teams = migrationDao.findAllTeamsAndMemberships();
 
-    LOG.info("migrationDao.findAllTeamsAndMemberships ended in {} ms", System.currentTimeMillis() - startDao);
-
     Set<Person> persons = teams.stream().map(team -> team.getMemberships().stream().map(membership -> membership.getPerson()))
       .flatMap(Function.identity())
       .collect(toSet());
+
+    LOG.info("migrationDao.findAllTeamsAndMemberships found {} teams with total {} members", teams.size(), persons.size());
+    LOG.info("migrationDao.findAllTeamsAndMemberships ended in {} ms", System.currentTimeMillis() - startDao);
+
 
     //now fetch all the details from the LDAP and enrich the person references
     long startLdap = System.currentTimeMillis();
