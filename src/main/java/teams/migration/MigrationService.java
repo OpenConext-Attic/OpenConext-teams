@@ -72,6 +72,10 @@ public class MigrationService {
       .flatMap(Function.identity())
       .collect(toSet());
 
+    LOG.info("migrationDao.findAllTeamsAndMemberships found {} teams with total {} members", teams.size(), persons.size());
+    LOG.info("migrationDao.findAllTeamsAndMemberships ended in {} ms", System.currentTimeMillis() - startDao);
+
+
     //now fetch all the details from the LDAP and enrich the person references
     long startLdap = System.currentTimeMillis();
     LOG.info("migrationDao.addingLdapDetails starting ");

@@ -51,7 +51,7 @@ public class Team {
   @Formula("(select count(*) from memberships m where m.team_id = id)")
   private int membershipCount;
 
-  @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
   private Set<Membership> memberships = new HashSet<>();
 
   public Team(String urn, String name, String description) {
