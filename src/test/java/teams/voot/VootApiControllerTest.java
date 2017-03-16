@@ -59,6 +59,21 @@ public class VootApiControllerTest extends AbstractApplicationTest {
       .body("displayName", hasItems("riders", "giants", "gliders"));
   }
 
+  @Test
+  public void getGroupsForMember() throws Exception {
+    start("/user/urn:collab:person:surfnet.nl:tdoe/groups")
+      .body("size()", equalTo(2))
+      .body("displayName", hasItems("giants", "gliders"));
+  }
+
+  @Test
+  public void getGroupsForMemberAndTeamUrn() throws Exception {
+    start("/user/urn:collab:person:surfnet.nl:tdoe/groups/nl:surfnet:diensten:giants")
+      //four properties, not elements
+      .body("size()", equalTo(4))
+      .body("displayName", equalTo("giants"));
+  }
+
   private ValidatableResponse start(String path) {
     return start(path, Optional.empty());
   }
