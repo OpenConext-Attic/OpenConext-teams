@@ -77,7 +77,7 @@ public class VootApiController {
 
   @GetMapping("/" + LoginInterceptor.API_VOOT_URL + "/user/{uid}/groups/{groupId}")
   public Group getGroupsForMemberAndTeamUrn(@PathVariable("uid") String uid, @PathVariable("groupId") String groupId) {
-    Optional<Membership> membershipOptional = membershipRepository.findByTeamUrnAndPersonUrn(groupId, uid);
+    Optional<Membership> membershipOptional = membershipRepository.findByUrnTeamAndUrnPerson(groupId, uid);
     Membership membership = membershipOptional.orElseThrow(
       () -> new ResourceNotFoundException(String.format("Membership for team %s and Person %s not found", groupId, uid)));
     return this.convertTeamToGroup(membership.getTeam());

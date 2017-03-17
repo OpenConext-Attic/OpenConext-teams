@@ -8,5 +8,5 @@ import java.util.Optional;
 
 public interface MembershipRepository extends PagingAndSortingRepository<Membership, Long> {
 
-  Optional<Membership> findByTeamUrnAndPersonUrn(String teamUrn, String personUrn);
+  Optional<Membership> findByUrnTeamAndUrnPerson(String teamUrn, String personUrn);
 }

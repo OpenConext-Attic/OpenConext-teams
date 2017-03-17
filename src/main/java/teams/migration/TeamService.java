@@ -223,7 +223,7 @@ public class TeamService implements GrouperTeamService {
   }
 
   private Membership findMembershipByTeamUrnAndPersonUrn(String teamUrn, String personUrn) {
-    Optional<Membership> membershipOptional = membershipRepository.findByTeamUrnAndPersonUrn(teamUrn, personUrn);
+    Optional<Membership> membershipOptional = membershipRepository.findByUrnTeamAndUrnPerson(teamUrn, personUrn);
     return membershipOptional.orElseThrow(doesNotExist("Membership", teamUrn + " - " + personUrn));
   }
 
