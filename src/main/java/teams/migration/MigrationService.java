@@ -16,9 +16,12 @@ import teams.repository.TeamRepository;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toSet;
 
@@ -75,43 +78,37 @@ public class MigrationService {
     LOG.info("migrationDao.findAllTeamsAndMemberships found {} teams with total {} members", teams.size(), persons.size());
     LOG.info("migrationDao.findAllTeamsAndMemberships ended in {} ms", System.currentTimeMillis() - startDao);
 
-
     //now fetch all the details from the LDAP and enrich the person references
     long startLdap = System.currentTimeMillis();
     LOG.info("migrationDao.addingLdapDetails starting ");
 
-    Set<String> notPresentInLdap = new HashSet<>();
-    persons.forEach(person -> {
-      if (!this.addDetails(person)) {
-        notPresentInLdap.add(person.getUrn());
-      }
-    });
+    persons.forEach(this::addDetails);
+
+    Map<Boolean, List<Person>> grouped = persons.stream().collect(Collectors.groupingBy(person -> person.getEmail() != null && person.getName() != null));
+    List<Person> personsPresentInLdap = grouped.get(true);
 
     LOG.info("migrationDao.addingLdapDetails ended in {} ms", System.currentTimeMillis() - startLdap);
 
     long startDatabase = System.currentTimeMillis();
     LOG.info("migrationDao.saving all persons and teams starting ");
 
-    personRepository.save(persons);
+    personRepository.save(personsPresentInLdap);
     teamRepository.save(teams);
 
     LOG.info("migrationDao.saving all persons and teams ended in {} ms", System.currentTimeMillis() - startDatabase);
 
     LOG.info("total migration took {} ms",  System.currentTimeMillis() - start);
 
-    return ResponseEntity.ok(notPresentInLdap);
+    return ResponseEntity.ok(grouped.get(false));
   }
 
-  private boolean addDetails(Person person) {
+  private void addDetails(Person person) {
     Optional<Person> personOptional = userDetailsManager.findPersonById(person.getUrn());
     if (personOptional.isPresent()) {
       Person details = personOptional.get();
       person.setEmail(details.getEmail());
       person.setGuest(details.isGuest());
       person.setName(details.getName());
-      return true;
     }
-    return false;
-
   }
 }
