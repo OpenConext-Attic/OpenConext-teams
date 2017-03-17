@@ -15,6 +15,7 @@ import teams.repository.PersonRepository;
 import teams.repository.TeamRepository;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
@@ -55,6 +56,7 @@ public class MigrationService {
     }
     long start = System.currentTimeMillis();
     LOG.info("Starting migration");
+
     //idempotent
     membershipRepository.deleteAll();
     teamRepository.deleteAll();
@@ -78,7 +80,12 @@ public class MigrationService {
     long startLdap = System.currentTimeMillis();
     LOG.info("migrationDao.addingLdapDetails starting ");
 
-    persons.forEach(this::addDetails);
+    Set<String> notPresentInLdap = new HashSet<>();
+    persons.forEach(person -> {
+      if (!this.addDetails(person)) {
+        notPresentInLdap.add(person.getUrn());
+      }
+    });
 
     LOG.info("migrationDao.addingLdapDetails ended in {} ms", System.currentTimeMillis() - startLdap);
 
@@ -90,14 +97,21 @@ public class MigrationService {
 
     LOG.info("migrationDao.saving all persons and teams ended in {} ms", System.currentTimeMillis() - startDatabase);
 
-    return ResponseEntity.ok().build();
+    LOG.info("total migration took {} ms",  System.currentTimeMillis() - start);
+
+    return ResponseEntity.ok(notPresentInLdap);
   }
 
-  private void addDetails(Person person) {
+  private boolean addDetails(Person person) {
     Optional<Person> personOptional = userDetailsManager.findPersonById(person.getUrn());
-    Person details = personOptional.orElseThrow(() -> new IllegalArgumentException(person.getUrn() + " not found in the LDAP"));
-    person.setEmail(details.getEmail());
-    person.setGuest(details.isGuest());
-    person.setName(details.getName());
+    if (personOptional.isPresent()) {
+      Person details = personOptional.get();
+      person.setEmail(details.getEmail());
+      person.setGuest(details.isGuest());
+      person.setName(details.getName());
+      return true;
+    }
+    return false;
+
   }
 }
