@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.util.Assert;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -48,10 +49,16 @@ public class Membership {
   @JoinColumn(name = "team_id")
   private Team team;
 
+  @Column(name = "urn_team")
+  private String urnTeam;
+
   public Membership(Role role, Team team, Person person) {
+    Assert.notNull(team.getUrn(), "Urn team required");
+    Assert.notNull(person.getUrn(), "Urn person required");
     this.role = role;
     this.team = team;
     this.person = person;
     this.urnPerson = person.getUrn();
+    this.urnTeam = team.getUrn();
   }
 }
