@@ -24,7 +24,9 @@ public class JdbcMigrationDao {
       "gg.display_extension as group_display_extension, gf.name as fieldname " +
       "from grouper_memberships gms, grouper_groups gg, grouper_stems gs, grouper_members gm, grouper_fields gf " +
       "where gms.owner_group_id = gg.id and gms.member_id = gm.id and gms.field_id = gf.id " +
-      "and gg.parent_stem = gs.id and gs.name != 'etc' and gm.subject_id != 'GrouperSystem'", this::processRow);
+      "and gg.parent_stem = gs.id and gs.name != 'etc' and gm.subject_id != 'GrouperSystem'",
+
+      this::processRow);
 
     return teams.values();
 

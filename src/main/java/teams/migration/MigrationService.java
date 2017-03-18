@@ -15,16 +15,22 @@ import teams.repository.PersonRepository;
 import teams.repository.TeamRepository;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 
 @RestController
 public class MigrationService {
 
   private static final Logger LOG = LoggerFactory.getLogger(MigrationService.class);
+  public static final String UNKNOWN = "UNKNOWN_ATTRIBUTE";
 
   private final JdbcMigrationDao migrationDao;
   private final MembershipRepository membershipRepository;
@@ -55,6 +61,7 @@ public class MigrationService {
     }
     long start = System.currentTimeMillis();
     LOG.info("Starting migration");
+
     //idempotent
     membershipRepository.deleteAll();
     teamRepository.deleteAll();
@@ -66,8 +73,6 @@ public class MigrationService {
     //all non-persistent teams fully populated with memberships and persons
     Collection<Team> teams = migrationDao.findAllTeamsAndMemberships();
 
-    LOG.info("migrationDao.findAllTeamsAndMemberships ended in {} ms", System.currentTimeMillis() - startDao);
-
     Set<Person> persons = teams.stream().map(team -> team.getMemberships().stream().map(membership -> membership.getPerson()))
       .flatMap(Function.identity())
       .collect(toSet());
@@ -75,31 +80,58 @@ public class MigrationService {
     LOG.info("migrationDao.findAllTeamsAndMemberships found {} teams with total {} members", teams.size(), persons.size());
     LOG.info("migrationDao.findAllTeamsAndMemberships ended in {} ms", System.currentTimeMillis() - startDao);
 
-
     //now fetch all the details from the LDAP and enrich the person references
     long startLdap = System.currentTimeMillis();
     LOG.info("migrationDao.addingLdapDetails starting ");
 
     persons.forEach(this::addDetails);
 
+    Map<Boolean, List<Person>> grouped = persons.stream().collect(Collectors.groupingBy(person -> person.getEmail() != null && person.getName() != null));
+    List<Person> personsPresentInLdap = grouped.get(true);
+
     LOG.info("migrationDao.addingLdapDetails ended in {} ms", System.currentTimeMillis() - startLdap);
 
     long startDatabase = System.currentTimeMillis();
     LOG.info("migrationDao.saving all persons and teams starting ");
 
-    personRepository.save(persons);
-    teamRepository.save(teams);
+    personsPresentInLdap.forEach(person -> {
+      LOG.info("Saving person {} {}", person.getEmail(), person.getName());
+      personRepository.save(person);
+    });
+    teams.forEach(team -> {
+      LOG.info("Saving team {} {}", team.getName(), team.getMemberships().stream().map(membership -> membership.getPerson()).collect(toList()));
+      teamRepository.save(team);
+    });
 
     LOG.info("migrationDao.saving all persons and teams ended in {} ms", System.currentTimeMillis() - startDatabase);
 
-    return ResponseEntity.ok().build();
+    LOG.info("total migration took {} ms",  System.currentTimeMillis() - start);
+
+    return ResponseEntity.ok(grouped.get(false));
   }
 
   private void addDetails(Person person) {
     Optional<Person> personOptional = userDetailsManager.findPersonById(person.getUrn());
-    Person details = personOptional.orElseThrow(() -> new IllegalArgumentException(person.getUrn() + " not found in the LDAP"));
-    person.setEmail(details.getEmail());
+    if (personOptional.isPresent()) {
+      fillDetailsPerson(person, personOptional);
+    } else {
+      personOptional = userDetailsManager.findPersonById(person.getUrn().replaceAll("@", "_"));
+      if (personOptional.isPresent()) {
+        fillDetailsPerson(person, personOptional);
+      } else {
+        person.setGuest(true);
+        person.setName(UNKNOWN);
+        person.setEmail(UNKNOWN);
+      }
+    }
+  }
+
+  private void fillDetailsPerson(Person person, Optional<Person> personOptional) {
+    Person details = personOptional.get();
+    String email = details.getEmail();
+    person.setEmail(email == null ? UNKNOWN : email);
     person.setGuest(details.isGuest());
-    person.setName(details.getName());
+    String name = details.getName();
+    person.setName(name == null ? UNKNOWN : name);
   }
 }

@@ -57,8 +57,8 @@ public class Membership {
     Assert.notNull(person.getUrn(), "Urn person required");
     this.role = role;
     this.team = team;
+    this.urnTeam = team.getUrn();
     this.person = person;
     this.urnPerson = person.getUrn();
-    this.urnTeam = team.getUrn();
   }
 }

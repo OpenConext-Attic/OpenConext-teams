@@ -22,7 +22,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString(of = {"urn", "name"})
+@ToString(of = {"id", "urn", "name"})
 @EqualsAndHashCode(of = "urn")
 public class Person {
 
