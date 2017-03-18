@@ -22,7 +22,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString(of = {"urn", "name"})
+@ToString(of = {"id", "urn", "name"})
 @EqualsAndHashCode(of = "urn")
 public class Person {
 
@@ -41,10 +41,6 @@ public class Person {
 
   @Column
   private Instant created;
-
-//  @OneToMany(mappedBy = "person")
-//  @JsonIgnore
-//  private Set<Membership> memberships = new HashSet<>();
 
   @Column
   private boolean guest;

@@ -19,19 +19,18 @@ public class LdapUserDetailsManagerIntegrationTest {
   @Before
   public void before() throws Exception {
     LdapContextSource contextSource = new LdapContextSource();
-    contextSource.setUrl("ldap://ldap.test2.surfconext.nl:389");
+    contextSource.setUrl("ldap://ldap.test3.surfconext.nl:389");
     contextSource.setBase("dc=surfconext,dc=nl");
-    contextSource.setUserDn("cn=engine,dc=surfconext,dc=nl");
-    contextSource.setPassword("secret");
+    contextSource.setUserDn("cn=admin,dc=surfconext,dc=nl");
+    contextSource.setPassword("Y7xQeCBtMKR1B1fiYpXT");
     contextSource.afterPropertiesSet();
     this.subject = new LdapUserDetailsManager(new LdapTemplate(contextSource));
   }
 
   @Test
   public void testFindPerson() throws Exception {
-    Optional<Person> personOptional = this.subject.findPersonById("urn:collab:person:surfnet.nl:kinkhorst");
-    personOptional = this.subject.findPersonById("urn:collab:person:surfnet.nl:nope");
-    personOptional = this.subject.findPersonById("urn:collab:person:example.com:admin");
+    Optional<Person> personOptional = this.subject.findPersonById("urn:collab:person:hu.nl:frederique.leopold@hu.nl");
+    Optional<Person> personOptional2 = this.subject.findPersonById("urn:collab:person:hu.nl:frederique.leopold_hu.nl");
 
     assertTrue(personOptional.get().isGuest());
   }

@@ -23,12 +23,14 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 
 @RestController
 public class MigrationService {
 
   private static final Logger LOG = LoggerFactory.getLogger(MigrationService.class);
+  public static final String UNKNOWN = "UNKNOWN_ATTRIBUTE";
 
   private final JdbcMigrationDao migrationDao;
   private final MembershipRepository membershipRepository;
@@ -92,8 +94,14 @@ public class MigrationService {
     long startDatabase = System.currentTimeMillis();
     LOG.info("migrationDao.saving all persons and teams starting ");
 
-    personRepository.save(personsPresentInLdap);
-    teamRepository.save(teams);
+    personsPresentInLdap.forEach(person -> {
+      LOG.info("Saving person {} {}", person.getEmail(), person.getName());
+      personRepository.save(person);
+    });
+    teams.forEach(team -> {
+      LOG.info("Saving team {} {}", team.getName(), team.getMemberships().stream().map(membership -> membership.getPerson()).collect(toList()));
+      teamRepository.save(team);
+    });
 
     LOG.info("migrationDao.saving all persons and teams ended in {} ms", System.currentTimeMillis() - startDatabase);
 
@@ -105,10 +113,25 @@ public class MigrationService {
   private void addDetails(Person person) {
     Optional<Person> personOptional = userDetailsManager.findPersonById(person.getUrn());
     if (personOptional.isPresent()) {
-      Person details = personOptional.get();
-      person.setEmail(details.getEmail());
-      person.setGuest(details.isGuest());
-      person.setName(details.getName());
+      fillDetailsPerson(person, personOptional);
+    } else {
+      personOptional = userDetailsManager.findPersonById(person.getUrn().replaceAll("@", "_"));
+      if (personOptional.isPresent()) {
+        fillDetailsPerson(person, personOptional);
+      } else {
+        person.setGuest(true);
+        person.setName(UNKNOWN);
+        person.setEmail(UNKNOWN);
+      }
     }
+  }
+
+  private void fillDetailsPerson(Person person, Optional<Person> personOptional) {
+    Person details = personOptional.get();
+    String email = details.getEmail();
+    person.setEmail(email == null ? UNKNOWN : email);
+    person.setGuest(details.isGuest());
+    String name = details.getName();
+    person.setName(name == null ? UNKNOWN : name);
   }
 }
