@@ -33,6 +33,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import teams.domain.Member;
 import teams.domain.MemberAttribute;
 import teams.domain.Person;
+import teams.migration.MigrationService;
 import teams.provision.UserDetailsManager;
 import teams.repository.PersonRepository;
 import teams.service.MemberAttributeService;
@@ -88,10 +89,15 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
             teams.migration.Person personFromDatabase = optionalPersonFromDatabase.get();
             if (person.isGuest() != personFromDatabase.isGuest()) {
               personFromDatabase.setGuest(person.isGuest());
+              if (personFromDatabase.getEmail().equals(MigrationService.UNKNOWN)) {
+                personFromDatabase.setEmail(person.getEmail());
+                personFromDatabase.setName(person.getName());
+              }
               personRepository.save(personFromDatabase);
             }
           } else {
-            personRepository.save(new teams.migration.Person(person.getId(),person.getName(), person.getEmail(), person.isGuest()));
+            teams.migration.Person newPerson = new teams.migration.Person(person.getId(), person.getName(), person.getEmail(), person.isGuest());
+            personRepository.save(newPerson);
           }
         } else {
           response.sendRedirect(teamsUrl + NOT_PROVIDED_SAML_ATTRIBUTES_SHTML);
