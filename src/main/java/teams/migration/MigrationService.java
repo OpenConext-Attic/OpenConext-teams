@@ -105,7 +105,7 @@ public class MigrationService {
 
     LOG.info("migrationDao.saving all persons and teams ended in {} ms", System.currentTimeMillis() - startDatabase);
 
-    LOG.info("total migration took {} ms",  System.currentTimeMillis() - start);
+    LOG.info("total migration took {} ms", System.currentTimeMillis() - start);
 
     return ResponseEntity.ok(grouped.get(false));
   }
@@ -115,14 +115,9 @@ public class MigrationService {
     if (personOptional.isPresent()) {
       fillDetailsPerson(person, personOptional);
     } else {
-      personOptional = userDetailsManager.findPersonById(person.getUrn().replaceAll("@", "_"));
-      if (personOptional.isPresent()) {
-        fillDetailsPerson(person, personOptional);
-      } else {
-        person.setGuest(true);
-        person.setName(UNKNOWN);
-        person.setEmail(UNKNOWN);
-      }
+      person.setGuest(true);
+      person.setName(UNKNOWN);
+      person.setEmail(UNKNOWN);
     }
   }
 

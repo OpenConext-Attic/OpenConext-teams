@@ -40,7 +40,7 @@ public class JdbcMigrationDao {
       rs.getString("group_display_extension"),
       rs.getString("group_description")));
 
-    String subjectId = rs.getString("subject_id");
+    String subjectId = rs.getString("subject_id").replaceAll("@", "_");
 
     if (subjectId.equalsIgnoreCase("GrouperAll")) {
       team.setViewable(true);
