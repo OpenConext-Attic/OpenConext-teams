@@ -4,6 +4,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.Instant;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +22,7 @@ public class JdbcMigrationDao {
 
   public Collection<Team> findAllTeamsAndMemberships() {
     jdbcTemplate.query("select gm.subject_id as subject_id, gg.name as group_name, gg.description as group_description, " +
-      "gg.display_extension as group_display_extension, gf.name as fieldname " +
+      "gg.display_extension as group_display_extension, gg.create_time as group_create_time, gf.name as fieldname " +
       "from grouper_memberships gms, grouper_groups gg, grouper_stems gs, grouper_members gm, grouper_fields gf " +
       "where gms.owner_group_id = gg.id and gms.member_id = gm.id and gms.field_id = gf.id " +
       "and gg.parent_stem = gs.id and gs.name != 'etc' and gm.subject_id != 'GrouperSystem'",
@@ -38,7 +39,8 @@ public class JdbcMigrationDao {
     Team team = teams.getOrDefault(urn, new Team(
       urn,
       rs.getString("group_display_extension"),
-      rs.getString("group_description")));
+      rs.getString("group_description"),
+      Instant.ofEpochMilli(rs.getLong("group_create_time"))));
 
     String subjectId = rs.getString("subject_id").replaceAll("@", "_");
 
