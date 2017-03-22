@@ -59,4 +59,12 @@ public class Team {
     this.name = name;
     this.description = description;
   }
+
+  public Team(String urn, String name, String description, Instant created) {
+    this.urn = urn;
+    this.name = name;
+    this.description = description;
+    this.created = created;
+  }
+
 }
