@@ -1,23 +1,27 @@
 package teams.migration;
 
+import org.hibernate.engine.spi.CacheImplementor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import teams.provision.UserDetailsManager;
-import teams.repository.MembershipRepository;
 import teams.repository.PersonRepository;
 import teams.repository.TeamRepository;
 
+import javax.persistence.Cache;
 import javax.persistence.EntityManager;
+import javax.sql.DataSource;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -35,34 +39,29 @@ public class MigrationService {
   public static final String UNKNOWN = "UNKNOWN_ATTRIBUTE";
 
   private final JdbcMigrationDao migrationDao;
-  private final MembershipRepository membershipRepository;
   private final TeamRepository teamRepository;
   private final PersonRepository personRepository;
   private final UserDetailsManager userDetailsManager;
   private final String secretKey;
-  private final TransactionTemplate transactionTemplate;
-  private final EntityManager entityManager;
+  private final JdbcTemplate jdbcTemplate;
 
   @Autowired
   public MigrationService(JdbcMigrationDao migrationDao,
                           TeamRepository teamRepository,
                           PersonRepository personRepository,
-                          MembershipRepository membershipRepository,
                           UserDetailsManager userDetailsManager,
                           @Value("${migration.secret_key}") String secretKey,
-                          TransactionTemplate transactionTemplate,
-                          EntityManager entityManager) {
+                          @Qualifier("teamsDataSource") DataSource teamsDataSource) {
     this.migrationDao = migrationDao;
     this.teamRepository = teamRepository;
     this.personRepository = personRepository;
-    this.membershipRepository = membershipRepository;
     this.userDetailsManager = userDetailsManager;
     this.secretKey = secretKey;
-    this.transactionTemplate = transactionTemplate;
-    this.entityManager = entityManager;
+    this.jdbcTemplate = new JdbcTemplate(teamsDataSource);
   }
 
   @GetMapping("migrate")
+  @Transactional
   public ResponseEntity migrate(@RequestParam(name = "key") String key) {
     if (!secretKey.equals(key)) {
       return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
@@ -70,14 +69,10 @@ public class MigrationService {
     long start = System.currentTimeMillis();
     LOG.info("Starting migration");
 
-    LOG.info("migrationDao.deleteTeamsMembershipPersons");
     //idempotent
-    transactionTemplate.execute(transactionStatus -> {
-      migrationDao.deleteTeamsMembershipPersons();
-      return null;
-    });
-
-    entityManager.getEntityManagerFactory().getCache().evictAll();
+    deleteFromTable("memberships");
+    deleteFromTable("persons");
+    deleteFromTable("teams");
 
     long startDao = System.currentTimeMillis();
     LOG.info("migrationDao.findAllTeamsAndMemberships starting ");
@@ -108,13 +103,13 @@ public class MigrationService {
 
     personsPresentInLdap.forEach(person -> {
       LOG.info("Saving person {} {} {}", person.getId(), person.getEmail(), person.getName());
-      transactionTemplate.execute(transactionStatus -> personRepository.save(person));
+      personRepository.save(person);
       LOG.info("Saved person {} {} {}", person.getId(), person.getEmail(), person.getName());
     });
 
     teams.forEach(team -> {
       LOG.info("Saving team {} {} {}", team.getId(), team.getName(), team.getMemberships().stream().map(membership -> membership.getPerson()).collect(toList()));
-      transactionTemplate.execute(transactionStatus -> teamRepository.save(team));
+      teamRepository.save(team);
       LOG.info("Saved team {} {} {}", team.getId(), team.getName(), team.getMemberships().stream().map(membership -> membership.getPerson()).collect(toList()));
     });
 
@@ -144,4 +139,10 @@ public class MigrationService {
     String name = details.getName();
     person.setName(name == null ? UNKNOWN : name);
   }
+
+  private void deleteFromTable(String table) {
+    LOG.info("Deleting from table " + table);
+    jdbcTemplate.execute("DELETE FROM " + table);
+  }
+
 }
