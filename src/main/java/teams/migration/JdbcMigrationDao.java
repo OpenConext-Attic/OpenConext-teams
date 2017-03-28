@@ -20,6 +20,15 @@ public class JdbcMigrationDao {
     this.jdbcTemplate = jdbcTemplate;
   }
 
+  public void deleteTeamsMembershipPersons() {
+    jdbcTemplate.execute("DELETE FROM memberships");
+    jdbcTemplate.execute("ALTER TABLE memberships AUTO_INCREMENT = 0");
+    jdbcTemplate.execute("DELETE FROM teams");
+    jdbcTemplate.execute("ALTER TABLE teams AUTO_INCREMENT = 0");
+    jdbcTemplate.execute("DELETE FROM persons");
+    jdbcTemplate.execute("ALTER TABLE persons AUTO_INCREMENT = 0");
+  }
+
   public Collection<Team> findAllTeamsAndMemberships() {
     jdbcTemplate.query("select gm.subject_id as subject_id, gg.name as group_name, gg.description as group_description, " +
       "gg.display_extension as group_display_extension, gg.create_time as group_create_time, gf.name as fieldname " +

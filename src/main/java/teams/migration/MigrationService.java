@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.support.TransactionTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,7 @@ import teams.repository.MembershipRepository;
 import teams.repository.PersonRepository;
 import teams.repository.TeamRepository;
 
+import javax.persistence.EntityManager;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
@@ -38,6 +40,8 @@ public class MigrationService {
   private final PersonRepository personRepository;
   private final UserDetailsManager userDetailsManager;
   private final String secretKey;
+  private final TransactionTemplate transactionTemplate;
+  private final EntityManager entityManager;
 
   @Autowired
   public MigrationService(JdbcMigrationDao migrationDao,
@@ -45,13 +49,17 @@ public class MigrationService {
                           PersonRepository personRepository,
                           MembershipRepository membershipRepository,
                           UserDetailsManager userDetailsManager,
-                          @Value("${migration.secret_key}") String secretKey) {
+                          @Value("${migration.secret_key}") String secretKey,
+                          TransactionTemplate transactionTemplate,
+                          EntityManager entityManager) {
     this.migrationDao = migrationDao;
     this.teamRepository = teamRepository;
     this.personRepository = personRepository;
     this.membershipRepository = membershipRepository;
     this.userDetailsManager = userDetailsManager;
     this.secretKey = secretKey;
+    this.transactionTemplate = transactionTemplate;
+    this.entityManager = entityManager;
   }
 
   @GetMapping("migrate")
@@ -62,10 +70,14 @@ public class MigrationService {
     long start = System.currentTimeMillis();
     LOG.info("Starting migration");
 
+    LOG.info("migrationDao.deleteTeamsMembershipPersons");
     //idempotent
-    membershipRepository.deleteAll();
-    teamRepository.deleteAll();
-    personRepository.deleteAll();
+    transactionTemplate.execute(transactionStatus -> {
+      migrationDao.deleteTeamsMembershipPersons();
+      return null;
+    });
+
+    entityManager.getEntityManagerFactory().getCache().evictAll();
 
     long startDao = System.currentTimeMillis();
     LOG.info("migrationDao.findAllTeamsAndMemberships starting ");
@@ -95,12 +107,15 @@ public class MigrationService {
     LOG.info("migrationDao.saving all persons and teams starting ");
 
     personsPresentInLdap.forEach(person -> {
-      LOG.info("Saving person {} {}", person.getEmail(), person.getName());
-      personRepository.save(person);
+      LOG.info("Saving person {} {} {}", person.getId(), person.getEmail(), person.getName());
+      transactionTemplate.execute(transactionStatus -> personRepository.save(person));
+      LOG.info("Saved person {} {} {}", person.getId(), person.getEmail(), person.getName());
     });
+
     teams.forEach(team -> {
-      LOG.info("Saving team {} {}", team.getName(), team.getMemberships().stream().map(membership -> membership.getPerson()).collect(toList()));
-      teamRepository.save(team);
+      LOG.info("Saving team {} {} {}", team.getId(), team.getName(), team.getMemberships().stream().map(membership -> membership.getPerson()).collect(toList()));
+      transactionTemplate.execute(transactionStatus -> teamRepository.save(team));
+      LOG.info("Saved team {} {} {}", team.getId(), team.getName(), team.getMemberships().stream().map(membership -> membership.getPerson()).collect(toList()));
     });
 
     LOG.info("migrationDao.saving all persons and teams ended in {} ms", System.currentTimeMillis() - startDatabase);
