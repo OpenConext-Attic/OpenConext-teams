@@ -19,7 +19,14 @@ public class GrouperDaoConfig {
   }
 
   @Bean
-  public JdbcMigrationDao teamsDao(@Qualifier("grouperDataSource") DataSource grouperDataSource) {
+  public JdbcMigrationDao migrationDao(@Qualifier("grouperDataSource") DataSource grouperDataSource) {
     return new JdbcMigrationDao(new JdbcTemplate(grouperDataSource));
   }
+
+  @Bean(name = "teamsDataSource")
+  @ConfigurationProperties(prefix = "datasource.teams")
+  public DataSource teamsDataSource() {
+    return DataSourceBuilder.create().build();
+  }
+
 }
