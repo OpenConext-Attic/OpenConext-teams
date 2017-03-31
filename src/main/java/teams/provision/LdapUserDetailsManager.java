@@ -7,7 +7,6 @@ import org.springframework.ldap.core.LdapOperations;
 import org.springframework.ldap.filter.AndFilter;
 import org.springframework.ldap.filter.EqualsFilter;
 import org.springframework.ldap.support.LdapEncoder;
-import teams.domain.Member;
 import teams.domain.Person;
 
 import javax.naming.NamingException;
@@ -16,11 +15,11 @@ import javax.naming.directory.Attributes;
 import javax.naming.directory.BasicAttribute;
 import javax.naming.directory.BasicAttributes;
 import java.time.Instant;
-import java.util.Collections;
-import java.util.HashSet;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class LdapUserDetailsManager implements UserDetailsManager {
 
@@ -28,13 +27,15 @@ public class LdapUserDetailsManager implements UserDetailsManager {
 
   private final LdapOperations ldapOperations;
 
+  private final Pattern RFC_822 = Pattern.compile("^(.{12})(\\d{2})(.*)$");
+
   public LdapUserDetailsManager(LdapOperations ldapOperations) {
     this.ldapOperations = ldapOperations;
   }
 
   @Override
   public boolean existingPerson(String urn) {
-    List<String> personIds = persons(urn, attributes -> this.safeGetAttribute(attributes,"collabpersonid"));
+    List<String> personIds = persons(urn, attributes -> this.safeGetAttribute(attributes, "collabpersonid"));
     return !personIds.isEmpty();
   }
 
@@ -91,9 +92,22 @@ public class LdapUserDetailsManager implements UserDetailsManager {
       String mail = this.safeGetAttribute(attributes, "mail");
       String cn = this.safeGetAttribute(attributes, "cn");
       String isGuest = this.safeGetAttribute(attributes, "collabpersonisguest");
-      return new teams.migration.Person(urn, cn, mail, "TRUE".equals(isGuest));
+      String collabpersonregistered = this.safeGetAttribute(attributes, "collabpersonregistered");
+      Instant created = (collabpersonregistered != null ?
+        //RFC-1123 updates RFC-822 changing the year from two digits to four
+        Instant.from(DateTimeFormatter.RFC_1123_DATE_TIME.parse(rfc822ToRFC1123(collabpersonregistered))) :
+        Instant.now());
+      return new teams.migration.Person(urn, cn, mail, "TRUE".equals(isGuest), created);
     });
     return persons.stream().findFirst();
+  }
+
+  private String rfc822ToRFC1123(String date) {
+    Matcher matcher = RFC_822.matcher(date);
+    matcher.find();
+    int twoDigitYear = Integer.parseInt(matcher.group(2));
+    String year = String.valueOf(twoDigitYear + (twoDigitYear < 67 ? 2000 : 1900));
+    return matcher.replaceFirst(String.format("$1%s$3", year));
   }
 
   protected boolean existingOrganisation(String organization) {

@@ -138,6 +138,7 @@ public class MigrationService {
     person.setGuest(details.isGuest());
     String name = details.getName();
     person.setName(name == null ? UNKNOWN : name);
+    person.setCreated(details.getCreated());
   }
 
   private void deleteFromTable(String table) {

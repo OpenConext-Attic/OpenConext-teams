@@ -18,6 +18,7 @@ import teams.repository.TeamRepository;
 import teams.service.GrouperTeamService;
 import teams.util.DuplicateTeamException;
 
+import java.time.Instant;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -118,7 +119,7 @@ public class TeamService implements GrouperTeamService {
   public void addMember(Team team, Person person) {
     teams.migration.Team membershipTeam = findTeamByUrn(team.getId());
     teams.migration.Person membershipPerson = findPersonByUrn(person.getId());
-    Membership membership = new Membership(teams.migration.Role.MEMBER, membershipTeam, membershipPerson);
+    Membership membership = new Membership(teams.migration.Role.MEMBER, membershipTeam, membershipPerson, Instant.now());
     membershipRepository.save(membership);
   }
 
