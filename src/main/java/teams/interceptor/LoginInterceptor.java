@@ -16,6 +16,7 @@
 package teams.interceptor;
 
 import java.net.URLEncoder;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -96,7 +97,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
               personRepository.save(personFromDatabase);
             }
           } else {
-            teams.migration.Person newPerson = new teams.migration.Person(person.getId(), person.getName(), person.getEmail(), person.isGuest());
+            teams.migration.Person newPerson = new teams.migration.Person(person.getId(), person.getName(), person.getEmail(), person.isGuest(), Instant.now());
             personRepository.save(newPerson);
           }
         } else {

@@ -53,7 +53,7 @@ public class Membership {
   @Column(name = "urn_team")
   private String urnTeam;
 
-  public Membership(Role role, Team team, Person person) {
+  public Membership(Role role, Team team, Person person, Instant created) {
     Assert.notNull(team.getUrn(), "Urn team required");
     Assert.notNull(person.getUrn(), "Urn person required");
     this.role = role;
@@ -61,5 +61,6 @@ public class Membership {
     this.urnTeam = team.getUrn();
     this.person = person;
     this.urnPerson = person.getUrn();
+    this.created = created;
   }
 }

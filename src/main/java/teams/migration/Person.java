@@ -50,11 +50,12 @@ public class Person {
     this.urn = urn;
   }
 
-  public Person(String urn, String name, String email, boolean isGuest) {
+  public Person(String urn, String name, String email, boolean isGuest, Instant created) {
     this.urn = urn;
     this.name = name;
     this.email = email;
     this.guest = isGuest;
+    this.created = created;
   }
 
 }

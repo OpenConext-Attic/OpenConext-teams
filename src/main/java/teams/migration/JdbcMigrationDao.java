@@ -25,7 +25,7 @@ public class JdbcMigrationDao {
     final Map<String, Team> teams = new HashMap<>();
     final Map<String, Person> persons = new HashMap<>();
     jdbcTemplate.query("select gm.subject_id as subject_id, gg.name as group_name, gg.description as group_description, " +
-        "gg.display_extension as group_display_extension, gg.create_time as group_create_time, gf.name as fieldname " +
+        "gg.display_extension as group_display_extension, gg.create_time as group_create_time, gf.name as fieldname , gms.create_time as membership_created " +
         "from grouper_memberships gms, grouper_groups gg, grouper_stems gs, grouper_members gm, grouper_fields gf " +
         "where gms.owner_group_id = gg.id and gms.member_id = gm.id and gms.field_id = gf.id " +
         "and gg.parent_stem = gs.id and gs.name != 'etc' and gm.subject_id != 'GrouperSystem'",
@@ -65,7 +65,8 @@ public class JdbcMigrationDao {
             person = new Person(subjectId);
             persons.put(subjectId, person);
           }
-          Membership membership = new Membership(role, team, person);
+          Instant created = Instant.ofEpochMilli(rs.getLong("membership_created"));
+          Membership membership = new Membership(role, team, person, created);
           team.getMemberships().add(membership);
         }
 
