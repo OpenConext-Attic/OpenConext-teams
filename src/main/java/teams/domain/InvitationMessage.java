@@ -26,6 +26,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Proxy;
+import org.springframework.util.StringUtils;
 
 /**
  * Message content of the sent invitation
@@ -56,7 +57,7 @@ public class InvitationMessage extends DomainObject implements Comparable<Invita
   }
 
   public InvitationMessage(final String message, final String inviter) {
-    this.message = message;
+    this.message = StringUtils.hasText(message) ? message : null;
     this.inviter = inviter;
     this.setTimestamp(new Date().getTime());
   }
