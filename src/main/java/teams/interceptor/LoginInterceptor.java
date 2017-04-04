@@ -129,7 +129,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
           return super.preHandle(request, response, handler);
         } else if (getTeamsCookie(request).contains("skipLanding") || LANDING_BYPASS.contains(urlPart)) {
           String queryString = request.getQueryString() != null ? "?" + request.getQueryString() : "";
-          String target = URLEncoder.encode(request.getRequestURL() + queryString, "UTF-8");
+          String target = URLEncoder.encode(request.getRequestURL().toString().replace("http://","https://") + queryString, "UTF-8");
           response.sendRedirect(teamsUrl + "/Shibboleth.sso/Login?target=" + target);
           return false;
         } else {
