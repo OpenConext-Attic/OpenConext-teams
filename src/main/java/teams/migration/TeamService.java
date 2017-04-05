@@ -86,6 +86,7 @@ public class TeamService implements GrouperTeamService {
   public void deleteMember(Team team, String personId) {
     //The interface naming is not correct, we only delete the membership. we never delete provisioned persons
     Membership membership = findMembershipByTeamUrnAndPersonUrn(team.getId(), personId);
+    findTeamByUrn(team.getId()).getMemberships().remove(membership);
     membershipRepository.delete(membership);
   }
 
