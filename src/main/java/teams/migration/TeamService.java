@@ -3,6 +3,7 @@ package teams.migration;
 import org.apache.commons.lang.WordUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
@@ -65,7 +66,12 @@ public class TeamService implements GrouperTeamService {
   public String addTeam(String teamId, String displayName, String teamDescription, String stemName) throws DuplicateTeamException {
     String teamUrn = defaultStemName + ":" + forbiddenChars.matcher(teamId).replaceAll("");
     teams.migration.Team team = new teams.migration.Team(teamUrn, displayName, teamDescription);
-    return teamRepository.save(team).getUrn();
+    try {
+      return teamRepository.save(team).getUrn();
+    } catch (DataIntegrityViolationException e) {
+      throw new DuplicateTeamException(String.format("Team %s already exists", teamUrn));
+    }
+
   }
 
   @Override
