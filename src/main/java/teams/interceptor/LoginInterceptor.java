@@ -153,7 +153,10 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     String id = request.getHeader("name-id");
     addNotProvidedSamlAttributes(id, notProvidedSamlAttributes, "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified" );
 
-    String name = request.getHeader("uid");
+    String name = request.getHeader("displayName");
+    if (!StringUtils.hasText(name)) {
+      name = request.getHeader("uid");
+    }
     addNotProvidedSamlAttributes(name, notProvidedSamlAttributes, "urn:mace:dir:attribute-def:uid" );
 
     String email = request.getHeader("Shib-InetOrgPerson-mail");
