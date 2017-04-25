@@ -18,6 +18,7 @@ package teams.service.interceptor;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 import teams.domain.MemberAttribute;
@@ -27,6 +28,7 @@ import teams.provision.MockUserDetailsManager;
 import teams.repository.PersonRepository;
 import teams.service.MemberAttributeService;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -53,8 +55,7 @@ public class LoginInterceptorTest {
   public void before() throws Exception {
     request = new MockHttpServletRequest();
     response = new MockHttpServletResponse();
-    personRepository =
-      mock(PersonRepository.class);
+    personRepository = mock(PersonRepository.class);
     when(personRepository.findByUrn(anyString())).thenReturn(Optional.empty());
     interceptor = new LoginInterceptor("foo", personRepository);
   }
@@ -85,11 +86,37 @@ public class LoginInterceptorTest {
     List<String> notProvidedSamlAttributes = (List<String>) request.getSession().getAttribute("notProvidedSamlAttributes");
 
     assertEquals(asList(
-      "urn:mace:dir:attribute-def:uid",
       "urn:mace:dir:attribute-def:mail",
       "urn:mace:terena.org:attribute-def:schacHomeOrganization",
       "urn:mace:dir:attribute-def:displayName"),
       notProvidedSamlAttributes);
+  }
+
+  @Test
+  public void reProvisionWhenAttributesChanged() throws Exception {
+    request.addHeader("name-id", id);
+    request.addHeader("is-member-of", "urn:collab:org:surf.nl");
+    request.addHeader("Shib-InetOrgPerson-mail", "changed@example.com");
+    request.addHeader("displayName", "Changed Doe");
+    request.addHeader("schacHomeOrganization", "example.com");
+
+    Optional<teams.migration.Person> personOptional = Optional.of(new teams.migration.Person(id, "original", "original@org",true, Instant.now()));
+    when(personRepository.findByUrn(id)).thenReturn(personOptional);
+
+
+    boolean loggedIn = interceptor.preHandle(request, response, null);
+    assertTrue(loggedIn);
+
+    ArgumentCaptor<teams.migration.Person> argument = ArgumentCaptor.forClass(teams.migration.Person.class);
+    verify(personRepository).save(argument.capture());
+    teams.migration.Person saved = argument.getValue();
+    assertEquals("Changed Doe", saved.getName());
+    assertEquals("changed@example.com", saved.getEmail());
+    assertEquals(false, saved.isGuest());
+
+    Person person = (Person) request.getSession().getAttribute("person");
+    assertNotNull(person);
+    assertEquals("Changed Doe", person.getName());
   }
 
 

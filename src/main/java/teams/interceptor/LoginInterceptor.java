@@ -88,12 +88,12 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
           Optional<teams.migration.Person> optionalPersonFromDatabase = personRepository.findByUrn(person.getId());
           if (optionalPersonFromDatabase.isPresent()) {
             teams.migration.Person personFromDatabase = optionalPersonFromDatabase.get();
-            if (person.isGuest() != personFromDatabase.isGuest()) {
+            if (person.isGuest() != personFromDatabase.isGuest() ||
+               !person.getName().equals(personFromDatabase.getName()) ||
+               !person.getEmail().equals(personFromDatabase.getEmail())) {
               personFromDatabase.setGuest(person.isGuest());
-              if (personFromDatabase.getEmail().equals(MigrationService.UNKNOWN)) {
-                personFromDatabase.setEmail(person.getEmail());
-                personFromDatabase.setName(person.getName());
-              }
+              personFromDatabase.setEmail(person.getEmail());
+              personFromDatabase.setName(person.getName());
               personRepository.save(personFromDatabase);
             }
           } else {
@@ -153,12 +153,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     String id = request.getHeader("name-id");
     addNotProvidedSamlAttributes(id, notProvidedSamlAttributes, "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified" );
 
-    String name = request.getHeader("displayName");
-    if (!StringUtils.hasText(name)) {
-      name = request.getHeader("uid");
-    }
-    addNotProvidedSamlAttributes(name, notProvidedSamlAttributes, "urn:mace:dir:attribute-def:uid" );
-
     String email = request.getHeader("Shib-InetOrgPerson-mail");
     addNotProvidedSamlAttributes(email, notProvidedSamlAttributes, "urn:mace:dir:attribute-def:mail" );
 
@@ -173,7 +167,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     if (!notProvidedSamlAttributes.isEmpty()) {
       request.getSession(true).setAttribute("notProvidedSamlAttributes", notProvidedSamlAttributes);
     }
-    return notProvidedSamlAttributes.isEmpty() ? Optional.of(new Person(id, name, email, schacHomeOrganization, status, displayName)) : Optional.empty();
+    return notProvidedSamlAttributes.isEmpty() ? Optional.of(new Person(id, displayName, email, schacHomeOrganization, status, displayName)) : Optional.empty();
   }
 
   private void addNotProvidedSamlAttributes(String requiredSamlAttribute, List<String> notProvidedSamlAttributes, String attributeName) {
