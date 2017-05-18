@@ -25,13 +25,27 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.ServletRequestDataBinder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import teams.Application;
-import teams.domain.*;
+import teams.domain.Invitation;
+import teams.domain.InvitationMessage;
+import teams.domain.Language;
+import teams.domain.Person;
+import teams.domain.Role;
+import teams.domain.Stem;
+import teams.domain.Team;
 import teams.service.GrouperTeamService;
 import teams.service.TeamInviteService;
-import teams.util.*;
+import teams.util.AuditLog;
+import teams.util.ControllerUtil;
+import teams.util.DuplicateTeamException;
+import teams.util.PermissionUtil;
+import teams.util.TokenUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -112,12 +126,12 @@ public class AddTeamController {
 
   @RequestMapping(value = "/doaddteam.shtml", method = POST)
   public String doAddTeam(
-      @RequestParam String token,
-      @ModelAttribute(TOKENCHECK) String sessionToken,
-      @Valid @ModelAttribute AddTeamCommand addTeamCommand,
-      BindingResult bindingResult,
-      Model model,
-      HttpServletRequest request, SessionStatus status) throws IOException {
+    @RequestParam String token,
+    @ModelAttribute(TOKENCHECK) String sessionToken,
+    @Valid @ModelAttribute AddTeamCommand addTeamCommand,
+    BindingResult bindingResult,
+    Model model,
+    HttpServletRequest request, SessionStatus status) throws IOException {
 
     Person person = (Person) request.getSession().getAttribute(PERSON_SESSION_KEY);
 
@@ -191,11 +205,11 @@ public class AddTeamController {
     invitation.setTimestamp(new Date().getTime());
     invitation.setLanguage(command.getAdmin2Language());
 
-    InvitationMessage message = new InvitationMessage(command.getAdmin2Message(), inviter.getDisplayName());
+    InvitationMessage message = new InvitationMessage(command.getAdmin2Message(), inviter.getId());
 
     invitation.addInvitationMessage(message);
     teamInviteService.saveOrUpdate(invitation);
-    String subject = messageSource.getMessage(INVITE_SEND_INVITE_SUBJECT, new Object[] {command.getTeamName()}, command.getAdmin2Language().locale());
+    String subject = messageSource.getMessage(INVITE_SEND_INVITE_SUBJECT, new Object[]{command.getTeamName()}, command.getAdmin2Language().locale());
 
     controllerUtil.sendInvitationMail(team, invitation, subject, inviter);
 
@@ -205,12 +219,12 @@ public class AddTeamController {
 
   private List<Stem> getStemsForMember(Person person) {
     return grouperTeamService.findStemsByMember(person.getId()).stream()
-        .filter(stem -> stem.getId().equalsIgnoreCase(defaultStemName) || controllerUtil.isPersonMemberOfTeam(person, grouperTeamService.findTeamById(stem.getId() + ":" + "members")))
-        .collect(Collectors.toList());
+      .filter(stem -> stem.getId().equalsIgnoreCase(defaultStemName) || controllerUtil.isPersonMemberOfTeam(person, grouperTeamService.findTeamById(stem.getId() + ":" + "members")))
+      .collect(Collectors.toList());
   }
 
   private boolean isPersonUsingAllowedStem(Person person, String stemId) {
     return getStemsForMember(person).stream()
-        .anyMatch(allowedStem -> allowedStem.getId().equalsIgnoreCase(stemId));
+      .anyMatch(allowedStem -> allowedStem.getId().equalsIgnoreCase(stemId));
   }
 }
