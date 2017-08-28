@@ -1,3 +1,8 @@
+# Discontinued
+
+This project has been replaced by [OpenConext-Teams-NG](https://github.com/OpenConext/OpenConext-Teams-NG).
+
+
 # Teams
 
 [![Build Status](https://travis-ci.org/OpenConext/OpenConext-teams.svg)](https://travis-ci.org/OpenConext/OpenConext-teams)
